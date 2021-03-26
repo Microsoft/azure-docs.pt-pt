@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600807"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609280"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consulta em Pesquisa Cognitiva Azure
 
@@ -77,7 +77,7 @@ Se antecipar o uso pesado dos operadores booleanos, que é mais provável em ín
 
 ## <a name="autocomplete-and-suggested-queries"></a>Consultas autocompletas e sugeridas
 
-[Os resultados autocompletos ou sugeridos](search-autocomplete-tutorial.md) são alternativas a **`search`** esses pedidos de consulta sucessivas de fogo baseados em entradas parciais de cordas (após cada personagem) numa experiência de pesquisa como você tipo. Pode utilizar **`autocomplete`** e **`suggestions`** parâmetros juntos ou separados, como descrito [neste tutorial,](tutorial-csharp-type-ahead-and-suggestions.md)mas não pode usá-los com **`search`** . Ambos os termos preenchidos e consultas sugeridas são derivados de conteúdos de índice. O motor nunca devolverá uma corda ou sugestão que não exista no seu índice. Para obter mais informações, consulte [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) e [Sugestões (REST API)](/rest/api/searchservice/suggestions).
+[Os resultados autocompletos ou sugeridos](search-add-autocomplete-suggestions.md) são alternativas a **`search`** esses pedidos de consulta sucessivas de fogo baseados em entradas parciais de cordas (após cada personagem) numa experiência de pesquisa como você tipo. Pode utilizar **`autocomplete`** e **`suggestions`** parâmetros juntos ou separados, como descrito [neste tutorial,](tutorial-csharp-type-ahead-and-suggestions.md)mas não pode usá-los com **`search`** . Ambos os termos preenchidos e consultas sugeridas são derivados de conteúdos de índice. O motor nunca devolverá uma corda ou sugestão que não exista no seu índice. Para obter mais informações, consulte [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) e [Sugestões (REST API)](/rest/api/searchservice/suggestions).
 
 ## <a name="filter-search"></a>Pesquisa de filtros
 

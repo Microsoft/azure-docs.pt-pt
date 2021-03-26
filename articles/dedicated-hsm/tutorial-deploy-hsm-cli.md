@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
-ms.author: mbaldwin
-ms.openlocfilehash: 1ca8bc5c82540b0dc02959d26b452554ef294368
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: fa1c01c2d9da19ec1f60878de83a509b7cf561e8
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200534"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606832"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implantação de HSMs numa rede virtual existente utilizando o Azure CLI
 
@@ -233,14 +233,14 @@ A saída deve ser vista como mostrado na imagem abaixo:
 
 ![A screenshot mostra a saída na janela PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-Neste momento, alocou todos os recursos para uma implantação altamente disponível, duas implantações de HSM e acesso validado e estado operacional. Qualquer outra configuração ou teste envolve mais trabalho com o próprio dispositivo HSM. Para isso, deve seguir as instruções no Guia de Administração da Rede Thales Luna HSM 7 capítulo 7 para rubricar o HSM e criar divisórias. Toda a documentação e software estão disponíveis diretamente do Thales para download uma vez registado no Portal de Apoio ao Cliente do Thales e tem um ID do Cliente. Baixe a versão 7.2 do Software cliente para obter todos os componentes necessários.
+Neste momento, alocou todos os recursos para uma implantação altamente disponível, duas implantações de HSM e acesso validado e estado operacional. Qualquer outra configuração ou teste envolve mais trabalho com o próprio dispositivo HSM. Para isso, deve seguir as instruções no Guia de Administração Thales Luna 7 HSM capítulo 7 para rubricar o HSM e criar divisórias. Toda a documentação e software estão disponíveis diretamente do Thales para download uma vez registado no [portal de apoio ao cliente thales](https://supportportal.thalesgroup.com/csm) e tem um ID do Cliente. Baixe a versão 7.2 do Software cliente para obter todos os componentes necessários.
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminar ou limpar recursos
 
 Se terminou apenas com o dispositivo HSM, então pode ser eliminado como recurso e devolvido à piscina gratuita. A preocupação óbvia ao fazê-lo são quaisquer dados sensíveis do cliente que estão no dispositivo. A melhor maneira de "zeroizar" um dispositivo é obter a palavra-passe de administração HSM errada 3 vezes (nota: isto não é administração de aparelho, é o administrador HSM real). Como medida de segurança para proteger o material chave, o dispositivo não pode ser eliminado como recurso Azure até estar no estado zeroizado.
 
 > [!NOTE]
-> se tiver problemas com qualquer configuração do dispositivo Thales, deve contactar o [suporte ao cliente thales](https://safenet.gemalto.com/technical-support/).
+> se tiver problemas com qualquer configuração do dispositivo Thales, deve contactar o [suporte ao cliente thales](https://supportportal.thalesgroup.com/csm).
 
 Se terminou com todos os recursos deste grupo de recursos, então pode removê-los todos com o seguinte comando:
 

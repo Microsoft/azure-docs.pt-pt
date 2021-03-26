@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604411"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606220"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
 
-Na Pesquisa Cognitiva Azure, "search-as-you-type" é ativado através de um *sugestivo*. Um sugestivo é uma estrutura interna de dados que consiste numa recolha de campos. Os campos são submetidos a tokenização adicional, gerando sequências de prefixos para suportar partidas em termos parciais.
+Em Azure Cognitive Search, typeahead ou "search-as-you-type" é ativado através de um *sugestivo*. Um sugestivo é uma estrutura interna de dados que consiste numa recolha de campos. Os campos são submetidos a tokenização adicional, gerando sequências de prefixos para suportar partidas em termos parciais. Por exemplo, um sugestivo que inclua um campo da Cidade terá combinações de prefixos de "mar", "assento", "seatt" e "seattl" para o termo "Seattle".
 
-Por exemplo, se um sugestivo incluir um campo da Cidade, combinações de prefixos resultantes de "mar", "assento", "seatt" e "seattl" seriam criados para o termo "Seattle". Os prefixos são armazenados em índices invertidos, um para cada campo especificado numa recolha de campos sugestivos.
+Os jogos em termos parciais podem ser uma consulta auto-completa ou uma correspondência sugerida. O mesmo sugestivo apoia ambas as experiências.
 
 ## <a name="typeahead-experiences-in-cognitive-search"></a>Experiências typeahead em Pesquisa Cognitiva
 
-Um sugestivo suporta duas experiências: *autocomplete,* que completa uma entrada parcial para uma consulta de todo o termo, e *sugestões* que convidam a clicar para uma determinada correspondência. O autocomplete produz uma consulta. As sugestões produzem um documento correspondente.
+Typeahead pode ser *autocompleto*, que completa uma entrada parcial para uma consulta de todo o termo, ou *sugestões* que convidam clicar em um determinado jogo. O autocomplete produz uma consulta. As sugestões produzem um documento correspondente.
 
 A imagem a seguir da Criação da [sua primeira aplicação em C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustra ambas. O autocomplete antecipa um termo potencial, terminando "tw" com "in". As sugestões são resultados de mini pesquisa, onde um campo como o nome do hotel representa um documento de pesquisa de hotel correspondente a partir do índice. Para sugestões, pode emergir qualquer campo que forneça informações descritivas.
 
@@ -40,11 +40,11 @@ O suporte do tipo search-as-you é ativado numa base por campo para campos de co
 
 ## <a name="how-to-create-a-suggester"></a>Como criar um sugestivo
 
-Para criar um sugestivo, adicione um a uma [definição de índice](/rest/api/searchservice/create-index). Um sugestivo obtém um nome e uma coleção de campos sobre os quais a experiência typeahead está ativada. e [definir cada propriedade](#property-reference). A melhor altura para criar um sugestivo é quando também está a definir o campo que o utilizará.
+Para criar um sugestivo, adicione um a uma [definição de índice](/rest/api/searchservice/create-index). Um sugestivo tem um nome e uma coleção de campos sobre os quais a experiência typeahead está ativada. A melhor altura para criar um sugestivo é quando também está a definir o campo que o utilizará.
 
 + Use apenas campos de cordas.
 
-+ Se o campo de cordas fizer parte de um tipo complexo (por exemplo, um campo City dentro do Address), inclua o progenitor no campo: `"Address/City"` (REST e C# e Python), ou `["Address"]["City"]` (JavaScript).
++ Se o campo de cordas fizer parte de um tipo complexo (por exemplo, um campo City dentro do Address), inclua o progenitor no caminho de campo: `"Address/City"` (REST e C# e Python), ou `["Address"]["City"]` (JavaScript).
 
 + Utilize o analisador padrão padrão Lucene `"analyzer": null` () ou um [analisador de idioma](index-add-language-analyzers.md) (por exemplo, `"analyzer": "en.Microsoft"` ) no campo.
 
@@ -58,7 +58,7 @@ O autocompleto beneficia de um conjunto maior de campos para extrair porque o co
 
 As sugestões, por outro lado, produzem melhores resultados quando a sua escolha de campo é seletiva. Lembre-se que a sugestão é um proxy para um documento de pesquisa para que você queira campos que melhor representam um único resultado. Nomes, títulos ou outros campos únicos que distinguem entre vários jogos funcionam melhor. Se os campos consistem em valores repetitivos, as sugestões consistem em resultados idênticos e um utilizador não saberá em que clicar.
 
-Para satisfazer ambas as experiências de pesquisa como você, adicione todos os campos que você precisa para preencher automaticamente, mas depois use **$select**, **$top**, **$filter**, e **searchFields** para controlar resultados para sugestões.
+Para satisfazer ambas as experiências de pesquisa como você, adicione todos os campos que você precisa para preencher automaticamente, mas depois use "$select", "$top", "$filter" e "searchFields" para controlar os resultados para sugestões.
 
 ### <a name="choose-analyzers"></a>Escolha analisadores
 
@@ -142,9 +142,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 |Propriedade      |Descrição      |
 |--------------|-----------------|
-|`name`        | Especificado na definição de sugestivo, mas também solicitado por um pedido de Autocomplete ou Sugestões. |
-|`sourceFields`| Especificado na definição de sugestivo. É uma lista de um ou mais campos no índice que são a fonte do conteúdo para sugestões. Os campos devem ser do tipo `Edm.String` `Collection(Edm.String)` e. Se um analisador for especificado no campo, deve ser um analisador lexical nomeado [desta lista](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (não um analisador personalizado).<p/> Como uma boa prática, especifique apenas os campos que se prestam a uma resposta esperada e apropriada, seja uma corda completa em uma barra de pesquisa ou uma lista de abandono.<p/>Um nome de hotel é um bom candidato porque tem precisão. Campos verbosos como descrições e comentários são demasiado densos. Da mesma forma, os campos repetitivos, como categorias e etiquetas, são menos eficazes. Nos exemplos, incluímos "categoria" de qualquer forma para demonstrar que pode incluir vários campos. |
-|`searchMode`  | Parâmetro apenas para o DESCANSO, mas também visível no portal. Este parâmetro não está disponível no .NET SDK. Indica a estratégia usada para procurar frases de candidato. O único modo atualmente suportado é `analyzingInfixMatching` , que atualmente corresponde ao início de um mandato.|
+| name        | Especificado na definição de sugestivo, mas também solicitado por um pedido de Autocomplete ou Sugestões. |
+| sourceFields | Especificado na definição de sugestivo. É uma lista de um ou mais campos no índice que são a fonte do conteúdo para sugestões. Os campos devem ser do tipo `Edm.String` `Collection(Edm.String)` e. Se um analisador for especificado no campo, deve ser um analisador lexical nomeado [desta lista](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (não um analisador personalizado). </br></br>Como uma boa prática, especifique apenas os campos que se prestam a uma resposta esperada e apropriada, seja uma corda completa em uma barra de pesquisa ou uma lista de abandono. </br></br>Um nome de hotel é um bom candidato porque tem precisão. Campos verbosos como descrições e comentários são demasiado densos. Da mesma forma, os campos repetitivos, como categorias e etiquetas, são menos eficazes. Nos exemplos, incluímos "categoria" de qualquer forma para demonstrar que pode incluir vários campos. |
+| searchMode  | Parâmetro apenas para o DESCANSO, mas também visível no portal. Este parâmetro não está disponível no .NET SDK. Indica a estratégia usada para procurar frases de candidato. O único modo atualmente suportado é `analyzingInfixMatching` , que atualmente corresponde ao início de um mandato.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -157,9 +157,9 @@ Um sugestivo é usado numa consulta. Depois de criar um sugestivo, ligue para um
 + [Sugerir Método Async](/dotnet/api/azure.search.documents.searchclient.suggestasync)
 + [Método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
-Numa aplicação de pesquisa, o código do cliente deve aproveitar uma biblioteca como [o jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) para recolher a consulta parcial e fornecer a correspondência. Para obter mais informações sobre esta tarefa, consulte [Adicionar resultados autocompletos ou sugeridos ao código do cliente.](search-autocomplete-tutorial.md)
+Numa aplicação de pesquisa, o código do cliente deve aproveitar uma biblioteca como [o jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) para recolher a consulta parcial e fornecer a correspondência. Para obter mais informações sobre esta tarefa, consulte [Adicionar resultados autocompletos ou sugeridos ao código do cliente.](search-add-autocomplete-suggestions.md)
 
-A utilização da API é ilustrada na seguinte chamada para a API autocomplete REST. Este exemplo, há dois takeaways. Em primeiro lugar, como em todas as consultas, a operação é contra a recolha de documentos de um índice e a consulta inclui um parâmetro **de pesquisa,** que neste caso fornece a consulta parcial. Segundo, deve adicionar o nome do **sugestivo** ao pedido. Se um sugestivo não estiver definido no índice, uma chamada para autocomplete ou sugestões falhará.
+A utilização da API é ilustrada na seguinte chamada para a API autocomplete REST. Este exemplo, há dois takeaways. Em primeiro lugar, como em todas as consultas, a operação é contra a recolha de documentos de um índice e a consulta inclui um parâmetro de "pesquisa", que neste caso fornece a consulta parcial. Em segundo lugar, deve adicionar "nome sugestivo" ao pedido. Se um sugestivo não estiver definido no índice, uma chamada para autocomplete ou sugestões falhará.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -178,4 +178,4 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 Recomendamos o seguinte artigo para saber mais sobre como os pedidos de formulação.
 
 > [!div class="nextstepaction"]
-> [Adicionar autocompleto e sugestões ao código do cliente](search-autocomplete-tutorial.md)
+> [Adicionar autocompleto e sugestões ao código do cliente](search-add-autocomplete-suggestions.md)

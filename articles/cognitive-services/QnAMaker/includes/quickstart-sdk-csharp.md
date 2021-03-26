@@ -3,12 +3,12 @@ title: 'Quickstart: Biblioteca de clientes QnA Maker para .NET'
 description: Este quickstart mostra como começar com a biblioteca cliente do QnA Maker para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 292d0ee4f7462f9c49a08e35bb44822b7a317cfa
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: aac57f4ca173a7ac94c64884fa1d2db4a478c3f3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105582713"
+ms.locfileid: "105609481"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -138,13 +138,13 @@ No método da `Main` aplicação, adicione variáveis e código, mostrados na se
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
-Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para obter mais detalhes sobre a chave de autoria, siga [as Chaves no QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
+- Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para obter mais detalhes sobre a chave de autoria, siga [as Chaves no QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- O valor de QNA_MAKER_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` formato. Vá ao portal Azure e encontre a chave e o ponto final para o recurso QnA Maker que criou nos pré-requisitos. Clique na página **Keys e Endpoint,** sob **gestão de recursos** para localizar a tecla de autoria (subscrição) e o Ponto Final do Criador de QnA.
+- O valor de QNA_MAKER_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` formato. Vá ao portal Azure e encontre o recurso QnA Maker que criou nos pré-requisitos. Clique na página **Keys e Endpoint,** sob **gestão de recursos** para localizar a tecla de autoria (subscrição) e o ponto final do Criador QnA.
 
  ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
 
-- O valor de QNA_MAKER_RUNTIME_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.azurewebsites.net` formato. Vá ao portal Azure e encontre o recurso QnA Maker que criou nos pré-requisitos. Clique no **Modelo de Exportação** sob **Automatização** para localizar a chave de tempo de execução.
+- O valor de QNA_MAKER_RUNTIME_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.azurewebsites.net` formato. Vá ao portal Azure e encontre o recurso QnA Maker que criou nos pré-requisitos. Clique na página **modelo de exportação,** em **automatização** para localizar o ponto de fim de tempo de execução.
 
  ![Ponto final de runtime do fabricante QnA](../media/runtime-endpoint.png)
       
@@ -154,12 +154,9 @@ Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para o
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/version-2)
 
-> [!IMPORTANT]
-> Vá ao portal Azure e encontre a chave e o ponto final para o recurso QnA Maker que criou nos pré-requisitos. Estarão localizados na **página chave e endpoint** do recurso, sob **gestão de recursos.** 
+- Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para obter mais detalhes sobre a chave de autoria, siga [as Chaves no QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para obter mais detalhes sobre a chave de autoria, siga [as Chaves no QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
-
-- O valor de QNA_MAKER_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` formato. Vá ao recurso QnA Maker no portal Azure e clique em **Keys e Endpoint** para localizar a tecla de autoria (subscrição) e o Ponto Final do Criador QnA.
+- O valor de QNA_MAKER_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` formato. Vá ao portal Azure e encontre o recurso QnA Maker que criou nos pré-requisitos. Clique na página **Keys e Endpoint,** sob **gestão de recursos** para localizar a tecla de autoria (subscrição) e o ponto final do Criador QnA.
 
  ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
 

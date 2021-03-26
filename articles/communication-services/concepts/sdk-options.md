@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b5115355133bdcf33825a05d4baa16408cb3fccd
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 92324d68eabfb1885a482a7f539140f93be77596
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562448"
+ms.locfileid: "105605200"
 ---
 # <a name="sdks-and-rest-apis"></a>SDKs e REST APIs
 
-As capacidades dos Serviços de Comunicação Azure estão conceptualmente organizadas em seis áreas. A maioria das áreas tem bibliotecas de clientes de origem totalmente abertas programadas contra APIs de REST publicadas que você pode usar diretamente através da Internet. A biblioteca de clientes Call utiliza interfaces de rede proprietárias e é atualmente de origem fechada. As amostras e mais detalhes técnicos para os SDKs são publicados no [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
+As capacidades dos Serviços de Comunicação Azure estão conceptualmente organizadas em seis áreas. A maioria das áreas tem SDKs de origem totalmente aberta programados contra APIs de REST publicados que você pode usar diretamente através da Internet. O Call SDK utiliza interfaces de rede proprietárias e é atualmente de origem fechada. As amostras e mais detalhes técnicos para os SDKs são publicados no [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
 
 ## <a name="rest-apis"></a>APIs REST
 As APIs dos Serviços de Comunicação são documentadas juntamente com outras APIs Azure REST em [docs.microsoft.com](/rest/api/azure/). Esta documentação irá dizer-lhe como estruturar as suas mensagens HTTP e oferece orientações para a utilização do Carteiro. Esta documentação também é oferecida em formato Swagger no [GitHub.](https://github.com/Azure/azure-rest-api-specs)
@@ -29,14 +29,14 @@ As APIs dos Serviços de Comunicação são documentadas juntamente com outras A
 | Assemblagem | Espaços de nomes| Protocolos | Capacidades |
 |------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
 | Azure Resource Manager | Azure.ResourceManager.Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Fornecimento e gestão dos recursos dos Serviços de Comunicação|
-| Common | Azure.Communication.Common| REST | Fornece tipos de base para outras bibliotecas de clientes |
+| Common | Azure.Communication.Common| REST | Fornece tipos de base para outros SDKs |
 | Identidade | Azure.Communication.Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Gerir utilizadores, aceder a fichas|
 | Números de telefone _(beta)_| Azure.Communication.PhoneNumbers| [REST](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| Adquirir e gerir números de telefone |
 | Chat | Azure.Communication.Chat| [DESCANSE](https://docs.microsoft.com/rest/api/communication/) COM sinalização proprietária | Adicione o chat baseado em texto em tempo real às suas aplicações |
 | SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Enviar e receber mensagens SMS|
 | Chamando| Azure.Communication.Calling | Transporte proprietário | Utilize capacidades de comunicação de voz, vídeo, partilha de ecrãs e outras capacidades de comunicação de dados em tempo real |
 
-As bibliotecas de clientes Azure Resource Manager, Identity e SMS estão focadas na integração de serviços e, em muitos casos, surgem problemas de segurança se integrar estas funções em aplicações de utilizador final. As bibliotecas de clientes Common e Chat são adequadas para aplicações de serviço e cliente. A biblioteca de clientes Call foi concebida para aplicações de clientes. Uma biblioteca de clientes focada em cenários de serviço está em desenvolvimento.
+Os SDKs Azure Resource Manager, Identity e SMS estão focados na integração de serviços e, em muitos casos, surgem problemas de segurança se integrar estas funções em aplicações de utilizador final. Os SDKs Common e Chat são adequados para aplicações de serviço e cliente. O Call SDK foi concebido para aplicações de clientes. Está em desenvolvimento um SDK focado em cenários de serviço.
 
 
 ### <a name="languages-and-publishing-locations"></a>Idiomas e locais de publicação
@@ -61,7 +61,7 @@ Certas APIs de REST e métodos SDK correspondentes têm limites de aceleração 
 | API                                                                                                                          | Limitação            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | [Todas as APIs do Plano de Números de Telefone de Pesquisa](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 pedidos/dia      |
-| [Plano de Número de Telefone de Compra](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 pedido/dia       |
+| [Plano de Número de Telefone de Compra](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 compra por mês  |
 | [Enviar SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 pedidos/minuto |
 
 

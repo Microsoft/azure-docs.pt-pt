@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2021
-ms.openlocfilehash: 52509dbf529076eaa0af73ea48db9a7f3fd10241
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584521"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563298"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados com o fluxo de dados de mapeamento
 
@@ -24,7 +24,7 @@ Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Az
 Neste tutorial, você usará a interface de utilizador da Azure Data Factory (UX) para criar um pipeline que copia e transforma dados de uma fonte de Armazenamento de Lago de Dados (ADLS) da Azure Para uma pia ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste tutorial pode ser expandido ao transformar dados usando o fluxo de dados de mapeamento
 
  >[!NOTE]
-   >Este tutorial destina-se a mapear fluxos de dados em geral. Os fluxos de dados estão disponíveis tanto na Azure Data Factory como em Pipelines Synapse. Se é novo nos fluxos de dados nos oleodutos Azure Synapse, siga o [Fluxo de Dados utilizando os gasodutos Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   >Este tutorial destina-se a mapear fluxos de dados em geral. Os fluxos de dados estão disponíveis tanto na Azure Data Factory como em Pipelines Synapse. Se é novo nos fluxos de dados nos oleodutos Azure Synapse, siga o [Fluxo de Dados utilizando os gasodutos Azure Synapse](../synapse-analytics/concepts-data-flow-overview.md) 
    
 Neste tutorial, vai executar os seguintes passos:
 

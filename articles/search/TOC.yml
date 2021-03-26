@@ -343,7 +343,7 @@
             - name: Criar um fornecedor de sugestões
               href: index-add-suggesters.md
             - name: Adicionar preenchimento automático e sugestões
-              href: search-autocomplete-tutorial.md
+              href: search-add-autocomplete-suggestions.md
         - name: Paging e conta
           href: search-pagination-page-layout.md
         - name: Referência de sintaxe

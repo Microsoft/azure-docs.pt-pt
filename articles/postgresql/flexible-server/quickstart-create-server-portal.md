@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Criar servidor - Portal Azure - Base de Dados Azure para PostgreSQL - Servidor Flexível'
 description: Quickstart guia para criar e gerir uma Base de Dados Azure para PostgreSQL - Servidor Flexível utilizando a interface de utilizador do portal Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 978fcb8c8cf9d2ffd929da5b76d7fd2ff109f420
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6d10298b016cbcf362af2d272f9fa822db6e569d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92535863"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604758"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>Quickstart: Criar uma Base de Dados Azure para PostgreSQL - Servidor Flexível no portal Azure
 

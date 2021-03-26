@@ -6,12 +6,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5d3a282d108d197ea0c5c616e9ee84fb7b952026
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 536b9a9a0d1a7b48841938eef44d181d22b87bf4
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108304"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609415"
 ---
 Neste arranque rápido, você vai aprender a iniciar uma chamada usando os Serviços de Comunicação Azure chamando SDK para iOS.
 
@@ -38,7 +38,7 @@ No Xcode, crie um novo projeto iOS e selecione o modelo **de Aplicação Single 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instale o pacote e dependências com cacau
 
 1. Para criar um Podfile para a sua aplicação abra o terminal e navegue para a pasta do projeto e corra ```pod init```
-3. Adicione o seguinte código ao Podfile e guarde:
+3. Adicione o seguinte código ao Podfile e guarde (certifique-se de que o "alvo" corresponde ao nome do seu projeto):
 
    ```
    platform :ios, '13.0'

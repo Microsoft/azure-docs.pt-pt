@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: d3d10eb496899287e93a96f0cbb06dedf83c601d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 86a656630f6c41e2cf6682d0160cce345d1f564d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048634"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606628"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -711,13 +711,13 @@ Esta é uma versão de correção de erros e que apenas afeta o SDK nativo/gerid
 **Correções de bugs**
 
 - Corrija a partir da subscrição quando utilizado com transcrição de conversação.
-- Corrija o bug na deteção de palavras-chave para assistentes de voz.
+- Corrija o bug no reconhecimento de palavras-chave para assistentes de voz.
 
 ## <a name="speech-sdk-150-2019-may-release"></a>Discurso SDK 1.5.0: Lançamento 2019-maio
 
 **Novas funcionalidades**
 
-- A deteção de palavras-chave (KWS) já está disponível para Windows e Linux. A funcionalidade KWS pode funcionar com qualquer tipo de microfone, o suporte oficial da KWS, no entanto, está atualmente limitado às matrizes de microfone encontradas no hardware DK Azure Kinect ou no Speech Devices SDK.
+- O reconhecimento de palavras-chave já está disponível para Windows e Linux. Esta funcionalidade pode funcionar com qualquer tipo de microfone, mas o suporte oficial está atualmente limitado às matrizes de microfone encontradas no hardware DK Azure Kinect ou no Speech Devices SDK.
 - A funcionalidade de sugestão de frase está disponível através do SDK. Para mais informações, consulte [aqui.](./get-started-speech-to-text.md)
 - A funcionalidade de transcrição de conversação está disponível através do SDK. Veja [aqui.](./conversation-transcription.md)
 - Adicione suporte para assistentes de voz utilizando o canal Direct Line Speech.

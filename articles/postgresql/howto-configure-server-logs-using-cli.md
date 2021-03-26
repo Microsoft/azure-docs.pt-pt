@@ -1,19 +1,19 @@
 ---
 title: Gerir registos - Azure CLI - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve como configurar e aceder aos registos do servidor (.log ficheiros) na Base de Dados Azure para PostgreSQL - Servidor Único utilizando o CLI Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 71dac0b6ea2202e712280607a73e860ae68bdb73
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 64582e7655ef2a3cf72547bfa8c3269f1624c890
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96005593"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604180"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e aceder aos registos do servidor utilizando o Azure CLI
 Pode descarregar os registos de erro do servidor PostgreSQL utilizando a interface de linha de comando (Azure CLI). No entanto, o acesso aos registos de transações não é suportado. 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 1f349931fb479be3b3ba936b3d0a665427357f29
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f6705b5f72aaa8f990aaf3b1daa33697b690d1f1
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97369043"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608889"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -32,11 +32,11 @@ Um Módulo de Segurança de Hardware (HSM) é um dispositivo de computação fí
 
 ### <a name="q-what-is-the-azure-dedicated-hsm-offering"></a>P: O que é a oferta de HSM dedicada a Azure?
 
-O Azure Dedicated HSM é um serviço baseado na nuvem que fornece HSMs hospedados em datacenters Azure que estão diretamente ligados à rede virtual de um cliente. Estes HSMs são aparelhos de rede dedicados (Thales Network Luna HSM 7). São implantados diretamente no espaço de endereço IP privado de um cliente e a Microsoft não tem qualquer acesso à funcionalidade criptográfica dos HSMs. Apenas o cliente tem controlo administrativo e criptográfico completo sobre estes dispositivos. Os clientes são responsáveis pela gestão do dispositivo e podem obter registos de atividade completos diretamente dos seus dispositivos. Os HSMs dedicados ajudam os clientes a cumprir os requisitos de conformidade/regulamentação, tais como FIPS 140-2 Nível 3, HIPAA, PCI-DSS, e eIDAS e muitos outros.
+O Azure Dedicated HSM é um serviço baseado na nuvem que fornece HSMs hospedados em datacenters Azure que estão diretamente ligados à rede virtual de um cliente. Estes HSMs são aparelhos dedicados à rede [Thales Luna 7 HSM.](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) São implantados diretamente no espaço de endereço IP privado de um cliente e a Microsoft não tem qualquer acesso à funcionalidade criptográfica dos HSMs. Apenas o cliente tem controlo administrativo e criptográfico completo sobre estes dispositivos. Os clientes são responsáveis pela gestão do dispositivo e podem obter registos de atividade completos diretamente dos seus dispositivos. Os HSMs dedicados ajudam os clientes a cumprir os requisitos de conformidade/regulamentação, tais como FIPS 140-2 Nível 3, HIPAA, PCI-DSS, e eIDAS e muitos outros.
 
 ### <a name="q-what-hardware-is-used-for-dedicated-hsm"></a>P: Que hardware é usado para HSM dedicado?
 
-A Microsoft estabeleceu uma parceria com a Thales para entregar o serviço HSM dedicado à Azure. O dispositivo específico utilizado é a [Rede Thales Luna HSM 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Este dispositivo não só fornece firmware validado FIPS 140-2 Nível 3, como também oferece baixa latência, alto desempenho e alta capacidade através de 10 divisórias. 
+A Microsoft estabeleceu uma parceria com a Thales para entregar o serviço HSM dedicado à Azure. O dispositivo específico utilizado é o [modelo Thales Luna 7 HSM A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Este dispositivo não só fornece firmware validado [FIPS 140-2 Nível-3,](https://csrc.nist.gov/publications/detail/fips/140/2/final) como também oferece baixa latência, alto desempenho e alta capacidade através de 10 divisórias. 
 
 ### <a name="q-what-is-an-hsm-used-for"></a>P: Para que é usado um HSM?
 
@@ -48,7 +48,7 @@ Os clientes podem fornecer HSMs em regiões específicas utilizando a interface 
 
 ### <a name="q-what-software-is-provided-with-the-dedicated-hsm-service"></a>P: Que software é fornecido com o serviço dedicado HSM?
 
-O Thales fornece todo o software para o dispositivo HSM uma vez provisionado pela Microsoft. O software está disponível no portal de apoio ao [cliente thales.](https://supportportal.gemalto.com/csm/) Os clientes que utilizam o serviço Dedicado HSM são obrigados a estar registados para suporte thales e têm um ID do Cliente que permite o acesso e o descarregamento de software relevante. O software de cliente suportado é a versão 7.2, que é compatível com a versão validada do firmware 7.0.3 do FIPS 140-2 Nível 3. 
+O Thales fornece todo o software para o dispositivo HSM uma vez provisionado pela Microsoft. O software está disponível no portal de apoio ao [cliente thales.](https://supportportal.thalesgroup.com/csm) Os clientes que utilizam o serviço Dedicado HSM são obrigados a estar registados para suporte thales e têm um ID do Cliente que permite o acesso e o descarregamento de software relevante. O software de cliente suportado é a versão 7.2, que é compatível com a versão validada do firmware 7.0.3 do FIPS 140-2 Nível 3. 
 
 ### <a name="q-what-extra-costs-may-be-incurred-with-dedicated-hsm-service"></a>P: Que custos adicionais podem ser incorridos com o serviço dedicado HSM?
 
@@ -63,11 +63,11 @@ Neste momento, o Azure Dedicated HSM apenas fornece hSMs com autenticação base
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>P: A Azure Dedicado HSM vai receber os meus HSMs para mim?
 
-A Microsoft apenas oferece o Thales Network Luna HSM 7 através do serviço Dedicado HSM e não pode hospedar nenhum dispositivo fornecido pelo cliente.
+A Microsoft apenas oferece o modelo Thales Luna 7 HSM A790 através do serviço Dedicado HSM e não pode hospedar nenhum dispositivo fornecido pelo cliente.
 
 ### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>P: As funcionalidades de suporte de suporte do HSM dedicado ao Azure (PIN/EFT) são suficientes?
 
-O serviço HSM dedicado Azure utiliza dispositivos Thales Network Luna HSM 7. Estes dispositivos não suportam funcionalidades específicas do HSM de pagamento (como PIN ou EFT) ou certificações. Se pretender que o serviço HSM dedicado da Azure suporte o pagamento de HSMs no futuro, transmita o feedback ao seu Representante de Conta da Microsoft.
+O serviço HSM dedicado Azure utiliza Thales Luna 7 HSMs. Estes dispositivos não suportam funcionalidades específicas do HSM de pagamento (como PIN ou EFT) ou certificações. Se pretender que o serviço HSM dedicado da Azure suporte os HSMs de pagamento no futuro, transmita o feedback ao seu Representante de Conta da Microsoft.
 
 ### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>P: Em que regiões de Azure está disponível O HSM dedicado?
 
@@ -101,7 +101,7 @@ A partir do final de março de 2019, o HSM dedicado está disponível nas 14 reg
 
 ### <a name="q-how-does-my-application-connect-to-a-dedicated-hsm"></a>P: Como é que a minha aplicação se liga a um HSM dedicado?
 
-Utiliza thales fornecendo ferramentas de cliente hSM/SDK/software para realizar operações criptográficas a partir das suas aplicações. O software está disponível no portal de apoio ao [cliente thales.](https://supportportal.gemalto.com/csm/) Os clientes que utilizam o serviço Dedicado HSM são obrigados a estar registados para suporte thales e têm um ID do Cliente que permite o acesso e o descarregamento de software relevante.
+Utiliza thales fornecendo ferramentas de cliente hSM/SDK/software para realizar operações criptográficas a partir das suas aplicações. O software está disponível no portal de apoio ao [cliente thales.](https://supportportal.thalesgroup.com/csm) Os clientes que utilizam o serviço Dedicado HSM são obrigados a estar registados para suporte thales e têm um ID do Cliente que permite o acesso e o descarregamento de software relevante.
 
 ### <a name="q-can-an-application-connect-to-dedicated-hsm-from-a-different-vnet-in-or-across-regions"></a>P: Pode uma aplicação ligar-se ao HSM dedicado a partir de um VNET diferente dentro ou em regiões?
 
@@ -117,7 +117,7 @@ N.º Os HSMs dedicados Azure só estão acessíveis a partir de dentro da sua re
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>P: Posso importar chaves de um HSM existente no local para o HSM dedicado?
 
-Sim, se tiver no local Thales Network Luna HSM 7 HSMs. Há vários métodos. Consulte a [documentação do Thales HSM](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).
+Sim, se tiver no local Thales Luna 7 HSMs. Há vários métodos. Consulte a [documentação do Thales HSM](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).
 
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>P: Que sistemas operativos são suportados por software dedicado ao cliente HSM?
 
@@ -130,7 +130,7 @@ Para ter uma elevada disponibilidade, é necessário configurar a configuração
 
 ### <a name="q-what-authentication-mechanisms-are-supported-by-dedicated-hsm"></a>P: Que mecanismos de autenticação são suportados pelo HSM dedicado?
 
-O Azure Dedicated HSM utiliza aparelhos SafeNet Network HSM 7 (modelo A790) e suportam a autenticação baseada em palavras-passe.
+O Azure Dedicated HSM utiliza [dispositivos A790 modelo A790 do modelo Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) e suportam a autenticação baseada em palavras-passe.
 
 ### <a name="q-what-sdks-apis-client-software-is-available-to-use-with-dedicated-hsm"></a>P: Que SDKs, APIs, software de cliente está disponível para usar com HSM dedicado?
 
@@ -207,7 +207,7 @@ Sim. A configuração e configuração de alta disponibilidade são realizadas n
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar HSMs da minha rede no local a um grupo de alta disponibilidade com Azure Dedicado HSM?
 
-Sim. Devem satisfazer os elevados requisitos de disponibilidade para a Rede SafeNet Luna HSM 7.
+Sim. Devem satisfazer os elevados requisitos de disponibilidade para [thales Luna 7 HSMs](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms)
 
 ### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: Posso adicionar Luna 5/6 HSMs de redes no local a um grupo de alta disponibilidade com Azure Dedicado HSM?
 
@@ -229,7 +229,7 @@ Os centros de dados Azure têm extensos controlos de segurança física e proces
 
 ### <a name="q-what-happens-if-there-is-a-security-breach-or-hardware-tampering-event"></a>P: O que acontece se houver uma falha de segurança ou evento de adulteração de hardware?
 
-Serviço dedicado HSM utiliza eletrodomésticos Thales Network Luna HSM 7. Estes aparelhos suportam a deteção de adulteração física e lógica. Se houver algum evento de adulteração, os HSMs são automaticamente zeros.
+Serviço dedicado HSM utiliza [eletrodomésticos Thales Luna 7 HSM.](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) Estes dispositivos suportam a deteção de adulteração física e lógica. Se houver algum evento de adulteração, os HSMs são automaticamente zeros.
 
 ### <a name="q-how-do-i-ensure-that-keys-in-my-dedicated-hsms-are-not-lost-due-to-error-or-a-malicious-insider-attack"></a>P: Como posso garantir que as chaves nos meus HSMs dedicados não se percam devido a um erro ou a um ataque de infiltrado malicioso?
 
@@ -239,7 +239,7 @@ Serviço dedicado HSM utiliza eletrodomésticos Thales Network Luna HSM 7. Estes
 
 O suporte é fornecido tanto pela Microsoft como pelo Thales.  Se tiver algum problema com o hardware ou acesso à rede, levante um pedido de suporte com a Microsoft e se tiver algum problema com a configuração, software e desenvolvimento de aplicações do HSM, faça um pedido de suporte com o Thales. Se tiver um problema indeterminado, levante um pedido de suporte com a Microsoft e, em seguida, o Thales pode ser contratado conforme necessário. 
 
-### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-thales-network-luna-hsm-7"></a>P: Como consigo o software, documentação e acesso ao cliente orientação de integração para a Rede Thales Luna HSM 7?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-thales-luna-7-hsm"></a>P: Como consigo o software, documentação e acesso ao cliente orientação de integração para o Thales Luna 7 HSM?
 
 Após o registo do serviço, será fornecido um ID do Cliente Thales que permite a inscrição no portal de apoio ao cliente thales. Isto permitirá o acesso a todo o software e documentação, bem como permitirá pedidos de suporte diretamente com Thales.
 
@@ -255,11 +255,11 @@ O HSM tem uma opção de reboot de linha de comando, no entanto, estamos a exper
 
 ### <a name="q-is-it-safe-to-store-encryption-keys-for-my-most-important-data-in-dedicated-hsm"></a>P: É seguro armazenar chaves de encriptação para os meus dados mais importantes no HSM dedicado?
 
-Sim, disposições dedicadas do HSM Thales Rede Thales Os aparelhos Luna HSM 7 que utilizam HSMs validados FIPS 140-2 Nível 3. 
+Sim, provisões dedicadas do HSM Thales Luna 7 HSMs que são [FIPS 140-2 Nível-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validados. 
 
 ### <a name="q-what-cryptographic-keys-and-algorithms-are-supported-by-dedicated-hsm"></a>P: Que chaves e algoritmos criptográficos são suportados pelo HSM dedicado?
 
-Serviços dedicados HSM prevêem aparelhos Thales Network Luna HSM 7. Eles suportam uma ampla gama de tipos e algoritmos de chaves criptográficas, incluindo: Suporte Full Suite B
+Serviços dedicados de serviço HSM prevêem eletrodomésticos Thales Luna 7 HSM. Eles suportam uma ampla gama de tipos e algoritmos de chaves criptográficas, incluindo: Suporte Full Suite B
 
 * Assimétrico:
   * RSA
@@ -283,11 +283,11 @@ Serviços dedicados HSM prevêem aparelhos Thales Network Luna HSM 7. Eles supor
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>P: O HSM FIPS 140-2 Nível 3 é validado?
 
-Sim. Serviços dedicados de serviço HSM prevêem aparelhos validados pela Rede Thales Luna HSM 7 que utilizam HSMs validados FIPS 140-2 Nível 3.
+Sim. Serviços dedicados de serviço HSM prevêem aparelhos [A790 modelo A790 do modelo Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) que são [FIPS 140-2 Nível-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validados.
 
 ### <a name="q-what-do-i-need-to-do-to-make-sure-i-operate-dedicated-hsm-in-fips-140-2-level-3-validated-mode"></a>P: O que preciso de fazer para garantir que opero HSM dedicado no modo validado FIPS 140-2 Nível 3?
 
-O serviço dedicado HSM fornece aparelhos Thales Network Luna HSM 7. Estes aparelhos utilizam HSMs validados FIPS 140-2 Nível 3. A configuração, o sistema operativo e o firmware por defeito também são validados pelo FIPS. Não precisa de tomar qualquer medida para o cumprimento do NÍVEL 3 fips 140-2.
+O serviço dedicado HSM fornece eletrodomésticos Thales Luna 7 HSM. Estes dispositivos são HSMs validados FIPS 140-2 Nível 3. A configuração, o sistema operativo e o firmware por defeito também são validados pelo FIPS. Não precisa de tomar qualquer medida para o cumprimento do NÍVEL 3 fips 140-2.
 
 ### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>P: Como é que um cliente garante que quando um HSM é desprovisionado todo o material chave é eliminado?
 
@@ -297,7 +297,7 @@ Antes de solicitar a desprovisionamento, um cliente deve ter zeroizado o HSM usa
 
 ### <a name="q-how-many-cryptographic-operations-are-supported-per-second-with-dedicated-hsm"></a>P: Quantas operações criptográficas são suportadas por segundo com HSM dedicado?
 
-Disposições dedicadas do HSM Thales Network Luna HSM 7 HSMs. Aqui está um resumo do máximo desempenho para algumas operações: 
+Disposições dedicadas do HSM Thales Luna 7 HSMs. Aqui está um resumo do máximo desempenho para algumas operações: 
 
 * RSA-2048: 10.000 transações por segundo
 * ECC P256: 20.000 transações por segundo
@@ -305,7 +305,7 @@ Disposições dedicadas do HSM Thales Network Luna HSM 7 HSMs. Aqui está um res
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>P: Quantas divisórias podem ser criadas em HSM dedicado?
 
-O modelo SafeNet Luna HSM 7 A790 utilizado inclui uma licença para 10 divisórias no custo do serviço. O dispositivo tem um limite de 100 divisórias e a adição de divisórias até este limite incorreria em custos de licenciamento extra e exigiria a instalação de um novo ficheiro de licença no dispositivo.
+O [modelo Thales Luna 7 HSM A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) usado inclui uma licença para 10 divisórias no custo do serviço. O dispositivo tem um limite de 100 divisórias e a adição de divisórias até este limite incorreria em custos de licenciamento extra e exigiria a instalação de um novo ficheiro de licença no dispositivo.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>P: Quantas teclas podem ser suportadas em HSM dedicado?
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7726877efcb72caf5bb4c92e2e1c65e5df68f270
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76cb2f94c949217c36fdccb8c64a53555bab227c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89002713"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606339"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Upgrade para Azure Search .NET SDK versão 9
 
@@ -40,7 +40,7 @@ Versão 9 do Azure Search .NET SDK tem como alvo a versão 2019-05-06 da Azure S
 
 * [O enriquecimento de IA](cognitive-search-concept-intro.md) é a capacidade de extrair texto de imagens, bolhas e outras fontes de dados não estruturadas - enriquecendo o conteúdo para torná-lo mais pes pescável num índice de Pesquisa de Azure.
 * O suporte para [tipos complexos](search-howto-complex-data-types.md) permite-lhe modelar quase todas as estruturas JSON aninhadas num índice de Pesquisa Azure.
-* [O autocomplete](search-autocomplete-tutorial.md) fornece uma alternativa à **API sugestiva** para implementar comportamentos de pesquisa como você. "Finishe".
+* [O autocomplete](search-add-autocomplete-suggestions.md) fornece uma alternativa à **API sugestiva** para implementar comportamentos de pesquisa como você. "Finishe".
 * [O modo de análise JsonLines](search-howto-index-json-blobs.md), parte da indexação Azure Blob, cria um documento de pesquisa por entidade JSON que é separado por uma nova linha.
 
 ### <a name="new-preview-features-in-version-80-preview"></a>Novas funcionalidades de pré-visualização na versão 8.0-preview

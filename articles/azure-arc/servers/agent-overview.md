@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2db1758240dca448409af9f4ec00c01d684c920a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470494"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609241"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -18,6 +18,8 @@ O agente Azure Arc ativado por máquinas conectadas permite-lhe gerir as suas m�
 >Começando com o lançamento geral dos servidores Azure Arc ativados em setembro de 2020, todas as versões pré-lançamento do agente Azure Connected Machine (agentes com versões inferiores a 1.0) estão a ser **depreciadas** até **2 de fevereiro de 2021**.  Este prazo permite-lhe fazer upgrade para a versão 1.0 ou superior antes que os agentes pré-lançados deixem de poder comunicar com o serviço de servidores ativados Azure Arc.
 
 ## <a name="agent-component-details"></a>Detalhes do componente do agente
+
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Visão geral do agente de servidores ativado pelo Arco." border="false":::
 
 O pacote de agente da máquina conectada Azure contém vários componentes lógicos, que estão agregados.
 

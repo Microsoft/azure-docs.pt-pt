@@ -6,21 +6,31 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 8b85307f01a11366a2147c947f26658f548932e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 314462517ba4e63694266b5e49231cb8536f3635
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467719"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604736"
 ---
-# <a name="supported-azure-database-for-mysql-server-versions"></a>Banco de dados Azure suportado para versões de servidor MySQL
+# <a name="supported-azure-database-for-mysql-server-versions"></a>Versões do servidor da Base de Dados MySQL do Azure suportadas
 
 A Azure Database for MySQL foi desenvolvida a partir da [MySQL Community Edition,](https://www.mysql.com/products/community/)utilizando o motor de armazenamento InnoDB. O serviço suporta toda a versão principal atual suportada pela comunidade, nomeadamente MySQL 5.6, 5.7 e 8.0. MySQL usa o esquema de nomeação X.Y.Z onde X é a versão principal, Y é a versão menor, e Z é o lançamento da correção de bug. Para obter mais informações sobre o esquema, consulte a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
-> [!NOTE]
-> Na opção de implementação do Servidor Único, é utilizado um gateway para redirecionar as ligações para as instâncias do servidor. Depois de a ligação ser estabelecida, o cliente MySQL apresenta a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, utilize o comando `SELECT VERSION();` no prompt do MySQL.
 
-A Azure Database for MySQL suporta atualmente as seguintes versões principais e menores do MySQL:
+
+## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>Ligue-se a um nó de gateway que está executando uma versão específica do MySQL
+
+Na opção de implementação do Servidor Único, é utilizado um gateway para redirecionar as ligações para as instâncias do servidor. Depois de a ligação ser estabelecida, o cliente MySQL apresenta a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, utilize o comando `SELECT VERSION();` no prompt do MySQL. [Reveja a arquitetura de conectividade](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture#connectivity-architecture) para saber mais sobre gateways na Azure Database para arquitetura de serviço MySQL.
+
+Como a Base de Dados Azure para o MySQL suporta a versão principal v5.6, v5.7 e v8.0, a porta padrão 3306 para ligar à Base de Dados Azure para o MySQL executa a versão 5.6 (denominação menos comum) para suportar ligações a servidores de todas as 3 versões principais suportadas. No entanto, se a sua aplicação tiver a obrigação de ligar a versão importante específica, digamos v5.7 ou v8.0, pode fazê-lo alterando a porta na cadeia de ligação do servidor.
+
+Na Base de Dados Azure para o serviço MySQL, os nós gateway ouvem na porta 3308 para clientes v5.7 e porta 3309 para clientes v8.0. Por outras palavras, se quiser ligar-se ao cliente de gateway v5.7, deve utilizar o nome do servidor e a porta 3308 totalmente qualificados para ligar ao seu servidor a partir da aplicação do cliente. Da mesma forma, se quiser ligar-se ao cliente de gateway v8.0, pode utilizar o nome do servidor e a porta 3309 totalmente qualificados para se ligar ao seu servidor. Verifique o seguinte exemplo para obter mais clareza.
+
+:::image type="content" source="./media/concepts-supported-versions/concepts-supported-versions-gateway.png" alt-text="Exemplo de ligação através de diferentes versões mysql gateway":::
+
+
+## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>A Azure Database for MySQL suporta atualmente as seguintes versões principais e menores do MySQL:
 
 
 | Versão | Servidor Único <br/> Versão menor atual |Servidor Flexível (Pré-visualização) <br/> Versão menor atual  |

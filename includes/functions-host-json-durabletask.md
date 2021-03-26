@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 54ce9438f768e347e306432a1874ab1816a1ae95
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719959"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607099"
 ---
 Definições de configuração para [funções duradouras](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -121,7 +121,7 @@ Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas e
 |eventGridPublishRetryInterval|5 minutos|A Grade de Eventos publica o intervalo de repetição no formato *hh:mm:ss.*|
 |eventGridPublishEventTypes||Uma lista de tipos de eventos para publicar na Grade de Eventos. Se não for especificado, todos os tipos de eventos serão publicados. Os valores permitidos `Started` incluem, , , . `Completed` `Failed` `Terminated` .|
 |useAppLease|true|Quando definido para `true` , as aplicações exigirão adquirir um aluguer de blob ao nível de aplicações antes de processar mensagens do centro de tarefas. Para mais informações, consulte a [documentação de recuperação de desastres e geo-distribuição.](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) Disponível a partir de v2.3.0.
-|useLegacyPartitionManagement|true|Quando `false` definido, utiliza um algoritmo de gestão de partição que reduz a possibilidade de duplicar a execução da função ao escalonar.  Disponível a partir de v2.3.0. O padrão será alterado para `false` uma futura versão.|
+|useLegacyPartitionManagement|false|Quando `false` definido, utiliza um algoritmo de gestão de partição que reduz a possibilidade de duplicar a execução da função ao escalonar.  Disponível a partir de v2.3.0.|
 |useGracefulShutdown|false|(Pré-visualização) Ativar graciosamente desligar para reduzir as chances de paralisações do hospedeiro falhando execuções de função no processo.|
 
 Muitas destas configurações são para otimizar o desempenho. Para mais informações, consulte [Performance e escala.](../articles/azure-functions/durable/durable-functions-perf-and-scale.md)

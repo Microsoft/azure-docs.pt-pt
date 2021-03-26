@@ -1,17 +1,17 @@
 ---
 title: Registos - Base de Dados Azure para PostgreSQL - Servidor Flexível
 description: Descreve a configuração, armazenamento e análise de registo na Base de Dados Azure para PostgreSQL - Servidor Flexível
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 852bce26e348c817b609d5ff837641741afe4461
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e09c01fcfb9c4725ac169151e85c8b030d8bb18c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90940393"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606390"
 ---
 # <a name="logs-in-azure-database-for-postgresql---flexible-server"></a>Registos na Base de Dados Azure para PostgreSQL - Servidor Flexível
 

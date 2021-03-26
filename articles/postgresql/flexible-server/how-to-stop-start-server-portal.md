@@ -1,17 +1,17 @@
 ---
 title: Stop/start - Portal Azure - Base de Dados Azure para Servidor Flexível Pós-SQL
 description: Este artigo descreve como parar/iniciar operações na Base de Dados Azure para PostgreSQL através do portal Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 4c393e0048a0058ebe0fbf2b0ee65f6ae2e184c5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e28243f5919c355e6ad0d4998ff8388a56e3d0ca
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90938857"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607373"
 ---
 # <a name="stopstart-an-azure-database-for-postgresql---flexible-server-preview"></a>Parar/Iniciar uma base de dados de Azure para PostgreSQL - Servidor Flexível (Pré-visualização)
 

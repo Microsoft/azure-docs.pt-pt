@@ -1,17 +1,17 @@
 ---
 title: Extensões - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Saiba mais sobre as extensões postgres disponíveis na Base de Dados Azure para PostgreSQL - Servidor Único
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: de395bed885804445146b01745edf5e93426cb13
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92485465"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606322"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões do PostgreSQL na Base de Dados do Azure para PostgreSQL – Servidor Único
 O PostgreSQL fornece a capacidade de alargar a funcionalidade da sua base de dados utilizando extensões. As extensões agrupam múltiplos objetos SQL relacionados num pacote individual, o qual pode ser carregado ou removido a partir da base de dados com um único comando. Após ser carregado para a base de dados, as extensões funcionam como funcionalidades incorporadas.
@@ -62,7 +62,7 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para servidor
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Tipos e funções espaciais de topologia pós-GIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | invólucro de dados estrangeiros para servidores postgreSQL remotos|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funções que manipulam tabelas inteiras, incluindo crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Permite inserções escaláveis e consultas complexas para dados da série de tempo|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, 1.7.4             | Permite inserções escaláveis e consultas complexas para dados da série de tempo|
 > |[não-acento](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | dicionário de pesquisa de texto que remove acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | gerar identificadores universalmente únicos (UUIDs)|
 
@@ -108,7 +108,7 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para servidor
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | Tipos e funções espaciais de topologia pós-GIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | invólucro de dados estrangeiros para servidores postgreSQL remotos|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | funções que manipulam tabelas inteiras, incluindo crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Permite inserções escaláveis e consultas complexas para dados da série de tempo|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Permite inserções escaláveis e consultas complexas para dados da série de tempo|
 > |[não-acento](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | dicionário de pesquisa de texto que remove acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | gerar identificadores universalmente únicos (UUIDs)|
 
@@ -154,11 +154,14 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para servidor
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | Tipos e funções espaciais de topologia pós-GIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | invólucro de dados estrangeiros para servidores postgreSQL remotos|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | funções que manipulam tabelas inteiras, incluindo crosstab|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Permite inserções escaláveis e consultas complexas para dados da série de tempo|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Permite inserções escaláveis e consultas complexas para dados da série de tempo|
 > |[não-acento](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | dicionário de pesquisa de texto que remove acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | gerar identificadores universalmente únicos (UUIDs)|
 
-## <a name="postgres-95-extensions"></a>Extensões postgres 9.5 
+## <a name="postgres-95-extensions"></a>Extensões postgres 9.5
+
+>[!NOTE]
+> A versão 9.5 do PostgreSQL foi reformada.
 
 As seguintes extensões estão disponíveis na Base de Dados Azure para servidores PostgreSQL que têm a versão 9.5 do Postgregres.
 

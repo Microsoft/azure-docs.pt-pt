@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6383c0fa3aad15da8abaea79136a75732ce9ea01
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96452434"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605778"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à Base de Dados SQL, ao SQL Managed Instance e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -142,7 +142,7 @@ Depois de criar uma conta de utilizador numa base de dados, quer com base num lo
   - Para adicionar um utilizador a uma função de base de dados fixa:
 
     - Na Base de Dados Azure SQL, utilize a declaração [ALTER ROLE.](/sql/t-sql/statements/alter-role-transact-sql) Por exemplo, consulte [exemplos DE ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql#examples)
-    - Azure Synapse, use a [declaração sp_addrolemember.](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) Por exemplo, consulte [sp_addrolemember exemplos.](/sql/t-sql/statements/alter-role-transact-sql)
+    - Azure Synapse, use a [declaração sp_addrolemember.](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) Por exemplo, consulte [sp_addrolemember exemplos.](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql#examples)
 
 - **Papel de base de dados personalizada**
 

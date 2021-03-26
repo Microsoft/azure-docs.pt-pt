@@ -5,14 +5,14 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f34013bdb14481bfe872a9b3c4234d603bc2d7ec
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c4fc7d7564ecd30326fbec832639b2a81d55e6d5
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102635574"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605659"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Azure Percept Audio e resolução de problemas do módulo de fala
 
@@ -20,16 +20,24 @@ Utilize as diretrizes abaixo para resolver problemas de aplicação de assistent
 
 ## <a name="collecting-speech-module-logs"></a>Coletando registos de módulos de fala
 
-Para executar estes comandos, [ligue-se ao Azure Percept DK Wi-Fi ponto de acesso e ligue-se ao kit dev sobre SSH](./how-to-ssh-into-percept-dk.md) e introduza os comandos no terminal SSH.
+Para executar estes comandos, [sSH no kit dev](./how-to-ssh-into-percept-dk.md) e insira os comandos no pedido do cliente SSH.
+
+Recolher registos de módulos de fala:
 
 ```console
 sudo iotedge logs azureearspeechclientmodule
 ```
 
-Para redirecionar qualquer saída para um ficheiro .txt para análise mais aprofundada, utilize a seguinte sintaxe:
+Para redirecionar a saída para um ficheiro .txt para análise mais aprofundada, utilize a seguinte sintaxe:
 
 ```console
 sudo [command] > [file name].txt
+```
+
+Altere as permissões do ficheiro .txt para que possa ser copiado:
+
+```console
+sudo chmod 666 [file name].txt
 ```
 
 Depois de redirecionar a saída para um ficheiro .txt, copie o ficheiro para o seu PC anfitrião via SCP:
@@ -38,11 +46,11 @@ Depois de redirecionar a saída para um ficheiro .txt, copie o ficheiro para o s
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[Caminho de ficheiro de anfitrião local] refere-se à localização no seu PC anfitrião ao qual gostaria de copiar o ficheiro .txt. [Nome de utilizador remoto] é o nome de utilizador SSH escolhido durante a [experiência de embarque](./quickstart-percept-dk-set-up.md). Se não tiver configurado um login SSH durante a experiência de embarque do Azure Percept DK, o seu nome de utilizador remoto é raiz.
+[Caminho de ficheiro de anfitrião local] refere-se à localização no seu PC anfitrião ao qual gostaria de copiar o ficheiro .txt. [nome de utilizador remoto] é o nome de utilizador SSH escolhido durante a [experiência de configuração](./quickstart-percept-dk-set-up.md).
 
 ## <a name="checking-runtime-status-of-the-speech-module"></a>Verificação do estado de funcionamento do módulo de fala
 
-Verifique se o estado de funcionamento do **azureearspeechclientmodule** mostra como **funcionamento**. Para localizar o estado de funcionamento dos módulos do seu dispositivo, abra o [portal Azure](https://portal.azure.com/) e navegue para **todos os recursos**  ->  **\<your IoT hub>**  ->  **IoT Edge**  ->  **\<your device ID>** . Clique no **separador Módulos** para ver o estado de funcionação de todos os módulos instalados.
+Verifique se o estado de funcionamento do **azureearspeechclientmodule** mostra como **funcionamento**. Para localizar o estado de funcionamento dos módulos do seu dispositivo, abra o [portal Azure](https://portal.azure.com/) e navegue para **todos os recursos**  ->  **[o seu hub IoT]**  ->  **IoT Edge**  ->  **[iD do seu dispositivo]**. Clique no **separador Módulos** para ver o estado de funcionação de todos os módulos instalados.
 
 :::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/over-the-air-iot-edge-device-page.png" alt-text="Página do dispositivo de borda no portal Azure.":::
 
@@ -50,10 +58,10 @@ Se o estado de funcionamento do **azureearspeechclientmodule** não estiver list
 
 ## <a name="understanding-ear-som-led-indicators"></a>Compreender os indicadores LED do SoM do Ouvido
 
-Pode utilizar indicadores LED para perceber em que estado se encontra o dispositivo. Normalmente, o módulo demora cerca de 2 minutos a inicializar completamente após *a alimentação.* À medida que passa pelos passos de inicialização, verá:
+Pode utilizar indicadores LED para perceber em que estado se encontra o dispositivo. Normalmente, o módulo demora cerca de 2 minutos a inicializar completamente depois de o dispositivo se ter ligado. À medida que passa pelos passos de inicialização, verá:
 
-1. 1 LED branco central - o dispositivo está ligado.
-2. 1 led branco central piscando - a autenticação está em andamento.
+1. Led branco centralizado (estático): o dispositivo está ligado.
+2. Led branco central ligado (piscando): a autenticação está em andamento.
 3. Os três LEDs mudarão para azul assim que o dispositivo for autenticado e pronto a ser utilizado.
 
 |LED|Estado LED|Estado do Som do Ouvido|

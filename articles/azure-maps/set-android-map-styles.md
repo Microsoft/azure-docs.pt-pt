@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: aef8fbacf8302fb5dd4b5fe28afc615c6bf56090
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9dcb5b84faa47b7307ce8441003e8591d7c2757b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100989"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604792"
 ---
 # <a name="set-map-style-android-sdk"></a>Definir estilo de mapa (Android SDK)
 
@@ -83,7 +83,7 @@ A imagem que se segue mostra o código acima mostrando um mapa com o estilo de e
 
 ## <a name="setting-the-map-camera"></a>Definição da câmera do mapa
 
-A câmara do mapa controla a parte do mapa que é exibida no mapa. A câmara pode estar no layout do nosso programático código. Ao defini-lo em código, existem dois métodos principais para definir a posição do mapa; usando o centro e o zoom, ou passando em uma caixa de delimitação. O código que se segue mostra como definir todas as opções opcionais de câmara ao utilizar `center` e `zoom` .
+A câmara do mapa controla qual parte do mundo é exibida no ecrã do mapa. A câmara pode estar no layout do nosso programático código. Ao defini-lo em código, existem dois métodos principais para definir a posição do mapa; usando o centro e o zoom, ou passando em uma caixa de delimitação. O código que se segue mostra como definir todas as opções opcionais de câmara ao utilizar `center` e `zoom` .
 
 ::: zone pivot="programming-language-java-android"
 
@@ -104,7 +104,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -130,7 +130,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
@@ -162,7 +162,7 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -192,14 +192,14 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
 
 ::: zone-end
 
-Note que a relação de aspeto de uma caixa de delimitação pode não ser a mesma que a relação de aspeto do mapa, como tal o mapa irá muitas vezes mostrar a área da caixa de delimitação completa, mas muitas vezes só será apertado vertical ou horizontalmente.
+O rácio de aspeto de uma caixa de delimitação pode não ser o mesmo que a relação de aspeto do mapa, uma vez que tal o mapa irá muitas vezes mostrar a área da caixa de delimitação completa, mas muitas vezes só será apertado vertical ou horizontalmente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

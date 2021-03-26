@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: d01e125ef3e905191d76c9f4888e790958211dff
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802204"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607325"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -73,9 +73,9 @@ O quadro que se segue mostra quais os tipos de contas de armazenamento que supor
 
 | Tipo de conta de armazenamento | Regiões suportadas | Serviços suportados |
 |--|--|--|
-| Finalidade geral v2<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tables<br /> Filas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2| Bolhas de bloco premium apenas |
-| Arquitorage de arquivos | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2 | Os ficheiros premium partilham apenas |
+| Finalidade geral v2<sup>1</sup> | (África) África do Sul Norte<br /> (Ásia-Pacífico) Ásia Oriental<br /> (Ásia-Pacífico) Sudeste Asiático<br /> (Ásia-Pacífico) Austrália Leste<br /> (Ásia-Pacífico) Índia Central<br /> Leste do Japão (Ásia-Pacífico) <br /> (Ásia-Pacífico) Coreia Central<br /> (Canadá) Central do Canadá<br /> (Europa) Norte da Europa<br /> (Europa) Europa Ocidental<br /> (Europa) França Central<br /> (Europa) Alemanha Centro-Oeste<br /> (Europa) Leste da Noruega<br /> (Europa) Suíça Norte<br /> (Europa) Reino Unido Sul<br /> (Médio Oriente) Uae Norte<br /> (América do Sul) Brasil Sul<br /> (EUA) Centro dos EUA<br /> (EUA) E.U.A Leste<br /> (EUA) Leste dos EUA 2<br /> (EUA) Centro-Norte dos EUA<br />(EUA) Centro-Sul dos EUA<br /> (EUA) Eua Ocidentais<br /> (EUA) Oeste DOS EUA 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tables<br /> Filas<br /> |
+| BlockBlobStorage<sup>1</sup> | (África) África do Sul Norte<br /> (Ásia-Pacífico) Ásia Oriental<br /> (Ásia-Pacífico) Sudeste Asiático<br /> (Ásia-Pacífico) Austrália Leste<br /> (Ásia-Pacífico) Índia Central<br /> Leste do Japão (Ásia-Pacífico) <br /> (Ásia-Pacífico) Coreia Central<br /> (Canadá) Central do Canadá<br /> (Europa) Norte da Europa<br /> (Europa) Europa Ocidental<br /> (Europa) França Central<br /> (Europa) Alemanha Centro-Oeste<br /> (Europa) Leste da Noruega<br /> (Europa) Suíça Norte<br /> (Europa) Reino Unido Sul<br /> (Médio Oriente) Uae Norte<br /> (América do Sul) Brasil Sul<br /> (EUA) Centro dos EUA<br /> (EUA) E.U.A Leste<br /> (EUA) Leste dos EUA 2<br /> (EUA) Centro-Norte dos EUA<br />(EUA) Centro-Sul dos EUA<br /> (EUA) Eua Ocidentais<br /> (EUA) Oeste DOS EUA 2 | Bolhas de bloco premium apenas |
+| Arquitorage de arquivos | (África) África do Sul Norte<br /> (Ásia-Pacífico) Ásia Oriental<br /> (Ásia-Pacífico) Sudeste Asiático<br /> (Ásia-Pacífico) Austrália Leste<br /> (Ásia-Pacífico) Índia Central<br /> Leste do Japão (Ásia-Pacífico) <br /> (Ásia-Pacífico) Coreia Central<br /> (Canadá) Central do Canadá<br /> (Europa) Norte da Europa<br /> (Europa) Europa Ocidental<br /> (Europa) França Central<br /> (Europa) Alemanha Centro-Oeste<br /> (Europa) Leste da Noruega<br /> (Europa) Suíça Norte<br /> (Europa) Reino Unido Sul<br /> (Médio Oriente) Uae Norte<br /> (América do Sul) Brasil Sul<br /> (EUA) Centro dos EUA<br /> (EUA) E.U.A Leste<br /> (EUA) Leste dos EUA 2<br /> (EUA) Centro-Norte dos EUA<br />(EUA) Centro-Sul dos EUA<br /> (EUA) Eua Ocidentais<br /> (EUA) Oeste DOS EUA 2 | Os ficheiros premium partilham apenas |
 
 <sup>1</sup> O nível de arquivo não é suportado atualmente para contas ZRS.<br />
 <sup>2</sup> As contas de armazenamento que contêm discos geridos Azure para máquinas virtuais usam sempre LRS. Os discos não geridos Azure também devem utilizar LRS. É possível criar uma conta de armazenamento para discos não geridos Azure que usam GRS, mas não é recomendado devido a potenciais problemas com consistência sobre a geo-replicação assíncrona. Nem discos geridos nem não geridos suportam ZRS ou GZRS. Para obter mais informações sobre discos geridos, consulte [preços para discos geridos Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -127,15 +127,30 @@ Apenas as contas de armazenamento v2 de uso geral suportam GZRS e RA-GZRS. Para 
 
 Os GZRS e RA-GZRS são apoiados nas seguintes regiões:
 
-- Sudeste Asiático
-- Norte da Europa
-- Europa Ocidental
-- Leste do Japão
-- Sul do Reino Unido
-- E.U.A. Central
-- E.U.A Leste
-- E.U.A. Leste 2
-- E.U.A. Oeste 2
+- (África) África do Sul Norte
+- (Ásia-Pacífico) Ásia Oriental
+- (Ásia-Pacífico) Sudeste Asiático
+- (Ásia-Pacífico) Austrália Leste
+- (Ásia-Pacífico) Índia Central
+- Leste do Japão (Ásia-Pacífico) 
+- (Ásia-Pacífico) Coreia Central
+- (Canadá) Central do Canadá
+- (Europa) Norte da Europa
+- (Europa) Europa Ocidental
+- (Europa) França Central
+- (Europa) Alemanha Centro-Oeste
+- (Europa) Leste da Noruega
+- (Europa) Suíça Norte
+- (Europa) Reino Unido Sul
+- (Médio Oriente) Uae Norte
+- (América do Sul) Brasil Sul
+- (EUA) Centro dos EUA
+- (EUA) E.U.A Leste
+- (EUA) Leste dos EUA 2
+- (EUA) Centro-Norte dos EUA
+- (EUA) Centro-Sul dos EUA
+- (EUA) Eua Ocidentais
+- (EUA) Oeste DOS EUA 2
 
 Para obter informações sobre preços, consulte os [](https://azure.microsoft.com/pricing/details/storage/files/)detalhes dos preços das [bolhas, ficheiros,](https://azure.microsoft.com/pricing/details/storage/blobs)filas e [tabelas.](https://azure.microsoft.com/pricing/details/storage/queues/) [](https://azure.microsoft.com/pricing/details/storage/tables/)
 
@@ -183,8 +198,8 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Sim | Sim<sup>1</sup> | Sim |
+| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
 | Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
 | Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 

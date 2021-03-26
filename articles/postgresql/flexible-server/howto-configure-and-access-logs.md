@@ -1,17 +1,17 @@
 ---
 title: Configurar e aceder registos - Servidor Flexível - Base de Dados de Azure para PostgreSQL
 description: Como aceder a registos de bases de dados para Azure Database para PostgreSQL - Servidor Flexível
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: e52f0f22065d89788d08659476d14af0351cc493
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 59a2ddcc68a7c5a3b6fa3a3b315f4294d1625204
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100590583"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607410"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configurar e aceder registos na base de dados Azure para PostgreSQL - Servidor Flexível
 
