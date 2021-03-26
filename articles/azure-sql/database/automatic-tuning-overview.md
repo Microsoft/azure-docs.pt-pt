@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/30/2020
-ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/23/2021
+ms.openlocfilehash: 6bd8d6001fcd3bfa487259aa219ff771f26a8a94
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96500874"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951288"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonização automática na Base de Dados Azure SQL e Azure SQL Gestão de Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +54,8 @@ Para uma visão geral de como funciona a sintonização automática e para cená
 
 ## <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 
-- [Ativa a sintonização automática da Base de Dados Azure SQL no portal Azure](automatic-tuning-enable.md) ou utilizando a declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL.
-- Ativa a sintonização automática para Azure SQL Managed Instance utilizando a declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL.
+- [Ativa a sintonização automática da Base de Dados Azure SQL no portal Azure](automatic-tuning-enable.md) ou utilizando a declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) T-SQL.
+- Ativa a sintonização automática para Azure SQL Managed Instance utilizando a declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current&preserve-view=true) T-SQL.
 
 ## <a name="automatic-tuning-options"></a>Opções de afinação automática
 
@@ -63,9 +63,9 @@ As opções de afinação automática disponíveis na Base de Dados Azure SQL e 
 
 | Opção de afinação automática | Base de dados única e suporte de base de dados em conjunto | Suporte de base de dados de casos |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX** - Identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e verifica automaticamente que o desempenho das consultas melhorou. | Yes | No |
-| **ÍNDICE DROP** - Identifica índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações usando comutação de partição e dicas de índice. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical. | Yes | No |
-| **FORCE LAST GOOD PLAN** (correção automática do plano) - Identifica as consultas Azure SQL utilizando um plano de execução mais lento do que o plano anterior, e consultas utilizando o último bom plano conhecido em vez do plano regressaltado. | Yes | Yes |
+| **CREATE INDEX** - Identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e verifica automaticamente que o desempenho das consultas melhorou. | Sim | No |
+| **ÍNDICE DROP** - Cai sem ser usutado (nos últimos 90 dias) e duplica os índices. Os índices únicos, incluindo índices que suportam a chave primária e constrangimentos únicos, nunca são eliminados. Esta opção pode ser automaticamente desativada quando as consultas com indicações de índice estiverem presentes na carga de trabalho, ou quando a carga de trabalho efetua a comutação de partição. Nos níveis de serviço Premium e Business Critical, esta opção nunca irá baixar índices não reutilizados, mas irá baixar índices duplicados, se houver. | Sim | No |
+| **FORCE LAST GOOD PLAN** (correção automática do plano) - Identifica as consultas Azure SQL utilizando um plano de execução mais lento do que o plano anterior, e consultas utilizando o último bom plano conhecido em vez do plano regressaltado. | Sim | Sim |
 
 ### <a name="automatic-tuning-for-sql-database"></a>Sintonização automática para base de dados SQL
 
@@ -90,7 +90,7 @@ Para saber mais sobre a construção de notificações por email para recomenda�
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Sintonização automática para Azure SQL Caso Gerido
 
-A sintonização automática para SQL Managed Instance só suporta **FORCE LAST GOOD PLAN**. Para obter mais informações sobre a configuração das opções de afinação automática através do T-SQL, consulte [a sintonização automática introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a correção automática do [plano](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+A sintonização automática para SQL Managed Instance só suporta **FORCE LAST GOOD PLAN**. Para obter mais informações sobre a configuração das opções de afinação automática através do T-SQL, consulte [a sintonização automática introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a correção automática do [plano](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Passos seguintes
 

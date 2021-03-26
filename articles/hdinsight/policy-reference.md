@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure HDInsight
 description: Lista definições de políticas incorporadas da Azure Policy para Azure HDInsight. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 03942b22d2566a220f312bd1671f338957df91b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d5db5679ffae4f361d62c8341d12f2d060672ffb
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581440"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037615"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-hdinsight"></a>Definições incorporadas da Política Azure para Azure HDInsight
 
