@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 77007f0d9ffac39ecb6f21957dd8cd1bf7a0b945
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593860"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565712"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
 
@@ -302,7 +302,7 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 
 ### <a name="error-code-df-excel-invalidrange"></a>Código de erro: DF-Excel-InvalidRange
 - **Mensagem**: É fornecido um intervalo inválido.
-- **Recomendação**: Verifique o valor do parâmetro e especifique a gama válida pela seguinte referência: [Formato Excel em propriedades Factory-Dataset dados Azure](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recomendação**: Verifique o valor do parâmetro e especifique a gama válida pela seguinte referência: [Formato Excel em propriedades Factory-Dataset dados Azure](./format-excel.md#dataset-properties).
 
 ### <a name="error-code-df-excel-worksheetnotexist"></a>Código de erro: DF-Excel-Folha de CálculoNotExist
 - **Mensagem**: A folha de cálculo do Excel não existe.
@@ -369,4 +369,3 @@ Para obter mais ajuda na resolução de problemas, consulte estes recursos:
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow Forum para a Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
-

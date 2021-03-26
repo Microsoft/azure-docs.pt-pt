@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: thweiss
-ms.openlocfilehash: ec12deb5a7c77674026b849585552fd873aee5c1
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f8028d69e376e2b71549be52267e2f6cbdb1f8ce
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045999"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568669"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configure o controlo de acesso baseado em funções com o Azure Ative Directory para a sua conta DB Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -323,9 +323,9 @@ Para utilizar o Azure Cosmos DB RBAC na sua aplicação, tem de atualizar a form
 
 A forma como cria um `TokenCredential` caso está fora do âmbito deste artigo. Existem muitas formas de criar tal instância dependendo do tipo de identidade AAD que pretende usar (principal utilizador, diretor de serviço, grupo, etc.). O mais importante, o seu `TokenCredential` caso deve resolver a identidade (ID principal) a que atribuiu as suas funções. Pode encontrar exemplos de criação de uma `TokenCredential` classe:
 
-- [em .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [em Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
-- [em JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
+- [em .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [em Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [em JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
 
 Os exemplos abaixo utilizam um principal de serviço com um `ClientSecretCredential` exemplo.
 

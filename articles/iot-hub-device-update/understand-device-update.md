@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 092078a79124682f7ee5c7824d4f7906c6e35475
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232380"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558504"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Atualização do dispositivo para IoT Hub (Visualização) Visão geral
 
@@ -82,7 +82,7 @@ Quando um comando de atualização é recebido num dispositivo, executará a fas
 
 Importar é como as suas atualizações são ingeridas na Atualização do Dispositivo para que possam ser implementadas em dispositivos. A Atualização do Dispositivo suporta a localização de uma única atualização por dispositivo. Isto torna-o ideal para atualizações de imagem completa que atualizam uma partição de SO inteira de uma só vez, ou um Manifesto apto que descreve todos os pacotes que pretende atualizar no seu dispositivo. Para importar atualizações para a Atualização do Dispositivo, primeiro cria um manifesto de importação que descreve a atualização, depois carreca os ficheiros de atualização e o manifesto de importação para um local acessível à Internet. Depois disso, pode utilizar o portal Azure ou a [API de API de ATUALIZAÇÃO](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) de Dispositivos para iniciar o processo assíncrono de importação de atualização. A Atualização do Dispositivo faz o upload dos ficheiros, processa-os e disponibiliza-os para distribuição em dispositivos IoT.
 
-Para conteúdos sensíveis, proteja o download utilizando uma assinatura de acesso partilhado (SAS), como um SAS ad-hoc para armazenamento Azure Blob. [Saiba mais sobre o SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Para conteúdos sensíveis, proteja o download utilizando uma assinatura de acesso partilhado (SAS), como um SAS ad-hoc para armazenamento Azure Blob. [Saiba mais sobre o SAS](../storage/common/storage-sas-overview.md)
 
 :::image type="content" source="media/understand-device-update/import-update.png" alt-text="Diagrama de Atualização de Dispositivos para fluxo de trabalho de importação de IoT Hub." lightbox="media/understand-device-update/import-update.png":::
 

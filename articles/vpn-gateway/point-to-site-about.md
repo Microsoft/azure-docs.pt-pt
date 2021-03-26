@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 795b6f13913590041b463115c0be65a6201fedab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6caf72884ce2566ad25b7dd6d80b15d737bbe664
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97654069"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543589"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre a VPN ponto-a-local
 
@@ -61,9 +61,9 @@ A um nível elevado, você precisa executar os seguintes passos para configurar 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticar usando o Servidor de Domínio ativo (AD)
 
 A autenticação do Domínio AD permite que os utilizadores se conectem ao Azure utilizando as suas credenciais de domínio de organização. Requer um servidor RADIUS que se integre com o servidor AD. As organizações também podem aproveitar a implantação do RADIUS existente.
-  
-O servidor RADIUS pode ser implantado no local ou no seu Azure VNet. Durante a autenticação, o Gateway Azure VPN atua como uma passagem e encaminha mensagens de autenticação para trás e para a frente entre o servidor RADIUS e o dispositivo de ligação. Assim, a capacidade de acesso do Gateway para o servidor RADIUS é importante. Se o servidor RADIUS estiver presente no local, é necessária uma ligação VPN S2S de Azure para o local no local para alcançar.  
-  
+
+O servidor RADIUS pode ser implantado no local ou no seu Azure VNet. Durante a autenticação, o Gateway Azure VPN atua como uma passagem e encaminha mensagens de autenticação para trás e para a frente entre o servidor RADIUS e o dispositivo de ligação. Assim, a capacidade de acesso do Gateway para o servidor RADIUS é importante. Se o servidor RADIUS estiver presente no local, é necessária uma ligação VPN S2S de Azure para o local no local para alcançar.
+
 O servidor RADIUS também pode integrar-se com os serviços de certificados AD. Isto permite-lhe utilizar o servidor RADIUS e a implementação do certificado da empresa para a autenticação de certificadoS P2S como alternativa à autenticação do certificado Azure. A vantagem é que não precisa de carregar certificados de raiz e revogar certificados para a Azure.
 
 Um servidor RADIUS também pode integrar-se com outros sistemas de identidade externos. Isto abre muitas opções de autenticação para P2S VPN, incluindo opções multi-factor.

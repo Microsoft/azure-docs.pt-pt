@@ -3,12 +3,12 @@ title: Analise vídeo ao vivo com visão computacional para análise espacial - 
 description: Este tutorial mostra-lhe como usar o Live Video Analytics juntamente com a funcionalidade de análise espacial de IA da Azure Cognitive Services para analisar um feed de vídeo ao vivo a partir de uma câmara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: b20cdb9bbc64f9adc49cfbde4ff80576b149dbcd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1c3fd411e60cabb504f01bece62d497ddeea31d8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698761"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561020"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analise vídeo ao vivo com visão de computador para análise espacial (pré-visualização)
 
@@ -47,7 +47,7 @@ Seguem-se os pré-requisitos para a ligação do módulo de análise espacial ao
 * [Recipiente Azure Cognitive Service Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise espacial.  
     Para utilizar este recipiente, tem de dispor de um recurso de Visão Computacional para obter a **chave API** associada e um **URI de ponto final.** A chave API está disponível nas páginas visão e chaves do portal Azure. A chave e o ponto final são necessários para iniciar o recipiente.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Visão geral da análise espacial":::
@@ -56,7 +56,7 @@ Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](
 
 O nó de mediaGraphCognitiveServicesVisionExtension desempenha o papel de um representante. Converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre **memória partilhada** para outro módulo de borda que executa operações de IA atrás de um ponto final gRPC. Neste exemplo, este módulo de borda é o módulo de análise espacial. O nó do processador MediaGraphGraphCognitiveServicesVisionExtension faz duas coisas:
 
-* Reúne os resultados e publica eventos no nó [de pia IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para [ioT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
+* Reúne os resultados e publica eventos no nó [de pia IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para [ioT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). 
 * Também captura um videoclip de 30 segundos da fonte RTSP usando um [processador signal gate](media-graph-concept.md#signal-gate-processor) e armazena-o como um ativo dos Media Services.
 
 ## <a name="create-the-computer-vision-resource"></a>Criar o recurso Visão De Computador

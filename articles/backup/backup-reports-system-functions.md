@@ -3,34 +3,34 @@ title: Funções do sistema em Registos monitores Azure
 description: Escreva consultas personalizadas em Registos do Monitor Azure usando funções do sistema
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb45e6ad0250a1f8d10377fdd509e40051f25b9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510554"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564913"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Funções do sistema em Registos monitores Azure
 
 O Azure Backup fornece um conjunto de funções, chamadas funções do sistema ou funções de solução, que estão disponíveis por padrão nos seus espaços de trabalho Log Analytics (LA).
  
-Estas funções funcionam com dados nas [tabelas de backup Azure em](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) LA e devolvem dados formatados que o ajudam a recuperar facilmente informações de todas as suas entidades relacionadas com backup, utilizando consultas simples. Os utilizadores podem passar parâmetros para estas funções para filtrar os dados que são devolvidos por estas funções. 
+Estas funções funcionam com dados nas [tabelas de backup Azure em](./backup-azure-reports-data-model.md) LA e devolvem dados formatados que o ajudam a recuperar facilmente informações de todas as suas entidades relacionadas com backup, utilizando consultas simples. Os utilizadores podem passar parâmetros para estas funções para filtrar os dados que são devolvidos por estas funções. 
 
 Recomenda-se a utilização de funções do sistema para consultar os seus dados de backup em espaços de trabalho de LA para criar relatórios personalizados, uma vez que proporcionam uma série de benefícios, conforme detalhado na secção abaixo.
 
 ## <a name="benefits-of-using-system-functions"></a>Benefícios da utilização das funções do sistema
 
-* **Consultas mais simples:** A utilização de funções ajuda a reduzir o número de juntas necessárias nas suas consultas. Por predefinição, as funções devolvem esquemas 'achatados', que incorporam toda a informação relativa à entidade (instância de backup, trabalho, cofre, e assim por diante) a ser questionada. Por exemplo, se precisar de obter uma lista de trabalhos de backup bem sucedidos através do nome do item de backup e do seu recipiente associado, uma simples chamada para a função **_AzureBackup_getJobs()** irá dar-lhe toda esta informação para cada trabalho. Por outro lado, consultar as tabelas cruas diretamente exigiria que executasse várias junções entre as mesas [AddonAzureBackupJobs](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#addonazurebackupjobs) e [CoreAzureBackup.](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#coreazurebackup)
+* **Consultas mais simples:** A utilização de funções ajuda a reduzir o número de juntas necessárias nas suas consultas. Por predefinição, as funções devolvem esquemas 'achatados', que incorporam toda a informação relativa à entidade (instância de backup, trabalho, cofre, e assim por diante) a ser questionada. Por exemplo, se precisar de obter uma lista de trabalhos de backup bem sucedidos através do nome do item de backup e do seu recipiente associado, uma simples chamada para a função **_AzureBackup_getJobs()** irá dar-lhe toda esta informação para cada trabalho. Por outro lado, consultar as tabelas cruas diretamente exigiria que executasse várias junções entre as mesas [AddonAzureBackupJobs](./backup-azure-reports-data-model.md#addonazurebackupjobs) e [CoreAzureBackup.](./backup-azure-reports-data-model.md#coreazurebackup)
 
-* **Transição mais suave do evento de diagnóstico do legado**: A utilização de funções do sistema ajuda-o a transitar suavemente do evento de diagnóstico [legado](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) (AzureBackupReport em modo AzureDiagnostics) para os [eventos específicos do recurso](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users). Todas as funções do sistema fornecidas pelo Azure Backup permitem especificar um parâmetro que lhe permite escolher se a função deve consultar os dados apenas a partir das tabelas específicas do recurso, ou consultar dados da tabela do legado e das tabelas específicas de recursos (com desduplicação de registos).
+* **Transição mais suave do evento de diagnóstico do legado**: A utilização de funções do sistema ajuda-o a transitar suavemente do evento de diagnóstico [legado](./backup-azure-diagnostic-events.md#legacy-event) (AzureBackupReport em modo AzureDiagnostics) para os [eventos específicos do recurso](./backup-azure-diagnostic-events.md#diagnostics-events-available-for-azure-backup-users). Todas as funções do sistema fornecidas pelo Azure Backup permitem especificar um parâmetro que lhe permite escolher se a função deve consultar os dados apenas a partir das tabelas específicas do recurso, ou consultar dados da tabela do legado e das tabelas específicas de recursos (com desduplicação de registos).
     * Se tiver migrado com sucesso para as tabelas específicas do recurso, pode optar por excluir a tabela do legado de ser questionada pela função.
     * Se estiver neste momento em processo de migração e tiver alguns dados nas tabelas antigas que necessita para análise, pode optar por incluir a tabela do legado. Quando a transição estiver concluída e já não precisar de dados da tabela do legado, pode simplesmente atualizar o valor do parâmetro passado para a função nas suas consultas, para excluir a tabela do legado.
-    * Se ainda estiver a utilizar apenas a tabela do legado, as funções continuarão a funcionar se optar por incluir a tabela do legado através do mesmo parâmetro. No entanto, [recomenda-se mudar para as tabelas específicas do recurso](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) o mais cedo possível.
+    * Se ainda estiver a utilizar apenas a tabela do legado, as funções continuarão a funcionar se optar por incluir a tabela do legado através do mesmo parâmetro. No entanto, [recomenda-se mudar para as tabelas específicas do recurso](./backup-azure-diagnostic-events.md#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) o mais cedo possível.
 
 * **Reduz a possibilidade de quebra de consultas personalizadas**: Se o Azure Backup introduzir melhorias no esquema das tabelas de LA subjacentes para acomodar futuros cenários de reporte, a definição das funções também será atualizada para ter em conta as alterações do esquema. Assim, se utilizar funções do sistema para criar consultas personalizadas, as suas consultas não quebrarão, mesmo que existam alterações no esquema subjacente às tabelas.
 
 > [!NOTE]
-> As funções do sistema são mantidas pela Microsoft e as suas definições não podem ser editadas pelos utilizadores. Se necessitar de funções editáveis, pode criar [funções guardadas](https://docs.microsoft.com/azure/azure-monitor/logs/functions) em LA.
+> As funções do sistema são mantidas pela Microsoft e as suas definições não podem ser editadas pelos utilizadores. Se necessitar de funções editáveis, pode criar [funções guardadas](../azure-monitor/logs/functions.md) em LA.
 
 ## <a name="types-of-system-functions-offered-by-azure-backup"></a>Tipos de funções do sistema oferecidas pelo Azure Backup
 
@@ -390,4 +390,4 @@ Abaixo estão algumas consultas de amostra para ajudá-lo a começar a usar fun�
     ````
 
 ## <a name="next-steps"></a>Passos seguintes
-[Saiba mais sobre Relatórios de Backup](https://docs.microsoft.com/azure/backup/configure-reports)
+[Saiba mais sobre Relatórios de Backup](./configure-reports.md)

@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: 2bb68c8c183e3de132bc7cf4504714a260ea2683
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: c2e739a45c7915c957ca89e5b01b98afa945d03e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025123"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557195"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Visão geral da avaliação (migrar para Azure SQL)
 
-Este artigo fornece uma visão geral das avaliações para a migração no local exemplos de servidor SQL de um ambiente VMware para bases de dados Azure SQL ou Instâncias Geridas usando a [ferramenta Azure Migrate: Discovery and assessment](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool)tool .
+Este artigo fornece uma visão geral das avaliações para a migração no local exemplos de servidor SQL de um ambiente VMware para bases de dados Azure SQL ou Instâncias Geridas usando a [ferramenta Azure Migrate: Discovery and assessment](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool)tool .
 
 ## <a name="whats-an-assessment"></a>O que é uma avaliação?
 Uma avaliação com a ferramenta Discovery e assessment é um ponto no tempo instantâneo de dados e mede a prontidão e estima o efeito da migração de servidores no local para Azure.
@@ -80,7 +80,7 @@ Aqui está o que está incluído nas propriedades de avaliação Azure SQL:
 **Utilização de percentil** | A utilização percentil especifica o valor percentil da amostra de desempenho utilizada para a direito.
 **Fator de conforto** | O tampão utilizado durante a avaliação. Explica questões como o uso sazonal, o histórico de desempenho curto e, provavelmente, o aumento do uso futuro.<br/><br/> Por exemplo, uma instância de 10 núcleos com 20% de utilização normalmente resulta num caso de dois núcleos. Com um fator de conforto de 2.0, o resultado é um caso de quatro núcleos.
 **Programa de Oferta/Licenciamento** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que está matriculado. Atualmente, só pode escolher entre Pay-as-you-go e Pay-as-you-go Dev/Test. Note que pode obter desconto adicional aplicando capacidade reservada e Benefício Híbrido Azure em cima da oferta Pay-as-you-go.
-**Escalão de serviço** | A opção de nível de serviço mais adequada para acomodar as necessidades do seu negócio para a migração para a Base de Dados Azure SQL e/ou Instância Gerida Azure SQL:<br/><br/>**Recomendado** se quiser que a Azure Migrate recomende o nível de serviço mais adequado para os seus servidores. Isto pode ser um propósito geral ou um negócio crítico. <br/><br/> **Finalidade Geral** Se quiser uma configuração Azure SQL projetada para cargas de trabalho orientadas para o orçamento. [Saiba mais](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Critical de negócios** Se quiser uma configuração Azure SQL projetada para cargas de trabalho de baixa latência com alta resiliência a falhas e falhas rápidas. [Saiba mais](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Escalão de serviço** | A opção de nível de serviço mais adequada para acomodar as necessidades do seu negócio para a migração para a Base de Dados Azure SQL e/ou Instância Gerida Azure SQL:<br/><br/>**Recomendado** se quiser que a Azure Migrate recomende o nível de serviço mais adequado para os seus servidores. Isto pode ser um propósito geral ou um negócio crítico. <br/><br/> **Finalidade Geral** Se quiser uma configuração Azure SQL projetada para cargas de trabalho orientadas para o orçamento. [Saiba mais](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> **Critical de negócios** Se quiser uma configuração Azure SQL projetada para cargas de trabalho de baixa latência com alta resiliência a falhas e falhas rápidas. [Saiba mais](../azure-sql/database/service-tier-business-critical.md)
 **Moeda** | A moeda de faturação da sua conta.
 **Desconto (%)** | Quaisquer descontos específicos por subscrição que receba em cima da oferta Azure. A predefinição é 0%.
 **Benefício Híbrido do Azure** | Especifica se já tem uma licença SQL Server. <br/><br/> Se o fizer e estiver coberto com uma garantia de software ativa das subscrições do servidor SQL, pode candidatar-se ao Benefício Híbrido Azure quando levar licenças ao Azure.
@@ -124,7 +124,7 @@ Se selecionar o tipo de implementação de destino como **Recomendado** nas prop
 Se a instância SQL não estiver pronta para a Base de Dados Azure SQL e para a Instância Gerida Azure SQL, o tipo de implementação recomendado está marcado como *potencialmente pronto para Azure VM*.
 - Recomenda-se ao utilizador a criação de uma avaliação em Azure Migrate com o tipo de avaliação como "Azure VM" para determinar se o servidor em que o caso está a decorrer está pronto a migrar para um VM Azure. Tenha em atenção que:
     - As avaliações de Azure VM em Azure Migrate estão atualmente focadas no elevador e na mudança e não considerarão as métricas de desempenho específicas para executar instâncias e bases de dados SQL na máquina virtual Azure. 
-    - Quando executa uma avaliação de VM do Azure num servidor, as estimativas recomendadas de tamanho e custo referem-se a todas as instâncias em execução no servidor e podem ser migradas para uma VM do Azure com a ferramenta de Migração do Servidor. Antes de migrar, [veja as diretrizes de desempenho](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) do SQL Server em máquinas virtuais do Azure.
+    - Quando executa uma avaliação de VM do Azure num servidor, as estimativas recomendadas de tamanho e custo referem-se a todas as instâncias em execução no servidor e podem ser migradas para uma VM do Azure com a ferramenta de Migração do Servidor. Antes de migrar, [veja as diretrizes de desempenho](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) do SQL Server em máquinas virtuais do Azure.
 
 
 ## <a name="calculate-sizing"></a>Calcular o tamanho

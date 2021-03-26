@@ -3,12 +3,12 @@ title: O que é extensão de gráfico de mídia - Azure
 description: O Live Video Analytics on IoT Edge permite-lhe alargar as capacidades de processamento de gráficos de mídia através de um nó de extensão de gráfico.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 66656690e4e53508253091134a67adeb899b3dbf
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4a7aea7cc60a67603d8a0376cf84228072659d6c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455844"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557620"
 ---
 # <a name="media-graph-extension"></a>Extensão do grafo de multimédia
 
@@ -19,11 +19,11 @@ Live Video Analytics suporta dois tipos de processadores de extensão de gráfic
 * [Processador de extensão HTTP](media-graph-concept.md#http-extension-processor)
 * [processador de extensão gRPC](media-graph-concept.md#grpc-extension-processor)
 
-O nó de extensão de gráfico espera que o plugin de extensão analítica devolva os resultados no formato JSON. Idealmente, os resultados devem seguir o [modelo de objeto de esquema de metadados de inferência](/azure/media-services/live-video-analytics-edge/inference-metadata-schema).
+O nó de extensão de gráfico espera que o plugin de extensão analítica devolva os resultados no formato JSON. Idealmente, os resultados devem seguir o [modelo de objeto de esquema de metadados de inferência](./inference-metadata-schema.md).
 
 ## <a name="http-extension-processor"></a>Processador de extensão HTTP
 
-O processador de extensão HTTP permite cenários de extensibilidade utilizando o [protocolo HTTP,](/azure/media-services/live-video-analytics-edge/http-extension-protocol)onde o desempenho e/ou a utilização ótima dos recursos não são a principal preocupação. Pode expor a sua própria IA a um gráfico de mídia através de um ponto final HTTP REST. 
+O processador de extensão HTTP permite cenários de extensibilidade utilizando o [protocolo HTTP,](./http-extension-protocol.md)onde o desempenho e/ou a utilização ótima dos recursos não são a principal preocupação. Pode expor a sua própria IA a um gráfico de mídia através de um ponto final HTTP REST. 
 
 Utilize o nó do processador de extensão HTTP quando:
 
@@ -33,7 +33,7 @@ Utilize o nó do processador de extensão HTTP quando:
 
 ## <a name="grpc-extension-processor"></a>processador de extensão gRPC
 
-O processador de extensão gRPC permite cenários de extensibilidade utilizando [o protocolo estruturado](/azure/media-services/live-video-analytics-edge/grpc-extension-protocol)baseado em gRPC e altamente performante . É ideal para cenários onde o desempenho e/ou a utilização ideal de recursos é uma prioridade. O processador de extensão gRPC permite-lhe obter o pleno benefício das definições de dados estruturadas. o gRPC oferece um elevado desempenho de transferência de conteúdo utilizando:
+O processador de extensão gRPC permite cenários de extensibilidade utilizando [o protocolo estruturado](./grpc-extension-protocol.md)baseado em gRPC e altamente performante . É ideal para cenários onde o desempenho e/ou a utilização ideal de recursos é uma prioridade. O processador de extensão gRPC permite-lhe obter o pleno benefício das definições de dados estruturadas. o gRPC oferece um elevado desempenho de transferência de conteúdo utilizando:
 
 * [memória partilhada na caixa](https://en.wikipedia.org/wiki/Shared_memory) ou 
 * incorporando diretamente o conteúdo no corpo de mensagens gRPC. 
@@ -57,7 +57,7 @@ O diagrama abaixo retrata o fluxo de dados de alto nível:
 
 ## <a name="samples"></a>Amostras
 
-Pode começar com um dos nossos quickstarts que ilustram a análise de vídeo ao vivo com serviço de extensão pré-construído a taxas de fotogramas baixas com [processador de extensão HTTP](/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?pivots=programming-language-csharp) ou a taxas de fotogramas elevadas com processador de [extensão gRPC](/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?pivots=programming-language-csharp)
+Pode começar com um dos nossos quickstarts que ilustram a análise de vídeo ao vivo com serviço de extensão pré-construído a taxas de fotogramas baixas com [processador de extensão HTTP](./use-your-model-quickstart.md?pivots=programming-language-csharp) ou a taxas de fotogramas elevadas com processador de [extensão gRPC](./analyze-live-video-use-your-grpc-model-quickstart.md?pivots=programming-language-csharp)
 
 Para utilizadores avançados, pode consultar algumas das nossas amostras de [cadernos Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) para Live Video Analytics. Estes cadernos fornecer-lhe-ão instruções passo a passo para **as extensões de gráficos de mídia** em:
 

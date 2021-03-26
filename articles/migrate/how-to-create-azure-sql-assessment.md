@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: e9243fc750843c83b7ca8c295655853d20dcd083
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 9acc6de84c3e5bc43f482d36ade242d2315a2a4f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024989"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565117"
 ---
 # <a name="create-an-azure-sql-assessment"></a>Criar uma avaliação Azure SQL
 
@@ -192,4 +192,4 @@ A classificação de confiança ajuda-o a estimar a fiabilidade das recomendaç�
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](concepts-azure-sql-assessment-calculation.md) sobre como as avaliações do Azure SQL são calculadas.
-- Comece a migrar casos e bases de dados SQL utilizando [o Serviço de Migração da Base de Dados Azure](https://docs.microsoft.com/azure/dms/dms-overview).
+- Comece a migrar casos e bases de dados SQL utilizando [o Serviço de Migração da Base de Dados Azure](../dms/dms-overview.md).

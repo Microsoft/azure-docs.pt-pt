@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101680093"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561173"
 ---
 # <a name="device-update-apt-manifest"></a>Manifesto APT de atualização de dispositivos
 
@@ -19,7 +19,7 @@ O APT Manifest é um ficheiro JSON que descreve os detalhes de atualização exi
 
 [Saiba mais](import-update.md) sobre a importação de atualizações para a Atualização do Dispositivo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando um manifesto APT é entregue a um Agente de Atualização de Dispositivos como atualização, o agente processará o manifesto e realizará as operações necessárias. Estas operações incluem o descarregamento e instalação dos pacotes especificados no ficheiro APT Manifesto e suas dependências.
 
@@ -103,7 +103,7 @@ Se a versão for omitida, a versão mais recente disponível do pacote especific
 > O gestor de pacotes APT ignora os requisitos de versão dados por um pacote quando as embalagens dependentes a instalar estão a ser automaticamente resolvidas. A menos que sejam dadas versões explícitas de pacotes dependentes, utilizarão as mais recentes, mesmo que o próprio pacote possa especificar um requisito rigoroso (=) numa determinada versão. Esta resolução automática pode conduzir a erros relativos a uma dependência insatisfeita. [Saiba mais](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 Se estiver a atualizar uma versão específica do daemon de segurança Azure IoT Edge, então deve incluir a versão desejada do pacote e o `iotedge` seu pacote dependente no seu manifesto `libiothsm-std` APT.
-[Saiba mais](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+[Saiba mais](../iot-edge/how-to-update-iot-edge.md#update-the-security-daemon)
 
 > [!NOTE]
 > Um manifesto apto pode ser usado para atualizar o agente de Atualização do Dispositivo e as suas dependências. Enuda o nome do agente de atualização do dispositivo e a versão desejada no manifesto apt, como faria em qualquer outro pacote. Este manifesto apto pode então ser importado e implantado através da Atualização do Dispositivo para o gasoduto IoT Hub. 
@@ -202,4 +202,3 @@ Esta atualização inclui o pacote foo, e também inclui pacote de bar.
 
 > [!div class="nextstepaction"]
 > [Importar nova atualização](import-update.md)
-

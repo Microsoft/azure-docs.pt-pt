@@ -3,12 +3,12 @@ title: Operações de avião de controlo e de planos de dados
 description: Descreve a diferença entre as operações do avião de controlo e do plano de dados. As operações do avião de controlo são tratadas pelo Gestor de Recursos Azure. As operações de avião de dados são tratadas por um serviço.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76304c81a1af1eef87d12cfd4130867851a61d28
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91371274"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544099"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Avião de controlo Azure e plano de dados
 
@@ -52,7 +52,7 @@ O plano de controlo inclui dois cenários para tratamento de pedidos - "campo ve
 
 ## <a name="data-plane"></a>Plano de dados
 
-Os pedidos de operações de data plane são enviados para um ponto final específico da sua instância. Por exemplo, a [operação Detet em Serviços](/rest/api/cognitiveservices/textanalytics/detect%20language/detect%20language) Cognitivos é uma operação de plano de dados porque o URL de pedido é:
+Os pedidos de operações de data plane são enviados para um ponto final específico da sua instância. Por exemplo, a [operação Detet em Serviços](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection) Cognitivos é uma operação de plano de dados porque o URL de pedido é:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

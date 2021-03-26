@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 695aa760d554946883f72692f0bed1babad933b1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798855"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568805"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Criar relatórios interativos VM insights com livros de trabalho
 
@@ -25,7 +25,7 @@ Os livros de trabalho são úteis para cenários como:
 
 A tabela seguinte resume os livros de trabalho que os insights de VM incluem para começar.
 
-| Livro | Descrição | Âmbito |
+| Livro | Description | Âmbito |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável da nossa visão top N List e Charts num único livro que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Vários VMs |
 | Contadores de desempenho | Uma vista de gráfico top N através de um vasto conjunto de contadores de desempenho. | Vários VMs |
@@ -103,13 +103,13 @@ Cada secção tem as suas próprias definições avançadas, que são acessívei
 
 ![Screenshot do diálogo de Definições Avançadas na secção de livro de máquinas virtuais do Monitor Azure. Destaca-se o ícone que abre o diálogo.](media/vminsights-workbooks/007-settings-expanded.png)
 
-|         |          |
+| Definições | Descrição |
 | ---------------- |:-----|
-| **Largura personalizada**    | Faz um item de tamanho arbitrário, para que possa encaixar muitos itens numa única linha, permitindo-lhe organizar melhor os seus gráficos e tabelas em relatórios interativos ricos.  |
-| **Condicionalmente visível** | Especifique para ocultar passos com base num parâmetro quando estiver no modo de leitura. |
-| **Exportar um parâmetro**| Deixe uma linha selecionada na grelha ou na tabela para fazer com que os passos posteriores alterem valores ou se tornem visíveis.  |
-| **Mostrar consulta quando não editar** | Exibe a consulta acima do gráfico ou da tabela mesmo quando está no modo de leitura.
-| **Mostre-se aberto no botão de análise quando não editar** | Adiciona o ícone analítico azul ao canto direito da tabela para permitir o acesso de um clique.|
+| Largura personalizada    | Faz um item de tamanho arbitrário, para que possa encaixar muitos itens numa única linha, permitindo-lhe organizar melhor os seus gráficos e tabelas em relatórios interativos ricos.  |
+| Condicionalmente visível | Especifique para ocultar passos com base num parâmetro quando estiver no modo de leitura. |
+| Exportar um parâmetro| Deixe uma linha selecionada na grelha ou na tabela para fazer com que os passos posteriores alterem valores ou se tornem visíveis.  |
+| Mostrar consulta quando não editar | Exibe a consulta acima do gráfico ou da tabela mesmo quando está no modo de leitura.
+| Mostre-se aberto no botão de análise quando não editar | Adiciona o ícone analítico azul ao canto direito da tabela para permitir o acesso de um clique.|
 
 A maioria destas configurações são bastante intuitivas, mas para entender **a Exportação um parâmetro** é melhor examinar um livro que faça uso desta funcionalidade.
 
@@ -152,12 +152,12 @@ Os parâmetros são lineares, partindo do topo de um livro e fluindo para os deg
  
 Existem quatro tipos diferentes de parâmetros, que são atualmente suportados:
 
-|                  |      |
+| Parâmetro | Descrição |
 | ---------------- |:-----|
-| **Texto**    | Permite ao utilizador editar uma caixa de texto, e pode opcionalmente fornecer uma consulta para preencher o valor predefinido. |
-| **Pendente** | Permite ao utilizador escolher entre um conjunto de valores. |
-| **Selecionador de intervalo de tempo**| Permite ao utilizador escolher entre um conjunto predefinido de valores de intervalo de tempo, ou escolher de um intervalo de tempo personalizado.|
-| **Apanhador de recursos** | Permite ao utilizador escolher entre os recursos selecionados para o livro.|
+| Texto    | Permite ao utilizador editar uma caixa de texto, e pode opcionalmente fornecer uma consulta para preencher o valor predefinido. |
+| Pendente | Permite ao utilizador escolher entre um conjunto de valores. |
+| Selecionador de intervalo de tempo| Permite ao utilizador escolher entre um conjunto predefinido de valores de intervalo de tempo, ou escolher de um intervalo de tempo personalizado.|
+| Apanhador de recursos | Permite ao utilizador escolher entre os recursos selecionados para o livro.|
 
 ### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 

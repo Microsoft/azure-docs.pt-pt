@@ -3,16 +3,16 @@ title: Implementar para uma borda IoT para Linux no Windows - Azure
 description: Este artigo fornece orientações sobre como implementar para um IoT Edge para Linux no dispositivo Windows.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: 9ec28c62ca804137ede3cd60d1980e55fbaa2807
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d5c3d89ae7447b062714ad90be117a6426a39581
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618139"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561088"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Implementar para um IoT Edge para Linux no dispositivo Windows (EFLOW)
 
-Neste artigo, você vai aprender a implementar Live Video Analytics em um dispositivo de borda que tem [IoT Edge para Linux no Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows). Uma vez terminado seguindo os passos deste documento, poderá executar um [gráfico mediático](media-graph-concept.md) que detete movimento num vídeo e emita tais eventos para o hub IoT na nuvem. Em seguida, pode alternar o gráfico de mídia para cenários avançados e levar a energia do Live Video Analytics para o seu dispositivo IoT Edge baseado no Windows.
+Neste artigo, você vai aprender a implementar Live Video Analytics em um dispositivo de borda que tem [IoT Edge para Linux no Windows (EFLOW)](../../iot-edge/iot-edge-for-linux-on-windows.md). Uma vez terminado seguindo os passos deste documento, poderá executar um [gráfico mediático](media-graph-concept.md) que detete movimento num vídeo e emita tais eventos para o hub IoT na nuvem. Em seguida, pode alternar o gráfico de mídia para cenários avançados e levar a energia do Live Video Analytics para o seu dispositivo IoT Edge baseado no Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -21,7 +21,7 @@ Neste artigo, você vai aprender a implementar Live Video Analytics em um dispos
     > [!NOTE]
     > Você precisará de uma subscrição Azure com permissões para criar principais serviços **(a função do proprietário** fornece isso). Se não tiver as permissões certas, contacte o administrador da sua conta para lhe conceder as permissões certas.
 * [Código de estúdio visual](https://code.visualstudio.com/) na sua máquina de desenvolvimento. Certifique-se de que tem a [extensão Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Leia [o que é EFLOW](https://aka.ms/AzEFLOW-docs).
+* Leia [o que é EFLOW](../../iot-edge/iot-edge-for-linux-on-windows.md).
 
 ## <a name="deployment-steps"></a>Passos da implementação
 
@@ -29,9 +29,9 @@ O seguinte retrata o fluxo global do documento e em 5 passos simples deve estar 
 
 :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="IoT Edge para Linux no diagrama do Windows (EFLOW)":::
 
-1. [Instale o EFLOW](https://aka.ms/AzEFLOW-install) no seu dispositivo Windows. 
+1. [Instale o EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) no seu dispositivo Windows. 
 
-    1. Se estiver a utilizar o seu PC do Windows, então na página inicial do [Windows Admin Center,](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview) na lista de ligações, verá uma ligação de anfitrião local representando o PC onde executa o Windows Admin Center. 
+    1. Se estiver a utilizar o seu PC do Windows, então na página inicial do [Windows Admin Center,](/windows-server/manage/windows-admin-center/overview) na lista de ligações, verá uma ligação de anfitrião local representando o PC onde executa o Windows Admin Center. 
     1. Quaisquer servidores adicionais, computadores ou clusters que gere também aparecerão aqui.
     1. Pode utilizar o Windows Admin Center para instalar e gerir o Azure EFLOW quer no seu dispositivo local, quer em dispositivos geridos à distância. Neste guia, a ligação de anfitrião local serviu como o dispositivo alvo para a implementação do Azure IoT Edge para o Linux no Windows. Por isso, vê-se o local também listado como um dispositivo IoT Edge.
 
@@ -110,4 +110,3 @@ O seguinte retrata o fluxo global do documento e em 5 passos simples deve estar 
 * Executar [IA em Live Video](use-your-model-quickstart.md#overview) (pode saltar a configuração pré-requisito como já foi feito acima)
 * Utilize a nossa [extensão vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) para visualizar gráficos de mídia adicionais.
 * Utilize uma [câmara IP](https://en.wikipedia.org/wiki/IP_camera)  que suporte o RTSP em vez de utilizar o simulador RTSP. Pode encontrar câmaras IP que suportam RTSP na página de [produtos conformantes ONVIF.](https://www.onvif.org/conformant-products/) Procure dispositivos em conformidade com os perfis G, S ou T.
-

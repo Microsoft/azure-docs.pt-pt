@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07a7daf6363f0e528f84635ed6713ac462f89ca5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465764"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562856"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Analise o vídeo ao vivo utilizando Intel OpenVINO™ DL Streamer – Extensão Edge AI 
 
@@ -46,7 +46,7 @@ Abra uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/
 
 Neste arranque rápido, utilizará o Live Video Analytics no IoT Edge juntamente com o Intel OpenVINO™ DL Streamer – Edge AI Extension da Intel para detetar objetos como veículos, para classificar veículos ou veículos de pista, pessoa ou bicicletas. Publicará os eventos de inferência resultantes no IoT Edge Hub.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.svg" alt-text="Visão geral do MediaGraph LVA":::
@@ -66,7 +66,7 @@ Neste tutorial, vai:
 
 O módulo OpenVINO™ DL Streamer - Edge AI Extension é um microserviço baseado no Serviço de Vídeo Analytics da Intel (VA Serving) que serve pipelines de análise de vídeo construídos com OpenVINO™ DL Streamer. Os desenvolvedores podem enviar quadros de vídeo descodificados para o módulo de extensão de IA que realiza deteção, classificação ou rastreio e devolve os resultados. O módulo de extensão de IA expõe APIs gRPC que são compatíveis com plataformas de análise de vídeo como live video analytics em IoT Edge da Microsoft. 
 
-Para construir soluções complexas e de vídeo ao vivo de alta performance, o módulo Live Video Analytics no IoT Edge deve ser emparelhado com um poderoso motor de inferência que pode alavancar a balança na borda. Neste tutorial, os pedidos de inferência são enviados para o [Intel OpenVINO™ DL Streamer – Extensão Edge AI](https://aka.ms/lva-intel-openvino-dl-streamer), um módulo Edge que foi projetado para trabalhar com o Live Video Analytics no IoT Edge. 
+Para construir soluções complexas e de vídeo ao vivo de alta performance, o módulo Live Video Analytics no IoT Edge deve ser emparelhado com um poderoso motor de inferência que pode alavancar a balança na borda. Neste tutorial, os pedidos de inferência são enviados para o [Intel OpenVINO™ DL Streamer – Extensão Edge AI](), um módulo Edge que foi projetado para trabalhar com o Live Video Analytics no IoT Edge. 
 
 Na versão inicial deste servidor de inferência, tem acesso aos [seguintes modelos:](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options)
 

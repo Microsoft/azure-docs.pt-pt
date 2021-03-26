@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4fb2ea534954ae6c64d0da2d992ce8b1c8a62c0c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576786"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557569"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte da migração do VMware
 
@@ -68,7 +68,7 @@ A tabela resume os requisitos de migração sem agente para VMware VMs.
 **IPv6** | Não suportado.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD padrão, SSD premium) em Azure.
 **Replicação simultânea** | Até 300 VMs em simultâneo com 1 aparelho. Até 500 VMs em simultâneo quando é implantado um [aparelho de escala](./how-to-scale-out-for-migration.md) adicional. 
-**Instalação automática do agente Azure VM (Windows e Linux Agent)** | Suportado para Windows Server 2008 R2 em diante. <br/> Apoiado para RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04. Reveja a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)) para estes sistemas operativos Linux.
+**Instalação automática do agente Azure VM (Windows e Linux Agent)** | Suportado para Windows Server 2008 R2 em diante. <br/> Apoiado para RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04. Reveja a lista de [pacotes necessários](../virtual-machines/extensions/agent-linux.md#requirements)) para estes sistemas operativos Linux.
 
 > [!TIP]
 >  Utilizando o portal Azure poderá selecionar até 10 VMs de cada vez para configurar a replicação. Para replicar mais VMs pode utilizar o portal e adicionar os VMs para serem replicados em vários lotes de 10 VMs, ou utilizar a interface Azure Migrate PowerShell para configurar a replicação. Certifique-se de que não configura a replicação simultânea em mais do que o número máximo suportado de VMs para replicações simultâneas.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c2fa1441f5b7d8af4d610c5341f60009e57173af
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739063"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560952"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configurar uma porta de rede virtual para ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Os passos para esta tarefa utilizam um VNet com base nos valores da seguinte lis
 | Gateway Nome IP Público  | *gwpip* |
 
 > [!IMPORTANT]
-> O apoio iPv6 ao peering privado está atualmente em **Visualização Pública**. Se pretender ligar a sua rede virtual a um circuito ExpressRoute com o espremo privado com base no IPv6, certifique-se de que a sua rede virtual é dupla pilha e segue as diretrizes [descritas aqui.](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)
+> O apoio iPv6 ao peering privado está atualmente em **Visualização Pública**. Se pretender ligar a sua rede virtual a um circuito ExpressRoute com o espremo privado com base no IPv6, certifique-se de que a sua rede virtual é dupla pilha e segue as diretrizes [descritas aqui.](../virtual-network/ipv6-overview.md)
 > 
 > 
 

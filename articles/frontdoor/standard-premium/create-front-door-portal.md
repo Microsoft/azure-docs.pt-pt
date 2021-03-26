@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 18956948a32a79c1435bf4fc1554b09480c9010c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 175fb82a5fdf300915f89c3d8cdc238638a742e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100868"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565134"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Quickstart: Criar um perfil Standard/Premium da Porta Frontal Azure - Portal Azure
 
@@ -58,7 +58,7 @@ Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://a
     | **Nome do ponto final** | Insira um nome globalmente único para o seu ponto final. |
     | **Tipo de origem** | Selecione o tipo de recurso para a sua origem. Neste exemplo, selecionamos um serviço de App como a origem que tem o Link Privado ativado. |
     | **Nome hospedeiro de origem** | Insira o nome de anfitrião para a sua origem. |
-    | **Ativar Ligação Privada** | Se quiser ter uma ligação privada entre a sua Porta frontal Azure e a sua origem. Para mais detalhes, consulte a [orientação do link privado](concept-private-link.md) e [ative o link privado](how-to-enable-private-link.md).
+    | **Ativar Ligação Privada** | Se quiser ter uma ligação privada entre a sua Porta frontal Azure e a sua origem. Para mais detalhes, consulte a [orientação do link privado](concept-private-link.md) e [ative o link privado](./how-to-enable-private-link-web-app.md).
     | **Colocação em cache** | Selecione a caixa de verificação se pretender cache de conteúdo mais próximo dos utilizadores em todo o mundo usando os POPs de borda da Azure Front Door e a rede Microsoft. |
     | **Política da WAF** | Selecione **Criar uma** nova ou selecione uma política WAF existente a partir do dropdown se quiser ativar esta função. |
 

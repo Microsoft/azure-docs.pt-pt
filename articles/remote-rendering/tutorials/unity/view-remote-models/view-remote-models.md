@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd3596dd7b2cd01e80d9cf4db9bbc179048e7fcf
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: b98f5253cc60edc8949c06a645d81849dff2de7c
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105035970"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543691"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
@@ -753,7 +753,7 @@ O código acima está a executar os seguintes passos:
 1. Criar uma [Entidade Remota.](../../../concepts/entities.md)
 1. Crie um GameObject local para representar a entidade remota.
 1. Configure o GameObject local para sincronizar o seu estado (isto é, transformar) na entidade remota a cada frame.
-1. Desacorda um nome e adicione um [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) para ajudar na estabilização.
+1. Desacorda um nome e adicione um [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) para ajudar na estabilização.
 1. Carregue os dados do modelo do Blob Storage na entidade remota.
 1. Devolva a Entidade-Mãe, para posterior referência.
 

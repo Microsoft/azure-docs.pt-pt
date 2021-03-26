@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101645472"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543963"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Plan Azure Ative Directory My Apps configuração
 
@@ -74,31 +74,19 @@ Os administradores podem configurar:
 
 ## <a name="plan-consent-configuration"></a>Configuração do consentimento do plano
 
-Existem dois tipos de consentimento: consentimento do utilizador e consentimento para apps que acedam aos dados.
-
-![Imagem de tela da configuração do consentimento](./media/my-apps-deployment-plan/my-apps-consent.png)
-
 ### <a name="user-consent-for-applications"></a>Consentimento do utilizador para aplicações 
 
-Os utilizadores ou administradores devem consentir com os termos de uso e políticas de privacidade de qualquer aplicação. Tem de decidir se os utilizadores ou apenas administradores podem consentir com as aplicações. **Recomendamos que, se as suas regras comerciais o permitirem, utilize o consentimento do administrador para manter o controlo das aplicações no seu inquilino.**
+Antes que um utilizador possa iniciar seduca a uma aplicação e a aplicação possa aceder aos dados da sua organização, um utilizador ou um administrador deve conceder as permissões de aplicação. Pode configurar se o consentimento do utilizador é permitido e em que condições. **A Microsoft recomenda que apenas permita o consentimento do utilizador para aplicações de editores verificados.**
 
-Para utilizar o consentimento do administrador, tem de ser um administrador global da organização, e as aplicações devem ser:
-
-* Registado na sua organização.
-
-* Registado em outra organização da AZure AD e previamente consentido por pelo menos um utilizador.
-
-Se pretender permitir que os utilizadores consintam, tem de decidir se pretende que eles consintam em alguma aplicação, ou apenas em circunstâncias específicas.
-
-Para obter mais informações, consulte [Configure a forma como os utilizadores finais concordam com uma aplicação no Azure Ative Directory.](../manage-apps/configure-user-consent.md)
+Para mais informações, consulte [Configure como os utilizadores finais concordam com as aplicações](../manage-apps/configure-user-consent.md)
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consentimento do proprietário do grupo para apps que acedem aos dados
 
-Determine se os proprietários dos grupos de segurança Azure AD ou grupos M365 estão em condições de consentir com as aplicações para aceder aos dados dos grupos que possuem. Pode não permitir, permitir todos os proprietários do grupo, ou permitir apenas um subconjunto de proprietários do grupo.
+Os proprietários de grupos e equipas podem autorizar aplicações, como aplicações publicadas por fornecedores de terceiros, a aceder aos dados da sua organização associados a um grupo. Consulte [o consentimento específico do recurso nas Equipas da Microsoft](https://docs.microsoft.com/microsoftteams/resource-specific-consent) para saber mais. 
+
+Pode configurar se pretende permitir ou desativar esta funcionalidade.
 
 Para obter mais informações, consulte [as permissões de consentimento do grupo Configure](../manage-apps/configure-user-consent-groups.md).
-
-Em seguida, configufique as [definições de consentimento do utilizador e do grupo](https://portal.azure.com/) no portal Azure.
 
 ### <a name="plan-communications"></a>Planear as comunicações
 

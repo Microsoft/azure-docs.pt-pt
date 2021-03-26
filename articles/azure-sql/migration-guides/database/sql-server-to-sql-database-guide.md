@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: ce155015373a096595dc61d75c876633e2e4f00a
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027198"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564930"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>Guia de migração: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -152,7 +152,7 @@ Ao utilizar opções de migração que replicam/sincronizam continuamente os dad
 Depois de verificar se os dados são os mesmos tanto na fonte como no alvo, pode cortar da fonte para o ambiente alvo. É importante planear o processo de corte com equipas de negócios/aplicações para garantir que a interrupção mínima durante o corte não afete a continuidade do negócio. 
 
 > [!IMPORTANT]
-> Para obter mais informações sobre os passos específicos associados à realização de um corte como parte das migrações utilizando DMS, consulte [o corte de migração de desempenho](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+> Para obter mais informações sobre os passos específicos associados à realização de um corte como parte das migrações utilizando DMS, consulte [o corte de migração de desempenho](../../../dms/tutorial-sql-server-to-azure-sql.md).
 
 ## <a name="migration-recommendations"></a>Recomendações de migração
 

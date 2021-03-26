@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d75986880075f6eb07aa31b9322bdae15535802
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1d42843805f4fce24368dd07de3a73fec2545957
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437609"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567530"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Ativar o Azure Arc no cluster Kubernetes no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -74,7 +74,7 @@ Antes de ativar o Azure Arc no cluster Kubernetes, terá de ativar e registar-se
     
     ![Registar fornecedores de recursos Kubernetes 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-Também pode registar fornecedores de recursos através do `az cli` . Para obter mais informações, consulte [Registar os dois fornecedores da Azure Arc habilitados a Kubernetes](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
+Também pode registar fornecedores de recursos através do `az cli` . Para obter mais informações, consulte [Registar os dois fornecedores da Azure Arc habilitados a Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
 
 ## <a name="create-service-principal-assign-role"></a>Criar o principal de serviço, atribuir função
 
@@ -226,7 +226,7 @@ Para remover a gestão do Arco Azure, siga estes passos:
 
 
 > [!NOTE]
-> Por predefinição, quando os recursos `yamls` são eliminados do repositório git, os recursos correspondentes não são eliminados do cluster Kubernetes. É necessário definir `--sync-garbage-collection`  no Arc OperatorParams para permitir a supressão de recursos quando eliminado do repositório de git. Para obter mais informações, consulte [Eliminar uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
+> Por predefinição, quando os recursos `yamls` são eliminados do repositório git, os recursos correspondentes não são eliminados do cluster Kubernetes. É necessário definir `--sync-garbage-collection`  no Arc OperatorParams para permitir a supressão de recursos quando eliminado do repositório de git. Para obter mais informações, consulte [Eliminar uma configuração](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters)
 
 ## <a name="next-steps"></a>Passos seguintes
 

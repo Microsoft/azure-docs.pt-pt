@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ab927c973c6a5de6f3f3f8d88c504ec572b7148
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f63fc7ae28d80707149046637cf39c60a45748fd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047597"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566579"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança Azure para instâncias de contentores
 
@@ -32,7 +32,7 @@ Para ver como as instâncias do contentor mapeiam completamente o Benchmark de S
 
 Controle o acesso à rede de saída a partir de uma sub-rede delegada em Instâncias de Contentores Azure utilizando a Firewall Azure. 
 
-- [Implementar instâncias de contentores numa rede virtual do Azure](/azure/container-instances/container-instance-vnet)
+- [Implementar instâncias de contentores numa rede virtual do Azure](/azure/container-instances/container-instances-vnet)
 
 - [Como implantar e configurar firewall Azure](../firewall/tutorial-firewall-deploy-portal.md)
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 506982a22fd53dfb4f8f3d94735c11fc491469eb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0ce8e45f301ac0fd84f7d5d27d81b63103768f89
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097283"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567717"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -62,7 +62,7 @@ Os clientes podem ligar-se ao ponto final privado a partir da mesma rede virtual
 
  ![Diagrama de opções de conectividade][1]
 
-Além disso, os serviços que não estão a funcionar diretamente na rede virtual mas que estão integrados com ela (por exemplo, aplicações web ou funções do Serviço de Aplicações) também podem alcançar conectividade privada à base de dados. Para obter mais informações sobre este caso de utilização específica, consulte a aplicação Web com conectividade privada ao cenário de arquitetura [de base de dados Azure SQL.](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app)
+Além disso, os serviços que não estão a funcionar diretamente na rede virtual mas que estão integrados com ela (por exemplo, aplicações web ou funções do Serviço de Aplicações) também podem alcançar conectividade privada à base de dados. Para obter mais informações sobre este caso de utilização específica, consulte a aplicação Web com conectividade privada ao cenário de arquitetura [de base de dados Azure SQL.](/azure/architecture/example-scenario/private-web-app/private-web-app)
 
 ## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>Testar conectividade à Base de Dados SQL a partir de um VM Azure na mesma rede virtual
 
@@ -185,7 +185,7 @@ PolyBase e a declaração COPY são geralmente usados para carregar dados em Azu
 
 - Para obter uma visão geral da segurança da Base de Dados Azure SQL, consulte [a sua base de dados](security-overview.md)
 - Para uma visão geral da conectividade da Base de Dados [Azure SQL, consulte Azure SQL Connectivity Architecture](connectivity-architecture.md)
-- Você também pode estar interessado na aplicação Web com conectividade privada ao cenário de arquitetura [da base de dados Azure SQL,](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) que conecta uma aplicação web fora da rede virtual ao ponto final privado de uma base de dados.
+- Você também pode estar interessado na aplicação Web com conectividade privada ao cenário de arquitetura [da base de dados Azure SQL,](/azure/architecture/example-scenario/private-web-app/private-web-app) que conecta uma aplicação web fora da rede virtual ao ponto final privado de uma base de dados.
 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/pe-connect-overview.png

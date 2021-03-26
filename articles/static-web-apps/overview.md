@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 9cd5136d69e4b14aa50a96d20f3187ce88db6e96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f4e900c8bcdcb5febec39421e098b19ad10b8b00
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92320499"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558895"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>O que é Azure Static Web Apps Preview?
 
@@ -24,7 +24,7 @@ O fluxo de trabalho da Azure Static Web Apps é adaptado ao fluxo de trabalho di
 
 Quando cria um recurso das Aplicações Web Estáticas do Azure, o Azure configura um fluxo de trabalho do GitHub Actions no repositório de código fonte da aplicação que monitoriza um ramo à sua escolha. Sempre que pressiona compromete-se ou aceita pedidos de puxar para a sucursal observada, a GitHub Action constrói e implementa automaticamente a sua app e a sua API para Azure.
 
-As aplicações web estáticas são geralmente construídas usando bibliotecas e estruturas como Angular, React, Svelte, Vue ou Blazor. Estas aplicações incluem HTML, CSS, JavaScript e elementos de imagem que compõem a aplicação. Com um servidor web tradicional, estes ativos são servidos a partir de um único servidor ao lado de todos os pontos finais da API necessários.
+As aplicações web estáticas são geralmente construídas usando bibliotecas e estruturas como Angular, React, Svelte, Vue ou Blazor onde a renderização do lado do servidor não é necessária. Estas aplicações incluem HTML, CSS, JavaScript e elementos de imagem que compõem a aplicação. Com um servidor web tradicional, estes ativos são servidos a partir de um único servidor ao lado de todos os pontos finais da API necessários.
 
 Com aplicações web estáticas, os ativos estáticos são separados de um servidor web tradicional e são servidos a partir de pontos geograficamente distribuídos em todo o mundo. Esta distribuição torna a apresentação de ficheiros muito mais rápida, uma vez que os ficheiros estão fisicamente mais próximos dos utilizadores finais. Além disso, os pontos finais da API são hospedados usando uma [arquitetura sem servidor](../azure-functions/functions-overview.md), o que evita a necessidade de um servidor back-end completo todos juntos.
 

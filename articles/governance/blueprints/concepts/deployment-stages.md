@@ -3,12 +3,12 @@ title: Fases da implementação de um esquema
 description: Aprenda os passos relacionados com a segurança e artefactos que os serviços da Azure Blueprints passam enquanto criam uma atribuição de projeto.
 ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: e686dec1c9d79e42dafee17d8a937284aac4fdd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 473f8c7957994401ea6000ecc0d8023a89f8c349
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98918556"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560154"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fases da implementação de um esquema
 
@@ -27,7 +27,7 @@ A implementação do plano é desencadeada atribuindo uma planta a uma subscriç
 
 O principal do serviço Azure Blueprints recebe direitos de proprietário sobre a subscrição ou subscrições atribuídas quando é utilizada uma identidade [gerida pelo sistema.](../../../active-directory/managed-identities-azure-resources/overview.md) O papel concedido permite que a Azure Blueprints crie, e mais tarde revogue, a identidade gerida **atribuída pelo sistema.** Se utilizar uma identidade gerida **atribuída pelo utilizador,** o diretor de serviço da Azure Blueprints não obtém e não necessita de direitos de proprietário sobre a subscrição.
 
-Os direitos são concedidos automaticamente se a atribuição for feita através do portal. No entanto, se a atribuição for feita através da API REST, a concessão dos direitos tem de ser feita com uma chamada separada da API. O Azure Blueprints AppId `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` é, mas o principal serviço varia por inquilino. Utilize o serviço [Azure Ative Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) e REST endpointPrincipals para obter o principal serviço. [](/graph/api/resources/serviceprincipal) Em seguida, conceda ao Azure Blueprints a função _de Proprietário_ através do [Portal](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI,](../../../role-based-access-control/role-assignments-cli.md) [Azure PowerShell,](../../../role-based-access-control/role-assignments-powershell.md) [REST API,](../../../role-based-access-control/role-assignments-rest.md)ou um [modelo de Gestor de Recursos Azure](../../../role-based-access-control/role-assignments-template.md).
+Os direitos são concedidos automaticamente se a atribuição for feita através do portal. No entanto, se a atribuição for feita através da API REST, a concessão dos direitos tem de ser feita com uma chamada separada da API. O Azure Blueprints AppId `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` é, mas o principal serviço varia por inquilino. Utilize o serviço [Azure Ative Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist) e REST endpointPrincipals para obter o principal serviço. [](/graph/api/resources/serviceprincipal) Em seguida, conceda ao Azure Blueprints a função _de Proprietário_ através do [Portal](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI,](../../../role-based-access-control/role-assignments-cli.md) [Azure PowerShell,](../../../role-based-access-control/role-assignments-powershell.md) [REST API,](../../../role-based-access-control/role-assignments-rest.md)ou um [modelo de Gestor de Recursos Azure](../../../role-based-access-control/role-assignments-template.md).
 
 O serviço Azure Blueprints não implementa diretamente os recursos.
 

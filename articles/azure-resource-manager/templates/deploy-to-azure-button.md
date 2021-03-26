@@ -2,13 +2,13 @@
 title: Botão Implementar no Azure
 description: Utilize o botão para implementar os modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028748"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543788"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
@@ -76,7 +76,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Tem o URL completo para a ligação.
 
-Tipicamente, você hospeda o modelo em um repo público. Se utilizar um repo privado, deve incluir um símbolo para aceder ao conteúdo bruto do modelo. O símbolo gerado pelo GitHub é válido por apenas um curto período de tempo. Precisaria de atualizar frequentemente o link.
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Se estiver a utilizar [Git com Azure Repos](/azure/devops/repos/git/) em vez de um repo GitHub, ainda pode utilizar o botão **Implementar para Azure.** Certifique-se de que o seu repo é público. Utilize a [operação Itens](/rest/api/azure/devops/git/items/get) para obter o modelo. O seu pedido deve estar no seguinte formato:
 

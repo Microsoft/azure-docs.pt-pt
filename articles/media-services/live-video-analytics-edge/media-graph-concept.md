@@ -3,12 +3,12 @@ title: Conceito de gráfico de mídia - Azure
 description: Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97401105"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557671"
 ---
 # <a name="media-graph"></a>Grafo do suporte de dados
 
@@ -17,7 +17,7 @@ ms.locfileid: "97401105"
 * [Análise de vídeo ao vivo na visão geral do IoT Edge](overview.md)
 * [Análise de vídeo ao vivo na terminologia IoT Edge](terminology.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Consegue-o ligando componentes, ou nós, da maneira desejada. O diagrama abaixo fornece uma representação gráfica de um gráfico mediático.  
 
@@ -74,7 +74,7 @@ Um nó de origem RTSP permite-lhe ingerir meios de comunicação a partir de um 
 
 #### <a name="iot-hub-message-source"></a>Fonte de mensagem IoT Hub 
 
-À semelhança de [outros módulos IoT Edge,](../../iot-edge/iot-edge-glossary.md#iot-edge-module)o live video analytics no módulo IoT Edge pode receber mensagens através do [hub IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Estas mensagens podem ser enviadas a partir de outros módulos, ou aplicações em execução no dispositivo Edge, ou a partir da nuvem. Tais mensagens são entregues (encaminhadas) para uma [entrada nomeada](../../iot-edge/module-composition.md#sink) no módulo. Um nó de mensagem IoT Hub permite que tais mensagens cheguem a um gráfico de mídia. Estas mensagens ou sinais podem então ser utilizados internamente no gráfico de mídia, normalmente para ativar os portões de sinal (ver [portões](#signal-gate-processor) de sinal abaixo). 
+À semelhança de [outros módulos IoT Edge,](../../iot-fundamentals/iot-glossary.md#iot-edge)o live video analytics no módulo IoT Edge pode receber mensagens através do [hub IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). Estas mensagens podem ser enviadas a partir de outros módulos, ou aplicações em execução no dispositivo Edge, ou a partir da nuvem. Tais mensagens são entregues (encaminhadas) para uma [entrada nomeada](../../iot-edge/module-composition.md#sink) no módulo. Um nó de mensagem IoT Hub permite que tais mensagens cheguem a um gráfico de mídia. Estas mensagens ou sinais podem então ser utilizados internamente no gráfico de mídia, normalmente para ativar os portões de sinal (ver [portões](#signal-gate-processor) de sinal abaixo). 
 
 Por exemplo, pode ter um módulo IoT Edge que gera uma mensagem quando uma porta é aberta. A mensagem desse módulo pode ser encaminhada para o hub IoT Edge, de onde pode ser encaminhado para a mensagem do hub IoT de um gráfico de mídia. Dentro do gráfico de mídia, a fonte de mensagem do hub IoT pode passar o evento para um processador do portão de sinal, que pode então ligar a gravação do vídeo a partir de uma fonte RTSP para um ficheiro. 
 

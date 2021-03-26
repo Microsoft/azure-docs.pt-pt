@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 03/16/2021
-  ms.openlocfilehash: 2a4890f19eb02f4021af9a82ccbe9e385a6b320d
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.openlocfilehash: 7840800a6507794ec28a2b4e82e80bd8e80554a4
+  ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104601011"
+  ms.lasthandoff: 03/26/2021
+  ms.locfileid: "105557348"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -120,7 +120,7 @@ additionalContent:
       - text: SDK do Azure para Python
         url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
       - text: REST
-        url: /rest/api/resources/managementgroups
+        url: /rest/api/managementgroups
       - text: Modelos do Resource Manager
         url: /azure/templates/microsoft.management/managementgroups
     - title: Azure Policy

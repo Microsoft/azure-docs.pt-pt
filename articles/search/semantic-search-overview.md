@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: b5b33007f71cfc2a29005ce84f1fedba90dd1bf1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888911"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561972"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica em Pesquisa Cognitiva de Azure
 
@@ -44,7 +44,7 @@ A procura semântica melhora a precisão e a recuperação com a adição das se
 
 ### <a name="order-of-operations"></a>Ordem de operações
 
-Os componentes da procura semântica estendem o gasoduto de execução de consultas existente em ambas as direções. Se ativar a correção ortográfica, o [soletrador](speller-how-to-add.md) corrige os erros no início, antes que os termos de consulta cheguem ao motor de busca.
+Os componentes da procura semântica estendem o gasoduto de execução de consultas existente em ambas as direções. Se ativar a correção ortográfica, o [soletrador](speller-how-to-add.md) corrige os tipografias no início da consulta, antes que os termos cheguem ao motor de busca.
 
 :::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Componentes semânticos na execução de consultas" border="true":::
 

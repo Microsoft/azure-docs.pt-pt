@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: 090c738d06b9b8acd53a4c194e97fa3a0515e1d6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: c9e1abc5fb6f66981f56bc262319587d9fc4265e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783392"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566664"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Como utilizar parâmetros, expressões e funções na Azure Data Factory
 
@@ -25,7 +25,7 @@ Neste documento, vamos focar-nos principalmente na aprendizagem de conceitos fun
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>UI da fábrica de dados Azure e parâmetros
 
-Se é novo na utilização de parâmetros de fábrica de dados Azure na interface de utilizador ADF, por favor reveja [a UI da fábrica de dados para serviços ligados com parâmetros](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui)  e [UI de fábrica de dados para pipeline conduzido por metadados com parâmetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) para explicação visual.
+Se é novo na utilização de parâmetros de fábrica de dados Azure na interface de utilizador ADF, por favor reveja [a UI da fábrica de dados para serviços ligados com parâmetros](./parameterize-linked-services.md#data-factory-ui)  e [UI de fábrica de dados para pipeline conduzido por metadados com parâmetros](./how-to-use-trigger-parameterization.md#data-factory-ui) para explicação visual.
 
 ## <a name="parameter-and-expression-concepts"></a>Conceitos de parâmetro e expressão 
 
@@ -313,11 +313,11 @@ Este parâmetro de [cópia da fábrica de dados Azure passando tutorial](https:/
 
 ### <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Pipeline de fluxo de dados de mapeamento detalhado com parâmetros 
 
-Por favor, siga [o fluxo de dados de mapeamento com parâmetros](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) para um exemplo abrangente sobre como usar parâmetros no fluxo de dados.
+Por favor, siga [o fluxo de dados de mapeamento com parâmetros](./parameters-data-flow.md) para um exemplo abrangente sobre como usar parâmetros no fluxo de dados.
 
 ### <a name="detailed-metadata-driven-pipeline-with-parameters"></a>Pipeline detalhado com metadados com parâmetros
 
-Siga o [pipeline conduzido por metadados com parâmetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) para saber mais sobre como usar parâmetros para desenhar pipelines guiados por metadados. Este é um caso de uso popular para parâmetros.
+Siga o [pipeline conduzido por metadados com parâmetros](./how-to-use-trigger-parameterization.md) para saber mais sobre como usar parâmetros para desenhar pipelines guiados por metadados. Este é um caso de uso popular para parâmetros.
 
 
 ## <a name="next-steps"></a>Passos seguintes

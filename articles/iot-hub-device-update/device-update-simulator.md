@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8b2a8ae76c79e4d3ff151334defe7f966c60f032
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443816"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559252"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Atualização do dispositivo para tutorial Azure IoT Hub utilizando o Agente de Referência do Simulador Ubuntu (18,04 x64)
 
@@ -30,10 +30,8 @@ Neste tutorial, vai aprender a:
 > * Implementar uma atualização de imagem
 > * Monitorize a implementação da atualização
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
-* Acesso a um hub IoT. Recomenda-se que utilize um nível S1 (Standard) ou superior.
+* Se ainda não o fez, crie uma [conta e exemplo de Atualização de Dispositivos](create-device-update-account.md), incluindo configurar um Hub IoT.
 
 ### <a name="download-and-install"></a>Transferir e instalar
 

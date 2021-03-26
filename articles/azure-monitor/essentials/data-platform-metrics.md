@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8ecfd74a4d486a83add490501c2f7af4a4003b85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 68e947a6e13ba5195815fe966ec69ec6a2f4b8e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700979"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562975"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Métricas do Monitor Azure
 Azure Monitor Metrics é uma característica do Azure Monitor que recolhe dados numéricos de [recursos monitorizados](../monitor-reference.md) numa base de dados de séries temporizadas. As métricas são valores numéricos que são recolhidos a intervalos regulares e descrevem algum aspeto de um sistema num determinado momento. As métricas no Azure Monitor são leves e capazes de suportar cenários em tempo real, tornando-os particularmente úteis para alertar e detetar rapidamente problemas. Pode analisá-las interativamente com o explorador de métricas, ser notificada proativamente com um alerta quando um valor cruza um limiar, ou visualizá-los num livro ou num painel de instrumentos.
@@ -27,7 +27,7 @@ Azure Monitor Metrics é uma característica do Azure Monitor que recolhe dados 
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>O que se pode fazer com as Métricas do Monitor Azure?
 A tabela que se segue lista as diferentes formas de utilização de Métricas no Monitor Azure.
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Análise** | Use [o explorador de métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar métricas de diferentes recursos. |
 | **Alerta** | Configure uma [regra de alerta métrico](../alerts/alerts-metric.md) que envia uma notificação ou toma [medidas automatizadas](../alerts/action-groups.md) quando o valor métrico cruza um limiar. |

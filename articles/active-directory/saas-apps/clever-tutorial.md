@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 29384457f946eff5708c319e14161d670adf6ca8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5fe539521213a6c25804c5c0db1e6b18646cceea
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98729895"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563842"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutorial: Azure Ative Directory integração única (SSO) com Clever
 
@@ -118,7 +118,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-clever-sso"></a>Configurar SSO Inteligente
 
-Siga as instruções dadas no [link](https://support.clever.com/hc/articles/205889768-Single-Sign-On-SSO-Log-in-with-Office-365-Azure-) para configurar um único sinal no lado inteligente.
+Siga as instruções dadas no [link](https://support.clever.com/hc/s/articles/205889768) para configurar um único sinal no lado inteligente.
 
 ### <a name="create-clever-test-user"></a>Criar utilizador de teste inteligente
 

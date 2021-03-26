@@ -1,18 +1,18 @@
 ---
 title: Visão geral de Azure Percept DK
 description: Saiba mais sobre o Azure Percept DK
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4e3acc4d3c3b772cbc6edf47d7216566c58d3dd0
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: b20448a88cee6c4ea4af0bcbfaa6ec465f2e28bb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026892"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560969"
 ---
 # <a name="azure-percept-dk-overview"></a>Visão geral de Azure Percept DK
 

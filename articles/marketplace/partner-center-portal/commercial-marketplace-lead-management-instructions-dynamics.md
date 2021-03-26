@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: d996a2e0732ad9b4da104265710970e04cdbd368
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 067a30d8f16b06b1b29ad494363d180886d1ab8b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98199784"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560085"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configure a gestão de chumbo para a Dynamics 365 Customer Engagement
 
@@ -32,7 +32,7 @@ São necessárias as seguintes permissões do utilizador para completar os passo
 
 ## <a name="install-the-solution"></a>Instale a solução
 
-1. Descarregue a [solução Microsoft Marketplace Lead Writer](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip)e guarde-a localmente para o seu computador.
+1. Descarregue a [solução Microsoft Marketplace Lead Writer](https://referralsflowpackages.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip)e guarde-a localmente para o seu computador.
 
 1. Open Dynamics 365 Customer Engagement indo ao URL para a sua instância Dynamics, como `https://tenant.crm.dynamics.com` .
 

@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 676fdf264cb930069425a330c3da9cd753bf8e0a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97708488"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567038"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurar definições de papel de AD Azure na Gestão de Identidade Privilegiada
 
@@ -64,14 +64,14 @@ Pode escolher entre duas opções de duração de atribuição para cada tipo de
 
 Pode escolher uma destas opções de duração da atribuição **elegíveis:**
 
-| | |
+| | Description |
 | --- | --- |
 | **Permitir a atribuição elegível permanente** | Os administradores globais e os administradores privilegiados podem atribuir uma atribuição elegível permanente. |
 | **Expirar atribuição elegível após** | Os administradores globais e os administradores privilegiados podem exigir que todas as atribuições elegíveis tenham uma data de início e fim especificada. |
 
 E, pode escolher uma destas opções de duração de atribuição **ativa:**
 
-| | |
+| | Description |
 | --- | --- |
 | **Permitir atribuição ativa permanente** | Os administradores globais e os administradores privilegiados podem atribuir uma atribuição ativa permanente. |
 | **Expire a atribuição ativa depois** | Os administradores globais e os administradores de funções privilegiadas podem exigir que todas as atribuições ativas tenham uma data de início e fim especificada. |

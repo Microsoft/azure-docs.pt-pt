@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
 ms.date: 03/03/2021
-ms.openlocfilehash: d8f7a2b2f31fb192147c1950866cff77064a3671
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: a884dac90273e98868fed6bfe1cbed23b939d286
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020318"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557705"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Ativar o registo de diagnóstico na API Azure para FHIR
 
@@ -42,7 +42,7 @@ Pode ver as métricas em Monitorização | Métricas do portal. As métricas inc
     2. **Transmita para o centro** de eventos para ingestão por um serviço de terceiros ou solução analítica personalizada. Você precisará criar um espaço de nome de eventos e política de centro de eventos antes de configurar este passo.
     3. **Transmita para o** espaço de trabalho Log Analytics no Azure Monitor. Terá de criar o seu Espaço de Trabalho de Analítica de Logs antes de poder selecionar esta opção.
 
-6. Selecione **AuditLogs** e/ou **AllMetrics**. As métricas incluem nome de serviço, disponibilidade, tamanho de dados, latência total, pedidos totais, erros totais e marcação de tempo. Pode encontrar mais detalhes sobre [métricas suportadas.](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices) 
+6. Selecione **AuditLogs** e/ou **AllMetrics**. As métricas incluem nome de serviço, disponibilidade, tamanho de dados, latência total, pedidos totais, erros totais e marcação de tempo. Pode encontrar mais detalhes sobre [métricas suportadas.](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisservices) 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Definições de diagnóstico Azure FHIR. Selecione AuditLogs e/ou AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 

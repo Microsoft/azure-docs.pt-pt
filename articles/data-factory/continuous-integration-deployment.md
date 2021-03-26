@@ -7,18 +7,18 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: aa2c5801e61fb73219934c5d38e894520c41ab26
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 24aa3bc455bf716c074526d707594bd3b4170619
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784038"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564182"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A integração contínua é a prática de testar cada alteração feita na sua base de código automaticamente e o mais cedo possível. A entrega contínua segue os testes que ocorrem durante a integração contínua e emite as alterações para um sistema de teste ou de produção.
 
@@ -335,7 +335,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 * Embora a personalização específica do tipo esteja disponível para conjuntos de dados, pode fornecer configuração sem ter explicitamente uma \* configuração de nível. No exemplo anterior, todas as propriedades do conjunto de `typeProperties` dados são parametrizadas.
 
 > [!NOTE]
-> **Alertas e matrizes azure**  se configurados para um gasoduto não são atualmente suportados como parâmetros para as implementações da ARM. Para reaplicar os alertas e matrizes em novos ambientes, siga a [Monitorização, Alertas e Matrizes da Data Factory.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> **Alertas e matrizes azure**  se configurados para um gasoduto não são atualmente suportados como parâmetros para as implementações da ARM. Para reaplicar os alertas e matrizes em novos ambientes, siga a [Monitorização, Alertas e Matrizes da Data Factory.](./monitor-using-azure-monitor.md#data-factory-metrics)
 > 
 
 ### <a name="default-parameterization-template"></a>Modelo de parametrização padrão

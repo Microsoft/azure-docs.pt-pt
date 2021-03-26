@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6f677c8753f09e146d300186e19217568952b417
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c1fbaf9be4cb128f0e4390a8c97c6f0b9330ce2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705403"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559881"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Terminologia e alterações de entidades entre os Serviços de Mídia V2 e V3
 
@@ -90,7 +90,3 @@ Reveja as convenções de nomeação que são aplicadas aos recursos dos Media S
 | Modo de standby de evento ao vivo <!--new row --> | Não havia modo de espera para o V2. | O modo stand-by é uma nova funcionalidade v3 que ajuda a gerir piscinas quentes de Eventos Ao Vivo. Os clientes podem agora iniciar um Live Event em modo stand-by a um custo mais baixo antes de transitar para o estado de execução. Isto melhora os tempos de início do canal e reduz os custos de operação de piscinas quentes para arranques mais rápidos. |
 | Faturação de evento ao vivo <!--new row --> | <!-- empty-->| A faturação de eventos ao vivo é baseada em medidores do Live Channel. |
 | Saídas ao vivo <!--new row --> | Os programas tiveram de ser iniciados após a criação. | As Saídas Ao Vivo começam na criação e param quando apagadas. |
-
-## <a name="next-steps"></a>Passos seguintes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

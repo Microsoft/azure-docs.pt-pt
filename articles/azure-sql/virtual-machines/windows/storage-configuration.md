@@ -1,5 +1,5 @@
 ---
-title: Configuração de armazenamento para VMs do servidor SQL | Microsoft Docs
+title: Configure o armazenamento para VMs do servidor SQL | Microsoft Docs
 description: Este tópico descreve como o Azure configura o armazenamento para VMs do servidor SQL durante o fornecimento (modelo de implementação do Gestor de Recursos Azure). Também explica como pode configurar o armazenamento para os VMs do seu servidor SQL existente.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,27 +13,26 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 982bd9239c5e95c9b7af09b5f54c5a09067ca7c6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97356728"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565431"
 ---
-# <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
+# <a name="configure-storage-for-sql-server-vms"></a>Configure o armazenamento para VMs do servidor SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Ao configurar uma imagem virtual do SQL Server (VM) em Azure, o portal Azure ajuda a automatizar a sua configuração de armazenamento. Isto inclui a anexação do armazenamento ao VM, tornando esse armazenamento acessível ao SQL Server, e configurando-o para otimizar os seus requisitos de desempenho específicos.
+Este artigo ensina-lhe como configurar o seu armazenamento para o seu SQL Server em Azure Virtual Machines (VMs).
 
-Este tópico explica como o Azure configura o armazenamento para os seus VMs do servidor SQL, tanto durante o fornecimento como para os VMs existentes. Esta configuração baseia-se nas [melhores práticas](performance-guidelines-best-practices.md) de desempenho para VMs Azure que executam o SQL Server.
+Os VMs do Servidor SQL implantados através de imagens de mercado seguem automaticamente [as melhores práticas](performance-guidelines-best-practices-storage.md) de armazenamento predefinidas que podem ser modificadas durante a implementação. Algumas destas definições podem ser alteradas após a implementação. 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar as definições de configuração de armazenamento automatizado, a sua máquina virtual requer as seguintes características:
 
-* A provisionada com uma [imagem de galeria sql server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
+* A provisionada com uma [imagem de galeria SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo) ou registada com a [extensão SQL IaaS]().
 * Utiliza o [modelo de implementação do Gestor de Recursos.](../../../azure-resource-manager/management/deployment-models.md)
 * Utiliza [SSDs premium.](../../../virtual-machines/disks-types.md)
 
@@ -47,7 +46,9 @@ Ao forer um VM Azure utilizando uma imagem de galeria SQL Server, selecione alte
 
 ![Screenshot que realça o separador de definições do SQL Server e a opção de configuração Change.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Selecione o tipo de carga de trabalho para a qual está a implementar o seu Servidor SQL sob **a otimização do Armazenamento**. Com a opção de otimização **geral,** por padrão terá um disco de dados com 5000 IOPS máximo, e utilizará esta mesma unidade para o seu registo de dados, registo de transações e armazenamento tempDB. Selecionar o **processamento transacional** (OLTP) ou o armazenamento de dados criará um disco separado para **dados,** um disco separado para o registo de transações e utilizará sSD local para tempDB. Não existem diferenças de armazenamento entre **o processamento transacional** e o armazenamento **de dados,** mas altera a [configuração das suas listras e traça as bandeiras.](#workload-optimization-settings) A escolha do armazenamento premium define o caching para *ReadOnly* para a unidade de dados, e *nenhuma* para a unidade de registo de acordo com as [melhores práticas de desempenho do SQL Server VM](performance-guidelines-best-practices.md). 
+Selecione o tipo de carga de trabalho para a qual está a implementar o seu Servidor SQL sob **a otimização do Armazenamento**. Com a opção de otimização **geral,** por padrão terá um disco de dados com 5000 IOPS máximo, e utilizará esta mesma unidade para o seu registo de dados, registo de transações e armazenamento tempDB. 
+
+Selecionar o **processamento transacional** (OLTP) ou o armazenamento de dados criará um disco separado para **dados,** um disco separado para o registo de transações e utilizará sSD local para tempDB. Não existem diferenças de armazenamento entre **o processamento transacional** e o armazenamento **de dados,** mas altera a [configuração das suas listras e traça as bandeiras.](#workload-optimization-settings) A escolha do armazenamento premium define o caching para *ReadOnly* para a unidade de dados, e *nenhuma* para a unidade de registo de acordo com as [melhores práticas de desempenho do SQL Server VM](performance-guidelines-best-practices.md). 
 
 ![Configuração de armazenamento VM do servidor SQL durante o provisionamento](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -74,7 +75,7 @@ Com base nas suas escolhas, a Azure executa as seguintes tarefas de configuraç�
 * Associa a piscina de armazenamento a uma nova unidade na máquina virtual.
 * Otimiza esta nova unidade com base no seu tipo de carga de trabalho especificada (armazenamento de dados, processamento transacional ou geral).
 
-Para mais detalhes sobre como o Azure configura as definições de armazenamento, consulte a [secção de configuração de armazenamento](#storage-configuration). Para uma análise completa de como criar um SQL Server VM no portal Azure, consulte [o tutorial de provisionamento](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
+Para uma análise completa de como criar um SQL Server VM no portal Azure, consulte [o tutorial de provisionamento](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
 ### <a name="resource-manager-templates"></a>Modelos do Resource Manager
 
@@ -111,7 +112,7 @@ Pode modificar as definições do disco para as unidades que foram configuradas 
 ![Configure armazenamento para o VM do servidor SQL existente](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-## <a name="storage-configuration"></a>Configuração do armazenamento
+## <a name="automated-changes"></a>Alterações automatizadas
 
 Esta secção fornece uma referência para as alterações de configuração de armazenamento que o Azure executa automaticamente durante o fornecimento ou configuração do SQL Server VM no portal Azure.
 
@@ -137,7 +138,7 @@ O Azure utiliza as seguintes definições para criar a piscina de armazenamento 
 <sup>1</sup> Após a criação da piscina de armazenamento, não é possível alterar o número de colunas na piscina de armazenamento.
 
 
-## <a name="workload-optimization-settings"></a>Definições de otimização da carga de trabalho
+### <a name="workload-optimization-settings"></a>Definições de otimização da carga de trabalho
 
 O quadro a seguir descreve as três opções de tipo de carga de trabalho disponíveis e as respetivas otimizações:
 
@@ -149,6 +150,78 @@ O quadro a seguir descreve as três opções de tipo de carga de trabalho dispon
 
 > [!NOTE]
 > Só é possível especificar o tipo de carga de trabalho quando forte uma máquina virtual SQL Server selecionando-a no passo de configuração de armazenamento.
+
+## <a name="enable-caching"></a>Enable caching 
+
+Mude a política de cache ao nível do disco. Pode fazê-lo utilizando o portal Azure, [o PowerShell](/powershell/module/az.compute/set-azvmdatadisk)ou o [Azure CLI](/cli/azure/vm/disk). 
+
+Para alterar a sua política de caching no portal Azure, siga estes passos:
+
+1. Pare o seu serviço SQL Server. 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Navegue para a sua máquina virtual, **selecione Discos** em **Definições**. 
+   
+   ![Screenshot mostrando a lâmina de configuração do disco VM no portal Azure.](./media/storage-configuration/disk-in-portal.png)
+
+1. Escolha a política de cache apropriada para o seu disco a partir do drop-down. 
+
+   ![Screenshot mostrando a configuração da política de cache do disco no portal Azure.](./media/storage-configuration/azure-disk-config.png)
+
+1. Após a alteração entrar em vigor, reinicie o SQL Server VM e inicie o serviço SQL Server. 
+
+
+## <a name="enable-write-accelerator"></a>Ativar o acelerador de escrita
+
+Write Acceleration é uma funcionalidade de disco que só está disponível para as Máquinas Virtuais série M (VMs). O objetivo da aceleração da escrita é melhorar a latência de I/O de escritas contra o Azure Premium Storage quando você precisa de um dígito único de latência I/O devido a cargas de trabalho críticas oLTP de missão de alto volume ou ambientes de armazém de dados. 
+
+Pare toda a atividade do SQL Server e desligue o serviço SQL Server antes de escriminar a sua política de aceleração de escrita. 
+
+Se os discos estiverem listrados, ative a Write Acceleration para cada disco individualmente e o seu VM Azure deve ser desligado antes de escoar quaisquer alterações. 
+
+Para ativar a Aceleração da Escrita utilizando o portal Azure, siga estes passos:
+
+1. Pare o seu serviço SQL Server. Se os discos estiverem às riscas, desligue a máquina virtual. 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Navegue para a sua máquina virtual, **selecione Discos** em **Definições**. 
+   
+   ![Screenshot mostrando a lâmina de configuração do disco VM no portal Azure.](./media/storage-configuration/disk-in-portal.png)
+
+1. Escolha a opção de cache com **o Acelerador de Escrita** para o seu disco a partir do drop-down. 
+
+   ![Screenshot mostrando a política de cache do acelerador de escrita.](./media/storage-configuration/write-accelerator.png)
+
+1. Após a alteração entrar em vigor, inicie o serviço de máquina virtual e SQL Server. 
+
+## <a name="disk-striping"></a>Striping de disco
+
+Para obter mais produção, pode adicionar discos de dados adicionais e utilizar a desmontagem do disco. Para determinar o número de discos de dados, analise a produção e largura de banda necessárias para os seus ficheiros de dados do SQL Server, incluindo o registo e a temperatura. Os limites de produção e largura de banda variam de acordo com o tamanho de VM. Para saber mais, consulte o [tamanho do VM](../../../virtual-machines/sizes.md)
+
+
+* Para windows 8/Windows Server 2012 ou posterior, utilize [os Espaços de Armazenamento](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) com as seguintes orientações:
+
+  1. Desloca (tamanho das listras) a 64 KB (65.536 bytes) para evitar o impacto do desempenho devido ao desalinhamento da partição. Isto tem de ser definido com o PowerShell.
+
+  2. Definir contagem de colunas = número de discos físicos. Utilize o PowerShell ao configurar mais de 8 discos (não o Server Manager UI).
+
+Por exemplo, o seguinte PowerShell cria uma nova piscina de armazenamento com o tamanho interleave a 64 KB e o número de colunas iguais à quantidade de disco físico na piscina de armazenamento:
+
+  ```powershell
+  $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+  
+  New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" `
+      -PhysicalDisks $PhysicalDisks | New- VirtualDisk -FriendlyName "DataFiles" `
+      -Interleave 65536 -NumberOfColumns $PhysicalDisks .Count -ResiliencySettingName simple `
+      –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
+      -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" `
+      -AllocationUnitSize 65536 -Confirm:$false 
+  ```
+
+  * Para o Windows 2008 R2 ou mais cedo, pode utilizar discos dinâmicos (volumes listrados de OS) e o tamanho das listras é sempre de 64 KB. Esta opção é depreciada a partir do Windows 8/Windows Server 2012. Para obter informações, consulte a declaração de suporte no [Serviço de Disco Virtual que está em transição para a API de Gestão de Armazenamento do Windows](https://docs.microsoft.com/windows/win32/w8cookbook/vds-is-transitioning-to-wmiv2-based-windows-storage-management-api).
+ 
+  * Se estiver a utilizar [espaços de armazenamento diretos (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) com [instâncias de cluster de failover do servidor SQL,](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)tem de configurar uma única piscina. Embora possam ser criados volumes diferentes nesse único pool, todos eles partilharão as mesmas características, como a mesma política de caching.
+ 
+  * Determine o número de discos associados à sua piscina de armazenamento com base nas suas expectativas de carga. Tenha em mente que diferentes tamanhos de VM permitem diferentes números de discos de dados anexados. Para obter mais informações, consulte [tamanhos para máquinas virtuais.](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json)
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

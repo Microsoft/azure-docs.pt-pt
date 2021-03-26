@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a7796b70d4d32e7023fbc88086a737dd76ae7723
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b94b30851a5206c2183d999a3c024351cf415c90
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122719"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568244"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configure firewall IP em Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -104,11 +104,11 @@ Quando adicionas casos de máquina virtual ao grupo, eles automaticamente recebe
 
 Ao aceder à sua conta DB Azure Cosmos a partir de um computador na internet, o endereço IP do cliente ou o intervalo de endereços IP da máquina devem ser adicionados à lista permitida de endereços IP para a sua conta.
 
-### <a name="add-outbound-rules-to-the-firewall"></a>Adicione regras de saída à firewall
+### <a name="add-outbound-rules-to-the-firewall"></a>Adicionar regras de saída à firewall
 
 Para aceder a uma lista atual de gamas IP de saída para adicionar às definições de firewall, consulte [Download Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Para automatizar a lista, consulte [use a API de Descoberta de Marca de Serviço (pré-visualização pública)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview).
+Para automatizar a lista, consulte [use a API de Descoberta de Marca de Serviço (pré-visualização pública)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview).
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Configure uma firewall IP usando um modelo de Gestor de Recursos
 

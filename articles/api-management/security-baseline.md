@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d965ec2f846f09dd61342b3961e7ea8106f6a19f
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 6f54bd88e58ccfef068900fc3c7b249cde1c233d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954892"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558555"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para a Gestão da API
 
@@ -1002,9 +1002,9 @@ As funcionalidades de backup e restauro do serviço da API Management fornecem o
 
 - [Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-- [Como chamar a operação de backup da API Management](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
+- [Como chamar a operação de backup da API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
-- [Como chamar a operação de restauro da API Management](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+- [Como chamar a operação de restauro da API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 **Responsabilidade**: Cliente
 

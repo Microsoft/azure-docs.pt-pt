@@ -7,23 +7,23 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: justinha
-author: inbarckms
+author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0805ac84318a4fee98c30127ac80c0dac2b96309
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579387"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558266"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configure o Passe de Acesso Temporário em Azure AD para registar métodos de autenticação sem palavras-passe (Pré-visualização)
 
 Os métodos de autenticação sem palavras-passe, como o FIDO2 e o Sign-in do telefone sem palavras-passe através da aplicação Microsoft Authenticator, permitem que os utilizadores assinem com segurança sem senha. Os utilizadores podem arrancar métodos sem palavras-passe de uma de duas maneiras:
 
 - Utilizando métodos de autenticação multi-factor Azure AD existentes 
-- Usando um passe de acesso temporário 
+- Utilização de um Passe de Acesso Temporário (TAP) 
 
 Um Passe de Acesso Temporário é uma senha limitada emitida por um administrador que satisfaz os requisitos de autenticação forte e pode ser usado para embarcar em outros métodos de autenticação, incluindo os sem palavras-passe. Um Passe de Acesso Temporário também facilita a recuperação quando um utilizador perdeu ou esqueceu o seu forte fator de autenticação, como uma chave de segurança FIDO2 ou uma aplicação do Microsoft Authenticator, mas precisa de se inscrever para registar novos métodos de autenticação forte.
 
@@ -49,13 +49,13 @@ Para configurar a política do método de autenticação do Passe de Acesso Temp
    O valor predefinido e a gama de valores permitidos são descritos no quadro seguinte.
 
 
-   | Definição          | Valores predefinidos | Valores permitidos               | Comentários                                                                                                                                                                                                                                                                 |   |
-   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    Duração mínima | Uma hora         | 10 - 43200 Minutos (30 dias) | Número mínimo de minutos que o Passe de Acesso Temporário é válido.                                                                                                                                                                                                                         |   |
-   | Duração máxima | 24 horas       | 10 - 43200 Minutos (30 dias) | Número máximo de minutos que o Passe de Acesso Temporário é válido.                                                                                                                                                                                                                         |   |
-   | Tempo de vida predefinido | Uma hora         | 10 - 43200 Minutos (30 dias) | Os valores predefinidos podem ser ultrapassados pelos passes individuais, dentro do mínimo e máximo de vida configurado pela política                                                                                                                                                |   |
-   | Uso único     | Falso          | Verdadeiro / Falso                 | Quando a apólice é definida como falsa, os passes no arrendatário podem ser usados uma ou mais uma vez durante a sua validade (duração máxima de vida). Ao impor uma utilização única na política do Passe de Acesso Temporário, todos os passes criados no arrendatário serão criados como uso único. |   |
-   | Comprimento           | 8              | 8-48 caracteres              | Define o comprimento da senha.                                                                                                                                                                                                                                      |   |
+   | Definição | Valores predefinidos | Valores permitidos | Comentários |
+   |---|---|---|---|
+   | Duração mínima | Uma hora | 10 - 43200 Minutos (30 dias) | Número mínimo de minutos que o Passe de Acesso Temporário é válido. |
+   | Duração máxima | 24 horas | 10 - 43200 Minutos (30 dias) | Número máximo de minutos que o Passe de Acesso Temporário é válido. |
+   | Tempo de vida predefinido | Uma hora | 10 - 43200 Minutos (30 dias) | Os valores predefinidos podem ser sobrepõe-se aos passes individuais, dentro do mínimo e máximo de vida configurado pela política. |
+   | Uso único | Falso | Verdadeiro / Falso | Quando a apólice é definida como falsa, os passes no arrendatário podem ser usados uma ou mais uma vez durante a sua validade (duração máxima de vida). Ao impor uma utilização única na política do Passe de Acesso Temporário, todos os passes criados no arrendatário serão criados como uso único. |
+   | Comprimento | 8 | 8-48 caracteres | Define o comprimento da senha. |
 
 ## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Criar um Passe de Acesso Temporário no Portal AD Azure
 

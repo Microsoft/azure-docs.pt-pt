@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: bb10fb337972db2696960b530f2d7538bd36a2fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 72388eb8006ff1b9628db5066dc63e6a0811f3d5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101099387"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557331"
 ---
 # <a name="real-time-monitoring-in-azure-front-door-standardpremium"></a>Monitorização em tempo real em Azure Front Door Standard/Premium
 
@@ -22,11 +22,11 @@ ms.locfileid: "101099387"
 
 O Azure Front Door Standard/Premium está integrado com o Azure Monitor e tem 11 métricas para ajudar a monitorizar o Azure Front Door Standard/Premium em tempo real para rastrear, resolver problemas e depurar problemas.  
 
-Azure Front Door Standard/Premium mede e envia as suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no portal. As métricas podem ser exibidas em gráficos ou grelha à sua escolha e são acessíveis através do portal, PowerShell, CLI e API. Para obter mais informações, consulte as [métricas do Monitor Azure.](../../azure-monitor/platform/data-platform-metrics.md)  
+Azure Front Door Standard/Premium mede e envia as suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no portal. As métricas podem ser exibidas em gráficos ou grelha à sua escolha e são acessíveis através do portal, PowerShell, CLI e API. Para obter mais informações, consulte as [métricas do Monitor Azure.](../../azure-monitor/essentials/data-platform-metrics.md)  
 
 As métricas predefinidos são gratuitas. Pode ativar métricas adicionais por um custo extra. 
 
-Pode configurar alertas para cada métrica, como um limiar para 4XXErrorRate ou 5XXErrorRate. Quando a taxa de erro exceder o limiar, irá desencadear um alerta conforme configurado. Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md). 
+Pode configurar alertas para cada métrica, como um limiar para 4XXErrorRate ou 5XXErrorRate. Quando a taxa de erro exceder o limiar, irá desencadear um alerta conforme configurado. Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/alerts/alerts-metric.md). 
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) está atualmente em pré-visualização pública.
@@ -75,7 +75,7 @@ Pode configurar alertas para cada métrica, como um limiar para 4XXErrorRate ou 
 
 1. Selecione **Nova regra de alerta** para as métricas listadas na secção Métricas.
 
-O alerta será carregado com base no Monitor Azure. Para obter mais informações sobre alertas, consulte [os alertas do Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+O alerta será carregado com base no Monitor Azure. Para obter mais informações sobre alertas, consulte [os alertas do Azure Monitor](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,12 +3,12 @@ title: Visão geral do backup operacional para Azure Blobs
 description: Saiba mais sobre o backup operacional para Azure Blobs (em pré-visualização).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101746121"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558759"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Visão geral do backup operacional para Azure Blobs (em pré-visualização)
 
@@ -22,7 +22,7 @@ O backup operacional das bolhas é uma solução **de reserva local.** Os dados 
 
 A cópia de segurança operacional utiliza as capacidades da plataforma blob para proteger os seus dados e permitir a recuperação quando necessário:
 
-- **Restauro pontual**: [A restauração do ponto de mancha no tempo](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview) permite restaurar os dados blob para um estado anterior. Isto, por sua vez, utiliza **eliminação suave,** **alterar a versão de feed** e **blob** para reter dados durante a duração especificada. A cópia de segurança operacional tem o cuidado de permitir a restauração pontual, bem como as capacidades subjacentes para garantir que os dados são conservados durante a duração especificada.
+- **Restauro pontual**: [A restauração do ponto de mancha no tempo](../storage/blobs/point-in-time-restore-overview.md) permite restaurar os dados blob para um estado anterior. Isto, por sua vez, utiliza **eliminação suave,** **alterar a versão de feed** e **blob** para reter dados durante a duração especificada. A cópia de segurança operacional tem o cuidado de permitir a restauração pontual, bem como as capacidades subjacentes para garantir que os dados são conservados durante a duração especificada.
 
 - **Excluir o bloqueio**: Eliminar o bloqueio impede que a conta de armazenamento seja eliminada acidentalmente ou por utilizadores não autorizados. A cópia de segurança operacional quando configurada também aplica automaticamente um bloqueio de eliminação para reduzir as possibilidades de perda de dados devido à eliminação da conta de armazenamento.
 
@@ -63,9 +63,9 @@ A cópia de segurança operacional dá-lhe a opção de restaurar todas as bolha
 
 Não incorrerá em quaisquer encargos de gestão ou taxa de caso ao usar backup operacional para bolhas. No entanto, incorrerá nas seguintes acusações:
 
-- As restaurações são feitas utilizando a restauração do ponto de mancha no tempo e atraem encargos com base na quantidade de dados processados. Para obter mais informações, consulte [o preço de restauro pontual.](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview#pricing-and-billing)
+- As restaurações são feitas utilizando a restauração do ponto de mancha no tempo e atraem encargos com base na quantidade de dados processados. Para obter mais informações, consulte [o preço de restauro pontual.](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing)
 
-- Retenção de dados por causa da [eliminação suave para bolhas,](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview) [Alterar suporte de alimentação em Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-change-feed), e [versões Blob](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+- Retenção de dados por causa da [eliminação suave para bolhas,](../storage/blobs/soft-delete-blob-overview.md) [Alterar suporte de alimentação em Azure Blob Storage](../storage/blobs/storage-blob-change-feed.md), e [versões Blob](../storage/blobs/versioning-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

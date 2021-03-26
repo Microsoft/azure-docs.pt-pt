@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: amvin87
 ms.author: amitkh
 ms.reviewer: vanto
-ms.openlocfilehash: 0500f4143ad7cbdaaa8406af2b242e0d40b1caa2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 07752eb5c7f18a8952c43e77afed78b06432aca6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102227401"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568541"
 ---
 # <a name="tutorial---setup-a-three-node-always-on-availability-group-with-dh2i-dxenterprise-running-on-linux-based-azure-virtual-machines"></a>Tutorial - Configurar um grupo de três nós sempre em disponibilidade com DH2i DxEnterprise em execução em Máquinas Virtuais Azure baseadas em Linux
 
@@ -39,22 +39,22 @@ Neste tutorial, vamos criar um cluster DxEnterprise usando [a DxAdmin Client UI]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Crie quatro VMs em Azure. Siga o [Quickstart: Crie uma máquina virtual Linux em artigo do portal Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) para criar máquinas virtuais baseadas em Linux. Da mesma forma, para criar a máquina virtual baseada no Windows, siga o [Quickstart: Crie uma máquina virtual Windows no artigo do portal Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-- Instale .NET 3.1 em todos os VMs baseados em Linux que vão fazer parte do cluster. Siga as instruções [aqui](https://docs.microsoft.com/dotnet/core/install/linux) documentadas com base no sistema operativo Linux que escolher.
+- Crie quatro VMs em Azure. Siga o [Quickstart: Crie uma máquina virtual Linux em artigo do portal Azure](../../../virtual-machines/linux/quick-create-portal.md) para criar máquinas virtuais baseadas em Linux. Da mesma forma, para criar a máquina virtual baseada no Windows, siga o [Quickstart: Crie uma máquina virtual Windows no artigo do portal Azure.](../../../virtual-machines/windows/quick-create-portal.md)
+- Instale .NET 3.1 em todos os VMs baseados em Linux que vão fazer parte do cluster. Siga as instruções [aqui](/dotnet/core/install/linux) documentadas com base no sistema operativo Linux que escolher.
 - Será necessária uma licença DxEnterprise válida com funcionalidades de gestão do grupo de disponibilidade ativadas. Para mais informações, consulte [o DxEnterprise Free Trial](https://dh2i.com/trial/) sobre como obter um teste gratuito.
 
 ## <a name="install-sql-server-on-all-the-azure-vms-that-will-be-part-of-the-availability-group"></a>Instale o SQL Server em todos os VMs Azure que farão parte do grupo de disponibilidade
 
-Neste tutorial, estamos a criar um cluster baseado em três nós linux que executa o grupo de disponibilidade. Siga a documentação para [a instalação do SQL Server no Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview#install) com base na escolha da sua plataforma Linux. Recomendamos também que instale as [ferramentas SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) para este tutorial.
+Neste tutorial, estamos a criar um cluster baseado em três nós linux que executa o grupo de disponibilidade. Siga a documentação para [a instalação do SQL Server no Linux](/sql/linux/sql-server-linux-overview#install) com base na escolha da sua plataforma Linux. Recomendamos também que instale as [ferramentas SQL Server](/sql/linux/sql-server-linux-setup-tools) para este tutorial.
  
 > [!NOTE]
-> Certifique-se de que o Sistema Linux OS que escolhe é uma distribuição comum que é suportada tanto pela [DH2i DxEnterprise (Ver Secção de Requisitos mínimos do sistema)](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) como pelo [Microsoft SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-release-notes-2019#supported-platforms).
+> Certifique-se de que o Sistema Linux OS que escolhe é uma distribuição comum que é suportada tanto pela [DH2i DxEnterprise (Ver Secção de Requisitos mínimos do sistema)](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) como pelo [Microsoft SQL Server](/sql/linux/sql-server-linux-release-notes-2019#supported-platforms).
 >
 > Neste exemplo, utilizamos o Ubuntu 18.04, que é suportado tanto pelo DH2i DxEnterprise como pelo Microsoft SQL Server.
 
 Para este tutorial, não vamos instalar o SQL Server no Windows VM, uma vez que este nó não vai fazer parte do cluster, e é usado apenas para gerir o cluster usando o DxAdmin.
 
-Depois de completar este passo, deverá ter ferramentas SQL Server e [SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) (opcionalmente) instaladas nos três VMs baseados em Linux que participarão no grupo de disponibilidade.
+Depois de completar este passo, deverá ter ferramentas SQL Server e [SQL Server](/sql/linux/sql-server-linux-setup-tools) (opcionalmente) instaladas nos três VMs baseados em Linux que participarão no grupo de disponibilidade.
  
 ## <a name="install-dxenterprise-on-all-the-vms-and-configure-the-cluster"></a>Instale dxEnterprise em todos os VMs e configure o cluster
 
@@ -84,7 +84,7 @@ Para instalar apenas a ferramenta do cliente DxAdmin no Windows VM, siga o [Guia
 Após este passo, deverá ter o cluster DxEnterprise criado nos VMs Linux e o cliente DxAdmin instalado na máquina do Cliente Windows. 
 
 > [!NOTE]
-> Também pode criar um cluster de três nós onde um dos nós é adicionado como *modo apenas de configuração*, como descrito [aqui](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes) para permitir a falha automática. 
+> Também pode criar um cluster de três nós onde um dos nós é adicionado como *modo apenas de configuração*, como descrito [aqui](/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes) para permitir a falha automática. 
 
 ## <a name="create-the-virtual-hosts-to-provide-failover-support-and-high-availability"></a>Crie os anfitriões virtuais para fornecer suporte de failover e alta disponibilidade
 
@@ -100,7 +100,7 @@ Ligue-se à máquina cliente Do Windows que executa a DxAdmin para ligar ao clus
 
 ## <a name="create-the-internal-azure-load-balancer-for-listener-optional"></a>Criar o esquilibrador de carga azure interno para o ouvinte (opcional)
 
-Neste passo opcional, pode criar e configurar o equilibrador Azure Load que detém os endereços IP para os ouvintes do grupo de disponibilidade. Para obter mais informações sobre o Balançador de Carga [Azure, consulte o Balançador de Carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Para configurar o equilibrador de carga Azure e o ouvinte do grupo de disponibilidade utilizando o DxAdmin, siga o Guia de Arranque Rápido do Balancer de Carga DxEnterprise [Azure](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/).
+Neste passo opcional, pode criar e configurar o equilibrador Azure Load que detém os endereços IP para os ouvintes do grupo de disponibilidade. Para obter mais informações sobre o Balançador de Carga [Azure, consulte o Balançador de Carga Azure](../../../load-balancer/load-balancer-overview.md). Para configurar o equilibrador de carga Azure e o ouvinte do grupo de disponibilidade utilizando o DxAdmin, siga o Guia de Arranque Rápido do Balancer de Carga DxEnterprise [Azure](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/).
 
 Após este passo, deverá ter um ouvinte de grupo de disponibilidade criado e mapeado para o equilibrador de carga Azure Interno.
 
@@ -121,7 +121,7 @@ Para mais informações sobre mais operações dentro da DxEnterprise, aceda ao 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [Grupos de Disponibilidade no Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-availability-group-overview)
-- [Quickstart: Criar máquina virtual Linux no portal Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
-- [Início Rápido: Criar uma máquina virtual do Windows no portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-- [Plataformas suportadas para SQL Server 2019 no Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-release-notes-2019#supported-platforms)
+- Saiba mais sobre [Grupos de Disponibilidade no Linux](/sql/linux/sql-server-linux-availability-group-overview)
+- [Quickstart: Criar máquina virtual Linux no portal Azure](../../../virtual-machines/linux/quick-create-portal.md)
+- [Início Rápido: Criar uma máquina virtual do Windows no portal do Azure](../../../virtual-machines/windows/quick-create-portal.md)
+- [Plataformas suportadas para SQL Server 2019 no Linux](/sql/linux/sql-server-linux-release-notes-2019#supported-platforms)

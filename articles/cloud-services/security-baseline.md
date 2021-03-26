@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 105fd185900692669fdc40e0c47a03474524e250
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c389cfd2af6fe83ec232e5f205041676ba46bd2a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731107"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558198"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Linha de segurança Azure para serviços em nuvem Azure
 
@@ -36,7 +36,7 @@ Os Serviços cloud da Microsoft Azure (Clássico) não podem ser colocados em re
 
 - [Visão geral do Grupo de Segurança de Rede](../virtual-network/network-security-groups-overview.md)
 
-- [Peering de Rede Virtual](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [Peering de Rede Virtual](./cloud-services-connectivity-and-networking-faq.md#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **Responsabilidade**: Cliente
 
@@ -89,11 +89,11 @@ Impedir a entrada de tráfego no URL predefinido ou no nome dos seus Serviços c
 
 Configure uma regra Deny Apply para atribuições clássicas de administrador de subscrição. Por padrão, após a definição de um ponto final interno, a comunicação pode fluir de qualquer papel para o ponto final interno de uma função sem quaisquer restrições. Para restringir a comunicação, deve adicionar um elemento NetworkTrafficRules ao elemento 'Definição de Serviço' no ficheiro de definição de serviço.
 
-- [Como posso bloquear/desativar o tráfego de entrada para o URL padrão do meu serviço na nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [Como posso bloquear/desativar o tráfego de entrada para o URL padrão do meu serviço na nuvem](./cloud-services-connectivity-and-networking-faq.md#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Proteção Azure DDOS](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Proteção Azure DDOS](./cloud-services-connectivity-and-networking-faq.md#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
-- [Bloqueie um endereço IP específico](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common#block-a-specific-ip-address)
+- [Bloqueie um endereço IP específico](./cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
 **Responsabilidade**: Cliente
 
@@ -175,9 +175,9 @@ Recolha informações do log activity, um registo de plataforma em Azure, em eve
 
 Crie uma definição de diagnóstico para enviar o registo de atividade para Azure Monitor, Azure Event Hubs para encaminhar para fora de Azure, ou para O Armazenamento Azure para arquivo. Configure O Monitor Azure para alertas de notificação quando os recursos críticos nos seus Serviços Azure Cloud são alterados. 
 
-- [Log de atividades Azure](/azure/azure-monitor/platform/activity-log)
+- [Log de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Monitorização do Gestor de Tráfego](../traffic-manager/traffic-manager-monitoring.md)
 
@@ -193,7 +193,7 @@ Crie uma definição de diagnóstico para enviar o registo de atividade para Azu
 
 **Orientação**: A Microsoft mantém fontes de tempo para recursos Azure para serviços Azure Cloud. Os clientes podem precisar de criar uma regra de rede para permitir o acesso a um servidor de tempo utilizado no seu ambiente, sobre a porta 123 com o protocolo UDP.
 
-- [Acesso ao servidor NTP](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
+- [Acesso ao servidor NTP](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
 
 **Responsabilidade**: Partilhada
 
@@ -233,7 +233,7 @@ Os Serviços Azure Cloud podem ser monitorizados pela Application Insights para 
 
 - [Ligue os diagnósticos no Estúdio Visual antes da implementação](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [Ver alterar história](/azure/azure-monitor/platform/activity-log#view-change-history)
+- [Ver alterar história](../azure-monitor/essentials/activity-log.md#view-change-history)
 
 - [Insights de Aplicação para o serviço Azure Cloud (Clássico)](../azure-monitor/app/cloudservices.md)
 
@@ -269,7 +269,7 @@ A extensão Azure Diagnostic recolhe e armazena dados numa conta de Armazenament
 
 - [Ativar diagnósticos em Azure Cloud Services usando PowerShell](cloud-services-diagnostics-powershell.md)
 
-- [Armazenar e ver dados de diagnósticos no Armazenamento do Azure](https://docs.microsoft.com/azure/cloud-services/diagnostics-extension-to-storage?&amp;preserve-view=true)
+- [Armazenar e ver dados de diagnósticos no Armazenamento do Azure](./diagnostics-extension-to-storage.md?preserve-view=)
 
 **Responsabilidade**: Cliente
 
@@ -289,7 +289,7 @@ A extensão Azure Diagnostic recolhe e armazena dados numa conta de Armazenament
 
 **Orientação**: Microsoft Antimalware for Azure, protege a Azure Cloud Services e máquinas virtuais. Além disso, tem a opção de implementar soluções de segurança de terceiros, tais como paredes de incêndio de aplicações web, firewalls de rede, antimalware, sistemas de deteção e prevenção de intrusões (IDS ou IPS), e muito mais.
 
-- [Quais são as funcionalidades e capacidades que a Azure básica IPS/IDS e DDOS fornece](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Quais são as funcionalidades e capacidades que a Azure básica IPS/IDS e DDOS fornece](./cloud-services-configuration-and-management-faq.md#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **Responsabilidade**: Cliente
 
@@ -315,7 +315,7 @@ Get-AzRoleAssignment -Incluir Alunos Desematores
 
 Reveja as diferenças entre as funções administrativas clássicas de subscrição. 
 
-- [Diferenças entre três funções administrativas clássicas de subscrição](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [Diferenças entre três funções administrativas clássicas de subscrição](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **Responsabilidade**: Cliente
 
@@ -325,7 +325,7 @@ Reveja as diferenças entre as funções administrativas clássicas de subscriç
 
 **Orientação**: Recomenda-se a criação de procedimentos operacionais padrão em torno da utilização de contas administrativas dedicadas, com base nas funções disponíveis e nas permissões necessárias para operar e gerir os recursos dos Serviços cloud Azure.
 
-- [Diferenças entre as funções administrativas clássicas de subscrição](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [Diferenças entre as funções administrativas clássicas de subscrição](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **Responsabilidade**: Cliente
 
@@ -389,7 +389,7 @@ Também pode editar o "permissionLevel" no elemento Certificado do Azure Cloud S
 
 - [Como criar grupos de gestão](../governance/management-groups/create-management-group-portal.md)
 
-- [Esquema de WebRole](https://docs.microsoft.com/azure/cloud-services/schema-csdef-webrole#Certificate)
+- [Esquema de WebRole](./schema-csdef-webrole.md#Certificate)
 
 **Responsabilidade**: Cliente
 
@@ -465,9 +465,9 @@ Os dados da aplicação armazenados em discos temporários não são encriptados
 
 Além disso, o Application Insights pode monitorizar as aplicações do Azure Cloud Services para disponibilidade, desempenho, falhas e utilização. Isto utiliza dados combinados de SDKs Application Insights com dados de Diagnóstico Azure dos seus Serviços de Nuvem Azure.
 
-- [Criar, ver e gerir alertas métricos clássicos usando o Azure Monitor](/azure/azure-monitor/platform/alerts-classic-portal)
+- [Criar, ver e gerir alertas métricos clássicos usando o Azure Monitor](../azure-monitor/alerts/alerts-classic-portal.md)
 
-- [Métrica alertas visão geral](/azure/azure-monitor/platform/alerts-metric-overview) 
+- [Métrica alertas visão geral](../azure-monitor/alerts/alerts-metric-overview.md) 
 
 - [Insights de Aplicação para o serviço Azure Cloud (Clássico)](../azure-monitor/app/cloudservices.md)
 
@@ -493,7 +493,7 @@ Quando um cliente escolhe uma versão específica do sistema operativo para a su
 
 - [Como configurar o serviço Cloud (Clássico)](cloud-services-how-to-configure-portal.md)
 
-- [Gerir a versão OS do Guest](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal#manage-guest-os-version)
+- [Gerir a versão OS do Guest](./cloud-services-how-to-configure-portal.md#manage-guest-os-version)
 
 **Responsabilidade**: Partilhada
 
@@ -523,7 +523,7 @@ Sugerimos pensar através destes cenários:
 
 Documentação de apoio:
 
-- [Avaliação de risco dos seus recursos Azure](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices#risk-evaluation-of-your-azure-resources)
+- [Avaliação de risco dos seus recursos Azure](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
 
 **Responsabilidade**: Cliente
 
@@ -805,7 +805,7 @@ Pode proteger segredos como credenciais que são usadas nos Serviços Azure Clou
 
 Além disso, recomenda-se guardar as chaves privadas para os certificados utilizados nos Serviços Azure Cloud para um armazenamento seguro.
 
-- [Configurar o ambiente de trabalho remoto da PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [Configurar o ambiente de trabalho remoto da PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
 **Responsabilidade**: Cliente
 
@@ -820,7 +820,7 @@ Para começar, especifique uma palavra-passe de texto simples, altere-a para uma
 
 Guarde as chaves privadas para os certificados utilizados nos Serviços Azure Cloud para um local de armazenamento seguro.
 
-- [Configurar o ambiente de trabalho remoto da PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [Configurar o ambiente de trabalho remoto da PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
 **Responsabilidade**: Cliente
 
@@ -840,9 +840,9 @@ Ative a extensão antimalware com um script PowerShell na Tarefa de Arranque nos
 
 Escolha a função de controlo de aplicações adaptáveis no Azure Security Center, uma solução inteligente, automatizada e de ponta a ponta. Ajuda a endurecer as suas máquinas contra malware e permite bloquear ou alertar sobre tentativas de executar aplicações maliciosas, incluindo aquelas que de outra forma poderiam ser perdidas por soluções antimalware.
 
-- [Como posso adicionar uma extensão antimalware para os meus Serviços Azure Cloud de forma automatizada](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Como posso adicionar uma extensão antimalware para os meus Serviços Azure Cloud de forma automatizada](./cloud-services-configuration-and-management-faq.md#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
-- [Cenários de implantação de antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios)
+- [Cenários de implantação de antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 
 - [Controlos de aplicações adaptáveis](../security-center/security-center-adaptive-application.md)
 
@@ -940,5 +940,5 @@ Marque claramente as subscrições (por exemplo, produção, não produção) e 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
-- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
+- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

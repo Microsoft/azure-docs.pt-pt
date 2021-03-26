@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 0701ff53202d53131ceac8ceabb148fb5ff4f2b2
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 629459d22b18b326307b45bb512d16622808b533
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025157"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562635"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -143,7 +143,7 @@ Se a sua instância estiver preparada para a BD SQL do Azure e o Azure SQL MI, r
 Tal pode acontecer quando o tipo de implementação de destino escolhido nas propriedades da avaliação é **Recomendado** e a instância do SQL não está preparada para a Base de Dados SQL do Azure e o Azure SQL Managed Instance. Recomenda-se ao utilizador que crie uma avaliação no Azure Migrate com o tipo de avaliação como **VM do Azure** para determinar se o Servidor no qual a instância está em execução está preparado para migrar para uma VM do Azure.
 Recomenda-se ao utilizador a criação de uma avaliação em Azure Migrate com o tipo de avaliação como **Azure VM** para determinar se o servidor em que o caso está em execução está pronto para migrar para um VM Azure:
 - As avaliações de Azure VM em Azure Migrate estão atualmente focadas no elevador e não considerarão as métricas de desempenho específicas para executar instâncias e bases de dados SQL na máquina virtual Azure. 
-- Quando executa uma avaliação de VM do Azure num servidor, as estimativas recomendadas de tamanho e custo referem-se a todas as instâncias em execução no servidor e podem ser migradas para uma VM do Azure com a ferramenta de Migração do Servidor. Antes de migrar, [veja as diretrizes de desempenho](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) do SQL Server em máquinas virtuais do Azure.
+- Quando executa uma avaliação de VM do Azure num servidor, as estimativas recomendadas de tamanho e custo referem-se a todas as instâncias em execução no servidor e podem ser migradas para uma VM do Azure com a ferramenta de Migração do Servidor. Antes de migrar, [veja as diretrizes de desempenho](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) do SQL Server em máquinas virtuais do Azure.
 
 ## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>Não consigo ver algumas bases de dados na minha avaliação, embora a instância faça parte da avaliação
 
@@ -151,7 +151,7 @@ A avaliação do SQL do Azure inclui apenas bases de dados que estejam no estado
 
 ## <a name="i-want-to-compare-costs-for-running-my-sql-instances-on-azure-vm-vs-azure-sql-databaseazure-sql-managed-instance"></a>Quero comparar os custos de execução das minhas instâncias SQL no Azure VM Vs Azure SQL Database/Azure SQL Managed Instance
 
-Pode criar uma avaliação com o tipo **VM do Azure** no mesmo grupo utilizado na sua avaliação do **SQL do Azure**. Em seguida, pode comparar os dois relatórios lado a lado. No entanto, as avaliações de VM do Azure no Azure Migrate focam-se atualmente na migração lift-and-shift e não consideram as métricas de desempenho específicas da execução de bases de dados e instâncias do SQL na máquina virtual do Azure. Quando executa uma avaliação de VM do Azure num servidor, as estimativas recomendadas de tamanho e custo referem-se a todas as instâncias em execução no servidor e podem ser migradas para uma VM do Azure com a ferramenta de Migração do Servidor. Antes de migrar, [veja as diretrizes de desempenho](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) do SQL Server em máquinas virtuais do Azure.
+Pode criar uma avaliação com o tipo **VM do Azure** no mesmo grupo utilizado na sua avaliação do **SQL do Azure**. Em seguida, pode comparar os dois relatórios lado a lado. No entanto, as avaliações de VM do Azure no Azure Migrate focam-se atualmente na migração lift-and-shift e não consideram as métricas de desempenho específicas da execução de bases de dados e instâncias do SQL na máquina virtual do Azure. Quando executa uma avaliação de VM do Azure num servidor, as estimativas recomendadas de tamanho e custo referem-se a todas as instâncias em execução no servidor e podem ser migradas para uma VM do Azure com a ferramenta de Migração do Servidor. Antes de migrar, [veja as diretrizes de desempenho](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) do SQL Server em máquinas virtuais do Azure.
 
 ## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>O custo de armazenamento na minha avaliação Azure SQL é zero
 Para a Azure SQL Managed Instance, não há nenhum custo de armazenamento adicionado para o primeiro armazenamento de 32 GB/instância/mês e custo adicional de armazenamento é adicionado para armazenamento em incrementos de 32GB. [Saiba mais](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)

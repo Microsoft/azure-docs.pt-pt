@@ -3,25 +3,23 @@ title: Passe fichas de autenticação para a Azure Media Services | Microsoft Do
 description: Saiba como enviar fichas de autenticação do cliente para o serviço de entrega chave Azure Media Services
 services: media-services
 keywords: proteção de conteúdos, DRM, autenticação simbólica
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4daec8ef5f2cc1da3a211113e7236dfd22803d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1fe692e1eb20956f339c9b861f50163cee9c5063
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008251"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564658"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam fichas para o serviço de entrega chave Azure Media Services
 
@@ -33,7 +31,7 @@ Os clientes perguntam frequentemente como um jogador pode passar fichas para o s
 
 - Através do cabeçalho de autorização HTTP.
     > [!NOTE]
-    > O prefixo "Portador" é esperado de acordo com as especificações OAuth 2.0. Um leitor de amostra com a configuração de token está hospedado na [página de demonstração do](https://ampdemo.azureedge.net/)Azure Media Player . Para definir a fonte de vídeo, escolha **AES (JWT Token)** ou **AES (SWT Token)**. O sinal é passado através do cabeçalho de autorização.
+    > O prefixo "Portador" é esperado de acordo com as especificações OAuth 2.0. Para definir a fonte de vídeo, escolha **AES (JWT Token)** ou **AES (SWT Token)**. O sinal é passado através do cabeçalho de autorização.
 
 - Através da adição de um parâmetro de consulta DE URL com "token=tokenvalue".  
     > [!NOTE]

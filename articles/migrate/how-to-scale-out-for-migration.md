@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 634eb2d22e3fa570ac9412d4fb8afd917b5c2eaa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104607658"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564012"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Migração sem agentes de máquinas virtuais VMware para Azure
 
@@ -176,4 +176,4 @@ Neste artigo, aprendeu:
 - Como replicar VMs usando um aparelho de escala
 
 
-[Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) sobre a migração de servidores para Azure usando a ferramenta Azure Migrate: Server Migration.
+[Saiba mais](./tutorial-migrate-vmware.md) sobre a migração de servidores para Azure usando a ferramenta Azure Migrate: Server Migration.

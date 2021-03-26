@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 8e735d623cc991d2e3720e0ec418eee77aa8c46c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: a10e6204184f28dbb62083bc72c6963ea8db082b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350862"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568635"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Compreender de que forma o desconto do plano de reserva do software Red Hat Linux Enterprise é aplicado ao Azure
 
@@ -46,7 +46,7 @@ Nomes do marketplace do portal do Azure:
 - Red Hat Enterprise Linux 7.6
 - Red Hat Enterprise Linux 8.2
 
-[Ver os medidores do Red Hat Enterprise Linux aos quais o plano de aplica](https://isfratio.blob.core.windows.net/isfratio/RHELRatios.csv)
+[Ver os medidores do Red Hat Enterprise Linux aos quais o plano de aplica](https://phoenixnap.com/kb/how-to-check-redhat-version)
 
 ## <a name="next-steps"></a>Passos seguintes
 

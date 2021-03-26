@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 596113f9fcb7326010090e67b3a52ca03faa25d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.openlocfilehash: 2d3d1669dda4cbed1da7954558e99166faec5613
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041982"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563740"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funcionalidades de pré-visualização em Azure Cognitive Search
 
@@ -23,13 +23,13 @@ As funcionalidades de pré-visualização de que a transição para a disponibil
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
-| [**Pesquisa semântica**](semantic-search-overview.md) | Relevância (pontuação) | Um algoritmo de classificação semântica, tipo de consulta e resposta de consulta. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/) |
-| [**soletrador**](cognitive-search-aml-skill.md) | Consulta | Correção ortográfica opcional sobre entradas de termo de consulta para consultas simples, completas e semânticas. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/) |
-| [**Índice Online SharePoint**](search-howto-index-sharepoint-online.md) | Fonte de dados indexante | Nova fonte de dados para indexação baseada em indexante do conteúdo do SharePoint. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/) |
+| [**Pesquisa semântica**](semantic-search-overview.md) | Relevância (pontuação) | Ranking semântico de resultados, legendas e respostas. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/preview-api/search-documents) e Search Explorer (portal). |
+| [**soletrador**](cognitive-search-aml-skill.md) | Consulta | Correção ortográfica opcional sobre entradas de termo de consulta para consultas simples, completas e semânticas. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/preview-api/search-documents) |
+| [**Índice Online SharePoint**](search-howto-index-sharepoint-online.md) | Fonte de dados indexante | Nova fonte de dados para indexação baseada em indexante do conteúdo do SharePoint. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/preview-api/create-indexer) |
 | [**Habilidade de Aprendizagem automática Azure (AML)**](cognitive-search-aml-skill.md) | Melhoramento de IA| Um novo tipo de habilidade para integrar um ponto final inferencing da Azure Machine Learning. Começa com [este tutorial.](cognitive-search-tutorial-aml-custom-skill.md) | Use [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) ou 2019-05-06-Preview. Também disponível no portal, em design skillset, assumindo que os serviços de Pesquisa Cognitiva e Azure ML são implantados na mesma subscrição. |
 | [**featuresOde parâmetro**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Relevância (pontuação) | Expansão da pontuação de relevância para incluir detalhes: por pontuação de semelhança de campo, por frequência de período de campo, e por número de campo de fichas únicas correspondidas. Pode consumir estes pontos de dados em [soluções de pontuação personalizadas.](https://github.com/Azure-Samples/search-ranking-tutorial) | Adicione este parâmetro de consulta utilizando [Documentos de Pesquisa (REST)](/rest/api/searchservice/preview-api/search-documents) com versão api=2020-06-30-Preview ou 2019-05-06-Preview. |
 | [**Sessões de Debug**](cognitive-search-debug-session.md) | Portal, Enriquecimento de IA (skillset) | Um editor de skillset em sessão usado para investigar e resolver problemas com um skillset. As correções aplicadas durante uma sessão de depurar podem ser guardadas para um skillset no serviço. | Apenas portal, utilizando links de página média na página 'Vista Geral' para abrir uma sessão de depuração. |
-| [**Mancha nativa soft delete**](search-howto-index-changed-deleted-blobs.md) | Indexantes, bolhas Azure| O indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação. | Adicione esta definição de configuração usando [Criar Indexer (REST)](/rest/api/searchservice/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
+| [**Mancha nativa soft delete**](search-howto-index-changed-deleted-blobs.md) | Indexantes, bolhas Azure| O indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação. | Adicione esta definição de configuração usando [Criar Indexer (REST)](/rest/api/searchservice/preview-api/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
 | [**Competência de procura de entidade personalizada**](cognitive-search-skill-custom-entity-lookup.md ) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
 | [**Competência de deteção pii**](cognitive-search-skill-pii-detection.md) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva usada durante a indexação que extrai informações pessoais de um texto de entrada e lhe dá a opção de mascar a partir desse texto de várias maneiras. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
 | [**Enriquecimento incremental**](cognitive-search-incremental-indexing-conceptual.md) | Configuração do indexante| Adiciona o caching a um pipeline de enriquecimento, permitindo-lhe reutilizar a saída existente se uma modificação direcionada, como uma atualização a um skillset ou outro objeto, não alterar o conteúdo. O caching aplica-se apenas a documentos enriquecidos produzidos por um skillset.| Adicione esta definição de configuração usando [Criar Indexer (REST)](/rest/api/searchservice/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
