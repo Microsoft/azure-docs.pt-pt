@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 03/15/2021
 ms.author: kuthapar
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c740aa00b158c7ddbca3e4f61d79e37978223c2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493616"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563111"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Dados de primavera Azure Cosmos DB v3 para Core (SQL) API: Notas de lançamento e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,7 +65,7 @@ Pode utilizar o Spring Data Azure Cosmos DB nas suas aplicações [Azure Spring 
 
 ## <a name="get-started-fast"></a>Começa depressa.
 
-  Levante-se ecorda com a Spring Data Azure Cosmos DB seguindo o nosso [guia de Arranque de Botas de primavera](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). A abordagem Starter Boot Spring é a forma recomendada de começar a usar o conector DB de Dados de primavera Azure Cosmos.
+  Levante-se ecorda com a Spring Data Azure Cosmos DB seguindo o nosso [guia de Arranque de Botas de primavera](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). A abordagem Starter Boot Spring é a forma recomendada de começar a usar o conector DB de Dados de primavera Azure Cosmos.
 
   Em alternativa, pode adicionar a dependência DB do Spring Data Azure Cosmos ao seu `pom.xml` ficheiro, conforme mostrado abaixo:
 

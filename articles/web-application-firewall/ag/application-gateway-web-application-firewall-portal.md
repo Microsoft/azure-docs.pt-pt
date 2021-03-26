@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/16/2020
+ms.date: 03/25/2021
 ms.author: victorh
-ms.openlocfilehash: b9733eeb0d9941f6e23dcc9c0fa4dba60f4e4d30
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 35bede052f06c0fcffe46460a376d10690fd4417
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94561034"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559638"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutorial: Criar um gateway de aplicações com uma Firewall de Aplicação Web utilizando o portal Azure
 
@@ -42,11 +42,9 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-Para o Azure comunicar entre recursos, precisa de uma rede virtual. Pode criar uma nova rede virtual ou utilizar uma existente. Neste exemplo, cria-se uma nova rede virtual. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação. As instâncias do Gateway de Aplicação são criadas em sub-redes separadas. Cria duas sub-redes neste exemplo: uma para o gateway de aplicações e outra para os servidores backend.
+1. **Selecione Criar um recurso** no menu esquerdo do portal Azure. A **nova** janela aparece.
 
-**Selecione Criar um recurso** no menu esquerdo do portal Azure. A **nova** janela aparece.
-
-Selecione **Networking** e, em seguida, selecione **Application Gateway** na lista **em destaque.**
+2. Selecione **Networking** e, em seguida, selecione **Application Gateway** na lista **em destaque.**
 
 ### <a name="basics-tab"></a>Separador básico
 
@@ -60,7 +58,7 @@ Selecione **Networking** e, em seguida, selecione **Application Gateway** na lis
 
 2.  Para que o Azure comunique entre os recursos que cria, precisa de uma rede virtual. Pode criar uma nova rede virtual ou utilizar uma existente. Neste exemplo, irá criar uma nova rede virtual ao mesmo tempo que cria o gateway de aplicações. As instâncias do Gateway de Aplicação são criadas em sub-redes separadas. Cria duas sub-redes neste exemplo: uma para o gateway de aplicações e outra para os servidores backend.
 
-    No **âmbito da rede virtual Configure,** crie uma nova rede virtual selecionando Criar **novo**. Na janela **de rede virtual Create** que se abre, introduza os seguintes valores para criar a rede virtual e duas sub-redes:
+    Na **rede virtual Configurar,** selecione **Criar novos** para criar uma nova rede virtual. Na janela **de rede virtual Create** que se abre, introduza os seguintes valores para criar a rede virtual e duas sub-redes:
 
     - **Nome**: Introduza *o myVNet* para o nome da rede virtual.
 
@@ -82,7 +80,7 @@ Selecione **Networking** e, em seguida, selecione **Application Gateway** na lis
    > [!NOTE]
    > Para o Gateway de Aplicação v2 SKU, só pode escolher a configuração IP frontal **do público.** A configuração IP do frontend privado não está ativada para este V2 SKU.
 
-2. Escolha **Criar novo** para o endereço IP **público** e insira o *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
+2. Escolha **Adicionar novo** para o endereço IP **público** e insira *myAGPublicIPAddress* para o nome de endereço IP público e, em seguida, selecione **OK**. 
 
      ![Criar novo gateway de aplicações: frontends](../media/application-gateway-web-application-firewall-portal/application-gateway-create-frontends.png)
 
@@ -92,7 +90,7 @@ Selecione **Networking** e, em seguida, selecione **Application Gateway** na lis
 
 O pool backend é usado para encaminhar pedidos para os servidores backend que servem o pedido. As piscinas backend podem ser compostas por NICs, conjuntos de escala de máquinas virtuais, IPs públicos, IPs internos, nomes de domínio totalmente qualificados (FQDN) e back-ends multi-inquilinos como O Azure App Service. Neste exemplo, você vai criar uma piscina de backend vazia com o seu gateway de aplicação e, em seguida, adicionar alvos de backend para a piscina de backend.
 
-1. No **separador Backends,** selecione **+Adicione uma piscina de backend**.
+1. No **separador Backends,** **selecione Adicione uma piscina de backend**.
 
 2. Na janela **de piscina de backend** que se abre, introduza os seguintes valores para criar uma piscina de backend vazia:
 
@@ -109,7 +107,7 @@ O pool backend é usado para encaminhar pedidos para os servidores backend que s
 
 No separador **Configuração,** irá ligar o frontend e o pool de backend que criou usando uma regra de encaminhamento.
 
-1. **Selecione Adicione uma regra** na coluna de **regras de encaminhamento.**
+1. **Selecione Adicione uma regra de encaminhamento** na coluna de **regras de encaminhamento.**
 
 2. Na janela de **regra de encaminhamento Adicionar uma** janela de regra de encaminhamento que se abre, *introduza o myRoutingRule* para o **nome regra**.
 
@@ -124,7 +122,7 @@ No separador **Configuração,** irá ligar o frontend e o pool de backend que c
 
 4. No separador **alvos de Backend,** selecione **myBackendPool** para o **alvo Backend**.
 
-5. Para a **definição HTTP**, selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. Na janela **de definição HTTP** que se abre, introduza *o myHTTPSetting* para o **nome de definição HTTP**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.** 
+5. Para a **definição HTTP**, selecione **Adicione novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. Na janela **de definição HTTP** que se abre, introduza *o myHTTPSetting* para o **nome de definição HTTP**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.** 
 
      ![Criar novo gateway de aplicações: definição HTTP](../media/application-gateway-web-application-firewall-portal/application-gateway-create-httpsetting.png)
 
@@ -158,12 +156,12 @@ Para fazer isto, vai:
 
     - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
     - **Nome da máquina virtual**: Introduza *o myVM* para o nome da máquina virtual.
-    - **Nome de utilizador**: *Introduza o nome de* utilizador do administrador.
-    - **Senha**: Insira *Azure123456!* para a senha do administrador.
+    - **Nome de utilizador**: Introduza um nome para o nome de utilizador do administrador.
+    - **Senha**: Introduza uma palavra-passe para a senha do administrador.
 4. Aceite as outras predefinições e, em seguida, selecione **Seguinte: Discos**.  
 5. Aceite as falhas do separador **Discos** e, em seguida, selecione **Seguinte: Networking**.
 6. No **separador Networking,** verifique se o **myVNet** está selecionado para a **rede Virtual** e a **sub-rede** está definida para **o myBackendSubnet**. Aceite os outros incumprimentos e, em seguida, selecione **Seguinte: Gestão**.<br>O Application Gateway pode comunicar com casos fora da rede virtual em que se encontra, mas é preciso garantir que existe conectividade IP.
-7. No **separador Gestão,** desata **o diagnóstico de Boot** para **desligar**. Aceite os outros predefinidos e, em seguida, **selecione Review + create**.
+7. No **separador Gestão,** desative **os diagnósticos boot** para **desativar**. Aceite os outros predefinidos e, em seguida, **selecione Review + create**.
 8. No **separador 'Rever +' criar,** rever as definições, corrigir quaisquer erros de validação e, em seguida, selecionar **Criar**.
 9. Aguarde que a criação da máquina virtual esteja concluída antes de continuar.
 
@@ -175,7 +173,7 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
     ![Instalar uma extensão personalizada](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-2. Execute o comando seguinte para instalar o IIS na máquina virtual: 
+2. Desaprote o parâmetro de localização para o ambiente e, em seguida, executar o seguinte comando para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -199,48 +197,49 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 3. Selecione **myBackendPool**.
 
-4. Em **'Alvos'**, selecione **a máquina virtual** da lista de drop-down.
+4. No **tipo Target,** selecione **a máquina virtual** da lista de drop-down.
 
-5. Em INTERFACES **DE MÁQUINA VIRTUAL** e **REDE,** selecione as máquinas virtuais **myVM** e **myVM2** e as suas interfaces de rede associadas a partir das listas de drop-down.
+5. No **Target**, selecione a interface de rede associada para **o myVM** a partir da lista de drop-down.
+1. Repita para **o myVM2**.
 
-    ![Adicionar servidores back-end](../media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
+   :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-backend.png" alt-text="Adicionar servidores back-end":::
+
 
 6. Selecione **Guardar**.
 
 7. Aguarde que a colocação esteja concluída antes de avançar para o próximo passo.
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>Criar uma conta de armazenamento e configurar o diagnóstico
-
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-
-Para este artigo, o gateway de aplicações utiliza uma conta de armazenamento para armazenar dados para fins de deteção e prevenção. Também pode utilizar registos do Azure Monitor ou do Event Hub para gravar dados.
-
-1. **Selecione Criar um recurso** no canto superior esquerdo do portal Azure.
-1. Selecione **Armazenamento** e, em seguida, selecione **a conta de Armazenamento**.
-1. Para *o grupo de recursos,* selecione **myResourceGroupAG** para o grupo de recursos.
-1. Digite *a myagstore1* para o nome da conta de armazenamento.
-1. Aceite os valores predefinidos para as outras definições e, em seguida, selecione **Review + Create**.
-1. Reveja as definições e, em seguida, **selecione Criar**.
-
-### <a name="configure-diagnostics"></a>Configurar o diagnóstico
-
-Configure o diagnóstico para registar dados nos registos ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog e ApplicationGatewayFirewallLog.
-
-1. No menu da esquerda, selecione **Todos os recursos** e, em seguida, selecione *myAppGateway*.
-2. Em Monitorização, selecione **Definições de Diagnóstico**.
-3. **selecione Adicionar a definição de diagnóstico**.
-4. *Insira as minhas Definições de Diagnóstico* como o nome para as definições de diagnóstico.
-5. Selecione **Archive para uma conta de armazenamento** e, em seguida, selecione **Configure** para selecionar a conta de armazenamento *myagstore1* que criou anteriormente e, em seguida, selecione **OK**.
-6. Selecione os registos de gateway de aplicação para recolher e manter.
-7. Selecione **Guardar**.
-
-    ![Configurar o diagnóstico](../media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
-
+   
 ## <a name="create-and-link-a-web-application-firewall-policy"></a>Criar e ligar uma política de Firewall de aplicação web
 
-Todas as personalizações e configurações da WAF estão num objeto separado, chamado waf policy. A apólice deve estar associada ao seu Gateway de Aplicação. Para criar uma política da WAF, consulte [Criar uma Política WAF](create-waf-policy-ag.md). Uma vez criada, pode então associar a política ao seu WAF (ou a um ouvinte individual) a partir da Política WAF no separador **Gateways de Aplicação Associado.** 
+Todas as personalizações e configurações da WAF estão num objeto separado, chamado waf policy. A apólice deve estar associada ao seu Gateway de Aplicação. 
 
-![Gateways de aplicações associados](../media/application-gateway-web-application-firewall-portal/associated-application-gateways.png)
+Crie uma política de WAF básica com um conjunto de regras padrão gerido (DRS).
+
+1. No lado superior esquerdo do portal, selecione **Criar um recurso**. Procure por **WAF**, selecione **Web Application Firewall** e, em seguida, selecione **Criar**.
+2. Na Configuração de uma página **de política da WAF,** **separador Basics,** insira ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **Rever + criar**:
+
+   |Definição  |Valor  |
+   |---------|---------|
+   |Política para     |WAF Regional (Gateway de Aplicação)|
+   |Subscrição     |Selecione o nome da sua subscrição|
+   |Grupo de recursos     |Selecione **myResourceGroupAG**|
+   |Nome da política     |Digite um nome único para a sua política WAF.|
+1. Selecione **Seguinte : Definições de política**.
+1. Aceite os incumprimentos e, em seguida, selecione **Seguinte : Regras geridas**.
+1. Aceite o padrão e, em seguida, selecione **Seguinte : Regras personalizadas**.
+1. Selecione **Seguinte : Associação**.
+1. **Selecione Adicionar associação** e, em seguida, selecione Application **Gateway**.
+1. Selecione a caixa de verificação para **Aplicar a configuração da política de Firewall de aplicação web mesmo que seja diferente da configuração atual**.
+1. Selecione **Adicionar**.
+1. No separador **Associação,** **selecione Adicionar associação** e selecione Application **Gateway**.
+
+   > [!NOTE]
+   > Se atribuir uma política ao seu Application Gateway (ou ouvinte) que já tenha uma política em vigor, a política original é substituída e substituída pela nova política.
+4. Selecione **Rever + criar** e, em seguida, selecione **Criar**.
+1. Selecione **Seguinte: Etiquetas**.
+1. Selecione **Rever + criar**.
+1. Selecione **Criar**.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 

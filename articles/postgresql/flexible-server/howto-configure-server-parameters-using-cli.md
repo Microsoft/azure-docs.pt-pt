@@ -1,19 +1,19 @@
 ---
 title: Parâmetros de configuração - Base de Dados Azure para PostgreSQL - Servidor Flexível
 description: Este artigo descreve como configurar os parâmetros postgres na Base de Dados Azure para PostgreSQL - Servidor Flexível utilizando o Azure CLI.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b14858cc99cac41e277b03171fd4cac4d6eafa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 315e4439ca66a3fbadac228c013797f516bc2940
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90940736"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605769"
 ---
 # <a name="customize-server-parameters-for-azure-database-for-postgresql---flexible-server-using-azure-cli"></a>Personalize os parâmetros do servidor para Azure Database para PostgreSQL - Servidor Flexível usando O Azure CLI
 

@@ -126,14 +126,14 @@
           href: concepts-supported-versions.md
         - name: Extensões do PostgreSQL
           href: concepts-extensions.md
+        - name: Limites
+          href: concepts-limits.md
         - name: Compreender os escalões de preço
           items:
             - name: Escalões de preço
               href: concepts-pricing-tiers.md
             - name: Fazer pré-pagamento para a capacidade de reserva
               href: concept-reserved-pricing.md
-            - name: Limites
-              href: concepts-limits.md
         - name: Segurança
           items:
             - name: Descrição geral da segurança

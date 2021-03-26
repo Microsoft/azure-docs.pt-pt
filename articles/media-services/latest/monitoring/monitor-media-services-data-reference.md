@@ -6,17 +6,18 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 866b2faf473f06fc3f85cdb434d6555504a7f6a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598189"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609093"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Referência de dados dos Serviços de Mídia de Monitorização
 
-Este artigo abrange os dados que são úteis para a monitorização dos Serviços de Comunicação Social. Para obter mais informações sobre todas as métricas da plataforma suportadas no Azure Monitor, [reveja as métricas suportadas com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+Este artigo abrange os dados que são úteis para a monitorização dos Serviços de Comunicação Social. Para obter mais informações sobre todas as métricas da plataforma suportadas no Azure Monitor, [reveja as métricas suportadas com o Azure Monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
 ## <a name="media-services-metrics"></a>Métricas de Serviços de Mídia
 
@@ -59,7 +60,7 @@ São suportadas as [seguintes métricas de serviços](/rest/api/media/streaminge
 
 ## <a name="metric-dimensions"></a>Dimensões métricas
 
-Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)
+Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)
 
 <!--**PLACEHOLDER** for dimensions table.-->
 
@@ -67,7 +68,7 @@ Para obter mais informações sobre as dimensões métricas, consulte [métricas
 
 ## <a name="media-services-diagnostic-logs"></a>Registos de diagnóstico dos Serviços de Comunicação Social
 
-Os registos de diagnóstico fornecem dados ricos e frequentes sobre o funcionamento de um recurso Azure. Para mais informações, consulte [Como recolher e consumir dados de registo dos seus recursos Azure.](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md)
+Os registos de diagnóstico fornecem dados ricos e frequentes sobre o funcionamento de um recurso Azure. Para mais informações, consulte [Como recolher e consumir dados de registo dos seus recursos Azure.](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 Os Serviços de Comunicação Social suportam os seguintes registos de diagnóstico:
 
@@ -81,7 +82,7 @@ Os Serviços de Comunicação Social suportam os seguintes registos de diagnóst
 
 ## <a name="schemas"></a>Esquemas
 
-Para uma descrição detalhada do esquema de registos de diagnóstico de nível superior, consulte [serviços, esquemas e categorias de Registos de Diagnóstico Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md).
+Para uma descrição detalhada do esquema de registos de diagnóstico de nível superior, consulte [serviços, esquemas e categorias de Registos de Diagnóstico Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema-properties"></a>Principais propriedades do esquema de registo de entrega
 

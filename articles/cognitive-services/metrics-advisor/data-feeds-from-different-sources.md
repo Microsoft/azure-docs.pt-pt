@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96348624"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606152"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor
 
-Utilize este artigo para encontrar as configurações e requisitos para ligar diferentes tipos de fontes de dados ao Metrics Advisor. Certifique-se de ler como embarcar [os seus dados](how-tos/onboard-your-data.md) para saber sobre os conceitos-chave para a utilização dos seus dados com o Metrics Advisor. 
+Utilize este artigo para encontrar as configurações e requisitos para ligar diferentes tipos de fontes de dados ao Metrics Advisor. Certifique-se de ler como embarcar [os seus dados](how-tos/onboard-your-data.md) para saber sobre os conceitos-chave para a utilização dos seus dados com o Metrics Advisor. \
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticação suportados
 
@@ -51,7 +51,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 |[**MySQL**](#mysql) | Básico |
 |[**PostgreSQL**](#pgsql)| Básico|
 
-Crie uma **entidade credencial** e utilize-a para autenticar as suas fontes de dados. As seguintes secções especificam os parâmetros exigidos para a autenticação *básica.* 
+Crie uma entidade credencial** e utilize-a para autenticar as suas fontes de dados. As seguintes secções especificam os parâmetros exigidos para a autenticação *básica.* 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Insights de Aplicação Azure</span>
 
@@ -212,27 +212,26 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Armazenamento de mesa Azure</span>
 
-* **Cadeia de ligação**: Consulte a [Visualização e copie uma cadeia de ligação](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) para obter informações sobre como recuperar a cadeia de ligação do Azure Table Storage.
+* **Cadeia de ligação**: Por favor, crie um URL SAS (assinatura de acesso partilhado) e preencha aqui. A forma mais simples de gerar um URL SAS é usar o Portal Azure. Ao utilizar o portal Azure, pode navegar graficamente. Para criar um URL SAS através do portal Azure, em primeiro lugar, navegue para a conta de armazenamento que gostaria de aceder na secção Definições e depois clique na assinatura de acesso partilhado. Verifique pelo menos as caixas de verificação "Table" e "Object" e, em seguida, clique no botão De gerar SAS e fio de ligação. Serviço de mesa SS URL é o que precisa para copiar e preencher a caixa de texto no espaço de trabalho Metrics Advisor.
 
 * **Nome da tabela**: Especifique uma tabela para consultar. Isto pode ser encontrado na sua conta de armazenamento Azure. Clique em **Tabelas** na secção **Serviço de Tabelas.**
 
-* **Consulta** Pode usar a `@StartTime` sua consulta. `@StartTime` é substituído por uma cadeia de formato yyy-MM-ddTHH:mm no script.
+* **Consulta** Pode usar a `@StartTime` sua consulta. `@StartTime` é substituído por uma cadeia de formato yyy-MM-ddTHH:mm no script. Sugestão: Utilize o explorador de armazenamento Azure para criar uma consulta com o intervalo de tempo específico e certifique-se de que funciona bem e, em seguida, faça a substituição.
 
     ``` mssql
-    let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
-    SampleTable | where Timestamp >= StartDateTime and Timestamp < EndDateTime | project Timestamp, Market, RPM
+    date ge datetime'@StartTime' and date lt datetime'@EndTime'
     ```
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elástico</span>
 
-* **Anfitrião**:Especifique o anfitrião principal do Agrupamento de Elasticsearch.
-* **Porta**:Especificar a porta principal do Cluster elasticsearch.
-* **Cabeçalho de autorização**:Especifique o valor do cabeçalho de autorização do Cluster elasticsearch.
-* **Consulta**:Especificar a consulta para obter dados. O espaço reservado @StartTime é suportado. por exemplo, quando os dados de 2020-06-21T00:00:00Z são ingeridos, @StartTime = 2020-06-21T00:00:00
+* **Anfitrião**: Especifique o anfitrião principal do Agrupamento de Elasticsearch.
+* **Porto**: Especificar a porta principal do Cluster Elasticsearch.
+* **Cabeçalho de autorização**: Especifique o valor do cabeçalho de autorização do Cluster elasticsearch.
+* **Consulta**: Especifique a consulta para obter dados. O espaço reservado @StartTime é suportado. por exemplo, quando os dados de 2020-06-21T00:00:00Z são ingeridos, @StartTime = 2020-06-21T00:00:00
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">Pedido HTTP</span>
 
-* **Solicitação URL**: um url HTTP que pode devolver um JSON. Os espaços reservados %Y,%m,%d,%h,%M são suportados: %Y=ano em formato yyyyy, %m=mês em formato MM, %d=dia em formato dd, %h=hora no formato HH, %M=minuto em formato mm. Por exemplo: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **Solicitação URL**: Um url HTTP que pode devolver um JSON. Os espaços reservados %Y,%m,%d,%h,%M são suportados: %Y=ano em formato yyyyy, %m=mês em formato MM, %d=dia em formato dd, %h=hora no formato HH, %M=minuto em formato mm. Por exemplo: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Pedido método HTTP**: Use GET ou POST.
 * **Cabeçalho de pedido**: Pode adicionar autenticação básica. 
 * **Solicitação útil**: Apenas a carga útil JSON é suportada. O espaço reservado @StartTime é suportado na carga útil. A resposta deve estar no seguinte formato JSON: [{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "receita":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "mercado":"zh-cn", "count":22, "receita":4.56}. (por exemplo, quando os dados de 2020-06-21T00:00:00Z são ingeridos, @StartTime = 2020-06-21T00:00:00.0000000+00:00)

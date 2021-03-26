@@ -6,13 +6,14 @@ ms.author: inhenkel
 manager: femilia
 ms.topic: how-to
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 783d9e1b4ab86f6580cf3418a0676921aef2db6a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 90ca92dc19c588d0b19adf009301cf844e0cdbde
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598206"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609063"
 ---
 # <a name="monitor-media-services"></a>Monitorizar serviços de mídia
 
@@ -37,9 +38,9 @@ robb@microsoft.com -->
 
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
 
-Os Media Services criam dados de monitorização utilizando [o Azure Monitor,](https://docs.microsoft.com/azure/azure-monitor/overview)que é um serviço de monitorização de stacks completo em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure, além de recursos em outras nuvens e no local.
+Os Media Services criam dados de monitorização utilizando [o Azure Monitor,](../../../azure-monitor/overview.md)que é um serviço de monitorização de stacks completo em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure, além de recursos em outras nuvens e no local.
 
-Comece a ler o artigo [Monitorizar os recursos do Azure com o Azure Monitor,](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)que descreve os seguintes conceitos:
+Comece a ler o artigo [Monitorizar os recursos do Azure com o Azure Monitor,](../../../azure-monitor/essentials/monitor-azure-resource.md)que descreve os seguintes conceitos:
 
 - O que é o Azure Monitor?
 - Custos associados à monitorização
@@ -49,7 +50,7 @@ Comece a ler o artigo [Monitorizar os recursos do Azure com o Azure Monitor,](ht
 
 ## <a name="monitoring-data"></a>Monitorizar dados
 
-Os Serviços de Comunicação Social recolhem os mesmos tipos de dados de monitorização que outros recursos da Azure que são descritos na [monitorização de dados a partir de recursos Azure.](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources)
+Os Serviços de Comunicação Social recolhem os mesmos tipos de dados de monitorização que outros recursos da Azure que são descritos na [monitorização de dados a partir de recursos Azure.](../../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data)
 
 Todos os dados recolhidos pelo Azure Monitor enquadram-se num de dois tipos fundamentais: métricas e registos. Com estes dois tipos pode:
 
@@ -69,13 +70,13 @@ Consulte o artigo [Monitorização de dados dos Serviços de Comunicação](moni
 
 *Os Registos de Recursos* **não** são recolhidos e armazenados até criar uma definição de diagnóstico e encaminhá-los para um ou mais locais.
 
-Consulte o artigo [Crie a definição de diagnóstico para recolher registos e métricas da plataforma em Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para o processo detalhado de criação de uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell.
+Consulte o artigo [Crie a definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../../azure-monitor/essentials/diagnostic-settings.md) para o processo detalhado de criação de uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell.
 
 Quando cria uma definição de diagnóstico, especifica quais as categorias de registos a recolher. As categorias de Serviços de Mídia estão listadas na [referência de dados de monitorização dos Serviços de Comunicação Social.](monitor-media-services-data-reference.md)
 
 ## <a name="analyzing-metrics"></a>Análise de métricas
 
-Pode analisar métricas de Serviços de Mídia com métricas de outros serviços Azure utilizando métricas exploradores, abrindo **métricas** a partir do menu **Azure Monitor.** Consulte [o Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) para obter detalhes sobre a utilização desta ferramenta.
+Pode analisar métricas de Serviços de Mídia com métricas de outros serviços Azure utilizando métricas exploradores, abrindo **métricas** a partir do menu **Azure Monitor.** Consulte [o Azure Metrics Explorer](../../../azure-monitor/essentials/metrics-getting-started.md) para obter detalhes sobre a utilização desta ferramenta.
 
 Para obter uma lista das métricas recolhidas para serviços de mídia, consulte [a Referência de Dados dos Serviços de Comunicação Social](monitor-media-services-data-reference.md)de Monitorização .
 
@@ -83,11 +84,11 @@ Para obter uma lista das métricas recolhidas para serviços de mídia, consulte
 
 Os dados em Registos monitores Azure são armazenados em tabelas onde cada mesa tem o seu próprio conjunto de propriedades únicas.  
 
-Todos os registos de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos de serviço. O esquema comum é delineado no [esquema de registo de recursos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema).
+Todos os registos de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos de serviço. O esquema comum é delineado no [esquema de registo de recursos do Azure Monitor](../../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 O esquema dos registos de recursos dos Serviços de Mídia encontra-se na [Monitorização dos Dados dos Serviços de Comunicação Social.](monitor-media-services-data-reference.md)
 
-O [registo de Atividades](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log) é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Pode vê-lo de forma independente ou encaminhá-lo para Registos do Monitor Azure, onde pode fazer consultas muito mais complexas usando o Log Analytics.
+O [registo de Atividades](../../../azure-monitor/essentials/activity-log.md) é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Pode vê-lo de forma independente ou encaminhá-lo para Registos do Monitor Azure, onde pode fazer consultas muito mais complexas usando o Log Analytics.
 
 Para obter uma lista dos tipos de registos de recursos recolhidos para serviços de mídia, consulte [a referência de dados dos Serviços de Comunicação de Monitorização](monitor-media-services-data-reference.md).
 
@@ -102,7 +103,7 @@ Algumas coisas que pode examinar com registos de diagnóstico são:
 
 ## <a name="alerts"></a>Alertas
 
-Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview) [registos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)e no registo de [atividades](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts).
+Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](../../../azure-monitor/alerts/alerts-metric-overview.md) [registos](../../../azure-monitor/alerts/alerts-unified-log.md)e no registo de [atividades](../../../azure-monitor/alerts/activity-log-alerts.md).
 
 As métricas dos Serviços de Comunicação Social são recolhidas a intervalos regulares, quer o valor mude ou não. São úteis para alertar porque podem ser amostrados com frequência. Um alerta pode ser disparado rapidamente com uma lógica relativamente simples.
 

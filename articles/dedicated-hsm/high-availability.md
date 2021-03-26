@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.author: mbaldwin
-ms.openlocfilehash: 85aa9d355b2440535ea13c8c15e95500bac22352
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: c46ccbda35936ed94079a21e3e9c72405875b961
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98567255"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608872"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure Dedicado HSM alta disponibilidade
 
@@ -25,7 +25,7 @@ O Azure Dedicated HSM é apoiado pelos centros de dados altamente disponíveis d
 
 ## <a name="high-availability-example"></a>Exemplo de alta disponibilidade
 
-As informações sobre como configurar dispositivos HSM para uma elevada disponibilidade a nível de software estão no 'Guia de Administração Thales Luna 7 HSM'. Este documento está disponível na  [Página HSM do Thales](https://thalesdocs.com/gphsm/Content/luna/network/luna_network_releases.htm).
+As informações sobre como configurar dispositivos HSM para uma elevada disponibilidade a nível de software estão no 'Guia de Administração Thales Luna 7 HSM'. Este documento está disponível na  [Página HSM do Thales](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms).
 
 O diagrama que se segue mostra uma arquitetura altamente disponível. Utiliza vários dispositivos na região e vários dispositivos emparelhados numa região separada. Esta arquitetura utiliza um mínimo de quatro dispositivos HSM e componentes de rede virtual.
 
@@ -42,4 +42,4 @@ Outros tópicos de nível de conceito:
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)
 
-Para obter detalhes específicos sobre a configuração de dispositivos HSM para uma elevada disponibilidade, consulte o Portal de Apoio ao Cliente do Thales para os Guias do Administrador e consulte a secção 6.
+Para obter detalhes específicos sobre a configuração de dispositivos HSM para uma elevada disponibilidade, consulte o portal de apoio ao [cliente Thales](https://supportportal.thalesgroup.com/csm) para os Guias de Administrador e consulte a secção 6.

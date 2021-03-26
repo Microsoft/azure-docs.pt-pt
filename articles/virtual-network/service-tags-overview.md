@@ -13,19 +13,22 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 472b0d2886d9177c6507c84d5a8b6da6e99e65e5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d14ca2423d34926a9e297823a6515c2c5dde06a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597968"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607121"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
 
 Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede.
 
-Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](./network-security-groups-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço, como **ApiManagement,** no campo de *origem* ou *destino* adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
+Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](./network-security-groups-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço, como **ApiManagement,** no campo de *origem* ou *destino* adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente. 
+
+> [!NOTE] 
+> A partir de março de 2021, também pode utilizar Tags de Serviço em vez de gamas IP explícitas nas [rotas definidas pelo utilizador.](./virtual-networks-udr-overview.md) Esta funcionalidade atualmente está em Pré-visualização Pública. 
 
 Pode utilizar tags de serviço para alcançar o isolamento da rede e proteger os seus recursos Azure da Internet geral, ao mesmo tempo que acede aos serviços Azure que têm pontos finais públicos. Crie regras de grupo de segurança de rede de entrada/saída para negar o tráfego de/para a **Internet** e permitir o tráfego de/para **a AzureCloud** ou outras tags de serviço disponíveis de [serviços específicos](#available-service-tags) da Azure.
 

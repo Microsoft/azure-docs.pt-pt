@@ -1,19 +1,19 @@
 ---
 title: Amostras Azure CLI - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo lista várias amostras de código Azure CLI disponíveis para interagir com a Base de Dados Azure para PostgreSQL - Servidor Único.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc, devx-track-azurecli
 ms.date: 5/6/2019
-ms.openlocfilehash: f317734b7020002add710eb9d661028e8df34087
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 17e86669ae764006fddafaa05490f9021fdc5859
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91707647"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607393"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Amostras de CLI Azure para Base de Dados Azure para PostgreSQL - Servidor Único
 A tabela seguinte inclui ligações para exemplos de script da CLI do Azure para a Base de Dados do Azure para PostgreSQL.

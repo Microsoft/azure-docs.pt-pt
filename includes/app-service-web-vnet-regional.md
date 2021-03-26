@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 7796b94609a9be05fdb72900d0725747440f8042
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 821746856cb37781c8f6a2e58659ce7db43e1479
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105582596"
+ms.locfileid: "105609517"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -74,7 +74,7 @@ A funcionalidade é totalmente suportada tanto para aplicações Windows como Li
 
 ### <a name="service-endpoints"></a>Pontos finais de serviço
 
-A Integração Regional de VNet permite-lhe utilizar pontos finais de serviço. Os passos básicos para poder aceder a um serviço a partir da sua app sobre os pontos finais do serviço são os seguintes:
+A Integração Regional de VNet permite-lhe chegar aos serviços Azure que são protegidos com pontos finais de serviço. Para aceder a um serviço de serviço seguro de ponto final, tem de fazer o seguinte:
 
 1. Configure a Integração Regional de VNet com a sua aplicação web para se conectar a uma sub-rede específica para integração.
 1. Vá ao serviço de destino e configuure os pontos finais do serviço contra a sub-rede de integração.
@@ -101,9 +101,6 @@ Depois de a sua aplicação se integrar com o seu VNet, utiliza o mesmo servidor
 1. `WEBSITE_VNET_ROUTE_ALL` com valor `1`
 
 Estas definições enviam todas as suas chamadas de saída da sua app para o seu VNet e permitem que a sua aplicação aceda a uma zona privada do Azure DNS. Com estas definições, a sua aplicação pode utilizar o Azure DNS consultando a zona privada dns ao nível do trabalhador.  
-
-> [!NOTE]
-> Tentar adicionar um domínio personalizado a uma aplicação web usando uma zona privada de DNS não é possível com a Integração VNET. A validação de domínio personalizado é feita ao nível do controlador, não ao nível do trabalhador, o que impede que os registos dns sejam vistos. Para utilizar um domínio personalizado a partir de uma zona privada de DNS, tem de contornar a validação utilizando um [Gateway de Aplicações](../articles/app-service/networking/app-gateway-with-service-endpoints.md) ou [um Ambiente de Serviço de Aplicações ILB](../articles/app-service/environment/create-ilb-ase.md).
 
 ### <a name="private-endpoints"></a>Pontos Finais Privados
 

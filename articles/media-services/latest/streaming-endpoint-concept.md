@@ -63,6 +63,54 @@ Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|U
 
 <sup>1</sup> Apenas utilizado diretamente no Ponto de Final de Streaming quando o CDN não estiver ativado no ponto final.<br/>
 
+### <a name="versions"></a>Versões
+
+|Tipo|StreamingEndpointVersion|Unidades de escala|CDN|Faturação|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Clássico|1.0|0|ND|Gratuito|
+|Ponto final de streaming padrão (pré-visualização)|2.0|0|Yes|Paga|
+|Unidades de streaming premium|1.0|>0|Yes|Paga|
+|Unidades de streaming premium|2.0|>0|Yes|Paga|
+
+### <a name="features"></a>Funcionalidades
+
+Funcionalidade|Standard|Premium
+---|---|---
+Débito |Até 600 Mbps e pode fornecer uma produção eficaz muito maior quando um CDN é usado.|200 Mbps por unidade de streaming (SU). Pode fornecer uma produção eficaz muito maior quando um CDN é usado.
+CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem CDN.
+A faturação é prostimada| Diário|Diário
+Encriptação dinâmica|Yes|Yes
+Empacotamento dinâmico|Yes|Yes
+Escala|A escala automática sobe até à produção visada.|Unidades de streaming adicionais.
+Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Yes|Yes
+Download progressivo|Yes|Yes
+Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 
+
+<sup>1</sup> Apenas utilizado diretamente no ponto de ponta de streaming quando o CDN não estiver ativado no ponto final.<br/>
+
+Para obter informações sobre SLA, consulte [preços e SLA.](https://azure.microsoft.com/pricing/details/media-services/)
+
+## <a name="migration-between-types"></a>Migração entre tipos
+
+De | Para | Ação
+---|---|---
+Clássica|Standard|Necessidade de optar
+Clássico|Premium| Escala (unidades de streaming adicionais)
+Standard/Premium|Clássico|Não disponível (Se a versão de ponto final de streaming for 1.0. É permitido mudar para clássico com escalas de definição para "0")
+Padrão (com/sem CDN)|Premium com as mesmas configurações|Permitido no estado **iniciado.** (via portal Azure)
+Premium (com/sem CDN)|Standard com as mesmas configurações|Permitido no estado **iniciado** (via portal Azure)
+Padrão (com/sem CDN)|Premium com config diferente|Permitido no estado **parado** (via portal Azure). Não é permitido no estado de corrida.
+Premium (com/sem CDN)|Padrão com config diferente|Permitido no estado **parado** (via portal Azure). Não é permitido no estado de corrida.
+Versão 1.0 com SU >= 1 com CDN|Standard/Premium sem CDN|Permitido no estado **parado.** Não é permitido no estado **iniciado.**
+Versão 1.0 com SU >= 1 com CDN|Padrão com/sem CDN|Permitido no estado **parado.** Não é permitido no estado **iniciado.** A versão 1.0 CDN será eliminada e nova criada e iniciada.
+Versão 1.0 com SU >= 1 com CDN|Premium com/sem CDN|Permitido no estado **parado.** Não é permitido no estado **iniciado.** O CDN clássico será eliminado e o novo criado e iniciado.
+
+
+
+
+
+
+
 ## <a name="streaming-endpoint-properties"></a>Propriedades de Streaming Endpoint
 
 Esta secção dá detalhes sobre algumas das propriedades do Streaming Endpoint. Por exemplo, como criar um novo ponto final de streaming e descrições de todas as propriedades, consulte [streaming Endpoint](/rest/api/media/streamingendpoints/create).
@@ -83,7 +131,7 @@ Esta secção dá detalhes sobre algumas das propriedades do Streaming Endpoint.
 - `crossSiteAccessPolicies`: Usado para especificar políticas de acesso a vários clientes. Para obter mais informações, consulte [a especificação do ficheiro de política de domínio transversal](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e a [disponibilização de um serviço através dos limites do domínio](/previous-versions/azure/azure-services/gg185950(v=azure.100)). As definições aplicam-se apenas ao Streaming Suave.
 - `customHostNames`: Usado para configurar um Streaming Endpoint para aceitar o tráfego direcionado para um nome de anfitrião personalizado. Esta propriedade é válida para Pontos Finais Standard e Premium Streaming e pode ser definida quando `cdnEnabled` : falso.
 
-    A propriedade do nome de domínio deve ser confirmada pela Media Services. Os Serviços de Comunicação Social verificam a propriedade do nome de domínio exigindo um `CName` registo que contenha o ID da conta dos Serviços de Mídia como componente a ser adicionado ao domínio em uso. Como exemplo, para que "sports.contoso.com" seja usado como um nome de anfitrião personalizado para o ponto final de streaming, um registo `<accountId>.contoso.com` para deve ser configurado para apontar para um dos nomes dos anfitriões de verificação de Serviços de Comunicação. O nome do anfitrião de verificação é composto por verificações. \<mediaservices-dns-zone> . .
+    A propriedade do nome de domínio deve ser confirmada pela Media Services. Os Serviços de Comunicação Social verificam a propriedade do nome de domínio exigindo um `CName` registo que contenha o ID da conta dos Serviços de Mídia como componente a ser adicionado ao domínio em uso. Como exemplo, para que "sports.contoso.com" seja usado como um nome de anfitrião personalizado para o ponto final de streaming, um registo `<accountId>.contoso.com` para deve ser configurado para apontar para um dos nomes dos anfitriões de verificação de Serviços de Comunicação. O nome do anfitrião de verificação é composto por verificações. `\<mediaservices-dns-zone>` . .
 
     Seguem-se as zonas de DNS previstas para serem utilizadas no registo de verificação de diferentes regiões de Azure.
   

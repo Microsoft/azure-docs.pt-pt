@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2021
-ms.openlocfilehash: 8caac0a111c3a1bdd88e0d5f43a4629ad4221496
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 2de60880b511e43ffb2949a15fec2cf2a94f62fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888945"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567157"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Descubra as instâncias do SQL Server num projeto existente 
 
@@ -41,7 +41,7 @@ Descobrir instâncias e bases de dados do SQL Server em funcionamento em máquin
     - Valide que os serviços em funcionamento no aparelho são atualizados para as versões mais recentes. Para tal, lance o gestor de configuração do aparelho a partir do servidor do seu aparelho e selecione os serviços de visualização do aparelho a partir do painel de pré-requisitos de configuração.
         - Aparelho e seus componentes são automaticamente atualizados :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Verifique a versão do aparelho":::
     - No painel de credenciais e fontes de descoberta do gestor de configuração do aparelho, adicione credenciais de autenticação de servidor de domínio ou SQL que tenham acesso Sysadmin na instância e bases de dados do SQL Server a serem descobertas.
-    Pode aproveitar a função automática de mapeamento de credenciais do aparelho ou mapear manualmente as credenciais para o respetivo servidor, conforme [aqui](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery)destacado .
+    Pode aproveitar a função automática de mapeamento de credenciais do aparelho ou mapear manualmente as credenciais para o respetivo servidor, conforme [aqui](./tutorial-discover-vmware.md#start-continuous-discovery)destacado .
 
     Alguns pontos a notar:
     - Certifique-se de que o inventário de software já está ativado ou forneça credenciais de domínio ou não domínio para ativar o mesmo. O inventário de software deve ser realizado para descobrir as instâncias do SQL Server.

@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 6c6bbdefe666cf0dd2f1c96d783917e1874ae93d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b022bff9db87c248881cd18cc21569aaef8f404a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588703"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562142"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Quickstart: Configurar um cluster híbrido com Azure Managed Instance para Apache Cassandra (Preview)
 
@@ -28,7 +28,7 @@ Este quickstart demonstra como usar os comandos Azure CLI para configurar um clu
 
 * Este artigo requer a versão Azure CLI 2.12.1 ou superior. Se estiver a utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
-* [Rede Virtual Azure](../virtual-network/virtual-networks-overview.md) com conectividade ao seu ambiente auto-hospedado ou no local. Para obter mais informações sobre a ligação em ambientes de instalações a Azure, consulte a rede De ligar uma rede no local ao artigo [da Azure.](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+* [Rede Virtual Azure](../virtual-network/virtual-networks-overview.md) com conectividade ao seu ambiente auto-hospedado ou no local. Para obter mais informações sobre a ligação em ambientes de instalações a Azure, consulte a rede De ligar uma rede no local ao artigo [da Azure.](/azure/architecture/reference-architectures/hybrid-networking/)
 
 ## <a name="configure-a-hybrid-cluster"></a><a id="create-account"></a>Configurar um cluster híbrido
 

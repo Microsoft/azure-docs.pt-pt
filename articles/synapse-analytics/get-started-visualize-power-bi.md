@@ -9,22 +9,22 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 952d69cccff86d1a0119391c400a40908c62ed69
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 829daaa9c739657528a9085201c61c88635931d0
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98208969"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608447"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar dados com o Power BI
 
 Neste tutorial, você aprenderá a criar um espaço de trabalho Power BI, ligar o seu espaço de trabalho Azure Synapse e criar um conjunto de dados Power BI que utiliza dados no seu espaço de trabalho Azure Synapse. 
 
-> [!NOTE]
-> Para completar este tutorial, [instale o Power BI Desktop](https://aka.ms/pbidesktopstore).
+## <a name="prerequisites"></a>Pré-requisitos
+Para completar este tutorial, [instale o Power BI Desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A partir dos dados do Táxi de NYC, criámos conjuntos de dados agregados em duas tabelas:
 - **nyctaxi.contagem de passageiros**

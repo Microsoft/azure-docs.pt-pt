@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: mbaldwin
-ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 5365ba8c4fbc07c487dd40cfcdc9d566990c493c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91359159"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607052"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM dedicada Azure
 
@@ -84,6 +84,60 @@ Para aplicações distribuídas globalmente ou para cenários de falha regional 
 > O perspitamento global da Vnet não está disponível em cenários de conectividade entre regiões com HSMs dedicados neste momento e o gateway VPN deve ser usado em vez disso. 
 
 ![O diagrama mostra duas regiões ligadas por dois gateways V P N. Cada região contém redes virtuais espreitadas.](media/networking/global-vnet.png)
+
+## <a name="networking-restrictions"></a>Restrições de rede
+> [!NOTE]
+> É imposta uma restrição do serviço dedicado ao HSM utilizando a delegação de sub-redes que deve ser considerada na conceção da arquitetura da rede-alvo para uma implantação do HSM. A utilização da delegação de sub-redes significa que os NSGs, UDRs e Global VNet Peering não são suportados para o HSM dedicado. As secções abaixo ajudam com técnicas alternativas para alcançar o mesmo ou um resultado semelhante para estas capacidades. 
+
+O HSM NIC que reside no HSM VNet dedicado não pode utilizar grupos de segurança de rede ou rotas definidas pelo utilizador. Isto significa que não é possível definir políticas de negação por defeito do ponto de vista do HSM VNet dedicado, e que outros segmentos de rede devem ser autorizados a aceder ao serviço dedicado do HSM. 
+
+A adição da solução Proxy de Aparelhos Virtuais de Rede (NVA) também permite que uma firewall NVA no centro de trânsito/DMZ seja colocada logicamente em frente ao HSM NIC, fornecendo assim a alternativa necessária aos NSGs e UDRs.
+
+### <a name="solution-architecture"></a>Arquitetura da Solução
+Este design de rede requer os seguintes elementos:
+1.  Um VNet de trânsito ou hub DMZ com um nível de procuração NVA. Idealmente, dois ou mais NVAs estão presentes. 
+2.  Um circuito ExpressRoute com um espremiado privado habilitado e uma ligação ao centro de trânsito VNet.
+3.  Um VNet a espreitar entre o hub de trânsito VNet e o Dedicado HSM VNet.
+4.  Uma firewall NVA ou Azure Firewall pode ser implantada oferecendo serviços DMZ no centro como uma opção. 
+5.  VNets de carga de trabalho adicionais podem ser espreitados para o hub VNet. O cliente Gemalto pode aceder ao serviço dedicado HSM através do hub VNet.
+
+![O diagrama mostra um VNet hub DMZ com um nível de procuração NVA para solução de Saúde NSG e UDR](media/networking/network-architecture.png)
+
+Uma vez que a adição da solução de procuração NVA também permite que uma firewall NVA no centro de trânsito/DMZ seja logicamente colocada em frente ao HSM NIC, fornecendo assim as políticas de negação padrão necessárias. No nosso exemplo, usaremos o Azure Firewall para este fim e precisaremos dos seguintes elementos no lugar:
+1. Uma Firewall Azure implantada na sub-rede "AzureFirewallSubnet" no hub DMZ VNet
+2. Uma tabela de encaminhamento com uma UDR que direciona o tráfego para o ponto de terminação privado Azure ILB para a Firewall Azure. Esta Tabela de Encaminhamento será aplicada à GatewaySubnet onde reside o cliente ExpressRoute Virtual Gateway
+3. Regras de segurança da rede dentro da AzureFirewall para permitir o reencaminhamento entre uma gama de fontes fidedigna e o ponto final privado Azure IBL escutando na porta TCP 1792. Esta lógica de segurança adicionará a política de "negação por defeito" necessária ao serviço dedicado do HSM. Ou seja, apenas os intervalos IP de origem fidedigna serão permitidos no serviço dedicado hSM. Todas as outras gamas serão largadas.  
+4. Uma tabela de encaminhamento com um UDR que direciona o tráfego para o pré-pré-m para a Firewall Azure. Esta tabela de encaminhamento será aplicada na sub-rede de procuração NVA. 
+5. Um NSG aplicado à sub-rede Proxy NVA para confiar apenas a gama de sub-redes do Azure Firewall como fonte, e apenas permitir o encaminhamento para o endereço IP HSM NIC sobre a porta TCP 1792. 
+
+> [!NOTE]
+> Como o nível de procuração NVA irá SNAT o endereço IP do cliente à medida que se encaminha para o HSM NIC, não são necessárias UDRs entre o VNet HSM e o DMZ hub VNet.  
+
+### <a name="alternative-to-udrs"></a>Alternativa aos UDRs
+A solução de nível NVA acima mencionada funciona como uma alternativa às UDRs. Há alguns pontos importantes a notar.
+1.  A tradução do endereço de rede deve ser configurada na NVA para permitir que o tráfego de retorno seja encaminhado corretamente.
+2. Os clientes devem desativar o ip-check do cliente na configuração Luna HSM para utilizar o VNA para NAT. Os seguintes comandos serviam como exemplo.
+```
+Disable:
+[hsm01] lunash:>ntls ipcheck disable
+NTLS client source IP validation disabled
+Command Result : 0 (Success)
+
+Show:
+[hsm01] lunash:>ntls ipcheck show
+NTLS client source IP validation : Disable
+Command Result : 0 (Success)
+```
+3.  Implemente uDRs para o tráfego de entrada no nível NVA. 
+4. De acordo com o design, as sub-redes HSM não iniciarão um pedido de ligação de saída ao nível da plataforma.
+
+### <a name="alternative-to-using-global-vnet-peering"></a>Alternativa à utilização do Global VNET Peering
+Existem algumas arquiteturas que você pode usar como alternativa ao olhar global VNet.
+1.  Utilize [a ligação de gateway Vnet-to-Vnet VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 
+2.  Ligue o HSM VNET a outro VNET com um circuito ER. Isto funciona melhor quando é necessário um caminho direto no local ou vNET VPN. 
+
+#### <a name="hsm-with-direct-express-route-connectivity"></a>HSM com conectividade rota expressa direta
+![Diagrama mostra HSM com conectividade rota expressa direta](media/networking/expressroute-connectivity.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

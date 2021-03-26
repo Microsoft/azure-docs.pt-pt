@@ -1,17 +1,17 @@
 ---
 title: Servidores - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo fornece considerações e diretrizes para configurar e gerir a Base de Dados Azure para PostgreSQL - Servidor Único.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 215b7e908b21b1843b36a1e55972038c49ee101a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91710469"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605319"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Base de Dados do Azure para PostgreSQL – Servidor Único
 Este artigo fornece considerações e diretrizes para trabalhar com a Base de Dados Azure para PostgreSQL - Servidor Único.

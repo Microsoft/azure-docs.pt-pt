@@ -1,17 +1,17 @@
 ---
 title: Alertas de configuração - Portal Azure - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve como configurar e aceder a alertas métricos para Azure Database for PostgreSQL - Single Server a partir do portal Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 1b4c10d152afba708eb176e89355ed31ec809168
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b6256dc69e65f86a8619f8647652f40ee11f325f
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100586736"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604248"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Utilize o portal Azure para configurar alertas em métricas para a base de dados Azure para PostgreSQL - Servidor Único
 

@@ -5,25 +5,22 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 313ea98da0426af945dfdea00d33440ab2955cc7
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: c9c62ec07873272b956877ec51d8765ae0bbd100
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023083"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605642"
 ---
-# <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Azure Percept DK (dev kit) resolução de problemas
+# <a name="azure-percept-dk-troubleshooting"></a>Azure Percept DK resolução de problemas
 
 Consulte as orientações abaixo para obter dicas gerais de resolução de problemas para o Azure Percept DK.
 
 ## <a name="general-troubleshooting-commands"></a>Comandos gerais de resolução de problemas
 
-Para executar estes comandos, 
-1. Ligue-se ao [Wi-Fi AP do dev](./quickstart-percept-dk-set-up.md)
-1. [SSH no dev kit](./how-to-ssh-into-percept-dk.md)
-1. Insira os comandos no terminal SSH
+Para executar estes comandos, [sSH no kit dev](./how-to-ssh-into-percept-dk.md) e insira os comandos no pedido do cliente SSH.
 
 Para redirecionar qualquer saída para um ficheiro .txt para análise mais aprofundada, utilize a seguinte sintaxe:
 
@@ -43,7 +40,7 @@ Depois de redirecionar a saída para um ficheiro .txt, copie o ficheiro para o s
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-```[local host file path]``` refere-se à localização no seu PC anfitrião a que gostaria de copiar o ficheiro .txt. ```[remote username]``` é o nome de utilizador SSH escolhido durante a [experiência de configuração](./quickstart-percept-dk-set-up.md). Se não tiver configurado um login SSH durante o OOBE, o seu nome de utilizador remoto é ```root``` .
+```[local host file path]``` refere-se à localização no seu PC anfitrião a que gostaria de copiar o ficheiro .txt. ```[remote username]``` é o nome de utilizador SSH escolhido durante a [experiência de configuração](./quickstart-percept-dk-set-up.md).
 
 Para obter informações adicionais sobre os comandos Azure IoT Edge, consulte a documentação de [resolução de problemas do dispositivo Azure IoT Edge](../iot-edge/troubleshoot.md).
 
@@ -64,7 +61,7 @@ Para obter informações adicionais sobre os comandos Azure IoT Edge, consulte a
 |Azure IoT Edge          |```sudo iotedge logs [container name]``` |verificar registos de contentores, tais como módulos de fala e visão |
 |Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |recolher registos de módulos, registos de gestores de segurança Azure IoT Edge, troncos de motor de contentores, ```iotedge check``` saída JSON e outras informações úteis de depuração da última hora |
 |Azure IoT Edge          |```sudo journalctl -u iotedge -f``` |ver os registos do gestor de segurança Azure IoT Edge |
-|Azure IoT Edge          |```sudo systemctl restart iotedge``` |reiniciar o Azure IoT Edge Security Daemon |
+|Azure IoT Edge          |```sudo systemctl restart iotedge``` |reiniciar o daemon de segurança Azure IoT Edge |
 |Azure IoT Edge          |```sudo iotedge list```           |listar os módulos Azure IoT Edge implantados |
 |Outro             |```df [option] [file]```          |exibir informações sobre o espaço disponível/total em sistemas de ficheiros especificados |
 |Outro             |`ip route get 1.1.1.1`        |informação do dispositivo de exibição IP e interface |
@@ -88,11 +85,11 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 |```sudo docker image prune``` |[remove todas as imagens penduradas](https://docs.docker.com/engine/reference/commandline/image_prune/) |
 |```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |verificar estado de descarregamento de contentor de estivador |
 
-## <a name="usb-updating"></a>Atualização USB
+## <a name="usb-updates"></a>Atualizações USB
 
 |Erro:                                    |Solução:                                               |
 |------------------------------------------|--------------------------------------------------------|
-|LIBUSB_ERROR_XXX durante flash USB via UUU |Este erro é o resultado de uma falha de ligação USB durante a atualização da UUU. Se o cabo USB não estiver corretamente ligado às portas USB do PC ou do PE-10X, ocorrerá um erro deste formulário. Tente desligar e reboçar ambas as extremidades do cabo USB e agitar o cabo para garantir uma ligação segura. Isto quase sempre resolve o problema. |
+|LIBUSB_ERROR_XXX durante flash USB via UUU |Este erro é o resultado de uma falha de ligação USB durante a atualização da UUU. Se o cabo USB não estiver corretamente ligado às portas USB do PC ou da placa de porta-aviões Percept DK, ocorrerá um erro deste formulário. Tente desligar e voltar a ligar ambas as extremidades do cabo USB e agitar o cabo para garantir uma ligação segura. Isto quase sempre resolve o problema. |
 
 ## <a name="azure-percept-dk-carrier-board-led-states"></a>Azure Percept DK porta-aviões LED afirma
 

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 03/08/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 1ea87d40430dbf3edabd557b80ab1456b49f4605
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 821c50b5cb48bddb586c3589326a7f31c7bafded
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102507879"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604537"
 ---
 # <a name="availability-options-for-azure-virtual-machines"></a>Opções de disponibilidade para Máquinas Virtuais Azure
 Este artigo fornece uma visão geral das opções de disponibilidade para máquinas virtuais Azure (VMs).
@@ -57,6 +57,6 @@ O Site Recovery pode gerir a replicação de:
 - VMs no local, VMs Azure Stack e servidores físicos.
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Criar uma máquina virtual em uma zona de disponibilidade](/linux/create-cli-availability-zone.md)
-- [Criar uma máquina virtual num conjunto de disponibilidade](/linux/tutorial-availability.md)
+- [Criar uma máquina virtual em uma zona de disponibilidade](/azure/virtual-machines/linux/create-cli-availability-zone)
+- [Criar uma máquina virtual num conjunto de disponibilidade](/azure/virtual-machines/linux/tutorial-availability-sets)
 - [Criar um conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/quick-create-portal.md)

@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2020
-ms.author: mbaldwin
-ms.openlocfilehash: 52b62e463edc51b3d93d7af69623a88abd9cc6be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 5ed5ac90f446f74c54488f6d0cf23adbd63a3e1e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108607"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606883"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantação de HSMs numa rede virtual existente utilizando o PowerShell
 
@@ -68,7 +68,7 @@ O comando deve devolver um estado de "Registrado" (como mostrado abaixo) antes d
 
 ### <a name="creating-hsm-resources"></a>Criação de recursos HSM
 
-Um dispositivo HSM é a provisionado numa rede virtual de clientes. Isto implica a exigência de uma sub-rede. Uma dependência do HSM para permitir a comunicação entre a rede virtual e o dispositivo físico é um Gateway ExpressRoute, e finalmente uma máquina virtual é necessária para aceder ao dispositivo HSM usando o software do cliente Gemalto. Estes recursos foram recolhidos num ficheiro de modelo, com o respetivo arquivo de parâmetros, para facilitar a utilização. Os ficheiros estão disponíveis contactando a Microsoft diretamente em HSMrequest@Microsoft.com .
+Um dispositivo HSM é a provisionado numa rede virtual de clientes. Isto implica a exigência de uma sub-rede. Uma dependência do HSM para permitir a comunicação entre a rede virtual e o dispositivo físico é um Gateway ExpressRoute, e finalmente uma máquina virtual é necessária para aceder ao dispositivo HSM usando o software do cliente Thales. Estes recursos foram recolhidos num ficheiro de modelo, com o respetivo arquivo de parâmetros, para facilitar a utilização. Os ficheiros estão disponíveis contactando a Microsoft diretamente em HSMrequest@Microsoft.com .
 
 Uma vez que tenha os ficheiros, tem de editar o ficheiro de parâmetros para inserir os seus nomes preferidos para obter recursos. Isto significa editar linhas com "valor": "".
 
@@ -235,14 +235,14 @@ A saída deve parecer-se com a imagem mostrada abaixo:
 
 ![Screenshot que mostra a saída do comando do programa hsm.](media/tutorial-deploy-hsm-powershell/output.png)
 
-Neste momento, alocou todos os recursos para uma implantação altamente disponível, duas implantações de HSM e acesso validado e estado operacional. Qualquer outra configuração ou teste envolve mais trabalho com o próprio dispositivo HSM. Para isso, deve seguir as instruções no Guia de Administração da Rede Gemalto Luna HSM 7 capítulo 7 para rubricar o HSM e criar divisórias. Toda a documentação e software estão disponíveis diretamente de Gemalto para download uma vez registado no Portal de Apoio ao Cliente gemalto e tem um ID do Cliente. Baixe a versão 7.2 do Software cliente para obter todos os componentes necessários.
+Neste momento, alocou todos os recursos para uma implantação altamente disponível, duas implantações de HSM e acesso validado e estado operacional. Qualquer outra configuração ou teste envolve mais trabalho com o próprio dispositivo HSM. Para isso, deve seguir as instruções no Guia de Administração Thales Luna 7 HSM capítulo 7 para rubricar o HSM e criar divisórias. Toda a documentação e software estão disponíveis diretamente do Thales para download uma vez registado no [portal de apoio ao cliente thales](https://supportportal.thalesgroup.com/csm) e tem um ID do Cliente. Baixe a versão 7.2 do Software cliente para obter todos os componentes necessários.
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminar ou limpar recursos
 
 Se terminou apenas com o dispositivo HSM, então pode ser eliminado como recurso e devolvido à piscina gratuita. A preocupação óbvia ao fazê-lo são quaisquer dados sensíveis do cliente que estão no dispositivo. A melhor maneira de "zeroizar" um dispositivo é obter a palavra-passe de administração HSM errada 3 vezes (nota: isto não é administração de aparelho, é o administrador HSM real). Como medida de segurança para proteger o material chave, o dispositivo não pode ser eliminado como recurso Azure até estar no estado zeroizado.
 
 > [!NOTE]
-> se tiver problemas com qualquer configuração do dispositivo Gemalto, deve contactar [o suporte ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
+> se tiver problemas com qualquer configuração do dispositivo Thales, deve contactar o [suporte ao cliente thales](https://supportportal.thalesgroup.com/csm).
 
 Se pretender remover o recurso HSM em Azure, pode utilizar o seguinte comando substituindo as variáveis "$" pelos seus parâmetros únicos:
 

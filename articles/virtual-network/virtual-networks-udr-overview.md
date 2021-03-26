@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
-ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98221019"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605217"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -96,6 +96,36 @@ Ao criar uma rota definida pelo utilizador, pode especificar os tipos de próxim
 
 Não pode especificar **VNet peering** nem **VirtualNetworkServiceEndpoint** como o tipo de próximo salto em rotas definidas pelo utilizador. As rotas que tenham o tipo de próximo salto **VNet peering** ou **VirtualNetworkServiceEndpoint** só são criadas pelo Azure, quando configura um peering de rede virtual ou um ponto final de serviço.
 
+### <a name="service-tags-for-user-defined-routes-public-preview"></a>Etiquetas de serviço para rotas definidas pelo utilizador (Visualização pública)
+
+Pode agora especificar uma [Etiqueta de Serviço](service-tags-overview.md) como o prefixo de endereço para uma rota definida pelo utilizador em vez de uma gama IP explícita. Uma Etiqueta de Serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes nas rotas definidas pelo utilizador e reduzindo o número de rotas que necessita de criar. Atualmente pode criar 25 ou menos rotas com Etiquetas de Serviço em cada tabela de rotas. </br>
+
+
+#### <a name="exact-match"></a>Correspondência Exata
+Quando há uma correspondência de prefixo exata entre uma rota com um prefixo IP explícito e uma rota com uma Etiqueta de Serviço, é dada preferência à rota com o prefixo explícito. Quando várias rotas com Tags de Serviço tiverem prefixos IP correspondentes, as rotas serão avaliadas na seguinte ordem: 
+
+   1. Etiquetas regionais (por exemplo. Storage.EastUS, AppService.AustraliaCentral)
+   2. Etiquetas de nível superior (por exemplo. Armazenamento, AppService)
+   3. Tags regionais AzureCloud (por exemplo. AzureCloud.canadacentral, AzureCloud.eastasia)
+   4. A tag AzureCloud </br></br>
+
+Para utilizar esta função, especifique um nome de Marcação de Serviço para o parâmetro do prefixo de endereço nos comandos da tabela de rotas. Por exemplo, em Powershell pode criar uma nova rota para o tráfego direto enviado para um prefixo IP de armazenamento Azure para um aparelho virtual utilizando: </br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+O mesmo comando para a CLI será: </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+
+> [!NOTE] 
+> Enquanto em Visualização Pública, existem várias limitações. A funcionalidade não é suportada atualmente no Portal Azure e está disponível apenas através de Powershell e CLI. Não existe suporte para utilização com recipientes. 
+
 ## <a name="next-hop-types-across-azure-tools"></a>Tipos de próximo salto transversais às ferramentas do Azure
 
 O nome apresentado e referenciado para os tipos de próximo salto são diferentes no portal do Azure e nas ferramentas de linha de comandos e nos modelos de implementação do Azure Resource Manager e clássica. A tabela seguinte mostra os nomes utilizados para fazer referência a cada tipo de próximo salto com as diferentes ferramentas e [modelos de implementação](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
@@ -109,6 +139,8 @@ O nome apresentado e referenciado para os tipos de próximo salto são diferente
 |Nenhum                            |Nenhum                                            |Null (não disponível na CLI clássica no modo asm)|
 |Peering de rede virtual         |VNet peering                                    |Não aplicável|
 |Ponto final de serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
+
+
 
 ### <a name="border-gateway-protocol"></a>BGP (Border Gateway Protocol)
 

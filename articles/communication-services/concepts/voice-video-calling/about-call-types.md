@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4ecc7033007361e27908e0881b80091ac660398e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 6ec616047a99465bace0b401f659765e4399634b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108398"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604571"
 ---
 # <a name="voice-and-video-concepts"></a>Conceitos de voz e vídeo
 
@@ -44,14 +44,10 @@ Uma chamada de um para um nos Serviços de Comunicação Azure acontece quando u
 Uma chamada de grupo nos Serviços de Comunicação Azure acontece quando três ou mais participantes se ligam entre si. Qualquer combinação de utilizadores ligados a VoIP e PSTN pode estar presente numa chamada de grupo. Uma chamada de um para um pode ser convertida numa chamada de grupo adicionando mais participantes à chamada. Um desses participantes pode ser um bot.
 
 ### <a name="supported-video-standards"></a>Padrões de vídeo suportados
-Apoiamos H.264 (MPEG-4)
+Apoiamos H.264 (MPEG-4).
 
 ### <a name="video-quality"></a>Qualidade do vídeo 
 Apoiamos até Full HD 1080p nos SDKs nativos (iOS, Android). Para Web (JS) SDK apoiamos Standard HD 720p. A qualidade depende da largura de banda disponível.
-
-### <a name="rooms-concept"></a>Conceito de quartos
-Os quartos são um conjunto de APIs e SDKs que permitem adicionar facilmente interações de áudio, vídeo, partilha de ecrã, PSTN e SMS ao seu website ou aplicação nativa.
-Durante a pré-visualização pode utilizar o ID do grupo para se juntar à mesma conversa. Pode criar os iDs de grupo que precisar e separar os utilizadores pelos "quartos". Avançar vai introduzir mais controlos em torno de "quartos"
 
 ## <a name="next-steps"></a>Passos seguintes
 

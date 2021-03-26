@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5ca01bcea348b866c0f40f82ebe90dc31d032739
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 00e1fa623fc625a568f6580998443758c3916be8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98927068"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563077"
 ---
 # <a name="media-reserved-units-mrus-scenario-based-migration-guidance"></a>Unidades reservadas de mídia (MRUs) orientação de migração baseada em cenários
 
@@ -48,7 +48,3 @@ Para obter mais informações sobre as MRUs, consulte [unidades reservadas](conc
 ## <a name="samples"></a>Amostras
 
 Também pode [comparar o código V2 e V3 nas amostras de código](migrate-v-2-v-3-migration-samples.md).
-
-## <a name="next-steps"></a>Passos seguintes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

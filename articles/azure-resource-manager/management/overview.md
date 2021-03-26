@@ -2,14 +2,14 @@
 title: Descrição geral do Azure Resource Manager
 description: Descreve como utilizar o Azure Resource Manager para a implementação, a gestão e o controlo de acesso de recursos no Azure.
 ms.topic: overview
-ms.date: 09/01/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.custom: contperf-fy21q1,contperf-fy21q3-portal
+ms.openlocfilehash: 6cd9aa82ad2f8a821ae82a361b3f11b72ca25f7a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97858523"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608549"
 ---
 # <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
@@ -91,7 +91,7 @@ Existem alguns fatores importantes a considerar ao definir o grupo de recursos:
 
 * Quando elimina um grupo de recursos, todos os recursos do grupo de recursos também são eliminados. Para obter informações sobre como o Azure Resource Manager orquestra essas supressões, consulte [o grupo de recursos Azure Resource Manager e a supressão de recursos.](delete-resource-group.md)
 
-* Pode implementar até 800 instâncias de um tipo de recurso em cada grupo de recursos. Alguns tipos de recursos estão [isentos do limite de 800 instâncias.](resources-without-resource-group-limit.md)
+* Pode implementar até 800 instâncias de um tipo de recurso em cada grupo de recursos. Alguns tipos de recursos estão [isentos do limite de 800 instâncias.](resources-without-resource-group-limit.md) Para obter mais informações, consulte [os limites do grupo de recursos.](azure-subscription-service-limits.md#resource-group-limits)
 
 * Alguns recursos podem existir fora de um grupo de recursos. Estes recursos são mobilizados para a [subscrição,](../templates/deploy-to-subscription.md) [grupo de gestão,](../templates/deploy-to-management-group.md)ou [inquilino.](../templates/deploy-to-tenant.md) Apenas tipos específicos de recursos são suportados nestes âmbitos.
 
@@ -112,6 +112,8 @@ O serviço Azure Resource Manager foi concebido para resiliência e disponibilid
 Esta resiliência aplica-se aos serviços que recebem pedidos através do Gestor de Recursos. Por exemplo, o Cofre-Chave beneficia desta resiliência.
 
 ## <a name="next-steps"></a>Passos seguintes
+
+* Para conhecer os limites que são aplicados nos serviços Azure, consulte [os limites de subscrição e serviços da Azure, quotas e restrições.](azure-subscription-service-limits.md)
 
 * Para aprender sobre a movimentação de recursos, consulte [mover recursos para novo grupo de recursos ou subscrição.](move-resource-group-and-subscription.md)
 

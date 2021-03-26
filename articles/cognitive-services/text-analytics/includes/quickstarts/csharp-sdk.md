@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/11/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 2a43042fb1caeee7c652d7c38111ccb2fa9bb359
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d36efaf64edd51fd1c2b46b959af1a994f6ec956
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599095"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582461"
 ---
 <a name="HOLTop"></a>
 
@@ -798,28 +798,25 @@ Total actions: 1
   Failed actions: 0
   In progress actions: 0
 Recognized Entities
-  Recognized the following 3 entities:
-  Entity: Microsoft
-  Category: Organization
-  Offset: 0
-  Length: 9
-  ConfidenceScore: 0.97
-  SubCategory:
-  Entity: Bill Gates
-  Category: Person
-  Offset: 25
-  Length: 10
-  ConfidenceScore: 1
-  SubCategory:
-  Entity: Paul Allen
-  Category: Person
-  Offset: 40
-  Length: 10
-  ConfidenceScore: 0.99
-  SubCategory:
+    Recognized the following 3 entities:
+    Entity: Microsoft
+    Category: Organization
+    Offset: 0
+    ConfidenceScore: 0.83
+    SubCategory: 
+    Entity: Bill Gates
+    Category: Person
+    Offset: 25
+    ConfidenceScore: 0.85
+    SubCategory: 
+    Entity: Paul Allen
+    Category: Person
+    Offset: 40
+    ConfidenceScore: 0.9
+    SubCategory: 
 ```
 
-Também pode utilizar a operação De analisar para detetar PII, reconhecer entidades ligadas e extração de frases-chave. Veja a [amostra de Análise](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md) no GitHub.
+Também pode utilizar a operação De analisar para detetar pii e extração de frases-chave. Veja a [amostra de Análise](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) no GitHub.
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
