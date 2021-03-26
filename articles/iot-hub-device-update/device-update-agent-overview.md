@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e932238849baf267983fb3ca1ebb082db169d9fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101680101"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561241"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Descrição Geral da Atualização de Dispositivos para o Agente do Hub IoT
 
 O Agente de Atualização de Dispositivos é composto por duas camadas conceptuais:
 
-* A Camada de Interface baseia-se no topo do [Azure IoT Plug and Play (PnP)](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) permitindo que as mensagens fluam entre o Agente de Atualização do Dispositivo e os Serviços de Atualização de Dispositivos.
+* A Camada de Interface baseia-se no topo do [Azure IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) permitindo que as mensagens fluam entre o Agente de Atualização do Dispositivo e os Serviços de Atualização de Dispositivos.
 * A Camada de Plataforma é responsável pelas ações de atualização de alto nível de Download, Install e Apply que podem ser plataforma ou dispositivo específico.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Implementações de Agentes." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
@@ -72,8 +72,7 @@ O APT Update Handler processa um Manifesto de Atualização específico da APT e
 
 ## <a name="self-update-device-update-agent"></a>Agente de atualização do dispositivo de auto-actualização
 
-O agente de atualização do dispositivo e as suas dependências podem ser atualizados através da Atualização do Dispositivo para o pipeline IoT Hub. Se estiver a utilizar uma atualização baseada em imagem, inclua o mais recente agente de atualização do dispositivo na sua nova imagem. Se estiver a utilizar uma atualização baseada em pacotes, inclua o agente de atualização do dispositivo e a versão desejada no manifesto apt como qualquer outro pacote. [Saiba mais](device-update-apt-manifest.md) sobre o manifesto apto. Pode verificar a versão instalada do agente de Atualização do Dispositivo e o agente de otimização de entrega na secção Propriedades do Dispositivo do seu [dispositivo IoT twin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins). [Saiba mais sobre as propriedades do dispositivo em ADU Core Interface.](device-update-plug-and-play.md#device-properties)
+O agente de atualização do dispositivo e as suas dependências podem ser atualizados através da Atualização do Dispositivo para o pipeline IoT Hub. Se estiver a utilizar uma atualização baseada em imagem, inclua o mais recente agente de atualização do dispositivo na sua nova imagem. Se estiver a utilizar uma atualização baseada em pacotes, inclua o agente de atualização do dispositivo e a versão desejada no manifesto apt como qualquer outro pacote. [Saiba mais](device-update-apt-manifest.md) sobre o manifesto apto. Pode verificar a versão instalada do agente de Atualização do Dispositivo e o agente de otimização de entrega na secção Propriedades do Dispositivo do seu [dispositivo IoT twin](../iot-hub/iot-hub-devguide-device-twins.md). [Saiba mais sobre as propriedades do dispositivo em ADU Core Interface.](device-update-plug-and-play.md#device-properties)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Compreenda o ficheiro de configuração do agente de atualização de dispositivos](device-update-configuration-file.md)
-

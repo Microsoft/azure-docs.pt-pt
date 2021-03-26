@@ -12,6 +12,8 @@
       href: device-update-simulator.md
     - name: Atualização do pacote no Ubuntu Server 18.04 x64
       href: device-update-ubuntu-agent.md
+    - name: Atualização do dispositivo para tutorial do Azure IoT Hub para O Sistema Operativo Azure Real Time
+      href: device-update-azure-real-time-operating-system.md
 - name: Conceitos
   items:
     - name: Conta e instância de atualização do dispositivo

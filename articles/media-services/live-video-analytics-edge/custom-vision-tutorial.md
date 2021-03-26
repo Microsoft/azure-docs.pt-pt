@@ -4,12 +4,12 @@ description: Aprenda a usar a Azure Custom Vision para construir um modelo conte
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e6b911ad555c4ce10a9576861e1c2e650e63cd94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698812"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561207"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analise vídeo ao vivo com vídeo ao vivo analíticos em IoT Edge e Azure Custom Vision
 
@@ -70,14 +70,14 @@ Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](h
 
 Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao hub IoT Edge.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/custom-vision-tutorial/topology-custom-vision.svg" alt-text="Diagrama que mostra uma visão geral personalizada.":::
 
 Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmara IP que hospeda um servidor Real-Time de Protocolo de Streaming (RTSP). Um nó [de origem RTSP](media-graph-concept.md#rtsp-source) puxa o feed de vídeo deste servidor e envia quadros de vídeo para o nó [do processador de extensão HTTP.](media-graph-concept.md#http-extension-processor)
 
-O nó de extensão HTTP desempenha o papel de um representante.  Ele amostra os quadros de vídeo de entrada definidos por você usando o `samplingOptions` campo e também converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre REST para outro módulo de borda que executa um modelo de IA atrás de um ponto final HTTP. Neste exemplo, este módulo de borda é o modelo de detetor de caminhões de brinquedo construído utilizando a Visão Personalizada. O nó do processador de extensão HTTP recolhe os resultados da deteção e publica eventos no nó [de pia Azure IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para o [hub IoT Edge.](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)
+O nó de extensão HTTP desempenha o papel de um representante.  Ele amostra os quadros de vídeo de entrada definidos por você usando o `samplingOptions` campo e também converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre REST para outro módulo de borda que executa um modelo de IA atrás de um ponto final HTTP. Neste exemplo, este módulo de borda é o modelo de detetor de caminhões de brinquedo construído utilizando a Visão Personalizada. O nó do processador de extensão HTTP recolhe os resultados da deteção e publica eventos no nó [de pia Azure IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para o [hub IoT Edge.](../../iot-fundamentals/iot-glossary.md#iot-edge-hub)
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Construa e implemente um modelo de deteção de brinquedos de visão personalizada 
 

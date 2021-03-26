@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ea7cdfbd30cf698cecbb14a1d70916764ad3247a
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 2c1a0ee78e866a12105eca77653b1063943d06db
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023117"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561071"
 ---
 # <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Contentorização e migração de aplicativos da Internet java para o Serviço Azure Kubernetes
 
@@ -59,7 +59,7 @@ Antes de começar este tutorial, tem de:
 
 **Requisito** | **Detalhes**
 --- | ---
-**Identifique uma máquina para instalar a ferramenta** | Uma máquina Windows para instalar e executar a ferramenta Azure Migrate: App Containerization. A máquina Do Windows pode ser um sistema operativo de servidor (Windows Server 2016 ou posterior) ou cliente (Windows 10), o que significa que a ferramenta também pode funcionar no seu ambiente de trabalho. <br/><br/> A máquina virtual do Windows que executa a ferramenta deve ter conectividade de rede com os servidores/máquinas virtuais que estão a alojar as aplicações ASP.NET que serão contentorizadas.<br/><br/> Certifique-se de que o espaço de 6-GB está disponível na máquina Windows que executa a ferramenta Azure Migrate: App Containerization para armazenar artefactos de aplicações. <br/><br/> A máquina virtual do Windows deve ter acesso à Internet, diretamente ou através de um proxy. <br/> <br/>Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
+**Identifique uma máquina para instalar a ferramenta** | Uma máquina Windows para instalar e executar a ferramenta Azure Migrate: App Containerization. A máquina Do Windows pode ser um sistema operativo de servidor (Windows Server 2016 ou posterior) ou cliente (Windows 10), o que significa que a ferramenta também pode funcionar no seu ambiente de trabalho. <br/><br/> A máquina Windows que executa a ferramenta deve ter conectividade de rede para os servidores/máquinas virtuais que hospedam as aplicações web java para serem contentorizadas.<br/><br/> Certifique-se de que o espaço de 6-GB está disponível na máquina Windows que executa a ferramenta Azure Migrate: App Containerization para armazenar artefactos de aplicações. <br/><br/> A máquina virtual do Windows deve ter acesso à Internet, diretamente ou através de um proxy.
 **Servidores de aplicações** | - Ativar a ligação Secure Shell (SSH) na porta 22 do(s) servidor(s) que executa as aplicações Java a ser contentorizada. <br/>
 **Aplicação Web Java** | A ferramenta suporta atualmente <br/><br/> - Aplicações em execução no Tomcat 8 ou posteriormente.<br/> - Servidores de aplicações em Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Aplicações que utilizem a versão Java 7 ou posterior.  <br/><br/> A ferramenta atualmente não suporta <br/><br/> - Servidores de aplicações executando várias instâncias Tomcat <br/>  
 
@@ -178,7 +178,7 @@ Parametrizar a configuração torna-a disponível como parâmetro de tempo de im
 
 ### <a name="externalize-file-system-dependencies"></a>Externalizar as dependências do sistema de ficheiros
 
- Pode adicionar outras pastas que a sua aplicação utiliza. Especificar se devem fazer parte da imagem do recipiente ou devem ser externalizados através de volumes persistentes na partilha de ficheiros Azure. A utilização de volumes persistentes funciona muito bem para aplicações imponentes que armazenam o estado fora do contentor ou têm outros conteúdos estáticos armazenados no sistema de ficheiros. [Saiba mais](https://docs.microsoft.com/azure/aks/concepts-storage)
+ Pode adicionar outras pastas que a sua aplicação utiliza. Especificar se devem fazer parte da imagem do recipiente ou devem ser externalizados através de volumes persistentes na partilha de ficheiros Azure. A utilização de volumes persistentes funciona muito bem para aplicações imponentes que armazenam o estado fora do contentor ou têm outros conteúdos estáticos armazenados no sistema de ficheiros. [Saiba mais](../aks/concepts-storage.md)
 
 1. Clique em **Editar** em Pastas de Aplicação para rever as pastas de aplicação detetadas. As pastas de aplicação detetadas foram identificadas como artefactos obrigatórios necessários pela aplicação e serão copiadas para a imagem do contentor.
 
@@ -194,7 +194,7 @@ Parametrizar a configuração torna-a disponível como parâmetro de tempo de im
 ## <a name="build-container-image"></a>Criar imagem de contentor
 
 
-1. **Selecione registo do contentor Azure**: Utilize o dropdown para selecionar um [Registo de Contentores Azure](https://docs.microsoft.com/azure/container-registry/) que será utilizado para construir e armazenar as imagens do contentor para as aplicações. Pode utilizar um registo de contentores Azure existente ou optar por criar um novo utilizando a nova opção de registo.
+1. **Selecione registo do contentor Azure**: Utilize o dropdown para selecionar um [Registo de Contentores Azure](../container-registry/index.yml) que será utilizado para construir e armazenar as imagens do contentor para as aplicações. Pode utilizar um registo de contentores Azure existente ou optar por criar um novo utilizando a nova opção de registo.
 
     ![Screenshot para a seleção de aplicativo ACR.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 

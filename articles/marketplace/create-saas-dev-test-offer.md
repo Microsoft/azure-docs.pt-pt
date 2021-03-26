@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 893d38d7dcf2ef0910bc46d3e9bfd168c2a89162
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110547"
+ms.locfileid: "105543368"
 ---
 # <a name="create-a-test-offer"></a>Criar uma oferta de teste
 
@@ -27,7 +27,7 @@ As seguintes secções descrevem as diferenças de configuração entre as ofert
 
 Recomendamos que use o mesmo pseudónimo na caixa **Alias** de ambas as ofertas, mas apê -lo "_test" ao pseudónimo da oferta DEV. Por exemplo, se o pseudónimo da sua oferta PROD for "contososolution" então o pseudónimo da oferta DEV deve ser "contososolution_test". Desta forma, pode identificar facilmente qual a sua oferta DEV da sua oferta PROD.
 
-Na secção **de condutores** do Cliente, utilize e a mesa Azure ou um ambiente DEV de teste para a oferta DEV. Utilize o sistema de gestão de chumbo pretendido para a oferta PROD.
+Na secção **de condutores** do Cliente, utilize uma tabela Azure ou um ambiente DEV de teste para a oferta DEV. Utilize o sistema de gestão de chumbo pretendido para a oferta PROD.
 
 ## <a name="properties-page"></a>Página Propriedades
 
@@ -39,7 +39,7 @@ Configure esta página da mesma forma nas ofertas DEV e PROD.
 
 ## <a name="preview-audience"></a>Audiência de pré-visualização
 
-Na oferta DEV, inclua o nome principal do utilizador (AAD) do Azure Ative Directory (AAD) ou o endereço de e-mail da conta Microsoft (MSA) de desenvolvedores e testadores, incluindo você mesmo. Por favor, note que o nome principal do utilizador de um utilizador no AAD pode ser diferente do e-mail do utilizador. Por exemplo, jane.doe@contoso.com não funcionará, mas janedoe@contoso.com funcionará. Estas são as pessoas que terão acesso à oferta DEV quando partilhar o link **Preview** durante a fase de desenvolvimento e teste.
+Na oferta DEV, inclua o Azure Ative Directory (AAD) nomes principais do utilizador ou endereços de e-mail da conta Microsoft (MSA) de desenvolvedores e testadores, incluindo você mesmo. O nome principal do utilizador de um utilizador no AAD pode ser diferente do e-mail desse utilizador. Por exemplo, jane.doe@contoso.com não vai funcionar, mas janedoe@contoso.com vai funcionar. Os utilizadores que designar terão acesso à oferta DEV quando partilharem o link **Pré-visualização** durante a fase de desenvolvimento e teste.
 
 Na oferta PROD, inclua o nome principal do utilizador Azure ou o e-mail da Conta Microsoft dos utilizadores que validarão a oferta antes de selecionar o **botão Go Live** para publicar a oferta ao vivo.
 
@@ -77,10 +77,10 @@ Selecione os mesmos mercados para as ofertas DEV e PROD.
 
 Use a oferta DEV para experimentar modelos de preços. Depois de verificar qual o modelo de preços ou modelos que funcionam melhor, criará os planos na oferta PROD com os modelos de preços e preços que deseja.
 
-A oferta de DEV deve ter planos com preços zero ou muito baixos nos planos. A oferta PROD terá os preços que pretende cobrar aos clientes.
+A oferta de DEV deve ter planos com preços zero ou baixos nos planos. A oferta PROD terá os preços que pretende cobrar aos clientes.
 
-> [!NOTE]
-> As compras efetuadas em Preview serão processadas tanto para ofertas DEV como PROD. Se uma oferta tiver um preço de $100/mo, a sua empresa será cobrada $100. Se isso acontecer, você pode abrir um [bilhete de apoio](support.md) e nós emitiremos um pagamento pelo valor total (e não aceitaremos nenhuma taxa de agência).
+> [!IMPORTANT]
+> As compras efetuadas em Preview serão processadas tanto para ofertas DEV como PROD. Se uma oferta tiver um preço de $100/mo, a sua empresa será cobrada $100. Se isso acontecer, você pode abrir um [bilhete de apoio](support.md) e nós emitiremos um pagamento pelo valor total (e não aceitamos taxa de serviço de loja).
 
 #### <a name="pricing-model"></a>Modelo preços
 
@@ -97,7 +97,7 @@ Para reduzir o seu custo para testar os modelos de preços, incluindo as dimens�
 | $50,00 e superior | Use esta gama de preços para testar o pagamento. Para obter informações sobre o nosso horário de pagamento, consulte [os horários e processos do Payout.](/partner-center/payout-policy-details) |
 |||
 
-Para evitar ser cobrada uma taxa de processamento no seu teste, abra um [bilhete de apoio](support.md).
+Para evitar ser cobrada uma taxa de serviço de loja no seu teste, abra um [bilhete de apoio](support.md).
 
 #### <a name="free-trial"></a>Avaliação gratuita
 

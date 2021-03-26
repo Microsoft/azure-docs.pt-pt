@@ -2,13 +2,13 @@
 title: Implementar recursos com CLI E modelo Azure
 description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo de Gestor de Recursos ou num ficheiro Bicep.
 ms.topic: conceptual
-ms.date: 03/04/2021
-ms.openlocfilehash: 1fc3397409634f29690af05ca2a85e67c30b6d89
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 03/25/2021
+ms.openlocfilehash: b19dc6cc292306cc796f8c1d8f93b358a079d83b
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954977"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544439"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
 
@@ -88,6 +88,8 @@ A implementação pode demorar alguns minutos a concluir. Quando terminar, vê-s
 > Atualmente, o Azure CLI não suporta a implementação de ficheiros Bicep remotos. Utilize [o Bicep CLI](./bicep-install.md#development-environment) para compilar o ficheiro Bicep num modelo JSON e, em seguida, carregue o ficheiro JSON para a localização remota.
 
 Em vez de armazenar modelos ARM na sua máquina local, pode preferir guardá-los num local externo. Pode armazenar modelos num repositório de controlo de código fonte (como o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Se estiver a implantar para um grupo de recursos que não existe, crie o grupo de recursos. O nome do grupo de recursos só pode incluir caracteres alfanuméricos, períodos, sublinhados, hífens e parênteses. Pode chegar a 90 caracteres. O nome não pode acabar num período.
 

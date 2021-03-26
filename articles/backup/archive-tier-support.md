@@ -3,12 +3,12 @@ title: Suporte de nível de arquivo (pré-visualização)
 description: Saiba mais sobre o Suporte de Nível de Arquivo para backup Azure
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609857"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563978"
 ---
 # <a name="archive-tier-support-preview"></a>Suporte de nível de arquivo (pré-visualização)
 
@@ -46,7 +46,7 @@ Clientes apoiados:
     install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
     ```
 
-1. Ligue-se ao Azure utilizando o [cmdlet Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+1. Ligue-se ao Azure utilizando o [cmdlet Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount)
 1. Inscreva-se na sua subscrição:
 
    `Set-AzContext -Subscription "SubscriptionName"`
@@ -128,7 +128,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 Para pontos de recuperação no arquivo, o Azure Backup fornece uma metodologia integrada de restauro.
 
-O restauro integrado é um processo em duas etapas. O primeiro passo consiste em reidratar os pontos de recuperação armazenados em arquivo e armazená-lo temporariamente no nível padrão do cofre por uma duração (também conhecida como duração da reidratação) que varia entre um período de 10 a 30 dias. O padrão é de 15 dias. Existem duas prioridades diferentes de reidratação – Standard e Alta prioridade. Saiba mais sobre [a prioridade de reidratação.](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier)
+O restauro integrado é um processo em duas etapas. O primeiro passo consiste em reidratar os pontos de recuperação armazenados em arquivo e armazená-lo temporariamente no nível padrão do cofre por uma duração (também conhecida como duração da reidratação) que varia entre um período de 10 a 30 dias. O padrão é de 15 dias. Existem duas prioridades diferentes de reidratação – Standard e Alta prioridade. Saiba mais sobre [a prioridade de reidratação.](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier)
 
 >[!NOTE]
 >

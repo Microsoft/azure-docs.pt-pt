@@ -4,12 +4,12 @@ description: Neste tutorial, utilizará um servidor de modelo de IA fornecido pe
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 68b5b7561cc31e156a745bcfb07e3203de10d425
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5751184493fffeeaf647507e9e9b00834f63ab5e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702220"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557263"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Analise o vídeo ao vivo utilizando o OpenVINO™ Model Server – Extensão de IA da Intel 
 
@@ -44,14 +44,14 @@ Abra uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/
 
 Neste arranque rápido, utilizará o Live Video Analytics no IoT Edge juntamente com o OpenVINO™ Model Server – Extensão de IA da Intel para detetar objetos como veículos ou classificá-los. Publicará os eventos de inferência resultantes no IoT Edge Hub.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Descrição geral":::
 
 Este diagrama mostra como os sinais fluem neste arranque rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmara IP que hospeda um servidor Real-Time de Protocolo de Streaming (RTSP). Um nó [de origem RTSP](media-graph-concept.md#rtsp-source) puxa o feed de vídeo deste servidor e envia quadros de vídeo para o nó [do processador de extensão HTTP.](media-graph-concept.md#http-extension-processor) 
 
-O nó de extensão HTTP desempenha o papel de um representante. Ele mostra os quadros de vídeo de entrada definidos pelo `samplingOptions` campo e também converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre REST para outro módulo de borda que executa os modelos de IA atrás de um ponto final HTTP. Neste exemplo, este módulo de borda é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó do processador de extensão HTTP recolhe os resultados de deteção e publica eventos no nó [de pia IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para [ioT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+O nó de extensão HTTP desempenha o papel de um representante. Ele mostra os quadros de vídeo de entrada definidos pelo `samplingOptions` campo e também converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre REST para outro módulo de borda que executa os modelos de IA atrás de um ponto final HTTP. Neste exemplo, este módulo de borda é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó do processador de extensão HTTP recolhe os resultados de deteção e publica eventos no nó [de pia IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para [ioT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 Neste tutorial, vai:
 

@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dec29dc92f70a3f02f3fb598659aa86477fb59bf
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99094561"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558249"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Papel de Leitores de Diretório no Azure Ative Directory para Azure SQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "99094561"
 
 O Azure Ative Directory (Azure AD) introduziu [a utilização de grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)](../../active-directory/roles/groups-concept.md). Isto permite que as funções AZURE AD sejam atribuídas a grupos.
 
-Ao permitir uma [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para a Base de Dados Azure SQL, Instância Gerida Azure SQL ou Azure Synapse Analytics, o papel [**de Leitores de Diretório**](../../active-directory/roles/permissions-reference.md#directory-readers) AD Azure deve ser atribuído à identidade para permitir o acesso lido à [API do Gráfico AD Azure](../../active-directory/develop/active-directory-graph-api.md). A identidade gerida da SQL Database e da Azure Synapse é referida como a identidade do servidor. A identidade gerida de SQL Managed Instance é referida como a identidade de instância gerida, e é automaticamente atribuída quando o caso é criado. Para obter mais informações sobre a atribuição de uma identidade de servidor à Base de Dados SQL ou Azure Synapse, consulte [Ativar os principais serviços para criar utilizadores AD Azure](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+Ao permitir uma [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para a Base de Dados Azure SQL, Instância Gerida Azure SQL ou Azure Synapse Analytics, o papel [**de Leitores de Diretório**](../../active-directory/roles/permissions-reference.md#directory-readers) AD Azure deve ser atribuído à identidade para permitir o acesso lido à [API do Gráfico AD Azure](/graph/migrate-azure-ad-graph-planning-checklist). A identidade gerida da SQL Database e da Azure Synapse é referida como a identidade do servidor. A identidade gerida de SQL Managed Instance é referida como a identidade de instância gerida, e é automaticamente atribuída quando o caso é criado. Para obter mais informações sobre a atribuição de uma identidade de servidor à Base de Dados SQL ou Azure Synapse, consulte [Ativar os principais serviços para criar utilizadores AD Azure](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
 O papel **de Leitores de Diretório** é necessário para:
 

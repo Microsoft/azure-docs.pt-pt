@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 929463e346311d58da5ac75b28c774bcfe258f08
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102119778"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557535"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre as reclamações em Azure Ative Directory B2C políticas personalizadas
 
@@ -72,12 +72,12 @@ A lista de secções seguintes disponível.
 | {OIDC:LoginHint} |  O `login_hint` parâmetro da corda de consulta. | someone@contoso.com |
 | {OIDC:MaxAge} | O campo `max_age`. | N/D |
 | {OIDC:Nonce} |O `Nonce`  parâmetro da corda de consulta. | padrãoNonce |
-| {OIDC:Password}| As [credenciais de senha do proprietário do recurso fluem](ropc-custom.md) a palavra-passe do utilizador.| senha1| 
+| {OIDC:Password}| As [credenciais de senha do proprietário do recurso fluem](add-ropc-policy.md) a palavra-passe do utilizador.| senha1| 
 | {OIDC:Prompt} | O `prompt` parâmetro da corda de consulta. | início de sessão |
 | {OIDC:RedirectUri} |O `redirect_uri`  parâmetro da corda de consulta. | https://jwt.ms |
 | {OIDC:Recurso} |O `resource`  parâmetro da corda de consulta. | N/D |
 | {OIDC:Scope} |O `scope`  parâmetro da corda de consulta. | openid |
-| {OIDC:Username}| As [credenciais de senha do proprietário](ropc-custom.md) do recurso fluem o nome de utilizador do utilizador.| emily@contoso.com| 
+| {OIDC:Username}| As [credenciais de senha do proprietário](add-ropc-policy.md) do recurso fluem o nome de utilizador do utilizador.| emily@contoso.com| 
 
 ### <a name="context"></a>Contexto
 

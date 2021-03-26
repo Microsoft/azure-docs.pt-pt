@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 39331cb83b233f6b91344e6e299ed81f187fe9d9
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 240bdaee9073ab18e175e2911ac1c23ae49b3d7e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108403"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562414"
 ---
 # <a name="calling-sdk-overview"></a>Chamando a visão geral da SDK
 
@@ -72,13 +72,33 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 |                   | Definir / atualizar o modo de escala                                                                                           | ✔️   | ✔️            | ✔️ 
 |                   | Renderizar fluxo de vídeo remoto                                                                                          | ✔️   | ✔️            | ✔️
 
+## <a name="calling-client-library-streaming-support"></a>Chamando o suporte de streaming da biblioteca do cliente
+A biblioteca de clientes de serviços de comunicação suporta as seguintes configurações de streaming:
 
+| Limite          |Web | Android/iOS|
+|-----------|----|------------|
+|**# de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 partilha de ecrã | 1 vídeo + 1 partilha de ecrã|
+|**# de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 partilha de ecrã| 6 vídeo + 1 partilha de ecrã |
+
+## <a name="calling-client-library-timeouts"></a>Chamar os intervalos da biblioteca do cliente
+
+Os seguintes intervalos aplicam-se às bibliotecas de clientes dos Serviços de Comunicação:
+
+| Ação           | Tempo limite em segundos |
+| -------------- | ---------- |
+| Religação/participante da remoção | 120 |
+| Adicione ou remova nova modalidade de uma chamada (Iniciar/parar de vídeo ou partilha de ecrã) | 40 |
+| Tempo limite de operação de transferência de chamadas | 60 |
+| 1:1 chamada de estabelecimento tempo limite | 85 |
+| Tempo limite de estabelecimento de chamada de grupo | 85 |
+| PSTN chamada tempo limite de estabelecimento | 115 |
+| Promover 1:1 chamada para um tempo limite de chamada em grupo | 115 |
 
 ## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Suporte SDK de chamada javaScript por OS e browser
 
 A tabela seguinte representa o conjunto de navegadores suportados que estão atualmente disponíveis. Apoiamos as três versões mais recentes do navegador, salvo indicação em contrário.
 
-|                                  | Chrome | Safari*  | Borda (Cromo) | 
+| Plataforma                         | Chrome | Safari*  | Borda (Cromo) | 
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -114,15 +134,6 @@ Por exemplo, este iframe permite o acesso tanto à câmara como ao microfone:
 ```html
 <iframe allow="camera *; microphone *">
 ```
-
-## <a name="calling-sdk-streaming-support"></a>Chamando suporte de streaming SDK
-Os Serviços de Comunicação Que Ligam A SDK suporta as seguintes configurações de streaming:
-
-|           |Web | Android/iOS|
-|-----------|----|------------|
-|**# de fluxos de saída que podem ser enviados simultaneamente** |1 partilha de vídeo ou 1 ecrã | 1 vídeo + 1 partilha de ecrã|
-|**# de fluxos de entrada que podem ser renderizados simultaneamente** |1 partilha de vídeo ou 1 ecrã| 6 vídeo + 1 partilha de ecrã |
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

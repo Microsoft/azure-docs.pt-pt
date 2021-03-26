@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 8083b9edd49f65f29fe9c9b2cfa30edfacf89507
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d8f9d4e0b002348f286f45c6b45c96531c5d6530
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614892"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558232"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar máquinas no local para migração para Azure
 
@@ -86,7 +86,7 @@ As alterações necessárias são resumidas na tabela.
 --- | --- | --- | ---
 **Configure a política da SAN como Online All**<br/><br/> Isto garante que os volumes do Windows em Azure VM utilizem as mesmas atribuições de letra de acionamento que o VM no local. | Configurar automaticamente para máquinas que executam o Windows Server 2008 R2 ou mais tarde.<br/><br/> Configurar manualmente para sistemas operativos anteriores. | Desa quando se pode definir automaticamente na maioria dos casos. | Configurar manualmente.
 **Instalar integração de hóspedes Hiper-V** | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) em máquinas que executam o Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) em máquinas que executam o Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) em máquinas que executam o Windows Server 2003.
-**Ativar a consola em série Azure**.<br/><br/>[Ative a consola](../virtual-machines/troubleshooting/serial-console-windows.md) em VMs Azure para ajudar na resolução de problemas. Não precisas de reiniciar o VM. O Azure VM arrancará utilizando a imagem do disco. A bota de imagem do disco equivale a um reboot para o novo VM. | Ativar manualmente | Ativar manualmente | Ativar manualmente
+**Ativar a consola em série Azure**.<br/><br/>[Ative a consola](/troubleshoot/azure/virtual-machines/serial-console-windows) em VMs Azure para ajudar na resolução de problemas. Não precisas de reiniciar o VM. O Azure VM arrancará utilizando a imagem do disco. A bota de imagem do disco equivale a um reboot para o novo VM. | Ativar manualmente | Ativar manualmente | Ativar manualmente
 **Conecte-se após a migração**<br/><br/> Para se conectar após a migração, há uma série de passos a tomar antes de migrar. | [Configurar](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configurar](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configurar](#prepare-to-connect-to-azure-windows-vms) manualmente.
 
 
@@ -126,7 +126,7 @@ Para outras versões, prepare as máquinas como resumido na tabela.
 **Ação** | **Detalhes** | **Versão Linux**
 --- | --- | ---
 **Instalar serviços de integração do Linux Hiper-V** | Reconstrua a imagem init Linux para conter os condutores hiper-V necessários. A reconstrução da imagem init garante que o VM arrancará em Azure. | A maioria das novas versões de distribuição do Linux incluem isto por padrão.<br/><br/> Se não estiver incluído, instale manualmente todas as versões, exceto as chamadas acima.
-**Ativar o registo da consola em série do Azure** | Ativar o registo de consolas ajuda-o a resolver problemas. Não precisas de reiniciar o VM. O Azure VM arrancará utilizando a imagem do disco. A bota de imagem do disco equivale a um reboot para o novo VM.<br/><br/> Siga [estas instruções](../virtual-machines/troubleshooting/serial-console-linux.md) para ativar.
+**Ativar o registo da consola em série do Azure** | Ativar o registo de consolas ajuda-o a resolver problemas. Não precisas de reiniciar o VM. O Azure VM arrancará utilizando a imagem do disco. A bota de imagem do disco equivale a um reboot para o novo VM.<br/><br/> Siga [estas instruções](/troubleshoot/azure/virtual-machines/serial-console-linux) para ativar.
 **Atualizar o ficheiro do mapa do dispositivo** | Atualize o ficheiro do mapa do dispositivo com as associações nome-volume do dispositivo, para que utilize identificadores de dispositivos persistentes. | Instale manualmente para todas as versões, exceto as chamadas acima. (Apenas aplicável no cenário VMware baseado em agente)
 **Atualizar entradas fstab** |  Atualize as entradas para utilizar identificadores de volume persistentes.    | Atualize manualmente para todas as versões, exceto as chamadas acima.
 **Remover a regra udev** | Remova quaisquer regras udev que reservam nomes de interface com base no endereço mac, etc. | Remova manualmente para todas as versões, exceto as chamadas acima.
@@ -148,7 +148,7 @@ O quadro seguinte resume os passos realizados automaticamente para os sistemas o
 
 Saiba mais sobre os passos para [executar um Linux VM em Azure,](../virtual-machines/linux/create-upload-generic.md)e obtenha instruções para algumas das populares distribuições do Linux.
 
-Reveja a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) para instalar o agente Linux VM. A Azure Migrate instala automaticamente o agente Linux VM para RHEL6, RHEL7, CentOS7 (6 deve ser suportado similar ao RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 quando utilizar o método sem agente da migração VMware.
+Reveja a lista de [pacotes necessários](../virtual-machines/extensions/agent-linux.md#requirements) para instalar o agente Linux VM. A Azure Migrate instala automaticamente o agente Linux VM para RHEL6, RHEL7, CentOS7 (6 deve ser suportado similar ao RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 quando utilizar o método sem agente da migração VMware.
 
 ## <a name="check-azure-vm-requirements"></a>Verifique os requisitos do Azure VM
 
@@ -187,7 +187,7 @@ Após a migração, complete estes passos sobre os VMs Azure que são criados:
 
 1. Para ligar ao VM através da internet, atribua um endereço IP público ao VM. Deve utilizar um endereço IP público diferente para o VM Azure do que utilizou para a sua máquina no local. [Saiba mais](../virtual-network/virtual-network-public-ip-address.md).
 2. Verifique as regras do grupo de segurança da rede (NSG) no VM, permita a entrada de ligações à porta RDP ou SSH.
-3. Verifique [os diagnósticos](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) de arranque para ver o VM.
+3. Verifique [os diagnósticos](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) de arranque para ver o VM.
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -200,4 +200,4 @@ Para VMware VMs, a Migração de Servidores suporta [migração sem agentes ou b
 
 - **VMware VMs**: Verifique os [requisitos de migração e suporte](migrate-support-matrix-vmware-migration.md) para VMware VMs.
 - **Hiper-V VMs**: Verifique os [requisitos de migração e suporte](migrate-support-matrix-hyper-v-migration.md) para VMs Hiper-V.
-- **Máquinas físicas**: Verifique os requisitos de [migração e suporte](migrate-support-matrix-physical-migration.md) para máquinas físicas no local e outros servidores virtualizados. 
+- **Máquinas físicas**: Verifique os requisitos de [migração e suporte](migrate-support-matrix-physical-migration.md) para máquinas físicas no local e outros servidores virtualizados.

@@ -7,12 +7,12 @@ ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: b11aedb52be3c263c781c2ac68d1d5197ba4def2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3d1a1135db0421d89d4c6c9f278c86e02cb5cb32
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101746748"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558963"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Localização de resolução de problemasNotFoundForRoleSize ao implementar um serviço cloud (clássico) para Azure
 
@@ -47,7 +47,7 @@ Neste cenário, deverá selecionar uma região diferente ou SKU para implementar
 
 ### <a name="list-skus-in-region-using-azure-cli"></a>Lista SKUs na região usando Azure CLI
 
-Pode utilizar o comando [az vm list-skus.](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus)
+Pode utilizar o comando [az vm list-skus.](/cli/azure/vm.html#az_vm_list_skus)
 
 - Utilize o `--location` parâmetro para filtrar a saída para o local que está a usar.
 - Use o `--size` parâmetro para procurar por um nome de tamanho parcial.
@@ -63,7 +63,7 @@ Pode utilizar o comando [az vm list-skus.](https://docs.microsoft.com/cli/azure/
 
 #### <a name="list-skus-in-region-using-powershell"></a>Lista SKUs na região usando PowerShell
 
-Pode utilizar o comando [Get-AzComputeResourceSku.](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku)
+Pode utilizar o comando [Get-AzComputeResourceSku.](/powershell/module/az.compute/get-azcomputeresourcesku)
 
 - Filtrar os resultados por localização.
 - Deve ter a mais recente versão do PowerShell para este comando.
@@ -91,7 +91,7 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 
 #### <a name="list-skus-in-region-using-rest-api"></a>Lista DE SKUs na região utilizando REST API
 
-Pode utilizar a operação [Resource Skus - List.](https://docs.microsoft.com/rest/api/compute/resourceskus/list) Devolve SKUs e regiões disponíveis no seguinte formato:
+Pode utilizar a operação [Resource Skus - List.](/rest/api/compute/resourceskus/list) Devolve SKUs e regiões disponíveis no seguinte formato:
 
 ```json
 {

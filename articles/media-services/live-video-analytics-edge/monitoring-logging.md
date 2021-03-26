@@ -3,12 +3,12 @@ title: Monitorização e exploração madeireira - Azure
 description: Este artigo fornece uma visão geral da monitorização e início de sessão em Live Video Analytics no IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730251"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564488"
 ---
 # <a name="monitoring-and-logging"></a>Monitorização e registos
 
@@ -312,7 +312,7 @@ Siga estes passos para permitir a recolha de métricas do módulo Live Video Ana
    Neste caso, no portal Azure, vá ao hub IoT e selecione **Métricas** no painel esquerdo. Devia ver as métricas.
 
 ### <a name="log-analytics-metrics-collection"></a>Coleção de métricas Log Analytics
-Utilizando [o ponto final prometheus](https://prometheus.io/docs/practices/naming/) juntamente com o Log [Analytics,](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)pode gerar e [monitorizar métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) como CPUPercent, MemoryUsedPercent, etc.   
+Utilizando [o ponto final prometheus](https://prometheus.io/docs/practices/naming/) juntamente com o Log [Analytics,](../../azure-monitor/logs/log-analytics-tutorial.md)pode gerar e [monitorizar métricas](../../azure-monitor/essentials/metrics-supported.md) como CPUPercent, MemoryUsedPercent, etc.   
 
 > [!NOTE]
 > A configuração abaixo não recolhe registos, **apenas métricas**. É possível estender o módulo de coletor para recolher e carregar registos.

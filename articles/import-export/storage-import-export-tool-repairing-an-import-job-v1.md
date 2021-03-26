@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: af6234a81e8f79424cc3b1ec4178a175d9ff0146
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b0eeb73ffb5436284f4f23cef943db0a3307a2b2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98706712"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564573"
 ---
 # <a name="repairing-an-import-job"></a>Reparação de uma tarefa de importação
 O serviço Importar/Exportar do Microsoft Azure pode não copiar alguns dos seus ficheiros ou partes de um ficheiro para o serviço Blob do Windows Azure. Alguns motivos de falhas incluem:  
@@ -30,7 +30,7 @@ Pode executar a Ferramenta de Importação/Exportação do Microsoft Azure com o
 
 Os seguintes parâmetros podem ser especificados com **RepairImport:** 
   
-|||  
+| Parâmetro | Descrição |  
 |-|-|  
 |**/r:**<RepairFile\>|**Necessário.** Caminho para o ficheiro de reparação, que acompanha o progresso da reparação, e permite-lhe retomar uma reparação interrompida. Cada unidade deve ter um e único ficheiro de reparação. Quando iniciar uma reparação para uma determinada unidade, passe no caminho para um ficheiro de reparação, que ainda não existe. Para retomar uma reparação interrompida, deverá passar em nome de um ficheiro de reparação existente. Especifique sempre o ficheiro de reparação correspondente à unidade do alvo.|  
 |**/logdir:**<LogDirectory\>|**É opcional.** O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado nenhum diretório de registos, o diretório atual é utilizado como diretório de registo.|  

@@ -4,23 +4,29 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 6ed6544b8014e973eaf92c763ca18687ad89e5a7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 22a9cf3338f422341928a77f2bf14c497aa2ba31
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495902"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563786"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/dotnet/)
+- Instalar [O Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
 
 ## <a name="create-azure-communication-resource"></a>Criar recurso de comunicação Azure
 
-Para criar um recurso Azure Communication Services, [inscreva-se no Azure CLI,](/cli/azure/authenticate-azure-cli)em seguida, executar o seguinte comando:
+Para criar um recurso Azure Communication Services, [inscreva-se no Azure CLI](/cli/azure/authenticate-azure-cli). Pode fazê-lo através do terminal usando o ```az login``` comando e fornecendo as suas credenciais. Executar o seguinte comando para criar o recurso:
 
 ```azurecli
 az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
+```
+
+Se quiser selecionar uma subscrição específica, também pode especificar a ```--subscription``` bandeira e fornecer o ID de subscrição.
+```
+az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup> --subscription "<subscriptionID>"
 ```
 
 Pode configurar o seu recurso de Serviços de Comunicação com as seguintes opções:
@@ -33,12 +39,16 @@ No passo seguinte, pode atribuir etiquetas ao recurso. As etiquetas podem ser us
 
 ## <a name="manage-your-communication-services-resource"></a>Gerir o seu recurso de Serviços de Comunicação
 
-Para adicionar tags ao seu recurso serviços de comunicação, execute os seguintes comandos:
+Para adicionar tags ao seu recurso serviços de comunicação, execute os seguintes comandos. Também pode direcionar uma subscrição específica.
 
 ```azurecli
-az communication update --name "<communicationName>" --tags newTag="newVal" --resource-group "<resourceGroup>"
+az communication update --name "<communicationName>" --tags newTag="newVal1" --resource-group "<resourceGroup>"
+
+az communication update --name "<communicationName>" --tags newTag="newVal2" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
 
 az communication show --name "<communicationName>" --resource-group "<resourceGroup>"
+
+az communication show --name "<communicationName>" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
 ```
 
 Para obter informações sobre comandos adicionais, consulte [a comunicação az](/cli/azure/ext/communication/communication).

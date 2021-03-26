@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 9b02b0e5d9e3229aafec9b8a4ca21b14c0e596a6
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 62b1924a1aeb1c1e5bc06ec0783d83d6918d162c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105022284"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557926"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guia de migração: Oracle para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -143,7 +143,7 @@ Para publicar o seu esquema e migrar os seus dados, siga estes passos:
 
 Em alternativa, também pode utilizar os Serviços de Integração de Servidores SQL (SSIS) para realizar a migração. Para saber mais, veja: 
 
-- [Começar com serviços de integração de servidores SQL](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [Começar com serviços de integração de servidores SQL](/sql/integration-services/sql-server-integration-services)
 - [Serviços de Integração de Servidores SQL: SSIS para movimento de dados Azure e Híbrido](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
 
@@ -196,7 +196,7 @@ Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para uma matriz dos serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para o ajudar com vários cenários de migração de dados e dados, bem como tarefas especiais, consulte o serviço de [artigos e ferramentas para a migração de dados.](https://docs.microsoft.com/azure/dms/dms-tools-matrix)
+- Para uma matriz dos serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para o ajudar com vários cenários de migração de dados e dados, bem como tarefas especiais, consulte o serviço de [artigos e ferramentas para a migração de dados.](../../../dms/dms-tools-matrix.md)
 
 - Para saber mais sobre a Base de Dados Azure SQL, consulte: 
   - [Uma visão geral da Base de Dados Azure SQL](../../database/sql-database-paas-overview.md)
@@ -209,5 +209,3 @@ Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é
 
 - Para conteúdos de vídeo, consulte: 
     - [Panorâmica da viagem de migração e dos instrumentos/serviços recomendados para a avaliação e migração](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
-
-

@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 73b2e8e59774e12ddb9aa684382510d1f2c151b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63ea252a4b4c673ae3028adb7ab793ac21fb2e99
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100154"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564590"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Caching com Azure Front Door Standard/Premium (Pré-visualização)
 
@@ -26,6 +26,10 @@ Neste artigo, você vai aprender como as rotas e o conjunto de regras da Porta F
 > Azure Front Door Standard/Premium (Preview) está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="request-methods"></a>Métodos de pedido
+
+Apenas o método de pedido GET pode gerar conteúdo em cache na Porta Frontal Azure. Todos os outros métodos de pedido são sempre proximamente através da rede.
 
 ## <a name="delivery-of-large-files"></a>Entrega de grandes ficheiros
 

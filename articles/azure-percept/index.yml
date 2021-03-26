@@ -3,19 +3,19 @@ title: Documentação de Azure Percept
 summary: Azure Percept é uma solução de ponta a ponta para construir e implantar IA baseada em perceção na borda.
 metadata:
   title: Documentação de Azure Percept
-  description: Azure Percept é uma plataforma de IA de ponta a ponta.
+  description: Azure Percept é uma plataforma de IA de ponta a ponta e kit de desenvolvimento.
   services: azure-percept
   ms.service: azure-percept
   ms.topic: landing-page
-  author: elqu20
-  ms.author: v-elqu
-  ms.date: 02/11/2021
-  ms.openlocfilehash: b979f147c67e8e877b5bb0e9d3dc557317c7aa50
-  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+  author: mimcco
+  ms.author: mimcco
+  ms.date: 03/25/2021
+  ms.openlocfilehash: 61e9d784d899cb8f0741f27aee0bdb7031bb37d1
+  ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102097500"
+  ms.lasthandoff: 03/26/2021
+  ms.locfileid: "105562550"
 landingContent:
 - title: O que é Azure Percept?
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
       url: overview-azure-percept-studio.md
     - text: Visão geral da segurança de Azure Percept
       url: overview-percept-security.md
+    - text: Integração 80/20
+      url: overview-8020-integration.md
 - title: Começa com o Azure Percept DK
   linkLists:
   - linkListType: quickstart

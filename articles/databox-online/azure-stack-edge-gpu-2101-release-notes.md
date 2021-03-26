@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 84bf14caeec163c31004a430fa954fc36f4be68b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630372"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562788"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de lançamento do Azure Stack Edge 2101
 
@@ -49,7 +49,7 @@ A tabela seguinte fornece um resumo das questões conhecidas na versão de 2101.
 |**3.**|Kubernetes |O registo do contentor de borda não funciona quando o proxy web está ativado.|A funcionalidade estará disponível num futuro lançamento. |
 |**4.**|Kubernetes |O registo do contentor de borda não funciona com módulos IoT Edge.| |
 |**5.**|Kubernetes |Kubernetes não suporta " em nomes variáveis ambientais que são usados por aplicações .NET. Isto também é necessário para que o módulo IoT Edge da grelha de evento funcione no dispositivo Azure Stack Edge e outras aplicações. Para mais informações, consulte [ASP.NET documentação principal.](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables)|Substitua " por duplo sublinhado. Para mais informações,consulte [a edição de Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**6.** |Aglomerado Azure Arc + Kubernetes |Por predefinição, quando os recursos `yamls` são eliminados do repositório git, os recursos correspondentes não são eliminados do cluster Kubernetes.  |Para permitir a supressão de recursos quando são eliminados do repositório de git, definido `--sync-garbage-collection` no Arc OperatorParams. Para obter mais informações, consulte [Eliminar uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**6.** |Aglomerado Azure Arc + Kubernetes |Por predefinição, quando os recursos `yamls` são eliminados do repositório git, os recursos correspondentes não são eliminados do cluster Kubernetes.  |Para permitir a supressão de recursos quando são eliminados do repositório de git, definido `--sync-garbage-collection` no Arc OperatorParams. Para obter mais informações, consulte [Eliminar uma configuração](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
 |**7.**|NFS |As aplicações que utilizam suportes de partilha NFS no seu dispositivo para escrever dados devem utilizar a escrita exclusiva. Isto garante que as escritas são escritas no disco.| |
 |**8.**|Configuração do cálculo |A configuração do cálculo falha nas configurações de rede onde gateways ou switches ou routers respondem aos pedidos do Address Resolution Protocol (ARP) para sistemas que não existem na rede.| |
 |**9.**|Computação e Kubernetes |Se a Kubernetes for configurada primeiro no seu dispositivo, reclama todas as GPUs disponíveis. Assim, não é possível criar VMs Azure Resource Manager usando GPUs após a configuração dos Kubernetes. |Se o seu dispositivo tiver 2 GPUs, então pode criar 1 VM que usa a GPU e, em seguida, configurar Kubernetes. Neste caso, a Kubernetes utilizará os restantes 1 GPU disponíveis. |

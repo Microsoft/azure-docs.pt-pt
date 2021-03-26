@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: mathapli
 ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7a9fa4a6f44e88caa6f98d5e1c56adaa065fa29a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721162"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558714"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Certificação de máquina virtual de resolução de problemas
 
@@ -620,11 +620,10 @@ Para completar o processo de publicação, consulte [Rever e publicar ofertas.](
 * Versão python acima de 2.8 
 
 
-Para mais informações, visite [a extensão VM.](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux)
+Para mais informações, visite [a extensão VM.](../virtual-machines/extensions/diagnostics-linux.md)
      
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar as propriedades da oferta de VM](azure-vm-create-properties.md)
 - [Recompensas de mercado ativas](partner-center-portal/marketplace-rewards.md)
 - Se tiver dúvidas ou feedback para melhorar, contacte [o suporte do Partner Center](https://aka.ms/marketplacepublishersupport).
- 

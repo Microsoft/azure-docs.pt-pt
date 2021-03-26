@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a829cd946f36fb5996405ba00945e9f9cb65d162
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669564"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544235"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Azure Automation
 
@@ -123,7 +123,7 @@ New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th
 
 ## <a name="create-a-schedule-with-a-resource-manager-template"></a>Crie um horário com um modelo de Gestor de Recursos
 
-Neste exemplo, usamos um modelo de Gestor de Recursos de Automação (ARM) que cria um novo horário de trabalho. Para obter informações gerais sobre este modelo para gerir os horários de trabalho da Automação, consulte [a referência do modelo microsoft.Automation automation](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates)
+Neste exemplo, usamos um modelo de Gestor de Recursos de Automação (ARM) que cria um novo horário de trabalho. Para obter informações gerais sobre este modelo para gerir os horários de trabalho da Automação, consulte [a referência do modelo microsoft.Automation automation](/azure/templates/microsoft.automation/2015-10-31/automationaccounts/jobschedules#quickstart-templates)
 
 Copie este ficheiro de modelo num editor de texto:
 

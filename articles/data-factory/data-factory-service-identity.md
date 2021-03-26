@@ -4,14 +4,14 @@ description: Conheça a identidade gerida para a Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 89da1a22bb3fd0eff22a7bed7ed70b72f220fbf9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888996"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562465"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
 
@@ -21,15 +21,14 @@ Este artigo ajuda-o a compreender o que é uma identidade gerida para a Data Fac
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Ao criar uma fábrica de dados, pode ser criada uma identidade gerida juntamente com a criação de fábrica. A identidade gerida é uma aplicação gerida registada no Azure Ative Directory, e representa esta fábrica de dados específica.
 
 A identidade gerida para data factory beneficia as seguintes características:
 
 - [Armazenar credencial em Azure Key Vault,](store-credentials-in-key-vault.md)caso em que a identidade gerida pela fábrica de dados é usada para a autenticação do Cofre da Chave Azure.
-- Conectores incluindo [armazenamento Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), e [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
-- [Atividade web](control-flow-web-activity.md).
+- Aceda a lojas de dados ou cálculos utilizando a autenticação de identidade gerida, incluindo armazenamento de identidade Azure Blob, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks atividade, atividade web, e muito mais. Verifique se o conector e os artigos de atividade estão a ser mais pormenorizados.
 
 ## <a name="generate-managed-identity"></a>Gerar identidade gerida
 
@@ -157,11 +156,10 @@ Pode encontrar as informações de identidade geridas a partir do portal Azure -
 
 - ID de objeto de identidade gerido
 - Inquilino de Identidade Gerida
-- ID de aplicação de identidade gerida
 
 As informações de identidade geridas também aparecerão quando criar um serviço ligado, que suporta a autenticação de identidade gerida, como Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-Ao conceder permissão, utilize o ID do objeto ou o nome da fábrica de dados (como nome de identidade gerido) para encontrar esta identidade.
+Ao conceder permissão, no separador Controlo de Acesso (IAM) do Azure o controlo de acesso (IAM) -> Adicionar a atribuição de funções -> Atribuir acesso a -> selecionar data factory sob o Sistema atribuído identidade gerida -> selecionar por nome de fábrica; ou, em geral, pode usar o ID do objeto ou o nome da fábrica de dados (como nome de identidade gerido) para encontrar esta identidade. Se precisar de obter o ID de aplicação de identidade gerido, pode usar o PowerShell.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Recupere a identidade gerida usando o PowerShell
 

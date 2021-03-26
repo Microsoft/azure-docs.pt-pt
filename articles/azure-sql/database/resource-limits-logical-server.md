@@ -10,42 +10,42 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
-ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691234"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543521"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para a Azure SQL Database e para os servidores Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Este artigo fornece uma visão geral dos limites de recursos para o servidor lógico utilizado pela Azure SQL Database e Azure Synapse Analytics. Fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados e descreve os mecanismos de governação dos recursos utilizados para impor esses limites.
+Este artigo fornece uma visão geral dos limites de recursos para o [servidor lógico](logical-servers.md) utilizado pela Azure SQL Database e Azure Synapse Analytics. Fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados e descreve os mecanismos de governação dos recursos utilizados para impor esses limites.
 
 > [!NOTE]
-> Para os limites de instância gerida do Azure SQL, consulte [os limites de recursos da Base de Dados SQL para instâncias geridas](../managed-instance/resource-limits.md).
+> Para os limites de instância gerida do Azure SQL, consulte [os limites de recursos para instâncias geridas](../managed-instance/resource-limits.md).
 
 ## <a name="maximum-resource-limits"></a>Limites máximos de recursos
 
 | Recurso | Limite |
 | :--- | :--- |
-| Bases de dados por servidor | 5000 |
-| Número predefinido de servidores por subscrição em qualquer região | 20 |
-| Número máximo de servidores por subscrição em qualquer região | 200 |  
-| Quota de DTU /eDTU por servidor | 54,000 |  
-| vCore quota por servidor/instância | 540 |
-| Piscinas max por servidor | Limitado por número de DTUs ou vCores. Por exemplo, se cada piscina for de 1000 DTUs, então um servidor pode suportar 54 piscinas.|
+| Bases de dados por servidor lógico | 5000 |
+| Número padrão de servidores lógicos por subscrição numa região | 20 |
+| Número máximo de servidores lógicos por subscrição numa região | 200 |  
+| Quota de DTU /eDTU por servidor lógico | 54,000 |  
+| vCore quota por servidor lógico | 540 |
+| Piscinas max por servidor lógico | Limitado por número de DTUs ou vCores. Por exemplo, se cada piscina for de 1000 DTUs, então um servidor pode suportar 54 piscinas.|
 |||
 
 > [!IMPORTANT]
-> À medida que o número de bases de dados se aproxima do limite por servidor, pode ocorrer o seguinte:
+> À medida que o número de bases de dados se aproxima do limite por servidor lógico, pode ocorrer o seguinte:
 >
-> - Aumentando a latência em consultas de execução contra a base de dados principal.  Isto inclui pontos de vista de estatísticas de utilização de recursos, como sys.resource_stats.
+> - Aumentando a latência em consultas de execução contra a base de dados principal.  Isto inclui pontos de vista de estatísticas de utilização de recursos, tais `sys.resource_stats` como.
 > - Aumento da latência nas operações de gestão e dos pontos de vista do portal de renderização que envolvem enumerar bases de dados no servidor.
 
 > [!NOTE]
-> Para obter mais quota DTU/eDTU, quota vCore, ou mais servidores do que o valor padrão, envie um novo pedido de suporte no portal Azure. Para obter mais informações, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](quota-increase-request.md).
+> Para obter mais quota DTU/eDTU, quota vCore, ou servidores mais lógicos do que o valor padrão, envie um novo pedido de suporte no portal Azure. Para obter mais informações, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Tamanho do armazenamento
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 54010359f226fe02336f039e3dcbb98075e9b06a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ff77a407dfa87e408170573249876bbefee0abe
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97360089"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558585"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações de segurança para o SQL Server em Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -87,7 +87,7 @@ Não quer que os agressores adivinhem facilmente nomes de contas ou palavras-pas
 
 - Crie uma conta de administrador local única que não seja nomeada **Administradora.**
 
-- Use senhas fortes complexas para todas as suas contas. Para obter mais informações sobre como criar uma palavra-passe forte, consulte Criar um artigo [de senha forte.](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password)
+- Use senhas fortes complexas para todas as suas contas. Para obter mais informações sobre como criar uma palavra-passe forte, consulte Criar um artigo [de senha forte.](https://support.microsoft.com/account-billing/how-to-create-a-strong-password-for-your-microsoft-account-f67e4ddd-0dbe-cd75-cebe-0cfda3cf7386)
 
 - Por predefinição, o Azure seleciona a autenticação do Windows durante a configuração da máquina virtual SQL Server. Portanto, o login **SA** é desativado e uma palavra-passe é atribuída por configuração. Recomendamos que o login **SA** não seja utilizado ou ativado. Se tiver de fazer um login SQL, utilize uma das seguintes estratégias:
 

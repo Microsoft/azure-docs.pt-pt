@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 00be0a18984f1ad3eacf86a2cf3477d8b0d9065f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3fcc4f01d926f5c624adabd51e6215e0106af1fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454622"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557875"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Ative Directory B2C: Quais as novidades
 
@@ -73,7 +73,7 @@ Bem-vindos às novidades da documentação do Azure Ative Directory B2C. Este ar
 
 ### <a name="new-articles"></a>Artigos novos
 
-- [Criar um fluxo de utilizador em Azure Ative Directory B2C](create-user-flow.md)
+- [Criar um fluxo de utilizador em Azure Ative Directory B2C](add-sign-up-and-sign-in-policy.md)
 - [Configurar a inscrição no telefone e iniciar sômposições para os fluxos do utilizador (pré-visualização)](phone-authentication-user-flows.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
@@ -114,7 +114,7 @@ Bem-vindos às novidades da documentação do Azure Ative Directory B2C. Este ar
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Desa redirecione os URLs para b2clogin.com para o Azure Ative Directory B2C](b2clogin.md)
 - [Defina um perfil técnico OpenID Connect numa política personalizada do Azure Ative Directory B2C](openid-connect-technical-profile.md)
-- [Configurar inscrição no telefone e iniciar sôm-in com políticas personalizadas em Azure AD B2C](phone-authentication.md)
+- [Configurar inscrição no telefone e iniciar sôm-in com políticas personalizadas em Azure AD B2C](phone-authentication-user-flows.md)
 
 
 ## <a name="august-2020"></a>Agosto de 2020

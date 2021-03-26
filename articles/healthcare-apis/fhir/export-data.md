@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: aefb2b4a70fae4ad082243529c8eaf877fb35f22
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: a5b3daa499546f3a30b5a4d133d77786a1916b6a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045314"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559201"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -47,8 +47,7 @@ Além disso, é apoiado o controlo do estado de exportação através do URL dev
 
 Atualmente apoiamos $export para contas de armazenamento ativadas pela ADLS Gen2, com a seguinte limitação:
 
-- O utilizador não pode tirar partido de [espaços hierárquicos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)de nomes , no entanto não existe uma forma de direcionar a exportação para um subdiretório específico dentro do contentor. Só fornecemos a capacidade de direcionar um recipiente específico (onde criamos uma nova pasta para cada exportação).
-
+- O utilizador não pode tirar partido de [espaços hierárquicos](../../storage/blobs/data-lake-storage-namespace.md)de nomes , no entanto não existe uma forma de direcionar a exportação para um subdiretório específico dentro do contentor. Só fornecemos a capacidade de direcionar um recipiente específico (onde criamos uma nova pasta para cada exportação).
 - Uma vez concluída a exportação, nunca mais exportamos nada para essa pasta, uma vez que as exportações subsequentes para o mesmo contentor estarão dentro de uma pasta recém-criada.
 
 

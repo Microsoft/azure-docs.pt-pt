@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/03/2021
-ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042526"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558283"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Permitir a sintonização automática no portal Azure para monitorizar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -120,7 +120,7 @@ Em caso de mensagens de erro que a gestão automatizada de recomendações tenha
 - A Loja de Consultas deixou de funcionar porque usou o espaço de armazenamento atribuído.
 
 Podem ser considerados os seguintes passos para corrigir esta questão:
-- Limpe a Loja de Consultas ou modifique o período de retenção de dados para "auto" utilizando o T-SQL. Veja como configurar a [política recomendada de retenção e captura para a Loja de Consultas.](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy)
+- Limpe a Loja de Consultas ou modifique o período de retenção de dados para "auto" utilizando o T-SQL. Veja como configurar a [política recomendada de retenção e captura para a Loja de Consultas.](./query-performance-insight-use.md#recommended-retention-and-capture-policy)
 - Use o SQL Server Management Studio (SSMS) e siga estes passos:
   - Ligue-se à Base de Dados Azure SQL
   - Clique direito na base de dados

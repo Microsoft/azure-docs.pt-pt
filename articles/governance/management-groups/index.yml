@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/30/2020
-  ms.openlocfilehash: 0f799ecd13258b683acd112b01c5d63425dab99c
-  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+  ms.openlocfilehash: 20368e63d147f56afc45bb440b1881fbc8aa8a8e
+  ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100094173"
+  ms.lasthandoff: 03/26/2021
+  ms.locfileid: "105559303"
 landingContent:
 - title: Acerca da Governação do Azure
   linkLists:
@@ -74,6 +74,6 @@ landingContent:
     - text: SDK do Azure para Python
       url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
     - text: REST
-      url: /rest/api/resources/managementgroups
+      url: /rest/api/managementgroups
     - text: Modelos do Resource Manager
       url: /azure/templates/microsoft.management/managementgroups

@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3514a7c809e939ea2c45afa5ab60539232b8781f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32e502ff175a9222faa0eb79fb53f2cc3f76bfb7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98953296"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559745"
 ---
 # <a name="migrate-from-media-services-v2-to-v3-introduction"></a>Migrar dos Serviços de Comunicação v2 para a introdução v3
 
@@ -79,7 +79,3 @@ A sua aplicação de Media Services V2 pode ser única. Por isso, fornecemos ori
 - [Empacotamento e entrega](migrate-v-2-v-3-migration-scenario-based-publishing.md)
 - [Proteção de conteúdos](migrate-v-2-v-3-migration-scenario-based-content-protection.md)
 - [Unidades reservadas para meios de comunicação (MRU)](migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)
-
-## <a name="next-steps"></a>Passos seguintes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

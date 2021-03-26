@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 6cb4abd536cc0d4177df424ac6a774e4e2e328d7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865592"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564760"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
 
@@ -29,15 +29,15 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
 
 1. Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado) e crie os recursos associados.
 
-2. Criar um novo grupo de recursos utilizando o [portal Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal) ou [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Este passo é opcional se estiver a utilizar um grupo de recursos existente.
+2. Criar um novo grupo de recursos utilizando o [portal Azure](../azure-resource-manager/management/manage-resource-groups-portal.md) ou [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Este passo é opcional se estiver a utilizar um grupo de recursos existente.
  
-3. Criar uma nova conta de armazenamento utilizando o [portal Azure](/azure/storage/common/storage-account-create?tabs=azure-portal) ou [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Este passo é opcional se estiver a utilizar uma conta de armazenamento existente.
+3. Criar uma nova conta de armazenamento utilizando o [portal Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este passo é opcional se estiver a utilizar uma conta de armazenamento existente.
 
-4. Faça o upload dos ficheiros de Definição de Serviço (.csdef) e Configuração de Serviço (.cscfg) para a conta de armazenamento utilizando o [portal Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenha os URIs SAS de ambos os ficheiros a adicionar ao modelo ARM mais tarde neste tutorial.
+4. Faça o upload dos ficheiros de Definição de Serviço (.csdef) e Configuração de Serviço (.cscfg) para a conta de armazenamento utilizando o [portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenha os URIs SAS de ambos os ficheiros a adicionar ao modelo ARM mais tarde neste tutorial.
 
 5. (Opcional) Crie um cofre chave e carre fique com os certificados.
 
-    -  Os certificados podem ser anexados aos serviços na nuvem para permitir uma comunicação segura de e para o serviço. Para utilizar certificados, as suas impressões digitais devem ser especificadas no seu ficheiro de Configuração de Serviço (.cscfg) e enviadas para um cofre de chaves. Um cofre-chave pode ser criado através do [portal Azure](/azure/key-vault/general/quick-create-portal) ou [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    -  Os certificados podem ser anexados aos serviços na nuvem para permitir uma comunicação segura de e para o serviço. Para utilizar certificados, as suas impressões digitais devem ser especificadas no seu ficheiro de Configuração de Serviço (.cscfg) e enviadas para um cofre de chaves. Um cofre-chave pode ser criado através do [portal Azure](../key-vault/general/quick-create-portal.md) ou [PowerShell](../key-vault/general/quick-create-powershell.md).
     - O cofre-chave associado deve estar localizado na mesma região e subscrição que o serviço de nuvem.
     - O cofre-chave associado deve ser ativado permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter certificados do Key Vault. Para mais informações, consulte [Certificados e Cofre chave](certificates-and-key-vault.md)
     - O cofre-chave deve ser referenciado na secção OsProfile do modelo ARM indicado nos degraus abaixo.

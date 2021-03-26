@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 322a599d5ad02ddcf19c61261d968d098b6c9871
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598291"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563131"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenário de streaming ao vivo
 
@@ -70,7 +70,3 @@ Veja conceitos de eventos ao vivo, tutoriais e como guiar abaixo para etapas esp
 ## <a name="samples"></a>Amostras
 
 Também pode [comparar o código V2 e V3 nas amostras de código](migrate-v-2-v-3-migration-samples.md).
-
-## <a name="next-steps"></a>Passos seguintes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

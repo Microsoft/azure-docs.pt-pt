@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 114635722a0a131fc146eb2ab69984effb211a88
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598393"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559762"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Passo 1 - Compreender os benefícios da migração para a API V3 dos Serviços de Comunicação Social
 
@@ -23,6 +23,8 @@ ms.locfileid: "104598393"
 <hr color="#5ea0ef" size="10">
 
 ![etapas de migração 2](./media/migration-guide/steps-1.svg)
+
+## <a name="use-the-latest-api"></a>Use a mais recente API
 
 Encorajamo-lo a começar a usar a versão 2020-05-01 do API AZure Media Services V3 agora para obter os benefícios porque novas funcionalidades, funcionalidades e otimizações de desempenho só estão disponíveis na atual API V3.
 
@@ -60,7 +62,3 @@ Houve melhorias significativas nos Serviços de Comunicação social com a V3.
 | **Monitorização** | |
 | Suporte de notificação [Azure EventGrid](monitoring/reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em funcionalidades. Existem mais tipos de notificações, suporte SDK mais amplo para receber as notificações na sua própria aplicação, e mais serviços Azure existentes que podem atuar como manipuladores de eventos. |
 | [Apoio e integração do Azure Monitor no portal Azure](monitoring/monitor-events-portal-how-to.md) | Isto permite que os clientes visualizem o uso da quota de conta dos Media Services, estatísticas em tempo real de pontos finais de streaming, e ingerir e arquivar estatísticas para eventos ao vivo. Os clientes podem agora definir alertas e executar as ações necessárias com base em dados métricos em tempo real. |
-
-## <a name="next-steps"></a>Passos seguintes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

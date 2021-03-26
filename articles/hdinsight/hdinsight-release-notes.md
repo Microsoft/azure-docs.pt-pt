@@ -5,12 +5,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 3ea5168641f233f2e9580612a2f245fd8fef860f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6addd7cffdd7001b5767a471fc9e0514749b18d1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699356"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564896"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -28,10 +28,10 @@ Esta versão aplica-se tanto para HDInsight 3.6 como HDInsight 4.0. O lançament
 
 ## <a name="new-features"></a>Novas funcionalidades
 ### <a name="dav4-series-support"></a>Suporte da série Dav4
-HDInsight adicionou suporte da série Dav4 nesta versão. Saiba mais sobre [a série Dav4 aqui.](/azure/virtual-machines/dav4-dasv4-series)
+HDInsight adicionou suporte da série Dav4 nesta versão. Saiba mais sobre [a série Dav4 aqui.](../virtual-machines/dav4-dasv4-series.md)
 
 ### <a name="kafka-rest-proxy-ga"></a>Kafka REST Proxy GA 
-O Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de uma API REST sobre HTTPS. Kafka Rest Proxy está disponível a partir desta versão. Saiba mais sobre [kafka REST Proxy aqui.](/azure/hdinsight/kafka/rest-proxy)
+O Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de uma API REST sobre HTTPS. Kafka Rest Proxy está disponível a partir desta versão. Saiba mais sobre [kafka REST Proxy aqui.](./kafka/rest-proxy.md)
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Movendo-se para conjuntos de escala de máquina virtual Azure
 O HDInsight agora utiliza máquinas virtuais Azure para abastecer o cluster. O serviço está gradualmente a migrar para [conjuntos de escala de máquina virtual Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Após a migração das suas regiões e subscrições, os clusters HDInsight recém-criados serão executados em conjuntos de escala de máquinas virtuais sem ações do cliente. Não se espera mudanças de rutura.
@@ -49,7 +49,7 @@ O HDInsight está gradualmente a migrar para conjuntos de escala de máquina vir
 
 
 ### <a name="breaking-change-for-net-for-apache-spark-100"></a>Quebra de mudança para .NET para Apache Spark 1.0.0
-Com o mais recente lançamento, o HDInsight apresenta a primeira versão oficial v1.0.0 da biblioteca [".NET for Apache Spark".](https://github.com/dotnet/spark) Fornece a completude da API dataFrame para Spark 2.4.x e Spark 3.0.x juntamente com uma série de [outras funcionalidades](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). Haverá alterações para esta versão importante, consulte [o guia de migração .NET para Apache Spark](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) para entender as medidas necessárias para atualizar o seu código e os seus oleodutos. Para saber mais, consulte este [.NET para Apache Spark v1.0 no guia Azure HDInsight](/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+Com o mais recente lançamento, o HDInsight apresenta a primeira versão oficial v1.0.0 da biblioteca [".NET for Apache Spark".](https://github.com/dotnet/spark) Fornece a completude da API dataFrame para Spark 2.4.x e Spark 3.0.x juntamente com uma série de [outras funcionalidades](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). Haverá alterações para esta versão importante, consulte [o guia de migração .NET para Apache Spark](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) para entender as medidas necessárias para atualizar o seu código e os seus oleodutos. Para saber mais, consulte este [.NET para Apache Spark v1.0 no guia Azure HDInsight](./spark/spark-dotnet-version-update.md#using-net-for-apache-spark-v10-in-hdinsight).
 
 
 ## <a name="upcoming-changes"></a>Próximas alterações

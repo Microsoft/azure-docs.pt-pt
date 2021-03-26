@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5d7b512601d066000f1f64bf99d1fd4be3532b7a
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98802355"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544133"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob Storage biblioteca de clientes v12 com Xamarin
 
@@ -196,7 +196,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 ### <a name="download-blobs"></a>Transferir blobs
 
-Descarregue a bolha anteriormente criada chamando o método [DownloadAsync.](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) O código de exemplo copia `Stream` primeiro a representação da bolha num `MemoryStream` e depois num para que o texto possa ser `StreamReader` exibido.
+Descarregue a bolha anteriormente criada chamando o método [DownloadToAsync.](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) O código de exemplo copia `Stream` primeiro a representação da bolha num `MemoryStream` e depois num para que o texto possa ser `StreamReader` exibido.
 
 Adicione este código ao ficheiro *MainPage.xaml.cs:*
 

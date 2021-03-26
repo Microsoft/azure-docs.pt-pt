@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 76dcb9aec935dd4ea4f57a1362953d9741d8eaf0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c175a6d225be268f27854b9ab63886892cf029fb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095804"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557280"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
@@ -68,7 +68,7 @@ As capacidades de política personalizada estão em constante desenvolvimento. O
 | [Código de autorização OAuth2](authorization-code-flow.md) |  |  | X |  |
 | Código de autorização OAuth2 com PKCE |  |  | X | [Clientes públicos e aplicações de página única](authorization-code-flow.md)  |
 | [Fluxo implícito OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
-| [Credenciais de senha do proprietário de recursos OAuth2](ropc-custom.md) |  | X |  |  |
+| [Credenciais de senha do proprietário de recursos OAuth2](add-ropc-policy.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
 | [SAML2](saml-service-provider.md)  |  |  |X  | ENCADERAMENTO E Redireccionamento de encadernações. |
 | OAuth1 |  |  |  | Não suportado. |

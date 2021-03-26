@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d24e056d397617c95a7ba301b58efc3631f40dd
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 4173fe34c6966514ef4f150527cd712c9d95ab7e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026526"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561717"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-vm"></a>Guia de migração: Oracle para SQL Server em Azure VM
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -199,7 +199,7 @@ Para publicar o seu esquema e migrar os dados, siga estes passos:
 
 
 Além de utilizar o SSMA, também pode utilizar os Serviços de Integração de Servidores SQL (SSIS) para migrar os dados. Para saber mais, veja: 
-- O artigo [Começando com serviços de integração de servidores SQL](https://docs.microsoft.com//sql/integration-services/sql-server-integration-services).
+- O artigo [Começando com serviços de integração de servidores SQL](//sql/integration-services/sql-server-integration-services).
 - Os serviços de [integração de servidores SQL de papel branco: SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx).
 
 
@@ -271,4 +271,3 @@ Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é
 
 - Para avaliar a camada de acesso à aplicação, consulte o [Kit de Ferramentas de Migração do Acesso a Dados (Pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - Para mais detalhes sobre como realizar testes da Camada A/B do Acesso de Dados consulte [o Assistente de Experimentação da Base de Dados](/sql/dea/database-experimentation-assistant-overview).
-

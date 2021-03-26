@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 57c83a94925e94088085efacf1192416f63e6383
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d561c72bb1c6e6e67de7698d7b21901fcf8d1f7c
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232040"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544422"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions fluxos de trabalho para Azure Static Web Apps Preview
 
@@ -136,11 +136,7 @@ with:
     ###### End of Repository/Build Configurations ######
 ```
 
-| Propriedade | Descrição | Obrigatório |
-|---|---|---|
-| `app_location` | Localização do seu código de inscrição.<br><br>Por exemplo, insira `/` se o código fonte da sua aplicação estiver na raiz do repositório, ou se o seu código de `/app` aplicação estiver num diretório chamado `app` . | Yes |
-| `api_location` | Localização do seu código Azure Functions.<br><br>Por exemplo, insira `/api` se o seu código de aplicação estiver numa pasta chamada `api` . Se nenhuma aplicação Azure Functions for detetada na pasta, a construção não falha, o fluxo de trabalho assume que não quer uma API. | No |
-| `output_location` | Localização do diretório de saída de construção relativamente ao `app_location` .<br><br>Por exemplo, se o código fonte da sua aplicação estiver localizado em `/app` , e o script de construção descosões de saídas para a `/app/build` pasta, então definido `build` como o `output_location` valor. | No |
+[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
 Os `repo_token` `action` valores , e `azure_static_web_apps_api_token` valores são definidos para si por Azure Static Web Apps não devem ser alterados manualmente.
 

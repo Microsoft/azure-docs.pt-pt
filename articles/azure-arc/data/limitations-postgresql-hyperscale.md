@@ -10,11 +10,11 @@ ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
 ms.openlocfilehash: b1a56c8acf1789690c01f1c16b7c37a237720e39
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100418240"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564879"
 ---
 # <a name="limitations-of-azure-arc-enabled-postgresql-hyperscale"></a>Limitações do Arco Azure ativadas em Hiperescala Pós-SQL
 

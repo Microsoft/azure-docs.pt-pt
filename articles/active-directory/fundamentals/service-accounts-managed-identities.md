@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 16cd14aa447fb56af4cd9dd809696aecdc0c47a5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587836"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557841"
 ---
 # <a name="securing-managed-identities"></a>Assegurar identidades geridas
 
@@ -38,7 +38,7 @@ As identidades geridas são mais utilizadas para comunicações entre serviços 
 
 Um sistema de origem solicita acesso a um serviço de alvo. Qualquer recurso Azure pode ser um sistema de origem. Por exemplo, um Azure VM, instância Azure Function e Azure App Services casos suportam identidades geridas.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### <a name="how-authentication-and-authorization-work"></a>Como funciona a autenticação e autorização
 
@@ -86,7 +86,7 @@ Existem várias formas de encontrar identidades geridas:
 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-1. Em Azure AD, selecione a aplicação Enterprise.
+1. No Azure Ative Directory, selecione aplicações Enterprise.
 
 2. Selecione o filtro para "Identidades Geridas" 
 
@@ -120,7 +120,7 @@ Pode avaliar a segurança das identidades geridas das seguintes formas:
 
 ## <a name="move-to-managed-identities"></a>Mover-se para identidades geridas
 
-Se estiver a utilizar um titular de serviço ou uma conta de utilizador Azure AD, avalie se pode, em vez disso, utilizar uma conseguida para eliminar a necessidade de proteger, rodar e gerir credenciais. 
+Se estiver a utilizar um titular de serviço ou uma conta de utilizador Azure AD, avalie se pode, em vez disso, utilizar uma identidade gerida para eliminar a necessidade de proteger, rodar e gerir credenciais. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

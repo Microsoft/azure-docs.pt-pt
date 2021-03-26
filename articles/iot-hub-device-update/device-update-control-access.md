@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 07310a5b6f275d4a35a3649c22aeea68045dde8b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca55b1df347b47a6eb82557658d59a3de666b703
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101662840"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558402"
 ---
 # <a name="azure-role-based-access-control-rbac-and-device-update"></a>Controlo de acesso baseado em funções Azure (RBAC) e atualização do dispositivo
 
@@ -39,7 +39,7 @@ A Atualização do Dispositivo também utiliza Azure AD para autenticação para
 
 ### <a name="create-client-azure-ad-app"></a>Criar app AD Azure cliente
 
-Para integrar uma aplicação ou serviço com a Azure AD, [primeiro registe](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) uma aplicação com Azure AD. A configuração da aplicação do cliente varia consoante o fluxo de autorização utilizado.  A configuração abaixo é para orientação ao utilizar as APIs de atualização do dispositivo.
+Para integrar uma aplicação ou serviço com a Azure AD, [primeiro registe](../active-directory/develop/quickstart-register-app.md) uma aplicação com Azure AD. A configuração da aplicação do cliente varia consoante o fluxo de autorização utilizado.  A configuração abaixo é para orientação ao utilizar as APIs de atualização do dispositivo.
 
 * Definir autenticação do cliente: 'redirecionar URIs para cliente nativo ou web'.
 * Definir permissões API - Atualização do dispositivo para ioT hub expõe:

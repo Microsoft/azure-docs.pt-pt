@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 3b109048be4a94990c26e31aa5bc2ad36fdd0211
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1cdd3dba8203ce9e8daeaa963f1722389d89d19d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102583977"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563825"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Pré-requisitos para aceder programaticamente a dados de análise
 
@@ -24,7 +24,7 @@ Para aceder programaticamente a dados de análise de marketplace comercial, prec
 
 ## <a name="create-azure-active-directory-application"></a>Criar aplicação de Diretório Ativo Azure
 
-As credenciais regulares dos utilizadores não podem ser utilizadas para o acesso programático de dados de análise de mercado comercial. Uma aplicação Azure Ative Directory (Azure AD) precisa de ser criada juntamente com um segredo para aceder às APIs analíticas. Para aprender a criar uma aplicação AD AZure e secreta, consulte [Quickstart: Registe uma aplicação com a plataforma de identidade microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+As credenciais regulares dos utilizadores não podem ser utilizadas para o acesso programático de dados de análise de mercado comercial. Uma aplicação Azure Ative Directory (Azure AD) precisa de ser criada juntamente com um segredo para aceder às APIs analíticas. Para aprender a criar uma aplicação AD AZure e secreta, consulte [Quickstart: Registe uma aplicação com a plataforma de identidade microsoft](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="associate-the-azure-ad-application-to-the-partner-center-tenant"></a>Associar a candidatura da AD AZure ao inquilino do Centro De Parceiros
 
@@ -41,7 +41,7 @@ A aplicação AZure AD que criou no portal Azure tem de ser ligada à sua conta 
 
 ## <a name="generate-an-azure-ad-token"></a>Gerar um sinal AD AZure
 
-Você precisa gerar um token AD Azure usando o ID de Aplicação (cliente). Este ID ajuda a identificar exclusivamente a sua aplicação de cliente na plataforma de identidade da Microsoft e o segredo do cliente do passo anterior. Para que os passos gerem um token AD Azure, consulte [o Serviço para atender chamadas usando credenciais de cliente (segredo ou certificado partilhado)](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow).
+Você precisa gerar um token AD Azure usando o ID de Aplicação (cliente). Este ID ajuda a identificar exclusivamente a sua aplicação de cliente na plataforma de identidade da Microsoft e o segredo do cliente do passo anterior. Para que os passos gerem um token AD Azure, consulte [o Serviço para atender chamadas usando credenciais de cliente (segredo ou certificado partilhado)](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md).
 
 > [!NOTE]
 > O sinal é válido por uma hora.

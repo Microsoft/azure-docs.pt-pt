@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4024d2b1357f3dda8216e9ebdd2055b28b064d33
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9758b026ef205e6608f7fc4110219dc5f267369e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101677488"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568720"
 ---
 # <a name="managed-disk-bursting"></a>Segurança do disco gerido
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
@@ -27,10 +27,10 @@ Além disso, o [nível de desempenho dos discos geridos pode ser alterado](disks
 
 |  |Rebentamento baseado em crédito  |Rebentamento a pedido  |Alteração do nível de desempenho  |
 |---------|---------|---------|---------|
-| Cenários|Ideal para dimensionamento de curto prazo (30 minutos ou menos).|Ideal para dimensionamento de curto prazo (Não restrito ao tempo).|Ideal se a sua carga de trabalho estivesse continuamente a funcionar em rajada.|
-|Custo     |Gratuito         |O custo é variável, consulte a secção [de Faturação](#billing) para mais detalhes.        |O custo de cada nível de desempenho é fixo, consulte [os preços dos Discos Geridos](https://azure.microsoft.com/pricing/details/managed-disks/) para mais detalhes.         |
-|Disponibilidade     |Disponível apenas para SSDs premium 512 GiB e menor.         |Disponível apenas para SSDs premium superior a 512 GiB.         |Disponível para todos os tamanhos SSD premium.         |
-|Enablement     |Ativado por padrão em discos elegíveis.         |Deve ser ativado pelo utilizador.         |O utilizador tem de alterar manualmente o seu nível.         |
+| **Cenários**|Ideal para dimensionamento de curto prazo (30 minutos ou menos).|Ideal para dimensionamento de curto prazo (Não restrito ao tempo).|Ideal se a sua carga de trabalho estivesse continuamente a funcionar em rajada.|
+|**Custo**     |Gratuito         |O custo é variável, consulte a secção [de Faturação](#billing) para mais detalhes.        |O custo de cada nível de desempenho é fixo, consulte [os preços dos Discos Geridos](https://azure.microsoft.com/pricing/details/managed-disks/) para mais detalhes.         |
+|**Disponibilidade**     |Disponível apenas para SSDs premium 512 GiB e menor.         |Disponível apenas para SSDs premium superior a 512 GiB.         |Disponível para todos os tamanhos SSD premium.         |
+|**Ativação**     |Ativado por padrão em discos elegíveis.         |Deve ser ativado pelo utilizador.         |O utilizador tem de alterar manualmente o seu nível.         |
 
 ## <a name="common-scenarios"></a>Cenários comuns
 Os seguintes cenários podem beneficiar muito da explosão:

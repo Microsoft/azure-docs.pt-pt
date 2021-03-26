@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 422a911c2c0bb6aa1252ebb649368b61aa350b6e
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 464e2450b4d4dea9fc650ad8869af4215d3db1a7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025582"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561802"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>ASP.NET de contentorização e migração de aplicativos para o Serviço Azure Kubernetes
 
@@ -60,7 +60,7 @@ Antes de começar este tutorial, tem de:
 **Requisito** | **Detalhes**
 --- | ---
 **Identifique uma máquina para instalar a ferramenta** | Uma máquina Windows para instalar e executar a ferramenta Azure Migrate: App Containerization. A máquina Do Windows pode ser um sistema operativo de servidor (Windows Server 2016 ou posterior) ou cliente (Windows 10), o que significa que a ferramenta também pode funcionar no seu ambiente de trabalho. <br/><br/> A máquina virtual do Windows que executa a ferramenta deve ter conectividade de rede com os servidores/máquinas virtuais que estão a alojar as aplicações ASP.NET que serão contentorizadas.<br/><br/> Certifique-se de que o espaço de 6-GB está disponível na máquina Windows que executa a ferramenta Azure Migrate: App Containerization para armazenar artefactos de aplicações. <br/><br/> A máquina virtual do Windows deve ter acesso à Internet, diretamente ou através de um proxy. <br/> <br/>Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
-**Servidores de aplicações** | Ativar a recolha do PowerShell nos servidores de aplicações: Iniciar sessão no servidor de aplicações e seguir [estas](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting) instruções para ligar o remoting PowerShell. <br/><br/> Se o servidor de aplicações estiver a executar o Windows Server 2008 R2, certifique-se de que o PowerShell 5.1 está instalado no servidor de aplicações. Siga as instruções [aqui](https://docs.microsoft.com/powershell/scripting/windows-powershell/wmf/setup/install-configure) para descarregar e instalar o PowerShell 5.1 no servidor de aplicações. <br/><br/> Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
+**Servidores de aplicações** | Ativar a recolha do PowerShell nos servidores de aplicações: Iniciar sessão no servidor de aplicações e seguir [estas](/powershell/module/microsoft.powershell.core/enable-psremoting) instruções para ligar o remoting PowerShell. <br/><br/> Se o servidor de aplicações estiver a executar o Windows Server 2008 R2, certifique-se de que o PowerShell 5.1 está instalado no servidor de aplicações. Siga as instruções [aqui](/powershell/scripting/windows-powershell/wmf/setup/install-configure) para descarregar e instalar o PowerShell 5.1 no servidor de aplicações. <br/><br/> Instale a ferramenta Microsoft Web Deploy na máquina que executa a ferramenta de ajuda de contentores de aplicação e servidor de aplicações se ainda não estiver instalada. Você pode baixar a ferramenta a partir [daqui](https://aka.ms/webdeploy3.6)
 **ASP.NET aplicação** | A ferramenta suporta atualmente <br/><br/> - ASP.NET aplicações utilizando o quadro Microsoft .NET 3.5 ou posterior.<br/> - Servidores de aplicações com o Windows Server 2008 R2 ou posteriormente (os servidores de aplicações devem estar a executar a versão 5.1 do PowerShell). <br/> - Aplicações em execução nos Serviços de Informação da Internet (IIS) 7.5 ou posterior. <br/><br/> A ferramenta atualmente não suporta <br/><br/> - Aplicações que requerem autenticação do Windows (a AKS não suporta gMSA atualmente). <br/> - Aplicações que dependem de outros serviços Windows alojados fora do IIS.
 
 
@@ -180,7 +180,7 @@ Parametrizar a configuração torna-a disponível como parâmetro de tempo de im
 
 ### <a name="externalize-file-system-dependencies"></a>Externalizar as dependências do sistema de ficheiros
 
- Pode adicionar outras pastas que a sua aplicação utiliza. Especificar se devem fazer parte da imagem do recipiente ou devem ser externalizados através de volumes persistentes na partilha de ficheiros Azure. A utilização de volumes persistentes funciona muito bem para aplicações imponentes que armazenam o estado fora do contentor ou têm outros conteúdos estáticos armazenados no sistema de ficheiros. [Saiba mais](https://docs.microsoft.com/azure/aks/concepts-storage)
+ Pode adicionar outras pastas que a sua aplicação utiliza. Especificar se devem fazer parte da imagem do recipiente ou devem ser externalizados através de volumes persistentes na partilha de ficheiros Azure. A utilização de volumes persistentes funciona muito bem para aplicações imponentes que armazenam o estado fora do contentor ou têm outros conteúdos estáticos armazenados no sistema de ficheiros. [Saiba mais](../aks/concepts-storage.md)
 
 1. Clique em **Editar** em Pastas de Aplicação para rever as pastas de aplicação detetadas. As pastas de aplicação detetadas foram identificadas como artefactos obrigatórios necessários pela aplicação e serão copiadas para a imagem do contentor.
 
@@ -195,7 +195,7 @@ Parametrizar a configuração torna-a disponível como parâmetro de tempo de im
 ## <a name="build-container-image"></a>Criar imagem de contentor
 
 
-1. **Selecione registo do contentor Azure**: Utilize o dropdown para selecionar um [Registo de Contentores Azure](https://docs.microsoft.com/azure/container-registry/) que será utilizado para construir e armazenar as imagens do contentor para as aplicações. Pode utilizar um registo de contentores Azure existente ou optar por criar um novo utilizando a nova opção de registo.
+1. **Selecione registo do contentor Azure**: Utilize o dropdown para selecionar um [Registo de Contentores Azure](../container-registry/index.yml) que será utilizado para construir e armazenar as imagens do contentor para as aplicações. Pode utilizar um registo de contentores Azure existente ou optar por criar um novo utilizando a nova opção de registo.
 
     ![Screenshot para a seleção de aplicativo ACR.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 

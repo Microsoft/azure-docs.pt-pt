@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97831555"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559371"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -139,7 +139,7 @@ Para verificar, navegue nos ***registos de aplicações do Visualizador de Siste
 
 Solução:
 
-* Verifique se há possibilidades de distribuir a carga pelos discos VM. Isto reduzirá a carga em discos individuais. Pode [verificar o estrangulamento dos IOPs, permitindo métricas de diagnóstico ao nível de armazenamento](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
+* Verifique se há possibilidades de distribuir a carga pelos discos VM. Isto reduzirá a carga em discos individuais. Pode [verificar o estrangulamento dos IOPs, permitindo métricas de diagnóstico ao nível de armazenamento](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Mude a política de backup para efetuar backups durante as horas de ponta, quando a carga no VM estiver no seu nível mais baixo.
 * Atualize os discos Azure para suportar IOPs mais elevados. [Saiba mais aqui](../virtual-machines/disks-types.md)
 
@@ -371,12 +371,12 @@ Tipicamente, o Agente VM já está presente em VMs que são criados a partir da 
 #### <a name="windows-vms---set-up-the-agent"></a>Windows VMs - Configurar o agente
 
 * Transfira e instale o [MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Precisa de privilégios de administrador para terminar a instalação.
-* Para máquinas virtuais criadas utilizando o modelo de implementação clássico, [atualize a propriedade VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Este passo não é necessário para máquinas virtuais Azure Resource Manager.
+* Para máquinas virtuais criadas utilizando o modelo de implementação clássico, [atualize a propriedade VM](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Este passo não é necessário para máquinas virtuais Azure Resource Manager.
 
 #### <a name="linux-vms---set-up-the-agent"></a>Linux VMs - Configurar o agente
 
 * Instale a versão mais recente do agente a partir do repositório de distribuição. Para mais informações sobre o nome do pacote, consulte o [repositório do Agente Linux.](https://github.com/Azure/WALinuxAgent)
-* Para VMs criados utilizando o modelo de implementação clássico, [atualize a propriedade VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos.
+* Para VMs criados utilizando o modelo de implementação clássico, [atualize a propriedade VM](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos.
 
 ### <a name="update-the-vm-agent"></a>Atualizar o Agente VM
 

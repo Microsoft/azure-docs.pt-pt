@@ -1,17 +1,17 @@
 ---
 title: Criar uma função Java em Funções Azure usando IntelliJ
 description: Aprenda a usar o IntelliJ para criar uma função Java acionada por HTTP simples, que publica para executar num ambiente sem servidor em Azure.
-author: jeffhollan
+author: yucwan
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
+ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 1edfbca2f2a16aeebc1244b298426dc46d72c6d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708820"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543652"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Crie a sua primeira função Java em Azure usando IntelliJ
 
@@ -104,17 +104,9 @@ Nesta secção, utiliza-se o Azure Toolkit para o IntelliJ para criar um projeto
 
     ![Implementar projeto para Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. Se ainda não tiver nenhuma App de Função, clique em *Não ter a função disponível, clique para criar uma nova*.
+1. Se ainda não tiver nenhuma App de Função, clique *+* na linha *'Função'.* Digite o nome da aplicação de função e escolha a plataforma adequada, aqui podemos simplesmente aceitar o padrão. Clique *em OK* e a nova aplicação de função que acabou de criar será selecionada automaticamente. Clique *em Executar* para implementar as suas funções.
 
     ![Criar app de função em Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
-
-1. Digite o nome da aplicação de função e escolha o plano de subscrição/plataforma/grupo de recursos/app, podendo também criar aqui o plano de grupo/Serviço de Aplicações. Em seguida, mantenha as definições de aplicações inalteradas, clique *em OK* e aguarde alguns minutos para que a nova aplicação de funções seja criada. Depois de *criar uma nova aplicação de funções...* a barra de progresso desaparece.
-
-    ![Implementar app de função para Azure criar assistente de aplicativo](media/functions-create-first-java-intellij/deploy-functions-create-app-wizard.png)
-
-1. Selecione a aplicação de função para a quais pretende implementar (a nova aplicação de função que acabou de criar será selecionada automaticamente). Clique *em Executar* para implementar as suas funções.
-
-    ![A screenshot mostra a caixa de diálogo 'Funções de Azure' Deploy.](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![Implementar app de função para log Azure](media/functions-create-first-java-intellij/deploy-functions-log.png)
 

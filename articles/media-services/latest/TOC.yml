@@ -329,6 +329,8 @@
           href: how-to-create-asset.md
         - name: Carregar multimédia
           href: how-to-upload-media.md
+        - name: Gerir várias contas de armazenamento
+          href: media-services-managing-multiple-storage-accounts.md
     - name: Criar transformações e tarefas
       items:
         - name: Criar transformações
@@ -367,6 +369,8 @@
                   href: how-to-create-overlay.md
                 - name: Gerar miniaturas com o .NET
                   href: media-services-generate-thumbnails-dotnet.md
+                - name: Vídeos de cultura com .NET
+                  href: crop-howto.md
             - name: Com a CLI
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
@@ -417,6 +421,12 @@
           href: offline-widevine-for-android.md
         - name: Offline PlayReady para Windows 10
           href: offline-plaready-streaming-for-windows-10.md
+    - name: Utilizar Funções do Azure
+      items:
+        - name: Com o .NET
+          items:
+            - name: Utilizar funções Azure .NET
+              href: media-services-dotnet-how-to-use-azure-functions.md
     - name: Criar filtros
       items:
         - name: Com o .NET
@@ -440,6 +450,10 @@
           href: download-results-howto.md
         - name: Sinal de áudio descritivo
           href: signal-descriptive-audio-howto.md
+    - name: Segurança
+      items:
+        - name: Chaves de acesso ao armazenamento de rolo
+          href: media-services-roll-storage-access-keys.md
     - name: Utilizar leitores de multimédia
       items:
         - name: Configuração completa do Leitor de Multimédia do Azure
@@ -448,6 +462,8 @@
           href: how-to-video-js-player.md
         - name: Utilizar o leitor de vídeo Shaka
           href: how-to-shaka-player.md
+        - name: Tokens de autenticação de passe
+          href: media-services-pass-authentication-tokens.md
 - name: Referência
   items:
     - name: Especificação de OpenAPI (Swagger)

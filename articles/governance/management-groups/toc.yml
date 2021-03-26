@@ -61,7 +61,7 @@
     - name: SDK do Azure para Python
       href: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
     - name: REST
-      href: /rest/api/resources/managementgroups
+      href: /rest/api/managementgroups
     - name: Modelos do Resource Manager
       href: /azure/templates/microsoft.management/managementgroups
 - name: Recursos

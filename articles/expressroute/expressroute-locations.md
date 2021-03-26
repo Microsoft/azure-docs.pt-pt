@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 4a75931017bbde24c17ecdc0da498547c6088682
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8980558d7b0d57ff997f55c98703a22a53308f7b
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581529"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544405"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
 > [!div class="op_single_selector"]
-> * [Localizações por Fornecedor](expressroute-locations.md)
+> * Localizações por Fornecedor
 > * [Fornecedores por Localização](expressroute-locations-providers.md)
 
 

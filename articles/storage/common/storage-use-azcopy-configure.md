@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9c699cd865746bf430193eba38ec6fa79575692e
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100596944"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543453"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas AzCopy
 
@@ -103,14 +103,16 @@ Antes de definir esta variável, recomendamos que faça um teste de referência.
 
 ### <a name="optimize-memory-use"></a>Otimizar o uso da memória
 
-Desfita a `AZCOPY_BUFFER_GB` variável ambiente para especificar a quantidade máxima da memória do seu sistema que pretende que o AzCopy utilize ao descarregar e carregar ficheiros.
-Expresse este valor em gigabytes (GB).
+Desfita a `AZCOPY_BUFFER_GB` variável ambiente para especificar a quantidade máxima da memória do sistema que pretende que o AzCopy utilize para tamponar ao descarregar e carregar ficheiros. Expresse este valor em gigabytes (GB).
 
 | Sistema operativo | Comando  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> O rastreio de trabalho incorre sempre em sobrecargas adicionais no uso da memória. O valor varia em função do número de transferências num trabalho. Os tampão são o maior componente do uso da memória. Pode ajudar a controlar a sobrecarga utilizando `AZCOPY_BUFFER_GB` aproximadamente os seus requisitos, mas não existe nenhuma bandeira para limitar o uso geral da memória.
 
 ### <a name="optimize-file-synchronization"></a>Otimizar a sincronização de ficheiros
 
