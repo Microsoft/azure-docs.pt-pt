@@ -2,15 +2,15 @@
 title: Criar e implementar especificações de modelo
 description: Descreve como criar especificações de modelo e partilhá-las com outros utilizadores na sua organização.
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 76573e4415dffb2212dd025ed486d834446d3851
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f4aec6d9fa07edf36dea68a23ba12eb5f72d308
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043903"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626089"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo do Gestor de Recursos Azure (Visualização)
 
@@ -25,9 +25,16 @@ Para implementar a especificação do modelo, utiliza ferramentas Azure padrão 
 
 ## <a name="why-use-template-specs"></a>Por que usar especificações de modelo?
 
-Se atualmente tem os seus modelos numa conta de repo ou armazenamento gitHub, encontra-se em vários desafios ao tentar partilhar e usar os modelos. Para que um utilizador o implemente, o modelo deve ser local ou o URL para o modelo deve ser acessível ao público. Para contornar esta limitação, poderá partilhar cópias do modelo com utilizadores que necessitem de o implementar ou abrir o acesso à conta de repo ou armazenamento. Quando os utilizadores possuem cópias locais de um modelo, estas cópias podem eventualmente divergir do modelo original. Quando então então faça uma conta de repo ou armazenamento acessível ao público, pode permitir que utilizadores não intencionais acedam ao modelo.
+As especificações do modelo fornecem os seguintes benefícios:
 
-O benefício de usar as especificações do modelo é que você pode criar modelos canónicos e partilhá-los com equipas na sua organização. As especificações do modelo são seguras porque estão disponíveis para implementação do Azure Resource Manager, mas não acessíveis aos utilizadores sem permissão do Azure RBAC. Os utilizadores apenas precisam de ler o acesso à especificação do modelo para implementar o seu modelo, para que possa partilhar o modelo sem permitir que outros o modifiquem.
+* Utilize modelos ARM padrão para a especificação do seu modelo.
+* Você gere o acesso através do Azure RBAC, em vez de fichas SAS.
+* Os utilizadores podem implementar a especificação do modelo sem terem acesso ao modelo.
+* Pode integrar a especificação do modelo no processo de implementação existente, como o script PowerShell ou o pipeline DevOps.
+
+As especificações do modelo permitem-lhe criar modelos canónicos e partilhá-los com equipas da sua organização. As especificações do modelo são seguras porque estão disponíveis para implementação do Azure Resource Manager, mas não acessíveis aos utilizadores sem a permissão correta. Os utilizadores apenas precisam de ler o acesso à especificação do modelo para implementar o seu modelo, para que possa partilhar o modelo sem permitir que outros o modifiquem.
+
+Se atualmente tem os seus modelos numa conta de repo ou armazenamento gitHub, encontra-se em vários desafios ao tentar partilhar e usar os modelos. Para implementar o modelo, você precisa tornar o modelo acessível ao público ou gerir o acesso com fichas SAS. Para contornar esta limitação, os utilizadores podem criar cópias locais, que eventualmente divergem do seu modelo original. As especificações do modelo simplificam os modelos de partilha.
 
 Os modelos que inclui numa especificação de modelo devem ser verificados pelos administradores da sua organização para seguir os requisitos e orientações da organização.
 

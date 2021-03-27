@@ -146,11 +146,14 @@
           href: content-aware-encoding.md
         - name: Unidades reservadas de multimédia
           href: concept-media-reserved-units.md
-    - name: Analisar conteúdo (Video Indexer)
+    - name: Análise e Redação
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
+        - name: Rostos de Detect e Redact (borrão)
+          href: analyze-face-redaction-concept.md
+          displayName: 'analyze, redact, face, detect, presets, jobs, blur, faces, redaction'
     - name: Transformações e tarefas
       href: transforms-jobs-concept.md
     - name: Transmissão em direto
@@ -159,9 +162,9 @@
           href: live-streaming-overview.md
         - name: Eventos em direto e saídas em direto
           href: live-events-outputs-concept.md
-          displayName: 'vanity, ingest'
+          displayName: 'vanity, ingest, static, hostname, rtmp, ingest'
         - name: Codificadores em direto testados no local
-          displayName: recommended
+          displayName: 'recommended, on-premises, live, encoder, OBS, FFMPEG, Wirecast'
           href: recommended-on-premises-live-encoders.md
         - name: Mudança de tempo e Direto para VOD
           displayName: 'archive, dvr'

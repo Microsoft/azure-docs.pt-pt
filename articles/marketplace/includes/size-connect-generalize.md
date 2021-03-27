@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630125"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105630206"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
@@ -52,7 +52,9 @@ Assim que o seu VM estiver pronto, pode capturá-lo numa galeria de imagens part
 8. Selecione **Review + crie** para rever as suas escolhas.
 9. Uma vez aprovada a validação, **selecione Criar**.
 
-Para publicar, a conta de editor deve ter um Proprietário acesso ao SIG. Para conceder acesso:
+A assinatura Azure que contém o SIG deve estar sob o mesmo inquilino que a conta de editor para publicar. Além disso, a conta de editor deve ter acesso ao SIG. 
+
+Para conceder acesso:
 
 1. Vá à Galeria de Imagens Partilhadas.
 2. Selecione **o controlo de acesso** (IAM) no painel esquerdo.

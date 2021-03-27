@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: af359734ff5bfe90dedbb7f8389aecdc6e056654
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.openlocfilehash: 701f999427d743c18f5dbcadb00cf303f97a8f53
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105543568"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627336"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutorial: Publicar Azure Static Web Apps com Azure DevOps
 
@@ -36,35 +36,13 @@ Neste tutorial, irá aprender a:
 
 1. Navegue para o seu repositório Azure DevOps.
 
-1. Utilize um repositório existente ou _importe um repositório,_ como indicado abaixo.
+1. **Selecione Import** para começar a importar um pedido de amostra.
   
     :::image type="content" source="media/publish-devops/devops-repo.png" alt-text="DevOps Repo":::
 
-1. Crie um novo ficheiro para a sua aplicação web frontal.
+1. In **Clone URL**, insira `https://github.com/staticwebdev/vanilla-api.git` .
 
-1. Copie e cole a seguinte marcação HTML no seu novo ficheiro:
-
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-  
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="styles.css">
-      <title>Hello World!</title>
-    </head>
-  
-    <body>
-      <main>
-        <h1>Hello World!</h1>
-      </main>
-    </body>
-  
-    </html>
-    ```
-
-1. Guarde o ficheiro.
+1. Selecione **Import** (Importar).
 
 ## <a name="create-a-static-web-app"></a>Criar uma aplicação Web estática
 
@@ -85,7 +63,9 @@ Neste tutorial, irá aprender a:
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Detalhes da implementação - outros":::
 
-1. Uma vez que a implementação seja bem sucedida, **selecione Gerir o token de implementação**.
+1. Assim que a implementação for bem sucedida, navegue para o novo recurso Static Web Apps.
+
+1. **Selecione Gerir o token de implementação**.
 
 1. Copie o **token de implementação** e cole-o num editor de texto para utilização noutro ecrã.
 
@@ -96,16 +76,17 @@ Neste tutorial, irá aprender a:
 
 ## <a name="create-the-pipeline-task-in-azure-devops"></a>Criar a Tarefa pipeline em Azure DevOps
 
-1. Navegue para o projeto Azure DevOps que foi criado anteriormente.
+1. Navegue para o repositório Azure DevOps que foi criado anteriormente.
 
-2. Crie um novo **Pipeline build** e selecione **Configurar construir.**
+1. Selecione **Configurar a construção**.
 
     :::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Pipeline de compilação":::
 
-3. Copie e cole o seguinte YAML no seu oleoduto.
+1. No ecrã de configuração do *seu pipeline,* selecione **Starter pipeline**.
 
-    > [!NOTE]
-    > Os valores introduzidos _para app_location_,_api_location_, e _output_location_ terão de ser modificados para a sua aplicação.  
+    :::image type="content" source="media/publish-devops/configure-pipeline.png" alt-text="Gasoduto de configuração":::
+
+1. Copie e cole o seguinte YAML no seu oleoduto.
 
     ```yaml
     trigger:
@@ -117,40 +98,47 @@ Neste tutorial, irá aprender a:
     steps:
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: frontend 
-          api_location: api
-          output_location: build
+          app_location: "/" 
+          api_location: "api"
+          output_location: ""
         env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 
-    Configure as entradas da App Web Estática Azure de acordo com a estrutura da pasta da sua aplicação.
+    > [!NOTE]
+    > Se não estiver a utilizar a aplicação da amostra, os valores para `app_location` , e precisa de alterar para corresponder aos `api_location` `output_location` valores da sua aplicação.
 
     [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
     O `azure_static_web_apps_api_token` valor é auto-gerido e configurado manualmente.
 
-4. Selecione **Variáveis**.
+1. Selecione **Variáveis**.
 
-5. Criar uma nova variável.
+1. Criar uma nova variável.
 
-6. Nomeie a variável **deployment_token** (correspondente ao nome no fluxo de trabalho).
+1. Nomeie a variável **deployment_token** (correspondente ao nome no fluxo de trabalho).
 
-7. Copie o símbolo de implantação que colou anteriormente num editor de texto.
+1. Copie o símbolo de implantação que colou anteriormente num editor de texto.
 
-8. Cole na ficha de implantação na caixa _Valor._
+1. Cole na ficha de implantação na caixa _Valor._
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Ficha variável":::
 
-9. Selecione **OK**.
+1. **Selecione Mantenha este valor em segredo.**
 
-10. **Selecione Guardar e executar** o gasoduto.
+1. Selecione **OK**.
+
+1. **Selecione Guardar** para voltar ao seu oleoduto YAML.
+
+1. **Selecione Guardar e correr** para abrir o Save e _executar_ o diálogo.
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
 
-11. Assim que a implementação for bem sucedida, navegue para a **Visão Geral** das Aplicações Web Estáticas Azure, que inclui links para a configuração de implementação.
+1. **Selecione Guardar e correr** para executar o gasoduto.
 
-12. Selecione o **URL** para ver o seu site recém-implementado. Note como a ligação _Source_ agora aponta para o ramo e localização do repositório Azure DevOps.
+1. Assim que a implementação for bem sucedida, navegue para a **Visão Geral** das Aplicações Web Estáticas Azure, que inclui links para a configuração de implementação. Note como a ligação _Source_ agora aponta para o ramo e localização do repositório Azure DevOps.
+
+1. Selecione o **URL** para ver o seu site recém-implementado.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Localização de implantação":::
 

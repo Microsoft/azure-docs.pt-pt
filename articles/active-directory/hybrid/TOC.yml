@@ -242,6 +242,8 @@
           href: how-to-connect-fed-saml-idp.md
         - name: Publicar tarefas de configuração para associação ao Azure AD Híbrido
           href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+        - name: Rotação de emergência dos certificados AD FS
+          href: how-to-connect-emergency-ad-fs-certificate-rotation.md
     - name: Gerir o início de sessão único
       items:
         - name: Introdução ao Início de Sessão Único

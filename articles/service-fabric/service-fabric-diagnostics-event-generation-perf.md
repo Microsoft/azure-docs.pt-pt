@@ -1,16 +1,14 @@
 ---
 title: Monitorização de desempenho do tecido de serviço Azure
 description: Saiba mais sobre os contadores de desempenho para monitorização e diagnóstico de clusters de tecidos de serviço Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: abe1b67bee863f287f148fdd9af13198b67db0f0
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75464712"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628871"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 

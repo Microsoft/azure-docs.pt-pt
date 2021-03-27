@@ -2,14 +2,14 @@
 title: Provisionamento de uma piscina em uma rede virtual
 description: Como criar um pool de Lote numa rede virtual Azure para que os nós de computação possam comunicar de forma segura com outros VMs na rede, como um servidor de ficheiros.
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6e5de75164e098fc95f6c086d9f98a652dcee4a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561922"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629313"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar uma piscina Azure Batch numa rede virtual
 
@@ -56,6 +56,8 @@ Para garantir que os nós da sua piscina funcionam num VNet que tenha ativado o 
 - O serviço Batch precisa de comunicar com nós para agendar tarefas. Para ativar esta comunicação, adicione um UDR para cada endereço IP utilizado pelo serviço Batch na região onde existe a sua conta Batch. Para obter a lista de endereços IP do serviço Batch, consulte [as etiquetas de serviço no local.](../virtual-network/service-tags-overview.md)
 
 - Certifique-se de que o tráfego de saída para a Azure Storage (especificamente, URLs do formulário `<account>.table.core.windows.net` , e ) não está bloqueado pela sua rede no `<account>.queue.core.windows.net` `<account>.blob.core.windows.net` local.
+
+- Se utilizar suportes de ficheiros virtuais, reveja os [requisitos de rede](virtual-file-mount.md#networking-requirements) e certifique-se de que nenhum tráfego necessário está bloqueado.
 
 Quando adicionar um UDR, defina a rota para cada prefixo de endereço IP do lote relacionado e defina **o tipo de próximo lúpulo** para a **Internet**.
 

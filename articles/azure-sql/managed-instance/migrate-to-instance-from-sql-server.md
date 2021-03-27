@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: df0a28c4d2ba78e9b7a6b52e26537540164d28e0
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ccc6acfd27a1430a4f6a31886c06322c5c09e224
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564318"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628378"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de casos de servidor SQL para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,7 @@ A linha de base de desempenho é um conjunto de parâmetros tais como o uso méd
 Alguns dos parâmetros que necessitaria de medir na sua instância do SQL Server são:
 
 - [Monitorize a utilização do CPU na sua instância sql Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registem a utilização média e máxima do CPU.
-- [Monitorize](/sql/relational-databases/performance-monitor/monitor-memory-usage) o uso da memória na sua instância do SQL Server e determine a quantidade de memória utilizada por diferentes componentes, tais como piscina tampão, cache de plano, piscina de loja de colunas, [OLTP in-memory,](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)etc. Além disso, deve encontrar valores médios e máximos do contador de desempenho da memória da esperança de vida da página.
+- [Monitorize](/sql/relational-databases/performance-monitor/monitor-memory-usage) o uso da memória na sua instância do SQL Server e determine a quantidade de memória utilizada por diferentes componentes, tais como piscina tampão, cache de plano, piscina de loja de colunas, [OLTP in-memory,](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage)etc. Além disso, deve encontrar valores médios e máximos do contador de desempenho da memória da esperança de vida da página.
 - Monitorize a utilização do IO do disco na origem SQL Server, utilizando [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) visualização ou [contadores de desempenho](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitorize o desempenho da carga de trabalho e consulta ou a sua instância sql Server examinando Vistas de Gestão Dinâmica ou Loja de Consultas se estiver a migrar de uma versão SQL Server 2016+. Identifique a duração média e o uso do CPU das consultas mais importantes na sua carga de trabalho para compará-las com as consultas que estão a decorrer no caso gerido.
 

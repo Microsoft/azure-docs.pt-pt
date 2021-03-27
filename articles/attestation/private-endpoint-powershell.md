@@ -5,14 +5,14 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 03/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 92080f119567d185ca6a5bccf0e89d8d10213f3b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ff2e73a8557c6b1761c852ac58a46037a122ddb
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732314"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628531"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Quickstart: Criar um ponto final privado utilizando a Azure PowerShell
 
@@ -21,7 +21,7 @@ Inicie-se com a Azure Private Link utilizando um ponto final privado para ligar 
 Neste arranque rápido, você vai criar um ponto final privado para a Azure Attestation e implementar uma máquina virtual para testar a ligação privada.  
 
 > [!NOTE]
-> A implementação atual inclui apenas a opção de aprovação automática. A subscrição deve ser listada em branco para poder prosseguir com a criação de pontos finais privados. Contacte a equipa de serviço ou envie um pedido de apoio ao Azure na página de apoio do [Azure](https://azure.microsoft.com/support/options/) antes de prosseguir com os passos abaixo.
+> A implementação atual inclui apenas a opção de aprovação automática. A subscrição deve ser adicionada a uma lista de permitir que possa prosseguir com a criação de pontos finais privados. Contacte a equipa de serviço ou envie um pedido de apoio ao Azure na página de apoio do [Azure](https://azure.microsoft.com/support/options/) antes de prosseguir com os passos abaixo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

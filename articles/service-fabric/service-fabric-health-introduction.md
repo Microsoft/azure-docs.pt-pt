@@ -1,16 +1,14 @@
 ---
 title: Monitorização da saúde em Tecido de Serviço
 description: Uma introdução ao modelo de monitorização da saúde do Azure Service Fabric, que proporciona a monitorização do cluster e das suas aplicações e serviços.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
-ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: a1c545048739182e3baba3e3d94da1accca227d1
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800164"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627420"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 A Azure Service Fabric introduz um modelo de saúde que proporciona uma avaliação e reporte de saúde rica, flexível e extensível. O modelo permite um acompanhamento quase em tempo real do estado do cluster e dos serviços que nele se insem. Você pode facilmente obter informações de saúde e corrigir potenciais problemas antes que eles em cascata e causar falhas massivas. No modelo típico, os serviços enviam relatórios com base nas suas opiniões locais, e essa informação é agregada para fornecer uma visão global ao nível do cluster.

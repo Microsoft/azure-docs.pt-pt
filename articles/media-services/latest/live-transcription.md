@@ -100,7 +100,7 @@ A operação tem o seguinte corpo (onde é criado um Evento Ao Vivo com RTMP com
         "language": "en-US"
       }
     ],
-    "vanityUrl": false,
+    "useStaticHostname": false,
     "streamOptions": [
       "Default"
     ]
@@ -161,7 +161,7 @@ PATCH: ```https://management.azure.com/subscriptions/:subscriptionId/resourceGro
         "language": "en-US"
       }
     ],
-    "vanityUrl": false,
+    "useStaticHostname": false,
     "streamOptions": [
       "Default"
     ]

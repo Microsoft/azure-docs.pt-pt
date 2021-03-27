@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a05037505c122bb974e6da3d11a6f25a715a6843
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: cb8394de49c2c5daeae156a9316466928eded148
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869434"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628480"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceitos de servidor na Base de Dados Azure para o MySQL
 
@@ -38,7 +38,7 @@ Dentro de uma Base de Dados do Azure para o servidor MySQL, pode criar uma ou v�
 
 Os seguintes elementos ajudam a garantir um acesso seguro à sua base de dados.
 
-|     |     |
+| Conceito de segurança | Description     |
 | :-- | :-- |
 | **Autenticação e autorização** | A base de dados Azure para servidor MySQL suporta a autenticação nativa do MySQL. Pode ligar e autenticar num servidor com o login de administração do servidor. |
 | **Protocolo** | O serviço suporta um protocolo baseado em mensagens utilizado pelo MySQL. |

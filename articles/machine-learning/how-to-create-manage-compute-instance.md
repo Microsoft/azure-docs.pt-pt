@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009968"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628956"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerir um exemplo de cálculo de aprendizagem automática Azure
 
@@ -127,6 +127,9 @@ O cientista de dados pode começar, parar e reiniciar a instância de computaç�
 
 Iniciar, parar, reiniciar e apagar uma instância de computação. Uma instância de cálculo não diminui automaticamente, por isso certifique-se de parar o recurso para evitar cargas em curso.
 
+> [!TIP]
+> A instância compute tem disco OS de 120GB. Se ficar sem espaço em disco, [utilize o terminal](how-to-access-terminal.md) para limpar pelo menos 1-2 GB antes de parar ou reiniciar a instância de cálculo.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Nos exemplos abaixo, o nome da instância computacional é **exemplo**
@@ -225,6 +228,7 @@ Para cada instância de cálculo no seu espaço de trabalho que criou (ou que fo
 * Obtenha detalhes sobre uma instância computacional específica, como endereço IP e região.
 
 ---
+
 
 [O Azure RBAC](../role-based-access-control/overview.md) permite-lhe controlar quais os utilizadores no espaço de trabalho que podem criar, eliminar, iniciar, parar, reiniciar uma instância de computação. Todos os utilizadores no espaço de trabalho colaborador e papel de proprietário podem criar, eliminar, iniciar, parar e reiniciar casos de cálculo em todo o espaço de trabalho. No entanto, apenas o criador de uma instância computacional específica, ou o utilizador designado se foi criado em seu nome, é autorizado a aceder a Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância computacional é dedicada a um único utilizador que tenha acesso à raiz, e pode terminalizar através do Jupyter/JupyterLab/RStudio. A instância computacional terá um único utilizador a iniciar sessão e todas as ações utilizarão a identidade desse utilizador para o Azure RBAC e a atribuição de execuções de experiências. O acesso ao SSH é controlado através de um mecanismo chave público/privado.
 

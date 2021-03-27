@@ -1,6 +1,6 @@
 ---
 title: 'BASE de Dados DE Azure SQL: Guia de migração'
-description: Este guia ensina-o a migrar as suas bases de dados SAP ASE para Azure SQL Database utilizando o SqL Server Migration Assistant for SAP Adapter Server Enterprise.
+description: Neste guia aprende a migrar as suas bases de dados SAP ASE para uma base de dados Azure SQL utilizando o SqL Server Migration Assistant for SAP Adapter Server Enterprise.
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
@@ -9,28 +9,28 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: fd03ebc87a1c0ef0a55b0e6ac0be6d841fee4b0a
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 138a23b610ab96194424bb0f88cf94f516c2d223
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027300"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626457"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guia de migração: SAP ASE para Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Este guia ensina-o a migrar as suas bases de dados SAP ASE para Azure SQL Database utilizando o SqL Server Migration Assistant for SAP Adapter Server Enterprise.
+Neste guia, aprende a migrar as bases de dados DO Servidor adaptador SAP Enterprise (ASE) para uma base de dados Azure SQL utilizando o SqL Server Migration Assistant for SAP Adapter Server Enterprise.
 
-Para outros guias de migração, consulte [a Migração da Base de Dados.](https://docs.microsoft.com/data-migration) 
+Para outros guias de migração, consulte [o Guia de Migração da Base de Dados Azure.](https://docs.microsoft.com/data-migration) 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Para migrar a sua base de dados SAP SE para a Base de Dados Azure SQL, precisa de:
+Antes de começar a migrar a sua base de dados SAP SE para a sua base de dados SQL, faça o seguinte:
 
-- para verificar se o seu ambiente de origem é suportado. 
-- [Sql Server Migration Assistant for SAP Adaptive Server Enterprise (anteriormente SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256). 
-- Conectividade e permissões suficientes para aceder tanto à fonte como ao alvo. 
-
+- Verifique se o ambiente de origem está suportado. 
+- Descarregue e instale [o SqL Server Migration Assistant para a SAP Adaptive Server Enterprise (anteriormente SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256).
+- Certifique-se de que tem conectividade e permissões suficientes para aceder tanto à fonte como ao alvo.
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -38,54 +38,55 @@ Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia d
 
 ### <a name="assess"></a>Avaliação
 
-Utilize [o SqL Server Migration Assistant (SSMA) para a SAP Adaptive Server Enterprise (formalmente SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256) para analisar objetos e dados de base de dados, avaliar bases de dados para migração, migrar objetos de base de dados Sybase para Azure SQL Database e, em seguida, migrar dados para a Base de Dados Azure SQL. Para saber mais, consulte o [SqL Server Migration Assistant for Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
+Ao utilizar [o SQL Server Migration Assistant (SSMA) para a SAP Adaptive Server Enterprise (formalmente SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256), pode rever objetos e dados de base de dados, avaliar bases de dados para migração, migrar objetos de base de dados Sybase para a sua base de dados SQL e, em seguida, migrar dados para a base de dados SQL. Para saber mais, consulte o [SqL Server Migration Assistant for Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
 
-Para criar uma avaliação, siga estes passos: 
+Para criar uma avaliação, faça o seguinte: 
 
-1. **Abrir SSMA para Sybase**. 
-1. Selecione **File** e, em seguida, escolha **Novo Projeto**. 
-1. Forneça um nome de projeto, um local para salvar o seu projeto e, em seguida, selecione Azure SQL Database como o alvo de migração a partir do drop-down. Selecione **OK**.
-1. Introduza os valores para os detalhes da ligação SAP na caixa de diálogo **'Ligar à Sybase'.** 
-1. Clique com o botão direito na base de dados SAP que pretende migrar e, em seguida, escolha **Criar relatório**. Isto gera um relatório HTML. Em alternativa, pode escolher **Criar relatório** a partir da barra de navegação depois de selecionar a base de dados:
-1. Reveja o relatório HTML para compreender as estatísticas de conversão e quaisquer erros ou avisos. Também pode abrir o relatório no Excel para obter um inventário de objetos SAP ASE e o esforço necessário para realizar conversões de esquemas. A localização predefinição do relatório está na pasta do relatório dentro dos Projetos SSMA.
+1. Abrir SSMA para Sybase. 
+1. Selecione **'Ficheiro'** e, em seguida, selecione **Novo Projeto**. 
+1. No painel new **project,** insira um nome e localização para o seu projeto e, em seguida, na lista **migrar para** baixo, selecione **Azure SQL Database**. 
+1. Selecione **OK**.
+1. No painel **'Ligar à base'** de ligação, insira os detalhes da ligação SAP. 
+1. Clique com o botão direito na base de dados SAP que pretende migrar e, em seguida, **selecione Criar relatório**. Isto gera um relatório HTML. Em alternativa, pode selecionar o **separador 'Criar'** no canto superior direito.
+1. Reveja o relatório HTML para compreender as estatísticas de conversão e quaisquer erros ou avisos. Também pode abrir o relatório no Excel para obter um inventário de objetos SAP ASE e o esforço necessário para realizar conversões de esquemas. A localização predefinição do relatório está na pasta do relatório dentro dos Projetos SSMA. Por exemplo:
 
-   Por exemplo: `drive:\<username>\Documents\SSMAProjects\MySAPMigration\report\report_<date>`. 
+   `drive:\<username>\Documents\SSMAProjects\MySAPMigration\report\report_<date>` 
 
+### <a name="validate-the-type-mappings"></a>Validar os mapeamentos de tipo
 
-### <a name="validate-type-mappings"></a>Validar mapeamentos de tipo
+Antes de efetuar a conversão de esquemas, valide os mapeamentos predefinidos do tipo de dados ou altere-os com base nos requisitos. Pode fazê-lo selecionando  >  **Definições de Projeto de Ferramentas,** ou pode alterar o mapeamento de tipo para cada tabela selecionando a tabela no **Sap ASE Metadata Explorer**.
 
-Antes de efetuar a conversão de esquemas valide os mapeamentos de tipo de dados predefinidos ou altere-os com base nos requisitos. Pode fazê-lo navegando no menu **Ferramentas** e escolhendo **Definições** de Projeto ou pode alterar o mapeamento do tipo para cada mesa selecionando a tabela no **Sap ASE Metadata Explorer**.
+### <a name="convert-the-schema"></a>Converter o esquema
 
+Para converter o esquema, faça o seguinte:
 
-### <a name="convert-schema"></a>Converter esquema
+1. (Opcional) Para converter consultas dinâmicas ou especializadas, clique com o nó à direita e, em seguida, **selecione Adicionar a declaração**. 
+1. Selecione o **separador 'Ligar ao Azure SQL Database'** e, em seguida, introduza os detalhes para a sua base de dados SQL. Pode optar por ligar-se a uma base de dados existente ou fornecer um novo nome, caso em que será criada uma base de dados no servidor alvo.
+1. No painel **Sybase Metadata Explorer,** clique à direita no esquema SAP ASE com o qual está a trabalhar e, em seguida, selecione **Convert Schema**. 
+1. Após a conversão do esquema, compare e reveja a estrutura convertida para a estrutura original, identifique potenciais problemas. 
 
-Para converter o esquema, siga estes passos:
+   Após a conversão do esquema, pode guardar este projeto localmente para um exercício de remediação de esquemas offline. Para tal, selecione Projeto de Poupança **de**  >  **Ficheiros**. Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de publicar o esquema na sua base de dados SQL.
 
-1. (Opcional) Para converter consultas dinâmicas ou ad-hoc, clique no nó à direita e escolha **Adicionar Statement**. 
-1. Selecione **Connect to Azure SQL Database** na barra de navegação de primeira linha e forneça detalhes da Base de Dados Azure SQL. Pode optar por ligar-se a uma base de dados existente ou fornecer um novo nome, caso em que será criada uma base de dados no servidor alvo.
-1. Clique com o botão direito no esquema SAP ASE no **Sybase Metadata Explorer** e escolha **Converter o esquema**. Em alternativa, pode **selecionar Converter o esquema** da barra de navegação de primeira linha. 
-1. Compare e reveja a estrutura do esquema para identificar potenciais problemas. 
+1. No painel **de saída,** selecione **os resultados da revisão** e reveja quaisquer erros no painel **da lista De erros.** 
+1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Para tal, selecione Projeto de Poupança **de**  >  **Ficheiros**. Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de publicar o esquema na sua base de dados SQL.
 
-   Após a conversão do esquema, pode guardar este projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para a Base de Dados Azure SQL.
+## <a name="migrate-the-databases"></a>Migrar as bases de dados 
 
-1. Selecione **Os resultados** da Revisão no painel de saída e os erros de revisão no painel **da lista de erros.** 
-1. Guarde o projeto localmente para um exercício de remediação de esquemas offline. Selecione **Save Project** a partir do menu **'Ficheiro'.** Isto dá-lhe a oportunidade de avaliar os esquemas de origem e alvo offline e executar a remediação antes de poder publicar o esquema para a Base de Dados SQL.
+Depois de ter os pré-requisitos necessários e ter concluído as tarefas associadas à fase *de pré-migração,* está pronto para executar o esquema e a migração de dados.
 
-## <a name="migrate"></a>Migrate 
+Para publicar o esquema e migrar os dados, faça o seguinte: 
 
-Depois de ter os pré-requisitos necessários e ter concluído as tarefas associadas à fase **de pré-migração,** está pronto para executar o esquema e a migração de dados.
+1. Publique o esquema. No painel **Azure SQL Database Metadata Explorer,** clique com o botão direito na base de dados e, em seguida, selecione **Synchronize com Base de Dados**. Esta ação publica o esquema SAP ASE na sua base de dados SQL.
 
-Para publicar o seu esquema e migrar os dados, siga estes passos: 
+1. Migrar os dados. No painel **SAP ASE Metadata Explorer,** clique com o botão direito na base de dados SAP ASE ou no objeto que pretende migrar e, em seguida, selecione **Dados migratórios**. Em alternativa, pode selecionar o **separador Dados Migratórios** no canto superior direito. 
 
-1. Publique o esquema: Clique à direita na base de dados **Azure SQL Base de Dados Metadata Explorer** e escolha **Sincronizar com base de dados**.  Esta ação publica o esquema SAP ASE para a instância da Base de Dados Azure SQL.
-1. Migrar os dados: Clique à direita na base de dados ou objeto que pretende migrar no **SAP ASE Metadata Explorer**, e escolha **dados migratórios**. Em alternativa, pode **selecionar Dados Migratórios** a partir da barra de navegação de primeira linha. Para migrar dados para uma base de dados inteira, selecione a caixa de verificação ao lado do nome da base de dados. Para migrar dados de tabelas individuais, expandir a base de dados, expandir tabelas e, em seguida, selecionar a caixa de verificação ao lado da tabela. Para omitir dados de tabelas individuais, limpe a caixa de verificação: 
-1. Após a conclusão da migração, consulte o **Relatório de Migração de Dados:** 
-1. Conecte-se à sua Base de Dados Azure SQL utilizando o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração através da revisão dos dados e esquemas. 
-
+   Para migrar dados para uma base de dados inteira, selecione a caixa de verificação ao lado do nome da base de dados. Para migrar dados de tabelas individuais, expandir a base de **dados,** expandir tabelas e, em seguida, selecionar a caixa de verificação ao lado da tabela. Para omitir dados de tabelas individuais, limpe a caixa de verificação. 
+1. Após a conclusão da migração, consulte o **Relatório de Migração de Dados**. 
+1. Validar a migração através da revisão dos dados e do esquema. Para tal, ligue-se à sua base de dados SQL utilizando [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="post-migration"></a>Pós-migração 
 
-Depois de ter concluído com sucesso a fase **de Migração,** precisa de passar por uma série de tarefas pós-migração para garantir que tudo está a funcionar da forma mais suave e eficiente possível.
+Depois de ter concluído com sucesso a fase *de migração,* precisa de completar uma série de tarefas pós-migração para garantir que tudo está a funcionar da forma mais suave e eficiente possível.
 
 ### <a name="remediate-applications"></a>Aplicações corretivas
 
@@ -93,36 +94,35 @@ Após a migração dos dados para o ambiente alvo, todas as aplicações que ant
 
 ### <a name="perform-tests"></a>Realizar testes
 
-A abordagem de ensaio para a migração da base de dados consiste na realização das seguintes atividades:
+A abordagem de ensaio da migração da base de dados consiste nas seguintes atividades:
 
-1. **Desenvolver testes de validação.** Para testar a migração da base de dados, precisa de utilizar consultas SQL. Tem de criar as consultas de validação para correr contra a fonte e as bases de dados-alvo. As suas consultas de validação devem abranger o âmbito que definiu.
+1. **Desenvolver testes de validação**: Para testar a migração da base de dados, é necessário utilizar consultas SQL. Tem de criar as consultas de validação para correr contra as bases de dados de origem e alvo. As suas consultas de validação devem cobrir o âmbito que definiu.
 
-2. **Configurar ambiente de teste.** O ambiente de teste deve conter uma cópia da base de dados de origem e da base de dados-alvo. Certifique-se de isolar o ambiente de teste.
+1. **Configurar um ambiente de ensaio**: O ambiente de ensaio deve conter uma cópia da base de dados de origem e da base de dados-alvo. Certifique-se de isolar o ambiente de teste.
 
-3. **Executar testes de validação**. Executar os testes de validação contra a fonte e o alvo e, em seguida, analisar os resultados.
+1. **Executar testes de validação**: Escorram testes de validação com a fonte e o alvo e analisem os resultados.
 
-4. **Executar testes de desempenho**. Executar o teste de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
+1. **Executar testes de desempenho**: Executar testes de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
+
 
 ### <a name="optimize"></a>Otimização
 
-A fase pós-migração é crucial para conciliar quaisquer problemas de precisão de dados e verificar a completude, bem como abordar problemas de desempenho com a carga de trabalho.
+A fase pós-migração é crucial para conciliar quaisquer problemas de precisão de dados, verificar a completude e abordar problemas de desempenho com a carga de trabalho.
 
-> [!NOTE]
-> Para mais detalhes sobre estas questões e medidas específicas para os mitigar, consulte o [Guia de Validação e Otimização pós-migração.](/sql/relational-databases/post-migration-validation-and-optimization-guide)
+Para obter mais informações sobre estas questões e os passos para os mitigar, consulte o [guia de validação e otimização pós-migração.](/sql/relational-databases/post-migration-validation-and-optimization-guide)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para uma matriz dos serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para o ajudar com vários cenários de base de dados e migração de dados, bem como tarefas especiais, consulte [o Serviço e ferramentas para a migração de dados.](../../../dms/dms-tools-matrix.md)
+- Para uma matriz de serviços e ferramentas de terceiros da Microsoft que estão disponíveis para o ajudar com vários cenários de migração de dados e dados e tarefas especiais, consulte [o Serviço e ferramentas para a migração de dados.](../../../dms/dms-tools-matrix.md)
 
-- Para saber mais sobre a Base de Dados Azure SQL consulte:
+- Para saber mais sobre a Base de Dados Azure SQL, consulte:
    - [Uma visão geral da Base de Dados SQL](../../database/sql-database-paas-overview.md)
-   - [Custo total da calculadora de propriedade](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Custo total da calculadora de propriedade](https://azure.microsoft.com/pricing/tco/calculator/)  
 
-
-- Para saber mais sobre o ciclo de enquadramento e adoção para migrações em nuvem, ver
+- Para saber mais sobre o ciclo de enquadramento e adoção para migrações em nuvem, consulte:
    -  [Cloud Adoption Framework para o Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [As melhores práticas para custos e cargas de trabalho de tamanho migram para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Melhores práticas para custos e dimensionamento de cargas de trabalho para a migração para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
-- Para avaliar a camada de acesso à aplicação, consulte o [Kit de Ferramentas de Migração do Acesso a Dados (Pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
+- Para avaliar a camada de acesso à aplicação, consulte o [Data Access Migration Toolkit (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Para mais detalhes sobre como realizar testes da Camada A/B do Acesso de Dados consulte [o Assistente de Experimentação da Base de Dados](/sql/dea/database-experimentation-assistant-overview).

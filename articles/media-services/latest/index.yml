@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: IngridAtMicrosoft
   ms.author: inhenkel
-  ms.date: 21/16/2020
-  ms.openlocfilehash: 6d0943b6f2cc7bc95a420807834cc35983dd9d26
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.date: 03/25/2021
+  ms.openlocfilehash: 947e85ee143274e95ccca4bfcd3b68ad26dff6e5
+  ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104581070"
+  ms.lasthandoff: 03/27/2021
+  ms.locfileid: "105625182"
 landingContent:
 - title: Sobre os Serviços de Multimédia
   linkLists:
@@ -115,3 +115,5 @@ landingContent:
     links:
     - text: Analisar vídeos
       url: analyze-videos-tutorial-with-api.md
+    - text: Redact enfrenta em vídeos
+      url: analyze-face-redaction-concept.md

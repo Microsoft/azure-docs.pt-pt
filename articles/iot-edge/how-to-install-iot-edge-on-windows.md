@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9eeb30d8d3ab0c884472a001149021c4d5cc362c
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 8b549d868aed443e19d639ba6f6df7db20e014b1
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558725"
+ms.locfileid: "105612135"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e aprovisionar o Azure IoT Edge para Linux num dispositivo Windows (Pré-visualização)
 
@@ -117,7 +117,16 @@ Se pretender implantar-se num dispositivo-alvo remoto em vez do dispositivo loca
 
    ![Selecione o seu dispositivo para verificar se está suportado](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. Aceite as definições predefinidos no separador **2.2 Definições.**
+1. No separador **2.2 Definições,** reveja as definições de configuração da sua implementação. Assim que estiver satisfeito com as definições, selecione **Seguinte**.
+
+   ![Reveja as definições de configuração da sua implementação](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+
+   >[!NOTE]
+   >Se estiver a utilizar uma máquina virtual Do Windows, é aconselhável utilizar um interruptor predefinido em vez de um interruptor externo para garantir que a máquina virtual Linux criada na implementação pode obter um endereço IP.
+   >
+   >A utilização de um interruptor predefinido atribui à máquina virtual Linux um endereço IP interno. Este endereço IP interno não pode ser alcançado a partir de fora da máquina virtual do Windows, mas pode ser ligado localmente enquanto ligado à máquina virtual do Windows.
+   >
+   >Se estiver a utilizar o Windows Server, tenha em atenção que o Azure IoT Edge para Linux no Windows não suporta automaticamente o interruptor predefinido. Para uma máquina virtual local do Windows Server, certifique-se de que a máquina virtual Linux pode obter um endereço IP através do interruptor externo. Para uma máquina virtual do Windows Server em Azure, instale um interruptor interno antes de implementar o IoT Edge para o Linux no Windows.
 
 1. No **separador 2.3 De implementação,** pode observar o progresso da implantação. O processo completo inclui o download do Azure IoT Edge para Linux no pacote Windows, a instalação do pacote, a configuração do dispositivo anfitrião e a instalação da máquina virtual Linux. Este processo pode demorar vários minutos a ser concluído. Uma implementação bem sucedida é retratada abaixo.
 
@@ -168,7 +177,7 @@ Instale o IoT Edge para o Linux no Windows no seu dispositivo-alvo se ainda não
    ```
 
    > [!NOTE]
-   > Pode executar este comando sem parâmetros ou personalizar opcionalmente a implementação com parâmetros. Pode consultar [o IoT Edge para Linux na referência de scripts Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) para ver os seus significados.
+   > Pode executar este comando sem parâmetros ou personalizar opcionalmente a implementação com parâmetros. Pode consultar [o IoT Edge para Linux no Windows PowerShell para](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) ver significados de parâmetros e valores predefinidos.
 
 1. Insira 'Y' para aceitar os termos da licença.
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: 2f12f33bf6108784b2eec252fb12d03eebd2a45c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.date: 03/26/2021
+ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604944"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627064"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
@@ -39,7 +39,7 @@ Para obter mais informações sobre estas opções de listagem, consulte [as cap
 
 Após a publicação da sua oferta, a opção de listagem que escolheu para a sua oferta aparece como um botão no canto superior esquerdo da página de listagem da sua oferta. Por exemplo, a imagem que se segue mostra uma página de listagem de oferta no Azure Marketplace com o botão **Get it now.**
 
-![Ilustra uma listagem de oferta na loja online.](./media/saas/listing-options-saas-full.png)
+![Ilustra uma listagem de oferta na loja online.](./media/saas/listing-options-saas.png)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 

@@ -1,16 +1,14 @@
 ---
 title: Eventos de tecido de serviço Azure
 description: Conheça os eventos de Tecido de Serviço fornecidos fora da caixa para ajudá-lo a monitorizar o seu cluster de Tecido de Serviço Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 581bb3f16941fce660e0f464ed8ea9389b034b12
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75451718"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628817"
 ---
 # <a name="service-fabric-events"></a>Eventos do Service Fabric 
 

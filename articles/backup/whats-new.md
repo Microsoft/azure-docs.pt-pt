@@ -3,12 +3,12 @@ title: Novidades do Azure Backup
 description: Conheça as novidades no Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095719"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612488"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades do Azure Backup
 
@@ -19,6 +19,7 @@ Pode saber mais sobre os novos lançamentos marcando esta página ou [subscreven
 ## <a name="updates-summary"></a>Resumo das atualizações
 
 - março de 2021
+  - [A azure Disk Backup está agora geralmente disponível](#azure-disk-backup-is-now-generally-available)
   - [O centro de backup está geralmente disponível](#backup-center-is-now-generally-available)
   - [Suporte de Nível de Arquivo para Cópia de Segurança Azure (na pré-visualização)](#archive-tier-support-for-azure-backup-in-preview)
 - Fevereiro de 2021
@@ -39,6 +40,12 @@ Pode saber mais sobre os novos lançamentos marcando esta página ou [subscreven
   - [Backup SAP HANA em RHEL Azure Virtual Machines (em pré-visualização)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Armazenamento redundante de zona (ZRS) para dados de backup (em pré-visualização)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Excluir suave para as cargas de trabalho do SQL Server e DASA HANA em VMs Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-is-now-generally-available"></a>A azure Disk Backup está agora geralmente disponível
+
+O Azure Backup oferece uma gestão instantânea do ciclo de vida aos Discos Geridos do Azure, automatizando a criação periódica de instantâneos e conservando-os para durações configuradas utilizando a política de Backup.
+
+Para mais informações, consulte [a visão geral da cópia de segurança do disco Azure](disk-backup-overview.md).
 
 ## <a name="backup-center-is-now-generally-available"></a>O centro de backup está geralmente disponível
 

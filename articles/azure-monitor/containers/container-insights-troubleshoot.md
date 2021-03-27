@@ -2,13 +2,13 @@
 title: Como resolver problemas de informações sobre o contentor | Microsoft Docs
 description: Este artigo descreve como pode resolver problemas e resolver problemas com insights do Contentor.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 60a6e76d43d954b27336b9631c48328aeff0b69b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: b7618e9073308da67a8e17c82375a0f05925a542
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708310"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627120"
 ---
 # <a name="troubleshooting-container-insights"></a>Insights do contentor de resolução de problemas
 
@@ -113,6 +113,54 @@ O agente de insights de contentores Pods usa o ponto final do cAdvisor no agente
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-container-insights"></a>O cluster não-Azure Kubernetes não está a aparecer em insights de contentores
 
 Para visualizar o cluster não-Azure Kubernetes em insights de contentores, é necessário ler o acesso no espaço de trabalho Log Analytics que suporta este Insight e no recurso de solução **ContainerInsights *(espaço de trabalho)*.**
+
+## <a name="metrics-arent-being-collected"></a>As métricas não estão a ser recolhidas
+
+1. Verifique se o cluster se encontra numa [região suportada para métricas personalizadas](../essentials/metrics-custom-overview.md#supported-regions).
+
+2. Verifique se existe a atribuição de funções **do Editor de Métricas de Monitorização** utilizando o seguinte comando CLI:
+
+    ``` azurecli
+    az role assignment list --assignee "SP/UserassignedMSI for omsagent" --scope "/subscriptions/<subid>/resourcegroups/<RG>/providers/Microsoft.ContainerService/managedClusters/<clustername>" --role "Monitoring Metrics Publisher"
+    ```
+    Para clusters com MSI, o utilizador designado identificação do cliente para alterações omsagent cada vez que a monitorização é ativada e desativada, pelo que a atribuição de funções deve existir no id do cliente MSI atual. 
+
+3. Para clusters com identidade de pod do Azure Ative Directory habilitados e utilizando o MSI:
+
+   - Verifique a etiqueta requerida **kubernetes.azure.com/managedby: as aks**  estão presentes nas cápsulas omsagent utilizando o seguinte comando:
+
+        `kubectl get pods --show-labels -n kube-system | grep omsagent`
+
+    - Verifique se as exceções são ativadas quando a identidade do casulo é ativada utilizando um dos métodos suportados em https://github.com/Azure/aad-pod-identity#1-deploy-aad-pod-identity .
+
+        Executar o seguinte comando para verificar:
+
+        `kubectl get AzurePodIdentityException -A -o yaml`
+
+        Deve receber uma saída semelhante à seguinte:
+
+        ```
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: mic-exception
+        namespace: default
+        spec:
+        podLabels:
+        app: mic
+        component: mic
+        ---
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: aks-addon-exception
+        namespace: kube-system
+        spec:
+        podLabels:
+        kubernetes.azure.com/managedby: aks
+        ```
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

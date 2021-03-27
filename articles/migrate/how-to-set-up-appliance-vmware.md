@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: c2ffa85ed6cb007dd766d4517a86783d21d4913e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 685d7f0a0aaab2f38967e0eb6c32c3fb4067dbe3
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110513"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612828"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configurar um aparelho para servidores em ambiente VMware
 
@@ -67,7 +67,6 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar:
         --- | --- | ---
         VMware (11.9 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae8108328e8f3a7933d7835ecd871d1b17f367621ce3c74
 
-
 ### <a name="3-create-the-appliance-server"></a>3. Criar o servidor do aparelho
 
 Importe o ficheiro descarregado e crie um servidor em ambiente VMware
@@ -81,11 +80,9 @@ Importe o ficheiro descarregado e crie um servidor em ambiente VMware
 8. No **Mapeamento de Rede,** especifique a rede à qual o servidor se ligará. A rede precisa de conectividade na Internet, para enviar metadados para a Azure Migrate.
 9. Reveja e confirme as definições e, em seguida, clique em **Concluir**.
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
 Certifique-se de que o servidor do aparelho pode ligar-se aos URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
-
 
 ### <a name="4-configure-the-appliance"></a>4. Configurar o aparelho
 
@@ -114,7 +111,6 @@ Coloque o aparelho pela primeira vez.
 1. Se desejar, pode **repetir os pré-requisitos** a qualquer momento durante a configuração do aparelho para verificar se o aparelho cumpre todos os requisitos.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Painel 1 no gestor de configuração do aparelho":::
-
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 

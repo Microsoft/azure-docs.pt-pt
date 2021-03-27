@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671598"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612330"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
 
@@ -41,9 +41,6 @@ A equipa da Synapse trouxe a nova componente de cadernos para o Synapse Studio p
 |%%html| Não suportado |&#9745;|
 |Arrastar e largar para mover uma célula| Não suportado |&#9745;|
 |Saída persistente do Display()|&#9745;| Não disponível |
-|Cancelar tudo| &#9745;| Não disponível|
-|Executar todas as células acima|&#9745;| Não disponível |
-|Executar todas as células abaixo|&#9745;| Não disponível |
 |Célula de texto de formato com botões de barra de ferramentas|&#9745;| Não disponível |
 |Desfazer a operação celular| &#9745;| Não disponível |
 
@@ -273,28 +270,38 @@ Selecione o botão **Executar Todas para** executar todas as células no caderno
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
-
 ### <a name="run-all-cells-above-or-below"></a>Executar todas as células acima ou abaixo
+
+# <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
 
 Para aceder ao menu adicional de ações celulares na extrema-direita, selecione as elipses **(...**). Em seguida, selecione **Executar as células acima** para executar todas as células acima da corrente em sequência. Selecione **Executar as células abaixo** para executar todas as células abaixo da corrente em sequência.
 
    ![células de execução acima ou abaixo](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# <a name="preview-notebook"></a>[Caderno de pré-visualização](#tab/preview)
+
+Expanda a lista de dropdown a partir de **executar todos os** botões e, em seguida, selecione executar as **células acima** para executar todas as células acima da corrente em sequência. Selecione **Executar as células abaixo** para executar todas as células abaixo da corrente em sequência.
+
+   ![azure-notebook-run-cells-acima-ou-abaixo](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### <a name="cancel-all-running-cells"></a>Cancelar todas as células de execução
+
+# <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
 Selecione o botão **Cancelar Todos** para cancelar as células de funcionamento ou as células que aguardam na fila. 
    ![cancelar todas as células](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # <a name="preview-notebook"></a>[Caderno de pré-visualização](#tab/preview)
 
-Cancele todas as células em execução ainda não está disponível para a experiência do caderno de pré-visualização. 
+Selecione o botão **Cancelar Todos** para cancelar as células de funcionamento ou as células que aguardam na fila. 
+   ![azure-notebook-cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### <a name="reference-notebook"></a>Caderno de referência
+### <a name="notebook-reference"></a>Referência de caderno
 
 # <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
 
@@ -305,6 +312,11 @@ Não suportado.
 Pode usar ```%run <notebook path>``` o comando mágico para fazer referência a outro caderno no contexto do caderno atual. Todas as variáveis definidas no caderno de referência estão disponíveis no caderno atual. ```%run``` o comando mágico suporta chamadas aninhadas, mas não suporta chamadas recursivas. Receberá uma exceção se a profundidade da declaração for maior do que cinco. ```%run``` comando atualmente apenas suporta para passar um caminho de caderno como parâmetro. 
 
 Exemplo: ``` %run /path/notebookA ```.
+
+> [!NOTE]
+> A referência ao portátil não é suportada no gasoduto Synapse.
+>
+>
 
 ---
 
@@ -346,7 +358,10 @@ Também pode especificar as definições de sessão de faíscas através de um c
     }
 }
 ```
-
+> [!NOTE]
+> O comando mágico config da sessão de faíscas não é suportado no oleoduto synapse.
+>
+>
 
 ## <a name="bring-data-to-a-notebook"></a>Levar dados a um caderno
 
@@ -420,6 +435,11 @@ Nas propriedades do portátil, pode configurar se deve incluir a saída da célu
 ## <a name="magic-commands"></a>Comandos mágicos
 Você pode usar comandos mágicos jupyter familiares em cadernos do Estúdio Azure Synapse. Reveja a seguinte lista como os comandos mágicos disponíveis atuais. Diga-nos [os seus casos de uso no GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que possamos continuar a construir mais comandos mágicos para satisfazer as suas necessidades.
 
+> [!NOTE]
+> Apenas os comandos mágicos são suportados no gasoduto Synapse : %%pyspark, %%spark, %%csharp, %%sql. 
+>
+>
+
 # <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
 
 Magias de linha disponíveis: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
@@ -430,7 +450,7 @@ Magias celulares disponíveis: [%%timeit](https://ipython.readthedocs.io/en/stab
 
 # <a name="preview-notebook"></a>[Caderno de pré-visualização](#tab/preview)
 
-Magias de linha disponíveis: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+Magias de linha disponíveis: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Magias celulares disponíveis: [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%captura,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture) [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql,](#use-multiple-languages) [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp,](#use-multiple-languages) [%%html,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html) [%%configure](#spark-session-config-magic-command)
 

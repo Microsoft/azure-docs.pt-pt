@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 3/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7b824bc13bc4f553d22358b69237173effb51594
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576625"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627137"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Monitor Azure para glossário virtual do Windows Desktop (pré-visualização)
 
@@ -24,7 +24,7 @@ Este artigo lista e descreve brevemente termos e conceitos chave relacionados co
 
 ## <a name="alerts"></a>Alertas
 
-Quaisquer alertas ativos do Azure Monitor que tenha configurado na subscrição e classificados como [gravidade 1](#severity-1-alerts) aparecerão na página geral. Para aprender a configurar alertas, consulte [Responder a eventos com alertas do Monitor Azure.](../azure-monitor/alerts/tutorial-response.md)
+Quaisquer alertas ativos do Azure Monitor que tenha configurado na subscrição e classificados como [gravidade 0](#severity-0-alerts) aparecerão na página geral. Para aprender a configurar alertas, consulte [Responder a eventos com alertas do Monitor Azure.](../azure-monitor/alerts/tutorial-response.md)
 
 ## <a name="available-sessions"></a>Sessões disponíveis
 
@@ -40,7 +40,7 @@ O número total de utilizadores que iniciaram uma sessão nas últimas 24 horas.
 
 ## <a name="daily-alerts"></a>Alertas diários
 
-O número total de alertas de [gravidade 1 desencadeados](#severity-1-alerts) nas últimas 24 horas.
+O número total de alertas desencadeados todos os dias.
 
 ## <a name="daily-connections-and-reconnections"></a>Ligações e restabelecimento de ligações diários
 
@@ -78,7 +78,7 @@ Cada problema ou erro de diagnóstico inclui uma mensagem que explica o que corr
 
 ## <a name="input-delay"></a>Atraso de entrada
 
-"Atraso de entrada" no Monitor Azure para o Ambiente de Trabalho Virtual do Windows significa o atraso de entrada por contador de desempenho do processo para cada sessão. Na página de desempenho do anfitrião <aka.ms/azmonwvdi>, este contador de desempenho está configurado para enviar um relatório ao serviço uma vez a cada 30 segundos. Estes intervalos de 30 segundos são chamados de "amostras", e o relatório é o pior caso naquela janela. Os valores medianos e p95 refletem o percentil mediano e 95 em todas as amostras.
+"Atraso de entrada" no Monitor Azure para o Ambiente de Trabalho Virtual do Windows significa o atraso de entrada por contador de desempenho do processo para cada sessão. Na página de desempenho do anfitrião [aka.ms/azmonwvdi,](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks)este contador de desempenho está configurado para enviar um relatório ao serviço uma vez a cada 30 segundos. Estes intervalos de 30 segundos são chamados de "amostras", e o relatório é o pior caso naquela janela. Os valores medianos e p95 refletem o percentil mediano e 95 em todas as amostras.
 
 Sob **atraso de entrada por anfitrião,** pode selecionar uma linha de anfitrião de sessão para filtrar todos os outros visuais da página para o anfitrião. Também pode selecionar um nome de processo para filtrar o atraso médio de entrada ao longo do gráfico de tempo.
 
@@ -114,11 +114,6 @@ A tabela que se segue lista os contadores de desempenho recomendados e intervalo
 |PhysicalDisk. \* \\ ) Avg. Disco sec/Read|30 segundos|
 |PhysicalDisk( \* ) \\ Avg. Disco sec/Transfer|30 segundos|
 |PhysicalDisk( \* ) \\ Avg. Disco sec/Write|30 segundos|
-|Processo. \* \\ % tempo do processador|20 segundos|
-|Processo. \* \\ % tempo de utilizador|30 segundos|
-|Processo. \* Contagem \\ de fios|30 segundos|
-|Processo( \* ) \\ IO Write Operations/seg|30 segundos|
-|Processo( \* ) \\ IO Ler Operações/seg|30 segundos|
 |Informação do processador (_Total) \\ % tempo do processador|30 segundos|
 |Serviços de \* Terminais. ) \\ Sessões Ativas|60 segundos|
 |Serviços de \* Terminais. ) \\ Sessões Inativas|60 segundos|
@@ -149,13 +144,13 @@ Também pode selecionar entradas para visualizar informações adicionais. Pode 
 
 ## <a name="round-trip-time-rtt"></a>Tempo de ida e volta (RTT)
 
-O tempo de ida e volta (RTT) é uma estimativa do tempo de ida e volta da ligação entre a localização do utilizador final e a região de Azure da VM. Para ver quais as localizações que têm a melhor latência, procure a localização desejada na [ferramenta de estimativa de experiência virtual do Windows Desktop](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+O tempo de ida e volta (RTT) é uma estimativa do tempo de ida e volta da ligação entre a localização do utilizador final e a região de Azure do anfitrião da sessão. Para ver quais as localizações que têm a melhor latência, procure a localização desejada na [ferramenta de estimativa de experiência virtual do Windows Desktop](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 
 ## <a name="session-history"></a>Histórico das sessões
 
 O item **Sessions** mostra o estado de todas as sessões, conectadas e desligadas. **As sessões inativas** apenas mostram as sessões desligadas.
 
-## <a name="severity-1-alerts"></a>Alertas de gravidade 1
+## <a name="severity-0-alerts"></a>Alertas de Severidade 0
 
 Os itens mais urgentes que precisa de tratar imediatamente. Se não resolver estes problemas, podem fazer com que a sua implementação virtual do Windows para parar de funcionar.
 
@@ -171,11 +166,11 @@ A página do relatório do utilizador permite-lhe visualizar o histórico de lig
 
 Este é o número de utilizadores em cada núcleo de máquinas virtuais. Rastrear o número máximo de utilizadores por núcleo ao longo do tempo pode ajudá-lo a identificar se o ambiente funciona consistentemente a um número elevado, baixo ou flutuante de utilizadores por núcleo. Saber quantos utilizadores estão ativos irá ajudá-lo a aumentar eficientemente o ambiente.
 
-## <a name="windows-events"></a>Eventos do Windows
+## <a name="windows-event-logs"></a>Registos de Eventos do Windows
 
-Os registos do Evento do Windows são fontes de dados recolhidas por agentes do Log Analytics em máquinas virtuais do Windows. Pode recolher eventos a partir de registos padrão como Sistema e Aplicação, bem como registos personalizados criados por aplicações que precisa de monitorizar.
+Os Registos de Eventos do Windows são fontes de dados recolhidas por agentes do Log Analytics em máquinas virtuais do Windows. Pode recolher eventos a partir de registos padrão como Sistema e Aplicação, bem como registos personalizados criados por aplicações que precisa de monitorizar.
 
-A tabela que se segue lista os eventos do Windows necessários para o Monitor Azure para o Ambiente de Trabalho Virtual do Windows:
+A tabela que se segue lista os registos de eventos do Windows necessários para o Monitor Azure para o Ambiente de Trabalho Virtual do Windows:
 
 |Nome do evento|Tipo de evento|
 |---|---|
@@ -186,7 +181,7 @@ A tabela que se segue lista os eventos do Windows necessários para o Monitor Az
 | Microsoft-FSLogix-Apps/Operacional|Erro, Aviso e Informação|
 |Microsoft-FSLogix-Apps/Admin|Erro, Aviso e Informação|
 
-Para saber mais sobre eventos windows, consulte [as propriedades dos registos de eventos do Windows.](../azure-monitor/agents/data-sources-windows-events.md)
+Para saber mais sobre os Registos de Eventos do Windows, consulte [as propriedades dos registos do Windows Event](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -203,4 +198,4 @@ Se precisa de ajuda ou tiver alguma dúvida, consulte os nossos recursos comunit
    
 - Para aprender a deixar feedback, consulte [a visão geral de resolução de problemas, feedback e suporte para o Windows Virtual Desktop](troubleshoot-set-up-overview.md#report-issues).
 
-- Também pode deixar feedback para o Windows Virtual Desktop no [centro de feedback virtual do Windows Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) ou no nosso fórum [UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- Também pode deixar feedback para o Windows Virtual Desktop no [centro de feedback virtual do Windows Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)

@@ -978,6 +978,20 @@ groups:
     title: Ir
   - id: platform-powershell
     title: PowerShell
+- id: acs-azp-java-net-python-csharp-js
+  title: Plataforma
+  prompt: Escolher uma plataforma
+  pivots:
+  - id: platform-azp
+    title: Portal do Azure
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: non-azure-machines
   title: Máquinas não Azure
   prompt: O que tem de fazer para ligar a máquina não Azure?
@@ -1093,9 +1107,9 @@ groups:
   - id: programming-language-ios
     title: iOS
 metadata:
-  ms.openlocfilehash: fd0d3251fb17d918dffaab72f9bdc41ac0fbdde3
-  ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+  ms.openlocfilehash: 9f38ab2e9fa0526e2e415966e6322bd14562160b
+  ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2021
-  ms.locfileid: "104953124"
+  ms.lasthandoff: 03/27/2021
+  ms.locfileid: "105628599"

@@ -1,16 +1,14 @@
 ---
 title: Análise de eventos de tecido de serviço Azure com registos do Monitor Azure
 description: Saiba como visualizar e analisar eventos utilizando registos do Azure Monitor para monitorização e diagnóstico de clusters de tecidos de serviço Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: srrengar
-ms.openlocfilehash: 678e96c9b5611cd6d72abd7c4582691b55ffe479
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f1e22213c857b400cc36c51cefb90e2379352893
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100581550"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628973"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análise e visualização de eventos com registos do Azure Monitor
  Os registos do Azure Monitor recolhem e analisam a telemetria a partir de aplicações e serviços alojados na nuvem e fornecem ferramentas de análise para o ajudar a maximizar a sua disponibilidade e desempenho. Este artigo descreve como executar consultas nos registos do Azure Monitor para obter insights e resolver problemas do que está a acontecer no seu cluster. As seguintes questões comuns são abordadas:

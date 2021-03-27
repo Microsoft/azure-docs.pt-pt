@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java
 ms.author: mametcal
-ms.openlocfilehash: 076ab0bb7dbc85a31b626a24d977e6fea558143e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 590f221b0a4980d462267dd8c3a73ca7d02583fd
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102636543"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625522"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Use configuração dinâmica numa aplicação java primavera
 
@@ -89,6 +89,7 @@ Em seguida, abra o ficheiro *pom.xml* num editor de texto e adicione um `<depend
     ```
 
 1. Para testar a configuração dinâmica, abra o portal de Configuração de Aplicações Azure associado à sua aplicação. Selecione **Configuration Explorer** e atualize o valor da sua chave apresentada, por exemplo:
+
     | Chave | Valor |
     |---|---|
     | aplicação/config.message | Olá - Atualizado |

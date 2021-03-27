@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 11118c9bd745480dc88380e718a9ab348ab1a3e3
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 0791f2e8d5119c2087286a24cf83b4259ee9e7af
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606951"
+ms.locfileid: "105611655"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Resolução de problemas do serviço Azure Dedicado HSM
 
@@ -33,7 +33,7 @@ O HSM dedicado não está livremente disponível para uso, uma vez que está a f
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Ter acesso ao HSM dedicado
 
-Primeiro pergunte-se quais os casos de uso que você tem que não podem ser abordados por [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) ou [Azure Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Se então acredita que apenas o HSM dedicado irá adequar-se aos seus principais requisitos de armazenamento, então envie um e-mail HSMrequest@microsoft.com para solicitar acesso. Delineie a sua aplicação e use os casos, as regiões que gostaria de HSMs e o volume de HSMs que procura. Se trabalhar com um representante da Microsoft, como um Executivo de Contas ou Cloud Solution Architect, por exemplo, inclua-os em qualquer pedido.
+Primeiro pergunte-se quais os casos de uso que você tem que não podem ser abordados por [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) ou [Azure Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview). Se então acredita que apenas o HSM dedicado irá adequar-se aos seus principais requisitos de armazenamento, então envie um e-mail HSMrequest@microsoft.com para solicitar acesso. Delineie a sua aplicação e use os casos, as regiões que gostaria de HSMs e o volume de HSMs que procura. Se trabalhar com um representante da Microsoft, como um Executivo de Contas ou Cloud Solution Architect, por exemplo, inclua-os em qualquer pedido.
 
 ## <a name="hsm-provisioning"></a>Provisão do HSM
 

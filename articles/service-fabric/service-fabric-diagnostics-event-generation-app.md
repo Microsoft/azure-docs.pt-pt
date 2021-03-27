@@ -1,16 +1,14 @@
 ---
 title: Monitorização do nível de aplicação do tecido de serviço Azure
 description: Saiba mais sobre eventos de aplicação e nível de serviço e registos utilizados para monitorizar e diagnosticar clusters de tecido de serviço Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: a1df5d033701195f4fe5f6b7174f3883b84393ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a60eef008afae4185acc266c74c4fb0ce694d560
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98791278"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627494"
 ---
 # <a name="application-logging"></a>Registo de aplicação
 

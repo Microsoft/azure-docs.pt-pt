@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 408e972eb5950baa75fa1bdf33fb2cd507154bcb
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89279419"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612845"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
 A equipa do Azure Ative Directory atualiza regularmente o Azure AD Connect Health com novas funcionalidades e funcionalidades. Este artigo lista as versões e funcionalidades que foram lançadas.  
@@ -32,12 +32,25 @@ A equipa do Azure Ative Directory atualiza regularmente o Azure AD Connect Healt
 
 Azure AD Connect Health for Sync está integrado com a instalação Azure AD Connect. Leia mais sobre [o histórico de lançamentos do Azure AD Connect](./reference-connect-version-history.md) Para obter feedback da funcionalidade, vote no canal Connect Health User [Voice](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="march-2021"></a>março de 2021
+**Atualização do Agente**
+
+- Azure AD Connect Health agent for AD FS (versão 3.1.95.0)
+
+  - Corrija para resolver o nome de utilizador formatado NT4 a um UPN durante os eventos de entrada.
+  - Corrija para identificar cenários de identificadores de aplicações incorretos com um código de erro dedicado.
+  - Alterações para adicionar uma nova propriedade para identificador de clientes OAuth.
+  - Fixar para apresentar valores corretos nos campos **Protocolo** e **Tipo de Autenticação** em Azure AD Sign-In Report para determinados cenários de inscrição.
+  - Fixar para exibir endereços IP no campo de cadeia IP do Azure AD Sign-In por ordem do pedido.
+  - Alterações para introduzir um novo campo para diferenciar se a autenticação secundária foi solicitada durante uma entrada.
+  - Correção para a propriedade do identificador de aplicação AD FS para exibir no Relatório de Sign-In Azure.
+
 ## <a name="april-2020"></a>Abril de 2020
 **Atualização do Agente**
 
 - Azure AD Connect Health agent for AD FS (versão 3.1.77.0)
 
-   1.   Correção de erro para alerta "Invalid Service Principal Name (SPN) for AD FS service", para o qual o alerta estava a reportar incorretamente.
+   - Correção de erro para alerta "Invalid Service Principal Name (SPN) for AD FS service", para o qual o alerta estava a reportar incorretamente.
 
 
 ## <a name="july-2019"></a>Julho de 2019

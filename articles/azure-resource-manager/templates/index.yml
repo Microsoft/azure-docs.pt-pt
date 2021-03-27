@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 03/03/2021
-  ms.openlocfilehash: f2410c25aa6c23cc6fe1546e36f379bfecab60df
-  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+  ms.openlocfilehash: 01f89fa12654a949c701d728e23f7ae79e0c69e7
+  ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/08/2021
-  ms.locfileid: "102452361"
+  ms.lasthandoff: 03/26/2021
+  ms.locfileid: "105611961"
 landingContent:
 - title: Acerca de modelos do ARM
   linkLists:
@@ -47,12 +47,12 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Criar modelos JSON - portal
-      url: quickstart-create-templates-use-the-portal.md
     - text: Criar modelos JSON - Vs Code
       url: quickstart-create-templates-use-visual-studio-code.md
     - text: Criar modelos Bicep - Vs Code
       url: quickstart-create-bicep-use-visual-studio-code.md
+    - text: Criar modelos JSON - portal
+      url: quickstart-create-templates-use-the-portal.md
     - text: Criar e implementar especificações de modelo
       url: quickstart-create-template-specs.md
   - linkListType: tutorial

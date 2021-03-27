@@ -1,17 +1,17 @@
 ---
-title: Atualização do dispositivo para tutorial Azure IoT Hub para Azure-Real-Time-Operating-System | Microsoft Docs
-description: Começar com a atualização do dispositivo para Azure IoT Hub usando Azure-Real-Time-Operating-System
+title: Atualização do dispositivo para a | do sistema operativo Azure Real-time Microsoft Docs
+description: Começar com a atualização do dispositivo para o Azure Real-time-operating-system
 author: valls
 ms.author: valls
 ms.date: 3/18/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: aaf954642fb276e16dfe4581c2675f817a708f3b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 66da860a5cdae1f5c7c18e4136b1f2d960492ca8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105572650"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629058"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-azure-real-time-operating-system-rtos"></a>Atualização do dispositivo para tutorial Azure IoT Hub usando O Sistema Operativo Azure Real Time (RTOS)
 

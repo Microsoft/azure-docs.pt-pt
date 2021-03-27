@@ -7,18 +7,19 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: dd67a4f1a005abc7319723efcc3f2944b18c4f5f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: ea4a47f1ba3eac39820e839a10330840f57afe42
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109238"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629075"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise os seus dados Azure IoT Central num painel power BI
 
 *Este tópico aplica-se aos administradores e desenvolvedores de soluções.*
 
-[!Note] Esta solução utiliza [funcionalidades de exportação de dados antigas.](./howto-export-data-legacy.md) Mantenha-se atento para obter orientações atualizadas sobre como ligar-se ao Power BI utilizando as mais recentes exportações de dados.
+> [!Note] 
+> Esta solução utiliza [funcionalidades de exportação de dados antigas.](./howto-export-data-legacy.md) Mantenha-se atento para obter orientações atualizadas sobre como ligar-se ao Power BI utilizando as mais recentes exportações de dados.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Pipeline de solução de BI de potência":::
 
@@ -29,7 +30,7 @@ Utilize a Solução Power BI para O Azure IoT Central V3 para criar um poderoso 
 - Filtrar para baixo para os dados enviados por dispositivos específicos
 - Ver os dados mais recentes da telemetria numa tabela
 
-Esta solução configura um pipeline que lê dados da sua conta de armazenamento [Desporte Desporte Azure](./howto-export-data-legacy.md) Blob. O oleoduto utiliza funções Azure, Azure Data Factory e Azure SQL Database para processar e transformar os dados. pode visualizar e analisar os dados num relatório Power BI que descarrega como um ficheiro PBIX. Todos os recursos são criados na sua subscrição Azure, para que possa personalizar cada componente de acordo com as suas necessidades.
+Esta solução cria um pipeline que lê dados da sua conta de [armazenamento](./howto-export-data-legacy.md) Azure Blob. O oleoduto utiliza funções Azure, Azure Data Factory e Azure SQL Database para processar e transformar os dados. pode visualizar e analisar os dados num relatório Power BI que descarrega como um ficheiro PBIX. Todos os recursos são criados na sua subscrição Azure, para que possa personalizar cada componente de acordo com as suas necessidades.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +39,7 @@ Para completar os passos neste guia de como fazer, precisa de uma subscrição a
 A configuração da solução requer os seguintes recursos:
 
 - Uma aplicação IoT Central versão 3. Para saber como verificar a sua versão de aplicação, consulte [sobre a sua aplicação.](./howto-get-app-info.md) Para aprender a criar uma aplicação IoT Central, consulte [Criar uma aplicação Azure IoT Central](./quick-deploy-iot-central.md).
-- Exportação contínua de dados configurado para exportar telemetria, dispositivos e modelos de dispositivo para o armazenamento de Azure Blob. Para saber mais, consulte [Como exportar dados de IoT para destinos em Azure.](howto-export-data.md)
+- Exportação de dados contínuos legados configurados para exportar telemetria, dispositivos e modelos de dispositivo para o armazenamento de Azure Blob. Para saber mais, consulte [a documentação sobre a exportação de dados antigos.](howto-export-data-legacy.md)
   - Certifique-se de que apenas a sua aplicação IoT Central está a exportar dados para o recipiente blob.
   - Os seus [dispositivos devem enviar mensagens codificadas JSON](../../iot-hub/iot-hub-devguide-messages-d2c.md). Os dispositivos devem especificar `contentType:application/JSON` e ou ou ou nas propriedades do sistema de `contentEncoding:utf-8` `contentEncoding:utf-16` `contentEncoding:utf-32` mensagens.
 - Power BI Desktop (versão mais recente). Ver [downloads de Power BI](https://powerbi.microsoft.com/downloads/).

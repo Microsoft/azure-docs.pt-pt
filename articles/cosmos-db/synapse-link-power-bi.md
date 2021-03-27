@@ -1,18 +1,18 @@
 ---
 title: Power BI e piscina SQL sem servidor para analisar dados DB do Azure Cosmos com Synapse Link
 description: Aprenda a construir uma base de dados de piscinas SQL sem servidor e vistas sobre a Synapse Link para Azure Cosmos DB, consultar os contentores DB do Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas.
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.author: acomet
+ms.author: rosouz
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: 7a9324923164d6d5cbbdc48bfa60fc444bdc4fb1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d84508a7629481a7138f1080c86f4a203d35894d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868992"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626253"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Use power BI e sem servidor Piscina SQL synapse para analisar dados DB do Azure Cosmos com Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]

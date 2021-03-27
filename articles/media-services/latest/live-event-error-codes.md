@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: error-reference
-ms.date: 02/12/2020
+ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7c30649fe3486f812569cb51f609356a6cbfd58f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581087"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627545"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro do Evento Ao Vivo dos Serviços De Media
 
@@ -83,7 +83,8 @@ Pode ver um dos seguintes erros do [evento LiveEventEncoderDis.](monitoring/medi
 >| Description|Codificação enviando dados muito rápido. |
 >| Solução sugerida|Isto acontece quando o codificar rebenta um grande conjunto de fragmentos num breve período.  Isto pode teoricamente acontecer quando o codificante não consegue empurrar dados durante algum tempo devido a um problema de rede e os dados rebentam quando a rede está disponível. Encontre a razão do registo de codificação ou do registo do sistema. |
 >|**Códigos de erro desconhecidos** |
->| Description| Estes códigos de erro podem variar de erro de memória a entradas duplicadas no mapa de haxixe. |
+>| Description| Estes códigos de erro podem variar de erro de memória a entradas duplicadas no mapa de haxixe. Isto pode acontecer quando o codificar envia um grande conjunto de fragmentos num breve período.  Isto também pode acontecer quando o codificante não conseguiu empurrar os dados durante algum tempo devido a um problema de rede e, em seguida, envia todos os fragmentos atrasados de uma só vez quando a rede fica disponível. |
+>|Solução sugerida| Verifique os registos do codificadores.|
 
 ## <a name="other-error-codes"></a>Outros códigos de erro
 
@@ -95,13 +96,13 @@ Pode ver um dos seguintes erros do [evento LiveEventEncoderDis.](monitoring/medi
 >|Solução sugerida| Nenhum.||
 >|**MPI_SYSTEM_MAINTENANCE** ||Yes|
 >| Description|O codificaor desligado devido à atualização do serviço ou à manutenção do sistema. ||
->|Solução sugerida|Certifique-se de que o codificador permite a ligação automática. Esta é a função codificação para recuperar a desconexão inesperada da sessão. ||
+>|Solução sugerida|Certifique-se de que o codificador ativa a ligação automática. Permite que o codificadores se reconecte ao ponto final redundante do evento que não está em manutenção. ||
 >|**MPE_BAD_URL_SYNTAX** ||Yes|
 >| Description|O URL inger está incorretamente formatado. ||
 >|Solução sugerida|Certifique-se de que o URL inger está corretamente formatado. Para a RTMP, deve ser `rtmp[s]://hostname:port/live/GUID_APPID/streamname` ||
 >|**MPE_CLIENT_TERMINATED_SESSION** ||Yes|
 >| Description|O codificar desligou a sessão.  ||
->|Solução sugerida|Isto não é um erro. Este é o caso em que o codificante iniciou a desconexão, incluindo a desconexão graciosa. Se se trata de uma desconexão inesperada, verifique o registo do codificar ou o registo do sistema. |
+>|Solução sugerida|Isto não é um erro. O codificante iniciou a desconexão, incluindo a desconexão graciosa. Se isto for uma desconexão inesperada, verifique os registos do codificadores. |
 >|**MPE_INGEST_BITRATE_NOT_MATCH** ||Não|
 >| Descrição|A taxa de dados recebida não corresponde à bitrate esperada. ||
 >|Solução sugerida|Este é um aviso que acontece quando a taxa de dados recebida é demasiado lenta ou rápida. Verifique o registo do codificação ou o registo do sistema.||

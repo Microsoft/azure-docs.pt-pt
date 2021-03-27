@@ -188,6 +188,8 @@
           href: delivery-and-retry.md
         - name: Entrega de eventos de webhook
           href: webhook-event-delivery.md
+        - name: Propriedades de entrega
+          href: delivery-properties.md
     - name: Recuperação após desastre
       items:
         - name: Recuperação após desastre geográfica
@@ -271,7 +273,15 @@
         - name: Publicar eventos com segurança através de uma ligação privada
           href: configure-private-endpoints.md
         - name: Entregar eventos usando identidade gerida
-          href: managed-service-identity.md
+          items:
+            - name: Ativar a identidade gerida para um tópico personalizado ou um domínio
+              href: enable-identity-custom-topics-domains.md
+            - name: Ativar a identidade gerida para um tópico do sistema
+              href: enable-identity-system-topics.md
+            - name: Adicione identidade aos papéis da Azure nos destinos
+              href: add-identity-roles.md
+            - name: Criar subscrições de eventos que usem uma identidade
+              href: managed-service-identity.md
         - name: Entregar eventos de forma segura sobre um link privado
           href: consume-private-endpoints.md
         - name: Configurar firewall do IP
