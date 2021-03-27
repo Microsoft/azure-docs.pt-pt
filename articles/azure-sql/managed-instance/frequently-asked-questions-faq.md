@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 42e263a47c6c771d2b1fef6586468cfc5a698e28
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047920"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628582"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -135,7 +135,7 @@ A instância gerida oferece os mesmos níveis de desempenho por computação e t
 
 Uma opção é [exportar uma base de dados para BACPAC](../database/database-export.md) e, em seguida, [importar o ficheiro BACPAC.](../database/database-import.md) Esta é a abordagem recomendada se a sua base de dados for inferior a 100 GB.
 
-[A replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) pode ser utilizada se todas as tabelas da base de dados tiverem chaves *primárias* e não existirem objetos OLTP na base de dados.
+[A replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md) pode ser utilizada se todas as tabelas da base de dados tiverem chaves *primárias* e não existirem objetos OLTP na base de dados.
 
 As cópias de segurança nativas COPY_ONLY retiradas de instâncias geridas não podem ser restauradas no SQL Server porque a instância gerida tem uma versão de base de dados mais alta em comparação com o SQL Server. Para obter mais detalhes, consulte [a cópia de segurança.](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15)
 
@@ -171,7 +171,7 @@ Consulte [as principais causas das diferenças de desempenho entre a instância 
 
 Pode otimizar o desempenho da sua instância gerida através de:
 - [Afinação automática](../database/automatic-tuning-overview.md) que proporciona o desempenho máximo e cargas de trabalho estáveis através de afinação contínua do desempenho com base na IA e aprendizagem automática.
--   [Em memória, o OLTP](../in-memory-oltp-overview.md) melhora a produção e a latência nas cargas de trabalho de processamento transacional e fornece insights de negócio mais rápidos. 
+-    [Em memória, o OLTP](../in-memory-oltp-overview.md) melhora a produção e a latência nas cargas de trabalho de processamento transacional e fornece insights de negócio mais rápidos. 
 
 Para afinar ainda mais o desempenho, considere aplicar algumas das *melhores práticas* para [aplicação e afinação de bases de dados.](../database/performance-guidance.md#tune-your-database)
 Se a sua carga de trabalho consistir em muitas pequenas transações, considere [mudar o tipo de ligação de proxy para modo de redirecionamento](connection-types-overview.md#changing-connection-type) para menor latência e maior produção.
@@ -263,9 +263,9 @@ Sim. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que 
 **Posso definir a firewall NVA ou no local para filtrar o tráfego de gestão de saída com base em FQDNs?**
 
 N.º Isto não é apoiado por várias razões:
--   O tráfego de encaminhamento que represente a resposta ao pedido de gestão de entrada seria assimétrico e não podia funcionar.
--   O tráfego de encaminhamento que vai para o armazenamento seria afetado por restrições de produção e latência para que desta forma não sejamos capazes de fornecer qualidade e disponibilidade de serviço esperada.
--   Com base na experiência, estas configurações são propensas a erros e não são reutilizáveis.
+-    O tráfego de encaminhamento que represente a resposta ao pedido de gestão de entrada seria assimétrico e não podia funcionar.
+-    O tráfego de encaminhamento que vai para o armazenamento seria afetado por restrições de produção e latência para que desta forma não sejamos capazes de fornecer qualidade e disponibilidade de serviço esperada.
+-    Com base na experiência, estas configurações são propensas a erros e não são reutilizáveis.
 
 **Posso definir o NVA ou firewall para o tráfego de não gestão de saída?**
 
@@ -416,9 +416,9 @@ SQL Managed Instance oferece [modelo de compra baseado em vCore.](sql-managed-in
 **Que benefícios de custo estão disponíveis para a SQL Managed Instance?**
 
 Pode economizar custos com os benefícios Azure SQL das seguintes formas:
--   Maximizar os investimentos existentes em licenças no local e economizar até 55% com [a Azure Hybrid Benefit.](../azure-hybrid-benefit.md?tabs=azure-powershell) 
--   Comprometa-se a fazer uma reserva de recursos computacional e poupe até 33 por cento com [o Benefício de Instância Reservada.](../database/reserved-capacity-overview.md) Combine isto com o benefício Azure Hybrid para uma poupança até 82%. 
--   Poupe até 55% contra os preços da lista com [o Azure Dev/Test Pricing Benefit](https://azure.microsoft.com/pricing/dev-test/) que oferece tarifas com desconto para o seu desenvolvimento contínuo e teste de cargas de trabalho.
+-    Maximizar os investimentos existentes em licenças no local e economizar até 55% com [a Azure Hybrid Benefit.](../azure-hybrid-benefit.md?tabs=azure-powershell) 
+-    Comprometa-se a fazer uma reserva de recursos computacional e poupe até 33 por cento com [o Benefício de Instância Reservada.](../database/reserved-capacity-overview.md) Combine isto com o benefício Azure Hybrid para uma poupança até 82%. 
+-    Poupe até 55% contra os preços da lista com [o Azure Dev/Test Pricing Benefit](https://azure.microsoft.com/pricing/dev-test/) que oferece tarifas com desconto para o seu desenvolvimento contínuo e teste de cargas de trabalho.
 
 **Quem é elegível para o benefício da Instância Reservada?**
 

@@ -4,12 +4,12 @@ description: Fornece um resumo das definições de suporte e limitações Azure 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107283"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612862"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Matriz de suporte da Cópia de Segurança de Discos do Azure
 
@@ -51,7 +51,7 @@ Serão anunciadas mais regiões quando estiverem disponíveis.
 
 - Atualmente, a experiência do portal Azure para configurar a cópia de segurança dos discos está limitada a um máximo de 20 discos da mesma subscrição.
 
-- Atualmente (durante a pré-visualização), a utilização do PowerShell e do Azure CLI para configurar a cópia de segurança e a restauração dos discos não é suportada.
+- A Azure Disk Backup suporta PowerShell. Atualmente, o Azure CLI não é apoiado.
 
 - Ao configurar a cópia de segurança, o disco selecionado para ser apoiado e o grupo de recursos instantâneos onde as imagens devem ser armazenadas deve fazer parte da mesma subscrição. Não é possível criar uma imagem incremental para um disco específico fora da subscrição do disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) para o disco gerido. Para obter mais informações sobre como escolher um grupo de recursos instantâneos, consulte  [a cópia de segurança Configure](backup-managed-disks.md#configure-backup).
 
@@ -61,7 +61,7 @@ Serão anunciadas mais regiões quando estiverem disponíveis.
 
 - O suporte [de Links Privados](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) para discos geridos permite-lhe restringir a exportação e importação de discos geridos para que ocorra apenas dentro da sua rede virtual Azure. A Azure Disk Backup suporta a cópia de segurança dos discos que têm pontos finais privados ativados. Isto não inclui os dados de backup ou instantâneos para serem acessíveis através do ponto final privado.
 
-- Durante a pré-visualização, não é possível desativar a cópia de segurança, pelo que a opção para parar a **cópia de segurança e reter dados de backup** não é suportada. Pode eliminar uma instância de backup, que não só irá parar a cópia de segurança como também eliminar todos os dados de backup.
+- Pode eliminar uma instância de backup, que irá parar a cópia de segurança e também eliminar todos os dados de backup. Atualmente, não é possível desativar uma cópia de segurança, uma vez que a opção para parar de **fazer backup e reter dados de backup** não é suportado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

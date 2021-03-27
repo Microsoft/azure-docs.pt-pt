@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/26/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: db60c26ed50dae3b4b28a6c44d152a921eb96a69
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94658660"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627562"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -61,9 +61,9 @@ Existem três requisitos chave para este cenário funcionar corretamente:
 Consulte a secção [Rotas da Criação](#create-the-routes) neste artigo para ver como estas rotas são criadas.
 
 >[!NOTE]
->O Azure Firewall tem de ter conectividade Internet direta. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isto com um UDR de 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta na Internet.
+>O Azure Firewall tem de ter conectividade Internet direta. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, tem de configurar a Azure Firewall no modo de túnel forçado. Se se tratar de uma Firewall Azure existente, que não pode ser reconfigurada em modo de túnel forçado, recomenda-se adicionar um UDR 0.0.0/0 na AzureFirewallSubnet com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet.
 >
->A Azure Firewall pode ser configurada para suportar túneis forçados. Para mais informações, consulte [o Azure Firewall forjando túneis.](forced-tunneling.md)
+>Para mais informações, consulte [o Azure Firewall forjando túneis.](forced-tunneling.md)
 
 >[!NOTE]
 >O tráfego entre VNets diretamente espreitados é encaminhado diretamente mesmo que um UDR aponte para Azure Firewall como o gateway padrão. Para enviar o tráfego de sub-rede para a firewall neste cenário, um UDR deve conter explicitamente o prefixo da rede de sub-redes alvo em ambas as sub-redes.

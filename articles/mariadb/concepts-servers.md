@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4d8293258083ea3e8d0172f510e5b41e91328736
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9a5cd55576d505114c15028cf637114f3baf7668
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98664134"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627987"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor na Base de Dados Azure para MariaDB
 Este artigo fornece considerações e diretrizes para trabalhar com a Base de Dados Azure para servidores MariaDB.
@@ -37,8 +37,8 @@ Dentro de um Azure Database for MariaDB Server, pode criar uma ou múltiplas bas
 
 Os seguintes elementos ajudam a garantir um acesso seguro à sua base de dados.
 
-|||
-| :--| :--|
+| Conceito de segurança | Description |
+| :-- | :-- |
 | **Autenticação e autorização** | A base de dados Azure para servidor MariaDB suporta a autenticação nativa do MySQL. Pode ligar e autenticar num servidor com o login de administração do servidor. |
 | **Protocolo** | O serviço suporta um protocolo baseado em mensagens utilizado pelo MySQL. |
 | **TCP/IP** | O protocolo é suportado sobre TCP/IP e sobre tomadas de domínio Unix. |

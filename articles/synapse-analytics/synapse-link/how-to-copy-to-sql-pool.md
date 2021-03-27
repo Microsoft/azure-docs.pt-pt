@@ -2,20 +2,20 @@
 title: Copy Synapse Link for Azure Cosmos DB data em uma piscina SQL dedicada usando Apache Spark
 description: Carregue os dados num dataframe da Spark, cuide dos dados e carregue-os numa mesa de bilhar SQL dedicada
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 08/10/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 755782b117ef5a5619ddde3e1573fe1805117e77
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: ff04d43e72d4eca9800b330d5a4721ba951c85f9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868567"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627647"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Copie os dados da Azure Cosmos DB numa piscina SQL dedicada usando o Apache Spark
 

@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 70c8bce840bca6f2e99b29dc32f5e71bbad8d379
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047240"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612386"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Começar com tradução de documentos (pré-visualização)
 
@@ -37,8 +37,8 @@ Para começar, vai precisar de:
 
 > [!IMPORTANT]
 >
-> * Não utilizará o ponto final encontrado na página de recursos do portal Azure _Keys e Endpoint,_ nem o ponto final do tradutor `api.cognitive.microsofttranslator.com` global, para fazer pedidos HTTP para Tradução documental.
 > * **Todos os pedidos da API ao serviço de Tradução documental requerem um ponto final de domínio personalizado.**
+> * Não utilizará o ponto final encontrado na página de recursos do portal Azure _Keys e Endpoint,_ nem o ponto final do tradutor `api.cognitive.microsofttranslator.com` global, para fazer pedidos HTTP para Tradução documental.
 
 ### <a name="what-is-the-custom-domain-endpoint"></a>Qual é o ponto final de domínio personalizado?
 
@@ -93,7 +93,7 @@ O `sourceUrl` símbolo , e opcional deve incluir um `targetUrl` `glossaryUrl`  t
 
 * Criar um projeto novo.
 * Substitua o Programa.cs pelo código C# apresentado abaixo.
-* Estabeleça o seu ponto final. chave de subscrição e valores de URL de contentores no programa.cs.
+* Deite os valores de URL do seu ponto final, da chave de subscrição e do URL do contentor no programa.cs.
 * Para processar os dados do JSON, adicione [Newtonsoft.Jsna embalagem utilizando .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Executar o programa a partir do diretório do projeto.
 
@@ -101,7 +101,7 @@ O `sourceUrl` símbolo , e opcional deve incluir um `targetUrl` `glossaryUrl`  t
 
 * Criar um novo projeto Node.js.
 * Instale a biblioteca Axios com `npm i axios` .
-* Copie a pasta do código abaixo no seu projeto.
+* Copiar/colar o código abaixo no seu projeto.
 * Deite o seu ponto final, a tecla de subscrição e os valores de URL do contentor.
 * Executar o programa.
 
@@ -174,7 +174,7 @@ gradle run
 * Deite o seu ponto final, a tecla de subscrição e os valores de URL do contentor.
 * Guarde o ficheiro com uma extensão ".go".
 * Abra uma linha de comandos num computador com o Go instalado.
-* Construa o ficheiro, por exemplo: "vá construir o exemplo-código.go".
+* Construa o ficheiro. Por exemplo: "vá construir o exemplo-código.go".
 * Executar o ficheiro, por exemplo: "código de exemplo".
 
  ---
@@ -207,26 +207,49 @@ Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de D
 ## <a name="post-a-translation-request"></a>POST um pedido de tradução
 
 <!-- markdownlint-disable MD024 -->
-### <a name="post-request-body-without-optional-glossaryurl"></a>Corpo de pedido post sem glossário opcionalURL
+### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>Entidade de pedido postal para traduzir todos os documentos em um recipiente
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-                "storageSource": "AzureBlob",
-                "filter": {
-                    "prefix": "News",
-                    "suffix": ".txt"
-                },
-                "language": "en"
+                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-                    "storageSource": "AzureBlob",
-                    "category": "general",
+                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>Entidade de pedido postal para traduzir um documento específico num recipiente
+
+* Certifique-se de que especificou "StorageType": "File"
+* Certifique-se de que criou o URL de origem & ficha SAS para o blob/documento específico (não para o recipiente) 
+* Certifique-se de que especificou o nome de ficheiro alvo como parte do URL-alvo – embora o token SAS ainda esteja para o recipiente.
+* O pedido de amostra abaixo mostra um único documento a ser traduzido em duas línguas-alvo
+
+```json
+{
+    "inputs": [
+        {
+            "storageType": "File",
+            "source": {
+                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+            },
+            "targets": [
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "language": "es"
+                },
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
                     "language": "de"
                 }
             ]
@@ -235,44 +258,10 @@ Os seguintes cabeçalhos são incluídos com cada pedido de API do Tradutor de D
 }
 ```
 
-### <a name="post-request-body-with-optional-glossaryurl"></a>Corpo de pedido POSTAL com glossário opcionalURL
-
-```json
-{
-  "inputs":[
-    {
-      "source":{
-        "sourceUrl":"<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-        "storageSource":"AzureBlob",
-        "filter":{
-          "prefix":"News",
-          "suffix":".txt"
-        },
-        "language":"en"
-      },
-      "targets":[
-        {
-          "targetUrl":"<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-          "storageSource":"AzureBlob",
-          "category":"general",
-          "language":"de",
-          "glossaries":[
-            {
-              "glossaryUrl":"<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-              "format":"xliff",
-              "version":"1.2"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
 
 > [!IMPORTANT]
 >
-> Para as amostras de código abaixo, você irá codificar a sua chave e ponto final onde indicado; lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente.  Consulte [a segurança dos Serviços Cognitivos Azure](../../cognitive-services-security.md?tabs=command-line%2ccsharp) para obter formas de armazenar e aceder às suas credenciais de forma segura.
+> Para as amostras de código abaixo, você irá codificar a sua chave e ponto final onde indicado; lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente.  Consulte [a segurança dos Serviços Cognitivos Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) para obter formas de armazenar e aceder às suas credenciais de forma segura.
 >
 > Poderá ser necessário atualizar os seguintes campos, dependendo da operação:
 >>>
@@ -1247,7 +1236,7 @@ func main() {
 
 ## <a name="content-limits"></a>Limites de conteúdo
 
-A tabela abaixo lista os limites para os dados que envia para a Tradução documental.
+A tabela abaixo lista os limites para os dados que envia para a Tradução documental (Pré-visualização).
 
 |Atributo | Limite|
 |---|---|

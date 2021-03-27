@@ -2,143 +2,30 @@
 title: Entrega de eventos, identidade de serviço gerida e ligação privada
 description: Este artigo descreve como permitir a identidade de serviço gerida para um tópico de grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados.
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.openlocfilehash: 76f10b4627dc9578b1e616a868eab03431b59b69
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100007776"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625283"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
-Este artigo descreve como ativar uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios personalizados da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
-
-Aqui estão os passos que são abordados em detalhe neste artigo:
-1. Crie um tópico ou domínio personalizado com uma identidade atribuída ao sistema, ou atualize um tópico ou domínio personalizado existente para ativar a identidade. 
-1. Adicione a identidade a um papel apropriado (por exemplo, Service Bus Data Sender) no destino (por exemplo, uma fila de autocarros de serviço).
-1. Ao criar subscrições de eventos, permita o uso da identidade para entregar eventos ao destino. 
-
-> [!NOTE]
-> Atualmente, não é possível entregar eventos usando [pontos finais privados.](../private-link/private-endpoint-overview.md) Para mais informações, consulte a secção [de pontos finais privados](#private-endpoints) no final deste artigo. 
-
-## <a name="create-a-custom-topic-or-domain-with-an-identity"></a>Criar um tópico ou domínio personalizado com uma identidade
-Primeiro, vamos ver como criar um tópico ou um domínio com uma identidade gerida pelo sistema.
-
-### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
-Pode ativar a identidade atribuída ao sistema para um tópico ou domínio personalizado enquanto o cria no portal Azure. A imagem a seguir mostra como ativar uma identidade gerida pelo sistema para um tópico personalizado. Basicamente, selecione a opção **Ativar** a identidade atribuída no sistema atribuído na página **Avançada** do assistente de criação de tópicos. Você verá esta opção na página **Avançada** do assistente de criação de domínio também. 
-
-![Ativar a identidade ao criar um tópico personalizado](./media/managed-service-identity/create-topic-identity.png)
-
-### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
-Também pode utilizar o CLI Azure para criar um tópico ou domínio personalizado com uma identidade atribuída ao sistema. Utilize o `az eventgrid topic create` comando com o parâmetro definido para `--identity` `systemassigned` . Se não especificar um valor para este parâmetro, o valor predefinido `noidentity` é utilizado. 
-
-```azurecli-interactive
-# create a custom topic with a system-assigned identity
-az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCATION>  --identity systemassigned
-```
-
-Da mesma forma, pode utilizar o `az eventgrid domain create` comando para criar um domínio com uma identidade gerida pelo sistema.
-
-## <a name="enable-an-identity-for-an-existing-custom-topic-or-domain"></a>Ativar uma identidade para um tópico ou domínio personalizado existente
-Na secção anterior, aprendeu a ativar uma identidade gerida pelo sistema enquanto criava um tópico personalizado ou um domínio. Nesta secção, aprende-se a ativar uma identidade gerida pelo sistema para um tópico ou domínio personalizado existente. 
-
-### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
-O procedimento que se segue mostra-lhe como ativar a identidade gerida pelo sistema para um tópico personalizado. Os passos para permitir uma identidade para um domínio são semelhantes. 
-
-1. Aceda ao [Portal do Azure](https://portal.azure.com).
-2. Procure **tópicos de grelha de eventos** na barra de pesquisa no topo.
-3. Selecione o **tópico personalizado** para o qual deseja ativar a identidade gerida. 
-4. Mude para o **separador Identidade.** 
-5. Ligue  o interruptor para ativar a identidade. 
-1. **Selecione Guarde** na barra de ferramentas para guardar a definição. 
-
-    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Página de identidade para um tópico personalizado"::: 
-
-Pode utilizar passos semelhantes para permitir uma identidade para um domínio de grelha de eventos.
-
-### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
-Utilize o `az eventgrid topic update` comando com conjunto para permitir a identidade atribuída ao sistema para um tópico personalizado `--identity` `systemassigned` existente. Se quiser desativar a identidade, especifique `noidentity` como o valor. 
-
-```azurecli-interactive
-# Update the topic to assign a system-assigned identity. 
-az eventgrid topic update -g $rg --name $topicname --identity systemassigned --sku basic 
-```
-
-O comando para a atualização de um domínio existente é semelhante `az eventgrid domain update` ().
-
-## <a name="supported-destinations-and-azure-roles"></a>Destinos apoiados e funções de Azure
-Depois de ativar a identidade para o tópico ou domínio personalizado da grelha de eventos, o Azure cria automaticamente uma identidade no Azure Ative Directory. Adicione esta identidade às funções Azure apropriadas para que o tópico ou domínio personalizado possa encaminhar eventos para destinos suportados. Por exemplo, adicione a identidade ao papel **de Remetente de dados do Azure Event Hubs** para um espaço de nomes Azure Event Hubs para que o tópico personalizado da grelha de eventos possa encaminhar eventos para centros de eventos nesse espaço de nome. 
-
-Atualmente, a grelha de eventos Azure suporta tópicos ou domínios personalizados configurados com uma identidade gerida atribuída ao sistema para encaminhar eventos para os seguintes destinos. Esta tabela também lhe dá os papéis em que a identidade deve estar para que o tópico personalizado possa encaminhá-lo os eventos.
-
-| Destino | Função do Azure | 
-| ----------- | --------- | 
-| Filas e tópicos de autocarro de serviço | [Remetente de dados de ônibus de serviço Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
-| Azure Event Hubs | [Ender de dados do Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Armazenamento de Blobs do Azure | [Contribuinte de Dados do Armazenamento de Blobs](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
-| Armazenamento de Filas do Azure |[Remetente de mensagem de dados de fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
-
-## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Adicione uma identidade aos papéis da Azure nos destinos
-Esta secção descreve como adicionar a identidade para o seu tópico ou domínio personalizado a um papel Azure. 
-
-### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
-Pode utilizar o portal Azure para atribuir o tópico personalizado ou a identidade de domínio a um papel apropriado para que o tópico ou domínio personalizado possa encaminhar eventos para o destino. 
-
-O exemplo a seguir adiciona uma identidade gerida para um tópico personalizado da grelha de eventos chamado **msitesttopic** para o papel **de remetente de dados de autocarros do serviço Azure** para um espaço de nomes de Service Bus que contém uma fila ou recurso tópico. Quando adiciona ao papel ao nível do espaço de nome, o tópico personalizado da grelha de eventos pode encaminhar eventos para todas as entidades dentro do espaço de nome. 
-
-1. Aceda ao seu **espaço de nomes** de Service Bus no [portal Azure.](https://portal.azure.com) 
-1. Selecione **Controlo de Acesso** no painel esquerdo. 
-1. **Selecione Adicionar** na secção Adicionar uma tarefa **de função.** 
-1. Na página **De atribuição de funções,** faça os seguintes passos:
-    1. Selecione o papel. Neste caso, é o Remetente de Dados de **Autocarros da Azure Service.** 
-    1. Selecione a **identidade** para o tópico ou domínio personalizado da grelha de evento. 
-    1. **Selecione Guardar** para guardar a configuração.
-
-Os passos são semelhantes para adicionar uma identidade a outros papéis mencionados na tabela. 
-
-### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
-O exemplo nesta secção mostra-lhe como usar o CLI Azure para adicionar uma identidade a um papel de Azure. Os comandos da amostra são para tópicos personalizados da grelha de eventos. Os comandos para domínios da grelha de eventos são semelhantes. 
-
-#### <a name="get-the-principal-id-for-the-custom-topics-system-identity"></a>Obtenha a identificação principal para a identidade do sistema do tópico personalizado 
-Primeiro, obtenha a identificação principal da identidade gerida pelo sistema do tópico personalizado e atribua a identidade a funções apropriadas.
-
-```azurecli-interactive
-topic_pid=$(az ad sp list --display-name "$<TOPIC NAME>" --query [].objectId -o tsv)
-```
-
-#### <a name="create-a-role-assignment-for-event-hubs-at-various-scopes"></a>Criar uma atribuição de funções para centros de eventos em vários âmbitos 
-O exemplo cli a seguir mostra como adicionar a identidade de um tópico personalizado ao papel **de Remetente de Dados do Azure Event Hubs** ao nível do espaço de nome ou ao nível do centro de eventos. Se criar a atribuição de funções ao nível do espaço de nome, o tópico personalizado pode encaminhar eventos para todos os centros de eventos nesse espaço de nome. Se criar uma atribuição de funções ao nível do centro de eventos, o tópico personalizado só pode encaminhar eventos para esse centro de eventos específico. 
+Este artigo descreve como usar uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para um tópico de sistema de grelha de eventos Azure, tópico personalizado ou domínio. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
 
 
-```azurecli-interactive
-role="Azure Event Hubs Data Sender" 
-namespaceresourceid=$(az eventhubs namespace show -n $<EVENT HUBS NAMESPACE NAME> -g <RESOURCE GROUP of EVENT HUB> --query "{I:id}" -o tsv) 
-eventhubresourceid=$(az eventhubs eventhub show -n <EVENT HUB NAME> --namespace-name <EVENT HUBS NAMESPACE NAME> -g <RESOURCE GROUP of EVENT HUB> --query "{I:id}" -o tsv) 
 
-# create role assignment for the whole namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$namespaceresourceid" 
+## <a name="prerequisites"></a>Pré-requisitos
+1. Atribua uma identidade atribuída ao sistema a um tópico do sistema, a um tópico personalizado ou a um domínio. 
+    - Para tópicos e domínios personalizados, consulte [Ativar a identidade gerida para tópicos e domínios personalizados.](enable-identity-custom-topics-domains.md) 
+    - Para tópicos do sistema, consulte [Ativar a identidade gerida para tópicos do sistema](enable-identity-system-topics.md)
+1. Adicione a identidade a um papel apropriado (por exemplo, Service Bus Data Sender) no destino (por exemplo, uma fila de autocarros de serviço). Para etapas detalhadas, consulte [adicionar identidade às funções de Azure nos destinos](add-identity-roles.md)
 
-# create role assignment scoped to just one event hub inside the namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$eventhubresourceid" 
-```
-
-#### <a name="create-a-role-assignment-for-a-service-bus-topic-at-various-scopes"></a>Crie uma atribuição de funções para um tópico de ônibus de serviço em vários âmbitos 
-O exemplo cli a seguir mostra como adicionar a identidade de um tópico personalizado da grelha de eventos ao papel **de Remetente de dados de autocarros do serviço Azure** ao nível do espaço de nome ou ao nível do tópico do Service Bus. Se criar a atribuição de funções ao nível do espaço de nome, o tópico da grelha de eventos pode encaminhar eventos para todas as entidades (filas ou tópicos do Service Bus) dentro desse espaço de nome. Se criar uma atribuição de funções na fila do Service Bus ou no nível tópico, o tópico personalizado da grelha de eventos só pode encaminhar eventos para essa fila ou tópico específico do Service Bus. 
-
-```azurecli-interactive
-role="Azure Service Bus Data Sender" 
-namespaceresourceid=$(az servicebus namespace show -n $RG\SB -g "$RG" --query "{I:id}" -o tsv 
-sbustopicresourceid=$(az servicebus topic show -n topic1 --namespace-name $RG\SB -g "$RG" --query "{I:id}" -o tsv) 
-
-# create role assignment for the whole namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$namespaceresourceid" 
-
-# create role assignment scoped to just one hub inside the namespace 
-az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbustopicresourceid" 
-```
+    > [!NOTE]
+    > Atualmente, não é possível entregar eventos usando [pontos finais privados.](../private-link/private-endpoint-overview.md) Para mais informações, consulte a secção [de pontos finais privados](#private-endpoints) no final deste artigo. 
 
 ## <a name="create-event-subscriptions-that-use-an-identity"></a>Criar subscrições de eventos que usem uma identidade
-Depois de ter um tópico personalizado da grelha de eventos ou um domínio com uma identidade gerida pelo sistema e ter adicionado a identidade ao papel apropriado no destino, está pronto para criar subscrições que utilizem a identidade. 
+Depois de ter um tópico ou tópico ou domínio personalizado da grelha de eventos com uma identidade gerida pelo sistema e ter adicionado a identidade ao papel adequado no destino, está pronto para criar subscrições que utilizem a identidade. 
 
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 Ao criar uma subscrição de eventos, vê uma opção para ativar a utilização de uma identidade atribuída ao sistema para um ponto final na secção **ENDPOINT DETAILS.** 
@@ -291,4 +178,4 @@ Nesta configuração, o tráfego passa pelo IP/internet público, desde a Grade 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre identidades de serviço geridas, consulte [quais são identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md). 
+Para conhecer as identidades geridas, veja [o que são identidades geridas para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md)

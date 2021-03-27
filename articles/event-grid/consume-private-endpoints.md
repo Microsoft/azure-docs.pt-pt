@@ -3,12 +3,12 @@ title: Entregar eventos usando o serviço de link privado
 description: Este artigo descreve como trabalhar em torno da limitação de não ser capaz de entregar eventos usando o serviço de ligação privada.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 7ca15a76d56d9cdcdee741b661981b80c914d0e9
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722332"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629296"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Entregar eventos usando o serviço de link privado
 Atualmente, não é possível entregar eventos usando [pontos finais privados.](../private-link/private-endpoint-overview.md) Ou seja, não há suporte se tiver requisitos rigorosos de isolamento de rede onde o tráfego de eventos entregues não deve sair do espaço IP privado. 
@@ -27,7 +27,7 @@ Nesta configuração, o tráfego passa pelo IP/internet público, desde a Grade 
 ## <a name="deliver-events-to-event-hubs-using-managed-identity"></a>Entregar eventos a Centros de Eventos usando identidade gerida
 Para entregar eventos a centros de eventos no seu espaço de nomes Event Hubs utilizando identidade gerida, siga estes passos:
 
-1. [Ativar a identidade atribuída ao sistema para um tópico ou um domínio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
+1. Ativar a identidade atribuída ao sistema: [tópicos do sistema,](enable-identity-system-topics.md) [tópicos personalizados e domínios](enable-identity-custom-topics-domains.md).  
 1. [Adicione a identidade ao papel **de remetente de dados do Azure Event Hubs** no espaço de nomes dos Centros de Eventos](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal).
 1. [Ativar os **serviços da Microsoft fidedignos para contornar esta** definição de firewall no seu espaço de nomes Desempacotadores do Event Hubs](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure a subscrição do evento](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que usa um centro de eventos como ponto final para usar a identidade atribuída ao sistema.
@@ -35,16 +35,16 @@ Para entregar eventos a centros de eventos no seu espaço de nomes Event Hubs ut
 ## <a name="deliver-events-to-service-bus-using-managed-identity"></a>Entregar eventos ao Service Bus usando identidade gerida
 Para entregar eventos às filas ou tópicos do Service Bus no seu espaço de nomes de Service Bus utilizando a identidade gerida, siga estes passos:
 
-1. [Ativar a identidade atribuída ao sistema para um tópico ou um domínio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Adicione a identidade ao papel de [remetente de dados de autocarros do serviço Azure](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) no espaço de nomes do Service Bus
+1. Ativar a identidade atribuída ao sistema: [tópicos do sistema,](enable-identity-system-topics.md) [tópicos personalizados e domínios](enable-identity-custom-topics-domains.md). 
+1. Adicione a identidade ao papel [de **remetente de dados de autocarros do serviço Azure**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) no espaço de nomes do Service Bus
 1. [Ativar os **serviços da Microsoft fidedignos para contornar esta** definição de firewall no seu espaço de nomes do Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
-1. [Configure a subscrição do evento](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que utiliza uma fila de Service Bus ou tópico como ponto final para utilizar a identidade atribuída ao sistema.
+1. [Configure a subscrição do evento](managed-service-identity.md) que utiliza uma fila de Service Bus ou tópico como ponto final para utilizar a identidade atribuída ao sistema.
 
 ## <a name="deliver-events-to-storage"></a>Entregar eventos ao Armazenamento 
 Para entregar eventos às filas de armazenamento utilizando a identidade gerida, siga estes passos:
 
-1. [Ativar a identidade atribuída ao sistema para um tópico ou um domínio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity).
-1. Adicione a identidade ao papel [de remetente de mensagens de fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md) na fila de armazenamento do Azure.
+1. Ativar a identidade atribuída ao sistema: [tópicos do sistema,](enable-identity-system-topics.md) [tópicos personalizados e domínios](enable-identity-custom-topics-domains.md). 
+1. Adicione a identidade ao papel [ **de remetente de mensagens de fila de armazenamento**](../storage/common/storage-auth-aad-rbac-portal.md) na fila de armazenamento do Azure.
 1. [Configure a subscrição do evento](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que utiliza uma fila de Service Bus ou tópico como ponto final para utilizar a identidade atribuída ao sistema.
 
 

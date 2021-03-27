@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a46c7f35e30b2dda7b4800ed553447cef5bb5d33
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609361"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626712"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Adicionar autocompleto e sugestões a aplicativos de clientes usando Azure Cognitive Search
 
@@ -81,13 +81,15 @@ Os seguintes parâmetros adicionais aplicam-se tanto a autocompletos como a suge
 
 Preencher automaticamente um termo de consulta ou deixar cair uma lista de links correspondentes requer código de interação do utilizador, tipicamente JavaScript, que pode consumir pedidos de fontes externas, tais como consultas de autocomplete ou sugestões contra um índice cognitivo de pesquisa de Azure.
 
-Embora possa escrever este código de forma nativa, é muito mais fácil utilizar funções a partir da biblioteca JavaScript existente. Este artigo menciona dois, um para sugestões e outro para autocomplete. 
+Embora possa escrever este código de forma nativa, é muito mais fácil utilizar funções da biblioteca JavaScript existente, como uma das seguintes. 
 
 + [Widget autocomplete (jQuery UI)](https://jqueryui.com/autocomplete/) aparece no corte do código sugestão. Pode criar uma caixa de pesquisa e, em seguida, faz referência numa função JavaScript que utiliza o widget autocomplete. Propriedades no widget definem a fonte (função de auto-completação ou sugestões), comprimento mínimo de caracteres de entrada antes de tomar medidas e posicionamento.
 
 + [O plug-in XDSoft Autocomplete](https://xdsoft.net/jqplugins/autocomplete/) aparece no corte de código autocompleto.
 
-Utilizamos estas bibliotecas para construir a caixa de pesquisa suportando sugestões e autocompletos. As entradas recolhidas na caixa de pesquisa são emparelhadas com sugestões e ações autocompletas.
++ [sugestões](https://www.npmjs.com/package/suggestions) aparecem no [tutorial javaScript](tutorial-javascript-overview.md) e amostra de código.
+
+Utilize estas bibliotecas no cliente para criar uma caixa de pesquisa suportando sugestões e precontos automáticos. As entradas recolhidas na caixa de pesquisa podem então ser emparelhadas com sugestões e ações de preconção automática no serviço de pesquisa.
 
 ## <a name="suggestions"></a>Sugestões
 
@@ -247,7 +249,7 @@ A função Autocomplete requer a entrada do termo de pesquisa. O método cria um
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Siga estes links para instruções ou códigos de ponta a ponta que demonstrem ambas as experiências de pesquisa como você. A amostra demonstra as implementações híbridas de sugestões e autocompleto em conjunto.
+Siga estes links para instruções ou códigos de ponta a ponta que demonstrem ambas as experiências de pesquisa como você. A amostra demonstra a implementação híbrida de sugestões e autocompleto em conjunto.
 
-+ [Tutorial: Crie a sua primeira aplicação em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [Amostra de código C#: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
++ [Adicionar pesquisa a um web site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) utiliza um pacote de sugestões de código aberto para conclusão parcial do prazo na aplicação do cliente.
++ [Tutorial: Crie a sua primeira aplicação em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md) com a amostra de  [código C# associada: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead) demonstre suporte nativo para typeahead.

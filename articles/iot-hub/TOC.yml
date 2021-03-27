@@ -84,6 +84,22 @@
       href: tutorial-firmware-update.md
     - name: Conectividade do dispositivo de teste
       href: tutorial-connectivity.md
+    - name: Utilização de certificados X.509
+      items:
+        - name: Introdução
+          href: tutorial-x509-introduction.md
+        - name: Campos de certificados
+          href: tutorial-x509-certificates.md
+        - name: Usando os scripts fornecidos
+          href: tutorial-x509-scripts.md
+        - name: Utilização de OpenSSL
+          href: tutorial-x509-openssl.md
+        - name: Criação de certificados auto-assinados
+          href: tutorial-x509-self-sign.md
+        - name: Prova de posse
+          href: tutorial-x509-prove-possession.md
+        - name: A autenticação de testes
+          href: tutorial-x509-test-certificate.md
 - name: Conceitos
   items:
     - name: Suporte de TLS
@@ -319,8 +335,6 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Utilizar a CLI do Azure
               href: iot-hub-configure-file-upload-cli.md
-        - name: Proteger o seu hub com um certificado X.509
-          href: iot-hub-security-x509-get-started.md
         - name: Atualizar um hub IoT
           href: iot-hub-upgrade.md
         - name: Configurar a filtragem de IPs

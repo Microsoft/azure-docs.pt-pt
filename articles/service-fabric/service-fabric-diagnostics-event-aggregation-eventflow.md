@@ -1,17 +1,15 @@
 ---
 title: Agregação de eventos de tecido de serviço Azure com EventFlow
 description: Saiba mais sobre agregação e recolha de eventos utilizando o EventFlow para monitorização e diagnóstico de clusters de tecidos de serviço Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
-ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5a502fe05a862893d2c4879a6976d8d8d1044cbf
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96006341"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627766"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e recolha de eventos usando EventFlow
 

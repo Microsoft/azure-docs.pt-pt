@@ -1,16 +1,14 @@
 ---
 title: Aplicativos de tecido de serviço Debug Azure no Windows
 description: Saiba como monitorizar e diagnosticar os seus serviços escritos utilizando o Microsoft Azure Service Fabric numa máquina de desenvolvimento local.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: 58319b47c78a85b4f06c2c834db20f6c42cc1939
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a2502c24ef233c286872e2c265dcfdae6883f8ed
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86247426"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628837"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local
 > [!div class="op_single_selector"]

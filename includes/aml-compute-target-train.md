@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: 7c89527218e34bea0819a1e2446441216cde45ae
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 3eb5ea468a234aea228539c2390ab6cae9352948
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104781"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105630199"
 ---
 **Os alvos de cálculo podem ser reutilizados de um trabalho de treino para o outro.** Por exemplo, depois de anexar um VM remoto ao seu espaço de trabalho, pode reutilizá-lo para vários trabalhos. Para os gasodutos de aprendizagem automática, utilize o passo de [gasoduto](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) adequado para cada alvo de cálculo.
 
@@ -32,4 +32,4 @@ Você pode usar qualquer um dos seguintes recursos para um alvo de computação 
 |[Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Yes | &nbsp; |
 
 > [!TIP]
-> A instância compute tem disco OS de 120GB. Se ficar sem espaço em disco, limpe espaço suficiente antes de tentar parar/reiniciar a instância de computação.
+> A instância compute tem disco OS de 120GB. Se ficar sem espaço em disco, [utilize o terminal](../articles/machine-learning/how-to-access-terminal.md) para limpar pelo menos 1-2 GB antes de parar ou [reiniciar](../articles/machine-learning/how-to-create-manage-compute-instance.md#manage) a instância de cálculo.

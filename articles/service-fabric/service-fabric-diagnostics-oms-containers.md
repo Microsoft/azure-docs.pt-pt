@@ -1,16 +1,14 @@
 ---
 title: Monitorize recipientes com registos do Monitor Azure
 description: Utilize registos do Monitor Azure para monitorizar os recipientes que funcionam em aglomerados de tecidos de serviço Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: 6539815875b87a0d0f525d7e89464fa7d2505746
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6217569dc50517c88a5a8a7bc0f3752e7e327f4e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570204"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626661"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorize recipientes com registos do Monitor Azure
  

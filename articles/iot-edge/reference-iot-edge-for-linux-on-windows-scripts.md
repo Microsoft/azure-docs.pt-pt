@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5286362369e0c4881cdf0c56bc13d1d340056be1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 41827c5db58f3d4755fb34e46067357cd0255676
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562516"
+ms.locfileid: "105612777"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Scripts PowerShell para IoT Edge para Linux no Windows
 
@@ -46,12 +46,15 @@ O comando **Implementar-Fluxo** é o principal método de implantação. O coman
 | vmSizeDefintion | Não mais de 30 caracteres | Definição do número de núcleos e RAM disponível para a máquina virtual. **Valor predefinido:** Standard_K8S_v1. |
 | vmDiskSize | Entre 8 GB e 256 GB | Tamanho máximo do disco do disco rígido em expansão dinâmica. **Valor predefinido:** 16 GB. |
 | vmUser | Não mais de 30 caracteres | Nome de utilizador para iniciar sessão na máquina virtual. |
-| vnetType | **Transparente** ou **ICS** | O tipo de interruptor virtual. **Valor predefinido**: Transparente. |
+| vnetType | **Transparente** ou **ICS** | O tipo de interruptor virtual. **Valor predefinido**: Transparente. Transparente refere-se a um interruptor externo, enquanto o ICS refere-se a um interruptor interno. |
 | vnetName | Não mais de 64 caracteres | O nome do interruptor virtual. **Valor predefinido**: Externo. |
 | enableVtpm | Nenhum | **Parâmetro de comutação**. Crie a máquina virtual com TPM ativada ou desativada. |
 | mobyPackageVersion | Não mais de 30 caracteres |  Versão do pacote Moby a ser verificado ou instalado na máquina virtual.  **Valor predefinido:** 19.03.11. |
 | iotedgePackageVersion | Não mais de 30 caracteres | Versão do pacote IoT Edge a ser verificado ou instalado na máquina virtual. **Valor predefinido:** 1.1.0. |
 | instalar Embalamentos | Nenhum | **Parâmetro de comutação**. Quando alternado, o script tentará instalar os pacotes Moby e IoT Edge em vez de apenas verificar se os pacotes estão presentes. |
+
+>[!NOTE]
+>Por predefinição, se o processo não conseguir encontrar um interruptor externo com o `External` nome, procurará qualquer comutador externo existente através do qual obtenha um endereço IP. Se não houver um interruptor externo disponível, procurará um interruptor interno. Se não houver um interruptor interno disponível, tentará criar o interruptor padrão através do qual obterá um endereço IP.
 
 ## <a name="verify-eflowvm"></a>Verify-EflowVm
 

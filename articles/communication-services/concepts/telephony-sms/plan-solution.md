@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6ec0b32e487739c33b1b2b49bd0645130fc88581
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7b295c6dabfce6a624d93d75991163f464cfd46e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104729537"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625233"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Tipos de números de telefone nos Serviços de Comunicação Azure
 
@@ -31,7 +31,7 @@ Os Serviços de Comunicação Azure permitem-lhe utilizar números de telefone p
 
 ## <a name="azure-subscriptions-eligibility"></a>Elegibilidade das Assinaturas Azure
 
-Para adquirir um número de telefone, você precisa estar em uma subscrição Azure paga. Os números de telefone não podem ser adquiridos em contas de julgamento ou por créditos gratuitos da Azure. 
+Para adquirir um número de telefone, você precisa estar em uma subscrição Azure paga. Os números de telefone não podem ser adquiridos em contas de julgamento ou por créditos gratuitos da Azure.
 
 A disponibilidade de números de telefone está atualmente restrita a subscrições do Azure que têm um endereço de faturação nos Estados Unidos e recursos dos Serviços de Comunicação que têm uma localização de dados dos EUA.
 
@@ -59,13 +59,13 @@ A tabela abaixo resume estes tipos de números de telefone:
 | Toll-Free         | +1 *(código* de área sem portagem) XXX XX XX | EUA                      | Chamada (Saída), SMS (Entrada/Saída)| Atribuir números de telefone a sistemas/Bots de resposta vocal interativa (IVR), aplicações SMS                                        |
 
 
-### <a name="phone-number-features-in-azure-communication-services"></a>Características de número de telefone nos Serviços de Comunicação Azure
+### <a name="phone-number-capabilities-in-azure-communication-services"></a>Capacidades de número de telefone nos Serviços de Comunicação Azure
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
-Para a maioria dos números de telefone, permitimos configurar um conjunto de funcionalidades "à la carte". Estas funcionalidades podem ser selecionadas à medida que aluga os seus números de telefone nos Serviços de Comunicação Azure.
+Para a maioria dos números de telefone, permitimos que configuure um conjunto de capacidades "à la carte". Estas capacidades podem ser selecionadas à medida que aluga os seus números de telefone nos Serviços de Comunicação Azure.
 
-As funcionalidades que lhe estão disponíveis dependem do país em que está a operar, da sua caixa de utilização e do tipo de número de telefone que selecionou. Estas características variam de país para país devido aos requisitos regulamentares. A Azure Communication Services oferece os seguintes recursos de número de telefone:
+As capacidades que lhe estão disponíveis dependem do país em que está a operar, do seu caso de utilização e do tipo de número de telefone que selecionou. Estas capacidades variam de país para país devido aos requisitos regulamentares. A Azure Communication Services oferece as seguintes capacidades de número de telefone:
 
 - **SMS de ida e saída** Esta opção permite-lhe enviar mensagens SMS aos seus utilizadores. Isto pode ser útil em cenários de notificação e autenticação de dois fatores.
 - **SMS de entrada e saída bidirecciona** Esta opção permite-lhe enviar e receber mensagens dos seus utilizadores utilizando números de telefone. Isto pode ser útil em cenários de atendimento ao cliente.

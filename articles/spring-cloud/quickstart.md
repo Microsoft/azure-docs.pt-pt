@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c2121f429b928d58a2df7b4e4663341cf600da3e
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 520a36a0896cc2b4b14366350f66d365ea04a557
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879319"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612806"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -349,6 +349,7 @@ Comece com [o Initializr de primavera](https://start.spring.io/#!type=maven-proj
 ```url
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
+Note que este exemplo usa a versão Java 8.  Se pretender utilizar a versão Java 11, altere a opção no **âmbito do Project Metadata**.
 
   ![Página inicializr](media/spring-cloud-quickstart-java/initializr-page.png)
 
@@ -413,7 +414,7 @@ O procedimento a seguir constrói e implementa a aplicação utilizando o Azure 
     az extension add --name spring-cloud
     ```
     
-1. Crie a app com o ponto final público atribuído:
+1. Crie a app com o ponto final público atribuído. Se estiver a utilizar o Java 11, inclua o `--runtime-version=Java_11` interruptor.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true

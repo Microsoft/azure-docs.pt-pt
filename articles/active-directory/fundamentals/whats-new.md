@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0b53fc47c6e93c0750ba729a1b4670289d7714
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 03e783353f65ba2017dda9f6ca21a68ae6cff4de
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105560408"
+ms.locfileid: "105612250"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -270,13 +270,13 @@ Os clientes podem trabalhar em torno deste requisito para fins de teste usando u
  
 ---
 
-### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>Antevisão pública - Personalize e configuure dispositivos partilhados android para trabalhadores da linha da frente em escala
+### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>Antevisão Pública - Personalize e configuure dispositivos partilhados android para trabalhadores da linha da frente em escala
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Registo e Gestão de Dispositivos  
 **Capacidade do produto:** Proteção & de Segurança de Identidade
  
-As equipas AZure AD e Microsoft Endpoint Manager combinaram-se para trazer a capacidade de personalizar, escalar e proteger os seus dispositivos Frontline Worker.
+As equipas AZure AD e Microsoft Endpoint Manager combinaram-se para trazer a capacidade de personalizar, escalar e proteger os seus dispositivos de trabalho de primeira linha.
 
 As seguintes capacidades de pré-visualização permitir-lhe-ão:
 - Provisão de dispositivos partilhados Android em escala com Microsoft Endpoint Manager

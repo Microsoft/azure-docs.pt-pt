@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 0334e259f75440cae25f1e165c0621c85f7c7705
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cc532c5ac6babb8378860ac5049e931cc7657932
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97804008"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629262"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -417,7 +417,7 @@ Estas instruções aplicam-se a todas as ligações de base de dados. Terá de p
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Selecione "Plataforma Independente") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
 
 Para configurar o Tomcat para utilizar a Conectividade da Base de Dados de Java (JDBC) ou a API de Persistência de Java (JPA), primeiro personalize a `CATALINA_OPTS` variável ambiental que é lida pela Tomcat no arranque. Defina estes valores através de uma definição de aplicação no [plugin Maven do Serviço de Aplicações:](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)
 
@@ -495,7 +495,7 @@ Estas instruções aplicam-se a todas as ligações de base de dados. Terá de p
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Selecione "Plataforma Independente") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
 
 Para configurar o Tomcat para utilizar a Conectividade da Base de Dados de Java (JDBC) ou a API de Persistência de Java (JPA), primeiro personalize a `CATALINA_OPTS` variável ambiental que é lida pela Tomcat no arranque. Defina estes valores através de uma definição de aplicação no [plugin Maven do Serviço de Aplicações:](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)
 

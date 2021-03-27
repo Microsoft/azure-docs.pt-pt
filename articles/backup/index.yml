@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: ed8bd35ec93c8f61bdf9bb974446337159f6ddb0
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: f6a601aa1b180aa10df3b1486c1e47a3c6269490
+  ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101703822"
+  ms.lasthandoff: 03/27/2021
+  ms.locfileid: "105629092"
 landingContent:
 - title: Saiba mais sobre o Azure Backup
   linkLists:
@@ -84,7 +84,7 @@ landingContent:
       url: backup-azure-vm-backup-faq.yml
     - text: Gerir as cópias de segurança de VMs do Azure
       url: backup-azure-manage-vms.md
-- title: Faça o back up Azure Managed Disks (na pré-visualização)
+- title: Back up Azure Managed Disks
   linkLists:
   - linkListType: concept
     links:

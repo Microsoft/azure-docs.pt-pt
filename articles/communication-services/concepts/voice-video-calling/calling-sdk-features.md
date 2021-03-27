@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 31b8e2e9a8e69fd730edb2c826005104f5f82bdc
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 1475b8aaa4e925facb989e1c6977c4f4dacc6418
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609195"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625216"
 ---
 # <a name="calling-sdk-overview"></a>Chamando a visão geral da SDK
 
@@ -77,8 +77,8 @@ Os Serviços de Comunicação Que Ligam A SDK suporta as seguintes configuraçõ
 
 | Limite          |Web | Android/iOS|
 |-----------|----|------------|
-|**# de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 partilha de ecrã | 1 vídeo + 1 partilha de ecrã|
-|**# de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 partilha de ecrã| 6 vídeo + 1 partilha de ecrã |
+|**# de fluxos de saída que podem ser enviados simultaneamente** |1 partilha de vídeo ou 1 ecrã | 1 vídeo + 1 partilha de ecrã|
+|**# de fluxos de entrada que podem ser renderizados simultaneamente** |1 partilha de vídeo ou 1 ecrã| 6 vídeo + 1 partilha de ecrã |
 
 ## <a name="calling-sdk-timeouts"></a>Chamando os intervalos da SDK
 

@@ -1,16 +1,14 @@
 ---
 title: Resolver problemas com relatórios de estado de funcionamento do sistema
 description: Descreve os relatórios de saúde enviados pelos componentes do Azure Service Fabric e a sua utilização para problemas de resolução de problemas de aglomerado ou aplicação
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
-ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 483483746b2cce66588e9481bca7e0de391070b8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96000662"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625896"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
 Os componentes do Azure Service Fabric fornecem relatórios de saúde do sistema sobre todas as entidades do cluster fora da caixa. A [loja de saúde](service-fabric-health-introduction.md#health-store) cria e elimina entidades com base nos relatórios do sistema. Também os organiza numa hierarquia que capta interações de entidades.

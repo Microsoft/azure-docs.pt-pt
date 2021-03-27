@@ -10,32 +10,35 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6971c6f0959135c7de1f41bcd49adde514f87941
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99559650"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625488"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Use serviços de fala através de um ponto final privado
 
 [O Azure Private Link](../../private-link/private-link-overview.md) permite-lhe ligar-se aos serviços em Azure utilizando um [ponto final privado.](../../private-link/private-endpoint-overview.md) Um ponto final privado é um endereço IP privado que é acessível apenas dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md) específica e sub-rede.
 
 Este artigo explica como configurar e usar o Private Link e os pontos finais privados com serviços de fala nos Serviços Cognitivos Azure.
+Este artigo descreve então como remover pontos finais privados mais tarde, mas ainda usa o recurso Discurso.
 
 > [!NOTE]
 > Antes de prosseguir, [reveja como utilizar redes virtuais com Serviços Cognitivos.](../cognitive-services-virtual-networks.md)
 
-Este artigo também descreve [como remover pontos finais privados mais tarde, mas ainda usar o recurso Discurso](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+
 
 ## <a name="create-a-custom-domain-name"></a>Crie um nome de domínio personalizado
 
 Os pontos finais privados requerem um [nome de subdomínio personalizado para serviços cognitivos.](../cognitive-services-custom-subdomains.md) Utilize as seguintes instruções para criar uma para o seu recurso Speech.
 
 > [!WARNING]
-> Um recurso de fala com um nome de domínio personalizado habilitado usa uma forma diferente de interagir com os Serviços de Fala. Poderá ter de ajustar o seu código de aplicação para ambos os cenários: [ponto final privado ativado](#use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled) e [ *não* privado ativado](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> Um recurso de fala que usa um nome de domínio personalizado interage com os Serviços de Fala de uma forma diferente.
+> Poderá ter de ajustar o seu código de aplicação para utilizar um recurso de discurso com um ponto final privado, e também utilizar um recurso Speech _sem_ ponto final privado.
+> Ambos os cenários podem ser necessários porque o interruptor para nome de domínio personalizado _não_ é reversível.
 >
-> Quando ativa um nome de domínio personalizado, a operação não é [reversível](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). A única maneira de voltar ao [nome regional](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) é criar um novo recurso de Discurso.
+> Quando liga um nome de domínio personalizado, a operação não é [reversível](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). A única maneira de voltar ao [nome regional](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) é criar um novo recurso de Discurso.
 >
 > Se o seu recurso Speech tiver muitos modelos e projetos personalizados associados criados através [do Speech Studio,](https://speech.microsoft.com/)recomendamos vivamente experimentar a configuração com um recurso de teste antes de modificar o recurso utilizado na produção.
 
@@ -119,7 +122,7 @@ subdomainName        : my-custom-name
 ```
 ## <a name="create-your-custom-domain-name"></a>Crie o seu nome de domínio personalizado
 
-Para ativar um nome de domínio personalizado para o recurso de voz selecionado, utilize o [cmdlet Set-AzCognitiveServicesAccount.](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount)
+Para ligar um nome de domínio personalizado para o recurso de voz selecionado, utilize o [cmdlet Set-AzCognitiveServicesAccount.](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount)
 
 > [!WARNING]
 > Depois de o seguinte código ser executado com sucesso, criará um nome de domínio personalizado para o seu recurso Speech. Lembre-se que este nome *não pode* ser mudado.
@@ -183,9 +186,9 @@ Se o nome já estiver tomado, verá a seguinte resposta:
   "type": null
 }
 ```
-## <a name="enable-a-custom-domain-name"></a>Ativar um nome de domínio personalizado
+## <a name="turn-on-a-custom-domain-name"></a>Ligue um nome de domínio personalizado
 
-Para ativar um nome de domínio personalizado para o recurso de voz selecionado, utilize o comando de atualização da [conta az cognitiveservices.](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update)
+Para utilizar um nome de domínio personalizado com o recurso de discurso selecionado, utilize o comando de atualização da [conta az cognitiveservices.](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update)
 
 Selecione a subscrição Azure que contém o recurso Speech. Se a sua conta Azure tiver apenas uma subscrição ativa, pode saltar este passo. Substitua `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` pelo seu ID da subscrição do Azure.
 ```azurecli-interactive
@@ -202,13 +205,14 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ***
 
-## <a name="enable-private-endpoints"></a>Ativar pontos finais privados
+## <a name="turn-on-private-endpoints"></a>Ligue os pontos finais privados
 
-Recomendamos a utilização da [zona privada de DNS](../../dns/private-dns-overview.md) anexada à rede virtual com as atualizações necessárias para os pontos finais privados. Cria uma zona de DNS privada por padrão durante o processo de provisionamento. Se estiver a utilizar o seu próprio servidor DNS, também poderá ter de alterar a sua configuração DNS. 
+Recomendamos a utilização da [zona privada de DNS](../../dns/private-dns-overview.md) anexada à rede virtual com as atualizações necessárias para os pontos finais privados. Pode criar uma zona de DNS privada durante o processo de provisionamento. Se estiver a utilizar o seu próprio servidor DNS, também poderá ter de alterar a sua configuração DNS.
 
 Decida uma estratégia de DNS *antes* de providenciar pontos finais privados para um recurso de discurso de produção. E teste as alterações do DNS, especialmente se utilizar o seu próprio servidor DNS.
 
-Utilize um dos seguintes artigos para criar pontos finais privados. Estes artigos usam uma aplicação web como um recurso de amostra para permitir com pontos finais privados.
+Utilize um dos seguintes artigos para criar pontos finais privados.
+Estes artigos usam uma aplicação web como um recurso de amostra para disponibilizar através de pontos finais privados.
 
 - [Criar um ponto final privado utilizando o portal Azure](../../private-link/create-private-endpoint-portal.md)
 - [Criar um ponto final privado utilizando a Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
@@ -248,7 +252,7 @@ Siga estes passos para testar a entrada personalizada de DNS da sua rede virtual
 
 ### <a name="resolve-dns-from-other-networks"></a>Resolver DNS de outras redes
 
-Efetue esta verificação apenas se tiver ativado a opção **Todas as redes** ou a opção de acesso de Redes **Selecionadas e Pontos Finais Privados** na secção **de Rede** do seu recurso. 
+Efetue esta verificação apenas se tiver ligado a opção **Todas as redes** ou a opção de acesso de Redes e **Pontos Finais Privados** na secção **de Rede** do seu recurso. 
 
 Se planeia aceder ao recurso utilizando apenas um ponto final privado, pode saltar esta secção.
 
@@ -271,18 +275,20 @@ Se planeia aceder ao recurso utilizando apenas um ponto final privado, pode salt
 > [!NOTE]
 > O endereço IP resolvido aponta para um ponto final de procuração de rede virtual, que envia o tráfego da rede para o ponto final privado para o recurso Serviços Cognitivos. O comportamento será diferente para um recurso com um nome de domínio personalizado, mas *sem* pontos finais privados. Consulte [esta secção](#dns-configuration) para mais detalhes.
 
-## <a name="adjust-existing-applications-and-solutions"></a>Ajustar aplicações e soluções existentes
+## <a name="adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint"></a>Ajuste uma aplicação para usar um recurso de discurso com um ponto final privado
 
-Um recurso de fala com um domínio personalizado habilitado usa uma forma diferente de interagir com os Serviços de Fala. Isto é verdade para um recurso de fala personalizado, ativado por domínio, com e sem pontos finais privados. A informação nesta secção aplica-se a ambos os cenários.
+Um recurso de fala com um domínio personalizado interage com os Serviços de Fala de uma forma diferente. Isto é verdade para um recurso de fala personalizado, ativado por domínio, com e sem pontos finais privados. A informação nesta secção aplica-se a ambos os cenários.
 
-### <a name="use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled"></a>Use um recurso speech com um nome de domínio personalizado e um ponto final privado habilitado
+Siga as instruções desta secção para ajustar as aplicações e soluções existentes para utilizar um recurso de discurso com um nome de domínio personalizado e um ponto final privado ligado.
 
-Um recurso de fala com um nome de domínio personalizado e um ponto final privado habilitado usa uma forma diferente de interagir com os Serviços de Fala. Esta secção explica como utilizar este recurso com os Serviços de Fala REST APIs e o [Speech SDK](speech-sdk.md).
+Um recurso de fala com um nome de domínio personalizado e um ponto final privado ligado usa uma forma diferente de interagir com os Serviços de Fala. Esta secção explica como utilizar este recurso com os Serviços de Fala REST APIs e o [Speech SDK](speech-sdk.md).
 
 > [!NOTE]
-> Um recurso de fala sem pontos finais privados mas com um nome de domínio personalizado habilitado também tem uma forma especial de interagir com os Serviços de Fala. Desta forma, difere do cenário de um recurso de fala com ponta privada. Se tiver esse recurso (por exemplo, tinha um recurso com pontos finais privados mas depois decidiu removê-los), consulte a secção [Utilize um recurso speech com um nome de domínio personalizado e sem pontos finais privados](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> Um recurso de fala sem pontos finais privados que usa um nome de domínio personalizado também tem uma forma especial de interagir com os Serviços de Fala.
+> Desta forma difere do cenário de um recurso de Discurso que utiliza um ponto final privado. Isto é importante de considerar porque você pode decidir remover pontos finais privados mais tarde.
+> Consulte _Ajustar uma aplicação para utilizar um recurso de discurso sem pontos finais privados_ mais tarde neste artigo.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-rest-apis"></a>Recurso de fala com um nome de domínio personalizado e um ponto final privado: Utilização com as APIs REST
+### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-rest-apis"></a>Recurso de fala com um nome de domínio personalizado e um ponto final privado: Utilização com as APIs REST
 
 Usaremos como amostra o `my-private-link-speech.cognitiveservices.azure.com` nome DNS (domínio personalizado) para esta secção.
 
@@ -300,7 +306,7 @@ A API REST de voz em texto v3.0 utiliza um conjunto diferente de pontos finais, 
 
 As próximas subsecções descrevem ambos os casos.
 
-##### <a name="speech-to-text-rest-api-v30"></a>A API DE REPOUSO de expressão em texto v3.0
+#### <a name="speech-to-text-rest-api-v30"></a>A API DE REPOUSO de expressão em texto v3.0
 
 Normalmente, os recursos da fala utilizam [os pontos finais regionais dos Serviços Cognitivos](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para comunicar com a [API REST de Voz a texto v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). Estes recursos têm o seguinte formato de nomeação: <p/>`{region}.api.cognitive.microsoft.com`.
 
@@ -313,9 +319,9 @@ https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 > [!NOTE]
 > Veja [este artigo](sovereign-clouds.md) para o Governo Azure e para os pontos finais da Azure China.
 
-Depois de ativar um domínio personalizado para um recurso de voz (que é necessário para pontos finais privados), esse recurso utilizará o seguinte padrão de nome DNS para o ponto final básico da API REST: <p/>`{your custom name}.cognitiveservices.azure.com`.
+Depois de ligar um domínio personalizado para um recurso de voz (que é necessário para pontos finais privados), esse recurso utilizará o seguinte padrão de nome DNS para o ponto final básico da API REST: <p/>`{your custom name}.cognitiveservices.azure.com`
 
-Isto significa que, no nosso exemplo, o nome de ponto final da API REST será: <p/>`my-private-link-speech.cognitiveservices.azure.com`.
+Isto significa que, no nosso exemplo, o nome de ponto final da API REST será: <p/>`my-private-link-speech.cognitiveservices.azure.com`
 
 E o URL do pedido de amostra precisa de ser convertido para:
 ```http
@@ -323,14 +329,14 @@ https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/tra
 ```
 Este URL deve ser acessível a partir da rede virtual com o ponto final privado anexado (desde que a [resolução DE DNS correta](#resolve-dns-from-the-virtual-network)).
 
-Depois de ativar um nome de domínio personalizado para um recurso de voz, normalmente substitui o nome do anfitrião em todos os URLs solicitados pelo novo nome de anfitrião de domínio personalizado. Todas as outras partes do pedido (como o caminho `/speechtotext/v3.0/transcriptions` no exemplo anterior) permanecem as mesmas.
+Depois de ligar um nome de domínio personalizado para um recurso de voz, normalmente substitui o nome do anfitrião em todos os URLs solicitados pelo novo nome de anfitrião de domínio personalizado. Todas as outras partes do pedido (como o caminho `/speechtotext/v3.0/transcriptions` no exemplo anterior) permanecem as mesmas.
 
 > [!TIP]
 > Alguns clientes desenvolvem aplicações que utilizam a parte da região do nome DNS do ponto final regional (por exemplo, para enviar o pedido para o recurso Discurso implantado na região particular de Azure).
 >
 > Um domínio personalizado para um recurso de voz não contém *nenhuma* informação sobre a região onde o recurso é implantado. Assim, a lógica de aplicação descrita anteriormente *não* funcionará e precisa de ser alterada.
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de voz para texto para breve áudio e API DE REPOUSO TEXT-to-speech
+#### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de voz para texto para breve áudio e API DE REPOUSO TEXT-to-speech
 
 A [API REST de Voz para texto para áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e a [API DE REPOUSO Text-to-speech](rest-text-to-speech.md) utilizam dois tipos de pontos finais:
 - [Serviços Cognitivos pontos finais regionais](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para comunicação com os Serviços Cognitivos REST API para obter um token de autorização
@@ -346,7 +352,7 @@ Familiarize-se com o material da subsecção mencionada no parágrafo anterior e
 > [!NOTE]
 > Quando estiver a utilizar a API REST de Voz para texto para uma API de áudio curto e de texto para falar em cenários de ponto final privado, utilize uma chave de subscrição passada através do `Ocp-Apim-Subscription-Key` cabeçalho. (Ver detalhes [para a API REST de voz a texto para breve áudio](rest-speech-to-text.md#request-headers) e [API DE REPOUSO TEXT-to-speech](rest-text-to-speech.md#request-headers))
 >
-> A utilização de um token de autorização e a sua passagem para o ponto final especial através `Authorization` do cabeçalho *só* funcionará se tiver ativado a opção de acesso **de todas as redes** na secção de **Networking** do seu recurso Speech. Noutros casos, terá um `Forbidden` ou erro ao tentar obter um `BadRequest` token de autorização.
+> A utilização de um token de autorização e a sua passagem para o ponto final especial através `Authorization` do cabeçalho *só* funcionará se tiver ligado a opção de acesso **de todas as redes** na secção de **Networking** do seu recurso Speech. Noutros casos, terá um `Forbidden` ou erro ao tentar obter um `BadRequest` token de autorização.
 
 **Exemplo de utilização da API de REPOUSO text-to-speech**
 
@@ -366,13 +372,13 @@ https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices
 ```
 Consulte uma explicação detalhada na subsecção [url do ponto final de Construção](#construct-endpoint-url) para o SDK de discurso.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Recurso de fala com um nome de domínio personalizado e um ponto final privado: Utilização com o SDK de fala
+### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Recurso de fala com um nome de domínio personalizado e um ponto final privado: Utilização com o SDK de fala
 
 A utilização do SDK de discurso com um nome de domínio personalizado e recursos de fala ativados por pontos privados requer que reveja e altere o seu código de aplicação.
 
 Usaremos como amostra o `my-private-link-speech.cognitiveservices.azure.com` nome DNS (domínio personalizado) para esta secção.
 
-##### <a name="construct-endpoint-url"></a>Construção URL de ponto final
+#### <a name="construct-endpoint-url"></a>Construção URL de ponto final
 
 Normalmente em cenários SDK (bem como na API de Voz a Texto REST para cenários breves de API de áudio e texto-a-discurso), os recursos da fala utilizam os pontos finais regionais dedicados para diferentes ofertas de serviços. O formato de nome DNS para estes pontos finais é:
 
@@ -423,7 +429,7 @@ Note os detalhes:
 https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
 ```
 
-O url equivalente a seguir utiliza um ponto final privado ativado, onde o nome de domínio personalizado do recurso Discurso `my-private-link-speech.cognitiveservices.azure.com` é:
+O url equivalente a seguir utiliza um ponto final privado, onde o nome de domínio personalizado do recurso Discurso `my-private-link-speech.cognitiveservices.azure.com` é:
 
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
@@ -431,13 +437,13 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 
 O mesmo princípio no Exemplo 1 é aplicado, mas o elemento-chave desta vez é `voice` .
 
-##### <a name="modifying-applications"></a>Modificação de aplicações
+#### <a name="modifying-applications"></a>Modificação de aplicações
 
 Siga estes passos para modificar o seu código:
 
 1. Determinar o URL do ponto final da aplicação:
 
-   - [Ative o registo da sua aplicação](how-to-use-logging.md) e execute-o para registar a sua atividade.
+   - [Ligue o registo para a sua aplicação](how-to-use-logging.md) e execute-o para registar a sua atividade.
    - No ficheiro de registo, procure `SPEECH-ConnectionUrl` . Nas linhas correspondentes, o `value` parâmetro contém o URL completo que a sua aplicação usou para chegar aos Serviços de Fala.
 
    Exemplo:
@@ -494,13 +500,13 @@ Siga estes passos para modificar o seu código:
 
 Após esta modificação, a sua aplicação deve funcionar com os recursos de fala ativados por pontos privados. Estamos a trabalhar num apoio mais perfeito a cenários privados de ponto final.
 
-### <a name="use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints"></a>Use um recurso de discurso com um nome de domínio personalizado e sem pontos finais privados
+## <a name="adjust-an-application-to-use-a-speech-resource-without-private-endpoints"></a>Ajuste uma aplicação para usar um recurso de discurso sem pontos finais privados
 
 Neste artigo, salientamos várias vezes que permitir um domínio personalizado para um recurso da Fala é *irreversível*. Este recurso utilizará uma forma diferente de comunicar com os Serviços de Fala, em comparação com os que utilizam [nomes de pontos finais regionais.](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)
 
-Esta secção explica como utilizar um recurso de fala com um nome de domínio personalizado habilitado, mas *sem* quaisquer pontos finais privados com os Serviços de Fala REST APIs e [Speech SDK](speech-sdk.md). Este pode ser um recurso que já foi usado num cenário de ponto final privado, mas depois teve os seus pontos finais privados apagados.
+Esta secção explica como usar um recurso de fala com um nome de domínio personalizado, mas *sem* quaisquer pontos finais privados com os Serviços de Fala REST APIs e [Speech SDK](speech-sdk.md). Este pode ser um recurso que já foi usado num cenário de ponto final privado, mas depois teve os seus pontos finais privados apagados.
 
-#### <a name="dns-configuration"></a>Configuração do DNS
+### <a name="dns-configuration"></a>Configuração do DNS
 
 Lembre-se de como um nome DNS de domínio personalizado do recurso de fala ativado por pontos privados é [resolvido a partir de redes públicas](#resolve-dns-from-other-networks). Neste caso, o endereço IP resolvido aponta para um ponto final de procuração para uma rede virtual. Este ponto final é utilizado para o envio do tráfego da rede para o recurso de serviços cognitivos com extremidade privada.
 
@@ -524,22 +530,22 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 ```
 Compare-o com a saída [desta secção.](#resolve-dns-from-other-networks)
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>Recurso de fala com um nome de domínio personalizado e sem pontos finais privados: Utilização com as APIs REST
+### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>Recurso de fala com um nome de domínio personalizado e sem pontos finais privados: Utilização com as APIs REST
 
-##### <a name="speech-to-text-rest-api-v30"></a>A API DE REPOUSO de expressão em texto v3.0
+#### <a name="speech-to-text-rest-api-v30"></a>A API DE REPOUSO de expressão em texto v3.0
 
 A utilização do API de fala em texto v3.0 é totalmente equivalente ao caso dos recursos de [fala ativados por pontos privados](#speech-to-text-rest-api-v30).
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de voz para texto para breve áudio e API DE REPOUSO TEXT-to-speech
+#### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de voz para texto para breve áudio e API DE REPOUSO TEXT-to-speech
 
 Neste caso, a utilização da API REST discurso-a-texto para áudio curto e utilização da API REST text-to-speech não tem diferenças em termos gerais, com uma exceção. (Ver a seguinte nota.) Deve utilizar ambas as APIs, conforme descrito na [API REST de voz a texto para breves áudios](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e documentação [de API DE REPOUSO TEXT-to-speech.](rest-text-to-speech.md)
 
 > [!NOTE]
 > Quando estiver a utilizar a API REST de Voz para texto para uma API de áudio curto e de texto para falar em cenários de domínio personalizado, utilize uma chave de subscrição passada através do `Ocp-Apim-Subscription-Key` cabeçalho. (Ver detalhes [para a API REST de voz a texto para breve áudio](rest-speech-to-text.md#request-headers) e [API DE REPOUSO TEXT-to-speech](rest-text-to-speech.md#request-headers))
 >
-> A utilização de um token de autorização e a sua passagem para o ponto final especial através `Authorization` do cabeçalho *só* funcionará se tiver ativado a opção de acesso **de todas as redes** na secção de **Networking** do seu recurso Speech. Noutros casos, terá um `Forbidden` ou erro ao tentar obter um `BadRequest` token de autorização.
+> A utilização de um token de autorização e a sua passagem para o ponto final especial através `Authorization` do cabeçalho *só* funcionará se tiver ligado a opção de acesso **de todas as redes** na secção de **Networking** do seu recurso Speech. Noutros casos, terá um `Forbidden` ou erro ao tentar obter um `BadRequest` token de autorização.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Recurso de fala com um nome de domínio personalizado e sem pontos finais privados: Utilização com o SDK de fala
+### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Recurso de fala com um nome de domínio personalizado e sem pontos finais privados: Utilização com o SDK de fala
 
 A utilização do SDK de discurso com recursos de fala personalizados *sem* pontos finais privados é equivalente ao caso geral descrito na documentação do [SDK](speech-sdk.md)do discurso .
 
@@ -559,7 +565,7 @@ var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 
 Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * [Azure Private Link](../../private-link/private-link-overview.md)
 * [API de Voz](speech-sdk.md)

@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 692033e323880db1699d7265a991775d41b05f7f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f84dc66828f2ebf13316b3348fd93933a2223b5a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656010"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612284"
 ---
 # <a name="what-is-document-translation-preview"></a>O que é Tradução de Documentos (Pré-visualização)?
 
@@ -52,7 +52,7 @@ Os seguintes tipos de ficheiros de documentos são suportados pela Tradução do
 |Microsoft Outlook|.msg|Uma mensagem de e-mail criada ou guardada dentro do Microsoft Outlook.|
 |Microsoft PowerPoint|.pptx| Um ficheiro de apresentação utilizado para exibir conteúdo num formato de apresentação de diapositivos.|
 |Microsoft Word|.docx| Um ficheiro de documento de texto.|
-|Separados valores/SEPARADOS|.tsv/.tab| um ficheiro de dados brutos delimitado por separadores utilizado por programas de folha de cálculo.|
+|Separados valores/SEPARADOS|.tsv/.tab| Um ficheiro de dados brutos delimitado por separadores utilizado por programas de folha de cálculo.|
 |Texto|.txt| Um documento de texto não testado.|
 |Troca de Memória de Tradução|.tmx|Uma norma XML aberta utilizada para o intercâmbio de dados de memória de tradução (TM) criados por Aplicações de Tradução Ajuda Computacional (CAT) e localização.|
 
@@ -63,7 +63,7 @@ Os seguintes tipos de ficheiros glossários são suportados pela Tradução docu
 | Tipo de arquivo| Extensão de nome de ficheiro|Description|
 |---|---|--|
 |Formato de ficheiro de intercâmbio de localização|.xlf. , xliff| Um formato documental paralelo, exportação de sistemas de memória de tradução. As línguas utilizadas são definidas dentro do ficheiro.|
-|Separados valores/SEPARADOS|.tsv/.tab| um ficheiro de dados brutos delimitado por separadores utilizado por programas de folha de cálculo.|
+|Separados valores/SEPARADOS|.tsv/.tab| Um ficheiro de dados brutos delimitado por separadores utilizado por programas de folha de cálculo.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

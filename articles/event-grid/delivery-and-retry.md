@@ -3,12 +3,12 @@ title: Entrega e reagem à grelha de eventos Azure
 description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7fa627464ddb85ebded3ae99229b7fe8dd3fde3
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98247374"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629279"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e redação de mensagem da Grelha de Eventos
 
@@ -25,7 +25,7 @@ A Grelha de Eventos não permite enviar cada evento individualmente aos assinant
 
 A entrega em lote tem duas definições:
 
-* **Eventos max por lote** - Número máximo de eventos A Grade de Eventos entregará por lote. Este número nunca será ultrapassado, no entanto, menos eventos poderão ser entregues se não houver outros eventos disponíveis no momento da publicação. A Grade de Eventos não atrasa os eventos para criar um lote se houver menos eventos disponíveis. Deve estar entre 1 e 5.000.
+* **Eventos max por lote** - Número máximo de eventos A Grade de Eventos entregará por lote. Este número nunca será ultrapassado, no entanto, menos eventos poderão ser entregues se não houver outros eventos disponíveis no momento da publicação. O Event Grid não atrasa os eventos para criar um lote se houver menos eventos disponíveis. Deve estar entre 1 e 5.000.
 * **Tamanho do lote preferido em quilobytes** - Teto-alvo para tamanho do lote em quilobytes. Semelhante a eventos max, o tamanho do lote pode ser menor se mais eventos não estiverem disponíveis no momento da publicação. É possível que um lote seja maior do que o tamanho do lote preferido *se* um único evento for maior do que o tamanho preferido. Por exemplo, se o tamanho preferido for 4 KB e um evento de 10 KB for empurrado para a Grade de Eventos, o evento de 10 KB continuará a ser entregue no seu próprio lote em vez de ser abandonado.
 
 Entrega em lote em configurado numa base de subscrição por evento através do portal, CLI, PowerShell ou SDKs.
@@ -57,7 +57,7 @@ Para obter mais informações sobre a utilização do Azure CLI com a Grade de [
 
 Quando o EventGrid recebe um erro para uma tentativa de entrega de eventos, a EventGrid decide se deve voltar a tentar a entrega ou a carta morta ou largar o evento com base no tipo de erro. 
 
-Se o erro devolvido pelo ponto final subscrito for um erro relacionado com a configuração que não pode ser corrigido com recauchutadas (por exemplo, se o ponto final for eliminado), o EventGrid realizará a letra morta do evento ou abandonará o evento se a letra morta não estiver configurada.
+Se o erro devolvido pelo ponto final subscrito for um erro relacionado com a configuração que não pode ser corrigido com retornas (por exemplo, se o ponto final for eliminado), o EventGrid realizará a letra morta do evento ou abandonará o evento se a letra morta não estiver configurada.
 
 Seguem-se os tipos de pontos finais para os quais não acontece novamente:
 
@@ -97,7 +97,7 @@ Por predefinição, a Grade de Eventos expira todos os eventos que não são ent
 
 À medida que um ponto final experimenta falhas de entrega, a Event Grid começará a atrasar a entrega e a repetição dos eventos para esse ponto final. Por exemplo, se os primeiros 10 eventos publicados num ponto final falharem, a Event Grid assumirá que o ponto final está a ter problemas e irá atrasar todas as recauchutagens *e novas* entregas subsequentes durante algum tempo - em alguns casos até várias horas.
 
-O objetivo funcional da entrega atrasada é proteger pontos finais pouco saudáveis, bem como o sistema de Grade de Eventos. Sem recuos e atrasos na entrega a pontos finais pouco saudáveis, a política de retíria da Event Grid e as capacidades de volume podem facilmente sobrecarregar um sistema.
+O objetivo funcional da entrega atrasada é proteger os pontos finais insalubres e o sistema de Grade de Eventos. Sem recuos e atrasos na entrega a pontos finais pouco saudáveis, a política de retíria da Event Grid e as capacidades de volume podem facilmente sobrecarregar um sistema.
 
 ## <a name="dead-letter-events"></a>Eventos de cartas mortas
 Quando a Grade de Eventos não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.** Event Grid dead-letters um evento quando **uma das seguintes** condições é cumprida. 
@@ -109,7 +109,7 @@ Se uma das condições for cumprida, o evento é abandonado ou sem carta.  Por d
 
 A Grade de Eventos envia um evento para o local da carta morta quando tentou todas as suas tentativas de repetição. Se a Grade de Evento receber um código de resposta de 400 (Mau Pedido) ou 413 (Entidade de Pedido Demasiado Grande), ele imediatamente agenda o evento para a inscrição morta. Estes códigos de resposta indicam que a entrega do evento nunca será bem sucedida.
 
-A expiração do tempo de vida é verificada apenas na próxima tentativa de entrega programada. Portanto, mesmo que o tempo de vida expire antes da próxima tentativa de entrega agendada, o prazo de validade do evento é verificado apenas no momento da próxima entrega e, em seguida, letra morta. 
+A expiração do tempo de vida é verificada apenas na próxima tentativa de entrega programada. Assim, mesmo que o tempo de vida expire antes da próxima tentativa de entrega programada, o prazo de validade do evento é verificado apenas no momento da próxima entrega e, em seguida, letra morta. 
 
 Há um atraso de cinco minutos entre a última tentativa de entrega de um evento e quando é entregue no local da carta morta. Este atraso destina-se a reduzir o número de operações de armazenamento blob. Se o local da carta morta não estiver disponível durante quatro horas, o evento será retirado.
 
@@ -288,6 +288,15 @@ Todos os outros códigos não no conjunto acima (200-204) são considerados falh
 | 503 Serviço Indisponível | Relemissar após 30 segundos ou mais |
 | Todos os outros | Relemissar após 10 segundos ou mais |
 
+## <a name="delivery-with-custom-headers"></a>Entrega com cabeçalhos personalizados
+As subscrições de eventos permitem-lhe configurar cabeçalhos http que estão incluídos em eventos entregues. Esta capacidade permite-lhe definir cabeçalhos personalizados que são necessários por um destino. Pode configurar até 10 cabeçalhos ao criar uma subscrição de eventos. Cada valor do cabeçalho não deve ser superior a 4.096 bytes (4K). Pode definir cabeçalhos personalizados sobre os eventos que são entregues nos seguintes destinos:
+
+- Webhooks
+- Tópicos e filas de autocarros da Azure Service
+- Azure Event Hubs
+- Conexões híbridas de retransmissão
+
+Para obter mais informações, consulte [a Entrega com cabeçalhos personalizados.](delivery-properties.md) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

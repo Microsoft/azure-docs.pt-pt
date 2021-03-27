@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: a66532856263d31e9070bc99f297ae105ca48312
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454792"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625301"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos Serviços de Media
 
@@ -117,47 +117,68 @@ Consulte também [as convenções de nomeação de Endpoints streaming.](streami
 Uma vez criado o evento ao vivo, você pode obter URLs ingeridos que você vai fornecer para o codificadora ao vivo no local. O codificador em direto utiliza esses URLs para introduzir uma transmissão um fluxo direto. Para mais informações, consulte [os codificadores ao vivo recomendados no local.](recommended-on-premises-live-encoders.md)
 
 >[!NOTE]
-> A partir do lançamento da API 2020-05-01, os URLs de vaidade são conhecidos como Nomes estáticos do anfitrião
+> A partir do lançamento da API 2020-05-01, os URLs de "vaidade" são conhecidos como Nomes estáticos do anfitrião (useStaticHostname: true)
 
-Pode utilizar URLs intuitivos ou não intuitivos.
 
 > [!NOTE]
-> Para que um URL inger seja preditivo, desa ajuste o modo "vaidade".
+> Para que um URL inger seja estático e previsível para ser usado numa configuração de codificação de hardware, desapedaça a propriedade **de UsoSstaticHostname** para verdadeiro e desconte a propriedade **accessToken** para o mesmo GUID em cada criação. 
 
-* URL de não vaidade
+### <a name="example-liveevent-and-liveeventinput-configuration-settings-for-a-static-non-random-ingest-rtmp-url"></a>Exemplo LiveEvent e Configurações LiveEventInput para um URL rtmp estático (não aleatório).
 
-    URL de não vaidade é o modo predefinido nos Serviços de Mídia v3. Você potencialmente obtém o evento ao vivo rapidamente, mas ingestING URL é conhecido apenas quando o evento ao vivo é iniciado. O URL mudará se parar/iniciar o evento ao vivo. A Non-Vanity é útil em cenários em que um utilizador final quer transmitir através de uma app onde a app quer obter um evento ao vivo o mais rápido possível e ter um URL de ingestão dinâmico não é um problema.
+```csharp
+             LiveEvent liveEvent = new LiveEvent(
+                    location: mediaService.Location,
+                    description: "Sample LiveEvent from .NET SDK sample",
+                    // Set useStaticHostname to true to make the ingest and preview URL host name the same. 
+                    // This can slow things down a bit. 
+                    useStaticHostname: true,
+
+                    // 1) Set up the input settings for the Live event...
+                    input: new LiveEventInput(
+                        streamingProtocol: LiveEventInputProtocol.RTMP,  // options are RTMP or Smooth Streaming ingest format.
+                                                                         // This sets a static access token for use on the ingest path. 
+                                                                         // Combining this with useStaticHostname:true will give you the same ingest URL on every creation.
+                                                                         // This is helpful when you only want to enter the URL into a single encoder one time for this Live Event name
+                        accessToken: "acf7b6ef-8a37-425f-b8fc-51c2d6a5a86a",  // Use this value when you want to make sure the ingest URL is static and always the same. If omitted, the service will generate a random GUID value.
+                        accessControl: liveEventInputAccess, // controls the IP restriction for the source encoder.
+                        keyFrameIntervalDuration: "PT2S" // Set this to match the ingest encoder's settings
+                    ),
+```
+
+* Nome de hospedeiro não estático
+
+    Um nome de hospedeiro não estático é o modo predefinido nos Serviços de Comunicação Social v3 ao criar um **LiveEvent**. Você pode obter o evento ao vivo atribuído um pouco mais rapidamente, mas o URL inger que você precisaria para o seu hardware ou software de codificação ao vivo será aleatoriamente . O URL mudará se parar/iniciar o evento ao vivo. Os nomes de anfitriões não estáticos só são úteis em cenários em que um utilizador final quer transmitir usando uma app que precisa de obter um evento ao vivo muito rapidamente e ter um URL de ingestão dinâmico não é um problema.
 
     Se uma aplicação de cliente não precisar de gerar um URL de ingestão antes da criação do evento ao vivo, deixe que os Media Services gerem automaticamente o Access Token para o evento ao vivo.
 
-* URL de vaidade
+* Hostnames estáticos 
 
-    O modo vaidade é preferido por grandes emissores de mídia que usam codificadores de transmissão de hardware e não querem reconfigurar os seus codificadores quando iniciam o evento ao vivo. Estes emissores querem uma URL ingerível preditiva que não muda com o tempo.
+    O modo de nome de anfitrião estático é preferido pela maioria dos operadores que desejam configurar o seu hardware ou software de codificação ao vivo com um URL de ingestão RTMP que nunca muda na criação ou paragem/início de um evento ao vivo específico. Estes operadores querem um URL de ingestão de RTMP preditivo que não muda com o tempo. Isto também é muito útil quando você precisa empurrar um URL de ingestão de RTMP estático nas definições de configuração de um dispositivo de codificação de hardware como o BlackMagic Atem Mini Pro, ou ferramentas de codificação e produção de hardware semelhantes. 
 
     > [!NOTE]
-    > No portal Azure, o URL de vaidade é nomeado "*Prefixo de nome de hospedeiro estático*".
+    > No portal Azure, o URL de nome de hospedeiro estático é chamado de "*Prefixo estático do nome hospedeiro*".
 
     Para especificar este modo na API, definido `useStaticHostName` para o momento da `true` criação (o padrão é `false` ). Quando `useStaticHostname` é definido como verdadeiro, o especificado a primeira parte do nome `hostnamePrefix` anfitrião atribuído à pré-visualização do evento ao vivo e ingerir pontos finais. O nome de anfitrião final seria uma combinação deste prefixo, o nome da conta de serviço de mídia e um código curto para o centro de dados Azure Media Services.
 
     Para evitar um token aleatório no URL, você também precisa passar seu próprio token de acesso `LiveEventInput.accessToken` () na hora da criação.  O token de acesso tem de ser uma corda GUID válida (com ou sem hífens). Uma vez definido o modo, não pode ser atualizado.
 
-    O token de acesso tem de ser único no seu centro de dados. Se a sua aplicação precisar de usar um URL de vaidade, é aconselhável criar sempre uma nova instância GUID para o seu token de acesso (em vez de reutilizar qualquer GUID existente).
+    O token de acesso tem de ser único na sua conta da região Azure e dos Media Services. Se a sua aplicação precisar de usar um URL de ingerção de nome estático, é recomendado sempre criar uma nova instância GUID para uso com uma combinação específica de região, conta de serviços de mídia e evento ao vivo.
 
-    Utilize as seguintes APIs para ativar o URL da Vaidade e desaperte o token de acesso a um GUID válido (por exemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
+    Utilize as seguintes APIs para ativar o URL de nome de hospedeiro estático e desemperegue o token de acesso a um GUID válido (por exemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
-    |Linguagem|Ativar URL de vaidade|Definir o token de acesso|
+    |Linguagem|Ativar URL de nome de anfitrião estático|Definir o token de acesso|
     |---|---|---|
-    |REST|[propriedades.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--vaidade-url](/cli/azure/ams/live-event#az-ams-live-event-create)|[--token de acesso](/cli/azure/ams/live-event#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[propriedades.useSstaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useSstaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--uso-estático-nome hospedeiro](/cli/azure/ams/live-event#az-ams-live-event-create)|[--token de acesso](/cli/azure/ams/live-event#optional-parameters)|
+    |.NET|[LiveEvent.useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura dos URLs de ingestão em direto
 
 * A cadeia *aleatória* abaixo é um número hexadecimal de 128 bits (que é composto por 32 carateres de 0-9 e a-f).
-* *o seu token de acesso*: A cadeia GUID válida que definiu ao utilizar o modo de vaidade. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *o seu token de acesso*: A cadeia GUID válida que definiu ao utilizar a definição de nome de hospedeiro estático. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *nome do fluxo*: Indica o nome do fluxo para uma ligação específica. O valor do nome de fluxo é normalmente adicionado pelo codificar vivo que você usa. Pode configurar o codificader ao vivo para usar qualquer nome para descrever a ligação, por exemplo: "video1_audio1", "video2_audio1", "stream".
 
-#### <a name="non-vanity-url"></a>URL de não vaidade
+#### <a name="non-static-hostname-ingest-url"></a>URL de ingestão de nome de hospedeiro não estático
 
 ##### <a name="rtmp"></a>RTMP
 
@@ -171,7 +192,7 @@ Pode utilizar URLs intuitivos ou não intuitivos.
 `http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
-#### <a name="vanity-url"></a>URL de vaidade
+#### <a name="static-hostname-ingest-url"></a>URL de ingestão de nome de anfitrião estático
 
 Nos seguintes caminhos, `<live-event-name>` significa o nome dado ao evento ou o nome personalizado usado na criação do evento ao vivo.
 

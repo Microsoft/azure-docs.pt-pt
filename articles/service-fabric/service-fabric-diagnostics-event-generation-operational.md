@@ -1,16 +1,14 @@
 ---
 title: Lista de eventos de tecido de serviço Azure
 description: Lista completa de eventos fornecidos pela Azure Service Fabric para ajudar a monitorizar os clusters.
-author: srrengar
 ms.topic: reference
 ms.date: 2/25/2019
-ms.author: srrengar
-ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f65d7c3ddec8263ff6f115df9616b48814afc93
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85846656"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628888"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos de Tecido de Serviço 
 
@@ -55,6 +53,13 @@ Mais detalhes sobre upgrades de cluster podem ser encontrados [aqui.](service-fa
 | 25622 | NodeOpenFailed | Transação Estatal |  Um nó falhou em começar e juntar-se ao anel | FabricNode | Erro | 
 | 25624 | Nó Fechado | Transação Estatal |  Um nó desligado com sucesso | FabricNode | Informativo | 
 | 25626 | NodeAborted | Transação Estatal |  Um nó fechou-se sem gravidade. | FabricNode | Erro | 
+
+**Eventos de nó de nogger ktl** 
+
+| EventId | Name | Categoria | Descrição |Fonte (Tarefa) | Level |
+| --- | --- | --- | --- | --- | --- | 
+| 50187 | SharedLogWriteThrottled | Saúde | As gravações para o registo partilhado estão a estrangular | KtlLoggerNode | Informativo | 
+| 50188 | SharedLogWriteUnthrottled | Saúde | As gravações para o registo partilhado não têm sido destronar | KtlLoggerNode | Informativo | 
 
 ## <a name="application-events"></a>Eventos de aplicação
 

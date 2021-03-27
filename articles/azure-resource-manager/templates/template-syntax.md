@@ -2,13 +2,13 @@
 title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e propriedades dos modelos Azure Resource Manager (modelos ARM) usando a sintaxe declarativa JSON.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: da64eb8abeaf45f58933dfbddaf954cad8e66f4a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/26/2021
+ms.openlocfilehash: 42b893e25155bb3ebe66e0deac180698446a2c9b
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120421"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612182"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Understand the structure and syntax of ARM templates (Compreender a estrutura e a sintaxe dos modelos do Resource Manager)
 
@@ -193,6 +193,7 @@ Define recursos com a seguinte estrutura:
           "capacity": <sku-capacity>
       },
       "kind": "<type-of-resource>",
+      "scope": "<target-scope-for-extension-resources>",
       "copy": {
           "name": "<name-of-copy-loop>",
           "count": <number-of-iterations>,
@@ -235,6 +236,7 @@ Define recursos com a seguinte estrutura:
 | etiquetas |No |Etiquetas que estão associadas ao recurso. Aplique tags para organizar logicamente recursos em toda a sua subscrição. |
 | sku | No | Alguns recursos permitem que valores que definem o SKU implementem. Por exemplo, pode especificar o tipo de redundância para uma conta de armazenamento. |
 | tipo | No | Alguns recursos permitem um valor que define o tipo de recurso que implementa. Por exemplo, pode especificar o tipo de Cosmos DB para criar. |
+| scope | No | A propriedade de âmbito só está disponível para [tipos de recursos de extensão.](../management/extension-resource-types.md) Utilize-o ao especificar um âmbito diferente do âmbito de implantação. Consulte [a definição de possibilidade de extensão de recursos nos modelos ARM](scope-extension-resources.md). |
 | Cópia |No |Se for necessário mais do que uma instância, o número de recursos a criar. O modo predefinido é paralelo. Especifique o modo de série quando não quiser que todos ou os recursos implementem ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager.](copy-resources.md) |
 | plano | No | Alguns recursos permitem valores que definem o plano a implementar. Por exemplo, pode especificar a imagem do mercado para uma máquina virtual. |
 | propriedades |No |Definições de configuração específicas de recursos. Os valores para as propriedades são os mesmos que os valores que fornece no organismo de pedido para a operação REST API (método PUT) para criar o recurso. Também pode especificar um conjunto de cópias para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). |

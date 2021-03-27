@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 634eb2d22e3fa570ac9412d4fb8afd917b5c2eaa
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564012"
+ms.locfileid: "105611978"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Migração sem agentes de máquinas virtuais VMware para Azure
 
@@ -43,8 +43,8 @@ Para aprender a executar o acima, reveja o tutorial sobre [máquinas virtuais VM
 
 Para adicionar um aparelho de escala, siga os passos abaixo mencionados:
 
-1. Clique em **Descobrir**  >  **As máquinas estão virtualizadas?** 
-1. Selecione **Sim, com VMware VSphere Hypervisor.**
+1. Clique em **Descobrir**  >  **As suas máquinas estão virtualizadas?** 
+1. Selecione **Sim, com VMware vSphere Hypervisor.**
 1. Selecione a replicação sem agente no próximo passo.
 1. Selecione **Scale-out um aparelho primário existente** no menu de selecionar o tipo de aparelho.
 1. Selecione o aparelho primário (o aparelho utilizando o qual foi efetuada a descoberta) que pretende eliminar.
@@ -54,7 +54,7 @@ Para adicionar um aparelho de escala, siga os passos abaixo mencionados:
 ### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto Azure Migrate
 
 1. Na **tecla de projeto Generate Azure Migrate,** forneça um sufixo para o aparelho de escala. O sufixo pode conter apenas caracteres alfanuméricos e tem um limite de comprimento de 14 caracteres.
-2. Clique **em Gerar chave** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página Discover durante a criação de recursos.
+2. Clique **em Gerar chave** para iniciar a criação dos recursos Azure necessários. Não feche a página Discover durante a criação de recursos.
 3. Copie a chave gerada. Mais tarde, necessitará da chave para completar o registo do aparelho de escala.
 
 ### <a name="2-download-the-installer-for-the-scale-out-appliance"></a>2. Descarregue o instalador para o aparelho de encaamento
@@ -68,8 +68,8 @@ No **download do aparelho Azure Migrate,** clique em  **Baixar**. É necessário
 > 1. Abrir o pedido de comando como administrador
 > 2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Uso de exemplo para nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Descarregue a versão mais recente do instalador de aparelhos de escala do portal se o valor do hash calculado não coincidir com esta cadeia: e9c9a1fe4f3ebae81008328e8f3a793d78ff835ecd871d1b17f36721ce3c74
+    - Uso de exemplo para nuvem pública: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+> 3. Descarregue a versão mais recente do instalador de aparelhos de escala do portal se o valor do hash calculado não coincidir com esta cadeia: 1E6B6E3EE88A808B925F5DA67874DAD87E32847120B32F3E21F5960F9F9F9
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Executar o script do instalador Azure Migrate
 O script do instalador faz o seguinte:
@@ -108,7 +108,7 @@ Antes de começar, certifique-se de que [estes pontos finais Azure](migrate-appl
 - Aceite os termos da **licença** e leia as informações de terceiros.
 - No gestor de configuração > **Configurar pré-requisitos,** faça o seguinte:
    - **Conectividade**: O aparelho verifica se o servidor tem acesso à Internet. Se o servidor utilizar um representante:
-     1. Clique em **Configurar o representante** para especificar o endereço de procuração (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) audição.
+     1. Clique no **proxy configurar** para especificar o endereço de procuração (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) audição.
      2. Especifique as credenciais se o proxy precisar de autenticação.
      3. Apenas é suportado o proxy HTTP.
      4. Se tiver adicionado detalhes de procuração ou desativado o proxy e/ou autenticação, clique em **Guardar** para ativar novamente a verificação de conectividade.
@@ -124,7 +124,7 @@ Antes de começar, certifique-se de que [estes pontos finais Azure](migrate-appl
 :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal mostrando o código do dispositivo":::
 
 1. Clique no **código copy & Iniciar sessão** para copiar o código do dispositivo e abrir um pedido de Login Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
-1. No novo separador, cole o código do dispositivo e inscreva-se utilizando o seu nome de utilizador Estaure e palavra-passe.
+1. No novo separador, cole o código do dispositivo e inscreva-se utilizando o seu nome de utilizador Estaure e a palavra-passe.
    
    O s-in com um PIN não é suportado.
 3. Caso feche o separador de login acidentalmente sem iniciar sessão, é necessário atualizar o separador de navegador do gestor de configuração do aparelho para ativar novamente o botão Iniciar sessão.
@@ -150,7 +150,7 @@ Para completar o registo do aparelho de escala, clique em **importação** para 
 Uma vez importados com sucesso os ficheiros, o registo do aparelho de escala completa-se e mostrar-lhe-á o tempo de marcação da última importação bem sucedida. Também pode ver os detalhes do registo clicando em **Ver detalhes.**
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="A screenshot mostra o registo de aparelhos em escala com o projeto Azure Migrate.":::
 
-Neste ponto, deverá revalidar que o aparelho de escala é capaz de se ligar ao servidor vCenter. Clique **em revalidar** para validar a conectividade do servidor vCenter a partir do aparelho de escala.
+Neste ponto, deverá revalidar que o aparelho de escala é capaz de ligar ao servidor vCenter. Clique **em revalidar** para validar a conectividade do servidor vCenter a partir do aparelho de escala.
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="A screenshot mostra credenciais de visualização e fontes de descoberta a validar.":::
 
 > [!IMPORTANT]

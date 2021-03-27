@@ -3,27 +3,20 @@ title: Utilize políticas de segurança do pod no Serviço Azure Kubernetes (AKS
 description: Saiba como controlar as admissões de pod usando PodSecurityPolicy no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.date: 03/25/2021
+ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105544252"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611774"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - Proteja o seu cluster utilizando as políticas de segurança do pod no Serviço Azure Kubernetes (AKS)
 
 > [!WARNING]
-> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível após 30 de junho de 2021 a** favor da [Política Azure para a AKS.](use-azure-policy.md) A data de depreciação foi prorrogada a partir da data anterior de 15 de outubro de 2020.
+> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), começará a depreciação com a versão 1.21 de Kubernetes, com a sua remoção na versão 1.25.** À medida que Kubernetes Upstream se aproxima desse marco, a comunidade de Kubernetes trabalhará para documentar alternativas viáveis. O anúncio de depreciação anterior foi feito na altura, uma vez que não existia uma opção viável para os clientes. Agora que a comunidade de Kubernetes está a trabalhar numa alternativa, já não há uma necessidade premente de deprecação à frente de Kubernetes.
 >
 > Após a deprecação da política de segurança do pod (pré-visualização), tem de desativar a funcionalidade em quaisquer clusters existentes utilizando a funcionalidade prevadida para realizar futuras atualizações de clusters e permanecer dentro do suporte do Azure.
->
-> É altamente recomendado começar a testar cenários com a Azure Policy for AKS, que oferece políticas incorporadas para garantir pods e iniciativas incorporadas que mapeiam as políticas de segurança do pod. Para migrar da política de segurança da cápsula, você precisa tomar as seguintes ações em um cluster.
-> 
-> 1. [Desativar a política de segurança](#clean-up-resources) do casulo no cluster
-> 1. Ativar o [Add-on da Política Azure][azure-policy-add-on]
-> 1. Permitir as políticas Azure desejadas a partir de [políticas incorporadas disponíveis][policy-samples]
-> 1. Rever [alterações de comportamento entre a política de segurança da pod e a política do Azure](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
 Para melhorar a segurança do seu cluster AKS, pode limitar quais as cápsulas que podem ser programadas. Os pods que solicitam recursos que não permite não podem funcionar no cluster AKS. Você define este acesso usando políticas de segurança de pod. Este artigo mostra-lhe como usar as políticas de segurança do pod para limitar a implementação de cápsulas em AKS.
 

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 15aead5c9f93205baac28e8b93a88015c9689e3a
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96928805"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625318"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Quickstart: Restaurar uma base de dados para Azure SQL Caso Gerido com SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Este guia de início rápido:
   - [Configure uma ligação ponto-a-local com a SQL Managed Instance a partir do local](point-to-site-p2s-configure.md).
 
 > [!NOTE]
-> Para obter mais informações sobre o backup e restauro de uma base de dados do SQL Server utilizando o armazenamento Azure Blob e uma [chave assinatura de acesso partilhado (SAS),](../../storage/common/storage-sas-overview.md)consulte o [SQL Server Backup para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Para obter mais informações sobre o backup e restauro de uma base de dados do SQL Server utilizando o armazenamento Azure Blob e uma [chave assinatura de acesso partilhado (SAS),](../../storage/common/storage-sas-overview.md)consulte o [SQL Server Backup para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 ## <a name="restore-from-a-backup-file"></a>Restaurar a partir de um ficheiro de reserva
 

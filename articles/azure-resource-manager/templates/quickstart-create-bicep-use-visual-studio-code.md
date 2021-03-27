@@ -2,19 +2,21 @@
 title: Criar ficheiros Bicep - Código de Estúdio Visual
 description: Utilize o Código do Estúdio Visual e a extensão Bicep aos ficheiros Bicep para implantar recursos Azure
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a5b5533cd87c417d03db960c477392c24fa59f8a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102504155"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612904"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Quickstart: Criar ficheiros Bicep com Código de Estúdio Visual
 
 A extensão Bicep para Visual Studio Code fornece suporte linguístico e auto-preconção de recursos. Estas ferramentas ajudam a criar e validar ficheiros [Bicep.](./bicep-overview.md) Neste arranque rápido, você usa a extensão para criar um ficheiro Bicep do zero. Ao fazê-lo, experimenta as capacidades de extensões, tais como validação e conclusões.
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 Para completar este arranque rápido, precisa do [Código do Estúdio Visual,](https://code.visualstudio.com/)com a [extensão Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) instalada. Também precisa do mais recente [Azure CLI](/cli/azure/) ou do mais recente [módulo Azure PowerShell](/powershell/azure/new-azureps-module-az) instalado e autenticado.
 

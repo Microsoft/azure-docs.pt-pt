@@ -8,13 +8,13 @@
       href: bicep-overview.md
 - name: Guias de Início Rápido
   items:
-    - name: Criar modelos - portal
-      href: quickstart-create-templates-use-the-portal.md
-    - name: Criar modelos - VS Code
+    - name: Criar modelos JSON - Vs Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Criar Bicep - Código VS
+    - name: Criar modelos Bicep - Vs Code
       href: quickstart-create-bicep-use-visual-studio-code.md
-    - name: Criar e implementar especificações de modelo
+    - name: Criar modelos JSON - portal
+      href: quickstart-create-templates-use-the-portal.md
+    - name: Criar especificações de modelo
       href: quickstart-create-template-specs.md
 - name: Tutoriais
   items:
@@ -43,24 +43,34 @@
     - name: Bicep principiante
       items:
         - name: 1 - Criar o primeiro modelo
+          displayName: Bicep
           href: bicep-tutorial-create-first-bicep.md
         - name: 2 - Adicionar parâmetros
+          displayName: Bicep
           href: bicep-tutorial-add-parameters.md
         - name: 3 - Adicionar funções de modelo
+          displayName: Bicep
           href: bicep-tutorial-add-functions.md
         - name: 4 - Adicionar variáveis
+          displayName: Bicep
           href: bicep-tutorial-add-variables.md
         - name: 5 - Adicionar saídas
+          displayName: Bicep
           href: bicep-tutorial-add-outputs.md
         - name: 6 - Use o modelo exportado
+          displayName: Bicep
           href: bicep-tutorial-export-template.md
         - name: 7 - Use o modelo Quickstart
+          displayName: Bicep
           href: bicep-tutorial-quickstart-template.md
         - name: 8 - Adicionar etiquetas
+          displayName: Bicep
           href: bicep-tutorial-add-tags.md
         - name: 9 - Utilizar o ficheiro de parâmetros
+          displayName: Bicep
           href: bicep-tutorial-use-parameter-file.md
         - name: 10 - Adicionar módulos
+          displayName: Bicep
           href: bicep-tutorial-add-modules.md
     - name: Implementação
       items:

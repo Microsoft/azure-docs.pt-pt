@@ -9,17 +9,18 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7dcd630b0d5987c796ebb5a02657af9130221e6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 78b31cb32e3df9b0d8e198d8c2122e492e609283
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045625"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625823"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
 **Azure Synapse** é um serviço de análise empresarial que acelera o tempo para conhecer armazéns de dados e grandes sistemas de dados. A Azure Synapse reúne o melhor das tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** utilizadas para big data, **Pipelines** para integração de dados e ETL/ELT, e integração profunda com outros serviços Azure, como **Power BI,** **CosmosDB,** e **AzureML.**
 
+![Diagrama da arquitetura Azure Synapse Analytics.](./media/overview-what-is/synapse-architecture.png)
 
 ## <a name="industry-leading-sql"></a>SQL líder da indústria
 
@@ -66,7 +67,7 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 
 **O Synapse Studio** é a experiência do utilizador que une tudo para engenheiros de dados. Permite-lhes fazer todas as tarefas necessárias para construir uma solução de análise completa.
 
-* Principais tarefas de engingeer de dados num só lugar: ingerir, explorar, preparar, orquestrar, visualizar
+* Principais tarefas de engenheiro de dados num só local: ingerir, explorar, preparar, orquestrar, visualizar
 * Produtividade líder na indústria para a escrita de CÓDIGO SQL ou Spark: autoria, depuração e otimização de desempenho
 * Integrar-se com o processo CI/CD da empresa
 
