@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863688"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612029"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configurar um aparelho para servidores em Hiper-V
 
@@ -39,7 +39,7 @@ Para configurar o aparelho utilizando um modelo VHD:
 
 1. Em **Objetivos de Migração**  >  **Windows, Linux e SQL Servers**  >  **Azure Migrate: Discovery and assessment**, selecione **Discover**.
 2. In **Discover servers**  >  **Are your servers virtualized?** 
-3. Em **1:Gerar tecla de projeto,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores em Hiper-V.O nome deve ser alfanumérico com 14 caracteres ou menos.
+3. Em **1:Gere a tecla do projeto,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores em Hiper-V. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Não feche a página de servidores Discover durante a criação de recursos.
 1. Após a criação bem sucedida dos recursos Azure, gera-se uma **chave de projeto.**
 1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
@@ -53,7 +53,6 @@ Em **2: Descarregue o aparelho Azure Migrate,** selecione o . Ficheiro VHD e cli
 
    ![Seleções para Gerar Tecla](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
-
 ### <a name="verify-security"></a>Verificar segurança
 
 Verifique se o ficheiro com fecho está seguro, antes de o colocar.
@@ -63,9 +62,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-
-
-
+Verifique o último valor de haxixe comparando o resultado do comando acima com o valor documentado [aqui](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security)
 
 ## <a name="create-the-appliance"></a>Criar o aparelho
 
@@ -85,7 +82,6 @@ Importe o ficheiro descarregado e crie um aparelho.
 5. In **Choose Network**, especifique o interruptor virtual que o servidor irá utilizar. O switch precisa de conectividade na Internet para enviar dados para o Azure.
 6. Em **Resumo,** reveja as definições. Em seguida, clique em **Concluir**.
 7. No Hyper-V Manager > **Máquinas Virtuais,** inicie o VM.
-
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
@@ -128,8 +124,6 @@ Coloque o aparelho pela primeira vez.
 1. Depois de iniciar sessão com sucesso, volte ao separador anterior com o gestor de configuração do aparelho.
 4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
 1. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Credenciais de delegado para VHDs SMB
 

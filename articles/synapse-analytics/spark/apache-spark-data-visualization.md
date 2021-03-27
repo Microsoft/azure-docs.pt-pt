@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7e57cdca1d212e6077d685d95a8f869c12e546a8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98121530"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627953"
 ---
 # <a name="visualize-data"></a>Visualizar os dados
 O Azure Synapse é um serviço de análise integrado que acelera o tempo de perspicácia, através de armazéns de dados e sistemas de análise de big data. A visualização de dados é um componente chave para ser capaz de obter informações sobre os seus dados. Ajuda a tornar os dados grandes e pequenos mais fáceis de entender pelos humanos. Também facilita a deteção de padrões, tendências e outliers em grupos de dados. 
@@ -34,6 +34,7 @@ Para aceder às opções do gráfico:
    ![incorporado em gráficos](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
 3. Pode agora personalizar a sua visualização especificando os seguintes valores:
+
    | Configuração | Descrição |
    |--|--| 
    | Tipo de Gráfico | A ```display``` função suporta uma ampla gama de tipos de gráficos, incluindo gráficos de barras, enredos de dispersão, gráficos de linha, e muito mais |
@@ -148,6 +149,37 @@ svg
 ## <a name="popular-libraries"></a>Bibliotecas Populares
 No que diz respeito à visualização de dados, python oferece várias bibliotecas de gráficos que vêm repletas de muitas funcionalidades diferentes. Por padrão, cada Piscina de Faíscas Apache em Azure Synapse Analytics contém um conjunto de bibliotecas de código aberto com curadoria e populares. Também pode adicionar ou gerir bibliotecas adicionais & versões utilizando as capacidades de gestão da biblioteca Azure Synapse Analytics. 
 
+### <a name="matplotlib"></a>Matplotlib
+Pode tornar as bibliotecas padrão de conspiração, como o Matplotlib, utilizando as funções de renderização incorporadas para cada biblioteca.
+
+A imagem a seguir é um exemplo de criação de um gráfico de barras utilizando **Matplotlib**.
+   ![Exemplo de gráfico de linha.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+
+Executar o seguinte código de amostra para desenhar a imagem acima.
+
+```python
+# Bar chart
+
+import matplotlib.pyplot as plt
+
+x1 = [1, 3, 4, 5, 6, 7, 9]
+y1 = [4, 7, 2, 4, 7, 8, 3]
+
+x2 = [2, 4, 6, 8, 10]
+y2 = [5, 6, 2, 6, 2]
+
+plt.bar(x1, y1, label="Blue Bar", color='b')
+plt.bar(x2, y2, label="Green Bar", color='g')
+plt.plot()
+
+plt.xlabel("bar number")
+plt.ylabel("bar height")
+plt.title("Bar Chart Example")
+plt.legend()
+plt.show()
+```
+
+
 ### <a name="bokeh"></a>Bokeh
 Pode renderizar bibliotecas HTML ou interativas, como **bokeh,** utilizando o ```displayHTML(df)``` . 
 
@@ -186,41 +218,49 @@ html = file_html(p, CDN, "my plot1")
 displayHTML(html)
 ```
 
-### <a name="matplotlib"></a>Matplotlib
-Pode tornar as bibliotecas padrão de conspiração, como o Matplotlib, utilizando as funções de renderização incorporadas para cada biblioteca.
 
-A imagem a seguir é um exemplo de criação de um gráfico de barras utilizando **Matplotlib**.
-   ![Exemplo de gráfico de linha.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+### <a name="plotly"></a>Plotly
+Pode renderizar bibliotecas HTML ou interativas como **a Plotly,** utilizando o **displayHTML()**.
 
-Executar o seguinte código de amostra para desenhar a imagem acima.
+Executar o seguinte código de amostra para desenhar a imagem abaixo.
+
+   ![exemplo plotly](./media/apache-spark-development-using-notebooks/synapse-plotly-image.png#lightbox)
+
 
 ```python
-# Bar chart
+from urllib.request import urlopen
+import json
+with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+    counties = json.load(response)
 
-import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/fips-unemp-16.csv",
+                   dtype={"fips": str})
 
-x1 = [1, 3, 4, 5, 6, 7, 9]
-y1 = [4, 7, 2, 4, 7, 8, 3]
+import plotly.express as px
 
-x2 = [2, 4, 6, 8, 10]
-y2 = [5, 6, 2, 6, 2]
+fig = px.choropleth(df, geojson=counties, locations='fips', color='unemp',
+                           color_continuous_scale="Viridis",
+                           range_color=(0, 12),
+                           scope="usa",
+                           labels={'unemp':'unemployment rate'}
+                          )
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
-plt.bar(x1, y1, label="Blue Bar", color='b')
-plt.bar(x2, y2, label="Green Bar", color='g')
-plt.plot()
+# create an html document that embeds the Plotly plot
+h = plotly.offline.plot(fig, output_type='div')
 
-plt.xlabel("bar number")
-plt.ylabel("bar height")
-plt.title("Bar Chart Example")
-plt.legend()
-plt.show()
+# display this html
+displayHTML(h)
 ```
+
 
 ### <a name="additional-libraries"></a>Bibliotecas adicionais 
 Além destas bibliotecas, o Azure Synapse Analytics Runtime também inclui o seguinte conjunto de bibliotecas que são frequentemente usadas para visualização de dados:
 - [Matplotlib](https://matplotlib.org/)
 - [Bokeh](https://bokeh.org/)
 - [Seaborn](https://seaborn.pydata.org/) 
+- [Plotly](https://plotly.com/)
 
 Pode visitar a [documentação](./spark/../apache-spark-version-support.md) do Runtime Azure Synapse Analytics para obter as informações mais atualizadas sobre as bibliotecas e versões disponíveis.
 

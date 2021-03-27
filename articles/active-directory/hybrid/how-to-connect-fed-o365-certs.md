@@ -16,22 +16,29 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effdd156858caf5717aac92433e8bc5f4f6147ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8e81cb9018d817fb206915a81fdc3bdd60f6b08c
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101686874"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611893"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Renovar certificados da federação para Microsoft 365 e Azure Ative Directory
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Para uma federação bem sucedida entre o Azure Ative Directory (Azure AD) e o Ative Directory Federation Services (AD FS), os certificados utilizados pela AD FS para assinar fichas de segurança para a Azure AD devem corresponder ao que está configurado no Azure AD. Qualquer incompatibilidade pode levar a uma quebra de confiança. O Azure AD garante que estas informações são mantidas sincronizadas quando implementa o AD FS e o Proxy da Aplicação Web (para acesso à extranet).
+
+> [!NOTE]
+> Este artigo fornece informações sobre a falsificação de cerficas da sua federação.  Para a insídua na rotação de emergência ver [Rotação de Emergência dos certificados AD FS](how-to-connect-emergency-ad-fs-certificate-rotation.md)
 
 Este artigo fornece-lhe informações adicionais para gerir os seus certificados de assinatura simbólica e mantê-los em sintonia com a Azure AD, nos seguintes casos:
 
 * Não está a implementar o Proxy da Aplicação Web e, portanto, os metadados da federação não estão disponíveis na extranet.
 * Não está a utilizar a configuração padrão de AD FS para certificados de assinatura simbólica.
 * Está a usar um fornecedor de identidade de terceiros.
+
+> [!IMPORTANT]
+> A Microsoft recomenda vivamente a utilização de um Módulo de Segurança de Hardware (HSM) para proteger e proteger certificados.
+> Para obter mais informações consulte [o Módulo de Segurança de Hardware](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) sob as melhores práticas para garantir o AD FS.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configuração padrão de AD FS para certificados de assinatura simbólica
 Os certificados de assinatura simbólica e de desencriptação são geralmente certificados auto-assinados, e são bons para um ano. Por predefinição, o AD FS inclui um processo de renovação automática chamado **AutoCertificateRollover**. Se estiver a utilizar o AD FS 2.0 ou mais tarde, o Microsoft 365 e o AZure AD atualizam automaticamente o certificado antes de expirar.

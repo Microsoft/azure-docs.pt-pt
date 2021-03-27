@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.custom: references_regions
-ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 52ac3ee4ea2f71e285d21c7b6d082e84fa090da1
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232363"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625913"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Adicione verificação ortográfica a consultas na Pesquisa Cognitiva
 
@@ -25,7 +25,7 @@ Pode melhorar a recuperação corrigindo os termos de consulta individual de pes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Um índice de pesquisa existente, contendo conteúdo inglês
++ Um índice de pesquisa existente, contendo conteúdo inglês. Atualmente, a correção do feitiço não funciona com [sinónimos](search-synonyms.md). Evite usá-lo em índices que especifiquem um mapa de sinónimo em qualquer definição de campo.
 
 + Um cliente de pesquisa para enviar consultas
 

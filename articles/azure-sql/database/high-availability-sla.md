@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 1c210eab0332d01fc6514edc790d729172ed2174
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: a14f8e0ba3ae5cca75cf6518320023703a6d1700
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889064"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626389"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,22 +48,22 @@ Sempre que o motor de base de dados ou o sistema operativo for atualizado, ou se
 
 ## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Disponibilidade redundante da zona de nível de serviço para fins gerais (pré-visualização)
 
-Configuração redundante de zona para o nível de serviço de finalidade geral utiliza [Zonas de Disponibilidade Azure](../../availability-zones/az-overview.md)   para replicar bases de dados em vários locais físicos dentro de uma região de Azure.Ao selecionar a redundância de zona, pode tornar as suas novas bases de dados únicas e piscinas elásticas resistentes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem alterações na lógica da aplicação.
+A configuração redundante da zona para o nível de serviço para fins gerais é oferecida tanto para o cálculo sem servidor como para o cálculo provisionado. Esta configuração utiliza [zonas de disponibilidade de Azure](../../availability-zones/az-overview.md)   para replicar bases de dados em vários locais físicos dentro de uma região do Azure.Ao selecionar a redundância de zona, pode tornar as suas novas bases de dados únicas e piscinas elásticas resistentes a um conjunto muito maior de falhas, incluindo falhas catastróficas do datacenter, sem alterações na lógica da aplicação.
 
 A configuração redundante da zona para o nível de finalidade geral tem duas camadas:  
 
-- Uma camada de dados imponente com os ficheiros de base de dados (.mdf/.ldf) que são armazenados em ZRS PFS [(parte de ficheiros premium](../../storage/files/storage-how-to-create-file-share.md)de armazenamento redundante de zona . Utilizando [o armazenamento redundante de zona,](../../storage/common/storage-redundancy.md) os ficheiros de dados e registos são copiados sincronizadamente em três zonas de disponibilidade de Azure fisicamente isoladas.
-- Uma camada de computação apátrida que executa o processo sqlservr.exe e contém apenas dados transitórios e em cache, tais como TempDB, bases de dados de modelos no SSD anexado, e cache de plano, piscina tampão e piscina de colunas na memória. Este nó apátrida é operado pela Azure Service Fabric que inicializa sqlservr.exe, controla a saúde do nó, e executa falha em outro nó, se necessário. Para bases de dados de finalidades gerais redundantes de zona, os nós com capacidade suplente estão prontamente disponíveis noutras Zonas de Disponibilidade para falha.
+- Uma camada de dados imponente com os ficheiros de base de dados (.mdf/.ldf) que são armazenados em ZRS (armazenamento redundante de zona). Utilizando [zRS,](../../storage/common/storage-redundancy.md) os ficheiros de dados e registos são copiados sincronizadamente em três zonas de disponibilidade de Azure fisicamente isoladas.
+- Uma camada de computação apátrida que executa o processo sqlservr.exe e contém apenas dados transitórios e em cache, tais como TempDB, bases de dados de modelos no SSD anexado, e cache de plano, piscina tampão e piscina de colunas na memória. Este nó apátrida é operado pela Azure Service Fabric que inicializa sqlservr.exe, controla a saúde do nó, e executa falha em outro nó, se necessário. Para bases de dados de fins gerais redundantes e a provisionadas para fins gerais, os nós com capacidade disponível em outras Zonas de Disponibilidade para falha.
 
 A versão redundante da zona da arquitetura de alta disponibilidade para o nível de serviço para fins gerais é ilustrada pelo seguinte diagrama:
 
 ![Configuração redundante de zona para fins gerais](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> A configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Esta funcionalidade não está disponível em SQL Managed Instance. A configuração redundante da zona para fins gerais só está disponível nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Norte da Europa, Europa Ocidental, Sudeste Asiático, Austrália Oriental, Japão Leste, Reino Unido Sul e França Central.
+> A configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Esta funcionalidade não está disponível em SQL Managed Instance. A configuração redundante da zona para o nível de finalidade geral sem servidor e a provisionada só está disponível nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Norte da Europa, Europa Ocidental, Sudeste Asiático, Austrália Oriental, Japão Leste, Reino Unido Sul e França Central.
 
 > [!NOTE]
-> Bases de dados de Finalidade Geral com um tamanho de 80 vcore podem experimentar degradação de desempenho com configuração redundante de zona. Além disso, operações como cópia de backup, restauro, cópia de base de dados e configuração de relações Geo-DR podem experimentar um desempenho mais lento para qualquer base de dados maior do que 1 TB. 
+> Bases de dados de Finalidade Geral com um tamanho de 80 vcore podem experimentar degradação de desempenho com configuração redundante de zona. Além disso, operações como cópia de backup, restauro, cópia de base de dados, criação de relações Geo-DR e degradação de uma base de dados redundante de zona de Business Critical para Final Geral podem experimentar um desempenho mais lento para qualquer base de dados maior do que 1 TB. Consulte a nossa [documentação de latência sobre o escalonamento de uma base de dados](single-database-scale.md) para obter mais informações.
 > 
 > [!NOTE]
 > A pré-visualização não é abrangida pela Instância Reservada

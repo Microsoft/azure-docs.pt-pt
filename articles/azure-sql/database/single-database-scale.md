@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 5852899175f9cc9f2725b875c6e1ce9fd682768d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773254"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625273"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individual na Base de Dados SQL do Azure
 
@@ -61,7 +61,10 @@ A latência estimada para alterar o nível de serviço, escalar o tamanho do cá
 > Além disso, para as bases de dados Standard (S2-S12) e General Purpose, a latência para mover uma base de dados dentro/para fora de uma piscina elástica ou entre piscinas elásticas será proporcional ao tamanho da base de dados se a base de dados estiver a utilizar o armazenamento de Premium File Share[(PFS).](../../storage/files/storage-files-introduction.md)
 >
 > Para determinar se uma base de dados está a utilizar o armazenamento de PFS, execute a seguinte consulta no contexto da base de dados. Se o valor na coluna AccountType for `PremiumFileStorage` `PremiumFileStorage-ZRS` ou, a base de dados está a utilizar o armazenamento de PFS.
- 
+
+[!NOTE]
+ A propriedade redundante da zona permanecerá a mesma por padrão ao escalar do Negócio Crítico para o nível de Finalidade Geral. A latência para esta degradação quando o despedimento de zona estiver habilitado, bem como a latência para a mudança para a zona de redundância para o nível de finalidade geral serão proporcionais ao tamanho da base de dados.
+
 ```sql
 SELECT s.file_id,
        s.type_desc,

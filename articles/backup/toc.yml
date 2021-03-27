@@ -224,13 +224,21 @@
       items:
         - name: Descrição geral
           href: disk-backup-overview.md
-        - name: Cópia de segurança
-          href: backup-managed-disks.md
-        - name: Restauro
-          href: restore-managed-disks.md
+        - name: No portal do Azure
+          items:
+            - name: Cópia de segurança
+              href: backup-managed-disks.md
+            - name: Restauro
+              href: restore-managed-disks.md
+        - name: Com o PowerShell
+          items:
+            - name: Cópia de segurança
+              href: backup-managed-disks-ps.md
+            - name: Restauro
+              href: restore-managed-disks-ps.md
     - name: Backup Azure Blobs
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: blob-backup-overview.md
         - name: Configurar e gerir
           href: blob-backup-configure-manage.md

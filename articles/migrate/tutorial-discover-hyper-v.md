@@ -5,18 +5,18 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: d108774aea2d7ac7773dab06efc977dd9e501eb5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108779"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612522"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descubra servidores em execução em Hiper-V com Azure Migrate: Descoberta e avaliação
 
-Como parte da sua viagem de migração para Azure, você descobre o seu inventário no local e cargas de trabalho. 
+Como parte da sua viagem de migração para Azure, você descobre o seu inventário no local e cargas de trabalho.
 
 Este tutorial mostra-lhe como descobrir servidores no local em anfitriões Hiper-V com a ferramenta Azure Migrate: Discovery and assessment, utilizando um aparelho Azure Migrate leve. Implanta o aparelho como servidor no anfitrião Hyper-V, para descobrir continuamente metadados de máquina e desempenho.
 
@@ -42,7 +42,7 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 --- | ---
 **Anfitrião Hyper-V** | Os anfitriões hiper-V nos quais os servidores estão localizados podem ser autónomos ou num cluster.<br/><br/> O anfitrião deve estar a executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2.<br/><br/> Verifique se as ligações de entrada são permitidas na porta WinRM 5985 (HTTP), para que o aparelho possa ligar-se para puxar metadados do servidor e dados de desempenho, utilizando uma sessão do Modelo de Informação Comum (CIM).
 **Implantação do aparelho** | O anfitrião hiper-V necessita de recursos para alocar um servidor para o aparelho:<br/><br/> - 16 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco.<br/><br/> - Um interruptor virtual externo e acesso à Internet no aparelho, diretamente ou através de um representante.
-**Servidores** | Os servidores podem estar a executar qualquer sistema operativo Windows ou Linux. 
+**Servidores** | Os servidores podem estar a executar qualquer sistema operativo Windows ou Linux.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de utilizador Azure
 
@@ -56,7 +56,7 @@ Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscr
 
     ![Caixa de pesquisa para procurar a subscrição do Azure](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. Na página **Subscrições,** selecione a subscrição na qual pretende criar um projeto. 
+2. Na página **Subscrições,** selecione a subscrição na qual pretende criar um projeto.
 3. Na subscrição, selecione **Access Control (IAM)**  >  **Verifique o acesso**.
 4. No **Acesso ao Cheques,** procure na conta de utilizador relevante.
 5. In **Add a role assignment**, clique em **Adicionar**.
@@ -176,7 +176,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
         **Cenário** | **Transferência** | **SHA256**
         --- | --- | ---
-        Hiper-V (8,91 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  40a037987777179428b1c6ebee2614b092e69ac56d48a2bbc75eeef86c99a
+        Hiper-V (8,91 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc10f61b910d6136e02324dc8d8a14f47772351b46d9127
 
     - Para o Governo de Azure:
 
@@ -293,5 +293,3 @@ Após o fim da descoberta, pode verificar se os servidores aparecem no portal.
 
 - [Avaliar servidores em ambiente Hiper-V](tutorial-assess-hyper-v.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---hyper-v) que o aparelho recolhe durante a descoberta.
-
-

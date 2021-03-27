@@ -2,23 +2,24 @@
 title: Modelo de implementação - Portal Azure
 description: Saiba como criar o seu primeiro modelo de Gestor de Recursos Azure (modelo ARM) utilizando o portal Azure e como implementá-lo.
 author: mumian
-ms.date: 03/09/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 20b1bf47ae2fd63e91a11c8cccd1f03cf3464899
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: contperfq1
+ms.openlocfilehash: 279dde9c4cd7b19086d29d3ba31a32c60a8cdf0b
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548176"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612930"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Quickstart: Criar e implementar modelos ARM utilizando o portal Azure
 
 Aprenda a gerar um modelo de Gestor de Recursos Azure (modelo ARM) utilizando o portal Azure e o processo de edição e implementação do modelo a partir do portal. Os modelos ARM são ficheiros JSON que definem os recursos necessários para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo.](overview.md)
 
-![Diagrama do portal quickstart do gestor de recursos](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
-
 Depois de completar o tutorial, você implanta uma conta de Armazenamento Azure. O mesmo processo pode ser usado para implantar outros recursos Azure.
+
+![Diagrama do portal quickstart do gestor de recursos](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

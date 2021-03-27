@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 01/20/2020
+ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: bdd59c80408910bf8ca51bf787c8ff15dc2a4893
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 4d037bdf266e70a2621b2627bc88abce30af652c
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889761"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612624"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -470,6 +470,7 @@ Eis algumas coisas a ter em conta enquanto utiliza o controlo de acesso baseado 
     Para obter mais informações sobre o Azure RBAC com a rede, consulte as [funções embutidas em rede](../role-based-access-control/built-in-roles.md#networking).
 
 - Às vezes pode levar até 1 hora para que as suas novas tarefas de função produzam efeitos sobre permissões em cache através da pilha.
+- [O acesso condicional](../role-based-access-control/conditional-access-azure-management.md) não é suportado atualmente com Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passos seguintes
 

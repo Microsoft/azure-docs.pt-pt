@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a03ca4bcad9bb577db68e2728ff9dbebb5779a7a
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606220"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626831"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
 
-Em Azure Cognitive Search, typeahead ou "search-as-you-type" é ativado através de um *sugestivo*. Um sugestivo é uma estrutura interna de dados que consiste numa recolha de campos. Os campos são submetidos a tokenização adicional, gerando sequências de prefixos para suportar partidas em termos parciais. Por exemplo, um sugestivo que inclua um campo da Cidade terá combinações de prefixos de "mar", "assento", "seatt" e "seattl" para o termo "Seattle".
+Em Azure Cognitive Search, typeahead ou "search-as-you-type" é ativado através de um *sugestivo*. Um sugestivo fornece uma lista de campos que são submetidos a tokenização adicional, gerando sequências de prefixo para suportar partidas em termos parciais. Por exemplo, um sugestivo que inclua um campo da Cidade com um valor para "Seattle" terá combinações de prefixos de "mar", "assento", "seatt" e "seattl" para apoiar a tipahead.
 
 Os jogos em termos parciais podem ser uma consulta auto-completa ou uma correspondência sugerida. O mesmo sugestivo apoia ambas as experiências.
 
@@ -171,11 +171,13 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Código de exemplo
 
-+ [Crie a sua primeira aplicação em C# (lição 3 - Adicione a amostra de pesquisa-como-o-tipo)](tutorial-csharp-type-ahead-and-suggestions.md) demonstra consultas sugeridas, navegação autocompleta e frontal. Esta amostra de código funciona num serviço de pesquisa cognitiva Azure e utiliza um índice de Hotéis pré-carregado com um sugestivo já criado, por isso tudo o que tem de fazer é pressionar f5 para executar a aplicação. Não é necessária nenhuma subscrição ou inscrição.
++ [Adicionar pesquisa a um web site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) utiliza um pacote de sugestões de código aberto para conclusão parcial do prazo na aplicação do cliente.
+
++ [Crie a sua primeira aplicação em C# (lição 3 - Adicione a amostra de pesquisa-como-o-tipo)](tutorial-csharp-type-ahead-and-suggestions.md) demonstra consultas sugeridas, navegação autocompleta e frontal. Este código fornece suporte nativo para typeahead em vez de usar um widget.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Recomendamos o seguinte artigo para saber mais sobre como os pedidos de formulação.
+Saiba mais sobre a formulação de pedidos\
 
 > [!div class="nextstepaction"]
 > [Adicionar autocompleto e sugestões ao código do cliente](search-add-autocomplete-suggestions.md)

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 120335a7bce83bc3d4771ea64f665d67c7d1079a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d41b06bb0c2b26776f9d9c195c3a713e4dae9f82
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98572804"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626633"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performance and scale in Durable Functions (Azure Functions) (Desempenho e dimensionamento no Durable Functions [Funções do Azure])
 
@@ -40,7 +40,7 @@ Existe uma fila de artigos de trabalho por centro de tarefas em Funções Durado
 
 ### <a name="control-queues"></a>Filas de controlo
 
-Existem *várias filas de controlo* por centro de tarefas em Funções Duradouras. Uma *fila de controlo* é mais sofisticada do que a fila de artigos de trabalho mais simples. As filas de controlo são usadas para desencadear as funções de orquestrador e entidade. Como os exemplos de função do orquestrador e da entidade são singletons imponentes, não é possível usar um modelo de consumidor concorrente para distribuir a carga por VMs. Em vez disso, as mensagens orquestradoras e de entidades são equilibradas em todas as filas de controlo. Mais detalhes sobre este comportamento podem ser encontrados em secções subsequentes.
+Existem *várias filas de controlo* por centro de tarefas em Funções Duradouras. Uma *fila de controlo* é mais sofisticada do que a fila de artigos de trabalho mais simples. As filas de controlo são usadas para desencadear as funções de orquestrador e entidade. Como os exemplos de função do orquestrador e da entidade são singletons imponentes, é importante que cada orquestração ou entidade seja processada apenas por um trabalhador de cada vez. Para tal, cada instância ou entidade de orquestração é atribuída a uma única fila de controlo. Estas filas de controlo são equilibradas entre os trabalhadores para garantir que cada fila seja processada apenas por um trabalhador de cada vez. Mais detalhes sobre este comportamento podem ser encontrados em secções subsequentes.
 
 As filas de controlo contêm uma variedade de tipos de mensagens de ciclo de vida de orquestração. Exemplos incluem [mensagens de controlo de orquestradores,](durable-functions-instance-management.md)mensagens *de resposta da função* de atividade e mensagens temporais. Até 32 mensagens serão retiradas de uma fila de controlo numa única sondagem. Estas mensagens contêm dados de carga útil, bem como metadados, incluindo qual a instância de orquestração para a qual se destina. Se várias mensagens desosseadas forem destinadas à mesma instância de orquestração, serão processadas como um lote.
 
@@ -56,7 +56,7 @@ O máximo de atraso nas sondagens é configurável através da `maxQueuePollingI
 ### <a name="orchestration-start-delays"></a>Atrasos no início da orquestração
 As instâncias de orquestração começam colocando uma `ExecutionStarted` mensagem numa das filas de controlo do centro de tarefas. Sob certas condições, pode observar atrasos de vários segundos entre quando uma orquestração está programada para ser executada e quando realmente começa a funcionar. Durante este intervalo de tempo, a instância de orquestração permanece no `Pending` estado. Há duas causas potenciais deste atraso:
 
-1. **Filas de controlo retrostruidas**: Se a fila de controlo deste caso contiver um grande número de mensagens, pode demorar algum tempo até que a `ExecutionStarted` mensagem seja recebida e processada pelo tempo de funcionamento. Os atrasos nas mensagens podem acontecer quando as orquestrações estão a processar muitos eventos simultaneamente. Eventos que entram na fila de controlo incluem eventos de início de orquestração, conclusão de atividades, temporizadores duráveis, rescisão e eventos externos. Se este atraso acontecer em circunstâncias normais, considere criar um novo centro de tarefas com um maior número de divisórias. Configurar mais divisórias fará com que o tempo de execução crie mais filas de controlo para distribuição de carga.
+1. **Filas de controlo retrostruidas**: Se a fila de controlo deste caso contiver um grande número de mensagens, pode demorar algum tempo até que a `ExecutionStarted` mensagem seja recebida e processada pelo tempo de funcionamento. Os atrasos nas mensagens podem acontecer quando as orquestrações estão a processar muitos eventos simultaneamente. Eventos que entram na fila de controlo incluem eventos de início de orquestração, conclusão de atividades, temporizadores duráveis, rescisão e eventos externos. Se este atraso acontecer em circunstâncias normais, considere criar um novo centro de tarefas com um maior número de divisórias. Configurar mais divisórias fará com que o tempo de execução crie mais filas de controlo para distribuição de carga. Cada divisória corresponde a 1:1 com uma fila de controlo, com um máximo de 16 divisórias.
 
 2. **Atrasos nas sondagens**: Outra causa comum de atrasos na orquestração é o [comportamento de sondagens de back-off previamente descrito para filas de controlo](#queue-polling). No entanto, este atraso só é esperado quando uma aplicação é reduzida para dois ou mais casos. Se houver apenas uma instância de aplicação ou se a instância da aplicação que inicia a orquestração é também a mesma instância que está a sondar a fila de controlo alvo, então não haverá um atraso nas sondagens. Os atrasos nas sondagens podem ser reduzidos atualizando o **host.jsnas** definições, como descrito anteriormente.
 
@@ -94,7 +94,12 @@ Se não for especificada, a conta de armazenamento predefinida `AzureWebJobsStor
 
 ## <a name="orchestrator-scale-out"></a>Escala de orquestrador
 
-As funções de atividade são apátridas e escalonada automaticamente adicionando VMs. As funções e entidades orquestradoras, por outro lado, são *divididas* através de uma ou mais filas de controlo. O número de filas de controlo é definido no **host.jsem** ficheiro. O exemplo a seguir host.jsno snippet define a `durableTask/storageProvider/partitionCount` propriedade (ou `durableTask/partitionCount` em Funções Duradouras 1.x) para `3` .
+Embora as funções de atividade possam ser dimensionadas infinitamente adicionando mais VMs elasticamente, instâncias e entidades orquestradoras individuais são limitadas a habitar uma única divisória e o número máximo de divisórias é limitado pela `partitionCount` configuração na sua `host.json` . 
+
+> [!NOTE]
+> De um modo geral, as funções de orquestrador destinam-se a ser leves e não devem exigir grandes quantidades de poder de computação. Por conseguinte, não é necessário criar um grande número de divisórias de fila de controlo para obter grande produção para orquestrações. A maior parte do trabalho pesado deve ser feito em funções de atividade apátrida, que podem ser escalonadas infinitamente.
+
+O número de filas de controlo é definido no **host.jsem** ficheiro. O exemplo a seguir host.jsno snippet define a `durableTask/storageProvider/partitionCount` propriedade (ou `durableTask/partitionCount` em Funções Duradouras 1.x) para `3` . Note que há tantas filas de controlo como divisórias.
 
 ### <a name="durable-functions-2x"></a>Funções duradouras 2.x
 
@@ -124,11 +129,25 @@ As funções de atividade são apátridas e escalonada automaticamente adicionan
 
 Um centro de tarefas pode ser configurado com entre 1 e 16 divisórias. Se não for especificado, a contagem de divisórias predefinida é **de 4**.
 
-Ao escalar para várias instâncias de anfitrião de funções (normalmente em VMs diferentes), cada instância adquire um bloqueio em uma das filas de controlo. Estes cadeados são implementados internamente como locações de armazenamento de bolhas e garantem que uma instância ou entidade de orquestração só funciona em um único caso de anfitrião de cada vez. Se um centro de tarefas estiver configurado com três filas de controlo, as instâncias de orquestração e as entidades podem ser equilibradas em cargas até três VMs. VMs adicionais podem ser adicionados para aumentar a capacidade de execução da função de atividade.
+Durante cenários de tráfego baixo, a sua aplicação será dimensionada, pelo que as divisórias serão geridas por um pequeno número de trabalhadores. Como exemplo, considere o diagrama abaixo.
+
+![Diagrama de orquestrações em escala](./media/durable-functions-perf-and-scale/scale-progression-1.png)
+
+No diagrama anterior, vemos que os orquestradores 1 a 6 são carregados equilibrados entre divisórias. Da mesma forma, as divisórias, como as atividades, são equilibradas entre os trabalhadores. As divisórias são equilibradas em todos os trabalhadores, independentemente do número de orquestradores que começam.
+
+Se estiver a executar os planos Azure Functions Consumption ou Elastic Premium, ou se tiver uma configuração de auto-dimensionamento à base de carga, mais trabalhadores serão alocados à medida que o tráfego aumenta e as divisórias acabarão por carregar o equilíbrio em todos os trabalhadores. Se continuarmos a escalonar, eventualmente cada divisória será eventualmente gerida por um único trabalhador. Por outro lado, as atividades continuarão a ser equilibradas em todos os trabalhadores. Isto é mostrado na imagem abaixo.
+
+![Primeiro diagrama de orquestrações em escala](./media/durable-functions-perf-and-scale/scale-progression-2.png)
+
+O limite superior do número máximo de orquestrações _ativas_ simultâneas em *qualquer momento* é igual ao número de trabalhadores alocados à sua aplicação _vezes_ o seu valor para `maxConcurrentOrchestratorFunctions` . Este limite superior pode ser tornado mais preciso quando as suas divisórias são totalmente dimensionadas entre os trabalhadores. Quando totalmente dimensionado, e uma vez que cada trabalhador terá apenas uma única instância de anfitrião funções, o número máximo de instâncias _de orquestração ativas_ simultâneas será igual ao seu número de divisórias _vezes_ o seu valor para `maxConcurrentOrchestratorFunctions` . A nossa imagem abaixo ilustra um cenário totalmente dimensionado onde mais orquestradores são adicionados, mas alguns são inativos, mostrados em cinza.
+
+![Segundo diagrama de orquestrações em escala](./media/durable-functions-perf-and-scale/scale-progression-3.png)
+
+Durante a escala, as fechaduras de fila de controlo podem ser redistribuídas através de instâncias de anfitrião de funções para garantir que as divisórias são distribuídas uniformemente. Estes cadeados são implementados internamente como locações de armazenamento de bolhas e garantem que qualquer instância ou entidade de orquestração individual só funciona em um único caso de anfitrião de cada vez. Se um centro de tarefas estiver configurado com três divisórias (e, portanto, três filas de controlo), as instâncias de orquestração e as entidades podem ser equilibradas em todas as três instâncias hospedeiras de locação. VMs adicionais podem ser adicionados para aumentar a capacidade de execução da função de atividade.
 
 O diagrama seguinte ilustra como o hospedeiro Azure Functions interage com as entidades de armazenamento num ambiente de escala.
 
-![Diagrama de escala](./media/durable-functions-perf-and-scale/scale-diagram.png)
+![Diagrama de escala](./media/durable-functions-perf-and-scale/scale-interactions-diagram.png)
 
 Como mostrado no diagrama anterior, todos os VMs competem por mensagens na fila do item de trabalho. No entanto, apenas três VMs podem adquirir mensagens a partir de filas de controlo, e cada VM bloqueia uma única fila de controlo.
 

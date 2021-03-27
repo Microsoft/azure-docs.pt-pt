@@ -1,17 +1,17 @@
 ---
 title: Use diretório ativo Azure - Base de Dados Azure para MySQL
 description: Saiba como configurar o Azure Ative Directory (Azure AD) para autenticação com Azure Database for MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: f5890ddb2a4b1599dbcfd1e624c9fbe71a564de7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 808c3589ba5b51b035ccc8165489c4d11203dd66
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102442762"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612233"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
 

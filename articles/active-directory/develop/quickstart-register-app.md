@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fa5ecd19863e8a37efdf533e68aeaed053c552f8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578809"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625684"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registar uma aplicação com a plataforma de identidade microsoft
 
@@ -56,7 +56,10 @@ Siga estes passos para criar o registo da aplicação:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot do portal Azure num navegador web, mostrando ao Registo um painel de aplicações.":::
 
-Quando a inscrição termina, o portal Azure exibe o painel **de visão geral** do registo da aplicação. Vê o **ID da Aplicação (cliente).** Também chamado de ID do *cliente,* este valor identifica exclusivamente a sua aplicação na plataforma de identidade microsoft.
+Quando a inscrição termina, o portal Azure exibe o painel **de visão geral** do registo da aplicação. Vê o **ID da Aplicação (cliente).** Também chamado de ID do *cliente,* este valor identifica exclusivamente a sua aplicação na plataforma de identidade microsoft. 
+
+> [!IMPORTANT]
+> Por padrão, os novos registos de aplicações são ocultas aos utilizadores. Quando estiver pronto para que os utilizadores vejam a aplicação na sua [página My Apps,](../user-help/my-apps-portal-end-user-access.md) pode ative-la. Para ativar a aplicação, no portal Azure navegue para aplicações **Azure Ative Diretor**  >  **Enterprise** e selecione a aplicação. Em seguida, na página **Propriedades** **alternar Visível para os utilizadores?**
 
 O código da sua aplicação, ou mais tipicamente uma biblioteca de autenticação utilizada na sua aplicação, também utiliza o ID do cliente. O ID é usado como parte da validação dos fichas de segurança que recebe da plataforma de identidade.
 
