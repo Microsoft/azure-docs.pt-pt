@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: bc36325b55f049eebef823d836768fccc39a7615
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472174"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643344"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Implantação contínua com recipientes personalizados no Azure App Service
 
@@ -32,7 +32,7 @@ A partir do menu esquerdo, clique em **Definições do Centro de**  >  **Impleme
 **Escolha** a fonte de implantação depende do seu cenário:
 - **O registo do contentor** configura o CI/CD entre o registo do contentor e o Serviço de Aplicações.
 - A opção **GitHub Actions** é para si se mantiver o código fonte para a sua imagem de contentor no GitHub. Desencadeado por novos compromissos com o seu repositório GitHub, a ação de implementação pode ser executada `docker build` e `docker push` diretamente para o seu registo de contentores, atualizando depois a sua aplicação de Serviço de Aplicações para executar a nova imagem. Para obter mais informações, consulte [como o CI/CD funciona com as ações do GitHub](#how-cicd-works-with-github-actions).
-- Para configurar o CI/CD com **os Gasodutos Azure,** consulte [implementar um recipiente de aplicações web Azure a partir de Gasodutos Azure](/devops/pipelines/targets/webapp-on-container-linux).
+- Para configurar o CI/CD com **os Gasodutos Azure,** consulte [implementar um recipiente de aplicações web Azure a partir de Gasodutos Azure](/azure/devops/pipelines/targets/webapp-on-container-linux).
 
 > [!NOTE]
 > Para uma aplicação Docker Compose, selecione **Registo de Contentores.**

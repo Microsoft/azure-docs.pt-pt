@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 057a284f99dd7c3713249b19e8fc39212d9e6003
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101092444"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640271"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso
 
@@ -53,7 +53,7 @@ A tabela seguinte resume o suporte drm nativo em diferentes plataformas e suport
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 para PlayReady|
 | **Dispositivos Android (telefone, tablet, TV)** |Widevine |Cromado para Widevine |
 | **iOS** | FairPlay | Safari para FairPlay (desde o iOS 11.2) |
-| **macOS** | FairPlay | Safari para FairPlay (desde Safari 9+ no Mac OS X 10.11+ El Capitan)|
+| **macOS** | FairPlay | Safari para FairPlay (desde Safari 9+ no macOS X 10.11+ El Capitan)|
 | **tvOS** | FairPlay | |
 
 Tendo em conta o estado atual de implantação de cada DRM, um serviço normalmente quer implementar dois ou três DRMs para se certificar de que aborda todos os tipos de pontos finais da melhor forma.
@@ -357,9 +357,3 @@ A imagem a seguir mostra um cenário que usa uma chave assimétrica através de 
 ![STS personalizado com uma chave assimétrica](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
 
 Em ambos os casos anteriores, a autenticação do utilizador mantém-se a mesma. Passa-se através do Azure AD. A única diferença é que os JWTs são emitidos pela STS personalizada em vez de Azure AD. Ao configurar uma proteção dinâmica do CENC, a restrição do serviço de entrega de licença especifica o tipo de JWT, seja uma chave simétrica ou assimétrica.
-
-## <a name="next-steps"></a>Passos seguintes
-
-* [Perguntas mais frequentes](frequently-asked-questions.md)
-* [Visão geral da proteção de conteúdos](content-protection-overview.md)
-* [Proteja o seu conteúdo com DRM](protect-with-drm.md)

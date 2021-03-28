@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/24/2021
-ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740380"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644680"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partilhar e receber dados da Base de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -36,7 +36,20 @@ Quando os dados são recebidos na tabela SQL e se a tabela-alvo ainda não exist
 Abaixo está a lista de pré-requisitos para a partilha de dados de fonte SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Pré-requisitos para a partilha da Azure SQL Database ou da Azure Synapse Analytics (anteriormente Azure SQL DW)
-Pode seguir a [demonstração passo](https://youtu.be/hIE-TjJD8Dc) a passo para configurar os pré-requisitos.
+
+
+Para partilhar dados utilizando a autenticação do Azure Ative Directory, aqui está uma lista de pré-requisitos:
+
+* Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW) com tabelas e vistas que pretende partilhar.
+* Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de **Contribuidor**.
+* Sql Server **Azure Ative Directory Admin**
+* Acesso sql Server Firewall. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o servidor SQL. Selecione *Firewalls e redes virtuais* a partir da navegação à esquerda.
+    1. Clique **em Sim** para permitir que os *serviços e recursos do Azure acedam a este servidor.*
+    1. Clique **em +Adicionar IP ao cliente.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama de IP.
+    1. Clique em **Guardar**. 
+
+Para partilhar dados usando a autenticação SQL, abaixo está uma lista de pré-requisitos. Pode seguir a [demonstração passo](https://youtu.be/hIE-TjJD8Dc) a passo para configurar os pré-requisitos.
 
 * Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW) com tabelas e vistas que pretende partilhar.
 * Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de **Contribuidor**.
@@ -132,7 +145,9 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
     ![AdicionarDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 
-1. Selecione o seu servidor SQL ou espaço de trabalho Synapse, forneça credenciais se solicitado e selecione **Seguinte** para navegar no objeto que pretende partilhar e selecione 'Adicionar conjuntos de dados'. Você pode selecionar tabelas e vistas de Azure SQL Database e Azure Synapse Analytics (anteriormente Azure SQL DW), ou tabelas da piscina de SQL dedicada Azure Synapse (espaço de trabalho). 
+1. Selecione o seu servidor SQL ou espaço de trabalho Synapse. Se estiver a utilizar a autenticação AAD e a caixa de verificação **Permitir que a Partilha de Dados execute o script SQL 'create user' acima em meu nome,** verifique a caixa de verificação. Se estiver a utilizar a autenticação SQL, forneça credenciais e siga os passos nos pré-requisitos para executar o script no ecrã. Isto dá permissão de recursos de Partilha de Dados para ler a partir do seu SQL DB. 
+
+   Selecione **Seguinte** para navegar no objeto que pretende partilhar e selecione 'Adicionar conjuntos de dados'. Você pode selecionar tabelas e vistas de Azure SQL Database e Azure Synapse Analytics (anteriormente Azure SQL DW), ou tabelas da piscina de SQL dedicada Azure Synapse (espaço de trabalho). 
 
     ![SelecioneDatasets](./media/select-datasets-sql.png "Selecione conjuntos de dados")    
 
@@ -176,7 +191,18 @@ Se optar por receber dados no Azure Storage, abaixo está a lista de pré-requis
 Se optar por receber dados na Base de Dados Azure SQL, a Azure Synapse Analytics, abaixo está a lista de pré-requisitos. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Pré-requisitos para receber dados na Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW)
-Pode seguir a [demonstração passo](https://youtu.be/aeGISgK1xro) a passo para configurar os pré-requisitos.
+
+Para receber dados num servidor SQL onde é o **administrador** do servidor SQL, aqui está uma lista de pré-requisitos:
+
+* Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW).
+* Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de **Contribuidor**.
+* Acesso sql Server Firewall. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o servidor SQL. Selecione *Firewalls e redes virtuais* a partir da navegação à esquerda.
+    1. Clique **em Sim** para permitir que os *serviços e recursos do Azure acedam a este servidor.*
+    1. Clique **em +Adicionar IP ao cliente.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama de IP.
+    1. Clique em **Guardar**. 
+    
+Para receber dados num servidor SQL onde não é o administrador do **Azure Ative Directory,** abaixo está uma lista de pré-requisitos. Pode seguir a [demonstração passo](https://youtu.be/aeGISgK1xro) a passo para configurar os pré-requisitos.
 
 * Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW).
 * Permissão para escrever para bases de dados no servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de **Contribuidor**. 
@@ -264,11 +290,11 @@ Siga os passos abaixo para configurar onde pretende receber dados.
 
    ![Mapa para alvo](./media/dataset-map-target.png "Mapa para alvo") 
 
-1. Selecione uma loja de dados-alvo que gostaria que os dados aterrassem. Quaisquer ficheiros de dados ou tabelas na loja de dados-alvo com o mesmo caminho e nome serão substituídos. 
+1. Selecione uma loja de dados-alvo que gostaria que os dados aterrassem. Quaisquer ficheiros de dados ou tabelas na loja de dados-alvo com o mesmo caminho e nome serão substituídos. Se estiver a receber dados no alvo SQL e o **Allow Data Share para executar o script SQL acima 'criar utilizador' na minha** caixa de verificação em meu nome, verifique a caixa de verificação. Caso contrário, siga as instruções em pré-requisitos para executar o script aparecer no ecrã. Isto dará permissão de escrita de recursos de Data Share ao seu SQL DB alvo.
 
    ![Conta de armazenamento alvo](./media/dataset-map-target-sql.png "Loja de Dados-Alvo") 
 
-1. Para a partilha baseada em instantâneos, se o fornecedor de dados criou um calendário instantâneo para fornecer uma atualização regular aos dados, também pode ativar o horário de instantâneo selecionando o separador **'Agenda snapshot'.** Verifique a caixa ao lado do horário de instantâneo e selecione **+ Ativar**.
+1. Para a partilha baseada em instantâneos, se o fornecedor de dados criou um calendário instantâneo para fornecer uma atualização regular aos dados, também pode ativar o horário de instantâneo selecionando o separador **'Agenda snapshot'.** Verifique a caixa ao lado do horário de instantâneo e selecione **+ Ativar**. Note que a primeira snapshot programada começará dentro de um minuto da hora do horário e as fotos subsequentes começarão dentro de segundos da hora programada.
 
    ![Ativar o horário do instantâneo](./media/enable-snapshot-schedule.png "Ativar o horário do instantâneo")
 

@@ -3,14 +3,14 @@ title: CreateUiDefinition.jsno arquivo para painel de portal
 description: Descreve como criar definições de interface de utilizador para o portal Azure. Utilizado na definição de Aplicações Geridas Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 03/26/2021
 ms.author: tomfitz
-ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 586237c6dd909312780163cf316220d2f3fddd8c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89319577"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641653"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para experiência de criação de aplicação gerida do Azure
 
@@ -63,25 +63,29 @@ A `config` propriedade é opcional. Use-o para anular o comportamento predefinid
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
+                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+                        "message": "Can't use test subscription."
                     },
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
+                        "permission": "Microsoft.Compute/virtualmachines/write",
+                        "message": "Must have write permission for the virtual machine."
+                    },
+                    {
+                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+                        "message": "Must have write permission for the extension."
                     }
                 ]
             },
             "resourceProviders": [
-                "<Resource Provider>"
+                "Microsoft.Compute"
             ]
         },
         "resourceGroup": {
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
+                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+                        "message": "Resource group name can't contain 'test'."
                     }
                 ]
             },
@@ -103,11 +107,13 @@ A `config` propriedade é opcional. Use-o para anular o comportamento predefinid
 },
 ```
 
+Para a `isValid` propriedade, escreva uma expressão que se resolva para ser verdadeira ou falsa. Para o `permission` imóvel, especifique uma das ações do [fornecedor de recursos.](../../role-based-access-control/resource-provider-operations.md)
+
 ### <a name="wizard"></a>Feiticeiro
 
 A `isWizard` propriedade permite-lhe exigir validação bem sucedida de cada passo antes de avançar para o passo seguinte. Quando a `isWizard` propriedade não é especificada, o padrão é **falso,** e a validação passo a passo não é necessária.
 
-Quando `isWizard` estiver ativado, definido como **verdadeiro,** o separador **Básicos** está disponível e todos os outros separadores estão desativados. Quando o botão **Seguinte** é selecionado, o ícone do separador indica se a validação de um separador passou ou falhou. Depois de concluídos os campos necessários e validado, o botão **Seguinte** permite a navegação para o separador seguinte. Quando todos os separadores passam a validação, pode ir à página **'Rever e Criar' e** selecionar o botão **Criar** para iniciar a implementação.
+Quando `isWizard` estiver ativado, definido como **verdadeiro,** o separador **Básicos** está disponível e todos os outros separadores estão desativados. Quando o botão **Seguinte** é selecionado, o ícone do separador indica se a validação de um separador passou ou falhou. Depois de concluídos e validados os campos exigidos por um separador, o botão **Seguinte** permite a navegação para o separador seguinte. Quando todos os separadores passam a validação, pode ir à página **'Rever e Criar' e** selecionar o botão **Criar** para iniciar a implementação.
 
 :::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Assistente de separador":::
 
@@ -117,7 +123,7 @@ O básico config permite-lhe personalizar o passo básico.
 
 Para `description` , forneça uma cadeia ativada por marcação que descreva o seu recurso. O formato multi-linha e as ligações são suportadas.
 
-Os `subscription` `resourceGroup` elementos e elementos permitem especificar validações adicionais. A sintaxe para especificar validações é idêntica à validação personalizada para [caixa de texto](microsoft-common-textbox.md). Também pode especificar `permission` validações no grupo de subscrição ou recursos.  
+Os `subscription` `resourceGroup` elementos e elementos permitem especificar mais validações. A sintaxe para especificar validações é idêntica à validação personalizada para [caixa de texto](microsoft-common-textbox.md). Também pode especificar `permission` validações no grupo de subscrição ou recursos.  
 
 O controlo de subscrição aceita uma lista de espaços de nome do fornecedor de recursos. Por exemplo, pode especificar **Microsoft.Compute**. Mostra uma mensagem de erro quando o utilizador seleciona uma subscrição que não suporta o fornecedor de recursos. O erro ocorre quando o fornecedor de recursos não está registado nessa subscrição, e o utilizador não tem permissão para registar o fornecedor de recursos.  
 
@@ -150,7 +156,7 @@ O exemplo a seguir mostra uma caixa de texto que foi adicionada aos elementos pr
 
 ## <a name="steps"></a>Passos
 
-A propriedade passos contém zero ou mais passos adicionais para exibir após o básico. Cada passo contém um ou mais elementos. Considere adicionar passos por função ou nível da aplicação que está a ser implementada. Por exemplo, adicione um passo para entradas de nó mestre, e um passo para os nós operários em um cluster.
+A propriedade dos passos contém zero ou mais passos para exibir após o básico. Cada passo contém um ou mais elementos. Considere adicionar passos por função ou nível da aplicação que está a ser implementada. Por exemplo, adicione um passo para as entradas de nó primário, e um passo para os nós operários em um cluster.
 
 ```json
 "steps": [

@@ -11,12 +11,12 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, tratamento de formulários
-ms.openlocfilehash: 4465f88e3b0ccab8eace1936f426af8dd32af27b
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8d6c2ea760b85e3170b26c63a28d4ac2b3a2ef5a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104872256"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639459"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -185,5 +185,5 @@ Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam
 
 Experimente a nossa ferramenta online e inicie rapidamente para saber mais sobre o serviço Form Recogniser.
 
-* [**Ferramenta de reconhecimento de formulários**](https://fott-preview.microsoft.com/)
+* [**Ferramenta de reconhecimento de formulários**](https://fott-preview.azurewebsites.net/)
 * [**Biblioteca de clientes e arranque rápido da API REST**](quickstarts/client-library.md)

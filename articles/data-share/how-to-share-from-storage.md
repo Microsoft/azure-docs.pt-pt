@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739267"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644656"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 
@@ -178,7 +178,7 @@ Siga os passos nesta secção para configurar um local para receber dados.
 
    ![Screenshot mostrando onde selecionar uma conta de armazenamento alvo.](./media/map-target.png "Armazenamento de alvo.") 
 
-1. Para a partilha baseada em instantâneos, se o fornecedor de dados utilizar um calendário instantâneo para atualizar regularmente os dados, pode ativar o calendário a partir do separador **Agenda instantânea.** Selecione a caixa ao lado do horário de instantâneo. Em seguida, **selecione Ativar**.
+1. Para a partilha baseada em instantâneos, se o fornecedor de dados utilizar um calendário instantâneo para atualizar regularmente os dados, pode ativar o calendário a partir do separador **Agenda instantânea.** Selecione a caixa ao lado do horário de instantâneo. Em seguida, **selecione Ativar**. Note que a primeira snapshot programada começará dentro de um minuto da hora do horário e as fotos subsequentes começarão dentro de segundos da hora programada.
 
    ![Screenshot mostrando como ativar um horário de instantâneo.](./media/enable-snapshot-schedule.png "Ativar o horário do instantâneo.")
 

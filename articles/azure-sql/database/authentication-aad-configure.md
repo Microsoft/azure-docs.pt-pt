@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201203"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643420"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -115,7 +115,7 @@ Para conceder a sua SQL Managed Instance AD ler permissão de leitura usando o p
 
     O processo de alteração do administrador pode demorar vários minutos. Em seguida, o novo administrador aparece na caixa de administração do Ative Directory.
 
-Depois de providenciar um administrador AD Azure para a sua SQL Managed Instance, pode começar a criar os principais servidores AD do Azure (logins) com a sintaxe <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">DE LOGIN CREATE.</a> Para obter mais informações, consulte [a visão geral do SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
+Depois de providenciar um administrador AD Azure para a sua SQL Managed Instance, pode começar a criar os principais servidores AD do Azure (logins) com a sintaxe [DE LOGIN CREATE.](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) Para obter mais informações, consulte [a visão geral do SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
 > Para posteriormente remover um Administrador, no topo da página de administração do Ative Directory, selecione **Remover a administração** e, em seguida, selecione **Save**.
@@ -345,8 +345,8 @@ Em todas as máquinas clientes, a partir das quais as suas aplicações ou utili
 - .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL *(ADAL.DLL*). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [Controlador ODBC 17 para sql server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
-  - [OLE DB Driver 18 para SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
+  - [Controlador ODBC 17 para sql server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
+  - [OLE DB Driver 18 para SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
 
 Pode cumprir estes requisitos através de:
 
@@ -357,7 +357,7 @@ Pode cumprir estes requisitos através de:
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Criar utilizadores contidos mapeados para identidades do AAD
 
-Como a SQL Managed Instance suporta os principais dos servidores Azure AD (logins), não é necessário utilizar utilizadores de bases de dados contidos. Os principais (inícios de sessão) do servidor do Azure Active Directory permitem-lhe criar inícios de sessão a partir de utilizadores, grupos ou aplicações do Azure Active Directory. Isto significa que pode autenticar com o seu SQL Managed Instance utilizando o login do servidor Azure AD em vez de um utilizador de base de dados contido. Para obter mais informações, consulte [a visão geral do SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para sintaxe sobre a criação de principais servidores AD do Azure (logins), consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+Como a SQL Managed Instance suporta os principais dos servidores Azure AD (logins), não é necessário utilizar utilizadores de bases de dados contidos. Os principais (inícios de sessão) do servidor do Azure Active Directory permitem-lhe criar inícios de sessão a partir de utilizadores, grupos ou aplicações do Azure Active Directory. Isto significa que pode autenticar com o seu SQL Managed Instance utilizando o login do servidor Azure AD em vez de um utilizador de base de dados contido. Para obter mais informações, consulte [a visão geral do SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para sintaxe sobre a criação de principais servidores AD do Azure (logins), consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 No entanto, a utilização da autenticação do Azure Ative Directory com base de dados SQL e Azure Synapse requer a utilização de utilizadores de bases de dados contidos com base numa identidade AD Azure. Um utilizador de base de dados contido não tem um login na base de dados principal, e mapeia para uma identidade em Azure AD que está associada à base de dados. A identidade AZure AD pode ser uma conta de utilizador individual ou um grupo. Para obter mais informações sobre os utilizadores de bases de dados contidos, consulte [os Utilizadores da Base de Dados Contidos, tornando a sua base de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5d7b512601d066000f1f64bf99d1fd4be3532b7a
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.openlocfilehash: c6b502bbc56d6c9521ec736150fbc0046ff78125
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105544133"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642490"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob Storage biblioteca de clientes v12 com Xamarin
 
@@ -40,7 +40,7 @@ Links de referência:
 
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * Conta de armazenamento Azure - [crie uma conta de armazenamento](../common/storage-account-create.md)
-* Estúdio Visual com [Desenvolvimento Móvel para carga de trabalho .NET](/xamarin/get-started/installation/?pivots=windows) instalada ou Estúdio Visual para [Mac](/visualstudio/mac/installation?view=vsmac-2019)
+* Estúdio Visual com [Desenvolvimento Móvel para carga de trabalho .NET](/xamarin/get-started/installation/?pivots=windows) instalada ou Estúdio Visual para [Mac](/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true)
 
 ## <a name="setting-up"></a>Configuração
     

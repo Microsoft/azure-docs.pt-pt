@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605217"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645279"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -96,10 +96,12 @@ Ao criar uma rota definida pelo utilizador, pode especificar os tipos de próxim
 
 Não pode especificar **VNet peering** nem **VirtualNetworkServiceEndpoint** como o tipo de próximo salto em rotas definidas pelo utilizador. As rotas que tenham o tipo de próximo salto **VNet peering** ou **VirtualNetworkServiceEndpoint** só são criadas pelo Azure, quando configura um peering de rede virtual ou um ponto final de serviço.
 
-### <a name="service-tags-for-user-defined-routes-public-preview"></a>Etiquetas de serviço para rotas definidas pelo utilizador (Visualização pública)
+### <a name="service-tags-for-user-defined-routes-preview"></a>Etiquetas de serviço para rotas definidas pelo utilizador (Pré-visualização)
 
 Pode agora especificar uma [Etiqueta de Serviço](service-tags-overview.md) como o prefixo de endereço para uma rota definida pelo utilizador em vez de uma gama IP explícita. Uma Etiqueta de Serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes nas rotas definidas pelo utilizador e reduzindo o número de rotas que necessita de criar. Atualmente pode criar 25 ou menos rotas com Etiquetas de Serviço em cada tabela de rotas. </br>
 
+> [!IMPORTANT]
+> As Etiquetas de Serviço para rotas definidas pelo utilizador estão atualmente em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 #### <a name="exact-match"></a>Correspondência Exata
 Quando há uma correspondência de prefixo exata entre uma rota com um prefixo IP explícito e uma rota com uma Etiqueta de Serviço, é dada preferência à rota com o prefixo explícito. Quando várias rotas com Tags de Serviço tiverem prefixos IP correspondentes, as rotas serão avaliadas na seguinte ordem: 

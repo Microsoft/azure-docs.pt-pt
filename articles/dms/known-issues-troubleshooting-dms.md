@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 785567685b77183df0f212897b923d911ac045f6
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ce53e8a77186f96801879e5c9d8f8c65809470d0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105567312"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639803"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Resolução de problemas problemas comuns problemas do Serviço de Migração de Bases de Dados de Azure
 
@@ -132,7 +132,7 @@ Quando tenta ligar o Serviço de Migração da Base de Dados Azure à fonte do S
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Ver o artigo [Serviço de Migração de Bases de Dados Azure PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Ver o artigo [Serviço de Migração de Bases de Dados Azure PowerShell](/powershell/module/azurerm.datamigration#data_migration).
 * Ver o artigo [Como configurar os parâmetros do servidor na Base de Dados Azure para o MySQL utilizando o portal Azure](../mysql/howto-server-parameters.md).
 * Ver o artigo [Visão geral dos pré-requisitos para a utilização do Serviço de Migração da Base de Dados Azure](./pre-reqs.md).
 * Consulte as FAQ sobre a [utilização do Serviço de Migração da Base de Dados Azure.](./faq.md)

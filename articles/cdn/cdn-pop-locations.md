@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: b2c191c508aaa613d6846aebdc5a15a213918e52
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ba6710629f52abd13ef84f2a814c10c6dca18837
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105567275"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641730"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura Azure CDN by Metro 
 > [!div class="op_single_selector"]
@@ -49,4 +49,5 @@ Este artigo lista os atuais Metros que contêm localizações de ponto de presen
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para obter os mais recentes endereços IP para permitir a listagem, consulte a [API API dos Nodes AZURE CDN Edge](/rest/api/cdn/edgenodes).
+
+* Para obter os mais recentes endereços IP para permitir a listagem, consulte a [API API dos Nodes AZURE CDN Edge](/rest/api/cdn/cdn/edgenodes).

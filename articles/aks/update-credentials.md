@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais de serviço princi
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 84cadc54a11c2e57d73fd1f06e98deb3d599d648
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 91d40a5a738737098b0941bf3e41e4edd515e6df
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102501180"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640471"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
@@ -110,7 +110,7 @@ az aks update-credentials \
     --client-secret $SP_SECRET
 ```
 
-Para agrupamentos de pequena e média dimensão, são necessários alguns momentos para que as principais credenciais de serviço sejam atualizadas na AKS.
+Para agrupamentos de pequena e média dimensão, são necessários alguns momentos para que as principais credenciais do serviço sejam atualizadas na AKS.
 
 ## <a name="update-aks-cluster-with-new-aad-application-credentials"></a>Atualizar cluster AKS com novas credenciais de aplicação AAD
 

@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1626dfa739df6b7cf971aa570f14d36ac6c532e7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 874b59b7439621c9d2777a55065cd769a5434567
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96022620"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641333"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma aplicação Xamarin Android com Âncoras Espaciais Azure
 
@@ -37,7 +37,7 @@ Para concluir este início rápido, certifique-se de que tem:
     - <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
     - <a href="https://git-lfs.github.com/">Git LFS.</a>
   - Se utilizar o macOS:
-    - Uma versão atualizada do <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio para Mac 8.1+</a>.
+    - Uma versão atualizada do <a href="/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true" target="_blank">Visual Studio para Mac 8.1+</a>.
     - <a href="https://git-scm.com/download/mac" target="_blank">Git para macOS</a>.
     - <a href="https://git-lfs.github.com/">Git LFS.</a>
 - A mais recente versão do Xamarin.Android instalada e a funcionar na sua plataforma de eleição. Para obter um guia para instalar Xamarin.Android, consulte os guias de [instalação Xamarin.Android.](/xamarin/android/get-started/installation/index)

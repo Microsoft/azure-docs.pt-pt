@@ -828,6 +828,18 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-plat-azp-azcli-net-ps
+  title: Pivôs JS e C#
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: platform-azp
+    title: Portal do Azure
+  - id: platform-azcli
+    title: CLI do Azure
+  - id: platform-net
+    title: .NET
+  - id: platform-powershell
+    title: PowerShell
 - id: acs-js-csharp-java-python
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação
@@ -1107,9 +1119,9 @@ groups:
   - id: programming-language-ios
     title: iOS
 metadata:
-  ms.openlocfilehash: 9f38ab2e9fa0526e2e415966e6322bd14562160b
-  ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+  ms.openlocfilehash: 660a39cf86098ba7262bb139c7dc479de3f44308
+  ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/27/2021
-  ms.locfileid: "105628599"
+  ms.lasthandoff: 03/28/2021
+  ms.locfileid: "105642824"

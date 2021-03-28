@@ -10,12 +10,13 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 01/15/2020
-  ms.openlocfilehash: 3aaf42935e292bda64d9227d01f498c83f4c9f7a
-  ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
-  ms.translationtype: HT
+  ms.custom: e2e-hybrid
+  ms.openlocfilehash: 66a4d80089032e96e2897d4d6bbb42ca2e4ad321
+  ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/16/2021
-  ms.locfileid: "98250779"
+  ms.lasthandoff: 03/28/2021
+  ms.locfileid: "105640027"
 landingContent:
 - title: Acerca da WAN Virtual
   linkLists:

@@ -11,12 +11,13 @@ metadata:
   ms.author: kgremban
   manager: philmea
   ms.date: 08/05/2019
-  ms.openlocfilehash: d1b23b67413f7e270cb894fcf201204afa255b20
-  ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+  ms.custom: e2e-hybrid
+  ms.openlocfilehash: c853bcaff78fadd00305d55ddb60c2fa2b482bc4
+  ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/21/2021
-  ms.locfileid: "98707741"
+  ms.lasthandoff: 03/28/2021
+  ms.locfileid: "105641459"
 landingContent:
 - title: Desenvolver para dispositivos Linux
   linkLists:

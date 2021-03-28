@@ -2,26 +2,18 @@
 title: Media Services v3 offline FairPlay Streaming para iOS
 description: Este tópico dá uma visão geral e mostra como usar o Azure Media Services v3 para encriptar dinamicamente o seu conteúdo HTTP Live Streaming (HLS) com o Apple FairPlay no modo offline.
 services: media-services
-keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
-documentationcenter: ''
 author: willzhan
-manager: steveng
-editor: ''
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
+manager: femila
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: willzhan
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 399f9b0184217db8180fcec38e4f78917d5c9bc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0412ef303a301873d437e03e91c58c0a2e8e7e15
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955243"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640729"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming Offline FairPlay para iOS com Media Services v3
 
@@ -205,10 +197,6 @@ Três amostras de ensaio nos Serviços de Comunicação Social cobrem os seguint
 Pode encontrar estas amostras [neste site de demonstração,](https://aka.ms/poc#22)com o certificado de aplicação correspondente alojado numa aplicação web Azure.
 Com a amostra da versão 3 ou da versão 4 do FPS Server SDK, se uma lista de reprodução principal contiver áudio alternativo, durante o modo offline reproduz apenas áudio. Portanto, é necessário despir o áudio alternativo. Por outras palavras, a segunda e terceira amostras listadas anteriormente funcionam em modo online e offline. A amostra listada pela primeira vez reproduz áudio apenas durante o modo offline, enquanto o streaming on-line funciona corretamente.
 
-## <a name="faq"></a>FAQ
+## <a name="offline-fairplay-questions"></a>Perguntas de fairplay offline
 
-Consulte [perguntas frequentes para ajudar na resolução de problemas.](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode)
-
-## <a name="next-steps"></a>Passos seguintes
-
-Veja como pode [proteger com AES-128](protect-with-aes128.md)
+Consulte [as questões de fairplay offline](questions-collection.md#why-does-only-audio-play-but-not-video-during-offline-mode).

@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e2fa09ac8609310d4579590214bc25e5d7ee309f
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94841653"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641562"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Ligue à Base de Dados Azure SQL com autenticação multi-factor Azure AD
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -113,7 +113,7 @@ O exemplo C# baseia-se no espaço de [`System.Data.SqlClient`](/dotnet/api/syste
   Utilize este valor para a autenticação que requer um nome de utilizador ED Azure e senha. A Base de Dados Azure SQL faz a autenticação. Este método não suporta a autenticação multi-factor.
 
 > [!NOTE]
-> Se estiver a utilizar o .NET Core, irá querer utilizar o espaço [de nomes Microsoft.Data.SqlClient.](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) Para mais informações, consulte o [seguinte blog.](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)
+> Se estiver a utilizar o .NET Core, irá querer utilizar o espaço [de nomes Microsoft.Data.SqlClient.](/dotnet/api/microsoft.data.sqlclient) Para mais informações, consulte o [seguinte blog.](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)
 
 ## <a name="set-c-parameter-values-from-the-azure-portal"></a>Definir valores de parâmetro C# do portal Azure
 
@@ -148,7 +148,7 @@ Para obter mais informações, consulte [a autenticação multi-factor configure
 ## <a name="c-code-example"></a>Exemplo de código C#
 
 > [!NOTE]
-> Se estiver a utilizar o .NET Core, irá querer utilizar o espaço [de nomes Microsoft.Data.SqlClient.](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) Para mais informações, consulte o [seguinte blog.](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)
+> Se estiver a utilizar o .NET Core, irá querer utilizar o espaço [de nomes Microsoft.Data.SqlClient.](/dotnet/api/microsoft.data.sqlclient) Para mais informações, consulte o [seguinte blog.](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)
 
 O programa exemplo C# baseia-se na montagem [*Microsoft.IdentityModel.Clients.ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL.
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Lidar com eventos DE SMS
+title: Quickstart - Lidar com eventos DE SMS para relatórios de entrega e mensagens de entrada
 titleSuffix: An Azure Communication Services quickstart
 description: Saiba como lidar com eventos DE SMS utilizando os Serviços de Comunicação Azure.
 author: mikben
@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d16a4d9ecd2e9246933b2543da3b05239ac2f7f
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655993"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644648"
 ---
-# <a name="quickstart-handle-sms-events"></a>Quickstart: Lidar com eventos DE SMS
+# <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Quickstart: Lidar com eventos DE SMS para relatórios de entrega e mensagens de entrada
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -117,6 +117,7 @@ Neste arranque rápido, aprendeu a consumir eventos de SMS. Pode receber mensage
 > [Enviar SMS](../telephony-sms/send.md)
 
 Também pode querer:
+
 
  - [Conheça os conceitos de manipulação de eventos](../../../event-grid/event-schema-communication-services.md)
  - [Saiba mais sobre a Grelha de Eventos](../../../event-grid/overview.md)

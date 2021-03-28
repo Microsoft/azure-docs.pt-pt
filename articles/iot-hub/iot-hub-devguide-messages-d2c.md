@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: d2fe8f32ec854e1e6db644a039e6a249cfbddcaa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07bbd50dbc415b86aa0c511d46ead9f0612df107
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103012892"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642505"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais
 
@@ -71,7 +71,7 @@ O IoT Hub emoto de mensagens e escreve dados para armazenamento sempre que o lot
 
 Pode utilizar qualquer convenção de nomeação de ficheiros, no entanto deve utilizar todos os tokens listados. O IoT Hub escreverá a uma bolha vazia se não houver dados para escrever.
 
-Recomendamos que se listem as bolhas ou ficheiros e, em seguida, iterando sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. A gama de divisórias pode potencialmente mudar durante uma falha de [failover](iot-hub-ha-dr.md#microsoft-initiated-failover) iniciada pela Microsoft ou [falha manual](iot-hub-ha-dr.md#manual-failover)do IoT Hub . Pode utilizar a [Lista Blobs API](/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de ficheiros. Por favor, consulte a seguinte amostra como orientação.
+Recomendamos que se listem as bolhas ou ficheiros e, em seguida, iterando sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. A gama de divisórias pode potencialmente mudar durante uma falha de [failover](iot-hub-ha-dr.md#microsoft-initiated-failover) iniciada pela Microsoft ou [falha manual](iot-hub-ha-dr.md#manual-failover)do IoT Hub . Pode utilizar a [Lista Blobs API](/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) para a lista de ficheiros. Por favor, consulte a seguinte amostra como orientação.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)

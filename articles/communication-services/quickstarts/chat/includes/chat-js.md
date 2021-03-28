@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 5af681b6edf8abc8145caf599fc0fb3c4daf5c15
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 6fe1e092e1db4ad283f9d0096ea431a1e983f87c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107067"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645454"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -250,7 +250,7 @@ Message sent!, message id:<number>
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Receba mensagens de chat de um fio de chat
 
-Com a sinalização em tempo real, pode subscrever para ouvir novas mensagens recebidas e atualizar as mensagens atuais na memória em conformidade. A Azure Communication Services suporta uma [lista de eventos que pode subscrever.](../../../concepts/chat/concepts.md#real-time-signaling)
+Com a sinalização em tempo real, pode subscrever para ouvir novas mensagens recebidas e atualizar as mensagens atuais na memória em conformidade. A Azure Communication Services suporta uma [lista de eventos que pode subscrever.](../../../concepts/chat/concepts.md#real-time-notifications)
 
 ```JavaScript
 // open notifications channel
@@ -286,17 +286,6 @@ Refresque o separador, na consola deverá encontrar a lista de mensagens enviada
 `listMessages` retorna a versão mais recente da mensagem, incluindo quaisquer edições ou eliminações que aconteceram com a mensagem usando `updateMessage` e `deleteMessage` .
 Para mensagens `chatMessage.deletedOn` eliminadas, retorna um valor de hora de data indicando quando essa mensagem foi eliminada. Para mensagens editadas, `chatMessage.editedOn` retorna uma data indicando quando a mensagem foi editada. O tempo original da criação de mensagens pode ser acedido usando `chatMessage.createdOn` o que pode ser usado para encomendar as mensagens.
 
-`listMessages` retorna diferentes tipos de mensagens que podem ser identificadas por `chatMessage.type` . Estes tipos são:
-
-- `Text`: Mensagem de chat regular enviada por um participante de thread.
-
-- `ThreadActivity/TopicUpdate`: Mensagem do sistema que indica que o tópico foi atualizado.
-
-- `ThreadActivity/AddParticipant`: Mensagem do sistema que indica que um ou mais participantes foram adicionados ao fio de conversação.
-
-- `ThreadActivity/RemoveParticipant`: Mensagem do sistema que indica que um participante foi removido do fio de conversação.
-
-Para mais detalhes, consulte [os Tipos de Mensagens](../../../concepts/chat/concepts.md#message-types).
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Adicione um utilizador como participante ao fio de chat
 

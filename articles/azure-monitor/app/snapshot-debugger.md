@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 57a417948d23d40801eb34cf10aab1e6f17037e6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786486"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644084"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 Quando ocorre uma exceção, pode recolher automaticamente uma imagem de depurar da sua aplicação web ao vivo. O instantâneo mostra o estado do código fonte e as variáveis no momento em que a exceção foi lançada. O Snapshot Debugger in [Azure Application Insights](./app-insights-overview.md) monitoriza a telemetria de exceção da sua aplicação web. Recolhe instantâneos nas suas exceções de arremesso de topo para que tenha a informação necessária para diagnosticar problemas na produção. Inclua o [pacote NuGet do colecionador Snapshot](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) na sua aplicação e configurar opcionalmente os parâmetros de recolha em [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). As imagens aparecem em [exceções](./asp-net-exceptions.md) no portal Application Insights.
@@ -124,7 +124,7 @@ A versão 15.2 (ou acima) do Visual Studio 2017 publica símbolos para as constr
 Para o Azure Compute e outros tipos, certifique-se de que os ficheiros de símbolos estão na mesma pasta da aplicação principal .dll (normalmente,) `wwwroot/bin` ou estão disponíveis no caminho atual.
 
 > [!NOTE]
-> Para obter mais informações sobre as diferentes opções de símbolos disponíveis consulte a documentação do [Estúdio Visual.](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> Para obter mais informações sobre as diferentes opções de símbolos disponíveis consulte a documentação do [Estúdio Visual.](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
 ) Para obter os melhores resultados, recomendamos a utilização de "Full", "Portable" ou "Embedded".
 
 ### <a name="optimized-builds"></a>Construções otimizadas

@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 82a2c3047f851c9fbc273cd13e730572c38b6bcd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775940"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640382"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Utilize Azure DevOps para criar um pipeline CI/CD para um trabalho de Stream Analytics
 
@@ -26,21 +26,21 @@ Os passos deste artigo usam um projeto stream Analytics Visual Studio Code. Se e
 
 ## <a name="create-a-build-pipeline"></a>Criar um pipeline de compilação
 
-Nesta secção, aprende-se a criar um oleoduto de construção. Pode fazer referência a esta amostra [de construção automática e teste do gasoduto](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) em Azure DevOps.
+Nesta secção, aprende-se a criar um oleoduto de construção. 
 
 1. Abra um navegador web e navegue para o seu projeto em Azure DevOps.  
 
-1. Sob **Pipelines** no menu de navegação à esquerda, selecione **Builds**. Em seguida, selecione **Novo oleoduto**.
+2. Sob **Pipelines** no menu de navegação à esquerda, selecione **Builds**. Em seguida, selecione **Novo oleoduto**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/new-pipeline.png" alt-text="Criar novo Gasoduto Azure":::
 
-1. Selecione **Utilize o editor clássico** para criar um oleoduto sem YAML.
+3. Selecione **Utilize o editor clássico** para criar um oleoduto sem YAML.
 
-1. Selecione o seu tipo de origem, projeto de equipa e repositório. Em seguida, **selecione Continue**.
+4. Selecione o seu tipo de origem, projeto de equipa e repositório. Em seguida, **selecione Continue**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Selecione projeto Azure Stream Analytics":::
 
-1. Na página do modelo Escolha uma página **de modelo,** selecione **Trabalho Vazio**.
+5. Na página do modelo Escolha uma página **de modelo,** selecione **Trabalho Vazio**.
 
 ## <a name="install-npm-package"></a>Instalar pacote npm
 
@@ -155,7 +155,7 @@ O ficheiro de resumo do teste e os ficheiros de modelo do Gestor de Recursos Azu
 
 ## <a name="release-with-azure-pipelines"></a>Lançamento com gasodutos Azure
 
-Nesta secção, aprende-se a criar um oleoduto de libertação. Pode fazer referência a este [gasoduto de libertação de](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) amostras em Azure DevOps.
+Nesta secção, aprende-se a criar um oleoduto de libertação. 
 
 Abra um navegador web e navegue para o seu projeto Azure Stream Analytics Visual Studio Code.
 

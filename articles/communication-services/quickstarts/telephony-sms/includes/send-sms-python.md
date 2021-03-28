@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: 727e2166bad7f0d8980ffe4fa18c292a206c37d7
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: aba9b71ec2fbfedecf08577c7bd2eae7a28a5588
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110374"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644305"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação Python SMS SDK para enviar mensagens SMS.
 
@@ -79,7 +79,7 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantiizar um **SmsClient** com a sua cadeia de ligação. Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
+Instantiizar um **SmsClient** com a sua cadeia de ligação. Saiba como gerir a [cadeia de ligação do seu recurso.](../../create-communication-resource.md#store-your-connection-string)
 
 ```python
 # Create the SmsClient object which will be used to send SMS messages
@@ -107,7 +107,7 @@ sms_responses = sms_client.send(
 Deverá substituir `<from-phone-number>` por um número de telefone por SMS associado ao seu serviço de comunicação e `<to-phone-number>` pelo número de telefone a que deseja enviar uma mensagem. 
 
 > [!WARNING]
-> Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +12223344444).
+> Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +14255550123).
 
 ## <a name="send-a-1n-sms-message"></a>Envie uma mensagem SMS 1:N
 
@@ -125,13 +125,16 @@ sms_responses = sms_client.send(
 
 ```
 
-Deverá substituir `<from-phone-number>` por um número de telefone por SMS associado ao seu serviço de comunicação `<to-phone-number-1>` e pelos `<to-phone-number-2>` números de telefone a que deseja enviar uma mensagem. 
+Deverá substituir `<from-phone-number>` por um número de telefone por SMS associado ao seu serviço de comunicação e `<to-phone-number-1>` `<to-phone-number-2>` por números de telefone para os quais deseja enviar uma mensagem. 
+
+> [!WARNING]
+> Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +14255550123).
 
 ## <a name="optional-parameters"></a>Parâmetros Opcionais
 
 O `enable_delivery_report` parâmetro é um parâmetro opcional que pode utilizar para configurar relatórios de entrega. Isto é útil para cenários em que pretende emitir eventos quando as mensagens SMS são entregues. Consulte o [Punho SMS Events](../handle-sms-events.md) quickstart para configurar relatórios de entrega para as suas mensagens SMS.
 
-O `tag` parâmetro é um parâmetro opcional que pode usar para configurar a marcação personalizada.
+O `tag` parâmetro é um parâmetro opcional que pode utilizar para aplicar uma etiqueta no Relatório de Entrega.
 
 ## <a name="run-the-code"></a>Executar o código
 Executar o pedido do seu diretório de candidaturas com o `python` comando.

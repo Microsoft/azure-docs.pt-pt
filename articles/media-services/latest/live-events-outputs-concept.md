@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 0eff5b13a79f64de1863e82a2c9285788accf6fc
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105625301"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641534"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos Serviços de Media
 
@@ -225,14 +225,6 @@ Assim que tiver o stream fluindo para o evento ao vivo, pode iniciar o evento de
 
 Para obter informações detalhadas sobre as saídas ao vivo, consulte [utilizando um DVR em nuvem](live-event-cloud-dvr.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="live-event-output-questions"></a>Questões de saída de eventos ao vivo
 
-Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-streaming)
-
-## <a name="ask-questions-and-get-updates"></a>Faça perguntas e obtenha atualizações
-
-Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
-
-## <a name="next-steps"></a>Passos seguintes
-
-[Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
+Consulte o artigo [questões de saída do evento ao vivo.](questions-collection.md#live-streaming)

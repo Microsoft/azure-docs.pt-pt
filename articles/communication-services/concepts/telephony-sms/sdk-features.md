@@ -5,21 +5,20 @@ description: Fornece uma visão geral do SMS SDK e suas ofertas.
 author: mikben
 manager: jken
 services: azure-communication-services
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: prakulka
+ms.date: 03/26/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 25a5befab6ef141b059caaac7b1784d47f2f93cf
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 2e9f782f0b8fa0be77e70ccdae8849caa4abb81e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108116"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643808"
 ---
 # <a name="sms-sdk-overview"></a>Visão geral do SMS SDK
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -31,15 +30,16 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 
 | Grupo de funcionalidades | Funcionalidade                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| Capacidades do Núcleo | Enviar e receber mensagens SMS </br> *Emojis unicode suportados*                        | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Receber Relatórios de Entrega para mensagens enviadas                                            | ✔️   | ✔️    | ✔️    | ✔️      |
+| Capacidades do Núcleo | Enviar e receber mensagens SMS                                                         | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Ativar relatórios de entrega para mensagens enviadas                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Todos os conjuntos de caracteres (suporte linguístico/unicode)                                         | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Suporte para mensagens longas (até 2048 char)                                           | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Suporte para mensagens longas (até 2048 bytes)                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Auto-concatenação de mensagens longas                                                   | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Enviar mensagens a vários destinatários de cada vez                                        | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Apoio à idempotency                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Etiquetas personalizadas para mensagens.                                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 | Eventos            | Use a Grelha de Eventos para configurar webhooks para receber mensagens de entrada e relatórios de entrega | ✔️   | ✔️    | ✔️    | ✔️      |
 | Número de Telefone      | Toll-Free números                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
-| Regulação        | Opt-Out Manuseamento                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
-| Monitorização        | Monitorize o uso das mensagens enviadas e recebidas                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 | Chamada PSTN      | Adicione as capacidades de chamada PSTN ao seu número gratuito com sms                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>Passos seguintes

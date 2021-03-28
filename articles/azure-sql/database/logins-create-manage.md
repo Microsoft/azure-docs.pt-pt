@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 6383c0fa3aad15da8abaea79136a75732ce9ea01
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a0e9cc9967509eba05bd26f3bad86eefeeb6ca3e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605778"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639472"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à Base de Dados SQL, ao SQL Managed Instance e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ Neste momento, o seu servidor ou instância gerida só está configurado para ac
 
   - Crie um login SQL adicional na base de dados principal.
   - Adicione o login à [função de servidor fixo sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) utilizando a declaração [ALTER SERVER ROLE.](/sql/t-sql/statements/alter-server-role-transact-sql) Este login terá permissões administrativas completas.
-  - Em alternativa, crie um [login AD Azure](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) utilizando a sintaxe [DE LOGIN CREATE.](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)
+  - Em alternativa, crie um [login AD Azure](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) utilizando a sintaxe [DE LOGIN CREATE.](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true)
 
 - **Na Base de Dados SQL, crie logins SQL com permissões administrativas limitadas**
 
@@ -122,9 +122,9 @@ Pode criar contas para utilizadores não administrativos utilizando um de dois m
 
 Para exemplos que mostram como criar logins e utilizadores, consulte:
 
-- [Criar login para Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Criar login para Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Criar login para Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Criar login para Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
+- [Criar login para Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
+- [Criar login para Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-3)
 - [Criar utilizador](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Criar utilizadores Azure AD contidos](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 

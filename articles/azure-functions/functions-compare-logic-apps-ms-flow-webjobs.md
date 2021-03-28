@@ -4,12 +4,12 @@ description: 'Compare os serviços de cloud da Microsoft que estão otimizados p
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 95167791efe13526b0a70c28fa89771542a9d220
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e6bd97469a6b7b6c42427e130ac103954377c652
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98685566"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643364"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Choose the right integration and automation services in Azure (Escolher os serviços de integração e automatização certos no Azure)
 
@@ -57,7 +57,7 @@ Pode combinar serviços ao criar uma orquestração, chamar funções de aplica�
 | **Conetividade** | [Cerca de uma dúzia de tipos de encadernação incorporados,](functions-triggers-bindings.md#supported-bindings)código de escrita para encadernações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), Pacote de [Integração Empresarial para cenários B2B,](../logic-apps/logic-apps-enterprise-integration-overview.md) [construa conectores personalizados](../logic-apps/custom-connector-overview.md) |
 | **Ações** | Cada atividade é uma função do Azure; escrever código para funções de atividades |[Grande coleção de ações prontas a utilizar](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | **Monitorização** | [Insights de Aplicação Azure](../azure-monitor/app/app-insights-overview.md) | [Portal Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [registos do Monitor Azure](../logic-apps/monitor-logic-apps.md)|
-| **Gestão** | [REST API](durable/durable-functions-http-api.md), [Estúdio Visual](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2019) | [Portal Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API,](/rest/api/logic/) [PowerShell,](/powershell/module/az.logicapp) [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
+| **Gestão** | [REST API](durable/durable-functions-http-api.md), [Estúdio Visual](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portal Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API,](/rest/api/logic/) [PowerShell,](/powershell/module/az.logicapp) [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
 | **Contexto de execução** | Pode correr [localmente](functions-runtime-overview.md) ou na nuvem | São executadas apenas na cloud|
 
 <a name="function"></a>

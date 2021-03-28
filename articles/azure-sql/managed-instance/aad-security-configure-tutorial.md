@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92788626"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639845"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança em Azure SQL Caso gerido usando os principais servidores AD do Azure (logins)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -106,7 +106,7 @@ Consulte os seguintes artigos para exemplos de ligação à SQL Managed Instance
 
     ![Screenshot do separador Resultados no S M S Object Explorer mostrando o nome, principal_id, sid, tipo e type_desc do login recém-adicionado.](./media/aad-security-configure-tutorial/native-login.png)
 
-Para mais informações, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+Para mais informações, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 ## <a name="grant-permissions-to-create-logins"></a>Conceder permissões para criar logins
 
@@ -182,7 +182,7 @@ Uma vez criado o principal do servidor AD (login) Azure, e fornecido com `sysadm
     GO
     ```
 
-1. Crie uma base de dados no caso gerido utilizando a sintaxe [CREATE DATABASE.](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) Esta base de dados será utilizada para testar os logins dos utilizadores na secção seguinte.
+1. Crie uma base de dados no caso gerido utilizando a sintaxe [CREATE DATABASE.](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) Esta base de dados será utilizada para testar os logins dos utilizadores na secção seguinte.
     1. No **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
     1. Na janela de consulta, utilize a seguinte sintaxe para criar uma base de dados chamada **MyMITestDB**.
 
@@ -264,7 +264,7 @@ Para obter mais informações sobre a concessão de permissões de base de dados
     > [!IMPORTANT]
     > Ao criar um **UTILIZADOR** a partir de um servidor AD AD principal (login), especifique a user_name como a mesma login_name do **LOGIN**.
 
-    Para obter mais informações, consulte [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
+    Para obter mais informações, consulte [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 1. Numa nova janela de consulta, crie uma mesa de teste utilizando o seguinte comando T-SQL:
 

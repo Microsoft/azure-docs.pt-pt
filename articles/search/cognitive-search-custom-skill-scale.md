@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043075"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641137"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Dimensione eficientemente uma habilidade personalizada
 
@@ -26,7 +26,7 @@ As habilidades personalizadas são APIs web que implementam uma interface espec�
 
 + Reveja a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md) para uma introdução na interface entrada/saída que uma habilidade personalizada deve implementar.
 
-+ Crie o seu ambiente. Pode começar com [este tutorial de ponta a ponta](/python/tutorial-vs-code-serverless-python-01) para configurar a Função Azure sem servidor usando extensões visual Studio Code e Python.
++ Crie o seu ambiente. Pode começar com [este tutorial de ponta a ponta](/azure/azure-functions/create-first-function-vs-code-python) para configurar a Função Azure sem servidor usando extensões visual Studio Code e Python.
 
 ## <a name="skillset-configuration"></a>Configuração de Skillset
 

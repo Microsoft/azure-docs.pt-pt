@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 9468b3b53e0f7c435bf84b6ef99eb1e0f85d0c8e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ee09928cab6419d799d06de9cf2f69987e42d157
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105560272"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644432"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Atualização do dispositivo para tutorial Azure IoT Hub usando o agente de pacotes no Ubuntu Server 18.04 x64
 
@@ -44,7 +44,7 @@ Por conveniência, este tutorial utiliza um modelo de Gestor de [Recursos Azure]
 
 1. Para começar, clique no botão abaixo:
 
-   [![Botão Implementar no Azure iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.2.0-rc4%2FedgeDeploy.json)
+   [![Botão Implementar no Azure iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fdevice-update-tutorial%2FedgeDeploy.json)
 
 1. Na janela recém-lançada, preencha os campos de formulários disponíveis:
 
@@ -126,9 +126,9 @@ Leia os termos da licença antes de utilizar uma embalagem. A sua instalação e
 
 1. Aceda às [versões de Atualização de Dispositivos](https://github.com/Azure/iot-hub-device-update/releases) no Github e clique na queda de "Ativos".
 
-3. Faça o download `apt-update-import-samples.zip` clicando nele.
+3. Faça o download `Edge.package.update.samples.zip` clicando nele.
 
-5. Extrair o conteúdo da pasta para descobrir várias amostras de atualização e os respetivos manifestos de importação. 
+5. Extrair o conteúdo da pasta para descobrir uma amostra de atualização e os respetivos manifestos de importação. 
 
 2. No portal Azure, selecione a opção Atualizações de Dispositivos sob Gestão Automática de Dispositivos a partir da barra de navegação à esquerda no seu Hub IoT.
 
@@ -136,10 +136,8 @@ Leia os termos da licença antes de utilizar uma embalagem. A sua instalação e
 
 4. Selecione "+ Import New Update".
 
-5. Selecione o ícone de pasta ou caixa de texto em "Selecione um Ficheiro Manifesto de Importação". Verá um diálogo de selecionador de ficheiros. Selecione o `sample-package-update-1.0.1-importManifest.json` manifesto de importação da pasta que descarregou anteriormente. Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecione um ou mais ficheiros de atualização". Verá um diálogo de selecionador de ficheiros. Selecione o `sample-1.0.1-libcurl4-doc-apt-manifest.json` ficheiro de atualização manifesto apt da pasta que descarregou anteriormente.
-Esta atualização irá instalar a versão mais recente disponível `libcurl4-doc package` para o seu dispositivo.
-
-   Em alternativa, pode selecionar o `sample-package-update-2-2.0.1-importManifest.json` ficheiro manifesto de importação e o ficheiro de `sample-2.0.1-libcurl4-doc-7.58-apt-manifest.json` atualização manifesto apta a partir da pasta que descarregou anteriormente. Isto irá instalar a versão específica v7.58.0 do `libcurl4-doc package` dispositivo.
+5. Selecione o ícone de pasta ou caixa de texto em "Selecione um Ficheiro Manifesto de Importação". Verá um diálogo de selecionador de ficheiros. Selecione o `sample-1.0.1-aziot-edge-importManifest.json` manifesto de importação da pasta que descarregou anteriormente. Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecione um ou mais ficheiros de atualização". Verá um diálogo de selecionador de ficheiros. Selecione o `sample-1.0.1-aziot-edge-apt-manifest.json` ficheiro de atualização manifesto apt da pasta que descarregou anteriormente.
+Esta atualização atualizará `aziot-identity-service` os `aziot-edge` pacotes para a versão 1.2.0~rc4-1 no seu dispositivo.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot mostrando a seleção de ficheiros de atualização." lightbox="media/import-update/select-update-files.png":::
 
@@ -211,12 +209,6 @@ Esta atualização irá instalar a versão mais recente disponível `libcurl4-do
 1. Selecione Refresh para ver os mais recentes detalhes do estado. Continue este processo até que o estado mude para Sucesso.
 
 Já concluiu uma atualização de pacotes de ponta a ponta com sucesso utilizando a Atualização do Dispositivo para IoT Hub num dispositivo Ubuntu Server 18.04 x64. 
-
-## <a name="bonus-steps"></a>Passos de bónus
-
-1. Repita as secções "Atualização de Importação" e "Implementar atualização"
-
-3. Durante o passo "Import update", selecione o `sample-package-update-1.0.2-importManifest.json` ficheiro manifesto de importação e o ficheiro de `sample-1.0.2-libcurl4-doc-remove-apt-manifest.json` atualização manifesto apta da pasta que descarregou anteriormente. Esta atualização removerá o instalado `libcurl4-doc package` do seu dispositivo.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

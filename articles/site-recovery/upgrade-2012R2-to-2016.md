@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
-ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b3df487d690befadd249142c449163c2393f6df6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91250075"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640327"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Upgrade Servidor do Servidor do Windows/Centro do Sistema 2012 R2 VMM para Windows Server/VMM 2016 
 
@@ -54,7 +54,7 @@ Antes de atualizar, tome nota do seguinte: -
   > Ao atualizar o SCVMM 2012 R2, em Gestão de Chaves Distribuídas, selecione para **armazenar chaves de encriptação no Ative Directory**. Escolha cuidadosamente as definições para a conta de serviço e distribua cuidadosamente a gestão da chave. Com base na sua seleção, dados encriptados como palavras-passe em modelos podem não estar disponíveis após a atualização, e podem potencialmente afetar a replicação com a Recuperação do Site Azure
 
 > [!IMPORTANT]
-> Consulte a documentação detalhada do SCVMM de [pré-requisitos](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)
+> Consulte a documentação detalhada do SCVMM de [pré-requisitos](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#requirements-and-limitations)
 
 ## <a name="windows-server-2012-r2-hosts-which-arent-managed-by-scvmm"></a>Anfitriões R2 do Windows Server 2012 que não são geridos pela SCVMM 
 A lista de etapas abaixo referidas aplica-se à configuração do utilizador de [anfitriões Hiper-V a Azure](./hyper-v-azure-architecture.md) executados seguindo este [tutorial](./hyper-v-prepare-on-premises-tutorial.md)
@@ -66,7 +66,7 @@ A lista de etapas abaixo referidas aplica-se à configuração do utilizador de 
 2. Com cada novo anfitrião do Windows Server 2016 que é introduzido no cluster, remova a referência de um anfitrião R2 do Windows Server 2012 da Azure Site Recovery seguindo os passos mencionados [aqui]. Este deve ser o anfitrião que escolheu para drenar & despejar do aglomerado.
 3. Uma vez executado o comando *Update-VMVersion* para todas as máquinas virtuais, as atualizações foram concluídas. 
 4. Utilize os passos [aqui](./hyper-v-azure-tutorial.md#set-up-the-source-environment) mencionados para registar o novo anfitrião do Windows Server 2016 para a Recuperação do Site Azure. Por favor, note que o site Hyper-V já está ativo e só precisa de registar o novo hospedeiro no cluster. 
-5.  Vá ao portal Azure e verifique o estado de saúde replicado dentro dos Serviços de Recuperação
+5. Vá ao portal Azure e verifique o estado de saúde replicado dentro dos Serviços de Recuperação
 
 ## <a name="upgrade-windows-server-2012-r2-hosts-managed-by-stand-alone-scvmm-2012-r2-server"></a>Upgrade Windows Server 2012 R2 hosts geridos por servidor SCVMM 2012 R2 autónomo
 Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o SCVMM 2012 R2 para SCVMM 2016. Siga os passos abaixo:-
@@ -74,20 +74,20 @@ Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o
 **Upgrade autónomo SCVMM 2012 R2 para SCVMM 2016**
 
 1.  Desinstale o fornecedor ASR navegando para Control Panel -> Programas e Funcionalidades -> ->Recuperação do Site microsoft Azure , e clique em Desinstalar
-2. [Reter a base de dados SCVMM e atualizar o sistema operativo](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#back-up-and-upgrade-the-operating-system)
+2. [Reter a base de dados SCVMM e atualizar o sistema operativo](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#back-up-and-upgrade-the-operating-system)
 3. In **Adicionar programas de remoção**, selecione **VMM**  >  **Desinstalar**. b. Selecione **Remover Funcionalidades** e, em seguida, selecione **V MM management Server e VMM Console**. c. Nas **Opções de Base de Dados,** selecione **Retena a base de dados**. d. Reveja o resumo e clique em **Desinstalar**.
 
-4. [Instalar VMM 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
+4. [Instalar VMM 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#install-vmm-2016)
 5. Lance o SCVMM e verifique o estado de verificação de cada anfitrião no **separador Tecidos.** Clique **em Refresh** para obter o estado mais recente. Devia ver o estatuto de "Precisa de atenção". 
-17. Instale o mais recente [Provedor de Recuperação do Site microsoft Azure](https://aka.ms/downloaddra) no SCVMM.
-16. Instale o mais recente [agente do Microsoft Azure Recovery Service (MARS)](https://aka.ms/latestmarsagent) em cada anfitrião do cluster. Refresque-se para garantir que o SCVMM seja capaz de consultar com sucesso os anfitriões.
+17.    Instale o mais recente [Provedor de Recuperação do Site microsoft Azure](https://aka.ms/downloaddra) no SCVMM.
+16.    Instale o mais recente [agente do Microsoft Azure Recovery Service (MARS)](https://aka.ms/latestmarsagent) em cada anfitrião do cluster. Refresque-se para garantir que o SCVMM seja capaz de consultar com sucesso os anfitriões.
 
 **Upgrade Windows Server 2012 R2 anfitriões para Windows Server 2016**
 
 1. Siga os passos [aqui](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process) mencionados para executar o processo de upgrade do cluster rolante. 
 2. Depois de adicionar o novo anfitrião ao cluster, refresque o anfitrião da consola SCVMM para instalar o Agente VMM neste anfitrião atualizado.
 3. Execute *actualização-VMVersion* para atualizar as versões VM das máquinas Virtuais. 
-4.  Vá ao portal Azure e verifique o estado de saúde replicado das máquinas virtuais dentro do Cofre dos Serviços de Recuperação. 
+4. Vá ao portal Azure e verifique o estado de saúde replicado das máquinas virtuais dentro do Cofre dos Serviços de Recuperação. 
 
 ## <a name="upgrade-windows-server-2012-r2-hosts-are-managed-by-highly-available-scvmm-2012-r2-server"></a>Os anfitriões R2 do Windows Server 2012 são geridos por servidor SCVMM 2012 R2 altamente disponível
 Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o SCVMM 2012 R2 para SCVMM 2016. Os seguintes modos de atualização são suportados ao atualizar os servidores SCVMM 2012 R2 configurados com Azure Site Recovery - Modo misto sem servidores VMM adicionais & modo misto com servidores VMM adicionais.
@@ -95,7 +95,7 @@ Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o
 **Upgrade SCVMM 2012 R2 para SCVMM 2016**
 
 1.  Desinstale o fornecedor ASR navegando para Control Panel -> Programas e Funcionalidades -> ->Recuperação do Site microsoft Azure , e clique em Desinstalar
-2. Siga os passos [aqui](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) mencionados com base no modo de atualização que pretende executar.
+2. Siga os passos [aqui](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#upgrade-a-standalone-vmm-server) mencionados com base no modo de atualização que pretende executar.
 3. Lance a consola SCVMM e verifique o estado de cada anfitrião no **separador Fabrics.** Clique **em Refresh** para obter o estado mais recente. Devia ver o estatuto de "Precisa de atenção".
 4. Instale o mais recente [Provedor de Recuperação do Site microsoft Azure](https://aka.ms/downloaddra) no SCVMM.
 5. Atualize o mais recente [agente do Microsoft Azure Recovery Service (MARS)](https://aka.ms/latestmarsagent) em cada anfitrião do cluster. Refresque-se para garantir que o SC VMM seja capaz de consultar com sucesso os anfitriões.
@@ -106,8 +106,7 @@ Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o
 1. Siga os passos [aqui](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process) mencionados para executar o processo de upgrade do cluster rolante.
 2. Depois de adicionar o novo anfitrião ao cluster, refresque o anfitrião da consola SCVMM para instalar o Agente VMM neste anfitrião atualizado.
 3. Execute *actualização-VMVersion* para atualizar as versões VM das máquinas Virtuais. 
-4.  Vá ao portal Azure e verifique o estado de saúde replicado das máquinas virtuais dentro do Cofre dos Serviços de Recuperação. 
+4. Vá ao portal Azure e verifique o estado de saúde replicado das máquinas virtuais dentro do Cofre dos Serviços de Recuperação. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Uma vez realizada a atualização dos anfitriões, pode efetuar um [teste falhado](tutorial-dr-drill-azure.md) para testar a saúde da sua replicação e estado de recuperação de desastres.
-

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: af5ec07a8fb2db0bd4b9b8f1af556ef54199400d
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 49054d9bbde67dc3670ec444e4b60c3ddf503db5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609450"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645426"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -21,10 +21,10 @@ ms.locfileid: "105609450"
 ## <a name="install-the-sdk"></a>Instalar o SDK
 
 > [!NOTE]
-> Este documento utiliza a versão 1.0.0-beta.6 do Call SDK.
+> Este documento utiliza a versão 1.0.0-beta.10 do Call SDK.
 
 Utilize o `npm install` comando para instalar os Serviços de Comunicação Azure e SDKs comuns para JavaScript.
-Este documento refere tipos na versão 1.0.0-beta.5 da biblioteca de chamadas.
+Este documento refere tipos na versão 1.0.0-beta.10 da biblioteca de chamadas.
 
 ```console
 npm install @azure/communication-common --save
@@ -54,6 +54,10 @@ O `createCallAgent` método usa como `CommunicationTokenCredential` argumento. A
 Depois de criar um `callAgent` caso, pode utilizar o `getDeviceManager` método no caso para aceder `CallClient` `deviceManager` .
 
 ```js
+// Set the logger's log level
+setLogLevel('verbose');
+// Redirect logger output to wherever desired. By default it logs to console
+AzureLogger.log = (...args) => { console.log(...args) };
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationTokenCredential(userToken);
@@ -113,8 +117,8 @@ Depois de selecionar uma câmara, use-a para construir um `LocalVideoStream` cas
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const cameras = await deviceManager.getCameras();
-videoDeviceInfo = cameras[0];
-localVideoStream = new LocalVideoStream(videoDeviceInfo);
+const camera = cameras[0]
+localVideoStream = new LocalVideoStream(camera);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 
@@ -168,14 +172,26 @@ O `callAgent` caso emite um `incomingCall` evento quando a identidade registada 
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
-    //Get information about caller
+
+    //Get incoming call ID
+    var incomingCallId = incomingCall.id
+
+    // Get information about caller
     var callerInfo = incomingCall.callerInfo
 
-    //Accept the call
+    // Accept the call
     var call = await incomingCall.accept();
 
-    //Reject the call
+    // Reject the call
     incomingCall.reject();
+
+    // Subscribe to callEnded event and get the call end reason
+     incomingCall.on('callEnded', args => {
+        console.log(args.callEndReason);
+    });
+
+    // callEndReason is also a property of IncomingCall
+    var callEndReason = incomingCall.callEndReason;
 };
 callAgentInstance.on('incomingCall', incomingCallHander);
 ```
@@ -194,7 +210,7 @@ Obtenha o ID único (string) para uma chamada:
     const callId: string = call.id;
    ```
 
-Conheça os outros participantes na chamada inspecionando a `remoteParticipant` coleção:
+Saiba mais sobre outros participantes na chamada inspecionando a `remoteParticipants` coleção na instância 'call':
 
    ```js
    const remoteParticipants = call.remoteParticipants;
@@ -217,7 +233,6 @@ Receba o estado de uma chamada:
    Isto devolve uma corda que representa o estado atual de uma chamada:
 
   - `None`: Estado de chamada inicial.
-  - `Incoming`: Indica que está a chegar uma chamada. Tem de ser aceite ou rejeitada.
   - `Connecting`: Estado de transição inicial quando uma chamada é feita ou aceite.
   - `Ringing`: Para uma chamada de saída, indica que uma chamada está a tocar para participantes remotos. Está do `Incoming` lado deles.
   - `EarlyMedia`: Indica um estado em que um anúncio é reproduzido antes da chamada ser ligada.
@@ -231,8 +246,8 @@ Descubra por que uma chamada terminou inspecionando a `callEndReason` propriedad
 
    ```js
    const callEndReason = call.callEndReason;
-   // callEndReason.code (number) code associated with the reason
-   // callEndReason.subCode (number) subCode associated with the reason
+   const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+   const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
    ```
 
 Saiba se a chamada atual está a chegar ou a sair inspecionando a `direction` propriedade. Volta. `CallDirection`
@@ -245,7 +260,7 @@ Saiba se a chamada atual está a chegar ou a sair inspecionando a `direction` pr
 Verifique se o microfone atual está silenciado. Volta. `Boolean`
 
    ```js
-   const muted = call.isMicrophoneMuted;
+   const muted = call.isMuted;
    ```
 
 Descubra se o fluxo de partilha de ecrã está a ser enviado a partir de um determinado ponto final, verificando a `isScreenSharingOn` propriedade. Volta. `Boolean`
@@ -291,7 +306,10 @@ await call.unmute();
 Para iniciar um vídeo, tem de especificar as câmaras utilizando o `getCameras` método no `deviceManager` objeto. Em seguida, crie um novo exemplo de `LocalVideoStream` passar a câmara desejada para o método `startVideo` como argumento:
 
 ```js
-const localVideoStream = new LocalVideoStream(videoDeviceInfo);
+const deviceManager = await callClient.getDeviceManager();
+const cameras = await deviceManager.getCameras();
+const camera = cameras[0]
+const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
 
@@ -311,12 +329,13 @@ Pode mudar para um dispositivo de câmara diferente enquanto um vídeo está a e
 
 ```js
 const cameras = await callClient.getDeviceManager().getCameras();
-localVideoStream.switchSource(cameras[1]);
+const camera = cameras[1];
+localVideoStream.switchSource(camera);
 ```
 
 ## <a name="manage-remote-participants"></a>Gerir participantes remotos
 
-Todos os participantes remotos estão representados `remoteParticipant` e estão disponíveis através da `remoteParticipants` coleção numa instância de chamada.
+Todos os participantes remotos são representados por `RemoteParticipant` tipo e disponíveis através da `remoteParticipants` recolha numa instância de chamada.
 
 ### <a name="list-the-participants-in-a-call"></a>Listar os participantes numa chamada
 
@@ -341,6 +360,7 @@ Os participantes remotos têm um conjunto de propriedades e coleções associada
   - `{ communicationUserId: '<ACS_USER_ID'> }`: Objeto que representa o utilizador ACS.
   - `{ phoneNumber: '<E.164>' }`: Objeto que represente o número de telefone no formato E.164.
   - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Objeto que represente o utilizador das Equipas.
+  - `{ id: string }`: identificador de repreensição de objetos que não se enquadre em nenhum dos outros tipos de identificador
 
 - `state`: Obtenha o estado de um participante remoto.
 
@@ -362,8 +382,8 @@ Os participantes remotos têm um conjunto de propriedades e coleções associada
 
   ```js
   const callEndReason = remoteParticipant.callEndReason;
-  // callEndReason.code (number) code associated with the reason
-  // callEndReason.subCode (number) subCode associated with the reason
+  const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+  const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
   ```
 
 - `isMuted` estado: Para saber se um participante remoto é silenciado, verifique a `isMuted` propriedade. Volta. `Boolean`
@@ -382,6 +402,11 @@ Os participantes remotos têm um conjunto de propriedades e coleções associada
 
   ```js
   const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+  ```
+- `displayName`: Para obter o nome de exibição deste participante remoto, inspecione `displayName` a propriedade que devolva a cadeia. 
+
+  ```js
+  const displayName = remoteParticipant.displayName;
   ```
 
 ### <a name="add-a-participant-to-a-call"></a>Adicione um participante a uma chamada
@@ -415,22 +440,22 @@ const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStr
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 
-Para `RemoteVideoStream` renderizar, tem de subscrever um `isAvailableChanged` evento. Se a `isAvailable` propriedade mudar `true` para, um participante remoto está enviando um fluxo. Depois disso, crie um novo exemplo de `Renderer` , e, em seguida, crie um novo `RendererView` exemplo usando o método assíncronos. `createView`  Em seguida, pode `view.target` ligar-se a qualquer elemento de UI.
+Para `RemoteVideoStream` renderizar, tem de subscrever um `isAvailableChanged` evento. Se a `isAvailable` propriedade mudar `true` para, um participante remoto está enviando um fluxo. Depois disso, crie um novo exemplo de `VideoStreamRenderer` , e, em seguida, crie um novo `VideoStreamRendererView` exemplo usando o método assíncronos. `createView`  Em seguida, pode `view.target` ligar-se a qualquer elemento de UI.
 
-Quando a disponibilidade de um fluxo remoto muda, pode `Renderer` destruir, destruir uma instância específica `RendererView` ou manter tudo. Os renderizadores ligados a um fluxo indisponível resultarão numa moldura de vídeo em branco.
+Sempre que a disponibilidade de um fluxo remoto for alterada, pode optar por destruir o todo `VideoStreamRenderer` , um específico ou `VideoStreamRendererView` mantê-los, mas isso resultará na exibição de uma moldura de vídeo em branco.
 
 ```js
 function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
-    let renderer: Renderer = new Renderer(remoteVideoStream);
+    let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
     const displayVideo = () => {
-        const view = await renderer.createView();
+        const view = await videoStreamRenderer.createView();
         htmlElement.appendChild(view.target);
     }
-    remoteVideoStream.on('availabilityChanged', async () => {
+    remoteVideoStream.on('isAvailableChanged', async () => {
         if (remoteVideoStream.isAvailable) {
             displayVideo();
         } else {
-            renderer.dispose();
+            videoStreamRenderer.dispose();
         }
     });
     if (remoteVideoStream.isAvailable) {
@@ -449,12 +474,6 @@ Os streams de vídeo remotos têm as seguintes propriedades:
   const id: number = remoteVideoStream.id;
   ```
 
-- `Stream.size`: A altura e a largura de um fluxo de vídeo remoto.
-
-  ```js
-  const size: {width: number; height: number} = remoteVideoStream.size;
-  ```
-
 - `mediaStreamType`: Pode ser `Video` ou `ScreenSharing` . .
 
   ```js
@@ -467,32 +486,32 @@ Os streams de vídeo remotos têm as seguintes propriedades:
   const type: boolean = remoteVideoStream.isAvailable;
   ```
 
-### <a name="renderer-methods-and-properties"></a>Métodos e propriedades do renderizador
+### <a name="videostreamrenderer-methods-and-properties"></a>Métodos e propriedades do VideoStreamRenderer
 
-Crie um `rendererView` caso que possa ser anexado na UI da aplicação para tornar o fluxo de vídeo remoto:
-
-  ```js
-  renderer.createView()
-  ```
-
-Eliminação `renderer` de e de todas as `rendererView` instâncias associadas:
+Crie um `VideoStreamRendererView` caso que possa ser anexado na UI da aplicação para tornar o fluxo de vídeo remoto, usar o método assíncronos, resolve quando o fluxo está pronto para `createView()` renderizar e devolve um objeto com propriedade `target` que representa elemento que pode ser `video` anexado em qualquer lugar da árvore DOM
 
   ```js
-  renderer.dispose()
+  videoStreamRenderer.createView()
   ```
 
-### <a name="rendererview-methods-and-properties"></a>RendererVer métodos e propriedades
+Eliminação `videoStreamRenderer` de e de todas as `VideoStreamRendererView` instâncias associadas:
 
-Quando `rendererView` criar, pode especificar as `scalingMode` propriedades e `isMirrored` propriedades. `scalingMode` pode `Stretch` `Crop` ser, ou `Fit` . . Se `isMirrored` for especificado, o fluxo renderizado é virado verticalmente.
+  ```js
+  videoStreamRenderer.dispose()
+  ```
+
+### <a name="videostreamrendererview-methods-and-properties"></a>VídeoStreamRendererVerdes métodos e propriedades
+
+Quando criar `VideoStreamRendererView` um, pode especificar as `scalingMode` `isMirrored` propriedades e propriedades. `scalingMode` pode `Stretch` `Crop` ser, ou `Fit` . . Se `isMirrored` for especificado, o fluxo renderizado é virado verticalmente.
 
 ```js
-const rendererView: RendererView = renderer.createView({ scalingMode, isMirrored });
+const videoStreamRendererView: VideoStreamRendererView = await videoStreamRenderer.createView({ scalingMode, isMirrored });
 ```
 
-Cada `RendererView` instância tem uma propriedade que representa a superfície de `target` renderização. Anexar esta propriedade na UI de aplicação:
+Cada `VideoStreamRendererView` instância tem uma propriedade que representa a superfície de `target` renderização. Anexar esta propriedade na UI de aplicação:
 
 ```js
-document.body.appendChild(rendererView.target);
+htmlElement.appendChild(view.target);
 ```
 
 Pode atualizar `scalingMode` invocando o `updateScalingMode` método:
@@ -506,9 +525,6 @@ view.updateScalingMode('Crop')
 Em `deviceManager` , pode especificar dispositivos locais que podem transmitir os seus streams de áudio e vídeo numa chamada. Também ajuda a solicitar permissão para aceder ao microfone e à câmara de outro utilizador utilizando a API do navegador nativo.
 
 Pode aceder `deviceManager` chamando o `callClient.getDeviceManager()` método:
-
-> [!IMPORTANT]
-> Tem de ter um `callAgent` objeto antes de poder `deviceManager` aceder.
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -538,26 +554,26 @@ Em `deviceManager` , pode configurar um dispositivo predefinido que utilizará p
 const defaultMicrophone = deviceManager.selectedMicrophone;
 
 // Set the microphone device to use.
-await deviceManager.selectMicrophone(AudioDeviceInfo);
+await deviceManager.selectMicrophone(localMicrophones[0]);
 
 // Get the speaker device that is being used.
 const defaultSpeaker = deviceManager.selectedSpeaker;
 
 // Set the speaker device to use.
-await deviceManager.selectSpeaker(AudioDeviceInfo);
+await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
 ### <a name="local-camera-preview"></a>Pré-visualização da câmara local
 
-Pode utilizar `deviceManager` e começar a `Renderer` renderizar streams a partir da sua câmara local. Este fluxo não será enviado para outros participantes; É um feed de pré-visualização local.
+Pode utilizar `deviceManager` e começar a `VideoStreamRenderer` renderizar streams a partir da sua câmara local. Este fluxo não será enviado para outros participantes; É um feed de pré-visualização local.
 
 ```js
 const cameras = await deviceManager.getCameras();
-const localVideoDevice = cameras[0];
-const localCameraStream = new LocalVideoStream(localVideoDevice);
-const renderer = new Renderer(localCameraStream);
-const view = await renderer.createView();
-document.body.appendChild(view.target);
+const camera = cameras[0];
+const localCameraStream = new LocalVideoStream(camera);
+const videoStreamRenderer = new VideoStreamRenderer(localCameraStream);
+const view = await videoStreamRenderer.createView();
+htmlElement.appendChild(view.target);
 
 ```
 

@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: include
 ms.date: 07/05/2018
-ms.author: tomfitz
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 68a208af1a9aa9e73f2af99021d195f264fb21f1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a2f5264db1f95bcea524a87a61735cf730af23ba
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "67184875"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645439"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Ativar o fornecedor de recursos do Event Grid
 
