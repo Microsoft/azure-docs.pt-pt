@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: 12f7a87ce166be516d070b66b069f7a584a386c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 59cd364e5568b3509d0c06d439d39b132b202df6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563509"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641748"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Create a data factory and pipeline using .NET SDK (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET)
 
@@ -105,6 +105,9 @@ Em seguida, crie uma aplicação de consola C# .NET no Visual Studio:
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> Para as contas us Azure Gov, você tem que usar BaseUri de  *https://management.usgovcloudapi.net* em vez de , e, em seguida, criar cliente de gestão de fábrica de *https://management.azure.com/* dados. 
+> 
 
 3. Adicione o seguinte código ao método **Principal** que cria uma instância da classe **DataFactoryManagementClient.** Utilize este objeto para criar uma fábrica de dados, um serviço ligado, conjuntos de dados e um pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do pipeline.
 
@@ -118,6 +121,7 @@ Em seguida, crie uma aplicação de consola C# .NET no Visual Studio:
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };
    ```
+
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
-ms.translationtype: HT
+ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "91371971"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645282"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Cost Management
 
@@ -39,9 +39,9 @@ Para ver os dados dos custos das subscrições do Azure EA, um utilizador tem d
 | Conta de faturação<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Administrador da Empresa | Nenhuma | Todas as subscrições do contrato enterprise |
 | Departamento | [https://ea.azure.com](https://ea.azure.com/) | Administrador do Departamento | **Custos da vista do AD** ativados | Todas as subscrições que pertencem a uma conta de inscrição que está associada ao departamento |
 | Conta de inscrição<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Proprietário da Conta | **Custos da vista do PC** ativados | Todas as subscrições da conta de inscrição |
-| Grupo de gestão | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos da vista do PC** ativados | Todas as subscrições abaixo o grupo de gestão |
-| Subscrição | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos da vista do PC** ativados | Todos os recursos/grupos de recursos na subscrição |
-| Grupo de recursos | [https://portal.azure.com](https://portal.azure.com/) | Leitor do Cost Management (ou Leitor) | **Custos da vista do PC** ativados | Todos os recursos no grupo de recursos |
+| Grupo de gestão | [https://portal.azure.com](https://portal.azure.com/) | Leitor de Gestão de Custos (ou Contribuinte) | **Custos da vista do PC** ativados | Todas as subscrições abaixo o grupo de gestão |
+| Subscrição | [https://portal.azure.com](https://portal.azure.com/) | Leitor de Gestão de Custos (ou Contribuinte) | **Custos da vista do PC** ativados | Todos os recursos/grupos de recursos na subscrição |
+| Grupo de recursos | [https://portal.azure.com](https://portal.azure.com/) | Leitor de Gestão de Custos (ou Contribuinte) | **Custos da vista do PC** ativados | Todos os recursos no grupo de recursos |
 
 <sup>1</sup> A conta de faturação é também referida como o Contrato Enterprise ou Inscrição.
 
@@ -52,8 +52,8 @@ Para ver os dados dos custos das subscrições do Azure EA, um utilizador tem d
 
 Para ver os dados de custos de outras subscrições do Azure, um utilizador tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos:
 
-- Conta do Azure
 - Grupo de gestão
+- Subscrição
 - Grupo de recursos
 
 Estão disponíveis vários âmbitos depois de os parceiros integrarem os clientes num Contrato de Cliente Microsoft. Os clientes de CSP podem, depois, utilizar as funcionalidades do Cost Management quando estas forem ativadas pelo seu parceiro de CSP. Para obter mais informações, veja [Introdução ao Azure Cost Management para parceiros](get-started-partners.md).

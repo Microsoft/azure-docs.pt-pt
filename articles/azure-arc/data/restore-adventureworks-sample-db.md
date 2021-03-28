@@ -9,16 +9,16 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d238a889648e789087a0803f6b50288318462c7b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a6b3577fe820c9dadcb3c8415aa7a951a3283284
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91629068"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641811"
 ---
 # <a name="restore-the-adventureworks-sample-database-into-sql-managed-instance---azure-arc"></a>Restaurar a base de dados de amostras AdventureWorks em SQL Managed Instance - Azure Arc
 
-[AdventureWorks](/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=tsql&preserve-view=true) é uma base de dados de amostras que contém uma base de dados OLTP que é frequentemente usada em tutoriais e exemplos. É fornecido e mantido pela Microsoft como parte das amostras do [sql Server GitHub repositório](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
+[AdventureWorks](/sql/samples/adventureworks-install-configure) é uma base de dados de amostras que contém uma base de dados OLTP que é frequentemente usada em tutoriais e exemplos. É fornecido e mantido pela Microsoft como parte das amostras do [sql Server GitHub repositório](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
 Este documento descreve um processo simples para obter a base de dados de amostras AdventureWorks restaurada na sua SQL Managed Instance - Azure Arc.
 

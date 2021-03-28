@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: be202a6016842ee82b3230c2841d416d3b53ea15
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2641218fa9ddef65c45f2f1a9c9ce807cef35048
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505584"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642734"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Agente de Insights de Aplicação de Resolução de Problemas (anteriormente denominado Status Monitor v2)
 
@@ -153,7 +153,15 @@ Reveja a [referência da API](status-monitor-v2-api-reference.md) para uma descr
 4. Tente navegar na sua aplicação.
 5. Depois de a sua aplicação estar carregada, volte ao PerfView e selecione **Stop Collection**.
 
+### <a name="how-to-capture-full-sql-command-text"></a>Como capturar texto de comando SQL completo
 
+Para capturar o texto de comando SQL completo, é necessário modificar o ficheiro applicationinsights.config com o seguinte:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">,
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

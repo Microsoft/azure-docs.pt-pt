@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601377"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644918"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -139,7 +139,7 @@ A SQL Managed Instance não consegue aceder a ficheiros, por isso os fornecedore
 ### <a name="logins-and-users"></a>Inícios de sessão e utilizadores
 
 - Os logins SQL criados através da utilização `FROM CERTIFICATE` `FROM ASYMMETRIC KEY` , e são `FROM SID` suportados. Ver [CRIAR LOGIN](/sql/t-sql/statements/create-login-transact-sql).
-- Os principais do servidor Azure Ative (Azure AD) criados com a sintaxe [DE LOGIN CREATE](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou com a sintaxe CREATE USER FROM LOGIN [[Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) são suportados. Estes logins são criados ao nível do servidor.
+- Os principais do servidor Azure Ative (Azure AD) criados com a sintaxe [DE LOGIN CREATE](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) ou com a sintaxe CREATE USER FROM LOGIN [[Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) são suportados. Estes logins são criados ao nível do servidor.
 
     SQL Managed Instance suporta os principais da base de dados AZure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` . Esta funcionalidade também é conhecida como Azure AD continha utilizadores de bases de dados.
 
@@ -525,7 +525,7 @@ As bases de dados do sistema não são replicadas para a instância secundária 
 ### <a name="tempdb"></a>TEMPDB
 - O tamanho máximo do ficheiro `tempdb` não pode ser superior a 24 GB por núcleo num nível de Finalidade Geral. O tamanho máximo `tempdb` num nível Business Critical é limitado pelo tamanho de armazenamento SQL Managed Instance. `Tempdb` o tamanho do ficheiro de registo é limitado a 120 GB no nível de Finalidade Geral. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo `tempdb` ou se produzirem mais de 120 GB de dados de registo.
 - `Tempdb` é sempre dividido em 12 ficheiros de dados: 1 primário, também chamado de mestre, ficheiro de dados e 11 ficheiros de dados não primários. A estrutura do ficheiro não pode ser alterada e os novos ficheiros não podem ser adicionados `tempdb` . 
-- [ `tempdb` Metadados otimizados pela memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), uma nova funcionalidade de base de dados de memória SQL Server 2019, não é suportado.
+- [ `tempdb` Metadados otimizados pela memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), uma nova funcionalidade de base de dados de memória SQL Server 2019, não é suportado.
 - Os objetos criados na base de dados do modelo não podem ser criados automaticamente `tempdb` após um reinício ou uma falha porque `tempdb` não obtêm a sua lista inicial de objetos a partir da base de dados do modelo. Tem de criar objetos `tempdb` manualmente após cada reinício ou uma falha.
 
 ### <a name="msdb"></a>MSDB
@@ -534,13 +534,13 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 - Funções gerais
   - TargetServersRole
-- [Funções de base de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Funções de base de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Funções databaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Funções databaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Funções de serviços de integração:](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15)
+- [Funções de serviços de integração:](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true)
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

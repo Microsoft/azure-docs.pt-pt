@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 24fe28eafc1d1da90b6a7b7f9d41b7e645e62855
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 9483b0a8829c042a7cf8d516c6007cbbf14a97ac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105625777"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639749"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutorial: Configurar a Proteção contra fraudes Microsoft Dynamics 365 com O Diretório Ativo B2C
 
@@ -85,7 +85,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ### <a name="deploy-the-azure-ad-b2c-api-code"></a>Implementar o código API AD B2C AZure
 
-Implementar o [código API fornecido](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) para um serviço Azure. O código pode ser [publicado a partir do Visual Studio](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implementar o [código API fornecido](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) para um serviço Azure. O código pode ser [publicado a partir do Visual Studio](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 Configurar CORS, adicionar **Origem Permitida**`https://{your_tenant_name}.b2clogin.com`
 

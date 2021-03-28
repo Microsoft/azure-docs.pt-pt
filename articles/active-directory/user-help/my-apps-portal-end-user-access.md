@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100095006"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642112"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicie sômis e iniciem aplicações a partir do portal My Apps
 
@@ -39,11 +39,12 @@ Se não tiver acesso ao portal **My Apps,** contacte o balcão de ajuda da sua o
 
 ## <a name="supported-browsers"></a>Browsers suportados
 
-Pode chegar ao portal **My Apps** a partir de qualquer um dos seguintes navegadores web:
+Pode chegar ao portal **My Apps** a partir de qualquer um dos seguintes navegadores web. A Microsoft recomenda que utilize o navegador mais atualizado que seja compatível com o seu sistema operativo.
 
-- Microsoft Edge (a versão móvel do Edge é atualmente o único navegador móvel suportado)
-- Google Chrome
-- Mozilla Firefox, versão 26.0 ou mais tarde
+- Microsoft Edge (versão mais recente, desktop e mobile)
+- Safari (versão mais recente, Mac e iOS)
+- Chrome (versão mais recente, desktop e mobile)
+- Firefox (versão mais recente)
 
 Pode aceder e utilizar o portal My Apps no seu computador, ou a partir da versão móvel do navegador Edge num dispositivo móvel iOS ou Android.
 

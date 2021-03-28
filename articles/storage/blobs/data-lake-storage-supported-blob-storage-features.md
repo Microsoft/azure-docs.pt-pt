@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: normesta
-ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c9eb1aa2e88019609f5ab26c2e995e4e43063ca
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100516283"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640811"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funcionalidades do armazenamento de blobs disponíveis no Azure Data Lake Storage Gen2
 
@@ -50,7 +50,7 @@ A tabela seguinte mostra como cada recurso de armazenamento Blob é suportado co
 |Acesso público anónimo |Disponível em Geral|Disponível em Geral| Consulte [o público anónimo Configure acesso a contentores e bolhas](anonymous-read-access-configure.md).|
 |Falha na conta gerida pelo cliente|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Chaves fornecidas pelo cliente|Ainda não suportado|Ainda não suportado|[Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob](encryption-customer-provided-keys.md)|
-|Âmbitos de encriptação|Ainda não suportado|Ainda não suportado|[Criar e gerir os âmbitos de encriptação (pré-visualização)](encryption-scope-manage.md)|
+|Âmbitos de encriptação|Ainda não suportado|Ainda não suportado|[Criar e gerir âmbitos de encriptação](encryption-scope-manage.md)|
 |Feed de alterações|Ainda não suportado|Ainda não suportado|[Alterar suporte de alimentação no armazenamento Azure Blob](storage-blob-change-feed.md)|
 |Replicação de objetos|Ainda não suportado|Ainda não suportado|[Configurar a replicação do objeto para bolhas de bloco](object-replication-configure.md)|
 |Versão blob|Ainda não suportado|Ainda não suportado|[Ativar e gerir a versão blob](versioning-enable.md)|

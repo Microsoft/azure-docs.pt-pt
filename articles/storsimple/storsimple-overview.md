@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/02/2021
 ms.author: timlt
-ms.openlocfilehash: 3f0ec053d806208b4a3c15604714f6bdb87399e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e8fb6985da5046d0a1bad171cbc9742a15baf1af
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102613226"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643439"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução híbrida de armazenamento em nuvem
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Bem-vindo ao Microsoft Azure StorSimple, uma solução de armazenamento integrada que gere tarefas de armazenamento entre dispositivos no local e armazenamento em nuvem Microsoft Azure. A StorSimple é uma solução eficiente, rentável e fácil de gerir a rede de área de armazenamento (SAN) que elimina muitas das questões e despesas associadas ao armazenamento e proteção de dados da empresa. Utiliza o dispositivo de série StorSimple 8000 patenteado, está integrado com serviços cloud e fornece um conjunto de ferramentas de gestão para uma visão totalmente integrada de todo o armazenamento empresarial, incluindo o armazenamento na cloud. (As informações de implementação StorSimple publicadas no website da Microsoft Azure aplicam-se apenas aos dispositivos da série StorSimple 8000. Se estiver a utilizar um dispositivo da série StorSimple 5000/7000, vá à [StorSimple Help](http://onlinehelp.storsimple.com/).)
 
 A StorSimple utiliza [o tiering de armazenamento](#automatic-storage-tiering) para gerir dados armazenados em vários meios de armazenamento. O conjunto de trabalho atual é armazenado no local em unidades de estado sólido (SSDs). Os dados que são utilizados com menos frequência são armazenados em discos rígidos (HDDs) e os dados de arquivo são empurrados para a nuvem. Além disso, a StorSimple utiliza a deduplicação e a compressão para reduzir a quantidade de armazenamento que os dados consomem. Para mais informações, aceda à [Deduplicação e compressão.](#deduplication-and-compression) Para definições de outros termos e conceitos-chave que são usados na documentação da série StorSimple 8000, vá à [terminologia StorSimple](#storsimple-terminology) no final deste artigo.
@@ -255,7 +255,7 @@ Segue-se uma lista de outros softwares utilizados com storSimple para construir 
 | Alvo de backup |Veeam |Veeam v 9 e mais tarde |[StorSimple como alvo de backup com Veaam](storsimple-configure-backup-target-veeam.md)|
 | Alvo de backup |Executivo de Backup veritas |Backup Exec 16 e mais tarde |[StorSimple como alvo de backup com Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Alvo de backup |Veritas NetBackup |NetBackup 7.7.x e mais tarde  |[StorSimple como alvo de backup com NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Partilha global de ficheiros <br></br> Colaboração |Rio Talon  |[StorSimple com Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
+| Partilha global de ficheiros <br></br> Colaboração |Rio Talon  |[StorSimple com Talon](https://www.theinfostride.com/talon-and-microsoft-to-host-azure-storsimple-web-conference-with-capita/) | |
 
 ## <a name="storsimple-terminology"></a>Terminologia StorSimple
 Antes de implementar a sua solução Microsoft Azure StorSimple, recomendamos que reveja os seguintes termos e definições.

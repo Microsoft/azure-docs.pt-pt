@@ -10,12 +10,13 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 02/24/2021
-  ms.openlocfilehash: dfc3513dd98a6dc1feecd1f66efe34bc61c6a5d5
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.custom: e2e-hybrid
+  ms.openlocfilehash: 9fba4d1a7ed8772736d774d04aaf5bdaa99d1c9f
+  ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101741383"
+  ms.lasthandoff: 03/28/2021
+  ms.locfileid: "105641680"
 landingContent:
 - title: Saiba mais sobre o Azure Firewall
   linkLists:

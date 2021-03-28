@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab2eb8a43fc75eea61a03bc25b2b6afc850d30aa
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96011953"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644405"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastres para o SQL Server
 
@@ -34,9 +34,9 @@ A sua escolha de uma tecnologia BCDR para recuperar instâncias do SQL Server de
 
 Tipo de implantação | Tecnologia BCDR | RTO esperado para o SqL Server | RPO esperado para o SQL Server |
 --- | --- | --- | ---
-SQL Server em uma infraestrutura Azure como uma máquina virtual de serviço (IaaS) ou no local.| [Grupo de disponibilidade Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | O tempo que demorou a fazer a réplica secundária como primária. | Como a replicação na réplica secundária é assíncronea, há alguma perda de dados.
-SQL Server em um Azure IaaS VM ou no local.| [Agrupamento de failover (Sempre na FCI)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | O tempo que demorou a falhar entre os nós. | Porque Always On FCI utiliza armazenamento partilhado, a mesma visão da instância de armazenamento está disponível no failover.
-SQL Server em um Azure IaaS VM ou no local.| [Espelhamento da base de dados (modo de alto desempenho)](/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | O tempo necessário para forçar o serviço, que usa o servidor de espelhos como um servidor de espera quente. | A replicação é assíncronea. A base de dados de espelhos pode ficar um pouco atrás da base de dados principal. O lag é tipicamente pequeno. Mas pode tornar-se grande se o sistema do servidor principal ou de espelho estiver sob uma carga pesada.<br/><br/>O envio de registos pode ser um suplemento para o espelhamento da base de dados. É uma alternativa favorável ao espelho da base de dados assíncronos.
+SQL Server em uma infraestrutura Azure como uma máquina virtual de serviço (IaaS) ou no local.| [Grupo de disponibilidade Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) | O tempo que demorou a fazer a réplica secundária como primária. | Como a replicação na réplica secundária é assíncronea, há alguma perda de dados.
+SQL Server em um Azure IaaS VM ou no local.| [Agrupamento de failover (Sempre na FCI)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | O tempo que demorou a falhar entre os nós. | Porque Always On FCI utiliza armazenamento partilhado, a mesma visão da instância de armazenamento está disponível no failover.
+SQL Server em um Azure IaaS VM ou no local.| [Espelhamento da base de dados (modo de alto desempenho)](/sql/database-engine/database-mirroring/database-mirroring-sql-server) | O tempo necessário para forçar o serviço, que usa o servidor de espelhos como um servidor de espera quente. | A replicação é assíncronea. A base de dados de espelhos pode ficar um pouco atrás da base de dados principal. O lag é tipicamente pequeno. Mas pode tornar-se grande se o sistema do servidor principal ou de espelho estiver sob uma carga pesada.<br/><br/>O envio de registos pode ser um suplemento para o espelhamento da base de dados. É uma alternativa favorável ao espelho da base de dados assíncronos.
 SQL como plataforma como um serviço (PaaS) em Azure.<br/><br/>Este tipo de implantação inclui bases de dados individuais e piscinas elásticas. | Georreplicação ativa | 30 segundos após o disparo do failover.<br/><br/>Quando o failover é ativado para uma das bases de dados secundárias, todos os outros secundários estão automaticamente ligados à nova primária. | RPO de cinco segundos.<br/><br/>A geo-replicação ativa utiliza a tecnologia Always On do SQL Server. Reproduz assincroticamente transações comprometidas na base de dados primária para uma base de dados secundária usando o isolamento instantâneo.<br/><br/>Os dados secundários garantem nunca ter transações parciais.
 SQL como PaaS configurado com geo-replicação ativa em Azure.<br/><br/>Este tipo de implantação inclui casos geridos, piscinas elásticas e bases de dados individuais. | Grupos de ativação pós-falha automática | RTO de uma hora. | RPO de cinco segundos.<br/><br/>Os grupos de falha automática fornecem a semântica do grupo em cima da geo-replicação ativa. Mas o mesmo mecanismo de replicação assíncronos é usado.
 SQL Server em um Azure IaaS VM ou no local.| Replicação com recuperação do local de Azure | O RTO é tipicamente inferior a 15 minutos. Para saber mais, leia o [RTO SLA fornecido pela Recuperação do Local.](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) | Uma hora para a consistência da aplicação e cinco minutos para a consistência do acidente. Se procura rpo mais baixo, use outras tecnologias BCDR.

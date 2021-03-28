@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 10ea524620f810e0bf1dddc230716031bbc10e69
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557374"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642383"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Que regem as contas de serviço no local
 
@@ -60,7 +60,7 @@ Utilize os seguintes critérios ao criar uma nova conta de serviço.
 
 Utilize as seguintes definições com contas de utilizador utilizadas como contas de serviço:
 
-* [**Expiração da conta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): desempura a conta de serviço para expirar automaticamente um tempo definido após o período de revisão, a menos que seja determinado que deve continuar
+* [**Expiração da conta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): desempura a conta de serviço para expirar automaticamente um tempo definido após o período de revisão, a menos que seja determinado que deve continuar
 
 *  **Início de sposição:** restringir permissões para onde a conta de serviço pode iniciar sposição. Se funciona localmente numa máquina e acede apenas a recursos nessa máquina, impeça-a de iniciar sessão em qualquer outro lugar.
 
@@ -149,7 +149,7 @@ A avaliação dos riscos, uma vez realizada e documentada, pode ter impacto em:
 
 Crie conta de serviço apenas depois de as informações relevantes estiverem documentadas no seu CMDB e realizar uma avaliação de risco. As restrições à conta devem ser alinhadas com a avaliação de risco. Considere as seguintes restrições quando relevante para a sua avaliação.:
 
-* [Expiração da conta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Expiração da conta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
    * Para todas as contas de utilizador utilizadas como contas de serviço, defina uma data final realista e definitiva para utilização. Desa esta utilização da bandeira "Sucedes da Conta". Para obter mais detalhes, consulte a[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
@@ -193,7 +193,7 @@ Depois de remover todas as permissões, utilize este processo para remover a con
 
 3. Eliminar a conta de serviço após o cumprimento da política de desativação. 
 
-   * Para os MSAs, pode [desinstalá-lo](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) utilizando o PowerShell ou eliminar manualmente do recipiente de conta de serviço gerido.
+   * Para os MSAs, pode [desinstalá-lo](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) utilizando o PowerShell ou eliminar manualmente do recipiente de conta de serviço gerido.
 
    * Para contas de computador ou utilizador, pode eliminar manualmente a conta no Ative Directory.
 

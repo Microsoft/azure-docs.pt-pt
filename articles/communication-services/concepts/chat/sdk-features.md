@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b275c3af2e92dc5af677120b5082751d19676b2e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 02cfb4abc4f553c8f4353d8488390ed45eb3a7e7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110819"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642226"
 ---
 # <a name="chat-sdk-overview"></a>Visão geral do Chat SDK 
 
@@ -28,7 +28,7 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 
 | Grupo de funcionalidades | Funcionalidade | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
-| Capacidades do Núcleo | Crie um fio de chat entre 2 ou mais utilizadores (até 250 utilizadores)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
+| Capacidades do Núcleo | Criar um fio de chat entre 2 ou mais utilizadores                                                     | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
 |                   | Atualize o tópico de um fio de chat                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |   
 |                   | Adicione ou remova os participantes de um fio de chat                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
 |                   | Escolha se partilha o histórico de mensagens de chat com a adição do participante                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   | 
@@ -37,16 +37,16 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 |                   | Dado um utilizador de comunicação, obtenha a lista de linhas de chat que o utilizador faz parte                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 |                   | Obtenha informações para um fio de chat particular                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
 |                   | Enviar e receber mensagens num fio de chat                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |   
-|                   | Editar o conteúdo de uma mensagem enviada                                                                                | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Eliminar uma mensagem                                                                                                       | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Leia os recibos de mensagens que foram lidas por outros participantes num chat <br/> *Não disponível quando há mais de 20 participantes num fio de chat*    | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | Seja notificado quando os participantes estão a escrever ativamente uma mensagem num fio de chat <br/> *Não disponível quando há mais de 20 membros numa linha de chat*      | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
-|                   | Receba todas as mensagens num fio de chat <br/>                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Atualize o conteúdo da sua mensagem enviada                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Apague uma mensagem que enviou anteriormente                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Leia os recibos de mensagens que foram lidas por outros participantes num chat                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
+|                   | Seja notificado quando os participantes estão a escrever ativamente uma mensagem num fio de chat                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | Receba todas as mensagens num fio de chat                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Enviar emojis Unicode como parte do conteúdo da mensagem                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|Sinalização em tempo real (ativada por pacote de sinalização proprietário**)|  Subscreva para obter atualizações em tempo real para mensagens recebidas e outras operações na sua aplicação de chat. Para ver uma lista de atualizações suportadas para sinalização em tempo real, consulte [os conceitos de Chat](concepts.md#real-time-signaling)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |    
-| Suporte à grelha de eventos             | Use a integração com a Azure Event Grid e configuure o seu serviço de comunicação para executar lógica de negócio com base na atividade de chat ou para ligar um serviço de notificação push personalizado   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
-| Monitorização        | Utilize as métricas de pedido da API emitidas no portal Azure para construir dashboards, monitorizar a saúde da sua app de chat e definir alertas para detetar anomalias      | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|                   | Configure o seu recurso de Serviços de Comunicação para receber registos operacionais de chat para fins de monitorização e diagnóstico          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|Notificações em tempo real (habilitados por pacote de sinalização proprietário**)|  Os clientes de chat podem subscrever para obter atualizações em tempo real para mensagens recebidas e outras operações que ocorram num fio de chat. Para ver uma lista de atualizações suportadas para notificações em tempo real, consulte [os conceitos de Chat](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  | 
+| Integração com a grelha de eventos Azure             | Utilize os eventos de chat disponíveis na Azure Event Grid para tapar serviços de notificação personalizados ou publicar esse evento num webhook para executar lógica de negócios como atualizar registos de CRM após o fim de um chat   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+| Relatórios </br>(Esta informação está disponível no separador de monitorização do seu recurso de Serviços de Comunicação no portal Azure)      | Compreenda o tráfego da API a partir da sua app de chat monitorizando as métricas publicadas no Azure Metrics Explorer e deteta alertas para detetar anomalias     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Monitorize e depure a sua solução de Serviços de Comunicação, permitindo a registo de diagnóstico para o seu recurso    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 
 
 **O pacote de sinalização proprietário é implementado com tomadas web. Vai voltar a ser votado se as tomadas web não forem apoiadas.  
@@ -68,3 +68,4 @@ A tabela a seguir representa o conjunto de navegadores e versões suportadas que
 
 Os seguintes documentos podem ser interessantes para si:  
 - Familiarize-se com [conceitos de chat](../chat/concepts.md)
+- Entenda como [os preços](../pricing.md#chat) funcionam para o chat

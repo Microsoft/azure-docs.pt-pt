@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7fe2942250e165606175392d7749becda0cff23b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564427"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645127"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
 
@@ -39,7 +39,7 @@ Para a utilização com API REST [de Speech SDK](speech-sdk.md) e/ou [Discurso-a
 #### <a name="batch-transcription"></a>Transcrição do lote
 | Quota | Grátis (F0)<sup>1</sup> | Padrão (S0) |
 |--|--|--|
-| Limite de API de repouso | Transcrição do lote não está disponível para F0 | 300 pedidos por minuto |
+| [Limite de API V2.0 e v3.0 de repouso](rest-speech-to-text.md#speech-to-text-rest-api-v30) de expressão para texto | Transcrição do lote não está disponível para F0 | 300 pedidos por minuto |
 | Tamanho do ficheiro de entrada de áudio max | N/D | 1 GB |
 | Tamanho máximo da bolha de entrada (pode conter mais de um ficheiro, por exemplo, num arquivo zip; certifique-se de que o limite de tamanho do ficheiro acima) | N/D | 2,5 GB |
 | Tamanho do recipiente de bolhas max | N/D | 5 GB |

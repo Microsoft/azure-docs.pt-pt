@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: e3e2aa055baf3dfb4bee0629040fc7c140844637
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1f6df64a66c0700f3a13a40ea5046515a2bf1a51
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101094018"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643845"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrar pacotes de Serviços de Integração de ServidorES SQL para uma instância gerida Azure SQL
 Se utilizar os Serviços de Integração de Servidores SQL (SSIS) e quiser migrar os seus projetos/pacotes SSIS da fonte SSISDB hospedado pelo SQL Server para o destino SSISDB hospedado por um Azure SQL Managed Instance, pode utilizar o Azure Database Migration Service.
 
-Se a versão do SSIS que utiliza for anterior a 2012 ou utilizar tipos de lojas de pacotes não SSISDB, antes de migrar os seus projetos/pacotes SSIS, tem de os converter utilizando o Assistente de Conversão de Projetos de Integração, que também pode ser lançado a partir de SSMS. Para mais informações, consulte o artigo [Converter projetos para o modelo de implementação do projeto.](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert)
+Se a versão do SSIS que utiliza for anterior a 2012 ou utilizar tipos de lojas de pacotes não SSISDB, antes de migrar os seus projetos/pacotes SSIS, tem de os converter utilizando o Assistente de Conversão de Projetos de Integração, que também pode ser lançado a partir de SSMS. Para mais informações, consulte o artigo [Converter projetos para o modelo de implementação do projeto.](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#convert)
 
 > [!NOTE]
 > Atualmente, o Azure Database Migration Service (DMS) não suporta a Base de Dados Azure SQL como destino de migração alvo. Para recolocar projetos/pacotes SSIS na Base de Dados Azure SQL, consulte o artigo [Reploy SQL Server Integration Services packages to Azure SQL Database](./how-to-migrate-ssis-packages.md).
@@ -39,7 +39,7 @@ Para completar estes passos, você precisa:
 
 * Para criar uma Rede Virtual Microsoft Azure para o Serviço de Migração de Bases de Dados Azure utilizando o modelo de implementação do Gestor de Recursos Azure, que fornece conectividade site-to-site aos seus servidores de origem no local, utilizando o [ExpressRoute](../expressroute/expressroute-introduction.md) ou [o VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para obter mais informações, consulte as [topologias da rede para migrações de casos geridos sql utilizando o Serviço de Migração da Base de Dados Azure]( https://aka.ms/dmsnetworkformi). Para obter mais informações sobre a criação de uma rede virtual, consulte a [Documentação da Rede Virtual,](../virtual-network/index.yml)e especialmente os artigos quickstart com detalhes passo a passo.
 * Para garantir que as regras do grupo de segurança da rede virtual não bloqueiem a porta de saída 443 do ServiceTag para ServiceBus, Storage e AzureMonitor. Para obter mais detalhes sobre a filtragem de tráfego NSG da rede virtual, consulte o artigo Filtrar o [tráfego da rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Para configurar o seu [Windows Firewall para acesso ao motor de base de dados de origem](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017).
+* Para configurar o seu [Windows Firewall para acesso ao motor de base de dados de origem](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Para abrir o seu Windows Firewall para permitir que o Serviço de Migração da Base de Dados Azure aceda ao servidor SQL de origem, que por padrão é a porta TCP 1433.
 * Se estiver a executar várias instâncias nomeadas do SQL Server em portas dinâmicas, poderá ser útil ativar o SQL Browser Service e permitir o acesso à porta UDP 1434 através das suas firewalls, de modo a que o Azure Database Migration Service se possa ligar a uma instância nomeada no servidor de origem.
 * Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração, bem como ficheiros através da porta SMB 445.

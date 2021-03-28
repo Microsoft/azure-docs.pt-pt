@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b58a1ae2a20afb357f6363077e70b692256d2ce7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8d39d54498872201afe2f705da1fc5654d8befb2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103013504"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644996"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Advanced encoding with Media Encoder Premium Workflow (Codificação avançada com o Media Encoder Premium Workflow)
 
@@ -30,7 +30,7 @@ ms.locfileid: "103013504"
 >
 >
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A Microsoft Azure Media Services está a introduzir o processador de mídia **Media Encoder Premium Workflow.** Este processador oferece capacidades de codificação antecipadas para os seus fluxos de trabalho premium a pedido.
 
 Os seguintes tópicos delineiam detalhes relacionados com **o fluxo de trabalho premium da Media Encoder:**
@@ -42,7 +42,8 @@ Este artigo demonstra como codificar com o Fluxo de **Trabalho Premium Media Enc
 
 As tarefas de codificação para o **Fluxo de Trabalho Premium Media Encoder** requerem um ficheiro de configuração separado, chamado ficheiro Workflow. Estes ficheiros têm uma extensão de fluxo de trabalho e são criados utilizando a ferramenta [Workflow Designer.](media-services-workflow-designer.md)
 
-Também pode obter os ficheiros de fluxo de trabalho [predefinidos aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). A pasta também contém a descrição destes ficheiros.
+Também pode obter os ficheiros de fluxo de trabalho [predefinidos aqui](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md
+). A pasta também contém a descrição destes ficheiros.
 
 Os ficheiros de fluxo de trabalho precisam de ser enviados para a sua conta de Serviços de Media como Um Ativo, e este Ativo deve ser transmitido para a Tarefa de codificação.
 

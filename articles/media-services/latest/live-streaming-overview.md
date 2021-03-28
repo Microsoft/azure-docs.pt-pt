@@ -2,23 +2,18 @@
 title: Visão geral do streaming ao vivo
 description: Este artigo apresenta uma visão geral do streaming ao vivo utilizando o Azure Media Services v3.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b552dcc0e6766316e55e9cdda6e462b2d4abfd2b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c82c646e4befef9d409bb8e59a442642913ada22
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955924"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641511"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
 
@@ -123,16 +118,6 @@ O ativo a que a saída ao vivo está a arquivar, torna-se automaticamente um ati
 - [States and billing](live-event-states-billing.md) (Estados e faturação)
 - [Latência](live-event-latency.md)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="live-streaming-questions"></a>Perguntas de streaming ao vivo
 
-Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-streaming)
-
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
-
-Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
-
-## <a name="next-steps"></a>Passos seguintes
-
-* [Arranque rápido de streaming ao vivo](live-events-wirecast-quickstart.md)
-* [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
-* [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-v-2-v-3-migration-introduction.md)
+Veja o artigo [perguntas em direto.](questions-collection.md#live-streaming)

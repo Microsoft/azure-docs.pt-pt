@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.openlocfilehash: a475441a845300d74014924415a4e48ae4de16df
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 7678d0fde21cefc950e0ac64a58563425c606298
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105628293"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640216"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
 
@@ -317,24 +317,6 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 ### <a name="error-code-df-excel-invalidfile"></a>Código de erro: DF-Excel-InvalidFile
 - **Mensagem**: O ficheiro excel inválido é fornecido enquanto apenas .xlsx e .xls são suportados.
 
-### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Código de erro: DF-AdobeIntegration-InvalidMapToFilter
-- **Mensagem**: O recurso personalizado só pode ter uma chave/Id mapeada para filtrar.
-
-### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Código de erro: DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Mensagem**: Apenas uma única partição é suportada. O esquema de partição pode ser RoundRobin ou Hash.
-- **Recomendação**: Nas definições de AdobeIntegration, confirme que só tem divisórias individuais. O esquema de partição pode ser RoundRobin ou Hash.
-
-### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Código de erro: DF-AdobeIntegration-KeyColumnMissed
-- **Mensagem**: A chave deve ser especificada para operações não inseríveis.
-- **Recomendação**: Especifique as suas colunas-chave nas definições de AdobeIntegration para operações não inseríveis.
-
-### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Código de erro: DF-AdobeIntegration-InvalidPartitionType
-- **Mensagem**: O tipo de partição tem de ser redondoRobin.
-- **Recomendação**: Confirme que o tipo de partição é redondoRobin nas definições de AdobeIntegration.
-
-### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Código de erro: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Mensagem**: Apenas a regulação de privacidade suportada atualmente é o RGPD.
-- **Recomendação**: Confirme que o regulamento de privacidade nas definições de AdobeIntegration é **"RGPD".**
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Dicas de resolução de problemas diversos
 - **Emissão:** Ocorreu uma exceção inesperada e a execução falhou.

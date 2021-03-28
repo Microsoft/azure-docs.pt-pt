@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92792604"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641401"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como utilizar o lote para melhorar o desempenho da aplicação Azure SQL Estrudindo
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -93,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-As transações estão, na verdade, a ser utilizadas em ambos os exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encerra todas as chamadas. De acordo com a documentação para o [registo de transações por escrito,](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)os registos de registo são descarregados para o disco quando a transação se compromete. Assim, ao incluir mais chamadas numa transação, a escrita para o registo de transações pode atrasar até que a transação seja comprometida. Com efeito, está a permitir o loteamento para as gravações no registo de transações do servidor.
+As transações estão, na verdade, a ser utilizadas em ambos os exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encerra todas as chamadas. De acordo com a documentação para o [registo de transações por escrito,](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15&preserve-view=true#WAL)os registos de registo são descarregados para o disco quando a transação se compromete. Assim, ao incluir mais chamadas numa transação, a escrita para o registo de transações pode atrasar até que a transação seja comprometida. Com efeito, está a permitir o loteamento para as gravações no registo de transações do servidor.
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes realizaram as mesmas inserções sequenciais com e sem transações. Para uma perspetiva mais alargada, o primeiro conjunto de testes foi realizado remotamente de um portátil para a base de dados no Microsoft Azure. O segundo conjunto de testes foi a partir de um serviço de nuvem e base de dados que ambos residiam dentro do mesmo centro de dados da Microsoft Azure (West US). O quadro seguinte mostra a duração em milissegundos de inserções sequenciais com e sem transações.
 

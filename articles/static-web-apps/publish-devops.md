@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 701f999427d743c18f5dbcadb00cf303f97a8f53
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 472cf7b69078b3247c393ff65139bc29e5683a32
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627336"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639372"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutorial: Publicar Azure Static Web Apps com Azure DevOps
 
@@ -57,9 +57,6 @@ Neste tutorial, irá aprender a:
 1. Selecione **Criar**.
 
 1. Nos _detalhes da Implementação,_ certifique-se de que seleciona **Outros**. Isto permite-lhe utilizar o código no seu repositório Azure DevOps.
-
-    > [!NOTE]
-    > A funcionalidade para selecionar _Other_ está neste momento a ser lançada e pode ainda não estar disponível em todas as subscrições do Azure.
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Detalhes da implementação - outros":::
 

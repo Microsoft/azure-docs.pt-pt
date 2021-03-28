@@ -10,19 +10,19 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2af82734fb9e1571242eec016f36f691411a8f2e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 56b411a490fe1a0c45ea4dd183d88defd61a2fde
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518760"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640848"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar corridas e métricas de experimentação com TensorBoard e Azure Machine Learning
 
 
 Neste artigo, você aprende a ver as suas experiências e métricas no TensorBoard usando [o `tensorboard` pacote](/python/api/azureml-tensorboard/) no SDK de aprendizagem automática Azure. Uma vez inspecionado as suas experiências, pode afinar e retreinar melhor os seus modelos de aprendizagem automática.
 
-[O TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) é um conjunto de aplicações web para inspecionar e compreender a sua estrutura e desempenho de experiências.
+[O TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) é um conjunto de aplicações web para inspecionar e compreender a sua estrutura e desempenho de experiências.
 
 A forma como lança o TensorBoard com experiências de Aprendizagem automática Azure depende do tipo de experiência:
 + Se a sua experiência descodionar ficheiros de registo que são consumíveis pelo TensorBoard, tais como experiências PyTorch, Chainer e TensorFlow, então pode [lançar o TensorBoard diretamente](#launch-tensorboard) do histórico de execução da experiência. 

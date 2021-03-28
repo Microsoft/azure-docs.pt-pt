@@ -4,11 +4,12 @@
   items:
     - name: Sobre os Serviços de Multimédia
       href: media-services-overview.md
-    - name: Novidades nos Serviços de Multimédia
-      displayName: release notes
+    - name: Notas de versão
       href: release-notes.md
     - name: Conformidade dos Serviços de Multimédia
       href: concept-compliance.md
+    - name: Perguntas mais frequentes
+      href: frequently-asked-questions.yml
 - name: Guias de Início Rápido
   items:
     - name: Configurar o seu ambiente
@@ -262,9 +263,8 @@
       href: architectures-concept.md
     - name: Resolução de problemas
       items:
-        - name: Perguntas mais frequentes
-          displayName: faqs
-          href: frequently-asked-questions.md
+        - name: Coleção de Perguntas
+          href: questions-collection.md
         - name: Códigos de erro
           items:
             - name: Códigos de erro do ponto final de transmissão em fluxo
@@ -346,7 +346,7 @@
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: Copiar vídeos sem codificação com REST
           href: how-to-create-copy-video-audio-transform.md
-        - name: Criar empregos com .NET
+        - name: Criar empregos com CLI
           href: cli-create-jobs.md
         - name: Criar uma entrada de tarefa com um ficheiro local e o .NET
           displayName: upload

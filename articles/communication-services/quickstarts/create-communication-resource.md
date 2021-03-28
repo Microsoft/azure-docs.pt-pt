@@ -9,13 +9,13 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: a1bdb1b8ac1f545933a92e78fd13b745606f1da3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+zone_pivot_groups: acs-plat-azp-azcli-net-ps
+ms.openlocfilehash: bdfd4dfef57721a24b4c6981ae653ab4f17562fa
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563787"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644725"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Quickstart: Criar e gerir recursos dos Serviços de Comunicação
 
@@ -23,8 +23,6 @@ ms.locfileid: "105563787"
 
 Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser a provisionados através do [portal Azure](https://portal.azure.com) ou com a SDK de gestão .NET. A gestão SDK e o portal Azure permitem-lhe criar, configurar, atualizar e eliminar os seus recursos e interface com [o Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nos SDKs estão disponíveis no portal Azure. 
 
-
-Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser a provisionados através do [portal Azure](https://portal.azure.com) ou com a SDK de gestão .NET. A gestão SDK e o portal Azure permitem-lhe criar, configurar, atualizar e eliminar os seus recursos e interface com [o Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nos SDKs estão disponíveis no portal Azure.
 
 > [!WARNING]
 > Note que, embora os Serviços de Comunicação esteja disponível em várias geografias, para obter um número de telefone, o recurso deve ter uma localização de dados definida para 'EUA'. Note também que os recursos de comunicação não podem ser transferidos para uma subscrição diferente durante a pré-visualização pública.
@@ -41,6 +39,11 @@ Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primei
 [!INCLUDE [.NET](./includes/create-resource-net.md)]
 ::: zone-end
 
+::: zone pivot="platform-powershell"
+[!INCLUDE [PowerShell](./includes/create-resource-powershell.md)]
+::: zone-end
+
+
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Aceda às cordas de ligação e pontos finais de serviço
 
 As cadeias de ligação permitem aos Serviços de Comunicação SDKs ligar e autenticar ao Azure. Pode aceder às cadeias de ligação dos serviços de comunicação e pontos finais de serviço a partir do portal Azure ou programáticamente com APIs do Gestor de Recursos Azure.
@@ -51,7 +54,7 @@ Depois de navegar para o seu recurso de Serviços de Comunicação, selecione **
 
 Também pode aceder a informações chave usando o Azure CLI, como o seu grupo de recursos ou as chaves para um recurso específico. 
 
-Instale [o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) e utilize o seguinte comando para iniciar sessão. Terá de fornecer as suas credenciais para se conectar com a sua conta azul.
+Instale [o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) e utilize o seguinte comando para iniciar sessão. Terá de fornecer as suas credenciais para se conectar com a sua conta Azure.
 ```azurecli
 az login
 ```

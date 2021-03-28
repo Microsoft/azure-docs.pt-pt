@@ -10,12 +10,12 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: 4a9deded16de6b0de2ef5f88ffebd813b8e5b8c0
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 0a59b18fa2c09cff943dbccd2203027cd72e146a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110375"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644364"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação Java SMS SDK para enviar mensagens SMS.
 
@@ -106,12 +106,12 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | Esta classe cria o SmsClient. Fornece-lhe um ponto final, credencial e um cliente http. |
 | SmsClient                    | Esta classe é necessária para toda a funcionalidade SMS. Usa-o para enviar mensagens SMS.                |
-| SmsSendResult                | Esta classe contém o resultado do serviço SMS.                                          |
 | Opções SmsSend               | Esta classe oferece opções para adicionar tags personalizadas e configurar relatórios de entrega. Se a entregaReportEnabled for definida como verdadeira, então um evento será emitido quando a entrega foi bem sucedida|                           |
+| SmsSendResult                | Esta classe contém o resultado do serviço SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantiizar um `SmsClient` com a sua cadeia de ligação. (Credencial é `Key` do portal Azure. Saiba como gerir a [cadeia de ligação dos recursos.](../../create-communication-resource.md#store-your-connection-string)
+Instantiizar um `SmsClient` com a sua cadeia de ligação. (Credencial é `Key` do portal Azure. Saiba como gerir a [cadeia de ligação do seu recurso.](../../create-communication-resource.md#store-your-connection-string)
 
 Adicione o seguinte código ao método `main`:
 
@@ -160,6 +160,12 @@ System.out.println("Message Id: " + sendResult.getMessageId());
 System.out.println("Recipient Number: " + sendResult.getTo());
 System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 ```
+
+Deverá substituir `<from-phone-number>` por um número de telefone por SMS associado ao seu recurso de Serviços de Comunicação e `<to-phone-number>` por um número de telefone para o quais deseja enviar uma mensagem.
+
+> [!WARNING]
+> Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +14255550123).
+
 ## <a name="send-a-1n-sms-message-with-options"></a>Envie uma mensagem SMS 1:N com opções
 Para enviar uma mensagem SMS para uma lista de destinatários, ligue para o `send` método com uma lista de números de telefone do destinatário. Pode também passar em parâmetros opcionais para especificar se o relatório de entrega deve ser ativado e definir etiquetas personalizadas.
 ```java
@@ -181,13 +187,14 @@ for (SmsSendResult result : sendResults) {
 }
 ```
 
-Deverá substituir `<from-phone-number>` por um número de telefone por SMS associado ao seu recurso de Serviços de Comunicação e `<to-phone-number>` pelo número de telefone ou uma lista de números de telefone a que deseja enviar uma mensagem.
+Deverá substituir `<from-phone-number>` por um número de telefone por SMS associado ao seu recurso de Serviços de Comunicação `<to-phone-number-1>` e por `<to-phone-number-2>` números de telefone para o quais deseja enviar uma mensagem.
 
-## <a name="optional-parameters"></a>Parâmetros Opcionais
+> [!WARNING]
+> Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +14255550123).
 
-O `deliveryReportEnabled` parâmetro é um parâmetro opcional que pode utilizar para configurar relatórios de entrega. Isto é útil para cenários em que pretende emitir eventos quando as mensagens SMS são entregues. Consulte o [Punho SMS Events](../handle-sms-events.md) quickstart para configurar relatórios de entrega para as suas mensagens SMS.
+O `setDeliveryReportEnabled` método é utilizado para configurar relatórios de entrega. Isto é útil para cenários em que pretende emitir eventos quando as mensagens SMS são entregues. Consulte o [Punho SMS Events](../handle-sms-events.md) quickstart para configurar relatórios de entrega para as suas mensagens SMS.
 
-O `tag` parâmetro é um parâmetro opcional que pode utilizar para aplicar uma etiqueta no Relatório de Entrega.
+O `setTag` método é utilizado para aplicar uma etiqueta no Relatório de Entrega.
 
 ## <a name="run-the-code"></a>Executar o código
 

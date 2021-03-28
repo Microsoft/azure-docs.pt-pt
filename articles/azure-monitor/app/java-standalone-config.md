@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 91ad5a6d95c634300db83d66df8f0407b4544cde
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: f349d260fff32427712442615cabf6d3958468ac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024171"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640038"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -284,6 +284,9 @@ A partir da versão 3.0.2, a telemetria auto-recolhida específica pode ser supr
   }
 }
 ```
+
+> NOTA Se estiver à procura de um controlo mais fino, por exemplo, para suprimir algumas chamadas de redis, mas nem todas as chamadas redis, consulte [sobreposições de amostragem](./java-standalone-sampling-overrides.md).
+
 
 ## <a name="heartbeat"></a>Heartbeat
 

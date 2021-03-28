@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726058"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641549"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -113,6 +113,10 @@ Pode agora definir o número de casos que pretende escalar manualmente.
 
 Pode sempre voltar à Autoescala clicando em **Ativar a autoescala** e, em seguida, **guardar**.
 
+### <a name="cool-down-period-effects"></a>Efeitos do período de arrefecimento
+
+A autoescala utiliza um período de arrefecimento para evitar "bater palmas", que é o rápido, repetativo para cima e para baixo de casos.  Para obter mais informações, consulte [as etapas de avaliação da Autoscale.](autoscale-understanding-settings.md#autoscale-evaluation)  Outras informações valiosas sobre como monitorizar o motor de autoescala podem ser encontradas em [Autoscale Best Practices](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) e [Troubleshooting autoscale,](autoscale-troubleshoot.md) respectivamente. 
+
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Encaminhar o tráfego para instâncias saudáveis (Serviço de Aplicações)
 
 <a id="health-check-path"></a>
@@ -136,6 +140,7 @@ Para saber mais sobre a movimentação de recursos entre regiões e recuperaçã
 ## <a name="next-steps"></a>Passos seguintes
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações do motor de autoescala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações falhadas de escala/escala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+
 
 <!--Reference-->
 [1]:https://portal.azure.com

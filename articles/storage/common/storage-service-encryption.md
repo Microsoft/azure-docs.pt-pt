@@ -4,17 +4,17 @@ description: O Azure Storage protege os seus dados encriptando-os automaticament
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2471ccd2a412c7cbae9d4e59412ac055697e3d7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0688e14b77d885132d6c3fbaa44bed117cc7cf9d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180365"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641126"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -65,50 +65,9 @@ A encriptação de nível de serviço suporta a utilização de chaves geridas p
 
 Para obter mais informações sobre como criar uma conta de armazenamento que permita encriptação de infraestrutura, consulte [Criar uma conta de armazenamento com encriptação de infraestrutura ativada para dupla encriptação de dados](infrastructure-encryption-enable.md).
 
-## <a name="encryption-scopes-for-blob-storage-preview"></a>Âmbitos de encriptação para armazenamento blob (pré-visualização)
-
-Por padrão, uma conta de armazenamento é encriptada com uma chave que é telescópio na conta de armazenamento. Pode optar por utilizar as teclas geridas pela Microsoft ou as teclas geridas pelo cliente armazenadas no Cofre da Chave Azure para proteger e controlar o acesso à chave que encripta os seus dados.
-
-Os âmbitos de encriptação permitem-lhe gerir opcionalmente a encriptação ao nível do recipiente ou de uma bolha individual. Pode utilizar âmbitos de encriptação para criar limites seguros entre dados que residem na mesma conta de armazenamento, mas que pertencem a diferentes clientes.
-
-Pode criar um ou mais âmbitos de encriptação para uma conta de armazenamento utilizando o fornecedor de recursos de armazenamento Azure. Quando cria um âmbito de encriptação, especifica se o âmbito está protegido com uma chave gerida pela Microsoft ou com uma chave gerida pelo cliente que é armazenada no Cofre da Chave Azure. Diferentes âmbitos de encriptação na mesma conta de armazenamento podem utilizar chaves geridas pela Microsoft ou geridas pelo cliente.
-
-Depois de ter criado um âmbito de encriptação, pode especificar esse âmbito de encriptação num pedido de criação de um recipiente ou de uma bolha. Para obter mais informações sobre como criar um âmbito de encriptação, consulte [Criar e gerir os âmbitos de encriptação (pré-visualização)](../blobs/encryption-scope-manage.md).
-
-> [!NOTE]
-> Os âmbitos de encriptação não são suportados com armazenamento geo-redundante de acesso à leitura (RA-GRS) e contas de armazenamento redundante de zona de acesso à leitura (RA-GZRS) durante a pré-visualização.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-> [!IMPORTANT]
-> A pré-visualização dos âmbitos de encriptação destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
->
-> Para evitar custos inesperados, certifique-se de desativar quaisquer âmbitos de encriptação que não necessita atualmente.
-
-### <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Criar um recipiente ou bolha com um âmbito de encriptação
-
-As bolhas criadas sob um âmbito de encriptação são encriptadas com a chave especificada para esse âmbito. Pode especificar um âmbito de encriptação para uma bolha individual quando criar a bolha, ou pode especificar um âmbito de encriptação padrão quando criar um recipiente. Quando um âmbito de encriptação predefinido é especificado ao nível de um recipiente, todas as bolhas nesse recipiente são encriptadas com a chave associada ao âmbito padrão.
-
-Quando cria uma bolha num recipiente que tenha um âmbito de encriptação padrão, pode especificar um âmbito de encriptação que substitui o âmbito de encriptação padrão se o recipiente estiver configurado para permitir substituições do âmbito de encriptação padrão. Para evitar sobreposições do âmbito de encriptação padrão, configuure o recipiente para negar sobreposições para uma bolha individual.
-
-A leitura das operações numa bolha que pertence a um âmbito de encriptação acontece de forma transparente, desde que o âmbito de encriptação não seja desativado.
-
-### <a name="disable-an-encryption-scope"></a>Desativar um âmbito de encriptação
-
-Quando desativar um âmbito de encriptação, quaisquer operações de leitura ou escrita subsequentes efetuadas com o âmbito de encriptação falharão com o código de erro HTTP 403 (Proibido). Se voltar a ativar o âmbito de encriptação, as operações de leitura e escrita voltarão a proceder normalmente.
-
-Quando um âmbito de encriptação é desativado, já não é cobrado por isso. Desative quaisquer âmbitos de encriptação que não sejam necessários para evitar encargos desnecessários.
-
-Se o seu âmbito de encriptação estiver protegido com chaves geridas pelo cliente para o Cofre da Chave Azure, também pode eliminar a chave associada no cofre de chaves para desativar o âmbito de encriptação. Tenha em mente que as teclas geridas pelo cliente no Cofre da Chave Azure estão protegidas por proteção de eliminação e purga suave, e uma chave eliminada está sujeita ao comportamento definido por essas propriedades. Para mais informações, consulte um dos seguintes tópicos na documentação do Cofre chave Azure:
-
-- [Como utilizar soft-delete com PowerShell](../../key-vault/general/key-vault-recovery.md)
-- [Como usar soft-delete com CLI](../../key-vault/general/key-vault-recovery.md)
-
-> [!NOTE]
-> Não é possível eliminar um âmbito de encriptação.
-
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o Azure Key Vault?](../../key-vault/general/overview.md)
 - [Chaves geridas pelo cliente para encriptação de armazenamento Azure](customer-managed-keys-overview.md)
-- [Âmbitos de encriptação para armazenamento blob (pré-visualização)](../blobs/encryption-scope-overview.md)
+- [Âmbitos de encriptação para armazenamento blob](../blobs/encryption-scope-overview.md)
+- [Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob](../blobs/encryption-customer-provided-keys.md)
