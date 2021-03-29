@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592368"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709927"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorizar operações e atividade da Azure Cognitive Search
 
@@ -38,9 +38,9 @@ A imagem que se segue ajuda a localizar informações de monitorização no port
 
 * **O separador de monitorização,** na página geral principal, mostra volume de consulta, latência e se o serviço está sob pressão.
 * **O registo de atividade**, no painel de navegação esquerdo, está ligado ao Gestor de Recursos Azure. O registo de atividades informa sobre as ações realizadas pelo Gestor de Recursos: disponibilidade e estado do serviço, alterações na capacidade (réplicas e divisórias) e atividades relacionadas com as chaves da API.
-* As definições **de monitorização,** mais abaixo, fornecem alertas, métricas e registos de diagnóstico configuráveis. Crie isto quando precisar. Uma vez recolhidos e armazenados os dados, pode consultar ou visualizar as informações para obter informações.
+* As definições **de monitorização,** mais abaixo, fornecem alertas configuráveis, visualização de métricas e registos de diagnóstico. Crie isto quando precisar. Uma vez recolhidos e armazenados os dados, pode consultar ou visualizar as informações para obter informações.
 
-![Integração do Azure Monitor num serviço de pesquisa](./media/search-monitor-usage/azure-monitor-search.png
+  ![Integração do Azure Monitor num serviço de pesquisa](./media/search-monitor-usage/azure-monitor-search.png
  "Integração do Azure Monitor num serviço de pesquisa")
 
 > [!NOTE]
@@ -94,7 +94,7 @@ O Azure Monitor tem a sua própria estrutura de faturação e os registos de dia
 
 ## <a name="monitor-user-access"></a>Monitorizar o acesso do utilizador
 
-Como os índices de pesquisa são um componente de uma aplicação maior do cliente, não existe uma metodologia incorporada para controlar ou monitorizar o acesso por utilizador a um índice. Presume-se que os pedidos provêm de um pedido de cliente, para pedidos de administração ou consulta. As operações de leitura-escrita do administrador incluem a criação, atualização, eliminação de objetos em todo o serviço. As operações só de leitura são consultas contra a recolha de documentos, a um único índice. 
+Como os índices de pesquisa são um componente de uma aplicação maior do cliente, não existe uma metodologia incorporada para controlar ou monitorizar o acesso por utilizador a um índice. Presume-se que os pedidos provêm de um pedido de cliente que apresente um pedido de administração ou consulta. As operações de leitura-escrita do administrador incluem a criação, atualização, eliminação de objetos em todo o serviço. As operações só de leitura são consultas contra a recolha de documentos, a um único índice. 
 
 Como tal, o que verá nos registos de atividade são referências a chamadas usando teclas de administração ou teclas de consulta. A chave apropriada está incluída em pedidos originários do código do cliente. O serviço não está equipado para manusear fichas de identidade ou personificação.
 

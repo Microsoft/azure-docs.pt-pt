@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 8173da37792948e267aae2078fee9f864bf7bdc9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 744d302afd21e6521fb17bf7bef6e68d21fb8372
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103011158"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639390"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O **Workflow Designer** é uma ferramenta de ambiente de trabalho do Windows que é usada para conceber e construir fluxos de trabalho personalizados para codificação com o fluxo de **trabalho Premium Media Encoder**.
 Ao utilizar a potência da ferramenta de design de fluxo de trabalho, pode projetar e criar fluxos de trabalho complexos que irão funcionar no **Media Encoder Premium.**  
 
@@ -45,7 +45,7 @@ Esta ferramenta também pode ser usada para modificar qualquer um dos [nossos fl
 Uma vez criado um ficheiro de fluxo de trabalho, pode ser carregado como Um Ativo e, em seguida, ser usado para codificar ficheiros de mídia. Para obter informações sobre como codificar com o Fluxo de **Trabalho Premium Media Encoder** utilizando **.NET**, consulte codificação avançada com o fluxo de [trabalho premium media Encoder](media-services-encode-with-premium-workflow.md).
 
 ## <a name="modify-existing-workflows"></a><a id="existing_workflows"></a>Modificar os fluxos de trabalho existentes
-Os [fluxos de trabalho publicados por defeito](media-services-workflow-designer.md#existing_workflows) podem ser modificados utilizando a ferramenta de design. Pode obter os ficheiros de fluxo de trabalho [predefinidos aqui.](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows) A pasta também contém a descrição destes ficheiros.
+Os [fluxos de trabalho publicados por defeito](media-services-workflow-designer.md#existing_workflows) podem ser modificados utilizando a ferramenta de design. Pode obter os ficheiros de fluxo de trabalho [predefinidos aqui.](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md) A pasta também contém a descrição destes ficheiros.
 
 Os seguintes vídeos demonstram como usar o designer.
 

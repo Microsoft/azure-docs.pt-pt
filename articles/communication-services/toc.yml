@@ -86,6 +86,10 @@
           href: concepts/telephony-sms/plan-solution.md
         - name: Requisitos de infraestrutura sip Interface
           href: concepts/telephony-sms/sip-interface-infrastructure.md
+        - name: SMS FAQ
+          href: concepts/telephony-sms/sms-faq.md
+        - name: Política de mensagens
+          href: concepts/telephony-sms/messaging-policy.md
     - name: Chamadas de voz e vídeo
       items:
         - name: Chamando a visão geral da SDK

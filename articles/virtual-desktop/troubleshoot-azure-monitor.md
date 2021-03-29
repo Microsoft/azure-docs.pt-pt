@@ -1,24 +1,21 @@
 ---
-title: Monitorização de problemas Monitor Windows Visualização virtual desktop - Azure
+title: Monitor de resolução de problemas Windows Virtual Desktop - Azure
 description: Como resolver problemas com o Monitor Azure para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a07d7536d3d71b121c1dde761d8c290b8be01fe7
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: dda58868432248fe93a9fbc83d1e538dfc9b61ba
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105628463"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709451"
 ---
-# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Troubleshoot Azure Monitor para Windows Virtual Desktop (pré-visualização)
+# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop"></a>Troubleshoot Monitor Azure para Windows Virtual Desktop
 
->[!IMPORTANT]
->O Monitor Azure para o Windows Virtual Desktop encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Este artigo apresenta problemas e soluções conhecidos para problemas comuns no Azure Monitor para o Windows Virtual Desktop (pré-visualização).
+Este artigo apresenta problemas e soluções conhecidos para problemas comuns no Azure Monitor para o Windows Virtual Desktop.
 
 ## <a name="issues-with-configuration-and-setup"></a>Problemas com configuração e configuração
 

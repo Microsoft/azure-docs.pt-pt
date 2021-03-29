@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeff14e1676389eb2204cad45ea7b00d5aa9796b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e5189df623325578bb3b579f5c4c3456067986ff
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566656"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709485"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemplos de Azure AD PowerShell para Proxy de Aplicação AD AZure
 
@@ -32,7 +32,7 @@ Para obter mais informações sobre os cmdlets utilizados nestas amostras, consu
 | [Listar informações básicas para todas as aplicações Proxy de aplicações](scripts/powershell-get-all-app-proxy-apps-basic.md) | Lista informações básicas (AppId, DisplayName, ObjId) sobre todas as aplicações Proxy de aplicação no seu diretório. |
 | [Lista informações alargadas para todas as aplicações Proxy de aplicações](scripts/powershell-get-all-app-proxy-apps-extended.md) | Lista informações alargadas (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) sobre todas as aplicações Proxy de aplicação no seu diretório.  |
 | [Listar todas as aplicações Proxy de aplicação por grupo de conector](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Lista informações sobre todas as aplicações Proxy da aplicação no seu diretório e quais os grupos de conector a que as aplicações são atribuídas. |
-| [Obtenha todas as aplicações Proxy de aplicação com uma política de vida simbólica](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Lista todas as aplicações Proxy da aplicação no seu diretório com uma política de vida simbólica e seus detalhes. Esta amostra requer a [versão de pré-visualização do módulo AzureAD V2 para a versão de pré-visualização do módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
+| [Obtenha todas as aplicações Proxy de aplicação com uma política de vida simbólica](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Lista todas as aplicações Proxy da aplicação no seu diretório com uma política de vida simbólica e seus detalhes. Esta amostra requer a [versão de pré-visualização do módulo AzureAD V2 para a versão de pré-visualização do módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true). |
 |**Grupos do conector**||
 | [Obtenha todos os grupos de conector e conectores no diretório](scripts/powershell-get-all-connectors.md) | Lista todos os grupos de conector e conectores do seu diretório. |
 | [Mover todas as aplicações atribuídas a um grupo de conector para outro grupo de conector](scripts/powershell-move-all-apps-to-connector-group.md) | Move todas as aplicações atualmente atribuídas a um grupo de conector para um grupo de conector diferente. |

@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592480"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709944"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recolher e analisar dados de registo para a pesquisa cognitiva do Azure
 
-Os registos de diagnóstico ou operacionais fornecem informações detalhadas sobre as operações detalhadas da Pesquisa Cognitiva do Azure e são úteis para monitorizar o serviço e os processos de carga de trabalho. Internamente, existem algumas informações do sistema sobre o backend por um curto período de tempo, suficiente para investigação e análise se você arquivar um bilhete de apoio. No entanto, se pretender a auto-orientação sobre os dados operacionais, deverá configurar uma definição de diagnóstico para especificar onde as informações de registo são recolhidas.
+Os registos de diagnóstico ou operacionais fornecem informações detalhadas sobre as operações detalhadas da Pesquisa Cognitiva do Azure e são úteis para monitorizar o serviço e os processos de carga de trabalho. Internamente, a Microsoft preserva as informações do sistema no backend por um curto período de tempo (cerca de 30 dias), suficiente para investigação e análise se arquivar um bilhete de suporte. No entanto, se pretender a propriedade sobre os dados operacionais, deverá configurar uma definição de diagnóstico para especificar onde as informações de registo são recolhidas.
 
 O registo de diagnóstico é ativado através da integração com [o Azure Monitor](../azure-monitor/index.yml). 
 
@@ -76,14 +76,14 @@ Duas tabelas contêm troncos e métricas para Azure Cognitive Search: **AzureDia
 
 1. Introduza a seguinte consulta para devolver um conjunto de resultados tabular.
 
-   ```
+   ```kusto
    AzureMetrics
-    | project MetricName, Total, Count, Maximum, Minimum, Average
+   | project MetricName, Total, Count, Maximum, Minimum, Average
    ```
 
 1. Repita os passos anteriores, começando com **a AzureDiagnostics** para devolver todas as colunas para fins informativos, seguida de uma consulta mais seletiva que extrai informações mais interessantes.
 
-   ```
+   ```kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search" 
@@ -99,7 +99,7 @@ Se for habilitado a fazer login de diagnóstico, pode consultar **a AzureDiagnos
 
 Devolva uma lista de operações e uma contagem de cada uma.
 
-```
+```kusto
 AzureDiagnostics
 | summarize count() by OperationName
 ```
@@ -108,7 +108,7 @@ AzureDiagnostics
 
 Correlacionar o pedido de consulta com as operações de indexação, e tornar os pontos de dados através de um gráfico de tempo para ver as operações coincidirem.
 
-```
+```kusto
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')

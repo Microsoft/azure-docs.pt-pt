@@ -1,24 +1,21 @@
 ---
-title: Use o monitor virtual de visualização do Monitor de Ambiente de Trabalho do Monitor do Windows - Azure
+title: Utilizar monitor do Monitor Windows Monitor virtual Desktop Monitor - Azure
 description: Como utilizar o Monitor Azure para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1c87763cb2ca482fc8ee15588d7287f0d9275fff
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627171"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709553"
 ---
-# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Utilize o Monitor Azure para o Windows Virtual Desktop para monitorizar a sua implementação (pré-visualização)
+# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Utilize o Monitor Azure para o Windows Virtual Desktop para monitorizar a sua implementação
 
->[!IMPORTANT]
->O Monitor Azure para o Windows Virtual Desktop encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-O Azure Monitor para Windows Virtual Desktop (pré-visualização) é um dashboard construído em Livros de Trabalho do Monitor Azure que ajuda os profissionais de TI a compreender os seus ambientes de ambientes de ambiente virtual do Windows Desktop. Este artigo irá acompanhá-lo como configurar o Azure Monitor para o Windows Virtual Desktop para monitorizar os ambientes de ambiente de secretária virtual do Windows.
+O Azure Monitor para Windows Virtual Desktop é um dashboard construído em livros de trabalho do Monitor Azure que ajuda os profissionais de TI a compreender os seus ambientes de ambientes de ambiente virtual do Windows Desktop. Este tópico irá acompanhá-lo como configurar o Azure Monitor para o Windows Virtual Desktop para monitorizar os ambientes de ambiente de secretária virtual do Windows.
 
 ## <a name="requirements"></a>Requisitos
 

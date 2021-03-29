@@ -8,13 +8,15 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 08/27/2020
 ms.author: cherylmc
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: c19e1156f897873defaba4cebaabb904d034ead3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom:
+- contperf-fy21q1
+- e2e-hybrid
+ms.openlocfilehash: f143ed3a8e739f4a79367694e933b28d717230dd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97032750"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640864"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
 

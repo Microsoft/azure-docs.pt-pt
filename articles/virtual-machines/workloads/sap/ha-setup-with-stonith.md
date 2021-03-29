@@ -13,18 +13,18 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83bf6b6123cf7e0d57296f1f344a264c8a18ed77
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3dd2a618f22036fd0826a99207d83a3add390c7d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671051"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645322"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>High availability set up in SUSE using the STONITH (Utilizar STONITH para configurar a elevada disponibilidade em SUSE)
 Este documento fornece as instruções detalhadas passo a passo para configurar a Alta Disponibilidade no sistema operativo SUSE utilizando o dispositivo STONITH.
 
 **Aviso:** *Este guia é derivado através do teste da configuração no ambiente Microsoft HANA Large Instances, que funciona com sucesso. Dado que a equipa de Gestão de Serviços da Microsoft para HANA Large Instances não suporta o sistema operativo, poderá ter de contactar a SUSE para qualquer resolução de problemas ou esclarecimentos sobre a camada do sistema operativo. A equipa de gestão de serviços da Microsoft cria dispositivoS STONITH e suporta totalmente e pode estar envolvida na resolução de problemas para problemas com dispositivos STONITH.*
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Para configurar a alta disponibilidade utilizando o agrupamento SUSE, os seguintes pré-requisitos devem reunir-se.
 ### <a name="pre-requisites"></a>Pré-requisitos
 - HANA Grandes Instâncias são a provisionadas
@@ -540,7 +540,7 @@ Após a correção anterior, o nó2 deve ser adicionado ao cluster
 ## <a name="10-general-documentation"></a>10. Documentação Geral
 Pode encontrar mais informações sobre a configuração do SUSE HA nos seguintes artigos: 
 
-- [Cenário otimizado do desempenho do SAP HANA SR](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
+- [Cenário otimizado do desempenho do SAP HANA SR](https://www.suse.com/support/kb/doc/?id=000019450 )
 - [Esgrima baseada em armazenamento](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
 - [Blog - Utilização do Pacemaker Cluster para SAP HANA- Parte 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [Blog - Utilização do Pacemaker Cluster para SAP HANA- Parte 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

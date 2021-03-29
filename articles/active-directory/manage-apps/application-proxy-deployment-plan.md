@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6da003612d98d107390c9f20a5172786c30665a6
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100580063"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709757"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear uma implementação do Proxy de Aplicações do Azure AD
 
@@ -172,7 +172,7 @@ As etapas para implementar o seu Application Proxy estão abrangidas por este [t
 
 As aplicações de publicação assumem que satisfez todos os requisitos prévios e que tem vários conectores que aparecem como registados e ativos na página Proxy da Aplicação.
 
-Também pode publicar aplicações utilizando [o PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview).
+Também pode publicar aplicações utilizando [o PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true).
 
 Abaixo estão algumas das melhores práticas a seguir ao publicar uma aplicação:
 

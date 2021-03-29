@@ -15,12 +15,12 @@ ms.date: 03/13/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32a6034f407bd81e5d2d2ab8227d08a67f034d4c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: af5329f33cc4cbaa3309450165e657fc829c828b
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99258647"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709502"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como: Configurar Azure AD SAML encriptação simbólica
 
@@ -124,7 +124,7 @@ Quando configurar um keyCredential utilizando o Gráfico, o PowerShell ou no man
 
 1. Utilize o mais recente módulo Azure AD PowerShell para ligar ao seu inquilino.
 
-1. Defina as definições de encriptação simbólica utilizando o comando **[Set-AzureApplication.](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)**
+1. Defina as definições de encriptação simbólica utilizando o comando **[Set-AzureApplication.](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)**
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>

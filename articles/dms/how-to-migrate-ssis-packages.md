@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: e6f94c006de8914fe3ae27cdb8ac4d75a0ac49cc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e42b5ab2bbdebb2584b38531bd6458a98563ef42
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962999"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643750"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Recolocar pacotes SSIS para Azure SQL Database com Serviço de Migração de Bases de Dados Azure
 
 Se utilizar os Serviços de Integração de Servidores SQL (SSIS) e quiser migrar os seus projetos/pacotes SSIS da fonte SSISDB hospedado pelo SQL Server para o destino SSISDB hospedado pela Base de Dados Azure SQL, pode reimplantá-los utilizando o Assistente de Implementação de Serviços de Integração. Pode lançar o assistente a partir do SQL Server Management Studio (SSMS).
 
-Se a versão do SSIS que utiliza for anterior a 2012, antes de recolocar os seus projetos/pacotes SSIS no modelo de implementação do projeto, primeiro tem de os converter utilizando o Assistente de Conversão de Projetos de Integração, que também pode ser lançado a partir de SSMS. Para mais informações, consulte o artigo [Converter projetos para o modelo de implementação do projeto.](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert)
+Se a versão do SSIS que utiliza for anterior a 2012, antes de recolocar os seus projetos/pacotes SSIS no modelo de implementação do projeto, primeiro tem de os converter utilizando o Assistente de Conversão de Projetos de Integração, que também pode ser lançado a partir de SSMS. Para mais informações, consulte o artigo [Converter projetos para o modelo de implementação do projeto.](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#convert)
 
 > [!NOTE]
 > O Serviço de Migração de Bases de Dados (DMS) atualmente não suporta a migração de uma fonte SSISDB para Azure SQL Database, mas pode recolocar os seus projetos/pacotes SSIS utilizando o seguinte processo.

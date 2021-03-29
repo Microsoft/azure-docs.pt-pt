@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100585418"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641975"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e tecnologias disponíveis no Azure
 
@@ -59,8 +59,8 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 | [Azure &nbsp; SQL &nbsp; Firewall](../../azure-sql/database/firewall-configure.md)|Uma funcionalidade de controlo de acesso à rede que protege contra ataques baseados em rede para base de dados. |
 |[&nbsp; &nbsp; &nbsp; Encriptação do nível da célula Azure SQL](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)| Uma tecnologia de segurança de base de dados que fornece encriptação a um nível granular.  |
 | [Encriptação de &nbsp; conexão Azure SQL &nbsp;](../../azure-sql/database/logins-create-manage.md)|Para fornecer segurança, a Base de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP, mecanismos de autenticação que exigem que os utilizadores provem a sua identidade e mecanismos de autorização que limitam os utilizadores a ações e dados específicos. |
-| [Azure SQL Sempre Encriptação](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protege dados sensíveis, tais como números de cartões de crédito ou números de identificação nacionais (por exemplo, números de segurança social dos EUA), armazenados em bases de dados Azure SQL Database ou SQL Server.  |
-| [&nbsp; &nbsp; Encriptação de dados transparentes Azure SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Um recurso de segurança da base de dados que encripta o armazenamento de uma base de dados inteira. |
+| [Azure SQL Sempre Encriptação](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Protege dados sensíveis, tais como números de cartões de crédito ou números de identificação nacionais (por exemplo, números de segurança social dos EUA), armazenados em bases de dados Azure SQL Database ou SQL Server.  |
+| [&nbsp; &nbsp; Encriptação de dados transparentes Azure SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| Um recurso de segurança da base de dados que encripta o armazenamento de uma base de dados inteira. |
 | [Auditoria da Base de Dados Azure SQL](../../azure-sql/database/auditing-overview.md)|Uma funcionalidade de auditoria de base de dados que rastreia eventos de base de dados e os escreve para um registo de auditoria na sua conta de armazenamento Azure.  |
 
 

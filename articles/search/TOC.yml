@@ -420,7 +420,7 @@
           href: search-security-rbac.md
     - name: Monitorizar
       items:
-        - name: Noções Básicas
+        - name: Descrição Geral
           href: search-monitor-usage.md
         - name: Registo de diagnósticos
           href: search-monitor-logs.md
