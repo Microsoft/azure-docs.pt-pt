@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017
 ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "73498821"
 ---
 # <a name="what-is-microsoft-genomics"></a>O que é o Microsoft Genomics?

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: sngun
 ms.openlocfilehash: 4e638fdff67ad2d0bc6f191cdfd46867ab847923
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93080126"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Limites do Gremlin do Azure Cosmos DB

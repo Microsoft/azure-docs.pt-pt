@@ -8,10 +8,10 @@ ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4cb07d9d19d85cd8dff9a52eeeb7e173b60f4d6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93080775"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retiring the S1, S2, and S3 performance levels (Os níveis de desempenho S1, S2 e S3 vão ser preteridos)

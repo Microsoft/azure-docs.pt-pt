@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3cbed124963fe6e56d6721669d0feedc6e34ffc6
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 800acddcb3527b9ca16d7fc664c2a3c27b528c25
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107062"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105726681"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ No seu ficheiro POM, faça referência ao `azure-communication-chat` pacote com 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.4</version> 
+    <version>1.0.0-beta.7</version> 
 </dependency>
 ```
 
@@ -89,12 +89,17 @@ Saiba mais sobre [a Arquitetura chat](../../../concepts/chat/concepts.md)
 Ao adicionar as declarações de importação, certifique-se de adicionar apenas importações do com.azure.communication.chat e com.azure.communication.chat.models namespaces, e não do com.azure.communication.chat.implementation namespace. No ficheiro .java App que foi gerado via Maven, pode utilizar o seguinte código para começar com:
 
 ```Java
+package com.communication.quickstart;
+
 import com.azure.communication.chat.*;
 import com.azure.communication.chat.models.*;
 import com.azure.communication.common.*;
 import com.azure.core.http.HttpClient;
+import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
+import com.azure.core.http.rest.PagedIterable;
 
 import java.io.*;
+import java.util.*;
 
 public class App
 {
@@ -126,36 +131,51 @@ public class App
 }
 ```
 
-
 ## <a name="start-a-chat-thread"></a>Inicie um fio de chat
 
 Utilize o `createChatThread` método para criar um fio de chat.
 `createChatThreadOptions` é usado para descrever o pedido de linha.
 
-- Use `topic` para dar um tópico a este chat; O tópico pode ser atualizado após a criação do fio de chat utilizando a `UpdateThread` função.
+- Utilize o `topic` parâmetro do construtor para dar um tópico a este chat; O tópico pode ser atualizado após a criação do fio de chat utilizando a `UpdateThread` função.
 - Utilize `participants` para listar os participantes do fio a adicionar ao fio. `ChatParticipant`leva o utilizador criado no quickstart [do User Access Token.](../../access-tokens.md)
 
-A resposta `chatThreadClient` é usada para realizar operações no fio de chat criado: adicionar participantes ao fio de chat, enviar uma mensagem, apagar uma mensagem, etc. Contém uma `chatThreadId` propriedade que é o ID único do fio de chat. A propriedade é acessível pelo método público .getChatThreadId().
+`CreateChatThreadResult` é a resposta devolvida da criação de um fio de chat. Contém um `getChatThread()` método que devolve o objeto que pode ser usado para obter o cliente thread a partir do qual `ChatThread` você pode obter o para executar `ChatThreadClient` operações no fio criado: adicionar participantes, enviar mensagem, etc. O `ChatThread` objeto também contém o método que recupera o `getId()` ID único do fio.
 
 ```Java
-List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
-
 ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
-    
+
 ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
-participants.add(firstThreadParticipant);
-participants.add(secondThreadParticipant);
+CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
+    .addParticipant(firstThreadParticipant)
+    .addParticipant(secondThreadParticipant);
 
-CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
-    .setTopic("Topic")
-    .setParticipants(participants);
-ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
-String chatThreadId = chatThreadClient.getChatThreadId();
+CreateChatThreadResult result = chatClient.createChatThread(createChatThreadOptions);
+String chatThreadId = result.getChatThread().getId();
+```
+
+## <a name="list-chat-threads"></a>Linhas de chat de lista
+
+Utilize o `listChatThreads` método para recuperar uma lista de fios de chat existentes.
+
+```java
+PagedIterable<ChatThreadItem> chatThreads = chatClient.listChatThreads();
+
+chatThreads.forEach(chatThread -> {
+    System.out.printf("ChatThread id is %s.\n", chatThread.getId());
+});
+```
+
+## <a name="get-a-chat-thread-client"></a>Obtenha um cliente de linha de chat
+
+O `getChatThreadClient` método devolve um cliente de linha para um fio que já existe. Pode ser utilizado para a realização de operações no fio criado: adicionar participantes, enviar mensagem, etc. `chatThreadId` é o ID único do fio de chat existente.
+
+```Java
+ChatThreadClient chatThreadClient = chatClient.getChatThreadClient(chatThreadId);
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envie uma mensagem para um fio de chat
@@ -179,84 +199,66 @@ SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendC
 String chatMessageId = sendChatMessageResult.getId();
 ```
 
-
-## <a name="get-a-chat-thread-client"></a>Obtenha um cliente de linha de chat
-
-O `getChatThreadClient` método devolve um cliente de linha para um fio que já existe. Pode ser utilizado para a realização de operações no fio criado: adicionar participantes, enviar mensagem, etc. `chatThreadId` é o ID único do fio de chat existente.
-
-```Java
-String chatThreadId = "Id";
-ChatThread chatThread = chatClient.getChatThread(chatThreadId);
-```
-
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Receba mensagens de chat de um fio de chat
 
 Pode recuperar mensagens de chat sondando o `listMessages` método no cliente do fio de chat em intervalos especificados.
 
 ```Java
-chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
-    System.out.printf("Response headers are %s. Url %s  and status code %d %n", resp.getHeaders(),
-        resp.getRequest().getUrl(), resp.getStatusCode());
-    resp.getItems().forEach(message -> {
-        System.out.printf("Message id is %s.", message.getId());
-    });
+chatThreadClient.listMessages().forEach(message -> {
+    System.out.printf("Message id is %s.\n", message.getId());
 });
 ```
 
 `listMessages` retorna a versão mais recente da mensagem, incluindo quaisquer edições ou eliminações que aconteceram com a mensagem usando .editMessage() e .deleteMessage(). Para mensagens eliminadas, `chatMessage.getDeletedOn()` de retorna um valor de hora de data indicando quando essa mensagem foi eliminada. Para mensagens editadas, `chatMessage.getEditedOn()` retorna uma data indicando quando a mensagem foi editada. A hora original da criação de mensagens pode ser acedida através da `chatMessage.getCreatedOn()` utilização , podendo ser utilizada para encomendar as mensagens.
 
-`listMessages` retorna diferentes tipos de mensagens que podem ser identificadas por `chatMessage.getType()` . Estes tipos são:
+Leia mais sobre os tipos de mensagens aqui: [Tipos de mensagens](../../../concepts/chat/concepts.md#message-types).
 
-- `text`: Mensagem de chat regular enviada por um participante de thread.
+## <a name="send-read-receipt"></a>Enviar recibo de leitura
 
-- `html`: Mensagem de chat HTML enviada por um participante de thread.
+Utilize o `sendReadReceipt` método para publicar um evento de recibo de leitura num fio de chat, em nome de um utilizador.
+`chatMessageId` é o ID único da mensagem de chat que foi lido.
 
-- `topicUpdated`: Mensagem do sistema que indica que o tópico foi atualizado.
+```Java
+String chatMessageId = message.getId();
+chatThreadClient.sendReadReceipt(chatMessageId);
+```
 
-- `participantAdded`: Mensagem do sistema que indica que um ou mais participantes foram adicionados ao fio de conversação.
+## <a name="list-chat-participants"></a>Listam participantes do chat
 
-- `participantRemoved`: Mensagem do sistema que indica que um participante foi removido do fio de conversação.
+Utilize `listParticipants` para recuperar uma coleção paged contendo os participantes do fio de chat identificado pelo chatThreadId.
 
-Para mais detalhes, consulte [os Tipos de Mensagens](../../../concepts/chat/concepts.md#message-types).
+```Java
+PagedIterable<ChatParticipant> chatParticipantsResponse = chatThreadClient.listParticipants();
+chatParticipantsResponse.forEach(chatParticipant -> {
+    System.out.printf("Participant id is %s.\n", ((CommunicationUserIdentifier) chatParticipant.getCommunicationIdentifier()).getId());
+});
+```
 
 ## <a name="add-a-user-as-participant-to-the-chat-thread"></a>Adicione um utilizador como participante ao fio de chat
 
 Uma vez criado um fio de chat, pode adicionar e remover os utilizadores do mesmo. Ao adicionar os utilizadores, dá-lhes acesso para enviar mensagens para o fio de chat e adicionar/remover outros participantes. Terá de começar por obter um novo token de acesso e identidade para esse utilizador. Antes de ligar para o método addParticipants, certifique-se de que adquiriu um novo token de acesso e identidade para esse utilizador. O utilizador necessitará desse token de acesso para inicializar o seu cliente de chat.
 
-Utilize `addParticipants` o método para adicionar os participantes ao fio identificado pelo threadId.
+Utilize o `addParticipants` método para adicionar os participantes ao fio.
 
-- Utilize `listParticipants` para listar os participantes a adicionar ao fio de chat.
 - `communicationIdentifier`, é necessário, é o Identificador de Comunicação que criou pela Entidade ComunicaçãoClient no quickstart [do User Access Token.](../../access-tokens.md)
-- `display_name`, opcional, é o nome de exibição do participante do thread.
-- `share_history_time`, opcional, é o momento a partir do qual a história do chat é partilhada com o participante. Para partilhar a história desde o início do fio de chat, coloque esta propriedade em qualquer data igual ou inferior ao tempo de criação de fios. Para não partilhar nenhuma história anterior à data da adição do participante, desafete-a para a data atual. Para partilhar o histórico parcial, desemafete-o para a data exigida.
+- `displayName`, opcional, é o nome de exibição do participante do thread.
+- `shareHistoryTime`, opcional, é o momento a partir do qual a história do chat é partilhada com o participante. Para partilhar a história desde o início do fio de chat, coloque esta propriedade em qualquer data igual ou inferior ao tempo de criação de fios. Para não partilhar nenhuma história anterior à data da adição do participante, desafete-a para a data atual. Para partilhar o histórico parcial, desemafete-o para a data exigida.
 
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(identity1)
-    .setDisplayName("Display Name 1");
+ChatParticipant thirdThreadParticipant = new ChatParticipant()
+    .setCommunicationIdentifier(user3)
+    .setDisplayName("Display Name 3");
 
-ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(identity2)
-    .setDisplayName("Display Name 2");
+ChatParticipant fourthThreadParticipant = new ChatParticipant()
+    .setCommunicationIdentifier(user4)
+    .setDisplayName("Display Name 4");
 
-participants.add(firstThreadParticipant);
-participants.add(secondThreadParticipant);
+participants.add(thirdThreadParticipant);
+participants.add(fourthThreadParticipant);
 
-AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsOptions()
-    .setParticipants(participants);
-chatThreadClient.addParticipants(addChatParticipantsOptions);
-```
-
-## <a name="remove-participant-from-a-chat-thread"></a>Remova o participante de um fio de chat
-
-Semelhante a adicionar um participante a um fio, você pode remover os participantes de um fio de chat. Para isso, é necessário rastrear as identidades dos participantes que adicionou.
-
-Use, `removeParticipant` onde `identifier` está o identificador de comunicação que criou.
-
-```Java
-chatThreadClient.removeParticipant(identity);
+chatThreadClient.addParticipants(participants);
 ```
 
 ## <a name="run-the-code"></a>Executar o código

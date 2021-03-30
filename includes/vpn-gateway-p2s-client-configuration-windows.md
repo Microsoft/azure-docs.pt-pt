@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 10/28/2020
 ms.author: cherylmc
 ms.openlocfilehash: f37876a0b6b7e8b520b5b6428381ebaf7b5b5c24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93042591"
 ---
 Pode utilizar o mesmo pacote de configuração de cliente VPN em cada computador cliente Windows, desde que a versão corresponda à arquitetura do cliente. Para obter a lista de sistemas operativos clientes suportados, consulte a secção Ponto-a-Local da [VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md#P2S).

@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: 1ed2e0cf8cc8cd841d8779462d62ba4852774a3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "74083909"
 ---
 # <a name="associate-a-waf-policy-with-an-existing-application-gateway"></a>Associar uma política da WAF a um Gateway de aplicação existente

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
 ms.openlocfilehash: 399914186ce9de62ef46b682c8d4a6e51426cc26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92221116"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Compreender diferenças entre formatos de dados U-SQL e Spark

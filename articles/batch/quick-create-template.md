@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: fc6f1537b32c8ced2cfc2bf09f16106f791001fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97106585"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Quickstart: Criar uma conta batch utilizando o modelo ARM

@@ -11,10 +11,10 @@ ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: alkemper
 ms.openlocfilehash: 40c8fae292f465b3ecc8778a21e4903bdf423a3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96932035"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Java Spring com Configuração de Aplicação Azure
