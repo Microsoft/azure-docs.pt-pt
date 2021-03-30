@@ -8,10 +8,10 @@ author: rajap
 ms.author: rajap
 ms.date: 12/11/2019
 ms.openlocfilehash: 379047532542fdb45a4378687a4c6b99f6cdcd77
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96444424"
 ---
 # <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Aceder a relatórios analíticos para o mercado comercial no Partner Center

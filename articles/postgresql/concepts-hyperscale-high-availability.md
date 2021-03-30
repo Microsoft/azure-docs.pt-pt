@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 406b4f2ada665d65ee0452579e24744d1f7cfc63
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91314858"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--hyperscale-citus"></a>Alta disponibilidade em Base de Dados Azure para PostgreSQL – Hiperescala (Citus)

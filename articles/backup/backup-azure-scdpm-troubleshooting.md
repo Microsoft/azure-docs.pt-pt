@@ -4,10 +4,10 @@ description: Neste artigo, descubra soluções para problemas que possa encontra
 ms.topic: troubleshooting
 ms.date: 01/30/2019
 ms.openlocfilehash: 84646f34d905b570855f655465529eb19b717cab
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86513817"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Resolver Problemas do System Center Data Protection Manager
