@@ -4,10 +4,10 @@ description: Este artigo abrange todos os preparativos necessários para gerir a
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85476143"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagens a partir do Azure DevOps
@@ -26,7 +26,7 @@ O próximo passo na adoção da fábrica de imagens para a sua equipa é percebe
     - A configuração. As entradas para a fábrica de imagem
         - Imagens Douradas. Esta pasta contém ficheiros JSON que representam as definições de imagens personalizadas.
         - Labs.js. Arquivar onde as equipas se inscrevem para receber imagens personalizadas específicas.
-- Scripts. O motor da fábrica de imagens.
+- Os guiões. O motor da fábrica de imagens.
 
 Os artigos nesta secção fornecem mais detalhes sobre estes scripts e modelos.
 

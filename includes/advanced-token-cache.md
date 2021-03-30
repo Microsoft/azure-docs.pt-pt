@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: kkrishna
 ms.openlocfilehash: 174946667885debc348370ef2c6f93206890e9c1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94628021"
 ---
 Você pode usar a implementação de cache simbólico da MSAL para permitir que aplicações de fundo, APIs e serviços usem a cache de acesso para continuar a agir em nome dos utilizadores na sua ausência. Fazê-lo é especialmente útil se as aplicações e serviços de fundo precisarem de continuar a trabalhar em nome do utilizador depois de o utilizador ter saído da aplicação web frontal.

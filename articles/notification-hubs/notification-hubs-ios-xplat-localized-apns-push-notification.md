@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a78d3a76e2b13a120e9e744e181c95bfcb330f27
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92313916"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push localizadas para o iOS usando hubs de notificação do Azure
@@ -44,7 +44,7 @@ Neste tutorial, siga os seguintes passos:
 > * Envie notificações de modelo localizadas a partir da aplicação de consola .NET
 > * Enviar notificações de modelo localizadas a partir do dispositivo
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 No [Use Notification Hubs para enviar notícias de última hora,]construiu uma aplicação que usava **tags** para subscrever notificações para diferentes categorias de notícias. Muitas aplicações, no entanto, visam vários mercados e exigem a localização. Isto significa que o conteúdo das próprias notificações tem de ser localizado e entregue no conjunto correto de dispositivos. Este tutorial mostra-lhe como usar a funcionalidade **de modelo** dos Centros de Notificação para facilmente fornecer notificações de notícias de última hora localizadas.
 

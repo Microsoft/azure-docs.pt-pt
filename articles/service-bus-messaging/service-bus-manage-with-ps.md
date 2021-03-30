@@ -4,10 +4,10 @@ description: Este artigo explica como usar o módulo Azure PowerShell para criar
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88065748"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o PowerShell para gerir os recursos do Service Bus

@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3048eb1ca7f9312a43bc1ab5885bf19d4c2e7931
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ed9b18144bb727af751fbcbbdd5cc6631afc40f
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185392"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105727234"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Partilhar âncoras espaciais em sessões e dispositivos
 
@@ -86,7 +86,7 @@ Selecione **OK**.
 
 Abra o Código do Estúdio Visual e, em seguida, abra o projeto na pasta *Sharing\SharingServiceSample.* 
 
-Para implementar o serviço de partilha através do Código do Estúdio Visual, siga as instruções em <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publicar uma aplicação Core ASP.NET para Azure com Visual Studio Code</a>. Comece na secção "Abra-o com Código de Estúdio Visual". Não crie outro projeto ASP.NET como explicado no passo anterior, porque já tem um projeto a ser implementado e publicado: SharingServiceSample.
+Para implementar o serviço de partilha através do Código do Estúdio Visual, siga as instruções em <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2&preserve-view=true#open-it-with-visual-studio-code" target="_blank">Publicar uma aplicação Core ASP.NET para Azure com Visual Studio Code</a>. Comece na secção "Abra-o com Código de Estúdio Visual". Não crie outro projeto ASP.NET como explicado no passo anterior, porque já tem um projeto a ser implementado e publicado: SharingServiceSample.
 
 ---
 
