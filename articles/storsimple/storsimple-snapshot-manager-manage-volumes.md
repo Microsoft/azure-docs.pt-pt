@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96022943"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager para visualizar e gerir volumes
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode utilizar o nó de volumes do Gestor de Instantâneo StorSimple (no painel **Scope)** para selecionar volumes e visualizar informações sobre os **mesmos.** Os volumes são apresentados como unidades que correspondem aos volumes montados pelo hospedeiro. O nó **volumes** mostra volumes locais e tipos de volume que são suportados pela StorSimple, incluindo volumes descobertos através da utilização do iSCSI e de um dispositivo. 
 
 Para obter mais informações sobre volumes suportados, vá ao [Suporte para vários tipos de volume](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).

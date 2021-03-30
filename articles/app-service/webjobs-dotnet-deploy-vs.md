@@ -9,10 +9,10 @@ ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89226034"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Desenvolver e implementar WebJobs usando o Visual Studio

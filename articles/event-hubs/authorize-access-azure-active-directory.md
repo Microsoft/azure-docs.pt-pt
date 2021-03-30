@@ -4,16 +4,16 @@ description: Este artigo fornece informações sobre a autorização de acesso a
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92910802"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory
 O Azure Event Hubs suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos aos recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Quando um diretor de segurança (um utilizador ou uma aplicação) tenta aceder a um recurso do Event Hubs, o pedido deve ser autorizado. Com o Azure AD, o acesso a um recurso é um processo em duas etapas. 
 
  1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome de recurso para solicitar um token é `https://eventhubs.azure.net/` , e é o mesmo para todas as nuvens/inquilinos. Para os clientes kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` .

@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: 66ce267581d4748ea51a3dcbd7caa61907115cc1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82131149"
 ---
 # <a name="common-questions-about-site-recovery-monitoring"></a>Questões comuns sobre monitorização da recuperação do local

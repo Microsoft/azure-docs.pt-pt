@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87077024"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementar pré-visualização da bancada de trabalho Azure Blockchain

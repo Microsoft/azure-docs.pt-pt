@@ -46,6 +46,9 @@
     - name: Gerir governação de etiquetas
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Eventos de mudança de estado de política de rota
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./tutorials/route-state-change-events.md
     - name: Implementar o Azure Policy como Código com o GitHub
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./tutorials/policy-as-code-github.md
@@ -126,6 +129,9 @@
     - name: Estrutura de atribuição
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: Reagir aos eventos de mudança de estado de política
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./concepts/event-overview.md
     - name: Estrutura de isenção
       displayName: 'waiver, mitigated, compliance'
       href: ./concepts/exemption-structure.md

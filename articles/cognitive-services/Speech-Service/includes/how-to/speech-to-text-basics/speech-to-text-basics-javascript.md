@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 7649f9c13db1a10bdb48d19f1019ec3b31244f45
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 5a8065daca11e5b79f02510f82ab622c8fb1af2d
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105796"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729837"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -62,7 +62,7 @@ Reconhecer o discurso de um microfone não é **suportado em Node.js**, e só é
 
 ## <a name="recognize-from-file"></a>Reconhecer a partir de arquivo 
 
-Para reconhecer a fala a partir de um ficheiro áudio, crie uma `AudioConfig` utilização `fromWavFileInput()` que aceite um `Buffer` objeto. Em seguida, inicialize [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) um, passando o seu `audioConfig` e `speechConfig` .
+Para reconhecer a fala a partir de um ficheiro áudio, crie uma `AudioConfig` utilização `fromWavFileInput()` que aceite um `Buffer` objeto. Em seguida, inicialize [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer) um, passando o seu `audioConfig` e `speechConfig` .
 
 ```javascript
 const fs = require('fs');

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/20/2020
 ms.author: cephalin
 ms.openlocfilehash: c3fa57dd162fbbfbf0d46f73bffc78f279ef2968
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83649117"
 ---
 * **Credenciais ao nível do utilizador:** um conjunto de credenciais para toda a conta Azure. Pode ser usado para implementar no Serviço de Aplicações para qualquer app, em qualquer subscrição, que a conta Azure tenha permissão para aceder. É o conjunto padrão que surgiu no portal GUI (como a **Visão Geral** e **propriedades** da página de [recursos](../articles/azure-resource-manager/management/manage-resources-portal.md#manage-resources)da aplicação). Quando um utilizador recebe acesso a aplicações através de Role-Based permissões de Controlo de Acesso (RBAC) ou coadmin, esse utilizador pode usar as suas próprias credenciais de nível de utilizador até que o acesso seja revogado. Não partilhe estas credenciais com outros utilizadores do Azure.

@@ -7,10 +7,10 @@ ms.date: 04/20/2017
 ms.author: pepogors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e8b5e5944d58e9bf3291b3870027257b2c87ad24
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89012675"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Comunicações seguras baseadas em WCF para um serviço

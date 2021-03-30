@@ -4,10 +4,10 @@ description: Fornecer acesso a imagens no seu registo de contentores privados ut
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86259141"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registo de Contentores Azure com principais serviços

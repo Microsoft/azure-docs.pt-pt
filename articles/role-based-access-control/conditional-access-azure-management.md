@@ -16,10 +16,10 @@ ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.openlocfilehash: 2a52635dbaa7a76034f3a535b099320a901e8c07
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83758780"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerir o acesso à gestão do Azure com Acesso Condicional
