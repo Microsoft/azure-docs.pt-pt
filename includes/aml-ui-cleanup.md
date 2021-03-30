@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -9,14 +9,14 @@ author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
 ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "75659882"
 ---
 >[!IMPORTANT]
->Você pode usar os recursos que criou como pré-requisitos para outros tutoriais de Aprendizagem automática Azure e artigos de como fazer.
+>Pode utilizar os recursos que criou como pré-requisitos para outros tutoriais do Azure Machine Learning e artigos de procedimentos.
 
 ### <a name="delete-everything"></a>Apagar tudo
 
@@ -36,7 +36,7 @@ A eliminação do grupo de recursos também elimina todos os recursos que criou 
 
 No designer onde criou a sua experiência, elimine os ativos individuais selecionando-os e selecionando o botão **Eliminar.**
 
-O alvo de cálculo que criou aqui *automaticamente escala automaticamente* para zero nós quando não está a ser usado. Esta ação é tomada para minimizar as cargas.Se quiser eliminar o alvo do cálculo, tome estes passos:
+O alvo de cálculo que criou aqui *automaticamente escala automaticamente* para zero nós quando não está a ser usado. Esta ação é tomada para minimizar as cargas. Se quiser eliminar o alvo do cálculo, tome estes passos:
 
 ![Eliminar ativos](./media/aml-ui-cleanup/delete-asset.png)
 

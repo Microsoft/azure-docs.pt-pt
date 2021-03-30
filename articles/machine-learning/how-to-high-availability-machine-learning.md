@@ -11,10 +11,10 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
 ms.openlocfilehash: 7a1a63893e6e2988fc5f21e84f21c74315d856b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93325479"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Aumentar a resiliência da aprendizagem automática do Azure

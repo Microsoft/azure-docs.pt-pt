@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
 ms.openlocfilehash: ea61b3bd76fc4ada48a8a2fb734a841b8a969272
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91323486"
 ---
 # <a name="share-images-across-tenants-with-shared-image-gallery"></a>Partilhar imagens entre inquilinos com Galeria de Imagens Partilhadas

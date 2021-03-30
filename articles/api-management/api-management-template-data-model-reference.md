@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86243159"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência do modelo de modelo de gestão da Azure API
@@ -41,7 +41,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 -   [Cabeçalho](#Header)  
 -   [Pedido de HTTP](#HTTPRequest)  
 -   [RESPOSTA HTTP](#HTTPResponse)  
--   [Emissão](#Issue)  
+-   [Problema](#Issue)  
 -   [Operação](#Operation)  
 -   [Menu de operação](#Menu)  
 -   [Item do menu de operação](#MenuItem)  
