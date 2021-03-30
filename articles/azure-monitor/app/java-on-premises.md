@@ -7,17 +7,17 @@ ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 04/16/2020
 ms.openlocfilehash: 1afd851f5511ce7b880727c36ffb76a7f4c6d5fe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93376991"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights"></a>Monitorização de aplicações codificadas java no local - Azure Monitor Application Insights
 
 A monitorização da aplicação sem código java tem tudo a ver com simplicidade - não há alterações de código, o agente Java pode ser ativado através de apenas algumas alterações de configuração.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma vez ativado, o agente Java recolherá automaticamente uma infinidade de pedidos, dependências, registos e métricas das bibliotecas e quadros mais utilizados.
 

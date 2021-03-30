@@ -4,10 +4,10 @@ description: Este artigo ilustra como criar uma fórmula a partir de uma base (i
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91308899"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas Azure DevTest Labs

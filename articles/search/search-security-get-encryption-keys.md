@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.openlocfilehash: 37ff94608e9756142f70a4f3c64d0a6f7eeea685
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88932904"
 ---
 # <a name="get-customer-managed-key-information-from-indexes-and-synonym-maps"></a>Obtenha informações-chave geridas pelo cliente a partir de índices e mapas de sinónimos
