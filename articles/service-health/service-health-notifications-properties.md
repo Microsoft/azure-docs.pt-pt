@@ -4,10 +4,10 @@ description: As notificações de saúde do serviço permitem-lhe visualizar men
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86529017"
 ---
 # <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Utilize o portal Azure para ver notificações de saúde do serviço

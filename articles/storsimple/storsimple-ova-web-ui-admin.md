@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96000934"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Utilize o UI Web para administrar o seu StorSimple Virtual Array
 ![fluxo de processo de configuração](./media/storsimple-ova-web-ui-admin/manage4.png)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os tutoriais deste artigo aplicam-se ao Microsoft Azure StorSimple Virtual Array (também conhecido como dispositivo virtual StorSimple on-in) em execução março de 2016 disponibilidade geral (GA). Este artigo descreve alguns dos complexos fluxos de trabalho e tarefas de gestão que podem ser realizadas no StorSimple Virtual Array. Pode gerir o StorSimple Virtual Array utilizando o UI do serviço StorSimple Manager (referido como o portal UI) e o UI web local para o dispositivo. Este artigo foca-se nas tarefas que pode executar através da UI web.
 
 Este artigo inclui os seguintes tutoriais:

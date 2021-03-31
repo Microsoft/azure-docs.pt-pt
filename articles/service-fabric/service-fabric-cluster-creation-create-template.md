@@ -4,10 +4,10 @@ description: Saiba como criar um modelo de Gestor de Recursos para um cluster de
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: b028b5c1f32733146c071e50b24202e5bad945c0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86260487"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Crie um modelo de gestor de recursos de cluster de tecido de serviço

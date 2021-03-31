@@ -4,10 +4,10 @@ description: Azure Event Grid em notas de lançamento de borda IoT
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: a7582750f5230f02c784b14f50dfc6efa7af8698
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86171419"
 ---
 # <a name="release-notes-azure-event-grid-on-iot-edge"></a>Notas de lançamento: Azure Event Grid on IoT Edge
