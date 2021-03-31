@@ -12,10 +12,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 87ef18530c549396b7d8fe1ec4ff0e08cb8535e8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784279"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Calcular o tamanho de um recipiente de bolhas com PowerShell

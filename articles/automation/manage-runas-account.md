@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
 ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101096470"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerir uma execução de automação Azure Como conta

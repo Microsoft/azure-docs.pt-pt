@@ -14,10 +14,10 @@ ms.date: 07/07/2017
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c0964eb5e44a0e1a2329ec6acef91d70cbd5c32f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87503876"
 ---
 # <a name="use-an-azure-cli-script-sample-to-create-a-network-for-multi-tier-applications"></a>Utilize uma amostra de script Azure CLI para criar uma rede para aplicações multi-camadas
