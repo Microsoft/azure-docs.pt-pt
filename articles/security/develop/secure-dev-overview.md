@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94517177"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Garantir as melhores práticas de desenvolvimento em Azure
@@ -27,7 +27,7 @@ As recomendações nos artigos vêm da nossa experiência com a segurança da Az
 
 Estes artigos destinam-se a ser um recurso para designers de software, desenvolvedores e testadores a todos os níveis que constroem e implementam aplicações seguras do Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A segurança é um dos aspetos mais importantes de qualquer aplicação, e não é uma coisa simples de acertar. Felizmente, o Azure fornece muitos serviços que podem ajudá-lo a garantir a sua aplicação na nuvem. Estes artigos abordam atividades e serviços Azure que pode implementar em cada fase do seu ciclo de vida de desenvolvimento de software para ajudá-lo a desenvolver um código mais seguro e implementar uma aplicação mais segura na nuvem.
 

@@ -7,10 +7,10 @@ ms.service: security
 ms.topic: article
 ms.date: 02/25/2020
 ms.openlocfilehash: 9f9b162460cd2e7a624c1ad3f992011487d1b795
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94516939"
 ---
 # <a name="threat-modeling-tool-update-release-73002061---02112020"></a>Lançamento da atualização da ferramenta de modelação de ameaças 7.3.00206.1 - 02/11/2020
