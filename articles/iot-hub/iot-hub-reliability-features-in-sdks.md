@@ -12,10 +12,10 @@ ms.custom:
 - mqtt
 - devx-track-csharp
 ms.openlocfilehash: efd16f0e8dd6ba952b647fbfbd6f35fc05ffd4be
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102615844"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gerir conectividade e mensagens fiáveis utilizando SDKs de dispositivo Azure IoT Hub

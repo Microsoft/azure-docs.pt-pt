@@ -4,10 +4,10 @@ description: Saiba como copiar aplicações e dados para juntar nós.
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101703652"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copiar aplicações e dados para juntar os nosdes

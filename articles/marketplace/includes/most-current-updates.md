@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: c6f20d7767021b0f1ed32bf88b3342e200c4b61d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92284808"
 ---
 As imagens base dos VM do sistema operativo devem conter as atualizações mais recentes até à data publicada. Antes de publicar, certifique-se de que atualizou o SISTEMA e todos os serviços instalados com todos os patches de segurança e manutenção mais recentes.

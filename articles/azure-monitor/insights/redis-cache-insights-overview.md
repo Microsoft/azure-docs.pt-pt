@@ -6,10 +6,10 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
 ms.openlocfilehash: fee454073c50b9542e140576ef0629a39b8f4294
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100573469"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Explore o Monitor Azure para Azure Cache para Redis
@@ -52,7 +52,7 @@ Para visualizar a utilização e desempenho das suas contas de armazenamento em 
 
 1. Selecione **Azure Cache para Redis**. Se esta opção não estiver presente, selecione **Mais**  >  **Cache Azure para Redis**.
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Em **visão geral,** a tabela apresenta cache Azure interativo para métricas Redis. Pode filtrar os resultados com base nas opções selecionadas nas seguintes listas de entrega:
 

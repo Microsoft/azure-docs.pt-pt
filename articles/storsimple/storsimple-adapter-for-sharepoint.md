@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
 ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94966297"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instale e configuure o Adaptador StorSimple para SharePoint
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Adaptador StorSimple para o SharePoint é um componente que permite fornecer ao Microsoft Azure StorSimple armazenamento flexível e proteção de dados às explorações de servidores SharePoint. Pode utilizar o adaptador para mover o conteúdo do Objeto Grande Binário (BLOB) das bases de dados de conteúdos do SQL Server para o dispositivo de armazenamento híbrido microsoft Azure StorSimple.
 
 O adaptador StorSimple para o SharePoint funciona como fornecedor de armazenamento blob remoto (RBS) e utiliza a função de armazenamento blob remoto do servidor SQL para armazenar conteúdo sharePoint não estruturado (sob a forma de BLOBs) num servidor de ficheiros que é apoiado por um dispositivo StorSimple.

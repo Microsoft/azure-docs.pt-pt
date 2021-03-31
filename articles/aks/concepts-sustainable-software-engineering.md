@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: e179b49879b78b2bab738407984c0f50d161114b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100572684"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Princípios de engenharia de software sustentáveis no Serviço Azure Kubernetes (AKS)
