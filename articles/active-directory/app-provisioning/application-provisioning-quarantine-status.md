@@ -12,10 +12,10 @@ ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 49590c46588ad0d0f1c1b7b095679a3c3fce96eb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104579506"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de pedidos em estado de quarentena

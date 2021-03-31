@@ -4,10 +4,10 @@ description: Conheça o mecanismo de atualização de uma atribuição de planta
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.openlocfilehash: c383ebedaf83b3a52062c91f98b816c3baf6618e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919398"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de projeto existente

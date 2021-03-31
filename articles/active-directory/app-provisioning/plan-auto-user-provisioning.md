@@ -12,10 +12,10 @@ ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 9f2b5bf1195682b200b5840459194506e29bcdc6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101645093"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
@@ -42,7 +42,7 @@ Os principais benefícios de permitir o fornecimento automático de utilizadores
 
 * **Reduzir o custo.** O fornecimento automático de utilizadores reduz os custos evitando ineficiências e erros humanos associados ao fornecimento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas por medida, scripts e registos de auditoria.
 
-### <a name="licensing"></a>Licensing
+### <a name="licensing"></a>Licenciamento
 
 A Azure AD proporciona integração de autosserviço de qualquer aplicação usando modelos fornecidos no menu da galeria de aplicações. Para obter uma lista completa dos requisitos de licença, consulte [a página de licenciamento da Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -68,10 +68,10 @@ Este artigo utiliza os seguintes termos:
 
 | Recursos| Link e Descrição |
 | - | - |
-| Webinars a pedido| [Gerir as suas Aplicações Empresariais com Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>‎Learn how Azure AD can help you achieve SSO to your enterprise SaaS applications and best practices for controlling access. |
+| Webinars a pedido| [Gerir as suas Aplicações Empresariais com Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Saiba como o Azure AD pode ajudá-lo a alcançar SSO para as aplicações saaS da sua empresa e as melhores práticas para controlar o acesso. |
 | Vídeos| [O que é o fornecimento de utilizadores no Ative Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [Como implementar o provisionamento do utilizador no Ative Azure Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integração da Salesforce com Azure AD: Como automatizar o Provisionamento do Utilizador](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Cursos online| SkillUp Online:  [Gestão de Identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Saiba como integrar o Azure AD com muitas aplicações SaaS e garantir o acesso dos utilizadores a essas aplicações. |
-| Livros| [Autenticação moderna com Diretório Ativo Azure para Aplicações Web (Referência do Programador) 1ª Edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> ‎This is an authoritative, deep-dive guide to building Active Directory authentication solutions for these new environments. |
+| Livros| [Autenticação moderna com Diretório Ativo Azure para Aplicações Web (Referência do Programador) 1ª Edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Este é um guia autoritário e de mergulho profundo para a construção de soluções de autenticação ative directy para estes novos ambientes. |
 | Tutoriais| Consulte a [lista de tutoriais sobre como integrar aplicações SaaS com Azure AD.](../saas-apps/tutorial-list.md) |
 | FAQ| [Perguntas frequentes](../app-provisioning/user-provisioning.md) sobre o fornecimento automatizado de utilizadores |
 

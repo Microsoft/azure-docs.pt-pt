@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
 ms.openlocfilehash: d22a01bab81fc330484e7715a65c89a1cfd7802c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94967181"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>Encriptação de dados em repouso com chaves geridas pelo cliente para o Serviço de Provisionamento de Dispositivos
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Serviço de Provisionamento de Dispositivos (DPS) suporta a encriptação de dados em repouso com as teclas geridas pelo cliente (CMK), também conhecidas como trazer a sua própria chave (BYOK). O DPS fornece encriptação de dados em repouso e em trânsito tal como está escrito nos nossos datacenters e desencripta-os para si, à medida que os acede. Por predefinição, o DPS utiliza as chaves geridas pela Microsoft para encriptar os dados em repouso. Com a CMK, pode obter uma camada adicional de encriptação em cima da encriptação da plataforma padrão, optando por encriptar dados em repouso com uma chave de encriptação, gerida através do seu Cofre de [Chave Azure](https://azure.microsoft.com/services/key-vault/). Isto dá-lhe a flexibilidade para criar, rodar, desativar e revogar as teclas. Se a CMK estiver configurada para o seu DPS, implica que a dupla encriptação está ativada com duas camadas de proteção protegendo ativamente os seus dados. 
 
