@@ -11,10 +11,10 @@ ms.date: 01/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
 ms.openlocfilehash: 75b748604e8faa502970ac71e3fec4fae2774c19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91334519"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>Como exibir matemática no Leitor Imersivo

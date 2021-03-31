@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/19/2021
 ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101699764"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeamento do fluxo de dados Modo Debug
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O modo de depuração do fluxo de dados da Azure Data Factory permite-lhe ver interativamente a forma de dados transformar-se enquanto constrói e depura os fluxos de dados. A sessão de depuragem pode ser usada tanto em sessões de design de Fluxo de Dados como durante a execução de depurações de fluxos de dados. Para ligar o modo de depuração, utilize o botão "Data Flow Debug" na parte superior da superfície de design.
 

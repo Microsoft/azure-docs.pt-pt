@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: b09d68e7859a787c05a2fc62294f081c4345ae08
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99805045"
 ---
 # <a name="use-azure-active-directory-ad-authentication-for-your-storsimple"></a>Utilize a autenticação do Azure Ative Directory (AD) para o seu StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O serviço StorSimple Device Manager funciona no Microsoft Azure e liga-se a vários dispositivos StorSimple. Até à data, o serviço StorSimple Device Manager utilizou um serviço de Controlo de Acesso (ACS) para autenticar o serviço no seu dispositivo StorSimple. O mecanismo ACS será depreciado em breve e substituído por uma autenticação do Azure Ative Directory (AAD). Para mais informações, aceda aos seguintes anúncios para depreciação acs e utilização da autenticação AAD.
 

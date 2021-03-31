@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: a0c3a3cbaa71d627f54550cf92c067afbb1eb3f0
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786214"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade forEach na Azure Data Factory
@@ -68,12 +68,12 @@ As propriedades são descritas mais tarde neste artigo. A propriedade dos itens 
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade para cada atividade. | String | Sim
-tipo | Deve ser definido para **ForEach** | String | Sim
+name | Nome da atividade para cada atividade. | String | Yes
+tipo | Deve ser definido para **ForEach** | String | Yes
 isSequential | Especifica se o laço deve ser executado sequencialmente ou em paralelo.  No máximo 20 iterações em loop podem ser executadas ao mesmo tempo em paralelo). Por exemplo, se tiver uma atividade ForEach a iterar sobre uma atividade de cópia com 10 conjuntos de dados de origem e pia diferentes com conjuntos de dados **isSequential** para Falso, todas as cópias são executadas de uma só vez. O padrão é falso. <br/><br/> Se "isSequential" estiver definido para Falso, certifique-se de que existe uma configuração correta para executar vários executáveis. Caso contrário, esta propriedade deve ser usada com cuidado para evitar conflitos de escrita incorrendo. Para mais informações, consulte a secção [execução paralela.](#parallel-execution) | Booleano | N.º O padrão é falso.
 lotCount | Contagem de lotes a utilizar para controlar o número de execuções paralelas (quando o isequential é definido como falso). Este é o limite superior de concência, mas a atividade para cada atividade nem sempre será executada neste número | Inteiro (máximo 50) | N.º O padrão é 20.
-Itens | Uma expressão que devolve um JSON Array para ser iterado. | Expressão (que devolve uma Matriz JSON) | Sim
-Atividades | As atividades a executar. | Lista de Actividades | Sim
+Itens | Uma expressão que devolve um JSON Array para ser iterado. | Expressão (que devolve uma Matriz JSON) | Yes
+Atividades | As atividades a executar. | Lista de Actividades | Yes
 
 ## <a name="parallel-execution"></a>Execução paralela
 Se **o isequential** for definido como falso, a atividade itera em paralelo com um máximo de 20 iterações simultâneas. Esta regulação deve ser utilizada com cuidado. Se as iterações simultâneas estiverem a escrever para a mesma pasta, mas para diferentes ficheiros, esta abordagem está bem. Se as iterações simultâneas estiverem a escrever simultaneamente para o mesmo ficheiro, esta abordagem provavelmente causa um erro. 

@@ -4,10 +4,10 @@ description: Um gráfico de mídia pode ser usado apenas para extrair análises 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 25a7cadc47603b726542fa391d441e1fbca78908
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97398979"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analisar vídeo ao vivo sem qualquer gravação
@@ -17,7 +17,7 @@ ms.locfileid: "97398979"
 * [Conceito de gráfico de mídia](media-graph-concept.md)
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 
-## <a name="overview"></a>Descrição geral  
+## <a name="overview"></a>Descrição Geral  
 
 Pode utilizar um gráfico de mídia para analisar o vídeo ao vivo, sem registar partes do vídeo num ficheiro ou num ativo. Os gráficos mediáticos apresentados abaixo são semelhantes aos do artigo sobre [Gravação de Vídeo Baseado](event-based-video-recording-concept.md)em Eventos, mas sem um nó de lavatório ou nó de lavatório de ficheiros.
 

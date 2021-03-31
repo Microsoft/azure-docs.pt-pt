@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100526957"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migrar da política de acesso ao cofre para um modelo de controlo de acesso baseado em funções Azure
@@ -118,7 +118,7 @@ Existem muitas diferenças entre o Azure RBAC e o modelo de permissão de polít
 -  Atribuição de funções não funcionando após vários minutos - há situações em que as atribuições de funções podem demorar mais tempo. É importante escrever uma lógica de re-tentar em código para cobrir esses casos.
 - As atribuições de funções desapareceram quando o Key Vault foi eliminado (soft-delete) e recuperado - é atualmente uma limitação de funcionalidade de eliminação suave em todos os serviços Azure. É necessário recriar todas as tarefas após a recuperação.    
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 - [Visão geral do Azure RBAC](../../role-based-access-control/overview.md)
 - [Tutorial de Papéis Personalizados](../../role-based-access-control/tutorial-custom-role-cli.md)

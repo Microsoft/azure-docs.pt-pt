@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/19/2020
 ms.openlocfilehash: bd1b33b2f6b1b0e0bf94639b3991b6507a89f5a9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97400799"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recuperação acelerada da base de dados em Azure SQL 
@@ -28,7 +28,7 @@ ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Inst
 > [!NOTE] 
 > O ADR é ativado por padrão na Base de Dados Azure SQL e na Azure SQL Gerenciada Instância e a desativação do ADR para qualquer um dos produtos não é suportado. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os principais benefícios da ADR são:
 
