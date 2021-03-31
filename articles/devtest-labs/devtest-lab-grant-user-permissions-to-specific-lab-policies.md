@@ -4,14 +4,14 @@ description: Saiba como conceder permissões de utilizadores a políticas espec�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 976862476d25e4e9a4933d8a5319eec9d77ca39b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92328475"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de utilizadores a políticas específicas de laboratório
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo ilustra como usar o PowerShell para conceder aos utilizadores permissões a uma determinada política de laboratório. Desta forma, as permissões podem ser aplicadas com base nas necessidades de cada utilizador. Por exemplo, pode querer conceder a um determinado utilizador a capacidade de alterar as definições de política de VM, mas não as políticas de custos.
 
 ## <a name="policies-as-resources"></a>Políticas como recursos
