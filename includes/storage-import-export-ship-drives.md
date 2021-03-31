@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 7ecc36218df23d81c4646612b5474a1465f428eb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80282482"
 ---
 FedEx, UPS ou DHL podem ser usados para enviar o pacote para o centro de dados Azure. Se quiser utilizar uma transportadora diferente da FedEx/DHL, contacte a equipa de Operações da Caixa de Dados da Azure `adbops@microsoft.com`
