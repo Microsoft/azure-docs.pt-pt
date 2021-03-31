@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/09/2020
 tags: connectors
 ms.openlocfilehash: fe1e31ce0bc842e1da18327d12e7a52562d84b53
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87284035"
 ---
 # <a name="create-and-manage-records-in-dynamics-365-by-using-azure-logic-apps"></a>Criar e gerir registos em Dynamics 365 utilizando apps Azure Logic

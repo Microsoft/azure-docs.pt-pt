@@ -4,10 +4,10 @@ description: Saiba como passar um certificado de cluster de Tecido de Serviço i
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 65ea4f463073c472ac6a31e62dcfdfd11cb28cc5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88853342"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Rolar manualmente sobre um certificado de cluster de tecido de serviço

@@ -4,10 +4,10 @@ description: Automatizar a criação de uma imagem personalizada em Azure DevTes
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4b0712fdbec1ce23ad9e09d972e425cb7941107b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87288974"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Crie uma imagem personalizada a partir de um ficheiro VHD usando o PowerShell
