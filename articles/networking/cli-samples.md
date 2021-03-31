@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c038f0d238646f43b93ba2a2c6a1120ab5feccee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87497295"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Amostras Azure CLI para networking

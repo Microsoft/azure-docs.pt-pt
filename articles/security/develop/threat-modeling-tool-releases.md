@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: jegeib
 ms.openlocfilehash: e6f8ba54218f9b5b730ce3454c087d6072930edf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87825876"
 ---
 # <a name="threat-modeling-tool-releases"></a>Lançamentos de ferramentas de modelação de ameaças
@@ -36,7 +36,7 @@ A Ferramenta de Modelação de Ameaças da Microsoft é atualmente lançada como
 - Requisitos Adicionais
   - É necessária uma ligação à Internet para receber atualizações da ferramenta e dos modelos.
 
-## <a name="release-notes"></a>Release Notes (Notas de Lançamento)
+## <a name="release-notes"></a>Notas de Versão
 
 - [Ferramenta de modelação de ameaças da Microsoft GA Versão 7.3.00729.1](threat-modeling-tool-releases-73007291.md) - 29 de julho de 2020
 - [Ferramenta de modelação de ameaças da Microsoft GA Versão 7.3.00714.2](threat-modeling-tool-releases-73007142.md) - 14 de julho de 2020

@@ -4,10 +4,10 @@ description: As melhores práticas para a serialização de dados e como afeta a
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: 9474a0bf8041ac541389f782f60bf1220d690cde
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96575640"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Como a serialização de dados afeta uma atualização de aplicação

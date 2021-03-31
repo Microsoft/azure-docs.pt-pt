@@ -9,10 +9,10 @@ ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 03/17/2021
 ms.openlocfilehash: d45b46f69480f24f5b2724116984a903093ffc62
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104593361"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Verifique o estado de co-venda de uma oferta de mercado comercial

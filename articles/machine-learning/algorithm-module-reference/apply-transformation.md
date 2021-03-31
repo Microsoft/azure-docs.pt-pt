@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/26/2020
 ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96003910"
 ---
 # <a name="apply-transformation-module"></a>Aplicar módulo de transformação

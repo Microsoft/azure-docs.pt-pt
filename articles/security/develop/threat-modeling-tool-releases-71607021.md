@@ -9,10 +9,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: 0e62f6950f90d7f15aa231783e292ec8eee0b4c4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87539123"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Lançamento da atualização da ferramenta de modelação de ameaças 7.1.60702.1 - 7/2/2019

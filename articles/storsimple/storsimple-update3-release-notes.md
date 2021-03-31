@@ -9,15 +9,15 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e081acc357c1b8872dd3a25c552d4cbe9785e212
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96007074"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Atualizar 3 notas de lançamento para o seu dispositivo da série StorSimple 8000
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 As seguintes notas de lançamento descrevem as novas funcionalidades e identificam as questões abertas críticas para storSimple 8000 Series Update 3. Também contêm uma lista das atualizações de software StorSimple incluídas nesta versão. 
 
 A atualização 3 pode ser aplicada a qualquer dispositivo StorSimple que esteja a executar o Release (GA) ou a Atualização 0.1 através da Atualização 2.2. A versão do dispositivo associada ao Update 3 é de 6.3.9600.17759.

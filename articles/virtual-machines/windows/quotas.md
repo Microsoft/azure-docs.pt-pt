@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: ca7d95a9916aafdab2550eee48ea05ddfa5874c1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560723"
 ---
 # <a name="check-vcpu-quotas-using-azure-powershell"></a>Verifique as quotas vCPU utilizando a Azure PowerShell
