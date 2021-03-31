@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
 ms.openlocfilehash: e10de8093bf152b75cc6f262a142ff07c3d5b0d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "72329541"
 ---
 Já criou uma aplicação de função em Azure, juntamente com a conta de Armazenamento necessária. O fio de ligação desta conta é armazenado de forma segura nas definições de aplicações em Azure. Neste artigo, você escreve mensagens para uma fila de armazenamento na mesma conta. Para se ligar à sua conta de Armazenamento ao executar a função localmente, tem de transferir as definições da aplicação para o local.settings.jsno ficheiro. 

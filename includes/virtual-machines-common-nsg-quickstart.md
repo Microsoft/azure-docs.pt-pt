@@ -9,10 +9,10 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67184229"
 ---
 Abre uma porta, ou cria um ponto final, para uma máquina virtual (VM) em Azure, criando um filtro de rede numa sub-rede ou numa interface de rede VM. Coloca-se estes filtros, que controlam o tráfego de entrada e saída, num grupo de segurança de rede ligado ao recurso que recebe o tráfego.

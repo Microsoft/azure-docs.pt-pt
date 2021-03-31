@@ -18,15 +18,15 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95973053"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação passativa do Azure Ative Directory: Atualizar agentes de autenticação de pré-visualização
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo destina-se a clientes que utilizem autenticação pass-through Azure AD através da pré-visualização. Atualizámos recentemente (e remarcamos) o software Do Agente de Autenticação. É necessário atualizar _manualmente_ os Agentes de autenticação de pré-visualização instalados nos seus servidores no local. Esta atualização manual é apenas uma ação única. Todas as futuras atualizações aos Agentes de Autenticação são automáticas. As razões para a atualização são as seguintes:
 

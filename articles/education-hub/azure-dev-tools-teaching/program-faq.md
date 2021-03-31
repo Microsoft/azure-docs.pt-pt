@@ -8,10 +8,10 @@ ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
 ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92675702"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Perguntas frequentes sobre o Centro de Educação

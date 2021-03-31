@@ -9,10 +9,10 @@ ms.date: 05/31/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f730b2abad244132b06c0fa21f07a171559d22f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96309953"
 ---
 Não: remover um ponto final do servidor não é como reiniciar um servidor! Remover e recriar o ponto final do servidor é quase nunca uma solução adequada para corrigir problemas com sincronização, nivelamento de nuvem ou outros aspetos do Azure File Sync. Remover um ponto final do servidor é uma operação destrutiva. Pode resultar em perda de dados no caso de existirem ficheiros hierárquicos fora do espaço de nome do ponto final do servidor. Veja [por que existem ficheiros hierárquicos fora do espaço de nome do ponto final do servidor](../articles/storage/files/storage-files-faq.md#afs-tiered-files-out-of-endpoint) para obter mais informações. Ou pode resultar em ficheiros inacessíveis para ficheiros hierárquicos que existam dentro do espaço de nome do ponto final do servidor. Estes problemas não serão resolvidos quando o ponto final do servidor for recriado. Podem existir ficheiros hierárquicos dentro do espaço de nome do ponto final do servidor, mesmo que nunca tenha sido ativado o tiering da nuvem. É por isso que recomendamos que não remova o ponto final do servidor a menos que queira parar de usar O Azure File Sync com esta pasta em particular ou tenha sido explicitamente instruído a fazê-lo por um engenheiro da Microsoft. Para obter mais informações sobre os pontos finais do servidor, consulte [Remover um ponto final do servidor](../articles/storage/files/storage-sync-files-server-endpoint.md#remove-a-server-endpoint).    

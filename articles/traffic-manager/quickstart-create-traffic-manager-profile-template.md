@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
 ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92676006"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Quickstart: Criar um perfil de Gestor de Tráfego usando um modelo ARM

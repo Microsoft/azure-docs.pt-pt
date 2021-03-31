@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
 ms.openlocfilehash: 35f506235f698fbcf42308e6f0b0f400e925df29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68361547"
 ---
 ### <a name="bastion-tier"></a>Nível de bastião

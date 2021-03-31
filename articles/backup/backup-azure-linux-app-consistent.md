@@ -4,10 +4,10 @@ description: Crie cópias de segurança consistentes com aplicações das suas m
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88999245"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Cópia de segurança consistente com aplicações de VMs Linux do Azure

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/19/2020
 ms.author: alkohli
 ms.openlocfilehash: 97491000c63c966c3d8159b9361fcb60e062aa49
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86210420"
 ---
 O passo final é preparar o dispositivo para envio. Neste passo, todas as partilhas do dispositivo são colocadas offline. Não é possível aceder às partilhas depois de iniciar este processo. Também pode optar por limpar o dispositivo pelo qual os dados locais do dispositivo são apagados permanentemente. Uma vez concluído o passo, o seu ecrã de tinta-e-tinta mostrará a etiqueta de envio de devolução.

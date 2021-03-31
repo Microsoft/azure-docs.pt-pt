@@ -9,10 +9,10 @@ ms.date: 07/15/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 39b61c78cbd0333183c80234256d6041a109d846
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68249922"
 ---
 Um ID de recurso Azure indica o público para o qual um símbolo emitido pode ser usado para fornecer acesso a um recurso Azure. No caso do Azure Storage, o ID de recurso pode ser específico de uma única conta de armazenamento, ou pode aplicar-se a qualquer conta de armazenamento. A tabela a seguir descreve os valores que pode fornecer para o ID de recursos:

@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 412e5ac661761d5fda1d375c59511c053a6354a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101714787"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada

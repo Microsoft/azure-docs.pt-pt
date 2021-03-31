@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 3693f46a602929f9d6e2f4e29083b071ae6a9e9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95972465"
 ---
 Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados de gráfico. 

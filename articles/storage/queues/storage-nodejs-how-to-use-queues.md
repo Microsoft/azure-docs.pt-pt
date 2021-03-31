@@ -10,17 +10,17 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-september2019, devx-track-js
 ms.openlocfilehash: 12ae05e10cdf0fa9a5f0725acaa1784eedc3612c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97803685"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Como utilizar o armazenamento da fila Azure a partir de Node.js
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este guia mostra-lhe como realizar cenários comuns usando o Azure Queue Storage. As amostras são escritas com a API Node.js. Os cenários abrangidos incluem inserir, espreitar, receber e apagar mensagens de fila. Também aprenda a criar e apagar filas.
 

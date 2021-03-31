@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.openlocfilehash: 9881a5f37c32849fc4f10acda8346510977e6b7b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97005792"
 ---
 # <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>Monitorize uma aplicação de Serviço de Aplicações com registos de servidores web usando O Azure CLI

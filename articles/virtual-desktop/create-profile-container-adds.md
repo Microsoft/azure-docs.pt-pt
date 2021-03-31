@@ -7,10 +7,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96302476"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS

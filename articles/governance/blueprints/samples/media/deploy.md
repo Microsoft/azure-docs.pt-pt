@@ -4,10 +4,10 @@ description: Implementar etapas para a amostra de planta media, incluindo detalh
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 13d50c2a791a72c58d8ebef7a46c592efd0cb9a8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100577301"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Implementar a amostra de planta mídia

@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
 ms.openlocfilehash: 496ff6c7ec39706a99bb40447b6443ca71f19e5e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99093694"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-managed-instance"></a>Eliminar uma sub-rede depois de eliminar uma Instância Gerida Azure SQL

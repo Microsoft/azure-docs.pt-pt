@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5a734963ced9daefda2b7b6f4a52fd9ef437eddc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "71269269"
 ---
 O gateway de rede virtual utiliza uma sub-rede específica denominada sub-rede do gateway. A sub-rede do gateway faz parte do intervalo de endereços IP da rede virtual que especificou quando configurar a rede virtual. Contém os endereços IP que utilizam os serviços e recursos de gateway de rede virtual. A sub-rede deve ter o nome "GatewaySubnet" por ordem para que o Azure possa implementar os recursos de gateway. Não é possível especificar uma sub-rede diferente para implementar os recursos de gateway. Se não tiver uma sub-rede com o nome "GatewaySubnet", quando criar o gateway de VPN este irá falhar.

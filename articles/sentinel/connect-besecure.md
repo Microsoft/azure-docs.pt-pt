@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
 ms.openlocfilehash: 313f201aeabd470850b27d979dc5253f80e82a55
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98541172"
 ---
 # <a name="connect-your-beyond-security-besecure-to-azure-sentinel"></a>Ligue o seu beSECURE beyond Security ao Azure Sentinel

@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 01/13/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 57192ab2ee1624cb18de832ac91c95290da727df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98539877"
 ---
 # <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Fornecimento dinâmico de espaços e entidades de nomes de autocarros de serviço 
 As bibliotecas de gestão de autocarros da Azure Service podem providenciar dinamicamente espaços e entidades de nomes de Service Bus. Isto permite implementações complexas e cenários de mensagens, e permite determinar programáticamente quais as entidades a providenciar. Estas bibliotecas estão atualmente disponíveis para .NET.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Existem três bibliotecas de gestão disponíveis para criar e gerir entidades de Service Bus. A saber:
 
 - [Azure.Messaging.ServiceBus.Administration](#azuremessagingservicebusadministration)

@@ -8,10 +8,10 @@ ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: bf91c0a6e533acb326fe815c3e3c1088c959a603
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100576730"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Linha de base de segurança Azure para recuperação do local

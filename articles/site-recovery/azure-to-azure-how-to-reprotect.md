@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91360876"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>A operação “proteger novamente” falhou nas VMs do Azure para a região primária

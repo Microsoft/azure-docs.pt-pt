@@ -9,10 +9,10 @@ ms.date: 09/04/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 4604616cd4f2d6c75c272586df1331fc405061cb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "70737496"
 ---
 ## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Problemas de erroSalheadersNotSupported a partir de uma aplicação web usando ficheiros Azure do Navegador

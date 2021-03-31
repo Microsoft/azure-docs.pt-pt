@@ -11,10 +11,10 @@ ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
 ms.openlocfilehash: a7d1212d1106f0883d05a860b498b90e4e5f8e00
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102517519"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Implementar modelos treinados com Azure Machine Learning nas suas máquinas locais 

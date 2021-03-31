@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: e603175aa40077009bb208846cba62d5280e57c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104577071"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v2 para SQL API: Baixar e lançar notas

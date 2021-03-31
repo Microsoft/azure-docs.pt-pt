@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
 ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98541195"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizar as configurações de rede da VM do Azure de destino

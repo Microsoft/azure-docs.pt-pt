@@ -12,10 +12,10 @@ ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: c45b819f9fc02fae40c2bf7fc5c2247c8c0a6147
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102517485"
 ---
 # <a name="deploy-mlflow-models-as-azure-web-services-preview"></a>Implementar os modelos MLflow como serviços web Azure (pré-visualização)

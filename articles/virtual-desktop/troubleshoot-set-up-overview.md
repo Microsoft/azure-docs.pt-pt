@@ -7,10 +7,10 @@ ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 4d4bdc4fa15f634b36f12a650b70b9ffd89b40e0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98539117"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Visão geral de resolução de problemas, feedback e suporte para Windows Virtual Desktop
@@ -32,7 +32,7 @@ Antes de fazer qualquer outra coisa, certifique-se de verificar a página de [es
 
 Utilize a seguinte tabela para identificar e resolver problemas que poderá encontrar ao configurar um ambiente utilizando o cliente remote desktop. Uma vez configurado o seu ambiente, você pode usar o nosso novo [serviço de Diagnóstico](diagnostics-role-service.md) para identificar problemas para cenários comuns.
 
-| **Emissão**                                                            | **Solução sugerida**  |
+| **Problema**                                                            | **Solução Sugerida**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Sessão anfitrião piscina Azure Virtual Network (VNET) e definições de Rota Expresso               | [Abra um pedido de suporte Azure](https://azure.microsoft.com/support/create-ticket/)e, em seguida, selecione o serviço apropriado (na categoria Networking). |
 | Sessão anfitrião pool Virtual Machine (VM) criação quando modelos de Gestor de Recursos Azure fornecidos com Windows Virtual Desktop não estão sendo usados | [Abra um pedido de suporte Azure](https://azure.microsoft.com/support/create-ticket/)e, em seguida, selecione **Windows Virtual Desktop** para o serviço. <br> <br> Para problemas com os modelos do Gestor de Recursos Azure que são fornecidos com o Windows Virtual Desktop, consulte a secção de erros do modelo do Gestor de Recursos Azure da [criação](troubleshoot-set-up-issues.md)da piscina host . |

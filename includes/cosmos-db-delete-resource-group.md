@@ -6,10 +6,10 @@ ms.date: 01/22/2020
 ms.author: sngun
 ms.custom: seo-java-september2019
 ms.openlocfilehash: caefb11e3d691cea940bae5103bf918d3d31cc96
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95972450"
 ---
 Quando terminar a sua app e a conta DB da Azure Cosmos, pode apagar os recursos Azure que criou para não incorrer em mais encargos. Para eliminar os recursos:

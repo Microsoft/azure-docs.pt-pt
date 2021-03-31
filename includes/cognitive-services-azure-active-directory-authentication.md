@@ -5,10 +5,10 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
 ms.openlocfilehash: 2d186463f340be14113228baa583fdcf6ff55401
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102510964"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory

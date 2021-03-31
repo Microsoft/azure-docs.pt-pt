@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 720c064c6b382bc62565c0828422181c761df8e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88936933"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Persistir dados de tarefas para o Azure Storage com o serviço Batch API
