@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95025964"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Os padrões melhoram a precisão da previsão

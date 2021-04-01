@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
 ms.openlocfilehash: d23df80a3f80ed96779297bac12ef0ed8d2927d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101687928"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Criar exemplo gerido pelo Azure SQL utilizando ferramentas Kubernetes
@@ -28,7 +28,7 @@ Para criar uma instância gerida pela SQL utilizando ferramentas Kubernetes, ter
 
 [Instale a ferramenta kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para criar um exemplo gerido pela SQL, é necessário criar um segredo kubernetes para armazenar o login e a palavra-passe do administrador do sistema de forma segura e um recurso personalizado de instância gerido pela SQL com base na definição de recursos personalizados sqlmanagedinstance.
 

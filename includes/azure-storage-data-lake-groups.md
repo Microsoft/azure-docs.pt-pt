@@ -7,10 +7,10 @@ ms.date: 09/29/2020
 ms.author: normesta
 ms.custom: include file
 ms.openlocfilehash: 9750eabf2aa5af4f431f2db17e113b07d3bce863
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017692"
 ---
 Utilize sempre [os grupos de segurança Azure AD](../articles/active-directory/fundamentals/active-directory-manage-groups.md) como o principal designado numa entrada ACL. Resista à oportunidade de atribuir diretamente aos utilizadores individuais ou aos principais de serviço. A utilização desta estrutura permitir-lhe-á adicionar e remover utilizadores ou diretores de serviço sem a necessidade de reaplicar ACLs a toda uma estrutura de diretório. Em vez disso, pode apenas adicionar ou remover utilizadores e principais de serviço do grupo de segurança Azure AD apropriado. 

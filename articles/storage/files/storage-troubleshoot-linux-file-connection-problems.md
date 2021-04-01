@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: e680ba10c507ef83591b56652ee8e95c4d665dda
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96492068"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Problemas de resolução de ficheiros Azure em Linux (SMB)

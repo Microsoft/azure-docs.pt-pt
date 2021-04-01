@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2020
 ms.openlocfilehash: 77b9988557106ef460d3b222ef85eb29e08f31c8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97693990"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utilize o controlo de acesso baseado em funções Azure para definir o acesso ao ficheiro de configuração Kubernetes no Serviço Azure Kubernetes (AKS)

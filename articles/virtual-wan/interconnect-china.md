@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: sukishen
 ms.openlocfilehash: 169477ffdf6fd593f1b6f01469c7303f8bd3a488
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96531843"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interligar-se com a China usando Azure Virtual WAN e Secure Hub

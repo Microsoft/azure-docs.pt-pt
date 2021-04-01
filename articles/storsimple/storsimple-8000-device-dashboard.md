@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017156"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utilize o resumo do dispositivo no serviço StorSimple Device Manager
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A lâmina de resumo do dispositivo StorSimple dá-lhe uma visão geral das informações para um dispositivo StorSimple específico, em contraste com a lâmina de resumo do serviço, que lhe dá informações sobre todos os dispositivos incluídos na sua solução Microsoft Azure StorSimple.
 
 A lâmina de resumo do dispositivo fornece uma visão sumária de um dispositivo da série StorSimple 8000 que está registado com um determinado Gestor de Dispositivos StorSimple, realçando os problemas do dispositivo que precisam da atenção de um administrador de sistema. Este tutorial introduz a lâmina de resumo do dispositivo, explica o conteúdo e a função e descreve as tarefas que pode executar a partir desta lâmina.

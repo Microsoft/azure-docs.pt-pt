@@ -7,10 +7,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 01f4f52acaa5b461e2b058f112f26dafda86dcb7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95025032"
 ---
 # <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Tutorial: Configurar alertas de serviço para o Windows Virtual Desktop (clássico)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
 ms.openlocfilehash: c88f2d25046ee017fccd2cee6e951be72d4dda91
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361949"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover ficheiros com a Azure Data Factory

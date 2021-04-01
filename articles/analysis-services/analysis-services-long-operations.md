@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 4e069effae0cb7f834b2c3dac696d05304d841a7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92014839"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Melhores práticas para operações de execução prolongada

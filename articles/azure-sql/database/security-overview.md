@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
 ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94989195"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql

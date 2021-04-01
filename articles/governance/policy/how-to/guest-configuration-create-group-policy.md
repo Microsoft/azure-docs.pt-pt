@@ -4,10 +4,10 @@ description: Saiba como converter a Política de Grupo do Windows Server 2019 Ba
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93348649"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Como criar definições de política de configuração de convidados a partir da linha de base da Política de Grupo para Windows

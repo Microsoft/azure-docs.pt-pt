@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 17c116194aa52a82246bcee9114824e8a918ebbd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017105"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Falha no seu dispositivo físico StorSimple para o mesmo dispositivo
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve os passos necessários para falhar sobre um dispositivo físico da série StorSimple 8000 para si mesmo se houver um desastre. O StorSimple utiliza a função de falha do dispositivo para migrar dados de um dispositivo físico de origem no datacenter para outro dispositivo físico. A orientação neste tutorial aplica-se a dispositivos físicos da série StorSimple 8000 que executam as versões de software Update 3 e posteriormente.
 

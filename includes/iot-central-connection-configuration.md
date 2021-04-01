@@ -9,10 +9,10 @@ ms.date: 11/03/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2b7881e7fa1ccbcec1325b2af0a570c86b0585a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017532"
 ---
 Quando executar a aplicação do dispositivo de amostra mais tarde neste tutorial, precisa dos seguintes valores de configuração:

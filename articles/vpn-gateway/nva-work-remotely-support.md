@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
 ms.openlocfilehash: 70b5732e1293e35127a19fbe736d8562056a870b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96499684"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Funcionando remotamente: Considerações de Aparelho Virtual de Rede (NVA) para trabalhos remotos
@@ -35,7 +35,7 @@ Todos os principais fornecedores de NVA no Azure Marketplace devem ter recomenda
 - **Número de casos** - Se espera ter um grande número de utilizadores e ligações, existem limites para o que o escalonamento dos tamanhos de instância do NVA pode alcançar.  Considere implementar várias instâncias de VM.
 - **IPSec VPN vs SSL VPN** - Em geral, as implementações ipSec VPN têm um desempenho melhor do que as implementações de VPN SSL.  
 - **Licenciamento** - Certifique-se de que as licenças de software que adquiriu para a solução NVA cobrirão o crescimento súbito que poderá experimentar durante a epidemia COVID-19.  Muitos programas de licenciamento NVA limitam o número de ligações ou largura de banda de que a solução é capaz.
-- **Rede Acelerada** - Considere uma solução NVA que tenha suporte para Networking Acelerado.  A rede acelerada permite a virtualização de E/S de raiz única (SR-IOV) a um VM, melhorando consideravelmente o seu desempenho em rede. Este percurso de alto desempenho contorna o hospedeiro do caminho dos dados, reduzindo a latência, o nervosismo e a utilização do CPU para utilização com as cargas de trabalho de rede mais exigentes em tipos de VM suportados. A rede acelerada é suportada na maioria dos tamanhos de instância otimizados para o cálculo com dois ou mais vCPUs.
+- **Rede Acelerada** - Considere uma solução NVA que tenha suporte para Networking Acelerado.  A rede acelerada permite a virtualização de entrada/saída de raiz única (SR-IOV) para uma VM, o que melhora muito o desempenho da rede. Este percurso de alto desempenho contorna o hospedeiro do caminho dos dados, reduzindo a latência, o nervosismo e a utilização do CPU para utilização com as cargas de trabalho de rede mais exigentes em tipos de VM suportados. A rede acelerada é suportada na maioria dos tamanhos de instância otimizados para o cálculo com dois ou mais vCPUs.
 
 ## <a name="monitoring-resources"></a>Recursos de monitorização
 

@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96498154"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure

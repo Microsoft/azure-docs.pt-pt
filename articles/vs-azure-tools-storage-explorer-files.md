@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96488396"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento com o Armazenamento de Ficheiros do Azure

@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 4f71cf82b675222836a73eec12d68bd8f62a5538
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94967283"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como alvo de backup com NetBackup
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Azure StorSimple é uma solução híbrida de armazenamento em nuvem da Microsoft. A StorSimple aborda as complexidades do crescimento exponencial dos dados utilizando uma conta de armazenamento Azure como uma extensão da solução no local, e ligando automaticamente os dados através do armazenamento no local e do armazenamento em nuvem.
 

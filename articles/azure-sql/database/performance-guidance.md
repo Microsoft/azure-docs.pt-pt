@@ -13,10 +13,10 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: 40657ad2f3b69d62e0e0d9c7d9e0f0be7343547b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96490606"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonize aplicações e bases de dados para desempenho em Azure SQL Database e Azure SQL Managed Instance
