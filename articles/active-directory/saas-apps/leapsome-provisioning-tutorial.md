@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: jeedes
 ms.openlocfilehash: b7c1c995ead9a8d66cd11fb4579cc49e12b487df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96351593"
 ---
 # <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutorial: Configurar Leapsome para o fornecimento automático de utilizadores

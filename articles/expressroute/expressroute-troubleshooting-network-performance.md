@@ -9,14 +9,14 @@ ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 35e080e0fe45c18ad6a6d5392e0c78b116853c3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98027473"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolver problemas de desempenho da rede
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure fornece uma forma estável e rápida de ligar da sua rede no local a Azure. Métodos como VPN Site a Site e ExpressRoute são utilizados com êxito por clientes grandes e pequenos para a gestão dos seus negócios no Azure. Mas o que acontece quando o desempenho não corresponde às suas expectativas ou experiência anteriores? Este artigo pode ajudar a normalizar a forma como testa e faz a linha de base do seu ambiente específico.
 
 Você vai aprender a testar facilmente e consistentemente a latência da rede e a largura de banda entre dois anfitriões. Também lhe serão fornecidos alguns conselhos sobre formas de olhar para a rede Azure para ajudar a isolar pontos problemáticos. O script e as ferramentas do PowerShell discutidos requerem dois anfitriões na rede (em cada extremidade da ligação que está a ser testada). Um dos anfitriões deve ser um Servidor do Windows ou um Ambiente de Trabalho, o outro pode ser Windows ou Linux. 

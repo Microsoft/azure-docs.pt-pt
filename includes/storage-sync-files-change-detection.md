@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.openlocfilehash: 1387933dc82c07e73b7715d6593238ea8c993e93
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96005341"
 ---
 As alterações efetuadas na partilha de ficheiros Azure utilizando o portal Azure ou SMB não são imediatamente detetadas e replicadas como alterações no ponto final do servidor. O Azure Files ainda não tem notificações ou diários alterados, pelo que não há forma de iniciar automaticamente uma sessão de sincronização quando os ficheiros são alterados. No Windows Server, o Azure File Sync utiliza [o diário USN do Windows](/windows/win32/fileio/change-journals) para iniciar automaticamente uma sessão de sincronização quando os ficheiros mudam.
