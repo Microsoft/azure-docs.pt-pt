@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: fba288f76377e744b1fe21a52e03a43409c505bf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97585620"
 ---
 # <a name="how-to-use-azure-queue-storage-from-powershell"></a>Como utilizar o armazenamento da fila Azure da PowerShell

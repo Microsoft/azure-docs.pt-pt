@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
 ms.openlocfilehash: b61a558ed497be3174675b7f009cf1504ecc60a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92450297"
 ---
 # <a name="tutorial-integrate-frontline-education-with-azure-active-directory"></a>Tutorial: Integrar a Educação da Linha da Frente com o Diretório Ativo Azure
