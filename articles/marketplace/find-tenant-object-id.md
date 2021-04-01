@@ -7,10 +7,10 @@ author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
 ms.openlocfilehash: 2b1ba0779649c4955987c7dae9802cefaba89b79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97109351"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Encontre iD do inquilino, ID de objeto e detalhes da associação de parceiros

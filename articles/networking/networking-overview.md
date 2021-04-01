@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: kumud
 ms.openlocfilehash: d02f85647d947c2f28527ba6f0397c2a98e73840
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98234193"
 ---
 # <a name="azure-networking-services-overview"></a>Descrição geral dos serviços de rede do Azure
@@ -93,7 +93,7 @@ Esta secção descreve serviços de networking em Azure que ajudam a proteger os
 
 :::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="DDos Proteção":::
 
-### <a name="azure-private-link"></a><a name="privatelink"></a>Ligação Privada Azure
+### <a name="azure-private-link"></a><a name="privatelink"></a>Azure Private Link
 [O Azure Private Link](../private-link/private-link-overview.md) permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um ponto final privado na sua rede virtual.
 O tráfego entre a sua rede virtual e o serviço percorre a rede de espinha dorsal da Microsoft. Expor o seu serviço à internet pública já não é necessário. Pode criar o seu próprio serviço de ligação privada na sua rede virtual e entregá-lo aos seus clientes.
 

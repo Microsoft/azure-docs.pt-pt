@@ -145,7 +145,7 @@ Ao criar ou escalar o seu plano, pode escolher entre três tamanhos de instânci
 |SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
 |EP1|1|3.5GB|250GB|
-|EP2|2|7GB|250GB|
+|DPS|2|7GB|250GB|
 |EP3|4|14GB|250GB|
 
 ### <a name="memory-usage-considerations"></a>Considerações de utilização da memória

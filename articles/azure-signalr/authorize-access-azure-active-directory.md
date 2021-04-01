@@ -7,16 +7,16 @@ ms.date: 08/03/2020
 ms.service: signalr
 ms.topic: conceptual
 ms.openlocfilehash: 37c2e41b5c81f941245b895ecd144baee3b9db6d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97797581"
 ---
 # <a name="authorize-access-to-azure-signalr-service-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Serviço Azure SignalR utilizando o Diretório Ativo Azure
 O Serviço Azure SignalR suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos aos recursos do Serviço Azure SignalR. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Quando um diretor de segurança (uma aplicação) tenta aceder a um recurso do Serviço Azure SignalR, o pedido deve ser autorizado. Com o Azure AD, o acesso a um recurso é um processo em duas etapas. 
 
  1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para solicitar um token é `https://signalr.azure.com/` .

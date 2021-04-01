@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
 ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100370116"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
