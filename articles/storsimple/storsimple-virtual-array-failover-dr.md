@@ -16,15 +16,15 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99096428"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperação após desastre e ativação pós-falha do dispositivo para a Matriz Virtual do StorSimple através do portal do Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo descreve a recuperação de desastres para o seu Microsoft Azure StorSimple Virtual Array, incluindo os passos detalhados para falhar em outra matriz virtual. Uma falha permite-lhe mover os seus dados de um dispositivo de *origem* no datacenter para um dispositivo *alvo.* O dispositivo-alvo pode estar localizado na mesma localização geográfica ou numa localização geográfica diferente. A falha do dispositivo é para todo o dispositivo. Durante o failover, os dados da nuvem do dispositivo de origem alteram a propriedade do dispositivo alvo.
 
 Este artigo é aplicável apenas a Arrays Virtuais StorSimple. Para falhar mais de um dispositivo da série 8000, vá ao dispositivo de failover e à [recuperação de desastres do seu dispositivo StorSimple](./storsimple-8000-device-failover-disaster-recovery.md).

@@ -8,10 +8,10 @@ author: msjogarrig
 ms.author: jogarrig
 ms.date: 04/22/2020
 ms.openlocfilehash: c7074981c8491460d6f2a8e7d40d086f261dfeb3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98879348"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Guia de publicação para ofertas de modelo de solução de aplicações Azure

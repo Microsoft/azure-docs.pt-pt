@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/8/2020
 ms.author: allensu
 ms.openlocfilehash: e1080aea12e70f4312fbee07b063d5a5cfbd1201
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89596312"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Definições do portal do Balanceador de Carga do Azure

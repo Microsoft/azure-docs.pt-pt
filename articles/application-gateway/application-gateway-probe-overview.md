@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: f0e5a153efe26640e54f386600f07c7b3d4711d0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89649057"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral da monitorização da saúde do Gateway de aplicação

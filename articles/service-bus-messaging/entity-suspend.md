@@ -4,10 +4,10 @@ description: Este artigo explica como suspender e reativar temporariamente as en
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94543056"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar entidades de mensagens (desativar)

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/11/2018
 ms.author: allensu
 ms.openlocfilehash: 1521d08ef9d431bbe8b3fd3a578297d440ed56b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018584"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Controle O comportamento de caching do Azure CDN com cordas de consulta - nível padrão
@@ -27,7 +27,7 @@ ms.locfileid: "96018584"
 > * [Escalão Premium](cdn-query-string-premium.md)
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Com a Rede de Entrega de Conteúdos Azure (CDN), pode controlar como os ficheiros são cached para um pedido web que contém uma cadeia de consulta. Num pedido web com uma cadeia de consulta, a cadeia de consulta é essa parte do pedido que ocorre após um ponto de interrogação (?). Uma cadeia de consulta pode conter um ou mais pares de valor-chave, nos quais o nome do campo e o seu valor são separados por um sinal igual (=). Cada par de valores-chave é separado por um ampersand (&). Por exemplo, http: \/ /www.contoso.com/content.mov?field1=value1&field2=value2. Se houver mais de um par de valores-chave numa sequência de consulta de um pedido, a sua encomenda não importa. 
 
 > [!IMPORTANT]

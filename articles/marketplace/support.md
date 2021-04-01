@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 01/19/2020
 ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98879246"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Apoio ao programa de marketplace comercial no Partner Center

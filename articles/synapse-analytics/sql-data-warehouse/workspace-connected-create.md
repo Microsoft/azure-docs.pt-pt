@@ -11,10 +11,10 @@ ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98071192"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Habilitando recursos de espaço de trabalho synapse para uma piscina SQL dedicada (anteriormente SQL DW)

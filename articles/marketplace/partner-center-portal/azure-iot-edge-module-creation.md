@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
 ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99096445"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge

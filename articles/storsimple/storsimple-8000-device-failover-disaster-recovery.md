@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017122"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover and disaster recovery for your StorSimple 8000 series devices (Ativação pós-falha e recuperação após desastre para dispositivos da série StorSimple 8000)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo descreve a funcionalidade de falha do dispositivo para os dispositivos da série StorSimple 8000 e como esta funcionalidade pode ser usada para recuperar dispositivos StorSimple em caso de desastre. O StorSimple utiliza o dispositivo falha na migração dos dados de um dispositivo de origem no datacenter para outro dispositivo alvo. A orientação deste artigo aplica-se a dispositivos físicos da série StorSimple 8000 e a aparelhos em nuvem que executam versões de software Update 3 e posteriormente.
 

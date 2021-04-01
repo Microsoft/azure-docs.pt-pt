@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
 ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99225348"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com Azure SQL Gestded Instance (Preview)
@@ -26,7 +26,7 @@ A replicação transacional é uma característica do Azure SQL Managed Instance
 
 A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode utilizar a replicação transacional para impulsionar as alterações efetuadas numa Instância Gerida Azure SQL para:
 
@@ -43,7 +43,7 @@ Os componentes-chave na replicação transacional são o **Editor,** **Distribui
 
 ![replicação com Base de Dados SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Função | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
+| Função | Base de Dados SQL do Azure | Instância Gerida do SQL do Azure |
 | :----| :------------- | :--------------- |
 | **Publisher** | No | Yes |
 | **Distribuidor** | No | Yes|
@@ -72,7 +72,7 @@ Azure SQL Managed Instance pode suportar ser assinante a partir das seguintes ve
 
 Existem diferentes [tipos de replicação:](/sql/relational-databases/replication/types-of-replication)
 
-| Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
+| Replicação | Base de Dados SQL do Azure | Instância Gerida do SQL do Azure |
 | :----| :------------- | :--------------- |
 | [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes |
 | [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|
