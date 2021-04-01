@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 31c90879d6f80f598ba71846ba68da814f254677
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91825176"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure

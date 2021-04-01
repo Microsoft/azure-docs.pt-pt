@@ -9,10 +9,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
 ms.openlocfilehash: 82d6f1fd250621ec34015970e1339ccfbd134675
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518407"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Gestão de ciclo de vida de aplicação no Azure Machine Learning Studio (clássico)

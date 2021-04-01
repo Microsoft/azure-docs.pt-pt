@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: b9b27a432776635290c7e8e796e84d8c1e0e8675
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92168346"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI elemento

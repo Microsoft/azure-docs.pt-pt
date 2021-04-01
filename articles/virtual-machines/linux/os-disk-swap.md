@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.openlocfilehash: adcbc5b0ba0056c79576e8d4c8ded2150b206513
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87371877"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Alterar o disco DE utilizado por um VM Azure utilizando o CLI

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 5d41500a9c53e38cd36f0feba602e0e1baa5da2c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92909748"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>Métricas Advisor encriptação de dados em repouso

@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: 0ed5a4aa8993f52d42b97288cd143e6114ff36ff
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97033311"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 As aplicações e serviços do Tecido de Serviço são definidos e versados utilizando ficheiros manifestos. Para uma visão mais alta dos ServiceManifest.xml e ApplicationManifest.xml, consulte [a aplicação e manifestos](service-fabric-application-and-service-manifests.md)de serviço do Service Fabric .
 
 O manifesto de serviço permite que os recursos utilizados pelo serviço sejam declarados, ou alterados, sem alterar o código compilado. O Service Fabric suporta a configuração dos recursos do ponto final para o serviço. O acesso aos recursos especificados no manifesto de serviço pode ser controlado através do SecurityGroup no manifesto de aplicação. A declaração de recursos permite que estes recursos sejam alterados no tempo de implementação, o que significa que o serviço não precisa de introduzir um novo mecanismo de configuração. A definição de esquema para o ficheiro ServiceManifest.xml é instalada com o Service Fabric SDK e ferramentas para *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*, e está documentado na [documentação do esquema do ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).

@@ -15,10 +15,10 @@ ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 957e458bf21eb4a95b1faba1daf0459271648310
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97358695"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Executar SQL Server VM em um anfitrião dedicado Azure 
@@ -26,14 +26,14 @@ ms.locfileid: "97358695"
 
 Este artigo detalha as especificidades da utilização de uma máquina virtual SQL Server (VM) com [o Azure Dedicated Host](../../../virtual-machines/dedicated-hosts.md). Informações adicionais sobre o Azure Dedicado Host podem ser encontradas no post do blog [Introduceing Azure Dedicated Host](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 [O Azure Dedicated Host](../../../virtual-machines/dedicated-hosts.md) é um serviço que fornece servidores físicos - capazes de hospedar uma ou mais máquinas virtuais - dedicados a uma subscrição do Azure. Os anfitriões dedicados são os mesmos servidores físicos utilizados nos centros de dados da Microsoft, fornecidos como recurso. Você pode providenciar anfitriões dedicados dentro de uma região, zona de disponibilidade e domínio de falhas. Em seguida, pode colocar VMs diretamente nos seus anfitriões a provisionados, em qualquer configuração que satisfaça melhor as suas necessidades.
 
 ## <a name="limitations"></a>Limitações
 
 - Nem todas as séries VM são suportadas em anfitriões dedicados, e a disponibilidade da série VM varia por região. Para mais informações, consulte [a visão geral dos anfitriões dedicados Azure.](../../../virtual-machines/dedicated-hosts.md)
 
-## <a name="licensing"></a>Licensing
+## <a name="licensing"></a>Licenciamento
 
 Pode escolher entre duas opções de licenciamento diferentes quando colocar o seu SQL Server VM num Anfitrião Dedicado Azure. 
 

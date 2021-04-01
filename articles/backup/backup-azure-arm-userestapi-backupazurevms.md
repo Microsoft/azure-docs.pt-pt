@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92171452"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API

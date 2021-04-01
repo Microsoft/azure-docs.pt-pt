@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 52904296df77d9097a6180345388e8e702e2bca0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97357635"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Provisão de produção de escala automática na base de dados ou contentor em Azure Cosmos DB - SQL API

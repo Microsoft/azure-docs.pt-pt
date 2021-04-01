@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97936792"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions

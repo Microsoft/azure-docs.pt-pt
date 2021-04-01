@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: 0961aa3e573e511a6941bc59ddc335f64799abb4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87047337"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Compare os Azure Media Services v3 predefinições e indexante de vídeo 

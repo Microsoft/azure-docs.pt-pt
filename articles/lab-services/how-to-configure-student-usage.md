@@ -4,10 +4,10 @@ description: Aprenda a configurar o número de alunos para um laboratório, regi
 ms.topic: article
 ms.date: 12/01/2020
 ms.openlocfilehash: 380a587eecb276c457b93ca3c3f3ac08b2239275
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791968"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
@@ -20,7 +20,7 @@ Este artigo mostra como adicionar utilizadores a um laboratório.
 
 ## <a name="add-users-from-an-azure-ad-group"></a>Adicionar utilizadores de um grupo AD Azure
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Pode agora sincronizar uma lista de utilizadores de laboratório para um grupo existente do Azure Ative Directory (Azure AD) para que não tenha de adicionar ou eliminar manualmente os utilizadores. 
 

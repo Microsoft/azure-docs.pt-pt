@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 8233cc714d977083f4d55716d35c0b7094a069ea
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94557960"
 ---
 # <a name="firmware-security"></a>Segurança do firmware

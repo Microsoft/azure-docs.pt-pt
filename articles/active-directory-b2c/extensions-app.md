@@ -11,10 +11,10 @@ ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dc536fa4292d794e8d89a2564ad10a3c10dd0a3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94560865"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: App de extensões

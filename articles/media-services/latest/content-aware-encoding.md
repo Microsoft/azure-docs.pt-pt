@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ce18e71ced320c408933caeb39b469d5885bd6ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101095937"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utilize a predefinição de codificação consciente do conteúdo para encontrar o valor bitrate ideal para uma determinada resolução

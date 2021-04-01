@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: allensu
 ms.openlocfilehash: 0d7d08eb5e77e744fb6ce0abefc550bc79de4c8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100519087"
 ---
 # <a name="retrieve-load-balancer-information-by-using-the-azure-instance-metadata-service"></a>Recuperar informações do balanceador de carga utilizando o Serviço de Metadados de Instância Azure

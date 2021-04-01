@@ -10,10 +10,10 @@ ms.date: 09/23/2020
 ms.author: apimpm
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: face4beab450e92be76b2bb90e45625e025de6ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97027922"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Proteja um backend web API na Azure API Management utilizando a autorização OAuth 2.0 com Azure AD 
@@ -31,7 +31,7 @@ Para seguir os passos deste artigo, você deve ter:
 - Uma API publicada que utiliza a instância de Gestão da API
 - Um inquilino da AD AZure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Segue-se uma visão geral rápida dos passos:
 

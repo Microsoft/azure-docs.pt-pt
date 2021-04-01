@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87053057"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Alteração do Protocolo de Streaming Suave (MS-SSTR) para o HEVC 
