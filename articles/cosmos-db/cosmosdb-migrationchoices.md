@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 8721c0eb728f568521e86baecb658dc9c869a7f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93097588"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar os seus dados no local ou na nuvem para Azure Cosmos DB

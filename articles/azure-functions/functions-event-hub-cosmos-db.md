@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 0d5d285812aa61cf9fe684b268dc07718f6d1a1d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101708752"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Crie uma função em Java com um gatilho do Event Hub e uma ligação de saída DB Azure Cosmos

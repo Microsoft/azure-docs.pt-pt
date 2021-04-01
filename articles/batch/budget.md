@@ -4,10 +4,10 @@ description: Aprenda a obter uma análise de custos, estabeleça um orçamento e
 ms.topic: how-to
 ms.date: 01/29/2021
 ms.openlocfilehash: d1fc2d15a7037e56a8056efa67d2017badb77ffd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99091332"
 ---
 # <a name="get-cost-analysis-and-set-budgets-for-azure-batch"></a>Obtenha análise de custos e definir orçamentos para O Azure Batch

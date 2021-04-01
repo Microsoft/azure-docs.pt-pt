@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 565acd745ba5d7fdec71f306d3851e599838f7d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99584049"
 ---
 # <a name="handle-errors-and-exceptions-in-msalnet"></a>Lidar com erros e exceções no MSAL.NET

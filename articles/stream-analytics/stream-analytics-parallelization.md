@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 9149413d070bbb5eb8d0f8d0c99fe5ff705bcefb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98012330"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Paralelização de consulta de alavancagem em Azure Stream Analytics

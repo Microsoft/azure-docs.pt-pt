@@ -12,10 +12,10 @@ ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92215438"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de erro: Azure Ative Directory B2C

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: fe17fa4349085be47201974b418493fe8d912ece
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "90527399"
 ---
 # <a name="view-or-delete-user-data-in-custom-vision"></a>Ver ou apagar dados do utilizador em Visão Personalizada

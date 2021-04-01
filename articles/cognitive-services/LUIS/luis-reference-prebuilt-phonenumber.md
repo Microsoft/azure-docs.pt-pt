@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
 ms.openlocfilehash: 598ecaddbab3b70297a460521c7ec3386b390a8d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91535394"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidade pré-incorporada de número de telefone para uma aplicação LUIS

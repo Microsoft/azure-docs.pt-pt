@@ -7,10 +7,10 @@ ms.reviewer: camerost, logicappspm
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: f5b04c563dc81497f591788dc4890d379c0f898f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93103113"
 ---
 # <a name="handle-stored-procedure-timeouts-in-the-sql-connector-for-azure-logic-apps"></a>Manuseie os intervalos de tempo do procedimento armazenado no conector SQL para apps Azure Logic

@@ -16,10 +16,10 @@ ms.date: 01/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d465419dfe36fd5dd67abdef22a6f54fba69a98e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89267467"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Utilizar a identidade gerida atribuída pelo sistema da VM do Linux para aceder ao Azure Data Lake Store

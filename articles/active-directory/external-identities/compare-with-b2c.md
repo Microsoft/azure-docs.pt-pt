@@ -13,10 +13,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78fd91e2ba7badb1936b8603c8ed089130b29ffb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101644070"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>O que são identidades externas no Diretório Ativo Azure?

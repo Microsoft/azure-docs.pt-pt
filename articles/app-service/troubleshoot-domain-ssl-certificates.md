@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97607614"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Domínio de resolução de problemas e problemas de certificadoS TLS/SSL no Serviço de Aplicações Azure

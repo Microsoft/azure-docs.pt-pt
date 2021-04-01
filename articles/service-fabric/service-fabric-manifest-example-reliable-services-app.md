@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84701103"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço do Reliable Services

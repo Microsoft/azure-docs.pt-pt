@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91536975"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte-se ao seu dispositivo de trabalho na rede da sua organização

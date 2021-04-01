@@ -9,10 +9,10 @@ ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95559926"
 ---
 Os discos partilhados Azure são uma nova funcionalidade para discos geridos aZure que permite anexar um disco gerido a várias máquinas virtuais (VMs) simultaneamente. A anexação de um disco gerido a vários VMs permite-lhe implementar novas ou migrar aplicações agrupadas existentes para o Azure.

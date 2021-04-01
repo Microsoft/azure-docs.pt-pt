@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/29/2020
 ms.openlocfilehash: 492246b5dfb19664ea54ce8b5462c7d77f8d951b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94562717"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-gremlin-api-database-and-graph-using-azure-cli"></a>Crie um bloqueio de recursos para a base de dados e gráfico da Azure Cosmos Gremlin API utilizando o Azure CLI

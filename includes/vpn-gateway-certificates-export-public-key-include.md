@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 12e9bec0c560f1b068b07a1b6afe218a112e439f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94553172"
 ---
 Depois de criar um certificado de raiz auto-assinado, exporte o certificado de raiz .cer ficheiro (não a chave privada). Mais tarde, irá enviar este ficheiro para o Azure. Os seguintes passos ajudam-no a exportar o ficheiro .cer para o seu certificado de raiz auto-assinado:

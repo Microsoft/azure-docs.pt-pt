@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91536992"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Aprovar pedidos de ativação para membros e proprietários privilegiados do grupo de acesso (pré-visualização)

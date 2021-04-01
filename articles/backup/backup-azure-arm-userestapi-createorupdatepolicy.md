@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89179611"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos Serviços de Recuperação do Azure utilizando a API REST

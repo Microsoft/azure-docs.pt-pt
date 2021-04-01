@@ -9,13 +9,13 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a662598efdca05769c7da9fbeecdf692dccdacb5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96027570"
 ---
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure Storage fornece a capacidade de tirar fotos de bolhas. Os instantâneos captam o estado da bolha nessa altura. Neste artigo, descrevemos um cenário em que é possível manter cópias de segurança de discos de máquinas virtuais utilizando instantâneos. Pode utilizar esta metodologia quando optar por não utilizar o Serviço de Backup e Recuperação do Azure e pretende criar uma estratégia de backup personalizada para os seus discos de máquinas virtuais. Para máquinas virtuais que executam cargas de trabalhos ou cargas de trabalho críticas de missão, é recomendado usar [o Azure Backup](../articles/backup/backup-azure-vms-introduction.md) como parte da estratégia de backup.  
 
 Os discos de máquina virtual Azure são armazenados como bolhas de página no Azure Storage. Uma vez que estamos descrevendo uma estratégia de backup para discos de máquinas virtuais neste artigo, referimo-nos a instantâneos no contexto das bolhas de página. Para saber mais sobre instantâneos, consulte a [Criação de um Instantâneo de uma Bolha.](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 39f628845bdc9d54b48b1c8037f4a506a9d5c00a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89236710"
 ---
 # <a name="frequently-asked-questions-for-microsoft-azure-attestation"></a>Perguntas frequentes para microsoft Azure Attestation

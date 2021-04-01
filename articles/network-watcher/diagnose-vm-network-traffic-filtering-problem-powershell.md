@@ -18,10 +18,10 @@ ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: de46d71127f992ea573d1f2d778afcb7f46ed3e6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98013316"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Guia de Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual – Azure PowerShell

@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: ad3dfc8c86d22e58377ebfbdb94b2beb004ded56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93092471"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carregue os dados da amostra numa tabela da API de Cassandra no Azure Cosmos DB
