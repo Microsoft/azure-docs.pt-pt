@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: 5ae930240872c00c8dbb45857e4e77d82766eadf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93398067"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Mover VMs Azure para outra região de Azure

@@ -8,14 +8,14 @@ ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 6fff19498e9ca70991d3190165df70a48136f502
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92631143"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicações #
-## <a name="overview"></a>Descrição geral ##
+## <a name="overview"></a>Descrição Geral ##
 
 O Ambiente de Serviço de Aplicações do Azure é uma funcionalidade do Serviço de Aplicações do Azure que fornece um ambiente totalmente isolado e dedicado para executar com segurança as aplicações do Serviço de Aplicações em grande escala. Esta capacidade pode alojar:
 

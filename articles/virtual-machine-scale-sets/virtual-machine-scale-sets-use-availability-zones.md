@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96016663"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Crie um conjunto de escala de máquina virtual que utilize Zonas de Disponibilidade

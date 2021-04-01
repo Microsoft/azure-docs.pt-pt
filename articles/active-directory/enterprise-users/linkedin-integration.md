@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ffa937f91af7078b28331a655f99397d3821def
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96545898"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar ligações de conta LinkedIn no Azure Ative Directory

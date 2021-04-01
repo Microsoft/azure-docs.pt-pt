@@ -13,10 +13,10 @@ ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.openlocfilehash: dc1ab8bd1a851f7fafd5c001ac73e66973e1b64c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102051893"
 ---
 # <a name="pronunciation-assessment"></a>Avaliação da pronúncia

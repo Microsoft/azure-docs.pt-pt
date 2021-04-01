@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: a32811b439a569a8f8f82fcc046e0f4b89e47a38
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94966705"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Quickstart: Fornecimento de um dispositivo simulado ao IoT Hub com teclas simétricas

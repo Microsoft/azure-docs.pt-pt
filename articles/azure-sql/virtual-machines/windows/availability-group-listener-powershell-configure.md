@@ -15,10 +15,10 @@ ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 9337d1c2767923e6dc7c6b267e0c180b460a116e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359426"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configure um ou mais Sempre Na disponibilidade de ouvintes do grupo - Gestor de Recursos

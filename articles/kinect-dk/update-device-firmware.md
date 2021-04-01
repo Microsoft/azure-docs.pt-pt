@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, firmware, atualização, recuperação
 ms.openlocfilehash: 71557798a584635356cc47fd7c4a0309df4d018a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94356231"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Atualizar firmware Azure Kinect DK

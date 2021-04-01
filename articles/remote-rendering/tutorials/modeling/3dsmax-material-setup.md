@@ -6,15 +6,15 @@ ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96020284"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutorial: Configurar materiais de renderização fisicamente em 3ds Max
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Neste tutorial, irá aprender a:
 
 >[!div class="checklist"]

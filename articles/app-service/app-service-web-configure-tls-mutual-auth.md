@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97347741"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurar a autenticação mútua de TLS para o Serviço de Aplicações do Azure

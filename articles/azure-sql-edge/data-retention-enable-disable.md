@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96861430"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Permitir e desativar políticas de retenção de dados

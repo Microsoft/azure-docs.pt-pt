@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: b1f0cbc1b15eec6498b9219b58d4679bf1a854dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018771"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Tutorial: Integração do Diretório Ativo Azure com o Tango Analytics

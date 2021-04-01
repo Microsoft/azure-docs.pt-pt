@@ -7,10 +7,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98736739"
 ---
 # <a name="time-series-model-variables"></a>Variáveis de modelo de série de tempo

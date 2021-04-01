@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96017889"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster de serviço Azure Kubernetes

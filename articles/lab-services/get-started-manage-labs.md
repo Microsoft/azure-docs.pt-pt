@@ -4,10 +4,10 @@ description: Este artigo descreve como começar com os Serviços Azure Lab.
 ms.topic: article
 ms.date: 11/18/2020
 ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98165047"
 ---
 # <a name="get-started-with-lab-services"></a>Começar com os Serviços de Laboratório 
@@ -46,7 +46,7 @@ A coisa mais importante a lembrar na gestão dos VMs é que sempre que uma máqu
 
 ## <a name="lab-dashboards"></a>Painéis de laboratório
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Os dashboards para laboratórios em Azure Lab Services fornecem uma imagem instantânea de diferentes aspetos de um determinado laboratório, incluindo informações VM, número de VMs atribuídos e não atribuídos, número de utilizadores registados e não registados e informações sobre horários de laboratório. 
 
@@ -98,7 +98,7 @@ Se um aluno estiver com dificuldades de ligação ao VM, ou se o VM precisar de 
     > [!NOTE]
     > Ligar um VM estudantil não afetará a quota para o aluno. As quotas para os utilizadores especificam o número de horas de laboratório disponíveis para o utilizador fora do horário de aula programado.
 
-### <a name="connect-to-vms"></a>Ligar aos VMs
+### <a name="connect-to-vms"></a>Ligar-se a VMs
 
 Os professores podem ligar-se a um aluno VM desde que seja ligado, e o aluno NÃO está ligado ao VM. Ao ligar-se ao VM, poderá aceder aos ficheiros locais sobre o VM e ajudar os alunos a resolver problemas.
 

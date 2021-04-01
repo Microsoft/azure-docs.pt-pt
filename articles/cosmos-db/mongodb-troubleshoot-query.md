@@ -9,10 +9,10 @@ ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101659907"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Problemas de consulta de resolução de problemas ao utilizar a API DB API do Azure Cosmos para a MongoDB

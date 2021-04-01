@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
 ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98736110"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicações do Azure

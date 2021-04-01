@@ -11,10 +11,10 @@ ms.custom: seodec18
 zone_pivot_groups: app-service-webjob
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 0d49323e2bc3c0522b1fb9ad49ffcc14f476e2dc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102452803"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas de fundo com WebJobs no Azure App Service

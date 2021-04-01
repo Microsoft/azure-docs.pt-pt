@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 11/17/2020
 ms.author: aahi
 ms.openlocfilehash: 2ac8633e48c98b9e1d778ac1d07835683e00e1c0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102424483"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Etiquetas de imagem de contentores Azure Cognitive Services e notas de lançamento

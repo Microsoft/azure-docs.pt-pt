@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7e410218117aa0d21167b6d615a3835aeec470e7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93397115"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gerir o tráfego da Web com um gateway de aplicação com o Azure PowerShell

@@ -7,10 +7,10 @@ ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 446dae3c064f5f23d35cb12b2b24bdfea9e27012
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88007816"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo de atribuição de piscina de anfitriões de ambiente de trabalho pessoal

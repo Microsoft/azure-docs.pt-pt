@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
 ms.openlocfilehash: ec35917ca18064d58279d8ed2b3fb1f0e83a88fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98736938"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Tutorial: Azure Ative Directory integração única (SSO) com o InVision

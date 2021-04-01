@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93396860"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Crie um gateway de aplicação e reescreva os cabeçalhos HTTP
