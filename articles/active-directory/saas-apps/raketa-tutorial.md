@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 649a26e474c7c4d6b4f51a035b3f8f9da35b9dd1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92511159"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-raketa"></a>Tutorial: Azure Ative Directory integração única (SSO) com Raketa

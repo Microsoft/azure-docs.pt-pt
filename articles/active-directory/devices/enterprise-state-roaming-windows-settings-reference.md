@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85252972"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
@@ -26,7 +26,7 @@ Segue-se uma lista das definições que serão percorridas ou apoiadas no Window
 
 Consulte a tabela seguinte para obter um resumo dos dispositivos e tipos de conta que são suportados pela estrutura de sincronização, cópia de segurança e restauro no Windows 10.
 
-| Tipo de conta e operação | Ambiente de trabalho | Móvel |
+| Tipo de conta e operação | Ambiente de Trabalho | Móvel |
 | --- | --- | --- |
 | Diretório Ativo Azure: sincronização |Yes |No |
 | Diretório Ativo Azure: backup/restauro |No |No |
@@ -69,7 +69,7 @@ Na tabela seguinte, outras entradas na coluna do Grupo de Definições referem-s
 As entradas internas na coluna do Grupo de Definições referem-se a definições e aplicações que só podem ser desativadas a partir da sincronização dentro da própria aplicação ou desativando sincronização para todo o dispositivo utilizando definições de gestão de dispositivos móveis (MDM) ou Política de Grupo.
 As definições que não vagueiam ou sincronizam não pertencerão a um grupo.
 
-| Definições | Ambiente de trabalho | Móvel | Group |
+| Definições | Ambiente de Trabalho | Móvel | Group |
 | --- | --- | --- | --- |
 | **Contas**: imagem da conta |sincronizar |X |Tema |
 | Contas : **outras** definições de conta |X |X | |

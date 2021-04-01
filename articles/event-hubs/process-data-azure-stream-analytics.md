@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como processar dados do seu centro de evento
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85312894"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Processar dados do seu centro de eventos usando a Azure Stream Analytics 

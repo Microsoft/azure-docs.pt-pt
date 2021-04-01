@@ -4,10 +4,10 @@ description: Os clusters de tecido de serviço funcionam no Windows Server e lin
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94684003"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Visão geral dos clusters autónomos de tecido de serviço

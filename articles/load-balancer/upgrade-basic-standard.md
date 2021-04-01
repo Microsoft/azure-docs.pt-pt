@@ -7,11 +7,11 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 125d4a02d06e2792f9a2a4e646c3788dcf223318
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102612835"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Upgrade Azure Public Load Balancer
@@ -21,9 +21,6 @@ Há duas etapas numa atualização:
 
 1. Alterar o método de atribuição de IP de Dynamic para Static.
 2. Execute o script PowerShell para completar a atualização e a migração de tráfego.
-
-> [!IMPORTANT]
-> O guião está atualmente em manutenção. Pode consultar aqui [instruções](../virtual-network/virtual-network-public-ip-address-upgrade.md) sobre como atualizar endereços IP públicos a partir de SKU Básico e SKU Padrão.
 
 ## <a name="upgrade-overview"></a>Descrição geral da atualização
 

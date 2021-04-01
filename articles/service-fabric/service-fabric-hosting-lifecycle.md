@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: tugup
 ms.openlocfilehash: d8585d0b39e4a4ef9cf77f40ea878ddb47bcb0de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97831827"
 ---
 # <a name="azure-service-fabric-hosting-life-cycle"></a>Tecido de serviço Azure hospedando ciclo de vida

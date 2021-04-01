@@ -11,10 +11,10 @@ ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94660938"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>How to validate VPN throughput to a virtual network (Como validar o débito da VPN para uma rede virtual)
@@ -26,7 +26,7 @@ Este artigo mostra como validar a produção da rede dos recursos no local para 
 > [!NOTE]
 > Este artigo destina-se a ajudar a diagnosticar e corrigir questões comuns. Se não conseguir resolver o problema utilizando as seguintes informações, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A ligação de gateway VPN envolve os seguintes componentes:
 

@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: c619b51f9323477bda4f1ec99aeeb1bfa01028fc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100517744"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Começa com o Azure Machine Learning Studio (clássico) em R

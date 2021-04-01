@@ -11,10 +11,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96928720"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gerir as políticas personalizadas Azure AD B2C com a Azure PowerShell
