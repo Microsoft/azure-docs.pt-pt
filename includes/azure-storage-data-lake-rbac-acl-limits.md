@@ -7,10 +7,10 @@ ms.date: 09/29/2020
 ms.author: normesta
 ms.custom: include file
 ms.openlocfilehash: 97b47b48a183951002d04cd58b08d5e2b9051eda
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017691"
 ---
 | Mecanismo | Âmbito |Limites | Nível de permissão suportado |

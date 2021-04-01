@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/30/2020
 ms.author: allensu
 ms.openlocfilehash: 2c593cda7761ce1defa6bdb31e0dbb528b9e5eca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96483993"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analisar padrões de utilização da CDN do Azure

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
 ms.openlocfilehash: a8c544f1d3b7d1255cf5a0e6d05975ea5f5ec203
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87503808"
 ---
 # <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Utilize o CLI para importar um ficheiro BACPAC numa base de dados na Base de Dados SQL

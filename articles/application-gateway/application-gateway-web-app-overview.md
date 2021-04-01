@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: fe6ea6f348d796962141bd39ff858d891a29a2f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93397693"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte de Gateway de aplicações para extremidades traseiras multi-arrendatários, como o serviço app

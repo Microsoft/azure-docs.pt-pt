@@ -13,10 +13,10 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 1fdbdada54320ef28f6a4b04a7f415c835acc9dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98756283"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: Uma aplicação web que chama APIs web
@@ -27,7 +27,7 @@ Saiba como construir uma aplicação web que inscreve os utilizadores na platafo
 
 Este cenário pressupõe que já tenha concluído [Cenário: aplicação web que assina nos utilizadores.](scenario-web-app-sign-user-overview.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Adiciona autenticação à sua aplicação web para que possa iniciar súpido e ligar para uma API web em nome do utilizador inscrito.
 

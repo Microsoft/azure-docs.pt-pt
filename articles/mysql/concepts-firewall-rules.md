@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: eb178e38001e54ac39a269c8b8cdef12c77d74cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96901954"
 ---
-# <a name="azure-database-for-mysql-server-firewall-rules"></a>Base de dados Azure para regras de firewall de servidor MySQL
+# <a name="azure-database-for-mysql-server-firewall-rules"></a>Regras de firewall do servidor da Base de Dados do Azure para MySQL
 As firewalls impedem todo o acesso ao servidor da base de dados até especificar quais os computadores que têm permissão. A firewall concede acesso ao servidor com base no endereço IP originário de cada pedido.
 
 Para configurar uma firewall, crie regras de firewall que especifiquem intervalos de endereços IP aceitáveis. Pode criar regras de firewall ao nível do servidor.

@@ -10,17 +10,17 @@ author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
 ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93392066"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Machine learning e IA com ONNX em SQL Edge
 
 Machine learning in Azure SQL Edge suporta modelos no formato [Open Neural Network Exchange (ONNX).](https://onnx.ai/) ONNX é um formato aberto que pode utilizar para trocar modelos entre [várias estruturas e ferramentas de machine learning.](https://onnx.ai/supported-tools)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para inferir modelos de machine learning em Azure SQL Edge, primeiro terá de obter um modelo. Este pode ser um modelo pré-treinado ou um modelo personalizado treinado com a sua estrutura de eleição. O Azure SQL Edge suporta o formato ONNX e terá de converter o modelo neste formato. Não deve haver impacto na precisão do modelo, e uma vez que tenha o modelo ONNX, pode implantar o modelo em Azure SQL Edge e utilizar [a pontuação nativa com a função PREDICT T-SQL](/sql/advanced-analytics/sql-native-scoring/).
 
