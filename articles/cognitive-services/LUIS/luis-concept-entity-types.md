@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91316567"
 ---
 # <a name="extract-data-with-entities"></a>Extrair dados com entidades
@@ -53,7 +53,7 @@ Considere as seguintes quatro expressões:
 
 |Expressão|Intenção prevista|Entidades extraídas|Explicação|
 |--|--|--|--|
-|Ajuda|Ajuda|-|Nada a extrair.|
+|Help|Ajuda|-|Nada a extrair.|
 |Enviar algo|enviar Alguma coisa|-|Nada a extrair. O modelo não tem uma característica necessária para extrair `something` neste contexto, e não existe nenhum destinatário indicado.|
 |Envie um presente ao Bob|enviar Alguma coisa|`Bob`, `present`|O modelo extrai `Bob` adicionando uma característica necessária da entidade pré-construída. `personName` Uma entidade de aprendizagem automática foi utilizada para `present` extrair.|
 |Envie ao Bob uma caixa de chocolates.|enviar Alguma coisa|`Bob`, `box of chocolates`|Os dois importantes `Bob` dados, e os `box of chocolates` , foram extraídos por entidades de aprendizagem automática.|

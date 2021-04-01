@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98127843"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Melhorias na gestão dos utilizadores (pré-visualização) no Azure Ative Directory
@@ -83,7 +83,7 @@ A página **de utilizadores eliminados** inclui todas as colunas disponíveis na
 - Nome principal original do utilizador: A UPN original do utilizador antes do seu ID objeto foi adicionado como um prefixo à sua UPN eliminada.
 
 > [!NOTE]
-> Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
+> As datas de eliminação são apresentadas no Tempo Universal Coordenado (UTC).
 
 Algumas colunas são apresentadas por defeito. Para adicionar outras colunas, selecione **Colunas** na página, selecione os nomes das colunas que pretende adicionar e selecione **OK** para guardar as suas preferências.
 
