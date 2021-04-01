@@ -15,10 +15,10 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 6a33da602eaa9bee20f155eaa550e558e5dcbeca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98755558"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação

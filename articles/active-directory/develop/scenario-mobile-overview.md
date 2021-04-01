@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: a678e8545f761e98abbdf026886afa624f9d2b4e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98753650"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicação móvel que chama APIs web
@@ -32,7 +32,7 @@ Se ainda não o fez, crie a sua primeira aplicação completando um arranque rá
 - [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação para iOS](./quickstart-v2-ios.md)
 - [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação Xamarin iOS e Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma experiência personalizada e sem emenda do utilizador é essencial para aplicações móveis. A plataforma de identidade da Microsoft permite que os desenvolvedores móveis criem essa experiência para utilizadores de iOS e Android. A sua aplicação pode iniciar súbs em utilizadores do Azure Ative Directory (Azure AD), utilizadores pessoais da conta microsoft e utilizadores Azure AD B2C. Também pode adquirir fichas para chamar uma API web em seu nome. Para implementar estes fluxos, usaremos a Biblioteca de Autenticação da Microsoft (MSAL). A MSAL implementa o fluxo de [código de autorização OAuth2.0 padrão da](v2-oauth2-auth-code-flow.md)indústria.
 
