@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
 ms.openlocfilehash: 6a53cc2b2ec6d46b4bde54af58b4e5542ff6cf79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91932639"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de APIs e problemas conhecidos
@@ -31,7 +31,7 @@ Ao importar uma API, poderá encontrar algumas restrições ou identificar quest
 
 Se estiver a receber erros na importação do seu documento OpenAPI, certifique-se de que o validou previamente. Pode fazê-lo utilizando o designer no portal Azure (Design - Front End - OpenAPI Specification Editor), ou com uma ferramenta de terceiros, como <a href="https://editor.swagger.io">o Swagger Editor.</a>
 
-### <a name="general"></a><a name="open-api-general"> </a>Geral
+### <a name="general"></a><a name="open-api-general"> </a>General
 
 -   Os parâmetros necessários em ambos os caminhos e consulta devem ter nomes únicos. (No OpenAPI, um nome de parâmetro só precisa de ser único dentro de um local, por exemplo, caminho, consulta, cabeçalho. No entanto, na Gestão da API permitimos que as operações sejam discriminadas tanto pelos parâmetros de percurso como por consulta (que o OpenAPI não suporta). É por isso que exigimos que os nomes dos parâmetros sejam únicos dentro de todo o modelo de URL.)
 -   `\$ref` os ponteiros não podem fazer referência a ficheiros externos.
@@ -56,7 +56,7 @@ Se estiver a receber erros na importação do seu documento OpenAPI, certifique-
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>Mecanismos de importação, atualização e exportação do OpenAPI
 
-### <a name="general"></a><a name="open-import-export-general"> </a>Geral
+### <a name="general"></a><a name="open-import-export-general"> </a>General
 
 -   As definições de API exportadas do serviço de Gestão API destinam-se principalmente a aplicações externas ao serviço de Gestão de API que precisam de chamar a API hospedada no serviço de Gestão da API. As definições de API exportadas não se destinam a ser novamente importadas para o mesmo ou diferente serviço de Gestão de API. Para a gestão de configuração de defiições de API em diferentes serivces/envionments, consulte a documentação relativa à utilização do Serviço de Gestão da API com o Git. 
 

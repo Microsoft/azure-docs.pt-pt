@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
 ms.openlocfilehash: 1e286b2329cb98d580bbf64071ff8767db304a00
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96461880"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolução de diferenças transact-SQL durante a migração para a Base de Dados SQL
 
 Ao [migrar a sua base](migrate-to-database-from-sql-server.md) de dados do SQL Server para a Base de Dados Azure SQL, poderá descobrir que a base de dados do SQL Server requer alguma reengenharia antes de poder ser migrada. Este artigo fornece orientação para ajudá-lo a realizar esta reengenharia e compreender as razões subjacentes pelas quais a reengenharia é necessária. Para detetar incompatibilidades, utilize o [Assistente de Migração de Dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A maioria das funcionalidades Transact-SQL que as aplicações utilizam são totalmente suportadas tanto no Microsoft SQL Server como no Azure SQL Database. Por exemplo, os componentes SQL de núcleo, tais como tipos de dados, operadores, cordas, aritmética, lógica e funções de cursor funcionam de forma idêntica no SQL Server e na SQL Database. Existem, no entanto, algumas diferenças de T-SQL em elementos DDL (linguagem de definição de dados) e DML (linguagem de manipulação de dados) que resultam em declarações e consultas T-SQL que só são parcialmente suportadas (que discutimos mais tarde neste artigo).
 

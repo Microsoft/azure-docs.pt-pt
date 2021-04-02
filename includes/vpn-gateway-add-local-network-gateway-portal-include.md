@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5358bbbca716f5152a943c90cb7a5f735ae12047
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92479611"
 ---
 1. A partir do [portal Azure](https://portal.azure.com), em **Recursos de Busca, serviços e docs (G+/)** tipo gateway de rede **local**. Localize **o portal de rede local** sob o **Marketplace** nos resultados da pesquisa e selecione-o. Isto abre a página **de gateway de rede local Create.**

@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
 ms.openlocfilehash: 08c5b5d8351105744f7a912b352a940df3b4baa7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96462134"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
@@ -31,7 +31,7 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 | 7 | Vídeos | <ul><li>Não é necessário nenhum vídeo, mas, se fornecido, deve reproduzir-se sem erros.</li><li>Se for fornecida, não pode referir-se a empresas concorrentes *a menos* que demonstre uma solução de migração. |<ul><li>Idealmente, o comprimento é de 3 min. ou mais.</li><li>A oferta de solução é facilmente compreendida através do conteúdo de vídeo.</li><li>Fornece demonstração de capacidades de solução. |
 | 8 | Estado da lista (opções de listagem) | <ul><li>Deve ser rotulado como um dos seguintes tipos: <ul><li>*Contacte-me*</li><li>*Julgamento* / *Obter julgamento agora* / *Início do Julgamento* / *Unidade de teste*</li><li>*Comprar Agora* / *Get It Now*</li></ul></ul> | O cliente pode facilmente entender quais são os próximos passos: <ol><li>Tente o julgamento.</li><li>Compre agora.</li><li>Contacte via e-mail ou número de telefone para obter a Prova de Conceito (POC), Avaliação ou Briefing.</li></ol> | 
 | 9 | Preços de solução | Deve ter separador/detalhes de preços de solução, e os preços devem estar na moeda local da oferta de solução parceira. | Várias opções de faturação devem estar disponíveis com preços de nível para dar opções ao cliente. |
-| 10 | Saiba mais | As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis e a exibir corretamente. |    Links para itens específicos (por exemplo, páginas de especificações no site do parceiro) e não apenas a página inicial do parceiro. | 
+| 10 | Saber mais | As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis e a exibir corretamente. |    Links para itens específicos (por exemplo, páginas de especificações no site do parceiro) e não apenas a página inicial do parceiro. | 
 | 11 | Suporte e ajuda de solução | Ligação a pelo menos uma das seguintes: <ul><li>Números de telefone</li><li>Suporte de e-mail</li><li>Agentes de chat</li><li>Fóruns comunitários |<ul><li>Todos os métodos de apoio estão listados.</li><li>O suporte pago é oferecido gratuitamente durante o período *Trial* ou *Test Drive.* |
 | 12 | Legal | As políticas ou termos estão disponíveis através de um URL público. |  |
 |||
@@ -85,7 +85,7 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 | 9 | Competências | Deve ter competência em pelo menos uma das seguintes:<ul><li>Desenvolvimento de Aplicações</li><li>Integração de Aplicações</li><li>Gestão do Ciclo de Vida das Aplicações</li><li>Plataforma da Cloud<li>Análise de Dados</li><li>Data Center</li><li>Plataforma de Dados</li><li>DevOps |
 | 10 | Produtos | Devem ser produtos Azure. | |
 | 11 | Pais/região | Certifique-se de que o país/região corresponde à moeda selecionada. | |
-| 12 | Saiba mais  | <ul><li>As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis ao público e estão a ser exibidas corretamente.</li><li>Os links devem ter um "nome amigável" e não são apresentados como o nome do ficheiro de quaisquer downloads. | |
+| 12 | Saber mais  | <ul><li>As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis ao público e estão a ser exibidas corretamente.</li><li>Os links devem ter um "nome amigável" e não são apresentados como o nome do ficheiro de quaisquer downloads. | |
 ||||
 
 ## <a name="next-steps"></a>Passos seguintes

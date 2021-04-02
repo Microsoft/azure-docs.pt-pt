@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/20/2020
 ms.author: mahender
 ms.openlocfilehash: 3b282a99bb7f6f107717d9c265a46d285d03b849
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83649107"
 ---
 Uma identidade gerida a partir do Azure Ative Directory (Azure AD) permite que a sua aplicação aceda facilmente a outros recursos protegidos por Azure, como o Azure Key Vault. A identidade é gerida pela plataforma Azure e não requer que forneça ou rode quaisquer segredos. Para obter mais sobre identidades geridas em Azure AD, consulte [identidades geridas para recursos Azure](../articles/active-directory/managed-identities-azure-resources/overview.md).
