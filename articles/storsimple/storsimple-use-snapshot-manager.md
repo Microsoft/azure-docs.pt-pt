@@ -16,15 +16,15 @@ ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 35fa0fc134045585eebd21324352f9b4ff272e87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94954244"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utilize interface de utilizador StorSimple Snapshot Manager para gerir trabalhos de backup e catálogo de backup
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O StorSimple Snapshot Manager tem uma interface de utilizador intuitiva que pode utilizar para fazer cópias de segurança. Este tutorial fornece uma introdução à interface do utilizador e, em seguida, explica como usar cada um dos componentes. Para uma descrição detalhada do StorSimple Snapshot Manager, consulte [o que é storSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### <a name="console-description"></a>Descrição da consola

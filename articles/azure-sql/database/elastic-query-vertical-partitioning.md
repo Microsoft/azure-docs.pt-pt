@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92792094"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consulta através de bases de dados em nuvem com esquemas diferentes (pré-visualização)
@@ -30,7 +30,7 @@ Bases de dados verticalmente divididas utilizam diferentes conjuntos de tabelas 
 * O utilizador deve possuir qualquer permissão DE FONTE DE DADOS EXTERNA. Esta permissão está incluída na permissão ALTER DATABASE.
 * ALTERAR QUAISquer permissões EXTERNAS DE FONTE DE DADOS são necessárias para consultar a fonte de dados subjacente.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!NOTE]
 > Ao contrário da partição horizontal, estas declarações DDL não dependem da definição de um nível de dados com um mapa de fragmentos através da biblioteca de clientes de base de dados elástica.

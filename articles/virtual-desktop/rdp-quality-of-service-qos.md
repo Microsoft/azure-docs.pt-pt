@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ms.openlocfilehash: b61faf74d96e2571e91f7bf9d10eac88cdbf8345
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94639375"
 ---
 # <a name="implement-quality-of-service-qos-for-windows-virtual-desktop-preview"></a>Implementar Qualidade de Serviço (QoS) para Windows Virtual Desktop (pré-visualização)
