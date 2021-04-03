@@ -12,17 +12,17 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 430da23986fc36a0e94c049512ef716aff1fed5c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98660255"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de registos de aplicações para o Azure Ative Directory B2C
 
 A nova experiência **[de registos de aplicações](https://aka.ms/b2cappregistrations)** para o Azure Ative Directory B2C (Azure AD B2C) está agora disponível em geral. Se está mais familiarizado com a experiência **applications** para registar candidaturas para Azure AD B2C, aqui referida como a "experiência do legado", este guia vai começar a usar a nova experiência.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Anteriormente, teve de gerir as suas aplicações viradas para o consumidor Azure AD B2C separadamente das restantes aplicações utilizando a experiência do legado. Isso significou diferentes experiências de criação de aplicações em diferentes lugares em Azure.
 
 A nova experiência mostra todos os registos de aplicações AZure AD B2C e registos de aplicações AD AZure num só local e fornece uma forma consistente de os gerir. Desde a criação de uma aplicação virada para o cliente até à gestão de uma aplicação com permissões microsoft Graph para gestão de recursos, basta aprender uma maneira de fazer as coisas.

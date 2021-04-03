@@ -10,10 +10,10 @@ ms.date: 01/20/2021
 ms.author: victorh
 ms.custom: mvc, subject-armqs
 ms.openlocfilehash: 05e7cd8d7018759a3c8670a610b4c98ac0a86a7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98660060"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Quickstart: Tráfego web direto com Gateway de aplicação Azure - modelo ARM

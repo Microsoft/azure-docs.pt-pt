@@ -6,10 +6,10 @@ author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
 ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97093265"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notas de lançamento para Microsoft.ApplicationInsights.SnapshotCollector

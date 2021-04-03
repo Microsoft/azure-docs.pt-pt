@@ -13,10 +13,10 @@ ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85477197"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: Solicitar reclamações personalizadas usando MSAL para iOS e macOS

@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8dd3edd25d21bfcd0fde1bc8b5f103877d968c8a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98119990"
 ---
 # <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutorial: Use a piscina SQL sem servidor com o Power BI Desktop & criar um relatório

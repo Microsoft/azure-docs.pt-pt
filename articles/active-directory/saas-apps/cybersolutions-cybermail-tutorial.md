@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 41c0bdf3eaac1a78d4cdef09ba418155a5a0c919
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92455039"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cybersolutions-cybermail"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com CiberSolutions CYBERMAILΣ

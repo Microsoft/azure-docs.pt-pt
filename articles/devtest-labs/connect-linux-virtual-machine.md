@@ -4,10 +4,10 @@ description: Saiba como se conectar com a sua máquina virtual Linux em um labor
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.openlocfilehash: 52fe245f85034a4c6300615ad8fb6040c1168298
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86532190"
 ---
 # <a name="connect-to-a-linux-vm-in-your-lab-azure-devtest-labs"></a>Ligue-se a um Linux VM no seu laboratório (Azure DevTest Labs)

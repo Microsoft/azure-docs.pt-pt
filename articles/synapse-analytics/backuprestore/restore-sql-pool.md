@@ -12,10 +12,10 @@ ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 86150107273b247bef2c74e5b8c5272d7148587e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94332098"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool"></a>Restaurar uma piscina SQL dedicada existente

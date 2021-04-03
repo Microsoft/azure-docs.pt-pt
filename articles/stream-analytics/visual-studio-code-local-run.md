@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
 ms.openlocfilehash: bbd83fb3ef3225fc19c48bb4c5962d6559cf32f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97708454"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Teste Stream Analytics consultas localmente com dados de amostra usando Código de Estúdio Visual

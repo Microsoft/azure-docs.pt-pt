@@ -4,10 +4,10 @@ description: Saiba mais sobre as imagens base para imagens de contentores de apl
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97707491"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre atualizações de imagem base para tarefas ACR
