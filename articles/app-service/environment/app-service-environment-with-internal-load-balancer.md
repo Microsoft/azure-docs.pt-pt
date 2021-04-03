@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96021525"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilização de um balançador de carga interna com um ambiente de serviço de aplicações
@@ -22,7 +22,7 @@ ms.locfileid: "96021525"
 
 A funcionalidade App Service Environment (ASE) é uma opção de serviço Premium do Azure App Service que oferece uma capacidade de configuração melhorada que não está disponível nos selos multi-inquilinos. A funcionalidade ASE implementa essencialmente o Serviço de Aplicações Azure na sua Rede Virtual Azure (VNet). Para obter uma maior compreensão das capacidades oferecidas pela App Service Environments leia a documentação [What is a App Service Environment.][WhatisASE] Se não conhece os benefícios de operar num VNet, leia o [Azure Virtual Network FAQ][virtualnetwork]. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Um ASE pode ser implantado com um ponto final acessível à Internet ou com um endereço IP no seu VNet. Para definir o endereço IP num endereço VNet, é necessário implantar o seu ASE com um Balançador de Carga Interna (ILB). Quando o seu ASE está configurado com um ILB, fornece:
 
 * seu próprio domínio ou subdomínio. Para facilitar, este documento assume subdomínio, mas pode configurá-lo de qualquer forma. 

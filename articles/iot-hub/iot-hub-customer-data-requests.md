@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92535795"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Recursos de pedido de dados do cliente para dispositivos Azure IoT Hub

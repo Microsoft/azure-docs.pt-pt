@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2020
 ms.author: alkohli
 ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91744113"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisitos de armazenamento de blob de caixa de dados Azure
@@ -24,7 +24,7 @@ Recomendamos que reveja as informações cuidadosamente antes de ligar ao armaze
 
 ## <a name="storage-differences"></a>Diferenças de armazenamento
 
-|     Funcionalidade                                             |     Storage do Azure                                     |     Armazenamento de blobs do Data Box |
+|     Funcionalidade                                             |     Armazenamento do Azure                                     |     Armazenamento de blobs do Data Box |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Armazenamento de Ficheiros do Azure                                   |    Ações de ficheiro smb baseadas em nuvem suportadas              |    Não suportado      |
 |    Encriptação de serviço para dados em Repouso                  |    Encriptação AES de 256 bits                             |    Encriptação AES de 256 bits |

@@ -9,10 +9,10 @@ ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: c99bfd9fb69beb7b5b7088ebea84082d744b12e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96020020"
 ---
 ## <a name="run-image-from-registry"></a>Executar imagem a partir do registo

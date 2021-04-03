@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descreve como funciona a criação de um cluster de serviçoS Azure Kubernetes para a Azure Dev Spaces
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
 ms.openlocfilehash: 841e67b96e95aa251fa5bf1ef469b68de30f54d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91972684"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Como funciona a criação de um cluster para a Azure Dev Spaces
