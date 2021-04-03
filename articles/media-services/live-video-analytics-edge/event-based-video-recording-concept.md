@@ -4,10 +4,10 @@ description: A gravação de vídeo baseada em eventos (EVR) refere-se ao proces
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 6a5f4873b2cfef8d9a6594916d82cd30a3bc1cc2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97401619"
 ---
 # <a name="event-based-video-recording"></a>Gravação de vídeo baseada em eventos  
@@ -18,7 +18,7 @@ ms.locfileid: "97401619"
 * [Reprodução de conteúdo gravado](video-playback-concept.md)
 * [Conceito de gráfico de mídia](media-graph-concept.md)
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição Geral 
 
 A gravação de vídeo baseada em eventos (EVR) refere-se ao processo de gravação de vídeo desencadeado por um evento. O evento em questão, pode ter origem devido ao processamento do próprio sinal de vídeo (por exemplo, deteção em movimento) ou pode ser de uma fonte independente (por exemplo, abertura de uma porta). 
 

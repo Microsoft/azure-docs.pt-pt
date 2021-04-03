@@ -9,17 +9,17 @@ ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95912761"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Aceleração da consulta de armazenamento do lago de dados Azure
 
 A aceleração de consultas permite que aplicações e quadros de análise otimizem dramaticamente o processamento de dados, recuperando apenas os dados que necessitam para realizar uma determinada operação. Isto reduz o tempo e o poder de processamento necessários para obter informações críticas sobre os dados armazenados.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A aceleração da consulta aceita a filtragem *de predicados* e *projeções de colunas* que permitem às aplicações filtrar linhas e colunas no momento em que os dados são lidos a partir do disco. Apenas os dados que satisfaçam as condições de um predicado são transferidos pela rede para a aplicação. Isto reduz a latência da rede e o custo do cálculo.  
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 06a54456a076ae425866c1fa502bd97c505e41c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96356448"
 ---
 ## <a name="create-a-repository"></a>Criar um repositório
