@@ -12,10 +12,10 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 322e4b78fbfb38f1822fb7a7cdcdbfcc0738b303
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91950402"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de fator telefónico numa política personalizada do Azure Ative Directory B2C

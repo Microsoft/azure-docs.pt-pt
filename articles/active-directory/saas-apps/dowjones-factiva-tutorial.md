@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.openlocfilehash: 3d36f74231b7253a46691b7418aa44ec37d816bd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92454665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Tutorial: Integração do Azure Ative Directory com o Dow Jones Factiva

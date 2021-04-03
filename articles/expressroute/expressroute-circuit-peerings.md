@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
 ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92202349"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Circuitos e peering do ExpressRoute)

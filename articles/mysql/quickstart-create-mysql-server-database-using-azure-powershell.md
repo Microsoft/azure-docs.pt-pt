@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94542325"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando PowerShell
