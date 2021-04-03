@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: faf06775b78c5a7c90cea000ac0a1eb768107ef4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94956845"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualize o seu dispositivo StorSimple 8000 Series
 > [!NOTE]
 > O portal clássico do StorSimple foi preterido. Os Gestores de Dispositivos do StorSimple vão ser migrados automaticamente para o portal do Azure novo, de acordo com a agenda de preterição. Receberá uma mensagem de e-mail e uma notificação no portal relativamente a esta migração. Este documento também será descontinuado em breve. Relativamente a perguntas sobre a migração, veja [FAQ: Move to Azure portal](./index.yml) (FAQ: migrar para o portal do Azure).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 As atualizações StorSimple permitem-lhe manter facilmente o seu dispositivo StorSimple atualizado. Dependendo do tipo de atualização, pode aplicar atualizações ao dispositivo através do portal clássico Azure ou através da interface Windows PowerShell. Este tutorial descreve os tipos de atualização e como instalar cada um deles.
 
 Pode aplicar dois tipos de atualizações de dispositivos: 
