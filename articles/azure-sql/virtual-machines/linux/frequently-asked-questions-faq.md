@@ -12,10 +12,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92792553"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Perguntas frequentes para SQL Server em máquinas virtuais Linux
@@ -57,7 +57,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
    As máquinas virtuais RHEL e SLES requerem uma subscrição sem limite de gastos e um método de pagamento verificado (geralmente um cartão de crédito) associado à subscrição. Se forte um RHEL ou SLES VM sem remover o limite de gastos, a sua subscrição ficará desativada e todos os VMs/serviços parados. Se encontrar este estado, para ree capacitar a [subscrição, retire o limite de gastos](https://account.windowsazure.com/subscriptions). Os seus créditos restantes serão restaurados para o ciclo de faturação atual, mas uma sobretaxa de imagem RHEL ou SLES VM irá contra o seu cartão de crédito se optar por recomeçar e continuar a executá-lo.
 
-## <a name="licensing"></a>Licensing
+## <a name="licensing"></a>Licenciamento
 
 1. **Como posso instalar a minha cópia licenciada do SQL Server numa VM do Azure?**
 

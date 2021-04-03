@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92792111"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Reportagem em bases de dados de nuvem escalonadas (pré-visualização)
@@ -36,7 +36,7 @@ Para bases de dados não cobertas, consulte consulta através de [bases de dados
 * O utilizador deve possuir qualquer permissão DE FONTE DE DADOS EXTERNA. Esta permissão está incluída na permissão ALTER DATABASE.
 * ALTERAR QUAISquer permissões EXTERNAS DE FONTE DE DADOS são necessárias para consultar a fonte de dados subjacente.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Estas declarações criam a representação de metadados do seu nível de dados fragmentos na base de dados de consulta elástica.
 
