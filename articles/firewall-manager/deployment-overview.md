@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: ceb6e84b31067f7289b9e003a4fb273ce717de33
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89079103"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Visão geral da implementação do Azure Firewall Manager

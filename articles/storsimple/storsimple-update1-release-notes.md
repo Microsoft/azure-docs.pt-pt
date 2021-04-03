@@ -16,15 +16,15 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a5ba4b27ae19999237edb75c50db36ef57a10f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94956692"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Atualizar notas de lançamento 1.2 para o seu dispositivo da série StorSimple 8000
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 As seguintes notas de lançamento descrevem as novas funcionalidades e identificam as questões abertas críticas para storSimple 8000 Series Update 1.2. Também contêm uma lista das atualizações de software, controlador e firmware StorSimple incluídas nesta versão. 
 
 A atualização 1.2 pode ser aplicada a qualquer dispositivo StorSimple que esteja a executar o lançamento (GA), a atualização 0.1, a atualização 0.2 ou o software Update 0.3. A atualização 1.2 não está disponível se o seu dispositivo estiver a executar a Atualização 1 ou a Atualização 1.1. Se o seu dispositivo estiver a executar O Lançamento (GA), [contacte o Microsoft Support](./storsimple-8000-contact-microsoft-support.md) para o ajudar a instalar esta atualização.

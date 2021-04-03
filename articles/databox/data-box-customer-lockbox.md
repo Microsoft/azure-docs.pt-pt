@@ -9,10 +9,10 @@ ms.date: 07/10/2020
 ms.author: alkohli
 ms.subservice: pod
 ms.openlocfilehash: 178ad169c1b576458f38b440ca79f4bb9eb012f5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92124916"
 ---
 # <a name="use-customer-lockbox-for-azure-data-box-preview"></a>Utilize o lockbox do cliente para a caixa de dados Azure (pré-visualização)
