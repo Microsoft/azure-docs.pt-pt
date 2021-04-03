@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: justinha
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96619492"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual Ubuntu Linux a um domínio gerido por Azure Ative Directory Domain Services

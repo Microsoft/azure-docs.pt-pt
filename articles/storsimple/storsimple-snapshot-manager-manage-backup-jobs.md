@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 3c26a84e32a17cba83b5ca895f146e561072fa62
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95998197"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Use storSimple Snapshot Manager para visualizar e gerir trabalhos de backup
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O nó **jobs** in the **Scope** pane mostra as tarefas de backup **agendadas,** **últimas 24 horas** e **executando** tarefas de backup que iniciou interativamente ou por uma política configurada. 
 
 Este tutorial explica como você pode usar o nó **Jobs** para exibir informações sobre trabalhos de backup agendados, recentes e atualmente em execução de trabalhos de backup. (A lista de postos de trabalho e informações correspondentes aparece no painel **de resultados.)** Além disso, pode clicar com o direito de um trabalho listado e ver um menu de contexto que lista as ações disponíveis.

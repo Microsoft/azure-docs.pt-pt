@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2020
 ms.author: yelevin
 ms.openlocfilehash: d5140bcd85606213f00185d4ba1f50dbe70dba63
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94655499"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-office-365"></a>Ligue alertas do Microsoft Defender para o Office 365 

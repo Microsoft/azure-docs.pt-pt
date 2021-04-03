@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93340860"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos sub-22 sql para Azure Cosmos DB

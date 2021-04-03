@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 85b261b8754f35c7705690d15671144b858c0a43
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96618574"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de sessão de conta de resolução de problemas com um domínio gerido por serviços de domínio do diretório ativo Azure

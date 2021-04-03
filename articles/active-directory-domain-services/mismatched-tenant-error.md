@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: ee8174114f1b892210e8ee9173ce0eb1d09c7e31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96619305"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Resolver erros de diretório desajustados para os domínios geridos pelo Azure Ative Directory Domain Services

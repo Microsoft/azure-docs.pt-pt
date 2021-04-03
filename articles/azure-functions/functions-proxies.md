@@ -4,10 +4,10 @@ description: Visão geral de como usar Proxies de Funções Azure
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96601378"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com proxies de funções Azure

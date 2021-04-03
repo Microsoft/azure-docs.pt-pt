@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
 ms.openlocfilehash: 617608f382d3331e59ae92c9eb272347c736b768
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91828817"
 ---
 As funções permitem-lhe utilizar as teclas para dificultar o acesso aos pontos finais da função HTTP durante o desenvolvimento. A menos que o nível de acesso HTTP numa função httpizada esteja definido `anonymous` para, os pedidos devem incluir uma chave de acesso API no pedido. 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94649267"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política IPsec/IKE para ligações VPN S2S ou VNet a VNet

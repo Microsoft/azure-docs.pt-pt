@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: justinha
 ms.openlocfilehash: 1e98f32bd6fe7d5373d5ab6621ffdce5e79abc08
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96619594"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte uma máquina virtual CoreOS a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure

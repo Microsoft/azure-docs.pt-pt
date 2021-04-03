@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95996649"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso na gestão de direitos Azure AD

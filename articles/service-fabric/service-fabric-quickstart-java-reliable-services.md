@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91529868"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Quickstart: Implementar uma aplicação Java para o Azure Service Fabric no Linux
