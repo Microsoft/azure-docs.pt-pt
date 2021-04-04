@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94956998"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerir os seus controladores de dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve as diferentes operações que podem ser realizadas nos seus controladores de dispositivo StorSimple. Os controladores do seu dispositivo StorSimple são controladores redundantes (pares) numa configuração activa-passiva. Num dado momento, apenas um controlador está ativo e está a processar todas as operações de disco e rede. O outro controlador está em modo passivo. Se o controlador ativo falhar, o controlador passivo torna-se automaticamente ativo.
 
