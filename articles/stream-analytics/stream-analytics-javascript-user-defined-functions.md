@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-js
 ms.date: 12/15/2020
 ms.openlocfilehash: 70015ef24039694789ce96a6c4853221fe2377c3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98020388"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
  
 O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas no JavaScript. Com o rico conjunto de **métodos** de String , **RegExp,** **Math,** **Array** e **Date** que o JavaScript fornece, transformações complexas de dados com trabalhos stream Analytics tornam-se mais fáceis de criar.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As funções definidas pelo utilizador JavaScript suportam funções escalares apátridas e apenas computativas que não requerem conectividade externa. O valor devolvido de uma função só pode ser um valor escalar (único). Depois de adicionar uma função definida pelo utilizador do JavaScript para uma tarefa, pode utilizar a função em qualquer parte da consulta, como uma função escalar incorporada.
 

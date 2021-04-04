@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 6d6b7122963b51619f26b8d02a8be4ad39261afb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92147700"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
@@ -80,7 +80,7 @@ Para obter mais informações sobre como codificar e descodificar mensagens envi
 
 Os nomes das propriedades do sistema variam em função do ponto final para o qual as mensagens estão a ser encaminhadas. Por favor, consulte a tabela abaixo para mais detalhes sobre estes nomes.
 
-|Nome de propriedade do sistema|Hubs de Eventos|Storage do Azure|Service Bus|Event Grid|
+|Nome de propriedade do sistema|Hubs de Eventos|Armazenamento do Azure|Service Bus|Event Grid|
 |--------------------|----------|-------------|-----------|----------|
 |ID de mensagem|mensagem id|messageId|MessageId|mensagem id|
 |ID do utilizador|user-id|userId|IDUtilizador|user-id|
