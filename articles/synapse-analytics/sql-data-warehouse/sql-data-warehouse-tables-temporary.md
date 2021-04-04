@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93310686"
 ---
 # <a name="temporary-tables-in-dedicated-sql-pool"></a>Mesas temporárias em piscina SQL dedicada

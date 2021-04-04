@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
 ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96462951"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuração detalhada para unidades de teste hospedadas

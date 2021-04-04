@@ -11,10 +11,10 @@ ms.date: 02/26/2020
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: 9ca6310705d54d563aae746ab2dbfe6cb412e6a9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92747808"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Use políticas de escala personalizadas com conjuntos de escala de máquina virtual Azure

@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
 ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97724787"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Use o armazenamento Azure para a cópia de segurança do SQL Server e restaure
@@ -25,7 +25,7 @@ ms.locfileid: "97724787"
 
 A partir do SQL Server 2012 SP1 CU2, pode agora escrever as bases de dados do SQL Server diretamente para o armazenamento do Azure Blob. Utilize esta funcionalidade para fazer o back up e restaurar a partir do armazenamento Azure Blob. O back up até à nuvem oferece benefícios de disponibilidade, armazenamento geo-replicado ilimitado fora do local, e facilidade de migração de dados de e para a nuvem. Pode emitir `BACKUP` ou `RESTORE` fazer declarações utilizando o Transact-SQL ou o SMO.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 SQL Server 2016 introduz novas capacidades; pode utilizar [a cópia de segurança instantânea para](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) realizar cópias de segurança quase instantâneas e restauros incrivelmente rápidos.
 
 Este tópico explica por que pode optar por utilizar o Azure Storage para cópias de segurança do SQL Server e, em seguida, descreve os componentes envolvidos. Pode utilizar os recursos fornecidos no final do artigo para aceder a walk-throughs e informações adicionais para começar a utilizar este serviço com as suas cópias de segurança do SQL Server.

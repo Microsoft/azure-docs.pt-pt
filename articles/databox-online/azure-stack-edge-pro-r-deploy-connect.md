@@ -10,10 +10,10 @@ ms.date: 10/15/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure.
 ms.openlocfilehash: ce97c22cf4bfbe5cca01183574597706a8c239e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96468729"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-pro-r"></a>Tutorial: Conecte-se ao Azure Stack Edge Pro R

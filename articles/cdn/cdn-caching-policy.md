@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: 5807d38e22d8cecf40b5ad4262f9e4662b77ec4c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92779140"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerir a política de caching da Azure CDN nos Serviços Azure Media

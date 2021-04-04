@@ -10,10 +10,10 @@ ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 63b63526333435387c3ff5b5c9d5599ec851c1a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96467422"
 ---
 # <a name="use-synapse-studio-to-monitor-your-sql-pools"></a>Use o Synapse Studio para monitorizar as suas piscinas SQL

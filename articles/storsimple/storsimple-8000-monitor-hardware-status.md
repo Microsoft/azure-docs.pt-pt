@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 6b750659bf22e856ee8ad7368e3fea64dd7245df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94960364"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utilize o serviço StorSimple Device Manager para monitorizar os componentes e o estado do hardware
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo descreve os vários componentes físicos e lógicos no seu dispositivo da série StorSimple 8000. Também explica como monitorizar o estado do componente do dispositivo utilizando a lâmina de **saúde status e hardware** no serviço StorSimple Device Manager.
 
 A lâmina **de saúde status e hardware** mostra o estado de hardware de todos os componentes do dispositivo StorSimple.
