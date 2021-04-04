@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
 ms.openlocfilehash: ae6c87c9eabea837ba9c43676d4ca712caa385cb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94594169"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Mover recursos para a nova região - Azure SQL Database & Azure SQL Managed Instance
@@ -24,7 +24,7 @@ ms.locfileid: "94594169"
 
 Este artigo ensina-lhe um fluxo de trabalho genérico para como mover a sua base de dados ou caso gerido para uma nova região.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Há vários cenários em que gostaria de mover a sua base de dados existente ou gerir o exemplo de uma região para outra. Por exemplo, está a expandir o seu negócio para uma nova região e quer otimizá-lo para a nova base de clientes. Ou precisa mover as operações para outra região por razões de conformidade. Ou a Azure lançou uma nova região que proporciona uma melhor proximidade e melhora a experiência do cliente.  
 

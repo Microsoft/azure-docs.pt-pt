@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 04/02/2020
 ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97679135"
 ---
 # <a name="power-bi-app-creation-overview"></a>Visão geral da criação de aplicativos Power BI
@@ -27,7 +27,7 @@ Benefícios da publicação no mercado comercial:
 - Receba pistas de alta qualidade destes mercados.
 - Tenha os seus serviços promovidos pelo campo microsoft e equipas de televendas.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 :::image type="content" source="media/power-bi-app-publishing-steps.png" alt-text="Visão geral dos passos para publicar uma aplicação Power BI" border="false":::
 

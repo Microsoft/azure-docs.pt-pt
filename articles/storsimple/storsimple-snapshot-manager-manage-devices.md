@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96022977"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilize o StorSimple Snapshot Manager para ligar e gerir dispositivos StorSimple
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode utilizar nós no painel StorSimple Snapshot Manager **Scope** para verificar os dados do dispositivo StorSimple importados e atualizar os dispositivos de armazenamento conectados. Além disso, ao clicar no nó **dispositivos,** pode ver uma lista de dispositivos conectados e informações de estado correspondentes no painel **de resultados.**
 
 ![Dispositivos ligados](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
