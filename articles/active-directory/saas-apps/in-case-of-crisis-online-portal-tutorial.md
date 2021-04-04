@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 124b53297c04d3c9958a233cf40f56ecda57bbc5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92460211"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-in-case-of-crisis---online-portal"></a>Tutorial: Azure Ative Directory integração única (SSO) com Em Caso de Crise - Portal Online

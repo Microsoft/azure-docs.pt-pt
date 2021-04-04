@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: jeedes
 ms.openlocfilehash: eccc10cc50bac2eb2dde0bf9f77ab1ba656d5eb8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92458370"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-loop-flow-crm"></a>Tutorial: Azure Ative Directory integração única (SSO) com Loop Flow CRM

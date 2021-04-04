@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11102d95bc2aba65e6bc3cba71805a67f195947b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92681717"
 ---
 # <a name="how-to-use-microsoftazuresearch-in-a-c-net-application"></a>Como utilizar o Microsoft.Azure.Search numa aplicação C# .NET
@@ -68,7 +68,7 @@ Há várias coisas que terá de fazer no seu pedido de pesquisa. Neste tutorial,
 
 O seguinte código de amostra ilustra cada um destes cenários. Sinta-se livre para usar os cortes de código na sua própria aplicação.
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 A aplicação de amostra que vamos explorar cria um novo índice chamado "hotéis", povoa-o com alguns documentos e executa algumas consultas de pesquisa. Aqui está o programa principal, mostrando o fluxo geral:
 
 ```csharp

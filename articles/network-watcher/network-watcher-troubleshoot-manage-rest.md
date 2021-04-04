@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 72f279d90d071b0e5fe7f552a05474bc3b37a82e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98011038"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Resolução de problemas Gateway e Conexões de rede virtual usando O Observador de Rede Azure
@@ -42,7 +42,7 @@ Este cenário pressupõe que já seguiu os passos na [Criação de um Observador
 
 Para uma lista de tipos de gateway suportados visite, [tipos de Gateway suportados](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A resolução de problemas do Network Watcher fornece os problemas de resolução de problemas de capacidade que surgem com gateways e conexões de rede virtual. Quando é feito um pedido para a resolução de problemas de recursos, os registos são consultados e inspecionados. Quando a inspeção estiver concluída, os resultados são devolvidos. Os pedidos da API de resolução de problemas são pedidos de longa duração, o que pode levar vários minutos para devolver um resultado. Os registos são armazenados num contentor numa conta de armazenamento.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99222053"
 ---
 # <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Use AI para processar e analisar conteúdo blob em Pesquisa Cognitiva Azure

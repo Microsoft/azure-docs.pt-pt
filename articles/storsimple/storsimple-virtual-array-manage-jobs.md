@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95992991"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para visualizar postos de trabalho para o StorSimple Virtual Array
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A lâmina **Jobs** fornece um único portal central para visualização e gestão de trabalhos que são iniciados em matrizes virtuais que estão ligadas ao seu serviço StorSimple Device Manager. Pode ver trabalhos em execução, concluídos e falhados para vários dispositivos virtuais. Os resultados são apresentados em formato tabular.
 
 ![Lâmina de emprego](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)

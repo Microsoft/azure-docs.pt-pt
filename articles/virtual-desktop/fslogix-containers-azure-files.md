@@ -7,10 +7,10 @@ ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0b977944f3a531365487b9655820e5d8f85e13d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99225920"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
