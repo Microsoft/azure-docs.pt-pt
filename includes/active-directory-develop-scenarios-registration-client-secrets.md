@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 08/14/2020
 ms.author: jmprieur
 ms.openlocfilehash: 42102f38959911388cefcc141d949e59f24a2c31
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95996016"
 ---
 ## <a name="add-a-client-secret-or-certificate"></a>Adicionar um segredo ou certificado ao cliente

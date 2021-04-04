@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Data Analytics'
 - devx-track-azurecli
 ms.openlocfilehash: d7a10aac82286616273f7283bc3fba74f2c58f35
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98625219"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Utilize o portal Azure CLI e Azure para configurar o encaminhamento de mensagens IoT Hub

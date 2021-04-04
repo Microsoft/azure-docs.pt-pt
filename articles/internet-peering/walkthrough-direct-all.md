@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: prmitiki
 ms.openlocfilehash: 6a1fa7f582511a2089bab2694f9f5ec47634ff54
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97592386"
 ---
 # <a name="direct-peering-walkthrough"></a>Instruções de peering Direto

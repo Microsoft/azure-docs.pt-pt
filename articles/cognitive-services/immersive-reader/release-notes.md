@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: dylankil
 ms.openlocfilehash: 6b041916c6fa446732e95d49391d9ead63eb1b17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93133598"
 ---
 # <a name="immersive-reader-javascript-sdk-release-notes"></a>Notas de lançamento do leitor imersivo JavaScript SDK
