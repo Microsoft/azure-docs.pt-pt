@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: a20b8a43c8955e1afea7a7157e3e73425fb0d806
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664321"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recomendações de Desempenho no Azure Database for MariaDB

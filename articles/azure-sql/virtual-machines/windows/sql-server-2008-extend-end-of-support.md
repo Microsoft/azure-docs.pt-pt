@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 4c25adc16d14b4a5fb72ae0103ca05b193b40499
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359171"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com Azure
@@ -43,7 +43,7 @@ As imagens implementadas através do Azure Marketplace vêm com a extensão SQL 
 > [!NOTE]
 > Embora as lâminas SQL **Server Create** and **Manage** funcionem com a imagem SQL Server 2008 R2 no portal Azure, as seguintes funcionalidades não são _suportadas_: Backups automáticos, integração do Cofre de Chaves Azure, Serviços R e configuração de armazenamento.
 
-## <a name="licensing"></a>Licensing
+## <a name="licensing"></a>Licenciamento
 As implementações do Pay-as-you-go SQL Server 2008 R2 podem converter-se em [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Para converter uma licença baseada em Software Assurance (SA) para pagar o que quiser, os clientes devem registar-se com a [extensão sql IaaS Agent](sql-agent-extension-manually-register-single-vm.md). Após esse registo, o tipo de licença SQL será permutável entre a Azure Hybrid Benefit e o pay-as-you-go.

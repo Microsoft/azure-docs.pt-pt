@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94962438"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Utilize o serviço StorSimple Device Manager para monitorizar o seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode utilizar o serviço StorSimple Device Manager para monitorizar dispositivos específicos dentro da sua solução StorSimple. Pode criar gráficos personalizados com base no desempenho de E/S, utilização da capacidade, produção de rede e métricas de desempenho do dispositivo e fixá-las no painel de instrumentos. Para mais informações, aceda para [personalizar o seu painel de instrumentos do portal.](../azure-portal/azure-portal-dashboards.md)
 
 Para visualizar as informações de monitorização de um dispositivo específico, no portal Azure, selecione o serviço StorSimple Device Manager. A partir da lista de dispositivos, selecione o seu dispositivo e, em seguida, vá ao **Monitor**. Em seguida, pode ver as tabelas **capacidade,** **utilização** e **desempenho** para o dispositivo selecionado.

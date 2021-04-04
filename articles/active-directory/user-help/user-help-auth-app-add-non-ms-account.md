@@ -12,10 +12,10 @@ ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359205"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas não Microsoft à aplicação Microsoft Authenticator

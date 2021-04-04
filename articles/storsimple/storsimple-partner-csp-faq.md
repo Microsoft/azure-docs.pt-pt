@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 36b96581d98465b860b630fe2f9a8aa64cf0f64f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94964937"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple para programa de fornecedor de soluções de nuvem: Perguntas frequentes
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Seguem-se perguntas e respostas que poderá ter como parceiro StorSimple quando implementar ou gerir um StorSimple Virtual Array no portal Azure.
 
 As perguntas e respostas estão dispostas nas seguintes categorias:
