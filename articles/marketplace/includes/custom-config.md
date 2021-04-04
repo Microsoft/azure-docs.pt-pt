@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: a1bc7cf1fd339ca3660c7b39326f37d2763c74b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92284828"
 ---
 Se precisar de configuração adicional, utilize uma tarefa programada que seja operada no arranque para escoar as alterações finais no VM depois de ter sido implementada. Além disso, considere o seguinte:

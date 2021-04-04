@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 07/28/2020
 ms.openlocfilehash: be632ba06edc858e7eadcd6e57a4f7769f69f2cb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91321684"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conceber serviços globalmente disponíveis utilizando a Base de Dados Azure SQL

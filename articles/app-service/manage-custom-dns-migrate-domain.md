@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
 ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89484308"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Azure App Service

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7b683029b7fd05078755d4e8cd027f55c805f991
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97107265"
 ---
 # <a name="storage-configuration"></a>Configuração do Armazenamento
@@ -210,7 +210,7 @@ Cada cápsula que contém dados imponentes utiliza dois volumes persistentes nes
 |Tipo de Recurso|Número de cápsulas imponentes|Número exigido de volumes persistentes|
 |---|---|---|
 |Controlador de Dados|4 ( `control` , , , , `controldb` `logsdb` `metricsdb` )|4 * 2 = 8|
-|Instância Gerida do Azure SQL|1|2|
+|Instância Gerida do SQL do Azure|1|2|
 |Base de Dados Azure para instância pós-SQL|1| 2|
 |Hiperescala Azure PostgresqL|1 + W (W = número de trabalhadores)|2 * (1 + W)|
 
@@ -219,7 +219,7 @@ O quadro a seguir indica o número total de volume persistente necessário para 
 |Tipo de Recurso|Número de instâncias|Número exigido de volumes persistentes|
 |---|---|---|
 |Controlador de Dados|1|4 * 2 = 8|
-|Instância Gerida do Azure SQL|5|5 * 2 = 10|
+|Instância Gerida do SQL do Azure|5|5 * 2 = 10|
 |Base de Dados Azure para instância pós-SQL|5| 5 * 2 = 10|
 |Hiperescala Azure PostgresqL|2 (Número de trabalhadores = 4 por exemplo)|2 * 2 * (1 + 4) = 20|
 |***Número total de volumes persistentes***||8 + 10 + 10 + 20 = 48|

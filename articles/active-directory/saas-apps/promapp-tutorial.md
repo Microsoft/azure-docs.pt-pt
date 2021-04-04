@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: jeedes
 ms.openlocfilehash: fc31195e7f544bdce7fe2f135a39cb9992875d0a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92505923"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com Nintex Promapp
