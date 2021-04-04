@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96752282"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
@@ -24,7 +24,7 @@ O Azure Key Vault fornece dois tipos de recipientes para armazenar e gerir segre
 |Tipo de recipiente|Tipos de objetos suportados|Ponto final do plano de dados|
 |--|--|--|
 | **Cofres**|<ul><li>Chaves protegidas por software</li><li>Chaves protegidas pelo HSM (com SKU Premium)</li><li>Certificados</li><li>Chaves de contas de armazenamento</li></ul> | https://{vault-name}.vault.azure.net
-|**HSM Gerido** |<ul><li>Chaves protegidas por HSM</li></ul> | https://{hsm-name}.managedhsm.azure.net
+|**HSM gerido** |<ul><li>Chaves protegidas por HSM</li></ul> | https://{hsm-name}.managedhsm.azure.net
 
 Aqui estão os sufixos URL usados para aceder a cada tipo de objeto
 

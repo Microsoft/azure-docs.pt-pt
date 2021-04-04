@@ -10,15 +10,15 @@ ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100390362"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
 
-A eliminação suave das bolhas protege os seus dados de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave para bolhas estiver ativada para uma conta de armazenamento, as versões blob, blob e instantâneos nessa conta de armazenamento podem ser recuperadas após a sua eliminação, num período de retenção que especifique.
+A eliminação recuperável de blobs impede os dados de serem modificados ou eliminados acidentalmente. Quando a eliminação recuperável de blobs estiver ativada para uma conta de armazenamento, os blobs, as versões de blobs e os instantâneos nessa conta de armazenamento poderão ser recuperados depois de serem eliminados, dentro de um período de retenção especificado.
 
 Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se apague suavemente. Para obter mais informações sobre a ativação da eliminação suave, consulte [Ativar e gerir a eliminação suave para bolhas](./soft-delete-blob-enable.md).
 
