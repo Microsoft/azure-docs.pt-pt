@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: yelevin
 ms.openlocfilehash: 8089b1e74e88db81c1c15ad2cbf2072abcfff241
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98621350"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Ligar dados da Azure DDoS Protection
