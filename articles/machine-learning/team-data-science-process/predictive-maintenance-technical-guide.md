@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 3edeee8f41c806c90f32208c0c4f174c76ba38d0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93321986"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução para manutenção preditiva em aeroespacial
@@ -34,7 +34,7 @@ Os objetivos deste artigo são:
 - Demonstre como substituir os dados da amostra pelos seus próprios dados. 
 - Mostrar como modificar o modelo de solução.  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 ![Arquitetura de manutenção preditiva](./media/predictive-maintenance-technical-guide/predictive-maintenance-architecture.png)
 
 Ao implementar a solução, ativa os serviços Azure, incluindo Event Hub, Stream Analytics, HDInsight, Data Factory e Machine Learning. O diagrama de arquitetura mostra como se constrói a Manutenção Preditiva para o Modelo de Solução Aeroespacial. Pode investigar estes serviços no portal Azure clicando neles no diagrama do modelo de solução criado com a implementação da solução (exceto para HDInsight, que é a pedido quando as atividades relacionadas do pipeline são necessárias para executar e são eliminadas posteriormente).
