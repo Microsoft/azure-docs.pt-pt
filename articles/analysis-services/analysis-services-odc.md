@@ -8,10 +8,10 @@ ms.date: 12/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8fa657f3b343cdf49723dc68601bb1c9513ff504
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96487342"
 ---
 # <a name="create-an-office-data-connection-file"></a>Criar um ficheiro de ligação de dados do Office

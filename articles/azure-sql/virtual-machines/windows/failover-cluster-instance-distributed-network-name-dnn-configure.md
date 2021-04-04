@@ -16,10 +16,10 @@ ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97358321"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Configure um DNN para a ocorrência de cluster de failover
@@ -33,7 +33,7 @@ A funcionalidade DNN está atualmente disponível apenas no SQL Server 2019 CU2 
 
 Para uma opção de conectividade alternativa, considere um [nome de rede virtual e um Balanceador de Carga Azure.](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O nome de rede distribuído (DNN) substitui o nome de rede virtual (VNN) como o ponto de ligação quando utilizado com uma [instância de cluster de failover Always On em VMs do SQL Server](failover-cluster-instance-overview.md). Isto anula a necessidade de um tráfego de encaminhamento do Balançador de Carga Azure para o VNN, simplificando a implementação, manutenção e melhorando o failover. 
 

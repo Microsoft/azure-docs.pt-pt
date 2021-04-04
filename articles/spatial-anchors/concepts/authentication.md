@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97722968"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais Azure
 
 Neste artigo, você vai aprender as várias maneiras que você pode autenticar para Azure Spatial Anchors a partir da sua app ou serviço web. Você também vai aprender sobre as formas de usar o controlo de acesso baseado em funções Azure (Azure RBAC) em Azure Ative Directory (Azure AD) para controlar o acesso às suas contas De Âncoras Espaciais.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 ![Diagrama que mostra uma visão geral da autenticação para âncoras espaciais Azure.](./media/spatial-anchors-authentication-overview.png)
 

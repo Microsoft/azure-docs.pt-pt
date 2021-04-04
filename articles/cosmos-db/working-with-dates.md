@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ba4d4e63bdd1e795bc1c599d0eae8a595aa0d643
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359528"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com datas em Azure Cosmos DB

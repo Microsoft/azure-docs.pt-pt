@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: c96dcc2bae03b1bd05fb3d1512dba757f180eed8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94964920"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>O que é StorSimple para o Programa de Fornecedores de Soluções em Nuvem?
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Microsoft Azure StorSimple é uma abordagem única ao armazenamento empresarial com verdadeiras capacidades de armazenamento em nuvem híbrida. Capacita os clientes a aproveitarem o armazenamento económico em nuvem para os dados inativos, mantendo os seus dados críticos da missão no local para os mais altos níveis de desempenho. 
 
