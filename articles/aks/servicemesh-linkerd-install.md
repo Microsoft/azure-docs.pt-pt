@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: d5b2ec220bbf14a79247ed2c78a0e84f4717fae3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94684241"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalar Linkerd no Serviço Azure Kubernetes (AKS)

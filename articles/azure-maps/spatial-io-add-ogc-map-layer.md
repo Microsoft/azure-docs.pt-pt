@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7d94a681fa987a4b23dbcda744c2f8516da4437a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92891670"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Adicione uma camada de mapa do Consórcio Geoespacial Aberto (OGC)
