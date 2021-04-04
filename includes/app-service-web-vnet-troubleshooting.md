@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95999459"
 ---
 A funcionalidade é fácil de configurar, mas isso não significa que a sua experiência seja livre de problemas. Se encontrar problemas no acesso ao seu ponto final pretendido, existem alguns utilitários que pode utilizar para testar a conectividade a partir da consola da aplicação. Há duas consolas que podes usar. Uma é a consola Kudu, e a outra é a consola no portal Azure. Para chegar à consola Kudu a partir da sua aplicação, vá ao **Tools**  >  **Kudu**. Também pode alcançar a consola Kudo em [sitename].scm.azurewebsites.net. Depois de carregar o site, vá ao separador **de consola Debug.** Para chegar à consola azure a partir da sua aplicação, vá ao **Consola de Ferramentas.**  >  

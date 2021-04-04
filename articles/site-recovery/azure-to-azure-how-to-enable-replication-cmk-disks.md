@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
 ms.openlocfilehash: 9f9052f51c5bab0ea738e9fd15d8f62f45ff0c9b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93146540"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicar máquinas virtuais com discos ativados com Chaves Geridas pelo Cliente (CMK)

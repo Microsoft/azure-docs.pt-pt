@@ -7,10 +7,10 @@ ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ebf91f68e45148d9a609ff671ffa4683bd74c82c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89226119"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente Android

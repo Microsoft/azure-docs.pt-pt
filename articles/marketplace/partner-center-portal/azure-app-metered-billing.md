@@ -8,10 +8,10 @@ ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96436356"
 ---
 # <a name="managed-application-metered-billing"></a>Faturação gerida com medidos de aplicação 

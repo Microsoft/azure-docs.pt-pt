@@ -8,15 +8,15 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95997346"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente de Serviço de Aplicações #
 
-## <a name="overview"></a>Descrição geral ##
+## <a name="overview"></a>Descrição Geral ##
 
  Azure [App Service Environment][Intro] é uma implementação do Azure App Service numa sub-rede na sua rede virtual Azure (VNet). Existem dois tipos de implementação para um ambiente de Serviço de Aplicações (ASE):
 

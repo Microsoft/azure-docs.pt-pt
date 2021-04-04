@@ -11,10 +11,10 @@ ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 49d6a85faa55de5dbf50377998dbe2fc829d9f6f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96929791"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Excluir uma loja de configuração de aplicativos Azure
