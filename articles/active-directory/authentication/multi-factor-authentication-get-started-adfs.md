@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0023d40fdc26fa1c42a67ce78a9259643098abb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96741410"
 ---
 # <a name="getting-started-with-azure-ad-multi-factor-authentication-and-active-directory-federation-services"></a>Começando com a autenticação multi-factor Azure AD e serviços da Federação de Diretórios Ativos

@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: b68e338c2675a3aeefda390d12ab2d82ea1c7a9f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94956658"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de lançamento StorSimple 8000 Series Update 2
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 As seguintes notas de lançamento descrevem as novas funcionalidades e identificam as questões abertas críticas para storSimple 8000 Series Update 2. Também contêm uma lista das atualizações de software, controlador e firmware de disco StorSimple incluídas nesta versão. 
 
 A atualização 2 pode ser aplicada a qualquer dispositivo StorSimple que esteja a executar o Release (GA) ou a Atualização 0.1 através da Atualização 1.2. A versão do dispositivo associada ao Update 2 é de 6.3.9600.17673.

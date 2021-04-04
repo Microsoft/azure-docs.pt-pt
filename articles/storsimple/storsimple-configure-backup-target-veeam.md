@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: bf28265de2b297dade545695c9369b8074eeb72c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94962557"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como alvo de backup com Veeam
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Azure StorSimple é uma solução híbrida de armazenamento em nuvem da Microsoft. A StorSimple aborda as complexidades do crescimento exponencial dos dados utilizando uma conta de Armazenamento Azure como uma extensão da solução no local e tiering automaticamente dados através do armazenamento no local e armazenamento em nuvem.
 
