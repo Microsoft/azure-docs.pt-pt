@@ -14,10 +14,10 @@ ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: a33c7e7d637b519b249c250481a73d04c661d4d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97915849"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft

@@ -10,17 +10,17 @@ ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 20614b1c397bdf24e807d48d3de33f0033da14bc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100105118"
 ---
 # <a name="synapse-access-control"></a>Controlo de acesso sinapse 
 
 Este artigo fornece uma visão geral dos mecanismos disponíveis para controlar o acesso aos recursos e dados do cálculo da Sinapse.  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Sinapse fornece um sistema de controlo de acesso abrangente e fino, que integra: 
 - **Funções Azure** para gestão de recursos e acesso a dados armazenados, 

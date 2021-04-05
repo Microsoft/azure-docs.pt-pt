@@ -4,10 +4,10 @@ description: Saiba mais sobre o escalonamento de aglomerados autónomos de tecid
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 8184b2455e938fa0500308b462176e78b8dadcab
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91843036"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Clusters autónomos de tecido de escala
