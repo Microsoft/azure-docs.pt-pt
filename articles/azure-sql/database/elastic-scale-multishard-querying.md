@@ -10,16 +10,16 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 5a0dd12efb9d94bda264b3bd04b05cdc3df917e5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92786637"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Consulta multi-fragmentos usando ferramentas de base de dados elásticas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Com as [ferramentas Elastic Database,](elastic-scale-introduction.md)pode criar soluções de base de dados com fragmentos. **A consulta multi-fragmentos** é usada para tarefas como a recolha/reporte de dados que requerem a execução de uma consulta que se estende por vários fragmentos. (Contraste isto com o [encaminhamento dependente de dados,](elastic-scale-data-dependent-routing.md)que executa todos os trabalhos num único fragmento.)
 

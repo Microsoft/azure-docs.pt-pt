@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92788830"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU - Azure SQL Database e SQL Managed Instance
@@ -37,7 +37,7 @@ A tabela e gráfico a seguir comparam e contrastam os modelos de compra baseados
 |**Modelo de compra**|**Descrição**|**Melhor para**|
 |---|---|---|
 |Baseado em DTU|Este modelo baseia-se numa medida agregada de recursos de computação, armazenamento e E/S. Os tamanhos da computação são expressos em DTUs para bases de dados individuais e em unidades de transação de base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [O que são DTUs e eDTUs?](purchasing-models.md#dtu-based-purchasing-model).|Clientes que querem opções de recursos simples e pré-configuradas|
-|vCore|Este modelo permite-lhe escolher independentemente os recursos de computação e armazenamento. O modelo de compra baseado em vCore também lhe permite utilizar o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para o SQL Server para reduzir custos.|Clientes que valorizam flexibilidade, controlo e transparência|
+|Baseado em vCore|Este modelo permite-lhe escolher independentemente os recursos de computação e armazenamento. O modelo de compra baseado em vCore também lhe permite utilizar o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para o SQL Server para reduzir custos.|Clientes que valorizam flexibilidade, controlo e transparência|
 ||||  
 
 ![Comparação de modelos de preços](./media/purchasing-models/pricing-model.png)

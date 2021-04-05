@@ -9,10 +9,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 11/09/2020
 ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94386660"
 ---
 Este quickstart baseado no Carteiro leva-o a obter uma resposta da sua base de conhecimento.
@@ -37,7 +37,7 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
 
 1. A partir da página **Definições** da base de conhecimento, selecione o **separador Carteiro** para ver a configuração utilizada para gerar uma resposta a partir da base de conhecimento. Copie as seguintes informações para usar no Carteiro.
 
-    |Nome|Definição|Finalidade e valor|
+    |Name|Definição|Finalidade e valor|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este é o método HTTP e rota para o URL.|
     |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Este é o anfitrião da URL. Concatenate os valores de Anfitrião e Post para obter o URL completo de 200% gerado.|
@@ -55,7 +55,7 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
 
 1. A partir da página **Definições** da base de conhecimento, selecione o **separador Carteiro** para ver a configuração utilizada para gerar uma resposta a partir da base de conhecimento. Copie as seguintes informações para usar no Carteiro.
 
-    |Nome|Definição|Finalidade e valor|
+    |Name|Definição|Finalidade e valor|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este é o método HTTP e rota para o URL.|
     |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Este é o anfitrião da URL. Concatenate os valores de Anfitrião e Post para obter o URL completo de 200% gerado.|
