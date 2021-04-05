@@ -14,10 +14,10 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 15b4a90a4e082cbe8fc0f2da1a87b6860cfb66a4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95024216"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos os tópicos para o serviço de base de dados de alongamento do servidor Azure SQL

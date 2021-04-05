@@ -8,10 +8,10 @@ ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99226646"
 ---
 # <a name="understand-azure-files-billing"></a>Compreenda a faturação dos Ficheiros Azure

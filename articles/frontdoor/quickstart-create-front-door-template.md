@@ -15,10 +15,10 @@ ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
 ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92896060"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Quickstart: Criar uma porta frontal usando um modelo ARM

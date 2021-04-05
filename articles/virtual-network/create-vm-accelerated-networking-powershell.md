@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
 ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919974"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada com o Azure PowerShell
@@ -28,7 +28,7 @@ Neste tutorial, aprende-se a criar uma máquina virtual Windows (VM) com rede ac
 > [!NOTE]
 > Para utilizar o networking acelerado com uma máquina virtual Linux, consulte [Criar um VM Linux com rede acelerada](create-vm-accelerated-networking-cli.md).
 
-A rede acelerada permite a virtualização de E/S de raiz única (SR-IOV) a um VM, melhorando consideravelmente o seu desempenho em rede. Este percurso de alto desempenho contorna o hospedeiro da trajetória de dados, o que reduz a latência, o nervosismo e a utilização do CPU para as cargas de trabalho de rede mais exigentes em tipos de VM suportados. O diagrama a seguir ilustra como dois VMs comunicam com e sem rede acelerada:
+A rede acelerada permite a virtualização de entrada/saída de raiz única (SR-IOV) para uma VM, o que melhora muito o desempenho da rede. Este percurso de alto desempenho ignora o anfitrião no caminho de dados, o que reduz a latência, a instabilidade e a utilização da CPU das cargas de trabalho da rede mais exigentes nos tipos de VM suportadas. O diagrama a seguir ilustra como dois VMs comunicam com e sem rede acelerada:
 
 ![Comunicação entre máquinas virtuais Azure com e sem rede acelerada](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -57,7 +57,7 @@ As seguintes distribuições são suportadas diretamente a partir da Galeria Azu
 - **Windows Server 2016 Datacenter** 
 - **Windows Server 2012 R2 Datacenter**
 
-## <a name="limitations-and-constraints"></a>Limitações e constrangimentos
+## <a name="limitations-and-constraints"></a>Limitações e restrições
 
 ### <a name="supported-vm-instances"></a>Instâncias VM apoiadas
 

@@ -17,17 +17,17 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17cb11cc82ede3b51b5502730079618e136d3ca5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99254479"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uma aplicação de procuração de aplicação leva muito tempo a carregar
 
 Este artigo ajuda-o a entender por que uma aplicação de procuração de aplicação AD Azure pode demorar muito tempo a carregar. Também explica o que pode fazer para resolver esta questão.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Embora as suas aplicações estejam a funcionar, podem experimentar uma longa latência. Pode haver ajustes de topologia de rede que pode fazer para melhorar a velocidade. Para uma avaliação de diferentes topologias, consulte o [documento de considerações de rede.](application-proxy-network-topology.md)
 
 Além da topologia da rede, não existem atualmente mais recomendações para a afinação de desempenho. À medida que o serviço Application Proxy se expande, pode chegar a um centro de dados que está fisicamente mais próximo. A proximidade mais próxima pode ajudar com a latência. Para obter uma lista de centros de dados Azure, consulte a página de [teste de latência](http://www.azurespeed.com/Azure/Latency). 

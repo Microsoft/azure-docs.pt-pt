@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99574962"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registar e digitalizar um servidor SQL no local

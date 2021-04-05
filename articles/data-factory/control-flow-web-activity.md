@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: e4578b41e5cbb62c8a1bfa0c48d4fd60d042a506
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361524"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Azure Data Factory
