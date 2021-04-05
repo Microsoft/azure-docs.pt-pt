@@ -9,10 +9,10 @@ ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 5e84a679f0bc26b701dc1d51db3605c452675ea3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96545286"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funções de corda (Azure Cosmos DB)

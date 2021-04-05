@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 99a30065e11a55f4c21b9e6ffc69b0a1693ecbdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019742"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Resolução de problemas Gateway de rede virtual e conexões usando Azure Network Watcher PowerShell
@@ -38,7 +38,7 @@ Este cenário pressupõe que já seguiu os passos na [Criação de um Observador
 
 Para uma lista de tipos de gateway suportados visite, [tipos de Gateway suportados](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A resolução de problemas de recursos fornece os problemas de resolução de problemas de capacidade que surgem com gateways e conexões de rede virtual. Quando é feito um pedido para a resolução de problemas de recursos, os registos estão a ser consultados e inspecionados. Quando a inspeção estiver concluída, os resultados são devolvidos. Os pedidos de resolução de problemas de recursos são pedidos de longa duração, o que pode demorar vários minutos a devolver um resultado. Os registos da resolução de problemas são armazenados num contentor numa conta de armazenamento especificada.
 

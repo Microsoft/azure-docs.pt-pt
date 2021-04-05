@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 47891dfa7fc0c9b30ccdbf2ed7710125eb36e4a3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93397812"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configurar o TLS ponto a ponto com o Gateway de Aplicação através do PowerShell
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Azure Application Gateway suporta encriptação de tráfego de ponta a ponta. O Gateway de Aplicação termina a ligação TLS/SSL no gateway de aplicações. O gateway aplica então as regras de encaminhamento para o tráfego, reencripta o pacote e encaminha o pacote para o servidor back-end apropriado com base nas regras de encaminhamento definidas. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final.
 
