@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/20/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 80bef52d568130fa800a1da661f4867abb3df02c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98678993"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Entidades de autocarros de serviço de chaining com autoforwarding
@@ -68,7 +68,7 @@ Para obter informações detalhadas sobre a via automática, consulte os seguint
 
 Para saber mais sobre as melhorias no desempenho do Service Bus, consulte 
 
-* [Melhores práticas para uma melhoria do desempenho com as Mensagens do Service Bus](service-bus-performance-improvements.md)
+* [Boas Práticas para melhorias de desempenho usando mensagens de autocarro de serviço](service-bus-performance-improvements.md)
 * [Entidades de mensagens divididas.][Partitioned messaging entities]
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo

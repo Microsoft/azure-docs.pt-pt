@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/11/2020
 ms.author: alkohli
 ms.openlocfilehash: 1836ed57305fd7e168961eb81670b56d4ce296cd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100545178"
 ---
 # <a name="use-your-own-certificates-with-data-box-and-data-box-heavy-devices"></a>Use os seus próprios certificados com caixas de dados e dispositivos pesados de caixa de dados

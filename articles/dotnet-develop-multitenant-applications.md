@@ -16,10 +16,10 @@ ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: d36a2804519e5728dd068cc6c06ad005244e8c95
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95524101"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicações Multi-inquilino no Azure

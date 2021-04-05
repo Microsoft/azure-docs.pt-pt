@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e204b47b7fa9f528341507c315c926159d524e13
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98789587"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os atores fiáveis usam a plataforma de tecido de serviço

@@ -16,15 +16,15 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96014861"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substitua um componente de hardware no seu dispositivo da série StorSimple 8000
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os tutoriais de substituição de componentes de hardware descrevem os componentes de hardware do seu dispositivo da série Microsoft Azure StorSimple 8000 e os passos necessários para removê-los e substituí-los. Este artigo descreve os ícones de segurança, fornece ponteiros para os tutoriais detalhados e lista os componentes que são substituíveis.
 
 > [!IMPORTANT]
