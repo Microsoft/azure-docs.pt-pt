@@ -17,15 +17,15 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919957"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual do Linux com Rede Acelerada com a CLI do Azure
 
-Neste tutorial, aprende-se a criar uma máquina virtual Linux (VM) com Rede Acelerada. Para criar um VM do Windows com rede acelerada, consulte [criar um VM do Windows com rede acelerada](create-vm-accelerated-networking-powershell.md). A rede acelerada permite a virtualização de E/S de raiz única (SR-IOV) a um VM, melhorando consideravelmente o seu desempenho em rede. Este percurso de alto desempenho contorna o hospedeiro do datapath, reduzindo a latência, o nervosismo e a utilização do CPU, para utilização com as cargas de trabalho de rede mais exigentes em tipos de VM suportados. A seguinte imagem mostra a comunicação entre dois VMs com e sem rede acelerada:
+Neste tutorial, aprende-se a criar uma máquina virtual Linux (VM) com Rede Acelerada. Para criar um VM do Windows com rede acelerada, consulte [criar um VM do Windows com rede acelerada](create-vm-accelerated-networking-powershell.md). A rede acelerada permite a virtualização de entrada/saída de raiz única (SR-IOV) para uma VM, o que melhora muito o desempenho da rede. Este percurso de alto desempenho contorna o hospedeiro do datapath, reduzindo a latência, o nervosismo e a utilização do CPU, para utilização com as cargas de trabalho de rede mais exigentes em tipos de VM suportados. A seguinte imagem mostra a comunicação entre dois VMs com e sem rede acelerada:
 
 ![Comparação](./media/create-vm-accelerated-networking/accelerated-networking.png)
 

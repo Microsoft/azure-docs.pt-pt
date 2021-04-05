@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 6cb78a7042ca3acbb27f510207783b97f733cfb0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96005848"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Utilizar o serviço do Gestor de Dispositivos do StorSimple para resolver problemas na Matriz Virtual do StorSimple
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O StorSimple Device Manager fornece um diagnóstico e resolve a definição de **problemas** dentro da lâmina de resumo do serviço, que destaca alguns dos problemas que ocorrem com a sua matriz virtual e como resolvê-los. Este tutorial introduz a capacidade de resolução de problemas de autosserviço fornecida no serviço StorSimple Device Manager.
 

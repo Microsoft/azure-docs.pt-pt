@@ -8,10 +8,10 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 6/10/2020
 ms.openlocfilehash: b9b3b30592237e1bbe1b08b0ed1d118131b15a26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92206055"
 ---
 # <a name="what-are-the-azure-iot-support-and-help-options"></a>Quais são as opções de suporte e ajuda do Azure IoT?
