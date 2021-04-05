@@ -5,17 +5,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.openlocfilehash: f07ea3007d2e72c179abe38cca56178b564bc231
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98928283"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise em Azure HDInsight
 
 Este documento discute a funcionalidade Azure HDInsight *SparkCruise,* que reutiliza automaticamente os cálculos apache Spark para aumentar a eficiência da consulta.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As consultas que você executou numa plataforma de análise como Apache Spark, estão decompostas num plano de consulta que contém subqueries menores. Estas subqueries podem aparecer repetidamente através de planos de consulta para múltiplas consultas. Cada vez que ocorrem, são re-executados para devolver os resultados. No entanto, a reexame da mesma consulta pode ser ineficiente e levar a custos de computação desnecessários.
 

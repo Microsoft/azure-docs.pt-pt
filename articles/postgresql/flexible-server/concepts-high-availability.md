@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94366728"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceitos de alta disponibilidade na Base de Dados Azure para PostgreSQL - Servidor Flexível
@@ -97,8 +97,8 @@ Servidores flexíveis configurados com alta disponibilidade, replicam dados em t
 
 ## <a name="zone-redundant-high-availability---limitations"></a>Zona redundante alta disponibilidade - limitações
 
--   A alta disponibilidade não é suportada com um nível de cálculo rebentado.
--   A elevada disponibilidade só é suportada em regiões onde existem várias zonas.
+-   A elevada disponibilidade não é suportada com o escalão de computação expansível.
+-   A elevada disponibilidade só é suportada em regiões com várias zonas disponíveis.
 -   Devido à replicação sincronizada para outra zona de disponibilidade, as aplicações podem experimentar escrita elevada e comprometer latência.
 
 -   A réplica de espera não pode ser usada para consultas de leitura.

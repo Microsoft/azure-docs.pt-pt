@@ -4,10 +4,10 @@ description: Descreve as propriedades e esquemas fornecidos para eventos Azure M
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 88cf0c8274d685a45862bc7b7884b5e4a686c22d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100363688"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps como fonte de grade de eventos

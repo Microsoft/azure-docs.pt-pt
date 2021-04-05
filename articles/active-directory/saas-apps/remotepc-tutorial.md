@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 2eccf94f6ae34de027c652dafab81744f924f963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96181650"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-remotepc"></a>Tutorial: Azure Ative Directy integração única (SSO) com RemotePC

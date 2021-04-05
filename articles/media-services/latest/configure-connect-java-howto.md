@@ -15,10 +15,10 @@ ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
 ms.openlocfilehash: 769b4bc431040ee4d872fa60270196db96978ed2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94748187"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ligue-se aos Serviços de Mídia v3 API - Java

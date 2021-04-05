@@ -8,10 +8,10 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96009556"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e utilizar um Ambiente de Serviço de Aplicação do Balanceador interno 
@@ -23,7 +23,7 @@ O Azure App Service Environment é uma implementação do Azure App Service numa
 
 Este artigo mostra como criar um ASE de ILB. Para obter uma visão geral sobre o ASE, consulte [Introdução aos Ambientes de Serviço de Aplicações.][Intro] Para saber como criar um ASE externo, veja [Criar um ASE Externo][MakeExternalASE].
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição Geral 
 
 Pode implementar um ASE com um ponto final acessível pela Internet ou com um endereço IP na sua VNet. Para definir o endereço IP para um endereço VNet, o ASE tem de ser implementado com um ILB. Quando colocar o seu ASE com um ILB, deve fornecer o nome do seu ASE. O nome do seu ASE é utilizado no sufixo de domínio para as aplicações no seu ASE.  O sufixo de domínio para o seu ILB ASE é &lt; o nome ASE &gt; .appserviceenvironment.net. As aplicações que são feitas num ILB ASE não são colocadas no DNS público. 
 
