@@ -9,10 +9,10 @@ ms.date: 08/13/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 3221c4f3e196cf1573bd7c0424fa3b4530c0b2ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90709671"
 ---
 ## <a name="create-azure-context"></a>Criar contexto azul

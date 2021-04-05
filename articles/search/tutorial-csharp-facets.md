@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 44a05ed5b4386f2787a1c84dfeb61a5d539c7cb5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98789807"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutorial: Adicionar navegação facetada usando o .NET SDK
@@ -25,7 +25,7 @@ Neste tutorial, ficará a saber como:
 > * Definir propriedades do modelo como _IsFacetable_
 > * Adicione navegação faceta à sua app
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As facetas são baseadas em campos no seu índice de pesquisa. Um pedido de consulta que inclui facet=[string] fornece o campo para facetar por. É comum incluir múltiplas facetas, tais `&facet=category&facet=amenities` como, cada uma separada por um caráter ampersand (&). A implementação de uma estrutura de navegação facetada requer que especifique ambas as facetas e filtros. O filtro é utilizado num evento de clique para reduzir os resultados. Por exemplo, clicar em "orçamento" filtra os resultados com base nesses critérios.
 
