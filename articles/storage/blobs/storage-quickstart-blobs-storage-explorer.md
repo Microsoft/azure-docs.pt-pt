@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
 ms.openlocfilehash: 2477107105b6dbcab96db8d44ac982554dc0c48d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95543175"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Quickstart: Use o Azure Storage Explorer para criar uma bolha

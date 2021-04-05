@@ -15,14 +15,14 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
 ms.openlocfilehash: 4fe4b99f9635ff254f1a75e03f13d7e6ffcb3c49
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100366522"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgue um ponto final Azure CDN
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os nós de borda Azure CDN irão cache ativos até que o tempo de vida do ativo (TTL) expire.  Após o TTL do ativo expirar, quando um cliente solicita o ativo a partir do nó de borda, o nó de borda irá recuperar uma nova cópia atualizada do ativo para servir o pedido do cliente e armazenar a atualização da cache.
 
 A melhor prática para garantir que os seus utilizadores obtenham sempre a cópia mais recente dos seus ativos é ver versão dos seus ativos para cada atualização e publicá-los como novos URLs.  A CDN irá imediatamente recuperar os novos ativos para os próximos pedidos de clientes.  Por vezes, pode querer expurgar o conteúdo em cache de todos os nós de borda e forçá-los a todos a recuperar novos ativos atualizados.  Isto pode ser devido a atualizações para a sua aplicação web, ou para atualizar rapidamente ativos que contenham informações incorretas.

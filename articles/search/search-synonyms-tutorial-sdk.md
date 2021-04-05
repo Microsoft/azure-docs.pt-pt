@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 50d5d73e71b8129f061ec49b363a0ebb13d22bdf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97704661"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemplo: Adicionar sinónimos para pesquisa cognitiva Azure em C #
@@ -49,7 +49,7 @@ Se não estiver familiarizado com a biblioteca de clientes .NET, consulte [Como 
 
 Pode encontrar o código fonte completo da aplicação da amostra utilizada neste exemplo no [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Consultas antes e depois são usadas para demonstrar o valor dos sinónimos. Neste exemplo, uma aplicação de amostra executa consultas e devolve resultados num índice de amostra "hotéis" preenchido com dois documentos. Em primeiro lugar, a aplicação executa consultas de pesquisa usando termos e frases que não aparecem no índice. Em segundo lugar, o código permite a funcionalidade de sinónimos e, em seguida, reemite as mesmas consultas, desta vez devolvendo resultados com base em fósforos no mapa do sinónimo. 
 

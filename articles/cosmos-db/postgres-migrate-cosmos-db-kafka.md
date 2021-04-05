@@ -9,10 +9,10 @@ ms.date: 01/05/2021
 ms.author: abhishgu
 ms.reviewer: abhishgu
 ms.openlocfilehash: 0038219ee8c1721ff5ab2be76231d33d2bd9064d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98203070"
 ---
 # <a name="migrate-data-from-postgresql-to-azure-cosmos-db-cassandra-api-account-using-apache-kafka"></a>Migrar dados da pós-Menstrual para a conta API API da Azure Cosmos DB Cassandra utilizando Apache Kafka
@@ -30,7 +30,7 @@ Cassandra API em Azure Cosmos DB tornou-se uma ótima escolha para cargas de tra
 
 Este artigo demonstrará como utilizar uma combinação de conectores Kafka para criar um pipeline de dados para sincronizar continuamente registos de uma base de dados relacional, como [PostgreSQL](https://www.postgresql.org/) a [Azure Cosmos DB Cassandra API](cassandra-introduction.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Aqui está uma visão geral de alto nível do fluxo final apresentado neste artigo.
 
