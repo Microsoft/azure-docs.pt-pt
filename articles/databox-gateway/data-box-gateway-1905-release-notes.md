@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/11/2020
 ms.author: alkohli
 ms.openlocfilehash: 7337e940ff67f0c0cfd38e5e58a2ac81bf593970
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96582858"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Azure Data Box Edge e Azure Data Box Gateway 1905 notas de lançamento
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As seguintes notas de lançamento identificam as questões abertas críticas e os problemas resolvidos para a versão de 1905 para Azure Data Box Edge e Azure Data Box Gateway.
 

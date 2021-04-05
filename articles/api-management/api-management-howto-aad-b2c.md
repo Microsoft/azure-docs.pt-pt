@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96013569"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar as contas de programador ao utilizar o Azure Active Directory B2C na Gestão de API do Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Azure Ative Directory B2C é uma solução de gestão de identidade em nuvem para aplicações web e móveis viradas para o consumidor. Pode usá-lo para gerir o acesso ao seu portal de desenvolvedores. Este guia mostra-lhe a configuração necessária no seu serviço de Gestão API para integrar com o Azure Ative Directory B2C. Para obter informações sobre como permitir o acesso ao portal do desenvolvedor utilizando o clássico Azure Ative Directory, consulte [Como autorizar contas de programadores utilizando o Azure Ative Directory].
 

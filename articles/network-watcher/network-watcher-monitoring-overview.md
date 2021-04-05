@@ -15,10 +15,10 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97895891"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?

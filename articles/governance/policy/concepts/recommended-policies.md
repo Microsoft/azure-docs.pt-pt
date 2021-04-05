@@ -5,10 +5,10 @@ ms.date: 09/02/2020
 ms.topic: conceptual
 ms.customer: generated
 ms.openlocfilehash: 019541f034ce8f0c3728c38d2ae4425308b4e2a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96350284"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Políticas recomendadas para serviços Azure

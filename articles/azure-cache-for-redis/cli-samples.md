@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/14/2017
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 32530982bc2a9d1b5deb31b3bc71460462352258
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92536424"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Gerir a Cache Azure para Redis com Azure CLI

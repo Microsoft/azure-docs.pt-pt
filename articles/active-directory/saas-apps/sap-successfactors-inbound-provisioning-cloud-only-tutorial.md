@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
 ms.openlocfilehash: a39f7701d0244eff7f914908a6708dfc14873b35
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98954861"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o fornecimento de utilizadores Azure AD
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar os passos necessários para a disponibiliza
 >[!NOTE]
 >Utilize este tutorial se os utilizadores que pretende obter do SuccessFactors são utilizadores apenas na nuvem que não precisam de uma conta AD no local. Se os utilizadores necessitarem apenas de conta AD no local ou tanto da conta AD como da AZure AD, consulte o tutorial sobre [configuração SAP SuccessFactors para o](sap-successfactors-inbound-provisioning-tutorial.md#overview) provisionamento do utilizador do Ative Directory. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O [serviço de prestação de utilizadores do Azure Ative Directory](../app-provisioning/user-provisioning.md) integra-se com a Centro de [Trabalhadores do SuccessFactors](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) de forma a gerir o ciclo de vida identitária dos utilizadores. 
 
@@ -56,7 +56,7 @@ Esta secção descreve a arquitetura de solução de atenção de utilizadores d
 * **Fluxo de dados hr autoritários – de SuccessFactors a Azure Ative Directory:** Neste evento de trabalhadores de fluxo (como Novas Contratações, Transferências, Rescisões) ocorrem primeiro na nuvem SuccessFactors Employee Central e, em seguida, os dados do evento fluem para o Diretório Ativo Azure. Dependendo do evento, pode levar a operações de criação/atualização/ativação/desativação em Azure AD.
 * **Email Writeback Flow – do Diretório Ativo para o SuccessFactors:** Uma vez que a criação da conta esteja completa no Azure Ative Directory, o valor de atributo de e-mail ou UPN gerado em Azure AD pode ser rectado aos SuccessFactors.
 
-  ![Descrição geral](./media/sap-successfactors-inbound-provisioning/sf2aad-overview.png)
+  ![Descrição Geral](./media/sap-successfactors-inbound-provisioning/sf2aad-overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Fluxo de dados de utilizador de ponta a ponta
 
