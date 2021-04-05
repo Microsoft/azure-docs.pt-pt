@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
 ms.openlocfilehash: 38c066c20399b39d676fb0c25aa158993258b979
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100370993"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para cópia de segurança da partilha de ficheiros Azure

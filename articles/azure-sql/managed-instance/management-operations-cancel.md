@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96861549"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelamento de operações de gestão de instância gerida da Azure SQL
@@ -24,7 +24,7 @@ ms.locfileid: "96861549"
 
 A Azure SQL Managed Instance fornece a capacidade de cancelar algumas [operações de gestão,](management-operations-overview.md)como quando implementa uma nova instância gerida ou atualizar propriedades de instância. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
  Todas as operações de gestão podem ser categorizadas da seguinte forma:
 

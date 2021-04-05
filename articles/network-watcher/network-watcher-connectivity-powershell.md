@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: f32823686dca37cb992746924cbaff0695660242
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019810"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Ligações de resolução de problemas com o Observador de Redes Azure usando o PowerShell

@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
 ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94841136"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilização de autenticação de diretório ativo Azure multi-factor

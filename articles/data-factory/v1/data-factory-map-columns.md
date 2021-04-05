@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100371129"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Colunas de conjunto de dados de origem do mapa para colunas de conjunto de dados de destino

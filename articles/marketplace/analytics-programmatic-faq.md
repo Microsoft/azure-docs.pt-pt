@@ -1,5 +1,5 @@
 ---
-title: Acesso programático de dados de análise questões comuns
+title: Perguntas comuns sobre o acesso programático dos dados de análise
 description: Comumente, perguntas sobre o acesso programático a dados de análise no Partner Center para as suas ofertas de marketplace comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 393a718632138f4ffcf26e4875eea9ba3d886897
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583974"
 ---
-# <a name="programmatic-access-of-analytics-data-common-questions"></a>Acesso programático de dados de análise questões comuns
+# <a name="programmatic-access-of-analytics-data-common-questions"></a>Perguntas comuns sobre o acesso programático dos dados de análise
 
 Este artigo aborda perguntas comumente sobre como aceder programáticamente a dados de análise no Partner Center para as suas ofertas de marketplace comercial.
 

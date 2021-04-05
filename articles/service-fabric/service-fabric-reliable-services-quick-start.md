@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev, devx-track-csharp
 ms.openlocfilehash: 45341c98a40cbcabfa8b96f2016f02f1755fe2b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791532"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services

@@ -6,10 +6,10 @@ ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96905966"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implementar modelos ARM utilizando o IntelliJ IDEA

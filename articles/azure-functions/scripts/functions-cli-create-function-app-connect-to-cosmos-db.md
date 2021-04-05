@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 9ec4d3cb9d47608aa98075ba98aacfde51f341cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97934429"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar uma Função do Azure que se liga a um Azure Cosmos DB

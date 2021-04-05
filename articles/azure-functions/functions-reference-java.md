@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 1ffbd760ae75605d75652b29d379420d6946aa8f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96326459"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de desenvolvedores de Java funções Azure Functions

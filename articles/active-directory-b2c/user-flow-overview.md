@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94840197"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de utilizador no Azure Active Directory B2C

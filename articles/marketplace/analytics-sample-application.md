@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 8fe2301c4d4ed2a582774c65d5dbe68bab416aa3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102584077"
 ---
 # <a name="sample-application-for-accessing-commercial-marketplace-analytics-data"></a>Aplicação de amostra para aceder a dados de análise de mercado comercial

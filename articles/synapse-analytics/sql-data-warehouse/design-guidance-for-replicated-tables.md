@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 7dcb884d8eafdfa5218e96d63f62a5d462d20cf8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98679935"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Orientação de design para usar mesas replicadas na piscina Sinaapse SQL

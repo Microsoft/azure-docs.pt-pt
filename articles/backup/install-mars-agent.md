@@ -4,10 +4,10 @@ description: Saiba como instalar o agente Microsoft Azure Recovery Services (MAR
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98986875"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instale o agente Azure Backup MARS

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 12/02/2019
 ms.subservice: tables
 ms.openlocfilehash: 93c6cb0f61185457ef0684d2a1ba691a0534aa13
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96326782"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Início Rápido: Criar uma Tabela de armazenamento do Azure no portal do Azure 

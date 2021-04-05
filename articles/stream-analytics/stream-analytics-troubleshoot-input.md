@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019912"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
