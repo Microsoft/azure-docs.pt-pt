@@ -11,10 +11,10 @@ ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519134"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>A imagem do ambiente de resolução de problemas constrói

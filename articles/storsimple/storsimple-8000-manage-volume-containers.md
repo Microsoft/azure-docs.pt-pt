@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 02/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 6f0a0fd48e3717d14a714e42c5566cd7bcf090d5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100545396"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Use the StorSimple Device Manager service to manage StorSimple volume containers (Utilizar o serviço Gestor de Dispositivos do StorSimple para gerir contentores de volumes do StorSimple)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este tutorial explica como utilizar o serviço StorSimple Device Manager para criar e gerir recipientes de volume StorSimple.
 
 Um recipiente de volume num dispositivo Microsoft Azure StorSimple contém um ou mais volumes que partilham as definições de armazenamento, encriptação e consumo de largura de banda. Um dispositivo pode ter vários recipientes de volume para todos os seus volumes. 

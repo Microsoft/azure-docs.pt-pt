@@ -14,10 +14,10 @@ ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 4b357213f4e552fd791fb575d8b7a287b924c7f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103489075"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurar inscrição e inscrição com uma conta Azure AD B2C de outro inquilino Azure AD B2C
@@ -30,7 +30,7 @@ ms.locfileid: "103489075"
 
 ::: zone-end
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo descreve como criar uma federação com outro inquilino Azure AD B2C. Quando as suas aplicações estão protegidas com o seu Azure AD B2C, isto permite que os utilizadores de outros Ad B2C's do Azure acedam às suas contas existentes. No diagrama seguinte, os utilizadores podem inscrever-se numa Aplicação protegida pelo Azure AD B2C da *Contoso,* com uma conta gerida pelo inquilino Azure AD B2C da *Fabrikam.* 
 
