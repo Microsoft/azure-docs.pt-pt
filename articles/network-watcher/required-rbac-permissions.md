@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 47418b9c5235255ff7dbf4a1a151e51e4c9aba58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019674"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controlo de acesso baseadas em funções Azure necessárias para utilizar as capacidades do Observador de Rede

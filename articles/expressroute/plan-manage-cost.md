@@ -8,10 +8,10 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.openlocfilehash: de8405477611d62b8a46e8b6b645887cc4d30099
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784246"
 ---
 # <a name="plan-and-manage-costs-for-azure-expressroute"></a>Planear e gerir os custos da Azure ExpressRoute

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 6c7acdda3dce3b1338888cdf36f1623597c11fc3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100586074"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Use Log Analytics para examinar os registos de firewall de aplicação web do Gateway (WAF)

@@ -6,15 +6,15 @@ ms.date: 03/21/2021
 ms.author: memildin
 ms.custom: generated
 ms.openlocfilehash: af0fa68436646c64e4caba41ac7be77509d9aede
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801470"
 ---
 Há **54** recomendações nesta categoria.
 
-|Recomendação |Descrição |Gravidade |
+|Recomendação |Description |Gravidade |
 |---|---|---|
 |Uma solução de avaliação de vulnerabilidades deve ser ativada nas suas máquinas virtuais |Instale a extensão para permitir uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais.<br />(Política relacionada: [Uma solução de avaliação de vulnerabilidade deve ser ativada nas suas máquinas virtuais)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Médio |
 |Os controlos de aplicação adaptativos para definir aplicações seguras devem ser ativados nas suas máquinas |Ative os controlos de aplicação para definir a lista de aplicações seguras conhecidas em execução nas suas máquinas e alerte-o quando outras aplicações são executadas. Isto ajuda a endurecer as suas máquinas contra malware. Para simplificar o processo de configuração e manutenção das suas regras, o Security Center utiliza machine learning para analisar as aplicações em funcionamento em cada máquina e sugerir a lista de aplicações conhecidas e seguras.<br />(Política relacionada: [Os controlos de aplicação adaptativos para a definição de aplicações seguras devem ser ativados nas suas máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f47a6b606-51aa-4496-8bb7-64b11cf66adc)) |Alto |

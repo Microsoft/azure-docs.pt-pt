@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/22/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 06c0b25bcf64cfce01b4144550ef69da8c96ee0e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98785858"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Adicione autocomplete e sugestões utilizando o .NET SDK
@@ -27,7 +27,7 @@ Neste tutorial, ficará a saber como:
 > * Adicionar autocompleto
 > * Combine auto-privatização e sugestões
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial adiciona auto-preenchimento e resultados sugeridos ao anterior Adicionar paging ao tutorial [de resultados de pesquisa.](tutorial-csharp-paging.md)
 

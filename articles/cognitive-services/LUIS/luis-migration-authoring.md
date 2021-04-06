@@ -12,10 +12,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.openlocfilehash: 3ff48ff5a3f46d8ec0fbf81b4cd20d20c217344b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98787642"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure

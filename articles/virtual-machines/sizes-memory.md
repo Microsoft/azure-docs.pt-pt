@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.openlocfilehash: 08a14a1c97a1eae9c07c50334929fb16304e635a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102556524"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual otimizados de memória

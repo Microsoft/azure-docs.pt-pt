@@ -4,10 +4,10 @@ description: Saiba mais sobre as principais capacidades de armazenamento em nuve
 ms.topic: conceptual
 ms.date: 03/13/2021
 ms.openlocfilehash: 83a4a52f8414e656b5bc688796db6e93a53d4d76
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801626"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceitos de armazenamento de solução Azure VMware

@@ -12,10 +12,10 @@ ms.date: 06/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: cb8fb0e194b4c43b5e247f2ea5d1e38d924591db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99257968"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas do Proxy de Aplicações e as mensagens de erro

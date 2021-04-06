@@ -8,10 +8,10 @@ ms.date: 3/8/2021
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.openlocfilehash: 99985d0bb2294c538efa712e477cc6f8a2eb4938
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102498477"
 ---
 # <a name="change-the-availability-set-for-a-vm-using-azure-powershell"></a>Alterar o conjunto de disponibilidade para um VM utilizando a Azure PowerShell    

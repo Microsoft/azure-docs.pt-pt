@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801592"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta lucene em Pesquisa Cognitiva Azure

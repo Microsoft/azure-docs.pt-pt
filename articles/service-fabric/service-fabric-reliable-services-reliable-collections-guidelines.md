@@ -4,10 +4,10 @@ description: Diretrizes e recomendações para a utilização de coleções fiá
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: f12db76f324d07c178b49150d4e574476e7d9929
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784330"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para coleções fiáveis em tecido de serviço Azure
