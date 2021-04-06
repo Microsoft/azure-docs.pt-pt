@@ -9,10 +9,10 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f5ebd05177abf5fb3468b3ce935b7d004b414424
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100551391"
 ---
 O NFS é suportado em **todas as** regiões onde o Armazenamento de Ficheiros Premium está disponível.

@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: 0313394ad149460f82c98c63cab95b922b4a3da2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519610"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
@@ -111,8 +111,8 @@ Este erro ocorre quando uma das falhas de extensão coloca o VM em estado de pro
 **Código de erro**: UserErrorRpCollectionLimitReached <br>
 **Error message**: O limite máximo de recolha do Ponto de Restauração atingiu. <br>
 
-- Este problema pode acontecer se houver um bloqueio no grupo de recursos do ponto de recuperação que impeça a limpeza automática de pontos de recuperação.
-- Este problema também pode acontecer se várias cópias de segurança forem desencadeadas por dia. Atualmente recomendamos apenas uma cópia de segurança por dia, uma vez que os pontos de restauro instantâneos são mantidos por 1-5 dias por retenção de instantâneos configurados e apenas 18 RPs instantâneos podem ser associados a um VM em qualquer momento. <br>
+- Este problema poderá ocorrer se existir um bloqueio no grupo de recursos dos pontos de recuperação a impedir a limpeza automática dos pontos de recuperação.
+- Este problema também poderá ocorrer se forem acionadas várias cópias de segurança por dia. Atualmente, recomendamos apenas uma cópia de segurança por dia, uma vez que os pontos de restauro instantâneos são mantidos durante 1 a 5 dias conforme a retenção de instantâneos configurada e apenas podem ser associados 18 RPs instantâneos a uma VM num dado momento. <br>
 - O número de pontos de restauro em todas as recolhas de pontos de restauração e grupos de recursos para um VM não pode exceder 18. Para criar um novo ponto de restauro, elimine os pontos de restauro existentes.
 
 Ação Recomendada:<br>
@@ -181,7 +181,7 @@ O teu recente trabalho de reserva falhou porque há um trabalho de reserva em an
      - Para cancelar o trabalho de backup, clique com o botão direito no trabalho de backup e selecione **Cancelar** ou utilizar [o PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Se reconfiguraste o apoio num cofre diferente, então assegura-te que não há trabalhos de reserva a funcionar no velho cofre. Se existe, cancele o trabalho de reserva.
      - Para cancelar o trabalho de backup, clique com o botão direito no trabalho de backup e selecione **Cancelar** ou usar [o PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
-4. Re-tentar a operação de reserva.
+4. Repita a operação de cópia de segurança.
 
 Se a operação de backup programada estiver a demorar mais tempo, entrando em conflito com a próxima configuração de backup, em seguida, reveja as [melhores práticas,](backup-azure-vms-introduction.md#best-practices) [o desempenho de backup](backup-azure-vms-introduction.md#backup-performance)e a [consideração de Restauro](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
@@ -272,7 +272,7 @@ As seguintes condições podem fazer com que a tarefa do instantâneo falhe:
 | Causa | Solução |
 | --- | --- |
 | O estado de VM é relatado incorretamente porque o VM é desligado no Protocolo de Ambiente de Trabalho Remoto (PDR). | Se desligar o VM em PDR, verifique se o portal está correto. Se não estiver correto, desligue o VM no portal utilizando a opção **de Encerramento** no painel VM. |
-| O VM não consegue obter o endereço de hospedeiro ou tecido da DHCP. | O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se o VM não conseguir obter o endereço de anfitrião ou tecido da resposta DHCP 245, não pode descarregar ou executar quaisquer extensões. Se precisar de um IP estático privado, deverá configurá-lo através do **portal Azure** ou **PowerShell** e certificar-se de que a opção DHCP dentro do VM está ativada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre a configuração de um endereço IP estático com o PowerShell.
+| O VM não consegue obter o endereço de hospedeiro ou tecido da DHCP. | O DHCP tem de estar ativado no convidado para que a cópia de segurança da VM IaaS funcione. Se o VM não conseguir obter o endereço de anfitrião ou tecido da resposta DHCP 245, não pode descarregar ou executar quaisquer extensões. Se precisar de um IP estático privado, deverá configurá-lo através do **portal Azure** ou **PowerShell** e certificar-se de que a opção DHCP dentro do VM está ativada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre a configuração de um endereço IP estático com o PowerShell.
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Remover o bloqueio do grupo de recursos do ponto de recuperação
 

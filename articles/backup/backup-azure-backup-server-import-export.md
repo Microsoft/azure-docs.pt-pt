@@ -4,10 +4,10 @@ description: Com a Azure Backup, pode enviar dados para fora da rede utilizando 
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: 006c0fa4d67c9a85426d7a007912df65876313da
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98701818"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS)
@@ -24,7 +24,7 @@ O processo de sementeira offline da Azure Backup está fortemente integrado com 
 >
 > A atualização MABS UR1 também traz a pré-visualização para Cópia de Segurança Offline utilizando a Caixa de Dados Azure em MABS. Contato [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) para saber mais.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Com a capacidade de sementeira offline do Azure Backup e do serviço Azure Import/Export, é simples enviar os dados offline para Azure utilizando discos. O processo de backup offline envolve os seguintes passos:
 

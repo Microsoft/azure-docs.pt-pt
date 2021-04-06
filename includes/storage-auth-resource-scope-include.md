@@ -7,10 +7,10 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: tamram
 ms.openlocfilehash: 483f5853c321eee4ac6d10543f0e360a0a5e54b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100373760"
 ---
 Antes de atribuir um papel de Azure RBAC a um diretor de segurança, determine o âmbito de acesso que o diretor de segurança deve ter. As melhores práticas ditam que é sempre melhor conceder apenas o âmbito mais estreito possível. As funções de Azure RBAC definidas num âmbito mais amplo são herdadas pelos recursos abaixo deles.

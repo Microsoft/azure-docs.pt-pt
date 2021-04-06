@@ -9,10 +9,10 @@ ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: f634ceb60ae78d4d825c73bd2e98da2fb951b374
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98706702"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Rever o estado do trabalho de importação/exportação do Azure com ficheiros de registo de cópias

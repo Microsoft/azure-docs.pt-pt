@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
 ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104800749"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)

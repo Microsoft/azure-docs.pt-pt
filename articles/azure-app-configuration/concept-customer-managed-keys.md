@@ -7,16 +7,16 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 46a1e99a7bc75efa85fcb5eff649c14af5abd17b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96930505"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Utilize chaves geridas pelo cliente para encriptar os dados de Configuração da Aplicação
 A Azure App Configuration [encripta informações sensíveis em repouso](../security/fundamentals/encryption-atrest.md). A utilização de chaves geridas pelo cliente proporciona uma melhor proteção de dados, permitindo-lhe gerir as suas chaves de encriptação.  Quando a encriptação de chave gerida é utilizada, todas as informações sensíveis na Configuração da Aplicação são encriptadas com uma chave Azure Key Vault fornecida pelo utilizador.  Isto proporciona a capacidade de rodar a chave de encriptação a pedido.  Também fornece a capacidade de revogar o acesso da Azure App Configuration a informações confidenciais, revogando o acesso da instância de Configuração da Aplicação à chave.
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição Geral 
 A Azure App Configuration encripta informações sensíveis em repouso utilizando uma chave de encriptação AES de 256 bits fornecida pela Microsoft. Cada instância de Configuração de Aplicações tem a sua própria chave de encriptação gerida pelo serviço e usada para encriptar informações confidenciais. Informações sensíveis incluem os valores encontrados em pares de valor-chave.  Quando a capacidade de chave gerida pelo cliente está ativada, a Configuração de Aplicações utiliza uma identidade gerida atribuída à instância de Configuração da Aplicação para autenticar com o Azure Ative Directory. A identidade gerida chama então Azure Key Vault e envolve a chave de encriptação da configuração da aplicação. A chave de encriptação embrulhada é então armazenada e a chave de encriptação desembrulhada fica em cache na Configuração da Aplicação durante uma hora. A Configuração da Aplicação atualiza a versão desembrulhada da chave de encriptação da instância de configuração da aplicação de aplicação de hora a hora. Isto garante a disponibilidade em condições normais de funcionamento. 
 
 >[!IMPORTANT]

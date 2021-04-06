@@ -9,10 +9,10 @@ ms.date: 01/25/2021
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3c76988557bfa338bcfb606f568036422a536c1d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98798532"
 ---
 Navegue para a conta de armazenamento para a qual gostaria de restringir o ponto final público a redes virtuais específicas. Na tabela de conteúdos para a conta de armazenamento, **selecione Networking**. 

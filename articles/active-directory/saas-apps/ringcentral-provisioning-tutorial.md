@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 1891af9acae2b976a18f68983693a7df559b6476
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104800774"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configure RingCentral para o fornecimento automático de utilizadores

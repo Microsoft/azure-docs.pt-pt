@@ -9,10 +9,10 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98873574"
 ---
 # <a name="cognitive-services-development-options"></a>Opções de desenvolvimento dos Serviços Cognitivos

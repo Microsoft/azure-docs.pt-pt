@@ -14,10 +14,10 @@ ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ef522f5b048db0ef120625d9e894c8e14c070e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98724412"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>Interfaces resilientes com processos externos

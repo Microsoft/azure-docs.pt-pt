@@ -12,10 +12,10 @@ ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 536cd01fbcf2c5d18a8c12030b709427d9bb91b1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98703611"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com o Azure CLI

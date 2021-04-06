@@ -12,10 +12,10 @@ ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
 ms.openlocfilehash: 34adcf2218e29572ec9a86583addc7c021313085
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519644"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hiperparametro afinando um modelo com Azure Machine Learning

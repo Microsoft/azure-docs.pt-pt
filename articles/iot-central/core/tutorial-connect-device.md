@@ -12,10 +12,10 @@ ms.custom:
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
 ms.openlocfilehash: 8f1b5eabe235d107b48dc7b2db5b6d4b1188a3fa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99833971"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Criar e ligar uma aplicação de cliente à sua aplicação Azure IoT Central

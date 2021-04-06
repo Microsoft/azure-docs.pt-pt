@@ -11,10 +11,10 @@ ms.date: 01/14/2020
 ms.author: metang
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e79ae3914e32038e2823fb37e3eee658c95e0003
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102608772"
 ---
 # <a name="how-to-cache-the-authentication-token"></a>Como cache o símbolo de autenticação

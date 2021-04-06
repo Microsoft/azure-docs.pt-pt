@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: azure-redhat-openshift
 ms.openlocfilehash: bf2cf5a0d41af15821035c615fe071c8580e125f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100633109"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerir projetos, modelos, streams de imagem em um cluster Azure Red Hat OpenShift

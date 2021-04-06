@@ -4,10 +4,10 @@ description: Utilize a funcionalidade de backup e restauro periódicos do Servic
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103198717"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup periódico e restauro em um cluster de tecido de serviço Azure
