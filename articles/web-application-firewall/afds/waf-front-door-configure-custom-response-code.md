@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: 8fc6e71494df36cd6f823661b18e4a3d8ce2938c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94563686"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configure uma resposta personalizada para a Firewall de Aplicação Web Azure (WAF)

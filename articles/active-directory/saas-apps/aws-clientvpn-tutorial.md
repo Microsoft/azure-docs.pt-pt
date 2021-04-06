@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 794934e9c3e45f2aeed9310636a0f3ec30daf7de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735346"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Tutorial: Azure Ative Directy integração única (SSO) com AWS ClientVPN

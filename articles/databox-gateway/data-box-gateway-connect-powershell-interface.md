@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.openlocfilehash: f3b93bfc9af9bce50c301c10bd372567360d7223
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96582741"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Gerir um dispositivo Azure Data Box Gateway via Windows PowerShell

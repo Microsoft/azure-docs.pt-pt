@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: victorh
 ms.openlocfilehash: f0c06a94498f4d2481a6e953b959d766c60415fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98622185"
 ---
 # <a name="renew-application-gateway-certificates"></a>Renovar certificados de Gateway de Aplicação

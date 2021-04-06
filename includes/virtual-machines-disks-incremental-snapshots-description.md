@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 39750a86ccf781a10109e299e27a55a03173acb6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98901118"
 ---
 As imagens incrementais são backups pontuais para discos geridos que, quando tirados, consistem apenas nas alterações desde o último instantâneo. Quando restaura um disco a partir de uma imagem incremental, o sistema reconstrói o disco completo, o que representa o ponto de cópia de segurança do disco quando o instantâneo incremental foi tirado. Esta nova capacidade para instantâneos de disco geridos permite potencialmente que sejam mais rentáveis, uma vez que, a menos que escolha, não tem de armazenar todo o disco com cada instantâneo individual. Tal como os instantâneos completos, os instantâneos incrementais podem ser usados para criar um disco gerido completo ou um instantâneo completo.
