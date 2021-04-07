@@ -7,10 +7,10 @@ ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7149d7ac2625eb60a1d0d22253b93b68a99475de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99592097"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Utilizar as APIs de Front-end do Azure para autenticação

@@ -10,10 +10,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 43ef0f55f0b0f3ff9008f0ddf240ad0ea4f37df6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100519733"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Criar uma identidade comum numa máquina virtual de ciência de dados

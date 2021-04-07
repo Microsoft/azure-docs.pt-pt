@@ -6,10 +6,10 @@ manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
 ms.openlocfilehash: 19ece696dabc81e643e8a904d506d22e40eaa099
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102499157"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Azure Container Registry a partir do Azure Kubernetes Service

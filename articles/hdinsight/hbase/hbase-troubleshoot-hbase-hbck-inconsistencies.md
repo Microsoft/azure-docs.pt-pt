@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/08/2019
 ms.openlocfilehash: cbe4231bbecdf279c637cd334336437a020188d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98936995"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Cenário: `hbase hbck` o comando devolve inconsistências no Azure HDInsight

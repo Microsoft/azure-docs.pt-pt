@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
 ms.openlocfilehash: b2d797cc6cb45a76a61a235e7c4c66ac6f243580
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100519869"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar e eliminar dados do utilizador no produto do Azure Machine Learning Studio (clássico)

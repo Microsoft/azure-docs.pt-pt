@@ -4,10 +4,10 @@ description: Fornece uma visão geral da utilização dos serviços do Azure Lab
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: f39613427ed174dfca80d4a48be9473ab7025e79
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96433916"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Serviços Azure Lab dentro das equipas da Microsoft

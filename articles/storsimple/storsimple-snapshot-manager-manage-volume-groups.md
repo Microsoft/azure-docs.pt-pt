@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98209224"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use storSimple Snapshot Manager para criar e gerir grupos de volume
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode utilizar o nó **grupos de volume** no painel **Scope** para atribuir volumes a grupos de volume, ver informações sobre um grupo de volume, agendar cópias de segurança e editar grupos de volume.
 
 Os grupos de volume são grupos de volumes relacionados utilizados para garantir que as cópias de segurança são consistentes com as aplicações. Para obter mais informações, consulte [volumes e grupos de volume](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) e [integração com o Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).

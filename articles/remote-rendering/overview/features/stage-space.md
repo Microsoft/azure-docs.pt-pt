@@ -7,10 +7,10 @@ ms.date: 03/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4a739907ce0a3b0b6dfcb8791b51d0ea5e7e76e7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99594015"
 ---
 # <a name="stage-space"></a>Espaço de fase

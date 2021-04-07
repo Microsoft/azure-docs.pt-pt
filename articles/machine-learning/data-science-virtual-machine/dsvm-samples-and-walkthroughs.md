@@ -10,10 +10,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100519767"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Amostras em Azure Data Science Virtual Machines

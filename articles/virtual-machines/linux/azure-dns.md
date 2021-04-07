@@ -9,10 +9,10 @@ ms.date: 10/19/2016
 ms.author: rclaus
 ms.collection: linux
 ms.openlocfilehash: e689e934f11e3cc2a621f25525e507a72a7044b8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102556796"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux em Azure

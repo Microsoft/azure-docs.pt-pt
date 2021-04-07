@@ -4,10 +4,10 @@ description: Controlo do mapeamento da norma de segurança de dados da indústri
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 9b1cf7702b627ae073f0172dde4694060004cb3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98045160"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controlo da amostra de planta PCI-DSS v3.2.1

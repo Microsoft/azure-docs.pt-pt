@@ -17,17 +17,17 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b9fb68643c48c685194fa7ba1f1e5050d2d3cc7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99254936"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não pode aceder a esta aplicação corporativa" ao utilizar uma aplicação Proxy de aplicação
 
 Este artigo ajuda-o a resolver problemas comuns para o erro "Esta aplicação corporativa não pode ser acedida" numa aplicação de procuração de aplicação AD AD Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando vir este erro, encontre o código de estado na página de erro. Este código é provavelmente um dos seguintes códigos de estado:
 

@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100519988"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Execute scripts de aprendizagem de máquina python no Azure Machine Learning Studio (clássico)

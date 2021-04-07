@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101646287"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso Condicional para utilizadores de colaboração B2B

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: d22b4109cdcdc965b1b2e03aba592022c58f773b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99583795"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>O utilizador obtém o consentimento de vários recursos utilizando MSAL.NET

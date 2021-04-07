@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101646389"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Implementação frequentemente feita perguntas (FAQs) para chaves de segurança híbridas FIDO2 em Azure AD 

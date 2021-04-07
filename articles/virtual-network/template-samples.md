@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
 ms.openlocfilehash: c269831c391390d120f769d2c1da3fa39afed1cf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98217911"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Exemplos de modelos do Azure Resource Manager para a rede virtual

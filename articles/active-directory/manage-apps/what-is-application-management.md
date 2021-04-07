@@ -12,10 +12,10 @@ ms.date: 01/22/2021
 ms.author: kenwith
 ms.reviewer: ''
 ms.openlocfilehash: 247e824997fd95434246e49c78bf167f36e146c0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99258596"
 ---
 # <a name="what-is-application-management"></a>O que é a gestão de aplicações?

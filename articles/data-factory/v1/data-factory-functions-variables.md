@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 498f40a1783903b5dca0a2fe3204cc6aa25a2fec
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786435"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de Dados Azure - Funções e Variáveis do Sistema
@@ -22,7 +22,7 @@ Este artigo fornece informações sobre funções e variáveis apoiadas pela Azu
 
 ## <a name="data-factory-system-variables"></a>Variáveis do sistema data factory
 
-| Nome da Variável | Descrição | Âmbito do objeto | Casos de âmbito e utilização JSON |
+| Nome da Variável | Description | Âmbito do objeto | Casos de âmbito e utilização JSON |
 | --- | --- | --- | --- |
 | JanelaStart |Intervalo de início do intervalo de tempo para a janela de execução da atividade atual |atividade |<ol><li>Especifique consultas de seleção de dados. Consulte os artigos de conector referenciados no artigo atividades de [movimento de dados.](data-factory-data-movement-activities.md)</li> |
 | WindowEnd |Intervalo de fim de tempo para a janela de execução da atividade atual |atividade |o mesmo que o WindowStart. |
@@ -72,7 +72,7 @@ Consulte o tópico de cordas de data e formato de tempo personalizado que descre
 ### <a name="functions"></a>Funções
 As tabelas a seguir enumeram todas as funções na Azure Data Factory:
 
-| Categoria | Função | Parâmetros | Descrição |
+| Categoria | Função | Parâmetros | Description |
 | --- | --- | --- | --- |
 | Hora |AddHours (X,Y) |X: DataTime <br/><br/>Y: int |Adiciona Y horas ao tempo X dado. <br/><br/>Exemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Hora |AddMinutes (X,Y) |X: DataTime <br/><br/>Y: int |Adiciona minutos Y a X.<br/><br/>Exemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |

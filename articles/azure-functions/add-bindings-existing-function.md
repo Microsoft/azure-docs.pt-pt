@@ -4,10 +4,10 @@ description: Saiba como adicionar encadernações que se ligam a outros serviço
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99258206"
 ---
 # <a name="connect-functions-to-azure-services-using-bindings"></a>Conecte funções aos serviços Azure utilizando encadernações

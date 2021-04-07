@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
 ms.openlocfilehash: 4757a8237aa6226b78e7c1e79ba50710e31d28e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99594270"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar gateway de aplicações Azure e Firewall de aplicação web de v1 para v2

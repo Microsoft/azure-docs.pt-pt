@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1f54e972d59d3de3b0f93b3150ee1150eb6f612
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786401"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas mapReduce da Fábrica de Dados

@@ -8,10 +8,10 @@ ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100588589"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos

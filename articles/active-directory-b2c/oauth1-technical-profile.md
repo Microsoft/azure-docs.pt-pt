@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7a2cbca8c02dcbfc0e59d31040d1fca7a790cd35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96936663"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth1 numa política personalizada do Azure Ative Directory B2C

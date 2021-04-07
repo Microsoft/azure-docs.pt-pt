@@ -10,10 +10,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: adc66fc794ac6cce3fc0f8fd1552f701a4968860
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100519682"
 ---
 # <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Armazenar credenciais de acesso seguramente numa Máquina Virtual Azure Data Science
