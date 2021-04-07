@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a125c6a1972b51f518175a4c69248119f71ada7c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791599"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core em Serviço Azure Fabric Reliable Services
@@ -472,7 +472,7 @@ Quando exposto à internet, um serviço apátrida deve usar um ponto final bem c
 | Tipo | Recomendação | Notas |
 | ---- | -------------- | ----- |
 | Servidor Web | Rio Kestrel | Kestrel é o servidor web preferido, já que é suportado através do Windows e Linux. |
-| Configuração da porta | static | Uma porta estática bem conhecida deve ser configurada na `Endpoints` configuração de ServiceManifest.xml, tais como 80 para HTTP ou 443 para HTTPS. |
+| Configuração de portas | static | Uma porta estática bem conhecida deve ser configurada na `Endpoints` configuração de ServiceManifest.xml, tais como 80 para HTTP ou 443 para HTTPS. |
 | Opções de Integração de ServiçosFabric | Nenhum | Utilize a `ServiceFabricIntegrationOptions.None` opção ao configurar o middleware de integração do Tecido de Serviço, para que o serviço não tente validar pedidos de entrada para um identificador único. Os utilizadores externos da sua aplicação não saberão a informação de identificação única que o middleware utiliza. |
 | Contagem de Instâncias | -1 | Nos casos de utilização típica, a definição da contagem de casos deve ser definida *como -1*. Isto é feito para que esteja disponível um caso em todos os nós que recebem tráfego de um equilibrador de carga. |
 
@@ -497,7 +497,7 @@ Os serviços apátridas que só são chamados de dentro do cluster devem utiliza
 | Tipo | Recomendação | Notas |
 | ---- | -------------- | ----- |
 | Servidor Web | Rio Kestrel | Embora possa utilizar HTTP.sys para serviços apátridas internos, a Kestrel é o melhor servidor para permitir que várias instâncias de serviço partilhem um hospedeiro.  |
-| Configuração da porta | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
+| Configuração de portas | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
 | Opções de Integração de ServiçosFabric | UseUniqueServiceUrl | Com uma atribuição dinâmica da porta, esta definição impede o problema de identidade errado descrito anteriormente. |
 | InstânciaCount | qualquer | A definição de contagem de casos pode ser definida em qualquer valor necessário para operar o serviço. |
 
@@ -507,7 +507,7 @@ Os serviços estatais que são chamados apenas de dentro do cluster devem utiliz
 | Tipo | Recomendação | Notas |
 | ---- | -------------- | ----- |
 | Servidor Web | Rio Kestrel | O `HttpSysCommunicationListener` não é projetado para ser usado por serviços estatais em que réplicas compartilham um processo de anfitrião. |
-| Configuração da porta | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
+| Configuração de portas | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
 | Opções de Integração de ServiçosFabric | UseUniqueServiceUrl | Com uma atribuição dinâmica da porta, esta definição impede o problema de identidade errado descrito anteriormente. |
 
 ## <a name="next-steps"></a>Passos seguintes

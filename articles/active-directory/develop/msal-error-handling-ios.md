@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, oldalton
 ms.custom: aaddev
 ms.openlocfilehash: f7f2abadb7586e1b19168eb46a54bad53caa05cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98761106"
 ---
 # <a name="handle-errors-and-exceptions-in-msal-for-iosmacos"></a>Lidar com erros e exceções no MSAL para iOS/macOS

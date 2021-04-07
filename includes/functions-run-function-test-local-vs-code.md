@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/28/2021
 ms.author: glenga
 ms.openlocfilehash: 5bc1d2ddb5b9ddb185a8349fb42d5f5db79c1498
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201354"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente

@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
 ms.openlocfilehash: 5d94625e3eb121e556b28038cf59626be1332966
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102455810"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento da fila Azure para funções Azure

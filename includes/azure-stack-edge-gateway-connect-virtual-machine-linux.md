@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/03/2020
 ms.author: alkohli
 ms.openlocfilehash: b3d4ec54d6db88a04f7aca46c0c96fa2d4d17ac7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101730639"
 ---
 Ligue-se à VM através do IP privado que transmitiu durante a criação da VM.

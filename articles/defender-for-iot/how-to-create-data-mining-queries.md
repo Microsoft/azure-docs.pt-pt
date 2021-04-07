@@ -4,10 +4,10 @@ description: gerar informações abrangentes e granulares sobre os seus disposit
 ms.date: 01/20/2021
 ms.topic: how-to
 ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779074"
 ---
 # <a name="sensor-data-mining-queries"></a>Consultas de mineração de dados de sensores
@@ -134,7 +134,7 @@ Para criar um relatório de mineração de dados:
 
 O quadro que se segue descreve opções de gestão para a extração de dados:
 
-| Imagem de ícone | Descrição |
+| Imagem de ícone | Description |
 |--|--|
 | :::image type="icon" source="media/how-to-generate-reports/edit-a-simulation-icon.png" border="false"::: | Edite os parâmetros do relatório. |
 | :::image type="icon" source="media/how-to-generate-reports/export-as-pdf-icon.png" border="false"::: | Exportar como PDF. |

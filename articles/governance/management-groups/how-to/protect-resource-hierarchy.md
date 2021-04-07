@@ -4,10 +4,10 @@ description: Saiba como proteger a sua hierarquia de recursos com definições d
 ms.date: 02/05/2021
 ms.topic: conceptual
 ms.openlocfilehash: 0f0afb5401fc646d26598a211604790af191f156
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99594591"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos

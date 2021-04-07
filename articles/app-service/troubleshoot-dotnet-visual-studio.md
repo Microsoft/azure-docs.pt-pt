@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101095717"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolução de problemas de uma aplicação no Azure App Service usando o Visual Studio
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar uma aplicação no Serviço de [Aplicações](./overview.md), executando em [modo de depurar](/visualstudio/debugger/) remotamente ou visualizando registos de aplicações e registos de servidores web.
 
 Irá aprender:

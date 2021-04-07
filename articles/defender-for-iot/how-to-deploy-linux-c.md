@@ -4,10 +4,10 @@ description: Saiba como instalar e implementar o Defender para o agente de segur
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 6f59db7ff24412c66a6a4898b14272ea9540fdd2
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778819"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implementar o Defender para o agente de segurança baseado em IoT C para o Linux

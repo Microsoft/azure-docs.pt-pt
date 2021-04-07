@@ -8,10 +8,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f1343f900e12bff09c0436ca52d8b091fe48a181
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100393552"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para a Azure Blob Storage usando a Azure Data Factory
@@ -25,7 +25,7 @@ ms.locfileid: "100393552"
 
 Este artigo explica como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de e para o Armazenamento Azure Blob. Baseia-se no artigo de Atividades de Movimento de [Dados,](data-factory-data-movement-activities.md) que apresenta uma visão geral do movimento de dados com a atividade da cópia.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode copiar dados de qualquer loja de dados de origem suportada para o Azure Blob Storage ou do Azure Blob Storage para qualquer loja de dados de lavatórios suportados. A tabela seguinte fornece uma lista de lojas de dados suportadas como fontes ou sumidouros pela atividade de cópia. Por exemplo, pode mover dados de uma base de dados **do** SQL Server ou de uma base de dados na Base de Dados Azure SQL **para** um armazenamento de bolhas Azure. E, você pode copiar dados do armazenamento **de** blob Azure **para** Azure Synapse Analytics ou uma coleção de DB Azure Cosmos.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

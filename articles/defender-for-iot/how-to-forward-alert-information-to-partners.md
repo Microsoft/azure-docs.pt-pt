@@ -4,10 +4,10 @@ description: Pode enviar informações de alerta para sistemas parceiros, trabal
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.openlocfilehash: bc405f7d4837bf81d9cfcd859d562b7152cfc54b
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778802"
 ---
 # <a name="forward-alert-information"></a>Reencaminhar as informações de alerta
@@ -108,7 +108,7 @@ Introduza os seguintes parâmetros:
     
 :::image type="content" source="media/how-to-work-with-alerts-sensor/configure-encryption.png" alt-text="Configure a sua encriptação para a sua regra de encaminhamento.":::
 
-| Syslog texto mensagem campos de saída | Descrição |
+| Syslog texto mensagem campos de saída | Description |
 |--|--|
 | Data e hora | Data e hora que a máquina do servidor syslog recebeu a informação. |
 | Prioridade | Utilizador.Alerta |
@@ -117,7 +117,7 @@ Introduza os seguintes parâmetros:
 | Mensagem | Sensor: O nome do sensor.<br /> Alerta: O título do alerta.<br /> Tipo: O tipo de alerta. Pode ser **Violação de Protocolo,** **Violação de Políticas,** **Malware,** **Anomalia** ou **Operacional**.<br /> Gravidade: A gravidade do alerta. Pode ser **Aviso,** **Menor,** **Major** ou **Crítico**.<br /> Fonte: O nome do dispositivo de origem.<br /> Origem IP: O endereço IP do dispositivo de origem.<br /> Destino: O nome do dispositivo de destino.<br /> Destino IP: O endereço IP do dispositivo de destino.<br /> Mensagem: A mensagem do alerta.<br /> Grupo de alerta: O grupo de alerta associado ao alerta. |
 
 
-| Saída de objeto syslog | Descrição |
+| Saída de objeto syslog | Description |
 |--|--|
 | Data e Hora |   Data e hora que a máquina do servidor syslog recebeu a informação. |  
 | Prioridade |    Utilizador.Alerta | 
@@ -125,14 +125,14 @@ Introduza os seguintes parâmetros:
 | Mensagem | Nome do sensor: O nome do aparelho. <br /> Tempo de alerta: A hora em que o alerta foi detetado: Pode variar a partir do tempo da máquina do servidor syslog, e depende da configuração do fuso horário da regra de encaminhamento. <br /> Título de alerta: O título do alerta. <br /> Mensagem de alerta: A mensagem do alerta. <br /> Gravidade do alerta: A gravidade do alerta: **Aviso,** **Menor,** **Major** ou **Crítico**. <br /> Tipo de alerta: **Violação de protocolos,** **violação de políticas,** **malware,** **anomalia,** ou **operacional**. <br /> Protocolo: O protocolo do alerta.  <br /> **Source_MAC:** endereço IP, nome, fornecedor ou SISTEMA do dispositivo de origem. <br /> Destination_MAC: endereço IP, nome, fornecedor ou SISTEMA do destino. Se os dados faltarem, o valor será **N/A**. <br /> alert_group: O grupo de alerta associado ao alerta. |
 
 
-| Formato de saída cef syslog | Descrição |
+| Formato de saída cef syslog | Description |
 |--|--|
 | Data e hora | Data e hora que a máquina do servidor syslog recebeu a informação. |
 | Prioridade | Utilizador.Alerta | 
 | Hostname (Nome do anfitrião) | Endereço IP do sensor |
 | Mensagem | CEF:0 <br />Azure Defender para IoT <br />Nome do sensor: O nome do aparelho sensor. <br />Versão sensor <br />Título de alerta: O título do alerta. <br />MSG: A mensagem do alerta. <br />protocolo: O protocolo do alerta. <br />gravidade: **Aviso,** **Menor,** **Major** ou **Crítico**. <br />tipo: **Violação de Protocolos,** **Violação de Políticas,** **Malware,** **Anomalia** ou **Operacional**. <br /> início: A hora em que o alerta foi detetado. <br />Pode variar a partir do tempo da máquina do servidor syslog, e depende da configuração do fuso horário da regra de encaminhamento. <br />src_ip: endereço IP do dispositivo de origem.  <br />dst_ip: endereço IP do dispositivo de destino.<br />gato: O grupo de alerta associado ao alerta.  |
 
-| Formato de saída Syslog LEEF | Descrição |
+| Formato de saída Syslog LEEF | Description |
 |--|--|
 | Data e hora |   Data e hora que a máquina do servidor syslog recebeu a informação. |  
 | Prioridade |    Utilizador.Alerta | 

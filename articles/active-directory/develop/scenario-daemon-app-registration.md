@@ -12,10 +12,10 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 938a19276839d5e0d2bd3e0244510fc068cb029c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99582912"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>App Daemon que chama APIs web - registo de aplicações

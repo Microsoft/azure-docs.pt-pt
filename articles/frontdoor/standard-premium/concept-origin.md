@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: 42a9a0ea23faa481140a46ec52b2214431dd723e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101100082"
 ---
 # <a name="origin-and-origin-group-in-azure-front-door-standardpremium-preview"></a>Grupo de origem e origem em Azure Front Door Standard/Premium (Preview)

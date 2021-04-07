@@ -8,10 +8,10 @@ ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
 ms.openlocfilehash: 5f393e95a7d468ea2c6130077e42b25b038e839d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100376229"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como representante de um Azure-SSIS IR na Azure Data Factory
