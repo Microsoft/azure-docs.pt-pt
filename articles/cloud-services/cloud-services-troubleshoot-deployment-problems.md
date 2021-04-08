@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98741082"
 ---
 # <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Problemas de resolução de problemas Azure Cloud Services (Classic) problemas de implantação

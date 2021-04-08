@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
 ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94700694"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para Equilibrista de Carga Azure
@@ -40,12 +40,12 @@ A imagem a seguir ilustra a funcionalidade IPv6 para O Balancer de Carga Azure.
 
 Uma vez implantado, um cliente de Internet com iPv4 ou IPv6 pode comunicar com os endereços IPv4 ou IPv6 públicos (ou nomes de anfitrião) do Balançador de Carga virado para a Internet Azure. O equilibrador de carga encaminha os pacotes IPv6 para os endereços IPv6 privados dos VMs utilizando a tradução de endereços de rede (NAT). O cliente da Internet IPv6 não pode comunicar diretamente com o endereço IPv6 dos VMs.
 
-## <a name="features"></a>Funcionalidades
+## <a name="features&quot;></a>Funcionalidades
 
 O suporte nativo do IPv6 para VMs implantados através do Azure Resource Manager fornece:
 
 1. Serviços IPv6 equilibrados para clientes IPv6 na Internet
-2. Pontos finais nativos IPv6 e IPv4 em VMs ("dual stacked")
+2. Pontos finais nativos IPv6 e IPv4 em VMs (&quot;dual stacked")
 3. Ligações IPv6 nativas iniciadas e de saída
 4. Protocolos apoiados como TCP, UDP e HTTP(S) permitem uma gama completa de arquiteturas de serviço
 

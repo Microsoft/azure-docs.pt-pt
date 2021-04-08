@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
 ms.openlocfilehash: 654ecb65068e4321b85594d96e8ca7a7f73cde7e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99566797"
 ---
 # <a name="connect-your-alsid-for-active-directory-ad-to-azure-sentinel"></a>Ligue o seu Alsid para Diretório Ativo (AD) a Azure Sentinel

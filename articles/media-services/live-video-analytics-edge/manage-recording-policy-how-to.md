@@ -4,10 +4,10 @@ description: Este tópico explica como gerir a política de gravação.
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99224994"
 ---
 # <a name="manage-recording-policy"></a>Gerir política de gravação

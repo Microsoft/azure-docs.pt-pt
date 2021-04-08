@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92787147"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar as bases de dados existentes para escalar
@@ -23,7 +23,7 @@ ms.locfileid: "92787147"
 
 Gerencie facilmente as bases de dados de fragmentos em escala existentes utilizando ferramentas (como a biblioteca de [clientes Elastic Database).](elastic-database-client-library.md) Primeiro converta um conjunto de bases de dados existente para utilizar o [gestor de mapas de fragmentos.](elastic-scale-shard-map-management.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para migrar uma base de dados de fragmentos existente:
 
