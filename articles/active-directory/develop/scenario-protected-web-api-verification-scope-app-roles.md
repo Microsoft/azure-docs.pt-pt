@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94442910"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: Verificar âmbitos e funções de aplicativo

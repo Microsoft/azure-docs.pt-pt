@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: 9159807f55ae52393b8fccec339fcc94c3e4ebb0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87061376"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Use várias caches para recuperação de falhas regionais
@@ -55,6 +55,6 @@ Se os clientes originais forem afetados, crie novos clientes na região oeste do
 
 Todos os clientes terão de montar a nova cache, mesmo que os clientes não fossem afetados pela paralisação da região. A nova cache tem diferentes endereços de montagem do antigo.
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 O guia de arquitetura de aplicações Azure inclui mais informações sobre como recuperar de uma perturbação de serviço em toda a [região.](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)

@@ -14,10 +14,10 @@ ms.reviewer: vanto, sstein
 ms.date: 12/01/2020
 tags: azure-synapse
 ms.openlocfilehash: 931e914cd3c184136395a9bb9a7e148a90e9fb91
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96461939"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Proteção Avançada de Ameaças para Base de Dados Azure SQL, SqL Gerd instance e Azure Synapse Analytics
@@ -27,7 +27,7 @@ Advanced Threat Protection for [Azure SQL Database](sql-database-paas-overview.m
 
 Advanced Threat Protection faz parte da oferta [Azure Defender for SQL,](azure-defender-for-sql.md) que é um pacote unificado para capacidades avançadas de segurança SQL. A Advanced Threat Protection pode ser acedida e gerida através do Azure Defender central para o portal SQL.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Advanced Threat Protection fornece uma nova camada de segurança, que permite que os clientes detetem e respondam a potenciais ameaças à medida que ocorrem, fornecendo alertas de segurança sobre atividades anómalas. Os utilizadores recebem um alerta sobre atividades suspeitas de base de dados, potenciais vulnerabilidades e ataques de injeção de SQL, bem como padrões anómalos de acesso a bases de dados e padrões de consultas. Advanced Threat Protection integra alertas com [o Azure Security Center](https://azure.microsoft.com/services/security-center/), que incluem detalhes de atividades suspeitas e recomendam ações sobre como investigar e mitigar a ameaça. A Advanced Threat Protection torna simples abordar potenciais ameaças à base de dados sem a necessidade de ser um perito em segurança ou de gerir sistemas avançados de monitorização de segurança.
 

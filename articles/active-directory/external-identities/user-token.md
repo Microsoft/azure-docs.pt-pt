@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87908915"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Compreenda os tokens do utilizador na colaboração Azure AD B2B

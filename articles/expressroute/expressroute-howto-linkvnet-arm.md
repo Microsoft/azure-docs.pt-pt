@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 69067ca34b231f1b14f8cc854288c3ed4c4ac82a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91855995"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>Tutorial: Ligue uma rede virtual a um circuito ExpressRoute

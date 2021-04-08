@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7b2220ffe92446338e1b9db9b329847d93830334
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88005436"
 ---
 #  <a name="windows-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Windows Virtual Desktop (clássico) resolução de problemas, feedback e suporte
@@ -31,7 +31,7 @@ Utilize a seguinte tabela para identificar e resolver problemas que poderá enco
 >[!NOTE]
 > Dispomos de um fórum tech community que pode visitar para discutir os seus problemas com a equipa de produtos e membros da comunidade ativa. Visite a [Comunidade de Tecnologia virtual de Desktop do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para iniciar uma discussão.
 
-| **Emissão**                                                            | **Solução sugerida**  |
+| **Problema**                                                            | **Solução Sugerida**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Criação de um inquilino virtual do Windows Desktop                                                    | Se houver uma falha do Azure, [abra um pedido de apoio ao Azure;](https://azure.microsoft.com/support/create-ticket/) caso [contrário, abra um pedido de suporte Azure](https://azure.microsoft.com/support/create-ticket/), selecione **Windows Virtual Desktop** para o serviço, selecione **Implementação** para o tipo de problema e, em seguida, selecione **Problemas criando um inquilino virtual do Windows** para o subtipo do problema.|
 | Aceder a modelos de Marketplace no portal Azure       | Se houver uma falha do Azure, abra um pedido de [apoio ao Azure.](https://azure.microsoft.com/support/create-ticket/) <br> <br> Os modelos de ambiente de trabalho virtual Azure Marketplace Windows estão disponíveis gratuitamente.|

@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 4158bc07373a2d0aa6fb6ceaf2dce62b50bb6bd7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94658371"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Criar um ambiente de teste do Azure Firewall

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: alkohli
 ms.openlocfilehash: 72c344c0a5c9cca278fe8c633309b1195a0454b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91941412"
 ---
 Biblioteca de cliente     |Versão suportada     | Ligação   |     Especificação de ponto final      |

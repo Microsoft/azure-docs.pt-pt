@@ -11,10 +11,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91996467"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Compreender e usar gémeos módulos no IoT Hub

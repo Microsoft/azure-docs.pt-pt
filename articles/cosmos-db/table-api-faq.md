@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
 ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93341243"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a Tabela API em Azure Cosmos DB

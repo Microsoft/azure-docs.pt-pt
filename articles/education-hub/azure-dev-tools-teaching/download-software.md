@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92675346"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Ajude os estudantes a descarregar ferramentas de desenvolvimento de software do Azure Education Hub

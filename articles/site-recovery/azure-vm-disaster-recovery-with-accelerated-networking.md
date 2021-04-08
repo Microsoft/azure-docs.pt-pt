@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
 ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96000254"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rede acelerada com recuperação de desastres de máquina virtual Azure

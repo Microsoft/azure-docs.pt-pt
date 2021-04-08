@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87543457"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Resolução de problemas & limitações da concha da nuvem de Azure

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 877200cbafbe68fa6161025572abfddad651e172
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96490725"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Compreensão conceptual dos certificados X.509 CA na indústria IoT
@@ -31,7 +31,7 @@ Este artigo descreve:
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A autenticação da X.509 Certificate Authority (CA) é uma abordagem para autenticar dispositivos para o IoT Hub utilizando um método que simplifica drasticamente a criação de identidade do dispositivo e a gestão do ciclo de vida na cadeia de fornecimento.
 

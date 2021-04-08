@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96487138"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 referência

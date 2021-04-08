@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 02fceb8ac594a8caff8942b8a7cb0c6bcd2a47e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93339619"
 ---
 # <a name="sign-azure-cosmos-db"></a>SIGN (Azure Cosmos DB)
