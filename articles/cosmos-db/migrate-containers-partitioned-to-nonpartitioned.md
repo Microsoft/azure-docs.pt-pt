@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
 ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93334094"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar recipientes não divididos para recipientes divididos

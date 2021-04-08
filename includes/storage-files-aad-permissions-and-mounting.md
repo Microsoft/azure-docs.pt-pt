@@ -9,10 +9,10 @@ ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
 ms.openlocfilehash: 4773446ec0007ffbed99bc01939d1f92f5823d99
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95554552"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2f4bd040d7e5858fd561444f56dbce7b3f940d9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92742401"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilização de serviços externos do serviço de Gestão API da Azure

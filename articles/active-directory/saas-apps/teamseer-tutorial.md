@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92521174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: Integração do Azure Ative Directory com o TeamSeer
@@ -120,13 +120,13 @@ Para configurar o Azure AD com o TeamSeer, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-teamseer-single-sign-on"></a>Configurar teamSeer Single Sign-On
+### <a name="configure-teamseer-single-sign-on&quot;></a>Configurar teamSeer Single Sign-On
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa TeamSeer como administrador.
 
 1. Vá ao **Rh Admin.**
 
-    ![A screenshot mostra o H R Admin selecionado a partir da janela TeamSeer.](./media/teamseer-tutorial/ic789634.png "Administração HR")
+    ![A screenshot mostra o H R Admin selecionado a partir da janela TeamSeer.](./media/teamseer-tutorial/ic789634.png &quot;Administração HR")
 
 1. Clique **em Configuração**.
 
@@ -205,7 +205,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-teamseer-test-user"></a>Criar utilizador de teste TeamSeer
+### <a name="create-teamseer-test-user&quot;></a>Criar utilizador de teste TeamSeer
 
 Para permitir que os utilizadores de Azure AD inscrevam-se no TeamSeer, devem ser adusitados ao ShiftPlanning. No caso do TeamSeer, o provisionamento é uma tarefa manual.
 
@@ -215,7 +215,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no TeamSeer, devem se
 
 1. Vá aos **Utilizadores de \> Administração HR** e, em seguida, clique em **Executar o novo assistente do utilizador**.
 
-    ![A screenshot mostra o separador H R Admin onde pode selecionar um assistente para executar.](./media/teamseer-tutorial/ic789640.png "Administração HR")
+    ![A screenshot mostra o separador H R Admin onde pode selecionar um assistente para executar.](./media/teamseer-tutorial/ic789640.png &quot;Administração HR")
 
 1. Na secção **Detalhes do Utilizador,** execute os seguintes passos:
 

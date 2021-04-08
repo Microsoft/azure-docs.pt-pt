@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96023045"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clone a partir de uma cópia de segurança do seu StorSimple Virtual Array
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo descreve passo a passo como clonar um conjunto de backup das suas ações ou volumes no seu Microsoft Azure StorSimple Virtual Array. A cópia de segurança clonada é utilizada para recuperar um ficheiro apagado ou perdido. O artigo também inclui etapas detalhadas para realizar uma recuperação de nível de item no seu StorSimple Virtual Array configurado como um servidor de ficheiros.
 

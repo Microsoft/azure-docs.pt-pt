@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 69898e64934c363a18a3ce2fa5e678116624bd24
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95026374"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obtenha os dispositivos de fala de serviços cognitivos SDK

@@ -16,14 +16,14 @@ ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: ae816d2be592ab774500d1cfe8f2f6a7b7905b91
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98196559"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar e-mail usando SendGrid com Azure
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este guia demonstra como executar tarefas de programação comuns com o serviço de e-mail SendGrid em Azure. As amostras são escritas em C \# e suportam .NET Standard 1.3. Os cenários abrangidos incluem a construção de e-mails, envio de e-mail, adição de anexos e ativação de várias configurações de correio e rastreamento. Para obter mais informações sobre SendGrid e enviar e-mail, consulte a secção [etapas seguintes.][Next steps]
 
 ## <a name="what-is-the-sendgrid-email-service"></a>O que é o Serviço de E-mail SendGrid?

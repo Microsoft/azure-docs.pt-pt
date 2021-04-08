@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 0b02662658b2199a13f117ad95c6402f9b2974f9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95519851"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Criar funções de Web PHP e de trabalho
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este guia irá mostrar-lhe como criar funções de web PHP ou trabalhadores num ambiente de desenvolvimento do Windows, escolher uma versão específica de PHP a partir das versões "incorporadas" disponíveis, alterar a configuração PHP, ativar extensões e, finalmente, implementar para Azure. Também descreve como configurar uma função web ou de trabalhador para usar um tempo de execução PHP (com configuração e extensões personalizadas) que fornece.
 

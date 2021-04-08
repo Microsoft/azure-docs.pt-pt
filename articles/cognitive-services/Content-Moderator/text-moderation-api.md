@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92912910"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
