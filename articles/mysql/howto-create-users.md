@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
 ms.openlocfilehash: 9a6346a2b62c81dd74cf0ebe9a85df12d3488679
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98251255"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Criar bases de dados e utilizadores na Base de Dados Azure para o MySQL

@@ -9,10 +9,10 @@ ms.date: 03/17/2021
 ms.author: laobri
 ms.custom: include file
 ms.openlocfilehash: 4e34ac6f288eeda9ae1be006339cfd6822fcfe1a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104584293"
 ---
 > [!IMPORTANT]

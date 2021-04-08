@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
 ms.openlocfilehash: c58566c628eedd1dbc3d86ae6a142156cbf31211
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104585201"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Azure Ative Directory integração única (SSO) com boomi
@@ -155,17 +155,17 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     f. Clique no botão **Guardar.**
 
-### <a name="create-boomi-test-user"></a>Criar utilizador de teste Boomi
+### <a name="create-boomi-test-user&quot;></a>Criar utilizador de teste Boomi
 
 Para permitir que os utilizadores da Azure AD inscrevam-se no Boomi, devem ser a provisionados no Boomi. No caso da Boomi, o provisionamento é uma tarefa manual.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para obter uma conta de utilizador, execute os seguintes passos:
+### <a name=&quot;to-provision-a-user-account-perform-the-following-steps&quot;></a>Para obter uma conta de utilizador, execute os seguintes passos:
 
 1. Inscreva-se no site da empresa Boomi como administrador.
 
 1. Depois de iniciar sessão, navegue para a **Gestão do Utilizador** e vá aos **Utilizadores**.
 
-    ![A screenshot mostra a página de Gestão do Utilizador com os Utilizadores selecionados.](./media/boomi-tutorial/user.png "Utilizadores")
+    ![A screenshot mostra a página de Gestão do Utilizador com os Utilizadores selecionados.](./media/boomi-tutorial/user.png &quot;Utilizadores")
 
 1. Clique **+**  no ícone e o diálogo **'Adicionar/Manter os papéis do utilizador'** abre.'
 

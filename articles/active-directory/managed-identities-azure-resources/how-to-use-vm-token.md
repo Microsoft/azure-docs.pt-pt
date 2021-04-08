@@ -16,10 +16,10 @@ ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 541f76ad825f492679530902c571096ca4b01902
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98726236"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para adquirir um token de acesso 
@@ -43,7 +43,7 @@ Se pretender utilizar os exemplos Azure PowerShell neste artigo, certifique-se d
 > [!IMPORTANT]
 > - A fronteira de segurança das identidades geridas para os recursos do Azure é o recurso em que está a ser usado. Todos os códigos/scripts em execução numa máquina virtual podem solicitar e recuperar fichas para quaisquer identidades geridas disponíveis no mesmo. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma aplicação do cliente pode solicitar identidades geridas para [o token de acesso apenas a recursos](../develop/developer-glossary.md#access-token) Azure para aceder a um determinado recurso. O símbolo [baseia-se nas identidades geridas para o diretor do serviço de recursos Azure.](overview.md#managed-identity-types) Como tal, não é necessário que o cliente se registe para obter um token de acesso ao abrigo do seu próprio principal serviço. O token é adequado para ser utilizado como símbolo portador em [chamadas de serviço-a-serviço que requerem credenciais de cliente](../develop/v2-oauth2-client-creds-grant-flow.md).
 

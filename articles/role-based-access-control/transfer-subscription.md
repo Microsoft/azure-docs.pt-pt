@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
 ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100555898"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente
@@ -26,7 +26,7 @@ Este artigo descreve os passos básicos que pode seguir para transferir uma subs
 > [!NOTE]
 > Para as subscrições Azure Cloud Solution Providers (CSP), a alteração do diretório AZure AD para a subscrição não é suportada.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Transferir uma subscrição do Azure para um diretório AD Azure diferente é um processo complexo que deve ser cuidadosamente planeado e executado. Muitos serviços da Azure exigem que os princípios de segurança (identidades) operem normalmente ou mesmo gerem outros recursos da Azure. Este artigo tenta cobrir a maioria dos serviços da Azure que dependem fortemente dos princípios de segurança, mas não é abrangente.
 

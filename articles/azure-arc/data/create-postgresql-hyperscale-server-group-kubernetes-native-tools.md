@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: fd1b74d33793c06e586a92cc8b2e8d2d36f4827a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519967"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Criar um grupo de servidores de hiperescala PostgreSQL usando ferramentas Kubernetes
@@ -28,7 +28,7 @@ Para criar um grupo de servidores de hiperescala PostgreSQL utilizando ferrament
 
 [Instale a ferramenta kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para criar um grupo de servidores de hiperescala PostgreSQL, é necessário criar um segredo de Kubernetes para armazenar o seu login e palavra-passe do administrador de postgresql e uma fonte personalizada do grupo de servidores PostgreSQL Hyperscale com base nas definições de recursos personalizados postgresql-12 ou postgresql-11.
 

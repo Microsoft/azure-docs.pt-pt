@@ -11,10 +11,10 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.openlocfilehash: d7a3301cb6ec10e75979d0e1fdfad52c7103a2aa
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102611526"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-sign-up-user-flows"></a>Utilize conectores API para personalizar e alargar os fluxos de utilizador de inscrição
@@ -22,7 +22,7 @@ ms.locfileid: "102611526"
 > [!IMPORTANT]
 > Os conectores API para inscrição é uma funcionalidade de pré-visualização pública do Azure AD B2C. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição Geral 
 Como desenvolvedor ou administrador de TI, pode utilizar conectores API para integrar os fluxos de utilizador de inscrição com APIs web para personalizar a experiência de inscrição e integrar-se com sistemas externos. Por exemplo, com conectores API, pode:
 
 - **Validar os dados de entrada do utilizador.** Validar contra dados de utilizador mal formados ou inválidos. Por exemplo, pode validar os dados fornecidos pelo utilizador com os dados existentes numa loja de dados externos ou lista de valores permitidos. Se for inválido, pode solicitar a um utilizador que forneça dados válidos ou impeça o utilizador de continuar o fluxo de inscrição.
