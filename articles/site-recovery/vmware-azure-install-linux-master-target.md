@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
 ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96019247"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
@@ -24,7 +24,7 @@ Se a sua máquina virtual protegida é uma máquina virtual Windows, então prec
 > A partir do lançamento do servidor-alvo principal 9.10.0, o mais recente servidor-alvo principal só pode ser instalado num servidor Ubuntu 16.04. Não são permitidas novas instalações nos servidores CentOS6.6. No entanto, pode continuar a atualizar os seus antigos servidores-alvo principal utilizando a versão 9.10.0.
 > O servidor-alvo principal na LVM não é suportado.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo fornece instruções sobre como instalar um alvo principal linux.
 
 Publique comentários ou perguntas no final deste artigo ou na página de perguntas do [Microsoft Q&Uma página de perguntas para serviços de recuperação do Azure](/answers/topics/azure-site-recovery.html).

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 87c28b906b1f810857fee86ba8a94a0834e1de68
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96026335"
 ---
 Esta secção descreve os limites para o serviço de armazenamento Azure, e as convenções de nomeação necessárias para ficheiros Azure, blobs de blocoS Azure e blobs de página Azure, conforme aplicável ao serviço Azure Stack Edge / Data Box Gateway. Reveja cuidadosamente os limites de armazenamento e siga todas as recomendações.

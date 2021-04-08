@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
 ms.openlocfilehash: 5b5c78ffec736f29a481aa95426ff663199613b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100595646"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Manage user data in Azure Security Center (Gerir dados de utilizadores no Centro de Segurança do Azure)
