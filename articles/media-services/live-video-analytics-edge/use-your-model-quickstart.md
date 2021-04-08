@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 ms.openlocfilehash: d3ba937abcc7bbfd9bb2afe7b15aec28ebb57446
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99508516"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Quickstart: Analise o vídeo ao vivo utilizando o seu próprio modelo HTTP
@@ -43,7 +43,7 @@ Este quickstart mostra-lhe como usar o Live Video Analytics no IoT Edge para ana
 [!INCLUDE [review-sample-video](includes/analyze-live-video-your-http-model-quickstart/python/review-sample-video.md)]
 ::: zone-end
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [overview](includes/analyze-live-video-your-http-model-quickstart/csharp/overview.md)]
