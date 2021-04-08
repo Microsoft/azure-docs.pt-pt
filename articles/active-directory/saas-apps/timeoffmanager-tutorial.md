@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97608821"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Azure Ative Directory integração única (SSO) com TimeOffManager
@@ -140,13 +140,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-timeoffmanager-sso"></a>Configurar TimeOffManager SSO
+## <a name="configure-timeoffmanager-sso&quot;></a>Configurar TimeOffManager SSO
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa TimeOffManager como administrador.
 
 2. Ir para **\> opções de conta \> configurações Sign-On únicas**.
    
-    ![A screenshot mostra as definições de Sign-On única selecionadas a partir de opções de conta.](./media/timeoffmanager-tutorial/ic795917.png "Definições de Sign-On única")
+    ![A screenshot mostra as definições de Sign-On única selecionadas a partir de opções de conta.](./media/timeoffmanager-tutorial/ic795917.png &quot;Definições de Sign-On única")
 
 3. Na secção **Definições de Sign-On Única,** execute os seguintes passos:
    
