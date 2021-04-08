@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral das tarefas e aplicações de 
 ms.topic: article
 ms.date: 12/01/2020
 ms.openlocfilehash: a65815c7da400af8b5b6d46358e6bca6edbd7543
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97663647"
 ---
 # <a name="event-replication-tasks-and-applications-with-azure-functions"></a>Tarefas e aplicações de replicação de eventos com Funções Azure

@@ -4,10 +4,10 @@ description: Controlo do mapeamento das amostras de plantas da mídia. Cada cont
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: e1356acfd7b6b9693322000077b221781b58681f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98035041"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Mapeamento de controlo da amostra de planta dos media

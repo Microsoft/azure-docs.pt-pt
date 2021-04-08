@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92778653"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A análise do desempenho da borda fornece tráfego de informação granular e utilização de largura de banda para o CDN. Esta informação pode então ser usada para gerar estatísticas de tendência, que lhe permitem obter informações sobre como os seus ativos estão a ser em cache e entregues aos seus clientes. Por sua vez, isto permite-lhe formar uma estratégia sobre como otimizar a entrega do seu conteúdo e determinar quais as questões que devem ser abordadas para melhor alavancar o CDN. Como resultado, não só poderá melhorar o desempenho da entrega de dados, como também será capaz de reduzir os seus custos de CDN.
 
 > [!NOTE]

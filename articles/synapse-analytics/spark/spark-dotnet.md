@@ -10,10 +10,10 @@ ms.date: 05/01/2020
 ms.author: luquinta
 ms.reviewer: jrasnick
 ms.openlocfilehash: 895d766cc1e70e6a001904770d6f3ef12b6945cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98018666"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utilizar o .NET para Apache Spark com o Azure Synapse Analytics

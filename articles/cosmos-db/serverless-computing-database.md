@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93334078"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor usando funções Azure Cosmos DB e Azure
@@ -21,7 +21,7 @@ A computação sem servidor tem tudo a ver com a capacidade de se focar em peça
 
 Com a integração nativa entre as [funções Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) e Azure, pode criar gatilhos de base de dados, encadernações de entrada e encadernações de saída diretamente da sua conta DB Azure Cosmos. Utilizando as Funções Azure e o Azure Cosmos DB, pode criar e implementar aplicações sem servidor orientadas para eventos com acesso de baixa latência a dados ricos para uma base de utilizadores global.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As funções Azure Cosmos DB e Azure permitem-lhe integrar as suas bases de dados e aplicações sem servidor das seguintes formas:
 

@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
 ms.openlocfilehash: 546c0c21762d0cfe10cf4f1b7a2e1b7d6691166e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98685264"
 ---
 # <a name="connect-to-a-sql-pool-in-azure-synapse"></a>Conecte-se a uma piscina SQL em Azure Synapse 

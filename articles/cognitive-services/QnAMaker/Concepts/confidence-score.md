@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: fcfc70f7bfb9e2bb1b1a0edbffdc1282056e5fa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102214053"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>A pontuação de confiança de uma resposta

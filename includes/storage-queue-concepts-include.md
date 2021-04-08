@@ -6,10 +6,10 @@ ms.date: 08/21/2020
 ms.author: tamram
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 45df30f4f1444b6148af9f3c7d47b94909ccef3d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96025714"
 ---
 ## <a name="what-is-queue-storage"></a>O que é o armazenamento da fila?
