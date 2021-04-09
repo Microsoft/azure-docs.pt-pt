@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92780959"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replicação para Azure SQL Database
@@ -52,7 +52,7 @@ Para utilizar todas as funcionalidades da Base de Dados Azure SQL, deve utilizar
 
 Existem diferentes [tipos de replicação:](/sql/relational-databases/replication/types-of-replication)
 
-| Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
+| Replicação | Base de Dados SQL do Azure | Instância Gerida do SQL do Azure |
 | :----| :------------- | :--------------- |
 | [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes | 
 | [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|

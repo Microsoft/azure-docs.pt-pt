@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: 483fa81b409e1bd740af85b431a86b6c814831e6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96002719"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple volumes fixados localmente: perguntas frequentes (FAQ)
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Seguem-se perguntas e respostas que poderá ter quando criar um volume fixado localmente, converter um volume hierárquico num volume fixado localmente (e vice-versa), ou recuar e restaurar um volume fixado localmente.
 
 Perguntas e respostas são organizadas nas seguintes categorias

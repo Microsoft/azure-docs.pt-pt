@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
 ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99500088"
 ---
 A funcionalidade NER para Text Analytics devolve as seguintes categorias gerais (não identificativas). por exemplo, ao enviar pedidos para o `/entities/recognition/general` ponto final.

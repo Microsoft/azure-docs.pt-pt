@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2021
 ms.author: victorh
 ms.openlocfilehash: 3d56fc73faeb0d48ba7e5b21449c61d6213afa40
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100549836"
 ---
 # <a name="azure-firewall-premium-preview-in-the-azure-portal"></a>Pré-visualização premium Azure Firewall no portal Azure

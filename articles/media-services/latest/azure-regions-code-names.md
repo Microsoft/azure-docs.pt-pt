@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
 ms.openlocfilehash: 74f30ebb766ea34603c0a30455837c47222967c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98954332"
 ---
 # <a name="regional-code-names-and-endpoints"></a>Nomes de códigos regionais e pontos finais

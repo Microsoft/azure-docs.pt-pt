@@ -10,17 +10,17 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d54b8f15c90aa8f6ffcc04453fee0349e501f47d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97585756"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de Filas do Azure através do .NET
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Azure Queue Storage fornece mensagens em nuvem entre os componentes da aplicação. Na conceção de aplicações para escala, os componentes de aplicação são muitas vezes dissociados para que possam escalar de forma independente. O Armazenamento de Fila fornece mensagens assíncronos entre os componentes da aplicação, quer estejam a funcionar na nuvem, no ambiente de trabalho, num servidor no local ou num dispositivo móvel. O Armazenamento de Fila também suporta a gestão de tarefas assíncronos e fluxos de trabalho de processo de construção.
 

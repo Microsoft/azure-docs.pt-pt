@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96858540"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Plano e resolução de problemas Alterações do Nome Principal do Utilizador no Diretório Ativo do Azure
@@ -48,10 +48,10 @@ Pode alterar uma UPN alterando o prefixo, sufixo ou ambos.
 * **Alterando o prefixo**.
 
    *  Por exemplo, se o nome de uma pessoa mudar, pode alterar o nome da conta:  
-‎ BSimon@contoso.com to BJohnson@contoso.com
+BSimon@contoso.comparaBJohnson@contoso.com
 
    * Pode também alterar o padrão corporativo para prefixos:  
-‎ Bsimon@contoso.com to Britta.Simon@contoso.com
+Bsimon@contoso.comparaBritta.Simon@contoso.com
 
 * **Mudando o sufixo.** <br>
 
