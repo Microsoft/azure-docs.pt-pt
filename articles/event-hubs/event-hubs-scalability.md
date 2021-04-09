@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como escalar os Hubs de Eve
 ms.topic: article
 ms.date: 03/16/2021
 ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103601295"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalando com centros de eventos

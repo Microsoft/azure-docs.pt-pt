@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
 ms.openlocfilehash: 29ac42da6560a717f12cd256fdd71282e0bd313f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104775362"
 ---
 # <a name="set-discovery-scope-for-servers-in-vmware-environment"></a>Definir o âmbito de descoberta para servidores em ambiente VMware
