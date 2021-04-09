@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: c99ad16e119c4262aa6d9d645b2457cdd46061b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101700682"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitor Ative Directory replication status with Azure Monitor

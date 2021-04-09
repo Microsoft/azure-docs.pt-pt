@@ -1,5 +1,5 @@
 ---
-título: incluir descrição de ficheiros: incluir serviços de ficheiros: autor de centros de eventos: spelluru ms.service: event-hubs ms.topic: include ms.date: 02/01/2021 ms.author: spelluru ms.custom: "include file", "fasttrack-edit","iot","event-hubs"
+título: incluir descrição de ficheiros: incluir serviços de ficheiros: autor de centros de eventos: spelluru ms.service: event-hubs ms.topic: include ms.date: 03/31/2021 ms.author: spelluru ms.custom: "include file", "fasttrack-edit","iot","event-hubs"
 
 ---
 
@@ -13,13 +13,12 @@ Os seguintes limites são comuns em todos os níveis.
 | Número de espaços de nomes de Centros de Eventos por subscrição |- |100 |
 | Número de centros de eventos por espaço de nome | Os pedidos subsequentes para a criação de um novo centro de eventos são rejeitados. |10 |
 | Tamanho de um nome de centro de evento |- | 256 caracteres |
-| Tamanho de um nome de grupo de consumidores |- | 256 caracteres |
+| Tamanho de um nome de grupo de consumidores | O protocolo kafka não requer a criação de um grupo de consumidores. | <p>Kafka: 256 caracteres</p><p>AMQP: 50 caracteres |
 | Número de recetores não-época por grupo de consumidores |- |5 |
 | Número de regras de autorização por espaço de nome | Os pedidos subsequentes de criação de regras de autorização são rejeitados.|12 |
 | Número de chamadas para o método GetRuntimeInformation |  - | 50 por segundo | 
 | Número de redes virtuais (VNet) | - | 128 | 
 | Número de regras IP Config | - | 128 | 
-
 
 ### <a name="basic-vs-standard-tiers"></a>Níveis básicos vs. padrão
 O quadro a seguir mostra limites que podem ser diferentes para os níveis básicos e padrão. 

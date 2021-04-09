@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20f7b6dc6c49b972b873ae3b275451829dec5c14
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700478"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934177"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -599,7 +599,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
 > | implementações | grupo de recursos | 1-64 | Alfanuméricos, sublinhados, parênteses, hífens e períodos. |
-> | grupos de recursos | subscrição | 1-90 | Alfanuméricos, sublinhados, parênteses, hífens, períodos e caracteres unicode que correspondem à [documentação regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>Não pode terminar com o período. |
+> | grupos de recursos | subscrição | 1-90 | Alfanuméricos, sublinhados, parênteses, hífens, períodos e caracteres unicode que correspondem à [documentação regex](/rest/api/resources/resources/resourcegroups/createorupdate).<br><br>Não pode terminar com o período. |
 > | tagNames | recurso | 1-512 | Não posso usar:<br>`<>%&\?/` |
 > | tagNames / tagValues | nome tag | 1-256 | Todos os personagens. |
 > | modeloSpecs | grupo de recursos | 1-90 | Alfanuméricos, sublinhados, parênteses, hífens e períodos. |

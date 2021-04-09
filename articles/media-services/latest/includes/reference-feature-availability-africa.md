@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 11bee8a36bcf6f5cbf0d16b27c6cff38414d4647
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ce6c717892cd2c99e9e2dea851a4385c530f76c2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612487"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125968"
 ---
 <!--Feature availability in region-->
 
@@ -18,9 +18,9 @@ ms.locfileid: "104612487"
 | Funcionalidade| Norte da África do Sul | Oeste da África do Sul |
 | --- | --- | --- |
 | [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) | ![áfrica north event disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![áfrica áfrica áfrica rede de eventos disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [VídeoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![áfrica vídeo analisador disponibilidade geral norte](../media/azure-clouds-regions/ga.svg) | ![africa south video analyser disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![áfrica norte AudioAnalyzerPreset disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![áfrica Sul AudioAnalyzerPreset disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [StandardEncoderPreset](../encoding-concept.md) | ![áfrica norte StandardEncoderPreset disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![áfrica sul StandardEncoderPreset disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [LiveEvents](../live-streaming-overview.md) | ![áfrica norte LiveEvents disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![áfrica sul LiveEvents disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
+| [VídeoAnalyzerPreset](../analyze-video-audio-files-concept.md) |  |  |
+| [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md) | |  |
+| [StandardEncoderPreset](../encode-concept.md) | ![áfrica norte StandardEncoderPreset disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![áfrica sul StandardEncoderPreset disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
+| [LiveEvents](../stream-live-streaming-concept.md) | ![áfrica norte LiveEvents disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![áfrica sul LiveEvents disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
 | [StreamingEndpoints](../streaming-endpoint-concept.md) | ![áfrica norte StreamingEndpoints disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![áfrica south StreamingEndpoints disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [LiveTranscription](../live-transcription.md) | ![áfrica norte Disponibilidade geral LiveTranscription](../media/azure-clouds-regions/ga.svg) | ![áfrica sul Disponibilidade geral LiveTranscription](../media/azure-clouds-regions/ga.svg) |
+| [LiveTranscription](../live-event-live-transcription-how-to.md) |  |  |

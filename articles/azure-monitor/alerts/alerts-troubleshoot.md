@@ -6,10 +6,10 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.openlocfilehash: 08ac23fbb29829bf2a7a46e41f9a7f646ad97915
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104586323"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Problemas de resolução de problemas nos alertas do Monitor Azure

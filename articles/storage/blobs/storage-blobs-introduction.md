@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b55ea814214397e12e50e7bc5047988394623940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d71fc7931db77f0cf19a4e7ea70731ba19d1f6d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98703594"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937316"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -55,7 +55,7 @@ Um contentor organiza um conjunto de bolhas, semelhantes a um diretório num sis
 
 O Azure Storage suporta três tipos de bolhas:
 
-- **As bolhas de bloco armazenam** texto e dados binários. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente. As bolhas de bloco armazenam até cerca de 4,75 TiB de dados. Blobs de bloco maiores estão disponíveis na pré-visualização, até cerca de 190.7 TiB
+- **As bolhas de bloco armazenam** texto e dados binários. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente. As bolhas de blocos podem armazenar até cerca de 190,7 TiB.
 - **As bolhas de apêndice** são compostas por blocos como bolhas de bloco, mas são otimizadas para operações de apêndice. Os blobs de acréscimo são ideais para cenários como o registo de dados a partir de máquinas virtuais.
 - **As bolhas de página** armazenam ficheiros de acesso aleatório até 8 TiB de tamanho. As bolhas de página armazenam ficheiros de disco rígido virtual (VHD) e servem como discos para máquinas virtuais Azure. Para obter mais informações sobre as bolhas de página, consulte [a visão geral das bolhas da página de Azure](storage-blob-pageblob-overview.md)
 

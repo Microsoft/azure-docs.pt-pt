@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: c6645bc605dbd60d331ac0de002c36384b2bbbc4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864759"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utilize as funcionalidades estendidas do Servidor histórico de faíscas Apache para depurar e diagnosticar aplicações Spark
@@ -94,7 +94,7 @@ Selecione o ID do trabalho e, em seguida, selecione **Dados** no menu da ferrame
    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png" alt-text="O mapa de calor na página spark Application & Job Graph." border="true":::
 
 
-    |Cor |Descrição |
+    |Cor |Description |
     |---|---|
     |Green|O trabalho terminou com sucesso.|
     |Laranja|A tarefa falhou, mas isso não afeta o resultado final do trabalho. Estas tarefas duplicaram ou relembrou casos que podem ter sucesso mais tarde.|

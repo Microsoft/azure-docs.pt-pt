@@ -8,10 +8,10 @@ ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 8b68e22e69bf2d4a1655883b249f883f98f565a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101091243"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Linha de base de segurança Azure para configuração de aplicativoS Azure

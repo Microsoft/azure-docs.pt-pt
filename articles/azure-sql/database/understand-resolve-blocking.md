@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
-ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e176c0399b191c7a511ea1d26388219b2cef1df8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034902"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107151"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Compreender e resolver problemas de bloqueio da base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -422,10 +422,11 @@ As `wait_type` `open_transaction_count` colunas , e `status` colunas referem-se 
 * [Início Rápido: Eventos expandidos no SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 * [Insights Inteligentes usando IA para monitorizar e resolver problemas de desempenho da base de dados](intelligent-insights-overview.md)
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * [Base de Dados Azure SQL: Melhorar a afinação de desempenho com afinação automática](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Melhorar o desempenho da base de dados Azure SQL com afinação automática](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)
 * [Fornecer um desempenho consistente com o SQL do Azure](/learn/modules/azure-sql-performance/)
 * [Problemas de conectividade de resolução de problemas e outros erros com Azure SQL Database e Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
 * [Tratamento transitório de falhas](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)
+* [Configure o grau máximo de paralelismo (MAXDOP) na Base de Dados Azure SQL](configure-max-degree-of-parallelism.md)

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/04/2021
+ms.date: 03/31/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: c4ab8c9f4e1f9dae8c10e155729c639c089fb77a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bd5533f4bc8420ee6d8900e8a17dfe7099d7945f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727120"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107202"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções clássicas de administrador de subscrição, funções de Azure e Azure AD
 
@@ -115,7 +115,7 @@ A um nível elevado, as funções Azure controlam permissões para gerir os recu
 | --- | --- |
 | Gerir o acesso aos recursos do Azure | Gerir o acesso aos recursos do Azure Active Directory |
 | Suporta funções personalizadas | Suporta funções personalizadas |
-| O âmbito pode ser especificado em vários níveis (grupo de gestão, subscrição, grupo de recursos, recurso) | [O âmbito](../active-directory/roles/custom-overview.md#scope) pode ser especificado ao nível do inquilino (a nível da organização) ou num objeto individual (por exemplo, uma aplicação específica) |
+| O âmbito pode ser especificado em vários níveis (grupo de gestão, subscrição, grupo de recursos, recurso) | [O âmbito](../active-directory/roles/custom-overview.md#scope) pode ser especificado ao nível do inquilino (em toda a organização), unidade administrativa ou num objeto individual (por exemplo, uma aplicação específica) |
 | As informações das funções podem ser acedidas no portal do Azure, CLI do Azure, Azure PowerShell, modelos do Azure Resource Manager, API REST | As informações sobre funções podem ser acedidas no portal de administração Azure, Microsoft 365, Microsoft Graph, AzureAD PowerShell |
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>Os papéis de Azure e Ad Azure sobrepõem-se?

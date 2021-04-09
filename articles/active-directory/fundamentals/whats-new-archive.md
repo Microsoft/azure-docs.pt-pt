@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/29/2021
+ms.date: 3/31/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40dafe13dc0e8866c99e56879bed419808a0487c
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: fef59ef1088582b4ebb29131bd48337e9e0bd406
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105560187"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107100"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -33,6 +33,186 @@ O que há de novo no Diretório Ativo Azure? As notas de lançamento fornecem in
 - Planos para alterações
 
 ---
+
+## <a name="september-2020"></a>Setembro de 2020
+
+### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---september-2020"></a>Novos conectores de provisionamento na Galeria de Aplicações AD Azure - setembro de 2020
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Provisionamento de Aplicativos  
+**Capacidade do produto:** Integração de Terceiros
+ 
+Pode agora automatizar a criação, atualização e eliminação de contas de utilizador para estas novas aplicações integradas:
+
+- [Rio Coda](../saas-apps/coda-provisioning-tutorial.md)
+- [Cofense Recipient Sync](../saas-apps/cofense-provision-tutorial.md)
+- [InVision](../saas-apps/invision-provisioning-tutorial.md)
+- [myday](../saas-apps/myday-provision-tutorial.md)
+- [SAP Analytics Cloud](../saas-apps/sap-analytics-cloud-provisioning-tutorial.md)
+- [Consciência de Segurança Webroot](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
+
+Para obter mais informações sobre como proteger melhor a sua organização utilizando o fornecimento automatizado de conta de utilizador, consulte [automatizar o fornecimento de utilizadores para aplicações SaaS com Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+### <a name="cloud-provisioning-public-preview-refresh"></a>Atualização de pré-visualização pública de provisionamento de provisão pública em nuvem
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Capacidade do produto de provisão de nuvem Azure **AD: Gestão** do ciclo de vida da identidade
+ 
+A atualização de pré-visualização do Azure AD Connect Cloud Provisioning apresenta duas melhorias importantes desenvolvidas a partir do feedback do cliente: 
+
+- Atribuir experiência de mapeamento através do portal Azure
+
+    Com esta funcionalidade, os Administradores de TI podem mapear os atributos do utilizador, grupo ou de contacto de AD a AD AZure utilizando vários tipos de mapeamento presentes hoje em dia. O mapeamento de atributos é uma funcionalidade utilizada para normalizar os valores dos atributos que fluem do Ative Directory para o Azure Ative Directory. Pode-se determinar se mapeia diretamente o valor do atributo como é de AD para Azure AD ou se utiliza expressões para transformar os valores do atributo ao a provisionar os utilizadores. [Saiba mais](../cloud-sync/how-to-attribute-mapping.md)
+
+- Provisão a pedido ou experiência do utilizador de teste
+
+    Uma vez configurada a sua configuração, talvez queira testar para ver se a transformação do utilizador está a funcionar como esperado antes de a aplicar a todos os seus utilizadores no âmbito. Com o provisionamento a pedido, os Administradores de TI podem introduzir o Nome Distinto (DN) de um utilizador de AD e ver se estão a ser sincronizados como esperado. O fornecimento a pedido proporciona uma ótima maneira de garantir que os mapeamentos de atributos que fez anteriormente funcionam como esperado. [Saiba mais](../cloud-sync/how-to-on-demand-provision.md)
+ 
+---
+
+### <a name="audited-bitlocker-recovery-in-azure-ad---public-preview"></a>Recuperação auditada de BitLocker em AD AZure - Visualização pública
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Gestão de Acesso a Dispositivos  
+**Capacidade do produto:** Gestão do ciclo de vida do dispositivo
+ 
+Quando os administradores de TI ou os utilizadores finais lêem as teclas de recuperação bitLocker a que têm acesso, o Azure Ative Directory gera agora um registo de auditoria que captura quem acedeu à chave de recuperação. A mesma auditoria fornece detalhes do dispositivo a que a chave BitLocker foi associada.
+
+Os utilizadores finais podem [aceder às suas chaves de recuperação através da Minha Conta.](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key) Os administradores de TI podem aceder às teclas de recuperação através da [chave de recuperação BitLocker API em versão beta](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) ou através do Portal AD Azure. Para saber mais, consulte [ver ou copiar as teclas BitLocker no Portal AD Azure](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+
+---
+
+### <a name="teams-devices-administrator-built-in-role"></a>Papel integrado do administrador de dispositivos de equipas
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** RBAC  
+**Capacidade do produto:** Controlo de Acessos
+ 
+Os utilizadores com a função [de Administrador de Dispositivos de Equipas](../roles/permissions-reference.md#teams-devices-administrator) podem gerir [dispositivos certificados por Equipas](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) a partir do Centro de Administração de Equipas. 
+
+Esta função permite ao utilizador visualizar todos os dispositivos num só olhar, com a capacidade de pesquisar e filtrar dispositivos. O utilizador também pode verificar os detalhes de cada dispositivo, incluindo a conta iniciada e a localização e modelo do dispositivo. O utilizador pode alterar as definições do dispositivo e atualizar as versões do software. Esta função não concede permissões para verificar a atividade das Equipas e chamar a qualidade do dispositivo.
+ 
+---
+
+### <a name="advanced-query-capabilities-for-directory-objects"></a>Capacidades avançadas de consulta para objetos de diretório
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** MS Graph  
+**Capacidade do produto:** Experiência de Desenvolvedor
+ 
+Todas as novas capacidades de consulta introduzidas para os Objetos de Diretório em APIs AZure AD estão agora disponíveis no ponto final v1.0 e prontas para a produção. Os desenvolvedores podem contar, pesquisar, filtrar e classificar objetos de diretório e links relacionados usando os operadores OData padrão.
+
+Para saber mais, consulte a documentação [aqui,](https://aka.ms/BlogPostMezzoGA)e também pode enviar feedback com esta [breve pesquisa.](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yN8EPoGo5OpR1hgmCp1XxUMENJRkNQTk5RQkpWTE44NEk2U0RIV0VZRy4u)
+ 
+---
+
+### <a name="public-preview-continuous-access-evaluation-for-tenants-who-configured-conditional-access-policies"></a>Pré-visualização pública: avaliação contínua de acesso para inquilinos que configuraram políticas de acesso condicional
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Autenticações (Logins)  
+**Capacidade do produto:** Proteção & de Segurança de Identidade
+ 
+A avaliação contínua de acesso (CAE) está agora disponível em pré-visualização pública para inquilinos AZURE AD com políticas de Acesso Condicional. Com o CAE, eventos críticos de segurança e políticas são avaliados em tempo real. Isto inclui desativação de conta, reset de palavra-passe e alteração de localização. Para saber mais, consulte [a avaliação de acesso contínuo.](../conditional-access/concept-continuous-access-evaluation.md)
+
+---
+
+### <a name="public-preview-ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Pré-visualização pública: pergunte aos utilizadores que solicitem um pacote de acesso perguntas adicionais para melhorar as decisões de aprovação
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Gestão do Acesso ao Utilizador  
+**Capacidade do produto:** Gestão de Direitos
+ 
+Os administradores podem agora exigir que os utilizadores que solicitem um pacote de acesso respondam a perguntas adicionais para além da justificação do negócio no portal My Access da Azure AD Entitlement. As respostas dos utilizadores serão então mostradas aos aprovadores para ajudá-los a tomar uma decisão de aprovação de acesso mais precisa. Para saber mais, consulte [Recolher informações adicionais do solicitador para aprovação (pré-visualização)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview).
+ 
+---
+
+### <a name="public-preview-enhanced-user-management"></a>Pré-visualização pública: Melhor gestão dos utilizadores
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Gestão de Utilizadores  
+**Capacidade do produto:** Gestão de Utilizadores
+ 
+
+O portal AD AZure foi atualizado para facilitar a utilizadores nas páginas de Todos os utilizadores e utilizadores Eliminados. As alterações na pré-visualização incluem: 
+- Propriedades de utilizador mais visíveis, incluindo ID de objeto, estado de sincronização de diretório, tipo de criação e emitente de identidade.
+- A pesquisa permite agora pesquisas combinadas de nomes, e-mails e iDs de objetos.
+- Filtragem melhorada por tipo de utilizador (membro, convidado e nenhum), estado de sincronização de diretórios, tipo de criação, nome da empresa e nome de domínio.
+- Novas capacidades de triagem em propriedades como nome, nome principal do utilizador e data de eliminação.
+- Um novo total de utilizadores conta que atualiza com quaisquer pesquisas ou filtros.
+
+Para mais informações, consulte [as melhorias de gestão do utilizador (pré-visualização) no Azure Ative Directory](../enterprise-users/users-search-enhanced.md).
+
+---
+
+### <a name="new-notes-field-for-enterprise-applications"></a>Novo campo de notas para aplicações da Enterprise
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Capacidade do produto de aplicações **empresariais:** SSO
+
+Pode adicionar notas de texto gratuitas às aplicações da Enterprise. Pode adicionar qualquer informação relevante que o ajude a gerente de aplicações ao abrigo de aplicações da Enterprise. Para mais informações, consulte [Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative Directory (Azure AD).](../manage-apps/add-application-portal-configure.md) 
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---september-2020"></a>Novas Aplicações Federadas disponíveis na galeria AZure AD Application - setembro de 2020
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Aplicativos da Empresa  
+**Capacidade do produto:** Integração de Terceiros
+
+Em setembro de 2020 adicionámos 34 novas aplicações na nossa galeria app com o apoio da Federação:
+
+[VMware Horizon - Portal de Acesso Unificado,]() [Pulse Secure PCS](../saas-apps/vmware-horizon-unified-access-gateway-tutorial.md), [Inventário360,](../saas-apps/pulse-secure-pcs-tutorial.md) [Frontitude,](https://services.enteksystems.de/sso/microsoft/signup) [BookWidgets](https://www.bookwidgets.com/sso/office365), [ZVD_Server,](https://zaas.zenmutech.com/user/signin) [HashData for Business](https://hashdata.app/login.xhtml), [SecureLogin,](https://securelogin.securelogin.nu/sso/azure/login) [CyberSolutions MAILBASEΣ/CMSS,](../saas-apps/cybersolutions-mailbase-tutorial.md) [CyberSolutions CYBERMAILΣ,](../saas-apps/cybersolutions-cybermail-tutorial.md) [LimbleCMMS,](https://auth.limblecmms.com/) [Glint Inc,](../saas-apps/glint-inc-tutorial.md) [zeroheight,](../saas-apps/zeroheight-tutorial.md) [Gender Fitness,](https://app.genderfitness.com/) [Coeo Portal,](https://my.coeo.com/) [Grammarly,](../saas-apps/grammarly-tutorial.md) [Fivetran,](../saas-apps/fivetran-tutorial.md) [Kumolus](../saas-apps/kumolus-tutorial.md), [RSA Archer Suite](../saas-apps/rsa-archer-suite-tutorial.md), [TeamzSkill,](../saas-apps/teamzskill-tutorial.md) [raumfürraum,](../saas-apps/raumfurraum-tutorial.md) [Saviynt,](../saas-apps/saviynt-tutorial.md) [BizMerlinHR,](https://marketplace.bizmerlin.net/bmone/signup) [Mobile Locker,](../saas-apps/mobile-locker-tutorial.md) [Zengine,](../saas-apps/zengine-tutorial.md) [CloudCADI,](https://app.cloudcadi.com/login) [Simfoni Analytics,](https://simfonianalytics.com/accounts/microsoft/login/) [Priva Identity & Access Management](https://my.priva.com/), Nitro [Pro,](https://www.gonitro.com/nps/product-details/downloads) [Eventfinity,](../saas-apps/eventfinity-tutorial.md) [Fexa,](../saas-apps/fexa-tutorial.md) [Secured Signing Enterprise Portal](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal) [AAD Setup,](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal) [Wistec Online,](https://wisteconline.com/auth/oidc) [Oracle PeopleSoft - Protected by F5 BIG-IP](../saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md)
+
+Pode ainda encontrar a documentação de todas as aplicações a partir daqui: https://aka.ms/AppsTutorial .
+
+Para listar a sua aplicação na galeria de aplicações AZure AD, leia os detalhes aqui: https://aka.ms/AzureADAppRequest .
+
+---
+
+### <a name="new-delegation-role-in-azure-ad-entitlement-management-access-package-assignment-manager"></a>Novo papel de delegação na gestão de direitos da Azure AD: Gestor de atribuição de pacotes de acesso
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Gestão do Acesso ao Utilizador  
+**Capacidade do produto:** Gestão de Direitos
+ 
+Uma nova função de Gestor de Atribuição de Pacotes de Acesso foi adicionada na gestão de direitos AD da Azure para fornecer permissões granulares para gerir as atribuições. Pode agora delegar tarefas a um utilizador nesta função, que pode delegar a gestão de atribuições de um pacote de acesso a um empresário. No entanto, um Gestor de Atribuição de Pacotes de Acesso não pode alterar as políticas de pacotes de acesso ou outras propriedades que são definidas pelos administradores. 
+
+Com este novo papel, você beneficia dos privilégios menos necessários para delegar a gestão de atribuições e manter o controlo administrativo em todas as outras configurações de pacotes de acesso. Para saber mais, consulte [as funções de gestão de direitos.](../governance/entitlement-management-delegate.md#entitlement-management-roles)
+ 
+---
+
+### <a name="changes-to-privileged-identity-managements-onboarding-flow"></a>Alterações ao fluxo de embarque da Gestão de Identidade Privilegiada
+
+**Tipo:** Alteração de recurso  
+**Categoria de serviço:** Gestão de Identidade Privilegiada  
+**Capacidade do produto:** Gestão de Identidade Privilegiada
+ 
+Anteriormente, o embarque para a Gestão de Identidade Privilegiada (PIM) exigia o consentimento do utilizador e um fluxo de embarque na lâmina da PIM que incluía a inscrição no Azure AD MFA. Com a recente integração da experiência PIM nas funções AZure AD e lâmina de administradores, estamos removendo esta experiência. Qualquer inquilino com licença P2 válida será automaticamente a bordo da PIM.
+
+O embarque na PIM não tem qualquer efeito adverso direto no seu inquilino. Pode esperar as seguintes alterações:
+- Opções adicionais de atribuição, tais como ativa vs. elegível com tempo de início e fim quando então faz uma atribuição em funções PIM ou Azure AD e lâmina de administradores. 
+- Mecanismos adicionais de deteção, como Unidades Administrativas e funções personalizadas, introduzidos diretamente na experiência de atribuição. 
+- Se for um administrador global ou administrador privilegiado, poderá começar a receber alguns e-mails adicionais como a digestão semanal da PIM. 
+- Você também pode ver o principal do serviço ms-pim no registo de auditoria relacionado com a atribuição de funções. Esta mudança esperada não deve afetar o seu fluxo de trabalho regular.
+
+ Para obter mais informações, consulte [Começar a utilizar a Gestão de Identidade Privilegiada.](../privileged-identity-management/pim-getting-started.md)
+
+---
+
+### <a name="azure-ad-entitlement-management-the-select-pane-of-access-package-resources-now-shows-by-default-the-resources-currently-in-the-selected-catalog"></a>Azure AD Entitlement Management: O painel seleto de recursos de pacote de acesso mostra agora, por defeito, os recursos atualmente no catálogo selecionado
+
+**Tipo:** Alteração de recurso  
+**Categoria de serviço:** Gestão do Acesso ao Utilizador  
+**Capacidade do produto:** Gestão de Direitos
+ 
+
+No fluxo de criação de pacote de acesso, no separador Funções de Recursos, o comportamento do painel Select está a mudar. Atualmente, o comportamento padrão é mostrar todos os recursos que são propriedade do utilizador e recursos adicionados ao catálogo selecionado. 
+
+Esta experiência será alterada para exibir apenas os recursos atualmente adicionados no catálogo por padrão, para que os utilizadores possam facilmente recolher recursos do catálogo. A atualização ajudará na descoberta dos recursos para adicionar aos pacotes de acesso, e reduzirá o risco de adicionar inadvertidamente recursos pertencentes ao utilizador que não fazem parte do catálogo. Para saber mais, consulte [Criar um novo pacote de acesso na gestão de direitos AD Azure.](../governance/entitlement-management-access-package-create.md#resource-roles)
+ 
+---
+
 ## <a name="august-2020"></a>Agosto de 2020 
  
 ### <a name="updates-to-azure-multi-factor-authentication-server-firewall-requirements"></a>Atualizações para requisitos de firewall do Servidor de Autenticação Multi-Factor Azure
@@ -2798,7 +2978,7 @@ Para obter mais informações sobre como criar uma revisão de acesso, consulte 
 
 **Tipo:** Alteração da **categoria de serviço de funcionalidade:** Capacidade de produto AD **Sync:** Plataforma
 
-O Azure AD Connect está em processo de transição do nosso(s) sistema de alerta de e-mail, potencialmente mostrando a alguns clientes um novo remetente de e-mail. Para resolver este problema, tem de adicionar `azure-noreply@microsoft.com` à lista de autorizações da sua organização ou não poderá continuar a receber alertas importantes do seu Office 365, Azure ou dos seus serviços Sync.
+O Azure AD Connect está em processo de transição do nosso(s) sistema de alerta de e-mail, potencialmente mostrando a alguns clientes um novo remetente de e-mail. Para resolver este problema, deve adicionar `azure-noreply@microsoft.com` à lista de admissões da sua organização ou não poderá continuar a receber alertas importantes do seu Office 365, Azure ou dos seus serviços Sync.
 
 ---
 

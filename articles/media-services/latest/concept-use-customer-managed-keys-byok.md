@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101698863"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga a sua própria chave (chaves geridas pelo cliente) com serviços de mídia

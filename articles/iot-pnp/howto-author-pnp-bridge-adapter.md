@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9a7028dfaeb94e87366de7acfa8cebc4c2f4c767
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac359e73ae71fd2163fb178caab4a2b5f908a008
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98746833"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057461"
 ---
 # <a name="extend-the-iot-plug-and-play-bridge"></a>Estender a ponte IoT Plug and Play
 A [ponte IoT Plug and Play](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) permite-lhe ligar os dispositivos existentes ligados a uma porta de entrada para o seu hub IoT. Utiliza a ponte para mapear interfaces IoT Plug e Play para os dispositivos anexados. Uma interface IoT Plug and Play define a telemetria que um dispositivo envia, as propriedades sincronizadas entre o dispositivo e a nuvem, e os comandos a que o dispositivo responde. Pode instalar e configurar a aplicação de ponte de código aberto nos gateways Windows ou Linux. Além disso, a ponte pode ser executada como um módulo de tempo de execução Azure IoT Edge.

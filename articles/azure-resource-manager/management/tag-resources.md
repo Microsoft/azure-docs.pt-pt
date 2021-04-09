@@ -4,12 +4,12 @@ description: Mostra como aplicar tags para organizar recursos Azure para fatura�
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb93673b643fd13efe9ffea148c5fb1d072f9e05
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e755a378fd71ea2763cc3e43477876fa3e8c5d5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98896228"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934194"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utilizar etiquetas para organizar os recursos do Azure e a hierarquia de gestão
 
@@ -684,10 +684,10 @@ O modelo a seguir adiciona as tags de um objeto a um grupo de recursos ou a uma 
 
 Para trabalhar com tags através da AZure REST API, utilize:
 
-* [Tags - Criar ou atualizar no âmbito](/rest/api/resources/tags/createorupdateatscope) (operação PUT)
-* [Tags - Atualização no âmbito](/rest/api/resources/tags/updateatscope) (operação PATCH)
-* [Tags - Get At Scope](/rest/api/resources/tags/getatscope) (operação GET)
-* [Tags - Excluir no âmbito](/rest/api/resources/tags/deleteatscope) (operação DELETE)
+* [Tags - Criar ou atualizar no âmbito](/rest/api/resources/resources/tags/createorupdateatscope) (operação PUT)
+* [Tags - Atualização no âmbito](/rest/api/resources/resources/tags/updateatscope) (operação PATCH)
+* [Tags - Get At Scope](/rest/api/resources/resources/tags/getatscope) (operação GET)
+* [Tags - Excluir no âmbito](/rest/api/resources/resources/tags/deleteatscope) (operação DELETE)
 
 ## <a name="inherit-tags"></a>Herdar etiquetas
 

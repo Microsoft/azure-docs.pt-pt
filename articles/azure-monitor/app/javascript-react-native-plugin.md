@@ -7,10 +7,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 0c122a21fc7149e9943825cafbed77069b7919f3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593602"
 ---
 # <a name="native-react-plugin-for-application-insights-javascript-sdk"></a>Plugin de reação nativa para insights de aplicação JavaScript SDK

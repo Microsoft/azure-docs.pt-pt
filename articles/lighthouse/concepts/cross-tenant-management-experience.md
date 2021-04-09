@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 03/23/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: a774eb08989e8fc45a117d83d81a5b510e8202b4
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 12c4aaa4dda159862344675c802603fcbda2f254
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105559915"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934330"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -77,7 +77,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados entre
 
 [Gestão de Custos Azure + Faturação:](../../cost-management-billing/index.yml)
 
-- A partir do inquilino gerente, os parceiros da CSP podem ver, gerir e analisar os custos de consumo antes de impostos (não incluindo as compras) para clientes que estão ao abrigo do plano Azure. O custo basear-se-á nas tarifas de retalho e no acesso ao controlo de acesso baseado em funções (Azure RBAC) que o parceiro tem para a subscrição do cliente.
+- A partir do inquilino gerente, os parceiros da CSP podem ver, gerir e analisar os custos de consumo antes de impostos (não incluindo as compras) para clientes que estão ao abrigo do plano Azure. O custo basear-se-á nas tarifas de retalho e no acesso ao controlo de acesso baseado em funções (Azure RBAC) que o parceiro tem para a subscrição do cliente. Atualmente, você pode ver os custos de consumo a taxas de retalho para cada subscrição de clientes individuais com base no acesso Azure RBAC.
 
 [Cofre da Chave Azure:](../../key-vault/general/index.yml)
 

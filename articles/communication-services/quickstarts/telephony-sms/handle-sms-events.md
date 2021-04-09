@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6d16a4d9ecd2e9246933b2543da3b05239ac2f7f
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 7a88d8a0065ca7f5cb054d23295e5cfbc23489ca
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644648"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728594"
 ---
 # <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Quickstart: Lidar com eventos DE SMS para relatórios de entrega e mensagens de entrada
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 

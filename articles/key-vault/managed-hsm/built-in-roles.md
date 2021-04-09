@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 01e96922d9c0c47eaf4d430e92eafcd9d0964e13
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105557229"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Funções incorporadas do RBAC locais do HSM Gerido
@@ -23,13 +23,13 @@ O RBAC local gerido do HSM tem vários papéis incorporados. Pode atribuir estas
 
 |Nome da Função|Description|ID|
 |---|---|---|
-|Administrador gerido do HSM| Concede permissões para realizar todas as operações relacionadas com o Domínio de Segurança, cópia de segurança/restauro completo e gestão de funções. Não é permitido realizar nenhuma operação de gestão chave.|a290e904-7015-4bba-90c8-60543313cdb4|
+|Administrador do HSM Gerido| Concede permissões para realizar todas as operações relacionadas com o Domínio de Segurança, cópia de segurança/restauro completo e gestão de funções. Não é permitido realizar nenhuma operação de gestão chave.|a290e904-7015-4bba-90c8-60543313cdb4|
 |Oficial de Cripto gerido do HSM|Concede permissões para executar todas as chaves de gestão de funções, purgar ou recuperar chaves eliminadas e chaves de exportação. Não é permitido realizar quaisquer outras operações de gestão chave.|515eb02d-2335-4d2d-92f2-b1cbdf9c3778|
 |Utilizador crypto gerido do HSM|Concede permissões para a realização de todas as operações de gestão chave, exceto purgar ou recuperar chaves eliminadas e chaves de exportação.|21dbd100-6940-42c2-9190-5d6cb909625b|
 |Administrador de Política gerido do HSM| Concede permissão para criar e eliminar atribuições de funções|4bd23610-cdcf-4971-bdee-bdc562cc28e4|
 |Auditor cripto gerido do HSM|Os subsídios lêem permissão para ler (mas não usar) atributos-chave.|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
 |Encriptação gerida do serviço crypto HSM| Concede permissão para usar uma chave para encriptação de serviço. |33413926-3206-4cdd-b39a-83574fe37a17|
-|Backup HSM gerido| Concede permissão para realizar uma única chave ou cópia de segurança HSM inteira.|7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
+|Cópia de Segurança do HSM Gerido| Concede permissão para realizar uma única chave ou cópia de segurança HSM inteira.|7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
 
 ## <a name="permitted-operations"></a>Operações permitidas
 > [!NOTE]  

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 64e7dd754f09a60163decfd419ce6c2cd2c6182d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103007810"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção de carteiros com operações de streaming a pedido
