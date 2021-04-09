@@ -4,10 +4,10 @@ description: Descreve como pode usar webhooks como manipuladores de eventos para
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91875806"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, livros de automação, Aplicações Lógicas como manipuladores de eventos para eventos Azure Event Grid

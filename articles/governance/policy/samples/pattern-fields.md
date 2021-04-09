@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece um exemplo de como usar pro
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 267c687f78f0bbb100843faee40ab6f3d3cbb64c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92072973"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Padrão de política azul: propriedades de campo

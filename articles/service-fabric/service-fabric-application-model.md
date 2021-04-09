@@ -4,10 +4,10 @@ description: Como modelar e descrever aplicações e serviços no Azure Service 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 84e6b2309fdb206771d4ea01aa03c7f355d6ff19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85963738"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modelar uma aplicação em Tecido de Serviço
