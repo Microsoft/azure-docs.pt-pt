@@ -9,10 +9,10 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 03/16/2021
 ms.openlocfilehash: 6c23fe86af030d371e12914062bb9558e8db3484
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104776301"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>Mapeamento de campo CEF e CommonSecurityLog
@@ -23,7 +23,7 @@ Para obter mais informações, consulte [Conecte a sua solução externa utiliza
 
 ## <a name="a---c"></a>A - C
 
-|Nome chave CEF  |Nome de campo CommonSecurityLog  |Descrição  |
+|Nome chave CEF  |Nome de campo CommonSecurityLog  |Description  |
 |---------|---------|---------|
 | agir    |    <a name="deviceaction"></a> Aacção de Dispositivos     |  A ação mencionada no evento.       |
 |   aplicação  |    ApplicationProtocol     |  O protocolo utilizado na aplicação, tais como HTTP, HTTPS, SSHv2, Telnet, POP, IMPA, IMAPS, etc.   |
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [Conecte a sua solução externa utiliza
 
 ## <a name="d"></a>D
 
-|Nome chave CEF  |Nome CommonSecurityLog  |Descrição  |
+|Nome chave CEF  |Nome CommonSecurityLog  |Description  |
 |---------|---------|---------|
 |Fornecedor de dispositivos     |  DispositivoVendor       | String que, juntamente com as definições de produto e versão do dispositivo, identifica exclusivamente o tipo de dispositivo de envio.       |
 |Produto do dispositivo     |   Produto de dispositivos      |   String que, juntamente com as definições de fornecedor de dispositivos e versão, identifica exclusivamente o tipo de dispositivo de envio.        |
@@ -70,7 +70,7 @@ Para obter mais informações, consulte [Conecte a sua solução externa utiliza
 
 ## <a name="e---i"></a>E - I
 
-|Nome chave CEF  |Nome CommonSecurityLog  |Descrição  |
+|Nome chave CEF  |Nome CommonSecurityLog  |Description  |
 |---------|---------|---------|
 |fim     |  EndTime       | Terminou o momento em que a atividade relacionada com o evento terminou.        |
 |externalId    |   EXTERNALID      | Um ID usado pelo dispositivo de origem. Tipicamente, estes valores têm valores crescentes que estão cada um associado a um evento.        |
@@ -89,7 +89,7 @@ Para obter mais informações, consulte [Conecte a sua solução externa utiliza
 
 ## <a name="m---p"></a>M - P
 
-|Nome chave CEF  |Nome CommonSecurityLog  |Descrição  |
+|Nome chave CEF  |Nome CommonSecurityLog  |Description  |
 |---------|---------|---------|
 |msg   |  Mensagem       | Uma mensagem que dá mais detalhes sobre o evento.        |
 |Name     |  Atividade       |   Uma corda que representa uma descrição legível e compreensível do evento.     |
@@ -109,7 +109,7 @@ Para obter mais informações, consulte [Conecte a sua solução externa utiliza
 
 ## <a name="r---t"></a>R - T
 
-|Nome chave CEF  |Nome CommonSecurityLog  |Descrição  |
+|Nome chave CEF  |Nome CommonSecurityLog  |Description  |
 |---------|---------|---------|
 |Razão     |  Razão      |A razão pela qual um evento de auditoria foi gerado. <br><br>Por exemplo, `Bad password` ou `Unknown user`.         |
 |Pedir     |   RequestURL      | O URL acedeu a um pedido HTTP, incluindo o protocolo. Por exemplo, `http://www/secure.com`        |
@@ -141,7 +141,7 @@ Para obter mais informações, consulte [Conecte a sua solução externa utiliza
 Os seguintes nomes de campo **CommonSecurityLog** não têm mapeamentos nas teclas CEF:
 
 
-|Nome de campo CommonSecurityLog  |Descrição  |
+|Nome de campo CommonSecurityLog  |Description  |
 |---------|---------|
 |**OriginalLogSeverity**     |  Sempre vazio, apoiado para integração com a CiscoASA. <br>Para obter mais informações sobre os valores de gravidade do registo, consulte o campo [LogSeverity.](#logseverity)       |
 |**RemoteIP**     |     O endereço IP remoto. <br>Este valor baseia-se no campo [CommunicationDirection,](#communicationdirection) se possível.     |

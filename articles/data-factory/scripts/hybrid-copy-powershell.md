@@ -8,10 +8,10 @@ author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
 ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100373390"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Utilize o PowerShell para criar um pipeline de fábrica de dados para copiar dados do SQL Server para OZure

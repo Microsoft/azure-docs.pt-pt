@@ -16,10 +16,10 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98733304"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -196,15 +196,15 @@ A seguinte captura de ecrã mostra os dados de saída da aplicação de back-end
 
 ![Screenshot que mostra a saída da aplicação back-end e realça como envia uma atualização.](./media/tutorial-device-twins/BackEnd1.png)
 
-## <a name="receive-state-information"></a>Receber informações de estado
+## <a name="receive-state-information&quot;></a>Receber informações de estado
 
 A sua aplicação de back-end recebe as informações de estado de um dispositivo na forma de propriedades reportadas. O dispositivo define as propriedades reportadas e envia-as para o seu hub. A aplicação de back-end consegue ler os valores atuais das propriedades reportadas do dispositivo duplo armazenado no seu hub.
 
-### <a name="send-reported-properties-from-a-device"></a>Enviar propriedades reportadas a partir de um dispositivo
+### <a name=&quot;send-reported-properties-from-a-device&quot;></a>Enviar propriedades reportadas a partir de um dispositivo
 
 Pode enviar as atualizações feitas aos valores das propriedades reportadas como um patch. O seguinte fragmento de código mostra um modelo do patch que o dispositivo simulado envia. O dispositivo simulado atualiza os campos no patch antes de o enviar para o hub:
 
-[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
+[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 &quot;Reported properties patches")]
 
 O dispositivo simulado utiliza a seguinte função para enviar o patch que contém as propriedades reportadas para o hub:
 

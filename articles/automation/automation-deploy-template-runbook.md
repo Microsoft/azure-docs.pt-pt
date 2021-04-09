@@ -7,10 +7,10 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 keywords: powershell, runbook, json, azure automação
 ms.openlocfilehash: d9b443d1840840d3d6202140da235589c73453cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99051401"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implemente um modelo de gestor de recursos Azure num livro de execução PowerShell

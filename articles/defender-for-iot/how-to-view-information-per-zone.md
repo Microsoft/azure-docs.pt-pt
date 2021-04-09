@@ -8,10 +8,10 @@ ms.date: 03/21/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 685d7b1df4389c356ee7b531d179919025d298d0
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104776337"
 ---
 # <a name="view-information-per-zone"></a>Ver informações por zona

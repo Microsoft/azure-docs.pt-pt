@@ -4,10 +4,10 @@ description: Gravação contínua de vídeo (CVR) refere-se ao processo de grava
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102453755"
 ---
 # <a name="continuous-video-recording"></a>Gravação de vídeo contínua  
@@ -17,7 +17,7 @@ ms.locfileid: "102453755"
 * [Conceito de gráfico de mídia](media-graph-concept.md)
 * [Conceito de gravação de vídeo](video-recording-concept.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Gravação contínua de vídeo (CVR) refere-se ao processo de gravação contínua do vídeo a partir de uma fonte de vídeo. Live Video Analytics on IoT Edge suporta a gravação de vídeo continuamente, numa base de 24x7, a partir de uma câmara CCTV através de um [gráfico de mídia](media-graph-concept.md) composto por um nó de origem RTSP e um nó de lavatório de ativos. O diagrama abaixo mostra uma representação gráfica de tal gráfico mediático. A representação JSON da [topologia de gráficos](media-graph-concept.md#media-graph-topologies-and-instances) de tal gráfico mediático pode ser encontrada [aqui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 

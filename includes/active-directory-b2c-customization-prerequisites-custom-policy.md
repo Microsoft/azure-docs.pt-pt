@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
 ms.openlocfilehash: b9bf6c1fdc6a4e8a2a74ee0fd22a847a60729184
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100651269"
 ---
 * Complete os passos em [Começar com políticas personalizadas no Ative Directory B2C.](../articles/active-directory-b2c/custom-policy-get-started.md)

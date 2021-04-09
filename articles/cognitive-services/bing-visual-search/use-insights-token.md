@@ -12,10 +12,10 @@ ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 161266a69308175637f5967b2ded48621d4d9c53
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102424075"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Use um token insights para obter insights para uma imagem

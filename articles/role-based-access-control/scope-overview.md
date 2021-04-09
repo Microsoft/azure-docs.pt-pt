@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 10/08/2020
 ms.author: rolyon
 ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100555917"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Compreender o âmbito para o Azure RBAC

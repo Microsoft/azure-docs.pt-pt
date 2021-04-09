@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
 ms.openlocfilehash: b7c067ca82ea7fbe7eb9c0f3d50b7fe75dfb47df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100377368"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Ativar e solicitar acesso just-in-time para aplicações geridas azure

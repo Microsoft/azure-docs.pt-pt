@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
 ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98731924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Integração do Diretório Ativo Azure com Greenhouse
@@ -146,7 +146,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     >[!NOTE]
     >Em alternativa, também pode carregar o ficheiro **XML dos metadados da Federação** clicando na opção **Escolha Ficheiro.**
 
-### <a name="create-greenhouse-test-user"></a>Criar utilizador de teste de estufa
+### <a name="create-greenhouse-test-user&quot;></a>Criar utilizador de teste de estufa
 
 A fim de permitir que os utilizadores de Azure AD acedam à Estufa, devem ser a provisionados na Greenhouse. No caso da Estufa, o provisionamento é uma tarefa manual.
 
@@ -159,7 +159,7 @@ A fim de permitir que os utilizadores de Azure AD acedam à Estufa, devem ser a 
 
 2. Vá ao **Configure > Utilizadores > novos utilizadores**
    
-    ![Utilizadores](./media/greenhouse-tutorial/create-user-1.png "Utilizadores")
+    ![Utilizadores](./media/greenhouse-tutorial/create-user-1.png &quot;Utilizadores")
 
 4. Na secção **Adicionar Novos Utilizadores,** execute os seguintes passos:
    

@@ -9,10 +9,10 @@ ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104596013"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
@@ -101,7 +101,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | IP Público do Azure                        | Cache do Azure para Redis                             | 
 > | Base de Dados SQL do Azure                     | Azure Cognitive Search                            | 
-> | Instância Gerida do Azure SQL             | Serviços Cognitivos do Azure                          | 
+> | Instância Gerida do SQL do Azure             | Serviços Cognitivos do Azure                          | 
 > | Armazenamento de Discos                           | Serviços Cognitivos do Azure: Imagem Digitalizada         | 
 > | Hubs de Eventos                             | Azure Cognitive Services: Moderador de Conteúdo       | 
 > | Key Vault                              | Serviços Cognitivos Azure: Rosto                    | 
@@ -118,7 +118,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Máquinas Virtuais: DSv2-Series          | Azure Firewall                                    | 
 > | Máquinas Virtuais: DSv3-Series          | Azure Firewall Manager                            | 
 > | Máquinas Virtuais: Dv2-Series           | Funções do Azure                                   | 
-> | Máquinas Virtuais: Dv3-Series           | Azure IoT Hub                                     |     
+> | Máquinas Virtuais: Dv3-Series           | Hub IoT do Azure                                     |     
 > | Máquinas Virtuais: ESv3-Series          | Azure Kubernetes Service (AKS)                    | 
 > | Máquinas Virtuais: Ev3-Series           | Azure Machine Learning                            | 
 > | Rede Virtual                        | Monitor Azure: Insights de Aplicação               | 
@@ -176,7 +176,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |
-> | Serviço SignalR do Azure                                |
+> | Azure SignalR Service                                |
 > | Serviço de Nuvem de primavera Azure                           |
 > | Azure Time Series Insights                           |
 > | Solução VMware no Azure                                |
