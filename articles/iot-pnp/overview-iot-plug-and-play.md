@@ -10,10 +10,10 @@ services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
 ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99594574"
 ---
 # <a name="what-is-iot-plug-and-play"></a>O que é o IoT Plug and Play?

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
 ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98937551"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore registos de traços .NET/.NET e Python em Insights de Aplicação

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.author: makromer
 ms.date: 01/03/2021
 ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100383386"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade do Fluxo de Dados na Fábrica de Dados Azure

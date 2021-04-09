@@ -9,15 +9,15 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 1c4d04e25bf8f7d981c998baafb468f04b66eaf1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98879903"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
-‎Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on [Azure Blob storage](storage-blobs-introduction.md). 
+Azure Data Lake Storage Gen2 é um conjunto de capacidades dedicadas à análise de big data, construídas no [armazenamento Azure Blob.](storage-blobs-introduction.md) 
 
 Data Lake Storage Gen2 converge as capacidades do [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) com o armazenamento Azure Blob. Por exemplo, a Data Lake Storage Gen2 fornece semântica do sistema de ficheiros, segurança ao nível do ficheiro e escala. Como estas capacidades são construídas no armazenamento Blob, você também receberá armazenamento de baixo custo, tiered, com alta disponibilidade/capacidade de recuperação de desastres.
 

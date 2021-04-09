@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.openlocfilehash: 500587dc6564aa55eb430365eb67bb958bbd2482
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519984"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados Azure Arc utilizando ferramentas Kubernetes
@@ -43,7 +43,7 @@ kubectl delete crd postgresql-11s.arcdata.microsoft.com
 kubectl delete crd postgresql-12s.arcdata.microsoft.com
 ```
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A criação do controlador de dados Azure Arc tem os seguintes passos de alto nível:
 1. Crie as definições de recursos personalizados para o controlador de dados Arc, a instância gerida Azure SQL e a Hiperescala PostgreSQL. **[Requer permissões de administrador de cluster kubernetes]**

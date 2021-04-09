@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 25f555038c1ce0d960266eacc673a62a1ffd5ac0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98736367"
 ---
 # <a name="get-started-with-azure-application-consistent-snapshot-tool-preview"></a>Começa com a ferramenta Azure Application Consistent Snapshot (pré-visualização)

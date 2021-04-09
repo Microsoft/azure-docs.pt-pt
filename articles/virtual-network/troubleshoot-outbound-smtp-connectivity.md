@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
 ms.openlocfilehash: c28790b2ef423a3d0f996d7c6030b04198756eb1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102607616"
 ---
-# <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Problemas de conectividade SMTP de resolução de problemas em Azure
+# <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Resolver problemas de conectividade SMTP de saída no Azure
 
 A partir de 15 de novembro de 2017, as mensagens de correio de saída que são enviadas diretamente para domínios externos (como outlook.com e gmail.com) de uma máquina virtual (VM) são disponibilizadas apenas a certos tipos de subscrição em Azure. As ligações SMTP de saída que utilizam a porta TCP 25 foram bloqueadas. (O Porto 25 é utilizado principalmente para a entrega de email não autenticado.)
 
 Esta mudança de comportamento aplica-se apenas a subscrições e implementações que foram criadas após 15 de novembro de 2017.
 
-## <a name="recommended-method-of-sending-email"></a>Método recomendado de envio de e-mail
+## <a name="recommended-method-of-sending-email"></a>Método recomendado para enviar e-mails
 
 Recomendamos que utilize serviços de retransmissão SMTP autenticados para enviar e-mails da Azure VMs ou do Azure App Service. (Estes serviços de retransmissão normalmente ligam-se através da porta TCP 587, mas suportam outras portas.) Estes serviços são utilizados para manter a reputação de IP ou de domínio para minimizar a possibilidade de os fornecedores de e-mail de terceiros rejeitarem mensagens. [SendGrid](https://sendgrid.com/partners/azure/) é um desses serviços de retransmissão SMTP, mas há outros. Também pode ter um serviço de retransmissão SMTP seguro que pode utilizar no local.
 

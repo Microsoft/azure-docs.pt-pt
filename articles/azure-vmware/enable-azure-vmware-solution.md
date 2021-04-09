@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
 ms.openlocfilehash: 5d154f5c63ffccdbf1729e641133b54be478d884
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100653176"
 ---
 # <a name="request-host-quota-and-enable-azure-vmware-solution"></a>Solicite quota de anfitrião e permita a Solução VMware Azure

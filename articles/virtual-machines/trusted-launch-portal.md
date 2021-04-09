@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
 ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104582073"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementar um VM com lançamento fidedigno ativado (pré-visualização)

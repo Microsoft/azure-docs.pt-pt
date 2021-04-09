@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: f26813176d4286a052772d2096427231759aacc2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863382"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
@@ -21,7 +21,7 @@ Saiba como ligar o HDInsight à sua rede no local utilizando redes virtuais Azur
 * Configurar grupos de segurança de rede para restringir o acesso à Internet ao HDInsight.
 * Portas fornecidas por HDInsight na rede virtual.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para permitir que o HDInsight e os recursos da rede unida se comuniquem pelo nome, deve realizar as seguintes ações:
 

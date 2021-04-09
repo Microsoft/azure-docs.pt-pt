@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 robots: noindex
 ms.openlocfilehash: ce29b5a112d70575a721b0b527947fd95868da80
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100382927"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma fonte HTTP utilizando a Azure Data Factory

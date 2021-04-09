@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
 ms.openlocfilehash: bcb4408df08f3854b067c8b805b78433a3d5075c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103491253"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas

@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
 ms.openlocfilehash: 65b4ec369085e44cdffb0550e9eeaef0196cd35a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100556028"
 ---
 # <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Atribuir funções Azure usando modelos de Gestor de Recursos Azure

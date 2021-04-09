@@ -4,10 +4,10 @@ description: Este artigo resume o suporte de backup do Azure quando faz cópias 
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98985619"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente Microsoft Azure Recovery Services (MARS)

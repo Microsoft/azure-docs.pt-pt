@@ -11,10 +11,10 @@ ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 88c0d88a1d3119ef2fa00eb49da447749fde3221
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105543844"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure

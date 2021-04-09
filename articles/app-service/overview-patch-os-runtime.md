@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 8b876760ee2bafc855345878a28c38ec3b35daad
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105047886"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Correção de SO e tempo de execução no Serviço de Aplicações Azure

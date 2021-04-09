@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
 ms.openlocfilehash: e877f775c6a7bc83ce6c4a559c9f74b606c952fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359494"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Padrões de aplicação e estratégias de desenvolvimento para O SQL Server em Máquinas Virtuais Azure

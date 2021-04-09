@@ -8,10 +8,10 @@ ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98986467"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
@@ -46,7 +46,7 @@ A opção de publicação de transações é atualmente suportada para os seguin
 
 ### <a name="billing-infrastructure-costs"></a>Custos de infraestrutura de faturação
 
-Para **máquinas virtuais** e **aplicações Azure,** as taxas de utilização da infraestrutura Azure são cobradas à subscrição Azure do cliente. As taxas de utilização da infraestrutura são avaliadas e apresentadas separadamente das taxas de licenciamento do fornecedor de software na fatura do cliente.
+Para **máquinas virtuais** e **aplicações Azure,** as taxas de utilização da infraestrutura Azure são cobradas à subscrição Azure do cliente. As taxas de utilização da infraestrutura são calculadas e apresentadas separadamente das taxas de licenciamento do fornecedor de software na fatura do cliente.
 
 Para **as Aplicações SaaS,** o editor deve prestar contas às taxas de utilização da infraestrutura Azure e às taxas de licenciamento de software como um único item de custo.  É representado como uma taxa fixa para o cliente. O uso da infraestrutura Azure é gerido e faturado diretamente ao editor. As taxas reais de utilização da infraestrutura não são vistas pelo cliente. Os editores normalmente optam por agregar as taxas de utilização da infraestrutura Azure nos seus preços de licença de software. As taxas de licenciamento de software não são medidos ou baseados no consumo do utilizador.
 
