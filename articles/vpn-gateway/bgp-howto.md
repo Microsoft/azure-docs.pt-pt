@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: yushwang
 ms.openlocfilehash: 479a8fac111be6e5b1ae2c6ea21fff801ba26f83
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863586"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Como configurar o BGP em Gateways Azure VPN

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/18/2021
 ms.author: alkohli
 ms.openlocfilehash: 978099accd57d15c750a27f77b2e220f569a2dd0
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104962611"
 ---
 # <a name="use-generalized-image-from-windows-vhd-to-create-a-vm-image-for-your-azure-stack-edge-pro-device"></a>Utilize uma imagem generalizada a partir do Windows VHD para criar uma imagem VM para o seu dispositivo Azure Stack Edge Pro

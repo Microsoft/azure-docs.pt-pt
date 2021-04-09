@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 3f825e247aff5c8fc53eb8610f33bd8e0b7fce3d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Tutorial: Integração do Azure Ative Directory com o Zscaler One
@@ -189,14 +189,14 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. Clique **em Ativar**.
 
-## <a name="configuring-proxy-settings"></a>Definir configurações de proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para configurar as definições de procuração no Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Definir configurações de proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Para configurar as definições de procuração no Internet Explorer
 
 1. Iniciar **o Internet Explorer**.
 
 2. Selecione **as opções** de Internet do menu **Ferramentas** para abrir o diálogo Opções de **Internet.**   
 
-    ![Opções de Internet](./media/zscaler-one-tutorial/ic769492.png "Opções de Internet")
+    ![Opções de Internet](./media/zscaler-one-tutorial/ic769492.png &quot;Opções de Internet")
 
 3. Clique no separador **'Ligações'.**   
 

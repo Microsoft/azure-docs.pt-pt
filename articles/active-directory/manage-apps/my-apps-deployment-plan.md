@@ -12,10 +12,10 @@ ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105543963"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Plan Azure Ative Directory My Apps configuração

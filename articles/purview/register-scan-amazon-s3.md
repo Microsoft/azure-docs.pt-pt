@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/21/2021
 ms.custom: references_regions
 ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104773458"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector Azure Purview para Amazon S3
@@ -352,7 +352,7 @@ Uma vez adicionados os baldes como fontes de dados do Purview, pode configurar u
 
     Se selecionar para criar um novo conjunto de regras de verificação personalizada, utilize o assistente para definir as seguintes definições:
 
-    |Painel  |Descrição  |
+    |Painel  |Description  |
     |---------|---------|
     |**Novo conjunto de regras de digitalização** /<br>**Digitalizar a descrição da regra**    |   Introduza um nome significativo e uma descrição opcional para o seu conjunto de regras      |
     |**Selecione tipos de ficheiros**     | Selecione todos os tipos de ficheiros que pretende incluir na digitalização e, em seguida, selecione **Continue**.<br><br>Para adicionar um novo tipo de ficheiro, selecione **novo tipo de ficheiro** e defina o seguinte: <br>- A extensão do ficheiro que pretende adicionar <br>- Uma descrição opcional  <br>- Se o conteúdo do ficheiro tem um delimiter personalizado ou se é um tipo de ficheiro do sistema. Em seguida, insira o seu delimiter personalizado ou selecione o tipo de ficheiro do sistema. <br><br>Selecione **Criar** para criar o seu tipo de ficheiro personalizado.     |

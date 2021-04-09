@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
 ms.openlocfilehash: dcbe44defeb89ad2f67833b263e5f4983070a46c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863535"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Como monitorizar a disponibilidade de clusters com Apache Ambari em Azure HDInsight
@@ -52,7 +52,7 @@ Para ver uma lista de definições de alerta e seus estados, selecione o separad
 
 Ambari oferece muitos alertas predefinidos relacionados com a disponibilidade, incluindo:
 
-| Nome do Alerta                        | Descrição   |
+| Nome do Alerta                        | Description   |
 |---|---|
 | Resumo da saúde dataNode           | Este alerta de nível de serviço é desencadeado se houver DataNodes pouco saudáveis|
 | NomeNode Alta Disponibilidade Saúde | Este alerta de nível de serviço é acionado se o Nome Activonode ou o Nome de StandbyNode não estiverem em execução.|

@@ -7,10 +7,10 @@ ms.date: 02/28/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 15822c357db63db81e6c1efda2467279a98d7c34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99594151"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interagir com objetos e componentes de jogos do Unity
