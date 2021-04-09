@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a2c83fc0f4776e1ded2c8c12cb990ab227f048b
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 44091cda479f2c0ccbe77bb9989ee2eda4c40f9d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109017"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727098"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -167,7 +167,7 @@ Para obter uma explicação dos canais de atualização do office, consulte [a v
 
 As alterações de política introduzidas pelos administradores podem levar até um dia a ser eficazes. Foi feita alguma otimização para reduzir o atraso para duas horas. No entanto, ainda não cobre todos os cenários. 
 
-Se houver uma emergência e precisar de ter as suas políticas atualizadas para ser aplicada imediatamente a determinados utilizadores, deverá utilizar este [comando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) ou "Revogue a Sessão" na página do perfil do utilizador para revogar a sessão dos utilizadores, o que garantirá que as políticas atualizadas serão aplicadas imediatamente.
+Se houver uma emergência e precisar de ter as suas políticas atualizadas para ser aplicada imediatamente a determinados utilizadores, deverá utilizar este [comando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) ou "Revogue a Sessão" na página do perfil do utilizador para revogar a sessão dos utilizadores, o que garantirá que as políticas atualizadas serão aplicadas imediatamente.
 
 ### <a name="coauthoring-in-office-apps"></a>Coautoria em aplicativos office
 

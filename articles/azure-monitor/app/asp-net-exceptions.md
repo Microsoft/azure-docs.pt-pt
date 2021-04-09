@@ -4,12 +4,12 @@ description: Capture exceções de aplicações ASP.NET juntamente com a telemet
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
-ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 926516075c7d43e6e800403a69ff3ab8f1233fcd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88936508"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726996"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas aplicações Web com o Application Insights
 As exceções na sua aplicação web ao vivo são reportadas pela [Application Insights](./app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos tanto no cliente como no servidor, para que possa diagnosticar rapidamente as causas.
@@ -215,7 +215,7 @@ As exceções não tratadas originárias dos controladores resultam normalmente 
 ### <a name="prior-versions-support"></a>Suporte de versões anteriores
 Se utilizar O MVC 4 (e anterior) da Aplicação Insights Web SDK 2.5 (e anterior), consulte os seguintes exemplos para rastrear exceções.
 
-Se a configuração [CustomErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) for `Off` , então estarão disponíveis exceções para o [Módulo HTTP](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)) recolher. No entanto, se for `RemoteOnly` (predefinitivo), `On` ou, então, a exceção será apurada e não disponível para os Insights de Aplicação recolherem automaticamente. Pode corrigi-lo sobressaíndo a [classe System.Web.Mvc.HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute?view=aspnet-mvc-5.2), e aplicando a classe overridden como mostrado para as diferentes versões MVC abaixo[(fonte GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Se a configuração [CustomErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) for `Off` , então estarão disponíveis exceções para o [Módulo HTTP](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)) recolher. No entanto, se for `RemoteOnly` (predefinitivo), `On` ou, então, a exceção será apurada e não disponível para os Insights de Aplicação recolherem automaticamente. Pode corrigi-lo sobressaíndo a [classe System.Web.Mvc.HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute), e aplicando a classe overridden como mostrado para as diferentes versões MVC abaixo[(fonte GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;

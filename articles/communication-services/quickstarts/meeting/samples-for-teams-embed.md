@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
 ms.openlocfilehash: 27f574676b17ed2e1f7defec7e555350c39d685f
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803744"
 ---
 # <a name="use-the-communication-services-teams-embed-library"></a>Utilize a biblioteca de equipas de serviços de comunicação

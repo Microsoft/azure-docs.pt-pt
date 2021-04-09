@@ -7,10 +7,10 @@ ms.date: 6/29/2017
 ms.author: mcoskun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f5b48cc6cca2e143c48ed7bdfc99de936be2a227
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784584"
 ---
 # <a name="reliable-services-notifications"></a>Notificações de Serviços Fiáveis

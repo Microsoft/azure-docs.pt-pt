@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5b3dd9ae4113c3c9fe4b0547f990dc7e912b99f5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634707"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726418"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -298,8 +298,8 @@ Para garantir uma experiência consistente para todos os utilizadores, independe
 
 |Recomendação unificada|Alterar descrição|
 |----|:----|
-|**Uma solução de avaliação de vulnerabilidades deve ser ativada nas suas máquinas virtuais**|Substitui as duas seguintes recomendações:<br> **• •** Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys (agora depreciadas) (Incluída com nível padrão)<br> **• •** A solução de avaliação de vulnerabilidades deve ser instalada nas suas máquinas virtuais (agora depreciadas) (Níveis standard e gratuitos)|
-|**As vulnerabilidades nas suas máquinas virtuais devem ser remediadas**|Substitui as duas seguintes recomendações:<br>**• •** Corrigir vulnerabilidades encontradas nas suas máquinas virtuais (alimentadas por Qualys) (agora depreciadas)<br>**• •** As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades (agora depreciada)|
+|**Uma solução de avaliação de vulnerabilidades deve ser ativada nas suas máquinas virtuais**|Substitui as duas seguintes recomendações:<br> Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys (agora depreciadas) (Incluída com nível padrão)<br> A solução de avaliação de vulnerabilidades deve ser instalada nas suas máquinas virtuais (agora depreciadas) (Níveis standard e gratuitos)|
+|**As vulnerabilidades nas suas máquinas virtuais devem ser remediadas**|Substitui as duas seguintes recomendações:<br>Corrigir vulnerabilidades encontradas nas suas máquinas virtuais (alimentadas por Qualys) (agora depreciadas)<br>As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades (agora depreciada)|
 |||
 
 Agora você usará a mesma recomendação para implementar a extensão de avaliação de vulnerabilidade do Security Center ou uma solução licenciada privada ("BYOL") de um parceiro como Qualys ou Rapid7.
@@ -312,20 +312,20 @@ Se tiver scripts, consultas ou automatizações referentes às recomendações a
 
 ##### <a name="before-august-2020"></a>Antes de agosto de 2020
 
-|Recomendação|Âmbito|
+| Recomendação|Âmbito|
 |----|:----|
 |**Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys)**<br>Chave: 550e890b-e652-4d22-8274-60b3bdb24c63|Incorporado|
 |**Corrigir vulnerabilidades encontradas nas suas máquinas virtuais (alimentadas por Qualys)**<br>Chave: 1195afff-c881-495e-9bc5-1486211ae03f|Incorporado|
 |**Solução de avaliação de vulnerabilidades deve ser instalada nas suas máquinas virtuais**<br>Chave: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
 |**As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades**<br>Chave: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
-||||
+|||
 
 
 |Política|Âmbito|
 |----|:----|
 |**A avaliação da vulnerabilidade deve ser ativada em máquinas virtuais**<br>ID da política: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Incorporado|
 |**As vulnerabilidades devem ser remediadas por uma solução de avaliação de vulnerabilidades**<br>ID da política: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
-||||
+|||
 
 
 ##### <a name="from-august-2020"></a>A partir de agosto de 2020
@@ -334,12 +334,12 @@ Se tiver scripts, consultas ou automatizações referentes às recomendações a
 |----|:----|
 |**Uma solução de avaliação de vulnerabilidades deve ser ativada nas suas máquinas virtuais**<br>Chave: ffff0522-1e88-47fc-8382-2a80ba848f5d|Incorporado + BYOL|
 |**As vulnerabilidades nas suas máquinas virtuais devem ser remediadas**<br>Chave: 1195afff-c881-495e-9bc5-1486211ae03f|Incorporado + BYOL|
-||||
+|||
 
 |Política|Âmbito|
 |----|:----|
 |[**A avaliação da vulnerabilidade deve ser ativada em máquinas virtuais**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID da política: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Incorporado + BYOL|
-||||
+|||
 
 
 ### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Novas políticas de segurança AKS adicionadas à iniciativa ASC_default – para utilização apenas por clientes privados de pré-visualização
@@ -899,7 +899,7 @@ A proteção contra ameaças para o Azure Storage oferece novas deteções alime
 
 Organizações com segurança gerida centralmente e TI/operações implementam processos internos de fluxo de trabalho para impulsionar a ação necessária dentro da organização quando as discrepâncias são descobertas nos seus ambientes. Em muitos casos, estes fluxos de trabalho são processos repetíveis e a automatização pode agilizar muito os processos dentro da organização.
 
-Hoje estamos a introduzir uma nova capacidade no Security Center que permite aos clientes criar configurações de automação alavancando as Aplicações Lógicas Azure e criar políticas que as desencadeiem automaticamente com base em resultados específicos da ASC, como Recomendações ou Alertas. A Azure Logic App pode ser configurada para fazer qualquer ação personalizada suportada pela vasta comunidade de conectores Logic App, ou usar um dos modelos fornecidos pelo Security Center, como o envio de um e-mail ou a abertura de um bilhete serviceNow™.
+Hoje estamos a introduzir uma nova capacidade no Security Center que permite aos clientes criar configurações de automação alavancando as Aplicações Lógicas Azure e criar políticas que as desencadeiem automaticamente com base em resultados específicos da ASC, como Recomendações ou Alertas. A Azure Logic App pode ser configurada para fazer qualquer ação personalizada suportada pela vasta comunidade de conectores Logic App, ou usar um dos modelos fornecidos pelo Security Center, como o envio de um e-mail ou a abertura de um &trade; bilhete ServiceNow.
 
 Para obter mais informações sobre as capacidades automáticas e manuais do Centro de Segurança para executar os seus fluxos de trabalho, consulte [a automatização do fluxo de trabalho.](workflow-automation.md)
 

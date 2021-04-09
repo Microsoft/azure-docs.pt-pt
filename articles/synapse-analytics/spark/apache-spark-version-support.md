@@ -9,10 +9,10 @@ ms.subservice: spark
 ms.date: 01/04/2021
 ms.author: midesa
 ms.openlocfilehash: 1ed998412e1447e21b11bc08b1d69314f0ab7de5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100379935"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Versões de linguagem e tempo de execução suportadas para Apache Spark e componentes dependentes  

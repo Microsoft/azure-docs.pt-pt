@@ -12,10 +12,10 @@ ms.date: 03/23/2021
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: d6e553e93d97f02c618fa33a41b939f90e9042c9
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105027685"
 ---
 # <a name="identity-verification-and-proofing-partners"></a>Parceiros de verificação e revisão de identidade
