@@ -7,10 +7,10 @@ ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
 ms.openlocfilehash: 980e8e3c2f2c1ca1dc716df1e77caaa3fe3181aa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100386174"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Executar pacotes de Serviços de Integração de ServidorES SQL com o utilitário dtexec habilitado para a Azure

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: pafarley
 ms.openlocfilehash: f280e1a70ab595a87789c7514d8cce4fccbe8e84
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046900"
 ---
 # <a name="whats-new-in-face-service"></a>O que há de novo no serviço Face?

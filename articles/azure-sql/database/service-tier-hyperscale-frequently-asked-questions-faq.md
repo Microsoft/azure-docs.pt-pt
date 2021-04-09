@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: ''
 ms.date: 02/03/2021
 ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99526827"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FaQ de hiperescala da base de dados Azure SQL

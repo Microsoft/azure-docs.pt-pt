@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103574565"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividades de inscrição do Azure Ative Directory - pré-visualização
@@ -102,7 +102,7 @@ Na lâmina de relatório de inscrição, pode alternar entre:
 
 
 
-## <a name="user-sign-ins"></a>Insuposições de utilizador
+## <a name="user-sign-ins&quot;></a>Insuposições de utilizador
 
 Cada separador na lâmina de inscrição mostra as colunas predefinidos abaixo. Alguns separadores têm colunas adicionais:
 
@@ -120,7 +120,7 @@ Cada separador na lâmina de inscrição mostra as colunas predefinidos abaixo. 
 
 
 
-### <a name="interactive-user-sign-ins"></a>Insuposições interativas do utilizador
+### <a name=&quot;interactive-user-sign-ins&quot;></a>Insuposições interativas do utilizador
 
 
 As entradas interativas do utilizador são inserções em que um utilizador fornece um fator de autenticação ao Azure AD ou interage diretamente com a AZure AD ou uma aplicação auxiliar, como a aplicação Microsoft Authenticator. Os fatores que os utilizadores fornecem incluem palavras-passe, respostas a desafios de MFA, fatores biométricos ou códigos QR que um utilizador fornece ao Azure AD ou a uma aplicação auxiliar.
@@ -155,7 +155,7 @@ Além dos campos predefinidos, o relatório de inscrições interativo também m
 
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
-![Colunas de inscrição interativas do utilizador](./media/concept-all-sign-ins/columns-interactive.png "Colunas de inscrição interativas do utilizador")
+![Colunas de inscrição interativas do utilizador](./media/concept-all-sign-ins/columns-interactive.png &quot;Colunas de inscrição interativas do utilizador")
 
 
 

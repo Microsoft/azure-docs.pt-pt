@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: stegag
 ms.openlocfilehash: 232e084e44696c6aa88a9dd33092c48a96e35f85
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104772009"
 ---
 # <a name="troubleshoot-azure-vpn-gateway-using-diagnostic-logs"></a>Resolução de problemas Azure VPN Gateway usando registos de diagnóstico

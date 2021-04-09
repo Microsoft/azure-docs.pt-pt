@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.openlocfilehash: 8368ca0ca4c3f2f0ab3cb88a5d54295d71451636
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98898024"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento de palavras
@@ -49,7 +49,7 @@ Exemplo JSON
         "text": "Kann ich morgen Ihr Auto fahren?",
         "to": "de",
         "alignment": {
-          "proj": "0:2-0:3 4:4-5:7 6:10-25:30 12:15-16:18 17:19-20:23 21:28-9:14 29:29-31:31"
+          "proj&quot;: &quot;0:2-0:3 4:4-5:7 6:10-25:30 12:15-16:18 17:19-20:23 21:28-9:14 29:29-31:31"
         }
       }
     ]

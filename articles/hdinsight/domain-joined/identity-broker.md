@@ -5,17 +5,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/03/2020
 ms.openlocfilehash: c5bc5bc702dbd54bbad43aa4e1c6c8650c18e088
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863195"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Corretor de ID Azure HDInsight (HIB)
 
 Este artigo descreve como configurar e usar a função Azure HDInsight ID Broker. Você pode usar esta funcionalidade para obter a autenticação moderna da OAuth para Apache Ambari enquanto tem aplicação de autenticação multifactor sem precisar de hashes de senha legado em Azure Ative Directory Domain Services (Azure AD DS).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 HdInsight ID Broker simplifica configurações de autenticação complexas nos seguintes cenários:
 

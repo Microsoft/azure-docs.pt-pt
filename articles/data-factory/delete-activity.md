@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 3021d29f472dbbf43ae53981287b1f4676e8f932
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100392719"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade de Eliminação no Azure Data Factory
