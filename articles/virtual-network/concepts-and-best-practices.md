@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
 ms.openlocfilehash: 0a9945a58aa6ec49ad58f3a0a0d03ea75e30f6d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98223623"
 ---
 # <a name="azure-virtual-network-concepts-and-best-practices"></a>Conceitos e boas práticas da Rede Virtual Azure

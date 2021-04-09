@@ -10,10 +10,10 @@ ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
 ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101643535"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
@@ -26,7 +26,7 @@ Este artigo abrange informações sobre a Azure Automanage para máquinas virtua
 - Proporciona uma experiência simples (ponto, clique, definir, esquecer)
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Automanage para máquinas virtuais é um serviço que elimina a necessidade de descobrir, saber a bordo e como configurar determinados serviços em Azure que beneficiariam a sua máquina virtual. Estes serviços são considerados como serviços de boas práticas da Azure, e ajudam a aumentar a fiabilidade, segurança e gestão de máquinas virtuais. Os serviços de exemplo incluem [Azure Update Management](../automation/update-management/overview.md) e [Azure Backup](../backup/backup-overview.md).
 

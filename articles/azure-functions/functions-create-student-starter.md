@@ -5,10 +5,10 @@ Customer intent: As a student, I want to be able to create an HTTP triggered Fun
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: f40405c9325743da5d1963e3baea781606d2d8d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96182534"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando Azure para iniciação de estudantes
