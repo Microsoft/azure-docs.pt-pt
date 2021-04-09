@@ -7,10 +7,10 @@ ms.service: iot-develop
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 6bbd7d37418af68065daa194d4ff4bd80f6fd09c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100654369"
 ---
 # <a name="overview-connection-options-for-azure-iot-device-developers"></a>Visão geral: Opções de conexão para desenvolvedores de dispositivos Azure IoT

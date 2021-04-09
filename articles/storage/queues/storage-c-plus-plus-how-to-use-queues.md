@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.openlocfilehash: 44d64c54049c02b6602f01b97effcc33b03dbcfe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97591332"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Como utilizar o Armazenamento de Filas a partir do C++
@@ -21,7 +21,7 @@ ms.locfileid: "97591332"
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este guia irá mostrar-lhe como executar cenários comuns utilizando o serviço de Armazenamento de Fila Azure. As amostras são escritas em C++ e utilizam a biblioteca de [clientes Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abordados incluem **inserir,** **espreitar,** **receber** e **apagar** mensagens de fila, bem como **criar e apagar filas.**
 

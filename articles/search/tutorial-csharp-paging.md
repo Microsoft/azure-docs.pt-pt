@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: bad4bc4d0016b2898b315bfb9799dc8972be7b12
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98785874"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Adicione paging aos resultados da pesquisa usando o .NET SDK
@@ -25,7 +25,7 @@ Neste tutorial, ficará a saber como:
 > * Estenda a sua app com paging numerado
 > * Estenda a sua app com scrolling infinito
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial sobrepõe um sistema de paging num projeto previamente criado descrito no tutorial da [sua primeira aplicação de pesquisa.](tutorial-csharp-create-first-app.md)
 

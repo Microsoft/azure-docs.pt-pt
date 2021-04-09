@@ -7,10 +7,10 @@ ms.date: 07/01/2018
 ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
 ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105543652"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Crie a sua primeira função Java em Azure usando IntelliJ

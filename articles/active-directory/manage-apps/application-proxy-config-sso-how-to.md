@@ -12,10 +12,10 @@ ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.openlocfilehash: 10b722edbe8d70c92e617c78db3d2fb1d46da3a5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99254109"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar o início de sessão único numa aplicação do Proxy de Aplicações

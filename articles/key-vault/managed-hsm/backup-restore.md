@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: e926dcd4b05d137c7927bdfe5221923d25d4670c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100093493"
 ---
 # <a name="full-backup-and-restore"></a>Cópia de segurança completa e restauro
@@ -23,16 +23,16 @@ ms.locfileid: "100093493"
 
 O HSM gerido suporta a criação de uma cópia de segurança completa de todo o conteúdo do HSM, incluindo todas as teclas, versões, atributos, tags e atribuições de funções. A cópia de segurança é encriptada com teclas criptográficas associadas ao domínio de segurança do HSM.
 
-A cópia de segurança é uma operação de avião de dados. O chamador que inicia a operação de backup deve ter permissão para executar dataAction **Microsoft.KeyVault/managedHsm/backup/start/action**.
+A cópia de segurança é uma operação do plano de dados. O chamador que inicia a operação de backup deve ter permissão para executar dataAction **Microsoft.KeyVault/managedHsm/backup/start/action**.
 
 Só os seguintes papéis incorporados têm permissão para realizar cópias de segurança completas:
-- Administrador gerido do HSM
-- Backup HSM gerido
+- Administrador do HSM Gerido
+- Cópia de Segurança do HSM Gerido
 
-Deve fornecer as seguintes informações para executar uma cópia de segurança completa:
+Tem de indicar as seguintes informações para executar uma cópia de segurança completa:
 - Nome ou URL do HSM
 - Nome da conta de armazenamento
-- Recipiente de armazenamento de bolhas de conta de armazenamento de conta de armazenamento
+- Contentor de armazenamento de blobs da conta de armazenamento
 - Recipiente de armazenamento SAS token com permissões `crdw`
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
