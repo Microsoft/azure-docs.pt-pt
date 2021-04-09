@@ -8,10 +8,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 5eb6680bba44872821a2f0d094d31d0ad994f8a0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589576"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Perfil ao vivo Serviços em Nuvem Azure com Insights de Aplicações

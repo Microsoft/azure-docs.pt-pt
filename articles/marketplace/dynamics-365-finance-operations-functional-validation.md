@@ -8,10 +8,10 @@ author: emuench
 ms.author: navits
 ms.date: 07/17/2020
 ms.openlocfilehash: 9be90cdac742a581c6346f923f44e769c8a70f76
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102613634"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 Validação funcional de Finanças e Operações

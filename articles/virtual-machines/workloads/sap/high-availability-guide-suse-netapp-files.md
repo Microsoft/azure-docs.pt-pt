@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
 ms.openlocfilehash: 83e770cb7eb1aace49745253dac3c757cebb4047
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101668678"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP
@@ -86,7 +86,7 @@ Leia primeiro as seguintes notas e artigos SAP:
 * [SUSE Extensão de Alta Disponibilidade 12 Notas de lançamento SP3][suse-ha-12sp3-relnotes]
 * [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A elevada disponibilidade (HA) para os serviços centrais DA NETWEaver requer armazenamento partilhado.
 Para o conseguir em SUSE Linux até agora, era necessário construir um cluster NFS altamente disponível. 

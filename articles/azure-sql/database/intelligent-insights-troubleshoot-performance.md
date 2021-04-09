@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
 ms.openlocfilehash: 17ea6716f090144e8dfef16721bfb69dc23e9912
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589326"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Resolução de problemas Azure SQL Database e Azure SQL Gerenciados Problemas de desempenho com Insights Inteligentes
@@ -32,7 +32,7 @@ Esta página fornece informações sobre a Base de Dados Azure SQL e os problema
 
 A Intelligent Insights deteta automaticamente problemas de desempenho baseados em tempos de espera de execução de consultas, erros ou intervalos de tempo. As saídas de Insights Inteligentes detetaram padrões de desempenho no registo de recursos. Padrões de desempenho detetáveis são resumidos na tabela abaixo.
 
-| Padrões de desempenho detetáveis | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
+| Padrões de desempenho detetáveis | Base de Dados SQL do Azure | Instância Gerida do SQL do Azure |
 | :------------------- | ------------------- | ------------------- |
 | [Atingir limites de recursos](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | O consumo de recursos disponíveis (DTUs), linhas de trabalhadores de base de dados ou sessões de login de base de dados disponíveis na subscrição monitorizada atingiu os seus limites de recursos. Isto está a afetar o desempenho. | O consumo de recursos da CPU está a atingir os seus limites de recursos. Isto está a afetar o desempenho da base de dados. |
 | [Aumento da carga de trabalho](intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detetado um aumento da carga de trabalho ou acumulação contínua de carga de trabalho na base de dados. Isto está a afetar o desempenho. | Foi detetado um aumento da carga de trabalho. Isto está a afetar o desempenho da base de dados. |

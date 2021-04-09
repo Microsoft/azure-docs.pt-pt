@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
 ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101724358"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Recursos para criar conectores personalizados Azure Sentinel

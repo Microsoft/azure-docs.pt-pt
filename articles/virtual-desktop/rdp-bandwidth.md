@@ -6,18 +6,19 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fe12c985f5d9a519380d1d9b5a7d6c2820630c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325184"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932340"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisitos de largura de banda do Protocolo remoto de Ambiente de Trabalho (RDP)
 
 Remote Desktop Protocol (RDP) é uma tecnologia sofisticada que utiliza várias técnicas para aperfeiçoar a entrega remota de gráficos do servidor ao dispositivo cliente. Dependendo do caso de utilização, disponibilidade de recursos informáticos e largura de banda de rede, o RDP ajusta dinamicamente vários parâmetros para proporcionar a melhor experiência do utilizador.
 
-O Protocolo remoto de Ambiente de Trabalho multiplexes múltiplos Canais Virtuais Dinâmicos (DVCs) num único canal de dados enviado por diferentes transportes de rede. Existem DVCs separados para gráficos remotos, entrada, reorientação do dispositivo, impressão, entre outros. A WVD Partners também pode implementar as suas extensões que utilizam interfaces DVC.
+O Protocolo remoto de Ambiente de Trabalho multiplexes múltiplos Canais Virtuais Dinâmicos (DVCs) num único canal de dados enviado por diferentes transportes de rede. Existem DVCs separados para gráficos remotos, entrada, reorientação do dispositivo, impressão e muito mais. Os parceiros virtuais do Windows Desktop também podem utilizar as suas extensões que utilizam interfaces DVC.
+
 A quantidade dos dados enviados através do PDR depende da atividade do utilizador. Por exemplo, um utilizador pode trabalhar com conteúdo textual básico durante a maior parte da sessão e consumir a largura de banda mínima, mas depois gerar uma impressão de um documento de 200 páginas para a impressora local. Esta impressão utilizará uma quantidade significativa de largura de banda de rede.
 
 Ao utilizar uma sessão remota, a largura de banda disponível da sua rede impacta drasticamente a qualidade da sua experiência. Diferentes aplicações e resoluções de exibição requerem configurações de rede diferentes, por isso é essencial garantir que a configuração da sua rede satisfaz as suas necessidades.

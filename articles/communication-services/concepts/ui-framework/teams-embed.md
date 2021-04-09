@@ -7,12 +7,12 @@ ms.author: chpalm
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 99263695aa0842daf59f23cda115dcb5b27b7add
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e55cfb1a4dff7bfda2323e68777d6f50514b1608
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804132"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930239"
 ---
 # <a name="teams-embed"></a>Equipas Embed
 
@@ -21,7 +21,7 @@ ms.locfileid: "104804132"
 
 Teams Embed é uma capacidade de Serviços de Comunicação Azure focada em interações comuns entre negócios e negócios e chamadas de chamadas. O núcleo do sistema Teams Embed é a [chamada de vídeo e voz](../voice-video-calling/calling-sdk-features.md), mas o sistema Teams Embed baseia-se nos primitivos de chamadas do Azure para oferecer uma experiência completa de utilizador baseada nas reuniões da Microsoft Teams.
 
-As bibliotecas de clientes Da Incorporação de Equipas são de origem fechada e disponibilizam-lhe estas capacidades num formato composto chave-na-mão. Deixa cair as Equipas Incorporadas na tela da sua aplicação e a biblioteca do cliente gera uma experiência completa do utilizador. Como esta experiência de utilizador é muito semelhante às reuniões do Microsoft Teams, pode aproveitar:
+As Equipas Embed SDKs são de origem fechada e disponibilizam estas capacidades num formato composto chave-na-mão. Deixa cair equipas incorporadas na tela da sua aplicação e o SDK gera uma experiência completa do utilizador. Como esta experiência de utilizador é muito semelhante às reuniões do Microsoft Teams, pode aproveitar:
 
 - Redução do tempo de desenvolvimento e complexidade da engenharia
 - Familiaridade do utilizador final com as equipas

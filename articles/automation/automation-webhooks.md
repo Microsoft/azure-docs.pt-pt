@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/18/2021
 ms.topic: conceptual
 ms.openlocfilehash: c46a8753c87e981d9e3d6ecdd698bbbe6cba9894
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104775787"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
@@ -120,7 +120,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 O cliente recebe um dos seguintes códigos de devolução do `POST` pedido.
 
-| Código | Texto | Descrição |
+| Código | Texto | Description |
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite, e o livro foi feito com sucesso. |
 | 400 |Pedido Incorreto |O pedido não foi aceite por uma das seguintes razões: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O símbolo na URL é inválido.</li>  </ul> |

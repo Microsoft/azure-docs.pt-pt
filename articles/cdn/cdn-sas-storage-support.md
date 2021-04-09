@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.openlocfilehash: ccf55e0e3986de8afe23cb646d4df743b576900c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101725327"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilização de Azure CDN com SAS

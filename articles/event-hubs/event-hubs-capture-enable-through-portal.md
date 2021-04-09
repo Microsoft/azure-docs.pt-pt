@@ -4,10 +4,10 @@ description: Este artigo descreve como permitir a captura de eventos através do
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 8c89a6e56c2d0bc7b7ff09d5fd63737009239eb9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100653956"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Permitir a captura de eventos transmitidos através dos Hubs de Eventos do Azure

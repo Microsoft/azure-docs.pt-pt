@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
 ms.openlocfilehash: 9df5c63ef175d0cf736ce16036466158ab6565f9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102618309"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB

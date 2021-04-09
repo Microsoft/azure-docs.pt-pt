@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 0dd250f0a8f67d7e370b8ff453e9cff4d88b7896
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866102"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight

@@ -15,16 +15,16 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 37cb8f5a2ff0916f53ae50f5750664204ab1ba75
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98737494"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ligue-se a uma máquina virtual SQL Server no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tópico descreve como ligar-se ao seu SQL na máquina virtual Azure (VM). Abrange [alguns cenários gerais de conectividade](#connection-scenarios) e, em seguida, fornece [passos no portal para alterar as definições de conectividade](#change). Se precisar de resolução de problemas ou configurar a conectividade fora do portal, consulte a [configuração manual](#manual) no final deste tópico. 
 

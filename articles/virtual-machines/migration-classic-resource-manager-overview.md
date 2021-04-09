@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 116e99339ac79e9e6a2de5e7a6222460a71bf4a1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102615096"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager

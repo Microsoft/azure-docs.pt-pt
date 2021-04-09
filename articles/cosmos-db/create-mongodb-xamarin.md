@@ -10,10 +10,10 @@ ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 75db62b4f8a5c6512ca5fc84d149513fe81f6019
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101658236"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>QuickStart: Construa uma app Xamarin.Forms com API da .NET SDK e Azure Cosmos DB para a MongoDB

@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a49c55da0bb8018b3faa7c6f70b02e79d9478603
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666690"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários apoiados para HANA Grandes Instâncias
@@ -39,7 +39,7 @@ Vamos entender os termos e definições que são usados neste artigo:
 - **Multi-SID**: Um sistema com múltiplas instâncias configuradas; também chamado de ambiente MCOS
 - **HSR**: Replicação do sistema SAP HANA
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 HANA Large Instances suporta uma variedade de arquiteturas para ajudá-lo a cumprir os seus requisitos de negócio. As secções seguintes cobrem os cenários arquitetónicos e os seus detalhes de configuração. 
 
 O design de arquitetura derivada é puramente do ponto de vista da infraestrutura, e você deve consultar SAP ou seus parceiros de implementação para a implementação HANA. Se os seus cenários não estiverem listados neste artigo, contacte a equipa de conta da Microsoft para rever a arquitetura e obter uma solução para si.
@@ -406,7 +406,7 @@ Esta topologia suporta dois nós numa configuração de falha automática hosped
 
 ![Realização de falha automática (1+1)](media/hana-supported-scenario/scaleup-with-standby.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet&quot;></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
 
 | Interface lógica NIC | Tipo SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de utilização|
@@ -420,7 +420,7 @@ As seguintes interfaces de rede estão pré-configuradas:
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Armazenamento
+### <a name=&quot;storage&quot;></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -433,9 +433,9 @@ Os seguintes pontos de montagem são pré-configurados:
 
 
 
-### <a name="key-considerations"></a>Considerações principais
+### <a name=&quot;key-considerations&quot;></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- Em modo de espera: Os volumes e os pontos de montagem estão configurados (marcados como "Necessários para a instalação HANA") para a instalação de exemplo HANA na unidade de espera.
+- Em modo de espera: Os volumes e os pontos de montagem estão configurados (marcados como &quot;Necessários para a instalação HANA") para a instalação de exemplo HANA na unidade de espera.
  
 
 ## <a name="scale-out-with-standby"></a>Escala-out com standby
@@ -522,7 +522,7 @@ Esta topologia suporta múltiplos nós em escala com um DR. Os DRs normais e mul
 ![Escala com DR usando replicação de armazenamento](media/hana-supported-scenario/scaleout-with-dr.png)
 
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet&quot;></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
 
 | Interface lógica NIC | Tipo SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de utilização|
@@ -536,7 +536,7 @@ As seguintes interfaces de rede estão pré-configuradas:
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Armazenamento
+### <a name=&quot;storage&quot;></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -552,9 +552,9 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/SID/mnt00001 | Instalação de ficheiros de registo para produção SID | 
 
 
-### <a name="key-considerations"></a>Considerações principais
+### <a name=&quot;key-considerations&quot;></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
--  No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "Necessários para a instalação HANA") para a instalação de exemplo HANA de produção na unidade DR HLI. 
+-  No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como &quot;Necessários para a instalação HANA") para a instalação de exemplo HANA de produção na unidade DR HLI. 
 - No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](./hana-overview-high-availability-disaster-recovery.md) 
 - O volume de arranque da *classe SKU Tipo I* é replicado no nó DR.
 
@@ -658,7 +658,7 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ![Alta disponibilidade e recuperação de desastres com HSR](media/hana-supported-scenario/hana-system-replication-dr-131.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet&quot;></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
 
 | Interface lógica NIC | Tipo SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de utilização|
@@ -672,7 +672,7 @@ As seguintes interfaces de rede estão pré-configuradas:
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Armazenamento
+### <a name=&quot;storage&quot;></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -689,9 +689,9 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/logbackups/SID | Redo registos para a produção SID |
 
 
-### <a name="key-considerations"></a>Considerações principais
+### <a name=&quot;key-considerations&quot;></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "prod DR instance") para a instalação de instância HANA de produção na unidade DR HLI. 
+- No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como &quot;prod DR instance") para a instalação de instância HANA de produção na unidade DR HLI. 
 - O nó do local primário sincroniza-se com o nó DR utilizando a replicação do sistema HANA. 
 - [O Global Reach](../../../expressroute/expressroute-global-reach.md) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
 
@@ -703,7 +703,7 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ![Alta disponibilidade e recuperação de desastres com HSR (otimizado em custos)](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet&quot;></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
 
 | Interface lógica NIC | Tipo SKU | Nome com SUSE OS | Nome com RHEL OS | Caso de utilização|
@@ -717,7 +717,7 @@ As seguintes interfaces de rede estão pré-configuradas:
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nó-a-armazenamento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado, mas não em uso |
 
-### <a name="storage"></a>Armazenamento
+### <a name=&quot;storage&quot;></a>Armazenamento
 Os seguintes pontos de montagem são pré-configurados:
 
 | Ponto de montagem | Caso de utilização | 
@@ -737,9 +737,9 @@ Os seguintes pontos de montagem são pré-configurados:
 |/hana/log/QA-SID/mnt00001 | Instalação de ficheiros de registo para QA SID |
 |/hana/logbackups/QA-SID | Redo registos para QA SID |
 
-### <a name="key-considerations"></a>Considerações principais
+### <a name=&quot;key-considerations&quot;></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "prod DR instance") para a instalação de instância HANA de produção na unidade DR HLI. 
+- No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como &quot;prod DR instance") para a instalação de instância HANA de produção na unidade DR HLI. 
 - No site DR: Os dados, cópias de segurança, registos e volumes partilhados para QA (marcado como "instalação de instância QA") estão configurados para a instalação de instância QA.
 - O nó do local primário sincroniza-se com o nó DR utilizando a replicação do sistema HANA. 
 - [O Global Reach](../../../expressroute/expressroute-global-reach.md) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.

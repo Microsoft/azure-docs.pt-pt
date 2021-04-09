@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/18/2021
-ms.openlocfilehash: 7678d0fde21cefc950e0ac64a58563425c606298
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.date: 03/25/2021
+ms.openlocfilehash: 72ab685b58f7d940fe4d682cacba6212fe80ced8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105640216"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933088"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
 
@@ -341,6 +341,110 @@ Este artigo explora métodos comuns de resolução de problemas para mapear flux
 1. Verifique o estado das suas ligações de conjunto de dados. Em cada origem e transformação de pia, vá ao serviço ligado para cada conjunto de dados que está a usar e teste as ligações.
 2. Verifique o estado do seu ficheiro e ligações de tabela no designer de fluxo de dados. No modo de depurar, selecione **Data Preview** nas suas transformações de origem para garantir que pode aceder aos seus dados.
 3. Se tudo parecer correto na pré-visualização de dados, vá ao designer pipeline e coloque o seu fluxo de dados numa atividade pipeline. Depurar o oleoduto para um teste de ponta a ponta.
+
+### <a name="improvement-on-csvcdm-format-in-data-flow"></a>Melhoria do formato CSV/CDM no Fluxo de Dados 
+
+Se utilizar o **texto delimitado ou o formatação CDM para mapear o fluxo de dados na Azure Data Factory V2,** poderá enfrentar as alterações de comportamento nos seus oleodutos existentes devido à melhoria do texto/CDM delimitado no fluxo de dados a partir de 1 de maio de **2021**. 
+
+Pode encontrar os seguintes problemas antes da melhoria, mas após a melhoria, as questões foram corrigidas. Leia o seguinte conteúdo para determinar se esta melhoria o afeta. 
+
+#### <a name="scenario-1-encounter-the-unexpected-row-delimiter-issue"></a>Cenário 1: Encontrar a emissão inesperada dolimiter da linha
+
+ Você é afetado se estiver nas seguintes condições:
+ - Utilizando o Texto Delimitado com a definição multiline definida para True ou CDM como fonte.
+ - A primeira linha tem mais de 128 caracteres. 
+ - O delimiter de linha nos ficheiros de dados não é `\n` .
+
+ Antes da melhoria, olimiter de linha padrão `\n` pode ser inesperadamente utilizado para analisar ficheiros de texto delimitados, porque quando a definição multiline é definida para True, invalida a definição delimiter de linha, e o delimiter de linha é automaticamente detetado com base nos primeiros 128 caracteres. Se não detetar o delimiter de linha real, ele recuará para `\n` .  
+
+ Após a melhoria, qualquer um dos delimiters de três linhas: `\r` , `\n` deve ser `\r\n` trabalhado.
+ 
+ O exemplo a seguir mostra uma mudança de comportamento do pipeline após a melhoria:
+
+ **Exemplo:**<br/>
+   Para a seguinte coluna:<br/>
+    `C1, C2, {long first row}, C128\r\n `<br/>
+    `V1, V2, {values………………….}, V128\r\n `<br/>
+ 
+   Antes da melhoria, `\r` é mantido no valor da coluna. O resultado da coluna analisada é:<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
+
+   Após a melhoria, o resultado da coluna de análise deve ser:<br/>
+   `C1 C2 {long first row} C128`<br/>
+   `V1 V2 {values………………….} V128`<br/>
+  
+#### <a name="scenario-2-encounter-an-issue-of-incorrectly-reading-column-values-containing-rn"></a>Cenário 2: Encontrar um problema de valores de coluna de leitura incorreta que contenham '\r\n'
+
+ Você é afetado se estiver nas seguintes condições:
+ - Utilizar o Texto Delimitado com a definição multiline definida para True ou CDM como fonte. 
+ - O delimiter de linha `\r\n` é.
+
+ Antes da melhoria, ao ler o valor da coluna, o `\r\n` interior pode ser substituído incorretamente por `\n` . 
+
+ Após a melhoria, `\r\n` o valor da coluna não será substituído por `\n` .
+
+ O exemplo a seguir mostra uma mudança de comportamento do pipeline após a melhoria:
+ 
+ **Exemplo:**<br/>
+  
+ Para a seguinte coluna:<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
+
+ Antes da melhoria, o resultado da coluna analisada é:<br/>
+  **`A\n`**` B C`<br/>
+
+ Após a melhoria, o resultado da coluna de análise deve ser:<br/>
+  **`A\r\n`**` B C`<br/>  
+
+#### <a name="scenario-3-encounter-an-issue-of-incorrectly-writing-column-values-containing-n"></a>Cenário 3: Encontrar uma questão de escrever incorretamente valores de colunas contendo '\n'
+
+ Você é afetado se estiver nas seguintes condições:
+ - Utilizando o Texto Delimitado como pia.
+ - O valor da coluna `\n` contém.
+ - O delimiter de linha está definido para `\r\n` .
+ 
+ Antes da melhoria, ao escrever o valor da coluna, o `\n` in pode ser substituído incorretamente por `\r\n` . 
+
+ Após a melhoria, `\n` o valor da coluna não será substituído por `\r\n` .
+ 
+ O exemplo a seguir mostra uma mudança de comportamento do pipeline após a melhoria:
+
+ **Exemplo:**<br/>
+
+ Para a seguinte coluna:<br/>
+ **`A\n`**` B C`<br/>
+
+ Antes da melhoria, o lavatório CSV é:<br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
+
+ Após a melhoria, o lavatório CSV deve ser:<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
+
+#### <a name="scenario-4-encounter-an-issue-of-incorrectly-reading-empty-string-as-null"></a>Cenário 4: Encontre uma questão de ler incorretamente a corda vazia como NULO
+ 
+ Você é afetado se estiver nas seguintes condições:
+ - Utilizar o Texto Delimitado como fonte. 
+ - O valor NULO é definido para valor não vazio. 
+ - O valor da coluna é de corda vazia e não é citado. 
+ 
+ Antes da melhoria, o valor da coluna da corda vazia não citada é lido como NU. 
+
+ Após a melhoria, a corda vazia não será analisada como valor NU. 
+ 
+ O exemplo a seguir mostra uma mudança de comportamento do pipeline após a melhoria:
+
+ **Exemplo:**<br/>
+
+ Para a seguinte coluna:<br/>
+  `A, ,B, `<br/>
+
+ Antes da melhoria, o resultado da coluna analisada é:<br/>
+  `A null B null`<br/>
+
+ Após a melhoria, o resultado da coluna de análise deve ser:<br/>
+  `A "" (empty string) B "" (empty string)`<br/>
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

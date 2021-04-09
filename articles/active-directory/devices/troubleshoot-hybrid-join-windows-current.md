@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3fd837a4c547b227147752b03b6a7312c733a5ae
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578027"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057019"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Resolver problemas de dispositivos associados ao Azure Active Directory híbrido
 
@@ -370,6 +370,12 @@ Utilize registos do Visualizador de Eventos para localizar a fase e o código de
 - **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866)
    - Razão: A ligação com o servidor foi terminada anormalmente.
    - Resolução: Relemca após algum tempo ou tente juntar-se a partir de uma localização de rede estável alternativa.
+
+##### <a name="other-errors"></a>Outros Erros
+
+- **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
+   - Razão: O EventID 220 está presente nos registos de eventos do User Device. O Windows não pode aceder ao objeto do computador no Ative Directory. Um código de erro do Windows pode ser incluído no caso. Para códigos de erro ERROR_NO_SUCH_LOGON_SESSION (1312) e ERROR_NO_SUCH_USER (1317), estes estão relacionados com problemas de replicação em AD no local.
+   - Resolução: Problemas de replicação de resolução de problemas em AD. Problemas de replicação podem ser transitórios e podem ir muito longe após um período de tempo.
 
 ##### <a name="federated-join-server-errors"></a>Federado juntam-se a erros de servidor
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: ef2bc5e00779200e5447c8829a437824657a2227
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104865983"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook em aglomerados Apache Spark em Azure HDInsight

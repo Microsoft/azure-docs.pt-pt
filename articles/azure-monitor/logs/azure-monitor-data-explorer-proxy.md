@@ -7,10 +7,10 @@ ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.openlocfilehash: a800f78df26ce76144994bb9da2cac6271323eb4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419427"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta de recursos cruzados Azure Data Explorer usando O Monitor de Azure

@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.openlocfilehash: 014bbe4421bf00f35b2d80505cea288e75f8ca94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103224678"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Perguntas frequentes para SQL Server em VMs Azure
@@ -85,7 +85,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
    Primeiro crie uma máquina virtual Azure com uma instância SQL Server. Em seguida, migrar as suas bases de dados no local para esse caso. Para estratégias de migração de dados, consulte [a migração de uma base de dados SQL Server para o SQL Server num VM Azure](migrate-to-vm-from-sql-server.md).
 
-## <a name="licensing"></a>Licensing
+## <a name="licensing"></a>Licenciamento
 
 1. **Como posso instalar a minha cópia licenciada do SQL Server numa VM do Azure?**
 

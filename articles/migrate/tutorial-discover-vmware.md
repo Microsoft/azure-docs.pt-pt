@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
 ms.openlocfilehash: 09b04c67519bfa920a3781612823c5755cbc6d2d
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105627800"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descubra servidores em execução em ambiente VMware com Azure Migrate: Descoberta e avaliação

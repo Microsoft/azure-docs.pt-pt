@@ -5,10 +5,10 @@ ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 8e53ab0ae4cc463bea8a6a8cb6d339f94fdcac6d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99626041"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas de malha de tecido de serviço comumente

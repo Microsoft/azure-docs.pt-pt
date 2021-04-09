@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.openlocfilehash: f4c5a23b604334952730fcc4cf1fcb3fcbed6237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944390"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Não é possível aceder a ficheiros de armazenamento do Data Lake em Azure HDInsight

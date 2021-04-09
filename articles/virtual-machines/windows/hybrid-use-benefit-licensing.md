@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.openlocfilehash: c5a9386540f418c8f490ca146e250e780737e478
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101668070"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server

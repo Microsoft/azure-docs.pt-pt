@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: memildin
 ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100652111"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerir incidentes de segurança no Centro de Segurança Azure

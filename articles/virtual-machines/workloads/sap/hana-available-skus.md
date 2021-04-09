@@ -15,10 +15,10 @@ ms.date: 12/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25a11bf96ba680608e5bb22835becf80fadee4f3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101668923"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKUs disponíveis para grandes instâncias HANA
