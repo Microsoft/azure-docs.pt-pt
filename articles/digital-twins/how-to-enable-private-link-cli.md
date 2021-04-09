@@ -8,10 +8,10 @@ ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 5bd7ffda508980a9a56d86037887fc53a0fed640
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102202948"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Permitir o acesso privado com Link Privado (pré-visualização): Azure CLI

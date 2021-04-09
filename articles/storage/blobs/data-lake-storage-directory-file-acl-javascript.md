@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
 ms.openlocfilehash: 678af3e2fb4111593ece0cc2cdf3811cf0e793a8
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104774767"
 ---
 # <a name="use-javascript-sdk-in-nodejs-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utilize o JavaScript SDK em Node.js para gerir diretórios e ficheiros em Azure Data Lake Storage Gen2
@@ -263,4 +263,4 @@ async function ListFilesInDirectory(fileSystemClient) {
 
 - [Pacote (Gestor de Pacotes de Nó)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 - [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
-- [Enviar Comentários](https://github.com/Azure/azure-sdk-for-java/issues)
+- [Dar feedback](https://github.com/Azure/azure-sdk-for-java/issues)

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.openlocfilehash: 4ad05281f13885327c855a261a3101388f38af83
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98878058"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)

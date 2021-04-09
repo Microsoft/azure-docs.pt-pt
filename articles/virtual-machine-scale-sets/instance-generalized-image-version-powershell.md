@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 9edade1aa54d6f4f8160a107f84e6da2e6cf316e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98878024"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Crie um conjunto de escala a partir de uma imagem generalizada usando PowerShell 

@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 783cfc75fea1575c6404477581bd5e2c8b668959
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104577126"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK v2 para SQL API: Lançar notas e recursos
@@ -46,7 +46,7 @@ ms.locfileid: "104577126"
 |**Tutorial de aplicativo web**|[Desenvolvimento de aplicações web com Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Framework suportado atualmente**|[.NET Standard 1.6 e .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
-## <a name="release-notes"></a>Release Notes (Notas de Lançamento)
+## <a name="release-notes"></a>Notas de Versão
 
 > [!NOTE]
 > Se estiver a utilizar o .NET Core, consulte a versão mais recente 3.x do [.NET SDK](sql-api-sdk-dotnet-standard.md), que visa .NET Standard.

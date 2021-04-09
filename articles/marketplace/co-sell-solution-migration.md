@@ -9,10 +9,10 @@ ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/04/2021
 ms.openlocfilehash: 7ffb5a3dfd23a1515c6d21784b82ccdbf0674f0e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104593412"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de co-venda da OCP GTM para o mercado comercial

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: v-doeris
 ms.openlocfilehash: beef869b891fe6e3f0ea2f667763cb310008b2fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101653274"
 ---
 # <a name="quickstart-acquire-an-access-token-and-call-the-microsoft-graph-api-from-an-electron-desktop-app"></a>Quickstart: Adquirir um token de acesso e ligar para a Microsoft Graph API a partir de uma aplicação de desktop Electron

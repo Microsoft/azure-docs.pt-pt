@@ -8,10 +8,10 @@ author: swinarko
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: 158e2db5261ce35713e1564cd24f0dd1d563ab78
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100370211"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell script - implementar o tempo de execução da integração Azure-SSIS

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 96384d2c50e7d5b4b5b6e652d01c4a89cd519573
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99493404"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ligue as funções Azure ao armazenamento do Azure utilizando o Código do Estúdio Visual

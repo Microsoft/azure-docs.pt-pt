@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
 ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100634175"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Alertas de Supressão do Azure Defender

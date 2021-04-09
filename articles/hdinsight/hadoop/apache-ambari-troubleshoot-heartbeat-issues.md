@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: 5eebde42098d74f533565d274b693c4a06f2f60d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98946731"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemas de heartbeat do Apache Ambari no Azure HDInsight

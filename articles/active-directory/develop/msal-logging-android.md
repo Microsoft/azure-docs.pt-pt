@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ce0929adbb2b0213cfd4ee61fe795a2d5f33c648
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98954889"
 ---
 # <a name="logging-in-msal-for-android"></a>Registos no MSAL para Android

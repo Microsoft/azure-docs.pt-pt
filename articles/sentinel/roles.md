@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104772557"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
@@ -36,11 +36,11 @@ Há três funções dedicadas ao Azure Sentinel.
 
 **Todas as funções incorporadas Azure Sentinel concedem acesso aos dados no seu espaço de trabalho Azure Sentinel.**
 
-- [O Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) pode ver dados, incidentes, livros e outros recursos do Azure Sentinel.
+- O [Leitor do Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) permite ver dados, incidentes, livros e outros recursos do Azure Sentinel.
 
-- [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) pode, para além do acima referido, gerir incidentes (atribuir, dispensar, etc.)
+- O [Dispositivo de Resposta do Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) pode, além do acima referido, gerir incidentes (atribuir, dispensar, etc.)
 
-- [O Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) pode, para além do acima referido, criar e editar livros de trabalho, regras de análise e outros recursos do Azure Sentinel.
+- O [Contribuidor do Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) pode, além do acima referido, criar e editar livros, regras de análise e outros recursos do Azure Sentinel.
 
 - [AZure Sentinel Automation Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) permite ao Azure Sentinel adicionar playbooks às regras de automação. Não se destina a contas de utilizador.
 

@@ -9,10 +9,10 @@ ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2
 ms.openlocfilehash: cf985999bac0cf45eec5d8f0f5f9e921b6f4591c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97934956"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Modos de conectividade Azure Cosmos DL SDK

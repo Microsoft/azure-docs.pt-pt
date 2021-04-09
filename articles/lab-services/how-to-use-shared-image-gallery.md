@@ -4,10 +4,10 @@ description: Aprenda a configurar uma conta de laboratório para usar uma galeri
 ms.topic: article
 ms.date: 09/11/2020
 ms.openlocfilehash: 984cb4c47099928ffab327895a728cbe8a8f9604
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791395"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Use uma galeria de imagens partilhada nos Serviços Azure Lab

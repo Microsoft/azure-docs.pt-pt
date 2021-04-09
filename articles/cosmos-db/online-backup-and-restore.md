@@ -8,10 +8,10 @@ ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 2629e9c6e048620d9490a1e091a16c138fd1e615
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99525437"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Cópia de segurança online e restauro de dados a pedido no Azure Cosmos DB

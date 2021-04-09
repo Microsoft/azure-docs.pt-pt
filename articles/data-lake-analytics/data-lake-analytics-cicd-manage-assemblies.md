@@ -7,10 +7,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
 ms.openlocfilehash: e88616f45c69d33234aa35333e0d82ad8cc59bb6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96015286"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Melhores práticas para a gestão de conjuntos U-SQL num gasoduto CI/CD

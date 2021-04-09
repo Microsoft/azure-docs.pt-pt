@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
 ms.openlocfilehash: 448b3d93ed58e4cfc73da576f0c5871600400ac6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98019844"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Aplicar DevOps ao desenvolvimento de aplicativos LUIS usando ações do GitHub

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95544756"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob

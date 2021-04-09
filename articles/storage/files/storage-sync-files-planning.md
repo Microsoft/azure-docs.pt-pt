@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104593208"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure

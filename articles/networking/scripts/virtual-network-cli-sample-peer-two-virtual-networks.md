@@ -14,10 +14,10 @@ ms.date: 07/07/2017
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 527a2e0dd5a807552aed8d6a833d513fa40c72e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98234397"
 ---
 # <a name="use-an-azure-cli-sample-script-to-connect-two-virtual-networks"></a>Use um script de amostra Azure CLI para ligar duas redes virtuais

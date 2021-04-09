@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 66649eb6109339cd7723ab4a7e3a12c5c322973d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103017295"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Encriptação dinâmica: Configurar uma política de autorização de chave de conteúdo
@@ -28,7 +28,7 @@ ms.locfileid: "103017295"
  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
  Pode utilizar o Azure Media Services para entregar o seu conteúdo encriptado (dinamicamente) com o Padrão avançado de encriptação (AES) utilizando chaves de encriptação de 128 bits e a gestão de direitos digitais PlayReady ou Widevine (DRM). Os Serviços de Comunicação Social também fornecem um serviço para entrega de chaves e licenças PlayReady/Widevine a clientes autorizados.
 
 Se pretender que os Serviços de Comunicação Encriptem um ativo, tem de associar uma chave de encriptação (CommonEncryption ou EnvelopeEncryption) ao ativo. Para obter mais informações, consulte [Criar teclas de conteúdo com REST](media-services-rest-create-contentkey.md). Também é necessário configurar políticas de autorização para a chave (conforme descrito neste artigo).

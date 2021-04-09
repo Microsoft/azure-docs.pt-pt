@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 9c7d466d6e8fd36b4445966b92ee753becf96c64
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791766"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitorização de desempenho para remoting de serviços fiáveis
