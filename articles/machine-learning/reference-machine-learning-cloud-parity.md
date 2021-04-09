@@ -12,10 +12,10 @@ author: Anurzeuii
 ms.date: 12/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97725025"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning paridade de nuvem soberana

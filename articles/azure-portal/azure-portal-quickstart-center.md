@@ -4,17 +4,17 @@ description: Utilize a experiência guiada do Azure Quickstart Center para come�
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.openlocfilehash: dbfe1ea99b09813edbfaa7bc248b4c71f1dd8a45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103232992"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Introdução ao Centro de Início Rápido do Azure
 
 O Azure Quickstart Center é uma experiência guiada no portal Azure disponível para quem quiser melhorar os seus conhecimentos sobre o Azure. Para organizações novas em Azure, é a maneira mais rápida de embarcar e configurar o seu ambiente em nuvem.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Azure Quickstart Center tem três opções para começar:
 

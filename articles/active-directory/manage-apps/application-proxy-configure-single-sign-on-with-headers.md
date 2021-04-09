@@ -12,10 +12,10 @@ ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 813e360ffc6c78b52151af5b9867560ae6d58f2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103198245"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy"></a>Sign-on único baseado em cabeçalho para aplicativos no local com Proxy app AD app Azure

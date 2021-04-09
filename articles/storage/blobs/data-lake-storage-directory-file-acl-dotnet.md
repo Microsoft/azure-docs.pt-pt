@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 52e993a22a512a94c8b5b8b050205db0c4ce0b1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100650325"
 ---
 # <a name="use-net-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utilize .NET para gerir diretórios e ficheiros em Azure Data Lake Storage Gen2
@@ -148,4 +148,4 @@ Este exemplo, imprime os nomes de cada ficheiro que está localizado num diretó
 - [Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 - [Mapeamento da Gen1 para a Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Enviar Comentários](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Dar feedback](https://github.com/Azure/azure-sdk-for-net/issues)

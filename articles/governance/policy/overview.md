@@ -4,10 +4,10 @@ description: O Azure Policy é um serviço no Azure utilizado para criar, atribu
 ms.date: 01/14/2021
 ms.topic: overview
 ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98220733"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
@@ -18,7 +18,7 @@ Os casos de utilização comum para a Política Azure incluem a implementação 
 
 Todos os dados e objetos da Azure Policy são encriptados em repouso. Para obter mais informações, consulte [a encriptação de dados do Azure em repouso](../../security/fundamentals/encryption-atrest.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Policy avalia os recursos em Azure comparando as propriedades desses recursos com as regras empresariais. Estas regras de negócio, descritas no [formato JSON,](./concepts/definition-structure.md)são conhecidas como [definições políticas.](#policy-definition) Para simplificar a gestão, várias regras empresariais podem ser agrupadas para formar uma [iniciativa política](#initiative-definition) (por vezes chamada de _PolicySet)._ Uma vez formadas as suas regras de negócio, a definição ou iniciativa de política é [atribuída](#assignments) a qualquer âmbito de recursos que a Azure suporte, tais como grupos de [gestão,](../management-groups/overview.md)subscrições, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups)ou recursos individuais. A atribuição aplica-se a todos os recursos no âmbito do Gestor de [Recursos](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição. Os subscópios podem ser excluídos, se necessário. Para mais informações, consulte [Scope in Azure Policy](./concepts/scope.md).
 

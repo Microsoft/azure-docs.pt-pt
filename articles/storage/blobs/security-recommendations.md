@@ -11,10 +11,10 @@ ms.date: 03/01/2021
 ms.author: tamram
 ms.custom: security-recommendations
 ms.openlocfilehash: 389d3507c3406743e14324c7b4667e045cfdb3b5
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105048039"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob

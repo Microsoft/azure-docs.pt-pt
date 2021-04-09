@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
 ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98724174"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importar ou exportar uma Base de Dados Azure SQL sem permitir que os serviços da Azure acedam ao servidor
@@ -132,7 +132,7 @@ As velocidades de exportação variam devido a muitos fatores (por exemplo, form
 
 Para obter o melhor desempenho pode experimentar as seguintes estratégias:
 
-1. Certifique-se de que não há outra carga de trabalho na base de dados. Criar uma cópia antes da exportação pode ser a melhor solução para garantir que não estão a funcionar outras cargas de trabalho.
+1. Confirme que nenhuma outra carga de trabalho está em execução na base de dados. Criar uma cópia antes da exportação pode ser a melhor solução para garantir que não estão a funcionar outras cargas de trabalho.
 2. Aumentar o objetivo do nível do serviço de base de dados (SLO) para melhor lidar com a carga de trabalho de exportação (ler principalmente I/O). Se a base de dados está atualmente GP_Gen5_4, talvez um nível Business Critical ajude na leitura da carga de trabalho.
 3. Certifique-se de que existem índices agrupados especialmente para grandes tabelas.
 4. As máquinas virtuais (VMs) devem estar na mesma região que a base de dados para ajudar a evitar constrangimentos de rede.

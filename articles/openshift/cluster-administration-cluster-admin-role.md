@@ -8,10 +8,10 @@ ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: f4fc57ebe39a2169ea91423b295f4bc436746b29
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100636259"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Papel de administrador de cliente azure Red Hat OpenShift

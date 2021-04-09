@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc8ec364380fc5cb9f6e33a29cd8dac96ea1fb69
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98219832"
 ---
 # <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>Assegurar a colaboração externa no Azure Ative Directory e microsoft 365

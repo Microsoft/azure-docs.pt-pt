@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 01/16/2021
 ms.author: allensu
 ms.openlocfilehash: 8901dffb752409acd7fb08a2025bed9a4cc70132
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98539477"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Restringir o conteúdo do Azure CDN por país/região
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Quando um utilizador solicita o seu conteúdo, o conteúdo é servido aos utilizadores em todos os locais. Pode pretender restringir o acesso ao seu conteúdo por país/região. 
 
 Com a *função de geo-filtragem,* pode criar regras sobre caminhos específicos no seu ponto final CDN. Pode definir as regras para permitir ou bloquear conteúdos em países/regiões selecionados.

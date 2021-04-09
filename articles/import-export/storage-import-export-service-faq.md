@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: be6c48efc77880addf814b1609d4a371c7c5c73b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98706743"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação Azure: perguntas frequentes

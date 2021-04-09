@@ -9,10 +9,10 @@ ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
 ms.openlocfilehash: 551374824610c0257aaf52c45768d31849026524
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105047546"
 ---
 # <a name="runtime-sdk-overview"></a>Visão geral do Runtime SDK

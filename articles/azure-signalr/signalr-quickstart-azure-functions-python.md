@@ -9,10 +9,10 @@ ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: devx-track-python
 ms.openlocfilehash: 82a2e64d27fcbbb3801e6dab347343e086a0b70f
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105048226"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Quickstart: Criar uma sala de chat com funções Azure e serviço SignalR usando Python

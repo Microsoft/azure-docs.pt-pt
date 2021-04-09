@@ -5,10 +5,10 @@ keywords: favoritos,portal
 ms.date: 03/16/2021
 ms.topic: how-to
 ms.openlocfilehash: dc1e9436c5adb84fbe4b736b2c2217b6e5da2c97
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104774478"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>Adicione, remova e reorganize os favoritos

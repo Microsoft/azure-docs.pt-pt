@@ -8,10 +8,10 @@ ms.date: 2/16/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 2903407f88b57a7be948cdeb0610e6d65df975b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101663160"
 ---
 # <a name="configure-microsoft-connected-cache-for-device-update-for-azure-iot-hub"></a>Configure a cache conectada da Microsoft para atualização do dispositivo para o Azure IoT Hub

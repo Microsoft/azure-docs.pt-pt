@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
 ms.openlocfilehash: 144e8058e640f98dc6b0ef60534405525532b00e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102547871"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos

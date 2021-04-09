@@ -11,10 +11,10 @@ author: luisquintanilla
 ms.date: 01/26/2021
 ms.custom: responsible-ml
 ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101659686"
 ---
 # <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Mitigar a injustiça nos modelos de aprendizagem automática (pré-visualização)

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 124290321815d22cad74d235205401b9380ff395
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104578379"
 ---
 | Linguagem / enquadramento | Projeto em<br/>GitHub                                                                                     | Pacote                                                                                                    | Ficando<br/>começou                               | Inscreva-se nos utilizadores                                            | Aceda a APIs web                                                    | Geralmente disponível (GA) *ou*<br/>Pré-visualização pública<sup>1</sup> |
