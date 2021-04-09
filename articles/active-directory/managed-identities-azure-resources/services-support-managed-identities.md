@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
 ms.openlocfilehash: 058873df989c444ebe06fc20a2f8a40fd2d3c594
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104594551"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
@@ -218,7 +218,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as funções 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Modelo Azure Resource Manager](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-iot-hub"></a>Azure IoT Hub
+### <a name="azure-iot-hub"></a>Hub IoT do Azure
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -365,7 +365,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as máquinas 
 | Utilizador atribuído | [Disponível em regiões apoiadas](../../virtual-machines/image-builder-overview.md#regions) | Não Disponível | Não Disponível | Não Disponível |
 
 Para aprender a configurar a identidade gerida para O Azure VM Image Builder (em regiões onde disponível), consulte a visão geral do [Construtor de Imagens](../../virtual-machines/image-builder-overview.md#permissions).
-### <a name="azure-signalr-service"></a>Serviço SignalR do Azure
+### <a name="azure-signalr-service"></a>Azure SignalR Service
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |

@@ -4,10 +4,10 @@ description: Utilize as instalações de implantação de ficheiros .zip do serv
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018453"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Zip deployment for Azure Functions (Implementação com ficheiro zip para as Funções do Azure)

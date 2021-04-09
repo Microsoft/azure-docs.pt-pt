@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 3688dc2db67c0c1343a74be4652cb52466ef762e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92520443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Diretório Ativo Azure com a TOPdesk - Público
@@ -137,13 +137,13 @@ Para configurar a Azure AD um único sinal de inscrição com TOPdesk - Público
 
     c. Logout URL
 
-### <a name="configure-topdesk---public-single-sign-on"></a>Configure TOPdesk - Sign-On De Único Público
+### <a name="configure-topdesk---public-single-sign-on&quot;></a>Configure TOPdesk - Sign-On De Único Público
 
 1. Inscreva-se no seu **SITE TOPdesk - Empresa Pública** como administrador.
 
 2. No menu **TOPdesk,** clique em **Definições**.
    
-    ![Definições](./media/topdesk-public-tutorial/ic790598.png "Definições")
+    ![Definições](./media/topdesk-public-tutorial/ic790598.png &quot;Definições")
 
 3. Clique em **Definições de Início** de Sessão .
    
@@ -247,17 +247,17 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-topdesk---public-test-user"></a>Criar TOPdesk - Utilizador de teste público
+### <a name="create-topdesk---public-test-user&quot;></a>Criar TOPdesk - Utilizador de teste público
 
 Para permitir que os utilizadores da Azure AD assinem na TOPdesk - Público, devem ser a provisionados na TOPdesk - Público. No caso da TOPdesk - Público, o provisionamento é uma tarefa manual.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento do utilizador, execute os seguintes passos:
+### <a name=&quot;to-configure-user-provisioning-perform-the-following-steps&quot;></a>Para configurar o provisionamento do utilizador, execute os seguintes passos:
 
 1. Inscreva-se no seu **SITE TOPdesk - Empresa Pública** como administrador.
 
 2. No menu em cima, clique em **TOPdesk \> New Support Files \> \> Person**.
    
-    ![Pessoa](./media/topdesk-public-tutorial/ic790628.png "Pessoa")
+    ![Pessoa](./media/topdesk-public-tutorial/ic790628.png &quot;Pessoa")
 
 3. No diálogo New Person, execute os seguintes passos:
    

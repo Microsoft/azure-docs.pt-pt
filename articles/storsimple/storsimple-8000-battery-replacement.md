@@ -7,15 +7,15 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 17a6a07d117557cdee23634bd211a14cf90d49e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96023776"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substituir um módulo de bateria de reserva no seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O módulo de alimentação e arrefecimento do recinto primário (PCM) no seu dispositivo Microsoft Azure StorSimple tem uma bateria adicional. Esta embalagem fornece energia para que o dispositivo StorSimple possa guardar dados se houver perda de energia CA para o recinto primário. Esta bateria é referida como o *módulo de bateria de reserva*. O módulo de bateria de reserva existe apenas para o invólucro primário do seu dispositivo StorSimple (o compartimento EBOD não contém um módulo de bateria de reserva).
 
 Este tutorial explica como:

@@ -6,10 +6,10 @@ ms.author: dpalled
 manager: diviso
 ms.date: 07/09/2020
 ms.openlocfilehash: f25c335c568c112c05f81df51d69e83aeff423e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96026663"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperação de desastres de negócios

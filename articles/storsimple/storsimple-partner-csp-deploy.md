@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96021865"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implementar StorSimple Matriz Virtual para Programa de Provedor de Soluções em Nuvem
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O StorSimple Virtual Array pode ser implementado pelos parceiros Cloud Solution Provider (CSP) para os seus clientes. Um parceiro CSP pode criar um serviço StorSimple Device Manager. Este serviço pode então ser utilizado para implantar e gerir o StorSimple Virtual Array e as ações, volumes e backups associados.
 

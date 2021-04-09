@@ -1,5 +1,5 @@
 ---
-title: Perguntas comuns sobre VM no Azure Marketplace
+title: Perguntas comuns sobre a VM no Azure Marketplace
 description: Questões comuns encontradas ao criar uma máquina virtual no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
 ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104593429"
 ---
-# <a name="common-questions-about-vm-in-azure-marketplace"></a>Perguntas comuns sobre VM no Azure Marketplace
+# <a name="common-questions-about-vm-in-azure-marketplace"></a>Perguntas comuns sobre a VM no Azure Marketplace
 
 Estas perguntas frequentes (FAQ) cobrem questões comuns que poderá encontrar ao criar uma oferta de máquina virtual (VM) no Azure Marketplace.
 

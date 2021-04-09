@@ -7,10 +7,10 @@ ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97092385"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Ativar a autenticação multifactor Azure para o Windows Virtual Desktop
