@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: b283cacf94ff3567428787e50a3d7db9ba91fd9c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864045"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utilizar o controlo de mapa do Azure Maps
@@ -200,9 +200,9 @@ Pode incorporar um mapa numa página web utilizando a biblioteca JavaScript do l
 
    ![Imagem de mapa mostrando resultado renderizado](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>Localização do mapa
+## <a name="localizing-the-map&quot;></a>Localização do mapa
 
-O Azure Maps fornece duas maneiras diferentes de definir a língua e a visão regional para o mapa renderizado. A primeira opção é adicionar esta informação ao espaço de nome global, o `atlas` que resultará em todas as instâncias de controlo de mapas na sua aplicação por defeito nestas definições. O seguinte define a língua para o francês ("fr-FR") e a visão regional para "Auto":
+O Azure Maps fornece duas maneiras diferentes de definir a língua e a visão regional para o mapa renderizado. A primeira opção é adicionar esta informação ao espaço de nome global, o `atlas` que resultará em todas as instâncias de controlo de mapas na sua aplicação por defeito nestas definições. O seguinte define a língua para o francês (&quot;fr-FR") e a visão regional para "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');

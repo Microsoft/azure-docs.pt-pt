@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 10b8aaeaa25e49140dbf6f31c064c7f823d23e31
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778258"
 ---
 # <a name="assess-large-numbers-of-servers-in-vmware-environment-for-migration-to-azure"></a>Avaliar um grande número de servidores em ambiente VMware para migração para Azure

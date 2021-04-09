@@ -4,10 +4,10 @@ description: O Defender para agentes de segurança IoT recolhe dados e eventos d
 ms.date: 1/20/2021
 ms.topic: conceptual
 ms.openlocfilehash: c0280e97549009a1e4911c072a7a8ec052684b4e
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779329"
 ---
 # <a name="event-aggregation-preview"></a>Agregação de eventos (Pré-visualização)

@@ -13,10 +13,10 @@ ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
 ms.openlocfilehash: 82c3dd4ce7f5e7e9f3d5a226bfe65e27eca2d3d4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100103248"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registo no portal do Azure para aplicações personalizadas
@@ -43,7 +43,7 @@ Este artigo dá-lhe uma breve descrição de todos os campos disponíveis no for
 
 Depois de ter preenchido os campos acima, a aplicação está registada no portal Azure e é redirecionada para a página geral da aplicação. As páginas de definições no painel esquerdo em **Manage** têm mais campos para você personalizar a sua aplicação. As tabelas abaixo descrevem todos os campos. Você só veria um subconjunto destes campos, dependendo se você criou uma aplicação web ou uma aplicação de cliente público.
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -7,10 +7,10 @@ ms.author: jamesfit
 author: jimmyfit
 ms.date: 01/29/2021
 ms.openlocfilehash: 73135d95a56dc03790b3b7368a276ebfc99275fd
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025072"
 ---
 # <a name="collecting-event-tracing-for-windows-etw-events-for-analysis-azure-monitor-logs"></a>Recolha de rastreio de eventos para windows (ETW) Eventos para análise Registos do Monitor Azure

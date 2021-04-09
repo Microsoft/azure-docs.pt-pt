@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
 ms.openlocfilehash: e8dd887d151eb553131048f232940555dbef324b
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025038"
 ---
 # <a name="enable-sql-insights-preview"></a>Ativar insights SQL (pré-visualização)
@@ -39,7 +39,7 @@ Verifique se o utilizador foi criado.
 
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Verifique o script do utilizador da telegraf." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
-### <a name="azure-sql-managed-instance"></a>Instância Gerida do Azure SQL
+### <a name="azure-sql-managed-instance"></a>Instância Gerida do SQL do Azure
 Inicie sessão no seu Azure SQL Managed Instance e utilize [o SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou uma ferramenta similar para executar o seguinte script para criar o utilizador de monitorização com as permissões necessárias. Substitua *o utilizador* por um nome de utilizador e *uma palavra-passe com* uma palavra-passe.
 
  

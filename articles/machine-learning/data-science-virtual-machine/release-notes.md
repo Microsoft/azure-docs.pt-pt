@@ -8,10 +8,10 @@ ms.author: laobri
 ms.date: 02/24/2020
 ms.topic: reference
 ms.openlocfilehash: 7a5675ce0358092610766d1441e433ff5d96bae4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101655705"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Notas de lançamento da Azure Data Science Virtual Machine

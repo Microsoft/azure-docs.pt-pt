@@ -4,10 +4,10 @@ description: Conheça o conceito de recomendações de segurança e como são us
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: a9e33248354aab659694e39df605cc070fdaaf73
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779346"
 ---
 # <a name="security-recommendations-for-iot-hub"></a>Recomendações de segurança para o IoT Hub
@@ -21,7 +21,7 @@ Neste artigo, encontrará uma lista de recomendações, que podem ser desencadea
 
 Os alertas de recomendação fornecem insights e sugestões para ações para melhorar a postura de segurança do seu ambiente.
 
-| Gravidade | Name | Origem de dados | Descrição |
+| Gravidade | Name | Origem de dados | Description |
 |--|--|--|--|
 | Alto | Credenciais de autenticação idênticas utilizadas por vários dispositivos | IoT Hub | As credenciais de autenticação IoT Hub são utilizadas por vários dispositivos. Este processo pode indicar um dispositivo ilegítimo que se faça passar por um dispositivo legítimo. O uso de credencial duplicada aumenta o risco de imitação de dispositivo por um ator mal-intencionado. |
 | Médio | A política de filtro IP predefinido deve ser negada | IoT Hub | A configuração do filtro IP deve ter regras definidas para tráfego permitido, e deve, por padrão, negar todo o tráfego por padrão. |

@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
 ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98222348"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Insight de desempenho de consulta para base de dados Azure SQL
@@ -186,7 +186,7 @@ Para identificar consultas de longa duração:
    > Recomendamos que utilize o gráfico DTU personalizado para comparar com o gráfico de desempenho da consulta.
    >
 
-## <a name="review-top-queries-per-execution-count"></a>Rever consultas de topo por contagem de execução
+## <a name="review-top-queries-per-execution-count&quot;></a>Rever consultas de topo por contagem de execução
 
 Uma aplicação de utilizador que utilize a base de dados pode ficar lenta, mesmo que um elevado número de execuções possa não estar a afetar a própria base de dados e o uso dos recursos seja reduzido.
 
@@ -194,7 +194,7 @@ Em alguns casos, uma alta contagem de execuções pode levar a mais viagens de i
 
 Por exemplo, muitos sites orientados por dados acedem fortemente à base de dados para cada pedido do utilizador. Embora a ligação de agrupamentos ajude, o aumento do tráfego de rede e a carga de processamento no servidor podem atrasar o desempenho. Em geral, mantenha as viagens de ida e volta ao mínimo.
 
-Para identificar consultas frequentemente executadas ("chatty") :
+Para identificar consultas frequentemente executadas (&quot;chatty") :
 
 1. Abra o **separador Personalizado** em Consulta Performance Insight para a base de dados selecionada.
 2. Altere as métricas para a **contagem de execução.**

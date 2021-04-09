@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: references_regions
 ms.openlocfilehash: e8bea49b2980deb8f20258ab7ea5619ece8cd2bf
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104962574"
 ---
 # <a name="enable-automatic-certificate-rotation-in-a-batch-pool"></a>Ativar a rotação automática do certificado numa piscina de lote

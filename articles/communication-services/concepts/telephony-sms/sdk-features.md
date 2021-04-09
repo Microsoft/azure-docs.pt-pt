@@ -9,16 +9,16 @@ ms.author: prakulka
 ms.date: 03/26/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2e9f782f0b8fa0be77e70ccdae8849caa4abb81e
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: c25dfea077510580daf2c1aab584ab9ff5caa7fe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105643808"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930447"
 ---
 # <a name="sms-sdk-overview"></a>Visão geral do SMS SDK
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 

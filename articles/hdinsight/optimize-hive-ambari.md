@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: 69a4e769677b6f0200f4157305a3a125f82ee76d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864822"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Otimizar a Colmeia Apache com Apache Ambari em Azure HDInsight
@@ -132,7 +132,7 @@ Os tipos de compressão disponíveis são:
 | Formato | Ferramenta | Algoritmo | Extensão de arquivo | Dividi-se? |
 | --- | --- | --- | --- | --- |
 | Rio Gzip | Rio Gzip | ESVAZIAR | `.gz` | No |
-| Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Sim |
+| Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Yes |
 | LZO | `Lzop` | LZO | `.lzo` | Sim, se indexado |
 | Snappy | N/D | Snappy | Snappy | No |
 

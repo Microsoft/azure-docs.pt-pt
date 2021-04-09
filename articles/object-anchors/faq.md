@@ -8,10 +8,10 @@ ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
 ms.openlocfilehash: aebc1013dcead6c32dab55512ce915e25f60f94a
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105047580"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Perguntas frequentes sobre âncoras de objetos Azure

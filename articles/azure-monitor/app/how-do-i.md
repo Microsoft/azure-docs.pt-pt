@@ -4,10 +4,10 @@ description: FAQ em Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584156"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?
@@ -65,7 +65,7 @@ Receberá e-mails tanto quando a métrica for abaixo do limiar.
 
 Alguns pontos a considerar:
 
-* Um alerta tem dois estados ("alerta" e "saudável"). O estado só é avaliado quando uma métrica é recebida.
+* Um alerta tem dois estados ("alerta&quot; e &quot;saudável"). O estado só é avaliado quando uma métrica é recebida.
 * Um e-mail é enviado apenas quando o estado muda. É por isso que tens de enviar métricas de alto e baixo valor.
 * Para avaliar o alerta, a média é tomada dos valores recebidos durante o período anterior. Isto ocorre sempre que uma métrica é recebida, para que os e-mails possam ser enviados com mais frequência do que o período definido.
 * Uma vez que os e-mails são enviados em "alerta" e "saudável", talvez deva considerar o seu evento de um tiro como uma condição de dois estados. Por exemplo, em vez de um evento de "trabalho concluído", tem uma condição de "trabalho em progresso", onde recebe e-mails no início e no fim de um trabalho.

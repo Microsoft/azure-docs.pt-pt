@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 2c35356951560b11a605334aba4c26dbc38086de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100583548"
 ---
 # <a name="application-insights-cohorts"></a>Coortes de Insights de Aplicação
@@ -129,7 +129,7 @@ Coortes e filtros são diferentes. Suponha que tem uma coorte de utilizadores do
 * A versão coorte mostra todos os eventos de utilizadores que enviaram um ou mais eventos do Reino Unido na atual faixa de tempo. Se dividir por país ou região, provavelmente verá muitos países e regiões.
 * A versão dos filtros só mostra eventos do Reino Unido. Mas se dividirmos por país ou região, só vemos o Reino Unido.
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * [Linguagem de consulta de análise](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Utilizadores, sessões, eventos](usage-segmentation.md)

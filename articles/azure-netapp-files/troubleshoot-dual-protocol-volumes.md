@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 02/19/2021
 ms.author: b-juche
 ms.openlocfilehash: ee2d77bf5e1d4af9b78345d55dee8050b84622e9
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104955538"
 ---
 # <a name="troubleshoot-smb-or-dual-protocol-volumes"></a>SMB de resolução de problemas ou volumes de duplo protocolo

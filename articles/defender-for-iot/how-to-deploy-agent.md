@@ -4,10 +4,10 @@ description: Saiba como selecionar e implementar o Defender para agentes de segu
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: c71c92ffa79c844f3529265320b46eadd0c158cf
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778853"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e coloque um agente de segurança no seu dispositivo IoT
@@ -32,16 +32,16 @@ O agente de segurança baseado em C tem uma pegada de memória mais baixa, e é 
 | --- | ----------- | --------- |
 | **É open-source** | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-c) | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-cs) |
 | **Linguagem de programação**    | C | C# |
-| **Plataformas suportadas do Windows?** | No | Sim |
+| **Plataformas suportadas do Windows?** | No | Yes |
 | **Pré-requisitos do Windows** | --- | [WMI](/windows/desktop/wmisdk/) |
 | **Apoiou plataformas Linux?** | Sim, x64 e x86 | Sim, apenas x64 |
 | **Pré-requisitos linux** | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins, sudo, netstat, iptables |
 | **Pegada de disco** | 10,5 MB | 90 MB |
 | **Pegada de memória (em média)** | 5,5 MB | 33 MB |
-| **[Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub** | Sim | Sim |
-| **Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança** | Sim | Sim |
-| **Agregação de eventos** | Sim | Sim |
-| **Configuração remota através [do gémeo Defender-IoT-micro-agente](concept-security-module.md)** | Sim | Sim |
+| **[Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub** | Yes | Yes |
+| **Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança** | Yes | Yes |
+| **Agregação de eventos** | Yes | Yes |
+| **Configuração remota através [do gémeo Defender-IoT-micro-agente](concept-security-module.md)** | Yes | Yes |
 
 ## <a name="security-agent-installation-guidelines"></a>Diretrizes de instalação de agentes de segurança
 

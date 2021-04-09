@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
 ms.openlocfilehash: a97dabe36efb252b04c1b5c8fa741d33a6c92703
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105023678"
 ---
 # <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-analysis"></a>Desempenho da migração: SQL Server para Azure SQL Managed Instance análise de desempenho

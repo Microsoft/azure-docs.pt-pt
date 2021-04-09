@@ -6,10 +6,10 @@ author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
 ms.openlocfilehash: 48eb3cf81384446a07fea69572ac16e0b80cee38
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025633"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Ativar o Snapshot Debugger para aplicações .NET e .NET Core em Funções Azure
