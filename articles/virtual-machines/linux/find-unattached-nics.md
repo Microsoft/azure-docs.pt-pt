@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/10/2018
 ms.author: cynthn
 ms.openlocfilehash: 5b28226cfe6bc51a2619c4dd63e666ddd51dad2a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96016204"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Como encontrar e eliminar cartões de interface de rede não ligados (NICs) para VMs Azure

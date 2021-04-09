@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: d25e168e342e22af9dc41d31dd7e18530aaa22b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93090516"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connect to Azure Cosmos DB Cassandra API from Spark (Ligar à API para Cassandra do Azure Cosmos DB a partir do Spark)
@@ -54,7 +54,7 @@ A tabela que se segue lista os parâmetros de configuração de produção espec
 
 Ajuste a produção e o grau de paralelismo destes parâmetros com base na carga de trabalho que espera para os seus trabalhos de faísca, e na produção que advogaste para a sua conta Cosmos DB.
 
-## <a name="connecting-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ligação à Azure Cosmos DB Cassandra API da Spark
+## <a name="connecting-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ligar à API para Cassandra do Azure Cosmos DB a partir do Apache Spark
 
 ### <a name="cqlsh"></a>cqlsh
 Os seguintes comandos detalham como ligar-se à Azure CosmosDB Cassandra API do cqlsh.  Isto é útil para validação enquanto analisa as amostras em Spark.<br>

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
 ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98630298"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida

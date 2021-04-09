@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96016880"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Utilize o serviço StorSimple Device Manager para gerir as credenciais da sua conta de armazenamento
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A secção **de Configuração** na lâmina de serviço StorSimple Device Manager apresenta todos os parâmetros de serviço globais que podem ser criados no serviço StorSimple Device Manager. Estes parâmetros podem ser aplicados a todos os dispositivos ligados ao serviço, e incluem:
 

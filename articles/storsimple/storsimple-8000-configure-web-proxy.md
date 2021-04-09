@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017224"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configure o proxy web para o seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve como utilizar o Windows PowerShell para storSimple configurar e visualizar as definições de procuração web para o seu dispositivo StorSimple. As definições de procuração web são utilizadas pelo dispositivo StorSimple quando comunicam com a nuvem. Um servidor de procuração web é usado para adicionar outra camada de segurança, conteúdo de filtro, cache para facilitar os requisitos de largura de banda ou até mesmo ajudar com a análise.
 

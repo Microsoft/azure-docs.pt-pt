@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96015949"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configure um endereço IP privado para um VM utilizando o portal Azure

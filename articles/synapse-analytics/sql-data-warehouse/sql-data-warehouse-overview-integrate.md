@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 3e55ef054d5c305937f88d6ec5b2b4453cac6792
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98117763"
 ---
 # <a name="integrate-other-services-with-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Integre outros serviços com uma piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.

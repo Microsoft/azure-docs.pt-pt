@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ms.custom: devx-track-js
 ms.openlocfilehash: d5a1d810c357aa83b8069023b00d76352da124df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94844800"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Aceder a informações dos utilizadores em Azure Static Web Apps Preview

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: 07b0dd68e39f555171e5606b71cd1eec92a4035c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96353345"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Ligue para o seu caso de Pesquisa Personalizada Bing a partir do Portal

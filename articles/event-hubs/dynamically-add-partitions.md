@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como adicionar dinamicamente divisórias a u
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: e6efdc7bab309f825032555c97f1e1128f5addd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98625270"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicione dinamicamente divisórias a um centro de eventos (tema Apache Kafka) em Azure Event Hubs

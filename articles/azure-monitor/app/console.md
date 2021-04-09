@@ -6,10 +6,10 @@ ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
 ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96920601"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Insights de aplicação para aplicações de consola .NET

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94837214"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas das configurações do roaming do estado da empresa no Diretório Ativo do Azure

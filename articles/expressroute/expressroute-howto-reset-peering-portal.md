@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: duau
 ms.openlocfilehash: 432ecedbbb8965926499380eb1165fdf43018426
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97680278"
 ---
 # <a name="reset-expressroute-circuit-peerings-by-using-the-azure-portal"></a>Repor os olhos no circuito ExpressRoute utilizando o portal Azure

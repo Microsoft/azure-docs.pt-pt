@@ -11,10 +11,10 @@ ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: be3fac17ba99194a76b27c78040a76cce43405a0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96931117"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportação de uma loja de configuração de aplicativos Azure

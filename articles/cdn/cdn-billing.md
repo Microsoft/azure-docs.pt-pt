@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018686"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Compreender a faturação da CDN do Azure
@@ -115,7 +115,7 @@ Se utilizar um dos seguintes serviços Azure como origem CDN, não será cobrado
 - Azure Data Lake Store
 - Azure Machine Learning 
 - Base de Dados SQL do Azure
-- Instância Gerida do Azure SQL
+- Instância Gerida do SQL do Azure
 - Cache do Azure para Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como posso gerir os meus custos de forma mais eficaz?

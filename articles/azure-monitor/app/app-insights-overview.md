@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
 ms.openlocfilehash: ac6b6f2b47df0bce9ae164c83df54adfdf00b184
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100575710"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
@@ -58,7 +58,7 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 | [**Dashboards**](./overview-dashboard.md)<br/>Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa. |![Exemplo de dashboards](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](./live-stream.md)<br/>Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado. |![Exemplo de métricas em direto](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Análise**](../logs/log-query-overview.md)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
-| [**Estúdio Visual**](./visual-studio.md)<br/>Veja os dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|![Screenshot mostra Detalhes de Exceção no Estúdio Visual e um exemplo de ir codificar a partir de traços de pilha.](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Visual Studio**](./visual-studio.md)<br/>Veja os dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|![Screenshot mostra Detalhes de Exceção no Estúdio Visual e um exemplo de ir codificar a partir de traços de pilha.](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Debugger snapshot**](./snapshot-debugger.md)<br/>Depure instantâneos de amostra de operações em tempo real, com valores de parâmetro.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](./export-power-bi.md)<br/>Integre métricas de utilização com outras métricas de business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**API REST**](https://dev.applicationinsights.io/)<br/>Escreva código para executar consultas nas métricas e nos dados não processados.| ![API REST](./media/app-insights-overview/rest-tn.png) |
