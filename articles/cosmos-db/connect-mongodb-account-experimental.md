@@ -10,10 +10,10 @@ ms.date: 02/08/2021
 ms.reviewer: sngun
 robots: noindex
 ms.openlocfilehash: bd244b0bb0aa5c5b2377b5a5675466645da3256c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99982111"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligar uma aplicação MongoDB ao Azure Cosmos DB

@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: 6912124ce8d1741731d625dccfea445417b2488d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98785021"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ligue o acelerador de solução de monitorização remota MXChip IoT a Azure IoT

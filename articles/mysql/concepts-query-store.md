@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
 ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98201030"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitor Azure Database para desempenho do MySQL com a Loja de Consultas

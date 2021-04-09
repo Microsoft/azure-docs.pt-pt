@@ -14,10 +14,10 @@ ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99981243"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação core ASP.NET

@@ -8,10 +8,10 @@ ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97964512"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Resolução de problemas comuns na Azure Data Share 

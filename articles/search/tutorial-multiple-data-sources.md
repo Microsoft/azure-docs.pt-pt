@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: df7dcf9859b6942662ae447af836f59985e2d11a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99509507"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Índice de várias fontes de dados utilizando o .NET SDK
@@ -33,7 +33,7 @@ Neste tutorial, realizará as seguintes tarefas:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial utiliza a nova biblioteca de [ clientes,Azure.Search.Documents](/dotnet/api/overview/azure/search), versão 11.x, para criar e executar vários indexantes. Neste tutorial, irá configurar duas fontes de dados Azure para que possa configurar um indexer que puxa de ambos para preencher um único índice de pesquisa. Os dois conjuntos de dados devem ter um valor em comum para suportar a fusão. Nesta amostra, este campo é uma identificação. Enquanto houver um campo em comum para suportar o mapeamento, um indexante pode fundir dados de recursos diferentes: dados estruturados do Azure SQL, dados não estruturados do armazenamento blob, ou qualquer combinação de fontes de [dados suportadas](search-indexer-overview.md#supported-data-sources) no Azure.
 

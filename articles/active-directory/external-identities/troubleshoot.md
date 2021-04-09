@@ -15,10 +15,10 @@ ms.custom:
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60cd944ecb144a30e872259f6e959a11c3ea6319
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100365434"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração

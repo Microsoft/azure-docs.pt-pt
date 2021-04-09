@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 63f4b28915a932398e5417f8ea9be3fe4d68e705
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93397846"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Crie uma sonda personalizada para O Gateway de Aplicações Azure utilizando o PowerShell para O Gestor de Recursos Azure

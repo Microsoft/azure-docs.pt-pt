@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945469"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Understand and resolve errors received from WebHCat on HDInsight (Compreender e resolver erros recebidos do WebHCat no HDInsight)

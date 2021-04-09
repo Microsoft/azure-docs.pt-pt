@@ -12,10 +12,10 @@ ms.date: 01/21/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98675191"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Registar uma aplicação do Microsoft Graph

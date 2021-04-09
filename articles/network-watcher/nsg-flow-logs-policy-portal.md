@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98011106"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>QuickStart: Implementar e gerir registos de fluxo NSG utilizando a política do Azure 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure Policy ajuda a impor normas organizacionais e a avaliar o cumprimento em escala. Os casos de utilização comum para a Política Azure incluem a implementação da governação para a consistência dos recursos, a conformidade regulamentar, a segurança, os custos e a gestão. Neste artigo, usaremos duas políticas incorporadas disponíveis para os Registos de Fluxo NSG para gerir a configuração dos seus registos de fluxo. A primeira política sinaliza quaisquer NSGs sem registos de fluxo ativados. A segunda política implementa automaticamente os registos de fluxo para NSGs sem registos de fluxo ativados. 
 
 Se estiver a criar uma política Azure pela primeira vez, pode ler: 

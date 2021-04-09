@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96015405"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilize indicadores de monitorização StorSimple para gerir o seu dispositivo
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O seu dispositivo StorSimple inclui díodos emissores de luz (LEDs) e alarmes que pode utilizar para monitorizar os módulos e o estado geral do dispositivo StorSimple. Os indicadores de monitorização podem ser encontrados nos componentes de hardware do invólucro primário do dispositivo e no recinto EBOD. Os indicadores de monitorização podem ser LED ou alarmes sonoros.
 
 Existem três estados LED usados para indicar o estado de um módulo: verde, verde intermitente a vermelho-âmbar, ou âmbar-vermelho.  

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ms.openlocfilehash: 95fcca289b0776cc19464b13eb7d243ca4f8d5ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945513"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combine Scaler e SparkR em HDInsight

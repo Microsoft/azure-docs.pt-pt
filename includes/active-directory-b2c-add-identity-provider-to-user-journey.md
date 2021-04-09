@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/18/2021
 ms.author: mimart
 ms.openlocfilehash: 4f6ba0892438d49dcc982a01a6b30dfa36ed43b5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98674242"
 ---
 ## <a name="add-a-user-journey"></a>Adicione uma viagem de utilizador 

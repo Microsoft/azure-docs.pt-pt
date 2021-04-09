@@ -11,17 +11,17 @@ ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
 ms.openlocfilehash: 2ea7c3c440fcf95e4512464333efe8461788bceb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98219407"
 ---
 # <a name="integrate-with-pipelines"></a>Integrar-se com oleodutos
 
 Neste tutorial, você vai aprender a integrar oleodutos e atividades usando o Synapse Studio. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode integrar uma grande variedade de tarefas no Azure Synapse.
 

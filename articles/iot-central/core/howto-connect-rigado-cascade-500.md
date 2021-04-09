@@ -11,10 +11,10 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96014767"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Ligue um dispositivo de gateway Rigado Cascade 500 à sua aplicação Azure IoT Central

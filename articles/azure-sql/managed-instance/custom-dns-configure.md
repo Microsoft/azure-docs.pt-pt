@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
 ms.openlocfilehash: a54907dd3f7b3fbc06033624f14b12de14d9afb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99831506"
 ---
 # <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurar um DNS personalizado para o Azure SQL Managed Instance

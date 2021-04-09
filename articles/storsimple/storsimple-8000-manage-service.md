@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93360704"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar o serviço StorSimple Device Manager para dispositivos da série StorSimple 8000
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O serviço StorSimple Device Manager funciona no Microsoft Azure e liga-se a vários dispositivos StorSimple. Depois de criar o serviço, pode utilizá-lo para gerir todos os dispositivos que estão ligados ao serviço StorSimple Device Manager a partir de uma localização central única, minimizando assim os encargos administrativos.
 

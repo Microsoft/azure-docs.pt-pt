@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
 ms.openlocfilehash: b08b07ebcd6e45e95e23dff8686148889e9d4b39
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96173924"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Orientação do programador para a funcionalidade de Acesso Condicional do Diretório Ativo Azure
