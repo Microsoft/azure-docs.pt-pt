@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 4625b0a750c2b3ff63879bb9ea306bc69b1bb64e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 78972c4db1802b479a698a22c456561170add4bf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471641"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932918"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurar configurar definições de autenticação multi-factor Ad Azure
 
@@ -231,7 +231,7 @@ As definições de serviço podem ser acedidas a partir do portal Azure através
 
 ## <a name="trusted-ips"></a>IPs Fidedignos
 
-A funcionalidade _IPs Fidedigna_ da Autenticação Multi-Factor Azure AD contorna as solicitações de autenticação de vários fatores para os utilizadores que iniciarem sedutação a partir de uma gama de endereços IP definida. Pode definir gamas IP fidedignas para os ambientes no local até quando os utilizadores estiverem num desses locais, não existe nenhuma solicitação de autenticação multi-factor AD Azure.
+A funcionalidade _IPs Fidedigna_ da Autenticação Multi-Factor Azure AD contorna as solicitações de autenticação de vários fatores para os utilizadores que iniciarem sedutação a partir de uma gama de endereços IP definida. Pode definir gamas IP fidedignas para os seus ambientes no local para que, quando os utilizadores estiverem num desses locais, não exista nenhuma solicitação de autenticação multi-factor Azure AD. A funcionalidade _IPs fidedigna_ da autenticação multi-factor Azure AD requer edição P1 Azure AD Premium. 
 
 > [!NOTE]
 > Os IPs fidedignos só podem incluir gamas IP privadas quando utilizar o MFA Server. Para autenticação multi-factor Azure AD baseada na nuvem, só pode utilizar intervalos de endereços IP públicos.

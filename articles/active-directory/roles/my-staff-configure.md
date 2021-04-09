@@ -14,10 +14,10 @@ ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 1a380c8a3d766c3c11d8cba1148383d924f65a1b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103225001"
 ---
 # <a name="manage-your-users-with-my-staff"></a>Gerencie os seus utilizadores com a Minha Equipa

@@ -10,17 +10,17 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
 ms.openlocfilehash: 8c30d05cf49162155f84961e1fd8a32361444ba5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100653266"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Como usar o armazenamento da fila Azure da Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo demonstra cenários comuns utilizando o serviço de armazenamento de fila Azure. Os cenários abrangidos incluem inserir, espreitar, receber e apagar mensagens de fila. O código para criar e eliminar filas também está coberto.
 

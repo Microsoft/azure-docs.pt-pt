@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.openlocfilehash: 637f748882b3ac84127c8b71761a06629e1e0957
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100653837"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Gerir o nível de acesso predefinido de uma conta de Armazenamento Azure

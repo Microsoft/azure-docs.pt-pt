@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/23/2021
 ms.author: duau
 ms.openlocfilehash: 7033ea6a1ba6d85f9aa15e14bb9577b2439c59a8
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105050568"
 ---
 # <a name="azure-expressroute-insights-using-network-insights"></a>Azure ExpressRoute Insights usando insights de rede

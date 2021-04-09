@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
 ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101716623"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de conceção de divulgação
 Agora que&#39;determinou o [nível](concepts-disclosure-guidelines.md#disclosure-assessment) certo de divulgação para a sua experiência de voz sintética,&#39;é uma boa altura para explorar potenciais padrões de design.
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Há um espectro de padrões de design de divulgação que pode aplicar à sua experiência de voz sintética. Se o resultado da sua avaliação de divulgação foi "Alta Divulgação", recomendamos [**a divulgação explícita,**](#explicit-disclosure)o que significa comunicar as origens da voz sintética. [**A divulgação implícita**](#implicit-disclosure) inclui pistas e padrões de interação que beneficiam experiências de voz, quer os níveis de divulgação necessários sejam ou não elevados ou baixos.
 ![Espectro de padrões de divulgação](media/responsible-ai/disclosure-patterns/affordances.png)
 

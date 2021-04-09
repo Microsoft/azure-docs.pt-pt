@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/26/2021
 ms.author: Zhchia
 ms.openlocfilehash: b74175c7847bb19aa9410edd613afbfe1d762d05
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105549321"
 ---
 # <a name="tutorial-configure-olfeo-saas-for-automatic-user-provisioning"></a>Tutorial: Configure Olfeo SAAS para o fornecimento automático de utilizadores

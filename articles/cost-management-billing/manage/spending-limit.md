@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/29/2021
 ms.author: banders
-ms.openlocfilehash: df5c5ed74a5e0a63727962fa86d261cfb588a384
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 47f1a1ed182420852682e908c7cd8b5e094bc085
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690566"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932561"
 ---
 # <a name="azure-spending-limit"></a>Limite de gastos do Azure
 
-O limite de gastos no Azure impede que gaste mais do que o montante do seu crédito. Todos os novos clientes que se inscrevam numa conta gratuita do Azure ou em tipos de subscrição que incluam créditos ao longo de vários meses terão o limite de gastos ativado por predefinição. O limite de gastos é igual à quantidade de crédito e não pode ser alterado. Por exemplo, se se tiver inscrito na conta gratuita do Azure, o seu limite de gastos será de 200 $ e não poderá ser alterado para 500 $. No entanto, pode remover o limite de gastos. Desta forma, deixa de ter um limite ou tem um limite igual à quantidade de crédito. Tal impede que faça a maioria dos tipos de gastos. O limite de gastos não está disponível para as subscrições com planos de alocação ou planos com preços pay as you go. Veja a [lista completa de tipos de subscrição do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
+O limite de gastos no Azure impede que gaste mais do que o montante do seu crédito. Todos os novos clientes que se inscrevam numa conta gratuita do Azure ou em tipos de subscrição que incluam créditos ao longo de vários meses terão o limite de gastos ativado por predefinição. O limite de despesas é igual ao montante do crédito. Não podes mudar o limite de gastos. Por exemplo, se se tiver inscrito na conta gratuita do Azure, o seu limite de gastos será de 200 $ e não poderá ser alterado para 500 $. No entanto, pode remover o limite de gastos. Desta forma, deixa de ter um limite ou tem um limite igual à quantidade de crédito. Tal impede que faça a maioria dos tipos de gastos. O limite de gastos não está disponível para as subscrições com planos de alocação ou planos com preços pay as you go. Veja a [lista completa de tipos de subscrição do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## <a name="reaching-a-spending-limit"></a>Atingir um limite de gastos
 

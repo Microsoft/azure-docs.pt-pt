@@ -6,10 +6,10 @@ ms.date: 03/10/2021
 ms.author: bobazile
 ms.custom: emergency_calling
 ms.openlocfilehash: c00e297860400a0921867940e39e822b9c8ecf87
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104598840"
 ---
 > [!IMPORTANT]

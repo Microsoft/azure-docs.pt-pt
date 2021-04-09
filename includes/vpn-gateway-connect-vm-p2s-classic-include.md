@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4732abacc80a24d268f0e5cb7d100079e5a8d90b
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105104595"
 ---
 Crie uma Ligação de Ambiente de Trabalho Remoto para ligar a um VM que seja implantado no seu VNet. A melhor forma de verificar se pode ligar-se ao seu VM é conectar-se com o seu endereço IP privado, em vez do nome do computador. Dessa forma, está a testar para ver se consegue ligar, não se a resolução do nome está configurada corretamente. 

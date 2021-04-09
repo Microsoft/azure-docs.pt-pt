@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc
-ms.openlocfilehash: 8768f7f4ca898f3f1f81cdd2611679e62d999ef8
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 71066fc2e2f87405455a059fe23c20277c4b09fb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645192"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726384"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Tutorial: Implementar aplicativo Django em AKS com Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -133,9 +133,9 @@ Crie uma nova [aplicação Django](https://docs.djangoproject.com/en/3.1/intro/)
     └───models.py
     └───forms.py
     ├───templates
-        . . . . . . .
+          . . . . . . .
     ├───static
-        . . . . . . .
+         . . . . . . .
 └───my-django-project
     └───settings.py
     └───urls.py
@@ -378,7 +378,7 @@ Quit the server with CONTROL-C.
 
 ## <a name="clean-up-the-resources"></a>Limpar os recursos
 
-Para evitar as acusações do Azure, devias limpar recursos não necessários.  Quando o cluster já não for necessário, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
+Para evitar as acusações do Azure, devias limpar recursos não necessários.  Quando o cluster já não for necessário, utilize o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name django-project --yes --no-wait

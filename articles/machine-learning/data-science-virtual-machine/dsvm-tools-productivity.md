@@ -10,10 +10,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.openlocfilehash: f8f0a54d99b7f2e84f7ac392de2fe9cb1c7c31a3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100516452"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Ferramentas de produtividade na Máquina Virtual da Ciência dos Dados

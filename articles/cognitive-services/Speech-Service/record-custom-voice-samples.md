@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
 ms.openlocfilehash: 6d2ad87f6a8c79f61d62140a1549968cd88d83aa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101722318"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Registar amostras de voz para criar uma voz personalizada
@@ -163,14 +163,14 @@ Grave em 44,1 kHz 16 bit monofónico (qualidade de CD) ou melhor. O estado atual
 
 Idealmente, ter pessoas diferentes a servir nas funções de diretor, engenheiro e talento. Não tente fazer tudo sozinho. Numa pitada, uma pessoa pode ser o diretor e o engenheiro.
 
-### <a name="before-the-session"></a>Antes da sessão
+### <a name="before-the-session&quot;></a>Antes da sessão
 
 Para evitar perder tempo de estúdio, passe pelo guião com o seu talento de voz antes da sessão de gravação. Enquanto o talento de voz se familiariza com o texto, eles podem esclarecer a pronúncia de quaisquer palavras desconhecidas.
 
 > [!NOTE]
 > A maioria dos estúdios de gravação oferecem exibição electrónica de scripts na cabine de gravação. Neste caso, digite as suas notas de execução diretamente no documento do script. No entanto, ainda vai querer uma cópia em papel para tomar notas durante a sessão. A maioria dos engenheiros também vai querer uma cópia em papel. E ainda vais querer uma terceira cópia impressa como cópia para o talento, caso o computador esteja em baixo.
 
-O seu talento de voz pode perguntar qual a palavra que quer enfatizada numa expressão (a "palavra operativa"). Diga-lhes que quer uma leitura natural sem ênfase em particular. A ênfase pode ser adicionada quando a fala é sintetizada; não deve fazer parte da gravação original.
+O seu talento de voz pode perguntar qual a palavra que quer enfatizada numa expressão (a &quot;palavra operativa"). Diga-lhes que quer uma leitura natural sem ênfase em particular. A ênfase pode ser adicionada quando a fala é sintetizada; não deve fazer parte da gravação original.
 
 Direcione o talento para pronunciar as palavras de forma distinta. Cada palavra do guião deve ser pronunciada como escrita. Os sons não devem ser omitidos ou resmungar em conjunto, como é comum no discurso casual, *a não ser que tenham sido escritos dessa forma no guião*.
 
