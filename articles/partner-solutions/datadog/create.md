@@ -8,10 +8,10 @@ author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
 ms.openlocfilehash: 7af8b82c5da6c60527b45b6e8e292b9f067016ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101748894"
 ---
 # <a name="quickstart-get-started-with-datadog"></a>QuickStart: Começa com o Datadog

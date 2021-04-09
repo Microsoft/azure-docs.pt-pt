@@ -3,12 +3,12 @@ title: Replicar VMs de pilha de Azure para Azure usando Azure Site Recovery | Mi
 description: Saiba como configurar a recuperação de desastres para Azure Stack VMs com o serviço de Recuperação do Local Azure.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 300b239de74c7d21e03eb0c3b059663b5074964c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96016914"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728390"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
 
@@ -314,7 +314,7 @@ Em seguida, executar um failover da seguinte forma:
 
 ### <a name="fail-back-to-azure-stack"></a>Falha de volta à Pilha Azure
 
-Quando o seu site principal estiver a funcionar novamente, pode falhar de volta de Azure a Azure Stack. Para isso, siga os passos listados [aqui.](/azure-stack/operator/site-recovery-failback?view=azs-2005)
+Quando o seu site principal estiver a funcionar novamente, pode falhar de volta de Azure a Azure Stack. Para isso, siga os passos listados [aqui.](/azure-stack/operator/site-recovery-failback)
 
 ## <a name="conclusion"></a>Conclusão
 

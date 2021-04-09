@@ -54,8 +54,8 @@
   items:
     - name: Gestor de Computação Confidencial Fortanix
       href: how-to-fortanix-confidential-computing-manager.md
-    - name: Fortanix Enclave Manager
-      href: how-to-fortanix-enclave-manager.md
+    - name: Agente de node do gerente de computação confidencial Fortanix
+      href: how-to-fortanix-confidential-computing-manager-node-agent.md
 - name: Referências
   items:
     - name: Funcionalidade de ajudante de cotação SGX

@@ -8,10 +8,10 @@ ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
 ms.openlocfilehash: f6ed2029ec333120e3942570c951f5da6e846c7a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953277"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Informações do Marketplace na análise de mercados comerciais

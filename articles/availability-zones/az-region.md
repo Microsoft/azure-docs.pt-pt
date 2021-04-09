@@ -4,16 +4,16 @@ description: Para criar aplicações altamente disponíveis e resilientes no Azu
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/30/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 5152b0ecf6eebe87031a2165d5d8ba11d99209cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a81f3a3c51ffd0e1e0937c077a07fcbde16f0513
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601190"
+ms.locfileid: "105961307"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -50,15 +50,15 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 | América           | Europa               | África              | Ásia-Pacífico   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Sul do Brasil       | França Central       | África do Sul Norte* | Leste do Japão     |
-| Canadá Central     | Alemanha Centro-Oeste |                     | Sudeste Asiático |
-| E.U.A. Central         | Europa do Norte         |                     | Leste da Austrália |
-| E.U.A. Leste            | Sul do Reino Unido             |                     |                |
+| Sul do Brasil       | França Central       | África do Sul Norte* | Leste da Austrália |
+| Canadá Central     | Alemanha Centro-Oeste |                     | Leste do Japão     |
+| E.U.A. Central         | Europa do Norte         |                     | Coreia Central* |
+| E.U.A. Leste            | Sul do Reino Unido             |                     | Sudeste Asiático |
 | E.U.A. Leste 2          | Europa Ocidental          |                     |                |
 | Centro-Sul dos EUA |                      |                     |                |
-| US Gov - Virginia     |                      |                     |                |
+| US Gov - Virginia    |                      |                     |                |
 | Oeste DOS EUA 2        |                      |                     |                |
-
+| Oeste DOS EUA 3*       |                      |                     |                |
 
 \* Para saber mais sobre As Zonas de Disponibilidade e o suporte de serviços disponíveis nestas regiões, contacte o seu representante de vendas da Microsoft ou do cliente. Para as próximas regiões que apoiarão As Zonas de Disponibilidade, consulte [geografias Azure.](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)
 

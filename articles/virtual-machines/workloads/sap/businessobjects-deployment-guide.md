@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
 ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102505907"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planeamento e implementação da plataforma de BI SAP BusinessObjects no Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O objetivo deste guia é fornecer diretrizes para o planeamento, implementação e configuração da Plataforma BI SAP BusinessObjects, também conhecida como Plataforma SAP BOBI em Azure. Este guia destina-se a abranger serviços e funcionalidades comuns da Azure que sejam relevantes para a Plataforma SAP BOBI. Este guia não é uma lista exaustiva de todas as opções de configuração possíveis. Abrange soluções comuns a cenários típicos de implantação.
 
@@ -154,7 +154,7 @@ O Azure suporta duas ofertas de DBaaS para o nível de dados da Plataforma SAP B
 
 A Azure SQL Database oferece os seguintes três modelos de compra:
 
-- vCore
+- Baseado em vCore
 
   Permite-lhe escolher o número de vCores, quantidade de memória e a quantidade e velocidade de armazenamento. O modelo de compra baseado em vCore também permite que você use [Azure Hybrid Benefit para o SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter economia de custos. Este modelo é adequado para o cliente que valoriza a flexibilidade, o controlo e a transparência.
 

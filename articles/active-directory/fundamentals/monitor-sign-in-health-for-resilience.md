@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47691ae404f65f04ace36485cb01fc5617d00a9a
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105031771"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitorização da saúde de inscrição do pedido de resiliência
@@ -116,7 +116,7 @@ Para obter mais informações sobre como criar, visualizar e gerir alertas de re
    [![Screenshot mostrando o novo ecrã de regra de alerta.](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)](./media/monitor-sign-in-health-for-resilience/new-alert-rule.png)
 
 
-5. Configure as condições de alerta. ‎In the Condition section, select the link **Whenever the average custom log search is greater than logic defined count**. No painel de lógica de sinal de configuração, percorra para a lógica de alerta
+5. Configure as condições de alerta. Na secção Condição, selecione o link **Sempre que a procura média de registo personalizado for maior do que a contagem definida pela lógica.** No painel de lógica de sinal de configuração, percorra para a lógica de alerta
 
    [![Screenshot mostrando ecrã de alertas de configuração.](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)
  

@@ -4,10 +4,10 @@ description: Aprenda a estender a Azure DevTest Labs usando funções Azure.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 620cda83094ee65f421a5529a9d5b51e505ec48e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102501163"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Utilizar as Funções do Azure para expandir o DevTest Labs
@@ -19,7 +19,7 @@ Pode utilizar as Funções Azure para suportar cenários adicionais para além d
 - Permitir que os utilizadores completem operações que exijam permissões acrescidas na subscrição
 - [Início de fluxos de trabalho com base em eventos da DevTest Labs](https://github.com/RogerBestMsft/DTL-SecureArtifactData)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 [Azure Functions](../azure-functions/functions-overview.md) é uma plataforma de computação sem servidor no Azure. A utilização de Funções Azure numa solução com a DevTest Labs permite-nos aumentar as funcionalidades existentes com o nosso próprio código personalizado. Para obter mais informações sobre as Funções Azure, consulte [a documentação do Azure Functions](../azure-functions/functions-overview.md). Para ilustrar como as Funções Azure podem ajudar a cumprir os seus requisitos ou cenários completos na DevTest Labs, este artigo usa um exemplo de fornecer um resumo de alto nível de VMs no Laboratório da seguinte forma:
 
 **Exemplo de requisito/cenário**: Os utilizadores podem ver detalhes sobre todos os VMs em um laboratório, incluindo o sistema operativo, proprietário, e quaisquer artefactos aplicados.  Além disso, se o artefacto **de Aplicação de Atualizações** do Windows não foi aplicado recentemente, existe uma maneira fácil de aplicá-lo.

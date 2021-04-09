@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0231f7f3882218ef88d6151488da6aa23e4cb8e4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580186"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106692"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
@@ -46,7 +46,7 @@ O diagrama que se segue retrata os componentes que irá configurar nos seus inqu
 
 ![Projeção do grupo de recursos](./media/azure-monitor/resource-group-projection.png)
 
-Durante esta implantação, você irá configurar tanto o seu inquilino Azure AD B2C como o inquilino AD AD Azure onde o espaço de trabalho Log Analytics será hospedado. A conta Azure AD B2C deve ser atribuída ao [administrador global](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) do inquilino Azure AD B2C. A conta Azure AD utilizada para executar a implementação deve ser atribuída a função [de Proprietário](../role-based-access-control/built-in-roles.md#owner) na subscrição AZure AD. Também é importante ter a certeza de que está inscrito no diretório correto à medida que completa cada passo descrito.
+Durante esta implantação, você irá configurar tanto o seu inquilino Azure AD B2C como o inquilino AD AD Azure onde o espaço de trabalho Log Analytics será hospedado. A conta Azure AD B2C deve ser atribuída ao [administrador global](../active-directory/roles/permissions-reference.md#global-administrator) do inquilino Azure AD B2C. A conta Azure AD utilizada para executar a implementação deve ser atribuída a função [de Proprietário](../role-based-access-control/built-in-roles.md#owner) na subscrição AZure AD. Também é importante ter a certeza de que está inscrito no diretório correto à medida que completa cada passo descrito.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. Criar ou escolher grupo de recursos
 

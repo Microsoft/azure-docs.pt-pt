@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953396"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Hotpatch para novas máquinas virtuais (Pré-visualização)

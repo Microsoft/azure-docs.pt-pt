@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 660f6dfae23331455408ae7127274550a3a4cc3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc3a90d078966df030bd772a9444c449d48249d4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90019840"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057495"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personalize o Azure IoT Central UI
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/23/2020
 ms.author: alkohli
 ms.openlocfilehash: 66edd4cad5b2f38696ef1df2030687bf4c7d9956
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102634180"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-pro-r-device-via-azure-powershell"></a>Configure VPN no seu dispositivo Azure Stack Edge Pro R via Azure PowerShell

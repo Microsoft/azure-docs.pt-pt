@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/24/2021
 ms.author: alkohli
 ms.openlocfilehash: eca26934605ff70ecb26c10604fc9b493e88f2cf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101727449"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-r-device"></a>Lista de verificação de implementação para o seu dispositivo Azure Stack Edge Pro R  

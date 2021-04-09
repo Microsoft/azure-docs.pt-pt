@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101677918"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Fontes de dados suportadas e tipos de ficheiros em Azure Purview

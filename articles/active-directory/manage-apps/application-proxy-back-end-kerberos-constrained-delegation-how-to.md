@@ -12,10 +12,10 @@ ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
 ms.openlocfilehash: b8562f3bdd82b5b0c2c1340f511f87ad90dfbe3b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102487955"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de configurações de delegação restrita do Kerberos para o Proxy de Aplicações

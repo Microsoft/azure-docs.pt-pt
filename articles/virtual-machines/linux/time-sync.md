@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.openlocfilehash: 18c8570a8066985cab5263c4779787062dc32d75
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552648"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para Os VMs Linux em Azure
@@ -31,7 +31,7 @@ O Azure é apoiado por infraestruturas que executam o Windows Server 2016. O Win
 >
 > Para obter mais informações, consulte [a hora exata para o Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A precisão para um relógio de computador é avaliada sobre a proximidade do relógio do computador ao padrão de tempo universal coordenado (UTC). A UTC é definida por uma amostra multinacional de relógios atómicos precisos que só podem ser desligados por um segundo em 300 anos. Mas, ler a UTC requer hardware especializado. Em vez disso, os servidores de tempo são sincronizados com utc e são acedidos a partir de outros computadores para fornecer escalabilidade e robustez. Todos os computadores têm o serviço de sincronização de tempo em execução que sabe a que horas os servidores devem utilizar e verifica periodicamente se o relógio do computador precisa de ser corrigido e ajusta o tempo se necessário. 
 

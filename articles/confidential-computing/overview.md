@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
 ms.openlocfilehash: c3ef6a764123f52583f081a3b152651b9bb8b8b7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102554195"
 ---
 # <a name="confidential-computing-on-azure"></a>Computação confidencial em Azure
@@ -25,7 +25,7 @@ A computação confidencial Azure permite isolar os seus dados sensíveis enquan
 - Executar algoritmos em conjuntos de dados encriptados de várias fontes
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 <p><p>
 
 

@@ -12,10 +12,10 @@ ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101687673"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações do Azure AD

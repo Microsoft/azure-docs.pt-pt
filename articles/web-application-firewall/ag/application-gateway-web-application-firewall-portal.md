@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/25/2021
 ms.author: victorh
 ms.openlocfilehash: 35bede052f06c0fcffe46460a376d10690fd4417
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105559638"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutorial: Criar um gateway de aplicações com uma Firewall de Aplicação Web utilizando o portal Azure

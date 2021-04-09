@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102500415"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning

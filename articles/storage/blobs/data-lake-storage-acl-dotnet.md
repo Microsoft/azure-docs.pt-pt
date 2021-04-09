@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 626e89d8d758d5fe31ef6c913076a9154274bb61
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100654230"
 ---
 # <a name="use-net-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Utilize .NET para gerir ACLs em Azure Data Lake Storage Gen2
@@ -234,6 +234,6 @@ Para ver um exemplo que define os ACLs de forma recursiva em lotes especificando
 - [Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 - [Mapeamento da Gen1 para a Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Enviar Comentários](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Dar feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 - [Modelo de controlo de acesso em Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
 - [Listas de controlo de acesso (ACLs) em Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

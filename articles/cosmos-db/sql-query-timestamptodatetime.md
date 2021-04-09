@@ -9,10 +9,10 @@ ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: e9a77ab0ac32d627d59e2cb0fa4a680f174a6833
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104587241"
 ---
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimetampToDateTime (Azure Cosmos DB)

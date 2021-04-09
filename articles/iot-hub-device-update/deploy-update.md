@@ -7,10 +7,10 @@ ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 0a11c8e8946229941c1fe60f7f2ce84d9fadb2ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101680028"
 ---
 # <a name="deploy-an-update-using-device-update-for-iot-hub"></a>Implementar uma atualização utilizando a atualização do dispositivo para o hub IoT

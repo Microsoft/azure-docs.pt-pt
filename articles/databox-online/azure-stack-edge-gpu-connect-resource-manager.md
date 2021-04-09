@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: 27c0c211b9844a34b0cb43dcd05037ba4a548f3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102638708"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Ligue ao Gestor de Recursos Azure no seu dispositivo Azure Stack Edge Pro
