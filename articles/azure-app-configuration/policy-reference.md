@@ -8,10 +8,10 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 4cd55aedf56e340da32ee32e20412004d2355bfa
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105038210"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-configuration"></a>Definições incorporadas da Política Azure para configuração de aplicações Azure

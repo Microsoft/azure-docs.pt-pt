@@ -6,10 +6,10 @@ ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
 ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100578521"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions manipuladores personalizados
@@ -27,7 +27,7 @@ Com manipuladores personalizados, pode utilizar [gatilhos e entradas e encaderna
 
 Começa com os manipuladores personalizados da Azure Functions com [quickstarts em Go e Rust.](create-first-function-vs-code-other.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O diagrama seguinte mostra a relação entre o anfitrião Funções e um servidor web implementado como um manipulador personalizado.
 

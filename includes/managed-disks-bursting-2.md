@@ -9,10 +9,10 @@ ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102623191"
 ---
 ## <a name="disk-level-bursting"></a>Rebentamento do nível do disco

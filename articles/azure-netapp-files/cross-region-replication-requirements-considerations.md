@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: b-juche
 ms.openlocfilehash: ed03e20f7a1a24d1a38e023b958959fdc6fdc326
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100579350"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos e considerações para a utilização da replicação entre regiões 

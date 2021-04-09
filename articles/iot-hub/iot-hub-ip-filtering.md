@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: jlian
 ms.openlocfilehash: bf9d58926c5a0fdc7c305e1d9daebfa1c8c9cf63
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105023610"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP

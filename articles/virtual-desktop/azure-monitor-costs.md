@@ -7,10 +7,10 @@ ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 099def5a29c8a9b46733ba435befed7210756012
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709987"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Estimativa custos do Monitor Azure
