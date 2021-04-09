@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/01/2021
 ms.openlocfilehash: 7e54b1347e4c67b99ba87b15c2c15d9d28244ce7
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864776"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Otimizar Apache HBase com Apache Ambari em Azure HDInsight

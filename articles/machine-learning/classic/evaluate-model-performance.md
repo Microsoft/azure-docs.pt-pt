@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: b2ca78d30659fce6e4246c81216cae94b404955e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100520022"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Avalie o desempenho do modelo no Azure Machine Learning Studio (clássico)
@@ -138,8 +138,8 @@ Figura 8. Validação cruzada de um modelo de classificação binária.
 
 Figura 9. Resultados de validação cruzada de um classificador binário.
 
-## <a name="evaluating-a-multiclass-classification-model"></a>Avaliação de um modelo de classificação multiclasse
-Nesta experiência, usaremos o popular conjunto de dados [da Íris,](https://archive.ics.uci.edu/ml/datasets/Iris "Íris") que contém instâncias de três tipos diferentes (classes) da planta da íris. Existem quatro valores de característica (comprimento/largura sepal e comprimento/largura de pétalas) para cada instância. Nas experiências anteriores, treinamos e testámos os modelos usando os mesmos conjuntos de dados. Aqui, usaremos o módulo [Dados Divididos][split] para criar dois subconjuntos dos dados, treinar no primeiro, e marcar e avaliar no segundo. O conjunto de dados da Íris está disponível publicamente no [Repositório de Aprendizagem automática da UCI,](https://archive.ics.uci.edu/ml/index.html)e pode ser descarregado através de um módulo [de Dados de Importação.][import-data]
+## <a name="evaluating-a-multiclass-classification-model&quot;></a>Avaliação de um modelo de classificação multiclasse
+Nesta experiência, usaremos o popular conjunto de dados [da Íris,](https://archive.ics.uci.edu/ml/datasets/Iris &quot;Íris") que contém instâncias de três tipos diferentes (classes) da planta da íris. Existem quatro valores de característica (comprimento/largura sepal e comprimento/largura de pétalas) para cada instância. Nas experiências anteriores, treinamos e testámos os modelos usando os mesmos conjuntos de dados. Aqui, usaremos o módulo [Dados Divididos][split] para criar dois subconjuntos dos dados, treinar no primeiro, e marcar e avaliar no segundo. O conjunto de dados da Íris está disponível publicamente no [Repositório de Aprendizagem automática da UCI,](https://archive.ics.uci.edu/ml/index.html)e pode ser descarregado através de um módulo [de Dados de Importação.][import-data]
 
 ### <a name="creating-the-experiment"></a>Criação da Experiência
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):

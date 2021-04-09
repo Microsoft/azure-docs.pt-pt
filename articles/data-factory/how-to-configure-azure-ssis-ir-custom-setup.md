@@ -8,10 +8,10 @@ ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
 ms.openlocfilehash: b1b3a34ac495936ed92e29353a41efb8c462768f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387738"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um tempo de execução de integração Azure-SSIS

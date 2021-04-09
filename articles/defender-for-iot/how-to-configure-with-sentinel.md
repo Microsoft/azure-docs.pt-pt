@@ -4,10 +4,10 @@ description: Explica como configurar o Azure Sentinel para receber dados da sua 
 ms.topic: how-to
 ms.date: 12/28/2020
 ms.openlocfilehash: b481dd31b73e741d265a569076f1ddc076ad4a45
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778955"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel"></a>Ligue os seus dados do Defender para IoT a Azure Sentinel 

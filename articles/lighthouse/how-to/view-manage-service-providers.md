@@ -4,10 +4,10 @@ description: Os clientes podem utilizar a página de prestadores de serviços no
 ms.date: 02/16/2021
 ms.topic: how-to
 ms.openlocfilehash: f6ee5fb154d75ff715acf99c5184cd1652ccdb80
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100555580"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços

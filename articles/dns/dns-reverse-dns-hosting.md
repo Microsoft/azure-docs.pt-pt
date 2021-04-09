@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 0c85049d6c8921432a753bf08989cab473b7c734
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99525132"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Host zonas de pesquisa de DNS inversas em Azure DNS
@@ -130,10 +130,10 @@ O exemplo que se segue acompanha-o através do processo de criação de um regis
 
 Os exemplos a seguir mostram como completar esta tarefa utilizando o PowerShell ou o Azure CLI.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell&quot;></a>PowerShell
 
 ```powershell
-New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc1.contoso.com")
+New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname &quot;dc1.contoso.com")
 ```
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
@@ -166,10 +166,10 @@ O exemplo que se segue acompanha-o através do processo de criação de um novo 
 
 Os exemplos a seguir mostram como completar esta tarefa utilizando o PowerShell ou o Azure CLI.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell&quot;></a>PowerShell
 
 ```powershell
-New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc2.contoso.com")
+New-AzDnsRecordSet -Name &quot;e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f&quot; -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname &quot;dc2.contoso.com")
 ```
 
 #### <a name="azure-classic-cli"></a>CLI clássica do Azure

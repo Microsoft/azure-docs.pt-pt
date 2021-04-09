@@ -8,10 +8,10 @@ ms.date: 01/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 52e491c88d3483f21aa74f1a9f176246033bee3c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735797"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>Crie um instantâneo incremental para discos geridos

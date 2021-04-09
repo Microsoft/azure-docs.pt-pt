@@ -4,10 +4,10 @@ description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, d
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: ceea54957e52f3b33d2c3fb2af190f15e6c94ec3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105558980"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Definir e Atribuir uma Planta Azure com REST API

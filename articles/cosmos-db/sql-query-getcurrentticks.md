@@ -9,10 +9,10 @@ ms.date: 02/03/2021
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 16004e6e471094c99229c32a63396ac3b0490905
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99524310"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)

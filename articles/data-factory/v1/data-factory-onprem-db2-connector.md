@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387364"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 utilizando a atividade de cópia da fábrica de dados Azure

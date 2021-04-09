@@ -8,10 +8,10 @@ ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.openlocfilehash: 3d1a1135db0421d89d4c6c9f278c86e02cb5cb32
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105558963"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Localização de resolução de problemasNotFoundForRoleSize ao implementar um serviço cloud (clássico) para Azure

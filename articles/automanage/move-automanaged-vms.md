@@ -10,10 +10,10 @@ ms.date: 02/05/2021
 ms.author: alsin
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 99371b8618756c196b75858288c5c4785272a7e8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101650470"
 ---
 # <a name="move-an-azure-automanage-virtual-machine-to-a-different-region"></a>Mova uma máquina virtual Azure Automanage para uma região diferente

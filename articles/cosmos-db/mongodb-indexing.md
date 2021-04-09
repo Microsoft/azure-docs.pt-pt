@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
 ms.openlocfilehash: 8d19a5dadffdfa26ccb2d84e6dab278ad272c7b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101658051"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir os índices na API para MongoDB do Azure Cosmos DB

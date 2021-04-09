@@ -4,10 +4,10 @@ description: Este artigo resume o suporte de backup do Azure quando utiliza o Mi
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: e888b43ea5641f1943a096f045747d547c52fcfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102609758"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Microsoft Azure Backup Server ou System Center DPM
@@ -80,7 +80,7 @@ O Azure Backup pode fazer backup de instâncias DPM/MABS que estão a executar q
 
 ## <a name="management-support"></a>Apoio à gestão
 
-**Emissão** | **Detalhes**
+**Problema** | **Detalhes**
 --- | ---
 **Instalação** | Instale o DPM/MABS numa máquina de uso único.<br/><br/> Não instale DPM/MABS num controlador de domínio, numa máquina com a instalação de função do Servidor de Aplicações, numa máquina que está a executar o Microsoft Exchange Server ou o System Center Operations Manager, ou num nó de cluster.<br/><br/> [Reveja todos os requisitos do sistema DPM.](/system-center/dpm/prepare-environment-for-dpm#dpm-server)
 **Domínio** | DPM/MABS deve ser associado a um domínio. Instale primeiro e, em seguida, junte o DPM/MABS a um domínio. Mover o DPM/MABS para um novo domínio após a implementação não é suportado.

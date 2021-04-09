@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 8f22379049b74428787b738af832802081be7bf8
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105022896"
 ---
 # <a name="managing-your-voice-assistant"></a>Gerir o seu assistente de voz

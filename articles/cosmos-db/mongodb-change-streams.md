@@ -9,10 +9,10 @@ ms.date: 03/02/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 941fe8929b75fdebf187186ca7078b0ae1dd261c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101658527"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Alterar fluxos na API da Azure Cosmos DB para MongoDB

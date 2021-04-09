@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
 ms.openlocfilehash: ecb4550b218b069273cba2e3d70a9510c1cc74ca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387806"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Copiar funcionalidades de otimização do desempenho da atividade

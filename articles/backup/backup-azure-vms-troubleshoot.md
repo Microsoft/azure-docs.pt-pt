@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105559371"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure

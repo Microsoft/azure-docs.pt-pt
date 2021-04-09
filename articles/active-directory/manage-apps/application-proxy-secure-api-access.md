@@ -12,10 +12,10 @@ ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 9341646f32f6a2e05397b072d3f63186964fbd88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99258987"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro às APIs no local com Proxy de Aplicação AD Azure
@@ -24,7 +24,7 @@ Você pode ter APIs de lógica de negócio correndo no local, ou hospedado em m�
 
 Este artigo acompanha-o através da criação de uma solução de Proxy de aplicação AD Azure para hospedar um serviço web API que as aplicações nativas podem aceder.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O diagrama que se segue mostra uma forma tradicional de publicar APIs no local. Esta abordagem requer a abertura das portas de entrada 80 e 443.
 

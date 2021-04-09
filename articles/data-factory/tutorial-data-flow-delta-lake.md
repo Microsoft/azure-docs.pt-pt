@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 02/09/2021
 ms.openlocfilehash: cb8d44353e826df14ed3baab2c4ca66ffed4a569
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100418112"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transforme dados no lago delta usando fluxos de dados de mapeamento
@@ -68,11 +68,11 @@ Neste passo, irá criar um oleoduto que contém uma atividade de fluxo de dados.
 
     ![Screenshot que mostra onde nomeia o fluxo de dados quando cria um novo fluxo de dados.](media/tutorial-data-flow/activity2.png)
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Construir lógica de transformação na tela do fluxo de dados
+## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>Construir lógica de transformação na tela do fluxo de dados
 
 Irá gerar dois fluxos de dados neste tutorial. O fluxo de dados do punho é uma fonte simples para afundar para gerar um novo Delta Lake a partir dos filmes ficheiro CSV de cima. Por último, irá criar este design de fluxo abaixo para atualizar dados em Delta Lake.
 
-![Fluxo final](media/data-flow/data-flow-tutorial-6.png "Fluxo final")
+![Fluxo final](media/data-flow/data-flow-tutorial-6.png &quot;Fluxo final")
 
 ### <a name="tutorial-objectives"></a>Objetivos tutoriais
 

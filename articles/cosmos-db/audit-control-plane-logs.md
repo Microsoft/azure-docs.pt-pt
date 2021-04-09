@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
 ms.openlocfilehash: 6f3e408343fc75d6587d1a67a0179edf13d56e36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101658253"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar as operações do avião de controlo da Azure Cosmos DB

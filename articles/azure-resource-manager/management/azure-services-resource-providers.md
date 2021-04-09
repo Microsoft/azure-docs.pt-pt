@@ -4,10 +4,10 @@ description: Lista todos os espaços de nome do fornecedor de recursos para O Ge
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.openlocfilehash: d8239a9305560eb77ac2c714b993373f0d5b16fb
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105023015"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
@@ -25,7 +25,7 @@ Os fornecedores de recursos com os que estão marcados **- registados** são reg
 | Microsoft.ADHybridHealthService - [registado](#registration) | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Assistente do Azure](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
+| Microsoft.AnalysisServices | [Serviços de Análise Azure](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [Gestão de API](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | [Configuração da Aplicação Azure](../../azure-app-configuration/index.yml) |
 | Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/overview.md) |

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
 ms.openlocfilehash: f720cc196f4034d29ec1d628e28d3534b10f3e41
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025820"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementar CI/CD com GitOps utilizando clusters Kubernetes ativados pelo Arco Azure
