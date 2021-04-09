@@ -9,10 +9,10 @@ ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: c28ab557f6aac94fa9acde78c7433b850ecba0be
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100097263"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Atualizar as ofertas existentes no mercado comercial

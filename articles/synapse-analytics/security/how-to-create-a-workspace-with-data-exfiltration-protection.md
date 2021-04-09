@@ -9,10 +9,10 @@ ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
 ms.openlocfilehash: 59c2f5e5738b29aa11e9227b157f8b11d53f2b25
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104598087"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Criar um espaço de trabalho com proteção de exfiltração de dados ativada

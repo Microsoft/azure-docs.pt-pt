@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 58ddf60a842a9583eae25a875f55227cee772a8a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100582540"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerir um plano de Serviço de Aplicações em Azure

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
 ms.openlocfilehash: eb0ce5cfadbab247299cd3c22bf6ee618bf19731
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100582486"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Dimensione uma aplicação no Azure App Service

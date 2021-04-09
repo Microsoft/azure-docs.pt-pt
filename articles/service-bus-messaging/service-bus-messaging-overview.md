@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral de alto nível da Azure Servic
 ms.topic: overview
 ms.date: 02/16/2021
 ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100570471"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
@@ -17,7 +17,7 @@ O Microsoft Azure Service Bus é um corretor de mensagens da empresa totalmente 
 - Encaminhamento e transferência de dados e controlo em segurança através dos limites de serviço e aplicação
 - Coordenação do trabalho transacional que requer um elevado grau de fiabilidade 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. Uma mensagem é um recipiente decorado com metadados e contém dados. Os dados podem ser qualquer tipo de informação, incluindo dados estruturados codificados com os formatos comuns, tais como os seguintes: JSON, XML, Apache Avro, Texto Simples.
 
 Alguns cenários comuns de mensagens são:

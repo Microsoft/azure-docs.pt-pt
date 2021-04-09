@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 10/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: 91be2f8641a061d009962cdcd03a8d56048594da
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104594510"
 ---
 # <a name="how-to-create-alerts-for-change-tracking-and-inventory"></a>Como criar alertas para o Rastreio e Inventário de Alterações

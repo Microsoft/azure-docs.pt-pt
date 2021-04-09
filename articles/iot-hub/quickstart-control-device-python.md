@@ -15,10 +15,10 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 09/14/2020
 ms.openlocfilehash: d7e7eb80d452620cdbb0f6688d6137ad34951dbe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99070729"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guia de Início Rápido: Controlar um dispositivo ligado a um hub IoT (Python)

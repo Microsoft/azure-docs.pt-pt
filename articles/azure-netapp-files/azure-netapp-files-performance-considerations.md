@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 ms.author: b-juche
 ms.openlocfilehash: f963c87148c08a4855befc5afb79d9c5ea0f4481
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101713393"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considerações de desempenho para o Azure NetApp Files

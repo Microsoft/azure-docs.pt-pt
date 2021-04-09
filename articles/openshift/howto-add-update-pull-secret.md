@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: puxar segredo, aro, openshift, chapéu vermelho
 ms.openlocfilehash: 58c0eb2be3423783a69d005277ffe75aaf59415f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100633738"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Adicione ou atualize o seu chapéu vermelho puxe segredo em um cluster Azure Red Hat OpenShift 4
