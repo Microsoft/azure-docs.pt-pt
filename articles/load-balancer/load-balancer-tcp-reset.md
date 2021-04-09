@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
 ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94696749"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Reposição do reposição do balançador de carga e tempo de marcha lenta

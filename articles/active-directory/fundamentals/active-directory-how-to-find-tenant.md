@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, devx-track-azurecli
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 910e68e5b8933875f252faf65fb58e514dee8254
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96326595"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Como encontrar o seu ID do seu inquilino Azure Ative Directory

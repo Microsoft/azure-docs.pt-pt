@@ -48,9 +48,9 @@ Por exemplo, SumCost é o nome da coluna que é escolhido no exemplo partilhado 
 
 ![Imagem mostrando as colunas PO, Fornecedor e Frutas antes e depois de uma transformação unipivot usando a coluna Fruit como a chave unipivot.](media/data-flow/unpivot3.png)
 
-Definir o Acordo de Coluna para "Normal" irá agrupar todas as novas colunas não-porpavoradas de um único valor. Definir o arranjo das colunas para "Lateral" irá agrupar novas colunas não-edívoras geradas a partir de uma coluna existente.
+Definir o Acordo de Coluna para "Normal&quot; irá agrupar todas as novas colunas não-porpavoradas de um único valor. Definir o arranjo das colunas para &quot;Lateral&quot; irá agrupar novas colunas não-edívoras geradas a partir de uma coluna existente.
 
-![A imagem mostra o resultado da transformação.](media/data-flow//unpivot7.png "Opções não-abertas 5")
+![A imagem mostra o resultado da transformação.](media/data-flow//unpivot7.png &quot;Opções não-abertas 5")
 
 O conjunto final de resultados de dados não-preparados mostra que os totais da coluna agora não são despívorados em valores de linha separados.
 

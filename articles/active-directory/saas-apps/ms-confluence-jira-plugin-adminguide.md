@@ -12,15 +12,15 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94359162"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração Atlassian Jira e Confluence para o Azure Ative Directory
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O plug-in de assinatura única (SSO) do Azure Ative Directory (Azure AD) permite que os clientes da Microsoft Azure AD utilizem a sua conta de trabalho ou escola para iniciar sessão nos produtos baseados em Atlassian Jira e Confluence Server. Implementa sSO baseado em SAML 2.0.
 

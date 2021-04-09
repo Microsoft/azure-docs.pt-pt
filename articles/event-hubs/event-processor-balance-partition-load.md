@@ -4,10 +4,10 @@ description: Descreve como equilibrar a carga de partição em várias instânci
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: af307058d0eda6b96c0811bccc245c09e2bdd27d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95025049"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrar a carga de partição em vários casos da sua aplicação
