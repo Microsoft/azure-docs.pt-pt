@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 17a4df3037f9922d92fca924de0d246458cfa08e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102456308"
 ---
 # <a name="azure-sentinel-entity-types-reference"></a>Referência de tipos de entidade Azure Sentinel

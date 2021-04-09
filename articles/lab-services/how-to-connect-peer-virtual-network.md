@@ -4,17 +4,17 @@ description: Saiba como ligar a sua rede de laboratório a outra rede como um pa
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96434248"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ligue a rede do seu laboratório a uma rede virtual de pares nos Serviços Azure Lab
 
 Este artigo fornece informações sobre olhando a sua rede de laboratórios com outra rede.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O espreitamento de rede virtual permite-lhe ligar sem problemas as redes virtuais do Azure. Uma vez executado o peering, as redes virtuais aparecem como uma única, para fins de conectividade. O tráfego entre máquinas virtuais nas redes virtuais é encaminhado através da infraestrutura da Espinha Dorsal da Microsoft, tal como o tráfego é encaminhado entre máquinas virtuais na mesma rede virtual, apenas através de endereços IP privados. Para obter mais informações, consulte [a rede Virtual a espreitar.](../virtual-network/virtual-network-peering-overview.md)
 

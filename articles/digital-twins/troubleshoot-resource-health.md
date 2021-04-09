@@ -8,10 +8,10 @@ ms.date: 10/6/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: b64ee4d1538276bbbcab3fe09054f399ad20c162
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94616554"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Resolução de problemas Azure Digital Twins: Saúde de recursos

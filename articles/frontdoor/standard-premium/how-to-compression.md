@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 4b526d82465862b1c0d27aed6443c6d7199bfb5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101099675"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-front-door-standardpremium-preview"></a>Melhorar o desempenho comprimindo ficheiros em Azure Front Door Standard/Premium (Preview)

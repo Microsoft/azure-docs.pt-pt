@@ -5,10 +5,10 @@ ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: azure-functions
 ms.openlocfilehash: 8aca1ab6629f95ef9162e1247434bd3189d5a7d2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97937751"
 ---
 # <a name="event-driven-scaling-in-azure-functions"></a>Escalamento orientado para eventos em Funções Azure

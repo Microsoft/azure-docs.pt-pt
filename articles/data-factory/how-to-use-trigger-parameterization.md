@@ -8,10 +8,10 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104593650"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>Metadados de gatilho de referência em cursos de pipeline

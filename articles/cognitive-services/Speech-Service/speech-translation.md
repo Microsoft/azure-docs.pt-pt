@@ -13,10 +13,10 @@ ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tradução da fala
 ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954966"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de voz?

@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 03/19/2021
 ms.author: b-juche
 ms.openlocfilehash: f2167159b03cd0387acfccf4bbd0a2e840f739df
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104955242"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades nos ficheiros Azure NetApp

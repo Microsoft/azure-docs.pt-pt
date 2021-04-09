@@ -11,10 +11,10 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
 ms.openlocfilehash: 15d62f40b50617fd1f6e543cb404a0d38361d3bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94836500"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory

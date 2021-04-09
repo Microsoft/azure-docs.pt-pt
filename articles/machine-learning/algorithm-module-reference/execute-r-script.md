@@ -147,7 +147,7 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
 1. Na caixa de texto do **script R,** escreva ou cole um script R válido.
 
     > [!NOTE]
-    > Tenha cuidado ao escrever o seu guião. Certifique-se de que não existem erros de sintaxe, tais como a utilização de variáveis não declaradas ou de módulos ou funções não declarados. Preste uma atenção extra à lista de pacotes pré-instalados no final deste artigo. Para utilizar pacotes que não estão listados, instale-os no seu script. Um exemplo é `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+    > Tenha cuidado ao escrever o seu guião. Certifique-se de que não existem erros de sintaxe, tais como a utilização de variáveis não declaradas ou de módulos ou funções não declarados. Preste uma atenção extra à lista de pacotes pré-instalados no final deste artigo. Para utilizar pacotes que não estão listados, instale-os no seu script. Um exemplo é `install.packages("zoo&quot;,repos = &quot;http://cran.us.r-project.org")`.
     
     Para ajudá-lo a começar, a caixa de texto **R Script** é pré-preparada com código de amostra, que pode editar ou substituir.
     

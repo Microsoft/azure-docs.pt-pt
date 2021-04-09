@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 03/17/2021
 ms.openlocfilehash: 4c9edaea75215bc4b471cd2e0ac50c4e69546bb0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104592137"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimização da monitorização e do desempenho na Base de Dados SQL do Azure e no Azure SQL Managed Instance
@@ -119,7 +119,7 @@ Pode transmitir métricas e registos de recursos para [Azure Event Hubs](../../a
 
   Utilize centros de eventos, Stream Analytics e Power BI para transformar os seus dados de diagnóstico em insights quase em tempo real nos seus serviços Azure. Consulte [Stream Analytics e Power BI: Um dashboard de análise em tempo real para transmitir dados](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre esta solução.
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 Transmita métricas e registos de recursos para [o Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Utilize o armazenamento Azure para arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
 

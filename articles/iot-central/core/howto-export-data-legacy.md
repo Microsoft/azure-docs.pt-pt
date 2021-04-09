@@ -8,10 +8,10 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98065444"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados (legado)
