@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105048872"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Como configurar a indexação online do SharePoint em Pesquisa Cognitiva (pré-visualização)

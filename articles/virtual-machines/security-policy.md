@@ -9,10 +9,10 @@ ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
 ms.openlocfilehash: 291b9a210bf5f8cc18ccf8a523e282d3fc85aa28
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101673357"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e utilizar políticas em máquinas virtuais no Azure

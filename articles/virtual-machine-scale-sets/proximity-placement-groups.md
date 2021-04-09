@@ -5,16 +5,16 @@ author: cynthn
 ms.author: cynthn
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: availability
+ms.subservice: proximity-placement-groups
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: a3a7b50c82b3deffa7526bfcfe799972c3b02762
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eeb0dd6cd5ce838c0f3a68763c40612038ee82f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98877871"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933496"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Pré-visualização: Criar e utilizar grupos de colocação de proximidade utilizando o PowerShell
 

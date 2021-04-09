@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
 ms.openlocfilehash: f95b9c1615cc58d9cc0589bad98c7315e571686e
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709468"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da unidade de processamento gráfico (GPU) para o Windows Virtual Desktop

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a1cb71917fdb30ffccda21bedffe1c7f2a428c1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105557960"
 ---
 # <a name="authentication-methods-activity"></a>Atividade dos Métodos de Autenticação 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/12/2021
 ms.author: alkohli
 ms.openlocfilehash: cf67ea58c4c13756fdc6e437883f12124ca47eb9
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105105145"
 ---
 1. No [portal Azure,](https://portal.azure.com/)selecione o seu recurso Azure Stack Edge e, em seguida, vá à **Visão Geral**. O seu dispositivo deve estar online. Vá ao **gateway de armazenamento cloud > contas de armazenamento**.

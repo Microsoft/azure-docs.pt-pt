@@ -7,10 +7,10 @@ author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 2933bd0b36932e68532a4ffa40747c4490f24fd1
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105032396"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-custom-resource-providers"></a>Definições incorporadas da Política Azure para fornecedores de recursos personalizados Azure

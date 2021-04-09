@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.openlocfilehash: 0d11ec8815cc0f5082f95c5331321f043e86eece
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105027675"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--hyperscale-citus"></a>Manutenção programada na Base de Dados Azure para PostgreSQL – Hiperescala (Citus)

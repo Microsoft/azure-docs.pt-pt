@@ -8,10 +8,10 @@ ms.custom: seo-lt-2019
 ms.date: 02/18/2021
 ms.author: jingwang
 ms.openlocfilehash: 08ab3c9181f4fdcfc9b55bf80c53f88ff26f90ce
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104584414"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copie os dados do armazenamento do Azure Blob para uma base de dados na Base de Dados Azure SQL utilizando a Azure Data Factory

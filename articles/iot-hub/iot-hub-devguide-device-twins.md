@@ -12,10 +12,10 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101093034"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e usar gémeos dispositivo no IoT Hub

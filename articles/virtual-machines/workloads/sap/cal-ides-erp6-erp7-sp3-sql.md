@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 5184df38b6a6b2757a5d5f7c0970258657cf5c0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101671000"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implementar SAP IDES EHP7 SP3 para SAP ERP 6.0 em Azure

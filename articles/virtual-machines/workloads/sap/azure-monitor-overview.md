@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: a88ad3930e114bdf9f3c3c340f92f164215d59c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101671996"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Monitor Azure para soluções SAP (pré-visualização)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Azure Monitor for SAP Solutions é um produto de monitorização nativo da Azure para os clientes, que gere as suas paisagens SAP em Azure. O produto funciona com tanto [o SAP em Azure Virtual Machines](./hana-get-started.md) [como com o SAP em Azure Large Instances](./hana-overview-architecture.md).
 Com o Azure Monitor for SAP Solutions, os clientes podem recolher dados de telemetria a partir de infraestruturas e bases de dados Azure numa localização central e correlacionar visualmente os dados de telemetria para uma resolução mais rápida de problemas.

@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 01/03/2020
 ms.openlocfilehash: 980c98b6b222ca4a0bb5d2ba2ae53f38de12c931
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945437"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice de Apache Hadoop em artigos de resolução de problemas hdInsight

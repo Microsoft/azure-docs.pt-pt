@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: d944d1d3e9c72471fab2435430a7d13e1770e807
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 190524251d139e1421c1aac93d5a4dd523068a7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96010487"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958328"
 ---
 ## <a name="local-settings-file"></a>Ficheiro de definições locais
 
@@ -43,7 +43,7 @@ Estas definições são suportadas quando executam projetos localmente:
 | **`IsEncrypted`** | Quando esta definição está definida para `true` , todos os valores são encriptados com uma chave de máquina local. Usado com `func settings` comandos. O valor predefinido é `false`. É possível que pretenda encriptar as local.settings.jsno ficheiro do computador local quando este contiver segredos, tais como cadeias de ligação de serviço. O anfitrião desencripta automaticamente as definições quando funciona. Utilize o `func settings decrypt` comando antes de tentar ler as definições encriptadas localmente. |
 | **`Values`** | Conjunto de configurações de aplicações e cordas de conexão usadas quando um projeto está em execução local. Estes pares de valor-chave (string-string) correspondem às definições de aplicação na sua aplicação de função em Azure, como [`AzureWebJobsStorage`] . Muitos gatilhos e encadernações têm uma propriedade que se refere a uma definição de aplicação de cadeia de ligação, como `Connection` para o gatilho de armazenamento [Blob](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Para estas propriedades, você precisa de uma definição de aplicação definida na `Values` matriz. Consulte a tabela seguinte para obter uma lista de configurações comumente utilizadas. <br/>Os valores devem ser cordas e não objetos ou matrizes JSON. Definir nomes não pode incluir um cólon `:` () ou um duplo sublinhado `__` (). Os caracteres de duplo sublinhado são reservados pelo tempo de execução, e o cólon é reservado para apoiar a [injeção de dependência](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings). |
 | **`Host`** | As definições nesta secção personalizam o processo de anfitrião de Funções quando executar projetos localmente. Estas definições são separadas do host.jsnas definições, que também se aplicam quando executam projetos em Azure. |
-| **`LocalHttpPort`** | Define a porta predefinida utilizada quando executa o hospedeiro local de funções `func host start` (e `func run` . A `--port` opção de linha de comando tem precedência sobre esta definição. |
+| **`LocalHttpPort`** | Define a porta predefinida utilizada quando executa o hospedeiro local de funções `func host start` (e `func run` . A `--port` opção de linha de comando tem precedência sobre esta definição. Por exemplo, ao executar no Visual Studio IDE, pode alterar o número de porta navegando para a janela "Project Properties -> Debug" e especificando explicitamente o número da porta num `host start --port <your-port-number>` comando que pode ser fornecido no campo "Argumentos de Aplicação". |
 | **`CORS`** | Define as origens permitidas para [a partilha de recursos de origem cruzada (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). As origens são fornecidas como uma lista separada por vírgula sem espaços. O valor wildcard é \* suportado, o que permite pedidos de qualquer origem. |
 | **`CORSCredentials`** |  Quando definido `true` para, permite `withCredentials` pedidos. |
 | **`ConnectionStrings`** | Uma coleção. Não utilize esta coleção para as cordas de ligação utilizadas pelas ligações da sua função. Esta coleção é utilizada apenas por quadros que normalmente obtêm cordas de ligação a partir `ConnectionStrings` da secção de um ficheiro de configuração, como o [Entity Framework](/ef/ef6/). As cadeias de ligação neste objeto são adicionadas ao ambiente com o tipo de fornecedor de [System.Data.SqlClient](/dotnet/api/system.data.sqlclient). Os itens desta coleção não são publicados no Azure com outras configurações de aplicações. Deve adicionar explicitamente estes valores à `Connection strings` recolha das definições da aplicação de função. Se estiver a criar um [`SqlConnection`](/dotnet/api/system.data.sqlclient.sqlconnection) código de função, deverá armazenar o valor da cadeia de ligação com as outras ligações nas **Definições de Aplicação** no portal. |

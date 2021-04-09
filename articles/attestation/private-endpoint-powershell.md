@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/26/2021
 ms.author: mbaldwin
 ms.openlocfilehash: 8ff2e73a8557c6b1761c852ac58a46037a122ddb
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628531"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Quickstart: Criar um ponto final privado utilizando a Azure PowerShell

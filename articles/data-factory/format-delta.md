@@ -4,14 +4,14 @@ description: Transforme e mova dados de um lago delta usando o formato delta
 author: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/26/2020
 ms.author: daperlov
-ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 74df809f2206a105b405ba184949ef887096ebc2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100386497"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932510"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato Delta na Azure Data Factory
 
@@ -75,6 +75,8 @@ A tabela abaixo lista as propriedades suportadas por um lavatório delta. Pode e
 | Nível de compressão | Escolha se a compressão se completa o mais rapidamente possível ou se o ficheiro resultante deve ser comprimido da melhor forma. | necessário se `compressedType` for especificado. | `Optimal` ou `Fastest` | compressãoLevel |
 | Limpeza | Especifique o limiar de retenção em horas para versões mais antigas da tabela. Um valor de 0 ou menos incumprimentos para 30 dias | sim | Número inteiro | vácuo |
 | Método de atualização | Especifique quais as operações de atualização permitidas no lago delta. Para métodos que não são inseridos, uma transformação de linha alterante anterior é necessária para marcar linhas. | sim | `true` ou `false` | deletable <br> inserível <br> atualizável <br> impressão em série |
+| Escrita Otimizada | Obtenha uma maior produção para a operação de escrita através da otimização da baralhada interna nos executores Spark. Como resultado, pode notar menos divisórias e ficheiros de tamanho maior | não | `true` ou `false` | otimizadoWrite: verdadeiro |
+| Auto Compacto | Depois de concluída qualquer operação de escrita, a Spark executará automaticamente o ```OPTIMIZE``` comando para reorganizar os dados, resultando em mais divisórias, se necessário, para um melhor desempenho de leitura no futuro. | não | `true` ou `false` |   autoCompact: verdadeiro |
 
 ### <a name="delta-sink-script-example"></a>Exemplo de script de pia delta
 

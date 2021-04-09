@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589551"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
@@ -449,13 +449,13 @@ A amostragem de ingestão não funciona enquanto a amostragem adaptativa ou de t
 > [!WARNING]
 > O valor mostrado no azulejo do portal indica o valor que definiu para a amostragem de ingestão. Não representa a taxa de amostragem real se estiver em funcionamento qualquer tipo de amostragem SDK (amostragem adaptativa ou de taxa fixa).
 
-## <a name="when-to-use-sampling"></a>Quando utilizar a amostragem
+## <a name="when-to-use-sampling&quot;></a>Quando utilizar a amostragem
 
 Em geral, para a maioria das aplicações de tamanho pequeno e médio não precisa de amostragem. As informações de diagnóstico mais úteis e as estatísticas mais precisas são obtidas recolhendo dados sobre todas as suas atividades de utilizador. 
 
 As principais vantagens da amostragem são:
 
-* O serviço Application Insights deixa cair pontos de dados ("aceleradores") quando a sua aplicação envia uma taxa muito elevada de telemetria num curto espaço de tempo. A amostragem reduz a probabilidade de a sua aplicação ver estrangulamento.
+* O serviço Application Insights deixa cair pontos de dados (&quot;aceleradores") quando a sua aplicação envia uma taxa muito elevada de telemetria num curto espaço de tempo. A amostragem reduz a probabilidade de a sua aplicação ver estrangulamento.
 * Para manter dentro da [quota](pricing.md) de pontos de dados para o seu nível de preços. 
 * Reduzir o tráfego de rede da recolha de telemetria. 
 

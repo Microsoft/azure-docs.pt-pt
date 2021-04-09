@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: 74d6981c0465a1960e920313c1f960f0d781692b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101092968"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Alta disponibilidade em Base de Dados Azure para MySQL

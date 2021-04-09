@@ -10,10 +10,10 @@ ms.date: 10/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
 ms.openlocfilehash: 483bf27b68e50c751c8dea1bf9375a95ed2a051f
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105558810"
 ---
 # <a name="tutorial-activate-azure-stack-edge-mini-r"></a>Tutorial: Ativar Azure Stack Edge Mini R

@@ -10,10 +10,10 @@ ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
 ms.openlocfilehash: 6e59d0065dfa74979bf3bbc72458bda516e3b641
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669988"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure

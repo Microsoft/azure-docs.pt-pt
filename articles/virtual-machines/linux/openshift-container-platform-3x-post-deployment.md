@@ -12,10 +12,10 @@ ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible, devx-track-azurecli
 ms.openlocfilehash: c3f9aaa15a697202aa76c563ed62bf37443d69ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669387"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas pós-implantação

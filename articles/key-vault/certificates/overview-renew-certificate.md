@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102487190"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726367"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renove os seus certificados Azure Key Vault
 
@@ -29,7 +29,7 @@ Este artigo discute como renovar os seus certificados Azure Key Vault.
 Para ser notificado sobre eventos de vida de certificado, você precisa adicionar contato certificado. Os contactos do certificado contêm informações de contacto para enviar notificações desencadeadas por eventos de vida de certificado. A informação dos contactos é partilhada por todos os certificados no cofre chave. É enviada uma notificação a todos os contactos especificados para um evento para qualquer certificado no cofre de chaves.
 
 ### <a name="steps-to-set-certificate-notifications"></a>Medidas para definir notificações de certificados:
-Primeiro, adicione um contato de certificado ao seu cofre de chaves. Pode adicionar utilizando o portal Azure ou o cmdlet PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) .
+Primeiro, adicione um contato de certificado ao seu cofre de chaves. Pode adicionar utilizando o portal Azure ou o cmdlet PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact) .
 
 Segundo, configuure-se quando pretender ser notificado sobre a expiração do certificado. Para configurar os atributos do ciclo de vida do certificado, consulte a [autorotação do certificado de configuração no Cofre-Chave](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
@@ -41,9 +41,9 @@ Se a política de um certificado for definida para a renovação automática, en
   Quando uma política de certificado que está definida para ser renovada manualmente (apenas por e-mail), é enviada uma notificação quando é hora de renovar o certificado.  
 
 No Cofre-Chave, existem três categorias de certificados:
--   Certificados criados com uma autoridade integrada de certificados (CA), tais como DigiCert ou GlobalSign
--   Certificados que são criados com uma AC não-agred
--   Certificados auto-assinados
+-    Certificados criados com uma autoridade integrada de certificados (CA), tais como DigiCert ou GlobalSign
+-    Certificados que são criados com uma AC não-agred
+-    Certificados auto-assinados
 
 ## <a name="renew-an-integrated-ca-certificate"></a>Renovar um certificado de CA integrado 
 O Azure Key Vault trata da manutenção de certificados de ponta a ponta que são emitidos pelas autoridades de certificados da Microsoft DigiCert e GlobalSign. Saiba como [integrar um CA de confiança com o Key Vault.](./how-to-integrate-certificate-authority.md)
@@ -89,5 +89,5 @@ Crie um certificado com uma validade de **1 mês,** e, em seguida, desemote a a�
 Sim, as etiquetas são replicadas após a autoestima.
 
 ## <a name="next-steps"></a>Passos seguintes
-*   [Integrar cofre-chave com autoridade de certificados DigiCert](how-to-integrate-certificate-authority.md)
-*   [Tutorial: Configure a autoração do certificado no Cofre-Chave](tutorial-rotate-certificates.md)
+*    [Integrar cofre-chave com autoridade de certificados DigiCert](how-to-integrate-certificate-authority.md)
+*    [Tutorial: Configure a autoração do certificado no Cofre-Chave](tutorial-rotate-certificates.md)

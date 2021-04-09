@@ -9,10 +9,10 @@ ms.date: 10/30/2020
 ms.author: duau
 ms.custom: include file
 ms.openlocfilehash: 20d9810ef5ff7380eb0df5df8a6720dcef71a6ad
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105104522"
 ---
 Os seguintes CAs são permitidos quando cria o seu próprio certificado:
