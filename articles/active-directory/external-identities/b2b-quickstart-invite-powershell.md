@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07fa0551aee6241594b9c7d043666dad001adb62
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87906137"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056713"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guia de Início Rápido: Adicionar um utilizador convidado com o PowerShell
 

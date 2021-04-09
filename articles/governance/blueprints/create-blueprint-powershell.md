@@ -4,10 +4,10 @@ description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, d
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 002ba6fcf20b10bcc44fb486a85bc24bfdd12ae3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105559048"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Quickstart: Definir e atribuir uma planta Azure com PowerShell

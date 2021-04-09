@@ -1,18 +1,18 @@
 ---
-ms.openlocfilehash: 52c5c0d9d13eba29e6f9cb6d50725d51b6877d47
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 8a46e93efbc4435fdc48648f658d13982981812a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110769"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958305"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-net"></a>Adicionar identidade gerida à sua solução de Serviços de Comunicação (.NET)
 
 ### <a name="install-the-sdk-packages"></a>Instalar os pacotes SDK
 
 ```console
-dotnet add package Azure.Communication.Identity  --version 1.0.0-beta.5
-dotnet add package Azure.Communication.Sms  --version 1.0.0-beta.4
+dotnet add package Azure.Communication.Identity  --version 1.0.0
+dotnet add package Azure.Communication.Sms  --version 1.0.0
 dotnet add package Azure.Identity
 ```
 

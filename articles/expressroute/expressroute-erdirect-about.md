@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: duau
 ms.openlocfilehash: 56d6a76991c4386be45b2c18f4edb3d363e58fa5
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105027147"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct

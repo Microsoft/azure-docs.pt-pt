@@ -13,10 +13,10 @@ ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103418084"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator

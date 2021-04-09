@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 4bb4084a7ee0d9d719a88c077fa8c63803aa6934
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100591365"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Escalar automaticamente uma escala de máquina virtual definida no portal Azure

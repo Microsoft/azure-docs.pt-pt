@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: victorh
 ms.openlocfilehash: 54faa0bc7d414eb15a866b8e1e6d09e15b22b071
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102500857"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Grupos IP na política de Firewall Azure

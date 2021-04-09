@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
 ms.openlocfilehash: fb53fc37227e040ed7bd7fc8e47de9aed538bc2e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104721397"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Use máquinas virtuais Azure Spot 

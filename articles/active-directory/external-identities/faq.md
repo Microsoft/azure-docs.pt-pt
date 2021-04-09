@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3308c2263f80a0772a389900e08c81cfe8da32a2
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104952631"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Ative Directory B2B colaboração FAQs

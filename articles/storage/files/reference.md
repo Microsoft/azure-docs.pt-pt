@@ -8,10 +8,10 @@ ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
 ms.openlocfilehash: 828bb909aeb5d34f087a3173f792b325dc7cfd55
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102504819"
 ---
 # <a name="azure-files-reference"></a>Referência dos Ficheiros do Azure
@@ -82,7 +82,7 @@ A tabela que se segue lista a referência e a documentação da amostra para api
 
 A tabela que se segue lista a referência e a documentação da amostra para as APIs do Azure Files REST.
 
-| Documentação de referência | Descrição geral |
+| Documentação de referência | Descrição Geral |
 | ----------------------- | -------- |
 | [Serviço de arquivo REST API](/rest/api/storageservices/file-service-rest-api) | [Conceitos de serviço de ficheiros](/rest/api/storageservices/file-service-concepts) |
 

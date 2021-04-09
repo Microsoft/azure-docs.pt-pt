@@ -4,10 +4,10 @@ description: As capacidades do Farol Azure podem ser usadas para simplificar a g
 ms.date: 03/12/2021
 ms.topic: conceptual
 ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419359"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais

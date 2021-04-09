@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: 7167c5806fde883a84878d4947dba9fd8c095f69
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558836"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-powershell"></a>Criar uma máquina virtual numa zona de disponibilidade utilizando o Azure PowerShell

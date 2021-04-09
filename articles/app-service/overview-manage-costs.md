@@ -6,13 +6,13 @@ ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
 ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593985"
 ---
-# <a name="plan-and-manage-costs-for-azure-app-service"></a>Planear e gerir os custos do Azure App Service
+# <a name="plan-and-manage-costs-for-azure-app-service"></a>Planear e gerir os custos do Serviço de Aplicações do Azure
 
 <!-- Check out the following published examples:
 - [https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs](../cosmos-db/plan-manage-costs.md)

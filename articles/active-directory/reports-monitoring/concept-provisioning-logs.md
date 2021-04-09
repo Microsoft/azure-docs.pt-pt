@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d8c4876faf9ebc2619309aa0095a8ffe1e9e93d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102500551"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Visão geral dos registos de provisionamento no portal Azure (pré-visualização)

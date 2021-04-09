@@ -9,10 +9,10 @@ ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 089976f2009e006f53dd2a77f09f57d5090429b7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104721236"
 ---
 # <a name="enable-infiniband"></a>Ativar o Infiniband

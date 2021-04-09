@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
 ms.openlocfilehash: e6ed52f89c38a9c4c5476bd1db0f5a67326954e4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866272"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilize o Azure Toolkit para o IntelliJ para depurar as aplicações Apache Spark remotamente em HDInsight através da VPN
@@ -296,7 +296,7 @@ Recomendamos que também crie um cluster Apache Spark em Azure HDInsight que faz
 
     :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png" alt-text="Saída da consola intelliJ IDEA depura" border="true":::
 
-## <a name="next-steps"></a><a name="seealso"></a>Próximos passos
+## <a name="next-steps"></a><a name="seealso"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

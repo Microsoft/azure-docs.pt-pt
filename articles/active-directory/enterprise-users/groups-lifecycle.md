@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a4ba5a9211cdb89f6ac5a92a315378e58f5d08a
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709519"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configure a política de expiração para os grupos Microsoft 365

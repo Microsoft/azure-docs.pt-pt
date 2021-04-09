@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 03/26/2021
 ms.author: justinha
-ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 779fd9bbfdd35061867fecc8d4be62b8768f43f9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96618812"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933309"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Como os objetos e credenciais são sincronizados num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -63,10 +63,11 @@ A tabela a seguir ilustra como os atributos específicos para objetos do utiliza
 |:--- |:--- |
 | accountEnabled |userAccountControl (define ou limpa a ACCOUNT_DISABLED bit) |
 | city |l |
+| empresa |nome da empresa |
 | país |co |
 | departamento |departamento |
 | displayName |displayName |
-| empregadodid |employeeId |
+| employeeId |employeeId |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | nomeDado |nomeDado |
 | jobTitle |título |

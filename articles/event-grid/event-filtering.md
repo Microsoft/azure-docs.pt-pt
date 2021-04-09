@@ -4,10 +4,10 @@ description: Descreve como filtrar eventos ao criar uma subscrição da Azure Ev
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419852"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem do evento para subscrições de Grade de Eventos

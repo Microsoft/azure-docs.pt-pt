@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 7607b1726900423498a58502494c015f62da8829
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105559439"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança Azure para o Serviço de Aplicações

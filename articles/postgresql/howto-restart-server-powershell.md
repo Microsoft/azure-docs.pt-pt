@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2eadde4e3158c60685ba30542845f28954651bde
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105609331"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Reinicie a base de dados do Azure para o servidor PostgreSQL utilizando o PowerShell

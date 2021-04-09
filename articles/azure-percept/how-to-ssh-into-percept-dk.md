@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 39ee1c1cc5b52dc62e3199536234c1f7d9381436
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104721482"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-ssh"></a>Ligue-se ao seu Azure Percept DK sobre sSH

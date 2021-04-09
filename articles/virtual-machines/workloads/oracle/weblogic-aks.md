@@ -10,10 +10,10 @@ ms.date: 02/23/2021
 ms.author: rezar
 ms.reviewer: cynthn
 ms.openlocfilehash: ac9f81fbde33bdd10bc8374a566a4f2ba83fc253
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669013"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Quais são as soluções para executar o Oracle WebLogic Server no Serviço Azure Kubernetes?

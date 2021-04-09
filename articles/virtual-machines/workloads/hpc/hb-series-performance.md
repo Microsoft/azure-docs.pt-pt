@@ -9,10 +9,10 @@ ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: f37f0bb14cf29551e85c0e592c327b86048f18e1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104721252"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HB

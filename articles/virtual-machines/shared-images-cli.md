@@ -11,10 +11,10 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 991b5363b180651b775bd46a0a1353fd124d34e6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557733"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Criar uma Galeria de Imagens Partilhada com o Azure CLI

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
 ms.openlocfilehash: 400651b240f0518a85b9deb7a7293a77a88b0861
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100591701"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticar erros comuns do pacote de código usando o Tecido de Serviço

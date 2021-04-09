@@ -14,10 +14,10 @@ ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
 ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101690435"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatizar tarefas de gestão utilizando trabalhos elásticos (pré-visualização)

@@ -5,16 +5,15 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: fc394550cf5eb28ce3a30af4afcb3deca4223fe3
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 2decbf6f65e6d5112f62bff3a00fe1187730e98c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105642458"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933479"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
 

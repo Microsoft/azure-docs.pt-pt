@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6e5de3cdec7a9c503f4b7bf7056bd62f1ddf682d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100594020"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
@@ -61,7 +61,7 @@ Para obter informações sobre a escala de uma aplicação, consulte [a contagem
 
 <a name="cost"></a>
 
-## <a name="how-much-does-my-app-service-plan-cost"></a>Quanto custa o meu plano de Serviço de Aplicações?
+## <a name="how-much-does-my-app-service-plan-cost"></a>Quanto custa o plano do Serviço de Aplicações?
 
 Esta secção descreve como as aplicações do Serviço de Aplicações são faturadas. Para obter informações detalhadas sobre preços específicos da região, consulte [o Preço do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/).
 

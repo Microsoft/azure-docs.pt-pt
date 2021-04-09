@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.openlocfilehash: 6da003612d98d107390c9f20a5172786c30665a6
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709757"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear uma implementação do Proxy de Aplicações do Azure AD

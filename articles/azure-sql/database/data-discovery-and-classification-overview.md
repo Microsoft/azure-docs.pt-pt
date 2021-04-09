@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
 ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101690809"
 ---
 # <a name="data-discovery--classification"></a>Deteção e Classificação de Dados
@@ -79,7 +79,7 @@ Depois de definida a política em toda a organização, pode continuar a classif
 
 1. Aceda à **classificação & Data Discovery** sob o título **de Segurança** no seu painel de base de dados Azure SQL. O separador Visão Geral inclui um resumo do estado de classificação atual da base de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que também pode filtrar para mostrar apenas peças de esquemas específicos, tipos de informação e etiquetas. Se ainda não classificou nenhuma coluna, [salte para o passo 4](#step-4).
 
-    ![Descrição geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
+    ![Descrição Geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Para descarregar um relatório no formato Excel, selecione **Export** no menu superior do painel.
 

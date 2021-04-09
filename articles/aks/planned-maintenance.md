@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: 8526d7c1c436074fbf6f838caf232e1abee06339
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: deeb8375e2c1d30a71b0791886362bfb045ef6d7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670380"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727829"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Utilize a Manutenção Planeada para agendar janelas de manutenção para o seu cluster Azure Kubernetes Service (AKS) (pré-visualização)
 
@@ -225,6 +225,6 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md

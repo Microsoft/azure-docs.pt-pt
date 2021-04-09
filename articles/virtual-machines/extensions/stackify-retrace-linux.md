@@ -9,15 +9,15 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 04/12/2018
 ms.openlocfilehash: 1fc437637fde524da125af9191bf9de79a2e9c37
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559006"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Extensão do Agente Linux
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Stackify fornece produtos que rastreiam detalhes sobre a sua aplicação para ajudar a encontrar e corrigir problemas rapidamente. Para equipas de desenvolvedores, o Retrace é um super-poder de desempenho de aplicações totalmente integrado, multi-ambiente. Combina várias ferramentas que todas as equipas de desenvolvimento precisam.
 

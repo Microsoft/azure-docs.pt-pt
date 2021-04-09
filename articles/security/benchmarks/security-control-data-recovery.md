@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 835e4f681d514bb6b92caa5ee076e3794ed59236
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5006a592b410685ad808ff01112234bc48f5d267
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94698823"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728101"
 ---
 # <a name="security-control-data-recovery"></a>Controlo de Segurança: Recuperação de Dados
 
@@ -38,7 +38,7 @@ Ativar o Azure Backup e os VM(s) alvo, bem como os períodos de frequência e re
 
 - [Como ativar o backup do Azure](../../backup/index.yml)
 
-- [Como backup chaves chave cofre em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como backup chaves chave cofre em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validar todas as cópias de segurança, incluindo as chaves geridas pelo cliente
 
@@ -50,7 +50,7 @@ Garantir a capacidade de realizar periodicamente a restauração de dados de con
 
 - [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Como restaurar chaves chave do cofre em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves chave do cofre em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 ## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 

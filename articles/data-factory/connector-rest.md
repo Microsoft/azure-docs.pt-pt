@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jingwang
 ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104951849"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto final REST utilizando a Azure Data Factory
@@ -54,10 +54,10 @@ As seguintes propriedades são suportadas para o serviço ligado REST:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **RestService**. | Sim |
-| url | O URL base do serviço REST. | Sim |
+| tipo | A propriedade **tipo** deve ser definida para **RestService**. | Yes |
+| url | O URL base do serviço REST. | Yes |
 | enableServerCertificateValidation | Se validar o certificado TLS/SSL do lado do servidor ao ligar-se ao ponto final. | No<br /> (o padrão é **verdadeiro)** |
-| authenticationType | Tipo de autenticação utilizada para ligar ao serviço REST. Os valores permitidos são **Anónimos,** **Básicos,** **AadServicePrincipal** e **ManagedServiceIdentity**. O OAuth baseado no utilizador não é suportado. Pode ainda configurar cabeçalhos de autenticação em `authHeader` propriedade. Consulte as secções correspondentes abaixo em mais propriedades e exemplos, respectivamente.| Sim |
+| authenticationType | Tipo de autenticação utilizada para ligar ao serviço REST. Os valores permitidos são **Anónimos,** **Básicos,** **AadServicePrincipal** e **ManagedServiceIdentity**. O OAuth baseado no utilizador não é suportado. Pode ainda configurar cabeçalhos de autenticação em `authHeader` propriedade. Consulte as secções correspondentes abaixo em mais propriedades e exemplos, respectivamente.| Yes |
 | authHeaders | Cabeçalhos adicionais de pedido DE HTTP para autenticação.<br/> Por exemplo, para utilizar a autenticação da chave API, pode selecionar o tipo de autenticação como "Anónimo" e especificar a tecla API no cabeçalho. | No |
 | connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, esta propriedade utiliza o tempo de execução de integração Azure predefinido. |No |
 
@@ -67,8 +67,8 @@ Desautense a propriedade **autenticaçãoType** para **Basic**. Além das propri
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Sim |
-| palavra-passe | A palavra-passe para o utilizador (o valor **do nome do utilizador).** Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Sim |
+| userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Yes |
+| palavra-passe | A palavra-passe para o utilizador (o valor **do nome do utilizador).** Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Yes |
 
 **Exemplo**
 
@@ -100,10 +100,10 @@ Desa estaione a propriedade **autenticaçãoType** para **a AadServicePrincipal*
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | Sim |
-| servicePrincipalKey | Especifique a chave da aplicação do Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim |
-| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
+| servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | Yes |
+| servicePrincipalKey | Especifique a chave da aplicação do Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Yes |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Yes |
 | AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AAD está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany**. Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | No |
 
 **Exemplo**
@@ -138,7 +138,7 @@ Desaprova a propriedade **autenticaçãoType** para **ManagedServiceIdentity**. 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Yes |
 
 **Exemplo**
 
@@ -199,7 +199,7 @@ Para copiar dados da REST, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **RestResource**. | Sim |
+| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **RestResource**. | Yes |
 | relativoUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não é especificada, apenas é utilizado o URL especificado na definição de serviço ligado. O conector HTTP copia os dados do URL combinado: `[URL specified in linked service]/[relative URL specified in dataset]` . | No |
 
 Se estiver a configurar `requestMethod` , e em conjunto de `additionalHeaders` `requestBody` `paginationRules` dados, ainda é suportado como está, enquanto é sugerido que utilize o novo modelo em atividade.
@@ -235,7 +235,7 @@ As seguintes propriedades são suportadas na secção fonte de **origem** da ati
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida como **RestSource**. | Sim |
+| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida como **RestSource**. | Yes |
 | requestMethod | O método HTTP. Os valores permitidos são **GET** (padrão) e **POST**. | No |
 | cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | No |
 | requestCorp | O corpo para o pedido HTTP. | No |
@@ -324,7 +324,7 @@ As seguintes propriedades são suportadas na secção de **lavatório** de ativi
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **RestSink**. | Sim |
+| tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **RestSink**. | Yes |
 | requestMethod | O método HTTP. Os valores permitidos são **POST** (padrão), **PUT** e **PATCH**. | No |
 | cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | No |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para escrever os dados. O valor predefinido é **00:01:40**.  | No |

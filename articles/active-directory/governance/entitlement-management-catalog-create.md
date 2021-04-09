@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21783f0ef32289aad4b7d136dc8200d61fc0852
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ad10cfc661b80eaac146087d85dc87002f6a455
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592936"
+ms.locfileid: "105960151"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerir um catálogo de recursos na gestão de direitos Azure AD
 
@@ -81,7 +81,7 @@ Para incluir recursos num pacote de acesso, os recursos devem existir num catál
 
     Estes recursos podem agora ser incluídos em pacotes de acesso dentro do catálogo.
 
-### <a name="add-a-multi-geo-sharepoint-site"></a>Adicione um Site Multi-Geo SharePoint
+### <a name="add-a-multi-geo-sharepoint-site-preview"></a>Adicione um Site Multi-geo SharePoint (Pré-visualização)
 
 1. Se tiver [Multi-Geo](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) ativado para SharePoint, selecione o ambiente a partir do quais pretende selecionar sites.
     

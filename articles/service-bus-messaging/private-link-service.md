@@ -3,32 +3,30 @@ title: Integre o ônibus de serviço Azure com o Azure Private Link Service
 description: Saiba como integrar o Azure Service Bus com o Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 10/07/2020
+ms.date: 03/29/2021
 ms.topic: article
-ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 833d7e9fb4d517b71aab5039ae9081407eed84cd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94427152"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960542"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nomes do Azure Service Bus através de pontos finais privados
 O Azure Private Link Service permite-lhe aceder aos serviços Azure (por exemplo, Azure Service Bus, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
-
-> [!IMPORTANT]
-> Esta funcionalidade é suportada com o nível **premium** da Azure Service Bus. Para obter mais informações sobre o nível premium, consulte o artigo [de níveis de mensagens Service Bus Premium e Standard.](service-bus-premium-messaging.md)
 
 Um ponto final privado é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.
 
 Para mais informações, consulte [o que é a Azure Private Link?](../private-link/private-link-overview.md)
 
->[!WARNING]
-> A implementação de pontos finais privados pode impedir que outros serviços da Azure interajam com a Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos serviços fidedignos, mesmo quando os pontos finais privados estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
->
-> Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
-> - Serviço de Aplicações do Azure
-> - Funções do Azure
+## <a name="important-points"></a>Pontos importantes
+- Esta funcionalidade é suportada com o nível **premium** da Azure Service Bus. Para obter mais informações sobre o nível premium, consulte o artigo [de níveis de mensagens Service Bus Premium e Standard.](service-bus-premium-messaging.md)
+- A implementação de pontos finais privados pode impedir que outros serviços da Azure interajam com a Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos **serviços fidedignos,** mesmo quando os pontos finais privados estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
 
+    Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
+    - Serviço de Aplicações do Azure
+    - Funções do Azure
+- Especifique **pelo menos uma regra de IP ou rede virtual** para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso). 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Adicione um ponto final privado usando o portal Azure
@@ -51,15 +49,16 @@ Se já tiver um espaço de nome existente, pode criar um ponto final privado seg
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Na barra de pesquisa, escreva em **Service Bus.**
 3. Selecione o **espaço de nomes** da lista à qual pretende adicionar um ponto final privado.
-2. No menu esquerdo, selecione a opção **de rede** em **Definições**. 
-
+2. No menu esquerdo, selecione a opção **de rede** em **Definições**.     Por predefinição, a opção **de rede Selecionada** é selecionada.
+ 
     > [!NOTE]
     > Você vê o **separador Networking** apenas para espaços de nome **premium.**  
-    
-    Por predefinição, a opção **de rede Selecionada** é selecionada. Se não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
-
+   
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede - padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
-    
+
+    > [!WARNING]
+    > Se não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
+   
     Se selecionar a opção **Todas as redes,** o seu espaço de nomes Service Bus aceita ligações a partir de qualquer endereço IP (utilizando a chave de acesso). Esta predefinição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
     ![Firewall - Todas as opções de redes selecionadas](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)

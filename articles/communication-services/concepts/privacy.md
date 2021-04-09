@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a52931b69187d18984b9b6938832dafe64111ffe
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105641057"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728135"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência dos dados
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 A Azure Communication Services está empenhada em ajudar os nossos clientes a cumprir os seus requisitos de privacidade e dados pessoais. Como desenvolvedor que usa serviços de comunicação com uma relação direta com os seres humanos usando a aplicação, você é potencialmente um controlador dos seus dados. Uma vez que os Serviços de Comunicação da Azure estão a armazenar e a encriptar estes dados em seu nome, provavelmente somos um processador destes dados. Esta página resume como o serviço retém dados e como pode identificar, exportar e eliminar estes dados.
 

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/11/2021
 ms.openlocfilehash: f2ea671a6d44d12b3b37d5d06fa9405b7c589cdf
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105559422"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade na Base de Dados Azure para MariaDB

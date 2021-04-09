@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/29/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 14655abc403248e0ce22d22aeca342032b930fb4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 635ce116509204726762127210923a408b62ea78
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467984"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105957957"
 ---
 <table class="tg">
 <thead>
@@ -99,7 +99,7 @@ ms.locfileid: "103467984"
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">0</p></strong></td>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Ativar a proteção avançada de ameaças</p></strong>Os planos opcionais de proteção contra ameaças do Azure Security Center proporcionam defesas abrangentes para o seu ambiente. Quando o Centro de Segurança deteta uma ameaça em qualquer área do seu ambiente, gera um alerta. Estes alertas descrevem detalhes dos recursos afetados, sugeriram medidas de reparação e, em alguns casos, uma opção para desencadear uma aplicação lógica em resposta.<br>Cada plano Azure Defender é uma oferta separada e opcional que pode permitir utilizar a recomendação relevante neste controlo de segurança.<br><a href="/azure/security-center/threat-protection">Saiba mais sobre a proteção contra ameaças no Centro de Segurança.</a></td>
-    <td class="tg-lboi"; width=55%>- Azure Defender for App Service deve ser ativado<br />- O Azure Defender para os servidores da Base de Dados Azure SQL deve ser ativado<br />- Azure Defender para registos de contentores deve ser ativado<br />- Azure Defender para o Cofre de Chaves deve ser ativado<br />- Azure Defender for Kubernetes deve ser ativado<br />- O Azure Defender para servidores deve ser ativado<br />- O Azure Defender para servidores SQL em máquinas deve ser ativado<br />- Azure Defender para armazenamento deve ser ativado</td>
+    <td class="tg-lboi"; width=55%>- Azure Arc habilitado a clusters kubernetes deve ter a extensão do Azure Defender instalada<br />- Azure Defender for App Service deve ser ativado<br />- O Azure Defender para os servidores da Base de Dados Azure SQL deve ser ativado<br />- Azure Defender para registos de contentores deve ser ativado<br />- Azure Defender para o Cofre de Chaves deve ser ativado<br />- Azure Defender for Kubernetes deve ser ativado<br />- O Azure Defender para servidores deve ser ativado<br />- O Azure Defender para servidores SQL em máquinas deve ser ativado<br />- Azure Defender para armazenamento deve ser ativado</td>
   </tr>
 </tbody>
 </table>

@@ -3,12 +3,12 @@ title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e recuperar desastres no Azure Service Bus
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2aa7ed118d0ba179ffff4f72a4d4df787edc9d88
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035399"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933760"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de geo-desastre de autocarro de serviço Azure
 
@@ -156,7 +156,7 @@ Note as seguintes considerações a ter em conta com esta versão:
 
 4. As entidades sincronizadas podem demorar algum tempo, aproximadamente 50-100 entidades por minuto. As assinaturas e as regras também contam como entidades.
 
-### <a name="availability-zones"></a>Zonas de Disponibilidade
+## <a name="availability-zones"></a>Zonas de Disponibilidade
 
 O Service Bus Premium SKU suporta [Zonas de Disponibilidade,](../availability-zones/az-overview.md)fornecendo localizações isoladas de falhas na mesma região de Azure. A Service Bus gere três cópias da loja de mensagens (1 primária e 2 secundária). A Service Bus mantém as três cópias sincronizadas para operações de dados e gestão. Se a cópia primária falhar, uma das cópias secundárias é promovida para primária sem tempo de inatividade percebido. Se as aplicações virem desconexões transitórias do Service Bus, a lógica de repetição no SDK reconectará-se automaticamente ao Service Bus. 
 
