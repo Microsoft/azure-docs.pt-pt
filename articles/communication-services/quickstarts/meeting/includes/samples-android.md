@@ -7,10 +7,10 @@ ms.date: 24/02/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 711c738adaaad8aff1e1f56b537b41a846e528db
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803751"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -8,10 +8,10 @@ ms.author: alkohli
 ms.service: databox
 ms.custom: subject-policy-compliancecontrols
 ms.openlocfilehash: d3d145af85645ae9bdbe91ec6731edb1d0b31497
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105031988"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-box"></a>Controlos de conformidade regulamentar da política Azure para caixa de dados Azure

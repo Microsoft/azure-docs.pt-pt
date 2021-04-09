@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 8e6ceebc9e92dabe66baeb9aeff0ae9692e2bdad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3e5333b339101676582cec03dbb960148d59b56
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101099972"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067559"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>O que é um conjunto de regras para Azure Front Door Standard/Premium (Preview)?
 
 > [!Note]
 > Esta documentação destina-se ao Azure Front Door Standard/Premium (Preview). À procura de informações sobre a Porta da Frente Azure? Ver [aqui](../front-door-overview.md).
 
-Um Conjunto de Regras é um motor de regras personalizado que agru cria uma combinação de regras num único conjunto que pode associar a várias rotas. O Conjunto de Regras permite-lhe personalizar como os pedidos são processados no limite e como a Porta Frontal Azure lida com esses pedidos.
+Um Conjunto de Regras é um motor de regras personalizado que agru cria uma combinação de regras num único conjunto. Pode associar um Conjunto de Regras a várias rotas. O Conjunto de Regras permite-lhe personalizar como os pedidos são processados no limite, e como a Porta Frontal Azure lida com esses pedidos.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) está atualmente em pré-visualização pública.
@@ -60,16 +60,19 @@ Com o Conjunto de Regras da Porta Frontal Azure, pode criar uma combinação de 
 
 Para obter um limite de quota, consulte os [limites de subscrição e serviço da Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-* *Regras definidas*: Conjunto de regras que se associam a uma ou [múltiplas Rotas](concept-route.md). Cada configuração é limitada a 25 regras. Pode criar até 10 configurações.
+* *Conjunto de regras*: Um conjunto de regras que se associa a uma ou [múltiplas rotas](concept-route.md).
 
-* *Regras Definidas Regra :* Uma regra composta por até 10 condições de jogo e 5 ações. As regras são locais para um Conjunto de Regras e não podem ser exportadas para uso em todos os conjuntos de regras. Os utilizadores podem criar a mesma regra em vários conjuntos de regras.
+* *Regra Definida :* Uma regra composta por até 10 condições de jogo e 5 ações. As regras são locais para um Conjunto de Regras e não podem ser exportadas para uso em todos os conjuntos de regras. Os utilizadores podem criar a mesma regra em vários conjuntos de regras.
 
-* *Condição de jogo*: Existem muitas condições de jogo que podem ser utilizadas para analisar os seus pedidos de entrada. Uma regra pode conter até 10 condições de jogo. As condições de correspondência são avaliadas com um operador **E.** *A expressão regular é suportada em condições.* Uma lista completa das condições de jogo pode ser encontrada na [condição definida pela regra](concept-rule-set-match-conditions.md).
+* *Condição do jogo*: Existem muitas condições de jogo que podem ser utilizadas para analisar os seus pedidos de entrada. Uma regra pode conter até 10 condições de jogo. As condições de correspondência são avaliadas com um operador **E.** *A expressão regular é suportada em condições.* Uma lista completa das condições de jogo pode ser encontrada nas [condições de jogo do Conjunto de Regras](concept-rule-set-match-conditions.md).
 
-* *Ação*: As ações ditam como a AFD lida com os pedidos de entrada com base nas condições de correspondência. Pode modificar comportamentos de caching, modificar cabeçalhos de pedido/cabeçalhos de resposta, reescrever URL e redirecionar URL. *As variáveis do servidor são suportadas em Ação*. Uma regra pode conter até 10 condições de jogo. Uma lista completa de ações pode ser encontrada [Ações definidas por regras](concept-rule-set-actions.md).
+* *Ação*: As ações ditam como a AFD lida com os pedidos de entrada com base nas condições de correspondência. Pode modificar comportamentos de caching, modificar cabeçalhos de pedido/cabeçalhos de resposta, reescrever URL e redirecionar URL. *As variáveis do servidor são suportadas em Ação*. Uma regra pode conter até 10 condições de jogo. Uma lista completa de ações pode ser encontrada [ações de conjunto de regras](concept-rule-set-actions.md).
+
+## <a name="arm-template-support"></a>Suporte do modelo ARM
+
+Os conjuntos de regras podem ser configurados utilizando modelos do Gestor de Recursos Azure. [Consulte um modelo de exemplo.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set) Pode personalizar o comportamento utilizando os snippets JSON ou Bicep incluídos nos exemplos de documentação para [condições](concept-rule-set-match-conditions.md) e [ações](concept-rule-set-actions.md)de correspondência .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [criar um Padrão/Premium da Porta da Frente.](create-front-door-portal.md)
 * Saiba como configurar o seu primeiro [Conjunto de Regras](how-to-configure-rule-set.md).
- 

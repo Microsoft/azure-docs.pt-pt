@@ -4,10 +4,10 @@ description: Saiba como identificar e interagir com unidades BareMetal Instance 
 ms.topic: how-to
 ms.date: 03/19/2021
 ms.openlocfilehash: 42de1618813ba33934e3f8eeeee8dc7ac27d9824
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104951679"
 ---
 # <a name="connect-baremetal-instance-units-in-azure"></a>Ligue unidades de exemplo BareMetal em Azure

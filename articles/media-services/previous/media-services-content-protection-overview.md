@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: edffa2dddd0ec877a4b825a69a76fb158928c89f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2922586d586dbbb98ae85fb86f3f76889a75aa6b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016768"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067406"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -36,7 +36,7 @@ A imagem a seguir ilustra o fluxo de trabalho de proteção de conteúdos dos Se
 
 Este artigo explica conceitos e terminologia relevantes para a compreensão da proteção de conteúdos com os Media Services. O artigo também fornece links para artigos que discutem como proteger o conteúdo. 
 
-## <a name="dynamic-encryption"></a>Encriptação dinâmica
+## <a name="dynamic-encryption&quot;></a>Encriptação dinâmica
 
 Pode utilizar os Serviços de Comunicação social para fornecer o seu conteúdo encriptado dinamicamente com a chave AES clara ou encriptação DRM utilizando PlayReady, Widevine ou FairPlay. Se o conteúdo for encriptado com uma chave clara AES e for enviado por HTTPS, não é claro até chegar ao cliente. 
 
@@ -55,8 +55,8 @@ Também precisa configurar a política de entrega do ativo. Se pretender transmi
 
 Quando um stream é solicitado por um jogador, os Media Services utilizam a chave especificada para encriptar dinamicamente o seu conteúdo utilizando a chave clara AES ou encriptação DRM. Para desencriptar o fluxo, o jogador solicita a chave do serviço de entrega de chaves media. Para decidir se o utilizador está ou não autorizado a obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
-## <a name="aes-128-clear-key-vs-drm"></a>Chave clara AES-128 vs. DRM
-Os clientes muitas vezes perguntam-se se devem usar encriptação AES ou um sistema DRM. A principal diferença entre os dois sistemas é que com a encriptação AES a chave de conteúdo é transmitida ao cliente num formato não encriptado ("a claro"). Como resultado, a chave usada para encriptar o conteúdo pode ser visualizada num traço de rede do cliente em texto simples. A encriptação clara da chave AES-128 é adequada para o uso de casos em que o espectador é uma parte de confiança (por exemplo, encriptar vídeos corporativos distribuídos dentro de uma empresa para serem visualizados por funcionários).
+## <a name=&quot;aes-128-clear-key-vs-drm&quot;></a>Chave clara AES-128 vs. DRM
+Os clientes muitas vezes perguntam-se se devem usar encriptação AES ou um sistema DRM. A principal diferença entre os dois sistemas é que com a encriptação AES a chave de conteúdo é transmitida ao cliente num formato não encriptado (&quot;a claro"). Como resultado, a chave usada para encriptar o conteúdo pode ser visualizada num traço de rede do cliente em texto simples. A encriptação clara da chave AES-128 é adequada para o uso de casos em que o espectador é uma parte de confiança (por exemplo, encriptar vídeos corporativos distribuídos dentro de uma empresa para serem visualizados por funcionários).
 
 PlayReady, Widevine e FairPlay fornecem um nível mais alto de encriptação em comparação com a encriptação clara de chave AES-128. A chave de conteúdo é transmitida num formato encriptado. Além disso, a desencriptação é tratada num ambiente seguro a nível do sistema operativo, onde é mais difícil para um utilizador malicioso atacar. DrM é recomendado para o uso de casos em que o espectador pode não ser uma parte de confiança e você precisa do mais alto nível de segurança.
 
@@ -117,7 +117,7 @@ As seguintes considerações são aplicáveis:
 Os seguintes artigos descrevem os próximos passos para ajudá-lo a começar com a proteção de conteúdos:
 
 * [Proteger com encriptação de armazenamento](media-services-rest-storage-encryption.md)
-* [Proteger com encriptação AES](media-services-protect-with-aes128.md)
+* [Proteger com encriptação AES](media-services-playready-license-template-overview.md)
 * [Proteger com PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
 * [Proteger com FairPlay](media-services-protect-hls-with-FairPlay.md)
 

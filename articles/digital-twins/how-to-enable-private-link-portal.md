@@ -8,10 +8,10 @@ ms.date: 1/25/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 2545915edf9e39b63100a2bb16bd34fa6777675c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100418259"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-portal"></a>Permitir o acesso privado com Link Privado (pré-visualização): Portal Azure

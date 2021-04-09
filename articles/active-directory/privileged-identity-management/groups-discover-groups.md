@@ -15,10 +15,10 @@ ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c9e2580d2a88fbbab755f0c3df2f923bdc45548
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688353"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>Trazer grupos de acesso privilegiados (pré-visualização) para a Gestão de Identidade Privilegiada

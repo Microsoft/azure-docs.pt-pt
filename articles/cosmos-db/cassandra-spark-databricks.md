@@ -9,13 +9,13 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 0a83dd143ae626108fdf8d2645b8cc368a3f3e05
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100516571"
 ---
-# <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Acesso Azure Cosmos DB Cassandra Dados API da Azure Databricks
+# <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Aceder aos dados da API para Cassandra do Azure Cosmos DB a partir do Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo detalha como trabalhar com a Azure Cosmos DB Cassandra API da Spark on [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).

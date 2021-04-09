@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
 ms.openlocfilehash: 821746856cb37781c8f6a2e58659ce7db43e1479
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105609517"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:

@@ -3,12 +3,12 @@ title: Implementar uma aplicação de cluster gerido por Tecido de Serviço (pr�
 description: Implemente uma aplicação para um cluster gerido por Azure Service Fabric (pré-visualização) utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.openlocfilehash: b2d73180de61f44850b9c52a7ac24b0c23c36db2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e860c77d77e3aabb70f70defdaa25de14e77e0e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100642482"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728016"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-preview-application-using-arm-template"></a>Implementar uma aplicação de cluster gerido por Tecido de Serviço (pré-visualização) utilizando o modelo ARM
 
@@ -94,7 +94,7 @@ A aplicação da amostra contém [modelos do Gestor de Recursos Azure](https://g
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | O nome do cluster para o qual está a implantar | sf-cluster123                                                |                                                              |
 | aplicação            | O nome da aplicação                 | Votar                                                       |
-| versão    | O ID de recursos, o tipo de aplicação e a versão da aplicação.       | /fornecedores/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VoteType/versões/1.0.0                                               | Deve coincidir ApplicationManifest.xml                 |              |
+| versão    | O ID de recursos, o tipo de aplicação e a versão da aplicação.       | /fornecedores/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VoteType/versões/1.0.0                                               | Deve coincidir ApplicationManifest.xml                 |
 | nome de serviço            | O nome do serviço         | VotingWeb                                             | Deve estar no formato ServiceType            |
 | serviçoTypeName        | O nome-tipo do serviço                | WebType de votação                                                    | Deve coincidir ServiceManifest.xml                 |
 | appPackageUrl          | O URL de armazenamento de bolhas da aplicação     | https: \/ /servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | O URL do pacote de aplicações no armazenamento de bolhas (o procedimento para definir o URL é descrito mais tarde no artigo) |

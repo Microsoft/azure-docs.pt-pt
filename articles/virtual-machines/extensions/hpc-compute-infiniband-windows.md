@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: amverma
 ms.openlocfilehash: 81720c18ce858cd5667413a9d39afdadc95acb23
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559703"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Extensão do controlador infiniband para windows

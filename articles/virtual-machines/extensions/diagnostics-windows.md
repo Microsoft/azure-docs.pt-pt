@@ -9,10 +9,10 @@ ms.subservice: extensions
 ms.collection: windows
 ms.date: 12/15/2015
 ms.openlocfilehash: e242a45e2c0f8247a1c23bf4d43a6e8b0a033d9b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560099"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utilize o PowerShell para permitir o Azure Diagnostics numa máquina virtual que executa o Windows

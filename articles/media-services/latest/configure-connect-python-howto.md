@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: de78008a4645690cfc900f77670204bb892daf51
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 24e2ba4027dc818256dc9572f697fe7ec5a5a56b
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105042973"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960712"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Ligue-se aos Serviços de Mídia v3 API - Python
 
@@ -31,7 +31,7 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 Python SDK usand
 
 - Baixar Python de [python.org](https://www.python.org/downloads/)
 - Certifique-se de definir a `PATH` variável ambiental
-- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
+- [Criar uma conta de Serviços de Comunicação](./account-create-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
 - Siga os passos no tópico [das APIs de acesso,](./access-api-howto.md) selecionando o método de autenticação principal do Serviço. Registe o ID de subscrição `SubscriptionId` , ID do cliente de aplicação , `AadClientId` a chave de autenticação ( ) e `AadSecret` o ID do inquilino que você precisa `AadTenantId` nos passos posteriores.
 
 > [!IMPORTANT]

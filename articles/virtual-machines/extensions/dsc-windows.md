@@ -9,15 +9,15 @@ ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
 ms.openlocfilehash: 72f66aeee64133a13ce0e49155c4b2a90240a3fb
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559992"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão DSC powershell
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A extensão DSC do PowerShell para windows é publicada e suportada pela Microsoft. A extensão carrega e aplica uma configuração DSC PowerShell num VM Azure. A extensão DSC chama o PowerShell DSC para decretar a configuração DSC recebida no VM. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão da máquina virtual DSC para Windows.
 

@@ -2,22 +2,23 @@
 title: Suporte fora de proc atestado com o ajudante de citação Intel SGX Daemonset em Azure (pré-visualização)
 description: DaemonSet para gerar a cotação fora do processo de aplicação SGX. Este artigo explica como a instalação de atestado fora de proc é rovided para cargas de trabalho confidenciais que correm dentro de um contentor.
 ms.service: container-service
+ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: 5d872032ea5b4e08c3f436dd3bfc202786d8514d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0ebeb96557b7e20d123577c0ab9c8fc392abbfba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553260"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932638"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Gestão de software de plataforma com conjunto de ajudante de cotação SGX (pré-visualização)
 
 [As aplicações enclave que](confidential-computing-enclaves.md) executam o atestado remoto requer uma COTAÇÃO gerada. Esta CITAÇÃO fornece uma prova criptográfica da identidade e do estado da aplicação, bem como do ambiente que o enclave está a executar. A geração do QUOTE requer componentes de software fidedignos que fazem parte dos Componentes de Software de Plataforma da Intel (PSW).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
  
 A Intel suporta dois modos de atestado para executar a geração de citações:
 - **in-proc**: acolhe os componentes de software fidedignos dentro do processo de aplicação do enclave

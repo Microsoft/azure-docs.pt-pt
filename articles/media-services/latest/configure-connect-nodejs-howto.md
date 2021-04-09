@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 33d84ca86ac3cd4696dce3797b015b861884182a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fcb9fd9f0539b42d9253db783fd5da840f358e66
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216433"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960729"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ligue-se aos Serviços de Mídia v3 API - Node.js
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 node.js SDK util
 - Uma instalação do Código do Estúdio Visual.
 - Instale [Node.js](https://nodejs.org/en/download/).
 - Instalar [a máquina de escrever](https://www.typescriptlang.org/download).
-- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
+- [Criar uma conta de Serviços de Comunicação](./account-create-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
 - Crie um principal de serviço para a sua aplicação. Ver [APIs de acesso](./access-api-howto.md).<br/>**Dica profissional!** Mantenha esta janela aberta ou copie tudo o que está no separador JSON para o Bloco de Notas. 
 - Certifique-se de obter a versão mais recente do [AzureMediaServices SDK para JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
 

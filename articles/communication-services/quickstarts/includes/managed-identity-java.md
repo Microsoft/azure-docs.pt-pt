@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 417b6099a6b52fecf6f11e1074b346e9a63255c3
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: f3d510c14d28dae0504ff67b450957a8339196aa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645396"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958300"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-java"></a>Adicione identidade gerida à sua solução de Serviços de Comunicação (Java)
 
@@ -15,12 +15,12 @@ No ficheiro pom.xml, adicione os seguintes elementos de dependência ao grupo de
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0-beta.6</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.4</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>

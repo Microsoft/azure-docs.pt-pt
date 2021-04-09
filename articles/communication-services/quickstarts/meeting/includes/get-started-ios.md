@@ -7,10 +7,10 @@ ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.openlocfilehash: 4d28864d41d6540afc87126daf589ed2929f891d
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104804073"
 ---
 Neste arranque rápido, você vai aprender a se juntar a uma reunião de equipas usando a biblioteca Azure Communication Services Teams Embed para iOS.
