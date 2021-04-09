@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: jeedes
 ms.openlocfilehash: 77d810fc8327e3777102f2a09f0ca32835aad4b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96180767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Tutorial: Integração do Diretório Ativo Azure com a Formação de Sensibilização para a Segurança KnowBe4

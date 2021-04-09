@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um utilizador de teste AZure AD 
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
@@ -100,7 +100,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Zoho.
 
@@ -109,16 +109,16 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função &quot;Acesso Predefinido&quot; selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-### <a name="configure-zoho-sso"></a>Configure Zoho SSO
+### <a name=&quot;configure-zoho-sso&quot;></a>Configure Zoho SSO
 
 1. Numa janela diferente do navegador, inicie sessão no site da empresa Zoho Mail como administrador.
 
 2. Vá ao **painel de controlo.**
    
-    ![Painel de Controlo](./media/zoho-mail-tutorial/control-panel.png "Painel de Controlo")
+    ![Painel de Controlo](./media/zoho-mail-tutorial/control-panel.png &quot;Painel de Controlo")
 
 3. Clique no separador **autenticação SAML.**
    

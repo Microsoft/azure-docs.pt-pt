@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
 ms.openlocfilehash: 53fb256d3a0fba1cc10cafb239ff7f7bb21ac4eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98121078"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Tutorial: Criar um relatório Power BI usando Apache Spark e Azure Synapse Analytics

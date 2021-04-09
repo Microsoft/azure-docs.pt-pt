@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: jeedes
 ms.openlocfilehash: 032957b49c7ef9170a7e1aaa63eaa66a3c3e8401
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101648538"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rewatch"></a>Tutorial: Azure Ative Directory integração única (SSO) com Rewatch

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
 ms.openlocfilehash: d241cb5d7ece260de42088eecfd669e5d3f40096
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104592290"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para regras de recolha de dados no Azure Monitor
