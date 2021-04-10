@@ -13,10 +13,10 @@ ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.openlocfilehash: e97c48d4e42627d0fc2caaa4f66e81b9a0cafa86
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105643903"
 ---
 # <a name="get-facial-pose-events"></a>Obtenha eventos de pose facial

@@ -10,10 +10,10 @@ ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
 ms.openlocfilehash: cf7f5ed4a27772a89d0356c60e6f7135786ca07d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101695605"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem Linux e distribuí-la para uma Galeria de Imagens Partilhadas 

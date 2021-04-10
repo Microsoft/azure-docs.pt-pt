@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
 ms.openlocfilehash: e6cd816858efb3487fad5ca03959abfb24e7dbe4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102505499"
 ---
 # <a name="azure-blob-storage-reference"></a>Referência de armazenamento Azure Blob
@@ -83,7 +83,7 @@ A tabela que se segue lista a referência e a documentação da amostra para as 
 
 A tabela que se segue lista a referência e a documentação da amostra para as APIs de armazenamento de Azure Blob.
 
-| Documentação de referência | Descrição geral |
+| Documentação de referência | Descrição Geral |
 | ----------------------- | -------- |
 | [Serviço blob REST API](/rest/api/storageservices/blob-service-rest-api) | [Conceitos do serviço Blob](/rest/api/storageservices/blob-service-concepts) |
 

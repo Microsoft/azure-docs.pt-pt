@@ -8,10 +8,10 @@ ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.openlocfilehash: 21ab661dd19d76526cd97b75660b9749e1342e09
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104783239"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Amostras Azure PowerShell para Azure Data Factory
@@ -20,7 +20,7 @@ ms.locfileid: "104783239"
 
 A tabela seguinte inclui links para provar scripts Azure PowerShell para Azure Data Factory.
 
-| Script | Descrição  |
+| Script | Description  |
 |---|---|
 |**Copiar dados**||
 |[Copiar bolhas de uma pasta para outra pasta num Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script PowerShell copia bolhas de uma pasta no Azure Blob Storage para outra pasta no mesmo Blob Storage. |

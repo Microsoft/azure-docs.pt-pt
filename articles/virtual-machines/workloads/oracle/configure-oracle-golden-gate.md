@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.openlocfilehash: fee6770108cbcc2334b2d8fb3ccc3b1e923772d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101673245"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar o Portão Dourado do Oráculo num VM Azure Linux 

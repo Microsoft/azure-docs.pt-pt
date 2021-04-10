@@ -11,10 +11,10 @@ ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-js
 ms.openlocfilehash: dc6c7bd9e38aa21ab10f55fca2500b0c12194d43
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102620171"
 ---
 # <a name="integrate-multiple-immersive-reader-resources"></a>Integrar múltiplos recursos imersivos do Leitor

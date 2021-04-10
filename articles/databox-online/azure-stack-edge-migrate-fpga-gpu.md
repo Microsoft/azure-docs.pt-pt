@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
 ms.openlocfilehash: 430e34a1ca631be00ef46170affd4b56c79894a9
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105566409"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrar cargas de trabalho de um Azure Stack Edge Pro FPGA para um GPU Azure Stack Edge Pro

@@ -12,10 +12,10 @@ author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
 ms.openlocfilehash: 31d3dc2c2d8194541ba1fe7d0865e6c939d75f73
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102501587"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurar divisões de dados e validação cruzada no machine learning automatizado

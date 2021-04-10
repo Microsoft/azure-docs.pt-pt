@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 6eed0ed3e936b0e9a534c82a3105c2ed37cab3d5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c4c36013f100d2fc5265024432cc01a6622a4024
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102485424"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932374"
 ---
 # <a name="azure-route-server-preview-faq"></a>Azure Route Server (Pré-visualização) FAQ
 
@@ -36,6 +36,9 @@ O Azure Route Server suporta apenas o Protocolo de Gateway de Fronteira (BGP). O
 ### <a name="does-azure-route-server-route-data-traffic-between-my-nva-and-my-vms"></a>O Azure Route Server encaminha o tráfego de dados entre o meu NVA e os meus VMs?
 
 N.º O Azure Route Server apenas troca rotas BGP com o seu NVA. O tráfego de dados vai diretamente da NVA para o VM escolhido e diretamente do VM para o NVA.
+
+### <a name="does-azure-route-server-store-customer-data"></a>O Azure Route Server armazena os dados do cliente?
+N.º O Azure Route Server apenas troca rotas BGP com o seu NVA e, em seguida, propaga-as para a sua rede virtual.
 
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-will-it-program-all-copies-of-the-route-but-each-with-a-different-next-hop-to-the-vms-in-the-virtual-network"></a>Se o Azure Route Server receber a mesma rota de mais de um NVA, irá programar todas as cópias da rota (mas cada uma com um próximo salto diferente) para os VMs na rede virtual?
 

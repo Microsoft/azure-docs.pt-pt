@@ -9,10 +9,10 @@ ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
 ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98028867"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB

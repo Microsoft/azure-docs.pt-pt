@@ -10,10 +10,10 @@ ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555861"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutorial: Permitir a recuperação de desastres para os VMs do Windows

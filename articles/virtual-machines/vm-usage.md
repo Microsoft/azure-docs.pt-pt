@@ -1,5 +1,5 @@
 ---
-title: Compreender o uso da máquina virtual Azure
+title: Compreender a utilização das máquinas virtuais do Azure
 description: Compreender detalhes de utilização de máquinas virtuais
 services: virtual-machines
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: ba973bd5609dacf05eca842025d4e828d8a9f841
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550952"
 ---
-# <a name="understanding-azure-virtual-machine-usage"></a>Compreender o uso da máquina virtual Azure
+# <a name="understanding-azure-virtual-machine-usage"></a>Compreender a utilização das máquinas virtuais do Azure
 Ao analisar os seus dados de utilização do Azure, podem obter-se informações de consumo poderosas – insights que podem permitir uma melhor gestão e alocação de custos em toda a sua organização. Este documento fornece um mergulho profundo nos detalhes do consumo do Azure Compute. Para obter mais detalhes sobre o uso geral do Azure, navegue para [compreender a sua conta](../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Transferir os detalhes de utilização

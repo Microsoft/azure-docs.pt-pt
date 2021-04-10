@@ -13,10 +13,10 @@ ms.workload: tbd
 ms.date: 3/28/2021
 ms.author: gunnarc
 ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709910"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS

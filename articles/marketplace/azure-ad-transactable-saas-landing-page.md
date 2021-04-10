@@ -9,17 +9,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 4bfc29472373a53bcebb2ba59134d1f3702d4793
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102549877"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Construa a página de aterragem para a sua oferta de SaaS transacionável no mercado comercial
 
 Este artigo guia-o através do processo de construção de uma página de aterragem para uma aplicação saaS transacionável que será vendida no mercado comercial da Microsoft.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode pensar na página de aterragem como o "lobby" do seu software como uma oferta de serviço (SaaS). Após o comprador subscrever uma oferta, o mercado comercial direciona-os para a página de aterragem para ativar e configurar a sua subscrição para a sua aplicação SaaS. Pense nisto como um passo de confirmação de encomenda que permite ao comprador ver o que comprou e confirmar os seus dados da conta. Utilizando o Azure Ative Directory (Azure AD) e o Microsoft Graph, irá ativar um único sign-on (SSO) para o comprador e obter detalhes importantes sobre o comprador que pode usar para confirmar e ativar a sua subscrição, incluindo o seu nome, endereço de e-mail e organização.
 

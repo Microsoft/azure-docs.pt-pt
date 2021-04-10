@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 86d3e67b121bf7d66651e1e823e5f137e918a171
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550795"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Mover um VM windows da Amazon Web Services (AWS) para uma máquina virtual Azure

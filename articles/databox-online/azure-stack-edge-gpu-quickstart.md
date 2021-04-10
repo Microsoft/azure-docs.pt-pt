@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4f3ecb6c9aa4ec200cd1a53b82d7c81a2c8d4dcd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6389152116a47bedbc9c2dc44231f3e1732fdc6
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100546793"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055115"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Quickstart: Começa com o Azure Stack Edge Pro com GPU 
 

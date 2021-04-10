@@ -3,14 +3,14 @@ title: Gerir variáveis em Azure Automation
 description: Este artigo diz como trabalhar com variáveis em runbooks e configurações DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/01/2020
+ms.date: 03/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6db0c82c034aab97deee1be4aa8bdc54368521bc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 961dd40f7b0c17b554ff3a5d3e8e2cb5692b96fb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98131530"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729393"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis em Azure Automation
 
@@ -41,7 +41,7 @@ Quando cria uma variável com o portal Azure, deve especificar um tipo de dados 
 * Booleano
 * Nulo
 
-A variável não se restringe ao tipo de dados especificado. Tem de definir a variável utilizando o Windows PowerShell se pretender especificar um valor de um tipo diferente. Se `Not defined` indicar, o valor da variável é definido para Nulo. Deve definir o valor com o [cmdlet Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) ou com o `Set-AutomationVariable` cmdlet interno.
+A variável não se restringe ao tipo de dados especificado. Tem de definir a variável utilizando o Windows PowerShell se pretender especificar um valor de um tipo diferente. Se `Not defined` indicar, o valor da variável é definido para Nulo. Deve definir o valor com o [cmdlet Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) ou com o `Set-AutomationVariable` cmdlet interno. Utilize os `Set-AutomationVariable` seus livros de execução destinados a funcionar no ambiente de caixa de areia Azure, ou num Trabalhador de Runbook Híbrido do Windows.
 
 Não é possível utilizar o portal Azure para criar ou alterar o valor para um tipo variável complexo. No entanto, pode fornecer um valor de qualquer tipo utilizando o Windows PowerShell. Tipos complexos são recuperados como um [Newtonsoft.Js. Linq.JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) para um tipo de objeto complexo em vez de um PSObject do tipo [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
@@ -56,10 +56,17 @@ Os cmdlets na tabela seguinte criam e gerem variáveis de automação com PowerS
 
 | Cmdlet | Descrição |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Obtém o valor de uma variável existente. Se o valor for um tipo simples, esse mesmo tipo é recuperado. Se for um tipo complexo, um `PSCustomObject` tipo é recuperado. <br>**Nota:** Não pode usar este cmdlet para recuperar o valor de uma variável encriptada. A única maneira de o fazer é utilizando o `Get-AutomationVariable` cmdlet interno num livro de bordo ou configuração DSC. Consulte [as cmdlets internas para aceder a variáveis](#internal-cmdlets-to-access-variables). |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Obtém o valor de uma variável existente. Se o valor for um tipo simples, esse mesmo tipo é recuperado. Se for um tipo complexo, um `PSCustomObject` tipo é recuperado. <sup>1</sup>|
 |[Nova AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Cria uma nova variável e define o seu valor.|
 |[Remover-AzAutomationVariável](/powershell/module/az.automation/remove-azautomationvariable)| Remove uma variável existente.|
 |[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Define o valor de uma variável existente. |
+
+<sup>1</sup> Não é possível utilizar este cmdlet para recuperar o valor de uma variável encriptada. A única maneira de o fazer é utilizando o `Get-AutomationVariable` cmdlet interno num livro de bordo ou configuração DSC. Por exemplo, para ver o valor de uma variável encriptada, pode criar um livro de execução para obter a variável e, em seguida, escrevê-lo para o fluxo de saída:
+
+```powershell
+$encryptvar = Get-AutomationVariable -Name TestVariable
+Write-output "The encrypted value of the variable is: $encryptvar"
+```
 
 ## <a name="internal-cmdlets-to-access-variables"></a>Cmdlets internos para aceder a variáveis
 
@@ -71,14 +78,7 @@ Os cmdlets internos na tabela seguinte são utilizados para aceder a variáveis 
 |`Set-AutomationVariable`|Define o valor de uma variável existente.|
 
 > [!NOTE]
-> Evite utilizar variáveis no `Name` parâmetro de um livro de bordo ou `Get-AutomationVariable` configuração DSC. A utilização das variáveis pode complicar a descoberta de dependências entre runbooks e variáveis de automação no momento do design.
-
-`Get-AutomationVariable` não funciona em PowerShell, mas apenas num livro de execução ou configuração DSC. Por exemplo, para ver o valor de uma variável encriptada, pode criar um livro de execução para obter a variável e, em seguida, escrevê-lo para o fluxo de saída:
-
-```powershell
-$mytestencryptvar = Get-AutomationVariable -Name TestVariable
-Write-output "The encrypted value of the variable is: $mytestencryptvar"
-```
+> Evite utilizar variáveis no `Name` parâmetro do `Get-AutomationVariable` cmdlet num livro de bordo ou configuração DSC. O uso de uma variável pode complicar a descoberta de dependências entre runbooks e variáveis de automação no tempo de design.
 
 ## <a name="python-functions-to-access-variables"></a>Funções python para aceder a variáveis
 
@@ -116,43 +116,49 @@ O seu runbook ou configuração DSC utiliza o `New-AzAutomationVariable` cmdlet 
 O exemplo a seguir mostra como criar uma variável de corda e, em seguida, devolver o seu valor.
 
 ```powershell
-New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" 
-–AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
-–Encrypted $false –Value 'My String'
-$string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
+$variableValue = "My String"
+
+New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyStringVariable" –Encrypted $false –Value $variableValue
+$string = (Get-AzAutomationVariable -ResourceGroupName $rgName -AutomationAccountName $accountName –Name "MyStringVariable").Value
 ```
 
 O exemplo a seguir mostra como criar uma variável com um tipo complexo e, em seguida, recuperar as suas propriedades. Neste caso, é utilizado um objeto de máquina virtual da [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) especificando um subconjunto das suas propriedades.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
-New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
 
-$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+$vm = Get-AzVM -ResourceGroupName $rgName –Name "VM01" | Select Name, Location, Tags
+New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmName = $vmValue.Name
-$vmExtensions = $vmValue.Extensions
+$vmValue = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyComplexVariable"
+
+$vmName = $vmValue.Value.Name
+$vmTags = $vmValue.Value.Tags
 ```
 
 ## <a name="textual-runbook-examples"></a>Exemplos de runbook textual
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-O exemplo a seguir mostra como definir e recuperar uma variável num livro de texto. Este exemplo pressupõe a criação de variáveis inteiros nomeadas `NumberOfIterations` `NumberOfRunnings` e uma variável de cordas denominada `SampleMessage` .
+O exemplo a seguir mostra como definir e recuperar uma variável num livro de texto. Este exemplo pressupõe a criação de variáveis inteiros denominadas **númeroOfIterations** e **numberOfRunnings** e uma variável de cadeia nomeada **amostraMessage**.
 
 ```powershell
-$NumberOfIterations = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-$NumberOfRunnings = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
-$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
 
-Write-Output "Runbook has been run $NumberOfRunnings times."
+$numberOfIterations = Get-AutomationVariable -Name "numberOfIterations"
+$numberOfRunnings = Get-AutomationVariable -Name "numberOfRunnings"
+$sampleMessage = Get-AutomationVariable -Name "sampleMessage"
 
-for ($i = 1; $i -le $NumberOfIterations; $i++) {
-    Write-Output "$i`: $SampleMessage"
+Write-Output "Runbook has been run $numberOfRunnings times."
+
+for ($i = 1; $i -le $numberOfIterations; $i++) {
+    Write-Output "$i`: $sampleMessage"
 }
-Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+Set-AutomationVariable –Name numberOfRunnings –Value ($numberOfRunnings += 1)
 ```
 
 # <a name="python-2"></a>[Python 2](#tab/python2)
@@ -207,16 +213,18 @@ except AutomationAssetNotFound:
 
 ## <a name="graphical-runbook-examples"></a>Exemplos gráficos de runbook
 
-Num livro gráfico, pode adicionar atividades para os cmdlets internos `Get-AutomationVariable` ou `Set-AutomationVariable` . Basta clicar à direita em cada variável no painel de biblioteca do editor gráfico e selecione a atividade que deseja.
+Num livro gráfico, pode adicionar atividades para os cmdlets internos **Get-AutomationVariable** ou **Set-AutomationVariable**. Basta clicar à direita em cada variável no painel de biblioteca do editor gráfico e selecione a atividade que deseja.
 
 ![Adicionar variável à tela](../media/variables/runbook-variable-add-canvas.png)
 
-A imagem que se segue mostra atividades de exemplo para atualizar uma variável com um valor simples num runbook gráfico. Neste exemplo, a atividade para `Get-AzVM`  recuperar uma única máquina virtual Azure e guarda o nome do computador para uma variável de cadeia de automação existente. Não importa se a [ligação é um oleoduto ou sequência, uma](../automation-graphical-authoring-intro.md#use-links-for-workflow) vez que o código apenas espera um único objeto na saída.
+A imagem que se segue mostra atividades de exemplo para atualizar uma variável com um valor simples num runbook gráfico. Neste exemplo, a atividade para `Get-AzVM` recuperar uma única máquina virtual Azure e guarda o nome do computador para uma variável de cadeia de automação existente. Não importa se a [ligação é um oleoduto ou sequência, uma](../automation-graphical-authoring-intro.md#use-links-for-workflow) vez que o código apenas espera um único objeto na saída.
 
 ![Definir variável simples](../media/variables/runbook-set-simple-variable.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre os cmdlets utilizados para aceder a variáveis, consulte [Gerir módulos na Azure Automation.](modules.md)
-* Para obter informações gerais sobre os runbooks, consulte [a execução do Runbook na Azure Automation](../automation-runbook-execution.md).
-* Para obter detalhes sobre as configurações do DSC, consulte [a visão geral da configuração do Estado da Automação Azure](../automation-dsc-overview.md).
+- Para saber mais sobre os cmdlets utilizados para aceder a variáveis, consulte [Gerir módulos na Azure Automation.](modules.md)
+
+- Para obter informações gerais sobre os runbooks, consulte [a execução do Runbook na Azure Automation](../automation-runbook-execution.md).
+
+- Para obter detalhes sobre as configurações do DSC, consulte [a visão geral da configuração do Estado da Automação Azure](../automation-dsc-overview.md).

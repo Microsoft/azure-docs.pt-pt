@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.openlocfilehash: 609649c533b184b2ccc3d3a5fee79d75d1b66f5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102506689"
 ---
 # <a name="azure-queue-storage-reference"></a>Referência de armazenamento de fila Azure
@@ -83,7 +83,7 @@ A tabela que se segue lista a referência e a documentação da amostra para as 
 
 A tabela que se segue lista a referência e a documentação da amostra para as APIs de armazenamento de fila Azure.
 
-| Documentação de referência | Descrição geral |
+| Documentação de referência | Descrição Geral |
 | ----------------------- | -------- |
 | [Referência API de ARMAZENAMENTO DE ARMAZENAMENTO DE FILA](/rest/api/storageservices/queue-service-rest-api) | [Conceitos de armazenamento de fila](/rest/api/storageservices/queue-service-concepts) |
 

@@ -10,10 +10,10 @@ ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101670697"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilize o servidor de histórico Apache Spark estendido para depurar e diagnosticar aplicações Apache Spark
@@ -42,11 +42,11 @@ O servidor de histórico Apache Spark é a interface do utilizador web para apli
 
     ![Abra o servidor de histórico de faíscas.](./media/apache-spark-history-server/open-spark-history-server.png)
 
-### <a name="open-the-spark-history-server-web-ui-from-data-node"></a>Abra o UI web do Spark History Server a partir do nó de dados
+### <a name="open-the-spark-history-server-web-ui-from-data-node&quot;></a>Abra o UI web do Spark History Server a partir do nó de dados
 
 1. A partir do seu caderno Azure Synapse Studio, selecione o **servidor de histórico Spark** a partir da célula de saída de execução de trabalho ou do painel de estado na parte inferior do documento do caderno. Selecione **Detalhes da sessão**.
 
-   ![Lançar servidor histórico spark 1](./media/apache-spark-history-server/launch-history-server2.png "Lançar servidor histórico de spark")
+   ![Lançar servidor histórico spark 1](./media/apache-spark-history-server/launch-history-server2.png &quot;Lançar servidor histórico de spark")
 
 2. Selecione **o servidor de histórico Spark** a partir do painel de despersar.
 
@@ -100,7 +100,7 @@ Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Dados
 
 Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Gráfico** no menu de ferramentas para obter a visualização do gráfico de trabalho.
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Pode ver uma visão geral do seu trabalho no gráfico de trabalho gerado. Por defeito, o gráfico mostra todos os trabalhos. Pode filtrar esta vista por **Job ID**.
 

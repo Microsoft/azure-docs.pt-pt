@@ -3,22 +3,22 @@ title: Importar imagens de contentor
 description: Importar imagens de contentores para um registo de contentores Azure utilizando APIs Azure, sem necessidade de executar comandos Docker.
 ms.topic: article
 ms.date: 01/15/2021
-ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b481a2b4f0a08f0ccbfd33f7059e5d8e0c04f5f0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988248"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221505"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contentores para um registo de contentores
 
 Pode facilmente importar (copiar) imagens de contentores para um registo de contentores Azure, sem utilizar comandos Docker. Por exemplo, importar imagens de um registo de desenvolvimento para um registo de produção, ou copiar imagens de base de um registo público.
 
-O Registo de Contentores Azure lida com uma série de cenários comuns para copiar imagens de um registo existente:
+O Registo de Contentores Azure lida com uma série de cenários comuns para copiar imagens e outros artefactos de um registo existente:
 
-* Importação de um registo público
+* Importar imagens de um registo público
 
-* Importação de outro registo de contentores Azure, na mesma ou numa subscrição ou inquilino Azure diferente
+* Importar imagens ou artefactos OCI, incluindo gráficos helm 3 de outro registo de contentores Azure, na mesma ou numa subscrição ou inquilino azure diferente
 
 * Importação de um registo de contentores privados não-Azure
 
