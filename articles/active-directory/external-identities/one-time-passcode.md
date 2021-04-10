@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688472"
 ---
 # <a name="email-one-time-passcode-authentication"></a>E-mail autenticação de senha única
@@ -66,13 +66,13 @@ Pode ver se um utilizador convidado autentica usando códigos de acesso únicos,
 > [!NOTE]
 > Quando um utilizador resgatar uma senha única e mais tarde obtiver uma conta MSA, AZure AD ou outra conta federada, continuará a ser autenticada através de uma senha única. Se pretender atualizar o seu método de autenticação, pode eliminar a conta de utilizador do utilizador e convidá-la novamente.
 
-### <a name="example"></a>Exemplo
+### <a name="example&quot;></a>Exemplo
 
 O utilizador convidado teri@gmail.com é convidado para a Fabrikam, que não tem a federação do Google configurada. Teri não tem uma conta microsoft. Receberão uma senha única para autenticação.
 
-## <a name="disable-email-one-time-passcode"></a>Desativar a senha de uma vez por e-mail
+## <a name=&quot;disable-email-one-time-passcode&quot;></a>Desativar a senha de uma vez por e-mail
 
-A partir de outubro de 2021, a funcionalidade de senha de e-mail será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Nessa altura, a Microsoft deixará de apoiar o resgate de convites criando contas de colaboração Azure AD não geridas ("virais" ou "just-in-time") E inquilinos para cenários de colaboração B2B. Estamos a ativar a funcionalidade de código de acesso de e-mail uma vez porque fornece um método de autenticação de recuo sem emenda para os utilizadores convidados. No entanto, tem a opção de desativar esta funcionalidade se optar por não a utilizar.
+A partir de outubro de 2021, a funcionalidade de senha de e-mail será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Nessa altura, a Microsoft deixará de apoiar o resgate de convites criando contas de colaboração Azure AD não geridas (&quot;virais&quot; ou &quot;just-in-time") E inquilinos para cenários de colaboração B2B. Estamos a ativar a funcionalidade de código de acesso de e-mail uma vez porque fornece um método de autenticação de recuo sem emenda para os utilizadores convidados. No entanto, tem a opção de desativar esta funcionalidade se optar por não a utilizar.
 
 > [!NOTE]
 >

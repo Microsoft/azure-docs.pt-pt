@@ -4,10 +4,10 @@ description: O painel de instrumentos permite-lhe visualizar rapidamente o estad
 ms.date: 11/03/2020
 ms.topic: article
 ms.openlocfilehash: e9bc650e9c306d12ef63994852816c96e1bdf40a
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781539"
 ---
 # <a name="the-dashboard"></a>O dashboard
@@ -42,7 +42,7 @@ O medidor de Alertas Não Reconhecidos (UA) no centro da página indica o númer
 
 Cada caixa de estado é descrita nesta secção.
 
-| Caixa de Estado e Medidores | Descrição |
+| Caixa de Estado e Medidores | Description |
 | -------------- | -------------- |
 | :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/critical-alert-status-box-v2.png" alt-text="Alertas Críticos"::: | **Alertas Críticos** - a caixa no meio superior da página indica o número de alertas críticos. Selecione esta caixa para apresentar descrições dos alertas na linha do tempo e na lista sob os medidores, se houver.                              |
 | :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/major-alert-status-box-v2.png" alt-text="Alertas Principais"::: | **Alertas Principais** - a caixa no topo direito da página indica o número de alertas principais. Selecione esta caixa para apresentar descrições dos alertas na linha do tempo e na lista sob os medidores, se houver.                                     |

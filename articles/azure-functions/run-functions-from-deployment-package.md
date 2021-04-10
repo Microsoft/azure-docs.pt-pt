@@ -4,10 +4,10 @@ description: Faça com que o tempo de execução das Funções Azure execute as 
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.openlocfilehash: aad6991d0ddd5c439d03e41adec63837a21db87b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104581597"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar as suas Funções Azure a partir de um ficheiro de pacote

@@ -14,16 +14,16 @@ ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd1cfb0cc8e1868e78b4d284d1b1f4e7e85aa318
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101677046"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA em Azure Large Instance migração para Azure Virtual Machines
 Este artigo descreve possíveis cenários de implantação de Azure Large Instance e oferece abordagem de planeamento e migração com tempo de inatividade de transição minimizado
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Desde o anúncio do Azure Large Instances for SAP HANA (HLI) em setembro de 2016, muitos clientes adotaram este hardware como uma oferta de serviço para a sua plataforma de computação em memória.  Nos últimos anos, a extensão do tamanho do Azure VM, juntamente com o suporte da implantação de escala HANA, excedeu a procura de capacidade de capacidade de base de dados ERP da maioria dos clientes empresariais.  Começamos a ver clientes expressando o interesse em migrar a sua carga de trabalho SAP HANA de servidores físicos para VMs Azure.
 Este guia não é um documento de configuração passo a passo. Descreve os modelos de implantação comuns e oferece conselhos de planeamento e migração.  A intenção é chamar a atenção para as considerações necessárias para a preparação para minimizar o tempo de inatividade da transição.
 

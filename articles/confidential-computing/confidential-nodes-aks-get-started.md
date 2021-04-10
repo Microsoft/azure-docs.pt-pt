@@ -3,16 +3,17 @@ title: 'Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) utiliz
 description: Neste quickstart, você aprenderá a criar um cluster AKS com nós confidenciais e implementar uma aplicação hello world usando o Azure CLI.
 author: agowdamsft
 ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: amgowda
 ms.custom: contentperf-fy21q3
-ms.openlocfilehash: a7566cdb22d62bc46df82a3ef0aa78a748769531
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 73770acefc8a153e4a2f2fde146f9afd4c319cd3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657710"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933139"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) com nós de computação confidencial (DCsv2) utilizando O Azure CLI
 

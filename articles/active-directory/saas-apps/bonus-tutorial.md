@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Ative Directory com bónus
@@ -124,13 +124,13 @@ Para configurar o Azure AD com bónus, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-bonusly-single-sign-on"></a>Configurar bónus Sign-On individuais
+### <a name="configure-bonusly-single-sign-on&quot;></a>Configurar bónus Sign-On individuais
 
 1. Numa janela de navegador diferente, inscreva-se no seu inquilino **Bonusly.**
 
 1. Na barra de ferramentas na parte superior, clique em **Definições** e, em seguida, **selecione Integrações e aplicações**.
 
-    ![Secção Social Bónus](./media/bonus-tutorial/ic773686.png "Bonusly")
+    ![Secção Social Bónus](./media/bonus-tutorial/ic773686.png &quot;Bonusly")
 1. Em **'SÚM' único**, selecione **SAML**.
 
 1. Na página de diálogo **SAML,** execute os seguintes passos:
@@ -197,7 +197,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-bonusly-test-user"></a>Criar utilizador de teste bónus
+### <a name="create-bonusly-test-user&quot;></a>Criar utilizador de teste bónus
 
 Para permitir que os utilizadores Azure AD inscrevam-se na Bonusly, devem ser adustados em Bónus. No caso de Bónus, o provisionamento é uma tarefa manual.
 
@@ -210,7 +210,7 @@ Para permitir que os utilizadores Azure AD inscrevam-se na Bonusly, devem ser ad
 
 1. Clique em **Definições**.
 
-    ![Definições](./media/bonus-tutorial/ic781041.png "Definições")
+    ![Definições](./media/bonus-tutorial/ic781041.png &quot;Definições")
 
 1. Clique no separador **Utilizadores e bónus.**
 

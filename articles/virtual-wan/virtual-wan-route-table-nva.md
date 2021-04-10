@@ -7,13 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 40154a9c3cefed69bd3f1639153099b944da79b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a6e701377956e39696567eff9a6a0abca927b88
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91267130"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055081"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Crie uma tabela de rota de Hub Virtual para orientar o tráfego para um aparelho virtual de rede
 

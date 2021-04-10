@@ -10,16 +10,14 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: bdfd4dfef57721a24b4c6981ae653ab4f17562fa
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: aabb8bdf4105702aa623c45bc291770b05b8279e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644725"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726776"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Quickstart: Criar e gerir recursos dos Serviços de Comunicação
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser a provisionados através do [portal Azure](https://portal.azure.com) ou com a SDK de gestão .NET. A gestão SDK e o portal Azure permitem-lhe criar, configurar, atualizar e eliminar os seus recursos e interface com [o Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nos SDKs estão disponíveis no portal Azure. 
 

@@ -8,10 +8,10 @@ ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: adb9cb234e76da5dab4503c59eb19ba6645e56c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101092655"
 ---
 # <a name="azure-security-baseline-for-azure-defender-for-iot"></a>Linha de segurança Azure para Azure Defender para IoT

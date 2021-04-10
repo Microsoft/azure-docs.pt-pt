@@ -7,10 +7,10 @@ ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
 ms.openlocfilehash: cc3f9623f3b09c14e0e478252768890e4de3acad
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025463"
 ---
 # <a name="whats-new-in-data-lake-analytics"></a>Quais são as novidades no Data Lake Analytics?

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, hahamil
 ms.custom: aaddev
 ms.openlocfilehash: 20d276aba2ee3260911748cbee0a16020270059a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98761342"
 ---
 # <a name="handle-errors-and-exceptions-in-msaljs"></a>Lidar com erros e exceções no MSAL.js
