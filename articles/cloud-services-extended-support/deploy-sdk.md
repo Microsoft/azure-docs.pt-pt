@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b63f42ccc0a9d8d138e38a262db528fd36ea701a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123042"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166892"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Implementar serviços cloud (suporte alargado) utilizando o Azure SDK
 
@@ -156,7 +156,8 @@ Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para servi�
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Crie um endereço IP público e (opcionalmente) desaponhe a propriedade da etiqueta DNS do endereço IP público. Se estiver a utilizar um IP estático, tem de ser referenciado como um IP reservado no ficheiro de configuração de serviço.
+7. Crie um endereço IP público e desaponija a propriedade da etiqueta DNS do endereço IP público. Os Serviços cloud (suporte alargado) só suportam [Endereços https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) IP públicos] (endereços IP públicos SKU. Os IPs públicos padrão da SKU não funcionam com os Serviços cloud.
+Se estiver a utilizar um IP estático, precisa de o referir como um ficheiro IP reservado na configuração de serviço (.cscfg)
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +172,7 @@ Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para servi�
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Crie um objeto de perfil de rede e associe um endereço IP público com a extremidade frontal do equilibrador de carga criado pela plataforma.
+8. Crie um Objeto de Perfil de Rede e associe o endereço IP público à parte frontal do equilibrador de carga. A plataforma Azure cria automaticamente um recurso de balançador de carga SKU 'Classic' na mesma subscrição que o recurso de serviço de cloud. O recurso do balanceador de carga é um recurso apenas de leitura na ARM. Quaisquer atualizações ao recurso são suportadas apenas através dos ficheiros de implementação do serviço na nuvem (.cscfg & .csdef)
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 

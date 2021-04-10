@@ -3,18 +3,20 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 62ae2eab33063416fdd6265b14dd8c30da55e174
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950064"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166705"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
 Pode utilizar a Gestão de Atualização na Azure Automation para gerir as atualizações do sistema operativo para as suas máquinas virtuais Windows e Linux em Azure, em ambientes no local e em outros ambientes em nuvem. Pode avaliar rapidamente o estado das atualizações disponíveis em todas as máquinas de agente e gerir o processo de instalação das atualizações necessárias para os servidores.
+
+Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para o [Farol de Azure.](../../lighthouse/overview.md) O Azure Lighthouse permite-lhe realizar operações em escala através de vários inquilinos do Azure Ative Directory (Azure AD) de uma só vez, tornando as tarefas de gestão como a Update Management mais eficientes entre os inquilinos pelos quais é responsável.
 
 > [!NOTE]
 > Não é possível utilizar uma máquina configurada com a Update Management para executar scripts personalizados da Azure Automation. Esta máquina só pode executar o script de atualização assinado pela Microsoft.
@@ -24,7 +26,7 @@ Pode utilizar a Gestão de Atualização na Azure Automation para gerir as atual
 
 Para descarregar e instalar *patches* de *Segurança* e Crítica disponíveis automaticamente no seu Azure VM, reveja o patch [de hóspedes VM automático](../../virtual-machines/automatic-vm-guest-patching.md) para VMs windows.
 
-Antes de implementar a Gestão de Atualização e de ativar as suas máquinas para gestão, certifique-se de que compreende as informações nas seguintes secções.  
+Antes de implementar a Gestão de Atualização e de ativar as suas máquinas para gestão, certifique-se de que compreende as informações nas seguintes secções.
 
 ## <a name="about-update-management"></a>Sobre a Gestão de Atualizações
 
@@ -40,7 +42,7 @@ O diagrama a seguir ilustra como a Gestão de Atualização avalia e aplica atua
 
 ![Fluxo de trabalho de gestão de atualização](./media/overview/update-mgmt-updateworkflow.png)
 
-A Gestão de Atualização pode ser usada para implantar de forma nativa em máquinas em várias subscrições no mesmo inquilino.
+A Atualização A Gestão pode ser usada para implantar de forma nativa em máquinas em várias subscrições no mesmo inquilino, ou através de inquilinos que usam [a gestão de recursos delegados da Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md)
 
 Depois de um pacote ser lançado, leva 2 a 3 horas para que o patch apareça para as máquinas Linux para avaliação. Para as máquinas Windows, leva 12 a 15 horas para o patch aparecer para avaliação depois de ter sido lançado. Quando uma máquina completa uma verificação para a conformidade da atualização, o agente reencam a informação a granel para os registos do Azure Monitor. Numa máquina Windows, a verificação de conformidade é executada a cada 12 horas por defeito. Para uma máquina Linux, a verificação de conformidade é efetuada de hora em hora por defeito. Se o agente Log Analytics for reiniciado, iniciar-se-á uma verificação de conformidade dentro de 15 minutos.
 
@@ -131,7 +133,7 @@ Os VMs criados a partir das imagens on-demand Red Hat Enterprise Linux (RHEL) qu
 
 ## <a name="permissions"></a>Permissões
 
-Para criar e gerir as implementações de atualizações, precisa de permissões específicas. Para saber mais sobre estas permissões, consulte [o acesso baseado em funções – Gestão de Atualização.](../automation-role-based-access-control.md#update-management-permissions)
+Para criar e gerir as implementações de atualizações, precisa de permissões específicas. Para saber mais sobre estas permissões, consulte [o acesso baseado em funções - Gestão de Atualização](../automation-role-based-access-control.md#update-management-permissions).
 
 ## <a name="update-management-components"></a>Componentes de Gestão de Atualização
 
@@ -167,11 +169,11 @@ Para obter mais informações sobre atualizações de pacotes de gestão, consul
 
 A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão suporta:
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportado | Description |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 

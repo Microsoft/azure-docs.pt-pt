@@ -4,10 +4,10 @@ description: Conheça o conceito de Azure Defender para linha de base IoT.
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.openlocfilehash: 1b8b9d62918e40262da6b3df48d0fece842e050f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779363"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure Defender para linha de base IoT e verificações personalizadas
@@ -56,7 +56,7 @@ Para configurar verificações personalizadas de base:
 
 ## <a name="baseline-custom-check-properties"></a>Propriedades de verificação personalizadas de base
 
-| Name| Estado | Valores válidos| Valores predefinidos| Descrição |
+| Name| Estado | Valores válidos| Valores predefinidos| Description |
 |------|-----|------|-----|-----|
 |linha de baseCustomChecksEnabled|Requerido: verdadeiro |Valores válidos: **Boolean** |Valor predefinido: **falso** |Intervalo de tempo máximo antes de serem enviadas mensagens de alta prioridade.|
 |linha de baseCustomChecksFilePath |Requerido: verdadeiro|Valores válidos: **String,** **nulo** |Valor predefinido: **nulo** |Caminho completo da configuração xml de base|

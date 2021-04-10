@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 846d4a259f0fcd204bcad6c898efc999c3765fd3
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4d2a345ed49fae2e1d77b3c5da44b305d069874e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962681"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729461"
 ---
 # <a name="azure-stack-edge-2103-release-notes"></a>Notas de lançamento do Azure Stack Edge 2103
 
@@ -98,7 +98,7 @@ O quadro seguinte fornece um resumo das questões conhecidas transitadas das ver
 |**19.**|Kubernetes + atualização |Versões de software anteriores, como lançamentos de 2008, têm um problema de atualização de condições de raça que faz com que a atualização falhe com o ClusterConnectionException. |A utilização das construções mais recentes deve ajudar a evitar este problema. Se ainda vir esta questão, a solução é voltar a tentar a atualização, e deve funcionar.|
 |**20**|Internet Explorer|Se as funcionalidades de segurança reforçadas estiverem ativadas, poderá não conseguir aceder às páginas locais da Web UI. | Desative a segurança reforçada e reinicie o seu navegador.|
 |**21.**|Painel de Kubernetes | O ponto final *https* para o Painel Kubernetes com certificado SSL não é suportado. | |
-|**22.**|Kubernetes |Kubernetes não suporta " em nomes variáveis ambientais que são usados por aplicações .NET. Isto também é necessário para que o módulo IoT Edge da grelha de evento funcione no dispositivo Azure Stack Edge e outras aplicações. Para mais informações, consulte [ASP.NET documentação principal.](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables)|Substitua " por duplo sublinhado. Para mais informações,consulte [a edição de Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201)|
+|**22.**|Kubernetes |Kubernetes não suporta " em nomes variáveis ambientais que são usados por aplicações .NET. Isto também é necessário para que o módulo IoT Edge da grelha de evento funcione no dispositivo Azure Stack Edge e outras aplicações. Para mais informações, consulte [ASP.NET documentação principal.](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables)|Substitua " por duplo sublinhado. Para mais informações,consulte [a edição de Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201)|
 |**23.** |Aglomerado Azure Arc + Kubernetes |Por predefinição, quando os recursos `yamls` são eliminados do repositório git, os recursos correspondentes não são eliminados do cluster Kubernetes.  |Para permitir a supressão de recursos quando são eliminados do repositório de git, definido `--sync-garbage-collection` no Arc OperatorParams. Para obter mais informações, consulte [Eliminar uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
 |**24.**|NFS |As aplicações que utilizam suportes de partilha NFS no seu dispositivo para escrever dados devem utilizar a escrita exclusiva. Isto garante que as escritas são escritas no disco.| |
 |**25.**|Configuração do cálculo |A configuração do cálculo falha nas configurações de rede onde gateways ou switches ou routers respondem aos pedidos do Address Resolution Protocol (ARP) para sistemas que não existem na rede.| |

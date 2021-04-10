@@ -49,7 +49,7 @@
     - name: Proteção contra DDoS
       href: front-door-ddos.md
     - name: FAQ do Front Door
-      href: front-door-faq.md
+      href: front-door-faq.yml
     - name: Filtro geográfico
       href: front-door-geo-filtering.md
     - name: Sondas do estado de funcionamento

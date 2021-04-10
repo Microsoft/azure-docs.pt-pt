@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7ef41b76f343d8997feebc4a366deda7ce6a2afa
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 9141fb025cb2c7976f88d894768972b10ea3a3d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644068"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729410"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de proteção de conteúdos
 
@@ -38,11 +38,11 @@ Durante a migração para a V3 API, você vai descobrir que você precisa aceder
 
 Por exemplo, se já tinha um Ativo v2 com o ID de **"nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8",** então encontrará ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigos ativos v2 através da API v3, então você vai encontrar ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigos ativos v2 através da API v3, então você vai encontrar ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigo o nome passará a ser a parte GUID no final (neste caso, **"8cb39104-122c-496e-9ac5-7f9e2c2547b8".**
 
-Pode consultar os **StreamingLocators associados** aos Ativos criados na API v2 utilizando o novo método v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) na entidade Desíprocos.  Consulte também a versão SDK do cliente .NET do [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet)
+Pode consultar os **StreamingLocators associados** aos Ativos criados na API v2 utilizando o novo método v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) na entidade Desíprocos.  Consulte também a versão SDK do cliente .NET do [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
 
 Os resultados do método **ListStreamingLocators** fornecer-lhe-ão o **Nome** e **StreamingLocatorId** do localizador juntamente com o **Nome StreamingPolicyName**.
 
-Para encontrar as **Chave de Conteúdo utilizadas** nos seus **StreamingLocators** para proteção de conteúdos, pode ligar para o método [StreamingLocator.ListContentKeysAsync.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet)  
+Para encontrar as **Chave de Conteúdo utilizadas** nos seus **StreamingLocators** para proteção de conteúdos, pode ligar para o método [StreamingLocator.ListContentKeysAsync.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true)  
 
 Quaisquer **Ativos** que tenham sido criados e publicados utilizando a API v2 terão uma [Política chave de conteúdo](https://docs.microsoft.com/azure/media-services/latest/content-key-policy-concept) e uma Chave de Conteúdo definida neles na API v3, em vez de utilizarem uma política de chave de conteúdo padrão na Política de [Streaming.](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept)
 

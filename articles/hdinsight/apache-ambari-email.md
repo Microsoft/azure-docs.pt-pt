@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.openlocfilehash: 5b344c0c4b1db9159d0223c861e5d371cb225f5a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867207"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Configurar notificações de email apache Ambari em Azure HDInsight
@@ -60,7 +60,7 @@ Neste tutorial, ficará a saber como:
     |Nome|Forneça um nome para a notificação.|
     |Grupos|Configurar como desejado.|
     |Gravidade|Configurar como desejado.|
-    |Descrição|Opcional.|
+    |Description|Opcional.|
     |Método|Deixe no **EMAIL**.|
     |E-mail para|Forneça e-mails para receber notificações separadas por uma vírgula.|
     |Servidor SMTP|`smtp.sendgrid.net`|

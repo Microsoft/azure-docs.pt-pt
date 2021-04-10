@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d3b84756f390930be5124c6bda54d07078d29053
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579312"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166926"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
@@ -62,13 +62,13 @@ Para novas aplicações, apenas deve ser utilizado o modo predefinido e sem serv
 
 O modo clássico é projetado para retrocompatibilidade para aplicações existentes, pelo que não deve ser utilizado para novas aplicações.
 
-Para mais informações sobre o modo de serviço [neste doc](concept-service-mode.md).
+Para obter mais informações sobre o modo de serviço, consulte [o modo serviço de assistência no Serviço Azure SignalR](concept-service-mode.md).
 
 ## <a name="can-i-send-message-from-client-in-serverless-mode"></a>Posso enviar mensagem do cliente em modo sem servidor?
 
 Pode enviar mensagem do cliente se configurar a montante no seu caso SignalR. A montante é um conjunto de pontos finais que podem receber mensagens e eventos de ligação do serviço SignalR. Se não houver configuração a montante, as mensagens do cliente serão ignoradas.
 
-Para mais informações sobre a montante consulte [este doc](concept-upstream.md).
+Para obter mais informações sobre a montante, consulte [as definições a montante](concept-upstream.md).
 
 A montante está atualmente em pré-visualização pública.
 

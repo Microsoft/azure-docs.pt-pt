@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 0738f7e427c2ff094c9b6df7539ba67dff80d095
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104589859"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configure preferência de encaminhamento de rede para armazenamento Azure

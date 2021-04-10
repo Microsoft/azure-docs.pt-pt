@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bc8909a6f25c3adcba60de639d822769baff703f
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628813"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consultas EventStore APIs para eventos de cluster

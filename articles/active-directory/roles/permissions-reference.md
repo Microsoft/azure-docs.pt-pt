@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 03/13/2021
+ms.date: 03/29/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: f467fc739b3120fd43bec4e21e1e336c1cdf186f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104955244"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935418"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções incorporadas do Azure AD
 
@@ -36,7 +36,7 @@ Como uma boa prática, recomendamos que atribua este papel a menos de cinco pess
 ## <a name="all-roles"></a>Todos os papéis
 
 > [!div class="mx-tableFixed"]
-> | Função | Descrição | ID do Modelo |
+> | Função | Description | ID do Modelo |
 > | --- | --- | --- |
 > | [Administrador de Aplicações](#application-administrator) | Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações empresariais. | 9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3 |
 > | [Programador de Aplicações](#application-developer) | Pode criar registos de aplicações independentemente da definição de "Os Utilizadores podem registar as aplicações". | cf1c38e5-3621-4004-a7cb-879624dced7c |
@@ -229,7 +229,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No |No | Sim | Sim | Sim |
+| Administrador de política de autenticação | No |No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -241,7 +241,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 >* Não administradores como executivos, advogados e funcionários de recursos humanos que possam ter acesso a informações confidenciais ou privadas.
 
 > [!IMPORTANT]
-> Esta função não é atualmente capaz de gerir o MFA por utilizador no antigo portal de gestão de MFA. As mesmas funções podem ser executadas utilizando o módulo Azure AD Powershell do comando [Set-MsolUser.](/powershell/module/msonline/set-msoluser)
+> Esta função não consegue gerir as definições de MFA no antigo portal de gestão de MFA ou fichas de OATH de Hardware. As mesmas funções podem ser executadas utilizando o módulo Azure AD Powershell do comando [Set-MsolUser.](/powershell/module/msonline/set-msoluser)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -264,10 +264,10 @@ As funções [de administrador de autenticação](#authentication-administrator)
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No | No | Sim | Sim | Sim |
+| Administrador de política de autenticação | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
-> Esta função não é atualmente capaz de gerir as definições de MFA no antigo portal de gestão de MFA.
+> Esta função não consegue gerir as definições de MFA no antigo portal de gestão de MFA ou fichas de OATH de Hardware. 
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -1402,7 +1402,7 @@ A [função de administrador de política de autenticação](#authentication-pol
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No |
 | Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No |
-| Administrador de política de autenticação | No | No | Sim | Sim | Sim |
+| Administrador de política de autenticação | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
