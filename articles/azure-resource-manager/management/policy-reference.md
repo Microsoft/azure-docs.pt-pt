@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para gestor de recursos Azure
 description: Lista definições de políticas incorporadas da Azure Policy para O Gestor de Recursos Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3bf6b10c94f02a736082d49c0de15cf181694de0
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: b599b6a14195cd43f94f50cfb24b51bde04a3392
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105034588"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089082"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Definições incorporadas da Política Azure para O Gestor de Recursos Azure
 

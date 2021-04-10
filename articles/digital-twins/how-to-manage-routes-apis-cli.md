@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 97fad1b984ad34722a952a31d8245eb68417a2ab
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104779975"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936313"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -158,7 +158,7 @@ Uma vez configurado o ponto final com letras mortas, as mensagens com letras mor
 
 As mensagens com letras mortas corresponderão ao esquema do evento original que se destinava a ser entregue no seu ponto final original.
 
-Aqui está um exemplo de uma mensagem de letra morta para uma [notificação de criação de gémeos:](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)
+Aqui está um exemplo de uma mensagem de letra morta para uma [notificação de criação de gémeos:](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications)
 
 ```json
 {
@@ -239,7 +239,9 @@ Sem filtragem, os pontos finais recebem uma variedade de eventos da Azure Digita
 Pode restringir os eventos que estão a ser enviados adicionando um **filtro** para um ponto final na sua rota de eventos.
 
 >[!NOTE]
-> Os filtros são **sensíveis** ao caso e precisam de coincidir com a caixa de carga útil (que pode não corresponder necessariamente à caixa do modelo).
+> Os filtros são **sensíveis** ao caso e precisam de coincidir com a caixa de carga útil. 
+>
+> Para os filtros de telemetria, isto significa que o invólucro precisa de corresponder ao invólucro na telemetria enviada pelo dispositivo, e não necessariamente o invólucro definido no modelo do gémeo. 
 
 Para adicionar um filtro, pode utilizar um pedido PUT para *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* com o seguinte corpo:
 

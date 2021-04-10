@@ -3,12 +3,12 @@ title: Esquema de eventos Azure Event Grid
 description: Descreve as propriedades e esquemas que estão presentes para todos os eventos. Os eventos consistem num conjunto de cinco propriedades de cordas necessárias e um objeto de dados necessário.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ff7b41a45cf467074e18a50be398b2a3c9866a4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86105885"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732164"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos Azure Event Grid
 
@@ -88,6 +88,7 @@ Todos os eventos têm os mesmos dados de alto nível:
 
 Para saber mais sobre as propriedades no objeto de dados, consulte a fonte do evento:
 
+* [Azure Policy](./event-schema-policy.md)
 * [Assinaturas Azure (operações de gestão)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
 * [Armazenamento de blobs](event-schema-blob-storage.md)

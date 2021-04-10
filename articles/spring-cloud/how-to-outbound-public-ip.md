@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 04174b9cffb7e853dee235a4141ccda74a7847c6
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878219"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Como identificar endereços IP públicos de saída em Azure Spring Cloud

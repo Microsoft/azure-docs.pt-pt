@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd4ed992557a3c333919b63cc36757beb2f70454
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d22f2fb0bb550d966cbc5e181882552514513b2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433561"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936585"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especifique um modelo de reconhecimento facial
 
@@ -87,7 +87,7 @@ Não há alteração no [Rosto - Identificar] API; basta especificar a versão d
 
 ## <a name="find-similar-faces-with-specified-model"></a>Encontre rostos semelhantes com modelo especificado
 
-Também pode especificar um modelo de reconhecimento para pesquisa de semelhança. Pode atribuir a versão do modelo `recognitionModel` ao criar a lista de rostos com [FaceList - Criar] API ou [LargeFaceList - Criar]. Se não especificar este parâmetro, o `recognition_01` modelo é utilizado por predefinição. Uma lista facial usará sempre o modelo de reconhecimento com o que foi criado, e novos rostos ficarão associados a este modelo quando forem adicionados à lista; não podes mudar isto depois da criação. Para ver com que modelo uma lista facial está configurada, utilize o [FaceList - Obtenha] API com o _retornadoRecognitionModel_ definido como **verdadeiro**.
+Também pode especificar um modelo de reconhecimento para pesquisa de semelhança. Pode atribuir a versão do modelo ao `recognitionModel` criar o **FaceList** com [FaceList - Criar] API ou [LargeFaceList - Criar]. Se não especificar este parâmetro, o `recognition_01` modelo é utilizado por predefinição. Um **FaceList** utilizará sempre o modelo de reconhecimento com o que foi criado, e novas caras ficarão associadas a este modelo quando forem adicionadas à lista; não podes mudar isto depois da criação. Para ver com que modelo um **FaceList** está configurado, utilize o [FaceList - Obtenha] API com o _retornadoRecognitionModel_ definido como **verdadeiro**.
 
 Consulte o seguinte exemplo de código para a biblioteca de clientes .NET.
 
@@ -95,7 +95,7 @@ Consulte o seguinte exemplo de código para a biblioteca de clientes .NET.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-Este código cria uma lista de rostos chamada `My face collection` , utilizando o modelo _recognition_04_ para a extração de recursos. Quando procura esta lista de rostos semelhantes a um novo rosto detetado, esse rosto deve ter sido detetado [(Face - Detect]) utilizando o modelo _recognition_04._ Tal como na secção anterior, o modelo tem de ser consistente.
+Este código cria uma **Lista Face Chamada** , utilizando o modelo `My face collection` _recognition_04_ para a extração de funcionalidades. Quando procura este **FaceList** por rostos semelhantes a um novo rosto detetado, esse rosto deve ter sido detetado [(Face - Detect]) utilizando o modelo _recognition_04._ Tal como na secção anterior, o modelo tem de ser consistente.
 
 Não há alteração no Rosto - Encontre API [similar;] apenas especificar a versão do modelo na deteção.
 

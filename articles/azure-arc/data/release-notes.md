@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6b4d5c1372a8351f1fe5a6608aff38bf232aabd8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f41034331ed21e194fc2b86c2902c5957333313
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121954"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010603"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
 
@@ -22,11 +22,48 @@ Este artigo destaca capacidades, funcionalidades e melhorias recentemente lança
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## <a name="march-2021"></a>março de 2021
+
+O lançamento de março de 2021 é apresentado a 6 de abril de 2021.
+
+Rever limitações desta versão em [questões conhecidas - Azure Arc permitiu serviços de dados (Preview)](known-issues.md).
+
+Número da versão Azure Data CLI `azdata` ( 20.3.2. Pode instalar `azdata` a partir do [Azure Data CLI `azdata` ()](/sql/azdata/install/deploy-install-azdata).
+
+### <a name="data-controller"></a>Controlador de dados
+
+- Implementar O Azure Arc ativou o controlador de dados dos serviços de dados no modo de ligação direta a partir do portal. Iniciar a partir do controlador de [dados implementar - modo de ligação direta - pré-requisitos](deploy-data-controller-direct-mode-prerequisites.md).
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc habilitado a hiperescala pósgresql
+
+Ambas as definições de recursos personalizados (CRD) para PostgreSQL foram consolidadas num único CRD. Consulte a tabela seguinte.
+
+|Libertar |CRD |
+|-----|-----|
+|Fevereiro de 2021 e anterior| postgresql-11s.arcdata.microsoft.com<br/>postgresql-12s.arcdata.microsoft.com |
+|Início de março de 2021 | postgresqls.arcdata.microsoft.com
+
+Eliminará os CRDs anteriores à medida que limpa as instalações passadas. Ver [Limpeza de instalações passadas.](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations)
+
+### <a name="azure-arc-enabled-managed-instance"></a>Azure Arc viabilizou a ocorrência gerida
+
+- Pode agora restaurar uma base de dados para SQL Managed Instance com 3 réplicas e será automaticamente adicionada ao grupo de disponibilidade. 
+
+- Agora pode ligar-se a um ponto final secundário apenas de leitura em SQL Casos Geridos implantados com 3 réplicas. Utilize `azdata arc sql endpoint list` para ver o ponto final de ligação de leitura secundária.
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+- No modo ligado diretamente, o upload de utilização, métricas e registos de utilização `azdata arc dc upload` está atualmente bloqueado. A utilização é automaticamente carregada. O upload para o controlador de dados criado em modo indireto conectado deve continuar a funcionar.
+- A implementação do controlador de dados em modo direto só pode ser feita a partir do portal Azure, e não está disponível a partir de ferramentas do cliente como azdata, Azure Data Studio ou kubectl.
+- A implementação do Azure Arc ativado SQL Managed Instance em modo direto só pode ser feita a partir do portal Azure, e não está disponível a partir de ferramentas como azdata, Azure Data Studio ou kubectl.
+- A implementação da hiperescala postgeSQL ativada no modo direto não está atualmente disponível.
+- O upload automático dos dados de utilização no modo de conectividade direta não será bem sucedido se utilizar o proxy via `–proxy-cert <path-t-cert-file>` .
+
 ## <a name="february-2021"></a>Fevereiro de 2021
 
 ### <a name="new-capabilities-and-features"></a>Novas capacidades e funcionalidades
 
-Número da versão Azure Data CLI `azdata` ( 20.3.1. Faça o download em [https://aka.ms/azdata](https://aka.ms/azdata) . Pode instalar `azdata` a partir do [Azure Data CLI `azdata` ()](/sql/azdata/install/deploy-install-azdata).
+Número da versão Azure Data CLI `azdata` ( 20.3.1. Pode instalar `azdata` a partir do [Azure Data CLI `azdata` ()](/sql/azdata/install/deploy-install-azdata).
 
 Atualizações adicionais incluem:
 
@@ -44,7 +81,7 @@ Para questões associadas a esta versão, consulte [questões conhecidas - Azure
 
 ### <a name="new-capabilities-and-features"></a>Novas capacidades e funcionalidades
 
-Número da versão Azure Data CLI `azdata` ( 20.3.0. Faça o download em [https://aka.ms/azdata](https://aka.ms/azdata) . Pode instalar `azdata` a partir do [Azure Data CLI `azdata` ()](/sql/azdata/install/deploy-install-azdata).
+Número da versão Azure Data CLI `azdata` ( 20.3.0. Pode instalar `azdata` a partir do [Azure Data CLI `azdata` ()](/sql/azdata/install/deploy-install-azdata).
 
 Atualizações adicionais incluem:
 - Portal localizado disponível para 17 novos idiomas
@@ -70,7 +107,7 @@ Atualizações adicionais incluem:
 
 ### <a name="new-capabilities--features"></a>Novas funcionalidades & de capacidades
 
-Número da versão Azure Data CLI `azdata` ( 20.2.5. Faça o download em [https://aka.ms/azdata](https://aka.ms/azdata) .
+Número da versão Azure Data CLI `azdata` ( 20.2.5. Pode instalar `azdata` a partir do [Azure Data CLI `azdata` ()](/sql/azdata/install/deploy-install-azdata).
 
 Ver pontos finais para sql Gestd Instance e PostgreSQL Hyperscale usando o Azure Data CLI `azdata` () com `azdata arc sql endpoint list` `azdata arc postgres endpoint list` comandos.
 
@@ -127,16 +164,9 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Limpe as caixas de verificação para cada zona especificar nenhuma.":::
 
-#### <a name="postgresql"></a>PostgreSQL
-
-- Azure Arc ativado PostgreSQL Hyperscale devolve uma mensagem de erro imprecisa quando não consegue restaurar o ponto relativo no tempo indicado. Por exemplo, se especificou um ponto no tempo para restaurar o que é mais antigo do que o que as suas cópias de segurança contêm, a restauração falhará com uma mensagem de erro como: ERROR: (404). Razão: Não encontrado. Corpo de resposta HTTP: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}
-Quando isto acontecer, reinicie o comando depois de indicar um ponto no tempo que está dentro do intervalo de datas para as quais tem cópias de segurança. Irá determinar esta gama listando as suas cópias de segurança e analisando as datas em que foram tomadas.
-- A restauração pontual é suportada apenas em grupos de servidores. O servidor alvo de um ponto de restauração no tempo não pode ser o servidor a partir do qual obteve a cópia de segurança. Tem de ser um grupo de servidores diferente. No entanto, a restauração total é suportada no mesmo grupo de servidores.
-- É necessário um id de reserva quando se faz um restauro completo. Por predefinição, se não estiver a indicar um id de backup, a cópia de segurança mais recente será utilizada. Isto não funciona nesta versão.
-
 ## <a name="october-2020"></a>Outubro de 2020 
 
-Número da versão Azure Data CLI `azdata` ( 20.2.3. Faça o download em [https://aka.ms/azdata](https://aka.ms/azdata) .
+Número da versão Azure Data CLI `azdata` ( 20.2.3. Pode instalar `azdata` a partir do [Azure Data CLI `azdata` ()](/sql/azdata/install/deploy-install-azdata).
 
 ### <a name="breaking-changes"></a>Alterações interruptivas
 

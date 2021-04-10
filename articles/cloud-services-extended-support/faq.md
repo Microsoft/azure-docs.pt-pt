@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9cac6cdd8e68af77b611c89e8b62e6f8d8845fd0
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 33bafac9247f007978fef568469d643f1a1098df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107521"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383591"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Perguntas frequentes dos Serviços Cloud do Azure (suporte alargado)
 Este artigo abrange perguntas frequentes relacionadas com a Azure Cloud Services (suporte alargado).
@@ -57,6 +57,9 @@ A implantação de Serviços cloud (suporte alargado) apenas suporta o estado pa
 
 ### <a name="do-cloud-services-extended-support-deployments-support-scaling-across-clusters-availability-zones-and-regions"></a>As implementações dos Serviços cloud (suporte alargado) suportam a escala através de aglomerados, zonas de disponibilidade e regiões?
 As implementações de Serviços de Nuvem (suporte alargado) não podem escalar em vários clusters, zonas de disponibilidade e regiões. 
+
+### <a name="how-can-i-get-the-deployment-id-for-my-cloud-service-extended-support"></a>Como posso obter o ID de implementação para o meu Serviço cloud (suporte alargado)
+O ID de implementação aka Private ID pode ser acedido usando a [API CloudServiceInstanceView.](https://docs.microsoft.com/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) Também está disponível no portal Azure sob a lâmina Role and Instances do Serviço cloud (suporte alargado)
 
 ### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>Existem diferenças de preços entre os Serviços Cloud (clássico) e os Serviços Cloud (suporte alargado)?
 Os Serviços de Nuvem (suporte alargado) utilizam endereços IP públicos Azure Key Vault e Basic (ARM).Os clientes que necessitam de certificados precisam de usar o Cofre da Chave Azure para a gestão de certificados[(saiba mais](https://azure.microsoft.com/pricing/details/key-vault/) sobre os preços do Azure Key Vault.)   Cada endereço IP público para Serviços cloud (suporte alargado) é cobrado separadamente[(saiba mais](https://azure.microsoft.com/pricing/details/ip-addresses/) sobre preços de endereço IP público.) 

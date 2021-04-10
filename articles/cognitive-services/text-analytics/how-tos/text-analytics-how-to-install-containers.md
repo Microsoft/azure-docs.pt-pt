@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/25/2021
 ms.author: aahi
 keywords: no local, Docker, contentor, análise de sentimento, processamento de linguagem natural
-ms.openlocfilehash: ac82781ed4a05fbbca7f5b16edb0b5349dfc400a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc5406cec54defd118ba350ba59b8d7311cff563
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432068"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089733"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
@@ -49,6 +49,8 @@ Deve encontrar os seguintes pré-requisitos antes de utilizar os recipientes tex
 |Recurso de análise de texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) com o nível de preços gratuito (F0) ou standard [(S).](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Terá de obter a chave API associada e o ponto final URI navegando na página **chave e ponto final** do seu recurso no portal Azure. <br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis. <br><br>**{ENDPOINT_URI}**: O ponto final do seu recurso. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+
+Se estiver a utilizar o Text Analytics para recipiente de saúde, o reconhecimento responsável da [IA](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) também deve estar presente com um valor de `accept` .
 
 ## <a name="the-host-computer"></a>O computador anfitrião
 

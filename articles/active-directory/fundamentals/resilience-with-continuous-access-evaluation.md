@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a12cc3299fbb5916afba48d2608024f28999634
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d792c1eb0a85f2a898d1dc5c63047a4553f13b0
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724632"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106777"
 ---
 # <a name="build-resilience-by-using-continuous-access-evaluation"></a>Construa resiliência utilizando a Avaliação contínua de Acesso
 
@@ -47,6 +47,8 @@ Para utilizar o CAE, tanto o serviço como o cliente devem ser capazes de CAE. S
 A Microsoft está a trabalhar com a indústria para criar [padrões](https://openid.net/wg/sse/) que permitam que aplicações de terceiros utilizem esta capacidade. Também pode desenvolver aplicações que sejam capazes de CAE. Veja como construir resiliência na sua aplicação para obter mais informações.
 
 ## <a name="how-do-i-implement-cae"></a>Como posso implementar o CAE?
+
+* [Atualize o seu código para utilizar APIs ativados por CAE](../develop/app-resilience-continuous-access-evaluation.md).
 
 * [Ativar o CAE](../conditional-access/concept-continuous-access-evaluation.md) na Configuração de Segurança Ad Azure.
 

@@ -22,6 +22,8 @@
       href: groups-concept.md
     - name: Unidades administrativas
       href: administrative-units.md
+    - name: Melhores práticas
+      href: best-practices.md
     - name: Segurança
       items:
         - name: Planeamento de segurança de função

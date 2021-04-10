@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
 ms.openlocfilehash: 74db121c33864ee72ad984b49c8fa43afa0f598c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104870522"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyze logs for Apache Kafka on HDInsight (Analisar registos do Apache Kafka no HDInsight)
@@ -22,7 +22,7 @@ Aprenda a usar registos do Azure Monitor para analisar os registos gerados por A
 
 Os troncos Apache Kafka no aglomerado estão localizados em `/var/log/kafka` . Os registos kafka não são salvos ou persistidos em ciclos de vida do cluster, independentemente de os discos geridos forem utilizados. A tabela a seguir mostra os registos disponíveis.
 
-|Registo |Descrição |
+|Registo |Description |
 |---|---|
 |kafka.out|stdout e stderr do processo Kafka. Você vai encontrar logs de arranque e encerramento de Kafka neste ficheiro.|
 |servidor.log|O registo principal do servidor Kafka. Todos os registos de corretores kafka acabam aqui.|
@@ -91,7 +91,7 @@ Os passos para permitir os registos do Monitor Azure para HDInsight são os mesm
 
     Também pode introduzir `*` para pesquisar todos os tipos registados. Atualmente, os seguintes registos estão disponíveis para consultas:
 
-    | Tipo de registo | Descrição |
+    | Tipo de registo | Description |
     | ---- | ---- |
     | log \_ kafkaserver \_ CL | Servidor de corretor kafka.log |
     | log \_ kafkacontroller \_ CL | Controlador de corretor kafka.log |

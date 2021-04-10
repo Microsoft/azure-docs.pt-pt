@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/16/2021
+ms.date: 03/29/2021
 ms.author: victorh
-ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6725bea562d3e7841b5ab82acc0a54f91f0488b4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573460"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732929"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
@@ -66,7 +66,7 @@ Encaminhe facilmente o tráfego para o seu hub seguro para filtragem e registo s
 
 Esta funcionalidade está disponível apenas com implementações de hub virtual seguras.
 
-Pode utilizar fornecedores de terceiros para filtragem de tráfego branch to Internet (B2I), lado a lado com Azure Firewall para Branch para VNet (B2V), VNet para VNet (V2V) e VNet para Internet (V2I). Também pode utilizar fornecedores de terceiros para filtragem de tráfego V2I, desde que o Azure Firewall não seja necessário para B2V ou V2V. 
+Pode utilizar fornecedores de terceiros para filtragem de tráfego branch to Internet (B2I), lado a lado com Azure Firewall para Branch para VNet (B2V), VNet para VNet (V2V) e VNet para Internet (V2I). 
 
 ## <a name="region-availability"></a>Disponibilidade de região
 

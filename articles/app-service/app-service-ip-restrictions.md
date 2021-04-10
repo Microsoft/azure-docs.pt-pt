@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4b85397eeda651678fe66c6e78199dd25630dcc4
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 420dade645d1a4ee32bb888aecb76b033d5756e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889903"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731309"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar restrições de acesso ao Serviço de Aplicações Azure
 
@@ -178,7 +178,7 @@ Além de conseguir controlar o acesso à sua app, pode restringir o acesso ao si
 ### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Restringir o acesso a uma instância específica da Porta frontal Azure
 O tráfego da Porta Frontal Azure para a sua aplicação tem origem num conhecido conjunto de gamas IP definidas na etiqueta de serviço AzureFrontDoor.Backend. Utilizando uma regra de restrição de etiqueta de serviço, pode restringir o tráfego apenas a partir da Porta frontal Azure. Para garantir que o tráfego só tem origem na sua instância específica, terá de filtrar ainda mais os pedidos de entrada com base no único cabeçalho http que a Porta Frontal Azure envia.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png" alt-text="Screenshot da página 'Restrições de Acesso' no portal Azure, mostrando como adicionar a restrição da porta frontal Azure.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Screenshot da página 'Restrições de Acesso' no portal Azure, mostrando como adicionar a restrição da porta frontal Azure.":::
 
 Exemplo powerShell:
 

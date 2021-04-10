@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
 manager: kumudD
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e0d43ae8f76e89ffe429ec1778922ee465ad7db4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a77927fe1703d061e87fc93071316ae6618e691f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94696540"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056118"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exemplo de script do Azure CLI: Carregar o tráfego de equilíbrio para VMs dentro de uma zona de disponibilidade específica
 

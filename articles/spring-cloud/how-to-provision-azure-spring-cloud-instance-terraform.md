@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 060ef2d08b849706b47b24748142c608292971b5
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878457"
 ---
 # <a name="provision-an-azure-spring-cloud-instance-with-terraform"></a>Provisionar um exemplo de Nuvem de primavera Azure com Terraform

@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6ec616047a99465bace0b401f659765e4399634b
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 8a25f69019e194650bb6aa2f5b8ae19dd37fbc48
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604571"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729172"
 ---
 # <a name="voice-and-video-concepts"></a>Conceitos de voz e vídeo
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 Pode utilizar os Serviços de Comunicação Azure para fazer e receber uma a uma ou chamadas de voz e vídeo em grupo. As suas chamadas podem ser feitas para outros dispositivos ligados à Internet e para telefones simples. Pode utilizar os Serviços de Comunicação JavaScript, Android ou IOS SDKs para construir aplicações que permitam aos seus utilizadores falar uns com os outros em conversas privadas ou em discussões de grupo. A Azure Communication Services suporta chamadas de e para serviços ou Bots.
 

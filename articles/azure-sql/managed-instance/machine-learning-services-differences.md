@@ -13,10 +13,10 @@ ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 03/17/2021
 ms.openlocfilehash: b5ad439a8e10fa9aa44e477ca35f45d65ae40803
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104599549"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principais diferenças entre o Machine Learning Services no SQL Managed Instance e no SQL Server
@@ -33,7 +33,7 @@ Os serviços de machine learning tanto no SQL Managed Instance como no SQL Serve
 
   | Plataforma                   | Versão de tempo de execução python           | Versões de execução R                   |
   |----------------------------|----------------------------------|--------------------------------------|
-  | Instância Gerida do Azure SQL | 3.7.2                            | 3.5.2                                |
+  | Instância Gerida do SQL do Azure | 3.7.2                            | 3.5.2                                |
   | SQL Server 2019            | 3.7.1                            | 3.5.2                                |
   | SQL Server 2017            | 3.5.2 e 3.7.2 (CU22 e posteriormente) | 3.3.3 e 3.5.2 (CU22 e posteriormente)     |
   | SQL Server 2016            | Não disponível                    | 3.2.2 e 3.5.2 (SP2 CU14 e posteriormente) |

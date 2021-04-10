@@ -9,10 +9,10 @@ ms.date: 01/04/2021
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 5658b68081fae8dab528030f7fc1cd6fe4935730
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102178364"
 ---
 - A explosão a pedido não pode ser ativada num SSD premium que tenha menos de 512 GiB. Os SSDs premium com menos de 512 GiB utilizarão sempre a explosão baseada no crédito.

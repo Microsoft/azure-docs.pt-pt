@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
 ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104871202"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorizar instâncias do Serviço de Aplicações usando verificação de saúde
@@ -48,7 +48,7 @@ Este artigo utiliza o health check no portal Azure para monitorizar as instânci
 
 Além de configurar as opções de verificação de Saúde, também pode configurar as [seguintes definições de aplicações:](configure-common.md)
 
-| Nome de definição de aplicativo | Valores permitidos | Descrição |
+| Nome de definição de aplicativo | Valores permitidos | Description |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | O número máximo de falhas de ping. Por exemplo, quando programados para `2` , as suas instâncias serão removidas após `2` pings falhados. Além disso, quando está a aumentar ou sair, o Serviço de Aplicações procura a via de verificação da Saúde para garantir que novas instâncias estão prontas. |
 |`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | Para evitar casos de saúde esmagadora, não mais de metade dos casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para quatro instâncias e três não forem saudáveis, no máximo dois serão excluídos. As outras duas instâncias (uma saudável e outra pouco saudável) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Para anular este comportamento, defina a definição da aplicação para um valor entre `0` e `100` . Um valor mais elevado significa que mais casos insalubres serão removidos (o padrão é 50). |

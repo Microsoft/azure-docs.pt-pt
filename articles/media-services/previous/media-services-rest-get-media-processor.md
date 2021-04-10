@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 7eb4647ae5ba40688cbf39cbfe8449f59275e7e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014320"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância de processador de mídia
@@ -30,7 +30,7 @@ ms.locfileid: "103014320"
 > * [REST](media-services-rest-get-media-processor.md)
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os processadores de mídia são um componente que lida com uma tarefa específica de processamento de vídeo ou áudio, como codificação, conversão de formato, encriptação ou desencriptação de conteúdos de mídia. Todas as tarefas submetidas aos Serviços de Media requerem que um processador de mídia possa codificar, encriptar ou converter o conteúdo de vídeo ou áudio.
 

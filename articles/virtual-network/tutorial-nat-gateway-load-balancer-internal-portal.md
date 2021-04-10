@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 03/19/2021
 ms.custom: template-tutorial
 ms.openlocfilehash: f25266f5a969514ca515e8cbbec959404428d6fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104670865"
 ---
 # <a name="tutorial-integrate-a-nat-gateway-with-an-internal-load-balancer-using-the-azure-portal"></a>Tutorial: Integrar uma porta DE ENTRADA NAT com um equilibrador de carga interno utilizando o portal Azure

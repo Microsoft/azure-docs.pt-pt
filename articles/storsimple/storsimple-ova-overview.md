@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 6d7d8c37d0e7ffacb3221a4f30a96ef6cccda819
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104674449"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao Array Virtual StorSimple
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Microsoft Azure StorSimple Virtual Array é uma solução de armazenamento integrada que gere tarefas de armazenamento entre uma matriz virtual no local que funciona num hipervisor e armazenamento em nuvem Microsoft Azure. O conjunto virtual é uma solução eficiente, rentável e facilmente gerida por servidor de ficheiros ou servidor iSCSI que elimina muitos dos problemas e despesas associados ao armazenamento de empresa e proteção de dados. A matriz virtual é particularmente adequada para o armazenamento de dados de arquivo pouco acedidos.
 
