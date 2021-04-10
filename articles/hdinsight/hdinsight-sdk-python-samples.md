@@ -6,10 +6,10 @@ ms.topic: sample
 ms.date: 11/08/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: 1a15a8d343398dce7a049622b53ca5e2b2c217eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98931877"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Amostras de python

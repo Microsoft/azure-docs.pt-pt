@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
 ms.openlocfilehash: bf2419799ad6c229c6ffb891bc588479e134d427
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102500398"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é uma área de trabalho do Azure Machine Learning?

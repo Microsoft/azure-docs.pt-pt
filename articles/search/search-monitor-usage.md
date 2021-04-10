@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709927"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorizar operações e atividade da Azure Cognitive Search

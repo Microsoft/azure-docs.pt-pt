@@ -9,10 +9,10 @@ ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 748b6c3506127de8fce153a77571664ea531ffa1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98601360"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Benefício do compromisso de consumo do Azure

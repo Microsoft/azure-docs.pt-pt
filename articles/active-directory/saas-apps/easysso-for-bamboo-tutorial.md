@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735974"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutorial: Azure Ative Directory integração única (SSO) com easySSO para bambu

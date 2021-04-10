@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.openlocfilehash: a4e1bf56df52717255d2bae0a38186335d922ff1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102554688"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos de Gestor de Recursos Azure

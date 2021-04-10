@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
 ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102634197"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Requisitos do sistema Azure Stack Edge Mini R

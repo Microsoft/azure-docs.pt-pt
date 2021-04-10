@@ -8,10 +8,10 @@ ms.date: 12/03/2020
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: dc36d45e226cffafb51cf7aa09ea6f0d528ee016
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98051382"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementar e configurar firewall Azure usando Azure PowerShell

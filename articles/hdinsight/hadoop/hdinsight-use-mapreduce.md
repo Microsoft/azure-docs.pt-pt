@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 33d96262ca2e2ff3003fbf2b40ce9ceb496337ae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944260"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Apache Hadoop no HDInsight

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
 ms.openlocfilehash: 3437fcd2d1d521aad237ecf6d3f7937b4835d376
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102554603"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD para Azure

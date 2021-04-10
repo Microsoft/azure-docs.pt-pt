@@ -10,10 +10,10 @@ ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
 ms.openlocfilehash: 8e81c204c1f05b7fc6bdf1efc7060e2094c648e5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102630627"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerida de uma máquina virtual ou VHD

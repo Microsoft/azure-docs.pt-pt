@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.openlocfilehash: 281da27ce95649e85dae5d0795bb743f21fdb578
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102631749"
 ---
 # <a name="use-source-control-integration"></a>Utilizar a integração do controlo de código fonte

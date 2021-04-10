@@ -10,10 +10,10 @@ ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98927412"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB

@@ -11,10 +11,10 @@ ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102500534"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de utilizador

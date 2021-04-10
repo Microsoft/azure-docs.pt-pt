@@ -7,10 +7,10 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
 ms.openlocfilehash: 2aa7afebede3759221674c48dd66256e740575a3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105565950"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes computativos apoiados pela Azure Data Factory

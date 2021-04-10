@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98928045"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup a pedido no Azure Service Fabric

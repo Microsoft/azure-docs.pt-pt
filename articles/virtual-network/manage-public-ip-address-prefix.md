@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 2e32faad698fbf316d51123cc8b7845a3b262c7f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98938657"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público

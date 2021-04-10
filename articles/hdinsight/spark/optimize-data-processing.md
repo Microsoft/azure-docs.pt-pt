@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: 98457456bc1c8f9fdb08c32fdcd319a3aa9ff14a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944725"
 ---
 # <a name="data-processing-optimization-for-apache-spark"></a>Otimização de processamento de dados para Apache Spark
 
 Este artigo discute como otimizar a configuração do seu cluster Apache Spark para melhor desempenho no Azure HDInsight.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Se tiver trabalhos lentos num Join ou Shuffle, a causa é provavelmente *distorcer dados.* O distorce de dados é assimetria nos dados do seu trabalho. Por exemplo, um trabalho de mapa pode demorar 20 segundos. Mas gerir um trabalho onde os dados são unidos ou baralhados leva horas. Para corrigir o distorcer de dados, deve salgar toda a tecla ou utilizar um *sal isolado* para apenas alguns subconjuntos de teclas. Se estiver a utilizar um sal isolado, deve filtrar ainda mais o subconjunto de teclas salgadas em juntas de mapa. Outra opção é introduzir uma coluna de balde e pré-agregar primeiro em baldes.
 

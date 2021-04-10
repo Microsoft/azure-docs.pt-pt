@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: f70e9f242b0f12abf58e72554e7cb6819ce8f7a9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944730"
 ---
 # <a name="cluster-configuration-optimization-for-apache-spark"></a>Otimização de configuração de cluster para Apache Spark
 
 Este artigo discute como otimizar a configuração do seu cluster Apache Spark para melhor desempenho no Azure HDInsight.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Dependendo da carga de trabalho do seu cluster Spark, pode determinar que uma configuração de faísca não padrão resultaria numa execução de trabalho mais otimizada do Spark.  Faça testes de benchmark com cargas de trabalho de amostra para validar quaisquer configurações de cluster não padrão.
 

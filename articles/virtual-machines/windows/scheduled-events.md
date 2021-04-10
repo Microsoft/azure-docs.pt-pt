@@ -12,10 +12,10 @@ ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3a388ade2b44260bfa21e22866d85a46e482bc97
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102499956"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs windows

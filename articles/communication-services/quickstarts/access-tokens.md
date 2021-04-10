@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: c7b705fd90888b33cebb46324ab442d3b5ef326c
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: e356219d22ee558ce3de5a96d58f24b9e7902d8a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107149"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726622"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Quickstart: Criar e gerir fichas de acesso
 
@@ -44,9 +44,14 @@ A saída da aplicação descreve cada ação que é concluída:
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Issued an access token with 'voip' scope that expires at Fri Nov 27 2020 16:47:05 GMT-0800 (Pacific Standard Time):
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
 <token signature here>
 
 Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502

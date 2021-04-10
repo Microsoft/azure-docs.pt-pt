@@ -6,10 +6,10 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 020bd064628554703bb375c06c72e68d4536a2a3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97934446"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Criar uma Aplicação de Funções num plano do Serviço de Aplicações

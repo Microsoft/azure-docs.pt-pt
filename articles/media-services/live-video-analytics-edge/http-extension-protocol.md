@@ -4,10 +4,10 @@ description: Neste artigo, você aprenderá sobre a utilização do protocolo de
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: 54b25894c60a39de9c0ec00cdc4982f691bf1ee3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105565746"
 ---
 # <a name="http-extension-protocol"></a>Protocolo de extensão HTTP

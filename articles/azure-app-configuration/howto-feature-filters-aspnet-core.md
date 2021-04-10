@@ -9,10 +9,10 @@ ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 39455c4bc193cce036bd169c702b5c020d53d2f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98602296"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Utilize filtros de funcionalidades para permitir bandeiras de características condicionais

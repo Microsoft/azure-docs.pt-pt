@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: c2da1885d975ea6b4daf26714e430143dd89da42
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709774"
 ---
 # <a name="get-all-application-proxy-apps-with-a-token-lifetime-policy"></a>Obtenha todas as aplicações Proxy de aplicação com uma política de vida simbólica
