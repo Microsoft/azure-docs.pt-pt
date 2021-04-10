@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 7aa1982fc880ac5733cc4453808c18956969572f
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105627018"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Tutorial: Mapear um domínio personalizado existente para Azure Spring Cloud

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: c707a6522d037ba3926b55579e501eadd2764416
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104798277"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Possui ferramentas & para Azure Cloud Shell
@@ -78,7 +78,7 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 |Ferramentas de compilação            |make<br> maven<br> npm<br> pip         |
 |Contentores             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Bases de Dados              |Cliente MySQL<br> Cliente PostgreSql<br> [sqlcmd Utility](/sql/tools/sqlcmd-utility) (Utilitário sqlcmd)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |Cliente iPython<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Escritório 365 CLI](https://pnp.github.io/office365-cli/)|
+|Outro                  |Cliente iPython<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Escritório 365 CLI](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Suporte de idiomas
 

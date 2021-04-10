@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
 ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785823"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo

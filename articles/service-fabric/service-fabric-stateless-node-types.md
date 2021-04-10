@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
 ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103563781"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implementar um cluster de tecido de serviço Azure com tipos de nó apenas apátridas (Pré-visualização)

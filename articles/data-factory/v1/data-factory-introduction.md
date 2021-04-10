@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: overview
 ms.date: 01/22/2018
 ms.openlocfilehash: 220c1969055ffaa5d1bea41ab547efd4596f8a20
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786469"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
@@ -135,7 +135,7 @@ Pode utilizar uma destas ferramentas ou APIs para criar pipelines de dados no Az
 
 Para saber como criar fábricas de dados com pipelines de dados, siga as instruções passo a passo nos tutoriais seguintes:
 
-| Tutorial | Descrição |
+| Tutorial | Description |
 | --- | --- |
 | [Move data between two cloud data stores (Mover dados entre dois arquivos de dados na cloud)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Crie uma fábrica de dados com um pipeline que transa de dados do armazenamento de bolhas para a Base de Dados SQL. |
 | [Utilizar o cluster do Hadoop para transformar dados](data-factory-build-your-first-pipeline.md) |Crie a primeira fábrica de dados do Azure com um pipeline de dados que processa dados através da execução do script Hive num cluster do Azure HDInsight (Hadoop). |

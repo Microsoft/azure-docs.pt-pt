@@ -6,7 +6,6 @@ documentationcenter: na
 author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: tutorial
@@ -15,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f9f3e2af9abc054d3b1d5ce2bd1f1b27f7bf958
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570846"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066046"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
 

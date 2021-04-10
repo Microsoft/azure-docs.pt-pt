@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: b1f742c1de259f6c1c06d9b31a8788699f0b8426
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99537226"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580036"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimativa e gestão da capacidade de um serviço de Pesquisa Cognitiva Azure
 
@@ -48,17 +48,19 @@ Na Pesquisa Cognitiva, a gestão de fragmentos é um detalhe de implementação 
 
 + Anomalias autocompletas: Consultas autocompletas, onde os jogos são feitos nos primeiros vários caracteres de um termo parcialmente introduzido, aceitam um parâmetro difuso que perdoa pequenos desvios na ortografia. Para o autocompleto, a correspondência difusa é limitada aos termos dentro do fragmento atual. Por exemplo, se um fragmento contiver "Microsoft" e um termo parcial de "micor" for introduzido, o motor de busca corresponderá à "Microsoft" nesse fragmento, mas não em outros fragmentos que mantenham as partes restantes do índice.
 
-## <a name="how-to-evaluate-capacity-requirements"></a>Como avaliar os requisitos de capacidade
+## <a name="approaching-estimation"></a>Aproximação da estimativa
 
-A capacidade e os custos de funcionamento do serviço andam de mãos dadas. Os níveis impõem limites a dois níveis: armazenamento e conteúdo (uma contagem de índices num serviço, por exemplo). É importante considerar ambos porque o limite que se atinge primeiro é o limite efetivo.
+A capacidade e os custos de funcionamento do serviço andam de mãos dadas. Os níveis impõem limites a dois níveis: conteúdo (uma contagem de índices num serviço, por exemplo) e armazenamento. É importante considerar ambos porque o limite que se atinge primeiro é o limite efetivo.
 
-Quantidades de índices e outros objetos são tipicamente ditadas por requisitos de negócio e engenharia. Por exemplo, pode ter várias versões do mesmo índice para desenvolvimento ativo, testes e produção.
+As contagens de índices e outros objetos são tipicamente ditadas pelos requisitos de negócio e engenharia. Por exemplo, pode ter várias versões do mesmo índice para desenvolvimento ativo, testes e produção.
 
 As necessidades de armazenamento são determinadas pelo tamanho dos índices que espera construir. Não há heurística sólida ou generalidades que ajudem com estimativas. A única maneira de determinar o tamanho de um índice é [construir um.](search-what-is-an-index.md) O seu tamanho basear-se-á em dados importados, análise de texto e configuração de índices, tais como se permite sugestivos, filtragem e triagem.
 
 Para a pesquisa completa de texto, a estrutura de dados primários é uma estrutura [de índice invertida,](https://en.wikipedia.org/wiki/Inverted_index) que tem características diferentes dos dados de origem. Para um índice invertido, o tamanho e a complexidade são determinados pelo conteúdo, não necessariamente pela quantidade de dados que se alimenta nele. Uma grande fonte de dados com alta redundância poderia resultar num índice menor do que um conjunto de dados menor que contém conteúdo altamente variável. Portanto, raramente é possível inferir o tamanho do índice com base no tamanho do conjunto de dados original.
 
-> [!NOTE] 
+Os atributos no índice, tais como a ativação de filtros e a triagem, terão impacto nos requisitos de armazenamento. O uso de sugestivos também tem implicações de armazenamento. Para obter mais informações, consulte [Atributos e tamanho do índice.](search-what-is-an-index.md#index-size)
+
+> [!NOTE]
 > Mesmo estimando necessidades futuras de índices e armazenamento pode parecer adivinhação, vale a pena fazê-lo. Se a capacidade de um nível se revelar demasiado baixa, terá de providenciar um novo serviço a um nível mais elevado e, em seguida, [recarregar os seus índices](search-howto-reindex.md). Não há um upgrade no lugar de um serviço de um nível para outro.
 >
 
@@ -87,7 +89,7 @@ Os recursos dedicados podem acomodar tempos de amostragem e processamento maiore
     + Comece alto, no S2 ou mesmo no S3, se os testes incluirem cargas de indexação e consulta em larga escala.
     + Comece com o Storage Otimizado, em L1 ou L2, se estiver a indexar uma grande quantidade de dados e a carga de consulta é relativamente baixa, como acontece com uma aplicação de negócio interna.
 
-1. [Construa um índice inicial](search-what-is-an-index.md) para determinar como os dados de origem se traduzem num índice. Esta é a única maneira de estimar o tamanho do índice.
+1. [Construa um índice inicial](search-what-is-an-index.md) para determinar como os dados de origem se traduzem num índice. Esta é a única maneira de estimar o tamanho do índice. 
 
 1. [Monitorize o armazenamento, os limites de serviço, o volume de consulta e](search-monitor-usage.md) a latência no portal. O portal mostra-lhe consultas por segundo, consultas estranguladas e latência de pesquisa. Todos estes valores podem ajudá-lo a decidir se selecionou o nível certo.
 
@@ -111,7 +113,7 @@ Os níveis otimizados de armazenamento são úteis para grandes cargas de trabal
 
 **Acordos de nível de serviço**
 
-As funcionalidades de nível gratuito e de pré-visualização não fornecem [acordos de nível de serviço (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Para todos os níveis de faturação, as SLAs fazem efeito quando fornece redundância suficiente para o seu serviço. Precisa de duas ou mais réplicas para consulta (ler) SLAs. Precisa de três ou mais réplicas para consulta e indexação (ler-escrever) SLAs. O número de divisórias não afeta as AEA.
+As funcionalidades de nível gratuito e de pré-visualização não são abrangidas por [acordos de nível de serviço (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Para todos os níveis de faturação, as SLAs fazem efeito quando fornece redundância suficiente para o seu serviço. Precisa de duas ou mais réplicas para consulta (ler) SLAs. Precisa de três ou mais réplicas para consulta e indexação (ler-escrever) SLAs. O número de divisórias não afeta as AEA.
 
 ## <a name="tips-for-capacity-planning"></a>Dicas para planeamento de capacidades
 
@@ -119,24 +121,30 @@ As funcionalidades de nível gratuito e de pré-visualização não fornecem [ac
 
 + Lembre-se que a única desvantagem do fornecimento é que você pode ter que demolir um serviço se os requisitos reais são maiores do que as suas previsões. Para evitar perturbações no serviço, criaria um novo serviço num nível mais alto e executá-lo-ia lado a lado até que todas as aplicações e pedidos direcionem o novo ponto final.
 
-## <a name="when-to-add-partitions-and-replicas"></a>Quando adicionar divisórias e réplicas
+## <a name="when-to-add-capacity"></a>Quando adicionar capacidade
 
-Inicialmente, é atribuído um serviço a um nível mínimo de recursos constituído por uma divisória e uma réplica.
+Inicialmente, é atribuído um serviço a um nível mínimo de recursos constituído por uma divisória e uma réplica. O [nível que escolhe](search-sku-tier.md) determina o tamanho e a velocidade da partição, e cada nível é otimizado em torno de um conjunto de características que se encaixam em vários cenários. Se escolher um nível superior, poderá precisar de menos divisórias do que se for com S1. Uma das perguntas que terá de responder através de testes auto-dirigidos é se uma partição maior e mais cara produz melhor desempenho do que duas divisórias mais baratas num serviço prestado num nível mais baixo.
 
 Um único serviço deve ter recursos suficientes para lidar com todas as cargas de trabalho (indexação e consultas). Nenhuma carga de trabalho corre em segundo plano. Pode agendar a indexação para os horários em que os pedidos de consulta são naturalmente menos frequentes, mas o serviço não priorizará de outra forma uma tarefa em vez de outra. Além disso, uma certa quantidade de redundância suaviza o desempenho da consulta quando os serviços ou nós são atualizados internamente.
 
-Regra geral, as aplicações de pesquisa tendem a necessitar de mais réplicas do que divisórias, especialmente quando as operações de serviço são tendenciosas para consultas de carga de trabalho. A secção sobre [alta disponibilidade](#HA) explica porquê.
+Algumas orientações para determinar se adicionar capacidade incluem:
 
-O [nível que escolhe](search-sku-tier.md) determina o tamanho e a velocidade da partição, e cada nível é otimizado em torno de um conjunto de características que se encaixam em vários cenários. Se escolher um nível superior, poderá precisar de menos divisórias do que se for com S1. Uma das perguntas que terá de responder através de testes auto-dirigidos é se uma partição maior e mais cara produz melhor desempenho do que duas divisórias mais baratas num serviço prestado num nível mais baixo.
++ Cumprimento dos elevados critérios de disponibilidade para o acordo de nível de serviço
++ A frequência dos erros HTTP 503 está a aumentar
++ Esperam-se grandes volumes de consultas
+
+Regra geral, as aplicações de pesquisa tendem a necessitar de mais réplicas do que divisórias, especialmente quando as operações de serviço são tendenciosas para consultas de carga de trabalho. Cada réplica é uma cópia do seu índice, permitindo ao serviço carregar pedidos de saldo contra várias cópias. Todo o equilíbrio de carga e replicação de um índice é gerido pela Azure Cognitive Search e pode alterar o número de réplicas atribuídas ao seu serviço a qualquer momento. Pode alocar até 12 réplicas num serviço de pesquisa Standard e 3 réplicas num serviço de pesquisa Básico. A atribuição de réplicas pode ser feita a partir do [portal Azure](search-create-service-portal.md) ou de uma das opções programáticas.
 
 As aplicações de pesquisa que requerem uma atualização de dados em tempo real precisarão proporcionalmente mais de divisórias do que réplicas. A adição de divisórias espalha operações de leitura/escrita através de um maior número de recursos computacional. Também lhe dá mais espaço em disco para armazenar índices e documentos adicionais.
 
-Índices maiores demoram mais tempo a consultar. Como tal, pode descobrir que cada aumento incremental de divisórias requer um aumento menor, mas proporcional, de réplicas. A complexidade das suas consultas e volume de consultas terá em conta a rapidez com que a execução de consultas é virada.
+Finalmente, índices maiores demoram mais tempo a consultar. Como tal, pode descobrir que cada aumento incremental de divisórias requer um aumento menor, mas proporcional, de réplicas. A complexidade das suas consultas e volume de consultas terá em conta a rapidez com que a execução de consultas é virada.
 
 > [!NOTE]
 > Adicionar mais réplicas ou divisórias aumenta o custo de execução do serviço, e pode introduzir ligeiras variações na forma como os resultados são encomendados. Certifique-se de verificar a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para entender as implicações de faturação de adicionar mais nós. O [gráfico abaixo](#chart) pode ajudá-lo a cruzar o número de unidades de pesquisa necessárias para uma configuração específica. Para obter mais informações sobre como as réplicas adicionais impactam o processamento, consulte [os resultados da encomenda](search-pagination-page-layout.md#ordering-results).
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Como alocar réplicas e divisórias
+<a name="adjust-capacity"></a>
+
+## <a name="add-or-reduce-replicas-and-partitions"></a>Adicione ou reduza réplicas e divisórias
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) e selecione o serviço de pesquisa.
 
@@ -158,7 +166,7 @@ As aplicações de pesquisa que requerem uma atualização de dados em tempo rea
 
    :::image type="content" source="media/search-capacity-planning/3-save-confirm.png" alt-text="Guardar alterações" border="true":::
 
-   As mudanças de capacidade podem demorar até várias horas para ser concluída. Não é possível cancelar uma vez iniciado o processo e não existe monitorização em tempo real para ajustes de replicação e partição. No entanto, a seguinte mensagem permanece visível enquanto as alterações estão em curso.
+   As mudanças de capacidade podem demorar entre 15 minutos e várias horas para ser concluída. Não é possível cancelar uma vez iniciado o processo e não existe monitorização em tempo real para ajustes de replicação e partição. No entanto, a seguinte mensagem permanece visível enquanto as alterações estão em curso.
 
    :::image type="content" source="media/search-capacity-planning/4-updating.png" alt-text="Mensagem de estado no portal" border="true":::
 
@@ -192,31 +200,7 @@ As SUs, os preços e a capacidade são explicados em detalhe no site da Azure. P
 > O número de réplicas e divisórias divide-se uniformemente em 12 (especificamente, 1, 2, 3, 4, 6, 12). Isto porque a Azure Cognitive Search pré-divide cada índice em 12 fragmentos para que possa ser espalhado em partes iguais em todas as divisórias. Por exemplo, se o seu serviço tiver três divisórias e criar um índice, cada divisória conterá quatro fragmentos do índice. Como a Azure Cognitive Search fragmentos de um índice é um detalhe de implementação, sujeito a alterações em futuras versões. Embora o número seja 12 hoje, não deve esperar que esse número seja sempre 12 no futuro.
 >
 
-<a id="HA"></a>
-
-## <a name="high-availability"></a>Elevada disponibilidade
-
-Como é fácil e relativamente rápido escalar, geralmente recomendamos que comece com uma partição e uma ou duas réplicas, e depois aumente à medida que os volumes de consulta se constroem. As cargas de trabalho de consulta funcionam principalmente em réplicas. Se precisar de mais produção ou alta disponibilidade, provavelmente necessitará de réplicas adicionais.
-
-As recomendações gerais para a elevada disponibilidade são:
-
-+ Duas réplicas para alta disponibilidade de cargas de trabalho apenas de leitura (consultas)
-
-+ Três ou mais réplicas para uma elevada disponibilidade de cargas de trabalho de leitura/escrita (consultas mais indexação à medida que documentos individuais são adicionados, atualizados ou eliminados)
-
-Os acordos de nível de serviço (SLA) para a Azure Cognitive Search são direcionados para operações de consulta e em atualizações de índices que consistem em adicionar, atualizar ou eliminar documentos.
-
-O nível básico supera com uma divisória e três réplicas. Se quiser que a flexibilidade responda imediatamente às flutuações da procura tanto para indexar como para a produção de consultas, considere um dos níveis Standard.  Se descobrir que os seus requisitos de armazenamento estão a crescer muito mais rapidamente do que a sua produção de consulta, considere um dos níveis otimizados de armazenamento.
-
-## <a name="about-queries-per-second-qps"></a>Sobre consultas por segundo (QPS)
-
-Devido ao grande número de fatores que entram em desempenho de consulta, a Microsoft não publica números de QPS esperados. As estimativas de QPS devem ser desenvolvidas de forma independente por cada cliente utilizando o nível de serviço, configuração, índice e construções de consulta que sejam válidas para a sua aplicação. Tamanho e complexidade do índice, tamanho de consulta e complexidade, e a quantidade de tráfego são determinantes primários de QPS. Não há forma de oferecer estimativas significativas quando tais fatores são desconhecidos.
-
-As estimativas são mais previsíveis quando calculadas sobre os serviços em execução em recursos dedicados (níveis básicos e standard). Pode estimar o QPS mais de perto porque tem controlo sobre mais dos parâmetros. Para obter orientações sobre como abordar a estimativa, consulte [o desempenho e otimização da Pesquisa Cognitiva Azure.](search-performance-optimization.md)
-
-Para os níveis otimizados de armazenamento (L1 e L2), deverá esperar uma produção de consulta mais baixa e uma latência mais elevada do que os níveis Standard.
-
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Como estimar e gerir custos](search-sku-manage-costs.md)
+> [Gerir os custos](search-sku-manage-costs.md)

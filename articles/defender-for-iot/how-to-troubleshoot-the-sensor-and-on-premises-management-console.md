@@ -4,10 +4,10 @@ description: Resolva os problemas do seu sensor e da consola de gestão no local
 ms.date: 03/14/2021
 ms.topic: article
 ms.openlocfilehash: 83ffec959a5b38e9f4fd4d7d0dcfd3b1b9faa096
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785449"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Resolver problemas do sensor e da consola de gestão no local
@@ -254,7 +254,7 @@ Para exportar registos:
 
 1. Para definir que dados pretende exportar, selecione as categorias de dados:  
 
-    | Categoria de exportação | Descrição |
+    | Categoria de exportação | Description |
     |--|--|
     | **Registos do sistema operativo** | Selecione esta opção para obter informações sobre o estado do sistema operativo. |
     | **Registos de instalação/upgrade** | Selecione esta opção para a investigação dos parâmetros de configuração de instalação e atualização. |

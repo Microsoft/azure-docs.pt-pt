@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.openlocfilehash: c5df0a5fc054a12e3fa2ef1e352645c57c357b01
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104798736"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para o fornecimento automático de utilizadores

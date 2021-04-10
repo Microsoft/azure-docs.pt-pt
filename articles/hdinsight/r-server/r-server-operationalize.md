@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869480"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster de Serviços ML em Azure HDInsight
@@ -194,7 +194,7 @@ Uma vez configurados todos os nós de trabalhador desativados para executar o n�
     "Uris": {
         "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
         "Values": [
-            "http://localhost:12805", "http://[worker-node1-ip]:12805", "http://[workder-node2-ip]:12805"
+            "http://localhost:12805", "http://[worker-node1-ip]:12805", &quot;http://[workder-node2-ip]:12805"
         ]
     }
     ```

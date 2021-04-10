@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.custom: mvc
 ms.openlocfilehash: 73b0434065b06f25320a0666937fd7969c863b33
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104870216"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Quickstart: Criar e monitorizar uma topologia da Tempestade Apache em Azure HDInsight

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 2ac5474f1b20e409da01c531ef13060e72fd548c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786129"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Até à atividade na Azure Data Factory
@@ -51,11 +51,11 @@ A atividade Until disponibiliza a mesma funcionalidade que uma estrutura de cicl
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | O nome da `Until` atividade. | String | Sim
-tipo | Deve ser definido para **Até**. . | String | Sim
-expression | Expressão que deve avaliar a verdade ou falsa | A expressão.  | Sim
+name | O nome da `Until` atividade. | String | Yes
+tipo | Deve ser definido para **Até**. . | String | Yes
+expression | Expressão que deve avaliar a verdade ou falsa | A expressão.  | Yes
 tempo limite | O ciclo de fazer até ao fim após o tempo especificado aqui. | Cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss` . . O valor predefinido é 7 dias. O valor máximo é: 90 dias. | No
-Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true` . | Um conjunto de atividades. |  Sim
+Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true` . | Um conjunto de atividades. |  Yes
 
 ## <a name="example-1"></a>Exemplo 1
 

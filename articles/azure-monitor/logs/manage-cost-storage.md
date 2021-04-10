@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/28/2021
 ms.author: bwren
-ms.openlocfilehash: 5048364aed1eea8d0c32d9134a4ba5a22d28b989
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 64b794f4a749816af71f9c5f14dddf2bbcbc6512
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560459"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279617"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -41,7 +41,7 @@ Além do modelo Pay-As-You-Go, o Log Analytics tem níveis **de Reserva de Capac
 
 Em todos os níveis de preços, o tamanho dos dados de um evento é calculado a partir de uma representação de cadeia das propriedades que são armazenadas no Log Analytics para este evento, quer os dados sejam enviados de um agente ou adicionados durante o processo de ingestão. Isto inclui quaisquer [campos personalizados](custom-fields.md) que são adicionados à medida que os dados são recolhidos e depois armazenados no Log Analytics. Várias propriedades comuns a todos os tipos de dados, incluindo algumas [Propriedades Standard Do Log Analytics,](./log-standard-columns.md)estão excluídas no cálculo do tamanho do evento. Isto `_ResourceId` `_SubscriptionId` inclui, `_ItemId` , , e `_IsBillable` `_BilledSize` `Type` . Todas as outras propriedades armazenadas no Log Analytics estão incluídas no cálculo do tamanho do evento. Alguns tipos de dados estão totalmente isentos de taxas de ingestão de dados, por exemplo, os tipos AzureActivity, Heartbeat e Usage. Para determinar se um evento foi excluído da faturação para ingestão de dados, pode utilizar a `_IsBillable` propriedade como mostrado [abaixo.](#data-volume-for-specific-events) A utilização é reportada em GB (1.0E9 bytes). 
 
-Além disso, note que algumas soluções, como [o Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) e a [Gestão de Configuração](https://azure.microsoft.com/pricing/details/automation/) têm os seus próprios modelos de preços. 
+Além disso, note que algumas soluções, como [o Azure Defender (Security Center)](https://azure.microsoft.com/pricing/details/azure-defender/), [a gestão de Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) e [Configuration](https://azure.microsoft.com/pricing/details/automation/) têm os seus próprios modelos de preços. 
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics Clusters Dedicados
 
@@ -51,9 +51,9 @@ O nível de reserva de capacidade do cluster é configurado programáticamente c
 
 Existem dois modos de faturação para uso num cluster. Estes podem ser especificados pelo `billingType` parâmetro ao [configurar o seu cluster](customer-managed-keys.md#customer-managed-key-operations). Os dois modos são: 
 
-1. **Cluster**: neste caso (que é o padrão), a faturação dos dados ingeridos é feita ao nível do cluster. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. Note que as dotações por nódoa do [Azure Security Center](../../security-center/index.yml) são aplicadas ao nível do espaço de trabalho antes desta agregação de dados agregados em todos os espaços de trabalho do cluster. 
+1. **Cluster**: neste caso (que é o padrão), a faturação dos dados ingeridos é feita ao nível do cluster. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. Note que as dotações por nó do [Azure Defender (Security Center)](../../security-center/index.yml) são aplicadas ao nível do espaço de trabalho antes desta agregação de dados agregados em todos os espaços de trabalho do cluster. 
 
-2. **Espaços de trabalho**: os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](../../security-center/index.yml) para cada espaço de trabalho.) Se o volume total de dados ingerido num espaço de trabalho por um dia for inferior à Reserva de Capacidade, então cada espaço de trabalho é faturado para os seus dados ingeridos à taxa efetiva de reserva de capacidade por GB, cobrando-lhes uma fração da Reserva de Capacidade, e a parte não utilizada da Reserva de Capacidade é faturada para o recurso do cluster. Se o volume total de dados ingerido num espaço de trabalho por um dia for superior à Reserva de Capacidade, então cada espaço de trabalho é faturado por uma fração da Reserva de Capacidade com base na sua fração dos dados ingeridos nesse dia, e cada espaço de trabalho para uma fração dos dados ingeridos acima da Reserva de Capacidade. Não há nada faturado para o recurso do cluster se o volume total de dados ingerido num espaço de trabalho por um dia for sobre a Reserva de Capacidade.
+2. **Espaços de trabalho**: os custos de reserva de capacidade do seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do [Azure Defender (Centro de Segurança)](../../security-center/index.yml) para cada espaço de trabalho.) Se o volume total de dados ingerido num espaço de trabalho por um dia for inferior à Reserva de Capacidade, então cada espaço de trabalho é faturado para os seus dados ingeridos à taxa efetiva de reserva de capacidade por GB, cobrando-lhes uma fração da Reserva de Capacidade, e a parte não utilizada da Reserva de Capacidade é faturada para o recurso do cluster. Se o volume total de dados ingerido num espaço de trabalho por um dia for superior à Reserva de Capacidade, então cada espaço de trabalho é faturado por uma fração da Reserva de Capacidade com base na sua fração dos dados ingeridos nesse dia, e cada espaço de trabalho para uma fração dos dados ingeridos acima da Reserva de Capacidade. Não há nada faturado para o recurso do cluster se o volume total de dados ingerido num espaço de trabalho por um dia for sobre a Reserva de Capacidade.
 
 Nas opções de faturação de cluster, a retenção de dados é faturada no espaço de trabalho. Note que a faturação do cluster começa quando o cluster é criado, independentemente de os espaços de trabalho terem sido associados ao cluster. Além disso, note que os espaços de trabalho associados a um cluster já não têm um nível de preços.
 
@@ -77,7 +77,7 @@ Os custos do Log Analytics são adicionados à sua conta Azure. Pode ver detalhe
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Visualização do uso do Log Analytics na sua conta Azure 
 
-O Azure fornece uma grande funcionalidade útil no centro [Azure Cost Management + Billing.](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) Por exemplo, a funcionalidade "Análise de Custos" permite-lhe visualizar os seus gastos para os recursos Azure. Em primeiro lugar, adicione um filtro por "Tipo de Recurso" (para microsoft.operationalinsights/espaço de trabalho para Log Analytics e microsoft.operationalinsights/cluster para Clusters De Log Analytics) permitir-lhe-á rastrear o seu gasto log Analytics. Em seguida, para "Grupo por" selecione "Categoria de Contador" ou "Medidor".  Note que outros serviços como o Azure Security Center e o Azure Sentinel também faturam o seu uso contra os recursos do espaço de trabalho Log Analytics. Para ver o mapeamento do nome de Serviço, pode selecionar a vista 'Tabela' em vez de um gráfico. 
+O Azure fornece uma grande funcionalidade útil no centro [Azure Cost Management + Billing.](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) Por exemplo, a funcionalidade "Análise de Custos" permite-lhe visualizar os seus gastos para os recursos Azure. Em primeiro lugar, adicione um filtro por "Tipo de Recurso" (para microsoft.operationalinsights/espaço de trabalho para Log Analytics e microsoft.operationalinsights/cluster para Clusters De Log Analytics) permitir-lhe-á rastrear o seu gasto log Analytics. Em seguida, para "Grupo por" selecione "Categoria de Contador" ou "Medidor".  Note que outros serviços como Azure Defender (Security Center) e Azure Sentinel também faturam o seu uso contra os recursos do espaço de trabalho Log Analytics. Para ver o mapeamento do nome de Serviço, pode selecionar a vista 'Tabela' em vez de um gráfico. 
 
 Pode compreender melhor a utilização ao [transferir a utilização a partir do portal do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Na folha de cálculo transferida, pode ver a utilização por recurso do Azure (por exemplo, a área de trabalho do Log Analytics) por dia. Nesta folha de cálculo do Excel, a utilização dos seus espaços de trabalho Log Analytics pode ser encontrada através da primeira filtragem na coluna "Meter Category" para mostrar "Log Analytics", "Insight and Analytics" (usado por alguns dos níveis de preços do legado) e "Azure Monitor" (utilizado pelos níveis de preços da Reserva de Capacidade), e, em seguida, adicionar um filtro na coluna "Instance ID" que é "contém espaço de trabalho" ou "cluster" (este último inclui o Log Analytics Cluster). A utilização é mostrada na coluna "Quantidade Consumida" e a unidade para cada entrada é mostrada na coluna "Unidade de Medida".  Estão disponíveis mais detalhes para o ajudar a [entender a fatura do Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
@@ -97,7 +97,7 @@ Também pode [definir o nível de preços através do Azure Resource Manager](./
 
 ## <a name="legacy-pricing-tiers"></a>Escalões de preço legados
 
-As subscrições que tenham um espaço de trabalho log Analytics ou um recurso application insights nele antes de 2 de abril de 2018, ou estejam ligadas a um Acordo de Empresa que começou antes de 1 de fevereiro de 2019, continuarão a ter acesso a utilizar os níveis de preços do legado: **Free,** **Standalone (Per GB)** e **Per Node (OMS)**.  Os espaços de trabalho no nível de preços gratuitos terão a ingestão diária de dados limitada a 500 MB (exceto para tipos de dados de segurança recolhidos pelo [Azure Security Center)](../../security-center/index.yml)e a retenção de dados é limitada a 7 dias. O nível de preços gratuitos destina-se apenas a fins de avaliação. Os espaços de trabalho nos níveis de preços autónomos ou per nónsos têm uma retenção configurável entre 30 e 730 dias.
+As subscrições que tenham um espaço de trabalho log Analytics ou um recurso application insights nele antes de 2 de abril de 2018, ou estejam ligadas a um Acordo de Empresa que começou antes de 1 de fevereiro de 2019, continuarão a ter acesso a utilizar os níveis de preços do legado: **Free,** **Standalone (Per GB)** e **Per Node (OMS)**.  Os espaços de trabalho no nível de preços gratuitos terão a ingestão diária de dados limitada a 500 MB (exceto para tipos de dados de segurança recolhidos pelo [Azure Defender (Security Center)](../../security-center/index.yml)e a retenção de dados é limitada a 7 dias. O nível de preços gratuitos destina-se apenas a fins de avaliação. Os espaços de trabalho nos níveis de preços autónomos ou per nónsos têm uma retenção configurável entre 30 e 730 dias.
 
 A utilização no nível de preços autónomos é faturada pelo volume de dados ingerido. É relatado no serviço **Log Analytics** e o contador chama-se "Dados Analisados". 
 
@@ -105,18 +105,18 @@ Os preços per nó de preços por VM (nó) monitorizados em uma hora de granular
 
 1. Nó: trata-se de utilização para o número de nós monitorizados (VMs) em unidades de nó*meses.
 2. Sobreavalagem de dados por nó: este é o número de GB de dados ingeridos acima da atribuição de dados agregados.
-3. Dados incluídos por nó: esta é a quantidade de dados ingeridos que foi coberto pela alocação de dados agregados. Este contador também é usado quando o espaço de trabalho está em todos os níveis de preços para mostrar a quantidade de dados cobertos pelo Centro de Segurança Azure.
+3. Dados incluídos por nó: esta é a quantidade de dados ingeridos que foi coberto pela alocação de dados agregados. Este contador também é utilizado quando o espaço de trabalho está em todos os níveis de preços para mostrar a quantidade de dados cobertos pelo Azure Defender (Centro de Segurança).
 
 > [!TIP]
 > Se o seu espaço de trabalho tiver acesso ao nível de preços **per nó,** mas está a pensar se isso custaria menos num nível Pay-As-You-Go, pode [usar a consulta abaixo](#evaluating-the-legacy-per-node-pricing-tier) para obter uma recomendação facilmente. 
 
 Os espaços de trabalho criados antes de abril de 2016 também podem aceder aos níveis de preços **Standard** e **Premium** originais que têm retenção fixa de dados de 30 e 365 dias, respectivamente. Novos espaços de trabalho não podem ser criados nos níveis de preços **Standard** ou **Premium,** e se um espaço de trabalho for deslocado para fora destes níveis, não pode ser transferido para trás. Os contadores de ingestão de dados para estes níveis antigos são chamados de "Dados analisados".
 
-Existem também alguns comportamentos entre o uso de níveis de Log Analytics legados e como o uso é cobrado para [o Azure Security Center](../../security-center/index.yml). 
+Existem também alguns comportamentos entre o uso de níveis de Log Analytics legados e como o uso é cobrado para [Azure Defender (Security Center)](../../security-center/index.yml). 
 
-1. Se o espaço de trabalho estiver no nível standard ou premium, o Azure Security Center será cobrado apenas para ingestão de dados do Log Analytics, e não por nó.
-2. Se o espaço de trabalho estiver no nível de per nól, o Azure Security Center será faturado utilizando o [atual modelo de preços baseado no nó do Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
-3. Em outros níveis de preços (incluindo Reservas de Capacidade), se o Azure Security Center foi habilitado antes de 19 de junho de 2017, o Azure Security Center será cobrado apenas para ingestão de dados do Log Analytics. Caso contrário, o Azure Security Center será faturado utilizando o atual modelo de preços baseado no nó de segurança Azure.
+1. Se o espaço de trabalho estiver no nível standard ou premium, o Azure Defender será cobrado apenas para ingestão de dados do Log Analytics, e não por nó.
+2. Se o espaço de trabalho estiver no nível de per nól, o Azure Defender será faturado utilizando o atual [modelo de preços baseado no nó de Azure Defender](https://azure.microsoft.com/pricing/details/security-center/). 
+3. Em outros níveis de preços (incluindo Reservas de Capacidade), se o Azure Defender foi habilitado antes de 19 de junho de 2017, o Azure Defender será cobrado apenas para ingestão de dados do Log Analytics. Caso contrário, o Azure Defender será faturado utilizando o atual modelo de preços baseado no nó Azure Defender.
 
 Mais detalhes sobre as limitações do nível de preços estão disponíveis nos [limites de subscrição e serviço da Azure, quotas e restrições.](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces)
 
@@ -125,9 +125,9 @@ Nenhum dos níveis de preços antigos tem preços regionais.
 > [!NOTE]
 > Para utilizar os direitos que vêm da compra da Suite OMS E1, da Suite OMS E2 ou da Add-On OMS para o System Center, escolha o nível de preços do Log Analytics *Per Node.*
 
-## <a name="log-analytics-and-security-center"></a>Log Analytics e Centro de Segurança
+## <a name="log-analytics-and-azure-defender-security-center"></a>Log Analytics e Azure Defender (Centro de Segurança)
 
-A faturação [do Azure Security Center](../../security-center/index.yml) está intimamente ligada à faturação do Log Analytics. O Security Center fornece uma alocação de 500 MB/nó/dia contra o subconjunto seguinte de tipos de [dados](/azure/azure-monitor/reference/tables/tables-category#security) de segurança (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) e os tipos de dados Update and UpdateSummary quando a solução de Gestão de Atualização não está a funcionar no espaço de trabalho ou na solução-alvo está ativada. Se o espaço de trabalho estiver no nível de preços per nóleiro legado, as alocações do Security Center e do Log Analytics são combinadas e aplicadas conjuntamente a todos os dados ingeridos.  
+A faturação [do Azure Defender (Security Center)](../../security-center/index.yml) está intimamente ligada à faturação do Log Analytics. O Azure Defender fornece uma atribuição de 500 MB/nó/dia contra o subconjunto seguinte de tipos de [dados](/azure/azure-monitor/reference/tables/tables-category#security) de segurança (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) e os tipos de dados Update and UpdateSummary quando a solução de Gestão de Atualização não está a funcionar no espaço de trabalho ou na solução-alvo de soluções é ativada [para aprender mais.](https://docs.microsoft.com/azure/security-center/security-center-pricing#what-data-types-are-included-in-the-500-mb-free-data-limit) Se o espaço de trabalho estiver no nível de preços per nóleiro legado, as dotações Azure Defender e Log Analytics são combinadas e aplicadas conjuntamente a todos os dados ingeridos.  
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Alterar o período de retenção de dados)
 
@@ -215,7 +215,7 @@ Logo após o limite diário, a recolha de tipos de dados faturados para para o r
 > A tampa diária não pode parar a recolha de dados como precisamente o nível de tampa especificado e esperam-se alguns dados em excesso, especialmente se o espaço de trabalho estiver a receber elevados volumes de dados. Veja [abaixo](#view-the-effect-of-the-daily-cap) uma consulta que seja útil no estudo do comportamento da tampa diária. 
 
 > [!WARNING]
-> A tampa diária não impede a recolha de tipos de dados WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update and UpdateSummary, com exceção dos espaços de trabalho em que o Azure Security Center foi instalado antes de 19 de junho de 2017. 
+> A tampa diária não impede a recolha de tipos de dados WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update and UpdateSummary, com exceção dos espaços de trabalho em que o Azure Defender (Security Center) foi instalado antes de 19 de junho de 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar que limite de dados diários para definir
 
@@ -232,6 +232,14 @@ Os passos seguintes descrevem como configurar um limite para gerir o volume de d
 :::image type="content" source="media/manage-cost-storage/set-daily-volume-cap-01.png" alt-text="Log Analytics configurar limite de dados":::
     
 A tampa diária pode ser configurada via ARM definindo o parâmetro sob o `dailyQuotaGb` descrito nos Espaços de Trabalho - Criar ou `WorkspaceCapping` [Atualizar](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+
+Pode acompanhar as alterações efetuadas na tampa diária utilizando esta consulta:
+
+```kusto
+_LogOperation | where Operation == "Workspace Configuration" | where Detail contains "Daily quota"
+```
+
+Saiba mais sobre a função [_LogOperation.](https://docs.microsoft.com/azure/azure-monitor/logs/monitor-workspace) 
 
 ### <a name="view-the-effect-of-the-daily-cap"></a>Ver o efeito do Daily Cap
 
@@ -253,7 +261,7 @@ Usage
 
 Embora apresentemos uma sugestão visual no portal Azure quando o limiar do limite de dados é cumprido, este comportamento não se alinha necessariamente com a forma como gere problemas operacionais que requerem atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Azure Monitor.  Para saber mais, veja [como criar, ver e gerir alertas.](../alerts/alerts-metric.md)
 
-Para começar, aqui estão as definições recomendadas para a consulta de alerta da `Operation` tabela utilizando a `_LogOperation` função. 
+Para começar, aqui estão as definições recomendadas para a consulta de alerta da `Operation` tabela utilizando a `_LogOperation` função[(saiba mais).](https://docs.microsoft.com/azure/azure-monitor/logs/monitor-workspace) 
 
 - Destino: Selecione o seu recurso Log Analytics
 - Critérios: 
@@ -344,7 +352,7 @@ Note que a cláusula `where _IsBillable = true` filtra tipos de dados de determi
 
 ### <a name="data-volume-by-solution"></a>Volume de dados por solução
 
-A consulta utilizada para visualizar o volume de dados facturante por solução ao longo do último mês (excluindo o último dia parcial) é:
+A consulta utilizada para visualizar o volume de dados faturante por solução ao longo do último mês (excluindo o último dia parcial) pode ser construída utilizando o tipo de dados [de utilização](https://docs.microsoft.com/azure/azure-monitor/reference/tables/usage) como:
 
 ```kusto
 Usage 
@@ -383,26 +391,26 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>Volume de dados por computador
 
-O `Usage` tipo de dados não inclui informação a nível do computador. Para ver o **tamanho** dos dados ingeridos por computador, utilize a `_BilledSize` [propriedade,](./log-standard-columns.md#_billedsize)que fornece o tamanho dos bytes:
+O `Usage` tipo de dados não inclui informação a nível do computador. Para ver o **tamanho** dos dados faturados ingeridos por computador, utilize a `_BilledSize` [propriedade,](./log-standard-columns.md#_billedsize)que fornece o tamanho dos bytes:
 
 ```kusto
-find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
-| where _IsBillable == true 
+find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer, Type
+| where _IsBillable == true and Type != "Usage"
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName 
-| sort by BillableDataBytes nulls last
+| sort by BillableDataBytes desc nulls last
 ```
 
-A `_IsBillable` [propriedade](./log-standard-columns.md#_isbillable) especifica se os dados ingeridos incorrerão em encargos. 
+A `_IsBillable` [propriedade](./log-standard-columns.md#_isbillable) especifica se os dados ingeridos incorrerão em encargos. O tipo de utilização é omitido, uma vez que se trata apenas de análise de tendências de dados. 
 
 Para ver a **contagem** de eventos faturados por computador, use 
 
 ```kusto
 find where TimeGenerated > ago(24h) project _IsBillable, Computer
-| where _IsBillable == true 
+| where _IsBillable == true and Type != "Usage"
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
-| sort by eventCount nulls last
+| sort by eventCount desc nulls last
 ```
 
 > [!TIP]
@@ -478,6 +486,7 @@ Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 
 | Origem do volume de dados elevado | Como reduzir o volume de dados |
 | -------------------------- | ------------------------- |
+| Regras de recolha de dados      | O [Agente Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) utiliza regras de recolha de dados para gerir a recolha de dados. Pode [limitar a recolha de dados](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent#limit-data-collection-with-custom-xpath-queries) através de consultas personalizadas de XPath. | 
 | Informações de Contentores         | [Configure a Informação do Contentor](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) para recolher apenas os dados necessários. |
 | Eventos de segurança            | Selecione [eventos de segurança comuns ou mínimos](../../security-center/security-center-enable-data-collection.md#data-collection-tier) <br> Altere a política de auditoria de segurança para recolher apenas os eventos necessários. Em particular, reveja a necessidade de recolher eventos para <br> - [auditar a plataforma de filtragem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [auditar o registo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar o sistema de ficheiros](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar o objeto de kernel](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar a manipulação de identificadores](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditoria de armazenamento amovível |
 | Contadores de desempenho       | Altere a [configuração do contador de desempenho](../agents/data-sources-performance-counters.md) para: <br> - Reduzir a frequência da recolha <br> - Reduzir o número de contadores de desempenho |
@@ -548,7 +557,7 @@ A decisão de saber se os espaços de trabalho com acesso ao nível de preços *
 
 Para facilitar esta avaliação, a seguinte consulta pode ser usada para fazer uma recomendação para o nível de preços ideal com base nos padrões de utilização de um espaço de trabalho.  Esta consulta analisa os nós monitorizados e os dados ingeridos num espaço de trabalho nos últimos 7 dias, e para cada dia avalia qual o nível de preços que teria sido o ideal. Para utilizar a consulta, precisa de especificar
 
-1. se o espaço de trabalho está a utilizar o Azure Security Center, definindo `workspaceHasSecurityCenter` `true` para, `false` 
+1. se o espaço de trabalho está a utilizar o Azure Defender (Security Center) definindo `workspaceHasSecurityCenter` para `true` `false` ou, 
 2. atualizar os preços se tiver descontos específicos, e
 3. especificar o número de dias para olhar para trás e analisar por definição `daysToEvaluate` . Isto é útil se a consulta estiver a demorar muito tempo a tentar olhar para 7 dias de dados. 
 
@@ -556,7 +565,7 @@ Aqui está a consulta de recomendação de nível de preços:
 
 ```kusto
 // Set these parameters before running query
-// Pricing details available at https://azure.microsoft.com/en-us/pricing/details/monitor/
+// Pricing details available at https://azure.microsoft.com/pricing/details/monitor/
 let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
 let workspaceHasSecurityCenter = false;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
@@ -676,6 +685,10 @@ Quando a recolha de dados para, o OperationStatus apresenta **Aviso**. Quando a 
 
 Para ser notificado quando a recolha de dados parar, utilize os passos descritos no Alerta *de limite de dados diários* para ser notificado quando a recolha de dados parar. Utilize os passos descritos na [criação de um grupo de ação](../alerts/action-groups.md) para configurar uma ação de e-mail, webhook ou runbook para a regra de alerta. 
 
+## <a name="late-arriving-data"></a>Dados de chegada tardia   
+
+As situações podem surgir quando os dados são ingeridos com prazos muito antigos, por exemplo, se um agente não puder comunicar ao Log Analytics devido a um problema de conectividade, ou situações em que um hospedeiro tem uma data/hora incorretamente cronometrada. Para diagnosticar estas questões, utilize a `_TimeReceived` coluna[(saiba mais)](https://docs.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_timereceived)para além da `TimeGenerated` coluna. `TimeReceived` é o momento em que o registo foi recebido pelo ponto de ingestão do Monitor Azure na nuvem Azure.  
+
 ## <a name="limits-summary"></a>Resumo dos limites
 
 Existem alguns limites adicionais de Log Analytics, alguns dos quais dependem do nível de preços do Log Analytics. Estes estão documentados nos [limites de subscrição e serviço da Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces)
@@ -686,7 +699,7 @@ Existem alguns limites adicionais de Log Analytics, alguns dos quais dependem do
 - Consulte [as pesquisas de Registo em Registos monitores Azure](../logs/log-query-overview.md) para aprender a usar o idioma de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 - Utilize os passos descritos em [create a new log alert](../alerts/alerts-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
 - Utilize [soluções direcionadas](../insights/solution-targeting.md) para recolher dados de grupos de computadores apenas necessários.
-- Para configurar uma política eficaz de recolha de eventos, reveja [a política de filtragem do Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+- Para configurar uma política eficaz de recolha de eventos, reveja [a política de filtragem do Azure Defender (Security Center).](../../security-center/security-center-enable-data-collection.md)
 - Altere a [configuração do contador de desempenho](../agents/data-sources-performance-counters.md).
 - Para modificar as definições de recolha de eventos, reveja [a configuração do registo de eventos](../agents/data-sources-windows-events.md).
 - Para modificar as definições de recolha de syslog, reveja [a configuração do syslog](../agents/data-sources-syslog.md).

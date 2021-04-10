@@ -11,18 +11,21 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 257fc6544061c2ef9c3fdbfb8c33bc06ed2db6e3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fec4eb55f43bd17db5935ab32e5429927c74f5b9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566340"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066216"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar cadernos Jupyter no seu espaço de trabalho
 
 Aprenda a executar os seus cadernos Jupyter diretamente no seu espaço de trabalho no estúdio Azure Machine Learning. Enquanto pode lançar [Jupyter](https://jupyter.org/) ou [JupyterLab,](https://jupyterlab.readthedocs.io)também pode editar e executar os seus cadernos sem sair do espaço de trabalho.
 
 Para obter informações sobre como criar e gerir ficheiros, incluindo cadernos, consulte [Criar e gerir ficheiros no seu espaço de trabalho.](how-to-manage-files.md)
+
+> [!IMPORTANT]
+> As funcionalidades marcadas como (pré-visualização) são fornecidas sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,17 +51,27 @@ Utilize o modo de focagem para expandir a sua visão atual para que possa concen
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Modo de foco de alternação / visão padrão":::
 
-## <a name="use-intellisense"></a>Utilizar o IntelliSense
+## <a name="code-completion-intellisense"></a>Conclusão do código (IntelliSense)
 
 [O IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) é um auxílio de conclusão de código que inclui uma série de funcionalidades: Membros da Lista, Informações de Parâmetros, Informações Rápidas e Palavra Completa. Estas funcionalidades ajudam-no a aprender mais sobre o código que está a usar, a acompanhar os parâmetros que está a digitar e a adicionar chamadas a propriedades e métodos com apenas algumas teclas.  
 
-Ao escrever código, utilize ctrl+Space para ativar o IntelliSense.
+### <a name="use-code-snippets-preview"></a>Use snippets de código (pré-visualização)
+
+Utilize **ctrl+Space** para acionar os cortes de código IntelliSense.  Percorra as sugestões ou comece a escrever para encontrar o código que pretende inserir.  Assim que inserir código, faça um separador através dos argumentos para personalizar o código para a sua própria utilização.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/insert-snippet.gif" alt-text="Insira um corte de código":::
+
+Estes mesmos snippets estão disponíveis quando abre o seu caderno no Código VS. Para obter uma lista completa dos snippets disponíveis, consulte [Azure Machine Learning VS Code Snippets](https://github.com/Azure/azureml-snippets/blob/main/snippets/snippets.md).
+
+Pode navegar e pesquisar a lista de cortes utilizando a barra de ferramentas do portátil para abrir o painel de corte.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Abra a ferramenta do painel de corte na barra de ferramentas do portátil":::
+
+Do painel de snippets também pode submeter um pedido para adicionar novos snippets.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Painel snippet permite-lhe propor um novo corte":::
 
 ## <a name="clean-your-notebook-preview"></a>Limpe o seu caderno (pré-visualização)
-
-> [!IMPORTANT]
-> A funcionalidade de recolha está atualmente em pré-visualização pública.
-> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ao longo da criação de um caderno, normalmente acaba-se com células que utiliza para a exploração de dados ou depuragem. A funcionalidade *de recolha* irá ajudá-lo a produzir um caderno limpo sem estas células extra-antigas.
 
@@ -158,7 +171,7 @@ Estas ações irão redefinir o estado do caderno e redefinirão todas as variá
 
 ## <a name="add-new-kernels"></a>Adicione novos núcleos
 
-[Utilize o terminal ](how-to-access-terminal.md#add-new-kernels) para criar e adicionar novos núcleos à sua instância de computação. O portátil irá automaticamente encontrar todos os núcleos jupyter instalados na instância de computação conectada.
+[Utilize o terminal](how-to-access-terminal.md#add-new-kernels) para criar e adicionar novos núcleos à sua instância de computação. O portátil irá automaticamente encontrar todos os núcleos jupyter instalados na instância de computação conectada.
 
 Utilize o recuo do núcleo no direito de alterar para qualquer um dos núcleos instalados.  
 

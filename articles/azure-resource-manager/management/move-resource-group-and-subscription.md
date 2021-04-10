@@ -4,12 +4,12 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 31710354d39c5c74fcbd3ce1bfb2917d79dfd670
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 4f6ecb9ec8269ab8e06a241a395887de77691499
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108643"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934228"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -124,7 +124,7 @@ Para fins de ilustração, temos apenas um recurso dependente.
 
 ## <a name="validate-move"></a>Validar movimento
 
-A [operação de movimento validado](/rest/api/resources/resources/validatemoveresources) permite-lhe testar o seu cenário de movimento sem realmente mover os recursos. Utilize esta operação para verificar se o movimento terá sucesso. A validação é automaticamente chamada quando envia um pedido de movimento. Utilize esta operação apenas quando necessitar de pré-determinar os resultados. Para executar esta operação, você precisa do:
+A [operação de movimento validado](/rest/api/resources/resources/resources/moveresources) permite-lhe testar o seu cenário de movimento sem realmente mover os recursos. Utilize esta operação para verificar se o movimento terá sucesso. A validação é automaticamente chamada quando envia um pedido de movimento. Utilize esta operação apenas quando necessitar de pré-determinar os resultados. Para executar esta operação, você precisa do:
 
 * nome do grupo de recursos de origem
 * ID de recursos do grupo de recursos-alvo
@@ -241,7 +241,7 @@ Se tiver um erro, consulte [Troubleshoot movendo os recursos da Azure para um no
 
 ## <a name="use-rest-api"></a>Utilizar a API REST
 
-Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize a operação [de recursos Move.](/rest/api/resources/Resources/MoveResources)
+Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize a operação [de recursos Move.](/rest/api/resources/resources/resources/moveresources)
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
