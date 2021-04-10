@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: ed11b0bb00a571fb4cefc51a708432baef88184d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7042d3ede872c5dc854675334b964430671d1306
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104613078"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065655"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutorial: Prepare-se para implantar O Azure Stack Edge Mini R
 

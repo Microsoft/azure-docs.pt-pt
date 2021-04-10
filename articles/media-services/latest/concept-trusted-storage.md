@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87f52bef07644370c268168c984a452d5ae3f9bd
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585405"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279464"
 ---
 # <a name="trusted-storage-for-media-services"></a>Armazenamento fidedigno para Serviços de Mídia
 
@@ -29,7 +29,7 @@ No entanto, se pretender utilizar uma firewall para proteger a sua conta de arma
 
 ## <a name="tutorial"></a>Tutorial
 
-Você pode saber mais sobre como ativar o armazenamento fidedigno com o tutorial [de armazenamento fidedigno dos Media Services.](tutorial-trusted-storage-rest.md)
+Você pode saber mais sobre como ativar o armazenamento fidedigno com o tutorial [de armazenamento fidedigno dos Media Services.](security-trusted-storage-rest-tutorial.md)
 
 > [!NOTE]
 > É necessário conceder o acesso do Contribuinte de Dados do Blob de Armazenamento de Identidade Gerido da AMS para que os Serviços de Mídia possam ler e escrever na conta de armazenamento.  Conceder o papel genérico de Contribuinte não funcionará, uma vez que não permite as permissões corretas no plano de dados.

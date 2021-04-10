@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: b2f91f0036a86151588c8c138dac5421ad54e18e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db9ad08f9a939a22e1e0e1cfba0537e6356394ed
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586425"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731540"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Instale o agente Azure Monitor (pré-visualização)
 Este artigo fornece as diferentes opções atualmente disponíveis para instalar o [agente Azure Monitor](azure-monitor-agent-overview.md) em máquinas virtuais Azure e servidores azure Arc habilitados e também as opções para criar [associações com regras de recolha de dados](data-collection-rule-azure-monitor-agent.md) que definem quais os dados que o agente deve recolher.
@@ -20,6 +20,9 @@ São necessários os seguintes pré-requisitos antes da instalação do agente A
 
 - [A identidade do sistema gerida](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) deve ser ativada em máquinas virtuais Azure. Isto não é necessário para servidores ativados Azure Arc. A identidade do sistema será ativada automaticamente se o agente for instalado como parte do processo de criação e atribuição de uma regra de recolha de [dados utilizando o portal Azure](#install-with-azure-portal).
 - A [etiqueta de serviço AzureResourceManager](../../virtual-network/service-tags-overview.md) deve ser ativada na rede virtual para a máquina virtual.
+
+> [!IMPORTANT]
+> O agente Azure Monitor não suporta atualmente os proxies de rede.
 
 ## <a name="virtual-machine-extension-details"></a>Detalhes da extensão da máquina virtual
 O Agente monitor Azure é implementado como uma [extensão Azure VM](../../virtual-machines/extensions/overview.md) com os detalhes na tabela seguinte. Pode ser instalado utilizando qualquer um dos métodos para instalar extensões de máquinas virtuais, incluindo as descritas neste artigo.

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bwren
 ms.openlocfilehash: 5048364aed1eea8d0c32d9134a4ba5a22d28b989
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105560459"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    

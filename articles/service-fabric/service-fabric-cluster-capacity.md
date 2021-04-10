@@ -4,12 +4,12 @@ description: Tipos de nó, durabilidade, fiabilidade e outras coisas a ter em co
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9268dfef15d8302eb31cc1b649c7fd713aab6721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714940"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732589"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento da capacidade do cluster de tecidos de serviço
 
@@ -111,7 +111,7 @@ Siga estas recomendações para a gestão de tipos de nó com durabilidade prate
 * Mantenha uma contagem mínima de cinco nós para qualquer conjunto de balança de máquina virtual que tenha um nível de durabilidade de Ouro ou Prata ativado. O seu cluster entrará em estado de erro se escalar abaixo deste limiar, e terá de limpar manualmente o estado `Remove-ServiceFabricNodeState` () para os nós removidos.
 * Cada escala de máquina virtual definida com nível de durabilidade Prata ou Ouro deve mapear para o seu próprio tipo de nó no cluster de Tecido de Serviço. O mapeamento de vários conjuntos de escala de máquina virtual para um único tipo de nó impedirá que a coordenação entre o cluster de Tecido de Serviço e a infraestrutura Azure funcione corretamente.
 * Não elimine instâncias VM aleatórias, utilize sempre a escala de escala de máquina virtual em características. A supressão de instâncias VM aleatórias tem o potencial de criar desequilíbrios no caso VM espalhados por [domínios de atualização](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e [domínios de avarias](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Este desequilíbrio pode afetar negativamente a capacidade dos sistemas de carregar corretamente o equilíbrio entre as instâncias de serviço/réplicas de serviço.
-* Se utilizar a Autoscale, estabeleça as regras de modo a que as operações (remoção de instâncias VM) sejam feitas apenas um nó de cada vez. Reduzir mais de um caso de cada vez não é seguro.
+* Se utilizar a Autoscale, estabeleça as regras de modo a que as operações (remoção de instâncias VM) sejam feitas apenas um nó de cada vez. Escalar em mais de um caso de cada vez não é seguro.
 * Se eliminar ou translocar VMs no tipo de nó primário, nunca reduza a contagem de VMs atribuídos abaixo do que o nível de fiabilidade requer. Estas operações serão bloqueadas indefinidamente numa escala definida com um nível de durabilidade de Prata ou Ouro.
 
 ### <a name="changing-durability-levels"></a>Alteração dos níveis de durabilidade

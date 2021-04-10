@@ -8,10 +8,10 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-reference, devx-track-java
 ms.openlocfilehash: 7342cca813c4dbb4b35f85e94625764aa8228cdb
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105032311"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-spring-cloud"></a>Azure Policy definições incorporadas para Azure Spring Cloud

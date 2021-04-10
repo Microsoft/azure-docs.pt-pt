@@ -10,12 +10,12 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a74860b7adf4dade5aedc71a4960595cbe55eaf0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c89e42736f5b8de65ed93ccb57f8d034d4240bc8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95995306"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729087"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Ative e gere a eliminação suave para bolhas
 
@@ -146,7 +146,7 @@ Para recuperar as bolhas que foram acidentalmente apagadas, ligue para Undelete 
 
 Para recuperar para uma versão blob específica, primeiro ligue para Undelete numa bolha e, em seguida, copie o instantâneo desejado sobre a bolha. O exemplo a seguir recupera uma bolha de bloco para o seu instantâneo mais recentemente gerado:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 

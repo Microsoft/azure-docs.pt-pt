@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: jingwang
 ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105562465"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory

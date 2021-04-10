@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/18/2021
 ms.openlocfilehash: a00ec8698b188b8fa87935e498e8cfab3aeab5aa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101724987"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregue gradualmente os dados do Azure SQL Managed Instance para O Azure Storage utilizando a captura de dados de alteração (CDC)
@@ -30,7 +30,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Modificar dados na tabela de origem
 > * Complete, corra e monitorize todo o pipeline de cópia incremental
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A tecnologia Change Data Capture suportada por lojas de dados como Azure SQL Managed Instances (MI) e SQL Server pode ser usada para identificar dados alterados.  Este tutorial descreve como usar a Azure Data Factory com a tecnologia SQL Change Data Capture para carregar gradualmente dados delta da Azure SQL Managed Instance em Azure Blob Storage.  Para obter informações mais concretas sobre a tecnologia SQL Change Data Capture, consulte [a captura de dados de alteração no SQL Server](/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
 
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto

@@ -37,17 +37,17 @@ Na maioria dos casos, é uma boa prática construir os seus Fluxos de Dados em m
 > [!NOTE]
 > Cada sessão de depuração que um utilizador começa a partir do seu UI do navegador ADF é uma nova sessão com o seu próprio cluster Spark. Pode utilizar a vista de monitorização para sessões de depurar acima para visualizar e gerir sessões de depuragem por fábrica. É cobrado por cada hora que cada sessão de depuragem está a executar, incluindo o tempo TTL.
 
-## <a name="cluster-status"></a>Estado do cluster
+## <a name="cluster-status&quot;></a>Estado do cluster
 
 O indicador de estado do cluster na parte superior da superfície de design fica verde quando o cluster está pronto para depurar. Se o seu aglomerado já estiver quente, o indicador verde aparecerá quase instantaneamente. Se o seu cluster já não estava a funcionar quando entrou no modo de depuração, então o cluster Spark executará uma bota fria. O indicador girará até que o ambiente esteja pronto para depuração interativa.
 
 Quando terminar a depuração, desligue o depuração de Debug para que o seu cluster Spark possa terminar e deixará de ser cobrado para a atividade de depuração.
 
-## <a name="debug-settings"></a>Definições de depurar
+## <a name=&quot;debug-settings&quot;></a>Definições de depurar
 
-Assim que ligar o modo de depurar, pode editar como um fluxo de dados pré-visualiza os dados. As definições de depurar podem ser editadas clicando em "Definições de Depurg" na barra de ferramentas de tela de fluxo de dados. Pode selecionar o limite de linha ou a fonte de ficheiro para utilizar para cada uma das suas transformações De Origem aqui. Os limites de linha neste ajuste são apenas para a sessão de depuragem atual. Também pode selecionar o serviço ligado à encenação a ser utilizado para uma fonte Azure Synapse Analytics. 
+Assim que ligar o modo de depurar, pode editar como um fluxo de dados pré-visualiza os dados. As definições de depurar podem ser editadas clicando em &quot;Definições de Depurg&quot; na barra de ferramentas de tela de fluxo de dados. Pode selecionar o limite de linha ou a fonte de ficheiro para utilizar para cada uma das suas transformações De Origem aqui. Os limites de linha neste ajuste são apenas para a sessão de depuragem atual. Também pode selecionar o serviço ligado à encenação a ser utilizado para uma fonte Azure Synapse Analytics. 
 
-![Definições de depurar](media/data-flow/debug-settings.png "Definições de depurar")
+![Definições de depurar](media/data-flow/debug-settings.png &quot;Definições de depurar")
 
 Se tiver parâmetros no seu Fluxo de Dados ou em qualquer um dos seus conjuntos de dados referenciados, pode especificar quais os valores a utilizar durante a depuragem selecionando o separador **Parâmetros.**
 

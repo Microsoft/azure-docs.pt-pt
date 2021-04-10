@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 3/22/2021
 ms.author: aahi
 ms.openlocfilehash: 08ff2f416a00002cde5767111ba5a6824a721324
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868176"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Quickstart: Criar um recurso de Serviços Cognitivos utilizando a Interface Command-Line Azure(CLI)

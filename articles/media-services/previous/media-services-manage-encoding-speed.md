@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: f01235e5b02bf2a61a359fa5571c6e6d575c1232
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014813"
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gerir a velocidade e simultaneidade da codificação
@@ -27,7 +27,7 @@ ms.locfileid: "103014813"
 
 Este artigo apresenta uma breve visão geral de como pode gerir a velocidade e a concordância dos seus trabalhos/tarefas de codificação.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Nos Serviços de Comunicação Social, um **Tipo de Unidade Reservada** determina a rapidez com que as suas tarefas de processamento de meios de comunicação são processadas. Pode escolher entre os seguintes tipos de unidade reservada: **S1,** **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. O tópico [das unidades de codificação de escala](media-services-scale-media-processing-overview.md) mostra uma tabela que o ajuda a tomar uma decisão na escolha entre diferentes velocidades de codificação.
 

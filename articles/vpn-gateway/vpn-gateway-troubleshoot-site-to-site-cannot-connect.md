@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 03/22/2021
 ms.author: genli
 ms.openlocfilehash: cebb05b35379573fc9797e89dee3c0c2bf3de6e2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867292"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação VPN local-to-site Azure não pode ligar-se e parar de funcionar

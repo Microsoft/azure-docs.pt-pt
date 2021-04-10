@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: 2078ba177d68cfaa0a91b79611d92e5c68e4e245
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868423"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Storm com Apache Kafka no HDInsight
@@ -363,7 +363,7 @@ streams:
 
 O projeto contém um ficheiro denominado `dev.properties` e que é utilizado para transmitir os parâmetros que as topologias utilizam. Define as seguintes propriedades:
 
-| ficheiro dev.properties | Descrição |
+| ficheiro dev.properties | Description |
 | --- | --- |
 | `kafka.zookeeper.hosts` | O [Apache ZooKeeper](https://zookeeper.apache.org/) acolhe o aglomerado de Kafka. |
 | `kafka.broker.hosts` | Os anfitriões dos mediadores do Kafka (nós de trabalho). |

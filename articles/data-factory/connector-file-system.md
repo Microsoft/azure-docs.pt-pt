@@ -4,14 +4,14 @@ description: Saiba como copiar dados do sistema de ficheiros para lojas de dados
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 ms.author: jingwang
-ms.openlocfilehash: a7cfcd77c4aeb12e2fca98a3564f34683b41ee21
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c49b543b13dddf4c4ba7e36196795c6a0d638ae2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589009"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731960"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de ficheiros utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -35,6 +35,9 @@ Especificamente, este conector do sistema de ficheiros suporta:
 - Copiar ficheiros de/para máquina local ou partilha de ficheiros de rede. Para utilizar uma partilha de ficheiros Linux, [instale o Samba](https://www.samba.org/) no seu servidor Linux.
 - Copiar ficheiros utilizando a autenticação **do Windows.**
 - Copiar ficheiros como é ou analisar/gerar ficheiros com os [formatos de ficheiros suportados e os codecs de compressão](supported-file-formats-and-compression-codecs.md).
+
+> [!NOTE]
+> A unidade de rede mapeada não é suportada ao carregar dados de uma partilha de ficheiros de rede. Use o caminho real, por ` \\server\share` exemplo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

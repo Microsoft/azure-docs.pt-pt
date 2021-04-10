@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014847"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhar com canais que recebem transmissão ao vivo multi-bitrate a partir de codificadores no local
@@ -28,7 +28,7 @@ ms.locfileid: "103014847"
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo deixarão de suportar o protocolo de transmissão rtp/MPEG-2. Por favor, migrar de PROTOCOLOs de ingestão RTP/MPEG-2 para RTMP ou MP4 (Smooth Streaming).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Na Azure Media Services, um *canal* representa um oleoduto para o processamento de conteúdos de streaming em direto. Um canal recebe transmissões de entrada ao vivo de uma de duas maneiras:
 
 * Um codificador ao vivo no local envia um stream rtmp multi-bitrate ou smooth streaming (MP4 fragmentado) para o canal que não está habilitado a realizar codificação ao vivo com serviços de media. Os fluxos ingeridos passam por canais sem qualquer processamento adicional. Este método *chama-se passagem.* Um codificador ao vivo também pode enviar um fluxo de bitrate único para um canal que não está habilitado para codificação ao vivo, mas não recomendamos isso. A Media Services entrega o fluxo aos clientes que o solicitam.

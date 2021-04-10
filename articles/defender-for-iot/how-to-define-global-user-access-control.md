@@ -4,10 +4,10 @@ description: Em grandes organizações, as permissões de utilizador podem ser c
 ms.date: 12/08/2020
 ms.topic: article
 ms.openlocfilehash: 8f5f8df56a5dcb4152fc0ae9fcae3d504d6cf3e2
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784293"
 ---
 # <a name="define-global-access-control"></a>Definir controlo global de acesso

@@ -4,10 +4,10 @@ description: Os relatórios de vetores de ataque fornecem uma representação gr
 ms.date: 12/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 6c178f379561ca4a572a7ae8f556ae6753d6e2be
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784378"
 ---
 # <a name="attack-vector-reporting"></a>Relatório de vetor de ataque

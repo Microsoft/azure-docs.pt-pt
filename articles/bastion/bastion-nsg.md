@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: b6a0dee4c3fef1be4f4b9f910b4c6256b4924a2d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101700223"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion

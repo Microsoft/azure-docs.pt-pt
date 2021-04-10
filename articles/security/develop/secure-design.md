@@ -10,15 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9e5246edd2d6490e823bacbdfff0f60ef553878b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96487682"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729138"
 ---
 # <a name="design-secure-applications-on-azure"></a>Design aplicações seguras em Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenha aplicações para a nuvem. São abrangidos os recursos de formação, juntamente com questões de segurança e conceitos a ter em conta durante as fases de requisitos e de conceção do Ciclo de Vida para o Desenvolvimento de Segurança da Microsoft [(SDL).](/previous-versions/windows/desktop/cc307891(v=msdn.10)) O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenhar uma aplicação mais segura.
@@ -153,7 +150,7 @@ Modelar o design da aplicação e enumerar ameaças [de STRIDE](https://docs.goo
 
 | Ameaça | Propriedade de segurança | Potencial atenuação da plataforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Spoofing               | Autenticação        | [Requerem ligações HTTPS](/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1). |
+| Spoofing               | Autenticação        | [Requerem ligações HTTPS](/aspnet/core/security/enforcing-ssl?tabs=visual-studio). |
 | Adulteração              | Integridade             | Validar certificados SSL/TLS. As aplicações que utilizam o SSL/TLS devem verificar plenamente os certificados X.509 das entidades a que se ligam. Utilize certificados Azure Key Vault para [gerir os seus certificados x509](../../key-vault/general/about-keys-secrets-certificates.md). |
 | Rejeição            | Não rejeição       | Ativar [a monitorização e diagnósticos do](/azure/architecture/best-practices/monitoring)Azure .|
 | Divulgação de Informações | Confidencialidade       | Criptografe dados sensíveis [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito.](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) |
@@ -233,7 +230,7 @@ Implementar o acesso *just-in-time* (JIT) para reduzir ainda mais o tempo de exp
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Exigir a reautensão para transações importantes
 
-[A falsificação de pedidos de cross-site](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecida como *XSRF* ou *CSRF*) é um ataque contra aplicações hospedadas na Web em que uma aplicação web maliciosa influencia a interação entre um navegador de cliente e uma aplicação web que confia nesse navegador. Os ataques de falsificação de pedidos de sites são possíveis porque os navegadores da Web enviam automaticamente alguns tipos de fichas de autenticação a cada pedido para um website.
+[A falsificação de pedidos de cross-site](/aspnet/core/security/anti-request-forgery) (também conhecida como *XSRF* ou *CSRF*) é um ataque contra aplicações hospedadas na Web em que uma aplicação web maliciosa influencia a interação entre um navegador de cliente e uma aplicação web que confia nesse navegador. Os ataques de falsificação de pedidos de sites são possíveis porque os navegadores da Web enviam automaticamente alguns tipos de fichas de autenticação a cada pedido para um website.
 Esta forma de exploração também é conhecida como um *ataque de um clique* ou uma *sessão de equitação* porque o ataque aproveita a sessão anteriormente autenticada do utilizador.
 
 A melhor forma de se defender deste tipo de ataque é pedir ao utilizador algo que só o utilizador pode fornecer antes de cada transação importante, como uma compra, desativação de conta ou uma alteração de senha. Pode pedir ao utilizador para reentrar na sua palavra-passe, completar um captcha ou enviar um sinal secreto que só o utilizador teria. A abordagem mais comum é o símbolo secreto.
@@ -303,7 +300,7 @@ Certifique-se de que:
 
 ### <a name="use-logging-and-alerting"></a>Utilizar registo e alerta
 
-[Informe](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) os seus problemas de segurança para investigações de segurança e desencadeie alertas sobre questões para garantir que as pessoas saibam dos problemas em tempo útil. Ativar a auditoria e o registo de todos os componentes. Os registos de auditoria devem capturar o contexto do utilizador e identificar todos os eventos importantes.
+[Informe](/aspnet/core/fundamentals/logging/) os seus problemas de segurança para investigações de segurança e desencadeie alertas sobre questões para garantir que as pessoas saibam dos problemas em tempo útil. Ativar a auditoria e o registo de todos os componentes. Os registos de auditoria devem capturar o contexto do utilizador e identificar todos os eventos importantes.
 
 Verifique se não regista quaisquer dados sensíveis que um utilizador submeta ao seu site. Exemplos de dados sensíveis incluem:
 

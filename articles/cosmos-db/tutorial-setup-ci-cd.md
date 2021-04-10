@@ -9,10 +9,10 @@ ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c7246511a88e2d2756a8ef56c5adf51ddbfd3e58
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560536"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Crie um oleoduto CI/CD com a tarefa de construção do Emulador Azure Cosmos DB em Azure DevOps

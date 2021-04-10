@@ -10,10 +10,10 @@ ms.date: 03/23/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ms.openlocfilehash: 84077f174fabd02afcd5171e8d365e8cbd3a52c2
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105027738"
 ---
 # <a name="use-the-azure-portal-to-manage-network-interfaces-on-the-vms-on-your-azure-stack-edge-pro-gpu"></a>Utilize o portal Azure para gerir interfaces de rede nos VMs no gpu Azure Stack Edge Pro

@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: anilmur
 ms.openlocfilehash: 7aada042254a2794602002614df51646be90c7cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013147"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e Codecs do Codificador de Multimédia Standard

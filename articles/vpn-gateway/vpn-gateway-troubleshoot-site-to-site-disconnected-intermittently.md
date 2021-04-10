@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/22/2021
 ms.author: genli
 ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867258"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Resolução de problemas: A VPN Site a Site do Azure desliga-se de forma intermitente

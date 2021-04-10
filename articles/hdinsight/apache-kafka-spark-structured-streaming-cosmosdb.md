@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
 ms.openlocfilehash: d78b629e90903c58b98de86f425f0c1225d90997
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867054"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Fluxo Estruturado de Faíscas Apache com Apache Kafka e Azure Cosmos DB

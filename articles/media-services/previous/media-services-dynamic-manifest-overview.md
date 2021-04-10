@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 002a7c61d6760decf65016870739ab62b15d5c72
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013691"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters and dynamic manifests (Filtros e manifestos dinâmicos)
@@ -33,7 +33,7 @@ A partir do lançamento 2.17, os Serviços de Media permitem definir filtros par
 
 Este tópico discute cenários comuns em que a utilização de filtros seria benéfica para os seus clientes e ligações a tópicos que demonstram como criar filtros programáticamente.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo-on-demand) o seu objetivo é entregar um vídeo de alta qualidade a vários dispositivos em diferentes condições de rede. Para atingir este objetivo, faça o seguinte:
 
 * codificar o seu fluxo para fluxo de vídeo multi-bitrate[(bitrate adaptativo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (isto irá cuidar das condições de qualidade e de rede) e 

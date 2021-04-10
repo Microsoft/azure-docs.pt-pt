@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: 9f30d271dbc769f4261fcaa357811146e5b99bd3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782304"
 ---
 # <a name="tutorial-assess-hyper-v-vms-for-migration-to-azure"></a>Tutorial: Avaliar VMs hiper-V para migração para Azure

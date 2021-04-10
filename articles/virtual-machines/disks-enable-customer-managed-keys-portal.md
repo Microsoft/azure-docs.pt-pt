@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7fbcf37620f9d6edfb0f312c2eb09ef2d7994232
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499395"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731654"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utilize o portal Azure para ativar a encriptação do lado do servidor com chaves geridas pelo cliente para discos geridos
 
@@ -32,8 +32,6 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
     - Para windows: [Copiar um disco gerido](./windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)
 
-- Apenas [o software e as teclas HSM RSA](../key-vault/keys/about-keys.md) dos tamanhos de 2.048 bits, 3.072 bits e 4.096 bits são suportadas, sem outras chaves ou tamanhos.
-    - As chaves [HSM](../key-vault/keys/hsm-protected-keys.md) requerem o nível **premium** dos cofres da Chave Azure.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 As seguintes secções abrangem como ativar e utilizar chaves geridas pelo cliente para discos geridos:

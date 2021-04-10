@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015663"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema Media Encoder Standard
@@ -199,7 +199,7 @@ Se o vídeo de entrada tiver sido capturado com rotação não-zero (por exemplo
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Em alternativa, pode utilizar a bandeira **de PreservaResolutionAfterRotation** e defini-la como "verdadeira" (o padrão é "falso"). Assim, se a sua predefinição tem Largura = "100%", Altura = "100%" e PreserveResolutionAfterRotation definido para "verdadeiro", um vídeo de entrada, que tem 1280 pixels de largura e 720 pixels de altura com rotação de 90 graus produz uma saída com rotação de zero graus, mas 720 pixels de largura e 1280 pixels de altura. Veja a seguinte imagem:  
+Em alternativa, pode utilizar a bandeira **de PreservaResolutionAfterRotation** e defini-la como "verdadeira&quot; (o padrão é &quot;falso"). Assim, se a sua predefinição tem Largura = "100%", Altura = "100%" e PreserveResolutionAfterRotation definido para "verdadeiro", um vídeo de entrada, que tem 1280 pixels de largura e 720 pixels de altura com rotação de 90 graus produz uma saída com rotação de zero graus, mas 720 pixels de largura e 1280 pixels de altura. Veja a seguinte imagem:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 

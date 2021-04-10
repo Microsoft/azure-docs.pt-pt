@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6b59276cc340f133c0f270e8ab95051b3c392e1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e45a0eefff3a6a7f7dd37bde3ee3bffaedd93dcd
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581291"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166620"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtenha credenciais para aceder à API dos Serviços de Mídia
 
@@ -38,7 +38,7 @@ Este artigo descreve passos para obter credenciais para aceder à API dos Servi�
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se não tem conta, comece com um [julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/)
-- Uma conta dos Media Services. Para obter mais informações, consulte [criar uma conta Azure Media Services utilizando o portal Azure](create-account-howto.md).
+- Uma conta dos Media Services. Para obter mais informações, consulte [criar uma conta Azure Media Services utilizando o portal Azure](account-create-how-to.md).
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
 
