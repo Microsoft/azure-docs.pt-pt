@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8d3c5b10c670e7aa4f1fd00f47ef47e772416cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ea2a127ffbf966b024322ab5a908466dec1cc8a9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706865"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935639"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar os dados do seu rosto para uma subscrição diferente do Face
 
@@ -176,7 +176,7 @@ await DisplayPersonGroup(FaceClientEastAsia, personGroupId);
 await IdentifyInPersonGroup(FaceClientEastAsia, personGroupId);
 
 await DisplayPersonGroup(FaceClientWestUS, newPersonGroupId);
-// No need to retrain the person group before identification,
+// No need to retrain the PersonGroup before identification,
 // training results are copied by snapshot as well.
 await IdentifyInPersonGroup(FaceClientWestUS, newPersonGroupId);
 ```
@@ -187,7 +187,7 @@ Utilize os seguintes métodos de ajuda:
 private static async Task DisplayPersonGroup(IFaceClient client, string personGroupId)
 {
     var personGroup = await client.PersonGroup.GetAsync(personGroupId);
-    Console.WriteLine("Person Group:");
+    Console.WriteLine("PersonGroup:");
     Console.WriteLine(JsonConvert.SerializeObject(personGroup));
 
     // List persons.

@@ -9,15 +9,16 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: bdba05dd75b6b6f4e32bf3f536e794e568fa13d7
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: e879b7938eb778d4cdbbef4a970325501a6124db
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105642667"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932153"
 ---
 # <a name="sms-concepts"></a>Conceitos de SMS
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 

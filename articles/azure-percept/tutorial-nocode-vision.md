@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
 ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105023134"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Criar uma solução de visão sem código no Azure Percept Studio

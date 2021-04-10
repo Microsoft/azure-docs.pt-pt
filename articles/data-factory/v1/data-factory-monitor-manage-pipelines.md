@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 0744a7d915d6bee868b160abc29964d58947dd28
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779635"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando o portal Azure e o PowerShell
@@ -83,7 +83,7 @@ As fatias de conjunto de dados na fábrica de dados podem ter um dos seguintes e
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestulo</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subestulo</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">Em espera</td><td>Horário</td><td>Ainda não chegou a hora da fatia correr.</td>

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104579370"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Azure Ative Directory
@@ -55,7 +55,7 @@ Os métodos de autenticação sem palavras-passe da Microsoft permitem diferente
 | --- | --- | --- | --- |
 | **Sinal de computador em**: <br> Do dispositivo designado Windows 10 | **Não** | **Sim** <br> Com biométrico, PIN | **Sim**<br>com reconhecimento biométrico e ou PIN |
 | **Sinal de computador em**: <br> A partir do dispositivo partilhado do Windows 10 | **Não** | **Sim** <br> Com biométrico, PIN  | **Não** |
-| **Sindução de aplicações web:** <br>‎ from a user-dedicated computer | **Sim** | **Sim** <br> Fornecido um único sinal de inscrição para apps é ativado por iniciar sôm-in do computador | **Sim**<br> Fornecido um único sinal de inscrição para apps é ativado por iniciar sôm-in do computador |
+| **Sindução de aplicações web:** <br>a partir de um computador dedicado ao utilizador | **Sim** | **Sim** <br> Fornecido um único sinal de inscrição para apps é ativado por iniciar sôm-in do computador | **Sim**<br> Fornecido um único sinal de inscrição para apps é ativado por iniciar sôm-in do computador |
 | **Sindução de aplicações web:** <br> a partir de um dispositivo móvel ou não-janelas | **Sim** | **Não** | **Não** |
 | **Sinal de computador em**: <br> Computador não-Windows | **Não** | **Não** | **Não** |
 
@@ -82,7 +82,7 @@ Os pré-requisitos para o Windows Hello são altamente dependentes de estar a im
 
 Os utilizadores registam o seu método sem palavra-passe como parte do fluxo de registo de autenticação multi-factor Azure AD. A autenticação multi-factor com um nome de utilizador e palavra-passe juntamente com outro método registado pode ser usada como um recuo no caso de não poderem usar o seu telefone ou chave de segurança em alguns cenários.
 
-### <a name="licensing"></a>Licensing 
+### <a name="licensing"></a>Licenciamento 
 Não existe um custo adicional para a autenticação sem palavra-passe, embora alguns pré-requisitos possam exigir uma subscrição premium. Para informações detalhadas sobre funcionalidades e licenciamento na página de licenciamento do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Desenvolver um plano

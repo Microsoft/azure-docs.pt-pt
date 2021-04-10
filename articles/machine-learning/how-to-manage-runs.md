@@ -13,10 +13,10 @@ ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
 ms.openlocfilehash: f148a5b267edd3fc1dd33ef17d5ad01005b4a903
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105566290"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Iniciar, monitorizar e rastrear o histórico 

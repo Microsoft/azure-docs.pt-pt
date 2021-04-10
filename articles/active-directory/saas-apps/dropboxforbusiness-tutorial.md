@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
 ms.openlocfilehash: 41f6db8cf2454c224addac525e9d039954a95712
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104601504"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio dropbox com o Azure Ative Directory
@@ -133,7 +133,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 3. Se quiser configurar o Dropbox Business manualmente, abra uma nova janela do navegador web e aceda ao seu inquilino dropbox business e inscreva-se no seu inquilino do Dropbox Business. e executar os seguintes passos:
 
-    ![Screenshot que mostra a página "Dropbox Business Sign in".](./media/dropboxforbusiness-tutorial/account.png "Configurar o início de sessão único")
+    ![Screenshot que mostra a página "Dropbox Business Sign in&quot;.](./media/dropboxforbusiness-tutorial/account.png &quot;Configurar o início de sessão único")
 
 4. Clique no **separador Ícone** do Utilizador e selecione **O separador Definições.**
 

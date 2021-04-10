@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/25/2021
 ms.author: jgao
 ms.openlocfilehash: 2e7168211dfda86653358e52ae52e3f02dfbb154
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105543789"
 ---
 > [!NOTE]

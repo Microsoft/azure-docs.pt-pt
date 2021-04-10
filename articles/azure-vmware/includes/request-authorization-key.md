@@ -4,10 +4,10 @@ description: Passos para solicitar uma chave de autorização para o ExpressRout
 ms.topic: include
 ms.date: 03/15/2021
 ms.openlocfilehash: 99d9fba33d64fca1d9c5b960041fbabe1f9060db
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105027016"
 ---
 <!-- used in expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->

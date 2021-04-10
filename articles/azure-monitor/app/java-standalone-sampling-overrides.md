@@ -7,10 +7,10 @@ author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
 ms.openlocfilehash: 17979bd548ca0d7b704ebdeb4d060bf35973b319
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105024152"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Sobreposições de amostragem (pré-visualização) - Azure Monitor Application Insights for Java

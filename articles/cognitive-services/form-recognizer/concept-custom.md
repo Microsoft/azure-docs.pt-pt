@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 74ced2ecadb5ccfe5cdb7966550e469ae4f8ab31
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: 8a29bc0d98c1286dcf09da59dc21ac2b2e09f478
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612267"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935622"
 ---
 # <a name="form-recognizer-custom-models"></a>Modelos personalizados do Reconhecimento de Formulários
 
@@ -34,36 +34,37 @@ Com o Form Recogniser, pode treinar um modelo que extrairá informações de for
 A um nível elevado, os passos para construir, treinar e usar o seu modelo personalizado são os seguintes:
 
 > [!div class="nextstepaction"]
-> [1. Monte o seu conjunto de dados de formação](build-training-data-set.md#custom-model-input-requirements)
+>Monte o seu conjunto de dados de formação](build-training-data-set.md#custom-model-input-requirements)
 
 A construção de um modelo personalizado começa por estabelecer o seu conjunto de dados de treino. Você precisará de um mínimo de cinco formas completas do mesmo tipo para o seu conjunto de dados da amostra. Podem ser de diferentes tipos de ficheiros e conter texto e caligrafia. Os seus formulários devem ser do mesmo tipo de documento e seguir os [requisitos](build-training-data-set.md#custom-model-input-requirements) de entrada para o Reconhecimento de Formulários.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
-> [2. Faça upload do conjunto de dados de treino](build-training-data-set.md#upload-your-training-data)
+> [Faça upload do conjunto de dados de treino](build-training-data-set.md#upload-your-training-data)
 
 Terá de enviar os seus dados de treino para um recipiente de armazenamento de bolhas Azure. Se não souber como criar uma conta de armazenamento Azure com um recipiente, *consulte* [o quickstart de armazenamento Azure para o portal Azure](../../storage/blobs/storage-quickstart-blobs-portal.md). Utilize o nível de preços gratuitos (F0) para experimentar o serviço e atualize mais tarde para um nível pago para produção.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 > [!div class="nextstepaction"]
-> [3. Treine o seu modelo personalizado](quickstarts/client-library.md#train-a-custom-model)
+>[Treine o seu modelo personalizado](quickstarts/client-library.md#train-a-custom-model)
 
 Pode treinar o seu modelo [sem](quickstarts/client-library.md#train-a-model-without-labels) ou [com](quickstarts/client-library.md#train-a-model-with-labels) conjuntos de dados rotulados. Os conjuntos de dados não rotulados baseiam-se exclusivamente na API de Layout para detetar e identificar informações-chave sem a entrada humana adicionada. Os conjuntos de dados rotulados também dependem da API do Layout, mas a entrada humana suplementar está incluída, tal como as suas etiquetas específicas e locais de campo. Para utilizar dados rotulados e não rotulados, comece com pelo menos cinco formas completas do mesmo tipo para os dados de formação rotulados e, em seguida, adicione dados não rotulados ao conjunto de dados necessário.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;  
 
 >[!div class="nextstepaction"]
-> [4. Analisar documentos com o seu modelo personalizado](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
+>[Analise documentos com o seu modelo personalizado](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
 
 Teste o seu modelo recém-treinado usando um formulário que não fazia parte do conjunto de dados de treino. Pode continuar a fazer mais treinos para melhorar o desempenho do seu modelo personalizado.  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&#129155;
 
 > [!div class="nextstepaction"]
-> [5. Gerir os seus modelos personalizados](quickstarts/client-library.md#manage-custom-models)
+>[Gerir os seus modelos personalizados](quickstarts/client-library.md#manage-custom-models)
 
 A qualquer momento, pode ver uma lista de todos os modelos personalizados sob a sua subscrição, recuperar informações sobre um modelo personalizado específico ou eliminar um modelo personalizado da sua conta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a biblioteca do cliente Do Formulário Recogniser explorando a nossa documentação de referência da API.
+
 > [!div class="nextstepaction"]
-> [Referência API do Reconhecimento de Formulários](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)
+> [Referência API do Reconhecimento de Formulários](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)
 >

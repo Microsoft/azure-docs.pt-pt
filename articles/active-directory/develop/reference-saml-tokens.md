@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/09/2020
+ms.date: 03/29/2021
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 9c3132985866a4c245984ef632107c05ca1b3350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f636b8ec04d151c855112102421dd2df0ccb6ff8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348387"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932884"
 ---
 # <a name="saml-token-claims-reference"></a>Referência de reclamações de ficha SAML
 
@@ -34,7 +34,7 @@ A plataforma de identidade da Microsoft emite vários tipos de fichas de seguran
 > |Método de autenticação | `amr` |Identifica como o objeto do símbolo foi autenticado. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Nome Próprio | `given_name` |Fornece o primeiro nome ou "dado" do utilizador, conforme definido no objeto de utilizador Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
 > |Grupos | `groups` |Fornece iDs de objeto que representam os membros do grupo do sujeito. Estes valores são únicos (ver Object ID) e podem ser utilizados com segurança para gerir o acesso, como impor autorização de acesso a um recurso. Os grupos incluídos nos grupos alegam que são configurados por aplicação, através do manifesto "groupMembershipClaims" do manifesto de aplicação. Um valor de nulo excluirá todos os grupos, um valor de "SecurityGroup" incluirá apenas membros do Ative Directory Security Group, e um valor de "All" incluirá tanto grupos de segurança como Listas de Distribuição microsoft 365. <br><br> **Notas:** <br> Se o número de grupos em que o utilizador se encontra ultrapassar um limite (150 para SAML, 200 para JWT), então será adicionada uma reclamação por excesso de tempo, as fontes de reclamação que apontam para o ponto final do Gráfico contendo a lista de grupos para o utilizador. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | Indicador de sobrea sobrecarga de grupos | `groups:src1` | Para pedidos simbólicos que não sejam limitados por comprimento, mas ainda demasiado grandes para o token, será incluído um link para a lista completa de grupos para o utilizador. Para a SAML, esta é adicionada como uma nova reivindicação em vez da `groups` reclamação. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> | Indicador de sobrea sobrecarga de grupos | `groups:src1` | Para pedidos simbólicos que não sejam limitados por comprimento, mas ainda demasiado grandes para o token, será incluído um link para a lista completa de grupos para o utilizador. Para a SAML, esta é adicionada como uma nova reivindicação em vez da `groups` reclamação. <br><br> **Notas:** <br> A Azure AD Graph API está a ser substituída pela Microsoft Graph API. Para saber mais sobre o ponto final equivalente, consulte [o utilizador: obtenhaMemberObjects](https://docs.microsoft.com/graph/api/user-getmemberobjects). | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Fornecedor de Identidade | `idp` |Regista o fornecedor de identidade que autenticou o requerente do token. Este valor é idêntico ao valor da reclamação do Emitente, a menos que a conta de utilizador esteja num inquilino diferente do emitente. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |Emitida | `iat` |Armazena o momento em que o símbolo foi emitido. É frequentemente usado para medir a frescura simbólica. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Emissor | `iss` |Identifica o serviço de símbolos de segurança (STS) que constrói e devolve o token. Nos tokens que a Azure AD retorna, o emitente é sts.windows.net. O valor de reclamação GUID no Emitente é o iD do inquilino do diretório AD Azure. A identificação do inquilino é um identificador imutável e fiável do diretório. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
