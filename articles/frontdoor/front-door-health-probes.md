@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd56740b7153cdbafdfa847a22d34b57f862cdf3
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449246"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550748"
 ---
 # <a name="health-probes"></a>Sondas do estado de funcionamento
 
@@ -24,6 +24,9 @@ Para determinar a saúde e proximidade de cada backend para um determinado ambie
 
 > [!WARNING]
 > Uma vez que a Porta Frontal tem muitos ambientes de borda a nível global, o volume da sonda de saúde para os seus backends pode ser bastante elevado - variando de 25 pedidos por minuto até 1200 pedidos por minuto, dependendo da frequência da sonda de saúde configurada. Com a frequência padrão da sonda de 30 segundos, o volume da sonda no seu backend deve ser de cerca de 200 pedidos por minuto.
+
+> [!NOTE]
+> As sondas FRONT Door HTTP/HTTPS são enviadas com `User-Agent` o conjunto de cabeçalho com valor: `Edge Health Probes` . 
 
 ## <a name="supported-protocols"></a>Protocolos suportados
 
@@ -41,7 +44,7 @@ Porta frontal suporta os seguintes métodos HTTP para o envio das sondas sanitá
 
 ## <a name="health-probe-responses"></a>Respostas da sonda de saúde
 
-| Respostas  | Description | 
+| Respostas  | Descrição | 
 | ------------- | ------------- |
 | Determinação da Saúde  |  Um código de estado de 200 OK indica que o backend é saudável. Todo o resto é considerado um fracasso. Se, por qualquer motivo (incluindo falha de rede) não for recebida uma resposta HTTP válida para uma sonda, a sonda é contada como uma falha.|
 | Medição da Latência  | A latência é o tempo do relógio de parede medido a partir do momento imediatamente antes de enviarmos o pedido da sonda para o momento em que recebemos o último byte da resposta. Usamos uma nova ligação TCP para cada pedido, por isso esta medição não é tendenciosa para backends com conexões quentes existentes.  |

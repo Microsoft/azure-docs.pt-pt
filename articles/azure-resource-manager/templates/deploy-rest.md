@@ -3,12 +3,12 @@ title: Implementar recursos com API rest e modelo
 description: Utilize o Azure Resource Manager e o Resource Manager REST API para mobilizar recursos para o Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: e688d7abfaca442c3de395d25961b4e81e6c7b24
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 90e50598176ddc0327a81df105740f58afd930bc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889200"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732572"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>Implementar recursos com modelos ARM e AZure Resource Manager REST API
 
@@ -20,13 +20,13 @@ Pode incluir o seu modelo no corpo de pedido ou ligar-se a um ficheiro. Ao utili
 
 Pode direcionar a sua implementação para um grupo de recursos, subscrição Azure, grupo de gestão ou inquilino. Dependendo do alcance da implantação, utiliza-se diferentes comandos.
 
-- Para implementar num **grupo de recursos,** utilize [implementações - Crie](/rest/api/resources/deployments/createorupdate). O pedido é enviado para:
+- Para implementar num **grupo de recursos,** utilize [implementações - Crie](/rest/api/resources/resources/deployments/createorupdate). O pedido é enviado para:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
   ```
 
-- Para implementar uma **subscrição**, utilize [implementações - Crie no âmbito de subscrição](/rest/api/resources/deployments/createorupdateatsubscriptionscope). O pedido é enviado para:
+- Para implementar uma **subscrição**, utilize [implementações - Crie no âmbito de subscrição](/rest/api/resources/resources/deployments/createorupdateatsubscriptionscope). O pedido é enviado para:
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -34,7 +34,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição Az
 
   Para obter mais informações sobre as implementações do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](deploy-to-subscription.md)
 
-- Para implantar num **grupo de gestão,** utilize [implementações - Crie no Âmbito do Grupo de Gestão](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). O pedido é enviado para:
+- Para implantar num **grupo de gestão,** utilize [implementações - Crie no Âmbito do Grupo de Gestão](/rest/api/resources/resources/deployments/createorupdateatmanagementgroupscope). O pedido é enviado para:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -42,7 +42,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição Az
 
   Para obter mais informações sobre as implementações de nível de grupo de gestão, consulte [Criar recursos ao nível do grupo de gestão.](deploy-to-management-group.md)
 
-- Para implantar num **inquilino,** utilize [implementações - Crie ou atualize no âmbito do inquilino.](/rest/api/resources/deployments/createorupdateattenantscope) O pedido é enviado para:
+- Para implantar num **inquilino,** utilize [implementações - Crie ou atualize no âmbito do inquilino.](/rest/api/resources/resources/deployments/createorupdateattenantscope) O pedido é enviado para:
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -56,7 +56,7 @@ Os exemplos deste artigo utilizam implementações de grupos de recursos.
 
 1. Desacorda [os parâmetros e cabeçalhos comuns,](/rest/api/azure/)incluindo fichas de autenticação.
 
-1. Se estiver a implantar para um grupo de recursos que não existe, crie o grupo de recursos. Forneça o seu ID de subscrição, o nome do novo grupo de recursos e a localização que necessita para a sua solução. Para obter mais informações, consulte [Criar um grupo de recursos.](/rest/api/resources/resourcegroups/createorupdate)
+1. Se estiver a implantar para um grupo de recursos que não existe, crie o grupo de recursos. Forneça o seu ID de subscrição, o nome do novo grupo de recursos e a localização que necessita para a sua solução. Para obter mais informações, consulte [Criar um grupo de recursos.](/rest/api/resources/resources/resourcegroups/createorupdate)
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2020-06-01
@@ -189,7 +189,7 @@ Os exemplos deste artigo utilizam implementações de grupos de recursos.
    }
    ```
 
-1. Para obter o estado da implementação do modelo, use [Implementações - Obtenha](/rest/api/resources/deployments/get).
+1. Para obter o estado da implementação do modelo, use [Implementações - Obtenha](/rest/api/resources/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01

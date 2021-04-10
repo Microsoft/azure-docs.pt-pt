@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: victorh
-ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e955c6b760c06ce802dfae0193d34954eab99892
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96490113"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731093"
 ---
 # <a name="what-are-security-partner-providers"></a>O que são fornecedores de parceiros de segurança?
 
@@ -30,17 +30,22 @@ Os parceiros de segurança apoiados são **Zscaler,** **[Check Point](check-poin
 
 Pode utilizar os parceiros de segurança para filtrar o tráfego da Internet em seguintes cenários:
 
-- Rede Virtual (VNet) para internet
+- Rede Virtual (VNet)-para-Internet
 
-   Aproveite a proteção avançada da Internet consciente do utilizador para as suas cargas de trabalho em nuvem em execução no Azure.
+   Utilize uma proteção avançada da Internet consciente do utilizador para as suas cargas de trabalho em nuvem em execução no Azure.
 
-- Ramo para internet
+- Sucursal para internet
 
-   Aproveite a conectividade Azure e a distribuição global para adicionar facilmente a filtragem NSaaS de terceiros para os cenários da Internet. Pode construir a sua rede global de trânsito e borda de segurança utilizando a Azure Virtual WAN.
+   Use a sua conectividade Azure e distribuição global para adicionar facilmente filtragem NSaaS de terceiros para obter cenários de ramificação para cenários de Internet. Pode construir a sua rede global de trânsito e borda de segurança utilizando a Azure Virtual WAN.
 
 São apoiados os seguintes cenários:
-- VNet/Branch para internet através de um fornecedor de parceiros de segurança e do outro tráfego (falou com falou, falou com a filial, ramo para falar) via Azure Firewall.
-- VNet/Sucursal para internet através de fornecedor de parceiros de segurança
+- Dois fornecedores de segurança no centro
+
+   VNet/Branch-to-Internet através de um fornecedor de parceiros de segurança e do outro tráfego (spoke-to-spoke, spoke-to-branch, branch-to-spoke) via Azure Firewall.
+- Fornecedor único no centro
+
+   - Todo o tráfego (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) protegido por Azure Firewall
+   - VNet/Branch-to-Internet através de fornecedor de parceiros de segurança
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Boas práticas para filtragem de tráfego de Internet em centros virtuais seguros
 

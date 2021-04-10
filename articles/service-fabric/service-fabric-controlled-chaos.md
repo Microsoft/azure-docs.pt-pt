@@ -2,21 +2,21 @@
 title: Induzir o caos nos clusters de tecido de serviço
 description: Utilização de APIs do Serviço de Injeção de Falhas e Análise de Cluster para gerir o Caos no cluster.
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 72b8f7e9e4934b516f843ae8bc9bb7adc1c349ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 759e2d1c8d2a326583625fbbbcadb4f4fa950510
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720515"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732436"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o caos controlado nos clusters de tecido de serviço
 Sistemas distribuídos em larga escala, como infraestruturas em nuvem, são inerentemente pouco fiáveis. O Azure Service Fabric permite que os desenvolvedores escrevam serviços distribuídos fiáveis em cima de uma infraestrutura pouco fiável. Para escrever serviços robustos distribuídos em cima de uma infraestrutura pouco fiável, os desenvolvedores precisam de ser capazes de testar a estabilidade dos seus serviços enquanto a infraestrutura subjacente não confiável está a passar por transições complicadas do Estado devido a falhas.
 
 O [Serviço de Injeção de Falhas e Análise de Cluster](./service-fabric-testability-overview.md) (também conhecido como Serviço de Análise de Falhas) dá aos desenvolvedores a capacidade de induzir falhas para testar os seus serviços. Estas falhas simuladas direcionadas, como [reiniciar uma partição,](/powershell/module/servicefabric/start-servicefabricpartitionrestart)podem ajudar a exercer as transições estatais mais comuns. No entanto, falhas simuladas direcionadas são tendenciosas por definição e, portanto, podem falhar bugs que aparecem apenas em seqüência difícil de prever, longa e complicada das transições do estado. Para um teste imparcial, pode usar o Caos.
 
-O caos simula falhas periódicas e intercaladas (graciosas e ingracidas) durante longos períodos de tempo. Uma falha graciosa consiste num conjunto de chamadas API de Tecido de Serviço, por exemplo, reiniciar a falha da réplica é uma falha graciosa porque esta é uma falha próxima seguida de uma abertura numa réplica. Remover réplica, mover réplica primária e mover réplica secundária são as outras falhas graciosas exercidas pelo Caos. Falhas ingraças são saídas de processo, como reiniciar o nó e reiniciar o pacote de código. 
+O caos simula falhas periódicas e intercaladas (graciosas e ingracidas) durante longos períodos de tempo. Uma falha graciosa consiste num conjunto de chamadas API de Tecido de Serviço, por exemplo, reiniciar a falha da réplica é uma falha graciosa porque esta é uma falha próxima seguida de uma abertura numa réplica. Remover réplica, mover réplica primária, mover réplica secundária, e mover exemplos são as outras falhas graciosas exercidas pelo Caos. Falhas ingraças são saídas de processo, como reiniciar o nó e reiniciar o pacote de código.
 
 Uma vez configurado o Caos com a taxa e o tipo de falhas, pode iniciar o Caos através de C#, Powershell ou REST API para começar a gerar falhas no cluster e nos seus serviços. Pode configurar o Caos para funcionar durante um período de tempo especificado (por exemplo, durante uma hora), após o qual o Caos para automaticamente, ou pode ligar para o StopChaos API (C#, Powershell ou REST) para o parar a qualquer momento.
 
@@ -37,6 +37,7 @@ O caos induz falhas das seguintes categorias:
 * Reiniciar uma réplica
 * Mover uma réplica primária (configurável)
 * Mover uma réplica secundária (configurável)
+* Mover um caso
 
 O caos corre em várias iterações. Cada iteração consiste em falhas e validação do cluster para o período especificado. Pode configurar o tempo gasto para o cluster estabilizar e validar para ter sucesso. Se uma falha for encontrada na validação do cluster, o Caos gera e persiste num Evento De ValidaçãoFailedEvent com o timetamp UTC e os detalhes da falha. Por exemplo, considere um caso de Caos que está programado para funcionar durante uma hora com um máximo de três falhas simultâneas. O caos induz três falhas e, em seguida, valida a saúde do cluster. Itera através do passo anterior até que seja explicitamente parado através da API StopChaosAsync ou passes de uma hora. Se o cluster se tornar insalubre em qualquer iteração (isto é, não estabiliza ou não se torna saudável dentro do MaxClusterStabilizationTimeout passado), o Caos gera um Evento De ValidaçãoFailed. Este evento indica que algo correu mal e pode precisar de mais investigação.
 
@@ -56,14 +57,14 @@ Para obter quais falhas O Caos induzido, pode utilizar a API GetChaosReport (Pow
 > Independentemente do valor que *a MaxConcurrentFaults* tem, o Chaos garante - na ausência de falhas externas - que não há perda de quórum ou perda de dados.
 >
 
-* **ActivarMoveReplicaFaults**: Ativa ou desativa as falhas que fazem com que as réplicas primárias ou secundárias se movam. Estas falhas são ativadas por padrão.
+* **ActivarMoveReplicaFaults**: Ativa ou desativa as falhas que causam as réplicas primárias, secundárias ou instâncias a moverem-se. Estas falhas são ativadas por padrão.
 * **WaitTimeBetweenIterations**: A quantidade de tempo para esperar entre iterações. Ou seja, a quantidade de tempo que o Caos vai parar depois de ter executado uma ronda de falhas e ter terminado a correspondente validação da saúde do cluster. Quanto maior for o valor, menor é a taxa média de injeção de avarias.
 * **WaitTimeBetweenFaults**: A quantidade de tempo para esperar entre duas falhas consecutivas numa única iteração. Quanto maior o valor, menor a concordância de (ou a sobreposição entre) falhas.
 * **ClusterHealthPolicy**: A política de saúde do cluster é usada para validar a saúde do cluster entre iterações do caos. Se a saúde do cluster estiver errada ou se uma exceção inesperada acontecer durante a execução de avarias, o Caos aguardará 30 minutos antes da próxima verificação de saúde - para proporcionar ao cluster algum tempo para recuperar.
 * **Contexto**: Uma coleção de pares de valor-chave do tipo (corda, corda). O mapa pode ser usado para gravar informações sobre a corrida do Caos. Não pode haver mais de 100 pares deste tipo e cada corda (chave ou valor) pode ter no máximo 4095 caracteres. Este mapa é definido pelo arranque do Caos correr para armazenar opcionalmente o contexto sobre a execução específica.
 * **ChaosTargetFilter**: Este filtro pode ser utilizado para direcionar as falhas do Caos apenas a certos tipos de nós ou apenas a determinadas instâncias de aplicação. Se o ChaosTargetFilter não for utilizado, o Caos falha todas as entidades do cluster. Se o CaosTargetFilter for utilizado, o Caos falha apenas as entidades que cumprem a especificação do ChaosTargetFilter. NodeTypeInclusionList e ApplicationInclusionList permitem apenas semântica sindical. Por outras palavras, não é possível especificar uma intersecção entre NodeTypeInclusionList e ApplicationInclusionList. Por exemplo, não é possível especificar "avaria esta aplicação apenas quando está nesse tipo de nó". Uma vez que uma entidade é incluída no NodeTypeInclusionList ou no ApplicationInclusionList, essa entidade não pode ser excluída usando o ChaosTargetFilter. Mesmo que a aplicaçãoX não apareça no ApplicationInclusionList, em algumas aplicações de iteração caosX pode ser falha porque acontece que está num nó de nodeTypeY que está incluído no NodeTypeInclusionList. Se tanto o NodeTypeInclusionList como o ApplicationInclusionList forem nulos ou vazios, é lançado um ArgumentException.
-    * **NodeTypeInclusionList**: Uma lista de tipos de nós a incluir em falhas de caos. Todos os tipos de falhas (reinicie o nó, reinicie a codepackage, remova a réplica, reinicie a réplica, mova-se primáriamente e mova-se secundária) para os nós destes tipos de nós. Se um nótipo (digamos NodeTypeX) não aparecer no NodeTypeInclusionList, então as falhas do nível do nó (como nodeRestart) nunca serão ativadas para os nós de NodeTypeX, mas o pacote de código e as falhas de réplica ainda podem ser ativadas para NodeTypeX se uma aplicação na Lista de Exclusões de Aplicação acontecer reside num nó de NodeTypeX. No máximo 100 nomes do tipo nó podem ser incluídos nesta lista, para aumentar este número, é necessária uma atualização config para a configuração MaxNumberOfNodeTypesInChaosTargetFilter.
-    * **ApplicationInclusionList**: Uma lista de URIs de aplicação a incluir em falhas de caos. Todas as réplicas pertencentes a serviços destas aplicações são passíveis de réplicas (reiniciar réplicas, remover réplicas, mover-se primária e mover-se secundária) pelo Caos. O caos só pode reiniciar um pacote de código se o pacote de código hospedar réplicas destas aplicações apenas. Se uma aplicação não aparecer nesta lista, pode ainda ser defeituosa em alguma iteração do Caos se a aplicação acabar num nó de um nó que está incluído no NodeTypeInclusionList. No entanto, se a aplicaçãoX estiver ligada ao nodeTypeY através de restrições de colocação e a aplicaçãoX estiver ausente do ApplicationInclusionList e o nodeTypeY estiver ausente do NodeTypeInclusionList, então a aplicaçãoX nunca será defeituosa. No máximo 1000 nomes de aplicações podem ser incluídos nesta lista, para aumentar este número, é necessária uma atualização config para a configuração do MaxNumberOfApplicationsInChaosTargetFilter.
+    * **NodeTypeInclusionList**: Uma lista de tipos de nós a incluir em falhas de caos. Todos os tipos de falhas (reinicie o nó, reinicie a codepackage, remova a réplica, reinicie a réplica, mova-se primária, mova-se em segundo lugar e lance de movimento) são ativadas para os nós destes tipos de nós. Se um nótipo (digamos NodeTypeX) não aparecer no NodeTypeInclusionList, então as falhas do nível do nó (como nodeRestart) nunca serão ativadas para os nós de NodeTypeX, mas o pacote de código e as falhas de réplica ainda podem ser ativadas para NodeTypeX se uma aplicação na Lista de Exclusões de Aplicação acontecer reside num nó de NodeTypeX. No máximo 100 nomes do tipo nó podem ser incluídos nesta lista, para aumentar este número, é necessária uma atualização config para a configuração MaxNumberOfNodeTypesInChaosTargetFilter.
+    * **ApplicationInclusionList**: Uma lista de URIs de aplicação a incluir em falhas de caos. Todas as réplicas pertencentes a serviços destas aplicações são passíveis de réplicas (reiniciar réplicas, remover réplicas, mover-se primária, mover-se secundário e mover-se instância) pelo Caos. O caos só pode reiniciar um pacote de código se o pacote de código hospedar réplicas destas aplicações apenas. Se uma aplicação não aparecer nesta lista, pode ainda ser defeituosa em alguma iteração do Caos se a aplicação acabar num nó de um nó que está incluído no NodeTypeInclusionList. No entanto, se a aplicaçãoX estiver ligada ao nodeTypeY através de restrições de colocação e a aplicaçãoX estiver ausente do ApplicationInclusionList e o nodeTypeY estiver ausente do NodeTypeInclusionList, então a aplicaçãoX nunca será defeituosa. No máximo 1000 nomes de aplicações podem ser incluídos nesta lista, para aumentar este número, é necessária uma atualização config para a configuração do MaxNumberOfApplicationsInChaosTargetFilter.
 
 ## <a name="how-to-run-chaos"></a>Como correr o Caos
 
@@ -137,14 +138,15 @@ class Program
                 MaxPercentUnhealthyNodes = 100
             };
 
-            // All types of faults, restart node, restart code package, restart replica, move primary replica,
-            // and move secondary replica will happen for nodes of type 'FrontEndType'
+            // All types of faults, restart node, restart code package, restart replica, move primary
+            // replica, move secondary replica, and move instance will happen for nodes of type 'FrontEndType'
             var nodetypeInclusionList = new List<string> { "FrontEndType"};
 
             // In addition to the faults included by nodetypeInclusionList,
-            // restart code package, restart replica, move primary replica, move secondary replica faults will
-            // happen for 'fabric:/TestApp2' even if a replica or code package from 'fabric:/TestApp2' is residing
-            // on a node which is not of type included in nodeypeInclusionList.
+            // restart code package, restart replica, move primary replica, move secondary replica,
+            //  and move instance faults will happen for 'fabric:/TestApp2' even if a replica or code
+            // package from 'fabric:/TestApp2' is residing on a node which is not of type included
+            // in nodeypeInclusionList.
             var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
 
             // List of cluster entities to target for Chaos faults.

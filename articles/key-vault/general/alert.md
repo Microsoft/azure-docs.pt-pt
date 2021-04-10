@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 523f24a7d8131dda67244e4d48510d9e1cb7cdb4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9162d9c7b3aa75096e03b3177fb6da3f3bfeceb0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582634"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732725"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorização e alerta para Azure Key Vault
 
@@ -28,7 +28,7 @@ Uma vez que tenha começado a usar o cofre chave para armazenar os seus segredos
 + Como configurar métricas e criar um dashboard
 + Como criar alertas em limiares especificados
 
-O Azure Monitor para Key Vault combina registos e métricas para fornecer uma solução de monitorização global. [Saiba mais sobre o Azure Monitor para Key Vualt aqui](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
+O Azure Monitor para Key Vault combina registos e métricas para fornecer uma solução de monitorização global. [Saiba mais sobre o Azure Monitor para Key Vault aqui](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métricas básicas do cofre de chaves para monitorizar
 

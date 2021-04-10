@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
 ms.openlocfilehash: c4116ef8d02bd47d6375371be9381553f8c22eda
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565449"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opções de backup e restauro para máquinas virtuais em Azure

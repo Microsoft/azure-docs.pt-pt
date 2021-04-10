@@ -10,10 +10,10 @@ ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105034763"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Falha em vários pontos finais com Azure Traffic Manager

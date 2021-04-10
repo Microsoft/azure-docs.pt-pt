@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: b-juche
 ms.openlocfilehash: 2a3c788ce50ccc1d537fd2903fe05acffd079b0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104591015"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Criar replicação de volume para ficheiros Azure NetApp

@@ -11,10 +11,10 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
 ms.openlocfilehash: e27e7e0bb4616508c8f137260bde68de9420f9cf
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105644974"
 ---
 # <a name="migrating-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migrando um armazém de dados para uma piscina de SQL dedicada em Azure Synapse Analytics 

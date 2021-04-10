@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1695e7aa0a202a5946f9038049b51c6a8fd45ad5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95014837"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934670"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de piscina de inquilino e anfitrião no Windows Virtual Desktop (clássico)
 
@@ -31,11 +31,11 @@ Para utilizar a imagem multi-sessão do Windows 10 Enterprise, vá ao Azure Mark
 > [!div class="mx-imgBorder"]
 > ![Uma imagem de seleção do Windows 10 Enterprise para Desktops Virtuais, Versão 1809.](../media/AzureMarketPlace.png)
 
-## <a name="creating-windows-virtual-desktop-tenant"></a>Criação de inquilino virtual do Windows Desktop
+## <a name="creating-windows-virtual-desktop-tenant&quot;></a>Criação de inquilino virtual do Windows Desktop
 
 Esta secção cobre potenciais problemas ao criar o inquilino virtual do Windows Desktop.
 
-### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Erro: AADSTS650052 A aplicação precisa de acesso a um serviço.
+### <a name=&quot;error-aadsts650052-the-app-needs-access-to-a-service&quot;></a>Erro: AADSTS650052 A aplicação precisa de acesso a um serviço.
 
 Exemplo de erro bruto:
 
@@ -406,7 +406,7 @@ Se estiver a executar o modelo GitHub Azure Resource Manager, forneça valores p
 
 ### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Erro: vmSubnet não disponível ao configurar redes virtuais
 
-**Causa:** No modelo WVD Marketplace, o UI apenas apresenta sub-redes que têm pelo menos tantos endereços IP disponíveis como o número total de VMs especificados no modelo. O número real de endereços IP disponíveis na sub-rede só precisa de ser igual ao número de novos VM a ser implantado, mas isso não pode ser calculado pela UI atual.
+**Causa:** No modelo do Windows Virtual Desktop Marketplace, o UI apenas apresenta sub-redes que têm pelo menos tantos endereços IP disponíveis como o número total de VMs especificados no modelo. O número real de endereços IP disponíveis na sub-rede só precisa de ser igual ao número de novos VM a ser implantado, mas isso não pode ser calculado pela UI atual.
 
 **Correção:** Pode especificar uma sub-rede com pelo menos tantos endereços IP disponíveis como o número de VMs adicionados não utilizando o Marketplace UI, isto pode ser feito especificando o nome da sub-rede no parâmetro "**existenteSSubnetName**" quando [recolocar uma implantação](expand-existing-host-pool-2019.md#redeploy-from-azure) ou [implantação existente usando o modelo ARM subjacente do GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 

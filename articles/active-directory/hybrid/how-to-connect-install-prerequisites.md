@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 108f81be678eb666b6f79ebbecc93f7bc88dc1d6
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426795"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107916"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -37,7 +37,7 @@ Antes de instalar o Azure AD Connect, há algumas coisas que precisa.
 * Um inquilino da AD Azure permite, por defeito, 50.000 objetos. Quando verifica o seu domínio, o limite aumenta para 300.000 objetos. Se precisar de ainda mais objetos em Azure AD, abra um caso de suporte para aumentar ainda mais o limite. Se precisar de mais de 500.000 objetos, precisa de uma licença, como o Microsoft 365, Azure AD Premium ou Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Prepare os seus dados no local
-* Utilize [o IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros como duplicados e problemas de formatação no seu diretório antes de sincronizar com a AD E Microsoft 365.
+* Utilize [o IdFix](https://github.com/Microsoft/idfix) para identificar erros como duplicados e problemas de formatação no seu diretório antes de [sincronizar com a AD AZure e com a Microsoft 365](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac).
 * Reveja [as funcionalidades de sincronização opcionais que pode ativar em Ad Azure](how-to-connect-syncservice-features.md)e avalie quais as funcionalidades que deve ativar.
 
 ### <a name="on-premises-active-directory"></a>Active Directory no local

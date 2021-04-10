@@ -10,10 +10,10 @@ ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
 ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104604071"
 ---
 # <a name="preview-azure-image-builder-overview"></a>Pré-visualização: Visão geral do Azure Image Builder

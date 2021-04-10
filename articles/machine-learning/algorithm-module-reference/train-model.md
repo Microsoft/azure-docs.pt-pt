@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 03/10/2021
 ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105562771"
 ---
 # <a name="train-model-module"></a>Módulo modelo de trem
