@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6774e172c4e8607bfadd95f947d650afa62a984f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93393681"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550427"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos em Azure AD
 
@@ -101,7 +101,7 @@ Para limpar o Azure AD:
 - **Windows 7/8** - Desative ou elimine os dispositivos Windows 7/8 no seu AD no local primeiro. Não pode utilizar o Azure AD Connect para desativar ou eliminar dispositivos Windows 7/8 no Azure AD. Em vez disso, quando escoar a alteração no seu local, deve desativar/apagar em Azure AD.
 
 > [!NOTE]
->* A eliminação de dispositivos nos seus dispositivos no local AD ou Azure AD não remove o registo no cliente. Só impedirá o acesso a recursos utilizando o dispositivo como identidade (por exemplo, acesso condicional). Leia informações adicionais sobre como [remover o registo no cliente.](faq.md#hybrid-azure-ad-join-faq)
+>* A eliminação de dispositivos nos seus dispositivos no local AD ou Azure AD não remove o registo no cliente. Só impedirá o acesso a recursos utilizando o dispositivo como identidade (por exemplo, acesso condicional). Leia informações adicionais sobre como [remover o registo no cliente.](faq.yml)
 >* A eliminação de um dispositivo Windows 10 apenas no Azure AD irá re-sincronizar o dispositivo a partir das suas instalações utilizando a ligação AD AZure, mas como um novo objeto em estado "Pendente". É necessária uma nova inscrição no aparelho.
 >* A remoção do dispositivo do âmbito de sincronização dos dispositivos Windows 10/Server 2016 eliminará o dispositivo AD Azure. A adicioná-lo de volta ao âmbito de sincronização colocará um novo objeto no estado "Pendente". É necessário um re-registo do dispositivo.
 >* Se não utilizar o Azure AD Connect para dispositivos windows 10 para sincronizar (por exemplo, utilizar apenas OD FS para registo), tem de gerir o ciclo de vida semelhante aos dispositivos Windows 7/8.
@@ -113,7 +113,7 @@ Desative ou elimine os dispositivos associados ao Azure AD no Azure AD.
 
 > [!NOTE]
 >* A eliminação de um dispositivo AZure AD não remove o registo no cliente. Só impedirá o acesso a recursos utilizando o dispositivo como identidade (por exemplo, acesso condicional). 
->* Leia mais sobre [como descomprinar-se no AD Azure](faq.md#azure-ad-join-faq) 
+>* Leia mais sobre [como descomprinar-se no AD Azure](faq.yml) 
 
 ### <a name="azure-ad-registered-devices"></a>Dispositivos registados no Azure AD
 
@@ -121,7 +121,7 @@ Desative ou elimine os dispositivos registados no Azure AD no Azure AD.
 
 > [!NOTE]
 >* A eliminação de um dispositivo registado Azure AD em Azure AD não remove o registo no cliente. Só impedirá o acesso a recursos utilizando o dispositivo como identidade (por exemplo, acesso condicional).
->* Leia mais sobre [como remover uma inscrição no cliente](faq.md#azure-ad-register-faq)
+>* Leia mais sobre [como remover uma inscrição no cliente](faq.yml)
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Limpar dispositivos obsoletos no portal do Azure  
 

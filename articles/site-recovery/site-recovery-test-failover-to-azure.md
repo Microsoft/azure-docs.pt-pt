@@ -1,18 +1,15 @@
 ---
 title: Executar um teste de failover (exercício de recuperação de desastres) para Azure na Recuperação do Local de Azure
 description: Saiba como executar um teste de failover de no local para Azure, utilizando o serviço de Recuperação do Local Azure.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: 815a35c167bbcd3ac03dfdaaf6d699e58a791f33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 840243bd5a67bc97bdc1903908c4e25adad93062
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92369391"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579298"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Executar um teste de failover (simulacro de recuperação de desastres) para Azure 
 

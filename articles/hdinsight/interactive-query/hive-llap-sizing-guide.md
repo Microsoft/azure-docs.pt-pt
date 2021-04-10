@@ -8,10 +8,10 @@ ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
 ms.openlocfilehash: ca3ba61de13e0e451b43dc9c8ea40db33fed859a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869672"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Guia de tamanhos do cluster de consultas interativas Azure HDInsight (Hive LLAP)
@@ -29,7 +29,7 @@ Este documento descreve o dimensionamento do HdInsight Interactive Query Cluster
 ***Nota: Todos os valores recomendados são baseados no nó de trabalhador do tipo D14 v2***  
 
 ### <a name="configuration"></a>**Configuração:**    
-| Chave de Configuração      | Valor recomendado  | Descrição |
+| Chave de Configuração      | Valor recomendado  | Description |
 | :---        |    :----:   | :---     |
 | yarn.nodemanager.resource.memory-mb | 102400 (MB) | Memória total dada, em MB, para todos os recipientes yarn em um nó | 
 | yarn.scheduler.máxima atribuição-mb | 102400 (MB) | A dotação máxima para cada pedido de contentores no RM, em MBs. Pedidos de memória superiores a este valor não vão ter efeito |
@@ -222,7 +222,7 @@ Por exemplo: Capacidade total do cluster = memória de 100 GB, dividida entre LL
 Com 20 GB na capacidade de fila de gestão da carga de trabalho, um plano de recursos pode especificar `QUERY_PARALLELISM` o valor como cinco, o que significa que a gestão da carga de trabalho pode lançar cinco Tez AMs com tamanho de contentor de 4 GB cada. Se `QUERY_PARALLELISM` for superior à capacidade, poderá ver algumas Tez AMs pararem de responder no `ACCEPTED` estado. O Hiveserver2 Interactive não pode submeter fragmentos de consulta às AMs Tez que não estão no `RUNNING` estado.
 
 
-#### <a name="next-steps"></a>**Passos Seguintes**
+#### <a name="next-steps"></a>**Próximos Passos**
 Se a definição destes valores não resolveu o seu problema, visite um dos seguintes...
 
 * Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)

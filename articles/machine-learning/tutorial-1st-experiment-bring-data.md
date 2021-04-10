@@ -10,13 +10,13 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
-ms.custom: tracking-python
-ms.openlocfilehash: ecabfde624ba6d3393bbf6d5480b83dbb5303c5e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: tracking-python, contperf-fy21q3
+ms.openlocfilehash: 503d1d1220cd4704a6e70d0b7e575a70275e5e4d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604564"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936840"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Use os seus próprios dados (parte 4 de 4)
 

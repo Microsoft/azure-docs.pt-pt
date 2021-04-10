@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869961"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>O que é a ferramenta Azure Application Consistent Snapshot (pré-visualização)

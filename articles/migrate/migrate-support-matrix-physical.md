@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869451"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matriz de suporte para descoberta e avaliação de servidores físicos 

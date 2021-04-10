@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb517f8c50ad2c32f23542e60069a0e0a496a2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb4ebbd0b1715d9de3905060952a35ad42060119
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660669"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167554"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Como: Gerir contas de utilizadores inativas em Azure AD
 
@@ -47,10 +47,9 @@ Deteta contas inativas avaliando a **última propriedadeSignInDateTime** exposta
 
 - **Utilizadores por data**: Neste cenário, solicita uma lista de utilizadores com um último SignInDateTime antes de uma data especificada: `https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
-
-
-
-
+> [!NOTE]
+> Pode haver a necessidade de gerar um relatório do último sinal na data de todos os utilizadores, se assim puder utilizar o seguinte cenário.
+> **Última s nota na data e hora para todos os utilizadores**: Neste cenário, solicita uma lista de todos os utilizadores e a última Última Hora do Sinal para cada respetivo utilizador: `https://graph.microsoft.com/beta/users?$select=displayName,signInActivity` 
 
 ## <a name="what-you-need-to-know"></a>O que tem de saber
 

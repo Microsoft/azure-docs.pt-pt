@@ -1,18 +1,15 @@
 ---
 title: Arquitetura-VMware/recuperação de desastres físicos para um local secundário com recuperação do local de Azure
 description: Este artigo fornece uma visão geral dos componentes e arquitetura utilizados durante a recuperação de desastres de VMware VMware no local ou servidores físicos do Windows/Linux para um site secundário de VMware com recuperação do site Azure.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: d400e6bcda0a2114d798a3289f01f52b677a6f94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 032f8619a1f8d4299af1eb069fdccba1307542d4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656500"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579514"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação VMware/servidor físico para um site secundário no local
 

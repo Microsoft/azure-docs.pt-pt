@@ -2,7 +2,6 @@
 title: Resolução de problemas Azure RBAC
 description: Problemas de resolução de problemas com o controlo de acesso baseado em funções Azure (Azure RBAC).
 services: azure-portal
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4a3f7f613f75f2f285437b7ae6f816adf56d999
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555884"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580095"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -68,11 +66,16 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+
+- Se criar um novo diretor de serviço e tentar imediatamente atribuir um papel a esse diretor de serviço, essa atribuição de funções pode falhar em alguns casos.
+
+    Para abordar este cenário, deverá definir o `principalType` imóvel para `ServicePrincipal` a criação da atribuição de funções. Também deve definir a `apiVersion` atribuição de funções para `2018-09-01-preview` ou mais tarde. Para obter mais informações, consulte [atribuir funções Azure a um novo diretor de serviço utilizando as](role-assignments-rest.md#new-service-principal) funções REST API ou Assign [Azure a um novo diretor de serviço usando modelos de Gestor de Recursos Azure](role-assignments-template.md#new-service-principal)
+
 - Se tentar remover a última atribuição de funções do Proprietário para uma subscrição, poderá ver o erro "Não é possível eliminar a última atribuição de administração do RBAC." A remoção da última atribuição de funções do Proprietário para uma subscrição não é suportada para evitar órfãos da subscrição. Se quiser cancelar a sua subscrição, consulte [cancelar a subscrição do Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
-- Se precisar de passos para criar um papel personalizado, consulte os tutoriais de funções personalizados utilizando o [portal Azure](custom-roles-portal.md) (atualmente em pré-visualização), [Azure PowerShell](tutorial-custom-role-powershell.md), ou [Azure CLI](tutorial-custom-role-cli.md).
+- Se precisar de passos para criar um papel personalizado, consulte os tutoriais de funções personalizados utilizando o [portal Azure](custom-roles-portal.md) [PowerShell](tutorial-custom-role-powershell.md)ou [Azure CLI](tutorial-custom-role-cli.md).
 - Se não conseguir atualizar uma função personalizada existente, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha a `Microsoft.Authorization/roleDefinition/write` permissão, como [o Proprietário](built-in-roles.md#owner) ou [o Administrador de Acesso ao Utilizador.](built-in-roles.md#user-access-administrator)
 - Se não conseguir eliminar uma função personalizada e obtiver a mensagem de erro “Não existem atribuições de funções existentes que façam referência à função (código: RoleDefinitionHasAssignments)", significa que ainda há atribuições de funções a utilizar a função personalizada. Remova essas atribuições e experimente eliminar a função personalizada novamente.
 - Se receber a mensagem de erro “Limite de definição de função excedido. Não podem ser criadas mais definições de funções (código: RoleDefinitionLimitExceed)" quando tentar criar um novo papel personalizado, elimine quaisquer funções personalizadas que não estejam a ser utilizadas. A azure suporta até **5000** funções personalizadas num diretório. (Para a Azure Alemanha e Azure China 21Vianet, o limite é 2000 papéis personalizados.)

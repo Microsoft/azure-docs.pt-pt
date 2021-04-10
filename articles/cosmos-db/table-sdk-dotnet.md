@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 5af77f34f8e82edf187c1a68b61995ec5c82a8d9
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105566834"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: Baixar e lançar notas

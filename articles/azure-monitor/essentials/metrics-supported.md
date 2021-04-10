@@ -4,14 +4,14 @@ description: Lista de métricas disponíveis para cada tipo de recurso com monit
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/06/2021
+ms.date: 04/01/2021
 ms.author: robb
-ms.openlocfilehash: 2437ab80a23ffc39c180bcdf72921fdf13768541
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0854d56930dbc8decfcf8f96a814f082e361de62
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033508"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167248"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
@@ -55,7 +55,6 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 
 > [!IMPORTANT] 
 > Esta última atualização adiciona uma nova coluna e reordenou as métricas para serem alfabéticas. As informações de adição significam que as tabelas abaixo podem ter uma barra de deslocação horizontal na parte inferior, dependendo da largura da janela do seu navegador. Se acredita que está a perder informação, use a barra de pergaminho para ver toda a mesa.
-
 ## <a name="microsoftaadiamazureadmetrics"></a>microsoft.aadiam/azureADMetrics
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
@@ -148,7 +147,6 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |HttpIncomingRequestDuration|Yes|HttpIncomingRequestDuration|de palavras|Média|Latência num pedido http.|Código de Estado, Autenticação|
 |ThrottledHttpRequestCount|Yes|ThrottledHttpRequestCount|de palavras|de palavras|Solicitações http throttled.|Sem Dimensões|
 
-
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/primavera
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
@@ -203,7 +201,6 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |tomcat.threads.current|Yes|tomcat.threads.current|de palavras|Total|Contagem de fios de corrente tomcat|Implantação, AppName, Pod|
 |pedidos totais|Yes|pedidos totais|de palavras|Média|Número total de pedidos durante a vida útil do processo|Implantação, AppName, Pod|
 |conjunto de trabalho|Yes|conjunto de trabalho|de palavras|Média|Quantidade de conjunto de trabalho utilizado pelo processo (MB)|Implantação, AppName, Pod|
-
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automation
 
@@ -376,8 +373,8 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|---|
-|PedidoLatency|Yes|Solicitar Latência|Milissegundos|Total|Tempo tomado pelo servidor para processar o pedido|Operação, Autenticação, Protocolo|
-|PedidosTrafínico|Yes|Tráfego de Pedidos|Percentagem|de palavras|Número de Pedidos Feitos|Operação, Autenticação, Protocolo, Código de Estado, StatusCodeClass|
+|PedidoLatency|Yes|Solicitar Latência|Milissegundos|Total|Tempo tomado pelo servidor para processar o pedido|Operação, Autenticação, Protocolo, DataCenter|
+|PedidosTrafínico|Yes|Tráfego de Pedidos|Percentagem|de palavras|Número de Pedidos Feitos|Operação, Autenticação, Protocolo, Código do Estado, StatusCodeClass, DataCenter|
 
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -604,7 +601,6 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |totalkeys|Yes|Chaves totais|de palavras|Máximo||Sem Dimensões|
 |usedmemory|Yes|Memória Utilizada|Bytes|Máximo||Sem Dimensões|
 |usuário|Yes|Percentagem de Memória Utilizada|Percentagem|Máximo||InstanceId|
-|usedmemoryRss|Yes|RSS de memória usada|Bytes|Máximo||InstanceId|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -619,7 +615,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|---|
 |ByteHitRatio|Yes|Rácio byte hit|Percentagem|Média|Esta é a razão do total de bytes servidos a partir da cache em comparação com os bytes de resposta total|Ponto final|
-|OriginHealthPercentage|Yes|Percentagem de Saúde de Origem|Percentagem|Média|A percentagem de sondas de saúde bem sucedidas da AFDX para backends.|Origin, OriginPool|
+|OriginHealthPercentage|Yes|Percentagem de Saúde de Origem|Percentagem|Média|A percentagem de sondas de saúde bem sucedidas da AFDX para backends.|Origem, OriginGroup|
 |OriginLatency|Yes|Latência de origem|MilliSeconds|Média|O tempo calculado a partir do momento em que o pedido foi enviado pela borda AFDX para o backend até que a AFDX recebeu a última resposta byte do backend.|Origem, Ponto final|
 |OriginRequestCount|Yes|Contagem de pedidos de origem|de palavras|Total|O número de pedidos enviados da AFDX para a origem.|HttpStatus, HttpStatusGroup, Origin, Endpoint|
 |Percentagem4XX|Yes|Percentagem de 4XX|Percentagem|Média|A percentagem de todos os pedidos de cliente para os quais o código de estado de resposta é 4XX|Endpoint, ClientRegion, ClientCountry|
@@ -804,8 +800,8 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|---|
-|Créditos CPU Consumidos|Yes|Créditos CPU Consumidos|de palavras|Média|Número total de créditos consumidos pela Máquina Virtual|Sem Dimensões|
-|Créditos CPU Remanescentes|Yes|Créditos CPU Remanescentes|de palavras|Média|Número total de créditos disponíveis para rebentar|Sem Dimensões|
+|Créditos CPU Consumidos|Yes|Créditos CPU Consumidos|de palavras|Média|Número total de créditos consumidos pela Máquina Virtual. Disponível apenas em VMs rebentaveis da série B|Sem Dimensões|
+|Créditos CPU Remanescentes|Yes|Créditos CPU Remanescentes|de palavras|Média|Número total de créditos disponíveis para rebentar. Disponível apenas em VMs rebentaveis da série B|Sem Dimensões|
 |Percentagem consumida da largura de banda do disco de dados|Yes|Percentagem consumida da largura de banda do disco de dados|Percentagem|Média|Percentagem de largura de banda de disco de dados consumida por minuto|RIO LUN|
 |Percentagem consumida em IOPS do disco de dados|Yes|Percentagem consumida em IOPS do disco de dados|Percentagem|Média|Percentagem de disco de dados I/Os consumido por minuto|RIO LUN|
 |Largura de banda Max Burst Do Disco de Dados|Yes|Largura de banda Max Burst Do Disco de Dados|de palavras|Média|Bytes máximos por segundo de produção O disco de dados pode alcançar com a explosão|RIO LUN|
@@ -859,8 +855,8 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|---|
-|Créditos CPU Consumidos|Yes|Créditos CPU Consumidos|de palavras|Média|Número total de créditos consumidos pela Máquina Virtual|Sem Dimensões|
-|Créditos CPU Remanescentes|Yes|Créditos CPU Remanescentes|de palavras|Média|Número total de créditos disponíveis para rebentar|Sem Dimensões|
+|Créditos CPU Consumidos|Yes|Créditos CPU Consumidos|de palavras|Média|Número total de créditos consumidos pela Máquina Virtual. Disponível apenas em VMs rebentaveis da série B|Sem Dimensões|
+|Créditos CPU Remanescentes|Yes|Créditos CPU Remanescentes|de palavras|Média|Número total de créditos disponíveis para rebentar. Disponível apenas em VMs rebentaveis da série B|Sem Dimensões|
 |Percentagem consumida da largura de banda do disco de dados|Yes|Percentagem consumida da largura de banda do disco de dados|Percentagem|Média|Percentagem de largura de banda de disco de dados consumida por minuto|LUN, VMName|
 |Percentagem consumida em IOPS do disco de dados|Yes|Percentagem consumida em IOPS do disco de dados|Percentagem|Média|Percentagem de disco de dados I/Os consumido por minuto|LUN, VMName|
 |Largura de banda Max Burst Do Disco de Dados|Yes|Largura de banda Max Burst Do Disco de Dados|de palavras|Média|Bytes máximos por segundo de produção O disco de dados pode alcançar com a explosão|LUN, VMName|
@@ -914,8 +910,8 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|---|
-|Créditos CPU Consumidos|Yes|Créditos CPU Consumidos|de palavras|Média|Número total de créditos consumidos pela Máquina Virtual|Sem Dimensões|
-|Créditos CPU Remanescentes|Yes|Créditos CPU Remanescentes|de palavras|Média|Número total de créditos disponíveis para rebentar|Sem Dimensões|
+|Créditos CPU Consumidos|Yes|Créditos CPU Consumidos|de palavras|Média|Número total de créditos consumidos pela Máquina Virtual. Disponível apenas em VMs rebentaveis da série B|Sem Dimensões|
+|Créditos CPU Remanescentes|Yes|Créditos CPU Remanescentes|de palavras|Média|Número total de créditos disponíveis para rebentar. Disponível apenas em VMs rebentaveis da série B|Sem Dimensões|
 |Percentagem consumida da largura de banda do disco de dados|Yes|Percentagem consumida da largura de banda do disco de dados|Percentagem|Média|Percentagem de largura de banda de disco de dados consumida por minuto|RIO LUN|
 |Percentagem consumida em IOPS do disco de dados|Yes|Percentagem consumida em IOPS do disco de dados|Percentagem|Média|Percentagem de disco de dados I/Os consumido por minuto|RIO LUN|
 |Largura de banda Max Burst Do Disco de Dados|Yes|Largura de banda Max Burst Do Disco de Dados|de palavras|Média|Bytes máximos por segundo de produção O disco de dados pode alcançar com a explosão|RIO LUN|
@@ -992,11 +988,25 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|---|
 |apiserver_current_inflight_requests|No|Pedidos de voo|de palavras|Média|Número máximo de pedidos de voo atualmente utilizados no apiserver por pedido tipo no último segundo|requestKind|
+|cluster_autoscaler_cluster_safe_to_autoscale|No|Estado de Funcionamento do Cluster|de palavras|Média|Determina se o autoescalador de clusters tomará ou não medidas no cluster||
+|cluster_autoscaler_scale_down_in_cooldown|No|Escala para baixo Cooldown|de palavras|Média|Determina se a escala para baixo está em arrefecimento - Nenhum nó será removido durante este período de tempo||
+|cluster_autoscaler_unneeded_nodes_count|No|Nódes Não-Estimados|de palavras|Média|Cluster auotscaler marca esses nóns como candidatos à eliminação e são eventualmente eliminados||
+|cluster_autoscaler_unschedulable_pods_count|No|Cápsulas insoquiáveis|de palavras|Média|Número de cápsulas que são atualmente não-dobráveis no cluster||
 |kube_node_status_allocatable_cpu_cores|No|Número total de núcleos cpu disponíveis num cluster gerido|de palavras|Média|Número total de núcleos cpu disponíveis num cluster gerido||
 |kube_node_status_allocatable_memory_bytes|No|Quantidade total de memória disponível num cluster gerido|Bytes|Média|Quantidade total de memória disponível num cluster gerido||
 |kube_node_status_condition|No|Estados para várias condições de nó|de palavras|Média|Estados para várias condições de nó|condição, estado, estado2, nó|
 |kube_pod_status_phase|No|Número de cápsulas por fase|de palavras|Média|Número de cápsulas por fase|fase, espaço de nome, vagem|
 |kube_pod_status_ready|No|Número de cápsulas no estado de Ready|de palavras|Média|Número de cápsulas no estado de Ready|espaço de nome, vagem, condição|
+|node_cpu_usage_millicores|Yes|Millicores de Utilização cpu|MilliCores|Média|Medição agregada da utilização do CPU em millicores em todo o cluster|nó, nodepool|
+|node_cpu_usage_percentage|Yes|Percentagem de Utilização cpu|Percentagem|Média|Utilização média agregada do CPU medida em percentagem em todo o cluster|nó, nodepool|
+|node_disk_usage_bytes|Yes|Bytes usados em disco|Bytes|Média|Espaço de disco usado em bytes por dispositivo|nó, nodepool, dispositivo|
+|node_disk_usage_percentage|Yes|Percentagem usada em disco|Percentagem|Média|Espaço de disco usado em por cento por dispositivo|nó, nodepool, dispositivo|
+|node_memory_rss_bytes|Yes|Memória RSS Bytes|Bytes|Média|Memória RSS do contentor utilizada nos bytes|nó, nodepool|
+|node_memory_rss_percentage|Yes|Percentagem RSS memória|Percentagem|Média|Memória RSS do contentor usada em por cento|nó, nodepool|
+|node_memory_working_set_bytes|Yes|Conjunto de trabalho de memória bytes|Bytes|Média|Memória do conjunto de trabalho do recipiente usado em bytes|nó, nodepool|
+|node_memory_working_set_percentage|Yes|Percentagem de conjunto de trabalho de memória|Percentagem|Média|Memória do conjunto de trabalho do contentor usado em por cento|nó, nodepool|
+|node_network_in_bytes|Yes|Rede em bytes|Bytes|Média|Bytes recebidos em rede|nó, nodepool|
+|node_network_out_bytes|Yes|Network out Bytes|Bytes|Média|Bytes transmitidos em rede|nó, nodepool|
 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft.CustomProviders/resourceproviders
@@ -1199,6 +1209,20 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |txlogs_storage_used|Yes|Armazenamento de registo de transações utilizado|Bytes|Média|Armazenamento de registo de transações utilizado|Sem Dimensões|
 |write_iops|Yes|Escrever iops|de palavras|Média|Número de operações de escrita de disco de dados por segundo|Sem Dimensões|
 |write_throughput|Yes|Escrever Bytes de produção/Sec|de palavras|Média|Bytes escritos por segundo no disco de dados durante o período de monitorização|Sem Dimensões|
+
+
+## <a name="microsoftdbforpostgresqlservergroupsv2"></a>Microsoft.DBForPostgreSQL/serverGroupsv2
+
+|Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
+|---|---|---|---|---|---|---|
+|active_connections|Yes|Ligações Ativas|de palavras|Média|Ligações Ativas|ServerName|
+|cpu_percent|Yes|CPU por cento|Percentagem|Média|CPU por cento|ServerName|
+|iops|Yes|IOPS|de palavras|Média|Operações io por segundo|ServerName|
+|memory_percent|Yes|Por cento da memória|Percentagem|Média|Por cento da memória|ServerName|
+|network_bytes_egress|Yes|Saída da Rede|Bytes|Total|Rede Para fora através de ligações ativas|ServerName|
+|network_bytes_ingress|Yes|Entrada na Rede|Bytes|Total|Rede Em através de ligações ativas|ServerName|
+|storage_percent|Yes|Por cento de armazenamento|Percentagem|Média|Por cento de armazenamento|ServerName|
+|storage_used|Yes|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|ServerName|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servidores
@@ -1444,6 +1468,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |CassandraTableUpdate|No|Tabela Cassandra Atualizada|de palavras|de palavras|Tabela Cassandra Atualizada|Nome de recurso, ChildResourceName, |
 |Criar Contas|Yes|Conta Criada|de palavras|de palavras|Conta Criada|Sem Dimensões|
 |DataUsage|No|Utilização de Dados|Bytes|Total|Total de utilização de dados reportados a 5 minutos de granularidade|Nome de coleção, nome de base de dados, região|
+|DedicadosGatewayRequests|Yes|DedicadosGatewayRequests|de palavras|de palavras|Pedidos no gateway dedicado|Base de dadosName, Nome de Coleção, CacheExercised, OperaçãoName, Região|
 |ExcluirAconta|Yes|Conta Eliminada|de palavras|de palavras|Conta Eliminada|Sem Dimensões|
 |Contagem de documentos|No|Contagem de documentos|de palavras|Total|Contagem total de documentos reportada em 5 minutos granularidade|Nome de coleção, nome de base de dados, região|
 |DocumentQuota|No|Quota documental|Bytes|Total|Quota total de armazenamento reportada a 5 minutos de granularidade|Nome de coleção, nome de base de dados, região|
@@ -1679,12 +1704,16 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |CategorizadosGatewayRequests|Yes|Pedidos de Gateway categorizados|de palavras|Total|Número de pedidos de gateway por categorias (1xx/2xx/3xx/4xx/5xx)|HttpStatus|
 |GatewayRequests|Yes|Pedidos de Gateway|de palavras|Total|Número de pedidos de gateway|HttpStatus|
 |KafkaRestProxy.ConsumerRequest.m1_delta|Yes|REST proxy Consumer RequestThroughput|CondePerSecond|Total|Número de pedidos de consumidores à procuração de Kafka REST|Máquina, Tópico|
-|KafkaRestProxy.ConsumerRequestTime.p95|Yes|REST proxy Consumer RequestLatency|Milissegundos|Média|Mensagem Latência em um pedido de consumo através de procuração kafka REST|Máquina, Tópico|
+|KafkaRestProxy.ConsumerRequestFail.m1_delta|Yes|REST Proxy Consumer Pedidos Infrutíferos|CondePerSecond|Total|Exceções ao pedido do consumidor|Máquina, Tópico|
+|KafkaRestProxy.ConsumerRequestTime.p95|Yes|REST proxy Consumer RequestLatency|Milissegundos|Média|Latência de mensagem num pedido de consumo através do representante kafka REST|Máquina, Tópico|
+|KafkaRestProxy.ConsumerRequestWaitingInQueueTime.p95|Yes|REST proxy Consumer Request Backlog|Milissegundos|Média|Comprimento da fila de procuração do consumidor REST|Máquina, Tópico|
 |KafkaRestProxy.MessagesIn.m1_delta|Yes|REST Proxy Produtor MessageThroughput|CondePerSecond|Total|Número de mensagens de produtor através do representante kafka REST|Máquina, Tópico|
 |KafkaRestProxy.MessagesOut.m1_delta|Yes|REST proxy Consumer MessageThroughput|CondePerSecond|Total|Número de mensagens de consumo através do representante kafka REST|Máquina, Tópico|
 |KafkaRestProxy.OpenConnections|Yes|REST proxy ConcurrentConnections|de palavras|Total|Número de ligações simultâneas através do representante kafka REST|Máquina, Tópico|
 |KafkaRestProxy.ProducerRequest.m1_delta|Yes|REST Proxy Produtor RequestThroughput|CondePerSecond|Total|Número de pedidos de produtor à procuração de Kafka REST|Máquina, Tópico|
-|KafkaRestProxy.ProducerRequestTime.p95|Yes|Ressacamante do Produtor DeSAquirência|Milissegundos|Média|Mensagem Latência em um pedido de produtor através de procuração kafka REST|Máquina, Tópico|
+|KafkaRestProxy.ProducerRequestFail.m1_delta|Yes|Rest proxy Produtor Pedidos Infrutíferos|CondePerSecond|Total|Produtor solicita exceções|Máquina, Tópico|
+|KafkaRestProxy.ProducerRequestTime.p95|Yes|Ressacamante do Produtor DeSAquirência|Milissegundos|Média|Latência de mensagem num pedido de produtor através do representante kafka REST|Máquina, Tópico|
+|KafkaRestProxy.ProducerRequestWaitingInQueueTime.p95|Yes|REST Proxy Produtor Request Backlog|Milissegundos|Média|Comprimento da fila de procuração do produtor REST|Máquina, Tópico|
 |NumActiveWorkers|Yes|Número de trabalhadores ativos|de palavras|Máximo|Número de trabalhadores ativos|MetricName|
 
 
@@ -1790,18 +1819,6 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |dataExport.messages.filtered|Yes|Mensagens de exportação de dados filtradas|de palavras|Total|Número de mensagens que passaram através de filtros na exportação de dados|exportid, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.received|Yes|Mensagens de exportação de dados recebidas|de palavras|Total|Número de mensagens a chegar à exportação de dados, antes de filtrar e enriquecer o processamento|exportid, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.written|Yes|Mensagens de exportação de dados escritas|de palavras|Total|Número de mensagens escritas para um destino|exportid, exportDisplayName, destinationId, destinationDisplayName|
-
-
-## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Gráfico
-
-|Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
-|---|---|---|---|---|---|---|
-|Apilatency|No|Apilatency|6|0|Medidas de latência dos pedidos de API feitos à Microsoft.IoTSpaces em Milliseconds|Sem Dimensões|
-|FunExecutionLatency|No|FunExecutionLatency|6|0|Medidas de latência da execução da função definida pelo utilizador em Milliseconds para Microsoft.IoTSpaces|Sem Dimensões|
-|MensagemEgressFailure|No|MensagemEgressFailure|2|3|Procura uma cadeia localizada semelhante a measures Failed count event in Count for Microsoft.IoTSpaces|Sem Dimensões|
-|MensagensSEgressLatency|No|MensagensSEgressLatency|6|0|Mede a latência do despachante para outros pontos finais em Milliseconds para Microsoft.IoTSpaces|Sem Dimensões|
-|MensagemEgressuccess|No|MensagemEgressuccess|2|3|Procura uma cadeia localizada semelhante a medidas concluídas evento de contagem em Count for Microsoft.IoTSpaces|Sem Dimensões|
-|Processamento de Restaurantes|No|Processamento de Restaurantes|6|0|Medidas de latência de mensagens ingeridas para evento despachado em Milliseconds para Microsoft.IoTSpaces|Sem Dimensões|
 
 
 ## <a name="microsoftkeyvaultmanagedhsms"></a>microsoft.keyvault/managedhsms
@@ -2021,6 +2038,8 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |ContentKeyPolicyCount|Yes|Contagem de políticas de chave de conteúdo|de palavras|Média|Quantas políticas-chave de conteúdo já estão criadas na conta de serviço de mídia atual|Sem Dimensões|
 |ContentKeyPolicyQuota|Yes|Quota de política chave de conteúdo|de palavras|Média|Quantos polícias chave de conteúdo são permitidos para a conta de serviço de mídia atual|Sem Dimensões|
 |ContentKeyPolicyQuotaUsedPercentage|Yes|Quota de política de conteúdo utilizada|Percentagem|Média|Política chave de conteúdo usada percentagem na conta de serviço de mídia atual|Sem Dimensões|
+|MaxChannelsAndLiveEventsCount|Yes|Quota de evento ao vivo max|de palavras|Máximo|O número máximo de eventos ao vivo permitidos na conta de serviços de comunicação corrente|Sem Dimensões|
+|MaxRunningChannelsAndLiveEventsCount|Yes|Max executando quota de evento ao vivo|de palavras|Máximo|O número máximo de eventos em execução ao vivo permitidos na conta de serviços de comunicação corrente|Sem Dimensões|
 |RunningChannelsAndLiveEventsCount|Yes|Contagem de eventos ao vivo|de palavras|Média|O número total de eventos em execução ao vivo na conta corrente dos serviços de comunicação social|Sem Dimensões|
 |StreamingPolicyCount|Yes|Contagem de políticas de streaming|de palavras|Média|Quantas políticas de streaming já estão criadas na conta de serviço de mídia atual|Sem Dimensões|
 |StreamingPolicyQuota|Yes|Quota de política de streaming|de palavras|Média|Quantas políticas de streaming são permitidas para a conta atual do serviço de mídia|Sem Dimensões|
@@ -2041,9 +2060,9 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|---|
-|CPU|Yes|Utilização da CPU|Percentagem|Média|Utilização do CPU para pontos finais de streaming premium. Estes dados não estão disponíveis para os pontos finais de streaming padrão.|VmId|
+|CPU|Yes|Utilização da CPU|Percentagem|Média|Utilização do CPU para pontos finais de streaming premium. Estes dados não estão disponíveis para os pontos finais de streaming padrão.|Sem Dimensões|
 |Saída|Yes|Saída|Bytes|Total|A quantidade de dados da Egress, em bytes.|OutputFormat|
-|EgressBandwidth|No|Largura de banda da Egress|BitsPerSecond|Média|Largura de banda de Egress em pedaços por segundo.|VmId|
+|EgressBandwidth|No|Largura de banda da Egress|BitsPerSecond|Média|Largura de banda de Egress em pedaços por segundo.|Sem Dimensões|
 |Pedidos|Yes|Pedidos|de palavras|Total|Pedidos para um Ponto Final de Streaming.|OutputFormat, HttpStatusCode, ErrorCode|
 |SucessoE2ELatency|Yes|Fim do sucesso para acabar com a latência|Milissegundos|Média|A latência média para pedidos bem sucedidos em milissegundos.|OutputFormat|
 
@@ -2086,7 +2105,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |---|---|---|---|---|---|---|
 |Média DeOncência|Yes|Latência média de leitura|MilliSeconds|Média|Latência média de leitura em milissegundos por operação|Sem Dimensões|
 |Média Desaquimia|Yes|Latência média de escrita|MilliSeconds|Média|Latência escrita média em milissegundos por operação|Sem Dimensões|
-|CbsVolumeBackupActive|Yes|É cópia de segurança de volume suspensa|de palavras|Média|A política de reserva está suspensa pelo volume? 1 se sim, 0 se não.|Sem Dimensões|
+|CbsVolumeBackupActive|Yes|É cópia de segurança de volume suspensa|de palavras|Média|A política de reserva está suspensa pelo volume? 0 se sim, 1 se não.|Sem Dimensões|
 |CbsVolumeLogicalBackupBytes|Yes|Volume Backup Bytes|Bytes|Média|Bytes totais apoiados para este Volume.|Sem Dimensões|
 |CbsVolumeOperationComplete|Yes|É a operação de backup de volume completa|de palavras|Média|A última cópia de segurança de volume ou a operação restaurada completa com sucesso? 1 se sim, 0 se não.|Sem Dimensões|
 |CbsVolumeOperationTransferredBytes|Yes|Cópia de segurança de volume Últimos Bytes transferidos|Bytes|Média|Bytes totais transferidos para a última operação de backup ou restauro.|Sem Dimensões|
@@ -2132,14 +2151,14 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |Vulnerabilidades estimadas da capacidade de pagamento|No|Unidades de Capacidade Faturadas Estimadas|de palavras|Média|Unidades de capacidade estimadas que serão carregadas|Sem Dimensões|
 |Requessos Falhados|Yes|Pedidos com Falhas|de palavras|Total|Contagem de pedidos falhados que a Application Gateway serviu|BackendSettingsPool|
 |Unidades de Capacidade DeBilizáveis Fixas|No|Unidades de Capacidade Faturadas Fixas|de palavras|Média|Unidades de capacidade mínima que serão carregadas|Sem Dimensões|
-|HealthyHostCount|Yes|Contagem saudável do anfitrião|de palavras|Média|Número de hospedeiros saudáveis|BackendSettingsPool|
+|HealthyHostCount|Yes|Contagem saudável do anfitrião|de palavras|Média|Número de anfitriões em bom estado de funcionamento|BackendSettingsPool|
 |MatchedCount|Yes|Distribuição total de regras de firewall de aplicação web|de palavras|Total|Distribuição total de regras da Web Application Firewall para o tráfego de entrada|RuleGroup, RuleId|
 |NewConnectionsPerSecond|No|Novas ligações por segundo|CondePerSecond|Média|Novas ligações por segundo estabelecidas com Application Gateway|Sem Dimensões|
 |Estatísticas de Resposta|Yes|Estado de resposta|de palavras|Total|Estado de resposta http devolvido pelo Application Gateway|Grupo HttpStatus|
 |Débito|No|Débito|BytesPerSecond|Média|Número de bytes por segundo que o Gateway de Aplicação serviu|Sem Dimensões|
 |TlsProtocol|Yes|Protocolo TLS do Cliente|de palavras|Total|O número de pedidos TLS e não-TLS iniciados pelo cliente que estabeleceu a ligação com o Gateway de Aplicação. Para visualizar a distribuição do protocolo TLS, filtre pela dimensão do Protocolo TLS.|Ouvinte, TlsProtocol|
 |TotalRequests|Yes|Total de Pedidos|de palavras|Total|Contagem de pedidos bem sucedidos que a Application Gateway serviu|BackendSettingsPool|
-|Não-saudávelHostCount|Yes|Contagem de anfitriões pouco saudável|de palavras|Média|Número de anfitriões insalubres|BackendSettingsPool|
+|Não-saudávelHostCount|Yes|Contagem de anfitriões pouco saudável|de palavras|Média|Número de anfitriões em mau estado de funcionamento|BackendSettingsPool|
 
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
@@ -2152,6 +2171,17 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |NetworkRuleHit|Yes|Regras de rede atingem a contagem|de palavras|Total|Número de vezes que as regras da rede foram atingidas|Estado, Razão, Protocolo|
 |SNATPortutilization|Yes|Utilização do porto de SNAT|Percentagem|Média|Percentagem de portas SNAT de saída atualmente em uso|Protocolo|
 |Débito|No|Débito|BitsPerSecond|Média|Produção processada por esta firewall|Sem Dimensões|
+
+
+## <a name="microsoftnetworkbastionhosts"></a>microsoft.network/bastionHosts
+
+|Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
+|---|---|---|---|---|---|---|
+|pingmesh|No|Estado da Comunicação de Bastião|de palavras|Média|O estado da comunicação mostra 1 se toda a comunicação for boa e 0 se for má.||
+|sessões|No|Contagem de Sessões|de palavras|Total|As sessões contam para o Bastião. Ver em suma e por exemplo.|anfitrião|
+|total|Yes|Memória Total|de palavras|Média|Estatísticas de memória total.|anfitrião|
+|usage_user|No|CPU usado|de palavras|Média|Estatísticas de utilização do CPU.|cpu, anfitrião|
+|utilizados|Yes|Memória Utilizada|de palavras|Média|Estatísticas de utilização da memória.|anfitrião|
 
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/conexões
@@ -2201,10 +2231,10 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |ErGatewayConnectionBitsOutPerSecond|No|BitsOutPerSecond|BitsPerSecond|Média|Bits que saem do Azure por segundo|ConnectionName|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Yes|Contagem de rotas anunciadas a peer (pré-visualização)|de palavras|Máximo|Contagem de rotas anunciadas para peer by ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Yes|Contagem de rotas aprendidas a par (pré-visualização)|de palavras|Máximo|Contagem de rotas aprendidas a partir de pares por ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Yes|Utilização do CPU (Pré-visualização)|de palavras|Média|Utilização do CPU do Portal ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Yes|Utilização da CPU|de palavras|Média|Utilização do CPU do Portal ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Variação da frequência das rotas (pré-visualização)|de palavras|Total|Variação de frequência de rotas no Portal ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Número de VMs na Rede Virtual (Pré-visualização)|de palavras|Máximo|Número de VMs na Rede Virtual|Sem Dimensões|
-|ExpressRouteGatewayPacketsPerSecond|No|Pacotes por segundo (Pré-visualização)|CondePerSecond|Média|Contagem de pacotes de ExpressRoute Gateway|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|No|Pacotes por segundo|CondePerSecond|Média|Contagem de pacotes de ExpressRoute Gateway|roleInstance|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
@@ -2366,10 +2396,10 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |Largura média da largura|Yes|Largura de banda Gateway S2S|BytesPerSecond|Média|Largura de banda média local-local de um gateway in bytes por segundo|Sem Dimensões|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Yes|Contagem de rotas anunciadas a peer (pré-visualização)|de palavras|Máximo|Contagem de rotas anunciadas para peer by ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Yes|Contagem de rotas aprendidas a par (pré-visualização)|de palavras|Máximo|Contagem de rotas aprendidas a partir de pares por ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Yes|Utilização do CPU (Pré-visualização)|de palavras|Média|Utilização do CPU do Portal ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Yes|Utilização da CPU|de palavras|Média|Utilização do CPU do Portal ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Variação da frequência das rotas (pré-visualização)|de palavras|Total|Variação de frequência de rotas no Portal ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Número de VMs na Rede Virtual (Pré-visualização)|de palavras|Máximo|Número de VMs na Rede Virtual|Sem Dimensões|
-|ExpressRouteGatewayPacketsPerSecond|No|Pacotes por segundo (Pré-visualização)|CondePerSecond|Média|Contagem de pacotes de ExpressRoute Gateway|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|No|Pacotes por segundo|CondePerSecond|Média|Contagem de pacotes de ExpressRoute Gateway|roleInstance|
 |P2SBandwidth|Yes|Largura de banda Gateway P2S|BytesPerSecond|Média|Largura de banda média ponto-a-local de uma porta de entrada em bytes por segundo|Sem Dimensões|
 |P2SConnectionCount|Yes|Contagem de Ligações P2S|de palavras|Máximo|Contagem de ligação ponto a site de um gateway|Protocolo|
 |TunnelAverageBandwidth|Yes|Largura de Banda do Túnel|BytesPerSecond|Média|Largura de banda média de um túnel em bytes por segundo|Nome de conexão, RemoteIP|
@@ -2379,6 +2409,13 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |TúnelIngsBytes|Yes|Bytes de Entrada do Túnel|Bytes|Total|Bytes de entrada de um túnel|Nome de conexão, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Yes|Remoção do Pacote de Erro de Correspondência de TS de Entrada do Túnel|de palavras|Total|Contagem de remoção do pacote de entrada a partir do erro de correspondência do seletor de tráfego de um túnel|Nome de conexão, RemoteIP|
 |Pacotes de escavação|Yes|Pacotes de Entrada de Túnel|de palavras|Total|Contagem de pacotes de entrada de um túnel|Nome de conexão, RemoteIP|
+|TunnelNatAllocations|No|Dotações do túnel NAT|de palavras|Total|Contagem de dotações para uma regra NAT num túnel|NatRule, Nome de Conexão, RemoteIP|
+|TunnelNatedBytes|No|Túnel NATed Bytes|Bytes|Total|Número de bytes que foram NATed em um túnel por uma regra NAT |NatRule, Nome de Conexão, RemoteIP|
+|TunnelNatedPackets|No|Pacotes NATed do Túnel|de palavras|Total|Número de pacotes que foram NATed em um túnel por uma regra NAT|NatRule, Nome de Conexão, RemoteIP|
+|TunnelNatFlowCount|No|Fluxos NAT do túnel|de palavras|Total|Número de fluxos DE NAT num túnel por tipo de fluxo e regra NAT|NatRule, Nome de Conexão, RemoteIP, FlowType|
+|TunnelNatPacketDrop|No|Gotas do pacote nat do túnel|de palavras|Total|Número de pacotes NATed em um túnel que caiu por tipo de gota e regra NAT|NatRule, Nome de Conexão, RemoteIP, DropType|
+|TúnelReverseNatedBytes|No|Túnel reverso NATed Bytes|Bytes|Total|Número de bytes que foram nados invertidos em um túnel por uma regra NAT|NatRule, Nome de Conexão, RemoteIP|
+|TunnelReverseNatedPackets|No|Pacotes NATed invertidos do túnel|de palavras|Total|Número de pacotes em um túnel que foram nated invertido por uma regra NAT|NatRule, Nome de Conexão, RemoteIP|
 
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
@@ -2408,6 +2445,13 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |TúnelIngsBytes|Yes|Bytes de Entrada do Túnel|Bytes|Total|Bytes de entrada de um túnel|Nome de conexão, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Yes|Remoção do Pacote de Erro de Correspondência de TS de Entrada do Túnel|de palavras|Total|Contagem de remoção do pacote de entrada a partir do erro de correspondência do seletor de tráfego de um túnel|Nome de conexão, RemoteIP|
 |Pacotes de escavação|Yes|Pacotes de Entrada de Túnel|de palavras|Total|Contagem de pacotes de entrada de um túnel|Nome de conexão, RemoteIP|
+|TunnelNatAllocations|No|Dotações do túnel NAT|de palavras|Total|Contagem de dotações para uma regra NAT num túnel|NatRule, Nome de Conexão, RemoteIP|
+|TunnelNatedBytes|No|Túnel NATed Bytes|Bytes|Total|Número de bytes que foram NATed em um túnel por uma regra NAT |NatRule, Nome de Conexão, RemoteIP|
+|TunnelNatedPackets|No|Pacotes NATed do Túnel|de palavras|Total|Número de pacotes que foram NATed em um túnel por uma regra NAT|NatRule, Nome de Conexão, RemoteIP|
+|TunnelNatFlowCount|No|Fluxos NAT do túnel|de palavras|Total|Número de fluxos DE NAT num túnel por tipo de fluxo e regra NAT|NatRule, Nome de Conexão, RemoteIP, FlowType|
+|TunnelNatPacketDrop|No|Gotas do pacote nat do túnel|de palavras|Total|Número de pacotes NATed em um túnel que caiu por tipo de gota e regra NAT|NatRule, Nome de Conexão, RemoteIP, DropType|
+|TúnelReverseNatedBytes|No|Túnel reverso NATed Bytes|Bytes|Total|Número de bytes que foram nados invertidos em um túnel por uma regra NAT|NatRule, Nome de Conexão, RemoteIP|
+|TunnelReverseNatedPackets|No|Pacotes NATed invertidos do túnel|de palavras|Total|Número de pacotes em um túnel que foram nated invertido por uma regra NAT|NatRule, Nome de Conexão, RemoteIP|
 
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -2574,16 +2618,6 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |QueryPoolJobQueueLength|Yes|Comprimento da fila de trabalho da piscina de consulta (conjuntos de dados) (Gen1)|de palavras|Média|Número de empregos na fila da piscina de fios de consulta. Suportado apenas para recursos Power BI Embedded Geração 1.|Sem Dimensões|
 
 
-## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/contas
-
-|Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
-|---|---|---|---|---|---|---|
-|ScanCancelled|Yes|Scan cancelado|de palavras|Total|Indica o número de exames cancelados.|ResourceId|
-|ScanCompleted|Yes|Digitalização Concluída|de palavras|Total|Indica o número de exames concluídos com sucesso.|ResourceId|
-|ScanFailed|Yes|Scan falhou|de palavras|Total|Indica que o número de exames falhou.|ResourceId|
-|ScanTimeTaken|Yes|Tempo de digitalização tomado|Segundos|Total|Indica o tempo total de digitalização em segundos.|ResourceId|
-
-
 ## <a name="microsoftpurviewaccounts"></a>microsoft.purview/accounts
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
@@ -2682,6 +2716,15 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |OutboundTraffic|Yes|Tráfego de Saída|Bytes|Total|O tráfego de serviço de saída|Sem Dimensões|
 |SystemErrors|Yes|Erros do Sistema|Percentagem|Máximo|A percentagem de erros do sistema|Sem Dimensões|
 |UserErrors|Yes|Erros do Utilizador|Percentagem|Máximo|A percentagem de erros do utilizador|Sem Dimensões|
+
+
+## <a name="microsoftsignalrservicewebpubsub"></a>Microsoft.SignalRService/WebPubSub
+
+|Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
+|---|---|---|---|---|---|---|
+|Contagem de Ligações|Yes|Contagem de Ligação|de palavras|Máximo|A quantidade de ligação do utilizador.|Sem Dimensões|
+|InboundTraffic|Yes|Tráfego de Entrada|Bytes|Total|O tráfego de entrada de serviço|Sem Dimensões|
+|OutboundTraffic|Yes|Tráfego de Saída|Bytes|Total|O tráfego de serviço de saída|Sem Dimensões|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
@@ -2902,6 +2945,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |---|---|---|---|---|---|---|
 |ServidorSyncSessionResult|Yes|Resultado da sessão de sincronização|de palavras|Média|Métrica que regista um valor de 1 cada vez que o Ponto Final do Servidor completa com sucesso uma Sessão de Sincronização com o Ponto final da Cloud|SyncGroupName, ServerEndpointName, SyncDirection|
 |ArmazenamentoSybatchTransferredFileBytes|Yes|Bytes sincronizados|Bytes|Total|Tamanho total do ficheiro transferido para Sincronização|SyncGroupName, ServerEndpointName, SyncDirection|
+|ArmazenamentoSyncRecallComputedSuccessRate|Yes|Classificação de nível de nuvem recorde taxa de sucesso|Percentagem|Média|Percentagem de todas as recordações que foram bem sucedidas|SyncGroupName, Nome do Servidor|
 |ArmazenamentoSyncRecalledNetworkBytesByApplication|Yes|Tamanho de recolha de camadas de nuvem por aplicação|Bytes|Total|Tamanho dos dados recolhidos pela aplicação|SyncGroupName, ServerName, ApplicationName|
 |ArmazenamentoSyncRecalledTotalNetworkBytes|Yes|Tamanho de recuperação de nível de nuvem|Bytes|Total|Tamanho dos dados recordados|SyncGroupName, Nome do Servidor|
 |ArmazenamentoSyncRecallIOTotalSizeBytes|Yes|Recuperação de camadas de nuvem|Bytes|Total|Tamanho total dos dados recolhidos pelo servidor|ServerName|
@@ -2956,6 +3000,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |LateInputEvents|Yes|Eventos de entrada tardia|de palavras|Total|Eventos de entrada tardia|Nome Lógico, PartitionId|
 |OutputEvents|Yes|Eventos de saída|de palavras|Total|Eventos de saída|Nome Lógico, PartitionId|
 |OutputWatermarkDelaySeconds|Yes|Atraso da marca de água|Segundos|Máximo|Atraso da marca de água|Nome Lógico, PartitionId|
+|Fase de processosCPUUSage|Yes|Utilização de % de CPU (pré-visualização)|Percentagem|Máximo|Utilização de % de CPU (pré-visualização)|Nome Lógico, PartitionId|
 |Utilização de Recursos|Yes|SU % Utilização|Percentagem|Máximo|SU % Utilização|Nome Lógico, PartitionId|
 
 
@@ -3136,7 +3181,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |AverageResponseTime|Yes|Tempo médio de resposta (precotado)|Segundos|Média|O tempo médio de tempo necessário para a app servir pedidos, em segundos.|Instância|
 |BytesReceived|Yes|Dados em|Bytes|Total|A quantidade de largura de banda recebida consumida pela app, no MiB.|Instância|
 |BytesSent|Yes|Data out|Bytes|Total|A quantidade de largura de banda de saída consumida pela app, no MiB.|Instância|
-|Horário do Cpu|Yes|Hora do CPU|Segundos|Total|A quantidade de CPU consumida pela app, em segundos. Para mais informações sobre esta métrica. Consulte https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo cpu vs percentagem de CPU). Não aplicável às Funções Azure.|Instância|
+|Horário do Cpu|Yes|Hora do CPU|Segundos|Total|A quantidade de CPU consumida pela app, em segundos. Para mais informações sobre esta métrica. Não aplicável às Funções Azure. Consulte https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (tempo cpu vs percentagem de CPU).|Instância|
 |Antiguidades Atuais|Yes|Atuais Assembleias|de palavras|Média|O número atual de Assembléias carregadas em todos os AppDomains nesta aplicação.|Instância|
 |FileSystemUsage|Yes|Utilização do sistema de ficheiros|Bytes|Média|Percentagem de quota de sistema de ficheiros consumida pela app.|Sem Dimensões|
 |FunExecutionCount|Yes|Contagem de execução de funções|de palavras|Total|Contagem de execução de funções. Apenas presente para Funções Azure.|Instância|
@@ -3180,7 +3225,7 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |AverageResponseTime|Yes|Tempo médio de resposta (precotado)|Segundos|Média|O tempo médio de tempo necessário para a app servir pedidos, em segundos.|Instância|
 |BytesReceived|Yes|Dados em|Bytes|Total|A quantidade de largura de banda recebida consumida pela app, no MiB.|Instância|
 |BytesSent|Yes|Data out|Bytes|Total|A quantidade de largura de banda de saída consumida pela app, no MiB.|Instância|
-|Horário do Cpu|Yes|Hora do CPU|Segundos|Total|A quantidade de CPU consumida pela app, em segundos. Para mais informações sobre esta métrica. Consulte https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo cpu vs percentagem de CPU).|Instância|
+|Horário do Cpu|Yes|Hora do CPU|Segundos|Total|A quantidade de CPU consumida pela app, em segundos. Para mais informações sobre esta métrica. Não aplicável às Funções Azure. Consulte https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (tempo cpu vs percentagem de CPU).|Instância|
 |Antiguidades Atuais|Yes|Atuais Assembleias|de palavras|Média|O número atual de Assembléias carregadas em todos os AppDomains nesta aplicação.|Instância|
 |FileSystemUsage|Yes|Utilização do sistema de ficheiros|Bytes|Média|Percentagem de quota de sistema de ficheiros consumida pela app.|Sem Dimensões|
 |FunExecutionCount|Yes|Contagem de execução de funções|de palavras|Total|Contagem de execução de funções|Instância|
@@ -3224,7 +3269,6 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |FunçõesHits|Yes|FunçõesHits|de palavras|Total|FunçõesHits|Instância|
 |SiteErrors|Yes|SiteErrors|de palavras|Total|SiteErrors|Instância|
 |SiteHits|Yes|SiteHits|de palavras|Total|SiteHits|Instância|
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a24bd6988a9bc8f15723ebf931f2751a09c42e26
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104783749"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar atividade de pipeline na Fábrica de Dados Azure
@@ -62,9 +62,9 @@ A atividade Executar Pipeline permite que um pipeline do Data Factory invoque ou
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade do gasoduto de execução. | String | Sim
-tipo | Deve ser definido para: **ExecutePipeline**. | String | Sim
-oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência do gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade referenceName especifica o nome do gasoduto de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Sim
+name | Nome da atividade do gasoduto de execução. | String | Yes
+tipo | Deve ser definido para: **ExecutePipeline**. | String | Yes
+oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência do gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade referenceName especifica o nome do gasoduto de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Yes
 parâmetros | Parâmetros a passar para o gasoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | No
 esperaCompletion | Define se a execução da atividade aguarda o fim da execução do gasoduto dependente. A predefinição é falso. | Booleano | No
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
 ms.openlocfilehash: 40d9f03526e5232c0a7b33f64ff35a8501702609
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105107759"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos

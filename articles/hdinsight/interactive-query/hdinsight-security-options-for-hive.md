@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.openlocfilehash: a608c34225641a3c7764d6c7dd3872c5f61fe3c8
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104869723"
 ---
 # <a name="security-options-for-hive-in-azure-hdinsight"></a>Opções de segurança para Colmeia em Azure HDInsight

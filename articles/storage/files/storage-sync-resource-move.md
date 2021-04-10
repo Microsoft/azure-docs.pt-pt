@@ -8,10 +8,10 @@ ms.date: 3/10/2021
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: acd5f9263a74d3273dc65522e77d83c90a719311
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103555554"
 ---
 # <a name="move-azure-file-sync-resources-to-a-different-resource-group-subscription-or-aad-tenant"></a>Mover recursos Azure File Sync para um grupo de recursos diferente, subscrição ou inquilino AAD

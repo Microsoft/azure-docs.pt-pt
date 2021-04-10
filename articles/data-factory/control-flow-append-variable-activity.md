@@ -8,10 +8,10 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.date: 10/09/2018
 ms.openlocfilehash: 1ca58fc208bb02d137b977e0b18857e8c87a5440
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104783851"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Atividade variável do apêndice na fábrica de dados Azure
@@ -22,7 +22,7 @@ Utilize a atividade da Variável do Apêndice para adicionar um valor a uma vari
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-name | Nome da atividade em pipeline | Sim
+name | Nome da atividade em pipeline | Yes
 descrição | Texto descrevendo o que a atividade faz | não
 tipo | O tipo de atividade é apendável | sim
 valor | Valor literal ou de objeto de expressão de corda usado para anexar em variável especificada | sim

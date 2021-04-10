@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: fe8714f38c6a04b311a748f3eb081be82eb86635
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: afe6e82c3cc9773fbf0c17992fd6894d199d177f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024138"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937248"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -60,7 +60,7 @@ O Azure Monitor pode recolher dados de [várias fontes](monitor-reference.md). I
 - **Dados de monitorização da subscrição Azure**: Dados sobre o funcionamento e gestão de uma subscrição da Azure, bem como dados sobre a saúde e funcionamento da própria Azure. 
 - **Dados de monitorização do inquilino da Azure**: Dados sobre o funcionamento dos serviços Azure ao nível do inquilino, tais como diretório ativo Azure.
 
-Assim que cria uma subscrição do Azure e começa a adicionar recursos, como máquinas virtuais e aplicações Web, o Azure Monitor começa a recolher dados.  [Os registos de atividade](essentials/platform-logs-overview.md) registam-se quando os recursos são criados ou modificados. [As métricas](data-platform.md) dizem-lhe como o recurso está a funcionar e os recursos que está a consumir. 
+Assim que cria uma subscrição do Azure e começa a adicionar recursos, como máquinas virtuais e aplicações Web, o Azure Monitor começa a recolher dados.  [Os registos de atividade](essentials/platform-logs-overview.md) registam-se quando os recursos são criados ou modificados. [As métricas](essentials/data-platform-metrics.md) dizem-lhe como o recurso está a funcionar e os recursos que está a consumir. 
 
 Permitir que os [diagnósticos](essentials/platform-logs-overview.md) aumentem os dados que está a recolher no funcionamento interno dos recursos.  [Adicione um agente](agents/agents-overview.md) para calcular recursos para recolher telemetria dos seus sistemas operativos de hóspedes. 
 

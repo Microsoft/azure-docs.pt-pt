@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: b13feeda162f9babe1958402a694b728312ea4e5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015408"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android

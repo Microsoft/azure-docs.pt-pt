@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: 3bfcfee0f5dab2d978eb1856bdc915c270d43ed6
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105109799"
 ---
 # <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql-service"></a>Erros geralmente encontrados durante ou após a migração para a Base de Dados Azure para o serviço MySQL

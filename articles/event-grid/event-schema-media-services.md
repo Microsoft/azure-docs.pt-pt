@@ -4,10 +4,10 @@ description: Descreve as propriedades que s√£o fornecidas para eventos de Servi√
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 1f2f62f0a5ceed0e000c8bb7690fff009593bf82
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104591933"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services como fonte de rede de eventos

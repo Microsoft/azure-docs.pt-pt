@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 3f35f00e5fcd26c7aa4bb685dc80f48eabb88b6d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 76469f8b74b119c07374232899302fe1d18fe463
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102547939"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731467"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operação what-if da implementação de modelos do Resource Manager
 
@@ -117,10 +117,10 @@ Se pretender devolver os resultados sem cores, abra o seu ficheiro [de configura
 
 Para REST API, utilize:
 
-* [Implementações - E se](/rest/api/resources/deployments/whatif) para implantações de grupos de recursos
-* [Implementações - E se no âmbito de subscrição](/rest/api/resources/deployments/whatifatsubscriptionscope) para implementações de subscrição
-* [Implementações - E se estiver em gestão de âmbito do grupo](/rest/api/resources/deployments/whatifatmanagementgroupscope) para implantações de grupos de gestão
-* [Implantações - E se no âmbito do arrendatário](/rest/api/resources/deployments/whatifattenantscope) para implantações de inquilinos.
+* [Implementações - E se](/rest/api/resources/resources/deployments/whatif) para implantações de grupos de recursos
+* [Implementações - E se no âmbito de subscrição](/rest/api/resources/resources/deployments/whatifatsubscriptionscope) para implementações de subscrição
+* [Implementações - E se estiver em gestão de âmbito do grupo](/rest/api/resources/resources/deployments/whatifatmanagementgroupscope) para implantações de grupos de gestão
+* [Implantações - E se no âmbito do arrendatário](/rest/api/resources/resources/deployments/whatifattenantscope) para implantações de inquilinos.
 
 ## <a name="change-types"></a>Tipos de alterações
 
@@ -364,17 +364,17 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 
       id:
 "/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
-works/vnet-001"
-      location:        "centralus"
-      name:            "vnet-001"
-      tags.CostCenter: "12345"
-      tags.Owner:      "Team A"
-      type:            "Microsoft.Network/virtualNetworks"
+works/vnet-001&quot;
+      location:        &quot;centralus&quot;
+      name:            &quot;vnet-001&quot;
+      tags.CostCenter: &quot;12345&quot;
+      tags.Owner:      &quot;Team A&quot;
+      type:            &quot;Microsoft.Network/virtualNetworks&quot;
 
 Resource changes: 1 to delete.
 
 Are you sure you want to execute the deployment?
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is &quot;Y"):
 ```
 
 Vê as alterações esperadas e pode confirmar que pretende que a implementação seja executada.

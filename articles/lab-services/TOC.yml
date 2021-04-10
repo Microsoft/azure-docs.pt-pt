@@ -137,6 +137,8 @@
           href: how-to-setup-lab-gpu.md
         - name: Preparar uma VM de modelo do Windows
           href: how-to-prepare-windows-template.md
+        - name: Use o armazenamento de ficheiros externos
+          href: how-to-attach-external-storage.md
         - name: Controlar o comportamento de encerramento do Windows
           href: how-to-windows-shutdown.md
         - name: Ver informações de suporte (educador)

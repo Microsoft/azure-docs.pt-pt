@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
 ms.openlocfilehash: 0e0021ec3564ca079f9ab02fe5ed3f0cfa5a1560
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104609656"
 ---
 # <a name="nested-virtualization-for-azure-iot-edge-for-linux-on-windows"></a>Virtualização aninhada para Azure IoT Edge para Linux no Windows

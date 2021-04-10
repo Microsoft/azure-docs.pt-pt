@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 7fe2942250e165606175392d7749becda0cff23b
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645127"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937061"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
 
@@ -63,19 +63,19 @@ Para a utilização com API REST [de Speech SDK](speech-sdk.md) e/ou [Discurso-a
 ### <a name="text-to-speech-quotas-and-limits-per-speech-resource"></a>Quotas de texto para discurso e limites por recurso de fala
 Na tabela abaixo os parâmetros sem linha "ajustável" **não** são ajustáveis para todos os níveis de preço.
 
-| Quota | Grátis (F0)<sup>3</sup> | Padrão (S0) |
-|--|--|--|
-| **Número máximo de transações por segundo (TPS) para vozes standard e neurais** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Limite de pedido simultâneo para voz personalizada** |  |  |
-| Valor predefinido | 10 | 10 |
-| Ajustável | Nº<sup>5</sup> | Sim<sup>5</sup> |
-| **Quotas específicas em HTTP** |  |
-| Comprimento áudio max produzido por pedido | 10 min | 10 min |
-| Número máximo de `<voice>` etiquetas distintas em SSML | 50 | 50 |
-| **Quotas específicas websocket** |  |  |
-|Comprimento de áudio max produzido por turno | 10 min | 10 min |
-|Tamanho da mensagem Max SSML por turno |64 KB |64 KB |
-| **Limite de API de repouso** | 20 pedidos por minuto | 300 pedidos por minuto |
+| Quota                                                                          | Grátis (F0)<sup>3</sup>  | Padrão (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **Número máximo de transações por segundo (TPS) para vozes standard e neurais** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Limite de pedido simultâneo para voz personalizada**                                  |                        |                 |
+| Valor predefinido                                                                  | 10                     | 10              |
+| Ajustável                                                                     | Nº<sup>5</sup>         | Sim<sup>5</sup> |
+| **Quotas específicas em HTTP**                                                       |                        |                 |
+| Comprimento áudio max produzido por pedido                                          | 10 min                 | 10 min          |
+| Número máximo de `<voice>` etiquetas distintas em SSML                                  | 50                     | 50              |
+| **Quotas específicas websocket**                                                  |                        |                 |
+| Comprimento de áudio max produzido por turno                                             | 10 min                 | 10 min          |
+| Tamanho da mensagem Max SSML por turno                                                 | 64 KB                  | 64 KB           |
+| **Limite de API de repouso**                                                             | 20 pedidos por minuto | 300 pedidos por minuto |
 
 
 <sup>3</sup> Para o nível de preços **gratuito (F0)** ver também subsídios mensais na [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

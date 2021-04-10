@@ -1,17 +1,22 @@
 ---
-title: Pré-requisitos do sistema
-description: Obtenha pré-requisitos do sistema necessários para executar Azure Defender para IoT.
+title: 'Quickstart: Pré-requisitos do sistema'
+description: Neste arranque rápido, obtenha os pré-requisitos do sistema necessários para executar Azure Defender para IoT.
 ms.date: 11/30/2020
 ms.topic: quickstart
-ms.openlocfilehash: 78d5948554ae531c4b2f77d67bb916d5290db943
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2aae849b6ee772c2aa29c680f3b107af3ed600b0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780944"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382951"
 ---
-# <a name="system-prerequisites"></a>Pré-requisitos do sistema
+# <a name="quickstart-system-prerequisites"></a>Quickstart: Pré-requisitos do sistema
+
 Este artigo lista os pré-requisitos do sistema para executar o Azure Defender para IoT.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Nenhum
 
 ## <a name="minimum-requirements"></a>Requisitos mínimos
 
@@ -27,7 +32,7 @@ O Defensor da IoT encaminha todo o tráfego de todas as regiões europeias para 
 
 Para mais informações, consulte [as regiões apoiadas pelo IoT Hub.](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub)
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
-- [Identificar as aplicações necessárias](how-to-identify-required-appliances.md)
-- [Sobre o Azure Defender para a configuração da rede IoT](how-to-set-up-your-network.md)
+> [!div class="nextstepaction"]
+> [Identificar as aplicações necessárias](how-to-identify-required-appliances.md)

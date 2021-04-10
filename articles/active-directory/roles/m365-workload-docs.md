@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f56f8ac42f0db3d2cd27453cd023a2e869b0cde0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae5761c4a31662f447a107e6b5eb89bcf02f70c8
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466087"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055540"
 ---
 # <a name="roles-for-microsoft-365-services-in-azure-active-directory"></a>Funções para os serviços microsoft 365 no Azure Ative Directory
 

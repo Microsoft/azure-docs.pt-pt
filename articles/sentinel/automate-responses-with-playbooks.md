@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: yelevin
 ms.openlocfilehash: 0158c9f5b9debf0c47978e816951e25634621645
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104609806"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatizar resposta de ameaça com playbooks em Azure Sentinel
@@ -81,7 +81,7 @@ A Azure Logic Apps comunica com outros sistemas e serviços usando conectores. S
 - O papel **de Azure Sentinel Responder** permite-lhe executar um livro manualmente.
 - **A Azure Sentinel Automation Contributor** permite que as regras de automação executem livros de reprodução. Não é utilizado para outros fins.
 
-#### <a name="learn-more"></a>Saiba mais
+#### <a name="learn-more"></a>Saber mais
 
 - [Saiba mais sobre os papéis do Azure em Azure Logic Apps.](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 - [Saiba mais sobre os papéis do Azure em Azure Sentinel.](roles.md)

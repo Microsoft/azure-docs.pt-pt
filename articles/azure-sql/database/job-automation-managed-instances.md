@@ -13,10 +13,10 @@ ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
 ms.openlocfilehash: 3be01c304a40317e0d21baf6789ef1376cd89b80
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104608083"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatizar tarefas de gestão utilizando empregos de agente SQL em Azure SQL Managed Instance
@@ -200,7 +200,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name];
 GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ```
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 - [O que é Azure SQL Managed Instance?](../managed-instance/sql-managed-instance-paas-overview.md)
 - [Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?](../../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance)

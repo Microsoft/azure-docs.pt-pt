@@ -5,13 +5,14 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/12/2020
-ms.openlocfilehash: b7e9318ee34836f8fbd2ae7a330134d8174e6a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/10/2021
+ms.subservice: metrics
+ms.openlocfilehash: 93d30663034c7560550160960af20f0a465d93c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031400"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936177"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Agregação e visualização de métricas Azure Monitor métricas explicadas
 
@@ -26,6 +27,7 @@ Quando adiciona uma métrica a um gráfico, o explorador de métricas pré-selec
 Vamos definir alguns termos claramente primeiro:
 
 - **Valor métrico** – Um valor de medição único recolhido para um recurso específico.
+- **Base de dados time-Series** - Uma base de dados otimizada para o armazenamento e recuperação de pontos de dados, todos contendo um valor e um carimbo de tempo correspondente. 
 - **Período de tempo** – Um período genérico de tempo.
 - **Intervalo de tempo** – O período de tempo entre a recolha de dois valores métricos. 
 - **Intervalo de tempo** – O período de tempo exibido num gráfico. O padrão típico é de 24 horas. Apenas estão disponíveis gamas específicas. 
@@ -33,7 +35,9 @@ Vamos definir alguns termos claramente primeiro:
 - **Tipo de agregação** – Um tipo de estatística calculada a partir de múltiplos valores métricos.  
 - **Agregado** – O processo de pegar em múltiplos valores de entrada e depois usá-los para produzir um único valor de saída através das regras definidas pelo tipo de agregação. Por exemplo, tendo uma média de múltiplos valores.  
 
-As métricas são uma série de valores métricos capturados num intervalo de tempo regular. Quando se traça um gráfico, os valores da métrica selecionada são agregados separadamente ao longo do tempo granularidade (também conhecido como grão de tempo). Selecione o tamanho da granularidade do tempo utilizando o painel de recolha de tempo do [Metrics Explorer](../essentials/metrics-getting-started.md#select-a-time-range). Se não fizer uma seleção explícita, a granularidade do tempo é selecionada automaticamente com base no intervalo de tempo atualmente selecionado. Uma vez selecionados, os valores métricos que foram capturados durante cada intervalo de granularidade são agregados e colocados na tabela - um ponto de dados por intervalo.
+## <a name="summary-of-process"></a>Resumo do processo
+
+As métricas são uma série de valores armazenados com um carimbo temporal. Em Azure, a maioria das métricas são armazenadas na base de dados da série de tempo Azure Metrics. Quando se traça um gráfico, os valores das métricas selecionadas são recuperados a partir da base de dados e, em seguida, agregados separadamente com base na granularidade do tempo escolhido (também conhecido como grão de tempo). Selecione o tamanho da granularidade do tempo utilizando o painel de recolha de tempo do [Metrics Explorer](../essentials/metrics-getting-started.md#select-a-time-range). Se não fizer uma seleção explícita, a granularidade do tempo é selecionada automaticamente com base no intervalo de tempo atualmente selecionado. Uma vez selecionados, os valores métricos que foram capturados durante cada intervalo de granularidade são agregados e colocados na tabela - um ponto de dados por intervalo.
 
 ## <a name="aggregation-types"></a>Tipos de agregação 
 
@@ -82,9 +86,11 @@ Este comportamento de suavização é importante quando envia estes dados para o
 
 ## <a name="how-the-system-collects-metrics"></a>Como o sistema recolhe métricas
 
-A recolha de dados varia por métrica. Existem dois tipos de períodos de recolha.
+A recolha de dados varia por métrica. 
 
 ### <a name="measurement-collection-frequency"></a>Frequência de recolha de medição 
+
+Existem dois tipos de períodos de recolha.
 
 - **Regular** - A métrica é recolhida num intervalo de tempo consistente que não varia.
 

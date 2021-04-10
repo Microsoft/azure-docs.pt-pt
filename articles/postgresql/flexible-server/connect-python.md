@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Connect using Python - Azure Database for PostgreSQL - Flexible Server'
 description: Este quickstart fornece várias amostras de código Python que pode usar para ligar e consultar dados da Base de Dados Azure para PostgreSQL - Servidor Flexível.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 2bcf467eea9186cc57fb4c6c3d8964632b8fec03
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 948972c1d47e550395a280e62c0491800e716663
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047716"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550647"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Quickstart: Use Python para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Flexível
 

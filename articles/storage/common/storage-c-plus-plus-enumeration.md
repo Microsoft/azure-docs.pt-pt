@@ -1,19 +1,19 @@
 ---
 title: Listar recursos de armazenamento Azure com biblioteca de clientes C++
 description: Saiba como utilizar as APIs de listagem na Microsoft Azure Storage Client Library para C++ para enumerar recipientes, bolhas, filas, tabelas e entidades.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72b08a79ead90207c48c4fa682b708a0627b5df3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92784103"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279634"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar Recursos do Armazenamento do Microsoft Azure em C++
 

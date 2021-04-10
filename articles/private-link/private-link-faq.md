@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
 ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103496478"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) sobre o Azure Private Link
