@@ -4,10 +4,10 @@ description: Descreve os benefícios usando modelos de Gestor de Recursos Azure 
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419988"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?

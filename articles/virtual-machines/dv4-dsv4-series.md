@@ -10,10 +10,10 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: cc6ce30855d17f45636e0df04978fed88dcecff7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102549146"
 ---
 # <a name="dv4-and-dsv4-series"></a>Séries Dv4 e Dsv4

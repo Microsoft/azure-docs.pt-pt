@@ -10,10 +10,10 @@ ms.date: 11/17/2020
 ms.author: tibasham
 ms.collection: linux
 ms.openlocfilehash: bc6c6273ab3d1a4403763e4ed0a8c491995fb2df
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102556728"
 ---
 # <a name="how-to-map-azure-disks-to-linux-vm-guest-disks"></a>Como mapear discos Azure para discos de hóspedes Linux VM

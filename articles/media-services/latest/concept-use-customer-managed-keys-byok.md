@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2ea960d28bcdcbf586570933ac00dccae18e46a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698863"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068001"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga a sua própria chave (chaves geridas pelo cliente) com serviços de mídia
 
@@ -51,4 +51,4 @@ Os Serviços de Mídia suportam automaticamente a dupla encriptação. Para os d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Proteja o seu conteúdo com encriptação dinâmica dos Media Services](content-protection-overview.md)
+[Proteja o seu conteúdo com encriptação dinâmica dos Media Services](drm-content-protection-concept.md)

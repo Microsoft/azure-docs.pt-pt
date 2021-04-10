@@ -4,10 +4,10 @@ description: Neste arranque rápido, você aprenderá a bordo e ativará o servi
 ms.topic: quickstart
 ms.date: 1/20/2021
 ms.openlocfilehash: b795773ae0eb667cf7f53f4209b6476ba937b17f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104780961"
 ---
 # <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Quickstart: A bordo defender para IoT para uma solução baseada em agente

@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104587904"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Contas de serviço AZure AD governando
@@ -58,7 +58,7 @@ Recomendamos as seguintes práticas para privilégios de conta de serviço.
 * Não inclua contas de serviço como membros de quaisquer grupos com permissões elevadas. 
 
 * [Use o PowerShell para enumerar membros de funções privilegiadas,](/powershell/module/azuread/get-azureaddirectoryrolemember)tais como   
-‎ `Get-AzureADDirectoryRoleMember` , and filter for objectType "Service Principal".
+`Get-AzureADDirectoryRoleMember`, e filtro para o objectType "Service Principal".
 
    ou usar  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`

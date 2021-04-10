@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.openlocfilehash: bc1978f6ed0aa3e38f25fa03fc54ddc7d4efb9c3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6acab9618566766b12b4b236c75aa58386100513
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033338"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961069"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Troubleshooting metrics charts (Resolução de problemas de gráficos de métricas)
 
@@ -43,7 +43,7 @@ Alguns recursos não emitem constantemente as respetivas métricas. Por exemplo,
 
 [A maioria das métricas em Azure são armazenadas durante 93 dias](../essentials/data-platform-metrics.md#retention-of-metrics). No entanto, apenas pode consultar até 30 dias de dados em qualquer gráfico. Esta limitação não se aplica a [métricas baseadas no registo](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
-**Solução:** Se vir um gráfico em branco ou o seu gráfico apenas apresentar uma parte dos dados métricos, verifique se a diferença entre datas de início e fim no selecionador de tempo não excede o intervalo de 30 dias.
+**Solução:** Se vir um gráfico em branco ou o seu gráfico apenas apresentar uma parte dos dados métricos, verifique se a diferença entre datas de início e fim no selecionador de tempo não excede o intervalo de 30 dias. Uma vez selecionado um intervalo de 30 dias, pode [panorâmica](metrics-charts.md#pan) para ver a janela de retenção completa.
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Todos os valores de métricas estavam fora do intervalo do eixo Y bloqueado
 

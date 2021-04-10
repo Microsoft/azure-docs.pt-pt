@@ -4,10 +4,10 @@ description: Este artigo explica como realizar ações usando o backup center
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.openlocfilehash: 8c21475e5a52cdce7e38bbeb9d00df3c3ac3a752
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102506495"
 ---
 # <a name="perform-actions-using-backup-center"></a>Execute ações usando o backup center

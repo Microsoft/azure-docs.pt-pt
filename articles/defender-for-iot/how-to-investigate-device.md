@@ -4,10 +4,10 @@ description: Esta forma de orientar explica como usar o Defender para ioT para i
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 32cc8d82a867ead533cbaa6802bffb4494398412
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782015"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigue um dispositivo IoT suspeito
