@@ -8,10 +8,10 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103493714"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutorial: Criar um gráfico Azure Digital Twins usando uma aplicação de cliente de amostra

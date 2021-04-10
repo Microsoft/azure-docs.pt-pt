@@ -9,22 +9,14 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b5960238893ae1e4dc307db98f9dc73889a2fa5b
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 59bfac3df1a1ba8a466b9cdc5197ede7332ed758
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108898"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728560"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-<!----
-> [!WARNING]
-> links to our Hero Sample repo need to be updated when the sample is publicly available.
----->
 
 > [!IMPORTANT]
 > [Esta amostra está disponível no GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)

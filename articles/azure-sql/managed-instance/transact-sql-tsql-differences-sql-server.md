@@ -12,10 +12,10 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105644918"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance

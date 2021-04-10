@@ -4,16 +4,16 @@ description: Saiba como restringir o tráfego web com uma Firewall de Aplicaçã
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 03/29/2021
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 967d4d4a49809c2b5fa7a344286469bb67eec6cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d53f4b640154e4d7b02115d5043b37f6bb6e89ba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217606"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731195"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Ativar firewall de aplicação web usando o Azure CLI
 
@@ -109,13 +109,15 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 Neste exemplo, vai criar um conjunto de dimensionamento de máquinas virtuais que fornece dois servidores para o conjunto de back-end no gateway de aplicação. As máquinas virtuais no conjunto de dimensionamento são associadas à sub-rede *myBackendSubnet*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az-vmss-create).
 
+Substitua \<username> e por os seus \<password> valores antes de executar isto.
+
 ```azurecli-interactive
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
   --image UbuntuLTS \
-  --admin-username azureuser \
-  --admin-password Azure123456! \
+  --admin-username <username> \
+  --admin-password <password> \
   --instance-count 2 \
   --vnet-name myVNet \
   --subnet myBackendSubnet \

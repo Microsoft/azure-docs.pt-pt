@@ -10,10 +10,10 @@ ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 769b42133fb894c916ecaa3c42dd7de85206c765
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102556252"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guia de Início Rápido: Criar uma máquina virtual do Windows com a CLI do Azure

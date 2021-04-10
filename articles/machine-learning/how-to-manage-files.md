@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: 474b3123513e4b8acf19ba9cdb42c3384ea3ced2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5bfa7d83c00386ae922f0eba221ad9f2f74639ae
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100101590"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066148"
 ---
 # <a name="how-to-create-and-manage-files-in-your-workspace"></a>Como criar e gerir ficheiros no seu espaço de trabalho
 

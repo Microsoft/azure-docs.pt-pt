@@ -4,10 +4,10 @@ description: Saiba mais sobre alertas de segurança e remediação recomendada u
 ms.topic: conceptual
 ms.date: 2/16/2021
 ms.openlocfilehash: 73b3a1ca3e52f571ab7b531235650b6bda870691
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784565"
 ---
 # <a name="defender-for-iot-hub-security-alerts"></a>Alertas de segurança do Defender para ioT Hub

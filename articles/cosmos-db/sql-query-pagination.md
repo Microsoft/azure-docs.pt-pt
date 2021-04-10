@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.openlocfilehash: d47a7b9e2229ffbd747b1ff7b9491ce99e9b190f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103492239"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginação em Azure Cosmos DB

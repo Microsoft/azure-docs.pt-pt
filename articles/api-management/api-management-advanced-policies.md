@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103562489"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gestão de API

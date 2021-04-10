@@ -4,10 +4,10 @@ description: Saiba quais as novidades com a Azure Event Grid, como as últimas n
 ms.topic: overview
 ms.date: 07/23/2020
 ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105107538"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Quais as novidades na Grelha de Eventos Azure?

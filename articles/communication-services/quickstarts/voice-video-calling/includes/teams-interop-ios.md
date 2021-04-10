@@ -7,10 +7,10 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.openlocfilehash: 8ff85dc5571f549027e208409db3f4e80c68b205
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105108204"
 ---
 Neste arranque rápido, você vai aprender a se juntar a uma reunião de equipas usando os Serviços de Comunicação Azure chamando SDK para iOS.

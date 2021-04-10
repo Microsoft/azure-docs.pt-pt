@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f71f394f190c5de1c3d64d02fd6113817ecda1ea
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.openlocfilehash: e8ef354480c69fa9b0b5407c88209b368485127d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152790"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729877"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 O Grupo de Serviços de Comunicação Azure **Call Hero Sample para Android** demonstra como os serviços de comunicação que chamam o Android SDK podem ser usados para construir uma experiência de chamada de grupo que inclui voz e vídeo. Neste arranque rápido da amostra, você aprenderá a configurar e executar a amostra. Para o contexto está prevista uma visão geral da amostra.
 
 ## <a name="download-code"></a>Transferir código

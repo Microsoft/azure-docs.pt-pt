@@ -4,10 +4,10 @@ description: Melhore a sua conformidade e postura de segurança utilizando o Def
 ms.date: 1/20/2021
 ms.topic: conceptual
 ms.openlocfilehash: 574d1fe7415bf655c94d4076659e90c203cff1ba
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784548"
 ---
 # <a name="security-posture--cis-benchmark"></a>Postura de segurança - referência cis 

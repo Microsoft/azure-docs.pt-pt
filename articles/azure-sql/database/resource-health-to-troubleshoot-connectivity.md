@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 03/24/2021
 ms.openlocfilehash: 4434c796a41126444b8785440427123e88e0b528
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105107793"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Utilize a Saúde dos Recursos para resolver problemas de conectividade para a Base de Dados Azure SQL e para a Azure SQL Gestão de Instâncias

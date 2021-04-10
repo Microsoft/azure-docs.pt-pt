@@ -9,10 +9,10 @@ ms.author: camper
 ms.date: 03/22/2021
 ms.custom: devx-track-terraform
 ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105558419"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribuição de utilização do cliente Azure

@@ -4,15 +4,15 @@ description: Descreve fontes de dados e conectores suportados para modelos de da
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 03f4d151fc948e4c060989a7d101ad91aecdecb6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b51ceb97d607f3082e1e7cc4c94083c9215b2db8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99981498"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731484"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data sources supported in Azure Analysis Services (Origens de dados suportadas no Azure Analysis Services)
 

@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
 ms.openlocfilehash: 2664d175818a6e29dcd3f704c6938987bae050cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555181"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerir uma máquina virtual Windows que tenha vários NICs

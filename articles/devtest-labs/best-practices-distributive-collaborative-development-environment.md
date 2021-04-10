@@ -4,10 +4,10 @@ description: Fornece as melhores práticas para a criação de um ambiente de de
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: caf4bd13f2ec9c45db392a027db269b492cbd802
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550081"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Melhores práticas para desenvolvimento distribuído e colaborativo dos recursos da Azure DevTest Labs

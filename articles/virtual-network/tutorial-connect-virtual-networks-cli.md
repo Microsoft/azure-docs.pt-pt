@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 tags: azure-resource-manager
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9c6399e437fa314aa82e0b41cbf8a170ea3ab72e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df1b90a638052de7b56854060badfb8e3483d4c2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94741795"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065434"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Conecte redes virtuais com o espreitamento da rede virtual utilizando o Azure CLI
 

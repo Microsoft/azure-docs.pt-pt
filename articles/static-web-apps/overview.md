@@ -5,24 +5,24 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: f4e900c8bcdcb5febec39421e098b19ad10b8b00
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558895"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166411"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>O que é Azure Static Web Apps Preview?
 
-Azure Static Web Apps é um serviço que constrói e implementa automaticamente aplicações web de stack completa para Azure a partir de um repositório GitHub.
+Azure Static Web Apps é um serviço que constrói e implementa automaticamente aplicações web de stack completa para Azure a partir de um repositório de código.
 
-:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Visão geral das aplicações web estáticas":::
+:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Diagrama de visão geral de aplicativos web estáticos Azure":::
 
-O fluxo de trabalho da Azure Static Web Apps é adaptado ao fluxo de trabalho diário de um desenvolvedor. As aplicações são construídas e implementadas com base nas interações do GitHub.
+O fluxo de trabalho da Azure Static Web Apps é adaptado ao fluxo de trabalho diário de um desenvolvedor. As aplicações são construídas e implementadas com base em alterações de código.
 
-Quando cria um recurso das Aplicações Web Estáticas do Azure, o Azure configura um fluxo de trabalho do GitHub Actions no repositório de código fonte da aplicação que monitoriza um ramo à sua escolha. Sempre que pressiona compromete-se ou aceita pedidos de puxar para a sucursal observada, a GitHub Action constrói e implementa automaticamente a sua app e a sua API para Azure.
+Quando cria um recurso Azure Static Web Apps, o Azure interage diretamente com o GitHub ou o Azure DevOps para monitorizar um ramo à sua escolha. Sempre que pressiona compromete-se ou aceita pedidos de puxar para o ramo observado, uma construção é executada automaticamente e a sua app e API são implantadas no Azure.
 
 As aplicações web estáticas são geralmente construídas usando bibliotecas e estruturas como Angular, React, Svelte, Vue ou Blazor onde a renderização do lado do servidor não é necessária. Estas aplicações incluem HTML, CSS, JavaScript e elementos de imagem que compõem a aplicação. Com um servidor web tradicional, estes ativos são servidos a partir de um único servidor ao lado de todos os pontos finais da API necessários.
 
@@ -32,7 +32,7 @@ Com aplicações web estáticas, os ativos estáticos são separados de um servi
 
 - **Hospedagem web** para conteúdo estático como HTML, CSS, JavaScript e imagens.
 - **Suporte integrado da API** fornecido pela Azure Functions.
-- **Integração gitHub de primeira classe** onde alterações de repositórios desencadeiam construções e implementações.
+- **Integração gitHub e Azure DevOps de primeira classe** onde alterações de repositório desencadeiam construções e implementações.
 - Conteúdo estático **distribuído globalmente,** colocando o conteúdo mais próximo dos seus utilizadores.
 - **Certificados SSL gratuitos,** que são automaticamente renovados.
 - **Domínios personalizados** para fornecer personalizações de marca à sua aplicação.

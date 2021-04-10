@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2021
 ms.author: terrylan
-Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: d931d3923ff49dde2bea234278c995e79670429f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1bb4f22c6ef114a224597ede2b053d076aba5997
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99627638"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065842"
 ---
 # <a name="azure-identity-management-security-overview"></a>Descrição geral da segurança da gestão de identidades do Azure
 

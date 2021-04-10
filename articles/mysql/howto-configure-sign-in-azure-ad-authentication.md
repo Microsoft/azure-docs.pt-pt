@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 808c3589ba5b51b035ccc8165489c4d11203dd66
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: 492e56e09129f9d47b863624cd72cd508801c143
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612233"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728271"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
 
@@ -78,7 +78,6 @@ Exemplo (para Nuvem Pública):
 ```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
-
 O valor do recurso acima referido deve ser especificado exatamente como mostrado. Para outras nuvens, o valor do recurso pode ser analisado utilizando:
 
 ```azurecli-interactive
@@ -90,6 +89,13 @@ Para a versão 2.0.71 do CLI Azure e posteriormente, o comando pode ser especifi
 ```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
+Utilizando o PowerShell, pode utilizar o seguinte comando para adquirir o token de acesso:
+
+```azurepowershell-interactive
+$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+$accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
+```
+
 
 Após o sucesso da autenticação, a Azure AD devolverá um token de acesso:
 
@@ -105,13 +111,17 @@ Após o sucesso da autenticação, a Azure AD devolverá um token de acesso:
 
 O token é uma cadeia base 64 que codifica todas as informações sobre o utilizador autenticado, e que é direcionada para a Base de Dados Azure para o serviço MySQL.
 
-> [!NOTE]
-> A validade do sinal de acesso está entre 5 minutos e 60 minutos. Recomendamos que obtenha o token de acesso pouco antes de iniciar o login na Base de Dados Azure para o MySQL.
+A validade do sinal de acesso está entre ***5 minutos e 60 minutos***. Recomendamos que obtenha o token de acesso pouco antes de iniciar o login na Base de Dados Azure para o MySQL. Pode utilizar o seguinte comando Powershell para ver a validade do símbolo. 
+
+```azurepowershell-interactive
+$accessToken.ExpiresOn.DateTime
+```
 
 ### <a name="step-3-use-token-as-password-for-logging-in-with-mysql"></a>Passo 3: Use o token como senha para iniciar sessão com o MySQL
 
-Ao ligar, precisa de utilizar o token de acesso como palavra-passe do utilizador MySQL. Ao utilizar clientes GUI como mySQLWorkbench, pode utilizar o método acima para recuperar o token. 
+Ao ligar, precisa de utilizar o token de acesso como palavra-passe do utilizador MySQL. Ao utilizar clientes GUI como mySQLWorkbench, pode utilizar o método acima descrito para recuperar o token. 
 
+#### <a name="using-mysql-cli"></a>Utilização do MySQL CLI
 Ao utilizar o CLI, pode utilizar esta mão curta para ligar: 
 
 **Exemplo (Linux/macOS):**
@@ -121,8 +131,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+#### <a name="using-mysql-workbench"></a>Usando a bancada mysql
+* Lançar a bancada mySQL workbench e clicar na opção Base de Dados e, em seguida, clicar em "Ligar à base de dados"
+* No campo de nome de anfitrião, insira o MySQL FQDN por exemplo. mydb.mysql.database.azure.com
+* No campo do nome de utilizador, insira o nome de administrador do MySQL Azure Ative Directory e adicide-o com o nome do servidor MySQL, e não com o FQDN, por exemplo. user@tenant.onmicrosoft.com@mydb
+* No campo da palavra-passe, clique em "Armazenar no Cofre" e cole no token de acesso a partir de ficheiros, por exemplo, C:\temp\MySQLAccessToken.txt
+* Clique no separador avançado e certifique-se de que verifica "Ativar o Plugin de Autenticação de Texto Limpo"
+* Clique em OK para ligar à base de dados
 
-Considerações importantes na ligação:
+#### <a name="important-considerations-when-connecting"></a>Considerações importantes na ligação:
 
 * `user@tenant.onmicrosoft.com` é o nome do utilizador ou grupo AZure AD que está a tentar ligar como
 * Apecimos sempre o nome do servidor após o nome de utilizador/grupo AZure AD (por `@mydb` exemplo)

@@ -17,10 +17,10 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 9d549d77b4a60f7543f69a9fd89e8b538c95d010
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102564616"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar um Linux VM a partir de um disco personalizado com o Azure CLI

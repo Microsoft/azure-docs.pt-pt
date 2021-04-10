@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 03a29e121d3838404519045601d484a1875db9ce
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 47c641eedbbe096a75223286563acb0a2405b1a6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105557246"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935214"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
 Este artigo fornece referências às melhores práticas que podem ajudá-lo a entender as arquiteturas de solução para a utilização de Ficheiros Azure NetApp.  
@@ -101,6 +101,7 @@ Esta secção fornece referências à SAP sobre soluções Azure.
 * [Decisões arquitetónicas para maximizar o investimento da ANF na HANA N+M Scale-Out Architecture - Parte 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
 * [Decisões arquitetónicas para maximizar o investimento da ANF na HANA N+M Scale-Out Architecture - Parte 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 * [Decisões arquitetónicas para maximizar o investimento da ANF na HANA N+M Scale-Out Architecture - Parte 3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2215948)
+* [SAP Landscape dimensionamento e consolidação de volume com arquivos Azure NetApp](https://techcommunity.microsoft.com/t5/sap-on-microsoft/sap-landscape-sizing-and-volume-consolidation-with-anf/m-p/2145572/highlight/true#M14)
 
 ## <a name="azure-vmware-solutions"></a>Soluções Azure VMware
 

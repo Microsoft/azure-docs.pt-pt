@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: c8f76c74c951de77d5d5c213be3698ec2b175ead
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 139970bb043c745d63f2ef795ae1c8aef4bda0fa
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596780"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108135"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Encode a remote file based on URL and stream the video - REST (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-O Azure Media Services permite-lhe codificar os seus ficheiros de mídia em formatos que podem ser reproduzidos numa grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md).
+O Azure Media Services permite-lhe codificar os seus ficheiros de mídia em formatos que podem ser reproduzidos numa grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encode-concept.md).
 
 Este tutorial mostra-lhe como codificar um ficheiro com base num URL e transmitir o vídeo com o Azure Media Services utilizando o REST. 
 
@@ -44,7 +44,7 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
+- [Criar uma conta de Serviços de Comunicação](./account-create-how-to.md)Social.
 
     Certifique-se de que se lembra dos valores que utilizou para o nome do grupo de recursos e nome da conta dos Media Services
 
@@ -101,7 +101,7 @@ Nesta secção, enviamos pedidos que são relevantes para a codificação e cria
 1. Iniciar um ponto final de streaming
 2. Criar um elemento de saída
 3. Criar uma Transformação
-4. Criar um trabalho
+4. Create a Job (Crie uma Tarefa)
 5. Criar um localizador de streaming
 6. Listar caminhos do localizador de streaming
 
@@ -186,7 +186,7 @@ A saída [Asset](/rest/api/media/assets) armazena o resultado da tarefa de codif
 
 Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao apresentar novos empregos para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](./transforms-jobs-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
 
-Ao criar uma nova instância [Transformação](/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. Para obter informações sobre esta Predefinição, veja [Auto-generating bitrate ladder](autogen-bitrate-ladder.md) (Escala de bits gerada automaticamente).
+Ao criar uma nova instância [Transformação](/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. Para obter informações sobre esta Predefinição, veja [Auto-generating bitrate ladder](encode-autogen-bitrate-ladder.md) (Escala de bits gerada automaticamente).
 
 Pode utilizar um EncoderNamedPreset incorporadi ou utilizar as predefinições personalizadas. 
 
@@ -413,4 +413,4 @@ Consulte o artigo da [comunidade Azure Media Services](media-services-community.
 Agora que sabe como carregar, codificar e transmitir o vídeo, veja o artigo seguinte: 
 
 > [!div class="nextstepaction"]
-> [Analisar vídeos](analyze-videos-tutorial-with-api.md)
+> [Analisar vídeos](analyze-videos-tutorial.md)

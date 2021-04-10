@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8db9aad279c151073f8c674854d139276a84b064
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555385"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Encriptação do disco Azure com Azure AD (versão anterior)

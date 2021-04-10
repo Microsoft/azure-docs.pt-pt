@@ -4,10 +4,10 @@ description: Saiba mais sobre alertas de segurança personalizáveis e remediaç
 ms.topic: conceptual
 ms.date: 2/16/2021
 ms.openlocfilehash: d7a58bcdb759c3f31290cc7930eba6ca52fcc17b
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784735"
 ---
 # <a name="defender-for-iot-hub-custom-security-alerts"></a>Defender para alertas de segurança personalizados IoT Hub
@@ -20,7 +20,7 @@ As seguintes listas de alertas defender para IoT são definíveis por si com bas
 
 ## <a name="built-in-custom-alerts-in-the-iot-hub"></a>Alertas personalizados incorporados no IoT Hub
 
-| Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida |
+| Gravidade | Nome do alerta | Origem de dados | Description | Remediação sugerida |
 |--|--|--|--|--|
 | Baixo | Alerta personalizado - O número de mensagens de nuvem para dispositivo no protocolo AMQP está fora do alcance permitido | IoT Hub | O número de mensagens de nuvem para dispositivos (protocolo AMQP) dentro de uma janela de tempo específica está fora do intervalo atualmente configurado e admissível. |  |
 | Baixo | Alerta personalizado - O número de mensagens rejeitadas para dispositivos no protocolo AMQP está fora do alcance permitido | IoT Hub | O número de mensagens de nuvem para dispositivos (protocolo AMQP) rejeitado pelo dispositivo, dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível. |  |
