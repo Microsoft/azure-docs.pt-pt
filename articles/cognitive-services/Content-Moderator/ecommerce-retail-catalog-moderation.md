@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 211f58e26ec89c393bf9f91cc3a05044c6b1e802
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: e67a9b35291615b87edf918b4146ab8d77a0ae7f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221283"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065148"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Imagens moderadas de produtos de e-commerce com Moderador de Conteúdo Azure
 
@@ -58,7 +58,7 @@ Em seguida, crie etiquetas personalizadas na ferramenta 'Rever' (consulte o arti
 1. Nomeie a aplicação **EcommerceModeration,** em seguida, selecione **OK**.
 1. Se você está adicionando este projeto a uma solução existente, selecione este projeto como o projeto de startup única.
 
-Este tutorial destaca o código que é central para o projeto, mas não cobre todas as linhas de código. Copie todo o conteúdo de _Program.cs_ do projeto de amostra ([Samples eCommerce Catalog Moderation)](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)no arquivo _Program.cs_ do seu novo projeto. Em seguida, passe pelas seguintes secções para saber como o projeto funciona e como usá-lo por si mesmo.
+Este tutorial destaca o código que é central para o projeto, mas não cobre todas as linhas de código. Copie todo o conteúdo do _Programa.cs_ do projeto de amostra ([Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) no arquivo _.cs Programa_ do seu novo projeto. Em seguida, passe pelas seguintes secções para saber como o projeto funciona e como usá-lo por si mesmo.
 
 ## <a name="define-api-keys-and-endpoints"></a>Definir chaves e pontos finais da API
 

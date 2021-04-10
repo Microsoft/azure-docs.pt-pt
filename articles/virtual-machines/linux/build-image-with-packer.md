@@ -10,10 +10,10 @@ ms.date: 05/07/2019
 ms.author: cynthn
 ms.collection: linux
 ms.openlocfilehash: 4d85106cb78b5f4799a78d18463d83594f54dbac
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102556745"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais Linux em Azure

@@ -6,18 +6,17 @@ documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machine-scale-sets
-ms.subservice: linux
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: 09e41b4071ad02120f7d303b32bc87bc0ba39e2c
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.openlocfilehash: a714434c39a0c40c2e908f2d0c424f02851921a6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105549302"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933683"
 ---
 # <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set-public-preview"></a>Benefício Híbrido Azure para conjunto de escala de máquina virtual Linux (Visualização pública)
 

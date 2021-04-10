@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101686602"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com BlueJeans para Azure AD
@@ -144,13 +144,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-bluejeans-for-azure-ad-sso"></a>Configure BlueJeans para Azure AD SSO
+## <a name="configure-bluejeans-for-azure-ad-sso&quot;></a>Configure BlueJeans para Azure AD SSO
 
 1. Numa janela diferente do navegador web, inscreva-se no seu BlueJeans para o site da empresa **Azure AD** como administrador.
 
 2. Vá para **ADMIN \> DEFINIÇÕES \> DE SEGURANÇA**.
 
-    ![O screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com definição de grupo e segurança selecionadas.](./media/bluejeans-tutorial/ic785868.png "Administrador")
+    ![O screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com definição de grupo e segurança selecionadas.](./media/bluejeans-tutorial/ic785868.png &quot;Administrador")
 
 3. Na secção **SEGURANÇA,** execute os seguintes passos:
 

@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: cf8869002fb3e0170331709af3da5b971a098740
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612403"
 ---
 # <a name="overview-of-shared-device-mode"></a>Visão geral do modo de dispositivo partilhado

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
 ms.openlocfilehash: b5f9df4e6f682b5d1e9e3cd35affe6e4191e3d53
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105047784"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
@@ -230,7 +230,7 @@ O Microsoft [Azure Application Gateway](../../application-gateway/overview.md) f
 
 ![Gateway de Aplicação](./media/overview/azure-security-figure-2.png)
 
-Permite-lhe otimizar a produtividade da web farm descarregando a rescisão intensiva de CPU TLS para o Gateway de aplicação (também conhecido como "descarga TLS" ou "Ponte TLS"). Também fornece outras capacidades de encaminhamento da Camada 7, incluindo distribuição de rodada de tráfego de entrada, afinidade da sessão baseada em cookies, encaminhamento baseado em caminhos de URL e a capacidade de hospedar vários websites por trás de um único Gateway de aplicação. O Application Gateway do Azure é um balanceador de carga de 7 camadas.
+Permite-lhe otimizar a produtividade da web farm descarregando a rescisão intensiva de CPU TLS para o Gateway de aplicação (também conhecido como "descarga TLS&quot; ou &quot;Ponte TLS"). Também fornece outras capacidades de encaminhamento da Camada 7, incluindo distribuição de rodada de tráfego de entrada, afinidade da sessão baseada em cookies, encaminhamento baseado em caminhos de URL e a capacidade de hospedar vários websites por trás de um único Gateway de aplicação. O Application Gateway do Azure é um balanceador de carga de 7 camadas.
 
 Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entre diversos servidores, quer estejam na nuvem ou no local.
 

@@ -8,10 +8,10 @@ ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.openlocfilehash: 4dc1af590a1965c155a7af7b233b431f982a73d2
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105024239"
 ---
 # <a name="how-to-bulk-edit-assets-to-annotate-classifications-glossary-terms-and-modify-contacts"></a>Como editar em massa ativos para anotar classificações, termos glossários e modificar contactos

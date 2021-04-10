@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 1f8100dd6340383eadec5d10b7f23db59ba0ebdf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98786389"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Encomende os resultados da pesquisa utilizando o .NET SDK
@@ -26,7 +26,7 @@ Neste tutorial, ficará a saber como:
 > * Resultados da encomenda com base em múltiplas propriedades
 > * Resultados da encomenda com base num perfil de pontuação
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial estende o projeto de scrolling infinito criado no [Add paging para pesquisar resultados](tutorial-csharp-paging.md) tutoriais.
 

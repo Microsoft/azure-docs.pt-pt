@@ -10,10 +10,10 @@ ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9a0fb8ed8ac54fa866b6db7d8f808c011c0c6758
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101695826"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics frequentemente fez perguntas

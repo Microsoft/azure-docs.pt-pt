@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: a1d77016fdf94de4fdd574b0d4cbd22d6b0b8490
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105024749"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Resolução de problemas ferramentas de análise de comportamento do utilizador em Insights de Aplicação

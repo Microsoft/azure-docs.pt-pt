@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c258ac62617cb6ac954e0b8c59928225c7f477b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518743"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935583"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
@@ -110,15 +110,16 @@ Também pode editar a tabela de listas de execução para selecionar várias exe
 
 ![Execute detalhes no estúdio Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="view-log-files-for-a-run"></a>Ver ficheiros de registo para uma execução 
+### <a name="view-and-download-log-files-for-a-run"></a>Ver e descarregar ficheiros de registo para uma execução 
 
 Os ficheiros de registo são um recurso essencial para depurar as cargas de trabalho do Azure ML. Aprofundar até uma corrida específica para ver os seus registos e saídas:  
 
 1. Navegue para o **separador Experimentos.**
 1. Selecione o runID para uma execução específica.
 1. Selecione **Saídas e registos** no topo da página.
+2. Selecione **Baixar tudo** para descarregar todos os seus registos numa pasta zip.
 
-:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="Screenshot da secção de saída e registos de uma corrida":::
+:::image type="content" source="media/how-to-monitor-view-training-logs/download-logs.png" alt-text="Screenshot da secção de saída e registos de uma corrida.":::
 
 As tabelas abaixo mostram o conteúdo dos ficheiros de registo nas pastas que verá nesta secção.
 

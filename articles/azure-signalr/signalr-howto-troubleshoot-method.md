@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ed8775c6544791571746b0f3784a60ce2af0de7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97707661"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726979"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Como resolver problemas de conectividade e problemas de entrega de mensagens
 
@@ -108,7 +108,7 @@ A experiência de registo do lado do cliente é exatamente a mesma que quando se
 
 ##### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Ativar a sessão de sessão do lado do servidor para `ASP.NET Core SignalR`
 
-Registo do lado do servidor para `ASP.NET Core SignalR` integração com a `ILogger` [sessão de registo](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) baseada fornecida no `ASP.NET Core` quadro. Pode ativar a sessão do lado do servidor utilizando `ConfigureLogging` uma utilização da amostra da seguinte forma:
+Registo do lado do servidor para `ASP.NET Core SignalR` integração com a `ILogger` [sessão de registo](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&preserve-view=true&view=aspnetcore-2.1) baseada fornecida no `ASP.NET Core` quadro. Pode ativar a sessão do lado do servidor utilizando `ConfigureLogging` uma utilização da amostra da seguinte forma:
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>

@@ -4,10 +4,10 @@ description: Saiba como pode automatizar rapidamente processos repetíveis adici
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: d7ff75be3cb847235405a740df4a20803cdc87b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589917"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizar processos de Insights de Aplicações utilizando apps lógicas

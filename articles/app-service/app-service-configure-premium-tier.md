@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: c187a1521762c0b69d42c81f464694729d3c02f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100594223"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Configure nível PremiumV3 para serviço de aplicações Azure

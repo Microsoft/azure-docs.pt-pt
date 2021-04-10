@@ -9,10 +9,10 @@ ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
 ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100371945"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Como planear uma oferta de Serviço Gerido para o mercado comercial da Microsoft

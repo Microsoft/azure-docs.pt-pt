@@ -4,10 +4,10 @@ description: Versões de software VMware suportadas para Azure VMware Solution.
 ms.topic: include
 ms.date: 03/13/2021
 ms.openlocfilehash: 9a1781d163e67c2f9b6a4f756a616e59a969696f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103462524"
 ---
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
