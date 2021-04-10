@@ -10,10 +10,10 @@ ms.date: 02/20/2019
 ms.author: kgremban
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 37b411792ea1a3e21e0f26df0c7905eb8d46310e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97897710"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Compare o encaminhamento de mensagens e a grelha de eventos para ioT Hub

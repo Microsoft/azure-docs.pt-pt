@@ -4,10 +4,10 @@ description: Neste quickstart você vai aprender a entender a arquitetura do age
 ms.topic: quickstart
 ms.date: 01/24/2021
 ms.openlocfilehash: 2e7d7d1e6770667b1ce966724611cc003116409d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778513"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Quickstart: Arquitetura de referência de agente de segurança

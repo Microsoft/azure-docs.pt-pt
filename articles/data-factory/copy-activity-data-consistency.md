@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
 ms.openlocfilehash: b71657f67c1b9c623d6d48f33b986ac43533cca6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100373021"
 ---
 #  <a name="data-consistency-verification-in-copy-activity"></a>Verificação da consistência dos dados na atividade da cópia

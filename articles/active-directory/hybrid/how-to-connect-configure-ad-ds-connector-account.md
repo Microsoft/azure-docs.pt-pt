@@ -13,17 +13,17 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96349944"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configure AD DS Connector Account Permissions (Azure AD Connect: Configurar as Permissões da Conta do Conector do AD DS) 
 
 O Módulo PowerShell chamado [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) foi introduzido com a construção 1.1.880.0 (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões corretas do Ative Directory para a sua implementação AZURE AD Connect. 
 
-## <a name="overview"></a>Descrição geral 
+## <a name="overview"></a>Descrição Geral 
 Os cmdlets PowerShell a seguir podem ser utilizados para configurar permissões de Ative Directory da conta AD DS Connector, para cada recurso que seleciona para ativar no Azure AD Connect. Para evitar problemas, deve preparar permissões de Ative Directory com antecedência sempre que pretender instalar o Azure AD Connect utilizando uma conta de domínio personalizada para se ligar à sua floresta. Este módulo ADSyncConfig também pode ser usado para configurar permissões após a implementação do Azure AD Connect.
 
 ![visão geral da conta de anúncios ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)

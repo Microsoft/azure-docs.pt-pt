@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: jeedes
 ms.openlocfilehash: a846899ba8f9b9e7c0d2e54744f5e5044ca7a2d6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98732106"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Conector Google Cloud (G Suite)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.openlocfilehash: 7f2ab069be7985376c44f2cd2ae3ccdd728d4e2a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100385664"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory"></a>Copiar dados do HubSpot utilizando a Azure Data Factory

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f60ff3c8511472ee456d392257b815c0ab64f69c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779805"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Oleodutos e Atividades na Fábrica de Dados Azure
@@ -29,7 +29,7 @@ Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Fac
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que, em conjunto, executam uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de uma base de dados do SQL Server para um Azure Blob Storage. Em seguida, utilize uma atividade do Hive que execute um script do Hive num cluster do Azure HDInsight para processar/transformar os dados do armazenamento de blobs para produzir dados de saída. Finalmente, utilize uma segunda atividade de cópia para copiar os dados de saída para um Azure Synapse Analytics em cima do qual são construídas soluções de reporte de inteligência empresarial (BI).
 
 Uma atividade pode ter zero ou mais [conjuntos de dados](data-factory-create-datasets.md) de entrada e produzir um ou mais [conjuntos de dados](data-factory-create-datasets.md) de saída. O diagrama seguinte mostra a relação entre pipelines, atividades e conjuntos de dados no Data Factory:
@@ -90,9 +90,9 @@ Vamos ver mais de perto a definição dos pipelines no formato JSON. A estrutura
 
 | Etiqueta | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", "" "/", "<", ">", \* "%", "&", \\ ""</li></ul> |Sim |
-| descrição | Especifique o texto que descreve para o que é utilizado o pipeline. |Sim |
-| atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Consulte a secção seguinte para mais detalhes sobre o elemento JSON das atividades. | Sim |
+| name |Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", "" "/", "<", ">", \* "%", "&", \\ ""</li></ul> |Yes |
+| descrição | Especifique o texto que descreve para o que é utilizado o pipeline. |Yes |
+| atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Consulte a secção seguinte para mais detalhes sobre o elemento JSON das atividades. | Yes |
 | iniciar | Hora de início para o oleoduto. Deve estar no [formato ISO.](https://en.wikipedia.org/wiki/ISO_8601) Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, uma hora EST. Aqui está um exemplo: `2016-02-27T06:00:00-05:00` " que é 6 AM EST.<br/><br/>As propriedades de início e de fim em conjunto especificam o período ativo para o gasoduto. As fatias de saída só são produzidas neste período ativo. |No<br/><br/>Se especificar um valor para a propriedade final, deve especificar valor para a propriedade inicial.<br/><br/>Os tempos de início e fim podem estar vazios para criar um oleoduto. Tem de especificar ambos os valores para definir um período ativo para o gasoduto funcionar. Se não especificar os tempos de início e de fim ao criar um oleoduto, pode defini-los utilizando o Set-AzDataFactoryPipelineActivePeriod cmdlet mais tarde. |
 | fim | Fim da data para o oleoduto. Se especificado deve estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, uma hora EST. Aqui está um exemplo: `2016-02-27T06:00:00-05:00` , que é 6 AM EST.<br/><br/>Para executar o pipeline de forma indefinida, especifique 9999-09-09 como o valor da propriedade end. <br/><br/> Um gasoduto só está ativo entre a hora de início e o fim. Não é executado antes da hora de início ou depois do fim do tempo. Se o gasoduto for interrompido, não será executado independentemente do seu início e fim. Para que um oleoduto corra, não deve ser interrompido. Consulte [Agendamento e Execução](data-factory-scheduling-and-execution.md) para entender como funciona o agendamento e execução na Fábrica de Dados Azure. |No <br/><br/>Se especificar um valor para a propriedade inicial, deve especificar valor para a propriedade final.<br/><br/>Consulte as notas para a propriedade **inicial.** |
 | isPaused | Se for verdadeiro, o gasoduto não funciona. Está no estado de pausa. Valor predefinido = falso. Pode utilizar esta propriedade para ativar ou desativar um oleoduto. |No |
@@ -128,11 +128,11 @@ A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
 | Etiqueta | Descrição | Necessário |
 | --- | --- | --- |
-| name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", "" "/", "<", ">","*","%", "&", \\ ""</li></ul> |Sim |
-| descrição | Texto que descreve para o que é utilizada a atividade |Sim |
-| tipo | Tipo de atividade. Consulte as [secções de Atividades](#data-movement-activities) de Movimento de Dados e [Atividades de Transformação](#data-transformation-activities) de Dados para diferentes tipos de atividades. |Sim |
-| entradas |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
-| saídas |Tabelas de saída usadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Sim |
+| name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", "" "/", "<", ">","*","%", "&", \\ ""</li></ul> |Yes |
+| descrição | Texto que descreve para o que é utilizada a atividade |Yes |
+| tipo | Tipo de atividade. Consulte as [secções de Atividades](#data-movement-activities) de Movimento de Dados e [Atividades de Transformação](#data-transformation-activities) de Dados para diferentes tipos de atividades. |Yes |
+| entradas |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Yes |
+| saídas |Tabelas de saída usadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Yes |
 | linkedServiceName |Nome do serviço ligado utilizado pela atividade. <br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. |Sim para atividade hdInsight e Azure Machine Learning Studio (clássico) Atividade de Pontuação de Lote <br/><br/>Não para todas as outras. |
 | typeProperties |As propriedades na secção **de tipoProperties** dependem do tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | No |
 | política |Políticas que afetam o comportamento de runtime da atividade. Se não for especificado, são utilizadas políticas predefinidas. |No |
@@ -141,7 +141,7 @@ A tabela seguinte descreve as propriedades na definição JSON da atividade:
 ### <a name="policies"></a>Políticas
 As políticas afetam o comportamento em tempo de execução de uma atividade, especificamente quando a fatia de uma mesa é processada. A tabela seguinte fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor Predefinido | Descrição |
+| Propriedade | Valores permitidos | Valor Predefinido | Description |
 | --- | --- | --- | --- |
 | concurrency |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções paralelas de atividade que podem acontecer em diferentes fatias. Por exemplo, se uma atividade precisar passar por um grande conjunto de dados disponíveis, ter um maior valor de concordância acelera o processamento de dados. |
 | executaçãoPriorityOrder |Mais recenteMente Primeiro<br/><br/>O Mais Antigo Primeiro |O Mais Antigo Primeiro |Determina a encomenda de fatias de dados que estão a ser processadas.<br/><br/>Por exemplo, se tiver duas fatias (uma acontecendo às 16h, e outra às 17h), e ambas estiverem pendentes de execução. Se definir a execuçãoPriorityOrder para newestFirst, a fatia às 17:00 é processada primeiro. Da mesma forma, se definir a execuçãoPriorityORder como OFIrst mais antigo, então a fatia às 16:00 é processada. |

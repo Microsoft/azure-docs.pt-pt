@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/02/2021
 ms.author: jeedes
 ms.openlocfilehash: 81107b3655ae86d51e36445ce46661d553ab3b5a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101649864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integração do Azure Ative Directory com a Splunk Enterprise e a Splunk Cloud

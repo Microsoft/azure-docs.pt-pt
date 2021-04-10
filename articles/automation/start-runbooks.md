@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7cc1a25fbfc4d3f063c6fc6d225c3f5c7a4b5a3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100572555"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starting a Runbook in Azure Automation (Iniciar um Runbook na Automatização do Azure)

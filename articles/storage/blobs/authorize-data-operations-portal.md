@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: a12936f8f9f84dacfab4850253df665ae7758be1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102613264"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados blob no portal Azure

@@ -13,10 +13,10 @@ ms.date: 01/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
 ms.openlocfilehash: b842934ea6bb458a59a53ea7068aa9ece98aacf1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98796151"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com o Azure Data Factory

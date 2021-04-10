@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 7f98e14c2eae133941f3fc87247a427198ebcdc2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102611968"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Melhores práticas para criar uma aplicação com a Base de Dados do Azure para MySQL 

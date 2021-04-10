@@ -4,10 +4,10 @@ description: Aprenda a criar e configurar um laboratório de sala de aula, ver t
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96434214"
 ---
 # <a name="manage-labs-in-azure-lab-services"></a>Gerir laboratórios em Azure Lab Services 

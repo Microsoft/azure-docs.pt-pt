@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 12/09/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d649b54b544c120198963f8094764e9590e20b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100547641"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilize o serviço StorSimple Device Manager para gerir volumes (atualização 3 ou posterior)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial explica como utilizar o serviço StorSimple Device Manager para criar e gerir volumes nos dispositivos da série StorSimple 8000 que executam o Update 3 e posteriormente.
 

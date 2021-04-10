@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
 ms.openlocfilehash: c6856a0cb70123f1a3570b611c81660a592fdc1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98027811"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB

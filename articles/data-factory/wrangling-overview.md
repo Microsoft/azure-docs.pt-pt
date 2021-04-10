@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: f922e7a2755a6e26a0d9f93f2668753e2f4dad5a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98738174"
 ---
 # <a name="what-is-data-wrangling"></a>O que é que os dados estão a discutir?

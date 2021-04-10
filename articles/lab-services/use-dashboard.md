@@ -4,10 +4,10 @@ description: Aprenda a usar o dashboard para um laboratório de sala de aula nos
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a91e1649d913956219ddcf192ab315a245b32eae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96434605"
 ---
 # <a name="dashboard-for-labs"></a>Painel de instrumentos para laboratórios

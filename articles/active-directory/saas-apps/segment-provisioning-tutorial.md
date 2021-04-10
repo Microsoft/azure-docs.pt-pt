@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/24/2021
 ms.author: Zhchia
 ms.openlocfilehash: 23e23a2a70a5897a714af17c0f8b6420cb011399
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105050641"
 ---
 # <a name="tutorial-configure-segment-for-automatic-user-provisioning"></a>Tutorial: Segmento de configuração para fornecimento automático de utilizadores

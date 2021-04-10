@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 2453fa2d9b4e78b60d4922e09347799266a84cff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98743224"
 ---
 # <a name="troubleshoot-azure-cloud-service-classic-roles-that-fail-to-start"></a>Resolução de problemas Azure Cloud Service (clássico) papéis que não começam

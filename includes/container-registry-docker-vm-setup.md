@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
 ms.openlocfilehash: d699e8985a3a23b3aab87601d5298d9c8f7e34e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102244855"
 ---
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Criar uma máquina virtual ativada pelo Docker

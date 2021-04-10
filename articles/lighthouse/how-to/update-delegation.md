@@ -4,10 +4,10 @@ description: Saiba como atualizar uma delegação para um cliente previamente a 
 ms.date: 02/16/2021
 ms.topic: how-to
 ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100555771"
 ---
 # <a name="update-a-delegation"></a>Atualizar uma delegação

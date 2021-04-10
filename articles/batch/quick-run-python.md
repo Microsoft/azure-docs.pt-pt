@@ -8,10 +8,10 @@ ms.custom:
 - mvc
 - devx-track-python
 ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046815"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Quickstart: Use a Python API para executar um trabalho no Azure Batch

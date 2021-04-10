@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 ms.openlocfilehash: 1800771bfff0afbcec8440383536734246ea8f5c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100580732"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar à escala utilizando o Monitor Azure

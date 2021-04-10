@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2021
 ms.author: duau
 ms.openlocfilehash: 455eeb83ef5a9608c077de24b8d3d4722d26a822
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98742714"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização do ponto final do Gestor de Tráfego

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
 ms.openlocfilehash: e298cb0d1a2c510a096f8ead03f8af7e39c206a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96498936"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção Azure DDoS - Conceber soluções resilientes

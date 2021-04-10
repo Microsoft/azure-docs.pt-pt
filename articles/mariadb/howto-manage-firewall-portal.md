@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 895c8e51e16cb0b82ebf3edcf954dabe62b08ff4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98665060"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para regras de firewall MariaDB utilizando o portal Azure

@@ -13,10 +13,10 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 ms.openlocfilehash: 47b8c8c074a5e0ce3ed73a2a9a4b06aa307cdff3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98756423"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
@@ -29,7 +29,7 @@ Se ainda não o fez, crie a sua primeira aplicação completando o arranque ráp
 
 [Quickstart: Aplicação de página única](./quickstart-v2-javascript.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Muitas aplicações web modernas são construídas como aplicações de página única do lado do cliente. Os desenvolvedores escrevem-nos utilizando o JavaScript ou uma estrutura SPA como Angular, Vue e React. Estas aplicações são executadas num navegador web e têm características de autenticação diferentes das aplicações tradicionais do lado do servidor.
 

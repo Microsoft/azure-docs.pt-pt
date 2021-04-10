@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: references_regions
 ms.openlocfilehash: a9c8ec877ddb17603e82b763223278a2e5e36714
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105047750"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagem de contentor no registo do contentor de Azure

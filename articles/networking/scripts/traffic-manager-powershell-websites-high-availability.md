@@ -13,10 +13,10 @@ ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: ce7dd8d5398274b08eae887cf811e397a2797959
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98231978"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Tráfego de rotas para alta disponibilidade de aplicações - Azure PowerShell

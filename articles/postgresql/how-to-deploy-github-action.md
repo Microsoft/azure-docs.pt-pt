@@ -8,10 +8,10 @@ ms.author: sumuth
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
 ms.openlocfilehash: 2e546801f95d9d884bdfb3f09a18b3fa6e2d78a1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97365120"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-postgresql"></a>Quickstart: Use ações do GitHub para ligar ao Azure PostgreSQL

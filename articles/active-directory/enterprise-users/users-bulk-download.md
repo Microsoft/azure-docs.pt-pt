@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57e3a059a5dd846250ba162513ef118e084c4b87
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97861588"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Faça o download de uma lista de utilizadores no portal Azure Ative Directory

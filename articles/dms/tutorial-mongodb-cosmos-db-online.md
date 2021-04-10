@@ -13,10 +13,10 @@ ms.custom: seo-nov-2020
 ms.topic: tutorial
 ms.date: 02/03/2021
 ms.openlocfilehash: 84eed7d48dfe0230ea023d171e2b640bdf50dbe3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101715671"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migrar a MongoDB para a API da Azure Cosmos para a MongoDB online usando DMS

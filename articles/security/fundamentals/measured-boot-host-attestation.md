@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96498868"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Atestado de arranque e hospedeiro medido

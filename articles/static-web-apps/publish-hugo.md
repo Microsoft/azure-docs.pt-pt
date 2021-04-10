@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: 4539c32a367bb0974212d989176a96b530da21a4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100652352"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site Hugo para pré-visualização de aplicações web estáticas Azure
