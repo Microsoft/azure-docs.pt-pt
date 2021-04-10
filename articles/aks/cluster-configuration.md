@@ -7,10 +7,10 @@ ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100572782"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS

@@ -9,10 +9,10 @@ ms.date: 01/06/2021
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 019ca26143a4879efafa973299703f0abcb21162
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102488091"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Desempenho de consulta de afinação com Azure Cosmos DB

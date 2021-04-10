@@ -9,10 +9,10 @@ ms.date: 03/13/2020
 ms.author: normesta
 ms.custom: include file
 ms.openlocfilehash: a19619c23a5d8b3e90acf38658a109b862c9fbc3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95993755"
 ---
 > [!NOTE]

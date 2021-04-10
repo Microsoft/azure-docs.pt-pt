@@ -4,10 +4,10 @@ description: Compreenda os seus utilizadores e o que fazem com a sua aplicação
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: d9de1e10363f2100b9dfe557dc12e0be951ce6b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102489043"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights

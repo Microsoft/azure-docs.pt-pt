@@ -10,10 +10,10 @@ ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: 4d7d4b5af9b86fe5116dc29f6ed1a789cdbf2047
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100581094"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Quickstart: Criar uma conta de Automação utilizando o modelo ARM
