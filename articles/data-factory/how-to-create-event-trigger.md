@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d9012c2bb56b7936b627063be2e9c5b7aa33541e
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889132"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962735"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Crie um gatilho que executa um oleoduto em resposta a um evento de armazenamento
 
@@ -71,9 +71,12 @@ Esta secção mostra-lhe como criar um gatilho de evento de armazenamento dentro
 
 1. Se o seu oleoduto tiver parâmetros, pode especirá-los no navegador lateral do gatilho. O gatilho do evento de armazenamento captura o caminho da pasta e o nome do ficheiro da bolha nas propriedades `@triggerBody().folderPath` e `@triggerBody().fileName` . Para utilizar os valores destas propriedades num oleoduto, é necessário mapear as propriedades para os parâmetros do gasoduto. Depois de mapear as propriedades para parâmetros, pode aceder aos valores capturados pelo gatilho através da `@pipeline().parameters.parameterName` expressão em todo o pipeline. Para obter uma explicação detalhada, consulte [metadados de gatilho de referência em pipelines](how-to-use-trigger-parameterization.md)
 
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Screenshot do evento de armazenamento desencadeia propriedades de mapeamento para parâmetros de pipeline.":::
+   :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Screenshot do evento de armazenamento desencadeia propriedades de mapeamento para parâmetros de pipeline.":::
 
-    No exemplo anterior, o gatilho é configurado para disparar quando um caminho de bolha que termina em .csv é criado no _teste de eventos da_ pasta nos _dados_ da amostra do recipiente . As **propriedades de pastaPath** e **fileName** captam a localização da nova bolha. Por exemplo, quando MoviesDB.csv é adicionado ao caminho de amostra-dados/testes de eventos, `@triggerBody().folderPath` tem um valor de e tem um valor de `sample-data/event-testing` `@triggerBody().fileName` `moviesDB.csv` . Estes valores são mapeados, no exemplo, para os parâmetros do gasoduto `sourceFolder` `sourceFile` e, que podem ser utilizados em todo o oleoduto como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` respectivamente.
+   No exemplo anterior, o gatilho é configurado para disparar quando um caminho de bolha que termina em .csv é criado no _teste de eventos da_ pasta nos _dados_ da amostra do recipiente . As **propriedades de pastaPath** e **fileName** captam a localização da nova bolha. Por exemplo, quando MoviesDB.csv é adicionado ao caminho de amostra-dados/testes de eventos, `@triggerBody().folderPath` tem um valor de e tem um valor de `sample-data/event-testing` `@triggerBody().fileName` `moviesDB.csv` . Estes valores são mapeados, no exemplo, para os parâmetros do gasoduto `sourceFolder` `sourceFile` e, que podem ser utilizados em todo o oleoduto como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` respectivamente.
+
+   > [!NOTE]
+   > Se estiver a criar o seu oleoduto e acionar o [Azure Synapse Analytics,](/synapse-analytics)deve utilizar `@trigger().outputs.body.fileName` e como `@trigger().outputs.body.folderPath` parâmetros. Essas duas propriedades captam informação de bolhas. Utilize essas propriedades em vez de usar `@triggerBody().fileName` e `@triggerBody().folderPath` .
 
 1. Clique **em Terminar** assim que terminar.
 
@@ -83,7 +86,7 @@ A tabela a seguir fornece uma visão geral dos elementos de esquema que estão r
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores Permitidos** | **Obrigatório** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **âmbito** | O ID de recursos do Azure Resource Manager da Conta de Armazenamento. | String | ID do gestor de recursos Azure | Sim |
+| **âmbito** | O ID de recursos do Azure Resource Manager da Conta de Armazenamento. | String | ID do gestor de recursos Azure | Yes |
 | **eventos** | O tipo de eventos que causam este gatilho a disparar. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
 | **blobPathBeginsWith** | O caminho da bolha deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `/records/blobs/december/` apenas dispara o gatilho para as bolhas na `december` pasta debaixo do `records` recipiente. | String   | | Fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
 | **blobPathEndsWith** | O caminho da bolha deve terminar com o padrão previsto para o gatilho disparar. Por exemplo, `december/boxes.csv` apenas dispara o gatilho para bolhas nomeadas `boxes` numa `december` pasta. | String   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |

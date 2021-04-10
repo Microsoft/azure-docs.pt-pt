@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44091cda479f2c0ccbe77bb9989ee2eda4c40f9d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727098"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055778"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -163,11 +163,11 @@ Se este cenário existir no seu ambiente para evitar loops infinitos, o Azure AD
 
 Para obter uma explicação dos canais de atualização do office, consulte [a visão geral dos canais de atualização para as aplicações da Microsoft 365](/deployoffice/overview-update-channels). Recomenda-se que as organizações não desativem o Gestor de Conta Web (WAM).
 
-### <a name="policy-change-timing"></a>Tempo de mudança de política
+### <a name="group-membership-and-policy-update-effective-time"></a>Adesão ao grupo e atualização de políticas tempo efetivo
 
-As alterações de política introduzidas pelos administradores podem levar até um dia a ser eficazes. Foi feita alguma otimização para reduzir o atraso para duas horas. No entanto, ainda não cobre todos os cenários. 
+A adesão ao grupo e a atualização das políticas efetuadas pelos administradores poderão demorar até um dia a ser eficazes. Foi feita alguma otimização para atualizações de políticas que reduzem o atraso para duas horas. No entanto, ainda não cobre todos os cenários. 
 
-Se houver uma emergência e precisar de ter as suas políticas atualizadas para ser aplicada imediatamente a determinados utilizadores, deverá utilizar este [comando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) ou "Revogue a Sessão" na página do perfil do utilizador para revogar a sessão dos utilizadores, o que garantirá que as políticas atualizadas serão aplicadas imediatamente.
+Se houver uma emergência e precisar de ter as suas políticas atualizadas ou a alteração da adesão ao grupo a ser aplicada imediatamente a determinados utilizadores, deverá utilizar este [comando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) ou "Revoar sessão" na página do perfil do utilizador para revogar a sessão dos utilizadores, o que garantirá que as políticas atualizadas serão aplicadas imediatamente.
 
 ### <a name="coauthoring-in-office-apps"></a>Coautoria em aplicativos office
 

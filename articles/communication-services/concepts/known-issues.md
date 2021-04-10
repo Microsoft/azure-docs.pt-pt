@@ -8,15 +8,15 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: 7be40ac5f6cda7a81d68ca0b17f377891dd58480
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: b9ed71a8fc9346ecd454eba98dcbb3b13186eba2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606050"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276047"
 ---
-# <a name="known-issues-azure-communication-services-sdks"></a>Questões conhecidas: Azure Communication Services SDKs
-Este artigo fornece informações sobre limitações e questões conhecidas relacionadas com os SDKs dos Serviços de Comunicação Azure.
+# <a name="known-issues-azure-communication-services-calling-sdks"></a>Questões conhecidas: Serviços de Comunicação Azure Chamando SDKs
+Este artigo fornece informações sobre limitações e questões conhecidas relacionadas com os Serviços de Comunicação Azure Que chamam SDKs.
 
 > [!IMPORTANT]
 > Existem vários fatores que podem afetar a qualidade da sua experiência de chamada. Consulte a documentação dos requisitos de rede para saber mais sobre a configuração da rede de **[serviços](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** de comunicação e testar as melhores práticas.
@@ -47,7 +47,10 @@ As aplicações não podem enumerar/selecionar dispositivos de microfone/altifal
 Se estiver a utilizar o Safari no macOS, a sua aplicação não será capaz de enumerar/selecionar altifalantes através do Gestor de Dispositivos de Serviços de Comunicação. Neste cenário, os dispositivos devem ser selecionados através do SISTEMA. Se utilizar o Chrome no macOS, a aplicação pode enumerar/selecionar dispositivos através do Gestor de Dispositivos de Serviços de Comunicação.
 
 ### <a name="audio-connectivity-is-lost-when-receiving-sms-messages-or-calls-during-an-ongoing-voip-call"></a>Perde-se a conectividade áudio ao receber mensagens SMS ou chamadas durante uma chamada VoIP em curso
-Os navegadores móveis não mantêm a conectividade enquanto estão no estado de fundo. Isto pode levar a uma experiência de chamada degradada se a chamada VoIP foi interrompida por um evento que empurra a sua aplicação para segundo plano.
+Este problema pode ocorrer devido a múltiplas razões:
+
+- Alguns navegadores móveis não mantêm a conectividade enquanto estão no estado de fundo. Isto pode levar a uma experiência de chamada degradada se a chamada VoIP foi interrompida por um evento que empurra a sua aplicação para segundo plano. 
+- Por vezes, uma chamada SMS ou PSTN capta o som áudio e não liberta áudio de volta à chamada VoIP. A Apple corrigiu este problema nas versões iOS 14.4.1+. 
 
 <br/>Biblioteca do cliente: Chamada (JavaScript)
 <br/>Navegadores: Safari, Chrome
@@ -95,9 +98,16 @@ Se os utilizadores decidirem ligar/desligar rapidamente o vídeo enquanto a cham
  - Se o utilizador começar com áudio e, em seguida, iniciar e parar o vídeo enquanto a chamada está no `Connecting` estado.
  - Se o utilizador começar com áudio e, em seguida, iniciar e parar o vídeo enquanto a chamada está no `Lobby` estado.
 
-
 #### <a name="possible-causes"></a>Possíveis causas
 Sob investigação.
+
+### <a name="enumeratingaccessing-devices-for-safari-on-macos-and-ios"></a>Enumeração/acesso a dispositivos para Safari no MacOS e iOS 
+Se o acesso aos dispositivos for concedido, após algum tempo, as permissões do dispositivo serão reiniciadas. O Safari no MacOS e no iOS não mantém permissões por muito tempo, a menos que haja um fluxo adquirido. A forma mais simples de contornar isto é ligar para DeviceManager.askDevicePermission() API antes de ligar para a enumeração do dispositivo APIs (DeviceManager.getCameras(), DeviceManager.getSpeakers() e DeviceManager.getMicrophones()). Se as permissões estiverem lá, então o utilizador não verá nada, se não, irá voltar a solicitar.
+
+<br/>Dispositivos afetados: iPhone
+<br/>Biblioteca do cliente: Chamada (JavaScript)
+<br/>Navegadores: Safari
+<br/>Sistema Operativo: iOS
 
 ###  <a name="sometimes-it-takes-a-long-time-to-render-remote-participant-videos"></a>Às vezes demora muito tempo a fazer vídeos remotos dos participantes
 Durante uma chamada de grupo em curso, _o Utilizador A_ envia vídeo e, em seguida, o Utilizador _B_ junta-se à chamada. Por vezes, o Utilizador B não vê vídeos do Utilizador A, ou o vídeo do Utilizador A começa a renderizar após um longo atraso. Este problema pode ser causado por um ambiente de rede que requer uma configuração adicional. Consulte a documentação dos [requisitos](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) de rede para orientação de configuração da rede.

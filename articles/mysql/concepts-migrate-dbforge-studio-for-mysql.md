@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: d5d694820c2ffd09868d81693d4f98f839a139d7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1c85a07a3d61c80f3871f04c399263a8e210254e
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591882"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010796"
 ---
 # <a name="connect-to-azure-database-for-mysql-using-dbforge-studio-for-mysql"></a>Ligue à Base de Dados Azure para o MySQL utilizando o dbForge Studio para o MySQL
 
@@ -78,9 +78,7 @@ Como resultado dos nossos esforços de migração de bases de dados, a base de d
 o dbForge Studio para o MySQL incorpora algumas ferramentas que permitem migrar bases de dados MySQL, esquemas MySQL e\ou dados para a Azure. A escolha da funcionalidade depende das suas necessidades e dos requisitos do seu projeto. Se precisar de mover seletivamente uma base de dados, ou seja, migrar certas tabelas MySQL para Azure, o melhor é usar a funcionalidade Schema e Data Compare.
 Neste exemplo, migramos a base de dados *mundial* que reside no servidor MySQL para a Base de Dados Azure para o MySQL. A lógica por trás do processo de migração utilizando a funcionalidade Schema e Data Compare do DbForge Studio para o MySQL é criar uma base de dados vazia na Base de Dados Azure para o MySQL, sincronizá-la com a base de dados MySQL necessária primeiro usando a ferramenta Schema Compare e depois usar a ferramenta Data Compare. Desta forma, os esquemas e dados do MySQL são transferidos com precisão para Azure.
 
-### <a name="connect-to-azure-database-for-mysql-and-create-an-empty-database"></a>Ligue-se à Base de Dados Azure para o MySQL e crie uma base de dados vazia
-
-Ligue-se a uma Base de Dados Azure para o MySQL e crie uma base de dados vazia.
+### <a name="step-1-connect-to-azure-database-for-mysql-and-create-an-empty-database"></a>Passo 1. Ligue-se à Base de Dados Azure para o MySQL e crie uma base de dados vazia
 
 ### <a name="step-2-schema-synchronization"></a>Passo 2. Sincronização de Schema
 

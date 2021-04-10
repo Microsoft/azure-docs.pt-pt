@@ -16,10 +16,10 @@ ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
 ms.openlocfilehash: 001a9a15c259d0b0d73eec9c9a39ad7c27f26721
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105572520"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Armazenamento: Melhores práticas de desempenho para SQL Server em VMs Azure

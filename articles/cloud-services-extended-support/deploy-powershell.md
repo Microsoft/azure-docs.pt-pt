@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bcf6b2f6b964a056b9d90f08c0586fcbdec5b260
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865626"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167282"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Implementar um Serviço cloud (suporte alargado) utilizando a Azure PowerShell
 
 Este artigo mostra como usar o `Az.CloudService` módulo PowerShell para implantar serviços cloud (suporte alargado) em Azure que tem múltiplas funções (WebRole e WorkerRole) e extensão remota do ambiente de trabalho. 
-
-> [!IMPORTANT]
-> Os Serviços cloud (suporte alargado) estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -73,13 +69,14 @@ Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para servi�
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-7. Crie um endereço IP público e (opcionalmente) desaponhe a propriedade da etiqueta DNS do endereço IP público. Se estiver a utilizar um IP estático, tem de ser referenciado como um IP reservado no ficheiro de configuração de serviço.  
+7. Crie um endereço IP público e desaponija a propriedade da etiqueta DNS do endereço IP público. Os Serviços cloud (suporte alargado) só suportam [Endereços https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) IP públicos] (endereços IP públicos SKU. Os IPs públicos padrão da SKU não funcionam com os Serviços cloud.
+Se estiver a utilizar um IP estático, precisa de o referir como um ficheiro IP reservado na configuração de serviço (.cscfg) 
 
     ```powershell
     $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
-8. Crie o Objeto de Perfil de Rede e associe o endereço IP público ao frontend da plataforma criada pelo balanceador de carga.  
+8. Crie um Objeto de Perfil de Rede e associe o endereço IP público à parte frontal do equilibrador de carga. A plataforma Azure cria automaticamente um recurso de balançador de carga SKU 'Classic' na mesma subscrição que o recurso de serviço de cloud. O recurso do balanceador de carga é um recurso apenas de leitura na ARM. Quaisquer atualizações ao recurso são suportadas apenas através dos ficheiros de implementação do serviço na nuvem (.cscfg & .csdef)
 
     ```powershell
     $publicIP = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp  

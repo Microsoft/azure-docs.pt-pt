@@ -7,10 +7,10 @@ ms.service: industrial-iot
 ms.topic: overview
 ms.date: 3/22/2021
 ms.openlocfilehash: 940391d26b5a8455fef01c8094cd08e05ab51290
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104787952"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é IoT Industrial (IIoT)?

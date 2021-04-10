@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 1506ce311fe443247050a36e1b9fa4600360ac6e
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604146"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Descrição geral da ligação e consulta da Base de Dados do Azure para PostgreSQL – Servidor Único

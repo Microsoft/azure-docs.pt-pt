@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d7eca7d8f3cd40f4a3961f0ac478fba290be3041
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102561896"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279668"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
@@ -175,10 +175,6 @@ A tabela que se segue mostra quais os níveis de acesso disponíveis para bolhas
 > [!IMPORTANT]
 > A alteração do nível de acesso para uma conta de armazenamento ou bolha existente pode resultar em custos adicionais. Para obter mais informações, consulte [a faturação da conta de armazenamento.](#storage-account-billing)
 
-## <a name="encryption"></a>Encriptação
-
-Todos os dados da sua conta de armazenamento estão encriptados no lado do serviço. Para obter mais informações sobre encriptação, consulte [a Encriptação do Serviço de Armazenamento Azure para obter dados em repouso](storage-service-encryption.md).
-
 ## <a name="storage-account-endpoints"></a>Pontos finais da conta do Storage
 
 Uma conta de armazenamento fornece um espaço de nome único em Azure para os seus dados. Cada objeto que armazena no Azure Storage tem um endereço que inclui o nome da sua conta única. A combinação do nome da conta e do ponto final do serviço Azure Storage forma os pontos finais da sua conta de armazenamento.
@@ -200,22 +196,17 @@ Construa o URL para aceder a um objeto numa conta de armazenamento, anexando a l
 
 Também pode configurar a sua conta de armazenamento para usar um domínio personalizado para bolhas. Para mais informações, consulte [configurar um nome de domínio personalizado para a sua conta de Armazenamento Azure.](../blobs/storage-custom-domain-name.md)  
 
-## <a name="control-access-to-account-data"></a>Controlar o acesso aos dados da conta
+## <a name="migrating-a-storage-account"></a>Migrar uma conta de armazenamento
 
-Por predefinição, os dados na sua conta só estão disponíveis para si, o proprietário da conta. Tem controlo sobre quem pode aceder aos seus dados e quais as permissões que têm.
+O quadro que se segue resume e aponta para orientações sobre a mudança, a atualização ou migração de uma conta de armazenamento:
 
-Todos os pedidos feitos contra a sua conta de armazenamento devem ser autorizados. Ao nível do serviço, o pedido deve incluir um *cabeçalho de autorização* válido. Especificamente, este cabeçalho inclui todas as informações necessárias para que o serviço valide o pedido antes de executá-lo.
-
-Pode conceder acesso aos dados na sua conta de armazenamento utilizando qualquer uma das seguintes abordagens:
-
-- **Diretório Ativo Azure:** Utilize credenciais do Azure Ative Directory (Azure AD) para autenticar um utilizador, grupo ou outra identidade para acesso a dados de blob e fila. Se a autenticação de uma identidade for bem sucedida, então a Azure AD devolve um símbolo para usar ao autorizar o pedido ao armazenamento de Azure Blob ou ao armazenamento da fila. Para mais informações, consulte [autenticar o acesso ao Azure Storage utilizando o Azure Ative Directory](storage-auth-aad.md).
-- **Autorização de chave partilhada:** Utilize a chave de acesso à sua conta de armazenamento para construir uma cadeia de ligação que a sua aplicação utiliza em tempo de execução para aceder ao Azure Storage. Os valores da cadeia de ligação são utilizados para construir o *cabeçalho de autorização* que é passado para o Azure Storage. Para obter mais informações, consulte as cordas de [conexão Configure Azure Storage](storage-configure-connection-string.md).
-- **Assinatura de acesso partilhado:** Uma assinatura de acesso partilhado (SAS) é um símbolo que permite o acesso delegado aos recursos na sua conta de armazenamento. O token SAS encapsula todas as informações necessárias para autorizar um pedido de armazenamento Azure no URL. Quando criar um SAS, pode especificar quais as permissões que o SAS concede a um recurso e o intervalo sobre o qual as permissões são válidas. Um token SAS pode ser assinado com credenciais AZure AD ou com Chave Partilhada. Para obter mais informações, consulte [Grant acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](storage-sas-overview.md).
-
-> [!NOTE]
-> Autenticar utilizadores ou aplicações utilizando credenciais Azure AD proporciona uma segurança superior e facilidade de utilização sobre outros meios de autorização. Embora possa continuar a utilizar a autorização da Chave Partilhada com as suas aplicações, a utilização do Azure AD contorna a necessidade de armazenar a chave de acesso à sua conta com o seu código. Também pode continuar a utilizar assinaturas de acesso partilhado (SAS) para conceder acesso a recursos finos na sua conta de armazenamento, mas a Azure AD oferece capacidades semelhantes sem a necessidade de gerir fichas SAS ou se preocupar em revogar um SAS comprometido.
->
-> A Microsoft recomenda a utilização da autorização AD AD para as suas aplicações de armazenamento Azure, quando possível.
+| Cenário de migração | Detalhes |
+|--|--|
+| Mover uma conta de armazenamento para uma subscrição diferente | O Azure Resource Manager oferece opções para mover um recurso para uma subscrição diferente. Para obter mais informações, consulte [mover recursos para um novo grupo de recursos ou subscrição.](../../azure-resource-manager/management/move-resource-group-and-subscription.md) |
+| Mover uma conta de armazenamento para um grupo de recursos diferente | O Azure Resource Manager oferece opções para mover um recurso para um grupo de recursos diferente. Para obter mais informações, consulte [mover recursos para um novo grupo de recursos ou subscrição.](../../azure-resource-manager/management/move-resource-group-and-subscription.md) |
+| Mover uma conta de armazenamento para uma região diferente | Para mover uma conta de armazenamento, crie uma cópia da conta de armazenamento noutra região. Em seguida, mova os seus dados para essa conta usando o AzCopy, ou outra ferramenta à sua escolha. Para obter mais informações, consulte [uma conta de Armazenamento Azure para outra região.](storage-account-move.md) |
+| Upgrade para uma conta de armazenamento v2 para fins gerais | Pode atualizar uma conta de armazenamento v1 ou blob para uma conta v2 para fins gerais. Note que esta ação não pode ser desfeita. Para obter mais informações, consulte [upgrade para uma conta de armazenamento v2 para fins gerais.](storage-account-upgrade.md) |
+| Migrar uma conta de armazenamento clássica para O Gestor de Recursos Azure | O modelo de implementação do Azure Resource Manager é superior ao modelo clássico de implementação em termos de funcionalidade, escalabilidade e segurança. Para obter mais informações sobre a migração de uma conta de armazenamento clássica para Azure Resource Manager, consulte [a migração de contas de armazenamento](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) em suporte de plataforma de recursos **IaaS do clássico para o Azure Resource Manager.** |
 
 ## <a name="copying-data-into-a-storage-account"></a>Copiar dados numa conta de armazenamento
 
@@ -239,6 +230,10 @@ Para obter mais informações sobre a Azure Storage REST API, consulte [Azure St
 
 > [!IMPORTANT]
 > Os blobs encriptados através de encriptação do lado do cliente armazenam os metadados relacionados com a encriptação com o blob. Se copiar um blob com encriptação do lado do cliente, certifique-se de que a operação de cópia preserva os metadados do blob e, especialmente, os metadados relacionados com a encriptação. Se copiar um blob sem os metadados de encriptação, não poderá obter novamente o conteúdo do mesmo. Para obter mais informações acerca dos metadados relacionados com a encriptação, veja [Encriptação do Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+## <a name="encryption"></a>Encriptação
+
+Todos os dados da sua conta de armazenamento estão encriptados no lado do serviço. Para obter mais informações sobre encriptação, consulte [a Encriptação do Serviço de Armazenamento Azure para obter dados em repouso](storage-service-encryption.md).
 
 ## <a name="storage-account-billing"></a>Faturação da conta do Storage
 

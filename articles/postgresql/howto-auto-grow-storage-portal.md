@@ -1,17 +1,17 @@
 ---
 title: Armazenamento de crescimento automático - Portal Azure - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve como pode configurar o armazenamento de crescimento automático usando o portal Azure na Base de Dados Azure para PostgreSQL - Servidor Único
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
-ms.openlocfilehash: d49047e9b3a65da90f4a5ac9e4b3cb1e32bd59a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20c1d598cdb8bc68a3f2348547569a8f2719858c
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92489987"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551395"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Armazenamento de crescimento automático utilizando o portal Azure na Base de Dados Azure para PostgreSQL - Servidor Único
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento de servidores PostgreSQL crescer sem afetar a carga de trabalho.

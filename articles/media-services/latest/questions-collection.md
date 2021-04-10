@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9c4ffee437e3049f8e480375f0b1373fce09fe77
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: dc8f8f7ced1c5915c2ea54390685806cfcdd257f
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105646202"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280314"
 ---
 <!-- NOTE this file is temporary and a placeholder until the FAQ file update is completed. -->
 
@@ -34,7 +34,7 @@ Este artigo dá respostas a perguntas frequentes sobre a Azure Media Services v3
 - Os dados adicionais associados à conta de Serviços de Comunicação (incluindo Chaves de Encriptação de Conteúdo, chaves de verificação de fichas, urls JobInputHttp e outros metadados de entidade) são armazenados no armazenamento da Microsoft na região selecionada para a conta de Media Services.
     - Devido aos [requisitos de residência](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) de dados no Brasil Sul e Sudeste Asiático, os dados adicionais da conta são armazenados de forma redundante e estão contidos numa única região. Para o Sudeste Asiático, todos os dados adicionais da conta são armazenados em Singapura e para o Brasil Sul, os dados são armazenados no Brasil.
     - Em regiões que não o Brasil Sul e Sudeste Asiático, os dados adicionais da conta também podem ser armazenados em armazenamento da Microsoft na [região emparelhada.](../../best-practices-availability-paired-regions.md)
-- O Azure Media Services é um serviço regional e não fornece [elevada disponibilidade](media-services-high-availability-encoding.md) ou replicação de dados. Os clientes que precisam destas funcionalidades são altamente encorajados a construir uma solução usando contas de Media Services em várias regiões.  Uma amostra que mostra como construir uma solução para alta disponibilidade com media services video on demand está disponível como um guia.
+- O Azure Media Services é um serviço regional e não fornece [elevada disponibilidade](architecture-high-availability-encoding-concept.md) ou replicação de dados. Os clientes que precisam destas funcionalidades são altamente encorajados a construir uma solução usando contas de Media Services em várias regiões.  Uma amostra que mostra como construir uma solução para alta disponibilidade com media services video on demand está disponível como um guia.
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quais são as limitações do portal Azure para os Serviços de Comunicação Social v3?
 
@@ -44,15 +44,15 @@ Se o seu vídeo foi previamente enviado para a conta dos Media Services utilizan
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Que funções da Azure podem executar ações sobre os recursos da Azure Media Services? 
 
-Consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Mídia](rbac-overview.md).
+Consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Mídia](security-rbac-concept.md).
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Como faço o streaming para dispositivos Apple iOS?
 
-Certifique-se de que tem **(formato=m3u8-aapl)** no final do seu caminho (após a **/parte manifesto** do URL) para dizer ao servidor de origem de streaming para devolver o conteúdo HTTP Live Streaming (HLS) para consumo em dispositivos nativos Apple iOS. Para mais informações, consulte [o conteúdo de Entrega](dynamic-packaging-overview.md).
+Certifique-se de que tem **(formato=m3u8-aapl)** no final do seu caminho (após a **/parte manifesto** do URL) para dizer ao servidor de origem de streaming para devolver o conteúdo HTTP Live Streaming (HLS) para consumo em dispositivos nativos Apple iOS. Para mais informações, consulte [o conteúdo de Entrega](encode-dynamic-packaging-concept.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Qual é o método recomendado para processar vídeos?
 
-Utilizar [Transformações](/rest/api/media/transforms) para configurar tarefas comuns para codificar ou analisar vídeos. Cada Transform descreve uma receita, ou um fluxo de trabalho de tarefas para processar os seus ficheiros de vídeo ou áudio. A [Job](/rest/api/media/jobs) é o pedido real aos Serviços de Comunicação social para aplicar a Transformação a um conteúdo de vídeo ou áudio de entrada. Após a criação da Transform, pode submeter Jobs utilizando APIs dos Serviços de Comunicação Social ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
+Utilizar [Transformações](/rest/api/media/transforms) para configurar tarefas comuns para codificar ou analisar vídeos. Cada Transform descreve uma receita, ou um fluxo de trabalho de tarefas para processar os seus ficheiros de vídeo ou áudio. A [Job](/rest/api/media/jobs) é o pedido real aos Serviços de Comunicação social para aplicar a Transformação a um conteúdo de vídeo ou áudio de entrada. Após a criação da Transform, pode submeter Jobs utilizando APIs dos Serviços de Comunicação Social ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transform-jobs-concept.md) (Transformações e Trabalhos).
 
 ### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Fiz o upload, o codificado e publiquei um vídeo. Porque é que o vídeo não é reproduze quando tento transmiti-lo?
 
@@ -60,7 +60,7 @@ Uma das razões mais comuns é que não tens o ponto final de streaming a partir
 
 ### <a name="how-does-pagination-work"></a>Como funciona a paginação?
 
-Quando estiver a usar a paginação, deve sempre utilizar o próximo link para enumerar a coleção e não depender de um determinado tamanho da página. Para mais detalhes e exemplos, consulte [filtragem, pedido, paging](entities-overview.md).
+Quando estiver a usar a paginação, deve sempre utilizar o próximo link para enumerar a coleção e não depender de um determinado tamanho da página. Para mais detalhes e exemplos, consulte [filtragem, pedido, paging](filter-order-page-entitites-how-to.md).
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais as funcionalidades que ainda não estão disponíveis no Azure Media Services v3?
 
@@ -68,7 +68,7 @@ Para mais informações, consulte [o Guia de Migração.](migrate-v-2-v-3-migrat
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual é o processo de movimentação de uma conta de Serviços de Comunicação entre subscrições?  
 
-Para mais informações, consulte [a conta De movimentação de serviços de mídia entre subscrições](media-services-account-concept.md).
+Para mais informações, consulte [a conta De movimentação de serviços de mídia entre subscrições](account-move-account-how-to.md).
 
 ## <a name="live-streaming"></a>Transmissão em direto 
 
@@ -93,7 +93,7 @@ Pode:
 
 A codificação ao vivo dos Media Services v3 ainda não suporta a inserção de imagens ou vídeo durante o live stream. 
 
-Pode utilizar um [codificador ao vivo no local](recommended-on-premises-live-encoders.md) para mudar o vídeo de origem. Muitas aplicações fornecem a capacidade de mudar de fontes, incluindo Telestream Wirecast, Switcher Studio (no iOS) e OBS Studio (app gratuita).
+Pode utilizar um [codificador ao vivo no local](encode-recommended-on-premises-live-encoders.md) para mudar o vídeo de origem. Muitas aplicações fornecem a capacidade de mudar de fontes, incluindo Telestream Wirecast, Switcher Studio (no iOS) e OBS Studio (app gratuita).
 
 ## <a name="content-protection"></a>Proteção de conteúdo
 
@@ -109,7 +109,7 @@ Não tem de utilizar nenhum fornecedor específico de fichas, como o Azure Ative
 
 Certifique-se de que o emitente, o público e as reivindicações correspondem exatamente entre o que está no JWT e o `ContentKeyPolicyRestriction` valor usado em `ContentKeyPolicy` .
 
-Para obter mais informações, consulte [Protect your content utilizando encriptação dinâmica dos Media Services](content-protection-overview.md).
+Para obter mais informações, consulte [Protect your content utilizando encriptação dinâmica dos Media Services](drm-content-protection-concept.md).
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Como e onde consegui um token JWT antes de usá-lo para pedir uma licença ou chave?
 
@@ -127,8 +127,8 @@ Utilize APIs de Serviços de Media Azure para configurar a licença/entrega de c
 
 Para obter mais informações, consulte:
 
-- [Visão geral da proteção de conteúdos](content-protection-overview.md)
-- [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
+- [Visão geral da proteção de conteúdos](drm-content-protection-concept.md)
+- [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](architecture-design-multi-drm-system.md)
 
 ### <a name="should-i-use-http-or-https"></a>Devo utilizar HTTP ou HTTPS?
 A aplicação do leitor de MVC ASP.NET deve suportar o seguinte:
@@ -163,11 +163,11 @@ Muitas vezes, os clientes têm investido numa fazenda de servidores de licenças
 
 Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para:
 
-* Gerir [Eventos Ao Vivo](live-events-outputs-concept.md) nos Serviços de Media v3. 
+* Gerir [Eventos Ao Vivo](live-event-outputs-concept.md) nos Serviços de Media v3. 
 * Ver (não gerir) [ativos](assets-concept.md)v3 . 
 * [Obtenha informações sobre o acesso às APIs.](./access-api-howto.md) 
 
-Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [proteção de conteúdos),](content-protection-overview.md)utilize a [API REST](/rest/api/media/), o [Azure CLI,](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transform-jobs-concept.md) e [proteção de conteúdos),](drm-content-protection-concept.md)utilize a [API REST](/rest/api/media/), o [Azure CLI,](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito AssetFile em v3?
 
@@ -207,7 +207,7 @@ A estrutura de ficheiros descarregada num dispositivo iOS parece a seguinte imag
 
 A primeira pasta com um nome que termina com um traço seguido de um número contém conteúdo de vídeo. O valor numérico é o pico da largura de banda das representações em vídeo. A segunda pasta com um nome que termina com um traço seguido de 0 contém conteúdo sonoro. A terceira pasta nomeada `Data` contém a lista principal do conteúdo FPS. Finalmente, boot.xml fornece uma descrição completa do conteúdo da `.movpkg` pasta. 
 
-![Estrutura de ficheiros offline para a aplicação de amostras fairPlay iOS](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+![Estrutura de ficheiros offline para a aplicação de amostras fairPlay iOS](media/drm-offline-fairplay-for-ios-concept/offline-fairplay-file-structure.png)
 
 Aqui está uma amostra boot.xml ficheiro:
 
@@ -253,7 +253,7 @@ Dependendo da lógica comercial da STS personalizada, são emitidas diferentes r
 
 #### <a name="what-is-the-mapping-between-the-widevine-and-media-services-drm-security-levels"></a>Qual é o mapeamento entre os níveis de segurança da Widevine e dos Media Services DRM?
 
-A "Visão Geral da Arquitetura DRM Widevine" da Google define três níveis de segurança. No entanto, a documentação do [Azure Media Services sobre o modelo de licença Widevine](widevine-license-template-overview.md) descreve cinco níveis de segurança (requisitos de robustez do cliente para reprodução). Esta secção explica como os níveis de segurança mapeiam.
+A "Visão Geral da Arquitetura DRM Widevine" da Google define três níveis de segurança. No entanto, a documentação do [Azure Media Services sobre o modelo de licença Widevine](drm-widevine-license-template-concept.md) descreve cinco níveis de segurança (requisitos de robustez do cliente para reprodução). Esta secção explica como os níveis de segurança mapeiam.
 
 Ambos os conjuntos de níveis de segurança são definidos pelo Google Widevine. A diferença está no nível de utilização: arquitetura ou API. Os cinco níveis de segurança são usados na API widevine. O `content_key_specs` objeto, que `security_level` contém, é deseralizado e passado para o serviço de entrega global Widevine pelo serviço de licenças Azure Media Services Widevine. A tabela a seguir mostra o mapeamento entre os dois conjuntos de níveis de segurança.
 

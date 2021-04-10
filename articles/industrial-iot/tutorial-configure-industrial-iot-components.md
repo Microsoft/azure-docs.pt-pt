@@ -7,10 +7,10 @@ ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
 ms.openlocfilehash: 348276a71b2227063374da6455445118fcb00fcf
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104787750"
 ---
 # <a name="tutorial-configure-the-industrial-iot-components"></a>Tutorial: Configurar os componentes IoT Industriais
@@ -49,7 +49,7 @@ Aqui estão algumas das definições de personalização mais relevantes para os
 
 ## <a name="configuration-options"></a>Opções de configuração
 
-|Opção de configuração (abreviatura/nome completo)    |    Descrição   |
+|Opção de configuração (abreviatura/nome completo)    |    Description   |
 |----------------------------------------------|------------------|
 pf/publishfile |O nome de arquivo para configurar os nós para publicar. Se esta opção for especificada, coloca o Editor OPC em modo autónomo.
 Se/logfile |O nome de ficheiro do ficheiro de registo para utilizar.

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: 3cf97039983ecec44a7c3a32e178fdcf9f9c45ff
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104872188"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Registos do Monitor de Consulta Azure para monitorizar clusters HDInsight

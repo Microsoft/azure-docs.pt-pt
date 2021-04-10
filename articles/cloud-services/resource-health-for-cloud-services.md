@@ -3,17 +3,18 @@ title: Saúde de Recursos para Serviços em Nuvem (Clássico)
 description: Este artigo fala sobre o Suporte ao Controlo de Saúde de Recursos (RHC) para os Serviços de Nuvem do Microsoft Azure (Clássico)
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: resource-health
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46a27e42d6b3440914ca0d32e1ae2138b128021e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743513"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935163"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte para serviços de cloud Azure (Clássico)
 

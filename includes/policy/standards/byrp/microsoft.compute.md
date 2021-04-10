@@ -6,10 +6,10 @@ ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
 ms.openlocfilehash: ea7eeffb5e314d2ecc0516b8df8e24ae854adad4
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105036289"
 ---
 ## <a name="azure-security-benchmark"></a>Referência de Segurança do Azure

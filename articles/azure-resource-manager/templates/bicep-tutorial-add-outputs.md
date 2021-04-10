@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: 4b7d7a1414091c516dba2c474e1681ba357b55a1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104594313"
 ---
 # <a name="tutorial-add-outputs-to-azure-resource-manager-bicep-file"></a>Tutorial: Adicionar saídas ao ficheiro Bicep do Azure Resource Manager

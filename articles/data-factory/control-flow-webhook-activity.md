@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4c3ff5d7139f4167769f78aa858c7d7a693539a3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785942"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Azure Data Factory
@@ -55,12 +55,12 @@ Uma atividade webhook pode controlar a execução de oleodutos através do seu c
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-**name** | O nome da atividade webhook. | String | Sim |
-**tipo** | Deve ser definido como "WebHook". | String | Sim |
-**método** | O método REST API para o ponto final alvo. | Cadeia. O tipo suportado é "POST". | Sim |
-**url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim |
+**name** | O nome da atividade webhook. | String | Yes |
+**tipo** | Deve ser definido como "WebHook". | String | Yes |
+**método** | O método REST API para o ponto final alvo. | Cadeia. O tipo suportado é "POST". | Yes |
+**url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Yes |
 **cabeçalhos** | Cabeçalhos que são enviados para o pedido. Aqui está um exemplo que define o idioma e o tipo num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
-**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](./control-flow-web-activity.md#request-payload-schema) para o esquema da carga útil do pedido. | Sim |
+**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](./control-flow-web-activity.md#request-payload-schema) para o esquema da carga útil do pedido. | Yes |
 **autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](./control-flow-web-activity.md#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | No |
 **tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*ss*. | String | No |
 **Estado do relatório sobre o retorno** | Permite que um utilizador reporte o estado falhado de uma atividade webhook. | Booleano | No |

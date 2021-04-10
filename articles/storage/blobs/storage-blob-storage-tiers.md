@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0e2f3296eb6d4286bb4ef7081c1459109c40915f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656843"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962310"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Níveis de acesso para Azure Blob Storage - quente, fresco e arquivo
 
@@ -86,7 +86,7 @@ Os cenários de utilização de exemplo para o nível de acesso ao arquivo inclu
 - Dados de conformidade e arquivo que precisam de ser armazenados por muito tempo e que quase nunca são acedidos
 
 > [!NOTE]
-> O nível de arquivo não é suportado para contas ZRS, GZRS ou RA-GZRS. A migração de LRS para GRS não é suportada se a conta de armazenamento contiver bolhas no nível de arquivo.
+> O nível de arquivo não é suportado para contas ZRS, GZRS ou RA-GZRS. A migração de LRS para GRS é suportada desde que nenhuma bolha tenha sido transferida para o nível de arquivo enquanto a conta foi definida para LRS. Uma conta pode ser transferida de volta para GRS se a atualização for feita menos de 30 dias a partir do momento em que a conta se tornou LRS, e nenhuma bolha foi transferida para o nível de arquivo enquanto a conta foi definida para LRS.
 
 ## <a name="account-level-tiering"></a>Tiering de nível de conta
 

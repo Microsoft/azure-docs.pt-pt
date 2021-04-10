@@ -4,18 +4,18 @@ summary: Saiba como o Azure DDoS Protection Standard, quando combinado com as me
 metadata:
   description: Saiba como o Azure DDoS Protection Standard, quando combinado com as melhores práticas de estrutura de dispositivos, fornece proteção contra ataques DDoS.
   keywords: azure ddos protection standard
-  author: yitoh
+  author: aletheatoh
   ms.author: yitoh
   ms.date: 09/04/2019
   ms.service: ddos-protection
   ms.topic: landing-page
   ms.custom: azure-ddos-protection
-  ms.openlocfilehash: 50f871b08e2a945c599f7217ce680669da39af40
-  ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
-  ms.translationtype: HT
+  ms.openlocfilehash: dd35b0eb4800ae830c59d39a11be016804c83826
+  ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/30/2020
-  ms.locfileid: "97813977"
+  ms.lasthandoff: 04/08/2021
+  ms.locfileid: "107102948"
 landingContent:
 - title: Saiba mais sobre o Azure DDoS Protection Standard
   linkLists:

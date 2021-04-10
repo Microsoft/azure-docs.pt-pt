@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 81a6a6aeb826ba4a61fd4f0a4abdb63fe3674bc4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 64015f1f2d6fc3438e55cbdc146ba83492b332e2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573732"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066097"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
 
@@ -59,7 +59,7 @@ Para utilizar um [ __alvo de computação__ Azure Machine Learning gerido](conce
 > * A sub-rede especificada para a instância de computação ou cluster deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs que são alvo. Se a sub-rede não tiver endereços IP não atribuídos suficientes, um cluster de cálculo será parcialmente atribuído.
 > * Verifique se as suas políticas de segurança ou bloqueios na subscrição da rede virtual ou no grupo de recursos restringem permissões para gerir a rede virtual. Se planeia proteger a rede virtual restringindo o tráfego, deixe algumas portas abertas para o serviço de computação. Para mais informações, consulte a secção [de portas necessárias.](#mlcports)
 > * Se vai colocar várias instâncias de computação ou clusters numa rede virtual, poderá ter de solicitar um aumento de quota para um ou mais dos seus recursos.
-> * Se a conta de armazenamento Azure para o espaço de trabalho também estiver protegida numa rede virtual, devem estar na mesma rede virtual que o azure machine learning ou cluster. 
+> * Se a conta de armazenamento Azure para o espaço de trabalho também estiver protegida numa rede virtual, devem estar na mesma rede virtual e sub-rede que a instância ou cluster do cálculo ou cluster da Azure Machine Learning. 
 > * Para que a funcionalidade do Jupyter funcione, certifique-se de que a comunicação da tomada web não está desativada. Certifique-se de que a sua rede permite ligações websocket a *.instances.azureml.net e *.instances.azureml.ms. 
 > * Quando a instância de computação é implantada num espaço de trabalho de ligação privada, só pode ser acedida a partir de uma rede virtual. Se estiver a utilizar o ficheiro DNS ou hostis personalizado, por favor adicione uma entrada `<instance-name>.<region>.instances.azureml.ms` com o endereço IP privado do ponto final privado do espaço de trabalho. Para mais informações consulte o artigo [DNS personalizado.](./how-to-custom-dns.md)
 > * A sub-rede utilizada para implantar cluster/instância computacional não deve ser delegada em qualquer outro serviço como o ACI

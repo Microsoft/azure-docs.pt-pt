@@ -4,10 +4,10 @@ description: Implementar etapas da amostra de projeto de projeto de projeto de m
 ms.date: 02/05/2021
 ms.topic: sample
 ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104669649"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementar a amostra de amostra de carga de carga de trabalho do serviço de aplicações ISO 27001/SQL Database

@@ -11,10 +11,10 @@ ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104669513"
 ---
 # <a name="upload-usage-data-to-azure-monitor"></a>Faça upload de dados de utilização para o Azure Monitor

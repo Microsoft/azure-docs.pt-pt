@@ -4,10 +4,10 @@ description: Este glossário fornece uma breve descrição do importante Defende
 ms.date: 12/09/2020
 ms.topic: article
 ms.openlocfilehash: 191b94ca37118ed6413149dd6047f94c5ee568cd
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786826"
 ---
 # <a name="defender-for-iot-glossary"></a>Glossário do Defender para IoT
@@ -21,7 +21,7 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 ## <a name="a"></a>A
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Grupo de acesso** | Apoie os requisitos de acesso dos utilizadores às grandes organizações através da criação de regras de grupo de acesso.<br /><br />As regras permitem controlar o acesso à consola de gestão de visualização e configuração do Defender para ioT no local para funções específicas de utilizador em unidades de negócio relevantes, regiões, sites e zonas.<br /><br />Por exemplo, permitir que analistas de segurança de um grupo ative directory acedam a dados de automóveis da Europa Ocidental, mas impeçam o acesso aos dados em África. | **[Consola de gestão no local](#o)** <br /><br />**[Unidade empresarial](#b)** |
 | **Tokens de acesso** | Gerei fichas de acesso para aceder ao Defender para IoT REST API. | **[API](#glossary-a)** |
@@ -34,21 +34,21 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 ## <a name="b"></a>B
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Unidade empresarial** | Uma organização lógica do seu negócio de acordo com indústrias específicas.<br /><br />Por exemplo, uma empresa global que contenha fábricas de vidro e fábricas de plástico pode ser gerida como duas unidades de negócio diferentes. Pode controlar o acesso dos utilizadores do Defender para ioT a unidades de negócio específicas. | **[Consola de gestão](#o) <br /> <br /> no local [Grupo de](#glossary-a) <br /> <br /> acesso [](#s) <br /> Site <br /> [Zona](#z)** |
 | **Linha de base** | Tráfego de rede aprovado, protocolos, comandos e dispositivos. O Defender for IoT identifica desvios da linha de base da rede. Ver tráfego de base aprovado gerando relatórios de mineração de dados. | **[Mineração de dados](#d) <br /> <br /> [Modo de aprendizagem](#l)** |
 
 ## <a name="c"></a>C
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Comandos CLI** | Opções de interface de linha de comando (CLI) para utilizadores de administrador ioT. Os comandos CLI estão disponíveis para funcionalidades que não podem ser acedidas a partir das consolas Defender para ioT. | - |
 
 
 ## <a name="d"></a>D
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Mineração de dados** | Gere relatórios abrangentes e granulares sobre os seus dispositivos de rede:<br /><br />- **Resposta ao incidente SOC**: Relatórios em tempo real para ajudar a lidar com a resposta imediata ao incidente. Por exemplo, um relatório pode listar dispositivos que possam necessitar de remendos.<br /><br />- **Forenses**: Relatórios baseados em dados históricos para relatórios de investigação.<br /><br />- **Integridade da rede de TI**: Relatórios que ajudam a melhorar a segurança geral da rede. Por exemplo, um relatório pode listar dispositivos com credenciais de autenticação fracas.<br /><br />- **visibilidade**: Relatórios que cobrem todos os itens de consulta para visualizar todos os parâmetros de base da sua rede.<br /><br />Guarde relatórios de mineração de dados para utilizadores apenas de leitura para visualizar. | **[Linha de base](#b) <br /> <br /> [Relatórios](#r)** |
 | **Defender para motores IoT** | Os motores de análise de autoaprendizagem no Defender para IoT eliminam a necessidade de atualizar assinaturas ou definir regras. Os motores utilizam análises comportamentais específicas do ICS e ciência de dados para analisar continuamente o tráfego da rede OT para anomalias, malware, problemas operacionais, violações de protocolos e desvios da atividade da rede de base.<br /><br />Quando um motor deteta um desvio, um alerta é acionado. Os alertas podem ser visualizados e geridos a partir do ecrã **Alertas** ou a partir de um SIEM. | **[Alerta](#glossary-a)** |
@@ -61,7 +61,7 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 ## <a name="e"></a>E
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Vista da empresa** | Um mapa global que apresenta unidades de negócio, sites e zonas onde os Defenders para sensores IoT estão instalados. Veja as localizações geográficas de alertas maliciosos, alertas operacionais e muito mais. | **[Unidade de negócio](#b) <br /> <br /> [](#s) <br /> Site <br /> [Zona](#z)** |
 | **Cronologia do evento** | Uma cronologia de atividade detetada na sua rede, incluindo:<br /><br />- Alertas acionados.<br /><br />- Eventos de rede (informativos).<br /><br />- Operações de utilizador como iniciar sação, eliminação do utilizador e criação de utilizadores, e alertar operações de gestão como o mudo, a aprendizagem e o reconhecimento. Disponível nas consolas dos sensores. | - |
@@ -69,26 +69,26 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 ## <a name="f"></a>F
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Regra de encaminhamento** | As regras de encaminhamento instruem o Defender para que o IoT envie informações de alerta a fornecedores ou sistemas parceiros.<br /><br />Por exemplo, envie informações de alerta para um servidor Splunk ou para um servidor syslog. | **[Alerta](#glossary-a)** |
 
 ## <a name="g"></a>G
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Grupo** | Grupos pré-definados ou personalizados de dispositivos que contêm atributos específicos, tais como dispositivos que realizaram atividade de programação ou dispositivos que estão localizados numa sub-rede específica. Utilize grupos para ajudá-lo a ver dispositivos e a analisar dispositivos no Defender para IoT.<br /><br />Os grupos podem ser vistos e criados a partir do mapa do dispositivo e do inventário do dispositivo. | **[Mapa do dispositivo](#d) <br /> <br /> [Inventário de dispositivos](#d)** |
 
 ## <a name="h"></a>H
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Horizonte ambiente de desenvolvimento aberto** | Dispositivos Secure IoT e ICS que executam protocolos ou protocolos personalizados e personalizados que se desviam de qualquer padrão. Utilize o Horizonte Open Development Environment (ODE) SDK para desenvolver plug-ins de dissector que descodificam o tráfego da rede com base em protocolos definidos. Os defensores dos serviços de IoT analisam o tráfego para fornecer monitorização completa, alerta e reporte.<br /><br />Use horizonte para:<br /><br />- **Expandir** a visibilidade e o controlo sem a necessidade de atualizar o Defender para versões da plataforma IoT.<br /><br />- **Proteja** a informação proprietária desenvolvendo no local como um plug-in externo.<br /><br />- **Localize texto** para alertas, eventos e parâmetros de protocolo.<br /><br />Contacte o representante de sucesso do seu cliente para mais detalhes. | **[Apoio ao protocolo](#p) <br /> <br /> [Localização](#l)** |
 | **Alerta personalizado horizonte** | Melhore a gestão de alerta na sua empresa desencadeando alertas personalizados para qualquer protocolo (baseado em dissectores de tráfego da Horizon Framework).<br /><br />Estes alertas podem ser utilizados para comunicar informações:<br /><br />- Sobre deteções de tráfego baseadas em protocolos e protocolos subjacentes num plug-in horizonte proprietário.<br /><br />- Sobre uma combinação de campos de protocolo de todas as camadas protocolares. | **[Suporte de protocolo](#p)** |
 
 ## <a name="i"></a>I
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Hub IoT** `(DB)` | Serviço gerido, hospedado na nuvem, que funciona como um centro de mensagens central para comunicação bidis entre a sua aplicação IoT e os dispositivos que gere.  |   |
 | **Integrações** | Expandir as capacidades do Defender para IoT partilhando informações do dispositivo com sistemas parceiros. As organizações podem colmatar soluções de segurança previamente siloed, NAC, gestão de incidentes e gestão de dispositivos para acelerar as respostas a nível do sistema e mitigar mais rapidamente os riscos. | **[Regra de encaminhamento](#f)** |
@@ -96,7 +96,7 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 ## <a name="l"></a>L
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Aprenda evento de alerta** | Instrua o Defender para ioT a autorizar o tráfego detetado num evento de alerta. | **[](#glossary-a) <br /> Alerta <br /> [Reconhecer evento de](#glossary-a) <br /> <br /> alerta [Evento de alerta de mudo](#m)** |
 | **Modo de aprendizagem** | O modo utilizado quando o Defender para IoT aprende a sua atividade de rede. Esta atividade torna-se a sua linha de base de rede. O Defender para IoT permanece no modo durante um período predefinido após a instalação. A atividade que se desvia da atividade aprendida após este período irá desencadear alertas do Defender para ioT. | **Aprendizagem inteligente [de TI](#s) <br /> <br /> [Linha de base](#b)** |
@@ -105,7 +105,7 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 ## <a name="m"></a>M
 
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Micro Agente**`(DB)` | Fornece capacidades de segurança de profundidade para dispositivos IoT, incluindo postura de segurança e deteção de ameaças. | |
 | **Módulo gémeo**`(DB)` | Os módulos duplos são documentos JSON que armazenam informações de estado do módulo, incluindo metadados, configurações e condições. | [Dispositivo duplo](#d) <br /> <br />[Gémeo defender-ioT-micro-agente](#s) |
@@ -113,27 +113,27 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 ## <a name="n"></a>N
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Notificações** | Informações sobre alterações de rede ou propriedades não resolvidas do dispositivo. As opções estão disponíveis para atualizar informações de dispositivos e redes com novos dados detetados. Responder a notificações enriquece o inventário do dispositivo, mapa e vários relatórios. Disponível nas consolas de sensores. | **[](#glossary-a) <br /> Alerta <br /> [Notificações do sistema](#s)** |
 
 ## <a name="o"></a>O
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Consola de gestão no local** | A consola de gestão no local proporciona uma visão centralizada e gestão de dispositivos e ameaças que os Defensores para implementações de sensores IoT detetam na sua organização. | **[Defender para plataforma](#d) <br /> <br /> IoT [Sensor](#s)** |
 | **Alerta operacional** | Alertas que lidam com problemas de rede operacionais, como um dispositivo que se suspeita estar desligado da rede. | **[](#glossary-a) <br /> Alerta <br /> [Alerta de segurança](#s)** |
 
 ## <a name="p"></a>P
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Camada purdue** | Mostra as interconexões e interdependências dos principais componentes de um ICS típico no mapa. |  |
 | **Suporte de protocolo** | Além do suporte ao protocolo incorporado, pode garantir dispositivos IoT e ICS que executam protocolos proprietários e personalizados, ou protocolos que se desviam de qualquer padrão, utilizando o Horizonte Open Development Environment SDK. | **[Horizonte ambiente de desenvolvimento aberto](#h)** |
 
 ## <a name="r"></a>R
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Região** | Uma divisão lógica de uma organização global em regiões geográficas. Exemplos são a América do Norte, a Europa Ocidental e a Europa Oriental.<br /><br />A América do Norte pode ter fábricas de várias unidades de negócio. | **[Grupo de](#glossary-a) <br /> <br /> acesso [Unidade de negócio](#b) <br /> <br /> [Consola de gestão](#o) <br /> <br /> no local [](#s) <br /> Site <br /> [Zona](#z)** |
 | **Relatórios** | Os relatórios refletem a informação gerada pelos resultados da consulta de dados-mineração. Isto inclui resultados de mineração de dados predefinidos, que estão disponíveis na visão **relatórios.** Os administradores e analistas de segurança também podem gerar consultas personalizadas de mineração de dados e guardá-las como relatórios. Estes relatórios também estarão disponíveis para utilizadores apenas de leitura. | **[Mineração de dados](#d)** |
@@ -141,7 +141,7 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 ## <a name="s"></a>S
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Alerta de segurança** | Alertas que lidam com problemas de segurança, como sinais SMB excessivos em tentativas ou deteções de malware. | **[](#glossary-a) <br /> Alerta <br /> [Alerta operacional](#o)** |
 | **Gémeo defender-ioT-micro-agente**`(DB)` | O Defender-IoT-micro-agente twin contém todas as informações que são relevantes para a segurança do dispositivo, para cada dispositivo específico na sua solução. | [Dispositivo duplo](#d) <br /> <br />[Módulo Twin](#m)  |
@@ -155,6 +155,6 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 ## <a name="z"></a>Z
 
-| Termo | Descrição | Saiba mais |
+| Termo | Descrição | Saber mais |
 |--|--|--|
 | **Zona** | Uma área dentro de um local onde um sensor ou sensores são instalados. | **[](#s) <br /> Site <br /> [Unidade de negócio](#b) <br /> <br /> [Região](#r)** |

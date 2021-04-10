@@ -4,10 +4,10 @@ description: Este artigo descreve como trabalhar em torno da limitação de não
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105629296"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Entregar eventos usando o serviço de link privado

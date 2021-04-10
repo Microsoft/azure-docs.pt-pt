@@ -4,10 +4,10 @@ description: A aplicação de Gestão do ICS do IoT para o ServiceNow proporcion
 ms.date: 1/17/2021
 ms.topic: article
 ms.openlocfilehash: 6e39c3d018003983f6dc5b5e16a9791de84d6005
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786010"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>O Pedido de Gestão do ICS do IoT para o ServiceNow
@@ -324,7 +324,7 @@ Este artigo descreve as informações de alerta do dispositivo empurradas para o
 | Criado | A hora e a data em que o alerta foi gerado. |
 | Motor | O motor que detetou o evento. |
 | Título | O título de alerta. |
-| Descrição | A descrição do alerta. |
+| Description | A descrição do alerta. |
 | Protocolo | O protocolo detetado no trânsito. |
 | Gravidade | A gravidade do alerta definida pelo Defender para IoT. |
 | Aparelho | O nome do sensor que detetou o trânsito. |
@@ -344,7 +344,7 @@ Selecione a entrada na coluna criada para ver informações de alerta num formul
 
 Este artigo descreve o tipo de alertas que cada motor dispara.
 
-| Tipo de alerta | Descrição |
+| Tipo de alerta | Description |
 |--|--|
 | Alertas de violação de políticas | Acionado quando o motor de Violação de Política deteta um desvio do tráfego previamente aprendido. Por exemplo: <br /><br />- Um novo dispositivo é detetado. <br /><br />- É detetada uma nova configuração num dispositivo. <br /><br />- Um dispositivo não definido como dispositivo de programação realiza uma alteração de programação. <br /><br />- Uma versão de firmware mudou. |
 | Alertas de violação de protocolo | Acionado quando o motor de Violação de Protocolo deteta estruturas de pacotes ou valores de campo que não cumprem a especificação do protocolo. |

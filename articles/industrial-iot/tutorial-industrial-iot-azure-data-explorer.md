@@ -7,10 +7,10 @@ ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
 ms.openlocfilehash: 4c344dc09ad6c8aa4b2aa431952fc271d946b60d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104787774"
 ---
 # <a name="tutorial-pull-azure-industrial-iot-data-into-adx"></a>Tutorial: Puxe os dados do IoT Industrial Azure para o ADX

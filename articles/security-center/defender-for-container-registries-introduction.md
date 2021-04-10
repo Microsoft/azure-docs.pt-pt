@@ -3,16 +3,16 @@ title: Azure Defender para registos de contentores - os benefícios e caracterí
 description: Conheça os benefícios e funcionalidades do Azure Defender para registos de contentores.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4840fc27133b1d92cb8aaad80921f9d21901569d
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176642"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010697"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender dos registos de contentores
 
@@ -47,7 +47,7 @@ Há três gatilhos para uma verificação de imagem:
 
 - **Em push** - Sempre que uma imagem é empurrada para o seu registo, o Centro de Segurança digitaliza automaticamente essa imagem. Para ativar a digitalização de uma imagem, empurre-a para o seu repositório.
 
-- **Recentemente puxado** - Uma vez que são descobertas novas vulnerabilidades todos os dias, **o Azure Defender para registos de contentores** também verifica qualquer imagem que tenha sido puxada nos últimos 30 dias. Não há nenhuma taxa adicional para um rescan; como mencionado acima, você é cobrado uma vez por imagem.
+- **Recentemente puxado** - Uma vez que são descobertas novas vulnerabilidades todos os dias, **o Azure Defender para registos de contentores** também verifica, semanalmente, qualquer imagem que tenha sido puxada nos últimos 30 dias. Não há nenhuma taxa adicional para estes rescans; como mencionado acima, você é cobrado uma vez por imagem.
 
 - **Sobre a importação** - O Registo de Contentores Azure tem ferramentas de importação para levar imagens ao seu registo a partir de Docker Hub, Microsoft Container Registry ou outro registo de contentores Azure. **O Azure Defender para registos de contentores** verifica quaisquer imagens suportadas que importe. Saiba mais em [Importar imagens de contentores para um registo de contentores.](../container-registry/container-registry-import-images.md)
  

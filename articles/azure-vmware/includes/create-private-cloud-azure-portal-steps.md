@@ -2,13 +2,13 @@
 title: Criar uma nuvem privada Azure VMware Solution
 description: Passos para criar uma nuvem privada Azure VMware Solution utilizando o portal Azure.
 ms.topic: include
-ms.date: 02/17/2021
-ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 6b4e5631d1a4b6c5bf56b01aba12752595ef63b8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725409"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073329"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -34,7 +34,7 @@ ms.locfileid: "101725409"
 1. Uma vez terminado, selecione **Review + Create**. No ecrã seguinte, verifique as informações inseridas. Se a informação estiver correta, **selecione Criar**.
 
    > [!NOTE]
-   > Este passo leva cerca de duas horas. 
+   > Este passo leva cerca de 3 a 4 horas. A adição de um único nó no cluster existente/mesmo demora entre 30 e 45 minutos.
 
 1. Verifique se a implementação foi bem sucedida. Navegue para o grupo de recursos que criou e selecione a sua nuvem privada.  Verá o estado de **Sucesso** quando a implantação estiver concluída. 
 

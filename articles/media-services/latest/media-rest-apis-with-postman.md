@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: b0a521ddeee6d93ce809e5e6e85eefa1f01a3f12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1266e10f6d8bf69c6e72a236ecde27623ad1cf12
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98953976"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961732"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configure Carteiro para Serviços de Mídia v3 REST Chamadas API
 
@@ -30,7 +30,7 @@ Antes de começar a [desenvolver,reveja o Desenvolvimento com os Serviços de Me
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
+- [Criar uma conta de Serviços de Comunicação](./account-create-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
 - Obtenha informações necessárias para aceder a [APIs](./access-api-howto.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 

@@ -6,10 +6,10 @@ ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
 ms.openlocfilehash: 2d97b97da321ee2a63977b0ea58e89849cb151ec
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105036714"
 ---
 |Nome da política<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |

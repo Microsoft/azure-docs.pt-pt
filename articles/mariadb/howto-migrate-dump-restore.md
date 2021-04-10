@@ -8,10 +8,10 @@ ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 2/27/2020
 ms.openlocfilehash: 35b1e84bdf74afd9577c7c98f023179dd769cd66
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628225"
 ---
 # <a name="migrate-your-mariadb-database-to-an-azure-database-for-mariadb-by-using-dump-and-restore"></a>Migrar a sua base de dados MariaDB para uma base de dados Azure para a MariaDB utilizando o despejo e restaurar

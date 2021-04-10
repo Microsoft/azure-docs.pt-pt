@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.openlocfilehash: 271dbd87950018cebbd23841d32324afa42511e7
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785806"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
@@ -231,7 +231,7 @@ Para que o acionador de agenda desencadeie uma execução de pipeline, inclua um
 ### <a name="schema-overview"></a>Schema overview (Descrição geral do esquema)
 A tabela que se segue fornece uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
 
-| Propriedade JSON | Descrição |
+| Propriedade JSON | Description |
 | --- | --- |
 | **horário de início** | Um valor de data/hora. Para agendamentos básicos, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o acionador é iniciado imediatamente a seguir ao valor especificado em **startTime**. |
 | **endTime** | A data e hora de fim do acionador. O acionador não é executado após a data e hora de fim especificadas. O valor da propriedade não pode situar-se no passado. <!-- This property is optional. --> |
@@ -279,10 +279,10 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 | --- | --- | --- | --- | --- | --- |
-| **horário de início** | string | Sim | Nenhum | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recorrência** | objeto | Sim | Nenhum | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **horário de início** | string | Yes | Nenhum | Data-horas no formato ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recorrência** | objeto | Yes | Nenhum | Um objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervalo** | número | No | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sim | Nenhum | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | Yes | Nenhum | Um valor de data/hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **agendar** | objeto | No | Nenhum | Um objeto de agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
@@ -291,7 +291,7 @@ A tabela que se segue mostra o modo como a propriedade **startTime** controla a 
 | valor de startTime | Periodicidade sem agenda | Periodicidade com agenda |
 | --- | --- | --- |
 | **A hora de início é no passado** | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução.<br /><br />Veja o exemplo a seguir à tabela. | O gatilho começa _o mais cedo que_ a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
-| **A hora de início é no futuro ou na hora atual** | É executada uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução. | O gatilho começa _o mais cedo_ que a hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
+| **A hora de início é no futuro ou na hora atual** | É executada uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes com base no cálculo da última hora de execução. | O acionador é iniciado _imediatamente a seguir_ à hora de início especificada. A primeira ocorrência é baseada na agenda calculada a partir da hora de início.<br /><br />Executa as execuções subsequentes com base na agenda de periodicidade. |
 
 Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é 2017-04-08 13:00, a hora de início é 2017-04-07 14:00 e a periodicidade é de dois em dois dias. (O valor **de recorrência** é definido definindo a propriedade **de frequência** para "dia" e a propriedade de **intervalo** para 2.) Note que o valor **startTime** está no passado e ocorre antes da hora atual.
 
@@ -310,7 +310,7 @@ Se forem especificados vários elementos de **agenda,** a ordem de avaliação �
 
 A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 
-| Elemento JSON | Descrição | Valores válidos |
+| Elemento JSON | Description | Valores válidos |
 | --- | --- | --- |
 | **minutos** | Minutos da hora em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros |
 | **horas** | Horas do dia em que o acionador é executado. |- Número inteiro<br />- Matriz de números inteiros |

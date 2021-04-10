@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: 0961aa3e573e511a6941bc59ddc335f64799abb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ceb105409ff218cd633eb36d793e8fc16c7d135c
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87047337"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961545"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Compare os Azure Media Services v3 predefinições e indexante de vídeo 
 
@@ -31,7 +31,7 @@ Atualmente, existe uma sobreposição entre as funcionalidades oferecidas pelas 
 
 |Funcionalidade|APIs indexante de vídeo |Predefinições de analisador de vídeo e analisador de áudio<br/>em Serviços de Mídia v3 APIs|
 |---|---|---|
-|Media Insights|[Melhorada](video-indexer-output-json-v2.md) |[Fundamentos](../latest/analyzing-video-audio-files-concept.md)|
+|Media Insights|[Melhorada](video-indexer-output-json-v2.md) |[Fundamentos](../latest/analyze-video-audio-files-concept.md)|
 |Experiências|Consulte a lista completa de funcionalidades suportadas: <br/> [Descrição geral](video-indexer-overview.md)|Retorna apenas insights de vídeo|
 |Faturação|[Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Conformidade|Para obter as atualizações de conformidade mais atuais, visite [a Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e procure "Video Indexer" para ver se cumpre um certificado de interesse.|Para obter as atualizações de conformidade mais atuais, visite [a Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e procure "Media Services" para ver se cumpre um certificado de interesse.|

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 0876dd00933203c943417d87978567cf555a3e4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 903147b6c9f102b83f65d67cf41d4df0c62c7b54
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599005"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280569"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidade nomeada em análise de texto
 
@@ -206,7 +206,7 @@ A versão 3.0 inclui apenas uma operação sincronizada. O seguinte JSON é um e
 
 ## <a name="post-the-request"></a>Postar o pedido
 
-A análise é realizada aquando da receção do pedido. Consulte a secção [limite de dados](../overview.md#data-limits) na visão geral para obter informações sobre o tamanho e o número de pedidos que pode enviar por minuto e segundo.
+A análise é realizada aquando da receção do pedido. Consulte o artigo [limite de dados](../overview.md#data-limits) para obter informações sobre o tamanho e o número de pedidos que pode enviar por minuto e segundo.
 
 O Texto Analytics API é apátrida. Nenhum dado é armazenado na sua conta e os resultados são devolvidos imediatamente na resposta.
 

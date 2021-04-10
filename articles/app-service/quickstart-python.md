@@ -6,22 +6,19 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
+adobe-target-activity: DocsExp–393165–A/B–Docs/PythonQuickstart–CLIvsPortal–FY21Q4
 adobe-target-experience: Experience B
-adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 36c1b112127fadd5149c62a92ca469322db65edd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+adobe-target-content: ./quickstart-python-portal
+ms.openlocfilehash: e0542d47ff2c687f5f9470edb0cbb34ebc79554c
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592358"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010869"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python utilizando o Serviço de Aplicações Azure no Linux
 
-Neste quickstart, você implementa uma aplicação web Python para [o App Service no Linux,](overview.md#app-service-on-linux)o serviço de hospedagem web altamente escalável e auto-remendado da Azure. Utilize a [interface de linha de comando Azure local (CLI)](/cli/azure/install-azure-cli) num computador Mac, Linux ou Windows para implementar uma amostra com as estruturas do Flask ou do Django. A aplicação web que configura utiliza um nível de Serviço de Aplicações gratuito, para que não incorre em custos no decurso deste artigo.
-
-> [!TIP]
-> Se preferir usar o Código do Estúdio Visual, siga o nosso **[Serviço de Aplicações visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
+Neste quickstart, você implementa uma aplicação web Python para [o App Service no Linux,](overview.md#app-service-on-linux)o serviço de hospedagem web altamente escalável e auto-remendado da Azure. Utilize a [interface de linha de comando Azure local (CLI)](/cli/azure/install-azure-cli) num computador Mac, Linux ou Windows para implementar uma amostra com as estruturas do Flask ou do Django. A aplicação web que configura utiliza um nível básico de Serviço de Aplicações que incorre num pequeno custo na sua subscrição Azure.
 
 ## <a name="set-up-your-initial-environment"></a>Configurar o seu ambiente inicial
 

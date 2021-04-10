@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 2c1ce95f9eba8c31b20d8e992fa1880a5d33da8d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251459"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447860"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Crie uma piscina de anfitriões virtual do Windows desktop com PowerShell
 

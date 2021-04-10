@@ -3,12 +3,12 @@ title: Vídeo ao vivo analytics em IoT Edge FAQ - Azure
 description: Este artigo responde a perguntas comumente sobre live video analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 661b6155ce2d95e2111a1fa338fd5df438e61e7d
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 2e5ec6e3a303bb8d655e666a820cfe67943b4eb6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105032805"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275962"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Análise de vídeo ao vivo em IoT Edge FAQ
 
@@ -57,7 +57,7 @@ Não, não suportamos a descoberta de dispositivos no limite do Open Network Vid
 
 **Posso reproduzir os ativos registados na Azure Media Services a partir do limite, utilizando tecnologias de streaming como o HLS ou o DASH?**
 
-Sim. Pode transmitir ativos registados como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um ponto final de streaming criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um apple HTTP Live Streaming (HLS) ou a Um Streaming Adaptativo Dinâmico sobre HTTP (DASH, também conhecido como MPEG-DASH) manifesto para streaming para qualquer estrutura de jogador capaz. Para obter mais informações sobre a criação e publicação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
+Sim. Pode transmitir ativos registados como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um ponto final de streaming criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um apple HTTP Live Streaming (HLS) ou a Um Streaming Adaptativo Dinâmico sobre HTTP (DASH, também conhecido como MPEG-DASH) manifesto para streaming para qualquer estrutura de jogador capaz. Para obter mais informações sobre a criação e publicação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/encode-dynamic-packaging-concept.md)
 
 **Posso utilizar a proteção padrão de conteúdos e as funcionalidades de DRM dos Serviços de Mídia num ativo arquivado?**
 
@@ -69,7 +69,7 @@ Todos os jogadores padrão que suportam a versão 3 ou a versão 4 do HLS em con
 
 Os jogadores recomendados para testes incluem:
 
-* [Media Player do Azure](../latest/use-azure-media-player.md)
+* [Media Player do Azure](../latest/player-use-azure-media-player-how-to.md)
 * [HLS.js](https://hls-js.netlify.app/demo/)
 * [Video.js](https://videojs.com/)
 * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)

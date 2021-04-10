@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728ca38cc3ef3bf989a75d757c69f7ca1993d82d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5390811c8da4a8cace32e0e7ba4524e8c537a26a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91803126"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055591"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Quais são as identidades geridas para os recursos do Azure?
 
