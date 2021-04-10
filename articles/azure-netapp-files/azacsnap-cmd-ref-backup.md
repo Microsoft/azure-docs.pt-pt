@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 17c29fdf88495f6ecc40963eda08858887173fd1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98730943"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool-preview"></a>Fazer o back up utilizando a ferramenta Azure Application Consistent Snapshot (pré-visualização)

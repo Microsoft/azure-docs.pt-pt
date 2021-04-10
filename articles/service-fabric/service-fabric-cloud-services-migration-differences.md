@@ -4,10 +4,10 @@ description: Uma visão geral conceptual para aplicações migratórias dos Serv
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: c7e7d346b5a39a262d1d55265becadb1c718cc04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96575776"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços cloud e o Tecido de Serviço antes de migrar as aplicações.

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 3a9eb73aab381f90ae51300bff1250348916c2ab
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779601"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando a app de monitorização e gestão
@@ -154,7 +154,7 @@ As janelas de atividade podem estar num dos seguintes estados:
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">Em espera</td><td>Horário</td><td>Não chegou a hora da janela de atividade funcionar.</td>

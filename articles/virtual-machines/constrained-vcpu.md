@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt
 ms.openlocfilehash: 7faeec8494a908b9aab00be9b63904354b5e0994
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557085"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamanhos VM capazes de VCPU constrangidos

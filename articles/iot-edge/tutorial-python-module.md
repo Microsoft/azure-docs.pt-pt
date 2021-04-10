@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: d6a95dae91ef3e6aa7d39cf8af51c355a87ea73a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103462733"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-using-linux-containers"></a>Tutorial: Desenvolver e implantar um módulo Python IoT Edge utilizando recipientes Linux

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
 ms.openlocfilehash: c993b3f70f609fb79c51ba9be08fa3d5dc7e8317
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864113"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação SCP para Apache Storm em Azure HDInsight
@@ -431,7 +431,7 @@ Pode submeter especificações de topologia diretamente a um cluster storm para 
 
 SCP.NET adicionou as seguintes funções para definir topologias transacionais:
 
-| Nova função | Parâmetros | Descrição |
+| Nova função | Parâmetros | Description |
 | --- | --- | --- |
 | **tx-toplopy** |*nome de topologia*<br />*mapa de bicos*<br />*mapa de parafusos* |Define uma topologia transacional com o nome topologia, mapa de definição de bicos e mapa de definição de parafusos. |
 | **scp-tx-bico** |*nome executivo*<br />*args*<br />*campos* |Define um bico transacional. A função executa a aplicação especificada pelo *nome executivo* e utiliza *args*.<br /><br />O parâmetro *dos campos* especifica os campos de saída para o bico. |
@@ -443,7 +443,7 @@ SCP.NET adicionou as seguintes funções para definir topologias transacionais:
 
 SCP.NET define as seguintes palavras-chave:
 
-| Palavra-chave | Descrição |
+| Palavra-chave | Description |
 | --- | --- |
 | **:nome** |O nome da topologia |
 | **:topologia** |A topologia usando as funções na tabela anterior e funções incorporadas |

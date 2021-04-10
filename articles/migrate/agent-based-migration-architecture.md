@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: f4f79725d0eda65ba00a44e9e7fc2a51c024eccf
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864062"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agentes

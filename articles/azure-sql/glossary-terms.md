@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/09/2020
 ms.openlocfilehash: 8bd1e312463cf89ae30d54bc4a32a497fc7a9a78
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98249657"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos da Base de Dados Azure SQL
@@ -39,11 +39,11 @@ ms.locfileid: "98249657"
 |Tipo de recurso|vCore|Um núcleo CPU fornecido ao recurso compute para uma única base de dados, piscina elástica. |
 ||Tamanho do cálculo e quantidade de armazenamento|O tamanho do cálculo é a quantidade máxima de CPU, memória e outros recursos não relacionados com armazenamento disponíveis para uma única base de dados, ou piscina elástica.  O tamanho do armazenamento é a quantidade máxima de armazenamento disponível para uma única base de dados, ou piscina elástica. Para opções de dimensionamento no modelo vCore, consulte [bases de dados individuais vCore](database/resource-limits-vcore-single-databases.md)e [piscinas elásticas vCore](database/resource-limits-vcore-elastic-pools.md).  (.. /gestão de instância/limits.md de recursos).  Para obter opções de dimensionamento no modelo DTU, consulte [bases de dados únicas DTU](database/resource-limits-dtu-single-databases.md) e [piscinas elásticas DTU.](database/resource-limits-dtu-elastic-pools.md)
 
-## <a name="azure-sql-managed-instance"></a>Instância Gerida do Azure SQL
+## <a name="azure-sql-managed-instance"></a>Instância Gerida do SQL do Azure
 
 |Contexto|Termo|Mais informações|
 |:---|:---|:---|
-|Serviço do Azure|Instância Gerida do Azure SQL|[Instância Gerida do SQL](managed-instance/sql-managed-instance-paas-overview.md)|
+|Serviço do Azure|Instância Gerida do SQL do Azure|[Instância Gerida do SQL](managed-instance/sql-managed-instance-paas-overview.md)|
 |Modelo de compra|Modelo de compra baseado em vCore|[Modelo de compra baseado em vCore](database/service-tiers-vcore.md)|
 |Opção de implementação |Instância Única|[Instância única](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Piscina de instância (pré-visualização)|[Conjuntos de instâncias](managed-instance/instance-pools-overview.md)|

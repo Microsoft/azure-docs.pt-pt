@@ -4,10 +4,10 @@ description: Encontre respostas às perguntas mais frequentes sobre o Azure Defe
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: 4bd7d3c9b76dfb37e53cc51e5e16b660545cb7f0
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778666"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>Azure Defender para agente IoT frequentemente fez perguntas
