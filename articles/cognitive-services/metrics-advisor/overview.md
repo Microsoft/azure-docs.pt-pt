@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 901d86b5569be61f89178dac460b8750bce9ea73
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: dfdd7286013bbb6462fb8e5b1bdf52e6ed738029
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605540"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384685"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>O que é Metrics Advisor (pré-visualização)? 
 
@@ -27,6 +27,11 @@ Metrics Advisor faz parte da Azure Cognitive Services que utiliza AI para realiz
 * Diagnosticar anomalias e ajudar na análise da causa raiz
 
 :::image type="content" source="media/metrics-advisor-overview.png" alt-text="Métricas Conselheiro Visão Geral":::
+
+Esta documentação contém os seguintes tipos de artigos:
+* Os [arranques rápidos](./Quickstarts/web-portal.md) são instruções passo a passo que permitem fazer chamadas para o serviço e obter resultados num curto espaço de tempo. 
+* Os [guias de como fazer](./how-tos/onboard-your-data.md) contêm instruções para utilizar o serviço de forma mais específica ou personalizada.
+* Os [artigos conceptuais](glossary.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.
 
 ## <a name="connect-to-a-variety-of-data-sources"></a>Ligar-se a uma variedade de fontes de dados
 

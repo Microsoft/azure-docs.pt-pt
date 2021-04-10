@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 01eb0ce83efa54366e027d35d9c3c3bbf86eff7b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487372"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384243"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas frequentes sobre âncoras espaciais Azure
 
@@ -80,7 +80,7 @@ A Azure Spatial Anchors adere aos Termos do [Acordo de Serviço Azure](https://g
 
 **P: Tem algum limite de estrangulamento no lugar?**
 
-**R:** Sim, temos limites de estrangulamento.  Não esperamos que os atinja para o desenvolvimento e testes típicos de aplicações. Para implantações de produção, estamos prontos para apoiar os requisitos de alta escala dos nossos clientes. [Contacte-nos](mailto:azuremrs@microsoft.com) para discutir. 
+**R:** Sim, temos limites de estrangulamento.  Não esperamos que os atinja para o desenvolvimento e testes típicos de aplicações. Para implantações de produção, estamos prontos para apoiar os requisitos de alta escala dos nossos clientes. [Contacte-nos](mailto:azuremrscontact@microsoft.com) para discutir.
 
 **P: Em que regiões está disponível a Azure Spatial Anchors?**
 

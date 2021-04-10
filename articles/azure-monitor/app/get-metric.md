@@ -2,21 +2,20 @@
 title: Get-Metric em Azure Monitor Application Insights
 description: Saiba como utilizar eficazmente a chamada GetMetric() para capturar métricas localmente pré-agregadas para aplicações .NET e .NET Core com Insights de Aplicação do Monitor Azure
 ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0ce2651d5cfcb1578d78982af109a004aaac11f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22baa1ae9554601a72ffdb848b87d99281067967
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719785"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384294"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Coleção métrica personalizada em .NET e .NET Core
 
 Os Azure Monitor Application Insights .NET e .NET Core SDKs têm dois métodos diferentes de recolha de métricas `TrackMetric()` personalizadas, e `GetMetric()` . A principal diferença entre estes dois métodos é a agregação local. `TrackMetric()` carece de pré-agregação enquanto `GetMetric()` tem pré-agregação. A abordagem recomendada é utilizar a agregação, portanto, `TrackMetric()` já não é o método preferido de recolher métricas personalizadas. Este artigo irá levá-lo através do método GetMetric,.e algumas das razões por trás de como funciona.
 
-## <a name="trackmetric-versus-getmetric"></a>TrackMetric versus GetMetric
+## <a name="pre-aggregating-vs-non-pre-aggregating-api"></a>API pré-agregação vs não pré-agregação
 
 `TrackMetric()` envia telemetria crua denotando uma métrica. É ineficiente enviar um único item de telemetria por cada valor. `TrackMetric()` é também ineficiente em termos de desempenho, uma vez que cada `TrackMetric(item)` um passa pelo oleoduto SDK completo de inicializadores e processadores de telemetria. Ao contrário `TrackMetric()` de , lida com a `GetMetric()` pré-agregação local para si e, em seguida, apenas submete uma métrica de resumo agregado num intervalo fixo de um minuto. Por isso, se necessitar de monitorizar de perto alguma métrica personalizada ao segundo ou mesmo ao nível milissegundo, pode fazê-lo apenas incorrendo no custo de armazenamento e tráfego da rede apenas de monitorização a cada minuto. Isto também reduz consideravelmente o risco de estrangulamento, uma vez que o número total de itens de telemetria que precisam de ser enviados para uma métrica agregada são muito reduzidos.
 
@@ -286,7 +285,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` é o número máximo de datas séries que uma métrica pode conter. Uma vez atingido este limite, as chamadas `TrackValue()` não serão rastreadas.
+* `seriesCountLimit` é o número máximo de datas séries que uma métrica pode conter. Uma vez atingido este limite, as chamadas para `TrackValue()` o que normalmente resultariam numa nova série voltarão falsas.
 * `valuesPerDimensionLimit` limita o número de valores distintos por dimensão de forma semelhante.
 * `restrictToUInt32Values` determina se os valores inteiros não negativos devem ou não ser rastreados.
 

@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: 59cd364e5568b3509d0c06d439d39b132b202df6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3c667fe20b392bfb52b8300ce4b8b59d15a13b9a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641748"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385433"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Create a data factory and pipeline using .NET SDK (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET)
 
@@ -106,14 +106,13 @@ Em seguida, crie uma aplicação de consola C# .NET no Visual Studio:
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
 > [!NOTE]
-> Para as contas us Azure Gov, você tem que usar BaseUri de  *https://management.usgovcloudapi.net* em vez de , e, em seguida, criar cliente de gestão de fábrica de *https://management.azure.com/* dados. 
-> 
+> Para nuvens soberanas, deve utilizar os pontos finais específicos para a nuvem para ActiveDirectoryAuthority e ResourceManagerUrl (BaseUri). Por exemplo, nos EUA Azure Gov você usaria a autoridade de , e usar em vez de - e, em https://login.microsoftonline.us https://login.microsoftonline.com https://management.usgovcloudapi.net https://management.azure.com/ seguida, criar o cliente de gestão de fábrica de dados. Você pode usar Powershell para obter facilmente os Urls de ponto final para várias nuvens executando "Get-AzEnvironment | Lista de formatos", que devolverá uma lista de pontos finais para cada ambiente em nuvem.
 
 3. Adicione o seguinte código ao método **Principal** que cria uma instância da classe **DataFactoryManagementClient.** Utilize este objeto para criar uma fábrica de dados, um serviço ligado, conjuntos de dados e um pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do pipeline.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
    AuthenticationResult result = context.AcquireTokenAsync(
        "https://management.azure.com/", cc).Result;

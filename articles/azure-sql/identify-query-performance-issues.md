@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
-ms.openlocfilehash: 4d0f5404a64eae99ced0dd797954ba042b50060f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 039332a8728e5d7e5b605f51f4bb53e6dcbb6381
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217231"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109174"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detetáveis de estrangulamento de desempenho de consultas na Base de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -139,7 +139,7 @@ Uma recompilação (ou compilação fresca após o despejo de cache) ainda pode 
 
 - **Alterado design físico**: Por exemplo, os índices recém-criados cobrem mais eficazmente os requisitos de uma consulta. Os novos índices podem ser usados numa nova compilação se o otimizador de consulta decidir que usar esse novo índice é mais ideal do que usar a estrutura de dados que foi originalmente selecionada para a primeira versão da execução de consultas. Quaisquer alterações físicas nos objetos referenciados podem resultar numa nova escolha do plano no momento da compilação.
 
-- **Diferenças de recursos** do servidor : Quando um plano de um sistema difere do plano noutro sistema, a disponibilidade de recursos, como o número de processadores disponíveis, pode influenciar o plano gerado. Por exemplo, se um sistema tiver mais processadores, poderá ser escolhido um plano paralelo.
+- **Diferenças de recursos** do servidor : Quando um plano de um sistema difere do plano noutro sistema, a disponibilidade de recursos, como o número de processadores disponíveis, pode influenciar o plano gerado. Por exemplo, se um sistema tiver mais processadores, poderá ser escolhido um plano paralelo. Para obter mais informações sobre o paralelismo na Base de Dados Azure SQL, consulte [configurar o grau máximo de paralelismo (MAXDOP) na Base de Dados Azure SQL](database/configure-max-degree-of-parallelism.md).
 
 - **Estatísticas diferentes**: As estatísticas associadas aos objetos referenciados podem ter mudado ou podem ser materialmente diferentes das estatísticas do sistema original. Se as estatísticas mudarem e uma recompilação acontecer, o otimizador de consulta utiliza as estatísticas a partir do momento em que mudaram. As distribuições e frequências de dados revistas das estatísticas podem diferir das da compilação original. Estas mudanças são usadas para criar estimativas de cardinalidade. (As *estimativas da Cardinalidade* são o número de linhas que se espera que fluam através da árvore de consulta lógica.) Alterações nas estimativas de cardinaldade podem levá-lo a escolher diferentes operadores físicos e ordens de operações associadas. Mesmo pequenas alterações nas estatísticas podem resultar numa alteração do plano de execução de consultas.
 
@@ -181,6 +181,8 @@ Nem sempre é fácil identificar uma mudança de volume de trabalho que está a 
 
 Utilize insights inteligentes para detetar [aumentos de carga de trabalho](database/intelligent-insights-troubleshoot-performance.md#workload-increase) e planear [regressões](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
+- **Paralelismo**: O paralelismo excessivo pode agravar-se causando outro desempenho simultâneo de carga de trabalho, famintos de outras consultas de CPU e recursos de rosca dos trabalhadores. Para obter mais informações sobre o paralelismo na Base de Dados Azure SQL, consulte [configurar o grau máximo de paralelismo (MAXDOP) na Base de Dados Azure SQL](database/configure-max-degree-of-parallelism.md).
+
 ## <a name="waiting-related-problems"></a>Problemas relacionados com a espera
 
 Uma vez eliminado um plano subópto e problemas *relacionados com a espera* que estão relacionados com problemas de execução, o problema de desempenho geralmente é que as consultas estão provavelmente à espera de algum recurso. Problemas relacionados com a espera podem ser causados por:
@@ -220,6 +222,11 @@ Os DMVs que acompanham a Query Store e as estatísticas de espera mostram result
 > - [TigerToolbox espera e trava](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [Usp_whatsup TigerToolbox](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
+## <a name="see-also"></a>Ver também
+
+* [Configure o grau máximo de paralelismo (MAXDOP) na Base de Dados Azure SQL](database/configure-max-degree-of-parallelism.md)
+* [Compreender e resolver problemas de bloqueio da base de dados Azure SQL na Base de Dados Azure SQL](database/understand-resolve-blocking.md)
+
 ## <a name="next-steps"></a>Passos seguintes
 
-[Monitorização e afinação da base de dados SQL](database/monitor-tune-overview.md)
+* [Monitorização e afinação da base de dados SQL](database/monitor-tune-overview.md)

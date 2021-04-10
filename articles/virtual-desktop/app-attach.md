@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 224f2e773ecd42dcbdd356531d9ce94636de002f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98185772"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448275"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Criar scripts PowerShell para anexação de aplicações MSIX (pré-visualização)
 
@@ -27,7 +27,7 @@ Este tópico irá acompanhá-lo como configurar scripts PowerShell para anexaç�
 
 ## <a name="install-certificates"></a>Instalar certificados
 
-Tem de instalar certificados em todos os anfitriões da sessão na piscina anfitriã que irão acolher os aps da sua aplicação MSIX anexar pacotes.
+Tem de instalar certificados em todos os anfitriões da sessão na piscina anfitriã que irão acolher as aplicações a partir da sua aplicação MSIX anexar pacotes.
 
 Se a sua aplicação usa um certificado que não seja de confiança pública ou que tenha sido auto-assinado, eis como instalá-lo:
 

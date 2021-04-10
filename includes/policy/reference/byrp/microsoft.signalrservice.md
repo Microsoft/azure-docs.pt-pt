@@ -2,19 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 684c71c6ad76ee6063702894fb7b2249895bc5fc
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 84bbc8d093a7eefc8186f18b942b0e89522d3f5f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105036968"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089456"
 ---
 |Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Serviço Azure SignalR deve desativar o acesso à rede pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21a9766a-82a5-4747-abb5-650b6dbba6d0) |Para melhorar a segurança do recurso Azure SignalR Service, certifique-se de que não está exposto à internet pública e só pode ser acedido a partir de um ponto final privado. Desative a propriedade de acesso à rede pública, conforme descrito em [https://aka.ms/asrs/networkacls](https://aka.ms/asrs/networkacls) . Esta opção desativa o acesso a qualquer espaço de endereço público fora da gama Azure IP e nega todos os logins que correspondam às regras ip ou de firewall virtual baseadas em rede. Isto reduz os riscos de fuga de dados. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PublicNetworkAccessDisabled_AuditDeny.json) |
 |[O Serviço Azure SignalR deve utilizar um SKU com ligação privada ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F464a1620-21b5-448d-8ce6-d4ac6d1bc49a) |O Azure Private Link permite-lhe ligar a sua rede virtual aos serviços Azure sem um endereço IP público na fonte ou destino que proteja os seus recursos contra riscos de fuga de dados públicos. A apólice limita-o a Ligações Privadas ativadas SKUs para o Serviço Azure SignalR. Saiba mais sobre o link privado em: [https://aka.ms/asrs/privatelink](https://aka.ms/asrs/privatelink) . |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_AllowedSKU_AuditDeny.json) |
 |[O Serviço Azure SignalR deve utilizar link privado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53503636-bcc9-4748-9663-5348217f160f) |O Azure Private Link permite-lhe ligar a sua rede virtual aos serviços Azure sem um endereço IP público na fonte ou destino. A plataforma de ligação privada trata da conectividade entre o consumidor e os serviços através da rede de espinha dorsal Azure. Ao mapear pontos finais privados para o seu recurso Azure SignalR Service em vez de todo o serviço, reduzirá os riscos de fuga de dados. Saiba mais sobre links privados em: [https://aka.ms/asrs/privatelink](https://aka.ms/asrs/privatelink) . |Auditoria, Negar, Deficientes |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PrivateEndpointEnabled_Audit.json) |
+|[Configure pontos finais privados para o Serviço Azure SignalR](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef45854f-b33f-49a3-8041-9057e915d88f) |Os pontos finais privados ligam a sua rede virtual aos serviços Azure sem um endereço IP público na fonte ou destino. Ao mapear pontos finais privados para os recursos do Serviço Azure SignalR, pode reduzir os riscos de fuga de dados. Saiba mais em [https://aka.ms/asrs/privatelink](https://aka.ms/asrs/privatelink) . |ImplementarIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PrivateEndpointEnabled_DeployIfNotExists.json) |
 |[Modificar os recursos do Serviço Azure SignalR para desativar o acesso à rede pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F62a3ae95-8169-403e-a2d2-b82141448092) |Para melhorar a segurança do recurso Azure SignalR Service, certifique-se de que não está exposto à internet pública e só pode ser acedido a partir de um ponto final privado. Desative a propriedade de acesso à rede pública, conforme descrito em [https://aka.ms/asrs/networkacls](https://aka.ms/asrs/networkacls) . Esta opção desativa o acesso a qualquer espaço de endereço público fora da gama Azure IP e nega todos os logins que correspondam às regras ip ou de firewall virtual baseadas em rede. Isto reduz os riscos de fuga de dados. |Modificar, Desativar |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PublicNetworkAccessDisabled_Modify.json) |

@@ -2,24 +2,24 @@
 title: Reescrever URL e cadeia de consulta com Azure Application Gateway - Portal Azure
 description: Saiba como usar o portal Azure para configurar um Gateway de aplicação Azure para reescrever URL e cadeia de consultas
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 7/16/2020
-ms.author: surmb
-ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/05/2021
+ms.author: azhussai
+ms.openlocfilehash: b8ddc5e57b9ce56d6bce7e220bc840ba0fa43ae2
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92215778"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384762"
 ---
-# <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Reescrever URL com Gateway de Aplicação Azure - Portal Azure (Pré-visualização)
+# <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Reescrever URL com Gateway de Aplicação Azure - Portal Azure
 
 Este artigo descreve como usar o portal Azure para configurar uma [instância SKU do Gateway v2 para](application-gateway-autoscaling-zone-redundant.md) reescrever URL.
 
 >[!NOTE]
-> A funcionalidade de reescrita de URL está em pré-visualização e está disponível apenas para Standard_v2 e WAF_v2 SKU de Application Gateway. Não é recomendado para utilização em ambiente de produção. Para saber mais sobre pré-visualizações, consulte [os termos de utilização aqui.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> A funcionalidade de reescrita de URL está disponível apenas para Standard_v2 e WAF_v2 SKU de Gateway de aplicação. Quando a reescrita de URL é configurada num gateway ativado pela WAF, a avaliação da WAF será efetuada nos cabeçalhos de pedido reescrito e URL. [Saiba mais](rewrite-http-headers-url.md#using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

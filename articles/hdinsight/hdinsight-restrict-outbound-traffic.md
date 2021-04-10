@@ -5,14 +5,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 297c1d4afca5a1d605a046d69b086a05a9322bc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06990a5bd1d6619f07952e84870a01f5cd5068df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872086"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384430"
 ---
-# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
+# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurar o tráfego de rede de saída para clusters do Azure HDInsight através da Firewall
 
 Este artigo fornece os passos para que você proteja o tráfego de saída do seu cluster HDInsight usando Azure Firewall. Os passos abaixo assumem que está a configurar uma Firewall Azure para um cluster existente. Se estiver a implantar um novo cluster atrás de uma firewall, crie primeiro o seu cluster HDInsight e sub-rede. Em seguida, siga os passos neste guia.
 
@@ -32,7 +32,7 @@ Um resumo dos passos para bloquear a saída do seu HDInsight existente com a Azu
 
 1. Criar uma sub-rede.
 1. Criar uma firewall.
-1. Adicione regras de aplicação à firewall
+1. Adicione as regras de aplicação à firewall.
 1. Adicione regras de rede à firewall.
 1. Crie uma mesa de encaminhamento.
 
@@ -76,7 +76,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite atividade de login do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite atividade de login do Windows |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | `storage_account_name`Substitua-o pelo nome da sua conta de armazenamento real. Para utilizar apenas as ligações https, certifique-se de que [a "transferência segura necessária"](../storage/common/storage-require-secure-transfer.md) está ativada na conta de armazenamento. Se estiver a utilizar o ponto final privado para aceder às contas de armazenamento, este passo não é necessário e o tráfego de armazenamento não é encaminhado para a firewall.|
+    | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | `storage_account_name`Substitua-o pelo nome da sua conta de armazenamento real. Certifique-se de que a ["transferência segura necessária"](../storage/common/storage-require-secure-transfer.md) está ativada na conta de armazenamento. Se estiver a utilizar o ponto final privado para aceder às contas de armazenamento, este passo não é necessário e o tráfego de armazenamento não é encaminhado para a firewall.|
 
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Denominação: Introduzir detalhes da recolha de regras de aplicação":::
 
@@ -84,7 +84,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configure a firewall com regras de rede
 
-Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
+Crie as regras de rede para configurar corretamente o seu cluster HDInsight. 
 
 1. Continuando a partir do passo anterior, navegue para a **coleção de regras da rede**+ Adicione a recolha de  >  **regras de rede**.
 
@@ -102,14 +102,14 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
 
     | Name | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | Se estiver a utilizar os servidores sql predefinidos fornecidos pela HDInsight, configuure uma regra de rede na secção Tags de Serviço para SQL que lhe permitirá registar e auditar o tráfego DE SQL. A menos que tenha configurado pontos de final de serviço para o SQL Server na sub-rede HDInsight, que irá contornar a firewall. Se estiver a utilizar o servidor SQL personalizado para as metástases Ambari, Oozie, Ranger e Hive, então só precisa de permitir o tráfego para os seus próprios Servidores SQL personalizados.|
+    | Rule_5 | TCP | * | SQL | 1433 , 11000-11999 | Se estiver a utilizar os servidores sql predefinidos fornecidos pela HDInsight, configuure uma regra de rede na secção Tags de Serviço para SQL que lhe permitirá registar e auditar o tráfego DE SQL. A menos que tenha configurado pontos de final de serviço para o SQL Server na sub-rede HDInsight, que irá contornar a firewall. Se estiver a utilizar o servidor SQL personalizado para as metástases Ambari, Oozie, Ranger e Hive, então só precisa de permitir o tráfego para os seus próprios Servidores SQL personalizados. Consulte a [Base de Dados Azure SQL e a arquitetura de conectividade Azure Synapse Analytics](../azure-sql/database/connectivity-architecture.md) para ver por que razão a gama portuária 11000-11999 também é necessária para além de 1433. |
     | Rule_6 | TCP | * | Azure Monitor | * | (opcional) Os clientes que pretendam utilizar a função de escala automática devem adicionar esta regra. |
     
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Denominação: Introduzir a recolha da regra de aplicação":::
 
 1. Selecione **Adicionar**.
 
-### <a name="create-and-configure-a-route-table"></a>Criar e configurar uma tabela de rotas
+### <a name="create-and-configure-a-route-table"></a>Criar e configurar uma tabela de rotas 
 
 Criar uma tabela de rotas com as seguintes entradas:
 

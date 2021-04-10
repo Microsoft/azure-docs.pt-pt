@@ -8,10 +8,10 @@ ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
 ms.openlocfilehash: cca4612d3b22296209b4adfc6be97cbe95477aa3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786673"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate

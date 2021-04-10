@@ -1,18 +1,15 @@
 ---
 title: Recuperação de desastres arquitetura-Hiper-V para um local secundário com recuperação do local de Azure
 description: Este artigo fornece uma visão geral da arquitetura para a recuperação de desastres de Hiper-V VMs no local para um site de VMM do Centro de Sistema secundário com recuperação do local de Azure.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: 703a6afdc12c8a9863ff0f480ec7a577ec31ef77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b33e60036108eb92b7b64b4b3ec3bcc47ad1ade1
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87496003"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580214"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arquitetura - Replicação hiper-V para um local secundário
 

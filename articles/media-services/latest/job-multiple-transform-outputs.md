@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fc3ab64a35c24df2af9d90a5ad348f840610d188
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ada86e0ce44977789eaa5d6327c0aad2883b47d
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102635846"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108851"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Criar um trabalho com múltiplas saídas de transformação
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Este tópico mostra como criar uma Transformação com duas Saídas de Transformação. O primeiro pede que a entrada seja codificada para o streaming de bitrate adaptativo com uma predefinição [adaptivestreaming](encoding-concept.md#builtinstandardencoderpreset) incorporada. O segundo pede que o sinal de áudio no vídeo de entrada seja processado com o [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Após a criação do Transform, pode submeter um trabalho que irá processar o seu vídeo em conformidade. Uma vez que neste exemplo estamos especificando duas Saídas de Transformação, temos de especificar duas Saídas de Trabalho. Pode optar por direcionar ambas as Saídas de Emprego para o mesmo Ativo (como mostrado abaixo), ou pode ter os resultados escritos para separar ativos.
+Este tópico mostra como criar uma Transformação com duas Saídas de Transformação. O primeiro pede que a entrada seja codificada para o streaming de bitrate adaptativo com uma predefinição [adaptivestreaming](encode-concept.md#builtinstandardencoderpreset) incorporada. O segundo pede que o sinal de áudio no vídeo de entrada seja processado com o [AudioAnalyzerPreset](analyze-video-audio-files-concept.md#built-in-presets). Após a criação do Transform, pode submeter um trabalho que irá processar o seu vídeo em conformidade. Uma vez que neste exemplo estamos especificando duas Saídas de Transformação, temos de especificar duas Saídas de Trabalho. Pode optar por direcionar ambas as Saídas de Emprego para o mesmo Ativo (como mostrado abaixo), ou pode ter os resultados escritos para separar ativos.
 
 > [!TIP]
 > Antes de começar a desenvolver, [reveja o Desenvolvimento com os Serviços de Comunicação Social v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)

@@ -3,14 +3,14 @@ title: Implementar um trabalhador de runbook híbrido do Windows na Azure Automa
 description: Este artigo diz como implementar um Trabalhador De Runbook Híbrido que pode usar para executar livros em máquinas baseadas no Windows no seu datacenter local ou ambiente em nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/24/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f6858c7350e6c72a096b2f2bd5f4a4ff606bf023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a28266210fd8b6f0b731b972f00aa3d413c0d0c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651362"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027742"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
@@ -83,7 +83,32 @@ Para instalar e configurar um Trabalhador de Runbook Híbrido do utilizador do W
 
 ## <a name="automated-deployment"></a>Implementação automatizada
 
-O método de implementação automatizado utiliza oNew-OnPremiseHybridWorker.ps1 **de** script PowerShell para automatizar e configurar o papel de Trabalhador runbook híbrido do Windows. Executa o seguinte:
+Existem dois métodos para implementar automaticamente um Trabalhador De Runbook Híbrido. Você pode importar um runbook da Runbook Gallery no portal Azure e executá-lo, ou você pode fazer o download manual de um script da PowerShell Gallery.
+
+### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importando um livro de corridas da Galeria Runbook
+
+O procedimento de importação é descrito em pormenor nos [livros de importação do GitHub com o portal Azure](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). O nome do livro de execução a importar é **Create Automation Windows HybridWorker**.
+
+O livro de bordo utiliza os seguintes parâmetros.
+
+| Parâmetro | Estado | Descrição |
+| ------- | ----- | ----------- |
+| `Location` | Obrigatório | A localização do espaço de trabalho Log Analytics. |
+| `ResourceGroupName` | Obrigatório | O grupo de recursos para a sua conta Demôm automação. |
+| `AccountName` | Obrigatório | O nome da conta Automation em que o Híbrido Run Worker será registado. |
+| `CreateLA` | Obrigatório | Se for verdade, utiliza o valor de criar um espaço de `WorkspaceName` trabalho Log Analytics. Se for falso, o valor deve `WorkspaceName` referir-se a um espaço de trabalho existente. |
+| `LAlocation` | Opcional | O local onde será criado o espaço de trabalho Log Analytics, ou onde já existe. |
+| `WorkspaceName` | Opcional | O nome do espaço de trabalho Log Analytics para usar. |
+| `CreateVM` | Obrigatório | Se for verdade, use o valor de `VMName` como nome de um novo VM. Se for falso, utilize `VMName` para encontrar e registar o VM existente. |
+| `VMName` | Opcional | O nome da máquina virtual que é criada ou registada, dependendo do valor de `CreateVM` . |
+| `VMImage` | Opcional | O nome da imagem VM a ser criada. |
+| `VMlocation` | Opcional | Localização do VM que é criado ou registado. Se esta localização não for especificada, o valor de `LAlocation` é utilizado. |
+| `RegisterHW` | Obrigatório | Se for verdade, registe o VM como um trabalhador híbrido. |
+| `WorkerGroupName` | Obrigatório | Nome do Grupo operário híbrido. |
+
+### <a name="download-a-script-from-the-powershell-gallery"></a>Faça o download de um script da PowerShell Gallery
+
+Este método de implementação automatizado utiliza oNew-OnPremiseHybridWorker.ps1 **de** script PowerShell para automatizar e configurar o papel de Trabalhador runbook híbrido do Windows. Executa o seguinte:
 
 * Instala os módulos necessários
 * Assina com a sua conta Azure
@@ -96,7 +121,7 @@ O método de implementação automatizado utiliza oNew-OnPremiseHybridWorker.ps1
 
 Execute os seguintes passos para instalar a função na sua máquina Windows utilizando o script.
 
-1. Descarregue **o** New-OnPremiseHybridWorker.ps1script da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Depois de ter descarregado o script, copie-o ou execute-o na máquina alvo. O **New-OnPremiseHybridWorker.ps1** script utiliza os seguintes parâmetros durante a execução.
+1. Descarregue **o** New-OnPremiseHybridWorker.ps1script da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Depois de ter descarregado o script, copie-o ou execute-o na máquina alvo. O script utiliza os seguintes parâmetros.
 
     | Parâmetro | Estado | Descrição |
     | --------- | ------ | ----------- |
@@ -109,9 +134,9 @@ Execute os seguintes passos para instalar a função na sua máquina Windows uti
     | `TenantID` | Opcional | O identificador da organização de inquilinos associado à sua conta de Automação. |
     | `WorkspaceName` | Opcional | O nome do espaço de trabalho Log Analytics. Se não tiver um espaço de trabalho log analytics, o script cria e configura um. |
 
-2. Abra uma ômada ômada 64 bits de comando PowerShell.
+1. Abra uma ômada ômada 64 bits de comando PowerShell.
 
-3. A partir do pedido de comando PowerShell, navegue para a pasta que contém o script que descarregou. Alterar os valores para os `AutomationAccountName` parâmetros, , , , , e `AAResourceGroupName` `OMSResourceGroupName` `HybridGroupName` `SubscriptionID` `WorkspaceName` . Então, executar o guião.
+1. A partir do pedido de comando PowerShell, navegue para a pasta que contém o script que descarregou. Alterar os valores para os `AutomationAccountName` parâmetros, , , , , e `AAResourceGroupName` `OMSResourceGroupName` `HybridGroupName` `SubscriptionID` `WorkspaceName` . Então, executar o guião.
 
     É-lhe pedido que autentica com o Azure depois de publicar o guião. Tem de iniciar scontabilidade com uma conta que é membro da **função de Administrador de Subscrição** e coadministradora da subscrição.
 
@@ -127,9 +152,9 @@ Execute os seguintes passos para instalar a função na sua máquina Windows uti
     .\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
     ```
 
-4. É-lhe pedido que concorde em instalar o NuGet e autenticar com as suas credenciais Azure. Se não tiver a versão mais recente do NuGet, pode descarregá-la a partir das [versões de distribuição disponíveis do NuGet.](https://www.nuget.org/downloads)
+1. É-lhe pedido que concorde em instalar o NuGet e autenticar com as suas credenciais Azure. Se não tiver a versão mais recente do NuGet, pode descarregá-la a partir das [versões de distribuição disponíveis do NuGet.](https://www.nuget.org/downloads)
 
-5. Verifique a implementação após o envio do script. A partir da página **Hybrid Runbook Worker Groups** na sua conta Automation, no separador de grupo de **trabalhadores de runbook híbridos do utilizador,** mostra o novo grupo e o número de membros. Se for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na página, a partir do menu à esquerda, escolha **Trabalhadores Híbridos.** Na página **"Trabalhadores Híbridos",** pode ver cada membro do grupo listado.
+1. Verifique a implementação após o envio do script. A partir da página **Hybrid Runbook Worker Groups** na sua conta Automation, no separador de grupo de **trabalhadores de runbook híbridos do utilizador,** mostra o novo grupo e o número de membros. Se for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na página, a partir do menu à esquerda, escolha **Trabalhadores Híbridos.** Na página **"Trabalhadores Híbridos",** pode ver cada membro do grupo listado.
 
 ## <a name="manual-deployment"></a>Implementação manual
 
@@ -141,7 +166,7 @@ Para instalar e configurar um Trabalhador de Runbook Híbrido do Windows, execut
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resourceGroupName> -WorkspaceName <workspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
     ```
 
-2. Insaque o agente Log Analytics na máquina alvo.
+1. Insaque o agente Log Analytics na máquina alvo.
 
     * Para os VMs Azure, instale o agente Log Analytics para Windows utilizando a [extensão da máquina virtual para](../virtual-machines/extensions/oms-windows.md)o Windows . A extensão instala o agente Log Analytics em máquinas virtuais Azure e inscreve máquinas virtuais num espaço de trabalho log analytics existente. Pode utilizar um modelo de Gestor de Recursos Azure, PowerShell ou Azure Policy para atribuir o agente Deploy Log Analytics para a política incorporada [ *do Linux* ou *do Windows* VMs.](../governance/policy/samples/built-in-policies.md#monitoring) Uma vez instalado o agente, a máquina pode ser adicionada a um grupo híbrido de runbook na sua conta Automation.
     
@@ -162,7 +187,7 @@ Para instalar e configurar um Trabalhador de Runbook Híbrido do Windows, execut
 
     Recomendamos a instalação do agente Log Analytics para Windows ou Linux utilizando a Política Azure.
 
-3. Verifique se o agente está a reportar-se ao espaço de trabalho
+1. Verifique se o agente está a reportar-se ao espaço de trabalho
 
     O agente Log Analytics para Windows liga as máquinas a um espaço de trabalho Azure Monitor Log Analytics. Quando instala o agente na sua máquina e o liga ao seu espaço de trabalho, descarrega automaticamente os componentes necessários para o Trabalhador de Runbook Híbrido.
 
@@ -176,9 +201,9 @@ Para instalar e configurar um Trabalhador de Runbook Híbrido do Windows, execut
 
     Nos resultados da pesquisa, deverá consultar os registos de batimentos cardíacos da máquina, indicando que está ligado e a reportar ao serviço. Por defeito, cada agente encaminha um registo de batimentos cardíacos para o seu espaço de trabalho atribuído. Utilize os seguintes passos para completar a instalação e configuração do agente.
 
-4. Confirme a versão do Trabalhador de Runbook Híbrido na máquina que hospeda o agente Log Analytics, navegue `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e note a subpasta da **versão.** Esta pasta aparecerá na máquina vários minutos depois de a solução estar ativada no espaço de trabalho.
+1. Confirme a versão do Trabalhador de Runbook Híbrido na máquina que hospeda o agente Log Analytics, navegue `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e note a subpasta da **versão.** Esta pasta aparecerá na máquina vários minutos depois de a solução estar ativada no espaço de trabalho.
 
-5. Instale o ambiente do runbook e ligue-se à Azure Automation. Quando configura um agente para reportar a um espaço de trabalho log Analytics e importar a solução **Automation,** a solução empurra para baixo o `HybridRegistration` módulo PowerShell. Este módulo contém o `Add-HybridRunbookWorker` cmdlet. Utilize este cmdlet para instalar o ambiente do livro de recortes na máquina e registá-lo com a Azure Automation.
+1. Instale o ambiente do runbook e ligue-se à Azure Automation. Quando configura um agente para reportar a um espaço de trabalho log Analytics e importar a solução **Automation,** a solução empurra para baixo o `HybridRegistration` módulo PowerShell. Este módulo contém o `Add-HybridRunbookWorker` cmdlet. Utilize este cmdlet para instalar o ambiente do livro de recortes na máquina e registá-lo com a Azure Automation.
 
     Abra uma sessão PowerShell no modo administrador e execute os seguintes comandos para importar o módulo.
 
@@ -187,7 +212,7 @@ Para instalar e configurar um Trabalhador de Runbook Híbrido do Windows, execut
     Import-Module .\HybridRegistration.psd1
     ```
 
-6. Executar o `Add-HybridRunbookWorker` cmdlet especificando os valores para os parâmetros `Url` , e `Key` `GroupName` .
+1. Executar o `Add-HybridRunbookWorker` cmdlet especificando os valores para os parâmetros `Url` , e `Key` `GroupName` .
 
     ```powershell-interactive
     Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
@@ -205,7 +230,7 @@ Para instalar e configurar um Trabalhador de Runbook Híbrido do Windows, execut
 
     * Se necessário, desa estale o `Verbose` parâmetro para receber detalhes sobre a instalação.
 
-7. Verifique a implantação após a conclusão do comando. A partir da página **Grupos de Trabalhadores de Runbook Híbridos** na sua conta Automation, no separador **de grupo de trabalhadores de runbook híbridos do utilizador,** mostra o grupo novo ou existente e o número de membros. Se for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na página, a partir do menu à esquerda, escolha **Trabalhadores Híbridos.** Na página **"Trabalhadores Híbridos",** pode ver cada membro do grupo listado.
+1. Verifique a implantação após a conclusão do comando. A partir da página **Grupos de Trabalhadores de Runbook Híbridos** na sua conta Automation, no separador **de grupo de trabalhadores de runbook híbridos do utilizador,** mostra o grupo novo ou existente e o número de membros. Se for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na página, a partir do menu à esquerda, escolha **Trabalhadores Híbridos.** Na página **"Trabalhadores Híbridos",** pode ver cada membro do grupo listado.
 
 ## <a name="install-powershell-modules"></a>Instalar módulos PowerShell
 
@@ -219,9 +244,9 @@ Os módulos instalados devem estar num local referenciado pela `PSModulePath` va
 
 1. No portal Azure, aceda à sua conta de Automação.
 
-2. Em **Definições de Conta**, selecione **Teclas** e note os valores para **URL** e **Tecla de acesso primário**.
+1. Em **Definições de Conta**, selecione **Teclas** e note os valores para **URL** e **Tecla de acesso primário**.
 
-3. Abra uma sessão PowerShell no modo Administrador e execute o seguinte comando com o seu URL e valores de chave de acesso primário. Utilize o `Verbose` parâmetro para um registo detalhado do processo de remoção. Para remover máquinas velhas do seu grupo Operário Híbrido, utilize o `machineName` parâmetro opcional.
+1. Abra uma sessão PowerShell no modo Administrador e execute o seguinte comando com o seu URL e valores de chave de acesso primário. Utilize o `Verbose` parâmetro para um registo detalhado do processo de remoção. Para remover máquinas velhas do seu grupo Operário Híbrido, utilize o `machineName` parâmetro opcional.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
@@ -233,11 +258,11 @@ Para remover um grupo híbrido de runbook worker, primeiro precisa remover o Tra
 
 1. Abra a conta Automation no portal Azure.
 
-2. Selecione **grupos de trabalhadores híbridos** em **Automação de Processos.** Selecione o grupo que pretende eliminar. A página de propriedades para este grupo aparece.
+1. Selecione **grupos de trabalhadores híbridos** em **Automação de Processos.** Selecione o grupo que pretende eliminar. A página de propriedades para este grupo aparece.
 
    ![Página Propriedades](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-3. Na página de propriedades do grupo selecionado, selecione **Delete**. Uma mensagem pede-lhe que confirme esta ação. Selecione **Sim** se tiver a certeza de que deseja continuar.
+1. Na página de propriedades do grupo selecionado, selecione **Delete**. Uma mensagem pede-lhe que confirme esta ação. Selecione **Sim** se tiver a certeza de que deseja continuar.
 
    ![Mensagem de confirmação](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 

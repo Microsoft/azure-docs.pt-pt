@@ -2,13 +2,13 @@
 title: Encriptação de dados de cópias de segurança com chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
-ms.date: 07/08/2020
-ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/01/2021
+ms.openlocfilehash: b6cb1a288d0052b39bbeb52ed9fd20e68a6427ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716742"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167895"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de cópias de segurança com chaves geridas pelo cliente
 
@@ -33,7 +33,7 @@ Este artigo aborda o seguinte:
 
 - Esta funcionalidade não está relacionada com a [Encriptação do Disco Azure,](../security/fundamentals/azure-disk-encryption-vms-vmss.md)que utiliza encriptação baseada em convidados de discos de um VM utilizando BitLocker (para Windows) e DM-Crypt (para Linux)
 
-- O cofre dos Serviços de Recuperação só pode ser encriptado com chaves armazenadas num Cofre de Chaves Azure, localizado na **mesma região.** Além disso, as chaves devem ser **apenas teclas RSA 2048** e devem estar em estado **ativado.**
+- O cofre dos Serviços de Recuperação só pode ser encriptado com chaves armazenadas num Cofre de Chaves Azure, localizado na **mesma região.** Além disso, as chaves devem ser **apenas teclas RSA** e devem estar em estado **ativado.**
 
 - A movimentação do cofre dos Serviços de Recuperação encriptado da CMK através de Grupos de Recursos e Subscrições não é suportada atualmente.
 - Quando você mover um cofre de Serviços de Recuperação já encriptado com chaves geridas pelo cliente para um novo inquilino, você precisará atualizar o cofre dos Serviços de Recuperação para recriar e reconfigurar a identidade gerida do cofre e CMK (que deve estar no novo inquilino). Se isto não for feito, as operações de backup e restauro começarão a falhar. Além disso, quaisquer permissões de controlo de acesso baseadas em funções (RBAC) criadas dentro da subscrição terão de ser reconfiguradas.
@@ -42,6 +42,9 @@ Este artigo aborda o seguinte:
 
     >[!NOTE]
     >Utilize o módulo Az 5.3.0 ou superior para utilizar as chaves geridas pelo cliente para cópias de segurança no cofre dos Serviços de Recuperação.
+    
+    >[!Warning]
+    >Se estiver a utilizar o PowerShell para gerir as chaves de encriptação para cópia de segurança, não recomendamos atualizar as teclas a partir do portal.<br></br>Se atualizar a chave a partir do portal, não poderá utilizar o PowerShell para atualizar ainda mais a chave de encriptação, até que esteja disponível uma atualização PowerShell para suportar o novo modelo. No entanto, pode continuar a atualizar a chave a partir do portal Azure.
 
 Se não criou e configura o cofre dos Serviços de Recuperação, pode [ler como fazê-lo aqui.](backup-create-rs-vault.md)
 
@@ -59,22 +62,32 @@ Esta secção envolve os seguintes passos:
 
 É necessário que todos estes passos sejam seguidos na ordem acima mencionada para alcançar os resultados pretendidos. Cada passo é discutido em detalhe abaixo.
 
-### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Ativar a identidade gerida para o cofre dos Serviços de Recuperação
+## <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Ativar a identidade gerida para o cofre dos Serviços de Recuperação
 
-O Azure Backup utiliza o sistema atribuído à identidade gerida para autenticar o cofre dos Serviços de Recuperação para aceder às chaves de encriptação armazenadas no Cofre da Chave Azure. Para ativar a identidade gerida para o cofre dos Serviços de Recuperação, siga os passos abaixo mencionados.
+O Azure Backup utiliza identidades geridas e identidades geridas atribuídas pelo utilizador para autenticar o cofre dos Serviços de Recuperação para aceder às chaves de encriptação armazenadas no Cofre da Chave Azure. Para ativar a identidade gerida para o cofre dos Serviços de Recuperação, siga os passos abaixo mencionados.
 
 >[!NOTE]
 >Uma vez ativada, a identidade gerida **não** deve ser desativada (mesmo temporariamente). Desativar a identidade gerida pode levar a um comportamento inconsistente.
+
+### <a name="enable-system-assigned-managed-identity-for-the-vault"></a>Ativar a identidade gerida atribuída pelo sistema para o cofre
 
 **No portal:**
 
 1. Vá para o cofre dos Serviços de Recuperação -> **Identidade**
 
-    ![Definições de identidade](./media/encryption-at-rest-with-cmk/managed-identity.png)
+    ![Definições de identidade](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
 
-1. Alterar o **Estado** para **On** e selecionar **Guardar**.
+1. Navegue para o separador **designado pelo Sistema.**
 
-1. Um ID de objeto é gerado, que é a identidade gerida do sistema do cofre.
+1. Alterar o **Estado** para **On**.
+
+1. Clique **em Guardar** para ativar a identidade do cofre.
+
+Um ID de objeto é gerado, que é a identidade gerida do sistema do cofre.
+
+>[!NOTE]
+>Uma vez ativada, a identidade gerida não deve ser desativada (mesmo temporariamente). Desativar a identidade gerida pode levar a um comportamento inconsistente.
+
 
 **Com PowerShell:**
 
@@ -98,7 +111,28 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Atribua permissões ao cofre dos Serviços de Recuperação para aceder à chave de encriptação no Cofre da Chave Azure
+### <a name="assign-user-assigned-managed-identity-to-the-vault"></a>Atribuir identidade gerida atribuída ao utilizador para o cofre
+
+Para atribuir a identidade gerida atribuída pelo utilizador para o cofre dos Serviços de Recuperação, execute os seguintes passos:
+
+1.  Vá para o cofre dos Serviços de Recuperação -> **Identidade**
+
+    ![Atribuir identidade gerida atribuída ao utilizador para o cofre](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
+
+1.  Navegue para o **separador utilizador atribuído.**
+
+1.  Clique **+Adicionar** para adicionar uma identidade gerida atribuída ao utilizador.
+
+1.  No **utilizador Adicionar a** lâmina de identidade gerida atribuída que abre, selecione a subscrição para a sua identidade.
+
+1.  Selecione a identidade da lista. Também pode filtrar pelo nome da identidade ou do grupo de recursos.
+
+1.  Uma vez feito, clique **em Adicionar** para terminar a atribuição da identidade.
+
+## <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Atribua permissões ao cofre dos Serviços de Recuperação para aceder à chave de encriptação no Cofre da Chave Azure
+
+>[!Note]
+>Se estiver a utilizar identidades atribuídas ao utilizador, as mesmas permissões devem ser atribuídas à identidade atribuída pelo utilizador.
 
 Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Cofre da Chave Azure que contém a chave de encriptação. Isto é feito permitindo que a identidade gerida do cofre dos Serviços de Recuperação aceda ao Cofre de Chaves.
 
@@ -120,7 +154,7 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
 1. **Selecione Guardar** para guardar as alterações feitas na política de acesso do Cofre da Chave Azure.
 
-### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Permitir a eliminação suave e a proteção de purga no Cofre da Chave Azure
+## <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Permitir a eliminação suave e a proteção de purga no Cofre da Chave Azure
 
 Tem de ativar a **proteção de eliminação e purga suave** no cofre da chave Azure que armazena a sua chave de encriptação. Pode fazê-lo a partir do Cofre da Chave Azure UI, como mostrado abaixo. (Alternativamente, estas propriedades podem ser definidas enquanto criam o Cofre da Chave). Leia mais sobre estas propriedades do Key Vault [aqui.](../key-vault/general/soft-delete-overview.md)
 
@@ -160,7 +194,7 @@ Também pode ativar a proteção de eliminação e purga suave através do Power
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
-### <a name="assign-encryption-key-to-the-rs-vault"></a>Atribua chave de encriptação ao cofre RS
+## <a name="assign-encryption-key-to-the-rs-vault"></a>Atribua chave de encriptação ao cofre RS
 
 >[!NOTE]
 > Antes de prosseguir, certifique-se:
@@ -172,7 +206,7 @@ Também pode ativar a proteção de eliminação e purga suave através do Power
 
 Uma vez assegurados os acima, continue a selecionar a chave de encriptação para o seu cofre.
 
-#### <a name="to-assign-the-key-in-the-portal"></a>Para atribuir a chave no portal
+### <a name="to-assign-the-key-in-the-portal"></a>Para atribuir a chave no portal
 
 1. Vá ao cofre dos Serviços de Recuperação -> **Propriedades**
 
@@ -192,7 +226,7 @@ Uma vez assegurados os acima, continue a selecionar a chave de encriptação par
     1. Navegue e selecione a chave do Cofre de Chaves no painel de recolha de chaves.
 
         >[!NOTE]
-        >Ao especificar a chave de encriptação utilizando o painel de recolha de chaves, a tecla será rodada automaticamente sempre que uma nova versão para a tecla estiver ativada.
+        >Ao especificar a chave de encriptação utilizando o painel de recolha de chaves, a tecla será rodada automaticamente sempre que uma nova versão para a tecla estiver ativada. [Saiba mais](#enabling-auto-rotation-of-encryption-keys) sobre a ativação da rotação automática das chaves de encriptação.
 
         ![Selecione a chave do cofre da chave](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -206,7 +240,7 @@ Uma vez assegurados os acima, continue a selecionar a chave de encriptação par
 
     ![Registo de atividades](./media/encryption-at-rest-with-cmk/activity-log.png)
 
-#### <a name="to-assign-the-key-with-powershell"></a>Para atribuir a chave com PowerShell
+### <a name="to-assign-the-key-with-powershell"></a>Para atribuir a chave com PowerShell
 
 Utilize o comando [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para permitir a encriptação utilizando as teclas geridas pelo cliente e para atribuir ou atualizar a chave de encriptação a utilizar.
 
@@ -249,8 +283,8 @@ Antes de proceder à proteção de configuração, recomendamos vivamente que ce
 > Antes de proceder à proteção de configuração, deve ter concluído **com sucesso** os seguintes passos:
 >
 >1. Criei o seu cofre de reserva
->1. Habilitado a identidade gerida do cofre de reserva atribuído ao sistema
->1. Permissões atribuídas ao seu Cofre de Reserva para aceder a chaves de encriptação a partir do seu Cofre de Chaves
+>1. Habilitado a identidade gerida do cofre dos Serviços de Recuperação ou atribuiu uma identidade gerida atribuída pelo utilizador ao cofre
+>1. Permissões atribuídas ao seu Cofre de Reserva (ou à identidade gerida atribuída pelo utilizador) para aceder às chaves de encriptação do seu Cofre de Chaves
 >1. Proteção de eliminação e purga suave ativada para o seu Cofre de Chaves
 >1. Atribuiu uma chave de encriptação válida para o seu cofre de backup
 >
@@ -311,6 +345,44 @@ Ao executar uma restauração de ficheiros, os dados restaurados serão encripta
 ### <a name="restoring-sap-hanasql-databases-in-azure-vms"></a>Restaurar bases de dados SAP HANA/SQL em VMs Azure
 
 Ao restaurar a partir de uma base de dados SAP HANA/SQL com rede de apoio que funciona num Azure VM, os dados restaurados serão encriptados utilizando a chave de encriptação utilizada no local de armazenamento do alvo. Pode ser uma chave gerida pelo cliente ou uma chave gerida pela plataforma usada para encriptar os discos do VM.
+
+## <a name="additional-topics"></a>Tópicos adicionais
+
+### <a name="enable-encryption-using-customer-managed-keys-at-vault-creation-in-preview"></a>Ativar a encriptação utilizando chaves geridas pelo cliente na criação do cofre (na pré-visualização)
+
+>[!NOTE]
+>Permitir a encriptação na criação do cofre usando chaves geridas pelo cliente está em pré-visualização pública limitada e requer a listagem de licenças de subscrições. Para se inscrever para a pré-visualização, preencha o [formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) e escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+
+Quando a sua subscrição estiver listada, o **separador de encriptação de backup** será exibido. Isto permite-lhe ativar a encriptação na cópia de segurança utilizando chaves geridas pelo cliente durante a criação de um novo cofre dos Serviços de Recuperação. Para ativar a encriptação, execute os seguintes passos:
+
+1. Junto ao **separador Basics,** no separador **Encriptação de Cópia de Segurança,** especifique a chave de encriptação e a identidade a utilizar para encriptação.
+
+   ![Ativar a encriptação ao nível do cofre](media/encryption-at-rest-with-cmk/enable-encryption-using-cmk-at-vault.png)
+
+
+   >[!NOTE]
+   >As definições aplicam-se apenas à Cópia de Segurança e são opcionais.
+
+1. Selecione **Utilize a tecla gerida pelo cliente** como o tipo de encriptação.
+
+1. Para especificar a chave a utilizar para encriptação, selecione a opção adequada.
+
+   Pode fornecer o URI para a chave de encriptação, ou navegar e selecionar a chave. Quando especificar a chave utilizando **a opção Selecionar o Cofre de Teclas,** a rotação automática da tecla de encriptação ativará automaticamente. [Saiba mais sobre a rotação automática](#enabling-auto-rotation-of-encryption-keys). 
+
+1. Especifique a identidade gerida pelo utilizador para gerir a encriptação com as teclas geridas pelo cliente. Clique **em Selecionar** para navegar e selecione a identidade necessária.
+
+1. Uma vez feito, continue a adicionar Tags (opcional) e continue a criar o cofre.
+
+### <a name="enabling-auto-rotation-of-encryption-keys"></a>Habilitando a rotação automática das chaves de encriptação
+
+Quando especificar a chave gerida pelo cliente que deve ser utilizada para encriptar cópias de segurança, utilize os seguintes métodos para especirá-la:
+
+- Insira a chave URI
+- Selecione a partir do Cofre de Chaves
+
+A utilização da opção **Select from Key Vault** ajuda a ativar a rotação automática para a tecla selecionada. Isto elimina o esforço manual de atualização para a versão seguinte. No entanto, utilizando esta opção:
+- A atualização da versão chave pode demorar até uma hora a produzir efeito.
+- Quando uma nova versão da chave entrar em vigor, a versão antiga também deve estar disponível (em estado ativado) para pelo menos um trabalho de backup subsequente após a atualização chave ter entra em vigor.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

@@ -6,13 +6,13 @@ ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: helohr
 ms.reviewer: v-cawood; clemr
-manager: lizross
-ms.openlocfilehash: bfc797e0c11a1804d27c6c97fea8cb2ba62dca7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: fe2da5c60c06e5617d130940af4909c52272d551
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88010128"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448173"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Configurar o Gestor de Configuração de Pontos Finais da Microsoft
 

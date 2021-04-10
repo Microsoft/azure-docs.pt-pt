@@ -758,6 +758,16 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+- id: app-service-ide
+  title: Experiência de desenvolvimento
+  prompt: Escolha uma experiência de desenvolvimento
+  pivots:
+  - id: development-environment-vs
+    title: Visual Studio
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Interface de linha de comando
 - id: app-service-platform-windows-linux
   title: Plataforma do Serviço de Aplicações
   prompt: Escolher uma plataforma de alojamento
@@ -1119,9 +1129,9 @@ groups:
   - id: programming-language-ios
     title: iOS
 metadata:
-  ms.openlocfilehash: 660a39cf86098ba7262bb139c7dc479de3f44308
-  ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+  ms.openlocfilehash: 519b28d0b563897ca52e0e9c46f7025c8d60105f
+  ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/28/2021
-  ms.locfileid: "105642824"
+  ms.lasthandoff: 03/31/2021
+  ms.locfileid: "106055812"

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2021
 ms.author: parkerra
 ms.openlocfilehash: 1c2eb0b4350f24ed1b7c4d0f662c7afec3feffeb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104669608"
 ---
 O Azure Spatial Anchors SDK para a versão 2.9 ou posterior deve ser configurado na [Unidade 2020.3 (LTS)](https://unity3d.com/unity/whats-new/2020.3.0) com o [Quadro Plug-in Unity XR](https://docs.unity3d.com/Manual/XRPluginArchitecture.html) utilizando os seguintes pacotes:

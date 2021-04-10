@@ -7,13 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/26/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: 32e113bf02a2cbd21b70805396c212a1f9467382
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101709262"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448241"
 ---
 # <a name="supported-authentication-methods"></a>Métodos de autenticação suportados
 

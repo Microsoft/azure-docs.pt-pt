@@ -13,16 +13,16 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: f11aec770818cd4ceeeda1ae7decf30acb9ca92b
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: fc3717436619468e2db0bf4b408059112dae24cc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630714"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384158"
 ---
 # <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>Tutorial: Utilizar scripts fornecidos pela Microsoft para criar certificados de teste
 
-A Microsoft fornece scripts PowerShell e Bash para ajudá-lo a entender como criar os seus próprios certificados X.509 e autenticá-los num Hub IoT. Os scripts estão localizados no [GitHub.](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) São fornecidos apenas para fins de demonstração. Os certificados por eles criados não devem ser utilizados para a produção. Os certificados contêm senhas codificadas ("1234") e expiram após 30 dias. Para um ambiente de produção, você precisará usar as suas próprias melhores práticas para a criação de certificados e gestão vitalícia.
+A Microsoft fornece scripts PowerShell e Bash para ajudá-lo a entender como criar os seus próprios certificados X.509 e autenticá-los num Hub IoT. Os scripts estão localizados num [repositório](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)gitHub. São fornecidos apenas para fins de demonstração. Os certificados por eles criados não devem ser utilizados para a produção. Os certificados contêm senhas codificadas ("1234") e expiram após 30 dias. Para um ambiente de produção, você precisará usar as suas próprias melhores práticas para a criação de certificados e gestão vitalícia.
 
 ## <a name="powershell-scripts"></a>Scripts PowerShell
 
@@ -30,7 +30,7 @@ A Microsoft fornece scripts PowerShell e Bash para ajudá-lo a entender como cri
 
 Obtenha OpenSSL para Windows. Consulte <https://www.openssl.org/docs/faq.html#MISC4> os locais para o descarregar ou <https://www.openssl.org/source/> construir a partir da fonte. Em seguida, executar os scripts preliminares:
 
-1. Copie os scripts do [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para o diretório local no qual pretende trabalhar. Todos os ficheiros serão criados como crianças deste diretório.
+1. Copie os scripts deste [repositório](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) GitHub para o diretório local no qual pretende trabalhar. Todos os ficheiros serão criados como crianças deste diretório.
 
 1. Inicie a PowerShell como administrador.
 

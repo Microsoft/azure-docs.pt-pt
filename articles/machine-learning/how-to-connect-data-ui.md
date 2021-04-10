@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a0265984c4ae83b8869071017e2fb571a7ff548c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102508236"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027657"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conecte-se aos dados com o estúdio Azure Machine Learning
 
@@ -69,7 +69,7 @@ O exemplo a seguir demonstra como é a forma quando cria uma loja **de dados azu
 Depois de criar uma datastore, crie um conjunto de dados para interagir com os seus dados. Os conjuntos de dados embalam os seus dados num objeto consumível avaliado preguiçosamente para tarefas de aprendizagem automática, como o treino. [Saiba mais sobre os conjuntos de dados](how-to-create-register-datasets.md).
 
 Existem dois tipos de conjuntos de dados, Dataset de Ficheiros e Dataset Tabular. 
-[Os FileDatasets](how-to-create-register-datasets.md#filedataset) criam referências a ficheiros únicos ou múltiplos ou URLs públicos. Enquanto que os [Separadores Tabular](how-to-create-register-datasets.md#tabulardataset) representam os seus dados num formato tabular. 
+[Os FileDatasets](how-to-create-register-datasets.md#filedataset) criam referências a ficheiros únicos ou múltiplos ou URLs públicos. Enquanto que os [Separadores Tabular](how-to-create-register-datasets.md#tabulardataset) representam os seus dados num formato tabular. Pode criar Separadores Tabular a partir de .csv, ficheiros .tsv, .parquet, .jsonl e a partir dos resultados da consulta SQL.
 
 Os seguintes passos e animação mostram como criar um conjunto de dados no [estúdio Azure Machine Learning](https://ml.azure.com).
 

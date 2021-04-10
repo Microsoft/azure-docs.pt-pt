@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: af220106c415165a0dbe7cda64a31a6068f53164
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bdcbb38a56e46d01a5580f6d32ef733df8911b67
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99981787"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108341"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -29,6 +29,7 @@ O recipiente de análise espacial implementa as seguintes operações:
 | cognitiveservices.vision.spatialanalysis-personcrossingline | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
 | serviços cognitivos.vision.spatialanalysis-personcrossingpolygon | Emite um evento _personZoneEnterExitEvent_ quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi atravessada. Emite uma _pessoaZoneDwellTimeEvent_ quando a pessoa sai da zona e fornece informações direcionais, bem como o número de milissegundos que a pessoa passou dentro da zona. |
 | serviços cognitivos.vision.spatialanalysis-persondistance | Faixas quando as pessoas violam uma regra de distância. <br> Emite uma _pessoaSstevente_ periodicamente com a localização de cada violação à distância. |
+| serviços cognitivos.vision.spatialanalysis | Operação genérica que pode ser usada para executar todos os cenários acima mencionados. Esta opção é mais útil quando pretende executar vários cenários na mesma câmara ou utilizar os recursos do sistema (por exemplo, GPU) de forma mais eficiente. |
 
 Acima das operações estão também disponíveis na `.debug` versão, que têm a capacidade de visualizar os quadros de vídeo à medida que estão a ser processados. Terá de ser executado `xhost +` no computador anfitrião para permitir a visualização de quadros de vídeo e eventos.
 
@@ -38,6 +39,7 @@ Acima das operações estão também disponíveis na `.debug` versão, que têm 
 | cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Emite um evento _personZoneEnterExitEvent_ quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi atravessada. Emite uma _pessoaZoneDwellTimeEvent_ quando a pessoa sai da zona e fornece informações direcionais, bem como o número de milissegundos que a pessoa passou dentro da zona. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Faixas quando as pessoas violam uma regra de distância. <br> Emite uma _pessoaSstevente_ periodicamente com a localização de cada violação à distância. |
+| serviços cognitivos.vision.spatialanalysis.debug | Operação genérica que pode ser usada para executar todos os cenários acima mencionados. Esta opção é mais útil quando pretende executar vários cenários na mesma câmara ou utilizar os recursos do sistema (por exemplo, GPU) de forma mais eficiente. |
 
 A análise espacial também pode ser executada com [o Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) como o seu módulo de IA de vídeo. 
 
@@ -49,6 +51,7 @@ A análise espacial também pode ser executada com [o Live Video Analytics](../.
 | cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | Emite um evento _personZoneEnterExitEvent_ quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi atravessada. Emite uma _pessoaZoneDwellTimeEvent_ quando a pessoa sai da zona e fornece informações direcionais, bem como o número de milissegundos que a pessoa passou dentro da zona.  |
 | cognitiveservices.vision.spatialanalysis-persondistance.livevideoanalytics | Faixas quando as pessoas violam uma regra de distância. <br> Emite uma _pessoaSstevente_ periodicamente com a localização de cada violação à distância. |
+| cognitiveservices.vision.spatialanasis.livevideoanalytics | Operação genérica que pode ser usada para executar todos os cenários acima mencionados. Esta opção é mais útil quando pretende executar vários cenários na mesma câmara ou utilizar os recursos do sistema (por exemplo, GPU) de forma mais eficiente. |
 
 As operações live video analytics também estão disponíveis na `.debug` versão (por exemplo, serviços cognitivos.vision.spatialanalysis-personcount.livevideoanalytics.debug) que tem a capacidade de visualizar os quadros de vídeo como sendo processados. Terá de ser executado `xhost +` no computador anfitrião para permitir a visualização dos quadros de vídeo e eventos
 
@@ -65,11 +68,12 @@ Estes são os parâmetros exigidos por cada uma destas operações de análise e
 | VIDEO_SOURCE_ID | Um nome amigável para o dispositivo da câmara ou transmissão de vídeo. Isto será devolvido com a saída do evento JSON.|
 | VIDEO_IS_LIVE| Verdade para dispositivos de câmara; falso para vídeos gravados.|
 | VIDEO_DECODE_GPU_INDEX| Que GPU para descodificar a moldura de vídeo. Por defeito é 0. Deve ser o mesmo que `gpu_index` no outro nó config `VICA_NODE_CONFIG` como, . `DETECTOR_NODE_CONFIG` .|
-| INPUT_VIDEO_WIDTH | Inserir a largura do quadro do vídeo/stream (por exemplo, 1920). O seu campo opcional e se for fornecido quadro será dimensionado para esta dimensão, mas continuará a preservar o rácio de aspeto.|
+| INPUT_VIDEO_WIDTH | Inserir a largura do quadro do vídeo/stream (por exemplo, 1920). Este é um campo opcional e, se fornecido, o quadro será dimensionado para esta dimensão, preservando a relação de aspeto.|
 | DETECTOR_NODE_CONFIG | JSON indicando qual a GPU para executar o nó do detetor. Deve estar no seguinte formato: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | Configuração JSON para zona e linha como descrito abaixo.|
-| ENABLE_FACE_MASK_CLASSIFIER | `True` para permitir detetar pessoas que usam máscaras faciais no fluxo de vídeo, `False` para desativá-la. Por predefinição, isto é desativado. A deteção da máscara facial requer que o parâmetro de largura de vídeo de entrada seja 1920 `"INPUT_VIDEO_WIDTH": 1920` . O atributo da máscara facial não será devolvido se as pessoas detetadas não estiverem viradas para a câmara ou estiverem muito longe dela. Consulte o guia [de colocação da câmara](spatial-analysis-camera-placement.md) para obter mais informações |
+| ENABLE_FACE_MASK_CLASSIFIER | `True` para permitir detetar pessoas que usam máscaras faciais no fluxo de vídeo, `False` para desativá-la. Por predefinição, isto é desativado. A deteção da máscara facial requer que o parâmetro de largura de vídeo de entrada seja 1920 `"INPUT_VIDEO_WIDTH": 1920` . O atributo da máscara facial não será devolvido se as pessoas detetadas não estiverem viradas para a câmara ou estiverem muito longe dela. Consulte o guia de [colocação](spatial-analysis-camera-placement.md) da câmara para obter mais informações |
 
+### <a name="detector-node-parameter-settings"></a>Definições do parâmetro do nó do detetor
 Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações de análise espacial.
 
 ```json
@@ -78,12 +82,9 @@ Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações
 "do_calibration": true,
 "enable_recalibration": true,
 "calibration_quality_check_frequency_seconds":86400,
-"calibration_quality_check_sampling_num": 80,
-"calibration_quality_check_sampling_times": 5,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
 "calibration_quality_check_one_round_sample_collect_num":10,
-"calibration_quality_check_queue_max_size":1000,
-"recalibration_score": 75
+"calibration_quality_check_queue_max_size":1000
 }
 ```
 
@@ -93,15 +94,12 @@ Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações
 | `do_calibration` | string | Indica que a calibração está ligada. `do_calibration` deve ser verdadeiro para **os serviços cognitivos.vision.espacialanalysis-persondistance** para funcionar corretamente. do_calibration é definido por defeito para True. |
 | `enable_recalibration` | bool | Indica se a recalibração automática está ligada. A predefinição é `true`.|
 | `calibration_quality_check_frequency_seconds` | int | Número mínimo de segundos entre cada verificação de qualidade para determinar se é necessária ou não recalibração. O padrão é `86400` (24 horas). Só é utilizado quando `enable_recalibration=True` .|
-| `calibration_quality_check_sampling_num` | int | Número de amostras de dados armazenadas aleatoriamente selecionadas para utilizar por medição de erro de verificação de qualidade. A predefinição é `80`. Só é utilizado quando `enable_recalibration=True` .|
-| `calibration_quality_check_sampling_times` | int | Número de medições de erro de vezes será realizada em diferentes conjuntos de amostras de dados selecionadas aleatoriamente por verificação de qualidade. A predefinição é `5`. Só é utilizado quando `enable_recalibration=True` .|
 | `calibration_quality_check_sample_collect_frequency_seconds` | int | Número mínimo de segundos entre a recolha de novas amostras de dados para recalibração e verificação de qualidade. O padrão é `300` (5 minutos). Só é utilizado quando `enable_recalibration=True` .|
 | `calibration_quality_check_one_round_sample_collect_num` | int | Número mínimo de novas amostras de dados para recolher por rodada de recolha de amostras. A predefinição é `10`. Só é utilizado quando `enable_recalibration=True` .|
 | `calibration_quality_check_queue_max_size` | int | Número máximo de amostras de dados para armazenar quando o modelo da câmara estiver calibrado. A predefinição é `1000`. Só é utilizado quando `enable_recalibration=True` .|
-| `recalibration_score` | int | Limiar de qualidade máxima para iniciar a recalibração. A predefinição é `75`. Só é utilizado quando `enable_recalibration=True` . A qualidade de calibração é calculada com base numa relação inversa com o erro de reprojecção do alvo de imagem. Tendo em conta os alvos detetados em quadros de imagem 2D, os alvos são projetados para o espaço 3D e re-projetados de volta para a moldura de imagem 2D usando os parâmetros de calibração da câmara existentes. O erro de reprojecção é medido pelas distâncias médias entre os alvos detetados e os alvos reprojados.|
 | `enable_breakpad`| bool | Indica se pretende ativar o breakpad, que é utilizado para gerar despejo de falha para utilização de depuradores. É `false` por defeito. Se o `true` configurar, também tem de adicionar a parte do `"CapAdd": ["SYS_PTRACE"]` `HostConfig` `createOptions` recipiente. Por predefinição, o despejo de falhas é enviado para a aplicação [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter, se quiser que os despejos de falhas sejam enviados para a sua própria aplicação AppCenter, pode sobrepor a variável ambiental com o `RTPT_APPCENTER_APP_SECRET` segredo da aplicação da sua aplicação.
 
-
+## <a name="spatial-analysis-operations-configuration-and-output"></a>Configuração e saída de operações de análise espacial
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Configuração de zona para serviços cognitivos.vision.spatialanalysis-personcount
 
  Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG que configura uma zona. Pode configurar várias zonas para esta operação.
@@ -239,6 +237,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
         "output_frequency":1,
         "minimum_distance_threshold":6.0,
         "maximum_distance_threshold":35.0,
+        "aggregation_method": "average"
            "threshold": 16.00,
            "focus": "footprint"
             }
@@ -258,9 +257,86 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 | `output_frequency` | int | A taxa a que os eventos são efencados. Quando `output_frequency` = X, cada evento X é expulso, ex. `output_frequency` = 2 significa que cada outro evento é a saída. O `output_frequency` é aplicável a ambos e `event` `interval` .|
 | `minimum_distance_threshold` | float| Uma distância nos pés que irá desencadear um evento "TooClose" quando as pessoas estão a menos de essa distância.|
 | `maximum_distance_threshold` | float| Uma distância nos pés que irá desencadear um evento "TooFar" quando as pessoas são maiores do que essa distância.|
+| `aggregation_method` | string| O método para o resultado da personificação agregada. O aggregation_method é aplicável a ambos `mode` e `average` .|
 | `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa).|
 
-Consulte as diretrizes [de colocação](spatial-analysis-camera-placement.md) da câmara para saber mais sobre configurações de zona e linha.
+### <a name="configuration-for-cognitiveservicesvisionspatialanalysis"></a>Configuração para serviços cognitivos.vision.spatialanalysis
+Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG que configura uma linha e zona para **serviços cognitivos.vision.espacialana.** Pode configurar várias linhas/zonas para esta operação e cada linha/zona pode ter eventos diferentes.
+
+ ```
+{
+  "lines": [
+    {
+      "name": "doorcamera",
+      "line": {
+        "start": {
+          "x": 0,
+          "y": 0.5
+        },
+        "end": {
+          "x": 1,
+          "y": 0.5
+        }
+      },
+      "events": [
+        {
+          "type": "linecrossing",
+          "config": {
+            "trigger": "event",
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        }
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "name": "lobbycamera",
+      "polygon": [[0.3, 0.3],[0.3, 0.9],[0.6, 0.9],[0.6, 0.3],[0.3, 0.3]],
+      "events": [
+        {
+          "type": "persondistance",
+          "config": {
+            "trigger": "event",
+            "output_frequency": 1,
+            "minimum_distance_threshold": 6.0,
+            "maximum_distance_threshold": 35.0,
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "count",
+          "config": {
+            "trigger": "event",
+            "output_frequency": 1,
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "zonecrossing",
+          "config": {
+            "threshold": 48.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "zonedwelltime",
+          "config": {
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+## <a name="camera-configuration"></a>Configuração da câmera
+
+Consulte as diretrizes [de colocação](spatial-analysis-camera-placement.md) da câmara para saber mais sobre como configurar zonas e linhas.
 
 ## <a name="spatial-analysis-operation-output"></a>Análise espacial Operação Saída
 
@@ -325,7 +401,7 @@ Prove json para uma saída de evento por esta operação.
             },
             "metadata": {
             "attributes": {
-                "face_Mask": 0.99
+                "face_mask": 0.99
             }
         }
         },
@@ -352,7 +428,7 @@ Prove json para uma saída de evento por esta operação.
             },
             "metadata":{
             "attributes": {
-                "face_noMask": 0.99
+            "face_nomask": 0.99
             }
             }
     }
@@ -379,8 +455,8 @@ Prove json para uma saída de evento por esta operação.
 | `type` | string| Tipo de região|
 | `points` | coleção| Pontos superiores esquerdos e inferiores direito quando o tipo de região é RETÂNGLE |
 | `confidence` | float| Confiança do algoritmo|
-| `face_Mask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada está a usar uma máscara facial |
-| `face_noMask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada **não** está a usar uma máscara facial |
+| `face_mask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada está a usar uma máscara facial |
+| `face_nomask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada **não** está a usar uma máscara facial |
 
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
@@ -394,14 +470,6 @@ Prove json para uma saída de evento por esta operação.
 | `cameraHeight` | float | A altura da câmara acima do chão em pés. Isto é deduzido da auto-calibração. |
 | `focalLength` | float | O comprimento focal da câmara em pixels. Isto é deduzido da auto-calibração. |
 | `tiltUpAngle` | float | O ângulo de inclinação da câmara da vertical. Isto é deduzido da auto-calibração.|
-
-| Nome do campo SourceInfo | Tipo| Description|
-|---------|---------|---------|
-| `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
-| `width` | int | Largura do quadro de vídeo|
-| `height` | int | Altura do quadro de vídeo|
-| `frameId` | int | Identificador de quadro|
 
 
 ### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcrossingline-ai-insights"></a>Formato JSON para serviços cognitivos.vision.spatialanalysis-personcrossingline AI Insights
@@ -452,7 +520,7 @@ Amostra JSON para deteção de saída por esta operação.
             "confidence": 0.9005028605461121,
             "metadata": {
             "attributes": {
-                "face_Mask": 0.99
+                "face_mask": 0.99
             }
         }
         }
@@ -467,7 +535,7 @@ Amostra JSON para deteção de saída por esta operação.
 | `detectionsId` | matriz| Matriz do tamanho 1 do identificador único da deteção da pessoa que desencadeou este evento|
 | `properties` | coleção| Coleção de valores|
 | `trackinId` | string| Identificador único da pessoa detetada|
-| `status` | string| Direção dos cruzamentos de linha, quer 'CrossLeft' ou 'CrossRight'|
+| `status` | string| Direção dos cruzamentos de linha, ou 'CrossLeft' ou 'CrossRight'. A direção baseia-se na imagem de pé no "arranque" virado para o "fim" da linha. CrossRight está a atravessar da esquerda para a direita. CrossLeft está a atravessar da direita para a esquerda.|
 | `zone` | string | O campo de "nome" da linha que foi atravessada|
 
 | Nome do campo de deteções | Tipo| Description|
@@ -478,8 +546,8 @@ Amostra JSON para deteção de saída por esta operação.
 | `type` | string| Tipo de região|
 | `points` | coleção| Pontos superiores esquerdos e inferiores direito quando o tipo de região é RETÂNGLE |
 | `confidence` | float| Confiança do algoritmo|
-| `face_Mask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada está a usar uma máscara facial |
-| `face_noMask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada **não** está a usar uma máscara facial |
+| `face_mask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada está a usar uma máscara facial |
+| `face_nomask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada **não** está a usar uma máscara facial |
 
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
@@ -542,7 +610,7 @@ Amostra JSON para deteção de saída por esta operação com `zonecrossing` SPA
             "confidence": 0.6267998814582825,
         "metadata": {
         "attributes": {
-        "face_Mask": 0.99
+        "face_mask": 0.99
         }
         }
            
@@ -613,7 +681,7 @@ Amostra JSON para deteção de saída por esta operação com `zonedwelltime` SP
 | `properties` | coleção| Coleção de valores|
 | `trackinId` | string| Identificador único da pessoa detetada|
 | `status` | string| Direção das travessias do polígono, quer 'Enter' ou 'Exit'|
-| `side` | int| O número do lado do polígono que a pessoa atravessou. Cada lado é uma borda numerada entre os dois vértices do polígono que representa a sua zona. A borda entre os dois primeiros vértices do polígono representam o primeiro lado|
+| `side` | int| O número do lado do polígono que a pessoa atravessou. Cada lado é uma borda numerada entre os dois vértices do polígono que representa a sua zona. A borda entre os dois primeiros vértices do polígono representa o primeiro lado. 'Side' está vazio quando o evento não está associado a um lado específico devido à oclusão. Por exemplo, uma saída ocorreu quando uma pessoa desaparece mas não foi vista atravessando um lado da zona ou ocorreu uma entrada quando uma pessoa apareceu na zona mas não foi vista cruzando um lado.|
 | `durationMs` | float | O número de milissegundos que representam o tempo que a pessoa passou na zona. Este campo é fornecido quando o tipo de evento é _personZoneDwellTimeEvent_|
 | `zone` | string | O campo de "nome" do polígono que representa a zona que foi atravessada|
 
@@ -625,8 +693,8 @@ Amostra JSON para deteção de saída por esta operação com `zonedwelltime` SP
 | `type` | string| Tipo de região|
 | `points` | coleção| Pontos superiores esquerdos e inferiores direito quando o tipo de região é RETÂNGLE |
 | `confidence` | float| Confiança do algoritmo|
-| `face_Mask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada está a usar uma máscara facial |
-| `face_noMask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada **não** está a usar uma máscara facial |
+| `face_mask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada está a usar uma máscara facial |
+| `face_nomask` | float | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detetada **não** está a usar uma máscara facial |
 
 ### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights"></a>Formato JSON para serviços cognitivos.vision.spatialanalysis-persondistance AI Insights
 
@@ -765,6 +833,9 @@ Neste exemplo, `centerGroundPoint` é `{x: 4, y: 5}` . Isto significa que há um
 | `focalLength` | float | O comprimento focal da câmara em pixels. Isto é deduzido da auto-calibração. |
 | `tiltUpAngle` | float | O ângulo de inclinação da câmara da vertical. Isto é deduzido da auto-calibração.|
 
+### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-ai-insights"></a>Formato JSON para serviços cognitivos.vision.spatialanalysis AI Insights
+
+A saída desta operação depende de configuração `events` , por exemplo, se houver um `zonecrossing` evento configurado para esta operação, então a saída será a mesma que `cognitiveservices.vision.spatialanalysis-personcrossingpolygon` .
 
 ## <a name="use-the-output-generated-by-the-container"></a>Utilize a saída gerada pelo recipiente
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0dcb959184e12ffa22ae25443087684123598e47
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98675191"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382471"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Registar uma aplicação do Microsoft Graph
 
@@ -56,31 +56,38 @@ Antes de os seus scripts e aplicações poderem interagir com a [Microsoft Graph
 1. Selecione **Registar**.
 1. Grave o **ID da Aplicação (cliente)** que aparece na página geral da aplicação. Usas este valor num passo posterior.
 
-### <a name="grant-api-access"></a>Conceder acesso à API
+## <a name="grant-api-access"></a>Conceder acesso à API
 
-Em seguida, conceda as permissões de aplicação registadas para manipular os recursos dos inquilinos através de chamadas para a Microsoft Graph API.
+Para a sua aplicação aceder aos dados no Microsoft Graph, conceda à aplicação registada as permissões de [aplicação relevantes.](https://docs.microsoft.com/graph/permissions-reference) As permissões efetivas da sua aplicação são o nível completo de privilégios implícitos pela permissão. Por exemplo, para *criar,* *ler,* *atualizar* e *eliminar* todos os utilizadores do seu inquilino Azure AD B2C, adicione a permissão **User.ReadWrite.All.** 
+
+> [!NOTE]
+> A permissão **User.ReadWrite.All** não inclui as palavras-passe da conta de utilizador de atualização de capacidade. Se a sua aplicação necessitar de atualizar as palavras-passe da conta de utilizador, [conceda a função de administrador do utilizador](#optional-grant-user-administrator-role). Ao conceder a função de administrador do [utilizador,](../active-directory/roles/permissions-reference.md#user-administrator) o **Utilizador.ReadWrite.Todos** não são necessários. A função de administrador do utilizador inclui tudo o que é necessário para gerir os utilizadores.
+
+Pode conceder ao seu pedido múltiplas permissões de candidatura. Por exemplo, se a sua aplicação também precisar de gerir grupos no seu inquilino Azure AD B2C, adicione o **Grupo.ReadWrite.Todas as** permissões também. 
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="create-client-secret"></a>Criar segredo de cliente
 
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+## <a name="optional-grant-user-administrator-role"></a>[Opcional] Papel de administrador de utilizador de subvenção
 
-Tem agora uma aplicação que tem permissão para *criar,* *ler,* *atualizar* e *eliminar* utilizadores no seu inquilino Azure AD B2C. Continue até a secção seguinte para adicionar permissões *de atualização de palavra-passe.*
+Se a sua aplicação ou script precisar de atualizar as palavras-passe dos utilizadores, tem de atribuir a *função de administrador* do Utilizador à sua aplicação. A [função de administrador do Utilizador](../active-directory/roles/permissions-reference.md#user-administrator) tem um conjunto fixo de permissões que concede à sua aplicação. 
 
-## <a name="enable-user-delete-and-password-update"></a>Ativar a eliminação do utilizador e atualização de palavra-passe
-
-A permissão *de dados de diretório de leitura e escrita* **NÃO** inclui a capacidade de eliminar utilizadores ou atualizar palavras-passe da conta de utilizador.
-
-Se a sua aplicação ou script precisar de eliminar utilizadores ou atualizar as suas palavras-passe, atribua a *função de administrador do Utilizador* à sua aplicação:
+Para adicionar a *função de administrador do Utilizador,* siga estes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e use o filtro **Diretório + Subscrição** para mudar para o seu inquilino Azure AD B2C.
 1. Procure e selecione **Azure AD B2C**.
 1. Em **Gestão**, **selecione Funções e administradores**.
-1. Selecione a **função de administrador do utilizador.**
+1. Selecione a **função de administrador do utilizador.** 
 1. Selecione **Adicionar atribuições**.
-1. Na caixa de texto **Select,** insira o nome da aplicação que registou anteriormente, por exemplo, *o 'managementapp1' ( aplicação).* Selecione a sua aplicação quando aparecer nos resultados da pesquisa.
+1. Na caixa de texto **Select,** insira o nome ou o ID da aplicação que registou anteriormente, por exemplo, *o 'managementapp1' ( aplicação de gestão).* Quando aparecer nos resultados da pesquisa, selecione a sua aplicação.
 1. Selecione **Adicionar**. Pode levar alguns minutos para que as permissões se propaguem completamente.
+
+## <a name="create-client-secret"></a>Criar segredo de cliente
+
+A sua candidatura precisa de um segredo de cliente para provar a sua identidade ao solicitar um token. Para adicionar o segredo do cliente, siga estes passos:
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
