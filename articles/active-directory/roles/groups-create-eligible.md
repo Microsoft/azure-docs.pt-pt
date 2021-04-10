@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bf0a9ca193be9fd61d0b284338c0f581c9f91e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d69662ca24ab135db549ee108e93f9276e154e58
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012059"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106913"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo atribuível a funções no Azure Ative Directory
 
@@ -110,15 +110,16 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 ```http
 POST https://graph.microsoft.com/beta/groups
 {
-"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
-"displayName": "Contoso_Helpdesk_Administrators",
-"groupTypes": [
-"Unified"
-],
-"mailEnabled": true,
-"securityEnabled": true
-"mailNickname": "contosohelpdeskadministrators",
-"isAssignableToRole": true,
+  "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+  "displayName": "Contoso_Helpdesk_Administrators",
+  "groupTypes": [
+    "Unified"
+  ],
+  "isAssignableToRole": true,
+  "mailEnabled": true,
+  "securityEnabled": true,
+  "mailNickname": "contosohelpdeskadministrators",
+  "visibility" : "Private"
 }
 ```
 

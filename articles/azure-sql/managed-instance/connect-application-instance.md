@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
-ms.date: 11/09/2018
-ms.openlocfilehash: 3106ec1a45b307207624e5cd077a222acccc83d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 02/25/2021
+ms.openlocfilehash: ca61f2163f1a66e87317274bab789db7944a4536
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101692832"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065213"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligar a aplicação ao Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

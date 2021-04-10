@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 03/29/2021
 ms.author: banders
-ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1523ca77b06281b84ed57fbc0e2e49ffede85fb4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392277"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934347"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir Reservas para recursos do Azure
 
@@ -57,8 +57,8 @@ O âmbito só se aplica às subscrições individuais com tarifas pay as you go 
 
 Por predefinição, os utilizadores seguintes podem ver e gerir as reservas:
 
-- A pessoa que comprar uma reserva e o administrador de conta da subscrição de faturação utilizada para a compra são adicionados à encomenda da reserva.
-- Administradores de faturação do Contrato Enterprise e do Contrato de Cliente Microsoft.
+- A pessoa que comprou a reserva e o proprietário da conta para a subscrição de faturação obtém acesso Azure RBAC à ordem de reserva.
+-  Os contribuintes do Enterprise Agreement e do Microsoft Customer Agreement podem gerir todas as reservas da Cost Management + Billing > Desemescagens de Reservas > selecione o banner azul.
 
 Para permitir que outras pessoas façam a gestão de reservas, tem duas opções:
 

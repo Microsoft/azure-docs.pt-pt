@@ -11,10 +11,10 @@ ms.custom:
 - devx-track-js
 - contperf-fy21q3
 ms.openlocfilehash: 35cf54199f8f2c187ad397c21fb941111f07c4a3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561845"
 ---
 # <a name="create-custom-language-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs de linguagem personalizada para gémeos digitais Azure usando o AutoRest

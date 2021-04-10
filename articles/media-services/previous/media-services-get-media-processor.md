@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6ce2a28ff9b34373cc716ea397927ef160bd1097
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013351"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como: Obter uma instância de processador de mídia
@@ -30,7 +30,7 @@ ms.locfileid: "103013351"
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Nos Serviços de Mídia um processador de mídia é um componente que lida com uma tarefa de processamento específica, como codificação, conversão de formato, encriptação ou desencriptação de conteúdos de mídia. Normalmente cria um processador de mídia quando está a criar uma tarefa para codificar, encriptar ou converter o formato de conteúdo sonoro.
 

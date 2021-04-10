@@ -8,12 +8,12 @@ ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 13e6668337b82ea4be86eadcbc6f7797a72771c6
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 428ef41340cd565bef0fa3c1e6519fb8862b091a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023488"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727574"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Permitir a eliminação suave nas ações de ficheiros Azure
 
@@ -35,7 +35,7 @@ As seguintes secções mostram como ativar e utilizar a eliminação suave para 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Os cmdlets soft delete estão disponíveis na versão 2.1.3 e mais recentes do [módulo Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Os cmdlets soft delete estão disponíveis na versão 2.1.3 e mais recentes do [módulo Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="getting-started-with-cli"></a>Começar com o CLI
 

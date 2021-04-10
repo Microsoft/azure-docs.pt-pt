@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: v-erkel
 ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103471908"
 ---
 # <a name="manage-your-cache"></a>Gerencie a sua cache

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 1b179ac555ea86aff381c1217e834b8d0aa85e8c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561709"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Publicar aplicativos incorporados no Windows Virtual Desktop (clássico)

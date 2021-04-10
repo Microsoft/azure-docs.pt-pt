@@ -8,10 +8,10 @@ ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-compliancecontrols
 ms.openlocfilehash: f4c3173d4cb9e4fa75ae4b4ded721c79d3f22885
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105032123"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-sql-database--sql-managed-instance"></a>Controlos de conformidade regulamentar da política Azure para a base de dados Azure SQL & sql Gestão de Instância

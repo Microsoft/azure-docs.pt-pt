@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
 ms.openlocfilehash: c1172cd818a3b40e908bbf5a133ea76d6b0d17b9
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105642872"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com a App da Federação Equinix

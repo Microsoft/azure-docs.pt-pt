@@ -12,10 +12,10 @@ ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
 ms.openlocfilehash: f88b6bd79e1004c108ef868f910a4e5a974cc08a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102508542"
 ---
 # <a name="advanced-entry-script-authoring"></a>Criação de um script de entrada avançado

@@ -1,14 +1,14 @@
 ---
 title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
-ms.date: 02/16/2021
+ms.date: 03/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 4487dd82b30e14f9db2001dc10f7437a53e745f3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c02bbb789ffac262521c2f76c62081a21cd6602c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100556114"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934313"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
@@ -143,7 +143,7 @@ O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira
 |Subscrição (ao utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!TIP]
-> Embora não possa embarcar um grupo inteiro de gestão numa só implantação, pode [implementar uma política ao nível do grupo de gestão.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups) A apólice verificará se cada subscrição dentro do grupo de gestão foi delegada ao inquilino de gestão especificado, e se não, criará a atribuição com base nos valores que fornece.
+> Embora não possa embarcar um grupo inteiro de gestão numa só implantação, pode [implementar uma política ao nível do grupo de gestão.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups) A política utiliza o [efeito deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) para verificar se cada subscrição dentro do grupo de gestão foi delegada ao inquilino de gestão especificado, e se não, criará a atribuição com base nos valores que fornece. Terá então acesso a todas as subscrições do grupo de gestão, embora tenha de trabalhar nelas como subscrições individuais (em vez de tomar ações sobre o grupo de gestão como um todo).
 
 O exemplo a seguir mostra umadelegatedResourceManagement.parameters.jsmodificada **no** ficheiro que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
 

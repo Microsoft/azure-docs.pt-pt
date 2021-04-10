@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: 4e23c5977b2492d2ea8a7a8cc050c77c512c3e16
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868380"
 ---
 # <a name="memory-usage-optimization-for-apache-spark"></a>Otimização do uso da memória para Apache Spark
 
 Este artigo discute como otimizar a gestão de memória do seu cluster Apache Spark para melhor desempenho no Azure HDInsight.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A faísca funciona colocando dados na memória. Assim, gerir os recursos de memória é um aspeto fundamental para otimizar a execução de empregos spark.  Existem várias técnicas que pode aplicar para usar a memória do seu cluster de forma eficiente.
 
