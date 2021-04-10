@@ -8,10 +8,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.openlocfilehash: d4a6d04f88544b3a4f9f9c0c0b290d17f5ef148d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101725582"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recursos do livro

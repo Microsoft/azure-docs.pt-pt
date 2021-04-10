@@ -7,10 +7,10 @@ ms.author: shhazam
 ms.date: 3/22/2021
 ms.topic: how-to
 ms.openlocfilehash: 391d1872124c7332bdaa6008a244490b47df4bf7
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781590"
 ---
 # <a name="filter-and-manage-alerts-from-the-alerts-page"></a>Filtrar e gerir alertas da página Alertas 
@@ -31,7 +31,7 @@ Para ver alertas:
 
 Pode ver alertas de acordo com várias categorias a partir da vista principal **alerta.** Selecione um alerta para rever detalhes e gerir o evento.
 
-| Ordenar por tipo | Descrição |
+| Ordenar por tipo | Description |
 |--|--|
 | **Alertas Importantes** | Alertas ordenados por importância. |
 | **Alertas Pinned** | Alertas que o utilizador prendeu para mais investigação. Os alertas fixos não são arquivados e são armazenados durante 14 dias na pasta fixada. |

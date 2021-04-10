@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 34f54bb30e959ecc2fa27fba5ab7392b9eddc68e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 01c3296569d03a7fcc13c004d42d64a86a48a0bc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103494517"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728798"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
 
@@ -59,7 +59,7 @@ O AzCopy utiliza o [Bloco de Put From URL](/rest/api/storageservices/put-block-f
 
 Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um espaço hierárquico de nomes.
 
-|    |     |
+| Sintaxe / exemplo  |  Código |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
@@ -76,7 +76,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um espaço hierárquico de nomes.
 
-|    |     |
+| Sintaxe / exemplo  |  Código |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
@@ -89,7 +89,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 Pode copiar o conteúdo de um diretório sem copiar o próprio diretório contendo a utilização do símbolo wildcard (*).
 
-|    |     |
+| Sintaxe / exemplo  |  Código |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
@@ -99,7 +99,7 @@ Pode copiar o conteúdo de um diretório sem copiar o próprio diretório conten
 
 Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um espaço hierárquico de nomes.
 
-|    |     |
+| Sintaxe / exemplo  |  Código |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
@@ -109,7 +109,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um espaço hierárquico de nomes.
 
-|    |     |
+| Sintaxe / exemplo  |  Código |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
@@ -119,7 +119,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um espaço hierárquico de nomes.
 
-|    |     |
+| Sintaxe / exemplo  |  Código |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |

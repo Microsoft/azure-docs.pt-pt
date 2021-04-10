@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jingwang
 ms.openlocfilehash: daf3691b48f7bf12e9ef51de7d4253dad9dbd2b1
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105026875"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de textolimtado na Azure Data Factory

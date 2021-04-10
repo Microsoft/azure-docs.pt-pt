@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105611978"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Migração sem agentes de máquinas virtuais VMware para Azure

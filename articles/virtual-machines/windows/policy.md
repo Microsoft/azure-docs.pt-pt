@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 08/02/2017
 ms.author: mimckitt
 ms.openlocfilehash: 4a4e54510c4683dc1be9da09b96d6289136a26f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102550268"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar políticas a VMs do Windows com gestor de recursos Azure

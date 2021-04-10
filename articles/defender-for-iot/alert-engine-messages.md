@@ -4,19 +4,19 @@ description: Reveja as descrições do Defender para ioT Alert.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 03/22/2021
+ms.date: 03/29/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3c4cc5f7bb9f0c529e603b91ee96c6c1c476f20d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 42a922dab2237925c2294245e112aab70b4245f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787576"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727727"
 ---
-# <a name="defender-for-iot-engine-alerts"></a>Alertas de Defender para O Motor IoT
+# <a name="alert-types-and-descriptions"></a>Tipos e descrições de alerta
 
-Este artigo descreve alertas que podem ser gerados a partir do Defender para motores IoT. Os alertas aparecem na janela Alertas, onde é possível gerir o evento de alerta. 
+Este artigo descreve todos os tipos de alerta opf, que podem ser gerados a partir do Defender para motores IoT. Os alertas aparecem na janela Alertas, o que lhe permite gerir o evento de alerta. 
 
 ## <a name="policy-engine-alerts"></a>Alertas de motores de política
 

@@ -12,10 +12,10 @@ ms.date: 03/12/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q3
 ms.openlocfilehash: c3f21471e486f88daf8d79b74633c076d27ac8e2
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105557586"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como utilizar a área de trabalho com um servidor DNS personalizado

@@ -9,10 +9,10 @@ ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
 ms.openlocfilehash: 873fdba1d24db55b3269cc2c13f0140da4a9b4e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100393361"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Explore e gere os seus recursos com o inventário de ativos

@@ -9,10 +9,10 @@ ms.date: 03/17/2021
 ms.author: curtand
 ms.custom: include file
 ms.openlocfilehash: 323428056b96d755aac648467fb41d9366fd6567
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105609480"
 ---
 Aqui estão as restrições de utilização e outros limites de serviço do serviço do Azure Active Directory (Azure AD).

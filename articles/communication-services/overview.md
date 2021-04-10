@@ -8,16 +8,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9559e79673d1b49ff33ff5dd81677f956657016b
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 40fe1e59b7c600e273b677d60bc162c767569c14
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605387"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728577"
 ---
 # <a name="what-is-azure-communication-services"></a>O que é o Azure Communication Services?
-
-[!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > As aplicações que constrói utilizando os Serviços de Comunicação Azure podem falar com as Equipas da Microsoft. Para saber mais, visite a documentação da nossa [Equipa Interop.](./quickstarts/voice-video-calling/get-started-teams-interop.md)

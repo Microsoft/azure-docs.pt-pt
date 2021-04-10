@@ -8,10 +8,10 @@ ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
 ms.openlocfilehash: faafce32c3452a5c4ff08783ec2edd28f7f961e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101671883"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
@@ -55,7 +55,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
 | [IBM DB2 HADR R 10.5][db2-hadr-10.5] |
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Para obter uma elevada disponibilidade, a IBM Db2 LUW com HADR é instalada em pelo menos duas máquinas virtuais Azure, que são implantadas num [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) ou em [zonas de disponibilidade Azure.](./sap-ha-availability-zones.md) 
 
 Os gráficos a seguir exibem uma configuração de dois VMs de servidor de base de dados Azure. Ambos os servidores de base de dados Azure VMs têm o seu próprio armazenamento anexado e estão em funcionamento. Em HADR, uma das caixas de dados de uma das VMs do Azure tem o papel da primeira instância. Todos os clientes estão ligados a esta primeira instância. Todas as alterações nas transações de base de dados são persistiu localmente no registo de transações Db2. À medida que os registos de registo de transações são persistidos localmente, os registos são transferidos via TCP/IP para a caixa de dados no segundo servidor de base de dados, no servidor de espera ou na instância de standby. A instância de espera atualiza a base de dados local, transmitindo os registos de registos de transações transferidos. Desta forma, o servidor de espera é mantido sincronizado com o servidor primário.

@@ -7,10 +7,10 @@ ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: b255cafb9040f87c902fe6c094c3e0db3d461e4b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101093648"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Quickstart: Criar e publicar uma definição da aplicação gerida
