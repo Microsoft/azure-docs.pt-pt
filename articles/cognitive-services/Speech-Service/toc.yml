@@ -188,8 +188,6 @@
           href: rest-text-to-speech.md
     - name: Recursos
       items:
-        - name: Suporte de voz padrão
-          href: language-support.md#standard-voices
         - name: Suporte de voz neural
           href: language-support.md#neural-voices
         - name: Suporte de região
@@ -249,7 +247,7 @@
     - name: Descrição geral do reconhecimento de intenção
       href: intent-recognition.md
     - name: Início rápido do reconhecimento de intenção
-      href: quickstarts/intent-recognition.md
+      href: get-started-intent-recognition.md
     - name: Guias de procedimentos
       items:
         - name: 'Reconhecer intenções de voz com LUIS, C#'
@@ -464,6 +462,8 @@
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Ativar um ponto final privado
       href: speech-services-private-link.md
+    - name: Ativar o ponto final do serviço VNet
+      href: speech-service-vnet-service-endpoint.md
     - name: Configurar o OpenSSL para Linux
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
       href: how-to-configure-openssl-linux.md

@@ -10,12 +10,12 @@ ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 10262b168b91370956c9559ba688c72213ba7618
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 64a112fd29ee9e3fbb82d9b54322415569b3ff85
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870998"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209541"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Consulta dados DB da Azure Cosmos com uma piscina SQL sem servidor em Azure Synapse Link
 
@@ -25,7 +25,7 @@ Para consulta do Azure Cosmos DB, toda a área [de](/sql/t-sql/queries/select-tr
 
 Neste artigo, você aprenderá a escrever uma consulta com uma piscina SQL sem servidor que irá consultar dados de contentores DB Azure Cosmos que estão habilitados com Azure Synapse Link. Você pode então aprender mais sobre a construção de vistas de piscina SQL sem servidor sobre os recipientes DB Azure Cosmos e conectá-los aos modelos Power BI [neste tutorial](./tutorial-data-analyst.md). Este tutorial usa um recipiente com um [esquema bem definido da Azure Cosmos.](../../cosmos-db/analytical-store-introduction.md#schema-representation)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O pool SQL sem servidor permite-lhe consultar o armazenamento analítico Azure Cosmos DB utilizando `OPENROWSET` a função. 
 - `OPENROWSET` com chave em linha. Esta sintaxe pode ser usada para consultar coleções DB Azure Cosmos sem necessidade de preparar credenciais.
@@ -33,22 +33,31 @@ O pool SQL sem servidor permite-lhe consultar o armazenamento analítico Azure C
 
 ### <a name="openrowset-with-key"></a>[OPENROWSET com chave](#tab/openrowset-key)
 
-Para suportar a consulta e análise de dados numa loja analítica Azure Cosmos DB, um pool SQL sem servidor utiliza a seguinte `OPENROWSET` sintaxe:
+Para suportar a consulta e análise de dados numa loja analítica Azure Cosmos DB, é utilizada uma piscina SQL sem servidor. A piscina SQL sem servidor utiliza a `OPENROWSET` sintaxe SQL, por isso deve primeiro converter a sua cadeia de ligação DB Azure Cosmos para este formato:
 
 ```sql
 OPENROWSET( 
        'CosmosDB',
-       '<Azure Cosmos DB connection string>',
+       '<SQL connection string for Azure Cosmos DB>',
        <Container name>
     )  [ < with clause > ] AS alias
 ```
 
-A cadeia de conexão DB Azure Cosmos especifica o nome da conta DB Azure Cosmos, nome da base de dados, chave principal de conta de base de dados e um nome de região opcional para a `OPENROWSET` função.
+A cadeia de conexão SQL para Azure Cosmos DB especifica o nome da conta DB Azure Cosmos, nome da base de dados, chave principal de conta de base de dados e um nome de região opcional para a `OPENROWSET` função. Algumas destas informações podem ser retiradas da cadeia de ligação padrão Azure Cosmos DB.
 
-A cadeia de ligação tem o seguinte formato:
+Conversão do formato padrão de cadeia de ligação Azure Cosmos DB:
+
+```
+AccountEndpoint=https://<database account name>.documents.azure.com:443/;AccountKey=<database account master key>;
+```
+
+A cadeia de ligação SQL tem o seguinte formato:
+
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
+
+A região é opcional. Se omitido, é utilizada a região primária do contentor.
 
 O nome do recipiente DB Azure Cosmos é especificado sem aspas na `OPENROWSET` sintaxe. Se o nome do recipiente tiver caracteres especiais, por exemplo, um traço (-), o nome deve ser embrulhado dentro de suportes quadrados `[]` () na `OPENROWSET` sintaxe.
 
@@ -59,13 +68,14 @@ Pode utilizar `OPENROWSET` a sintaxe que referencia a credencial:
 ```sql
 OPENROWSET( 
        PROVIDER = 'CosmosDB',
-       CONNECTION = '<Azure Cosmos DB connection string without account key>',
+       CONNECTION = '<SQL connection string for Azure Cosmos DB without account key>',
        OBJECT = '<Container name>',
        [ CREDENTIAL | SERVER_CREDENTIAL ] = '<credential name>'
     )  [ < with clause > ] AS alias
 ```
 
-A cadeia de ligação Azure Cosmos DB não contém chaves neste caso. A cadeia de ligação tem o seguinte formato:
+A cadeia de ligação SQL para Azure Cosmos DB não contém uma chave neste caso. A cadeia de ligação tem o seguinte formato:
+
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>'
 ```
@@ -165,6 +175,7 @@ Imaginemos que importámos alguns dados do conjunto de dados do [ECDC COVID](htt
 Estes documentos JSON planos em Azure Cosmos DB podem ser representados como um conjunto de linhas e colunas em Synapse SQL. A `OPENROWSET` função permite especificar um subconjunto de propriedades que pretende ler e os tipos exatos de colunas na `WITH` cláusula:
 
 ### <a name="openrowset-with-key"></a>[OPENROWSET com chave](#tab/openrowset-key)
+
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET(
@@ -173,7 +184,9 @@ FROM OPENROWSET(
        Ecdc
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
+
 ### <a name="openrowset-with-credential"></a>[OPENROWSET com credencial](#tab/openrowset-credential)
+
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
@@ -186,7 +199,9 @@ FROM OPENROWSET(
       OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+   
 ```
+
 ---
 O resultado desta consulta pode parecer a seguinte tabela:
 
@@ -256,7 +271,7 @@ WITH (  paper_id    varchar(8000),
 O resultado desta consulta pode parecer a seguinte tabela:
 
 | paper_id | título | do IdP | autores |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | bb11206963e831f... | Informação Complementar Um eco-epidemi... | `{"title":"Supplementary Informati…` | `[{"first":"Julien","last":"Mélade","suffix":"","af…`| 
 | bb1206963e831f1... | O Uso da Convalescente Sera em Imunitária-E... | `{"title":"The Use of Convalescent…` | `[{"first":"Antonio","last":"Lavazza","suffix":"", …` |
 | bb378eca9aac649... | Tylosema esculentum (Marama) Tuber e B... | `{"title":"Tylosema esculentum (Ma…` | `[{"first":"Walter","last":"Chingwaru","suffix":"",…` | 

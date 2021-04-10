@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
 ms.openlocfilehash: d0bb5c55d3f7ba0573dfe9b511f4d31dcc64ed85
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105567836"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Monitorize as suas implementações SQL com insights SQL (pré-visualização)
@@ -38,7 +38,7 @@ Os insights SQL suportam as seguintes versões do SQL Server:
 
 Os insights SQL suportam o SQL Server em execução nos seguintes ambientes:
 - Base de Dados SQL do Azure
-- Instância Gerida do Azure SQL
+- Instância Gerida do SQL do Azure
 - SQL Server em Azure Virtual Machines (SQL Server em execução em máquinas virtuais registadas com o fornecedor [de máquinas virtuais SQL)](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)
 - Azure VMs (SQL Server em execução em máquinas virtuais não registadas com o fornecedor [de máquinas virtuais SQL)](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)
 

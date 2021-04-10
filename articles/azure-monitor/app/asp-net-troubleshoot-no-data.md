@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
 ms.openlocfilehash: 40fbe4d08676d7cc56478d3740424fccaa7addc0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103562200"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
@@ -143,7 +143,7 @@ A chave de instrumentação ApplicationInsights.config controla onde a telemetri
 
 Correção:
 
-* No Solution Explorer, clique com o botão direito no projeto e escolha Insights de Aplicação, Configure Application Insights. No diálogo, pode optar por enviar telemetria para um recurso existente ou criar um novo. Ou:
+* No Solution Explorer, clique com o botão direito no projeto e escolha Insights de Aplicação, Configure Application Insights. No diálogo, pode optar por enviar telemetria para um recurso existente ou criar um novo. Arte
 * Abra o recurso diretamente. Inscreva-se [no portal Azure,](https://portal.azure.com)clique em Insights de Aplicação na barra de navegação esquerda e, em seguida, selecione a sua aplicação.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Onde encontro a minha telemetria?

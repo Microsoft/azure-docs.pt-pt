@@ -8,10 +8,10 @@ ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 058105eee2aa15baa6deb44986f7f8d68842eb81
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105035728"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definições incorporadas da Política Azure para a Base de Dados Azure SQL & sql Gestd instance

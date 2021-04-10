@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
 ms.date: 02/05/2021
-ms.openlocfilehash: 60aede65f8217d46844398d0199ff7edca7f36a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 37df9a276339b80a81e6ac5d5db14872de9edff4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200807"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065859"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classificações apoiadas em Azure Purview
 

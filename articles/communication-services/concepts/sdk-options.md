@@ -10,10 +10,10 @@ ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 92324d68eabfb1885a482a7f539140f93be77596
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105605200"
 ---
 # <a name="sdks-and-rest-apis"></a>SDKs e REST APIs

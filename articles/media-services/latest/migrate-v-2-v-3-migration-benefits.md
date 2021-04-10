@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 114635722a0a131fc146eb2ab69984effb211a88
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 9dd3525f4efec3c49950839306ee5419c7850c69
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105559762"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275418"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Passo 1 - Compreender os benefícios da migração para a API V3 dos Serviços de Comunicação Social
 
@@ -44,21 +44,21 @@ Houve melhorias significativas nos Serviços de Comunicação social com a V3.
 | Suporte de ligação privada | Os clientes acederão aos pontos finais dos Serviços de Comunicação social para entrega de chaves, LiveEvents e StreamingEndpoints através de um PrivateEndpoint no seu VNet. |
 | [Chaves de maneio do cliente](concept-use-customer-managed-keys-byok.md) ou traga o seu próprio suporte chave (BYOK) | Os clientes podem encriptar os dados na sua conta de Serviços de Mídia usando uma chave no seu Cofre chave Azure. |
 | **Recursos** | |
-| Um Ativo pode ter [vários localizadores de streaming](streaming-locators-concept.md) cada um com diferentes [configurações dinâmicas](dynamic-packaging-overview.md) de embalagem e encriptação dinâmica. | Há um limite de 100 localizadores de streaming permitidos em cada ativo. Os clientes podem armazenar uma única cópia do conteúdo dos meios de comunicação no ativo, mas partilhar diferentes URLs de streaming com diferentes políticas de streaming ou políticas de proteção de conteúdos que se baseiam num público-alvo.
+| Um Ativo pode ter [vários localizadores de streaming](stream-streaming-locators-concept.md) cada um com diferentes [configurações dinâmicas](encode-dynamic-packaging-concept.md) de embalagem e encriptação dinâmica. | Há um limite de 100 localizadores de streaming permitidos em cada ativo. Os clientes podem armazenar uma única cópia do conteúdo dos meios de comunicação no ativo, mas partilhar diferentes URLs de streaming com diferentes políticas de streaming ou políticas de proteção de conteúdos que se baseiam num público-alvo.
 | **Processamento de emprego** ||
-| A V3 introduz o conceito de [Transforms](transforms-jobs-concept.md)   para processamento de job baseado em ficheiros. | Um Transform pode ser usado para construir configurações reutilizáveis, para criar modelos de gestor de recursos Azure e isolar configurações de processamento entre vários clientes ou inquilinos. |
+| A V3 introduz o conceito de [Transforms](transform-jobs-concept.md)   para processamento de job baseado em ficheiros. | Um Transform pode ser usado para construir configurações reutilizáveis, para criar modelos de gestor de recursos Azure e isolar configurações de processamento entre vários clientes ou inquilinos. |
 | Para o processamento de trabalho baseado em ficheiros, pode utilizar um URL HTTP(S) como entrada. | Não precisa de ter conteúdo já armazenado no Azure, nem precisa de criar ativos de entrada. |
 | **Eventos ao vivo** ||
 | Premium 1080p Eventos ao Vivo | O Novo Live Event SKU permite que os clientes obtenham codificação em nuvem com uma saída até 1080p em resolução. |
-| Novo suporte ao vivo de [baixa latência](live-event-latency.md) em Live Events. | Isto permite que os utilizadores assistam a eventos ao vivo mais perto do tempo real do que se não tivessem esta definição ativada. |
-| O Live Event Preview suporta [embalagens dinâmicas](dynamic-packaging-overview.md)   e encriptação dinâmica. | Isto permite a proteção de conteúdos na pré-visualização e na embalagem DASH e HLS. |
+| Novo suporte ao vivo de [baixa latência](live-event-latency-reference.md) em Live Events. | Isto permite que os utilizadores assistam a eventos ao vivo mais perto do tempo real do que se não tivessem esta definição ativada. |
+| O Live Event Preview suporta [embalagens dinâmicas](encode-dynamic-packaging-concept.md)   e encriptação dinâmica. | Isto permite a proteção de conteúdos na pré-visualização e na embalagem DASH e HLS. |
 | Saídas ao vivo substituem Programas | A saída ao vivo é mais simples de usar do que a entidade do programa nas APIs v2. |
 | RTMP ingestão para Eventos Ao Vivo é melhorada, com apoio para mais codificadores | Aumenta a estabilidade e proporciona flexibilidade de codificadores de origem. |
 | Eventos ao Vivo podem transmitir 24x7 | Pode realizar um Live Event e manter o seu público envolvido por períodos mais longos. |
 | Transcrição ao vivo em Eventos Ao Vivo | A transcrição ao vivo permite que os clientes transcrevam automaticamente a língua falada em texto em tempo real durante a transmissão do evento ao vivo. Isto melhora significativamente a acessibilidade de eventos ao vivo. |
-| [Modo stand-by](live-events-outputs-concept.md#standby-mode) em Eventos Ao Vivo | Eventos ao vivo que estão em estado de espera são menos dispendiosos do que executar eventos ao vivo. Isto permite que os clientes mantenham um conjunto de eventos ao vivo que estão prontos para começar em segundos a um custo mais baixo do que manter um conjunto de eventos ao vivo. A redução dos preços dos eventos em standby entrará em vigor em fevereiro de 2021 para a maioria das regiões, com o resto a seguir em abril de 2021.
+| [Modo stand-by](live-event-outputs-concept.md#standby-mode) em Eventos Ao Vivo | Eventos ao vivo que estão em estado de espera são menos dispendiosos do que executar eventos ao vivo. Isto permite que os clientes mantenham um conjunto de eventos ao vivo que estão prontos para começar em segundos a um custo mais baixo do que manter um conjunto de eventos ao vivo. A redução dos preços dos eventos em standby entrará em vigor em fevereiro de 2021 para a maioria das regiões, com o resto a seguir em abril de 2021.
 |**Proteção de conteúdos** ||
-| Proteção de [conteúdos](content-key-policy-concept.md)   suporta funcionalidades multi-chave. | Os clientes podem agora utilizar várias chaves de encriptação de conteúdo nos seus localizadores de streaming. |
+| Proteção de [conteúdos](drm-content-key-policy-concept.md)   suporta funcionalidades multi-chave. | Os clientes podem agora utilizar várias chaves de encriptação de conteúdo nos seus localizadores de streaming. |
 | **Monitorização** | |
 | Suporte de notificação [Azure EventGrid](monitoring/reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em funcionalidades. Existem mais tipos de notificações, suporte SDK mais amplo para receber as notificações na sua própria aplicação, e mais serviços Azure existentes que podem atuar como manipuladores de eventos. |
 | [Apoio e integração do Azure Monitor no portal Azure](monitoring/monitor-events-portal-how-to.md) | Isto permite que os clientes visualizem o uso da quota de conta dos Media Services, estatísticas em tempo real de pontos finais de streaming, e ingerir e arquivar estatísticas para eventos ao vivo. Os clientes podem agora definir alertas e executar as ações necessárias com base em dados métricos em tempo real. |

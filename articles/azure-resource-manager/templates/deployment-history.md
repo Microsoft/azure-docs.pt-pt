@@ -4,12 +4,12 @@ description: Descreve como visualizar as operações de implementação do Azure
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 898af2365dfbb0f61b6b87e7532c9256269d799a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91284623"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732776"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Ver histórico de implementação com O Gestor de Recursos Azure
 
@@ -81,13 +81,13 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Para listar as implementações de um grupo de recursos, utilize a seguinte operação. Para que o número de versão API mais recente seja utilizado no pedido, consulte  [Implementações - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
+Para listar as implementações de um grupo de recursos, utilize a seguinte operação. Para que o número de versão API mais recente seja utilizado no pedido, consulte  [Implementações - List By Resource Group](/rest/api/resources/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-Para obter uma implantação específica. utilizar a seguinte operação. Para que o número de versão API mais recente seja utilizado no pedido, consulte [Implementações - Obter](/rest/api/resources/deployments/get).
+Para obter uma implantação específica. utilizar a seguinte operação. Para que o número de versão API mais recente seja utilizado no pedido, consulte [Implementações - Obter](/rest/api/resources/resources/deployments/get).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -167,7 +167,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Para obter operações de implantação, utilize a seguinte operação. Para o número de versão API mais recente a utilizar no pedido, consulte [Operações de Implantação - Lista](/rest/api/resources/deploymentoperations/list).
+Para obter operações de implantação, utilize a seguinte operação. Para o número de versão API mais recente a utilizar no pedido, consulte [Operações de Implantação - Lista](/rest/api/resources/resources/deploymentoperations/list).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

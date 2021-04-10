@@ -1,20 +1,19 @@
 ---
 title: Compreender o âmbito na Política Azure
 description: Descreve o conceito de âmbito no Azure Resource Manager e como se aplica à Azure Policy para controlar quais os recursos que a Azure Policy avalia.
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c198d2d2961b6d9e10a3b78481183cba7f7197ca
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90984439"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167741"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Compreender o âmbito na Política Azure
 
-Há uma série de configurações que determinam quais os recursos capazes de ser avaliados e quais os recursos que são avaliados pela Azure Policy. O conceito primordial para estes controlos é _o âmbito._
-Para obter uma visão geral de alto nível, consulte [Scope in Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
-Este artigo explica o impacto do _âmbito_ na Política Azure e os seus objetos e propriedades relacionados.
+Existem muitas configurações que determinam quais os recursos capazes de ser avaliados e quais os recursos que são avaliados pela Azure Policy. O conceito primordial para estes controlos é _o âmbito._ O âmbito da Política Azure baseia-se na forma como o âmbito funciona no Azure Resource Manager. Para obter uma visão geral de alto nível, consulte [Scope in Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
+Este artigo explica a importância do _âmbito_ na Política Azure e os seus objetos e propriedades relacionados.
 
 ## <a name="definition-location"></a>Localização de definição
 

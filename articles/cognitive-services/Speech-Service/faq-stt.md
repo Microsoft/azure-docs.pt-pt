@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: bcb4408df08f3854b067c8b805b78433a3d5075c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f71fd01d45604dff843ad6eba62561937366a125
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491253"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382339"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
@@ -57,7 +57,7 @@ Os outros resultados são provavelmente piores e podem não ter capitalização 
 
 **P: Por que existem diferentes modelos base?**
 
-**R**: Pode escolher entre mais de um modelo base no serviço Discurso. Cada nome de modelo contém a data em que foi adicionado. Quando começar a treinar um modelo personalizado, use o modelo mais recente para obter a melhor precisão. Os modelos base mais antigos ainda estão disponíveis durante algum tempo quando um novo modelo é disponibilizado. Pode continuar a utilizar o modelo com o qual trabalhou até ser retirado (ver [modelo e ciclo de vida endpoint).](./how-to-custom-speech-model-and-endpoint-lifecycle.md) Recomenda-se ainda mudar para o modelo base mais recente para uma maior precisão.
+**R**: Pode escolher entre mais de um modelo base no serviço Discurso. Cada nome de modelo contém a data em que foi adicionado. Quando começar a treinar um modelo personalizado, use o modelo mais recente para obter a melhor precisão. Os modelos base mais antigos ainda estão disponíveis durante algum tempo quando um novo modelo é disponibilizado. Pode continuar a utilizar o modelo com o qual trabalhou até ser retirado (ver [Modelo e ciclo de vida endpoint).](./how-to-custom-speech-model-and-endpoint-lifecycle.md) Recomenda-se ainda mudar para o modelo base mais recente para uma maior precisão.
 
 **P: Posso atualizar o meu modelo existente (empilhamento de modelos)?**
 
@@ -71,7 +71,7 @@ O conjunto de dados antigo e o novo conjunto de dados devem ser combinados num �
 
 Se tiver adaptado e implementado um modelo, essa implementação permanecerá como está. Pode desativar o modelo implantado, readaptar-se utilizando a versão mais recente do modelo base e recolocar a sua melhor precisão.
 
-Ambos os modelos base e modelos personalizados serão retirados após algum tempo (ver [modelo e ciclo de vida Endpoint).](./how-to-custom-speech-model-and-endpoint-lifecycle.md)
+Ambos os modelos base e modelos personalizados serão retirados após algum tempo (ver [Modelo e ciclo de vida endpoint).](./how-to-custom-speech-model-and-endpoint-lifecycle.md)
 
 **P: Posso descarregar o meu modelo e executá-lo localmente?**
 

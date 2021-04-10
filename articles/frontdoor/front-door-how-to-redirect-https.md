@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: 19908b3cba63bc76a205097ef8d16e612d58503b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edc1ebe53969ceac0452818bee016e35de1e9322
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91626647"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167843"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Criar uma porta frontal com https para reorientação HTTPS usando o portal Azure
 
@@ -29,7 +29,7 @@ Pode utilizar o portal Azure para [criar uma Porta frontal](quickstart-create-fr
 1. Escolha uma *subscrição* e, em seguida, utilize um grupo de recursos existente ou crie um novo. Selecione **Seguinte** para introduzir o separador de configuração.
 
     > [!NOTE]
-    > A localização pedida na UI é apenas para o grupo de recursos. A configuração da porta da frente será implantada em todas as [localizações POP da Porta Frontal do Azure](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
+    > A localização pedida na UI é apenas para o grupo de recursos. A configuração da porta da frente será implantada em todas as [localizações POP da Porta Frontal do Azure](front-door-faq.yml#what-are-the-pop-locations-for-azure-front-door-).
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Configurar o básico para a nova Porta da Frente":::
 
