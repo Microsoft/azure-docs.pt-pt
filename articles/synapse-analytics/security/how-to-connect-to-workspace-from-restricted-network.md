@@ -9,10 +9,10 @@ ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
 ms.openlocfilehash: de7c5dba5a4868b7a8fdb390f974134cfaef7395
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100384525"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conecte-se aos recursos do espaço de trabalho a partir de uma rede restrita

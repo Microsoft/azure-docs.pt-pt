@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
 ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518339"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Use parâmetros de serviço web Azure Machine Learning Studio (clássicos)
@@ -58,11 +58,11 @@ Como exemplo, vamos supor que temos uma experiência com um módulo [de Dados de
    
    ![Ícone do parâmetro do serviço web](./media/web-service-parameters/icon.png)
    
-   Selecione "Definir como parâmetro de serviço web".
+   Selecione "Definir como parâmetro de serviço web&quot;.
    
-   Uma entrada é adicionada nos **Parâmetros de Serviço Web** na parte inferior do painel propriedades com o nome "Caminho para blob começando com recipiente". Este é o Parâmetro de Serviço Web que está agora associado a este parâmetro do módulo [de dados de exportação.][writer]
-4. Para mudar o nome do Parâmetro de Serviço Web, clique no nome, introduza "Caminho da bolha" e prima a tecla **'Inserir'.** 
-5. Para fornecer um valor predefinido para o Parâmetro de Serviço Web, clique no ícone à direita do nome, selecione "Fornecer valor predefinido", introduza um valor (por exemplo, "contentor1/output1.csv"), e prima a tecla **'Inserir'.**
+   Uma entrada é adicionada nos **Parâmetros de Serviço Web** na parte inferior do painel propriedades com o nome &quot;Caminho para blob começando com recipiente&quot;. Este é o Parâmetro de Serviço Web que está agora associado a este parâmetro do módulo [de dados de exportação.][writer]
+4. Para mudar o nome do Parâmetro de Serviço Web, clique no nome, introduza &quot;Caminho da bolha&quot; e prima a tecla **'Inserir'.** 
+5. Para fornecer um valor predefinido para o Parâmetro de Serviço Web, clique no ícone à direita do nome, selecione &quot;Fornecer valor predefinido&quot;, introduza um valor (por exemplo, &quot;contentor1/output1.csv"), e prima a tecla **'Inserir'.**
    
    ![Parâmetro de serviço web](./media/web-service-parameters/parameter.png)
 6. Clique em **Run** (Executar). 

@@ -10,10 +10,10 @@ ms.date: 03/17/2021
 ms.author: cynthn
 ms.custom: contperf-fy21q3
 ms.openlocfilehash: 34fd6720b93a1462836b51856d73573a86809367
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105022828"
 ---
 # <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Localizar e utilizar imagens VM do Azure Marketplace com Azure PowerShell

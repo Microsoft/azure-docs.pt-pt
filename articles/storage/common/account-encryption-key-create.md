@@ -6,123 +6,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/05/2020
+ms.date: 03/31/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8150375eff98374e21d200d98c04158b07f1c243
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2bc71100a92d1811d69af31a7a3085af36f60a8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92789697"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121936"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Crie uma conta que suporte chaves geridas pelo cliente para mesas e filas
 
 O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, o armazenamento de filas e o armazenamento da mesa utilizam uma chave que é telescópio para o serviço e gerida pela Microsoft. Também pode optar por utilizar as chaves geridas pelo cliente para encriptar os dados da fila ou da tabela. Para utilizar as chaves geridas pelo cliente com filas e tabelas, tem primeiro de criar uma conta de armazenamento que utilize uma chave de encriptação que é procurada na conta e não no serviço. Depois de ter criado uma conta que utiliza a chave de encriptação da conta para dados de fila e tabela, pode configurar chaves geridas pelo cliente para essa conta de armazenamento.
 
 Este artigo descreve como criar uma conta de armazenamento que se baseia numa chave que é traçada na conta. Quando a conta é criada pela primeira vez, a Microsoft utiliza a chave de conta para encriptar os dados na conta e a Microsoft gere a chave. Pode configurar posteriormente as chaves geridas pelo cliente para que a conta tire partido desses benefícios, incluindo a capacidade de fornecer as suas próprias chaves, atualizar a versão chave, rodar as teclas e revogar os controlos de acesso.
-
-## <a name="about-the-feature"></a>Sobre a funcionalidade
-
-Para criar uma conta de armazenamento que se baseie na chave de encriptação da conta para o armazenamento de fila e mesa, tem primeiro de se registar para utilizar esta funcionalidade com o Azure. Devido à capacidade limitada, esteja ciente de que pode demorar vários meses até que os pedidos de acesso sejam aprovados.
-
-Pode criar uma conta de armazenamento que se baseie na chave de encriptação da conta para o armazenamento de fila e mesa nas seguintes regiões:
-
-- E.U.A. Leste
-- E.U.A. Centro-Sul
-- E.U.A. Oeste 2  
-
-### <a name="register-to-use-the-account-encryption-key"></a>Registar-se para utilizar a chave de encriptação da conta
-
-Para registar-se para utilizar a chave de encriptação da conta com o armazenamento de fila ou mesa, utilize o PowerShell ou o Azure CLI.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para se registar no PowerShell, ligue para o comando [Register-AzProviderFeature.](/powershell/module/az.resources/register-azproviderfeature)
-
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-Para se registar no Azure CLI, ligue para o comando [de registo de recurso az.](/cli/azure/feature#az-feature-register)
-
-```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# <a name="template"></a>[Modelo](#tab/template)
-
-N/D
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Verifique o estado do seu registo
-
-Para verificar o estado do seu registo para armazenamento de fila ou mesa, utilize o PowerShell ou o Azure CLI.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para verificar o estado do seu registo com o PowerShell, ligue para o comando [Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-Para verificar o estado da sua inscrição com o Azure CLI, ligue para o comando [de recurso az.](/cli/azure/feature#az-feature-show)
-
-```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# <a name="template"></a>[Modelo](#tab/template)
-
-N/D
-
----
-
-### <a name="re-register-the-azure-storage-resource-provider"></a>Re-registrar o fornecedor de recursos de armazenamento Azure
-
-Após a aprovação do seu registo, deve voltar a registar o fornecedor de recursos de armazenamento Azure. Utilize o PowerShell ou o Azure CLI para voltar a registar o fornecedor de recursos.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para voltar a registar o fornecedor de recursos com o PowerShell, ligue para o comando [Register-AzResourceProvider.](/powershell/module/az.resources/register-azresourceprovider)
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-Para voltar a registar o fornecedor de recursos com o Azure CLI, ligue para o comando [de registo do fornecedor az.](/cli/azure/provider#az-provider-register)
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
-
-# <a name="template"></a>[Modelo](#tab/template)
-
-N/D
-
----
 
 ## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Criar uma conta que usa a chave de encriptação da conta
 
@@ -247,6 +147,10 @@ az storage account show /
 N/D
 
 ---
+
+## <a name="pricing-and-billing"></a>Preços e faturação
+
+Uma conta de armazenamento criada para utilizar uma chave de encriptação scoped para a conta é faturada para capacidade de armazenamento de mesa e transações a uma taxa diferente de uma conta que utiliza a chave de âmbito de serviço padrão. Para mais detalhes, consulte [os preços de armazenamento da mesa Azure.](https://azure.microsoft.com/pricing/details/storage/tables/)
 
 ## <a name="next-steps"></a>Passos seguintes
 

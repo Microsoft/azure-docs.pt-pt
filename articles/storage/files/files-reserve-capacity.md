@@ -10,10 +10,10 @@ ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 918320cdb24442e551249e4e67d65e4ba85846c8
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105027665"
 ---
 # <a name="optimize-costs-for-azure-files-with-reserved-capacity"></a>Otimizar custos para ficheiros Azure com capacidade reservada

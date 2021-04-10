@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
 ms.openlocfilehash: 9b5526af03bdbefeb54633c49bbd43743555f60b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100383233"
 ---
 # <a name="how-to-create-plans-for-your-managed-service-offer"></a>Como criar planos para a sua oferta de Serviço Gerido
@@ -79,12 +79,12 @@ Para adicionar até 10.000 IDs de subscrição com um . Ficheiro CSV:
 
 ## <a name="technical-configuration"></a>Configuração técnica
 
-Esta secção cria um manifesto com informação de autorização para a gestão dos recursos dos clientes. Estas informações são necessárias para permitir a [gestão de recursos delegados do Azure.](../lighthouse/concepts/azure-delegated-resource-management.md)
+Esta secção cria um manifesto com informação de autorização para a gestão dos recursos dos clientes. Estas informações são necessárias para ativar a [gestão de recursos delegados do Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
 [Reveja os inquilinos, papéis e utilizadores em cenários do Farol de Azure](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) para entender quais as funções que são suportadas e as melhores práticas para definir as suas autorizações.
 
 > [!NOTE]
-> Os utilizadores e funções nas suas entradas de Autorização aplicar-se-ão a todos os clientes que ativarem o plano. Se quiser limitar o acesso a um cliente específico, terá de publicar um plano privado para uso exclusivo.
+> Os utilizadores e as funções nas entradas de Autorização aplicar-se-ão a todos os clientes que ativarem o plano. Se quiser limitar o acesso a um cliente específico, terá de publicar um plano privado para uso exclusivo.
 
 ### <a name="manifest"></a>Manifesto
 

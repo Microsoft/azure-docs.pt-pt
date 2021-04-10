@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63e726c98922b789977a884bf747f12186707d57
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782712"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Colmeia na Fábrica de Dados Azure 
@@ -69,12 +69,12 @@ A atividade de Hive HDInsight num [oleoduto](data-factory-create-pipelines.md) d
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
+| name |Nome da atividade |Yes |
 | descrição |Texto que descreve para que a atividade é usada |No |
-| tipo |HDinsightHive |Sim |
+| tipo |HDinsightHive |Yes |
 | entradas |Entradas consumidas pela atividade da Colmeia |No |
-| saídas |Saídas produzidas pela atividade da Colmeia |Sim |
-| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Sim |
+| saídas |Saídas produzidas pela atividade da Colmeia |Yes |
+| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Yes |
 | script |Especificar o script da Colmeia inline |No |
 | scriptPath |Guarde o script hive num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |No |
 | define |Especifique os parâmetros como pares chave/valor para referência dentro do script da Colmeia usando 'hiveconf' |No |

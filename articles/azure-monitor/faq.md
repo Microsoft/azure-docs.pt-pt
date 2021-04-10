@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
 ms.openlocfilehash: fa91644eab9d28ffb20de8ec8c0fe00488922b67
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105563383"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
@@ -832,7 +832,7 @@ Suportamos o SQL Server 2012 e todas as versões mais recentes. Consulte [as ver
 
 ### <a name="what-sql-resource-types-are-supported"></a>Que tipos de recursos SQL são suportados?
 - Base de Dados SQL do Azure
-- Instância Gerida do Azure SQL
+- Instância Gerida do SQL do Azure
 - SQL Server em Azure Virtual Machines (SQL Server em execução em máquinas virtuais registadas com o fornecedor [de máquinas virtuais SQL)](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)
 - Azure VMs (SQL Server em execução em máquinas virtuais não registadas com o fornecedor [de máquinas virtuais SQL)](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)
 

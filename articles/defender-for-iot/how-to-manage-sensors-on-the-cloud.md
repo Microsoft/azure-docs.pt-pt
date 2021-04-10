@@ -4,10 +4,10 @@ description: Saiba como embarcar, ver e gerir sensores no portal Defender para I
 ms.date: 2/18/2021
 ms.topic: how-to
 ms.openlocfilehash: 5c529a5679e8b3d4879b003fa3d168e911f9b518
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781828"
 ---
 # <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>A bordo e gerir sensores e subscrições no portal Defender para IoT

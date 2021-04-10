@@ -4,10 +4,10 @@ description: Saiba como criar gémeos individuais do módulo DefenderIotMicroAge
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.openlocfilehash: 5036eefbd77a22d492f6ce7d3c7d15f50a081490
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781063"
 ---
 # <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Criar um módulo de micro agente Defender IoT twin (Pré-visualização)

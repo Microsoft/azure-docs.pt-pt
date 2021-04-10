@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de exceções de mensagens Azure Even
 ms.topic: article
 ms.date: 02/10/2021
 ms.openlocfilehash: a76c98ec7d6d1f3370ed8787bf10d1d16a7baaa5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100390900"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs exceções de mensagens -.NET (legado)

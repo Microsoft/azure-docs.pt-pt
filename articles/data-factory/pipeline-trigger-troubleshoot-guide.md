@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
 ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105563417"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Resolução de problemas da orquestração e desencadeamentos de gasodutos na Fábrica de Dados do Azure
@@ -66,7 +66,7 @@ Selecione a opção **Cópia Binária** enquanto cria a atividade Copy. Desta fo
 
 ### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime-for-data-flow"></a>Um gasoduto falha quando se atinge o limite de capacidade do tempo de execução da integração para o fluxo de dados
 
-**Emissão**
+**Problema**
 
 Mensagem de erro:
 
@@ -135,7 +135,7 @@ Factos Conhecidos sobre *ForEach*
  **Resolução**
  
 * Limite de Concordância: Se o seu gasoduto tiver uma política de concordância, verifique se não existem antigos gasodutos em curso. A concordância máxima permitida na Fábrica de Dados Azure é de 10 oleodutos. 
-* Limites de monitorização: Vá à tela de autoria da ADF, selecione o seu oleoduto e determine se tem uma propriedade de conuncy atribuída a ele. Se acontecer, vá à vista de monitorização, e certifique-se de que não há nada nos últimos 45 dias que esteja em andamento. Se houver algo em andamento, pode cancelá-lo e o novo oleoduto deve começar.
+* Limites de monitorização: Vá à tela de autoria da ADF, selecione o seu oleoduto e determine se tem uma propriedade de conuncy atribuída a ele. Se tiver, aceda à vista Monitorização e confirme se não há nada nos últimos 45 dias que esteja em curso. Se houver algo em andamento, pode cancelá-lo e o novo oleoduto deve começar.
 * Questões Transitórias: É possível que a sua execução tenha sido afetada por um problema transitório de rede, falhas de credenciais, falhas de serviços, etc.  Se isso acontecer, a Azure Data Factory tem um processo de recuperação interna que monitoriza todas as corridas e as inicia quando percebe que algo correu mal. Este processo acontece a cada hora, por isso, se a sua corrida ficar presa por mais de uma hora, crie um caso de apoio.
  
 ### <a name="longer-start-up-times-for-activities-in-adf-copy-and-data-flow"></a>Tempos de arranque mais longos para atividades em ADF Copy e Data Flow

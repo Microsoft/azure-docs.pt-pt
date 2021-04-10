@@ -3,15 +3,15 @@ title: Windows Virtual Desktop (clássico) anfitrião piscina Azure Marketplace 
 description: Como criar uma piscina de anfitriões virtual do Windows Desktop (clássico) utilizando o Azure Marketplace.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7e0862bd7519f59602f1e769301614895bd6e09
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008598"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121885"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutorial: Criar uma piscina de anfitriões no Windows Virtual Desktop (clássico)
 
@@ -80,10 +80,10 @@ Para o **separador Configure máquinas virtuais:**
 1. Aceite os predefinidos ou personalize o número e o tamanho das máquinas virtuais.
 
     >[!NOTE]
-    >Se o tamanho específico da máquina virtual que procura não aparece no seletor de tamanhos, isso é porque ainda não o acedemos à ferramenta Azure Marketplace. Para solicitar um tamanho, crie um pedido ou antevou um pedido existente no [fórum Windows Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Se o tamanho específico da máquina virtual que procura não aparece no seletor de tamanhos, isso é porque ainda não o acedemos à ferramenta Azure Marketplace.
 
-1. Introduza um prefixo para os nomes das máquinas virtuais. Por exemplo, se introduzir *prefixo,* as máquinas virtuais serão chamadas **prefixo-0**, **prefixo-1**, e assim por diante.
-1. Selecione **Seguinte: Configurações de máquinas virtuais**.
+2. Introduza um prefixo para os nomes das máquinas virtuais. Por exemplo, se introduzir *prefixo,* as máquinas virtuais serão chamadas **prefixo-0**, **prefixo-1**, e assim por diante.
+3. Selecione **Seguinte: Configurações de máquinas virtuais**.
 
 ### <a name="virtual-machine-settings"></a>Definições da máquina virtual
 

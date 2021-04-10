@@ -4,10 +4,10 @@ description: Utilize uma API rest externa para aceder aos dados descobertos por 
 ms.date: 12/14/2020
 ms.topic: reference
 ms.openlocfilehash: d509f2674a61af1d0ab03892186526b1cb109eee
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778836"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender para APIs de sensor e consola de ioT
@@ -107,24 +107,24 @@ Matriz de objetos JSON que representam dispositivos.
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
 | **id** | Operador numérico | No | - |
-| **ipAddresses** | Matriz JSON | Sim | Endereços IP (pode ser mais do que um endereço no caso de endereços de internet ou um dispositivo com NICs duplos) |
+| **ipAddresses** | Matriz JSON | Yes | Endereços IP (pode ser mais do que um endereço no caso de endereços de internet ou um dispositivo com NICs duplos) |
 | **name** | String | No | - |
 | **tipo** | String | No | Desconhecido, Estação de Engenharia, PLC, HMI, Historiador, Controlador de Domínio, Servidor DB, Ponto de Acesso Sem Fios, Router, Switch, Servidor, Estação de Trabalho, Câmara IP, Impressora, Firewall, Estação terminal, Gateway VPN, Internet ou Multicast e Transmissão |
-| **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais do que um endereço no caso de um dispositivo com NICs duplos) |
-| **sistema operativo** | String | Sim | - |
+| **macAddresses** | Matriz JSON | Yes | Endereços MAC (pode ser mais do que um endereço no caso de um dispositivo com NICs duplos) |
+| **sistema operativo** | String | Yes | - |
 | **engenhariaStation** | Booleano | No | Verdadeiro ou falso |
 | **scanner** | Booleano | No | Verdadeiro ou falso |
 | **autorizado** | Booleano | No | Verdadeiro ou falso |
-| **fornecedor** | String | Sim | - |
-| **protocolos** | Matriz JSON | Sim | Objeto de protocolo |
-| **firmware** | Matriz JSON | Sim | Objeto firmware |
+| **fornecedor** | String | Yes | - |
+| **protocolos** | Matriz JSON | Yes | Objeto de protocolo |
+| **firmware** | Matriz JSON | Yes | Objeto firmware |
 
 #### <a name="protocol-fields"></a>Campos de protocolo
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
 | **Nome** | String | No |  |
-| **Endereços** | Matriz JSON | Sim | Valores mestres ou numéricos |
+| **Endereços** | Matriz JSON | Yes | Valores mestres ou numéricos |
 
 #### <a name="firmware-fields"></a>Campos de firmware
 
@@ -620,9 +620,9 @@ Matriz de objetos JSON que representam alertas.
 | **message** | String | No | - |
 | **severidade** | String | No | Aviso, Menor, Major ou Crítico |
 | **motor** | String | No | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
-| **fonteDevice** | Operador numérico | Sim | ID do Dispositivo |
-| **destinoDevice** | Operador numérico | Sim | ID do Dispositivo |
-| **informação adicional** | Objeto de informação adicional | Sim | - |
+| **fonteDevice** | Operador numérico | Yes | ID do Dispositivo |
+| **destinoDevice** | Operador numérico | Yes | ID do Dispositivo |
+| **informação adicional** | Objeto de informação adicional | Yes | - |
 
 #### <a name="additional-information-fields"></a>Campos de informação adicionais
 
@@ -740,7 +740,7 @@ Matriz de objetos JSON que representam alertas.
 | **timetamp** | Operador numérico | No | Época (UTC) |
 | **título** | String | No | - |
 | **severidade** | String | No | INFO, AVISO OU ALERTA |
-| **proprietário** | String | Sim | Se o evento foi criado manualmente, este campo incluirá o nome de utilizador que criou o evento |
+| **proprietário** | String | Yes | Se o evento foi criado manualmente, este campo incluirá o nome de utilizador que criou o evento |
 | **conteúdo** | String | No | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
@@ -853,37 +853,37 @@ O objeto do dispositivo contém:
 | **name** | String | No | - |
 | **ipAddresses** | Matriz JSON | No | - |
 | **securityScore** | Operador numérico | No | - |
-| **fornecedor** | String | Sim |  |
-| **firmwareVersion** | String | Sim | - |
-| **modelo** | String | Sim | - |
+| **fornecedor** | String | Yes |  |
+| **firmwareVersion** | String | Yes | - |
+| **modelo** | String | Yes | - |
 | **isWirelessAccessPoint** | Booleano | No | Verdadeiro ou falso |
-| **sistema operativo** | Objeto do sistema operativo | Sim | - |
-| **vulnerabilidades** | Objeto de vulnerabilidades | Sim | - |
+| **sistema operativo** | Objeto do sistema operativo | Yes | - |
+| **vulnerabilidades** | Objeto de vulnerabilidades | Yes | - |
 
 #### <a name="operating-system-fields"></a>Campos do sistema operativo
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **Nome** | String | Sim | - |
-| **Tipo** | String | Sim | - |
-| **Versão** | String | Sim | - |
-| **últimaversão** | String | Sim | - |
+| **Nome** | String | Yes | - |
+| **Tipo** | String | Yes | - |
+| **Versão** | String | Yes | - |
+| **últimaversão** | String | Yes | - |
 
 #### <a name="vulnerabilities-fields"></a>Campos de vulnerabilidades
  
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
-| **antiVírus** | Matriz JSON | Sim | Nomes antivírus |
-| **palavras simplesTextPass** | Matriz JSON | Sim | Objetos de senha |
-| **remotoAccess** | Matriz JSON | Sim | Objetos de acesso remoto |
+| **antiVírus** | Matriz JSON | Yes | Nomes antivírus |
+| **palavras simplesTextPass** | Matriz JSON | Yes | Objetos de senha |
+| **remotoAccess** | Matriz JSON | Yes | Objetos de acesso remoto |
 | **isBackupServer** | Booleano | No | Verdadeiro ou falso |
-| **openPorts** | Matriz JSON | Sim | Objetos de porta abertos |
+| **openPorts** | Matriz JSON | Yes | Objetos de porta abertos |
 | **isEngineeringStation** | Booleano | No | Verdadeiro ou falso |
 | **isKnownScanner** | Booleano | No | Verdadeiro ou falso |
-| **cves** | Matriz JSON | Sim | Objetos CVE |
+| **cves** | Matriz JSON | Yes | Objetos CVE |
 | **isunauthorized** | Booleano | No | Verdadeiro ou falso |
 | **malwareDesdedetectado** | Booleano | No | Verdadeiro ou falso |
-| **fracoAufercção** | Matriz JSON | Sim | Aplicações detetadas que estão a usar a autenticação fraca |
+| **fracoAufercção** | Matriz JSON | Yes | Aplicações detetadas que estão a usar a autenticação fraca |
 
 #### <a name="password-fields"></a>Campos de palavra-passe
 
@@ -908,7 +908,7 @@ O objeto do dispositivo contém:
 |--|--|--|--|
 | **porto** | Operador numérico | No | - |
 | **transporte** | String | No | TCP ou UDP |
-| **protocolo** | String | Sim | - |
+| **protocolo** | String | Yes | - |
 | **isConflictingWithFirewall** | Booleano | No | Verdadeiro ou falso |
 
 #### <a name="cve-fields"></a>Campos CVE
@@ -1824,26 +1824,26 @@ Matriz de objetos JSON que representam dispositivos.
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
 | **sensorid** | Operador numérico | No | - |
-| **zoneId** | Operador numérico | Sim | - |
-| **siteId** | Operador numérico | Sim | - |
-| **ipAddresses** | Matriz JSON | Sim | Endereços IP (pode ser mais do que um endereço no caso de endereços de internet ou um dispositivo com NICs duplos) |
+| **zoneId** | Operador numérico | Yes | - |
+| **siteId** | Operador numérico | Yes | - |
+| **ipAddresses** | Matriz JSON | Yes | Endereços IP (pode ser mais do que um endereço no caso de endereços de internet ou um dispositivo com NICs duplos) |
 | **name** | String | No | - |
 | **tipo** | String | No | Desconhecido, Estação de Engenharia, PLC, HMI, Historiador, Controlador de Domínio, Servidor DB, Ponto de Acesso Sem Fios, Router, Switch, Servidor, Estação de Trabalho, Câmara IP, Impressora, Firewall, Estação terminal, Gateway VPN, Internet ou Multicast e Transmissão |
-| **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais do que um endereço no caso de um dispositivo com NICs duplos) |
-| **sistema operativo** | String | Sim | - |
+| **macAddresses** | Matriz JSON | Yes | Endereços MAC (pode ser mais do que um endereço no caso de um dispositivo com NICs duplos) |
+| **sistema operativo** | String | Yes | - |
 | **engenhariaStation** | Booleano | No | Verdadeiro ou falso |
 | **scanner** | Booleano | No | Verdadeiro ou falso |
 | **autorizado** | Booleano | No | Verdadeiro ou falso |
-| **fornecedor** | String | Sim | - |
-| **Protocolos** | Matriz JSON | Sim | Objeto de protocolo |
-| **firmware** | Matriz JSON | Sim | Objeto firmware |
+| **fornecedor** | String | Yes | - |
+| **Protocolos** | Matriz JSON | Yes | Objeto de protocolo |
+| **firmware** | Matriz JSON | Yes | Objeto firmware |
 
 #### <a name="protocol-fields"></a>Campos de protocolo
 
 | Nome | Tipo | Pode ser nulo | Lista de valores |
 |--|--|--|--|
 | Name | String | No | - |
-| Endereços | Matriz JSON | Sim | Valores mestres ou numéricos |
+| Endereços | Matriz JSON | Yes | Valores mestres ou numéricos |
 
 #### <a name="firmware-fields"></a>Campos de firmware
 
@@ -2050,9 +2050,9 @@ Utilize esta API para recuperar todos ou alertas filtrados de uma consola de ges
 | **message** | String | No | - |
 | **severidade** | String | No | Aviso, Menor, Major ou Crítico |
 | **motor** | String | No | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
-| **fonteDevice** | Operador numérico | Sim | ID do Dispositivo |
-| **destinoDevice** | Operador numérico | Sim | ID do Dispositivo |
-| **informação adicional** | Objeto de informação adicional | Sim | - |
+| **fonteDevice** | Operador numérico | Yes | ID do Dispositivo |
+| **destinoDevice** | Operador numérico | Yes | ID do Dispositivo |
+| **informação adicional** | Objeto de informação adicional | Yes | - |
 
 #### <a name="additional-information-fields"></a>Campos de informação adicionais
 
@@ -2228,13 +2228,13 @@ Matriz de objetos JSON que representam dispositivos.
 #### <a name="response-fields"></a>Campos de resposta
 
 
-| Nome | Tipo | Pode ser nulo | Descrição |
+| Nome | Tipo | Pode ser nulo | Description |
 |--|--|--|--|
 | **conteúdo / erro** | String | No | Se o pedido for bem sucedido, a propriedade de conteúdo aparece. Caso contrário, a propriedade de erro aparece. |
 
 #### <a name="possible-content-values"></a>Possíveis valores de conteúdo
 
-| Código de estado | Valor do conteúdo | Descrição |
+| Código de estado | Valor do conteúdo | Description |
 |--|--|--|
 | 200 | O pedido de atualização de alerta terminou com sucesso. | O pedido de atualização terminou com sucesso. Sem comentários. |
 | 200 | O alerta já foi tratado **(pega).** | O alerta já foi dado quando foi recebido um pedido de alerta.<br />O alerta continua **a ser tratado.** |

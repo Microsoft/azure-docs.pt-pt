@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589338"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorização das operações de gestão de instâncias geridas Azure SQL
@@ -24,7 +24,7 @@ ms.locfileid: "100589338"
 
 A Azure SQL Managed Instance fornece monitorização das operações de [gestão](management-operations-overview.md) que utiliza para implementar novos casos geridos, atualizar propriedades de instância ou apagar casos quando já não é necessário. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Todas as operações de gestão podem ser categorizadas da seguinte forma:
 
