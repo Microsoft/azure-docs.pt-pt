@@ -3,12 +3,12 @@ title: Introdução
 description: Aprenda as funcionalidades e benefícios da Azure VMware Solution para implementar e gerir cargas de trabalho baseadas em VMware em Azure.
 ms.topic: overview
 ms.date: 03/24/2021
-ms.openlocfilehash: a75c04cf6b51068ef9867e3f9438b2820da703fe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048821"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107995"
 ---
 # <a name="what-is-azure-vmware-solution"></a>O que é o Azure VMware Solution?
 
@@ -19,11 +19,6 @@ A Azure VMware Solution é uma solução validada pela VMware com validação e 
 O diagrama mostra a adjacência entre nuvens privadas e VNets em Azure, serviços Azure e ambientes no local. O acesso à rede de nuvens privadas a serviços Azure ou VNets proporciona integração orientada pelo SLA dos pontos finais do serviço Azure. O ExpressRoute Global Reach liga o seu ambiente no local à sua nuvem privada Azure VMware Solution. 
 
 ![Imagem de Azure VMware Solution adjacência de nuvem privada para Azure e no local](./media/adjacency-overview-drawing-final.png)
-
-## <a name="customer-communication"></a>Comunicação ao cliente
-Problemas de serviço, manutenção planeada, avisos de saúde, notificações de avisos de segurança são publicados através do **Service Health** no portal Azure. Pode tomar ações oportunas quando configurar alertas de registo de atividade para estas notificações. Para obter mais informações, consulte [Criar alertas de saúde de serviço utilizando o portal Azure.](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal)
-
-:::image type="content" source="media/service-health.png" alt-text="Screenshot das notificações de saúde de serviço":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Anfitriões, aglomerados e nuvens privadas
 
@@ -60,6 +55,9 @@ Na sua nuvem privada, pode:
 
 Os padrões de monitorização dentro da Solução VMware Azure são semelhantes aos VMs Azure dentro da plataforma IaaS. Para obter mais informações e como fazer, consulte [monitorar VMs Azure com Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
+## <a name="customer-communication"></a>Comunicação ao cliente
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
+
 ## <a name="next-steps"></a>Passos seguintes
 
 O próximo passo é aprender os principais [conceitos de nuvem privada e cluster.](concepts-private-clouds-clusters.md)
@@ -68,3 +66,5 @@ O próximo passo é aprender os principais [conceitos de nuvem privada e cluster
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea7eda7e50e7d8733fd24a63d533272e5bca6bab
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562227"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166688"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -22,6 +22,21 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
 
 __Feed RSS__: Seja notificado quando esta página for atualizada copiando e colando o seguinte URL no seu leitor de feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## <a name="2021-03-31"></a>2021-03-31
+### <a name="azure-machine-learning-studio-notebooks-experience-march-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (março Update)
++ **Novas funcionalidades**
+  + Renderizar CSV/TSV. Os utilizadores poderão renderizar e arquivar TSV/CSV num formato de grelha para uma análise mais fácil de dados. 
+  + Autenticação SSO para Instância de Computação. Os utilizadores podem agora autenticar facilmente quaisquer novas instâncias computacional diretamente no UI do Portátil, facilitando a autenticação e utilização de Azure SDKs diretamente em AzureML. 
+  + Compute Instance Metrics. Os utilizadores poderão visualizar métricas de cálculo como o uso do CPU e a memória através do terminal.
+  + Detalhes do arquivo. Os utilizadores podem agora ver detalhes do ficheiro, incluindo o último tempo modificado, e o tamanho do ficheiro clicando nos 3 pontos ao lado de um ficheiro.
+
++ **Correções e melhorias de bugs**
+  + Tempos de carga de página melhorados.
+  + Desempenho melhorado.
+  + Melhor velocidade e fiabilidade do núcleo.
+  + Ganhe imóveis verticais movendo permanentemente o painel de arquivos do Notebook
+  + Os links passam a ser clicáveis no Terminal
+  + Melhor desempenho do Intellisense
 
 ## <a name="2021-03-08"></a>2021-03-08
 

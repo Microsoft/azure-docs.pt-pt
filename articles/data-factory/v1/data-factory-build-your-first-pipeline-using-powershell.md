@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: f25e3d9f3b3d6319493856e3b15c894301289c29
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104783022"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o Azure PowerShell
@@ -407,7 +407,7 @@ Neste artigo, criou um pipeline com uma atividade de transformação (Atividade 
 
 ## <a name="see-also"></a>Consulte também
 
-| Tópico | Descrição |
+| Tópico | Description |
 |:--- |:--- |
 | [Referência dos Cmdlets do Data Factory](/powershell/module/az.datafactory) |Consulte a documentação abrangente sobre os cmdlets do Data Factory |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e5a4cc2b964bcf4fa49d90c8b6d5aa546b7148a1
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798889"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107950"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
 
@@ -94,6 +94,23 @@ Ao implementar VDI não persistente, a Microsoft recomenda que os administradore
 - Definir e implementar o processo de [gestão de dispositivos antigos.](manage-stale-devices.md)
    - Uma vez que tenha uma estratégia para identificar os dispositivos de ad AD híbrido não persistente (por exemplo, utilizando o prefixo do nome do ecrã do computador), deverá ser mais agressivo na limpeza destes dispositivos para garantir que o seu diretório não seja consumido com muitos dispositivos antigos.
    - Para implementações VDI não persistentes na corrente do Windows e no nível de baixo nível, deve eliminar dispositivos que tenham **aproximadamente o calibreTimestamp** de aproximadamente 15 dias.
+
+> [!NOTE]
+> Ao utilizar vDI não persistente, se pretender evitar que um dispositivo se junte ao estado, certifique-se de que a seguinte chave de registo está definida:  
+> `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
+>
+> Certifique-se de que está a executar o Windows 10, versão 1803 ou superior.  
+>
+> Roaming quaisquer dados sob o caminho `%localappdata%` não é suportado. Se optar por deslocar o conteúdo para baixo `%localappdata%` , certifique-se de que o conteúdo das seguintes pastas e teclas de registo **nunca** sai do aparelho sob qualquer condição. Por exemplo: As ferramentas de migração de perfis devem saltar as seguintes pastas e teclas:
+>
+> * `%localappdata%\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy`
+> * `%localappdata%\Packages\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy`
+> * `%localappdata%\Packages\<any app package>\AC\TokenBroker`
+> * `%localappdata%\Microsoft\TokenBroker`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+>
+
 
 ### <a name="persistent-vdi"></a>VDI persistente
 

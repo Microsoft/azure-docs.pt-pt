@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
 ms.openlocfilehash: 7f5afc05a8d03d33366a2f76318bcf5e039d4d30
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105561666"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Adicione suporte IPv6 para espreitar privado usando o portal Azure (Preview)

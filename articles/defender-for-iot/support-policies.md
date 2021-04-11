@@ -4,10 +4,10 @@ description: Este artigo descreve o suporte, quebrando políticas de mudança pa
 ms.date: 2/8/2021
 ms.topic: article
 ms.openlocfilehash: b1a01a02155bb1443542892ed9d00d1c6b221f64
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782610"
 ---
 # <a name="versioning-and-support-for-azure-defender-for-iot"></a>Versão e suporte para Azure Defender para IoT 

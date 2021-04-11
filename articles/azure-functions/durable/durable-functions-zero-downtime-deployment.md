@@ -7,10 +7,10 @@ ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558768"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementação de tempo de inatividade zero para funções duradouras
@@ -60,42 +60,42 @@ O diagrama seguinte mostra a configuração descrita de slots de implantação e
 
 ![Slots de implantação e contas de armazenamento](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>host.jsem exemplos
+### <a name="hostjson-examples&quot;></a>host.jsem exemplos
 
 Os seguintes fragmentos JSON são exemplos da definição da cadeia de ligação no *host.jsficheiro.*
 
-#### <a name="functions-20"></a>Funções 2.0
+#### <a name=&quot;functions-20&quot;></a>Funções 2.0
 
 ```json
 {
-  "version": 2.0,
-  "extensions": {
-    "durableTask": {
-      "hubName": "MyTaskHub",
-      "storageProvider": {
-        "connectionStringName": "DurableManagementStorage"
+  &quot;version&quot;: 2.0,
+  &quot;extensions&quot;: {
+    &quot;durableTask&quot;: {
+      &quot;hubName&quot;: &quot;MyTaskHub&quot;,
+      &quot;storageProvider&quot;: {
+        &quot;connectionStringName&quot;: &quot;DurableManagementStorage&quot;
       }
     }
   }
 }
 ```
 
-#### <a name="functions-1x"></a>Funções 1.x
+#### <a name=&quot;functions-1x&quot;></a>Funções 1.x
 
 ```json
 {
-  "durableTask": {
-    "azureStorageConnectionStringName": "DurableManagementStorage"
+  &quot;durableTask&quot;: {
+    &quot;azureStorageConnectionStringName&quot;: &quot;DurableManagementStorage&quot;
   }
 }
 ```
 
-### <a name="cicd-pipeline-configuration"></a>Configuração do gasoduto CI/CD
+### <a name=&quot;cicd-pipeline-configuration&quot;></a>Configuração do gasoduto CI/CD
 
 Configure o seu pipeline CI/CD para ser implantado apenas quando a sua aplicação de função não tiver instâncias de orquestração pendentes ou em execução. Quando estiver a utilizar os Gasodutos Azure, pode criar uma função que verifica estas condições, como no exemplo seguinte:
 
 ```csharp
-[FunctionName("StatusCheck")]
+[FunctionName(&quot;StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
     [DurableClient] IDurableOrchestrationClient client,

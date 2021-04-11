@@ -4,10 +4,10 @@ description: Saiba mais sobre hardware e aparelhos virtuais para sensores certif
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.openlocfilehash: 242e88e92d6197fd018c56fa55a4dd8166f5d027
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782763"
 ---
 # <a name="identify-required-appliances"></a>Identificar as aplicações necessárias
@@ -105,7 +105,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 ### <a name="appliance-bom"></a>Aparelho BOM
 
-| PN | Descrição | Quantidade |
+| PN | Description | Quantidade |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC CTO Server | 1 |
 | P19766-B21 | Europa - Localização Multilíngue | 1 |
@@ -176,7 +176,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 ### <a name="appliance-bom"></a>Aparelho BOM
 
-| PN | Descrição | Quantidade |
+| PN | Description | Quantidade |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Server | 1 |
@@ -212,7 +212,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 | Choque | 10G 10ms, meio-sena, três para cada eixo. (Ambos positivos & pulso negativo) – Din Rail |
 
 ### <a name="appliance-bom"></a>Aparelho BOM
-| Produto | Descrição |
+| Produto | Description |
 |--|--|
 | P25828-B21 | HPE Edgeline EL300 v2 Sistema de Borda Convergida |
 | P25828-B21 B19 | HPE EL300 v2 Sistema de Borda Convergida |
@@ -244,7 +244,7 @@ Esta secção descreve especificações de hardware para os seguintes aparelhos:
 
 | Tipo | Grandes Empresas |
 |--|--|
-| Descrição | Aparelho virtual para tipos de implementação de empresas |
+| Description | Aparelho virtual para tipos de implementação de empresas |
 | vCPU | 8 |
 | Memória | 32 GB |
 | Armazenamento | 1.8 TB |

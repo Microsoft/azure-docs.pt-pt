@@ -10,10 +10,10 @@ ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 11f0a58f8c6d38d070d4bafe68794bdd9ada7cf3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102556167"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais do Windows

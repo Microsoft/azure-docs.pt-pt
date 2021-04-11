@@ -8,10 +8,10 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
 ms.openlocfilehash: 06586b5bf20619f57b2ad1c3d5de84dd61952261
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561250"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planear e gerir os custos da Azure Synapse Analytics

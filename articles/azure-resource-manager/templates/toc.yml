@@ -366,9 +366,12 @@
   items:
     - name: Criar modelos
       items:
-        - name: Modelo de estrutura de ficheiros
+        - name: Estrutura JSON
           displayName: 'parameters,variables,resources,outputs,condition'
           href: template-syntax.md
+        - name: Estrutura bicep
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: bicep-file.md
         - name: Escrever expressões de modelo
           href: template-expressions.md
         - name: Parâmetros

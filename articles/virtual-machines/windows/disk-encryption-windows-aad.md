@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555283"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Encriptação do disco Azure com Azure AD para VMs do Windows (versão anterior)
@@ -64,7 +64,7 @@ A tabela que se segue lista os parâmetros do modelo do Gestor de Recursos para 
 | subnetName | Nome da sub-rede no VNet a que o VM NIC deve pertencer. |
 | AADClientID | Identificação do cliente da aplicação AZure AD que tem permissões para escrever segredos para o seu cofre chave. |
 | AADClientSecret | Segredo de cliente da aplicação AZure AD que tem permissões para escrever segredos para o seu cofre chave. |
-| keyVaultURL | URL do cofre chave para o que a chave BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` ou o Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
+| keyVaultURL | URL do cofre chave para o que a chave BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName").VaultURI` ou o Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
 | keyEncryptionKeyURL | URL da chave de encriptação que é usada para encriptar a chave BitLocker gerada (opcional). </br> </br>KeyEncryptionKeyURL é um parâmetro opcional. Pode trazer o seu próprio KEK para salvaguardar ainda mais a chave de encriptação de dados (segredo de palavras-passe) no seu cofre de chaves. |
 | keyVaultResourceGroup | Grupo de recursos do cofre de chaves. |
 | vmName | Nome do VM em que a operação de encriptação deve ser executada. |

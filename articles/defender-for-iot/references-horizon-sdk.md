@@ -4,10 +4,10 @@ description: O Horizonte SDK permite que o Azure Defender para desenvolvedores I
 ms.date: 1/13/2021
 ms.topic: article
 ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782491"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dissector de protocolo proprietário horizonte
@@ -321,7 +321,7 @@ Esta secção descreve parâmetros básicos.
 
 Esta secção descreve outros campos.
 
-| Etiqueta de parâmetro | Descrição |
+| Etiqueta de parâmetro | Description |
 |-----------------|--------|
 | **permitir listas** | Pode indexar os valores do protocolo e exibi-los em Relatórios de Mineração de Dados. Estes relatórios refletem a sua linha de base de rede. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="Uma amostra da visão da mineração de dados."::: <br /> Para obter mais informações, consulte [Connect to a indexing service (Baseline)](#connect-to-an-indexing-service-baseline) para obter mais informações. |
 | **firmware** | Pode extrair informações de firmware, definir valores de índice e acionar alertas de firmware para o protocolo plugin. Para obter mais informações, consulte [extrair dados do firmware](#extract-firmware-data) para obter mais informações. |
@@ -812,7 +812,7 @@ Adicione o parâmetro **de alerta** ao `config.json` plugin.
 
 Esta secção descreve os campos de configuração JSON. 
 
-| Nome do campo | Descrição | Valores possíveis |
+| Nome do campo | Description | Valores possíveis |
 |--|--|--|
 | **ID** | Representa uma única identificação de alerta. Deve ser único neste contexto. | Valor numérico 0 - 10000 |
 | **message** | Informação apresentada ao utilizador. Este campo permite-lhe utilizar diferentes campos. | Utilize qualquer campo a partir do seu protocolo ou qualquer protocolo de camada inferior. |

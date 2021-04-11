@@ -9,17 +9,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.openlocfilehash: e7cee47e90e6484a4258ba82e47af03725c41d34
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559295"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Construa a página de aterragem para a sua oferta saas gratuita ou experimental no mercado comercial
 
 Este artigo guia-o através do processo de construção de uma página de aterragem para uma aplicação SaaS gratuita ou experimental que será vendida no mercado comercial da Microsoft.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode pensar na página de aterragem como o "lobby" do seu software como uma oferta de serviço (SaaS). Depois de o cliente optar por obter a sua app, o mercado comercial direciona-os para a página de aterragem para ativar e configurar a sua subscrição para a sua aplicação SaaS. Quando cria um software como oferta de serviço (SaaS), no Partner Center, pode escolher se deve ou não [vender através da Microsoft.](plan-saas-offer.md#listing-options) Se quiser apenas listar a sua oferta no mercado comercial da Microsoft e não vender através da Microsoft, pode especificar como os potenciais clientes podem interagir com a oferta. Quando ativa a opção de listagem **de testes Get-lo agora (Grátis)** ou **Grátis,** tem de especificar um URL da página de aterragem para o qual o utilizador pode aceder à subscrição ou teste gratuito.
 

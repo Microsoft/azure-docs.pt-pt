@@ -10,10 +10,10 @@ ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
 ms.openlocfilehash: ea9d5d92d45db50470276929b6e7b4200bb427d6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557527"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerir VMs do Windows em Azure utilizando a Java

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9408adfe33fc71707532f3bf5646f3727fd7dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b70d08363db212e5039690ceaaef5dbb55bcd65f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98955059"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107278"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclip um vídeo ao codificar com os Media Services - .NET
 
@@ -31,9 +31,9 @@ O exemplo C# a seguir cria um trabalho que apara um vídeo num Ativo à medida q
 
 Para completar os passos descritos neste tópico, tem de:
 
-- [Criar uma conta Azure Media Services](./create-account-howto.md)
+- [Criar uma conta Azure Media Services](./account-create-how-to.md)
 - Criar uma Transformação e uma entrada e saída Ativos. Pode ver como criar um Transform e inserir e produzir Ativos no [Upload, codificar e transmitir vídeos usando o tutorial .NET.](stream-files-tutorial-with-api.md)
-- Reveja o tópico do [conceito de codificação.](encoding-concept.md)
+- Reveja o tópico do [conceito de codificação.](encode-concept.md)
 
 ## <a name="example"></a>Exemplo
 
@@ -92,4 +92,4 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Como codificar com uma transformação personalizada](customize-encoder-presets-how-to.md) 
+[Como codificar com uma transformação personalizada](encode-custom-presets-how-to.md) 

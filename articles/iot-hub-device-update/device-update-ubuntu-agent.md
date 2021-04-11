@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ee09928cab6419d799d06de9cf2f69987e42d157
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 751e9337d74210d238be079e8fcd1bb973937846
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644432"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936857"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Atualização do dispositivo para tutorial Azure IoT Hub usando o agente de pacotes no Ubuntu Server 18.04 x64
 
@@ -19,7 +19,7 @@ A Atualização do Dispositivo para o IoT Hub suporta duas formas de atualizaç�
 
 As atualizações baseadas em pacotes são atualizações direcionadas que alteram apenas um componente ou aplicação específico no dispositivo. Isto leva a um menor consumo de largura de banda e ajuda a reduzir o tempo para descarregar e instalar a atualização. As atualizações de pacotes normalmente permitem menos tempo de inatividade dos dispositivos ao aplicar uma atualização e evitar a sobrecarga de criação de imagens.
 
-Este tutorial acompanha-o através dos passos para completar uma atualização de pacotes de ponta a ponta através da Atualização do Dispositivo para ioT Hub. Para este tutorial utilizamos um Ubuntu Server 18.04 x64 que executa a Azure IoT Edge e o agente de pacotes de Atualização de Dispositivos. O tutorial demonstra a atualização de um pacote de amostras, mas usando passos semelhantes, pode atualizar outros pacotes, como o Azure IoT Edge ou o motor de contentores que utiliza.
+Este tutorial de ponta a ponta acompanha-o através da atualização do Azure IoT Edge no Ubuntu Server 18.04 x64 utilizando o agente de pacotes Device Update. Embora o tutorial demonstre a atualização do IoT Edge, utilizando passos semelhantes, pode atualizar outros pacotes, como o motor de contentores que utiliza.
 
 As ferramentas e conceitos deste tutorial ainda se aplicam mesmo que planeie usar uma configuração diferente da plataforma OS. Complete esta introdução a um processo de atualização de ponta a ponta e, em seguida, escolha a sua forma preferida de atualização e plataforma de SO para mergulhar nos detalhes.
 

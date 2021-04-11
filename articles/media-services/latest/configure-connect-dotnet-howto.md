@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 8946f6e94dd26db45622bc7609fb2375d59bb57e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 677c5998d25205f8de9792888af2554674944798
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455387"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107583"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ligar aos Serviços de Mídia v3 API - .NET
 
@@ -29,7 +29,7 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 .NET SDK utiliza
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Certifique-se de lembrar o nome do grupo de recursos e o nome da conta dos Serviços de Mídia
+- [Criar uma conta de Serviços de Comunicação](./account-create-how-to.md)Social. Certifique-se de lembrar o nome do grupo de recursos e o nome da conta dos Serviços de Mídia
 - Instale uma ferramenta que pretende utilizar para o desenvolvimento de .NET. Os passos deste artigo mostram como usar o [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Pode utilizar o Código do Estúdio Visual, ver [Trabalhar com C#](https://code.visualstudio.com/docs/languages/csharp). Ou podes usar um editor de código diferente.
 
 > [!IMPORTANT]
@@ -237,14 +237,14 @@ namespace ConsoleApp1
 
 - [Tutorial: Carregar, codificar e transmitir vídeos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream ao vivo com Serviços de Mídia v3 - .NET](stream-live-tutorial-with-api.md)
-- [Tutorial: Analisar vídeos com Serviços de Comunicação v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Tutorial: Analisar vídeos com Serviços de Comunicação v3 - .NET](analyze-videos-tutorial.md)
 - [Criar uma entrada de trabalho a partir de um ficheiro local - .NET](job-input-from-local-file-how-to.md)
 - [Criar uma entrada de trabalho a partir de um URL HTTPS - .NET](job-input-from-http-how-to.md)
-- [Codificar com uma transformação personalizada - .NET](customize-encoder-presets-how-to.md)
-- [Utilize encriptação dinâmica AES-128 e o serviço de entrega de chaves - .NET](protect-with-aes128.md)
-- [Utilize o serviço de encriptação dinâmica DRM e entrega de licenças - .NET](protect-with-drm.md)
-- [Obtenha uma chave de assinatura da política existente - .NET](get-content-key-policy-dotnet-howto.md)
-- [Criar filtros com Serviços de Mídia - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Codificar com uma transformação personalizada - .NET](encode-custom-presets-how-to.md)
+- [Utilize encriptação dinâmica AES-128 e o serviço de entrega de chaves - .NET](drm-playready-license-template-concept.md)
+- [Utilize o serviço de encriptação dinâmica DRM e entrega de licenças - .NET](drm-protect-with-drm-tutorial.md)
+- [Obtenha uma chave de assinatura da política existente - .NET](drm-get-content-key-policy-dotnet-how-to.md)
+- [Criar filtros com Serviços de Mídia - .NET](filters-dynamic-manifest-dotnet-how-to.md)
 - [Exemplos avançados de vídeo a pedido de Azure Functions v2 com Media Services v3](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>Ver também

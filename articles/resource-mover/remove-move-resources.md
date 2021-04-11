@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/22/2020
 ms.author: raynew
 ms.openlocfilehash: 25311e93e1081b3c7638c275c39153b2c357048d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559133"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>Gerir recolhas de movimentos e grupos de recursos
