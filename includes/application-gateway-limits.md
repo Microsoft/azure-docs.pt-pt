@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c98d88d66e89df3efe186212d8c004ec2a65158d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612950"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106450348"
 ---
 | Recurso | Limite | Nota |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "98612950"
 | Número de conjuntos de regras de reescrita |400| |
 | Número de configuração de cabeçalho ou URL por conjunto de regras de reescrita|40| |
 | Número de condições por conjunto de regras de reescrita|40| |
-| Conexões Simultâneas WebSocket |Gateways médios 20k<br> Grandes portais 50k| |
+| Conexões Simultâneas WebSocket |Gateways médios 20k<sup>2</sup><br> Grandes portais 50k<sup>2</sup>| |
 | Comprimento máximo de URL|32KB| |
 | Tamanho máximo do cabeçalho para HTTP/2 |4KB| |
 | Tamanho máximo de upload de ficheiros, Standard |2 GB | |
@@ -45,3 +45,5 @@ ms.locfileid: "98612950"
 | Exclusões máximas de WAF por Gateway de aplicação|40||
 
 <sup>1</sup> No caso de SKUs ativados pela WAF, deve limitar o número de recursos a 40.
+
+<sup>2</sup> Limite é por instância de Gateway de aplicação não por recurso de Gateway de aplicação.

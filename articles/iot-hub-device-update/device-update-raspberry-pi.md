@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b6a9fa3ac85460a46653c171198a2dfea8580f3a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 143a7c411bea6a451645c860b7b5d12d2aa8d9f5
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644495"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121341"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Atualização do dispositivo para tutorial Azure IoT Hub usando a imagem de referência Raspberry Pi 3 B+
 
@@ -81,7 +81,7 @@ Leia os termos da licença antes de utilizar o agente. A sua instalação e util
 
 Agora, o dispositivo precisa de ser adicionado ao Azure IoT Hub.  A partir de dentro do Azure IoT Hub, será gerada uma cadeia de ligação para o dispositivo.
 
-1. A partir do portal Azure, lance o Hub IoT de Atualização de Dispositivos.
+1. A partir do portal Azure, lance o Azure IoT Hub.
 2. Criar um novo dispositivo.
 3. No lado esquerdo da página, navegue para 'Explorers' > 'Dispositivos IoT' > Selecione "Novo".
 4. Fornecer um nome para o dispositivo em 'Device ID'--Certifique-se de que "Teclas de autogerado" é selecionada.
@@ -103,9 +103,9 @@ Agora, o dispositivo precisa de ser adicionado ao Azure IoT Hub.  A partir de de
  
 `<device connection string>`Substitua-a pela sua cadeia de ligação
  ```markdown
-    echo "connection_string=<device connection string>" > adu-conf.txt  
-    echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
-    echo "aduc_model=RefDevice" >> adu-conf.txt
+    echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+    echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+    echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
 
 ## <a name="connect-the-device-in-device-update-iot-hub"></a>Ligue o dispositivo no Hub IoT da Atualização do Dispositivo
@@ -127,9 +127,9 @@ Utilize este número de versão no passo abaixo da Atualização de Importação
 
 1. Entre no [portal Azure](https://portal.azure.com) e navegue até ao Hub IoT.
 
-2. De 'Dispositivos IoT' ou 'IoT Edge' no painel de navegação esquerdo encontre o seu dispositivo IoT e navegue para o Dispositivo Twin.
+2. De 'Dispositivos IoT' ou 'IoT Edge' no painel de navegação esquerdo encontre o seu dispositivo IoT e navegue para o Dispositivo Twin ou Módulo Twin.
 
-3. No Dispositivo Twin, elimine qualquer valor de marcação de atualização do dispositivo existente, definindo-os para nulos.
+3. No módulo Twin do módulo de agente de atualização do dispositivo, elimine qualquer valor de etiqueta de atualização do dispositivo existente, definindo-os para nulos. Se estiver a utilizar a identidade do dispositivo com o agente de atualização do dispositivo, eis estas alterações no Dispositivo Twin.
 
 4. Adicione um novo valor de etiqueta de atualização do dispositivo, como mostrado abaixo.
 

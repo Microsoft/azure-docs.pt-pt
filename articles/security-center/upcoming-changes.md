@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/18/2021
+ms.date: 04/08/2021
 ms.author: memildin
-ms.openlocfilehash: b9a93286b6a546160b6c621d084437f671eab4d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9e1b5d19acbc9bcee86c374a3f843530b8adc61
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773577"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103764"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -28,59 +28,11 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 | Mudança planeada                                                                                                                                                        | Data estimada para alteração |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | março de 2021                |
-| [Depreciação de 11 alertas do Azure Defender](#deprecation-of-11-azure-defender-alerts)                                                                                   | março de 2021                |
 | [21 recomendações que se movem entre controlos de segurança](#21-recommendations-moving-between-security-controls)                                                           | abril de 2021                |
-| [Duas outras recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-further-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | abril de 2021                |
-| [As recomendações da AWS serão divulgadas para disponibilidade geral (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | abril de 2021                |
+| [Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | abril de 2021                |
+| [As recomendações da AWS serão divulgadas para disponibilidade geral (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | **agosto de** 2021             |
 | [Melhorias à recomendação de classificação de dados sql](#enhancements-to-sql-data-classification-recommendation)                                                     | 2º trimestre de 2021                   |
 |                                                                                                                                                                       |                           |
-
-
-### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas 
-
-**Data estimada para a alteração:** março de 2021
-
-As duas recomendações que se seguem deverão ser depreadas em fevereiro de 2021:
-
-- **As suas máquinas devem ser reiniciadas para aplicar atualizações do sistema**. Isto pode resultar num ligeiro impacto na sua pontuação segura.
-- **O agente de monitorização deve ser instalado nas suas máquinas**. Esta recomendação diz respeito apenas a máquinas no local e parte da sua lógica será transferida para outra recomendação, **as questões de saúde do agente Log Analytics devem ser resolvidas nas suas máquinas.** Isto pode resultar num ligeiro impacto na sua pontuação segura.
-
-Recomendamos verificar as suas configurações contínuas de automação de exportação e fluxo de trabalho para ver se estas recomendações estão incluídas nas suas recomendações. Além disso, quaisquer dashboards ou outras ferramentas de monitorização que possam estar a usá-los devem ser atualizados em conformidade.
-
-Saiba mais sobre estas recomendações na página de referência das [recomendações de segurança](recommendations-reference.md).
-
-### <a name="deprecation-of-11-azure-defender-alerts"></a>Depreciação de 11 alertas do Azure Defender
-
-**Data estimada para a alteração:** março de 2021
-
-No próximo mês, os onze alertas do Azure Defender listados abaixo serão depreciados.
-
-- Novos alertas irão substituir estes dois alertas e fornecer uma melhor cobertura:
-
-    | AlertaType                | Nome de Alertadisplay                                                         |
-    |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | PREVIEW - Kit de ferramentas MicroBurst "Get-AzureDomainInfo" executado |
-    | ARM_MicroBurstRunbook    | PREVIEW - O conjunto de ferramentas MicroBurst "Get-AzurePasswords" executado  |
-    |                          |                                                                          |
-
-- Estes nove alertas dizem respeito a um conector de proteção de identidade do Diretório Ativo Azure que já foi depreciado:
-
-    | AlertaType           | Nome de Alertadisplay              |
-    |---------------------|-------------------------------|
-    | Localização desconhecida  | Propriedades de inícios de sessão desconhecidos |
-    | Anónimos      | Endereço IP anónimo          |
-    | InfectuadoDeviceLogin | Endereço IP ligado a malware     |
-    | ImpossibleTravel    | Viagem atípica               |
-    | MaliciousIP         | Endereço IP malicioso          |
-    | Fugas de informação   | Fuga de credenciais            |
-    | PasswordSpray       | Spray de palavra-passe                |
-    | Fugas de informação   | Inteligência de ameaça Azure AD  |
-    | AADAI               | Azure AD AI                   |
-    |                     |                               |
- 
-
-
 
 
 ### <a name="21-recommendations-moving-between-security-controls"></a>21 recomendações que se movem entre controlos de segurança 
@@ -98,7 +50,7 @@ Saiba quais as recomendações em cada controlo de segurança nos controlos de s
 |||
 
 
-### <a name="two-further-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas outras recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas
 
 **Data estimada para a alteração:** abril de 2021
 
@@ -110,7 +62,7 @@ As duas recomendações que se seguem estão a ser depreciadas:
 
 ### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>As recomendações da AWS serão divulgadas para disponibilidade geral (GA)
 
-**Data estimada para a alteração:** abril de 2021
+**Data estimada para a alteração:** agosto de 2021
 
 O Azure Security Center protege cargas de trabalho em Azure, Amazon Web Services (AWS) e Google Cloud Platform (GCP).
 
@@ -121,7 +73,7 @@ Com esta mudança, dois conjuntos de recomendações da AWS passarão para GA:
 - [Controlos PCI DSS do Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
 - [Controlos de benchmark da CIS AWS Foundations do Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
 
-Quando estes são GA e as avaliações são executadas nos seus recursos AWS, os resultados impactarão a sua pontuação segura combinada para todos os seus recursos multi e híbridos em nuvem. 
+Quando estes são GA e as avaliações são executadas nos seus recursos AWS, os resultados impactarão a sua pontuação segura combinada para todos os seus recursos multi e híbridos em nuvem.
 
 
 

@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para a Azure Attestation
 description: Lista definições políticas incorporadas da Azure Policy para a Azure Attestation. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 ms.service: attestation
 author: msmbaldwin
 ms.author: mbaldwin
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 5903cc39e2480821cd3d81b4f8dd59c59e2db3d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1053588d826ce110a4e82cc68a6eb322d8fa88b8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037427"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093716"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-attestation"></a>Definições de Azure Policy incorporadas para Azure Attestation
 

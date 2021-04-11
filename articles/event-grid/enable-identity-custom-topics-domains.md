@@ -3,12 +3,12 @@ title: Ativar a identidade gerida em tópicos e domínios personalizados da Azur
 description: Este artigo descreve como permitir a identidade de serviço gerida para um tópico ou domínio personalizado da Azure Event Grid.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 06fd4d6e472b33496e773596b0f3afc8e70be948
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b93fd44282d9e19e7111dd52c73d8d4c01c67a10
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630536"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278223"
 ---
 # <a name="assign-a-system-managed-identity-to-an-event-grid-custom-topic-or-domain"></a>Atribua uma identidade gerida pelo sistema a um tópico ou domínio personalizado da Grade de Eventos 
 Este artigo mostra-lhe como ativar uma identidade gerida pelo sistema para um tópico personalizado da Grade de Eventos ou um domínio. Para conhecer as identidades geridas, veja [o que são identidades geridas para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md)
@@ -59,4 +59,4 @@ O comando para a atualização de um domínio existente é semelhante `az eventg
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Adicione a identidade a um papel apropriado (por exemplo, Service Bus Data Sender) no destino (por exemplo, uma fila de autocarros de serviço). Para obter etapas detalhadas, consulte [a identidade do Azure nos destinos.](add-identity-roles.md) 
+Adicione a identidade a um papel apropriado (por exemplo, Service Bus Data Sender) no destino (por exemplo, uma fila de autocarros de serviço). Para etapas detalhadas, consulte [grant geriu a identidade o acesso ao destino Event Grid](add-identity-roles.md). 

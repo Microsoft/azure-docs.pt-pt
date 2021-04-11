@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema FedRAMP Moderado
 description: Descrição geral do exemplo de esquema FedRAMP Moderado. Este exemplo de esquema ajuda os clientes a avaliar controlos FedRAMP Moderado específicos.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 65deb175c3a608b5f3a14048239bfa8be799619d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
-ms.translationtype: HT
+ms.openlocfilehash: e35d3e8e29b63f1c98a4aeda020a4f8eaf99c454
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033817"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386758"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Descrição geral do exemplo de esquema FedRAMP Moderado
 

@@ -24,23 +24,21 @@
     - name: Desenvolver módulos de código personalizados
       items:
         - name: C
-          items:
-            - name: Módulos C para dispositivos Linux
-              href: tutorial-c-module.md
-            - name: Módulos C para dispositivos Windows
-              href: tutorial-c-module-windows.md
+          href: tutorial-c-module.md
         - name: C#
-          items:
-            - name: Módulos C# para dispositivos Linux
-              href: tutorial-csharp-module.md
-            - name: Módulos C# para dispositivos Windows
-              href: tutorial-csharp-module-windows.md
+          href: tutorial-csharp-module.md
         - name: Java
           href: tutorial-java-module.md
         - name: Node.js
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
+        - name: Utilize recipientes Windows
+          items:
+            - name: C
+              href: tutorial-c-module-windows.md
+            - name: C#
+              href: tutorial-csharp-module-windows.md
     - name: Implementar serviços do Azure como módulos
       items:
         - name: Filtrar dados com as Funções do Azure

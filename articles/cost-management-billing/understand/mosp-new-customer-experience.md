@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4f7179a5ad35b4d3ca9a92119fb7b492e2aff779
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575471"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122531"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introdução à conta de faturação do Azure atualizada
 
@@ -26,11 +26,11 @@ A gestão de custos e faturas é um dos principais componentes da sua experiênc
 
 O diagrama seguinte compara a sua conta de faturação antiga e a nova:
 
-![Diagrama que mostra a comparação entre a hierarquia de faturação na conta antiga e na nova](./media/mosp-new-customer-experience/comparison-old-new-account.png)
+:::image type="content" source="./media/mosp-new-customer-experience/comparison-old-new-account.png" alt-text="Diagrama mostrando a comparação entre a hierarquia de faturação na antiga e a nova conta." border="false" lightbox="./media/mosp-new-customer-experience/comparison-old-new-account.png":::
 
 A sua nova conta de faturação contém um ou mais perfis de faturação, que lhe permitem gerir as suas faturas e métodos de pagamento. Cada perfil de faturação contém uma ou mais secções de faturação que lhe permitem organizar os custos na fatura do perfil de faturação.
 
-![Diagrama que mostra a nova hierarquia de faturação](./media/mosp-new-customer-experience/new-billing-account-hierarchy.png)
+:::image type="content" source="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png" alt-text="Diagrama mostrando a nova hierarquia de faturação." border="false" lightbox="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png":::
 
 As funções na conta de faturação têm o nível mais elevado de permissões. Estas funções devem ser atribuídas a utilizadores que precisam de ver as faturas e controlar os custos de toda a conta, como gestores financeiros ou de TI numa organização ou a pessoa que se inscreveu numa conta. Para obter mais informações, veja [Funções e tarefas da conta de faturação](../manage/understand-mca-roles.md#billing-account-roles-and-tasks). Quando a conta é atualizada, o utilizador que tem uma função de administrador de conta na conta de faturação antiga recebe uma função de proprietário na nova conta.
 
@@ -60,7 +60,21 @@ A nova experiência inclui as seguintes capacidades de gestão de custos e fatur
 
 **Período de faturação mensal mais previsível** - Na sua nova conta, o período de faturação começa no primeiro dia do mês e termina no último dia do mês, independentemente de quando se inscreve para utilizar o Azure. Será gerada uma fatura no início de cada mês com todos os custos do mês anterior.
 
-**Obtenha uma única fatura mensal para várias subscrições** - Tem a flexibilidade de obter uma fatura mensal para cada uma das suas subscrições ou uma única fatura para várias subscrições.
+**Obtenha uma única fatura mensal para várias subscrições** - Na sua conta existente, obtém uma fatura para cada subscrição do Azure. Quando a sua conta é atualizada, o comportamento existente é mantido mas tem a flexibilidade para consolidar os encargos das suas subscrições numa única fatura. Depois de atualizar a conta, siga os passos abaixo para consolidar os seus encargos numa única fatura:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Procure **Cost Management + Faturação**.  
+   ![Captura de ecrã que mostra a pesquisa por Cost Management + Faturação no portal do Azure.](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
+3. Selecione **as subscrições Azure** do lado esquerdo do ecrã. 
+4. A tabela lista as assinaturas Azure que está a pagar. Na coluna de perfil de faturação, você encontrará o perfil de faturação que é faturado para a subscrição. Os encargos de subscrição são apresentados na fatura do perfil de faturação. Para consolidar os custos de todas as suas subscrições numa única fatura, precisa de ligar todas as suas subscrições a um único perfil de faturação.  
+    :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Screenshot que mostra a lista de subscrições do Azure." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
+5. Escolha um perfil de faturação que queira usar. 
+6. Selecione uma subscrição que não esteja ligada ao perfil de faturação que escolheu no passo 5. Clique em elipse (três pontos) para a subscrição. Selecione **Alterar seleção de fatura**.  
+    :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="Screenshot que mostra onde encontrar a opção de alterar a secção de fatura." lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
+7. Selecione o perfil de faturação que escolheu em #5 passo.  
+    :::image type="content" source="./media/mosp-new-customer-experience/change-invoice-section.png" alt-text="Screenshot que mostra como alterar a secção de fatura." lightbox="./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png" :::
+8. Selecione **Alteração**.
+9. Repita os passos 6-8 para todas as outras subscrições. 
 
 **Receba uma única fatura mensal para subscrições do Azure, planos de suporte e produtos do Azure Marketplace** - Obterá uma fatura mensal para todos os custos, incluindo custos de utilização para subscrições do Azure, planos de suporte e compras do Azure Marketplace.
 
@@ -98,6 +112,12 @@ Recomendamos o seguinte para se preparar para a sua nova experiência:
 
 Na nova experiência, a sua fatura será gerada por volta do nono dia de cada mês e conterá todos os custos do mês anterior. Esta data pode ser diferente da data em que a fatura é gerada na conta antiga. Se partilhar as suas faturas com outras pessoas, notifique as mesmas sobre a alteração na data.
 
+
+**Faturas no primeiro mês após a migração**
+
+No dia em que a sua conta for atualizada, os seus custos não faturados existentes estão finalizados e receberá as faturas destes encargos no dia em que normalmente recebe as suas faturas. Por exemplo, João tem duas subscrições Azure - Azure sub 01 com ciclo de faturação do quinto dia do mês para o quarto dia do próximo mês e Azure sub 02 com ciclo de faturação do décimo dia de um mês para o nono dia do próximo mês. John recebe faturas para ambas as subscrições do Azure normalmente na quinta do mês. Agora, se a conta de John for atualizada em 4 de abril, os encargos para a Azure sub 01 de 5 de março a 4 de abril e os encargos para a Azure sub 02 de 10 de março a 4 de abril serão finalizados. João receberá duas faturas, uma para cada submarino no dia 5 de abril. Após a atualização da conta, o ciclo de faturação de João basear-se-á no mês civil e cobrirá todos os encargos incorridos desde o início de um mês civil até ao final desse mês civil.  A fatura dos encargos do mês anterior está disponível no dia 9 de cada mês. Assim, no exemplo acima, João receberá outra fatura no dia 5 de maio para o período de faturação de 5 de abril a 30 de abril. 
+
+
 **Novas APIs de gestão de custos e faturação**
 
 Se estiver a utilizar APIs do Cost Management ou de Faturação para consultar e atualizar os dados de faturação ou de custos, tem de utilizar novas APIs. A tabela seguinte lista as APIs que não funcionarão na nova conta de faturação e as alterações que tem de fazer na sua nova conta de faturação.
@@ -106,6 +126,7 @@ Se estiver a utilizar APIs do Cost Management ou de Faturação para consultar e
 |---------|---------|
 |[Contas de Faturação - Listar](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Na API Contas de Faturação - Listar, a conta de faturação antiga tem agreementType **MicrosoftOnlineServiceProgram** e a nova conta de faturação terá agreementType **MicrosoftCustomerAgreement**. Se assumir uma dependência em agreementType, atualize-a. |
 |[Faturas - Listar Por Subscrição de Faturação](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Esta API devolverá apenas as faturas que foram geradas antes da atualização da conta. Terá de utilizar a API [Faturas - Listar Por Conta de Faturação](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) para obter as faturas geradas na nova conta de faturação. |
+
 
 ## <a name="cost-management-updates-after-account-update"></a>Atualizações do Cost Management após uma atualização da conta
 
@@ -141,7 +162,7 @@ Com a sua conta atualizada, recebe uma única fatura para todas as cobranças do
 
 Por exemplo, se o período de faturação da sua conta antiga ia de 24 de novembro a 23 de dezembro, nesse caso, após a atualização, o período passa a ser de 1 de novembro a 30 de novembro, de 1 de dezembro a 31 de dezembro e assim sucessivamente.
 
-:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Imagem que mostra uma comparação entre os novos períodos de faturação e os antigos" lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Screenshot mostrando uma comparação entre períodos de faturação antigos e novos." lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
 
 #### <a name="budgets"></a>Orçamentos
 
@@ -156,7 +177,7 @@ A sua nova conta de faturação fornece funcionalidade de exportação melhorada
 
 Por exemplo, para um período de faturação que fosse de 23 de dezembro a 22 de Janeiro, o ficheiro CSV exportado teria os dados de utilização e de custos referentes a esse período. Após a atualização, a exportação passa a conter os dados do mês de calendário. Por exemplo, de 1 de janeiro a 31 de janeiro e assim por diante.
 
-:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Imagem que mostra uma comparação entre os novos detalhes de exportação e os antigos" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Imagens que mostram uma comparação entre detalhes antigos e novos detalhes de exportação." lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## <a name="additional-information"></a>Informações adicionais
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ef0aa8ba1983ca30fd44c27fe570b6b5f51733a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5105df5793d37b166b017585a62c962933a0b019
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101746688"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081043"
 ---
 ## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a> Criar um WebJob programado
 
@@ -31,7 +31,7 @@ ms.locfileid: "101746688"
     
     | Definição      | Valor da amostra   |
     | ------------ | ----------------- | 
-    | <abbr title="Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais para além `-` de `_` .">Name</a> | mySchededWebJob |  |
+    | <abbr title="Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais para além `-` de `_` .">Name</a> | mySchededWebJob | 
     | <abbr title="Um *ficheiro .zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script.">Upload de ficheiros</abbr> | ConsoleApp.zip |
     | <abbr title="Os tipos incluem contínuo, desencadeado.">Tipo</abbr> | Desencadeado |
     | <abbr title="Para que o agendamento funcione de forma fiável, ative a funcionalidade Always On. Always On está disponível apenas nos níveis de preços Básico, Standard e Premium.">Acionadores</a> | Agendado |

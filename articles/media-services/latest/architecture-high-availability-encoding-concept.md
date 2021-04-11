@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a87525248273db38e4e7bc8d1b59bbd9f99bb4c6
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: c334888f5b85b0d2211225282680d5f791b50793
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106995"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277883"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Alta Disponibilidade com Serviços de Mídia e Vídeo a Pedido (VOD)
 
@@ -61,7 +61,7 @@ Este diagrama de alto nível mostra a arquitetura da amostra fornecida para come
 
 * [Criar](./account-create-how-to.md) duas (ou mais) contas Azure Media Services. As duas contas têm de ser em diferentes regiões. Para mais informações, consulte [regiões em que o serviço Azure Media Services está implantado.](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 * Faça o upload dos seus meios de comunicação para a mesma região a partir da qual planeia submeter o trabalho. Para obter mais informações sobre como começar a codificar, consulte [Criar uma entrada de trabalho a partir de um URL HTTPS](./job-input-from-http-how-to.md) ou [criar uma entrada de trabalho a partir de um ficheiro local](./job-input-from-local-file-how-to.md).
-* Se então precisar de reenviar o [trabalho](./transforms-jobs-concept.md) para outra região, pode utilizar `JobInputHttp` ou utilizar para copiar os `Copy-Blob` dados do recipiente de origem Para um contentor de Ativos na região alternativa.
+* Se então precisar de reenviar o [trabalho](./transform-jobs-concept.md) para outra região, pode utilizar `JobInputHttp` ou utilizar para copiar os `Copy-Blob` dados do recipiente de origem Para um contentor de Ativos na região alternativa.
 
 ### <a name="monitoring"></a>Monitorização
 
@@ -72,10 +72,10 @@ Este diagrama de alto nível mostra a arquitetura da amostra fornecida para come
 
     Para obter mais informações:
 
-    * Consulte a [amostra Audio Analytics](./transforms-jobs-concept.md) que mostra como monitorizar um trabalho com a Azure Event Grid, incluindo a adição de um recuo no caso de as mensagens Azure Event Grid se atrasarem por alguma razão.
+    * Consulte a [amostra Audio Analytics](./transform-jobs-concept.md) que mostra como monitorizar um trabalho com a Azure Event Grid, incluindo a adição de um recuo no caso de as mensagens Azure Event Grid se atrasarem por alguma razão.
     * Veja os esquemas da [Grelha de Eventos Azure para eventos de Serviços de Mídia](./media-services-event-schemas.md).
 
-* Quando se cria um [emprego:](./transforms-jobs-concept.md)
+* Quando se cria um [emprego:](./transform-jobs-concept.md)
     * Selecione aleatoriamente uma conta da lista de contas atualmente utilizadas (esta lista normalmente conterá ambas as contas, mas se forem detetadas questões pode conter apenas uma conta). Se a lista estiver vazia, levante um alerta para que um operador possa investigar.
     * Crie um registo para acompanhar cada trabalho de voo e a região/conta utilizada.
 * Quando o seu `JobStateChange` encarregado receber a notificação de que um trabalho atingiu o estado programado, registe o tempo que entra no estado programado e na região/conta utilizada.

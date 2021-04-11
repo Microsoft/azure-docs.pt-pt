@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f8a82eddfdc7a2a4899c4ee836687df26101bdc
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526607"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221896"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop
 
@@ -44,6 +44,26 @@ As tabelas que se seguem comparam as soluções de armazenamento que o Azure Sto
 |Integração do Azure Active Directory|[Diretório Ativo Nativo e Serviços de Domínio do Diretório Ativo Azure](../storage/files/storage-files-active-directory-overview.md)|[Serviços de domínio do diretório ativo Azure e diretório ativo nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Diretório Ativo Nativo ou Suporte de Serviços de Domínio de Diretório Ativo Azure apenas|
 
 Assim que tiver escolhido o seu método de armazenamento, consulte [os preços do Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) para obter informações sobre os nossos planos de preços.
+
+## <a name="azure-files-tiers"></a>Níveis de Ficheiros Azure
+
+A Azure Files oferece dois níveis diferentes de armazenamento: premium e standard. Estes níveis permitem-lhe adaptar o desempenho e o custo das suas ações de ficheiros para satisfazer os requisitos do seu cenário.
+
+- As ações de ficheiros premium são apoiadas por unidades de estado sólido (SSDs) e são implantadas no tipo de conta de armazenamento de armazenamento FileStorage. As ações de ficheiros premium proporcionam um desempenho consistente e baixa latência para cargas de trabalho intensivas de entrada e produção (IO). 
+
+- As ações de ficheiros standard são apoiadas por discos rígidos (HDDs) e são implantadas no tipo de conta de armazenamento versão 2 (GPv2) para fins gerais. As ações de ficheiros standard proporcionam um desempenho fiável para cargas de trabalho io menos sensíveis à variabilidade do desempenho, tais como ações de ficheiros de uso geral e ambientes dev/teste. As ações de ficheiros padrão só estão disponíveis num modelo de faturação paga.
+
+A tabela a seguir enumera as nossas recomendações para as quais o nível de desempenho utilizar com base na sua carga de trabalho. Estas recomendações irão ajudá-lo a selecionar o nível de desempenho que cumpre os seus objetivos de desempenho, orçamento e considerações regionais. Baseamos estas recomendações nos cenários de exemplo dos tipos de carga de [trabalho de desktop remoto.](/windows-server/remote/remote-desktop-services/remote-desktop-workloads) 
+
+| Tipo de carga de trabalho | Nível de arquivo recomendado |
+|--------|-----------|
+| Luz (menos de 200 utilizadores) | Ações de ficheiros padrão |
+| Luz (mais de 200 utilizadores) | Ações de ficheiros premium ou padrão com várias ações de ficheiros |
+|Médio|Ações de ficheiros premium|
+|Pesado|Ações de ficheiros premium|
+|Energia|Ações de ficheiros premium|
+
+Para obter mais informações sobre o desempenho dos Ficheiros Azure, consulte [os alvos da partilha de ficheiros e da escala de ficheiros](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets). Para obter mais informações sobre preços, consulte [os preços da Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 24c181c17e49fe5b7c3001c1cb2839bc957ef463
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712322"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490493"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorização da conectividade da rede com monitor de ligação
 
@@ -287,12 +287,12 @@ Nos monitores de ligação que foram criados antes da experiência do Monitor de
 
 Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/networkWatchers/connectionMonitors
 
-| Metric | Nome a apresentar | Unidade | Tipo de agregação | Description | Dimensões |
+| Metric | Nome a apresentar | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent (clássico) | % Sondas Falhadas (clássica) | Percentagem | Média | A percentagem de sondas de monitorização de conectividade falhou. | Sem dimensões |
 | MédiasRoundtripMs (clássico) | Avg. Tempo de ida e volta (ms) (clássico) | Milissegundos | Média | Rede média RTT para sondas de monitorização de conectividade enviadas entre a fonte e o destino. |             Sem dimensões |
-| ChequesFailedPercent | % Verificações falhadas | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs | Tempo de ida e volta (ms) | Milissegundos | Média | RTT para verificações enviadas entre a fonte e o destino. Este valor não é mediado. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ChequesFailedPercent | % Verificações falhadas | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
+| RoundTripTimeMs | Tempo de ida e volta (ms) | Milissegundos | Média | RTT para verificações enviadas entre a fonte e o destino. Este valor não é mediado. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 | TesteResult | Resultado do teste | de palavras | Média | Resultado do teste do monitor de ligação | FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>FonteSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas métricos para o Monitor de Ligação
@@ -358,6 +358,8 @@ Para as redes cujas fontes são Azure VMs, podem ser detetadas as seguintes ques
     * O túnel entre dois portais está desligado ou desaparecido.
     * O segundo portal não foi encontrado perto do túnel.
     * Nenhuma informação foi encontrada.
+> [!NOTE]
+> Se existem 2 portas de entrada conectadas e uma delas não se encontra na mesma região que o ponto final de origem, a CM identifica-a como uma "saída sem rota aprendida" para a vista topologia. A conectividade não é impactada. Esta é uma questão conhecida e está em curso uma correção. 
 * Faltava a rota no Microsoft Edge.
 * O trânsito parou por causa das vias do sistema ou da UDR.
 * BGP não está ativado na ligação do gateway.

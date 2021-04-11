@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: 13bf0f2430e0d58dd9ef28061aad897acf94ac3f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ffae530bcd8a7274b4b75c447591cf619012661
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493055"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106387065"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Voz Personalizada?
 
@@ -81,7 +81,7 @@ Para criar o seu primeiro projeto, selecione **Speech-to-text/Custom speech** e,
 
 ## <a name="model-and-endpoint-lifecycle"></a>Modelo e ciclo de vida Endpoint
 
-Os modelos mais antigos costumam tornar-se menos úteis ao longo do tempo, porque o modelo mais recente geralmente tem maior precisão. Por isso, os modelos base, bem como os modelos personalizados e os pontos finais criados através do portal estão sujeitos a expiração após 1 ano para adaptação e 2 anos para descodição. Consulte uma descrição detalhada no artigo do [ciclo de vida Model and Endpoint.](./how-to-custom-speech-model-and-endpoint-lifecycle.md)
+Os modelos mais antigos costumam tornar-se menos úteis ao longo do tempo, porque o modelo mais recente geralmente tem maior precisão. Por isso, os modelos base, bem como os modelos personalizados e os pontos finais criados através do portal estão sujeitos a expiração após 1 ano para adaptação e 2 anos para descodição. Consulte uma descrição detalhada no artigo do [modelo e do ciclo de vida do ponto final.](./how-to-custom-speech-model-and-endpoint-lifecycle.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

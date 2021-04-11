@@ -3,12 +3,12 @@ title: Registos de diagnóstico para ligações híbridas
 description: Este artigo fornece uma visão geral de todos os registos de atividade e diagnóstico que estão disponíveis para Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590880"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079102"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Ativar registos de diagnóstico para ligações híbridas Azure Relay
 Quando começar a utilizar as suas Ligações Híbridas Azure Relay, talvez queira monitorizar como e quando os seus ouvintes e remetentes são abertos e fechados, e como as suas Ligações Híbridas são criadas e as mensagens são enviadas. Este artigo fornece uma visão geral dos registos de atividade e diagnóstico fornecidos pelo serviço Azure Relay. 
@@ -80,29 +80,29 @@ Aqui está um evento de conexões híbridas de amostra no formato JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Eventos e operações capturados em registos de diagnóstico
 
-| Operação | Description | 
-| --------- | ----------- | 
-| Autorizações Destruídas | A autorização falhou.|
-| InvalidSasToken | Ficha SAS inválida. | 
-| EscutaAcceptingConnection | O ouvinte está a aceitar a ligação. |
-| ListenerAcceptingConnectionTimeout | O ouvinte que aceita a ligação está esgotado. |
-| OuvinteAcceptingHttpRequestFailed | O ouvinte que aceita o pedido HTTP falhou devido a uma exceção. |
-| ListenerAcceptingRequestTimeout | O ouvinte que aceita o pedido está esgotado. |  
-| ListenerClosingFromExpiredToken | O ouvinte está a fechar porque o sinal de segurança expirou. | 
-| EscutarRejectedConnection | O ouvinte rejeitou a ligação. |
-| OuvinteReturningHttpResponse | O ouvinte está a devolver uma resposta HTTP. |  
-| OuvinteReturningHttpResponseFailed | O ouvinte está a devolver uma resposta HTTP com um código de falha. | 
- ListenerSentHttpResponse | O serviço de retransmissão recebeu uma resposta HTTP do ouvinte. | 
-| OuvinteUntrosserado | O ouvinte não está registado. | 
-| OuvinteUnresponsive | O ouvinte não responde ao devolver uma resposta. | 
-| MensagensEndingToListener | A mensagem está a ser enviada ao ouvinte. |
-| MensagensToListener | A mensagem é enviada ao ouvinte. | 
-| NewListenerRegistered | Novo ouvinte registado. |
-| NewSenderRegistering | O novo remetente está a registar-se. | 
-| ProcessamentoRequestFailed | O processamento de uma operação de ligação híbrida falhou. | 
-| SenderConnectionClosed | A ligação do remetente está fechada. |
-| SenderListenerConnectionEstablished | O remetente e o ouvinte estabeleceram a ligação com sucesso. |
-| SenderSentHttpRequest | O remetente enviou um pedido HTTP. | 
+| Operação                           | Description                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| Autorizações Destruídas                 | A autorização falhou.                                           |
+| InvalidSasToken                     | Ficha SAS inválida.                                              |
+| EscutaAcceptingConnection         | O ouvinte está a aceitar a ligação.                           |
+| ListenerAcceptingConnectionTimeout  | O ouvinte que aceita a ligação está esgotado.                |
+| OuvinteAcceptingHttpRequestFailed  | O ouvinte que aceita o pedido HTTP falhou devido a uma exceção. |
+| ListenerAcceptingRequestTimeout     | O ouvinte que aceita o pedido está esgotado.                   |
+| ListenerClosingFromExpiredToken     | O ouvinte está a fechar porque o sinal de segurança expirou. |
+| EscutarRejectedConnection          | O ouvinte rejeitou a ligação.                       |
+| OuvinteReturningHttpResponse       | O ouvinte está a devolver uma resposta HTTP.                     |
+| OuvinteReturningHttpResponseFailed | O ouvinte está a devolver uma resposta HTTP com um código de falha. |
+| ListenerSentHttpResponse            | O serviço de retransmissão recebeu uma resposta HTTP do ouvinte.  |
+| OuvinteUntrosserado                | O ouvinte não está registado.                                   |
+| OuvinteUnresponsive                | O ouvinte não responde ao devolver uma resposta.         |
+| MensagensEndingToListener            | A mensagem está a ser enviada ao ouvinte.                              |
+| MensagensToListener               | A mensagem é enviada ao ouvinte.                                    |
+| NewListenerRegistered               | Novo ouvinte registado.                                        |
+| NewSenderRegistering                | O novo remetente está a registar-se.                                      |
+| ProcessamentoRequestFailed             | O processamento de uma operação de ligação híbrida falhou.     |
+| SenderConnectionClosed              | A ligação do remetente está fechada.                                |
+| SenderListenerConnectionEstablished | O remetente e o ouvinte estabeleceram a ligação com sucesso.    |
+| SenderSentHttpRequest               | O remetente enviou um pedido HTTP.                                |
 
 
 ## <a name="next-steps"></a>Passos seguintes

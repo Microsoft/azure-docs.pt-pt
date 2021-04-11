@@ -8,13 +8,13 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/27/2020
-ms.openlocfilehash: b0b2dd9904682121c83b22b9029097e7ee57fb11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/02/2021
+ms.openlocfilehash: 0a9b1a746a5228ba958b9c1c0cca38b088ca1176
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96303761"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222242"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos na Pesquisa Cognitiva Azure
 
@@ -41,7 +41,7 @@ O seguinte documento JSON é composto por campos simples e campos complexos. Cam
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
-  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"],
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",

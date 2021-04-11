@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/17/2020
+ms.date: 03/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2ac8633e48c98b9e1d778ac1d07835683e00e1c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fecb84196ba736120273955b2c88af8cb4dadea
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102424483"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095820"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Etiquetas de imagem de contentores Azure Cognitive Services e notas de lançamento
 
@@ -1355,6 +1355,24 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis. Também pode 
 | `3.0-nl`   | Análise de Sentimento v3 (Holandês)                 |
 | `2.1`    | Análise de Sentimento v2      |
 
+
+## <a name="text-analytics-for-health"></a>Análise de Texto para a saúde
+
+O Text Analytics para a imagem do recipiente [de saúde][ta-he] pode ser encontrado no sindicato do `mcr.microsoft.com` registo do contentor. Reside dentro do `azure-cognitive-services/textanalytics/` repositório e é `healthcare` nomeado. O nome de imagem de recipiente totalmente qualificado é `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`
+
+Esta imagem do recipiente tem as seguintes etiquetas disponíveis. Também pode encontrar uma lista completa de [tags no MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/healthcare/tags/list).
+
+
+Notas de lançamento `3.0.015490002-onprem-amd64` para:
+
+* nova versão modelo `2021-03-01`
+* Contentor libertado para MCR.
+
+| Etiquetas de imagem | Notas                                         |
+|------------|:----------------------------------------------|
+| `latest`   |                                               |
+| `3.0.015490002-onprem-amd64`   |               |
+
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
@@ -1369,3 +1387,4 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis. Também pode 
 [ta-kp]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-la]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-se]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[ta-he]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare

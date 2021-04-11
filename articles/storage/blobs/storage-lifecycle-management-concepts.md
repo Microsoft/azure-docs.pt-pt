@@ -1,20 +1,20 @@
 ---
 title: Otimizar os custos automatizando os níveis de acesso ao armazenamento Azure Blob
 description: Crie regras automatizadas para mover dados entre os níveis quentes, frescos e de arquivo.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0b9f3b5728e4604d7c51c1d49196cfcf1161aef
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005287"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278036"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Otimizar os custos automatizando os níveis de acesso ao armazenamento Azure Blob
 
@@ -317,9 +317,9 @@ Os filtros incluem:
 
 | Nome do filtro | Tipo de filtro | Notas | é necessário |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enum predefinidos. | O lançamento atual suporta `blockBlob` e `appendBlob` . Apenas a eliminação é suportada para `appendBlob` , o nível definido não é suportado. | Yes |
-| prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
-| blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
+| blobTypes   | Uma matriz de valores de enum predefinidos. | O lançamento atual suporta `blockBlob` e `appendBlob` . Apenas a eliminação é suportada para `appendBlob` , o nível definido não é suportado. | Sim |
+| prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
+| blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
 
 > [!NOTE]
 > O Blob Index está em pré-visualização pública, e está disponível nas regiões central do **Canadá,** **Canadá Oriental,** **France Central** e **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).
@@ -342,7 +342,7 @@ A gestão do ciclo de vida suporta o tiering e a eliminação de bolhas, versõe
 
 As condições de execução baseiam-se na idade. As bolhas de base utilizam o último tempo modificado, as versões blob usam o tempo de criação da versão, e os instantâneos blob usam o tempo de criação do instantâneo para rastrear a idade.
 
-| Condição de execução de ação               | Valor da condição                          | Description                                                                      |
+| Condição de execução de ação               | Valor da condição                          | Descrição                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | dias Após aModificaçãoGreaterThan   | Valor inteiro indicando a idade em dias | A condição para as ações de blob base                                              |
 | dias Após ACreationGreaterThan       | Valor inteiro indicando a idade em dias | A condição para a versão blob e ações de snapshot blob                         |

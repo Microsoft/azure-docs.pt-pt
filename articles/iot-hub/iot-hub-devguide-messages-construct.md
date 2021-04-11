@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 6d6b7122963b51619f26b8d02a8be4ad39261afb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21f22f9aa31210b1690d0be562643d94901ce58a
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147700"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079051"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -71,7 +71,7 @@ Para obter mais informações sobre como codificar e descodificar mensagens envi
 | mensagem id |Um identificador de padrão de utilizador para a mensagem utilizada para padrões de resposta a pedidos. Formato: Uma corda sensível a casos (até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` .  |Yes|
 | sequência-número |Um número (único por fila de dispositivos) atribuído pelo IoT Hub a cada mensagem nuvem-para-dispositivo. |No|
 | para |Um destino especificado nas mensagens [Cloud-to-Device.](iot-hub-devguide-c2d-guidance.md) |No|
-| prazo de absoluta expiração |Data e hora da validade da mensagem. |No|   |
+| prazo de absoluta expiração |Data e hora da validade da mensagem. |No| 
 | correlation-id |Uma propriedade de cadeia numa mensagem de resposta que normalmente contém o MessageId do pedido, em padrões de resposta de pedido. |Yes|
 | user-id |Um ID usado para especificar a origem das mensagens. Quando as mensagens são geradas pelo IoT Hub, é definido para `{iot hub name}` . |Yes|
 | iothub-ack |Um gerador de mensagens de feedback. Esta propriedade é usada em mensagens nuvem-dispositivo para solicitar ioT Hub para gerar mensagens de feedback como resultado do consumo da mensagem pelo dispositivo. Valores possíveis: **nenhum** (predefinido): nenhuma mensagem de feedback é gerada, **positiva:** receber uma mensagem de feedback se a mensagem foi concluída, **negativa:** receber uma mensagem de feedback se a mensagem expirou (ou a contagem máxima de entrega foi atingida) sem ser completada pelo dispositivo, ou **completa:** positiva e negativa. |Yes|

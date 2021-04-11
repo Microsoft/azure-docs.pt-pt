@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/5/2021
-ms.openlocfilehash: 2966618619aa40ed60c2f3d0fb2c8e080d34a016
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/24/2021
+ms.openlocfilehash: 7d6baee49250509e50cdeeea8cf8ca6cec5b362d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617051"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222171"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificações personalizadas em Azure Purview
 
@@ -28,7 +28,7 @@ Você também tem a capacidade de criar classificações personalizadas, se algu
 
 ## <a name="steps-to-create-a-custom-classification"></a>Passos para criar uma classificação personalizada
 
-Para criar uma classificação personalizada, faça o seguinte:
+Para criar uma classificação personalizada, siga estes passos:
 
 1. No seu catálogo, selecione **Management Center** a partir do menu esquerdo.
 
@@ -68,7 +68,7 @@ Estes detalhes incluem a contagem de quantas ocorrências existem, o nome formal
 
 ## <a name="custom-classification-rules"></a>Regras de classificação personalizadas
 
-O serviço de catálogo fornece um conjunto de regras de classificação predefinidos, que são usadas pelo scanner para detetar automaticamente certos tipos de dados. Também pode adicionar as suas próprias regras de classificação personalizadas para detetar outros tipos de dados que poderá estar interessado em encontrar através do seu espólio de dados. Esta capacidade pode ser muito poderosa quando \' está a tentar encontrar dados dentro do seu espólio de dados.
+O serviço de catálogo fornece um conjunto de regras de classificação predefinidos, que são usadas pelo scanner para detetar automaticamente certos tipos de dados. Também pode adicionar as suas próprias regras de classificação personalizadas para detetar outros tipos de dados que poderá estar interessado em encontrar através do seu espólio de dados. Esta capacidade pode ser poderosa quando se está a tentar encontrar dados dentro da sua propriedade de dados.
 
 Como exemplo, digamos \' que uma empresa chamada Contoso tem IDs de empregados que são padronizados em toda a empresa com a palavra Empregado seguido por um GUID para criar \" \" EMPLOYEE{GUID}. Por exemplo, um exemplo de identificação de um empregado `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55` parece.
 
@@ -97,7 +97,7 @@ Para criar uma regra de classificação personalizada:
    |Campo     |Descrição  |
    |---------|---------|
    |Nome   |    Obrigatório. O máximo é de 100 caracteres.    |
-   |Description      |Opcional. O máximo é de 256 caracteres.    |
+   |Descrição      |Opcional. O máximo é de 256 caracteres.    |
    |Nome de classificação    | Obrigatório. Selecione o nome da classificação da lista de drop-down para dizer ao scanner para aplicá-lo se for encontrada uma correspondência.        |
    |Estado   |  Obrigatório. As opções estão ativadas ou desativadas. Ativado é o padrão.    |
 
@@ -109,7 +109,7 @@ Para criar uma regra de classificação personalizada:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Criar nova regra regex" border="true":::
 
-1. Se decidir gerar um padrão regex sugerido, depois de carregar um ficheiro, selecione um dos padrões sugeridos e clique em **Adicionar a Padrões para** usar os padrões de dados e colunas sugeridos. Pode ajustar os padrões sugeridos ou também escrever os seus próprios padrões sem carregar um ficheiro.
+1. Se decidir gerar um padrão regex sugerido, depois de carregar um ficheiro, selecione um dos padrões sugeridos e **selecione Adicionar a Padrões para** usar os padrões de dados e colunas sugeridos. Pode ajustar os padrões sugeridos ou também escrever os seus próprios padrões sem carregar um ficheiro.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Gerar regex sugerido" border="true":::
 
@@ -128,6 +128,14 @@ Para criar uma regra de classificação personalizada:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Verifique a regra antes de criar" border="true":::
 
+1. Teste a regra de classificação antes de concluir o processo de criação para validar que aplicará etiquetas aos seus ativos. As classificações na regra serão aplicadas aos dados da amostra enviados tal como fariam numa varredura. Isto significa que todas as classificações do sistema e a sua classificação personalizada serão correspondidas aos dados do seu ficheiro.
+
+   Os ficheiros de entrada podem incluir ficheiros delimitados (CSV, PSV, SSV, TSV), JSON ou conteúdo XML. O conteúdo será analisado com base na extensão do ficheiro de entrada. Os dados delimitados podem ter uma extensão de ficheiro que corresponda a qualquer um dos tipos mencionados. Por exemplo, os dados da TSV podem existir num ficheiro nomeado MySampleData.csv. O conteúdo delimitado também deve ter um mínimo de 3 colunas.
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Regra de teste antes de criar" border="true":::
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-uploaded-file-result-screen.png" alt-text="Ver classificações aplicadas após o upload de um ficheiro de teste" border="true":::
+
 ### <a name="creating-a-dictionary-rule"></a>Criar uma regra do dicionário
 
 1. Se criar uma regra do dicionário, verá o seguinte ecrã. Faça upload de um ficheiro que contenha todos os valores possíveis para a classificação que está a criar numa única coluna.
@@ -136,9 +144,9 @@ Para criar uma regra de classificação personalizada:
 
 1. Após a geração do dicionário, pode ajustar os limiares de correspondência e de correspondência mínimos e submeter a regra.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Regra do dicionário de visão - ajuste o limiar de correspondência distinto e o limiar mínimo de correspondência" border="true":::
+- **Limiar de correspondência distinto**: O número total de valores de dados distintos que precisam de ser encontrados numa coluna antes que o scanner executa o padrão de dados nele. O limiar de correspondência distinto não tem nada a ver com a correspondência de padrões, mas é um pré-requisito para a correspondência de padrões. O valor sugerido é 8. Este valor pode ser ajustado manualmente num intervalo de 2 a 32. O sistema requer este valor para se certificar de que a coluna contém dados suficientes para que o scanner o classifique com precisão. Por exemplo, uma coluna que contenha várias linhas que contenham o valor 1 não será classificada. Colunas que contêm uma linha com um valor e o resto das linhas têm valores nulos também não serão classificados. Se especificar vários padrões, este valor aplica-se a cada um deles.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Crie a regra do dicionário, com a marca de verificação gerada pelo dicionário." border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Crie a regra do dicionário, com Dictionary-Generated marca de verificação." border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

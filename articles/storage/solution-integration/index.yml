@@ -12,12 +12,12 @@ metadata:
   author: beber-msft
   ms.author: beber
   ms.date: 03/15/2021
-  ms.openlocfilehash: 5d2c7d767fd678867175481c0b837c1aa11ecf33
-  ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+  ms.openlocfilehash: 9afce884fd08cfef50f176f0fcf4e5f0703d1cc2
+  ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/16/2021
-  ms.locfileid: "103562455"
+  ms.lasthandoff: 04/02/2021
+  ms.locfileid: "106221913"
 landingContent:
 - title: Analytics e grandes parceiros de dados
   linkLists:
@@ -49,6 +49,8 @@ landingContent:
     links:
     - text: Parceiros validados de gestão de dados e migração
       url: .\validated-partners\data-management\partner-overview.md
+    - text: Comparação de ferramentas de migração
+      url: ./validated-partners/data-management/migration-tools-comparison.md
 - title: Parceiros de armazenamento primário e secundário
   linkLists:
   - linkListType: overview

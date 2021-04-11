@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/08/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 0ad760caedffa97599548b8dd1b59a887b5690af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 89e648099a5ac6d905f475319cc108dd0d05a6e9
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105105414"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081059"
 ---
 Dependendo do sistema operativo do cliente, os procedimentos para ligar remotamente ao dispositivo são diferentes.
 
@@ -58,8 +58,15 @@ Siga estes passos para ligar remotamente a partir de um cliente Windows.
 
     Se vir um erro relacionado com a relação de confiança, verifique se a cadeia de assinatura do certificado de nó enviado para o seu dispositivo também está instalada no cliente que acede ao seu dispositivo.
 
+    Se não estiver a utilizar os certificados (recomendamos que utilize os certificados!), pode ignorar esta verificação utilizando as opções de sessão: `-SkipCACheck -SkipCNCheck -SkipRevocationCheck` .
+
+    ```powershell
+    $sessOptions = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck 
+    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell -UseSSL -SessionOption $sessOptions    
+    ```
+
     > [!NOTE] 
-    > Quando utiliza a `-UseSSL` opção, está a remoe através do PowerShell *em https*. Recomendamos que utilize sempre *https* para ligar remotamente através do PowerShell. Embora uma sessão *em http* não seja o método de ligação mais seguro, é aceitável em redes fidedignas.
+    > Quando utiliza a `-UseSSL` opção, está a remoe através do PowerShell *em https*. Recomendamos que utilize sempre *https* para ligar remotamente através do PowerShell. 
 
 6. Forneça a palavra-passe quando solicitado. Use a mesma palavra-passe que é usada para iniciar súm na UI web local. A senha de acesso web local padrão é *Password1*. Quando se liga com sucesso ao dispositivo utilizando o PowerShell remoto, vê a seguinte saída da amostra:  
 
@@ -77,27 +84,30 @@ Siga estes passos para ligar remotamente a partir de um cliente Windows.
     [10.100.10.10]: PS>
     ```
 
-### <a name="remotely-connect-from-a-linux-client"></a>Ligação remota de um cliente Linux
+> [!IMPORTANT]
+> Na versão atual, pode ligar-se à interface PowerShell do dispositivo apenas através de um cliente Windows. A `-UseSSL` opção não funciona com os clientes Linux.
 
-No cliente Linux que utilizará para ligar:
+<!--### Remotely connect from a Linux client-->
 
-- [Instale o mais recente PowerShell Core para Linux](/powershell/scripting/install/installing-powershell-core-on-linux) do GitHub para obter a função de remoting SSH. 
-- [Instale apenas a `gss-ntlmssp` embalagem a partir do módulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Para clientes Ubuntu, utilize o seguinte comando:
+<!--On the Linux client that you'll use to connect:
+
+- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
+- [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
     - `sudo apt-get install gss-ntlmssp`
 
-Para obter mais informações, aceda ao [PowerShell remoing sobre SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
+For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
-Siga estes passos para ligar remotamente a um cliente NFS.
+Follow these steps to remotely connect from an NFS client.
 
-1. Para abrir a sessão PowerShell, escreva:
+1. To open PowerShell session, type:
 
     `pwsh`
  
-2. Para ligar utilizando o cliente remoto, escreva:
+2. For connecting using the remote client, type:
 
     `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
-    Quando solicitado, forneça a palavra-passe utilizada para iniciar sedutar no seu dispositivo.
+    When prompted, provide the password used to sign into your device.
  
 > [!NOTE]
-> Este procedimento não funciona no Mac OS.
+> This procedure does not work on Mac OS.-->

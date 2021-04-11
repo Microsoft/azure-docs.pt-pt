@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef4eb3eb55ec1f062efb0f8215a3619f526b1ad2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103011940"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063989"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com Serviços de Media v2
 
@@ -753,7 +753,7 @@ Nesta secção, cria-se a capacidade de lidar com a redundância.
 
 O exemplo neste tópico mostra um streaming claro. Se quiser fazer streaming protegido, há algumas outras coisas que precisa de configurar, precisa de utilizar o mesmo **AssetDeliveryPolicy**, o mesmo **ContentKeyAuthorizationPolicy** ou URL de servidor de chave externa, e precisa de duplicar as teclas de conteúdo com o mesmo identificador.
 
-Para obter mais informações sobre a proteção de conteúdos, consulte [a encriptação dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
+Para obter mais informações sobre a proteção de conteúdos, consulte [a encriptação dinâmica AES-128 e o serviço de entrega de chaves](media-services-playready-license-template-overview.md).
 
 ## <a name="see-also"></a>Ver também
 

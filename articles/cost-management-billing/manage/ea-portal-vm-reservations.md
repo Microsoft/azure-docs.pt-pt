@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98597952"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220905"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM do Azure EA
 
@@ -96,7 +96,7 @@ Nos cenários em que os clientes Azure EA tiverem utilizado a totalidade do Pré
 
 ### <a name="reserved-instance-expiration"></a>Expiração de instâncias reservadas
 
-Receberá notificações por e-mail 30 dias antes da reserva e na data de expiração. Assim que a reserva expirar, as VMs implementadas continuam a ser executadas e são faturadas a um preço pay as you go. Para obter mais informações, veja a oferta de [Instâncias de Máquina Virtual Reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Receberá notificações por e-mail, primeiro uma 30 dias antes do fim da reserva e outra no termo da sua reserva. Assim que a reserva expirar, as VMs implementadas continuam a ser executadas e são faturadas a um preço pay as you go. Para obter mais informações, veja a oferta de [Instâncias de Máquina Virtual Reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

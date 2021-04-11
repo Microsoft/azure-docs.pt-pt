@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 889a04d68de45a6270ae0c38615d841a526ad86a
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052148"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490697"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configure a monitorização em VM insights saúde dos hóspedes usando regras de recolha de dados (pré-visualização)
 [A saúde do hóspede](vminsights-health-overview.md) permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como pode modificar a monitorização predefinitiva em várias máquinas virtuais usando regras de recolha de dados.
@@ -19,7 +19,7 @@ ms.locfileid: "102052148"
 ## <a name="monitors"></a>Monitores
 O estado de saúde de uma máquina virtual é determinado pelo [rollup de saúde](vminsights-health-overview.md#health-rollup-policy) de cada um dos seus monitores. Existem dois tipos de monitores em conhecimentos VM saúde dos hóspedes, como mostrado na tabela seguinte.
 
-| Monitor | Description |
+| Monitor | Descrição |
 |:---|:---|
 | Monitor de unidade | Mede algum aspeto de um recurso ou aplicação. Pode estar a verificar um contador de desempenho para determinar o desempenho do recurso ou a sua disponibilidade. |
 | Monitor de Agregação | Agrupa vários monitores para proporcionar um único estado de funcionamento agregado. Um monitor agregado pode conter um ou mais monitores de unidade e outros monitores agregados. |
@@ -29,7 +29,7 @@ O conjunto de monitores utilizados pela Saúde dos Hóspedes e a sua configuraç
 ## <a name="monitor-properties"></a>Monitorizar propriedades
 A tabela seguinte descreve as propriedades que podem ser configuradas em cada monitor.
 
-| Propriedade | Monitores | Description |
+| Propriedade | Monitores | Descrição |
 |:---|:---|:---|
 | Ativado | Agregação<br>Unidade | Se for verdade, o monitor estatal é calculado e contribui para a saúde da máquina virtual. Pode desencadear um alerta de alerta. |
 | Alertas | Agregação<br>Unidade | Se for verdade, um alerta é acionado para o monitor quando se desloca para um estado pouco saudável. Se for falso, o estado do monitor continuará a contribuir para a saúde da máquina virtual, o que poderá desencadear um alerta. |
@@ -102,9 +102,9 @@ A saúde dos hóspedes é implementada como uma extensão ao agente Azure Monito
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `name` | Sim | Cadeia definida pelo utilizador para a extensão. |
-| `streams` | Yes | Lista de streams para os que os dados de saúde dos hóspedes serão enviados. Isto deve incluir **microsoft-HealthStateChange**.  |
-| `extensionName` | Yes | O nome da extensão. Esta deve ser **a HealthExtension**. |
-| `extensionSettings` | Yes | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
+| `streams` | Sim | Lista de streams para os que os dados de saúde dos hóspedes serão enviados. Isto deve incluir **microsoft-HealthStateChange**.  |
+| `extensionName` | Sim | O nome da extensão. Esta deve ser **a HealthExtension**. |
+| `extensionSettings` | Sim | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
 
 
 ## <a name="extensionsettings-element"></a>extensãoSelementos elemento
@@ -122,7 +122,7 @@ Contém definições para a extensão.
 |:---|:---|:---|
 | `schemaVersion` | Sim | Cadeia definida pela Microsoft para representar o esquema esperado do elemento. Atualmente deve ser definido para 1.0 |
 | `contentVersion` | No | Cadeia definida pelo utilizador para rastrear diferentes versões da configuração de saúde, se necessário. |
-| `healthRuleOverrides` | Yes | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
+| `healthRuleOverrides` | Sim | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
 
 ## <a name="healthrulesoverrides-element"></a>healthRulesOverrides elemento
 Contém um ou mais `healthRuleOverride` elementos que cada um define uma sobreposição.
@@ -142,7 +142,7 @@ Contém um ou mais `healthRuleOverride` elementos que cada um define uma sobrepo
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `scopes` | Sim | Lista de um ou mais âmbitos que especificam as máquinas virtuais às quais esta sobreposição é aplicável. Mesmo que o DCR esteja associado a uma máquina virtual, a máquina virtual deve estar dentro de uma margem para que o sobreposição seja aplicado. |
-| `monitors` | Yes | Lista de uma ou mais cordas que definem quais os monitores que receberão esta sobreposição.  |
+| `monitors` | Sim | Lista de uma ou mais cordas que definem quais os monitores que receberão esta sobreposição.  |
 | `monitorConfiguration` | No | Configuração para o monitor, incluindo estados de saúde e como são calculados. |
 | `alertConfiguration` | No | Configuração de alerta para o monitor. |
 | `isEnabled` | No | Controla se o monitor está ativado ou não. O monitor desativado muda para estado especial de saúde *para deficientes* e está incapacitado, a menos que seja reativado. Se omitido, o monitor herdará o seu estatuto do monitor dos pais na hierarquia. |
@@ -175,17 +175,17 @@ Lista de uma ou mais cordas que definem quais os monitores na hierarquia da saú
 A tabela que se segue lista os nomes atuais do monitor disponível.
 
 | Nome do tipo | Nome | Descrição |
-|:---|:---|:---|
-| raiz | raiz | Monitor de nível superior que representa a saúde da máquina virtual. | |
-| cpu-utilização | cpu-utilização | Monitor de utilização do CPU. | |
-| discos lógicos | discos lógicos | Monitor agregado para o estado de saúde de todos os discos monitorizados na máquina virtual do Windows. | |
-| discos lógicos\|* | discos lógicos \| C:<br>discos lógicos \| D: | Monitor agregado de rastreio de um determinado disco na máquina virtual do Windows. | 
-| \| * \| espaço livre de discos lógicos | discos lógicos \| C: \| espaço livre<br>discos lógicos \| D: \| espaço livre | Monitor de espaço livre de disco na máquina virtual do Windows. |
+|:----------|:-----|:------------|
+| raiz | raiz | Monitor de nível superior que representa a saúde da máquina virtual. |
+| cpu-utilização | cpu-utilização | Monitor de utilização do CPU. |
+| discos lógicos | discos lógicos | Monitor agregado para o estado de saúde de todos os discos monitorizados na máquina virtual do Windows. |
+| discos lógicos\|\* | discos lógicos \| C:<br>discos lógicos \| D: | Monitor agregado de rastreio de um determinado disco na máquina virtual do Windows. |
+| \| \* \| espaço livre de discos lógicos | discos lógicos \| C: \| espaço livre<br>discos lógicos \| D: \| espaço livre | Monitor de espaço livre de disco na máquina virtual do Windows. |
 | sistemas de ficheiros | sistemas de ficheiros | Monitor agregado para a saúde de todos os sistemas de ficheiros na máquina virtual Linux. |
-| sistemas de ficheiros\|* | sistemas de ficheiros\|/<br>sistemas de ficheiros \| /mnt | Monitor agregado de rastreio de saúde de um sistema de ficheiros da máquina virtual Linux. | sistemas de ficheiros|/var/log |
-| sistemas de arquivos \| * \| espaço livre | sistemas de arquivos \| / \| espaço livre<br>sistemas de ficheiros \| /mnt \| free-space | Monitor de espaço livre de disco no sistema de ficheiros de máquina virtual Linux. | 
-| Memória | Memória | Monitor agregado para a saúde da memória da máquina virtual. | |
-| memória \| disponível| memória \| disponível | Monitorize a memória disponível na máquina virtual. | |
+| sistemas de ficheiros\|\* | sistemas de ficheiros\|/<br>sistemas de ficheiros \| /mnt | Monitor agregado de rastreio de saúde de um sistema de ficheiros da máquina virtual Linux. |
+| sistemas de arquivos \| \* \| espaço livre | sistemas de arquivos \| / \| espaço livre<br>sistemas de ficheiros \| /mnt \| free-space | Monitor de espaço livre de disco no sistema de ficheiros de máquina virtual Linux. |
+| Memória | Memória | Monitor agregado para a saúde da memória da máquina virtual. |
+| memória \| disponível | memória \| disponível | Monitorize a memória disponível na máquina virtual. |
 
 
 ## <a name="alertconfiguration-element"></a>elemento deconfiguração de alerta

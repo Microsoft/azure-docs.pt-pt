@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2a37d206955e3372b9ecf97be8d27142bd417192
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102428648"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490459"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
@@ -82,7 +82,7 @@ Ao configurar a conta, escolha estes valores:
 
 |Definição | Desempenho premium | Desempenho padrão  
 |----|---|---|
-|Localização|Todas as regiões disponíveis |Uma das seguintes regiões: Austrália Leste, Coreia Central e Centro Sul dos EUA   
+|Localização|Todas as regiões disponíveis |Uma das seguintes regiões: Austrália Leste, Coreia Central, Leste dos EUA e Centro Sul dos EUA   
 |Desempenho|Premium| Standard
 |Tipo de conta|BlockBlobStorage| V2 de uso geral
 |Replicação|Armazenamento localmente redundante (LRS)| Armazenamento localmente redundante (LRS)
