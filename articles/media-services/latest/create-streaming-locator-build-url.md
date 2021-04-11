@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 480b8ef401387863693bc88c3d508ce296636c93
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 8a192c3c3accf115b1a1db8e32a56d6d936078be
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107607"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277664"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de transmissão e compilar URLs
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-No Azure Media Services, para construir um URL de streaming, é necessário primeiro criar um [Localizador de Streaming.](streaming-locators-concept.md) Em seguida, concatena o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.*  Quando criar uma conta de Serviço de Mídia, este **Ponto Final de Streaming** *predefinido* estará num estado parado, pelo que precisa de ligar para **iniciar** o streaming.
+No Azure Media Services, para construir um URL de streaming, é necessário primeiro criar um [Localizador de Streaming.](stream-streaming-locators-concept.md) Em seguida, concatena o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.*  Quando criar uma conta de Serviço de Mídia, este **Ponto Final de Streaming** *predefinido* estará num estado parado, pelo que precisa de ligar para **iniciar** o streaming.
 
 Este artigo demonstra como criar um localizador de streaming e construir um URL de streaming usando Java e .NET SDKs.
 

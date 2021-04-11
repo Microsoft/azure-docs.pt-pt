@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: c0c7a6b25c15be2e521e0985c315baf819650aa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48f8445e30bd186681d1a4384d16f228a3382473
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491761"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012442"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação da Gestão de API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](./api-management-policies.md)
@@ -366,7 +366,7 @@ A `set-body` política pode ser configurada para usar a linguagem templária [l�
 > [!IMPORTANT]
 > A implementação do Líquido utilizado na `set-body` apólice está configurada no modo C#. Isto é particularmente importante quando se faz coisas como a filtragem. Como exemplo, a utilização de um filtro de data requer a utilização do invólucro Pascal e da formatação de data C#, por exemplo:
 >
-> {{body.foo.startDateTime| Data:"yyyMddTHH:mm:ddZ"}}
+> {{body.foo.startDateTime| Data:"yyyMMddTHH:mm:ssZ"}}
 
 > [!IMPORTANT]
 > Para se ligar corretamente a um corpo XML utilizando o modelo Liquid, utilize uma `set-header` política para definir o Tipo de Conteúdo para aplicação/xml, texto/xml (ou qualquer tipo de final com +xml); para um corpo JSON, deve ser aplicação/json, texto/json (ou qualquer tipo que termine com +json).

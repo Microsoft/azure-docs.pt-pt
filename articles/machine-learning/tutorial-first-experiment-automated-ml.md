@@ -1,7 +1,7 @@
 ---
 title: Criar modelos automatizados de classificação ML
 titleSuffix: Azure Machine Learning
-description: Aprenda a treinar & implementar modelos de classificação com a interface automatizada de aprendizagem automática de máquinas (ML) da Azure Machine Learning.
+description: Os & implementar modelos de classificação sem código de escrita, utilizando a interface automatizada de aprendizagem automática de máquinas (ML) da Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,29 +11,31 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d0e236891e48a20adf1901d2f95a90ae25969c49
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691948"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210851"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas
 
-
-Neste tutorial, aprende-se a criar um modelo de classificação simples sem escrever uma única linha de código utilizando machine learning automatizado no estúdio Azure Machine Learning. Este modelo de classificação prevê se um cliente subscreverá um depósito a prazo fixo com uma instituição financeira.
+Aprenda a criar um [modelo de classificação simples](concept-automated-ml.md#classification) sem escrever uma única linha de código usando machine learning automatizado no estúdio Azure Machine Learning. Este modelo de classificação prevê se um cliente subscreverá um depósito a prazo fixo com uma instituição financeira.
 
 Com machine learning automatizado, pode automatizar tarefas intensivas de tempo. A aprendizagem automática de máquinas rapidamente itera sobre muitas combinações de algoritmos e hiperparímetros para ajudá-lo a encontrar o melhor modelo baseado numa métrica de sucesso à sua escolha.
 
-Para um exemplo de previsão de séries de tempo, consulte [Tutorial: Previsão da procura & AutoML](tutorial-automated-ml-forecast.md).
-
-Neste tutorial, aprende-se a fazer as seguintes tarefas:
+Não vais escrever nenhum código neste tutorial, vais usar a interface do estúdio para realizar treinos.  Aprenderá a fazer as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar um espaço de trabalho de aprendizagem automática Azure.
 > * Executar uma experimentação de machine learning automatizado.
 > * Veja os detalhes da experiência.
 > * Implementar o modelo.
+
+Experimente também a aprendizagem automática de máquinas para estes outros tipos de modelos:
+
+* Para obter um exemplo sem código de previsão, consulte [Tutorial: Previsão da procura & AutoML](tutorial-automated-ml-forecast.md).
+* Para obter um primeiro exemplo de código de um modelo de regressão, consulte o [Tutorial: Utilize machine learning automatizado para prever tarifas de táxi.](tutorial-auto-train-models.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +54,7 @@ Existem muitas [formas de criar um espaço de trabalho.](how-to-manage-workspace
 >[!IMPORTANT] 
 > Tome nota do seu espaço de **trabalho** e **subscrição.** Vai precisar disto para garantir que cria a sua experiência no lugar certo. 
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Começar no estúdio Azure Machine Learning
+## <a name="sign-in-to-the-studio"></a>Inscreva-se no estúdio
 
 Você completa os seguintes passos de configuração de experiências através do estúdio Azure Machine Learning em https://ml.azure.com , uma interface web consolidada que inclui ferramentas de machine learning para executar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. O estúdio não é suportado nos navegadores do Internet Explorer.
 
@@ -159,7 +161,7 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
 
     1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas configurações são para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
 
-        &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
+        &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
         ------|---------|---
         Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|AUC_weighted
         Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar

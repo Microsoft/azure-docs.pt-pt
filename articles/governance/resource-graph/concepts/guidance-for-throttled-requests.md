@@ -1,15 +1,15 @@
 ---
 title: Documentação de orientação para pedidos limitados
 description: Aprenda a agrupar, cambalear, paginar e consultar em paralelo para evitar que os pedidos sejam estrangulados pelo Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 891d5951670dd6022b66ae2936ee855f73f8b33a
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917712"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283546"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Orientação para pedidos acelerados no Gráfico de Recursos Azure
 
@@ -231,7 +231,7 @@ Uma vez que o Azure Resource Graph retorna no máximo 1000 entradas numa única 
 
 ## <a name="still-get-throttled"></a>Ainda é estrangulado?
 
-Se for estrangulado depois de exercer as recomendações acima, contacte a equipa em [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com) .
+Se estiver a ser estrangulado depois de exercer as recomendações acima, contacte a equipa de [Gráficos de Recursos Azure](mailto:resourcegraphsupport@microsoft.com).
 
 Indique estes detalhes:
 

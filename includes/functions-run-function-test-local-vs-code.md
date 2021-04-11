@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/28/2021
 ms.author: glenga
-ms.openlocfilehash: 5bc1d2ddb5b9ddb185a8349fb42d5f5db79c1498
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eae828d03431dd339c5399d8db8c6e46141ab11b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201354"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075355"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
@@ -27,7 +27,7 @@ O Código do Estúdio Visual integra-se com [as ferramentas core do Azure Functi
     
 1. In **Enter request body** você vê o valor do corpo da mensagem de pedido de `{ "name": "Azure" }` . Prima Insira para enviar esta mensagem de pedido para a sua função. 
 
-   Em vez disso, poderia ter enviado um pedido HTTP GET para o <http://localhost:7071/api/HttpExample> endereço num browser.
+   Em vez disso, poderia ter enviado um pedido HTTP GET para o `http://localhost:7071/api/HttpExample` endereço num browser.
 
 1. Quando a função executa localmente e devolve uma resposta, uma notificação é levantada no Código do Estúdio Visual. As informações sobre a execução da função são mostradas no painel **terminal.**
 

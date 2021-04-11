@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 8cbc101ec9b5608574b93ea17022a3b0ef02ce4b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 90e72bd12d9115e5ff95213428ae4ac37979dcf3
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644423"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120100"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Atualização do dispositivo para tutorial Azure IoT Hub utilizando o Agente de Referência do Simulador Ubuntu (18,04 x64)
 
@@ -147,9 +147,9 @@ Agent running. [main]
 
 1. Entre no [portal Azure](https://portal.azure.com) e navegue até ao Hub IoT.
 
-2. De 'Dispositivos IoT' ou 'IoT Edge' no painel de navegação esquerdo encontre o seu dispositivo IoT e navegue para o Dispositivo Twin.
+2. De 'Dispositivos IoT' ou 'IoT Edge' no painel de navegação esquerdo encontre o seu dispositivo IoT e navegue para o Dispositivo Twin ou Módulo Twin.
 
-3. No Dispositivo Twin, elimine qualquer valor de marcação de atualização do dispositivo existente, definindo-os para nulos.
+3. No módulo Twin do módulo de agente de atualização do dispositivo, elimine qualquer valor de etiqueta de atualização do dispositivo existente, definindo-os para nulos. Se estiver a utilizar a identidade do dispositivo com o agente de atualização do dispositivo, eis estas alterações no Dispositivo Twin.
 
 4. Adicione um novo valor de etiqueta de atualização do dispositivo, como mostrado abaixo.
 

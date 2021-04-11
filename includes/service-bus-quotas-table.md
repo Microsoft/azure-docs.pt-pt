@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/17/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ee066ff46f319749469a41e6decf12b35c0ee27e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e160b21581bc7b5fa38b12309bd9deb90bfbbe51
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651961"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251542"
 ---
 A tabela que se segue lista informações de quota específicas para as mensagens do Azure Service Bus. Para obter informações sobre preços e outras quotas para Service Bus, consulte [os preços do Service Bus.](https://azure.microsoft.com/pricing/details/service-bus/)
 
 | Nome da quota | Âmbito | Notas | Valor |
 | --- | --- | --- | --- |
-| Número máximo de espaços de nome básico ou padrão por subscrição de Azure |Espaço de Nomes |Os pedidos subsequentes de espaços de nome básicos ou padrão adicionais são rejeitados pelo portal Azure. |100|
-| Número máximo de espaços de nome Premium por subscrição de Azure |Espaço de Nomes |Os pedidos subsequentes de espaços de nome Premium adicionais são rejeitados pelo portal. |100 |
+| Número máximo de espaços de nome básico ou padrão por subscrição de Azure |Espaço de Nomes |Os pedidos subsequentes de espaços de nome básicos ou padrão adicionais são rejeitados pelo portal Azure. | A predefinição é 100. <br/> O máximo é 1.000. <br/><br/> Para aumentar o suporte de contacto limite Azure. |
+| Número máximo de espaços de nome Premium por subscrição de Azure |Espaço de Nomes |Os pedidos subsequentes de espaços de nome Premium adicionais são rejeitados pelo portal. | A predefinição é 100. <br/> O máximo é 1.000. <br/><br/> Para aumentar o suporte de contacto limite Azure. |
 | Tamanho da fila ou tópico |Entidade |Definido na criação da fila ou tópico. <br/><br/> As mensagens recebidas subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 GB ou 5 GB.<br /><br />No SKU Premium e no SKU Standard com [partição](../articles/service-bus-messaging/service-bus-partitioning.md) ativada, a fila máxima ou o tamanho do tópico é de 80 GB. |
 | Número de ligações simultâneas num espaço com nomes |Espaço de Nomes |Os pedidos subsequentes de ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. As operações de REPOUSO não contam para ligações TCP simultâneas. |Mensagem Líquida: 1.000.<br /><br />AMQP: 5.000. |
 | Número de pedidos simultâneos de receção em uma fila, tópico ou entidade de subscrição |Entidade |Os pedidos de receção subsequentes são rejeitados e uma exceção é recebida pelo código de chamada. Este contingente aplica-se ao número combinado de operações de receção simultâneas em todas as subscrições sobre um tópico. |5000 |
@@ -38,6 +38,6 @@ A tabela que se segue lista informações de quota específicas para as mensagen
 | Tamanho dos filtros ou ações SQL |Espaço de Nomes |Os pedidos subsequentes de criação de filtros adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |Comprimento máximo da cadeia de condição do filtro: 1.024 (1 K).<br /><br />Comprimento máximo do fio de ação da regra: 1.024 (1 K).<br /><br />Número máximo de expressões por ação de regra: 32. |
 | Número de regras de autorização de acesso partilhado por espaço, fila ou tópico |Entidade, espaço de nome |Os pedidos subsequentes de criação de regras adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |Número máximo de regras por tipo de entidade: 12. <br /><br /> As regras configuradas num espaço de nomes de Service Bus aplicam-se a todos os tipos: filas, tópicos. |
 | Número de mensagens por transação | Transação | As mensagens recebidas adicionais são rejeitadas e uma exceção indicando "Não é possível enviar mais de 100 mensagens numa única transação" é recebida pelo código de chamada. | 100 <br /><br /> Para as operações **de Envio e** **SendAsync().** |
-| Número de regras de rede virtual e filtro IP | Espaço de Nomes | &nbsp; | 128 | 
+| Número de regras de rede virtual e filtro IP | Espaço de Nomes | &nbsp; | 128 |
 
 [Azure portal]: https://portal.azure.com

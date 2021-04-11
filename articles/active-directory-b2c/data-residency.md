@@ -8,22 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e724b3517d9e5a63d8699e9f66c51cf41f02012
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92309671"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092522"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Ative Directory B2C: Disponibilidade da região & residência de dados
 
 Disponibilidade da região e residência de dados são dois conceitos muito diferentes que se aplicam de forma diferente ao Azure AD B2C do resto do Azure. Este artigo explica as diferenças entre estes dois conceitos, e compara a forma como se aplicam ao Azure versus Azure AD B2C.
 
-O Azure AD B2C está **geralmente disponível em todo** o mundo com a opção de residência de **dados** nos **Estados Unidos, Europa ou Ásia-Pacífico.**
+O Azure AD B2C está **geralmente disponível em todo** o mundo com a opção de residência de **dados** nos **Estados Unidos, Europa ou Ásia-Pacífico.** Azure AD B2C está em **pré-visualização pública** na Austrália.
 
 [Disponibilidade da região](#region-availability) refere-se ao local onde um serviço está disponível para uso.
 
@@ -53,11 +53,15 @@ Os dados residem na **Europa** para os seguintes países/regiões:
 
 Os dados residem na **Ásia-Pacífico** para os seguintes países/regiões:
 
-> Afeganistão (AF), Hong Kong SAR (HK), Índia (IN), Indonésia (ID), Japão (JP), Coreia (KR), Malásia (MY), Filipinas (PH), Singapura (SG), Sri Lanka (LK), Taiwan (TW) e Tailândia (TH).
+> Afeganistão (AF), Hong Kong SAR (HK), Índia (IN), Indonésia (ID), Japão (JP), Coreia (KR), Malásia (MY), Filipinas (PH), Singapura (SG), Sri Lanka (LK), Taiwan (TW) e Tailândia (TH)
+
+Os dados residem na **Austrália** (Pré-visualização) para os seguintes países/regiões:
+
+> Austrália e Nova Zelândia
 
 Os seguintes países/regiões estão em vias de ser adicionados à lista. Por enquanto, você ainda pode usar Azure AD B2C escolhendo qualquer um dos países/regiões acima.
 
-> Argentina, Austrália, Brasil, Chile, Colômbia, Equador, Iraque, Nova Zelândia, Paraguai, Peru, Uruguai e Venezuela.
+> Argentina, Brasil, Chile, Colômbia, Equador, Iraque, Paraguai, Peru, Uruguai e Venezuela
 
 ## <a name="remote-profile-solution"></a>Solução de perfil remoto
 
@@ -66,18 +70,6 @@ Com [políticas personalizadas](custom-policy-overview.md)AZURE AD B2C, pode int
 - Após a sposição, após validação de credenciais com uma conta local ou social, o Azure AD B2C invoca a API REST, que envia o identificador único do utilizador como chave primária do utilizador (endereço de e-mail ou objeto de utilizadorId). A API REST lê os dados a partir da base de dados remota e devolve o perfil do utilizador.  
 
 Após a inscrição, edição de perfis ou sessão de sessão, o Azure AD B2C inclui o perfil do utilizador no token de acesso que é devolvido à aplicação. Para obter mais informações, consulte a [solução de amostra de perfil remoto Azure AD B2C](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) no GitHub.
-
-## <a name="preview-tenant"></a>Pré-visualização inquilino
-
-Se você tinha criado um inquilino B2C durante o período de pré-visualização do Azure AD B2C, é provável que o seu **tipo de inquilino** diga **Pré-visualização inquilino**.
-
-Se for esse o caso, deve utilizar o seu inquilino apenas para fins de desenvolvimento e teste. NÃO utilize um inquilino de pré-visualização para aplicações de produção.
-
-**Não há caminho** de migração de um inquilino B2C de pré-visualização para um inquilino B2C à escala de produção. Deve criar um novo inquilino B2C para as suas aplicações de produção.
-
-Existem problemas conhecidos quando elimina um inquilino B2C de pré-visualização e cria um inquilino B2C em escala de produção com o mesmo nome de domínio. *Você deve criar um inquilino B2C em escala de produção com um nome de domínio diferente*.
-
-![Screenshot de um tipo de inquilino, como pré-visualização inquilino.](./media/data-residency/preview-b2c-tenant.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

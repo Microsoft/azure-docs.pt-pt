@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ad3b6fa581bfc36579ef4b6937b50f8c1789a7f5
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 1fb8724edc32477bb1c399db0493833e9df984bb
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112094"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277577"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrar os seus manifestos usando o Dynamic Packager
 
@@ -26,7 +26,7 @@ ms.locfileid: "106112094"
 
 Quando está a fornecer conteúdo de streaming de bitrate adaptativo aos dispositivos, por vezes é necessário publicar várias versões de um manifesto para direcionar capacidades específicas do dispositivo ou largura de banda de rede disponível. O [Dynamic Packager](encode-dynamic-packaging-concept.md) permite especificar filtros que podem filtrar códigos específicos, resoluções, bitrates e combinações de faixas de áudio no voo. Esta filtragem elimina a necessidade de criar várias cópias. Basta publicar um novo URL com um conjunto específico de filtros configurados para os seus dispositivos-alvo (iOS, Android, SmartTV ou navegadores) e as capacidades de rede (cenários de largura de banda alta, móveis ou de baixa largura de banda). Neste caso, os clientes podem manipular o streaming do seu conteúdo através da cadeia de consulta (especificando filtros de ativos disponíveis [ou filtros de conta)](filters-concept.md)e usar filtros para transmitir secções específicas de um fluxo.
 
-Alguns cenários de entrega requerem que você certifique-se de que um cliente não pode aceder a faixas específicas. Por exemplo, talvez não queira publicar um manifesto que contenha faixas HD para um nível de subscrição específico. Ou, talvez queira remover pistas específicas de bitrate adaptativo (ABR) para reduzir o custo de entrega a um dispositivo específico que não beneficiaria das faixas adicionais. Neste caso, pode associar uma lista de filtros pré-criados com o seu [Localizador de Streaming](streaming-locators-concept.md) na criação. Os clientes não podem então manipular a forma como o conteúdo é transmitido porque é definido pelo **Localizador de Streaming.**
+Alguns cenários de entrega requerem que você certifique-se de que um cliente não pode aceder a faixas específicas. Por exemplo, talvez não queira publicar um manifesto que contenha faixas HD para um nível de subscrição específico. Ou, talvez queira remover pistas específicas de bitrate adaptativo (ABR) para reduzir o custo de entrega a um dispositivo específico que não beneficiaria das faixas adicionais. Neste caso, pode associar uma lista de filtros pré-criados com o seu [Localizador de Streaming](stream-streaming-locators-concept.md) na criação. Os clientes não podem então manipular a forma como o conteúdo é transmitido porque é definido pelo **Localizador de Streaming.**
 
 Pode combinar filtragem através da especificação de [filtros no Localizador de Streaming](filters-concept.md#associating-filters-with-streaming-locator) + filtros adicionais específicos do dispositivo que o seu cliente especifica no URL. Esta combinação é útil para restringir faixas adicionais como metadados ou streams de eventos, linguagens áudio ou faixas de áudio descritivas.
 

@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 92da0b12a3119b048866eef5b18f658916595294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cde44ddb49ede8002b8a25ab47ae92ccd602a9d
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645930"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226375"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Acompanhe o comportamento do utilizador em Azure AD B2C utilizando insights de aplicação
 
@@ -252,7 +252,7 @@ Para se adaptar às suas necessidades de negócio, talvez queira registar mais r
 
 ### <a name="manipulate-claims"></a>Manipular alegações
 
-Pode utilizar [as transformações de pedidos](custom-policy-trust-frameworks.md#manipulating-your-claims) de entrada para modificar as reclamações de entrada ou gerar novas antes de enviá-las para o Application Insights. No exemplo seguinte, o perfil técnico inclui a transformação de `CheckIsAdmin` pedidos de entrada.
+Pode utilizar [as transformações de pedidos](custom-policy-overview.md#manipulating-your-claims) de entrada para modificar as reclamações de entrada ou gerar novas antes de enviá-las para o Application Insights. No exemplo seguinte, o perfil técnico inclui a transformação de `CheckIsAdmin` pedidos de entrada.
 
 ```xml
 <TechnicalProfile Id="AppInsights-SignInComplete">
@@ -269,7 +269,7 @@ Pode utilizar [as transformações de pedidos](custom-policy-trust-frameworks.md
 
 ### <a name="add-events"></a>Adicionar eventos
 
-Para adicionar um evento, crie um novo perfil técnico que inclua o `AppInsights-Common` perfil técnico. Em seguida, adicione o novo perfil técnico como um passo de orquestração para a jornada do [utilizador](custom-policy-trust-frameworks.md#orchestration-steps). Utilize o elemento [pré-condição](userjourneys.md#preconditions) para ativar o evento quando estiver pronto. Por exemplo, reporte o evento apenas quando os utilizadores passam por autenticação multifactor.
+Para adicionar um evento, crie um novo perfil técnico que inclua o `AppInsights-Common` perfil técnico. Em seguida, adicione o novo perfil técnico como um passo de orquestração para a jornada do [utilizador](custom-policy-overview.md#orchestration-steps). Utilize o elemento [pré-condição](userjourneys.md#preconditions) para ativar o evento quando estiver pronto. Por exemplo, reporte o evento apenas quando os utilizadores passam por autenticação multifactor.
 
 ```xml
 <TechnicalProfile Id="AppInsights-MFA-Completed">

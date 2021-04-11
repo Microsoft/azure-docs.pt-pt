@@ -1,138 +1,132 @@
 ### YamlMime:Hub
 title: Documentação dos Serviços de Multimédia do Azure
-summary: Os Serviços de Multimédia do Azure são uma coleção de serviços de fluxo de trabalho de multimédia na cloud e no edge que lhe permite criar soluções que precisam de análise de vídeo em direto e em lote, transcodificação, serviços de entrega de vários dispositivos, proteção de conteúdo e transmissão de eventos em direto em escala.
+summary: 'Os Serviços de Multimédia do Azure são uma coleção de serviços de fluxo de trabalho de multimédia na cloud e no edge que lhe permite criar soluções que precisam de análise de vídeo em direto e em lote, transcodificação, serviços de entrega de vários dispositivos, proteção de conteúdo e transmissão de eventos em direto em escala.'
 brand: azure
 metadata:
   title: Documentação dos Serviços de Multimédia do Azure
-  description: Os Serviços de Multimédia do Azure são uma coleção de serviços de fluxo de trabalho de multimédia na cloud e no edge que lhe permite criar soluções que precisam de análise de vídeo em direto e em lote, transcodificação, serviços de entrega de vários dispositivos, proteção de conteúdo e transmissão de eventos em direto em escala.
+  description: 'Os Serviços de Multimédia do Azure são uma coleção de serviços de fluxo de trabalho de multimédia na cloud e no edge que lhe permite criar soluções que precisam de análise de vídeo em direto e em lote, transcodificação, serviços de entrega de vários dispositivos, proteção de conteúdo e transmissão de eventos em direto em escala.'
   services: media-services
   ms.service: media-services
-  ms.subservice: 
+  ms.subservice: null
   ms.topic: hub-page
   ms.collection: collection
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: a1847273df196eea7aeebd846f83a35cd9e43f31
-  ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-  ms.translationtype: MT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/27/2021
-  ms.locfileid: "105628497"
 highlightedContent:
   items:
-  - title: Sobre os Serviços de Multimédia do Azure v3
-    itemType: overview
-    url: ./latest/media-services-overview.md
-  - title: Conceitos dos Serviços de Multimédia do Azure v3
-    itemType: concept
-    url: ./latest/concepts-overview.md
-  - title: Sobre o Video Indexer dos Serviços de Multimédia do Azure
-    itemType: overview
-    url: ./video-indexer/video-indexer-overview.md
-  - title: Comparar as predefinições dos Serviços de Multimédia v3 e o Video Indexer
-    itemType: concept
-    url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
-  - title: Live Video Analytics no IoT Edge (pré-visualização)
-    itemType: overview
-    url: ./live-video-analytics-edge/overview.md
-  - title: Media Player do Azure
-    itemType: overview
-    url: ./azure-media-player/azure-media-player-overview.md
-  - title: Sobre os Serviços de Multimédia do Azure v2 (legados)
-    itemType: overview
-    url: ./previous/media-services-overview.md
-  - title: Migrar Serviços de Multimédia v2 para v3
-    itemType: concept
-    url: ./latest/migrate-v-2-v-3-migration-introduction.md
+    - title: Sobre os Serviços de Multimédia do Azure v3
+      itemType: overview
+      url: ./latest/media-services-overview.md
+    - title: Conceitos dos Serviços de Multimédia do Azure v3
+      itemType: concept
+      url: ./latest/concepts-overview.md
+    - title: Sobre o Video Indexer dos Serviços de Multimédia do Azure
+      itemType: overview
+      url: ./video-indexer/video-indexer-overview.md
+    - title: Comparar as predefinições dos Serviços de Multimédia v3 e o Video Indexer
+      itemType: concept
+      url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
+    - title: Live Video Analytics no IoT Edge (pré-visualização)
+      itemType: overview
+      url: ./live-video-analytics-edge/overview.md
+    - title: Media Player do Azure
+      itemType: overview
+      url: ./azure-media-player/azure-media-player-overview.md
+    - title: Sobre os Serviços de Multimédia do Azure v2 (legados)
+      itemType: overview
+      url: ./previous/media-services-overview.md
+    - title: Migrar Serviços de Multimédia v2 para v3
+      itemType: concept
+      url: ./latest/migrate-v-2-v-3-migration-introduction.md
 conceptualContent:
   items:
-  - title: Programar com a API dos Serviços de Multimédia v3
-    links:
-    - url: ./latest/media-services-apis-overview.md
-      itemType: concept
-      text: Programar com os Serviços de Multimédia v3
-    - url: /samples/browse/?products=azure-media-services
-      itemType: sample
-      text: Exemplos de código
-    - url: ./latest/release-notes.md
-      itemType: concept
-      text: Descubra as novidades nos Serviços de Multimédia v3
-  - title: Transmissão em direto
-    links:
-    - url: ./latest/live-streaming-overview.md
-      itemType: concept
-      text: Transmissão em direto
-    - url: ./latest/recommended-on-premises-live-encoders.md
-      itemType: concept
-      text: Codificadores de transmissão em direto recomendados
-    - url: ./latest/stream-live-tutorial-with-api.md
-      itemType: tutorial
-      text: Transmissão em direto
-  - title: Transmissão a pedido
-    links:
-    - url: ./latest/assets-concept.md
-      itemType: concept
-      text: A carregar
-    - url: ./latest/encoding-concept.md
-      itemType: concept
-      text: Codificação
-    - url: ./latest/stream-files-tutorial-with-rest.md
-      itemType: tutorial
-      text: Codificar um ficheiro remoto e transmitir
-    - url: ./latest/stream-files-tutorial-with-api.md
-      itemType: tutorial
-      text: Codificar um ficheiro carregado e transmitir
-  - title: Encriptar conteúdo
-    links:
-    - url: ./latest/content-protection-overview.md
-      itemType: concept
-      text: Proteção
-    - url: ./latest/protect-with-aes128.md
-      itemType: tutorial
-      text: Encriptar de forma dinâmica com AES-128
-    - url: ./latest/protect-with-drm.md
-      itemType: tutorial
-      text: Encriptar dinamicamente com o DRM
-  - title: Analisar conteúdo
-    links:
-    - url: ./latest/analyzing-video-audio-files-concept.md
-      itemType: concept
-      text: Análise de multimédia
-    - url: ./latest/analyze-videos-tutorial-with-api.md
-      itemType: tutorial
-      text: Analisar vídeos
-    - url: ./latest/analyze-face-redaction-concept.md
-      itemType: concept
-      text: Deteção e Redação do Rosto
-  - title: Saiba mais sobre as especificações dos Serviços de Multimédia
-    links:
-    - url: media-services-specifications-live-timed-metadata.md
-      itemType: concept
-      text: Metadados temporizados no Live Streaming (RTMP e Smooth Streaming)
-    - url: media-services-specifications-ms-sstr-amendment-hevc.md
-      itemType: concept
-      text: Emenda do protocolo Smooth Streaming (MS-SSTR) para HEVC
-    - url: media-services-fmp4-live-ingest-overview.md
-      itemType: concept
-      text: Protocolo de ingestão do Smooth Streaming
-  - title: Live Video Analytics no IoT Edge (pré-visualização)
-    links:
-    - url: ./live-video-analytics-edge/overview.md
-      itemType: overview
-      text: Descrição geral
-    - url: ./live-video-analytics-edge/use-your-model-quickstart.md
-      itemType: quickstart
-      text: Executar o Live Video Analytics com o seu próprio modelo
+    - title: Programar com a API dos Serviços de Multimédia v3
+      links:
+        - url: ./latest/media-services-apis-overview.md
+          itemType: concept
+          text: Programar com os Serviços de Multimédia v3
+        - url: /samples/browse/?products=azure-media-services
+          itemType: sample
+          text: Exemplos de código
+        - url: ./latest/release-notes.md
+          itemType: concept
+          text: Descubra as novidades nos Serviços de Multimédia v3
+    - title: Transmissão em direto
+      links:
+        - url: ./latest/stream-live-streaming-concept.md
+          itemType: concept
+          text: Transmissão em direto
+        - url: ./latest/recommended-on-premises-live-encoders.md
+          itemType: concept
+          text: Codificadores de transmissão em direto recomendados
+        - url: ./latest/stream-live-tutorial-with-api.md
+          itemType: tutorial
+          text: Transmissão em direto
+    - title: Transmissão a pedido
+      links:
+        - url: ./latest/assets-concept.md
+          itemType: concept
+          text: A carregar
+        - url: ./latest/encode-concept.md
+          itemType: concept
+          text: Codificação
+        - url: ./latest/stream-files-tutorial-with-rest.md
+          itemType: tutorial
+          text: Codificar um ficheiro remoto e transmitir
+        - url: ./latest/stream-files-tutorial-with-api.md
+          itemType: tutorial
+          text: Codificar um ficheiro carregado e transmitir
+    - title: Encriptar conteúdo
+      links:
+        - url: ./latest/drm-content-protection-concept.md
+          itemType: concept
+          text: Proteção
+        - url: ./latest/drm-playready-license-template-concept.md
+          itemType: tutorial
+          text: Encriptar de forma dinâmica com AES-128
+        - url: ./latest/drm-protect-with-drm-tutorial.md
+          itemType: tutorial
+          text: Encriptar dinamicamente com o DRM
+    - title: Analisar conteúdo
+      links:
+        - url: ./latest/analyze-video-audio-files-concept.md
+          itemType: concept
+          text: Análise de multimédia
+        - url: ./latest/analyze-videos-tutorial.md
+          itemType: tutorial
+          text: Analisar vídeos
+        - url: ./latest/analyze-face-redaction-concept.md
+          itemType: concept
+          text: Deteção e Redação do Rosto
+    - title: Saiba mais sobre as especificações dos Serviços de Multimédia
+      links:
+        - url: media-services-specifications-live-timed-metadata.md
+          itemType: concept
+          text: Metadados temporizados no Live Streaming (RTMP e Smooth Streaming)
+        - url: media-services-specifications-ms-sstr-amendment-hevc.md
+          itemType: concept
+          text: Emenda do protocolo Smooth Streaming (MS-SSTR) para HEVC
+        - url: media-services-fmp4-live-ingest-overview.md
+          itemType: concept
+          text: Protocolo de ingestão do Smooth Streaming
+    - title: Live Video Analytics no IoT Edge (pré-visualização)
+      links:
+        - url: ./live-video-analytics-edge/overview.md
+          itemType: overview
+          text: Descrição geral
+        - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+          itemType: quickstart
+          text: Executar o Live Video Analytics com o seu próprio modelo
 additionalContent:
   sections:
-  - items:
-    - title: Storage do Azure
-      summary: Saiba mais sobre blobs de blocos e contentores
-      url: ../storage/index.yml
-    - title: CDN
-      summary: Utilizar o poder da CDN do Azure para transmitir em fluxo conteúdo em escala com os serviços do Akamai e da Verizon ou fazer o balanceamento de carga em várias redes de entrega de conteúdos
-      url: ../cdn/index.yml
-    - title: Event Grid
-      summary: Saiba como utilizar o Azure Event Grid para reagir a eventos relevantes
-      url: ../event-grid/index.yml
+    - items:
+        - title: Storage do Azure
+          summary: Saiba mais sobre blobs de blocos e contentores
+          url: ../storage/index.yml
+        - title: CDN
+          summary: Utilizar o poder da CDN do Azure para transmitir em fluxo conteúdo em escala com os serviços do Akamai e da Verizon ou fazer o balanceamento de carga em várias redes de entrega de conteúdos
+          url: ../cdn/index.yml
+        - title: Event Grid
+          summary: Saiba como utilizar o Azure Event Grid para reagir a eventos relevantes
+          url: ../event-grid/index.yml

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 814a2f7e32f173111e45fff02f00c3e4d2a9a670
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d2de439e661ef5b1d1669187355621f25400bc4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601088"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075635"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -65,11 +65,11 @@ Quando montou o seu aparelho StorSimple pela primeira vez, gerou uma "chave de e
 
 A "chave de encriptação de dados de serviço" é necessária para uma migração bem sucedida. Agora é uma boa hora para recuperar esta chave dos seus registos, uma para cada um dos aparelhos no seu inventário.
 
-Se não encontrar as chaves nos seus registos, pode recuperar a chave do aparelho. Cada aparelho tem uma chave de encriptação única. Para recuperar a chave:
+Se não encontrar as chaves nos registos, pode gerar uma nova chave a partir do aparelho. Cada aparelho tem uma chave de encriptação única.
 
-* Arquive um pedido de suporte com o Microsoft Azure através do portal Azure. O pedido deve conter o número de série do seu dispositivo StorSimple e um pedido para recuperar a "chave de encriptação de dados de serviço".
-* Um engenheiro de suporte StorSimple entrará em contacto consigo com um pedido de reunião virtual.
-* Certifique-se de que, antes do início da reunião, ligue-se ao seu aparelho StorSimple [através de uma consola em série](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) ou através de uma [sessão remota do PowerShell](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
+#### <a name="change-the-service-data-encryption-key"></a>Alterar a chave de encriptação de dados de serviço
+
+[!INCLUDE [storage-files-migration-generate-key](../../../includes/storage-files-migration-generate-key.md)]
 
 > [!CAUTION]
 > Quando estiver a decidir como ligar-se ao seu aparelho StorSimple, considere o seguinte:

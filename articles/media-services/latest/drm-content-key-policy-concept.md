@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c9709c444dfde4897c1364c8ab3d9dbfa315bb6f
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 6e60292c817ccad8eb1dd6cb3c33b944ab1c18a0
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122157"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277696"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
 
@@ -25,9 +25,9 @@ ms.locfileid: "106122157"
 
 Com os Media Services, pode fornecer o seu conteúdo ao vivo e a pedido encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. 
 
-Para especificar opções de encriptação no seu fluxo, precisa criar uma [Política de Streaming](streaming-policy-concept.md) e associá-la ao seu [Localizador de Streaming.](streaming-locators-concept.md) Cria a [Política de Chave de Conteúdo](/rest/api/media/contentkeypolicies) para configurar a forma como a chave de conteúdo (que fornece acesso seguro aos seus [Ativos)](assets-concept.md)é entregue aos clientes finais. É necessário definir os requisitos (restrições) sobre a Política de Chave de Conteúdo que devem ser cumpridos para que as chaves com a configuração especificada sejam entregues aos clientes. A política-chave de conteúdo não é necessária para um streaming claro ou para o download. 
+Para especificar opções de encriptação no seu fluxo, precisa criar uma [Política de Streaming](stream-streaming-policy-concept.md) e associá-la ao seu [Localizador de Streaming.](stream-streaming-locators-concept.md) Cria a [Política de Chave de Conteúdo](/rest/api/media/contentkeypolicies) para configurar a forma como a chave de conteúdo (que fornece acesso seguro aos seus [Ativos)](assets-concept.md)é entregue aos clientes finais. É necessário definir os requisitos (restrições) sobre a Política de Chave de Conteúdo que devem ser cumpridos para que as chaves com a configuração especificada sejam entregues aos clientes. A política-chave de conteúdo não é necessária para um streaming claro ou para o download. 
 
-Normalmente, associa a sua política de chave de conteúdo ao seu [Localizador de Streaming.](streaming-locators-concept.md) Em alternativa, pode especificar a política de chave de conteúdo dentro de uma [Política de Streaming](streaming-policy-concept.md) (ao criar uma política de streaming personalizada para cenários avançados). 
+Normalmente, associa a sua política de chave de conteúdo ao seu [Localizador de Streaming.](stream-streaming-locators-concept.md) Em alternativa, pode especificar a política de chave de conteúdo dentro de uma [Política de Streaming](stream-streaming-policy-concept.md) (ao criar uma política de streaming personalizada para cenários avançados). 
 
 ## <a name="best-practices-and-considerations"></a>Melhores práticas e considerações
 

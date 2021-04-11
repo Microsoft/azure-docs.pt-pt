@@ -1,6 +1,6 @@
 - name: Documentação Padrão/Premium da Porta Da Frente (Pré-visualização)
   href: index.yml
-- name: Descrição geral
+- name: Descrição Geral
   items:
     - name: O que é Azure Front Door Standard/Premium (Preview)?
       href: overview.md
@@ -15,6 +15,10 @@
   items:
     - name: Modelos do Resource Manager
       href: resource-manager-template-samples.md
+- name: Tutoriais
+  items:
+    - name: Política de Configure WAF
+      href: ../../web-application-firewall/afds/waf-front-door-create-portal.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Conceitos
   items:
     - name: FAQ do Front Door
@@ -26,16 +30,18 @@
     - name: Rota
       href: concept-route.md
     - name: Conjunto de regras
-      href: concept-rule-set.md
-    - name: Condições de jogo definidas por regras
-      href: concept-rule-set-match-conditions.md
-    - name: Ações definidas por regras
-      href: concept-rule-set-actions.md
-    - name: Reorientação de URL e reescrita de URL
-      href: concept-rule-set-url-redirect-and-rewrite.md
+      items:
+        - name: Conjunto de regras
+          href: concept-rule-set.md
+        - name: Condições de jogo
+          href: concept-rule-set-match-conditions.md
+        - name: Ações
+          href: concept-rule-set-actions.md
+        - name: Reorientação de URL e reescrita de URL
+          href: concept-rule-set-url-redirect-and-rewrite.md
     - name: Sondas do estado de funcionamento
       href: concept-health-probes.md
-    - name: Ligação Privada
+    - name: Private Link
       href: concept-private-link.md
     - name: Colocação em cache
       href: concept-caching.md

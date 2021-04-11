@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2021
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: b6b23e792aaef4d70e9ffc9be3667f0abef49e81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e9df582ce6eddd50fbecf02858f4afe611dcf18
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102489553"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220220"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 
@@ -50,14 +50,6 @@ Se a CLI conseguir abrir o seu browser predefinido, executa essa ação e carreg
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](/cli/azure/authenticate-azure-cli).
-
-## <a name="install-the-machine-learning-extension"></a>Instale a extensão de aprendizagem automática
-
-Para instalar a extensão de aprendizagem automática, utilize o seguinte comando:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 

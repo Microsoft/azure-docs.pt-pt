@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0614e6fb1df13332cb05dcb7bb9b0f07a1764d23
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103622156"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251473"
 ---
 | Recurso | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -29,7 +29,7 @@ ms.locfileid: "103622156"
 | Número máximo de subscrições por instância de serviço<sup>8</sup> | 500 |
 | Número máximo de certificados de cliente por instância de serviço<sup>8</sup> | 50 |
 | Número máximo de APIs por instância de serviço<sup>8</sup> | 50 |
-| Número máximo de operações de API por instância de serviço<sup>8</sup> | 1,000 |
+| Número máximo de operações de gestão de API por instância de serviço<sup>8</sup> | 1,000 |
 | Duração máxima do pedido<sup>8</sup> | 30 segundos |
 | Tamanho máximo de carga tamponada<sup>8</sup> | 2 MiB |
 | Pedido máximo URL tamanho<sup>9</sup> | 4096 bytes |

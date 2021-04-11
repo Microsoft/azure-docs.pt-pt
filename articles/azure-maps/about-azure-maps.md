@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b53af0fda8bb24bf03d0e02f61ce7d195ae69503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc70e6370f53848e9f3672611a3dfda685bcb9fe
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680829"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011781"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
@@ -173,7 +173,7 @@ Para mais informações, consulte a [documentação do serviço de tráfego.](/r
 
 Os serviços meteorológicos oferecem APIs que os desenvolvedores podem usar para recuperar informações meteorológicas para um determinado local. As informações contêm detalhes como data e hora de observação, breve descrição das condições meteorológicas, ícone meteorológico, bandeiras indicadoras de precipitação, temperatura e informações sobre velocidade do vento. Detalhes adicionais como RealFeel™ Temperatura e índice UV também são devolvidos.
 
-Os desenvolvedores podem usar o [Get Weather ao longo da rota API](/rest/api/maps/weather/getweatheralongroutepreview) para recuperar informações meteorológicas ao longo de uma determinada rota. Além disso, o serviço suporta a geração de notificações meteorológicas para os pontos de passagem que são afetados por perigos meteorológicos, como inundações ou chuvas fortes.
+Os desenvolvedores podem usar o [Get Weather ao longo da rota API](/rest/api/maps/weather/getweatheralongroute) para recuperar informações meteorológicas ao longo de uma determinada rota. Além disso, o serviço suporta a geração de notificações meteorológicas para os pontos de passagem que são afetados por perigos meteorológicos, como inundações ou chuvas fortes.
 
 A [API Get Map Tile V2](/rest/api/maps/renderv2/getmaptilepreview) permite-lhe solicitar azulejos de radar e satélite passados, atuais e futuros.
 

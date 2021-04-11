@@ -9,18 +9,92 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: ea7eda7e50e7d8733fd24a63d533272e5bca6bab
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 13ef91af5f7ed8398e3d23400fa5e9df467ce6bc
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166688"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210899"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro)
 
 __Feed RSS__: Seja notificado quando esta página for atualizada copiando e colando o seguinte URL no seu leitor de feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-04-05"></a>2021-04-05
+
+### <a name="azure-machine-learning-sdk-for-python-v1260"></a>Azure Machine Learning SDK para Python v1.26.0
++ **Correções e melhorias de bugs**
+  + **azureml-automl-core**
+    + Corrigiu um problema em que os modelos Ingénuos seriam recomendados em AutoMLStep e falham com as características de lag ou janelas rolantes. Estes modelos não serão recomendados quando os lags do alvo ou o tamanho da janela de rolamento do alvo estiverem definidos.
+    +  Alterou a saída da consola ao submeter uma execução AutoML para mostrar uma ligação do portal à execução.
+  + **azureml-core**
+    + Adicionado modo HDFS na documentação.
+    + Suporte adicionado para entender as partições do Dataset de Ficheiros com base na estrutura glob.
+    + Suporte adicional para atualização do registo de contentores associado ao espaço de trabalho AzureML.
+    + Os atributos de Ambiente Precrito sob a EstivaSecção - "habilitado", "shared_volume" e "argumentos" fazem agora parte da EstivaConfiguration em RunConfiguration.
+    + Documentação atualizada do clone do Pipeline CLI
+    + URIs portal atualizado para incluir inquilino para autenticação
+    + Removido nome da experiência de executar URIs para evitar redirecionamentos 
+    + Experiência atualizada URO para usar identificação de experiência.
+    + Correções de erros para anexar o cálculo remoto com O AzureML CLI.
+    + UrIs portal atualizado para incluir inquilino para autenticação.
+    + Experiência atualizada URI para usar identificação de experiência.
+  + **azureml-interpret**
+    + azureml-interpret atualizado para usar interpret-community 0.17.0
+  + **azureml-opendatasets**
+    + Inserir data de início e data de fim a validação do tipo e indicação de erro se não for o tipo de data.
+  + **azureml-paralelo-run**
+    + [Recurso experimental] Adicione `partition_keys` o parâmetro ao ParallelRunConfig, se especificado, o(s) conjunto de dados de entrada(s) seria dividido em mini-lotes pelas teclas por si especificadas. Requer que todos os conjuntos de dados de entrada sejam conjuntos de dados divididos.
+  + **azureml-pipeline-steps**
+    + Bugfix - suportando path_on_compute ao passar a configuração do conjunto de dados como descarregamento.
+    + Deprecate RScriptStep a favor da utilização do CommandStep para executar scripts R em pipelines. 
+    + Deprecate EstimatorStep a favor da utilização do CommandStep para executar o treino ML (incluindo treino distribuído) em oleodutos.
+  + **azureml-sdk**
+    + Atualização python_requires para < 3.9 para azureml-sdk
+  + **azureml-train-automl-client**
+    +  Alterou a saída da consola ao submeter uma execução AutoML para mostrar uma ligação do portal à execução.
+  + **azureml-train-core**
+    + Depreciou os atributos 'habilitados' da DockerSection, 'shared_volume', e os atributos de "argumentos" a favor da utilização de DockerConfig com ScriptRunConfig.
+    +  Utilize conjuntos de dados abertos Azure para conjunto de dados MNIST
+    + As mensagens de erro do hiperdrive foram atualizadas.
+
+
+## <a name="2021-03-22"></a>2021-03-22
+
+### <a name="azure-machine-learning-sdk-for-python-v1250"></a>Azure Machine Learning SDK para Python v1.25.0
++ **Correções e melhorias de bugs**
+  + **azureml-automl-core**
+    +  Alterou a saída da consola ao submeter uma execução AutoML para mostrar uma ligação do portal à execução.
+  + **azureml-core**
+    + Começa a apoiar a atualização do registo de contentores para espaço de trabalho em SDK e CLI
+    + Depreciou os atributos 'habilitados' da DockerSection, 'shared_volume', e os atributos de "argumentos" a favor da utilização de DockerConfig com ScriptRunConfig.
+    + Documentação atualizada do clone do Pipeline CLI
+    + URIs portal atualizado para incluir inquilino para autenticação
+    + Removido nome da experiência de executar URIs para evitar redirecionamentos
+    + Experiência atualizada URO para usar identificação de experiência.
+    + Correções de bugs para anexar computação remota usando az cli
+    + UrIs portal atualizado para incluir inquilino para autenticação.
+    + Suporte adicionado para entender as partições do Dataset de Ficheiros com base na estrutura glob.
+  + **azureml-interpret**
+    + azureml-interpret atualizado para usar interpret-community 0.17.0
+  + **azureml-opendatasets**
+    + Inserir data de início e data de fim a validação do tipo e indicação de erro se não for o tipo de data.
+  + **azureml-pipeline-core**
+    + Bugfix - suportando path_on_compute ao passar a configuração do conjunto de dados como descarregamento.
+  + **azureml-pipeline-steps**
+    + Bugfix - suportando path_on_compute ao passar a configuração do conjunto de dados como descarregamento.
+    + Deprecate RScriptStep a favor da utilização do CommandStep para executar scripts R em pipelines. 
+    + Deprecate EstimatorStep a favor da utilização do CommandStep para executar o treino ML (incluindo treino distribuído) em oleodutos.
+  + **azureml-train-automl-runtime**
+    +  Alterou a saída da consola ao submeter uma execução AutoML para mostrar uma ligação do portal à execução.
+  + **azureml-train-core**
+    + Depreciou os atributos 'habilitados' da DockerSection, 'shared_volume', e os atributos de "argumentos" a favor da utilização de DockerConfig com ScriptRunConfig.
+    + Utilize conjuntos de dados abertos Azure para conjunto de dados MNIST
+    + As mensagens de erro do hiperdrive foram atualizadas.
+
 
 ## <a name="2021-03-31"></a>2021-03-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-march-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (março Update)
@@ -38,6 +112,7 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
   + Os links passam a ser clicáveis no Terminal
   + Melhor desempenho do Intellisense
 
+
 ## <a name="2021-03-08"></a>2021-03-08
 
 ### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Azure Machine Learning SDK para Python v1.24.0
@@ -50,8 +125,6 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
     + A funcionalidade adicionada para filtrar conjuntos de dados tabulares por valores de coluna e conjuntos de dados de ficheiros por metadados.
   + **azureml-contrib-fairness**
     + Inclua o esquema JSON na roda para `azureml-contrib-fairness`
-  + **azureml-contrib-k8s**
-    + Deve agora fornecer resource_id para anexar em vez de grupo de recursos e nome de cluster.
   + **azureml-contrib-mir**
     + Com a definição show_output a True quando implementar modelos, a configuração de inferência e a configuração de implementação serão reproduzidas antes de enviar o pedido para o servidor.
   + **azureml-core**
@@ -94,7 +167,7 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
   + **azureml-core**
     + [Recurso experimental] Adicione suporte para ligar o espaço de trabalho da sinapse à AML como um serviço ligado
     + [Recurso experimental] Adicione suporte para anexar a piscina de faíscas sinapse em AML como um cálculo
-    + [Recurso experimental] Adicione suporte para acesso de dados baseados na identidade. Os utilizadores podem registar datastore ou conjuntos de dados sem fornecer credenciais. Nesse caso, o token AAD ou a identidade gerida do alvo do computação serão utilizados para a autenticação. Saiba mais [aqui.](./how-to-identity-based-data-access.md)
+    + [Recurso experimental] Adicione suporte para acesso de dados baseados na identidade. Os utilizadores podem registar datastore ou conjuntos de dados sem fornecer credenciais. Nesse caso, o token AAD ou a identidade gerida do alvo do computação serão utilizados para a autenticação. Sabia mais [aqui](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Recurso experimental] Adicionar suporte para [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**

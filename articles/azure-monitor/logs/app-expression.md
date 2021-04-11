@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: 235a6bf4a0dd9afcac8751067b2eac3ddb37c0cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d60857503402554381068fc36121fa3f7b61622
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031247"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283563"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>() expressão na consulta do Monitor de Azure
 
 A `app` expressão é usada numa consulta do Azure Monitor para obter dados de uma aplicação específica de Insights de Aplicação no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isto é útil para incluir dados de aplicações numa consulta de registo do Azure Monitor e para consultar dados em várias aplicações numa consulta de Insights de Aplicação.
 
 > [!IMPORTANT]
-> A expressão da aplicação não é utilizada se estiver a utilizar um [recurso de Insights de Aplicação baseado no espaço de trabalho,](../app/create-workspace-resource.md) uma vez que os dados de registo são armazenados num espaço de trabalho do Log Analytics. Utilize a expressão log() para escrever uma consulta que inclua aplicação em vários espaços de trabalho. Para várias aplicações no mesmo espaço de trabalho, você não precisa de uma consulta de espaço de trabalho transversal.
+> A expressão da aplicação não é utilizada se estiver a utilizar um [recurso de Insights de Aplicação baseado no espaço de trabalho,](../app/create-workspace-resource.md) uma vez que os dados de registo são armazenados num espaço de trabalho do Log Analytics. Utilize a expressão espaço de trabalho para escrever uma consulta que inclua aplicação em vários espaços de trabalho. Para várias aplicações no mesmo espaço de trabalho, você não precisa de uma consulta de espaço de trabalho transversal.
 
 ## <a name="syntax"></a>Syntax
 
@@ -33,7 +33,7 @@ A `app` expressão é usada numa consulta do Azure Monitor para obter dados de u
 | Nome do Recurso | Nome legível humano da app (Também conhecido como "nome de componente") | app ("fabrikamapp") |
 | Nome Qualificado | Nome completo da aplicação no formulário: "subscriptionName/resourceGroup/componentName" | app ('AI-Protótipo/Fabrikam/fabrikamapp') |
 | ID | GUIA da app | app("988ba129-363e-4415-8fe7-8cbab5447518") |
-| ID de recursos Azure | Identificador para o recurso Azure |app ("/subscrições/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
+| ID do Recurso do Azure | Identificador para o recurso Azure |app ("/subscrições/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
 ## <a name="notes"></a>Notas

@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: 31ba96e0f8772877d7b4881c6bab0561cbe7956e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/31/2021
+ms.openlocfilehash: e882ae89da2fd081d6b41d3d42e998d3600f0e18
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604258"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120758"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novidades em Azure Sentinel
 
@@ -32,13 +32,36 @@ As funcionalidades notadas estão atualmente em PREVIEW. Os [Termos Complementar
 
 ## <a name="march-2021"></a>março de 2021
 
+- [Novas deteções para Azure Firewall](#new-detections-for-azure-firewall)
 - [Regras de automação e livros de jogadas desencadeados por incidentes](#automation-rules-and-incident-triggered-playbooks) (incluindo documentação totalmente nova do livro de jogadas)
 - [Novos enriquecimentos de alerta: mapeamento de entidades melhoradas e detalhes personalizados](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
 - [Imprima os seus livros de Azure Sentinel ou guarde como PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Filtros de incidentes e preferências de classificação agora guardadas na sua sessão (visualização pública)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Integração de incidentes microsoft 365 Defender (visualização pública)](#microsoft-365-defender-incident-integration-public-preview)
 - [Novos conectores de serviço da Microsoft que utilizam a Política Azure](#new-microsoft-service-connectors-using-azure-policy)
- 
+
+### <a name="new-detections-for-azure-firewall"></a>Novas deteções para Azure Firewall
+
+Várias deteções fora da caixa para a Azure Firewall foram adicionadas à área [de Analytics](import-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) em Azure Sentinel. Estas novas deteções permitem que as equipas de segurança recebam alertas se as máquinas da rede interna tentarem consultar ou ligar nomes de domínios da Internet ou endereços IP que estejam associados a IOCs conhecidos, tal como definido na consulta da regra de deteção.
+
+As novas deteções incluem:
+
+- [Farol da Rede Solorigate](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+- [Domínios e haléios de gálio conhecidos](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
+- [IP de IRIDIUM conhecido](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+- [Domínios conhecidos do grupo de fósforo/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+- [Domínios THALLIUM incluídos na tomada de DCU](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
+- [Haxixe maldoc relacionado com zinco conhecido](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [Domínios conhecidos do grupo STRONTIUM](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+- [NOBELIUM - IOCs de domínio e IP - março de 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+
+
+As deteções de Firewalls Azure são continuamente adicionadas à galeria de modelos incorporada. Para obter as deteções mais recentes para Azure Firewall, em **modelos de regras,** filtre as **Fontes de Dados** por **Azure Firewall**:
+
+:::image type="content" source="media/whats-new/new-detections-analytics-efficiency-workbook.jpg" alt-text="Novas deteções no livro de eficiência da Analytics":::
+
+Para obter mais informações, consulte [novas deteções para Azure Firewall em Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
+
 ### <a name="automation-rules-and-incident-triggered-playbooks"></a>Regras de automação e livros de jogadas desencadeados por incidentes
 
 As regras de automação são um novo conceito no Azure Sentinel, permitindo-lhe gerir centralmente a automatização do tratamento de incidentes. Além de permitir atribuir playbooks a incidentes (não apenas a alertas como antes), as regras de automação também permitem automatizar respostas para várias regras de análise ao mesmo tempo, marcar, atribuir ou fechar incidentes sem necessidade de playbooks, e controlar a ordem de ações que são executadas. As regras de automação irão simplificar o uso da automatização no Azure Sentinel e permitir-lhe-ão simplificar fluxos de trabalho complexos para os seus processos de orquestração de incidentes.

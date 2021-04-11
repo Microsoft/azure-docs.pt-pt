@@ -1,5 +1,5 @@
 ---
-title: Exemplos de comunicação do serviço emitente (pré-visualização)
+title: Exemplos de comunicação de serviço emitente (pré-visualização) - Azure Ative Directory Verifiable Credenciais
 description: Detalhes da comunicação entre o prestador de identidade e o serviço emitente
 author: barclayn
 manager: davba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: bd1b7560967ff0c458639a5737a02fca27ffc9f5
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 8771c61f96b244e0cc0bca1c61ceb8042b4a5b4c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170174"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220203"
 ---
 # <a name="issuer-service-communication-examples-preview"></a>Exemplos de comunicação do serviço emitente (Pré-visualização)
 
@@ -141,3 +141,7 @@ O token ID deve utilizar o formato de serialização compacta JWT e não deve se
 | `iat` | Deve conter o tempo em que o sinal de identificação foi emitido. |
 | `nonce` | O valor incluído no pedido de autorização. |
 | Reclamações adicionais | O token de ID deve conter quaisquer reclamações adicionais cujos valores serão incluídos na Credencial Verificável que será emitida. Esta secção é onde deve incluir quaisquer atributos sobre o utilizador, como o seu nome. |
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Como personalizar o seu Diretório Ativo Azure Credenciais Verificáveis](credential-design.md)

@@ -3,12 +3,12 @@ title: Azure Media Services como fonte de Rede de Eventos
 description: Descreve as propriedades que são fornecidas para eventos de Serviços de Mídia com Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f2f62f0a5ceed0e000c8bb7690fff009593bf82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5772a2332e1864d0b8df0d4e102006b29b6a61e
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104591933"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120117"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services como fonte de rede de eventos
 
@@ -514,7 +514,7 @@ O objeto de dados tem as seguintes propriedades:
 | `encoderPort` | string | Porto do codificar de onde vem este riacho. |
 | `resultCode` | string | A razão pela qual a ligação foi rejeitada. Os códigos de resultados estão listados na tabela seguinte. |
 
-Pode encontrar os códigos de resultado de erro nos [códigos de erro do Evento ao vivo](../media-services/latest/live-event-error-codes.md).
+Pode encontrar os códigos de resultado de erro nos [códigos de erro do Evento ao vivo](../media-services/latest/live-event-error-codes-reference.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoder Ligado
 
@@ -639,7 +639,7 @@ O objeto de dados tem as seguintes propriedades:
 | `encoderPort` | string | Porto do codificar de onde vem este riacho. |
 | `resultCode` | string | A razão para a desconexão do codificante. Pode ser uma desconexão graciosa ou de um erro. Os códigos de resultados estão listados na tabela seguinte. |
 
-Pode encontrar os códigos de resultado de erro nos [códigos de erro do Evento ao vivo](../media-services/latest/live-event-error-codes.md).
+Pode encontrar os códigos de resultado de erro nos [códigos de erro do Evento ao vivo](../media-services/latest/live-event-error-codes-reference.md).
 
 Os graciosos códigos de resultados de desconexão são:
 
@@ -1118,4 +1118,4 @@ Um evento tem os seguintes dados de alto nível:
 
 - [EventGrid .NET SDK que inclui eventos de Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Códigos de erro do Evento Ao Vivo](../media-services/latest/live-event-error-codes.md)
+- [Códigos de erro do Evento Ao Vivo](../media-services/latest/live-event-error-codes-reference.md)

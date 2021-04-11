@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Parâmetros numa definição de política'
-description: Este padrão de Política Azure fornece um exemplo de como usar parâmetros de cadeia e matriz numa definição de política, bem como como parametrizar o efeito.
-ms.date: 08/17/2020
+description: Este padrão de Política Azure fornece um exemplo de como usar parâmetros de cordas e matriz numa definição de política, e como parametrizar o efeito.
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b742aaaf950e2b5670edbaa1f0134da144e675b6
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89649948"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092777"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Padrão de política azul: parâmetros
 
@@ -16,7 +16,7 @@ Uma definição de política pode ser dinâmica para reduzir o número de defini
 
 ## <a name="sample-1-string-parameters"></a>Amostra 1: Parâmetros de corda
 
-Esta definição de política utiliza dois parâmetros, **tagName** e **tagValue** para definir o que a atribuição de política procura em recursos. Este formato permite que a definição de política seja usada para qualquer número de combinações de etiquetas e valor de etiqueta, mas apenas manter uma definição de política única.
+Esta definição de política utiliza dois parâmetros, **tagName** e **tagValue,** para definir o que a atribuição de políticas procura em recursos. Este formato permite que a definição de política seja usada para qualquer número de combinações de etiquetas e valor de etiqueta, mas apenas manter uma definição de política única.
 
 > [!NOTE]
 > Para obter uma amostra de etiqueta que utilize **o modo** _All_ e trabalhe com um grupo de recursos, consulte [Padrão: Tags - Amostra #1](./pattern-tags.md#sample-1-parameterize-tags).

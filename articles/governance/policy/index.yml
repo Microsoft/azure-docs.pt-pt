@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 03/16/2021
-  ms.openlocfilehash: 7803b5fa827e129ccf4cd6f21c327d4e260b1264
-  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+  ms.openlocfilehash: 95b9b1d9ea947017f87b209eaa1b9995b08192b4
+  ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/19/2021
-  ms.locfileid: "104598461"
+  ms.lasthandoff: 04/02/2021
+  ms.locfileid: "106219217"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -57,6 +57,8 @@ landingContent:
       url: ./assign-policy-rest-api.md
     - text: Atribuir uma política (modelo do ARM)
       url: ./assign-policy-template.md
+    - text: Atribuir uma apólice (Bicep)
+      url: ./assign-policy-bicep.md
     - text: Atribuir uma política (Terraform)
       url: ./assign-policy-terraform.md
   - linkListType: tutorial

@@ -3,12 +3,12 @@ title: Criptografe conteúdo com o portal Azure
 description: Este quickstart mostra-lhe como configurar encriptação para o seu conteúdo usando a Azure Media Services no portal Azure.
 ms.topic: quickstart
 ms.date: 08/31/2020
-ms.openlocfilehash: a97e1a3c51d44b7c530de0c6eeca569f898d07c1
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 5ce942447f6d143116350940bda0e01a8b532d24
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106069339"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277688"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Quickstart: Use o portal para encriptar conteúdo
 
@@ -28,8 +28,8 @@ Este quickstart mostra-lhe como criar uma política de chave de conteúdo onde e
 ### <a name="suggested-pre-reading"></a>Pré-leitura sugerida
 
 * [Encriptação dinâmica e entrega de chaves](drm-content-protection-concept.md)
-* [Localizadores de transmissão em fluxo](streaming-locators-concept.md)
-* [Políticas de transmissão em fluxo](streaming-policy-concept.md)
+* [Localizadores de transmissão em fluxo](stream-streaming-locators-concept.md)
+* [Políticas de transmissão em fluxo](stream-streaming-policy-concept.md)
 * [Políticas de chave de conteúdo](drm-content-key-policy-concept.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -80,7 +80,7 @@ Também pode adicionar uma encriptação de chave clara AES-128 ao seu conteúdo
 1. Na secção **de localizador streaming** para o ativo selecionado, prima **+ Adicione um localizador de streaming**. 
 1. Selecione uma **política de streaming** adequada para a política de chave de **conteúdo** que configura.
 
-    O tópico [das políticas de streaming](streaming-policy-concept.md) dá detalhes sobre qual a política de streaming que corresponde à política chave de conteúdo.
+    O tópico [das políticas de streaming](stream-streaming-policy-concept.md) dá detalhes sobre qual a política de streaming que corresponde à política chave de conteúdo.
 1. Assim que selecionar a política de streaming adequada, pode selecionar a política de chave de conteúdo da lista de drop-down.
 1. Pressione **Adicione** para adicionar o localizador de streaming ao seu ativo.
 

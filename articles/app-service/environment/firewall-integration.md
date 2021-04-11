@@ -4,15 +4,15 @@ description: Saiba como se integrar com o Azure Firewall para garantir o tráfeg
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 03/25/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: ec506546b52a2d137d448f07f4b7a6827c01b4d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b930412508753ba2025e8126b9720d9a519d9281
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594129"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220067"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente de Serviço de Aplicações
 
@@ -146,6 +146,8 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 |login.windows.com:443 |
 |login.windows.net:443 |
 |login.microsoftonline.com:443 |
+|\*.login.microsoftonline.com:443|
+|\*.login.microsoft.com:443|
 |client.wns.windows.com:443 |
 |definitionupdates.microsoft.com:443 |
 |go.microsoft.com:80 |

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 07a8d792bbb17df1401b5892b09fb7ff2f5f8e52
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0bfb23977f6553568da24df614621bdf1eb9d06d
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629427"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113490"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,16 +38,16 @@ dotnet build
 Enquanto ainda está no diretório de aplicações, instale a biblioteca cliente Azure Communication PhoneNumbers para o pacote .NET utilizando o `dotnet add package` comando.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.5
+dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
 ```
 
 Adicione uma `using` diretiva ao topo do **Programa.cs** para incluir os espaços de nome.
 
 ```csharp
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Azure.Communication.PhoneNumbers;
-using Azure.Communication.PhoneNumbers.Models;
 ```
 
 Atualizar `Main` a assinatura da função para ser async.
@@ -61,7 +61,7 @@ static async Task Main(string[] args)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Os clientes de número de telefone podem ser autenticados usando uma cadeia de ligação adquirida a partir de um Azure Communication Resources no [Portal Azure][azure_portal].
+Os clientes do Número de Telefone podem ser autenticados através de uma cadeia de ligação adquirida a partir de um Azure Communication Resources no [portal Azure][azure_portal].
 
 ```csharp
 // Get a connection string to our Azure Communication resource.
@@ -98,20 +98,20 @@ O resultado da procura de números de telefone é um `PhoneNumberSearchResult` .
 
 ```csharp
 var purchaseOperation = await client.StartPurchasePhoneNumbersAsync(searchOperation.Value.SearchId);
-await purchaseOperation.WaitForCompletionAsync();
+await purchaseOperation.WaitForCompletionResponseAsync();
 ```
 
 ### <a name="get-phone-numbers"></a>Obter números de telefone(s)
 
 Depois de um número de compra, pode recuperá-lo do cliente.
 ```csharp
-var getPhoneNumberResponse = await client.GetPhoneNumberAsync("+14255550123");
+var getPhoneNumberResponse = await client.GetPurchasedPhoneNumberAsync("+14255550123");
 Console.WriteLine($"Phone number: {getPhoneNumberResponse.Value.PhoneNumber}, country code: {getPhoneNumberResponse.Value.CountryCode}");
 ```
 
 Também pode recuperar todos os números de telefone adquiridos.
 ``` csharp
-var purchasedPhoneNumbers = client.GetPhoneNumbersAsync();
+var purchasedPhoneNumbers = client.GetPurchasedPhoneNumbersAsync();
 await foreach (var purchasedPhoneNumber in purchasedPhoneNumbers)
 {
     Console.WriteLine($"Phone number: {purchasedPhoneNumber.PhoneNumber}, country code: {purchasedPhoneNumber.CountryCode}");
@@ -134,7 +134,7 @@ Pode libertar um número de telefone comprado.
 
 ````csharp
 var releaseOperation = await client.StartReleasePhoneNumberAsync("+14255550123");
-await releaseOperation.WaitForCompletionAsync();
+await releaseOperation.WaitForCompletionResponseAsync();
 ````
 
 ## <a name="run-the-code"></a>Executar o código

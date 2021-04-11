@@ -4,12 +4,12 @@ description: Saiba como configurar uma encriptação baseada no anfitrião num c
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6942a3d445892faf0ea0570561eb06019e841e23
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430161"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443203"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Encriptação baseada no anfitrião no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -28,11 +28,18 @@ Esta funcionalidade só pode ser definida no tempo de criação de cluster ou de
 - Certifique-se de que tem a `aks-preview` extensão CLI v0.4.73 ou versão superior.
 - Certifique-se de que tem a `EnableEncryptionAtHostPreview` bandeira de recurso `Microsoft.ContainerService` ativada.
 
-Para poder utilizar a encriptação no anfitrião para os seus VMs ou conjuntos de escala de máquinas virtuais, tem de obter a funcionalidade ativada na sua subscrição. Envie um e-mail **encryptionAtHost@microsoft.com** com os iDs de subscrição para obter a funcionalidade ativada para as suas subscrições. 
+Tem de ativar a funcionalidade da sua subscrição antes de utilizar a propriedade EncryptionAtHost para o seu cluster de Serviço Azure Kubernetes. Siga os passos abaixo para ativar a funcionalidade para a sua subscrição:
 
-> [!IMPORTANT]
-> Tem de enviar um e-mail **encryptionAtHost@microsoft.com** com os iDs de subscrição para obter a funcionalidade ativada para recursos de computação. Não pode permitir por si mesmo recursos de computação.
+1. Execute o seguinte comando para registar a funcionalidade para a sua subscrição
 
+```azurecli-interactive
+Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
+2. Verifique se o estado de registo está registado (demora alguns minutos) usando o comando abaixo antes de experimentar a funcionalidade.
+
+```azurecli-interactive
+Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 

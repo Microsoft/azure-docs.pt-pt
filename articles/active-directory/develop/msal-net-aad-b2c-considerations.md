@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 84a65e9ce7360a38f552c0dea61a33ff8a94b9cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: cdbba1618815dbc8b52195169b7de2bcec2986d8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055523"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255584"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utilize MSAL.NET para assinar em utilizadores com identidades sociais
 
@@ -178,7 +178,7 @@ Um sintoma de tal cenário é que MSAL.NET devoluções `Missing from the token 
 
 A solução proposta é utilizar [o caching pela política](#acquire-a-token-to-apply-a-policy) descrita anteriormente.
 
-Em alternativa, pode utilizar a `tid` reclamação se estiver a utilizar [políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) em Azure AD B2C. As políticas personalizadas podem devolver reclamações adicionais à sua aplicação utilizando a [transformação de sinistros.](../../active-directory-b2c/claims-transformation-technical-profile.md)
+Em alternativa, pode utilizar a `tid` reclamação se estiver a utilizar [políticas personalizadas](../../active-directory-b2c/user-flow-overview.md) em Azure AD B2C. As políticas personalizadas podem devolver reclamações adicionais à sua aplicação utilizando a [transformação de sinistros.](../../active-directory-b2c/claims-transformation-technical-profile.md)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação por "Falta da resposta simbólica"
 
