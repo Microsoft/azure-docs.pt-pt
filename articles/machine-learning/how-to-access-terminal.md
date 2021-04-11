@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: e42d6d53e4d06e5ec7a33ea4b8ca18233dcf1dd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f6c8e309fde92b0c2cf6fabac3489557b0b6b93
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100101566"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062391"
 ---
 # <a name="access-a-compute-instance-terminal-in-your-workspace"></a>Aceda a um terminal de instância computacional no seu espaço de trabalho
 

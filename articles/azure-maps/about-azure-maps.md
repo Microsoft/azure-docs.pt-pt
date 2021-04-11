@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: fc70e6370f53848e9f3672611a3dfda685bcb9fe
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 55955f883425651749809da951832484f098aeaf
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011781"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256128"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
@@ -169,7 +169,7 @@ O serviço de tráfego é um conjunto de serviços web que os desenvolvedores po
 
 Para mais informações, consulte a [documentação do serviço de tráfego.](/rest/api/maps/traffic)
 
-### <a name="weather-services-preview"></a>Serviços meteorológicos (Pré-visualização) 
+### <a name="weather-services"></a>Serviços de meteorologia
 
 Os serviços meteorológicos oferecem APIs que os desenvolvedores podem usar para recuperar informações meteorológicas para um determinado local. As informações contêm detalhes como data e hora de observação, breve descrição das condições meteorológicas, ícone meteorológico, bandeiras indicadoras de precipitação, temperatura e informações sobre velocidade do vento. Detalhes adicionais como RealFeel™ Temperatura e índice UV também são devolvidos.
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 92db62622c37241a76d7847931df030162de8f00
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98209836"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504231"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com resultados de pesquisa na Azure Cognitive Search
 
@@ -95,7 +95,7 @@ Para consultas completas de pesquisa por texto, os resultados são automaticamen
 
 As pontuações de pesquisa transmitem sentido geral de relevância, refletindo a força da correspondência em relação a outros documentos no mesmo conjunto de resultados. Mas as pontuações nem sempre são consistentes de uma consulta para a outra, por isso, à medida que trabalha com consultas, poderá notar pequenas discrepâncias na forma como os documentos de pesquisa são encomendados. Há várias explicações para o porquê disto acontecer.
 
-| Causa | Description |
+| Causa | Descrição |
 |-----------|-------------|
 | Volatilidade dos dados | O conteúdo do índice varia à medida que adiciona, modifica ou elimina documentos. As frequências de prazo mudarão à medida que as atualizações de índices forem processadas ao longo do tempo, afetando as pontuações de pesquisa de documentos correspondentes. |
 | Várias réplicas | Para serviços que utilizam réplicas múltiplas, as consultas são emitidas contra cada réplica em paralelo. As estatísticas de índice utilizadas para calcular uma pontuação de pesquisa são calculadas numa base por réplica, com resultados fundidos e encomendados na resposta de consulta. As réplicas são sobretudo espelhos uns dos outros, mas as estatísticas podem diferir devido a pequenas diferenças de estado. Por exemplo, uma réplica poderia ter eliminado documentos que contribuíam para as suas estatísticas, que foram fundidos a partir de outras réplicas. Tipicamente, as diferenças nas estatísticas por réplica são mais percetíveis em índices menores. |
@@ -137,12 +137,16 @@ Os serviços criados após 15 de julho de 2020 proporcionarão uma experiência 
 
 Com o novo comportamento:
 
-* Apenas serão devolvidas frases que correspondam à consulta completa da frase. A consulta "super bowl" devolverá destaques como este:
++ Apenas serão devolvidas frases que correspondam à consulta completa da frase. A frase de consulta "super bowl" devolverá destaques como este:
 
-    ```html
-    '<em>super bowl</em> is super awesome with a bowl of chips'
-    ```
-  Note que o termo *tigela de batatas fritas* não tem qualquer destaque porque não corresponde à frase completa.
+  ```json
+  "@search.highlights": {
+      "sentence": [
+          "The <em>super</em> <em>bowl</em> is super awesome with a bowl of chips"
+     ]
+  ```
+
+  Note que outros casos de *super* e *taça* não têm qualquer destaque porque essas instâncias não correspondem à frase completa.
 
 Quando estiver a escrever o código do cliente que implementa o destaque, esteja ciente desta mudança. Note que isso não irá impactá-lo a menos que crie um serviço de pesquisa completamente novo.
 

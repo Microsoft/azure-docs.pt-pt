@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ca4464f40c0807e51adffca8e3e68c622314de6
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928737"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256893"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com gasodutos Azure
 
@@ -34,7 +34,7 @@ Existem três passos primários necessários para permitir que os gasodutos Azur
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com a função [de Administrador de Política B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
-* [Políticas personalizadas](custom-policy-get-started.md) enviadas para o seu inquilino
+* [Políticas personalizadas](tutorial-create-user-flows.md?pivots=b2c-custom-policy) enviadas para o seu inquilino
 * [Aplicação de gestão](microsoft-graph-get-started.md) registada no seu inquilino com a Política de Permissão da API do Microsoft Graph.ReadWrite.TrustFramework 
 * [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), e acesso a um [projeto Azure DevOps Services][devops-create-project]
 

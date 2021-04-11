@@ -3,22 +3,18 @@ title: Embalagem dinâmica em Azure Media Services v3
 description: Este artigo apresenta uma visão geral da embalagem dinâmica na Azure Media Services.
 author: myoungerman
 manager: femila
-editor: ''
 services: media-services
-documentationcenter: ''
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4f4f53d4a20397f38b565cb73e74b01d15cc3022
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e396841231659c27f199a7353565c5d69e02877
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102633058"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062000"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -41,7 +37,7 @@ Para disponibilizar vídeos no ativo codificado aos clientes para reprodução, 
 
 Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente.
 
-Se planeia proteger o seu conteúdo utilizando encriptação dinâmica dos Media Services, consulte [os protocolos de streaming e os tipos de encriptação](content-protection-overview.md#streaming-protocols-and-encryption-types).
+Se planeia proteger o seu conteúdo utilizando encriptação dinâmica dos Media Services, consulte [os protocolos de streaming e os tipos de encriptação](drm-content-protection-concept.md#streaming-protocols-and-encryption-types).
 
 ### <a name="hls-protocol"></a>Protocolo HLS
 
@@ -49,9 +45,9 @@ O seu cliente de streaming pode especificar os seguintes formatos HLS:
 
 |Protocolo|Exemplo|
 |---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
 
 > [!NOTE]
 > As diretrizes anteriores da Apple recomendaram que o recuo para redes de largura de banda baixa fosse fornecer um fluxo apenas de áudio.  Atualmente, o codificadora media services gera automaticamente uma faixa apenas áudio.  As diretrizes da Apple afirmam agora que a faixa apenas para áudio *não* deve ser incluída, especialmente para a distribuição da Apple TV.  Para evitar que o leitor falhe numa faixa apenas de áudio, sugerimos a utilização da etiqueta "audio-only=falso" no URL que remove a rendição apenas áudio no HLS ou simplesmente utilizar o HLS-V3. Por exemplo, `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`.
@@ -62,8 +58,8 @@ O seu cliente de streaming pode especificar os seguintes formatos MPEG-DASH:
 
 |Protocolo|Exemplo|
 |---|---|
-|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
+|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 
 ### <a name="smooth-streaming-protocol"></a>Protocolo de streaming suave
 
@@ -71,7 +67,7 @@ O seu cliente de streaming pode especificar os seguintes formatos de Streaming S
 
 |Protocolo|Notas/exemplos| 
 |---|---|
-|Transmissão em Fluxo Uniforme| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
+|Transmissão em Fluxo Uniforme| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 |Streaming Suave 2.0 (manifesto legado)|Por predefinição, o formato manifesto de streaming suave contém a etiqueta de repetição (r-tag). No entanto, alguns jogadores não apoiam o `r-tag` . Os clientes com estes jogadores podem utilizar um formato que desativa a marca r:00:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
 > [!NOTE]
@@ -115,7 +111,7 @@ Aqui está um fluxo de trabalho comum para streaming ao vivo com *embalagem din�
 1. Obtenha o URL de pré-visualização e use-o para verificar se a entrada do codificante está a ser recebida.
 1. Criar um novo ativo.
 1. Crie uma saída ao vivo e use o nome de ativo que criou.<br />A saída ao vivo arquiva o fluxo para o ativo.
-1. Crie um localizador de streaming com os tipos de política de streaming incorporados.<br />Se pretende encriptar o seu conteúdo, reveja a [visão geral da proteção de conteúdos.](content-protection-overview.md)
+1. Crie um localizador de streaming com os tipos de política de streaming incorporados.<br />Se pretende encriptar o seu conteúdo, reveja a [visão geral da proteção de conteúdos.](drm-content-protection-concept.md)
 1. Enuse os caminhos no localizador de streaming para obter os URLs para usar.
 1. Obtenha o nome de anfitrião para o ponto final de streaming a partir do que pretende transmitir.
 1. Construa URLs que visam diferentes formatos (HLS, MPEG-DASH e Smooth Streaming). O *ponto final* de streaming cuida de servir o manifesto correto e os pedidos para os diferentes formatos.
@@ -312,7 +308,7 @@ Para controlar o número de faixas, formatos, bitrates e janelas de tempo de apr
 
 ## <a name="dynamic-encryption"></a>Encriptação dinâmica
 
-Pode utilizar *encriptação dinâmica* para encriptar dinamicamente o seu conteúdo ao vivo ou a pedido com a AES-128 ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Serviços de Comunicação Social também fornecem um serviço de entrega de chaves AES e licenças de DRM a clientes autorizados. Para obter mais informações, consulte [a encriptação dinâmica.](content-protection-overview.md)
+Pode utilizar *encriptação dinâmica* para encriptar dinamicamente o seu conteúdo ao vivo ou a pedido com a AES-128 ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Serviços de Comunicação Social também fornecem um serviço de entrega de chaves AES e licenças de DRM a clientes autorizados. Para obter mais informações, consulte [a encriptação dinâmica.](drm-content-protection-concept.md)
 
 > [!NOTE]
 > Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.

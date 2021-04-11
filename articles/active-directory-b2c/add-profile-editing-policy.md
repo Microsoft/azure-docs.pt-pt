@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a0f4f785feed022226ed533d378a8fa52080b9ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d84756a2ae4f8897c42e1846e3a91dbb9f7ad7e1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581903"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257046"
 ---
 # <a name="set-up-a-profile-editing-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de edição de perfil no Azure Ative Directory B2C
 
@@ -65,7 +65,7 @@ Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize
 
 ## <a name="create-a-profile-editing-policy"></a>Criar uma política de edição de perfil
 
-As políticas personalizadas são um conjunto de ficheiros XML que envia para o seu inquilino Azure AD B2C para definir viagens de utilizador. Fornecemos pacotes de iniciação com várias políticas pré-construídas, incluindo: inscrição e início de sessão, reset de palavra-passe e política de edição de perfis. Para obter mais informações, consulte [Começar com políticas personalizadas em Azure AD B2C.](custom-policy-get-started.md)
+As políticas personalizadas são um conjunto de ficheiros XML que envia para o seu inquilino Azure AD B2C para definir viagens de utilizador. Fornecemos pacotes de iniciação com várias políticas pré-construídas, incluindo: inscrição e início de sessão, reset de palavra-passe e política de edição de perfis. Para obter mais informações, consulte [Começar com políticas personalizadas em Azure AD B2C.](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 ::: zone-end
 

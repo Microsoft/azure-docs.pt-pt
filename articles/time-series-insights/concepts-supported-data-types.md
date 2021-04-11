@@ -1,20 +1,20 @@
 ---
 title: Tipos de dados suportados - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Saiba mais sobre os tipos de dados suportados na Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: b0536a152797d17cba0930b3a142a7fb92eaf5ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e8e6f007e19d2514a5f75dbdda7da13e1f8be3c
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685162"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505183"
 ---
 # <a name="supported-data-types"></a>Tipos de dados suportados
 

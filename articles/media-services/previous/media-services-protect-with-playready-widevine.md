@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a0e8a513023c093157a3f14a64de9f87de543ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd544b9eec0c1839ad94ede65e9d4ccde6df81dc
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009458"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063360"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine
 
@@ -46,9 +46,9 @@ Para obter mais informações, veja a integração com [Axinom](media-services-a
 
 Os Media Services suportam várias formas de autorização de utilizadores que efetuam pedidos de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização, quer sejam restrições abertas ou de token. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Serviços de Multimédia suportam tokens no formato [simple web tokens](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) e [JSON Web Token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT). 
 
-Para obter mais informações, veja [Configure the content key's authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy) (Configurar a política de autorização da chave de conteúdo).
+Para obter mais informações, veja [Configure the content key's authorization policy](media-services-portal-configure-content-key-auth-policy.md) (Configurar a política de autorização da chave de conteúdo).
 
-Para tirar partido da encriptação dinâmica, tem de ter um elemento que contenha um conjunto de ficheiros MP4 com velocidade de transmissão múltipla ou ficheiros de origem de Transmissão em Fluxo Uniforme de múltipla transmissão. Terá também de configurar as políticas de entrega para o elemento (descrito mais adiante neste tópico). Em seguida, com base no formato especificado no URL de transmissão em fluxo, o servidor de transmissão em fluxo a pedido irá garantir que a transmissão é entregue no protocolo que selecionou. Como resultado, armazena e paga os ficheiros apenas num formato de armazenamento. Os Serviços de Multimédia criam e entregam a resposta HTTP adequada com base em cada pedido de um cliente.
+Para tirar partido da encriptação dinâmica, crie um ativo que contenha um conjunto de ficheiros MP4 multi-bitrate ou ficheiros de origem de streaming smooth multi-bitrate. Terá também de configurar as políticas de entrega para o elemento (descrito mais adiante neste tópico). Em seguida, com base no formato especificado no URL de transmissão em fluxo, o servidor de transmissão em fluxo a pedido irá garantir que a transmissão é entregue no protocolo que selecionou. Como resultado, armazena e paga os ficheiros apenas num formato de armazenamento. Os Serviços de Multimédia criam e entregam a resposta HTTP adequada com base em cada pedido de um cliente.
 
 Este artigo é útil para os programadores que trabalham com aplicações que entregam multimédia protegida com vários DRMs, tais como o PlayReady e o Widevine. O artigo mostra-lhe como configurar o serviço de entrega de licenças do PlayReady com políticas de autorização para que apenas os clientes autorizados possam receber licenças do PlayReady ou do Widevine. Este também mostra como utilizar a encriptação dinâmica com PlayReady ou Widevine DRM sobre DASH.
 

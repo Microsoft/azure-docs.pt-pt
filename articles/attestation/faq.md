@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 39f628845bdc9d54b48b1c8037f4a506a9d5c00a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b15a336e97cad1fb03a63ec34f563a4453755ff
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89236710"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504197"
 ---
 # <a name="frequently-asked-questions-for-microsoft-azure-attestation"></a>Perguntas frequentes para microsoft Azure Attestation
 
@@ -31,7 +31,7 @@ Serviço de caching Azure PCK:
 
 ## <a name="is-sgx-attestation-supported-by-azure-attestation-in-non-azure-environments"></a>É atestado SGX suportado pela Azure Attestation em ambientes não-Azure
 
-O Azure Attestation depende da linha de base de segurança indicada pelo serviço de caching Azure PCK para validar os TEEs. O serviço de caching Azure PCK foi atualmente concebido para suportar apenas nós de computação Azure Confidential. 
+N.º O Azure Attestation depende da linha de base de segurança indicada pelo serviço de caching Azure PCK para validar os TEEs. O serviço de caching Azure PCK foi atualmente concebido para suportar apenas nós de computação Azure Confidential. 
 
 ## <a name="what-validations-does-azure-attestation-perform-for-attesting-sgx-enclaves"></a>Que validações a Azure Attestation atua para atestar enclaves SGX
 
