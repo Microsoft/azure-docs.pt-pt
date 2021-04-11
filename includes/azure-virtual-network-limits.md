@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2262290486047c225cec8e8f6bb73242df7258fa
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101734098"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106271480"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **do Azure Resource Manager** por região por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
@@ -73,12 +73,12 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Regras por NIC (em todos os IPs de um NIC) | 300                           |
 | Configurações IP frontend              | 600                           |
 | Tamanho da piscina backend                       | 1.000 configurações IP, rede virtual única |
-| Recursos de backend por Balanceador de Carga <sup> 1<sup> | 250                   |
+| Recursos de backend por Balanceador de Carga <sup> 1<sup> | 1200                   |
 | Portas de alta disponibilidade                 | 1 por frontend interno       |
 | Regras de saída por Balanceador de Carga        | 600                           |
 | Balançadores de carga por VM                   | 2 (1 Público e 1 interno)   |
 
-<sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquinas virtuais autónomos, recursos definidos de disponibilidade e grupos de colocação de escala de máquina virtual.
+<sup>1</sup> O limite é de até 1.200 recursos, em qualquer combinação de recursos de máquinas virtuais autónomos, recursos definidos de disponibilidade e grupos de colocação de escala de máquina virtual.
 
 **Balanceador de carga básico**
 

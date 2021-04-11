@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
 ms.openlocfilehash: 0791f2e8d5119c2087286a24cf83b4259ee9e7af
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105611655"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Resolução de problemas do serviço Azure Dedicado HSM

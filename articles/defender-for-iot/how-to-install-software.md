@@ -4,10 +4,10 @@ description: Saiba como instalar um sensor e a consola de gestão no local para 
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.openlocfilehash: 5bdb292750ea041be68a22519583511f58b3b517
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782253"
 ---
 # <a name="defender-for-iot-installation"></a>Defender para instalação IoT
@@ -847,7 +847,7 @@ Para instalar o software:
 
 1. As credenciais de inscrição são geradas e apresentadas automaticamente. Guarde estas credenciais num lugar seguro, porque são necessárias para a inscrição e administração.
 
-    | Nome de utilizador | Descrição |
+    | Nome de utilizador | Description |
     |--|--|
     | Suporte | O utilizador administrativo para a gestão do utilizador. |
     | CyberX | O equivalente a raiz para aceder ao aparelho. |

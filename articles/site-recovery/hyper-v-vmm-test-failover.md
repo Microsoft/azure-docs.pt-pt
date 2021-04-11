@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
-ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 675190bee674c745494c2378712afa89bd43cbe4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87420418"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727880"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Faça um exercício DR para Hiper-V VMs para um local secundário
 
@@ -43,10 +43,10 @@ Faz-se um teste de falha desde a primária até ao local secundário. Se simples
 
 Quando executar um teste de falha, é-lhe pedido que selecione as definições de rede para testar máquinas de réplicas, como resumido na tabela.
 
-| **Opção** | **Detalhes** | |
-| --- | --- | --- |
-| **Nenhuma** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem, e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina a uma rede VM depois de ter sido criada.| |
-| **Utilizar existente** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem.<br/><br/>Crie uma rede VM isolada da sua rede de produção.<br/><br/>Se estiver a utilizar uma rede baseada em VLAN, recomendamos que crie uma rede lógica separada (não utilizada na produção) em VMM para este fim. Esta rede lógica é utilizada para criar redes VM para falhas de teste.<br/><br/>A rede lógica deve ser associada a pelo menos um dos adaptadores de rede de todos os servidores Hiper-V que estão a hospedar máquinas virtuais.<br/><br/>Para as redes lógicas VLAN, os sites de rede que adiciona à rede lógica devem ser isolados.<br/><br/>Se estiver a utilizar uma rede lógica baseada em virtualização da rede windows Network, a Azure Site Recovery cria automaticamente redes VM isoladas. | |
+| **Opção** | **Detalhes** |
+| --- | --- |
+| **Nenhuma** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem, e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina a uma rede VM depois de ter sido criada.|
+| **Utilizar existente** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem.<br/><br/>Crie uma rede VM isolada da sua rede de produção.<br/><br/>Se estiver a utilizar uma rede baseada em VLAN, recomendamos que crie uma rede lógica separada (não utilizada na produção) em VMM para este fim. Esta rede lógica é utilizada para criar redes VM para falhas de teste.<br/><br/>A rede lógica deve ser associada a pelo menos um dos adaptadores de rede de todos os servidores Hiper-V que estão a hospedar máquinas virtuais.<br/><br/>Para as redes lógicas VLAN, os sites de rede que adiciona à rede lógica devem ser isolados.<br/><br/>Se estiver a utilizar uma rede lógica baseada em virtualização da rede windows Network, a Azure Site Recovery cria automaticamente redes VM isoladas. |
 | **Criar uma rede** | Uma rede de teste temporária é criada automaticamente com base na definição que especifica na **Rede Lógica** e nos seus sites de rede relacionados.<br/><br/> Verificações de falhas que vMs são criados.<br/><br/> Deve utilizar esta opção se um plano de recuperação utilizar mais do que uma rede VM.<br/><br/> Se estiver a utilizar redes de virtualização da rede Windows Network, esta opção pode criar automaticamente redes VM com as mesmas definições (sub-redes e piscinas de endereços IP) na rede da máquina virtual réplica. Estas redes VM são limpas automaticamente após a conclusão do teste.<br/><br/> O VM de teste é criado no hospedeiro no qual existe a réplica da máquina virtual. Não é adicionado à nuvem.|
 
 ### <a name="best-practices"></a>Melhores práticas

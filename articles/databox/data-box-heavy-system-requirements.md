@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: alkohli
 ms.openlocfilehash: d4fed8a79b9d74f44a511bd019531c7843965d0e
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105611939"
 ---
 # <a name="azure-data-box-heavy-system-requirements"></a>Requisitos do sistema Azure Data Box

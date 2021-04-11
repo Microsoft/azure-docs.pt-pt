@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
 ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669485"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark sem servidor em Azure Synapse Analytics usando ferramentas web
@@ -82,9 +82,9 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
 
     Se utilizar o explorador de armazenamento, é possível ver o impacto das duas formas diferentes de escrever um ficheiro usado acima. Quando nenhum sistema de ficheiros é especificado, então o padrão é utilizado, neste caso `default>user>trusted-service-user>demo_df` . Os dados são guardados para a localização do sistema de ficheiros especificado.
 
-    Note nos formatos "csv" e "parquet", as operações de escrita são criadas com muitos ficheiros divididos.
+    Note nos formatos "csv&quot; e &quot;parquet&quot;, as operações de escrita são criadas com muitos ficheiros divididos.
 
-    ![Visão explorador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Visão explorador de armazenamento da saída")
+    ![Visão explorador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png &quot;Visão explorador de armazenamento da saída")
 
     ![Screenshot que realça o caminho de demodata > padrão > demo_df.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Visão explorador de armazenamento da saída")
 

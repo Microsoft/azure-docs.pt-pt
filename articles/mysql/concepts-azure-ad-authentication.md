@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: e3afa7e7129c34aae8487affe979bd7704580a1e
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612454"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilizar o Azure Ative Directory para a autenticação com o MySQL

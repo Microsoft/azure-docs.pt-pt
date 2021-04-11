@@ -7,10 +7,10 @@ ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105561241"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Descrição Geral da Atualização de Dispositivos para o Agente do Hub IoT

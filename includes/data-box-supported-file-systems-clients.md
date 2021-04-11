@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/25/2021
 ms.author: alkohli
 ms.openlocfilehash: e6d2bae6c2228af969f1ac5ea4d32b42a89fd881
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105611948"
 ---
 | **Protocolo** | **Versions** (Versões) |

@@ -10,10 +10,10 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: 5b897ff7527d2d60234162ccbdeb08a00260bb1d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101659465"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Atualizar a Máquina Virtual de Ciência de Dados para o Ubuntu 18.04
@@ -24,7 +24,7 @@ Se tiver uma Máquina Virtual de Ciência de Dados a executar uma versão mais a
 
 - Familiaridade com o SSH e a linha de comando Linux
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Há duas formas possíveis de migrar:
 
