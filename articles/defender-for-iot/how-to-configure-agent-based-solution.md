@@ -4,10 +4,10 @@ description: Saiba como configurar a recolha de dados no Azure Defender para sol
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.openlocfilehash: 9a21b336299438b89fae8d5a837130762a7f36e8
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784395"
 ---
 # <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Configure Azure Defender para solução baseada em agente IoT  

@@ -1,19 +1,19 @@
 ---
 title: Amostras de armazenamento Azure usando Java | Microsoft Docs
 description: Ver, descarregar e executar código de amostra e aplicações para Azure Storage. Descubra a obtenção de amostras para bolhas, filas, mesas e ficheiros, utilizando as bibliotecas de clientes de armazenamento java.
-author: mhopkins-msft
+author: twooley
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 9e3cd6be0da7c6d9401945293283de874c7cd866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a6a68a150bd474f40ffb1610ed7a310e4f30de9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92359769"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276642"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 Java
 

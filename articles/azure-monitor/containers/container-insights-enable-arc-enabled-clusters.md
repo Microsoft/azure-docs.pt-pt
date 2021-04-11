@@ -3,12 +3,12 @@ title: Configure Azure Arc permitiu que kubernetes cluster com insights de conte
 description: Este artigo descreve como configurar a monitorização com insights de contentores no Arco Azure habilitados agrupamentos kubernetes.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 307f9d9928042410dc9b4443aba5c019c592980c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d6a725f6af613a541077cecfed3ba2289909130d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101711302"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219235"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Ativar a monitorização de clusters do Kubernetes preparados para o Azure Arc
 
@@ -113,7 +113,7 @@ Para permitir a monitorização do seu cluster utilizando o script PowerShell ou
     $azureArcClusterResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-3. Configure a `$kubeContext` variável com o **contexto kube** do seu cluster executando o comando `kubectl config get-contexts` . Se quiser utilizar o contexto atual, desa um valor para `""` .
+3. Configure a `$kubeContext` variável com o **contexto kube** do seu cluster executando o comando `kubectl config get-contexts` . 
 
     ```powershell
     $kubeContext = "<kubeContext name of your k8s cluster>"
@@ -178,7 +178,7 @@ Execute os seguintes passos para permitir a monitorização utilizando o roteiro
     export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-3. Configure a `kubeContext` variável com o **contexto kube** do seu cluster executando o comando `kubectl config get-contexts` . Se quiser utilizar o contexto atual, desa um valor para `""` .
+3. Configure a `kubeContext` variável com o **contexto kube** do seu cluster executando o comando `kubectl config get-contexts` . 
 
     ```bash
     export kubeContext="<kubeContext name of your k8s cluster>"

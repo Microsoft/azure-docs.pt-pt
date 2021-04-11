@@ -17,10 +17,10 @@ ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 532e982b02bb35074370db45fec8cc42a898c83e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015527"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure
@@ -33,7 +33,7 @@ ms.locfileid: "103015527"
 > 
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A Azure Media Services (AMS) adicionou a proteção dinâmica do Google Widevine (ver [blog da Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) para mais detalhes). Além disso, o Azure Media Player (AMP) também adicionou suporte widevine (ver [documento AMP](https://amp.azure.net/libs/amp/latest/docs/) para mais detalhes). Esta é uma grande realização no streaming de conteúdo do DASH protegido pelo CENC com multi-nativo-DRM (PlayReady e Widevine) em navegadores modernos equipados com MSE e EME.
 
 Começando pela versão 3.5.2 dos Media Services .NET SDK, os Serviços de Mídia permitem-lhe configurar o modelo de licença widevine e obter licenças Widevine. Também pode utilizar os seguintes parceiros de AMS para o ajudar a fornecer licenças Widevine: [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/) e [castLabs](https://castlabs.com/company/partners/azure/).

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
-ms.openlocfilehash: c700cce5f50fda7f7a5773e07549e93da1c9f7a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/01/2021
+ms.openlocfilehash: b1111caf2eaab1114371cbfed1e929afcff20898
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956259"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219370"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Como criar planos para uma oferta de máquina virtual
 
@@ -154,7 +154,9 @@ As ofertas privadas não são suportadas com subscrições Azure estabelecidas a
 
 Se a sua máquina virtual deve ser usada apenas indiretamente quando é referenciada através de outro modelo de solução ou aplicação gerida, selecione esta caixa de verificação para publicar a máquina virtual, mas esconda-a de clientes que possam estar a pesquisar ou navegar diretamente por ela.
 
-Planos ocultos não suportam links de pré-visualização.
+Qualquer cliente Azure pode implementar a oferta usando o PowerShell ou o CLI.  Se deseja disponibilizar esta oferta a um conjunto limitado de clientes, então desajei o plano ao **Privado.** 
+
+Os planos ocultos não geram links de pré-visualização. No entanto, pode testá-los [seguindo estes passos.](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image) 
 
 **Selecione Guardar o rascunho** antes de continuar para o separador seguinte no menu Plano de navegação esquerda, **configuração técnica**.
 

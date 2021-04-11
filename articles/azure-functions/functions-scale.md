@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 490fa46deabc822e416705fe9bf9c5cdb58f8cd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 079ac41f8b138bccbe4d435a79836d3acee71b7d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97936778"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728628"
 ---
 # <a name="azure-functions-hosting-options"></a>Opções de hospedagem de funções Azure Functions
 
@@ -28,7 +28,7 @@ Este artigo fornece uma comparação detalhada entre os vários planos de hosped
 
 Segue-se um resumo dos benefícios dos três principais planos de acolhimento de funções:
 
-| | |
+| Planear | Benefícios |
 | --- | --- |  
 |**[Plano de consumo](consumption-plan.md)**| Dimensione automaticamente e só pague por recursos de cálculo quando as suas funções estiverem em funcionamento.<br/><br/>No plano de Consumo, os casos do anfitrião funções são adicionados e removidos dinamicamente com base no número de eventos que chegam.<br/><br/> ✔ plano de hospedagem padrão.<br/>✔ Pague apenas quando as suas funções estiverem em funcionamento.<br/>✔ Escalas automaticamente, mesmo durante períodos de alta carga.|  
 |**[Plano Premium](functions-premium-plan.md)**|Escala automaticamente com base na procura usando trabalhadores pré-aquecidos que executam aplicações sem atrasos após ficarem inativos, funcionam em casos mais poderosos e conectam-se a redes virtuais. <br/><br/>Considere o plano Azure Functions Premium nas seguintes situações: <br/><br/>✔ As aplicações de função funcionam continuamente, ou quase continuamente.<br/>✔ Tem um elevado número de pequenas execuções e uma nota de execução elevada, mas baixos segundos de GB no plano de consumo.<br/>✔ Precisa de mais OPÇÕES de CPU ou de memória do que as fornecidas pelo plano de Consumo.<br/>✔ O seu código tem de ser executado mais tempo do que o tempo máximo de execução permitido no plano de Consumo.<br/>✔ Necessita de funcionalidades que não estejam disponíveis no plano de Consumo, como a conectividade da rede virtual.|  
@@ -36,7 +36,7 @@ Segue-se um resumo dos benefícios dos três principais planos de acolhimento de
 
 As tabelas de comparação deste artigo também incluem as seguintes opções de hospedagem, que fornecem a maior quantidade de controlo e isolamento para executar as suas aplicações de função.  
 
-| | |
+| Opção de hospedagem | Detalhes |
 | --- | --- |  
 |**[ASE](dedicated-plan.md)** | App Service Environment (ASE) é uma funcionalidade de Serviço de Aplicações que fornece um ambiente totalmente isolado e dedicado para executar aplicações de Serviço de Aplicações de forma segura em alta escala.<br/><br/>AsE são adequadas para cargas de trabalho de aplicação que requerem: <br/><br/>✔ muito alta escala.<br/>✔ isolamento total do computação e acesso seguro à rede.<br/>✔ uso de alta memória.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes fornece um ambiente totalmente isolado e dedicado que corre em cima da plataforma Kubernetes.<br/><br/> Kubernetes é apropriado para cargas de trabalho de aplicação que requerem: <br/>✔ requisitos de hardware personalizados.<br/>✔ isolamento e acesso seguro à rede.<br/>✔ Capacidade de funcionar em ambiente híbrido ou multi-nuvem.<br/>✔ Run ao lado das aplicações e serviços existentes da Kubernetes.|  
@@ -65,7 +65,7 @@ A tabela a seguir mostra o sistema operativo suportado e o suporte ao tempo de e
 
 A tabela seguinte compara os comportamentos de escala dos vários planos de hospedagem.
 
-| | Aumentar horizontalmente | Max # instâncias |
+| Planear | Aumentar horizontalmente | Max # instâncias |
 | --- | --- | --- |
 | **[Plano de consumo](consumption-plan.md)** | [Motivado por eventos.](event-driven-scaling.md) Escale automaticamente, mesmo durante períodos de alta carga. A azure Functions infrastructure dimensiona CPU e recursos de memória adicionando instâncias adicionais do anfitrião funções, com base no número de eventos de gatilho de entrada. | 200 |
 | **[Plano Premium](functions-premium-plan.md)** | [Motivado por eventos.](event-driven-scaling.md) Escale automaticamente, mesmo durante períodos de alta carga. A Azure Functions escala os recursos de CPU e memória adicionando instâncias adicionais do anfitrião funções, com base no número de eventos em que as suas funções são ativadas. |100|
@@ -77,7 +77,7 @@ A tabela seguinte compara os comportamentos de escala dos vários planos de hosp
 
 ## <a name="cold-start-behavior"></a>Comportamento de início a frio
 
-|    |    | 
+| Planear | Detalhes | 
 | -- | -- |
 | **[Plano de consumo &nbsp;](consumption-plan.md)** | As aplicações podem escalar para zero quando inativas, o que significa que alguns pedidos podem ter latência adicional no arranque.  O plano de consumo tem algumas otimizações para ajudar a diminuir o tempo de início a frio, incluindo puxar de funções de espaço reservado pré-aquecido que já têm o hospedeiro de função e os processos linguísticos em funcionamento. |
 | **[Plano Premium](functions-premium-plan.md)** | Casos perpetuamente quentes para evitar qualquer arranque a frio. |
@@ -95,7 +95,7 @@ A tabela seguinte compara os comportamentos de escala dos vários planos de hosp
 
 ## <a name="billing"></a>Faturação
 
-| | | 
+| Planear | Detalhes |
 | --- | --- |
 | **[Plano de consumo](consumption-plan.md)** | Pague apenas o tempo que as suas funções executarem. A faturação baseia-se no número de execuções, no tempo de execução e na memória utilizada. |
 | **[Plano Premium](functions-premium-plan.md)** | O plano premium baseia-se no número de segundos e memórias do núcleo utilizados em instâncias necessárias e pré-aquecidas. Pelo menos um caso por plano deve ser sempre aquecido. Este plano fornece os preços mais previsíveis. |

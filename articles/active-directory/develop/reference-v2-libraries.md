@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 590e57d587c8e6e254811892b5c5e740b511c302
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 321a5c473df30dd6f00bbcd1294d48ce8da34009
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104690658"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060385"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticação de plataformas de identidade da Microsoft
 
@@ -29,7 +29,7 @@ Se optar por codificar manualmente a sua própria implementação ao nível do p
 
 ## <a name="single-page-application-spa"></a>Aplicação de uma página única (SPA)
 
-Uma aplicação de uma página única é inteiramente executado na superfície do navegador e recolhe dados de página (HTML, CSS e JavaScript) dinamicamente ou no tempo de carregamento da aplicação. Pode chamar APIs web para interagir com fontes de dados de back-end.
+Uma aplicação de uma página única é inteiramente executado no navegador e recolhe dados de página (HTML, CSS e JavaScript) dinamicamente ou no tempo de carregamento da aplicação. Pode chamar APIs web para interagir com fontes de dados de back-end.
 
 Como o código de um SPA funciona inteiramente no navegador, é considerado um *cliente público* que é incapaz de armazenar segredos de forma segura.
 
@@ -45,7 +45,7 @@ Como o código de uma aplicação web é executado no servidor web, é considera
 
 ## <a name="desktop-application"></a>Aplicação para desktop
 
-Uma aplicação para desktop é tipicamente binária (compilada) código que aparece numa interface de utilizador e destina-se a ser executada no ambiente de trabalho de um utilizador.
+Uma aplicação para desktop é tipicamente um código binário (compilado) que exibe uma interface de utilizador e destina-se a ser executado no ambiente de trabalho de um utilizador.
 
 Como uma aplicação de desktop é executado no ambiente de trabalho do utilizador, é considerado um *cliente público* que é incapaz de armazenar segredos de forma segura.
 
@@ -53,7 +53,7 @@ Como uma aplicação de desktop é executado no ambiente de trabalho do utilizad
 
 ## <a name="mobile-application"></a>Aplicação móvel
 
-Uma aplicação móvel é tipicamente um código binário (compilado) que aparece numa interface de utilizador e destina-se a funcionar no dispositivo móvel de um utilizador.
+Uma aplicação móvel é tipicamente um código binário (compilado) que exibe uma interface de utilizador e destina-se a ser executado no dispositivo móvel de um utilizador.
 
 Como uma aplicação móvel funciona no dispositivo móvel do utilizador, é considerado um *cliente público* que não consegue armazenar segredos de forma segura.
 
