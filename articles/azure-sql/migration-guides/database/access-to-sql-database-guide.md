@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: f9fa2426e371ab9fd99e88979cbcbbb34adb00d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e0380cf432a1e0de2a8ac274fef7802bee13c58f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643586"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030360"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guia de migração: Acesso à Base de Dados Azure SQL
 
-Neste guia, aprende a migrar a sua base de dados do Microsoft Access para uma base de dados Azure SQL utilizando o SqL Server Migration Assistant for Access (SSMA for Access).
+Neste guia, aprende [a migrar a](https://azure.microsoft.com/migration/migration-journey) sua base de dados do Microsoft Access para uma base de dados Azure SQL utilizando o [SqL Server Migration](https://azure.microsoft.com/migration/migration-journey) Assistant for Access (SSMA for Access).
 
 Para outros guias de migração, consulte [o Guia de Migração da Base de Dados Azure.](https://docs.microsoft.com/data-migration) 
 
@@ -32,7 +32,7 @@ Antes de começar a migrar a sua base de dados de Acesso para uma base de dados 
 
 ## <a name="pre-migration"></a>Pré-migração
 
-Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da sua migração.
+Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da sua [migração em nuvem Azure.](https://azure.microsoft.com/migration)
 
 
 ### <a name="assess"></a>Avaliação 
@@ -185,6 +185,8 @@ A equipa de Engenharia Data SQL desenvolveu estes recursos. A principal carta de
 - Para saber mais sobre o ciclo de enquadramento e adoção para migrações em nuvem, consulte:
    -  [Cloud Adoption Framework para o Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Melhores práticas para custos e dimensionamento de cargas de trabalho para a migração para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Recursos migratórios em nuvem](https://azure.microsoft.com/migration/resources)
+
 
 - Para avaliar a camada de acesso à aplicação, consulte o [Data Access Migration Toolkit (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Para obter informações sobre como realizar testes da camada A/B do acesso a dados, consulte [a visão geral do Assistente de Experimentação da Base de Dados](/sql/dea/database-experimentation-assistant-overview).

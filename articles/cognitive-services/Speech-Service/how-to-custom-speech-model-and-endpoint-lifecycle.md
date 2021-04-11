@@ -8,20 +8,20 @@ manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/2/2021
 ms.author: heikora
-ms.openlocfilehash: b8e02071eca139cde02a8bad1b0e0e443db6ab86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b82a732533c3d069b519b07c3209d4b96c472900
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555494"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385030"
 ---
-# <a name="model-and-endpoint-lifecycle"></a>Modelo e ciclo de vida Endpoint
+# <a name="model-and-endpoint-lifecycle"></a>Modelo e ciclo de vida de ponto final
 
-O Custom Speech utiliza *modelos base* e *modelos personalizados.* Cada idioma tem um ou mais modelos base. Geralmente, quando um novo modelo de fala é lançado para o serviço regular de fala, também é importado para o serviço de Discurso Personalizado como um novo modelo base. São atualizados a cada 6 a 12 meses. Os modelos mais antigos costumam tornar-se menos úteis ao longo do tempo, porque o modelo mais recente geralmente tem maior precisão.
-
-Em contraste, os modelos personalizados são criados adaptando um modelo base escolhido com dados do seu cenário de cliente particular. Pode continuar a utilizar um modelo personalizado específico durante muito tempo depois de ter um que satisfaça as suas necessidades. Mas recomendamos que atualize periodicamente o modelo base mais recente e o retreie ao longo do tempo com dados adicionais. 
+O nosso discurso padrão (não personalizado) baseia-se em modelos de IA a que chamamos modelos base. Na maioria dos casos, treinamos um modelo base diferente para cada língua falada que apoiamos.  Atualizamos o serviço de fala com novos modelos base a cada poucos meses para melhorar a precisão e a qualidade.  
+Com o Custom Speech, os modelos personalizados são criados adaptando um modelo base escolhido com dados do seu cenário de cliente particular. Uma vez criado um modelo personalizado, este modelo não será atualizado ou alterado, mesmo que o modelo base correspondente a partir do qual foi adaptado seja atualizado no serviço de fala padrão.  
+Esta política permite-lhe continuar a utilizar um modelo personalizado específico durante muito tempo depois de ter um modelo personalizado que satisfaça as suas necessidades.  Mas recomendamos que recrie periodicamente o seu modelo personalizado para que possa adaptar-se a partir do mais recente modelo base para tirar partido da melhor precisão e qualidade.
 
 Outros termos-chave relacionados com o ciclo de vida do modelo incluem:
 
@@ -59,7 +59,7 @@ Aqui está um exemplo do resumo da formação do modelo:
 
 Também pode verificar as datas de validade através das [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) APIs de [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) fala personalizadas sob a `deprecationDates` propriedade na resposta JSON.
 
-Aqui está um exemplo dos dados de expiração da chamada getModel API. Os "DEPRECATIONDATES" mostram: 
+Aqui está um exemplo dos dados de expiração da chamada getModel API. Os **DEPRECATIONDATES** mostram quando o modelo expira: 
 ```json
 {
     "SELF": "HTTPS://WESTUS2.API.COGNITIVE.MICROSOFT.COM/SPEECHTOTEXT/V3.0/MODELS/{id}",
@@ -80,7 +80,7 @@ Aqui está um exemplo dos dados de expiração da chamada getModel API. Os "DEPR
     },
     "PROPERTIES": {
     "DEPRECATIONDATES": {
-        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date this model can be used for adaptation
+        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date the base model can be used for adaptation
         "TRANSCRIPTIONDATETIME": "2023-03-01T21:27:29Z"   // last date this model can be used for decoding
     }
     },
@@ -96,6 +96,13 @@ Aqui está um exemplo dos dados de expiração da chamada getModel API. Os "DEPR
 }
 ```
 Note que pode atualizar o modelo num ponto final de fala personalizado sem tempo de inatividade alterando o modelo utilizado pelo ponto final na secção de implementação do Estúdio de Discurso, ou através da API de discurso personalizado.
+
+## <a name="what-happens-when-models-expire-and-how-to-update-them"></a>O que acontece quando os modelos expiram e como atualizá-los
+O que acontece quando um modelo expira e como atualizar o modelo depende de como está a ser utilizado.
+### <a name="batch-transcription"></a>Transcrição em lote
+Se um modelo expirar que for utilizado com pedidos [de transcrição de transcrição](batch-transcription.md) de lote falhará com um erro de 4xx. Para evitar esta atualização, o `model` parâmetro no JSON enviado no corpo de pedido de **Transcrição criar** para apontar para um modelo base mais recente ou um modelo personalizado mais recente. Também pode remover a `model` entrada do JSON para utilizar sempre o modelo base mais recente.
+### <a name="custom-speech-endpoint"></a>Ponto final de discurso personalizado
+Se um modelo expirar que é utilizado por um [ponto final de fala personalizado,](how-to-custom-speech-train-model.md)então o serviço voltará automaticamente a utilizar o modelo base mais recente para o idioma que está a utilizar. , está a utilizar, pode selecionar **a Implementação** no menu **Discurso Personalizado** no topo da página e, em seguida, clicar no nome do ponto final para ver os seus dados. No topo da página de detalhes, verá um botão **'Atualizar Modelo'** que lhe permite atualizar perfeitamente o modelo utilizado por este ponto final sem tempo de inatividade. Também pode fazer esta alteração programáticamente utilizando a API [**de repouso do modelo de atualização.**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel)
 
 ## <a name="next-steps"></a>Passos seguintes
 

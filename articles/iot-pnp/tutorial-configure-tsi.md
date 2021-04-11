@@ -1,18 +1,19 @@
 ---
 title: Tutorial - Use insights da Série de Tempo Azure para armazenar e analisar a telemetria do seu dispositivo Azure IoT Plug and Play
 description: Tutorial - Crie um ambiente de Insights de Séries Tempotamos e ligue o seu hub IoT para visualizar e analisar a telemetria a partir dos seus dispositivos IoT Plug e Play.
-author: lyrana
-ms.author: lyhughes
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 588d680acc8c21c7f4dcf6569e23110f3c33c482
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 28cda9fb6997500f6cd7c4c4349635e7b7a36398
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057407"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504282"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutorial: Criar e configurar um ambiente de Insights Gen2 da Série Temporal
 
@@ -26,7 +27,7 @@ Neste tutorial:
 > * Utilize os ficheiros de modelos de amostra de definição de [gémeos digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) que utilizou para o controlador de temperatura e dispositivos do termóstato.
 
 > [!NOTE]
-> Esta integração entre Time Series Insights e IoT Plug and Play está em pré-visualização. A forma como os modelos de dispositivos DTDL mapeiam para o modelo da Série De Tempo insights da Série Temporal da Série Temporal da Série Temporal pode mudar. 
+> Esta integração entre Time Series Insights e IoT Plug and Play está em pré-visualização. A forma como os modelos de dispositivos DTDL mapeiam para o modelo da Série De Tempo insights da Série Temporal da Série Temporal da Série Temporal pode mudar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -123,7 +124,7 @@ Em seguida, traduz o seu modelo de dispositivo DTDL para o modelo de ativo em Az
 
 ### <a name="define-your-types"></a>Defina os seus tipos
 
-Pode começar a ingerir dados no Azure Time Series Insights Gen2 sem ter predefinido um modelo. Quando a telemetria chega, a Time Series Insights tenta resolver automaticamente as instâncias das séries de tempo com base nos valores de propriedade da Série Time Series. Todas as instâncias são atribuídas ao *tipo predefinido*. É necessário criar manualmente um novo tipo para categorizar corretamente as suas ocorrências. 
+Pode começar a ingerir dados no Azure Time Series Insights Gen2 sem ter predefinido um modelo. Quando a telemetria chega, a Time Series Insights tenta resolver automaticamente as instâncias das séries de tempo com base nos valores de propriedade da Série Time Series. Todas as instâncias são atribuídas ao *tipo predefinido*. É necessário criar manualmente um novo tipo para categorizar corretamente as suas ocorrências.
 
 Os seguintes detalhes descrevem o método mais simples para sincronizar os modelos DTDL do seu dispositivo com os seus tipos de Modelos séries de tempo:
 
@@ -139,7 +140,7 @@ Os seguintes detalhes descrevem o método mais simples para sincronizar os model
 |-----------|------------------|-------------|
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
-| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
+| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |
 |`contents` (matriz)| `variables` (objeto)  | Veja o seguinte exemplo.
 
 ![Screenshot mostrando D T D L para modelo série de tempo.](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
@@ -161,7 +162,7 @@ Abra um editor de texto e guarde o seguinte JSON para a sua unidade local.
           "kind": "numeric",
           "value": {
             "tsx": "coalesce($event.workingSet.Long, toLong($event.workingSet.Double))"
-          }, 
+          },
           "aggregation": {
             "tsx": "avg($value)"
           }

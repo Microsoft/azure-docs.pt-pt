@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/26/2021
+ms.date: 4/7/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0e1cfe0ae53d1e1b35c5ec29d6c11b0891137e6d
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4c046129293fcfbcea8ecaf98da72b9126dd540a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074408"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030343"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -26,6 +26,7 @@ As seguintes versões do agente Azure File Sync são suportadas:
 | Marco | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
 | Lançamento V12 - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 26 de março de 2021 | Suportado - Voo |
+| V11.3 Lançamento - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 7 de abril de 2021 | Suportado |
 | V11.2 Lançamento - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 de fevereiro de 2021 | Suportado |
 | V11.1 Lançamento - [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 4 de novembro de 2020 | Suportado |
 | V10.1 Lançamento - [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 5 de junho de 2020 | Suportado - Versão do agente expirará a 7 de junho de 2021 |
@@ -76,6 +77,7 @@ As seguintes notas de lançamento são para a versão 12.0.0.0 do agente Azure F
     - Melhor desempenho de deteção de alterações para detetar ficheiros que mudaram na partilha de ficheiros Azure.
     - Melhorias de desempenho para sessões de sincronização de reconciliação. 
     - Sync melhorias para reduzir ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED e ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED erros.
+    - Corrigiu um bug que causa corrupção de dados se o tiering de nuvem estiver ativado e os ficheiros hierárquicos forem copiados utilizando robocopia com o parâmetro /B.
     - Corrigiu um bug que pode fazer com que os ficheiros não se estudam no Servidor 2019 se a Desduplicação de Dados estiver ativada no volume.
     - Corrigiu um bug que pode fazer com que o AFSDiag não comprima ficheiros se um ficheiro for maior do que o 2GiB.
 
@@ -131,8 +133,12 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud
 - Se um ficheiro disposto em camadas for copiado para outra localização com o Robocopy, o ficheiro resultante não é disposto em camadas. O atributo offline pode estar definido porque o Robocopy inclui incorretamente esse atributo nas operações de cópia.
 - Ao copiar ficheiros utilizando robocopia, utilize a opção /MIR para preservar os tempos de ficheiro. Isto irá garantir que os ficheiros mais antigos são tiered mais cedo do que os ficheiros recentemente acedidos.
-    > [!Warning]  
-    > O interruptor Robocopy /B não é suportado com Azure File Sync. Utilizando o interruptor Robocopy /B com um ponto de terminação do servidor Azure File Sync, uma vez que a fonte pode levar à corrupção de ficheiros.
+
+## <a name="agent-version-11300"></a>Versão agente 11.3.0.0
+As seguintes notas de lançamento são para a versão 11.3.0.0 do agente Azure File Sync lançado a 7 de abril de 2021. Estas notas juntam-se às notas de lançamento listadas para a versão 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e problemas que são corrigidos 
+Corrigiu um bug que causa corrupção de dados se o tiering de nuvem estiver ativado e os ficheiros hierárquicos forem copiados utilizando robocopia com o parâmetro /B.
 
 ## <a name="agent-version-11200"></a>Versão agente 11.2.0.0
 As seguintes notas de lançamento são para a versão 11.2.0.0 do agente Azure File Sync lançado a 2 de fevereiro de 2021. Estas notas juntam-se às notas de lançamento listadas para a versão 11.1.0.0.

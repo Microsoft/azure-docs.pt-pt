@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
-ms.openlocfilehash: b4b9cd0db2a3a99aca80f42b6d69485a542bbadb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9d6ec6aa5f30af04bf64e238f4a25ec6aef4f5d
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580959"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504758"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como usar twilio para capacidades de voz e SMS em Python
 Este guia demonstra como executar tarefas de programação comuns com o serviço Twilio API em Azure. Os cenários abrangidos incluem fazer uma chamada telefónica e enviar uma mensagem do Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre Twilio e utilizando voz e SMS nas suas aplicações, consulte a secção [Etapas Seguintes.](#NextSteps)
@@ -81,15 +81,15 @@ Quando se inscreve numa conta Twilio, recebe uma conta SID e um token de autenti
 ## <a name="create-a-python-application"></a><a id="create_app"></a>Criar uma aplicação Python
 Uma aplicação Python que usa o serviço Twilio e está em execução em Azure não é diferente de qualquer outra aplicação Python que usa o serviço Twilio. Embora os serviços de Twilio sejam baseados em REST e possam ser chamados de Python de várias maneiras, este artigo irá focar-se em como usar os serviços Twilio com [a biblioteca Twilio para Python do GitHub.][twilio_python] Para obter mais informações sobre a utilização da biblioteca Twilio para Python, [https://www.twilio.com/docs/libraries/python][twilio_lib_docs] consulte.
 
-Primeiro, [configurar um novo Azure Linux VM][azure_vm_setup] para atuar como anfitrião da sua nova aplicação web Python. Uma vez que a Máquina Virtual esteja em funcionamento, terá de expor a sua aplicação numa porta pública, conforme descrito abaixo.
+Primeiro, [crie um novo Azure Linux VM][azure_vm_setup] para atuar como anfitrião da sua nova aplicação web Python. Uma vez que a Máquina Virtual esteja em funcionamento, terá de expor a sua aplicação numa porta pública, conforme descrito abaixo.
 
 ### <a name="add-an-incoming-rule"></a>Adicionar uma regra de entrada
-  1. Vá para a página [Grupo de Segurança da Rede][azure_nsg].
+  1. Aceda à página [do Grupo de Segurança da Rede.][azure_nsg]
   2. Selecione o Grupo de Segurança da Rede que corresponde à sua Máquina Virtual.
   3. Adicione uma **regra de saída** para a porta **80**. Certifique-se de permitir a entrada de qualquer endereço.
 
 ### <a name="set-the-dns-name-label"></a>Desa estação a etiqueta de nome DNS
-  1. Aceda à página [Endereços IP][azure_ips].
+  1. Aceda à página ['Endereços IP' públicos.][azure_ips]
   2. Selecione o IP público que corresponde à sua Máquina Virtual.
   3. Desaver a **etiqueta de nome DNS** na secção **configuração.** No caso deste exemplo, será algo parecido com este *o seu rótulo de domínio*.centralus.cloudapp.azure.com
 
@@ -272,3 +272,6 @@ Agora que aprendeu o básico do serviço Twilio, siga estes links para saber mai
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
+[azure_ips]: https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address
+[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal
+[azure_nsg]: https://docs.microsoft.com/azure/virtual-network/manage-network-security-group

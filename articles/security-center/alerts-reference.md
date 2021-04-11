@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 0c14b9a0c927ef9ed96853ddeed64b161df0d277
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0ae5ae4a66ce55da40eae3959945c96013af3ea
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176710"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075649"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
 
@@ -510,7 +510,7 @@ As intenções de cadeia de morte suportadas do Security Center baseiam-se na [v
 | **Exfiltração**        | Exfiltração refere-se a técnicas e atributos que resultam ou ajudam no adversário removendo ficheiros e informações de uma rede alvo. Esta categoria abrange também as localizações de um sistema ou rede onde o adversário pode procurar informações para exfiltrar.                                                                                                                                                                                                                                                                                                                                  |
 | **ComandoAndControl**   | A tática de comando e controlo representa como os adversários comunicam com os sistemas sob o seu controlo dentro de uma rede alvo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Impacto**              | Os eventos de impacto tentam principalmente reduzir diretamente a disponibilidade ou integridade de um sistema, serviço ou rede; incluindo manipulação de dados para impactar um negócio ou processo operacional. Isto referia-se frequentemente a técnicas como ransomware, desfiguração, manipulação de dados, entre outras.                                                                                                                                                                                                                                                                                                     |
-|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
+|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 
 
 > [!NOTE]
 > Para alertas que estão em pré-visualização: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]

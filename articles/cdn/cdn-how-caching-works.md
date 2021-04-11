@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a4688c196551f3ab6b5713d8939f53af161d1e3
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010168"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505013"
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
 
@@ -75,6 +75,7 @@ O Azure CDN suporta os seguintes cabeçalhos de diretiva http cache, que definem
 - Quando utilizado num pedido HTTP do cliente para o CDN POP, `Cache-Control` é ignorado por todos os perfis Azure CDN, por padrão.
 - Quando utilizado numa resposta HTTP do cliente ao CDN POP:
      - **Azure CDN Standard/Premium da Verizon** e **Azure CDN Standard da Microsoft** suporta todas as `Cache-Control` diretivas.
+     - **Azure CDN Standard/Premium da Verizon** and **Azure CDN Standard da Microsoft** homenageia comportamentos de caching para Cache-Control diretivas em [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
      - **A Azure CDN Standard da Akamai** suporta apenas as `Cache-Control` seguintes diretivas; todas as outras são ignoradas:
          - `max-age`: Uma cache pode armazenar o conteúdo durante o número de segundos especificados. Por exemplo, `Cache-Control: max-age=5`. A presente diretiva especifica o período máximo de tempo que o conteúdo é considerado fresco.
          - `no-cache`: Cache o conteúdo, mas valide o conteúdo sempre antes de o entregar na cache. Equivalente a `Cache-Control: max-age=0` .
@@ -126,7 +127,7 @@ A tabela seguinte descreve o comportamento padrão de caching para os produtos A
 
 |    | Microsoft: Entrega geral da web | Verizon: Entrega geral da web | Verizon: DSA | Akamai: Entrega geral da web | Akamai: DSA | Akamai: Grande download de ficheiros | Akamai: streaming de meios de comunicação geral ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Origem de honra**       | Yes    | Yes   | No   | Yes    | No   | Yes   | Yes    |
+| **Origem de honra**       | Sim    | Sim   | No   | Sim    | No   | Sim   | Sim    |
 | **Duração da cache CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Origem de honra**: Especifica se deve honrar os cabeçalhos de diretiva de cache suportados se existirem na resposta HTTP do servidor de origem.

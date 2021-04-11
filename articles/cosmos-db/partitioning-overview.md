@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2021
-ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 099c65143f29f4fdf341b52e5d80731f1bdb0808
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772472"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031006"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,9 +26,9 @@ Este artigo explica a relação entre divisórias lógicas e físicas. Também d
 
 ## <a name="logical-partitions"></a>Partições lógicas
 
-Uma partição lógica consiste num conjunto de itens que têm a mesma chave de partição. Por exemplo, num recipiente que contém dados sobre nutrição alimentar, todos os itens contêm uma `foodGroup` propriedade. Pode utilizar `foodGroup` como chave de partição para o recipiente. Grupos de itens que têm valores `foodGroup` específicos para, por `Beef Products` `Baked Products` exemplo, e `Sausages and Luncheon Meats` formam divisórias lógicas distintas. Não tens de te preocupar em eliminar uma partição lógica quando os dados subjacentes são eliminados.
+Uma partição lógica consiste num conjunto de itens que têm a mesma chave de partição. Por exemplo, num recipiente que contém dados sobre nutrição alimentar, todos os itens contêm uma `foodGroup` propriedade. Pode utilizar `foodGroup` como chave de partição para o recipiente. Grupos de itens que têm valores `foodGroup` específicos para, por `Beef Products` `Baked Products` exemplo, e `Sausages and Luncheon Meats` formam divisórias lógicas distintas.
 
-Uma divisória lógica também define o âmbito das transações de base de dados. Pode atualizar itens dentro de uma divisória lógica utilizando uma [transação com isolamento instantâneo](database-transactions-optimistic-concurrency.md). Quando novos itens são adicionados a um recipiente, novas divisórias lógicas são criadas de forma transparente pelo sistema.
+Uma divisória lógica também define o âmbito das transações de base de dados. Pode atualizar itens dentro de uma divisória lógica utilizando uma [transação com isolamento instantâneo](database-transactions-optimistic-concurrency.md). Quando novos itens são adicionados a um recipiente, novas divisórias lógicas são criadas de forma transparente pelo sistema. Não tens de te preocupar em eliminar uma partição lógica quando os dados subjacentes são eliminados.
 
 Não há limite para o número de divisórias lógicas no seu recipiente. Cada divisória lógica pode armazenar até 20GB de dados. Boas escolhas chave de partição têm uma ampla gama de valores possíveis. Por exemplo, num recipiente onde todos os itens contêm uma `foodGroup` propriedade, os dados dentro da `Beef Products` partição lógica podem crescer até 20 GB. [Selecionar uma chave de partição](#choose-partitionkey) com uma ampla gama de valores possíveis garante que o recipiente é capaz de escalar.
 
@@ -38,7 +38,8 @@ Um recipiente é dimensionado distribuindo dados e produção através de divis�
 
 O número de divisórias físicas no seu recipiente depende do seguinte:
 
-* O número de produção a provisionada (cada partição física individual pode fornecer um rendimento de até 10.000 unidades de pedido por segundo).
+* O número de produção a provisionada (cada partição física individual pode fornecer um rendimento de até 10.000 unidades de pedido por segundo). O limite de 10.000 RU/s para divisórias físicas implica que as divisórias lógicas também têm um limite de 10.000 RU/s, uma vez que cada partição lógica é apenas mapeada para uma partição física.
+
 * O armazenamento total de dados (cada partição física individual pode armazenar até 50GB de dados).
 
 > [!NOTE]

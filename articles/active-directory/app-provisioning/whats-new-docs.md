@@ -1,7 +1,7 @@
 ---
 title: Novidades no provisionamento de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para o provisionamento do Azure Ative Directory.
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: abee58607a5492548e4d64f44c15fd365876f3f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bb8dfbaf7ee1758811016dd3ddf08367a44bfae
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453687"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443513"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documentação. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de fornecimento, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>março de 2021
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Sincronização de atributos de extensão para provisionamento de aplicações](user-provisioning-sync-attributes-for-mapping.md)
+- [Provisionamento de pedidos em estado de quarentena](application-provisioning-quarantine-status.md)
+- [Gestão do fornecimento de conta de utilizador para aplicações empresariais no portal Azure](configure-automatic-user-provisioning-portal.md)
+- [Referência para expressões de escrita para mapeamentos de atributos em Azure AD](functions-for-customizing-application-data.md)
+- [Tutorial: Desenvolver uma amostra scim ponto final](use-scim-to-build-users-and-groups-endpoints.md)
+
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

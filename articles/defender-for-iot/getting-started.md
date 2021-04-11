@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Começar'
-description: Neste arranque rápido, você vai aprender como começar com a compreensão do fluxo de trabalho básico para o Defender para implementação de IoT.
+description: Neste arranque rápido, aprenda a começar com a compreensão do fluxo de trabalho básico para o Defender para implantação de IoT.
 ms.topic: quickstart
 ms.date: 2/18/2021
-ms.openlocfilehash: c6136d734570714b691a4ba3c2a72305c4c85590
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: aa26ea26a3fb0a08d931657cb7ad236c68972e2f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784497"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384958"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Quickstart: Começa com o Defender para o IoT
 
@@ -20,7 +20,7 @@ Este artigo fornece uma visão geral dos passos que você vai tomar para configu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum
+- Nenhum
 
 ## <a name="permission-requirements"></a>Requisitos de permissão
 
@@ -60,11 +60,14 @@ As inscrições incluem:
 Para se registar:
 
 1. Vá ao Azure Defender para o portal IoT.
+
 1. Selecione **a subscrição a bordo**.
+
 1. Na página **de Preços,** selecione uma subscrição ou crie uma nova e adicione o número de dispositivos comprometidos.
+
 1. Selecione **o separador de consola de gestão de gestão de descarregamento e** guarde o ficheiro de ativação descarregado. Este ficheiro contém os dispositivos agregados comprometidos que definiu. O ficheiro será enviado para a consola de gestão após a iniciação inicial.
 
-Para obter informações sobre como embarcar uma subscrição, consulte [Offboard uma subscrição](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
+Para obter informações sobre como embarcar uma subscrição, consulte [Offboard uma subscrição](how-to-manage-subscriptions.md#offboard-a-subscription).
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>Instale e instale a consola de gestão no local
 
@@ -87,6 +90,7 @@ Para instalar e configurar:
 A bordo de um sensor registando-o com o Azure Defender para IoT e descarregando um ficheiro de ativação de sensores:
 
 1. Defina um nome de sensor e associe-o a uma subscrição.
+
 1. Escolha um modo de gestão de sensores:
 
    - **Sensores ligados à nuvem**: A informação que os sensores detetam é apresentada na consola do sensor. Além disso, a informação de alerta é entregue através de um hub IoT e pode ser partilhada com outros serviços Azure, como a Azure Sentinel.
@@ -102,9 +106,13 @@ Para obter mais informações, consulte [a bordo e gere os sensores no portal De
 Descarregue o pacote ISO do portal Azure Defender para IoT, instale o software e instale o sensor.
 
 1. **Selecione Começar** a partir do Portal Defender para IoT.
+
 1. Selecione **Configurar o sensor**.
+
 1. Escolha uma versão e selecione **Download**.
+
 1. Instale o software do sensor. Para mais informações, consulte [defender para a instalação IoT](how-to-install-software.md).
+
 1. Ative e instale o seu sensor. Para obter mais informações, consulte [iniciar sção e ativar um sensor.](how-to-activate-and-set-up-your-sensor.md)
 
 ## <a name="connect-sensors-to-an-on-premises-management-console"></a>Ligar sensores a uma consola de gestão no local

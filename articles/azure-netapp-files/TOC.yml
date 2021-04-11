@@ -145,6 +145,8 @@
       href: /rest/api/netapp/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
+    - name: CLI do Azure
+      href: /cli/azure/netappfiles
     - name: Ferramenta de Instantâneo Consistente da Aplicação Azure (AzAcSnap)
       items:
         - name: Notas de lançamento para AzAcSnap
