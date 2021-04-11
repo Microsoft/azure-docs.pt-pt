@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: victorh
-ms.openlocfilehash: e955c6b760c06ce802dfae0193d34954eab99892
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 622fde49a31105b2f66a678d3e55d48fabea9487
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731093"
+ms.locfileid: "105966916"
 ---
 # <a name="what-are-security-partner-providers"></a>O que são fornecedores de parceiros de segurança?
 
@@ -44,7 +44,8 @@ São apoiados os seguintes cenários:
    VNet/Branch-to-Internet através de um fornecedor de parceiros de segurança e do outro tráfego (spoke-to-spoke, spoke-to-branch, branch-to-spoke) via Azure Firewall.
 - Fornecedor único no centro
 
-   - Todo o tráfego (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) protegido por Azure Firewall
+   - Todo o tráfego (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) protegido por Azure Firewall<br>
+      ou
    - VNet/Branch-to-Internet através de fornecedor de parceiros de segurança
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Boas práticas para filtragem de tráfego de Internet em centros virtuais seguros

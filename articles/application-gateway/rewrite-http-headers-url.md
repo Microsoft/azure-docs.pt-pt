@@ -2,17 +2,17 @@
 title: Reescreva os cabeçalhos HTTP e URL com a Azure Application Gateway | Microsoft Docs
 description: Este artigo fornece uma visão geral da reescrita de cabeçalhos HTTP e URL em Azure Application Gateway
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/16/2020
-ms.author: surmb
-ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.author: azhussai
+ms.openlocfilehash: 7662ef5c2c3f5ed20069f64781d222ae44e52168
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726517"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384844"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com Gateway de aplicação
 
@@ -38,7 +38,7 @@ Para aprender a reescrever cabeçalhos de pedido e resposta com o Portal de Apli
 
 Pode reescrever todos os cabeçalhos em pedidos e respostas, com exceção dos cabeçalhos De Ligação e Atualização. Também pode utilizar o gateway de aplicações para criar cabeçalhos personalizados e adicioná-los aos pedidos e respostas que estão a ser encaminhados através dele.
 
-### <a name="url-path-and-query-string-preview"></a>Caminho de URL e cadeia de consulta (Pré-visualização)
+### <a name="url-path-and-query-string"></a>Caminho de URL e cadeia de consulta
 
 Com capacidade de reescrita de URL no Gateway de Aplicação, pode:
 
@@ -51,9 +51,6 @@ Com capacidade de reescrita de URL no Gateway de Aplicação, pode:
 Para aprender a reescrever URL com o Portal Azure, consulte [aqui](rewrite-url-portal.md).
 
 ![Diagrama que descreve o processo de reescrita de um URL com Gateway de aplicação.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
-
->[!NOTE]
-> A funcionalidade de reescrita de URL está em pré-visualização e está disponível apenas para Standard_v2 e WAF_v2 SKU de Application Gateway. Não é recomendado para utilização em ambiente de produção. Para saber mais sobre pré-visualizações, consulte [os termos de utilização aqui.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## <a name="rewrite-actions"></a>Reescrever ações
 
@@ -104,7 +101,7 @@ O Application Gateway utiliza variáveis de servidor para armazenar informaçõe
 
 O gateway de aplicações suporta as seguintes variáveis de servidor:
 
-|   Nome da variável    |                   Description                                           |
+|   Nome da variável    |                   Descrição                                           |
 | ------------------------- | ------------------------------------------------------------ |
 | add_x_forwarded_for_proxy | O campo de cabeçalho de pedido de cliente X-Forwarded-For com a `client_ip` variável (ver explicação mais tarde nesta tabela) anexado a ele no formato IP1, IP2, IP3, e assim por diante. Se o campo X-Forwarded-For não estiver no cabeçalho de pedido do cliente, a `add_x_forwarded_for_proxy` variável é igual à `$client_ip` variável.   Esta variável é particularmente útil quando pretende reescrever o cabeçalho X-Forwarded-For definido pelo Application Gateway para que o cabeçalho contenha apenas o endereço IP sem a informação da porta. |
 | ciphers_supported         | Uma lista das cifras apoiadas pelo cliente.               |
@@ -113,12 +110,12 @@ O gateway de aplicações suporta as seguintes variáveis de servidor:
 | client_port               | O porto do cliente.                                             |
 | client_tcp_rtt            | Informação sobre a ligação com a TCP do cliente. Disponível em sistemas que suportam a opção de tomada TCP_INFO. |
 | client_user               | Quando é utilizada a autenticação HTTP, o nome de utilizador fornecido para autenticação. |
-| anfitrião                      | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no pedido , o `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` valor do anfitrião será `contoso.com` |
+| anfitrião                      | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: No `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` pedido, o valor do anfitrião será `contoso.com` |
 | cookie_ *nome*             | O biscoito *de nome.*                                           |
 | http_method               | O método usado para fazer o pedido de URL. Por exemplo, GET ou POST. |
 | http_status               | O estado da sessão. Por exemplo, 200, 400 ou 403.           |
 | http_version              | O protocolo de pedido. Normalmente HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string              | A lista de pares variáveis/valor que segue o "?" na URL solicitada. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , query_string valor será `id=123&title=fabrikam` |
+| query_string              | A lista de pares variáveis/valor que segue o "?" na URL solicitada. Exemplo: No `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` pedido, query_string valor será `id=123&title=fabrikam` |
 | received_bytes            | A duração do pedido (incluindo a linha de pedido, cabeçalho e corpo de pedido). |
 | request_query             | Os argumentos na linha de pedido.                           |
 | request_scheme            | O sistema de pedidos: http ou https.                           |
@@ -127,9 +124,22 @@ O gateway de aplicações suporta as seguintes variáveis de servidor:
 | server_port               | A porta do servidor que aceitou um pedido.              |
 | ssl_connection_protocol   | O protocolo de uma ligação TLS estabelecida.               |
 | ssl_enabled               | "Ligado" se a ligação funcionar no modo TLS. Caso contrário, uma corda vazia. |
-| uri_path                  | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , uri_path valor será `/article.aspx` |
+| uri_path                  | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: No `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` pedido, uri_path valor será `/article.aspx` |
 
- 
+### <a name="mutual-authentication-server-variables-preview"></a>Variáveis do servidor de autenticação mútua (Pré-visualização)
+
+O Application Gateway suporta as seguintes variáveis de servidor para cenários de autenticação mútua. Utilize estas variáveis de servidor da mesma forma que acima com as outras variáveis do servidor. 
+
+|   Nome da variável    |                   Descrição                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| client_certificate        | O certificado de cliente em formato PEM para uma ligação SSL estabelecida. |
+| client_certificate_end_date| A data final do certificado do cliente. |
+| client_certificate_fingerprint| A impressão digital SHA1 do certificado de cliente para uma ligação SSL estabelecida. |
+| client_certificate_issuer | A cadeia "emitente DN" do certificado de cliente para uma ligação SSL estabelecida. |
+| client_certificate_serial | O número de série do certificado de cliente para uma ligação SSL estabelecida.  |
+| client_certificate_start_date| A data de início do certificado do cliente. |
+| client_certificate_subject| A cadeia "assunto DN" do certificado de cliente para uma ligação SSL estabelecida. |
+| client_certificate_verification| O resultado da verificação do certificado de cliente: *SUCCESS,* *<reason> FAILED:*, ou *NENHUM* se não estiver presente um certificado. | 
 
 ## <a name="rewrite-configuration"></a>Reescrever configuração
 
@@ -148,6 +158,17 @@ Um conjunto de regras de reescrita contém:
       * **Caminho URL**: O valor para o qual o caminho deve ser reescrito. 
       * **Url Query String**: O valor a que a cadeia de consulta deve ser reescrita. 
       * **Reavalie o mapa do caminho**: Usado para determinar se o mapa do caminho URL deve ser reavaliado ou não. Se for mantido sem controlo, o caminho URL original será usado para corresponder ao padrão do caminho no mapa do caminho URL. Se for definido como verdadeiro, o mapa do caminho url será reavaliado para verificar a correspondência com o caminho reescrito. Ativar este interruptor ajuda a encaminhar o pedido para uma reescrita diferente do backend pool post.
+
+### <a name="using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku"></a>Utilizando a reescrita de URL ou a reescrita do cabeçalho do anfitrião com firewall de aplicação web (WAF_v2 SKU)
+
+Quando configurar a reescrita do URL ou da reescrita do cabeçalho do anfitrião, a avaliação da WAF ocorrerá após a modificação dos parâmetros do cabeçalho de pedido ou URL (pós-reescrita). E quando remover a configuração de reescrita do URL ou do cabeçalho do anfitrião no seu Gateway de Aplicação, a avaliação da WAF será feita antes da reescrita do cabeçalho (pré-reescrita). Esta ordem garante que as regras da WAF são aplicadas ao pedido final que seria recebido pelo seu pool de backend.
+
+Por exemplo, digamos que tem a seguinte regra de reescrita do cabeçalho para o cabeçalho `"Accept" : "text/html"` - se o valor do cabeçalho for igual a , em `"Accept"` `"text/html"` seguida, reescreva o valor para `"image/png"` .
+
+Aqui, com apenas a reescrita do cabeçalho configurada, a avaliação da WAF será feita em `"Accept" : "text/html"` . Mas quando configurar a reescrita do URL ou a reescrita do cabeçalho do anfitrião, então a avaliação da WAF será feita em `"Accept" : "image/png"` .
+
+>[!NOTE]
+> Espera-se que as operações de reescrita de URL causem um pequeno aumento na utilização do CPU do seu Gateway de Aplicação WAF. Recomenda-se que monitorize a métrica de utilização do [CPU](high-traffic-support.md) durante um breve período de tempo depois de permitir as regras de reescrita de URL no seu Gateway de aplicação WAF.
 
 ### <a name="common-scenarios-for-header-rewrite"></a>Cenários comuns para reescrever cabeçalho
 

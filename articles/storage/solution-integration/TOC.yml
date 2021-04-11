@@ -23,6 +23,8 @@
   items:
     - name: Visão geral dos parceiros validados
       href: .\validated-partners\data-management\partner-overview.md
+    - name: Comparação de ferramentas de migração
+      href: ./validated-partners/data-management/migration-tools-comparison.md
   expanded: false
 - name: Parceiros de armazenamento primário e secundário
   items:

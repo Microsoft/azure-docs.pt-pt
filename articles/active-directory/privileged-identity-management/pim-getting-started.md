@@ -14,12 +14,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c00824e7fb0529cd14e3d7b757d513ee739fe283
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90600726"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504418"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar a utilizar o Privileged Identity Management
 
@@ -67,10 +67,10 @@ Assim que a Gestão de Identidade Privilegiada estiver configurada, poderá apre
 
 ![Janela de navegação em Gestão de Identidade Privilegiada mostrando tarefas e opções de gestão](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Tarefa + Gerir | Description |
+| Tarefa + Gerir | Descrição |
 | --- | --- |
 | **Os meus papéis**  | Apresenta uma lista de funções elegíveis e ativas atribuídas a si. Este é o local onde pode ativar quaisquer funções elegíveis atribuídas. |
-| **Os meus pedidos** | Apresenta os seus pedidos pendentes para ativar atribuições de funções elegíveis. |
+| **Pedidos pendentes** | Apresenta os seus pedidos pendentes para ativar atribuições de funções elegíveis. |
 | **Aprovar pedidos** | Apresenta uma lista de pedidos para ativar funções elegíveis pelos utilizadores no seu diretório que está designado para aprovar. |
 | **Rever acesso** | Lista comentários de acesso ativo que lhe são atribuídos, quer esteja a rever o acesso para si ou para outra pessoa. |
 | **Funções do Azure AD** | Apresenta um dashboard e configurações para administradores de funções privilegiados para gerir atribuições de funções Azure. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O painel de instrumentos My View apenas apresenta informações sobre o utilizador que acede ao painel de instrumentos, e não toda a organização. |

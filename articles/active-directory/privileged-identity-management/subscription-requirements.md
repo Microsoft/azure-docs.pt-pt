@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c9cd1c55f1b0dde173a7ffbeac92e5518db81e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d0428f73c4df3d97002def03823ff8cced1d647
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88005810"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552636"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisitos de licença para utilizar a Gestão de Identidade Privilegiada
 
@@ -30,7 +30,7 @@ Para utilizar o Azure Ative Directory (Azure AD) Privileged Identity Management 
 
 ## <a name="valid-licenses"></a>Licenças válidas
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+Terá de [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] usar PIM e todas as suas definições. Atualmente, você pode estender uma revisão de acesso aos diretores de serviços com acesso a funções de recursos Azure AD e Azure (Preview) com uma edição Azure Ative Directory Premium P2 ativa no seu inquilino. O modelo de licenciamento para os principais de serviço será finalizado para a disponibilidade geral desta funcionalidade e poderão ser necessárias licenças adicionais.
 
 ## <a name="licenses-you-must-have"></a>Licenças que deve ter
 
@@ -73,3 +73,5 @@ Se um Azure AD Premium P2, EMS E5 ou licença de julgamento expirar, as funciona
 - [Implementar o Privileged Identity Management](pim-deployment-plan.md)
 - [Começar a utilizar o Privileged Identity Management](pim-getting-started.md)
 - [Funções que não pode gerir na Gestão de Identidade Privilegiada](pim-roles.md)
+- [Crie uma revisão de acesso das funções de recursos Azure na PIM](pim-resource-roles-start-access-review.md)
+- [Crie uma revisão de acesso das funções AD Azure em PIM](pim-how-to-start-security-review.md)

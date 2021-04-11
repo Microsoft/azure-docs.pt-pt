@@ -6,12 +6,12 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.date: 08/17/2020
-ms.openlocfilehash: d9febb4efba85d47abe1cc11a3cb52dc0393c036
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 02c0801aa0425db96a1e6f71f248c795e81b5ddf
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101672001"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554064"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implementar monitor de Azure para soluções SAP com portal Azure
 
@@ -81,12 +81,23 @@ Inicie sessão no portal do Azure em https://portal.azure.com
 
 1. Selecione OS (Linux) a partir do drop-down 
 
-> [!IMPORTANT]
-> Para configurar o fornecedor OS (Linux), certifique-se de que Node_Exporter é instalada em cada instância BareMetal. Para mais informações, consulte [Node_Exporter](https://github.com/prometheus/node_exporter)
+>[!IMPORTANT]
+> Para configurar o fornecedor OS (Linux), certifique-se de que a versão mais recente do Node_Exporter está instalada em cada hospedeiro (BareMetal ou VM) que pretende monitorizar. Use este [link] https://prometheus.io/download/#node_exporter) (para encontrar a versão mais recente. Para mais informações, consulte [Node_Exporter](https://github.com/prometheus/node_exporter)
 
 2. Insira um nome, que será o identificador para a Instância BareMetal.
 3. Insira o ponto final do exportador de nó sob a forma de http://IP:9100/metrics .
-4. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar mais fornecedores conforme necessário ou selecione **Review + criar** para completar a   implementação. 
+
+>[!IMPORTANT]
+> Por favor, use o endereço IP privado do anfitrião linux. Certifique-se de que o hospedeiro e o recurso AMS estão no mesmo VNET. 
+
+>[!Note]
+> A porta de firewall "9100" deve ser aberta no hospedeiro linux.
+>Se utilizar firewall-cmd: firewall-cmd --permanente --add-port=9100/tcp firewall-cmd --recarregar Se utilizar ufw: ufw permitir recarga ufw 9100/tcp
+
+>[!Tip]
+> Se o anfitrião linux for um VM Azure, certifique-se de que todos os NSGs aplicáveis permitem o tráfego de entrada na porta 9100 a partir de "VirtualNetwork" como fonte.
+ 
+5. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar mais fornecedores conforme necessário ou selecione **Review + criar** para completar a   implementação. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Fornecedor de servidores Microsoft SQL

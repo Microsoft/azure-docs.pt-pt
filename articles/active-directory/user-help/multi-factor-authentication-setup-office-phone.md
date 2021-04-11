@@ -10,19 +10,21 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c77672ce895cc63a04973c4cb3e752ca319e269d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83739214"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553418"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Crie um telefone de escritório como o seu método de verificação de dois fatores
 
 Pode configurar o seu telefone de escritório para funcionar como o seu método de verificação de dois fatores.
 
->[!Note]
-> Se a opção telefónica do Office estiver acinzentado, é possível que a sua organização não permita que use um número de telefone do escritório para verificação. Neste caso, terá de selecionar outro método ou contactar o seu administrador para obter mais ajuda.
+> [!Note]
+> Se a opção **telefónica do Office** não estiver disponível para selecionar, é possível que a sua organização não permita que você use um número de telefone do escritório para verificação. Neste caso, terá de selecionar outro método ou contactar o seu administrador para obter mais ajuda. 
+> 
+> Os utilizadores do Registo Combinado não verão uma opção de utilização de uma extensão com a opção **telefone do Office.**
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Configurar o número de telefone do seu escritório como o seu método de verificação
 

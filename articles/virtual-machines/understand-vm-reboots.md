@@ -8,10 +8,10 @@ ms.date: 03/08/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.openlocfilehash: 9342e0c39b558cf8b6ff5773d623ce55062f9ab5
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105607478"
 ---
 # <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreenda as reinicializações de VM - manutenção vs. tempo de inatividade

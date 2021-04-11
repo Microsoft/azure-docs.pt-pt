@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bdfffbf8d2e416c87dd5abb8f6383c58ad270231
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5892904c3cfc475683d081a58b47e4bec1266ab9
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99584368"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966814"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicação de uma página: Iniciar sção e sindes
 
@@ -201,7 +201,7 @@ function handleResponse(response) {
     }
 }
 
-myMsal.handleRedirectPromise(handleResponse);
+myMsal.handleRedirectPromise().then(handleResponse);
 
 myMsal.loginRedirect(loginRequest);
 ```

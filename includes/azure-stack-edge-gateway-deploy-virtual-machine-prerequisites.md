@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: e459ea1e9d8d7d51a62ba3ed1d2de8815a1b4222
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105103957"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554164"
 ---
 Antes de poder implantar VMs no seu dispositivo Azure Stack Edge, tem de configurar o seu cliente para se ligar ao dispositivo através do Azure Resource Manager sobre a Azure PowerShell. Para obter instruções detalhadas, consulte [Connect to Azure Resource Manager no seu dispositivo Azure Stack Edge](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
@@ -23,9 +23,9 @@ Certifique-se de que pode utilizar os seguintes passos para aceder ao dispositiv
 
 1. Para chamar as APIs do dispositivo local para autenticar, insira: 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name>`
+    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-    Para ligar através do Azure Resource Manager, forneça o nome de utilizador *EdgeARMuser* e a sua palavra-passe.
+    Para ligar através do Azure Resource Manager, forneça o nome de utilizador *EdgeArmUser* e a sua palavra-passe.
 
 1. Se configurar o cálculo para Kubernetes, pode saltar este passo. Caso contrário, certifique-se de que ativou uma interface de rede para calcular fazendo o seguinte: 
 

@@ -1,20 +1,20 @@
 ---
 title: Fontes de eventos de streaming - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Saiba mais sobre o streaming de dados para a Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: ec41f7503ec179cb1fa6172e94e613933f719c93
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4e22d93d3037c190193f53b7cfdbc87cff2da6ed
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953622"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504401"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Fontes de eventos Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Ao criar uma fonte de evento, tem a opção de especificar quais os dados pré-e
 
 - Siga o princípio do menor privilégio ao fornecer cordas de ligação de fonte de evento. Para os Centros de Eventos, configurar uma política de acesso partilhado apenas com a reclamação *de envio,* e para o IoT Hub utilizar apenas a permissão *de ligação* de serviço.
 
-> [!CAUTION] 
+> [!CAUTION]
 > Se eliminar o seu Hub IoT ou Centro de Eventos e recriar um novo recurso com o mesmo nome, tem de criar uma nova fonte de eventos e anexar o novo Hub IoT ou Centro de Eventos. Os dados não serão ingeridos até completar este passo.
 
 ## <a name="production-workloads"></a>Cargas de trabalho de produção

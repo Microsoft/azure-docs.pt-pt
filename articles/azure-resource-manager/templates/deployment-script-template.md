@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.author: jgao
-ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb5fc0b6b673f8a754d0d6bb6ff962697cd5f38b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889387"
+ms.locfileid: "105967341"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Use scripts de implementação em modelos ARM
 
@@ -139,8 +139,8 @@ Detalhes do valor da propriedade:
 - `identity`: Para a versão API de script de implementação 2020-10-01 ou posterior, uma identidade gerida atribuída ao utilizador é opcional, a menos que necessite de realizar quaisquer ações específicas do Azure no script.  Para a versão API 2019-10-01-pré-visualização, é necessária uma identidade gerida, uma vez que o serviço de scripts de implementação o utiliza para executar os scripts. Atualmente, apenas a identidade gerida atribuída pelo utilizador é suportada.
 - `kind`: Especificar o tipo de script. Atualmente, os scripts Azure PowerShell e Azure CLI são suportados. Os valores são **AzurePowerShell** e **AzureCLI**.
 - `forceUpdateTag`: Alterar este valor entre as implementações do modelo obriga a re-executar o script de implantação. Se utilizar as `newGuid()` funções ou as `utcNow()` funções, ambas as funções só podem ser utilizadas no valor predefinido para um parâmetro. Para saber mais, consulte [o roteiro run mais de uma vez](#run-script-more-than-once).
-- `containerSettings`: Especificar as definições para personalizar a instância do recipiente Azure.  `containerGroupName` é para especificar o nome do grupo do recipiente. Se não for especificado, o nome do grupo é gerado automaticamente.
-- `storageAccountSettings`: Especifique as definições para utilizar uma conta de armazenamento existente. Se não for especificada, uma conta de armazenamento é criada automaticamente. Ver [Utilizar uma conta de armazenamento existente.](#use-existing-storage-account)
+- `containerSettings`: Especificar as definições para personalizar a instância do recipiente Azure. O script de implementação requer uma nova instância do contentor Azure. Não é possível especificar uma instância existente do contentor Azure. No entanto, pode personalizar o nome do grupo do recipiente utilizando `containerGroupName` . Se não for especificado, o nome do grupo é gerado automaticamente.
+- `storageAccountSettings`: Especifique as definições para utilizar uma conta de armazenamento existente. Se `containerGroupName` não for especificada, uma conta de armazenamento é criada automaticamente. Ver [Utilizar uma conta de armazenamento existente.](#use-existing-storage-account)
 - `azPowerShellVersion`/`azCliVersion`: Especifique a versão do módulo a utilizar. Consulte uma lista de [versões Azure PowerShell suportadas](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões Azure CLI suportadas](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: 2a8f2d6a040bee0e32359f4860d7b346ac08c48e
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105607988"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Executar tarefas simultaneamente para maximizar o uso de nó de computação batch

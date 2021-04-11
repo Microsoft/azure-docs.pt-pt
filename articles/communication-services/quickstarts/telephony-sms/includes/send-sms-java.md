@@ -10,12 +10,12 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: 30451f237f4a6d42fee018d5e6c5adb3bbf022b4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cdf1267d53abc2214521f584b6cfb4738b808204
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958026"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113269"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação Java SMS SDK para enviar mensagens SMS.
 
@@ -60,14 +60,7 @@ Abra o ficheiro **pom.xml** no seu editor de texto. Adicione o seguinte elemento
 
 ### <a name="set-up-the-app-framework"></a>Configurar o quadro de aplicações
 
-Adicione a `azure-core-http-netty` dependência ao seu ficheiro **pom.xml.**
-
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-core-http-netty</artifactId>
-    <version>1.8.0</version>
-</dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-core</artifactId>
@@ -83,8 +76,6 @@ package com.communication.quickstart;
 import com.azure.communication.sms.models.*;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.communication.sms.*;
-import com.azure.core.http.HttpClient;
-import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
 import com.azure.core.util.Context;
 import java.util.Arrays;
 
@@ -106,43 +97,33 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | Esta classe cria o SmsClient. Fornece-lhe um ponto final, credencial e um cliente http. |
 | SmsClient                    | Esta classe é necessária para toda a funcionalidade SMS. Usa-o para enviar mensagens SMS.                |
-| Opções SmsSend               | Esta classe oferece opções para adicionar tags personalizadas e configurar relatórios de entrega. Se a entregaReportEnabled for definida como verdadeira, então um evento será emitido quando a entrega foi bem sucedida|                           |
+| Opções SmsSend               | Esta classe oferece opções para adicionar tags personalizadas e configurar relatórios de entrega. Se a entregaReportEnabled for definida como verdadeira, então um evento será emitido quando a entrega foi bem sucedida |        
 | SmsSendResult                | Esta classe contém o resultado do serviço SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantiizar um `SmsClient` com a sua cadeia de ligação. (Credencial é `Key` do portal Azure. Saiba como gerir a [cadeia de ligação do seu recurso.](../../create-communication-resource.md#store-your-connection-string)
+Instantiizar um `SmsClient` com a sua cadeia de ligação. (Credencial é `Key` do portal Azure. Saiba como gerir a [cadeia de ligação do seu recurso.](../../create-communication-resource.md#store-your-connection-string) Além disso, pode inicializar o cliente com qualquer cliente HTTP personalizado que implementa a `com.azure.core.http.HttpClient` interface.
 
 Adicione o seguinte código ao método `main`:
 
 ```java
-// You can find your endpoint and access key from your resource in the Azure Portal
+// You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<resource-name>.communication.azure.com/";
 AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key-credential>");
-
-// Create an HttpClient builder of your choice and customize it
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 SmsClient smsClient = new SmsClientBuilder()
                 .endpoint(endpoint)
                 .credential(azureKeyCredential)
-                .httpClient(httpClient)
                 .buildClient();
 ```
 
-Pode inicializar o cliente com qualquer cliente HTTP personalizado que implementa a `com.azure.core.http.HttpClient` interface. O código acima demonstra a utilização do [cliente Azure Core Netty HTTP](/java/api/overview/azure/core-http-netty-readme) que é fornecido por `azure-core` .
-
-Também pode fornecer toda a cadeia de ligação utilizando a função connectionString() em vez de fornecer o ponto final e a chave de acesso. 
+Também pode fornecer toda a cadeia de ligação utilizando a função connectionString() em vez de fornecer o ponto final e a chave de acesso.
 ```java
-// You can find your connection string from your resource in the Azure Portal
+// You can find your connection string from your resource in the Azure portal
 String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
-
-// Create an HttpClient builder of your choice and customize it
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 SmsClient smsClient = new SmsClientBuilder()
             .connectionString(connectionString)
-            .httpClient(httpClient)
             .buildClient();
 ```
 
@@ -173,12 +154,12 @@ SmsSendOptions options = new SmsSendOptions();
 options.setDeliveryReportEnabled(true);
 options.setTag("Marketing");
 
-Iterable<SmsSendResult> sendResults = smsClient.send(
+Iterable<SmsSendResult> sendResults = smsClient.sendWithResponse(
     "<from-phone-number>",
     Arrays.asList("<to-phone-number1>", "<to-phone-number2>"),
     "Weekly Promotion",
     options /* Optional */,
-    Context.NONE);
+    Context.NONE).getValue();
 
 for (SmsSendResult result : sendResults) {
     System.out.println("Message Id: " + result.getMessageId());

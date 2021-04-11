@@ -9,99 +9,76 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/04/2019
+ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 68de5b11c131fe33252178ebecdeb9c3855fe239
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85e953951d5368dc97312e7810f3c356bda7c6b6
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92453438"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Tutorial: Integração do Azure Ative Directory com o Adaptador Five9 Plus (CTI, Contact Center Agents)
 
-Neste tutorial, aprende-se a integrar o Adaptador Five9 Plus (CTI, Contact Center Agents) com o Azure Ative Directory (Azure AD).
-A integração do Adaptador Five9 Plus (CTI, Contact Center Agents) com a Azure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar o Adaptador Five9 Plus (CTI, Contact Center Agents) com o Azure Ative Directory (Azure AD). Quando integrar o Adaptador Five9 Plus (CTI, Contact Center Agents) com Azure AD, pode:
 
-* Pode controlar em Azure AD que tem acesso ao Adaptador Five9 Plus (CTI, Contact Center Agents).
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Adaptador Five9 Plus (CTI, Contact Center Agents) (Sign-On Único) com as suas contas AD Azure.
-* Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Controlo em Azure AD que tem acesso a Adaptador Five9 Plus (CTI, Contact Center Agents).
+* Ativar os seus utilizadores a serem automaticamente inscritos no Adaptador Five9 Plus (CTI, Contact Center Agents) com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração AD do Azure com o Adaptador Five9 Plus (CTI, Contact Center Agents), precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* 59 Plus Adaptador (CTI, Contact Center Agents) subscrição ativada
+* 59 Plus Adapter (CTI, Contact Center Agents) subscrição ativada por assinatura única.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Five9 Plus Adaptador (CTI, Contact Center Agents) suporta **IDP** iniciado SSO
+* O Adaptador Five9 Plus (CTI, Contact Center Agents) suporta **o IDP** iniciado SSO.
 
-## <a name="adding-five9-plus-adapter-cti-contact-center-agents-from-the-gallery"></a>Adicionar 59 Mais Adaptador (CTI, Contact Center Agents) da galeria
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
+
+## <a name="add-five9-plus-adapter-cti-contact-center-agents-from-the-gallery"></a>Adicionar Adaptador Five9 Plus (CTI, Contact Center Agents) da galeria
 
 Para configurar a integração do Adaptador Five9 Plus (CTI, Contact Center Agents) no Azure AD, é necessário adicionar o Adaptador Five9 Plus (CTI, Contact Center Agents) da galeria à sua lista de aplicações geridas para o SaaS.
 
-**Para adicionar o Adaptador Five9 Plus (CTI, Contact Center Agents) da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar a partir da secção **de galeria, o** adaptador tipo **Five9 Plus (CTI, Contact Center Agents)** na caixa de busca.
+1. Selecione **o Adaptador 59 Plus (CTI, Contact Center Agents)** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+## <a name="configure-and-test-azure-ad-sso-for-five9-plus-adapter-cti-contact-center-agents"></a>Configure e teste Azure AD SSO para 59 Mais Adaptador (CTI, Contact Center Agents)
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com 59 Plus Adapter (CTI, Contact Center Agents) usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Adaptador Five9 Plus (CTI, Contact Center Agents).
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar o Azure AD SSO com o Adaptador 59 Plus (CTI, Contact Center Agents), execute os seguintes passos:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure o Adaptador Five9 Plus (CTI, Contact Center Agents) SSO](#configure-five9-plus-adapter-cti-contact-center-agents-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Criar 59 Plus Adapter (CTI, Contact Center Agents) utilizador](#create-five9-plus-adapter-cti-contact-center-agents-test-user)** de teste - para ter uma contraparte de B.Simon em 59 Plus Adapter (CTI, Contact Center Agents) que está ligada à representação AD Azure do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, adaptador tipo **Five9 Plus (CTI, Contact Center Agents)**, selecione **O Adaptador Five9 Plus (CTI, Contact Center Agents)** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+1. No portal Azure, na página de integração de aplicações **do 59 Plus Adapter (CTI, Contact Center Agents),** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
-     ![Adaptador Five9 Plus (CTI, Contact Center Agents) na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
-
-Nesta secção, configura e testa o Azure AD com o Five9 Plus Adapter (CTI, Contact Center Agents) com base num utilizador de teste chamado **Britta Simon**.
-Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador AD Azure e o utilizador relacionado no Adaptador Five9 Plus (CTI, Contact Center Agents).
-
-Para configurar e testar o único sinal de Azure AD com o Adaptador Five9 Plus (CTI, Contact Center Agents), é necessário completar os seguintes blocos de construção:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o adaptador Five9 Plus (CTI, Contact Center Agents) Single Sign-On](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Criar 59 Plus Adapter (CTI, Contact Center Agents) utilizador](#create-five9-plus-adapter-cti-contact-center-agents-test-user)** de teste - para ter uma contraparte de Britta Simon em 59 Plus Adapter (CTI, Contact Center Agents) que está ligada à representação AD Azure do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
-
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
-
-Para configurar o Azure AD com o Adaptador Five9 Plus (CTI, Contact Center Agents), execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **do 59 Plus (CTI, Contact Center Agents),** selecione **single sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
-    ![59 Plus Adaptador (CTI, Agentes do Contact Center) Domínio e URLs informações únicas de súm numa única súmia](common/idp-intiated.png)
-
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
+    a. Na caixa de texto **identifier,** digite um dos seguintes URLs:
     
     |    Ambiente      |       URL      |
     | :-- | :-- |
@@ -109,7 +86,7 @@ Para configurar o Azure AD com o Adaptador Five9 Plus (CTI, Contact Center Agent
     | Para "Five9 Plus Adaptador para Zendesk" | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
     | Para "Five9 Plus Adaptador para O Kit de Ferramentas de Secretária do Agente" | `https://app.five9.com/appsvcs/saml/metadata/alias/adt` |
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
+    b. Na caixa de texto **URL de resposta,** digite um dos seguintes URLs:
 
     |      Ambiente     |      URL      |
     | :--                  | :--           |
@@ -125,13 +102,31 @@ Para configurar o Azure AD com o Adaptador Five9 Plus (CTI, Contact Center Agent
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
-    b. Identificador de Azure Ad
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    c. Logout URL
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
 
-### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Configurar o adaptador Five9 Plus (CTI, Contact Center Agents) Single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+
+Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, permitindo o acesso ao Adaptador Five9 Plus (CTI, Contact Center Agents).
+
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **59 Plus Adapter (CTI, Contact Center Agents)**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+
+## <a name="configure-five9-plus-adapter-cti-contact-center-agents-sso"></a>Configurar 59 Mais Adaptador (CTI, Contact Center Agents) SSO
 
 1. Para configurar um único sinal de acesso no lado **do Adaptador 59 Plus (CTI, Contact Center Agents),** é necessário enviar o Certificado descarregado **(Base64)** e url(s) copiado apropriado para a equipa de [apoio do Adaptador 59 Plus (CTI, Contact Center Agents).](https://www.five9.com/about/contact) Além disso, para configurar o SSO, siga ainda mais os passos abaixo de acordo com o adaptador:
 
@@ -141,70 +136,18 @@ Para configurar o Azure AD com o Adaptador Five9 Plus (CTI, Contact Center Agent
     
     c. Guia de administração "Five9 Plus Para Zendesk": [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-  
-    b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
-
-Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, permitindo o acesso ao Adaptador Five9 Plus (CTI, Contact Center Agents).
-
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** selecione **o Adaptador Five9 Plus (CTI, Contact Center Agents)**.
-
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de candidaturas, selecione **59 Plus Adapter (CTI, Contact Center Agents)**.
-
-    ![O link 59 Plus Adaptador (CTI, Contact Center Agents) na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
-
 ### <a name="create-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Criar 59 Mais Adaptador (CTI, Contact Center Agents) utilizador de teste
 
 Nesta secção, cria-se um utilizador chamado Britta Simon in Five9 Plus Adapter (CTI, Contact Center Agents). Trabalhe com a [equipa de apoio do 59 Plus Adapter (CTI, Contact Center Agents)](https://www.five9.com/about/contact) para adicionar os utilizadores na plataforma 59 Plus Adapter (CTI, Contact Center Agents). Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação. 
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Quando clicar no Adaptador Five9 Plus (CTI, Contact Center Agents no Painel de Acesso, deverá ser automaticamente inscrito no Adaptador Five9 Plus (CTI, Contact Center Agents) para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Adaptador Five9 Plus (CTI, Contact Center Agents) para o qual configura o SSO.
 
-## <a name="additional-resources"></a>Recursos Adicionais
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Adaptador 59 Plus (CTI, Contact Center Agents) nas Minhas Apps, deverá ser automaticamente inscrito no Adaptador Five9 Plus (CTI, Contact Center Agents) para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+Uma vez configurado o Adaptador Five9 Plus (CTI, Contact Center Agents) pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

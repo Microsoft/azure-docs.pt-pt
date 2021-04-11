@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688472"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552755"
 ---
 # <a name="email-one-time-passcode-authentication"></a>E-mail autenticação de senha única
 
@@ -64,7 +64,7 @@ Pode ver se um utilizador convidado autentica usando códigos de acesso únicos,
 ![Screenshot mostrando um utilizador de código de acesso único com valor de Origem de OTP](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> Quando um utilizador resgatar uma senha única e mais tarde obtiver uma conta MSA, AZure AD ou outra conta federada, continuará a ser autenticada através de uma senha única. Se pretender atualizar o seu método de autenticação, pode eliminar a conta de utilizador do utilizador e convidá-la novamente.
+> Quando um utilizador resgatar uma senha única e mais tarde obtiver uma conta MSA, AZure AD ou outra conta federada, continuará a ser autenticada através de uma senha única. Se pretender atualizar o método de autenticação do utilizador, pode [redefinir o seu estado de resgate](reset-redemption-status.md).
 
 ### <a name="example&quot;></a>Exemplo
 
@@ -76,7 +76,7 @@ A partir de outubro de 2021, a funcionalidade de senha de e-mail será ativada p
 
 > [!NOTE]
 >
-> Se a funcionalidade de código de acesso de e-mail tiver sido ativada no seu inquilino e o desligar, qualquer utilizador convidado que tenha resgatado uma senha única não poderá iniciar sação. Pode eliminar o utilizador convidado e convidá-los novamente utilizando outro método de autenticação.
+> Se a funcionalidade de código de acesso de e-mail tiver sido ativada no seu inquilino e o desligar, qualquer utilizador convidado que tenha resgatado uma senha única não poderá iniciar sação. Pode [redefinir o estado de resgate](reset-redemption-status.md) para que possam iniciar súm.
 
 ### <a name="to-disable-the-email-one-time-passcode-feature"></a>Para desativar a funcionalidade de código de senha de e-mail uma vez
 

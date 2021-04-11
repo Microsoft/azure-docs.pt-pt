@@ -44,16 +44,24 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Criar controlador de dados
       items:
-        - name: Azure Data Studio
-          href: create-data-controller-azure-data-studio.md
-        - name: Portal do Azure
-          href: create-data-controller-resource-in-azure-portal.md
-        - name: CLI de Dados do Azure (azdata)
-          href: create-data-controller-using-azdata.md
-        - name: Ferramentas do Kubernetes
-          href: create-data-controller-using-kubernetes-native-tools.md
-        - name: Aplicar SCC (OpenShift)
-          href: how-to-apply-security-context-constraint.md
+        - name: Modo de conectividade indireta
+          items:
+            - name: Azure Data Studio
+              href: create-data-controller-azure-data-studio.md
+            - name: Portal do Azure
+              href: create-data-controller-resource-in-azure-portal.md
+            - name: CLI de Dados do Azure (azdata)
+              href: create-data-controller-using-azdata.md
+            - name: Ferramentas do Kubernetes
+              href: create-data-controller-using-kubernetes-native-tools.md
+            - name: Aplicar SCC (OpenShift)
+              href: how-to-apply-security-context-constraint.md
+        - name: Modo de conectividade direta
+          items:
+            - name: Pré-requisitos
+              href: deploy-data-controller-direct-mode-prerequisites.md
+            - name: Implementação
+              href: deploy-data-controller-direct-mode.md
     - name: Experiências comuns em serviços de dados preparados para Azure Arc
       items:
         - name: Monitorizar com dashboards (Azure Data Studio)

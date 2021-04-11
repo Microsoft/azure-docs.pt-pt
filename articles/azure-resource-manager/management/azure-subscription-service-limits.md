@@ -2,15 +2,15 @@
 title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 4dd62c926cce765ebc2b21378308650e313716ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 3ef3e6f3b67e8c92e0137f36e19c62cba79e1c14
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471010"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030831"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviços da Azure, quotas e constrangimentos
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
 
 Este documento enumera alguns dos limites mais comuns do Microsoft Azure, que também são por vezes chamados de quotas.
 
@@ -34,9 +34,9 @@ Para saber mais sobre os preços da Azure, consulte a [visão geral dos preços 
 
 Alguns limites são geridos a nível regional.
 
-Vamos usar as quotas vCPU como exemplo. Para solicitar um aumento de quota com apoio para vCPUs, você deve decidir quantos vCPUs você quer usar em que regiões. Em seguida, faça um pedido específico para quotas vCPU do grupo de recursos Azure para os montantes e regiões que deseja. Se precisa de utilizar 30 vCPUs na Europa Ocidental para executar a sua aplicação lá, solicite especificamente 30 vCPUs na Europa Ocidental. A sua quota vCPU não é aumentada em nenhuma outra região, só a Europa Ocidental tem a quota de 30 vCPU.
+Vamos usar as quotas vCPU como exemplo. Para solicitar um aumento de quota com apoio para vCPUs, você deve decidir quantos vCPUs você quer usar em que regiões. Em seguida, solicita um aumento das quotas vCPU para os montantes e regiões que deseja. Se precisa de utilizar 30 vCPUs na Europa Ocidental para executar a sua aplicação lá, solicite especificamente 30 vCPUs na Europa Ocidental. A sua quota vCPU não é aumentada em nenhuma outra região, só a Europa Ocidental tem a quota de 30 vCPU.
 
-Como resultado, decida quais as suas quotas de grupo de recursos Azure para a sua carga de trabalho em qualquer região. Em seguida, solicite esse montante em cada região em que pretende implantar. Para obter ajuda na forma de determinar as suas quotas atuais para regiões específicas, consulte [os erros de Resolução para quotas de recursos.](../templates/error-resource-quota.md)
+Como resultado, decida quais as suas quotas para a sua carga de trabalho em qualquer região. Em seguida, solicite esse montante em cada região em que pretende implantar. Para obter ajuda na forma de determinar as suas quotas atuais para regiões específicas, consulte [os erros de Resolução para quotas de recursos.](../templates/error-resource-quota.md)
 
 ## <a name="general-limits"></a>Limites gerais
 
@@ -279,7 +279,7 @@ O quadro seguinte detalha as características e limites dos [níveis](../../cont
 
 [!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
 
-### <a name="media-services-v2-legacy"></a>Serviços de Multimédia v2 (legados)
+### <a name="media-services-v2-legacy"></a>Media Services v2 (legacy) (Serviços de Multimédia v2 [antigo])
 
 Para limites específicos dos Serviços de Mídia v2 (legado), consulte [Os Serviços de Mídia v2 (legado)](../../media-services/previous/media-services-quotas-and-limitations.md)
 

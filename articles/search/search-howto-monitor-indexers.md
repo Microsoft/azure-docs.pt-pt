@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: a94720e6b84821d53a3bfdcbdce249390078940f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed79831559802efdf7e3813f48b74c2fd3c63e87
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99063264"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581871"
 ---
-# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorizar o estado e os resultados do indexante de pesquisa cognitiva do Azure
+# <a name="monitor-indexer-status-and-results-in-azure-cognitive-search"></a>Monitore o estado do indexante e os resultados na Pesquisa Cognitiva do Azure
 
 Pode monitorizar o processamento do indexante no portal Azure, ou programáticamente através de chamadas REST ou de um Azure SDK. Além do estado sobre o próprio indexante, pode rever os tempos de início e fim, e erros detalhados e avisos de uma determinada execução.
 

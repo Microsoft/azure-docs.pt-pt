@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ba730adaa1e3b111586012ba1849c6dc84d6db00
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609263"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553996"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use o Azure Monitor com o seu espaço de trabalho Azure Synapse Analytics
 
@@ -103,16 +103,20 @@ Inscreva-se no portal Azure e selecione   >  **Alertas de Monitorização** para
 
 Aqui estão os registos emitidos pela Azure Synapse Analytics espaços de trabalho:
 
-| Log Analytics nome da tabela | Nome da categoria de registo                 | Description |
-|-------------------------------|-------------------------------------------------|-------------|
-| SynapseGatewayApiReques     | GatewayApiRequests             | Pedidos de Azure Synapse gateway API. |
-| Operações De SinapseRbac         | Operações De SinapseRbac          | Operações de controlo de acesso baseado em funções (SRBAC) da Azure Synapse. |
+| Log Analytics nome da tabela       | Nome da categoria de registo              | Descrição          |
+|--------------------------------|--------------------------------|----------------------|
+| SynapseGatewayApiReques      | GatewayApiRequests             | Pedidos de Azure Synapse gateway API. |
+| Operações De SinapseRbac          | Operações De SinapseRbac          | Operações de controlo de acesso baseado em funções (SRBAC) da Azure Synapse. |
+| SinapseBuiltinSqlReqsEnded     | BuiltinSqlReqsEnded            | Azure Synapse incorporado sem servidor SQL pool terminou os pedidos. |
+| SynapseIntegrationPipelineRuns | IntegraçãoPipelineRuns        | O gasoduto de integração Azure Synapse funciona. |
+| SynapseIntegrationActivityRuns | IntegrationActivityRuns        | A atividade de integração do Azure Synapse é executada. |
+| SynapseIntegrationTriggerRuns  | IntegraçãoTriggerRuns         | O gatilho de integração Azure Synapse funciona. |
 
 ### <a name="dedicated-sql-pool-logs"></a>Troncos de piscina SQL dedicados
 
 Aqui estão os registos emitidos por piscinas SQL dedicadas:
 
-| Log Analytics nome da tabela        | Nome da categoria de registo             | Description |
+| Log Analytics nome da tabela        | Nome da categoria de registo             | Descrição |
 |----------------------|--------------------------------------|-------------|
 | SinapseSqlPoolExecRequests  | ExecRequests | Informações sobre pedidos/consultas SQL numa piscina SQL dedicada a Azure Synapse.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Informação sobre trabalhadores que completam passos DMS numa piscina SQL dedicada a Azure Synapse.
@@ -131,7 +135,7 @@ Para obter mais informações sobre estes registos, consulte as seguintes inform
 
 Aqui está o registo emitido pelas piscinas Apache Spark:
 
-| Log Analytics nome da tabela               | Nome da categoria de registo              | Description                 |
+| Log Analytics nome da tabela               | Nome da categoria de registo              | Descrição                 |
 |-----------------------------|---------------------------------------|-----------------------------|
 | SinapseBigDataPoolApplicações Acabou | BigDataPoolAppsEnded | Informação sobre aplicações terminadas da Apache Spark |
 

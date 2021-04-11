@@ -181,6 +181,8 @@
           href: active-directory-data-storage-eu.md
         - name: Armazenamento de dados de identidade para a Austrália e Nova Zelândia
           href: active-directory-data-storage-australia-newzealand.md
+    - name: Gestão de trabalhadores da linha da frente
+      href: frontline-worker-management.md
     - name: Referência das Operações do Azure AD
       items:
         - name: Introdução

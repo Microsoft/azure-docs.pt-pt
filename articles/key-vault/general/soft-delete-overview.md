@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 7aeca89ed09182b7947b10f24c65b0cb58ed67ea
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d691c4c510f5ff00c34d03b7b8d7a7bcaa53c3f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452140"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554098"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
@@ -20,7 +20,7 @@ ms.locfileid: "102452140"
 > Tem de ativar a eliminação suave dos cofres das chaves imediatamente. A capacidade de excluir o soft-delete será depreciada em breve. Veja todos os detalhes [aqui](soft-delete-change.md)
 
 > [!IMPORTANT]
-> Os gatilhos de abóbada com eliminação suave apagam as definições para integração com os serviços key Vault, ou seja, atribuições de funções Azure RBAC, subscrições de Grade de Eventos, definições de diagnóstico do Azure Monitor. Após a recuperação das definições do Cofre de Chaves de eliminar suavemente para serviços integrados, terá de ser recriada manualmente. 
+> Os gatilhos de abóbada com eliminação suave apagam as definições para integração com os serviços key Vault, ou seja, atribuições de funções Azure RBAC, subscrições de Grade de Eventos. Após a recuperação das definições do Cofre de Chaves de eliminar suavemente para serviços integrados, terá de ser recriada manualmente. 
 
 A funcionalidade de eliminação suave do Key Vault permite a recuperação dos cofres apagados e dos objetos do cofre de chaves eliminados (por exemplo, chaves, segredos, certificados), conhecidos como soft-delete. Especificamente, abordamos os seguintes cenários: Esta salvaguarda oferece as seguintes proteções:
 

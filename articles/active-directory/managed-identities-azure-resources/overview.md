@@ -15,16 +15,16 @@ ms.custom: mvc
 ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99db58e39377932608b1c78bac37003432aa4c04
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c49ded056c642fa91331b7cc98d18da34d9c73a6
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381910"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504362"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Quais são as identidades geridas para os recursos do Azure?
 
-Um desafio comum para os desenvolvedores é a gestão de segredos e credenciais para garantir a comunicação entre diferentes serviços. No Azure, identidades geridas eliminam a necessidade de os desenvolvedores terem de gerir credenciais fornecendo uma identidade para o recurso Azure em Azure AD e usando-o para obter fichas do Azure Ative Directory (Azure AD). Isto também ajuda a aceder ao [Azure Key Vault](../../key-vault/general/overview.md) onde os desenvolvedores podem armazenar credenciais de forma segura. Identidades geridas para recursos Azure resolvem este problema fornecendo aos serviços Azure uma identidade gerida automaticamente em Azure AD.
+Um desafio comum para os desenvolvedores é a gestão de segredos e credenciais usados para garantir a comunicação entre diferentes componentes que compõem uma solução. Identidades geridas eliminam a necessidade de os desenvolvedores gerirem as credenciais. As identidades geridas fornecem uma identidade para as aplicações a utilizar quando se conectam a recursos que suportam a autenticação do Azure Ative Directory (Azure AD). As aplicações podem utilizar a identidade gerida para obter fichas AZure AD. Por exemplo, uma aplicação pode usar uma identidade gerida para aceder a recursos como [o Azure Key Vault,](../../key-vault/general/overview.md) onde os desenvolvedores podem armazenar credenciais de forma segura ou aceder a contas de armazenamento.
 
 Para que pode ser usada uma identidade gerida?
 
@@ -33,7 +33,7 @@ Para que pode ser usada uma identidade gerida?
 Aqui estão alguns dos benefícios da utilização de identidades geridas:
 
 - Não precisas de gerir credenciais. As credenciais nem sequer são acessíveis a si.
-- Pode utilizar identidades geridas para autenticar qualquer recurso que suporte a autenticação do Azure Ative Directory, incluindo as suas próprias aplicações.
+- Pode utilizar identidades geridas para autenticar qualquer recurso que suporte a [autenticação do Azure Ative Directory,](../authentication/overview-authentication.md) incluindo as suas próprias aplicações.
 - As identidades geridas podem ser utilizadas sem qualquer custo adicional.
 
 > [!NOTE]
@@ -62,7 +62,7 @@ A tabela abaixo mostra as diferenças entre os dois tipos de identidades geridas
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Como posso utilizar as identidades geridas para os recursos do Azure?
 
-![alguns exemplos de como um desenvolvedor pode usar identidades geridas para obter acesso aos recursos a partir do seu código sem gerir informações de autenticação](media/overview/azure-managed-identities-examples.png)
+![alguns exemplos de como um desenvolvedor pode usar identidades geridas para obter acesso aos recursos a partir do seu código sem gerir informações de autenticação](media/overview/when-use-managed-identities.png)
 
 ## <a name="what-azure-services-support-the-feature"></a>Que serviços do Azure suportam a funcionalidade?<a name="which-azure-services-support-managed-identity"></a>
 

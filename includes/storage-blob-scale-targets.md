@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/27/2021
+ms.date: 04/01/2021
 ms.author: tamram
-ms.openlocfilehash: 93a84b26825e98d406aba1ae4bdd4a544a61c76e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 16da73fe453760e2dc84e7d683c3a16c12b8a06f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937345"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218617"
 ---
 | Recurso | Destino |
 |-|-|
@@ -33,6 +33,6 @@ A tabela seguinte descreve os tamanhos máximos de bloco e bolha permitidos pela
 
 | Versão de serviço | Tamanho máximo do bloco (via Bloco de Put) | Tamanho máximo do blob (via Put Block List) | Tamanho máximo do blob através de uma única operação de escrita (via Put Blob) |
 |-|-|-|-|
-| Versão 2019-12-12 e mais tarde | 4000 MiB | Aproximadamente 190.7 TiB (4000 MiB X 50.000 blocos) | 5000 MiB |
+| Versão 2019-12-12 e mais tarde | 4000 MiB | Aproximadamente 190.7 TiB (4000 MiB X 50.000 blocos) | 5000 MiB (pré-visualização) |
 | Versão 2016-05-31 através da versão 2019-07-07 | 100 MiB | Aproximadamente 4.75 TiB (100 MiB X 50.000 blocos) | 256 MiB |
 | Versões anteriores a 2016-05-31 | 4 MiB | Aproximadamente 195 GiB (4 Blocos MiB X 50.000) | 64 MiB |

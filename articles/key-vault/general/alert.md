@@ -10,13 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
-Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 9162d9c7b3aa75096e03b3177fb6da3f3bfeceb0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 684c2f3bc7a15d7652ef271fd01872dc2149827d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732725"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059603"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorização e alerta para Azure Key Vault
 

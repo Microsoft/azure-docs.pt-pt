@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2998c3ea0d65bd3c96bd1ac5bdfa8ff148c6c4cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780434"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552262"
 ---
-# <a name="reset-redemption-status-for-a-guest-user"></a>Redefinir o estado de resgate de um utilizador convidado
+# <a name="reset-redemption-status-for-a-guest-user-preview"></a>Redefinir o estado de resgate de um utilizador convidado (Pré-visualização)
 
 Depois de um utilizador convidado ter resgatado o seu convite para colaboração B2B, pode haver momentos em que terá de atualizar as suas informações de inscrição, por exemplo, quando:
 

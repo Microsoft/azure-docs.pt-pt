@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 73251fcbe9f149979d3fd62d14bbca86d77027f2
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105640133"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Criar um dashboard em tempo real usando Azure Cosmos DB e Power BI

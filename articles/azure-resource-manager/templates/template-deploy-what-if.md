@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 76469f8b74b119c07374232899302fe1d18fe463
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff024ff97baa8a80ae6b1fcdafba010e482afd98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731467"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074627"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operação what-if da implementação de modelos do Resource Manager
 
@@ -32,7 +32,7 @@ Para obter mais informações sobre a instalação de módulos, consulte [instal
 
 ## <a name="install-azure-cli-module"></a>Instalar módulo CLI Azure
 
-Para utilizar what-if na CLI do Azure, tem de ter a CLI do Azure 2.5.0 ou mais recente. Se for necessário, [instale a versão mais recente da CLI do Azure](/cli/azure/install-azure-cli).
+Para utilizar o "e se" em Azure CLI, tem de ter Azure CLI 2.14.0 ou mais tarde. Se for necessário, [instale a versão mais recente da CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="see-results"></a>Ver resultados
 
@@ -117,10 +117,10 @@ Se pretender devolver os resultados sem cores, abra o seu ficheiro [de configura
 
 Para REST API, utilize:
 
-* [Implementações - E se](/rest/api/resources/resources/deployments/whatif) para implantações de grupos de recursos
-* [Implementações - E se no âmbito de subscrição](/rest/api/resources/resources/deployments/whatifatsubscriptionscope) para implementações de subscrição
-* [Implementações - E se estiver em gestão de âmbito do grupo](/rest/api/resources/resources/deployments/whatifatmanagementgroupscope) para implantações de grupos de gestão
-* [Implantações - E se no âmbito do arrendatário](/rest/api/resources/resources/deployments/whatifattenantscope) para implantações de inquilinos.
+* [Implementações - E se](/rest/api/resources/deployments/whatif) para implantações de grupos de recursos
+* [Implementações - E se no âmbito de subscrição](/rest/api/resources/deployments/whatifatsubscriptionscope) para implementações de subscrição
+* [Implementações - E se estiver em gestão de âmbito do grupo](/rest/api/resources/deployments/whatifatmanagementgroupscope) para implantações de grupos de gestão
+* [Implantações - E se no âmbito do arrendatário](/rest/api/resources/deployments/whatifattenantscope) para implantações de inquilinos.
 
 ## <a name="change-types"></a>Tipos de alterações
 

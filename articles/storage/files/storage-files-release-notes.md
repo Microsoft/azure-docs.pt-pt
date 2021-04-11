@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: a794274248a12af97174dcc4e86bd4231e9d9dda
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0e1cfe0ae53d1e1b35c5ec29d6c11b0891137e6d
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727489"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074408"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -76,8 +76,8 @@ As seguintes notas de lançamento são para a versão 12.0.0.0 do agente Azure F
     - Melhor desempenho de deteção de alterações para detetar ficheiros que mudaram na partilha de ficheiros Azure.
     - Melhorias de desempenho para sessões de sincronização de reconciliação. 
     - Sync melhorias para reduzir ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED e ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED erros.
-    - Os ficheiros podem não ter o nível no Servidor 2019 se a Deduplica de Dados estiver ativada no volume.
-    - O AFSDiag não consegue comprimir ficheiros se um ficheiro for maior do que o 2GiB.
+    - Corrigiu um bug que pode fazer com que os ficheiros não se estudam no Servidor 2019 se a Desduplicação de Dados estiver ativada no volume.
+    - Corrigiu um bug que pode fazer com que o AFSDiag não comprima ficheiros se um ficheiro for maior do que o 2GiB.
 
 ### <a name="evaluation-tool"></a>Ferramenta de avaliação
 Antes de implementar o Azure File Sync, deverá avaliar se é compatível com o seu sistema utilizando a ferramenta de avaliação Azure File Sync. Esta ferramenta é um cmdlet Azure PowerShell que verifica potenciais problemas com o seu sistema de ficheiros e conjunto de dados, tais como caracteres não suportados ou uma versão OS não suportada. Para obter instruções de instalação e utilização, consulte a secção [ferramenta de avaliação](./storage-sync-files-planning.md#evaluation-cmdlet) no guia de planeamento. 

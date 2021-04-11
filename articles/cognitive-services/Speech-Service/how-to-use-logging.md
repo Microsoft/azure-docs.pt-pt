@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32715ad1a01366d7d56e6fa8129151b15c315e1d
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95026527"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504180"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Ativar o registo no SDK de discurso
 
-Registar para arquivar é uma característica opcional para o SDK de discurso. Durante o registo de desenvolvimento fornece informações e diagnósticos adicionais dos componentes principais da SDK do Discurso. Pode ser ativado definindo a propriedade `Speech_LogFilename` num objeto de configuração de fala para a localização e nome do ficheiro de registo. O registo será ativado globalmente assim que um reconhecimento for criado a partir dessa configuração e não possa ser desativado posteriormente. Não é possível alterar o nome de um ficheiro de registo durante uma sessão de registo em execução.
+Registar para arquivar é uma característica opcional para o SDK de discurso. Durante o registo de desenvolvimento fornece informações e diagnósticos adicionais dos componentes principais da SDK do Discurso. Pode ser ativado definindo a propriedade `Speech_LogFilename` num objeto de configuração de fala para a localização e nome do ficheiro de registo. O registo é tratado por uma classe estática na biblioteca nativa da Speech SDK. Pode ligar o registo de registos para qualquer exemplo de reconhecimento ou sintetizador do SDK do Discurso. Todas as instâncias do mesmo processo escrevem entradas de registo no mesmo ficheiro de registo.
 
 > [!NOTE]
 > O registo está disponível desde a versão 1.4.0 do Speech SDK em todas as linguagens de programação do Speech SDK suportadas, com exceção do JavaScript.

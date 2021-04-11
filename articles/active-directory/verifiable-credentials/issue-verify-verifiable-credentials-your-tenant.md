@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Emitir e verificar credenciais verificáveis usando o seu inquilino (pré-visualização)
+title: Tutorial - Emitir e verificar credenciais verificáveis usando o seu inquilino Azure (pré-visualização)
 description: Altere a amostra de código credencial verificável para trabalhar com o seu inquilino Azure
 documentationCenter: ''
 author: barclayn
@@ -10,14 +10,14 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 95d3ab19565ed04d9bf7d59ba7262d40b4971d34
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e4772b6701065a44416d849faa9a501bd7895f27
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170182"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553384"
 ---
-# <a name="tutorial-issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Tutorial: Emite e verifique credenciais verificáveis usando o seu inquilino (pré-visualização)
+# <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Tutorial - Emitir e verificar credenciais verificáveis usando o seu inquilino (pré-visualização)
 
 > [!IMPORTANT]
 > Azure Ative Directory Verifiable Credentials está atualmente em pré-visualização pública.
@@ -44,7 +44,7 @@ Qualquer fornecedor de identidade que suporte o protocolo OpenID Connect é supo
 
 Este tutorial pressupõe que já completou os passos no [tutorial anterior](enable-your-tenant-verifiable-credentials.md) e tem acesso ao ambiente que usou.
 
-## <a name="register-an-app-to-enable-did-wallets-to-sign-in-users"></a>Registar uma App para permitir que as carteiras DID assinem nos utilizadores
+## <a name="register-an-app-to-enable-did-wallets-to-sign-in-users"></a>Registe uma aplicação para permitir que as carteiras DID assinem nos utilizadores
 
 Para emitir uma credencial verificável, é necessário registar uma aplicação para que o Autenticador, ou qualquer outra carteira de credenciais verificável, possa inscrever-se nos utilizadores.  
 
@@ -66,7 +66,7 @@ Registe uma aplicação chamada 'VC Wallet App' em Azure AD e obtenha uma identi
 
    ![pontos finais emitentes](media/issue-verify-verifable-credentials-your-tenant/application-endpoints.png)
 
-## <a name="set-up-your-node-app-with-access-to-key-vault"></a>Crie a sua app de nó com acesso ao Key Vault
+## <a name="set-up-your-node-app-with-access-to-azure-key-vault"></a>Crie a sua app nó com acesso ao Cofre da Chave Azure
 
 Para autenticar o pedido de emissão de credencial de um utilizador, o site emitente utiliza as suas chaves criptográficas no Cofre da Chave Azure. Para aceder ao Azure Key Vault, o seu website precisa de um ID de cliente e segredo de cliente que possa ser usado para autenticar o Azure Key Vault.
 
@@ -183,7 +183,7 @@ Há alguns outros valores que precisamos obter antes de podermos fazer as altera
 
    ![sinal no identificador chave](media/issue-verify-verifable-credentials-your-tenant/issuer-signing-key-ion.png)
 
-### <a name="did-document"></a>Documento DID 
+### <a name="did-document"></a>Documento DID
 
 1. Abra o Explorador de [Rede DIF ION](https://identity.foundation/ion/explorer/)
 
@@ -223,7 +223,7 @@ Agora temos tudo o que precisamos para fazer as alterações no nosso código de
 
 Agora tem tudo em que pensar e verificar a sua própria Credencial Verificável do seu inquilino do Azure Ative Directory com as suas próprias chaves. 
 
-## <a name="issue-and-verify-the-vc"></a>Emite e Verifique o VC
+## <a name="issue-and-verify-the-vc"></a>Emita e verifique o VC
 
 Siga os mesmos passos que seguimos no tutorial anterior para emitir a credencial verificável e validá-la com a sua app. Uma vez concluída com sucesso o processo de verificação, está agora pronta para continuar a aprender sobre credenciais verificáveis.
 
@@ -308,7 +308,7 @@ Agora que emitimos a credencial verificável do nosso próprio inquilino com rec
     
    ![novo pedido de permissão](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
 
-8. Não verificou com sucesso a sua credencial e o site deve apresentar o seu primeiro e último nome na conta de utilizador do Azure AD. 
+8. Verificou agora com sucesso a sua credencial e o website deve apresentar o seu primeiro e último nome a partir da conta de utilizador do Azure AD. 
 
 Já completou o tutorial e é oficialmente um Perito em Credenciais Verificada! A sua aplicação de amostra está a usar o seu DID para emitir e verificar, enquanto escreve alegações numa credencial verificável a partir do seu AD Azure. 
 

@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 tags: azure-resource-manager
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d93efaedbb0596382b0601a17098311e075618b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5214dbe692584c8b1df2007019c8108fd56dfa38
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791985"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059348"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conecte redes virtuais com o espreitamento de rede virtual usando o PowerShell
 

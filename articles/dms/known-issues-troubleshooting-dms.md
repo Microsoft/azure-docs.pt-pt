@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: ce53e8a77186f96801879e5c9d8f8c65809470d0
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105639803"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Resolução de problemas problemas comuns problemas do Serviço de Migração de Bases de Dados de Azure

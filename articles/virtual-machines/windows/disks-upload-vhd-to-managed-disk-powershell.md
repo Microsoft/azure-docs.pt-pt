@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: c766c78705a1c1e40a9385360d35ac06a3db3a5d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 675e99797a507cdcf96ad33ab13c4f386f6f372c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99252243"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169033"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure PowerShell
 
@@ -34,7 +34,7 @@ Para fazer o upload do seu VHD para Azure, terá de criar um disco gerido vazio 
 
 Este tipo de disco gerido tem dois estados únicos:
 
-- ReadToUpload, o que significa que o disco está pronto para receber um upload mas não foi gerada nenhuma [assinatura de acesso seguro](../../storage/common/storage-sas-overview.md) (SAS).
+- ReadyToUpload, o que significa que o disco está pronto para receber um upload, mas não foi gerada nenhuma [assinatura de acesso seguro](../../storage/common/storage-sas-overview.md) (SAS).
 - ActiveUpload, o que significa que o disco está pronto para receber um upload e o SAS foi gerado.
 
 > [!NOTE]

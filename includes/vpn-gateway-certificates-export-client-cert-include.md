@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 018cf621c65e86877a76c9861c999caf67f3b8cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa17223789779390dabc6c88df02824882882128
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94553217"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073499"
 ---
 Quando gera um certificado de cliente, é instalado automaticamente no computador que usou para o gerar. Se pretender instalar o certificado de cliente noutro computador cliente, tem de exportar o certificado de cliente que gerou.
 

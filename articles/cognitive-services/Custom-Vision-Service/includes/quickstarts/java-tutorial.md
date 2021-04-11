@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: 4c789b86c00f28778e94432e21106bd36cc84322
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: c169572e8af8ba992e604fc51b31db1146f11fda
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104803370"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113037"
 ---
 Começa a usar a biblioteca de clientes Da Visão Personalizada para a Java para construir um modelo de classificação de imagem. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -99,7 +99,7 @@ Na classe **CustomVisionQuickstart** da aplicação, crie variáveis para as cha
 
 
 > [!IMPORTANT]
-> Aceda ao portal do Azure. Se os recursos de Visão Personalizada que criou na secção **Pré-Requisitos implementados** com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar as suas chaves e ponto final nas **páginas chave e ponto final** dos recursos. Tens de ter as chaves de treino e previsão, juntamente com o ponto final dos recursos de treino.
+> Aceda ao portal do Azure. Se os recursos de Visão Personalizada que criou na secção **Pré-Requisitos implementados** com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar as suas chaves e ponto final nas **páginas chave e ponto final** dos recursos. Terá de obter as chaves tanto para os seus recursos de treino como de previsão, juntamente com o ponto final da API para o seu recurso de treino.
 >
 > Pode encontrar o valor de ID do recurso de previsão no **separador Propriedades** do recurso, listado como **ID de assinatura.**
 > 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6213e17f1232bd505ba1edf185a851bf669b9809
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92204644"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553435"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 Este artigo ajuda-o a verificar e a resolver problemas a conectividade ExpressRoute. O ExpressRoute estende uma rede no local para a nuvem da Microsoft sobre uma ligação privada que é geralmente facilitada por um fornecedor de conectividade. A conectividade ExpressRoute envolve tradicionalmente três zonas de rede distintas, da seguinte forma:
@@ -88,7 +88,7 @@ No ExpressRoute Essentials, o *estado do circuito* indica o estado do circuito n
 Para que um circuito ExpressRoute esteja operacional, o estado do *circuito* deve ser *ativado* e o *estado do Fornecedor* deve ser *previsto*.
 
 > [!NOTE]
-> Depois de configurar um circuito ExpressRoute, se o estado do *Circuito* for atingido em estado não ativado, contacte o [Microsoft Support][Support]. Por outro lado, se o *estado do Fornecedor* for atingido em estado não previsto, contacte o seu prestador de serviços.
+> Depois de configurar um circuito ExpressRoute, se o estado do *Circuito* estiver preso em estado não ativado, contacte o [Microsoft Support][Support]. Por outro lado, se o *estado do Fornecedor* estiver preso no estado não previsto, contacte o seu prestador de serviços.
 >
 >
 
@@ -145,7 +145,7 @@ ServiceProviderProvisioningState : Provisioned
 ```
 
 > [!NOTE]
-> Depois de configurar um circuito ExpressRoute, se o estado do *Circuito* for atingido em estado não ativado, contacte o [Microsoft Support][Support]. Por outro lado, se o *estado do Fornecedor* for atingido em estado não previsto, contacte o seu prestador de serviços.
+> Depois de configurar um circuito ExpressRoute, se o estado do *Circuito* estiver preso em estado não ativado, contacte o [Microsoft Support][Support]. Por outro lado, se o *estado do Fornecedor* estiver preso no estado não previsto, contacte o seu prestador de serviços.
 >
 >
 

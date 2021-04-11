@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 7ce13cedff9afc25900c0bf75359ae49cc29fe19
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105608498"
 ---
 # <a name="azure-percept-dk-setup-experience-troubleshooting-guide"></a>Azure Percept DK guia de resolução de problemas

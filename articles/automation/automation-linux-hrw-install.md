@@ -3,14 +3,14 @@ title: Implementar um Trabalhador de Runbook Híbrido Linux na Azure Automation
 description: Este artigo diz como instalar um Azure Automation Hybrid Runbook Worker para executar livros em máquinas baseadas em Linux no seu datacenter local ou ambiente em nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21bb3a353874e401d86741584d102b5c217e69cc
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182337"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030054"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Trabalhador de Runbook Híbrido Linux
 
@@ -106,6 +106,31 @@ Os Trabalhadores de Runbook Híbridos Linux suportam um conjunto limitado de tip
 Para obter requisitos de networking para o Trabalhador de Runbook Híbrido, consulte [configurar a sua rede.](automation-hybrid-runbook-worker.md#network-planning)
 
 ## <a name="install-a-linux-hybrid-runbook-worker"></a>Instale um Trabalhador de Runbook Híbrido Linux
+
+Existem dois métodos para implementar um Trabalhador De Runbook Híbrido. Pode importar e executar um livro de bordo da Runbook Gallery no portal Azure, ou pode executar manualmente uma série de comandos PowerShell para realizar a mesma tarefa.
+
+### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importando um livro de corridas da Galeria Runbook
+
+O procedimento de importação é descrito em pormenor nos [livros de importação do GitHub com o portal Azure](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). O nome do livro de bordo a importar é **Create Automation Linux HybridWorker.**
+
+O livro de bordo utiliza os seguintes parâmetros.
+
+| Parâmetro | Estado | Descrição |
+| ------- | ----- | ----------- |
+| `Location` | Obrigatório | A localização do espaço de trabalho Log Analytics. |
+| `ResourceGroupName` | Obrigatório | O grupo de recursos para a sua conta Demôm automação. |
+| `AccountName` | Obrigatório | O nome da conta Automation em que o Híbrido Run Worker será registado. |
+| `CreateLA` | Obrigatório | Se for verdade, utiliza o valor de criar um espaço de `WorkspaceName` trabalho Log Analytics. Se for falso, o valor deve `WorkspaceName` referir-se a um espaço de trabalho existente. |
+| `LAlocation` | Opcional | O local onde será criado o espaço de trabalho Log Analytics, ou onde já existe. |
+| `WorkspaceName` | Opcional | O nome do espaço de trabalho Log Analytics a ser criado ou utilizado. |
+| `CreateVM` | Obrigatório | Se for verdade, use o valor de `VMName` como nome de um novo VM. Se for falso, utilize `VMName` para encontrar e registar o VM existente. |
+| `VMName` | Opcional | O nome da máquina virtual que é criada ou registada, dependendo do valor de `CreateVM` . |
+| `VMImage` | Opcional | O nome da imagem VM a ser criada. |
+| `VMlocation` | Opcional | Localização do VM que é criado ou registado. Se esta localização não for especificada, o valor de `LAlocation` é utilizado. |
+| `RegisterHW` | Obrigatório | Se for verdade, registe o VM como um trabalhador híbrido. |
+| `WorkerGroupName` | Obrigatório | Nome do Grupo operário híbrido. |
+
+### <a name="manually-run-powershell-commands"></a>Executar manualmente comandos PowerShell
 
 Para instalar e configurar um Trabalhador de Runbook Híbrido Linux, execute os seguintes passos.
 

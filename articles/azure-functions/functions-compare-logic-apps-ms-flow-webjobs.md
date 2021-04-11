@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
 ms.openlocfilehash: e6bd97469a6b7b6c42427e130ac103954377c652
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105643364"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Choose the right integration and automation services in Azure (Escolher os serviços de integração e automatização certos no Azure)

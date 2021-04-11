@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2021
 ms.author: bwren
-ms.openlocfilehash: 64b794f4a749816af71f9c5f14dddf2bbcbc6512
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 975a3ea250307e445e9bf48abdc669f2b035038a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279617"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554047"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -494,7 +494,7 @@ Algumas sugestões para reduzir o volume de registos recolhidos incluem:
 | Syslog                     | Altere a [configuração do syslog](../agents/data-sources-syslog.md) para: <br> - Reduzir o número de instalações recolhidas <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* e *Depuração* |
 | AzureDiagnostics           | Alterar [a recolha de registos de recursos](../essentials/diagnostic-settings.md#create-in-azure-portal) para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
 | Dados de solução de computadores que não precisam da solução | Utilize [soluções direcionadas](../insights/solution-targeting.md) para recolher dados de grupos de computadores apenas necessários. |
-| Application Insights | Opções de revisão para [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
+| Application Insights | Opções de revisão para [gerir o volume de dados do Application Insights](../app/pricing.md#managing-your-data-volume) |
 | [SQL Analytics](../insights/azure-sql.md) | Utilize [o Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) para sintonizar as definições de auditoria. |
 | Azure Sentinel | Reveja quaisquer [fontes de dados do Sentinel](../../sentinel/connect-data-sources.md) que tenha ativado recentemente como fontes de volume de dados adicionais. |
 

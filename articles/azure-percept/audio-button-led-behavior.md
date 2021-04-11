@@ -7,10 +7,10 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.openlocfilehash: fa919acb527084d19ab88b2e7895d4e6ab0b72d3
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105609076"
 ---
 # <a name="azure-percept-audio-button-and-led-behavior"></a>Botão de áudio Azure Percept e comportamento de LED

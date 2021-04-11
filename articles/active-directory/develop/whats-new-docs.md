@@ -11,16 +11,45 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68136cc259e0be4a2f9449aa9ec15f4a14a63890
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687333"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074986"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Docs da plataforma de identidade da Microsoft: Quais as novidades
 
 Bem-vindos às novidades na documentação da plataforma de identidade da Microsoft. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses.
+
+## <a name="march-2021"></a>março de 2021
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Restaurar ou remover uma aplicação recentemente eliminada com a plataforma de identidade da Microsoft](quickstart-restore-app.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Consentimento de administração na plataforma de identidade da Microsoft](v2-admin-consent.md)
+- [Requisitos de configuração e dicas de resolução de problemas para Xamarin Android com MSAL.NET](msal-net-xamarin-android-considerations.md)
+- [Daemon app que chama APIs web - adquira um token](scenario-daemon-acquire-token.md)
+- [App Daemon que chama APIs web - configuração de código](scenario-daemon-app-configuration.md)
+- [Daemon app que chama APIs web - ligue para uma API web a partir da app](scenario-daemon-call-api.md)
+- [Daemon app que chama APIs web - passe para a produção](scenario-daemon-production.md)
+- [Aplicativo de desktop que chama APIs web: Adquirir um token](scenario-desktop-acquire-token.md)
+- [Aplicativo de desktop que chama APIs web: configuração de código](scenario-desktop-app-configuration.md)
+- [Aplicativo de desktop que chama APIs web: Ligue para uma API web](scenario-desktop-call-api.md)
+- [Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)](active-directory-claims-mapping.md)
+- [Registos no MSAL para Python](msal-logging-python.md)
+- [Microsoft Enterprise SSO plug-in para dispositivos Apple (pré-visualização)](apple-sso-plugin.md)
+- [Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET](quickstart-v2-aspnet-webapp.md)
+- [Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET](quickstart-v2-aspnet-core-webapp.md)
+- [Quickstart: Obtenha um token e ligue para a Microsoft Graph API usando a identidade de uma aplicação de consola](quickstart-v2-netcore-daemon.md)
+- [Quickstart: Proteja uma API web core ASP.NET com a plataforma de identidade microsoft](quickstart-v2-aspnet-core-web-api.md)
+- [Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular](quickstart-v2-angular.md)
+- [Opções de suporte e ajuda para programadores](developer-support-help-options.md)
+- [Aplicação web que assina nos utilizadores: Configuração de código](scenario-web-app-sign-user-app-configuration.md)
+- [Aplicação web que assina nos utilizadores: Iniciar s-in e iniciar sê-out](scenario-web-app-sign-user-sign-in.md)
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
@@ -65,25 +94,3 @@ Bem-vindos às novidades na documentação da plataforma de identidade da Micros
 - [Configure políticas de vida útil simbólicas (pré-visualização)](configure-token-lifetimes.md)
 - [Bibliotecas de autenticação de plataformas de identidade da Microsoft](reference-v2-libraries.md)
 - [Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md)
-
-## <a name="december-2020"></a>Dezembro de 2020
-
-### <a name="new-articles"></a>Artigos novos
-
-- [Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph em seu nome](quickstart-v2-aspnet-core-webapp-calls-graph.md)
-- [Lidar com erros e exceções no MSAL.NET](msal-error-handling-dotnet.md)
-- [Lidar com erros e exceções no MSAL para iOS/macOS](msal-error-handling-ios.md)
-- [Lidar com erros e exceções no MSAL para Java](msal-error-handling-java.md)
-- [Lidar com erros e exceções no MSAL.js](msal-error-handling-js.md)
-- [Lidar com erros e exceções no MSAL para Python](msal-error-handling-python.md)
-- [Cenários de troca de símbolos de plataforma de identidade da Microsoft com SAML e OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
-
-### <a name="updated-articles"></a>Artigos atualizados
-
-- [Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java](quickstart-v2-java-webapp.md)
-- [Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft](tutorial-v2-aspnet-daemon-web-app.md)
-- [Aplicação web que assina nos utilizadores: Registo de aplicações](scenario-web-app-sign-user-app-registration.md)
-- [Plataforma de identidade da Microsoft e fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md)
-- [Fichas de acesso à plataforma de identidade da Microsoft](access-tokens.md)
-- [Uma API web que chama APIs web: Adquira um símbolo para a app](scenario-web-api-call-api-acquire-token.md)
-

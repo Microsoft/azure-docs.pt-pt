@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618479"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169288"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Sobre a Azure Cloud Services (suporte alargado)
 
@@ -48,12 +48,9 @@ As principais diferenças entre os Serviços Cloud (clássicos) e os Serviços c
 - Todos os recursos utilizados através do [Gestor de Recursos Azure](../azure-resource-manager/templates/overview.md) devem estar dentro de uma rede virtual. As redes e sub-redes virtuais são criadas no Azure Resource Manager utilizando as APIs existentes do Gestor de Recursos Azure e terão de ser referenciadas na secção DeConfiguration de Rede do .cscfg ao implementar serviços cloud (suporte alargado).   
 
 - Cada serviço em nuvem (suporte alargado) é uma única implantação independente. Os serviços na nuvem (suporte alargado) não suportam várias ranhuras dentro de um único serviço de nuvem.  
-    - A capacidade de troca VIP <sup>*</sup> pode ser utilizada para trocar entre dois serviços na nuvem (suporte alargado). Para testar e encenar uma nova versão de um serviço de nuvem, implementar um serviço de nuvem (suporte alargado) e marcá-lo como VIP permutável com outro serviço de nuvem (suporte alargado)  
+    - A capacidade de troca VIP pode ser utilizada para trocar entre dois serviços na nuvem (suporte alargado). Para testar e encenar uma nova versão de um serviço de nuvem, implementar um serviço de nuvem (suporte alargado) e marcá-lo como VIP permutável com outro serviço de nuvem (suporte alargado)  
 
 - A etiqueta Do Serviço de Nome de Domínio (DNS) é opcional para um serviço de cloud (suporte alargado). No Azure Resource Manager, a etiqueta DNS é uma propriedade do recurso IP público associado ao serviço de nuvem. 
-
-
-<sup>*</sup> A troca VIP por Serviços cloud (suporte alargado) não está disponível durante a pré-visualização pública.  
 
 ## <a name="migration-to-azure-resource-manager"></a>Migração para Azure Resource Manager
 

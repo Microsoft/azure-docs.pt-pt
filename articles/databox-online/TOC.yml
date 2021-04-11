@@ -244,12 +244,22 @@
               href: azure-stack-edge-gpu-create-virtual-machine-image.md
             - name: Use imagem generalizada do Windows
               href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
+            - name: Use imagem especializada do Windows
+              href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
             - name: 'Tamanhos de VM suportados, tipos'
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
             - name: Ligar à consola VM
               href: azure-stack-edge-gpu-connect-virtual-machine-console.md
             - name: Gerir interfaces de rede
               href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+            - name: Gerir discos
+              href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+            - name: Gerir tamanhos VM
+              href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+            - name: Gerir tags VM
+              href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+            - name: Criar o interruptor virtual
+              href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: Gerir certificados
           items:
             - name: Requisitos

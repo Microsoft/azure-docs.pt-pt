@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90b2a39b9a5f3b4d011ff1a1ef3651dff75a1cf6
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92485380"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968310"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -58,7 +58,7 @@ As definições de firewall e os parâmetros do servidor PostgreSQL não são pr
 Após uma restauração de qualquer mecanismo de recuperação, deve fazer o seguinte para que os seus utilizadores e aplicações voltem a funcionar:
 
 * Se o novo servidor pretende substituir o servidor original, redirecione clientes e aplicações de clientes para o novo servidor
-* Certifique-se de que existem regras adequadas ao nível do servidor e das regras VNet para que os utilizadores se conectem. Estas regras não são copiadas do grupo de servidores originais.
+* Certifique-se de que existe uma firewall adequada ao nível do servidor para que os utilizadores se conectem. Estas regras não são copiadas do grupo de servidores originais.
 * Ajuste os parâmetros do servidor PostgreSQL conforme necessário. Os parâmetros não são copiados do grupo de servidor original.
 * Certifique-se de que estão em vigor logins e permissões de nível de base de dados apropriados
 * Configurar alertas, conforme adequado

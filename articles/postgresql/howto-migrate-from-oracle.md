@@ -9,10 +9,10 @@ ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.openlocfilehash: 1a20ffd7150ac75721b2affc2f4375301c4754c8
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105643580"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Migrar o Oráculo para Azure Database para PostgreSQL
