@@ -3,12 +3,12 @@ title: Alterar configurações de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de upgrade de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65ae2337ac7dbe4370411a154463a6ddc37f83b2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232057"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255976"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster de Tecido de Serviço que pode personalizar. Para os clusters alojados no Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o *ClusterConfig.jsno* ficheiro e executando uma atualização de configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -60,6 +60,12 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |SegredoEncryptionCertX509StoreName|cadeia, valor recomendado é "My" (sem predefinição) |    Dinâmica|    Isto indica o certificado a utilizar para encriptação e desencriptação de credenciais Nome da loja de certificados X.509 que é usada para encriptar credenciais de loja de desencriptação usadas pelo serviço Backup Restore |
 |TargetReplicaSetsize|int, o padrão é 0|Estático| O TargetReplicaSetSize para BackupRestoreService |
 
+## <a name="centralsecretservice"></a>CentralSecretService
+
+| **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
+| --- | --- | --- | --- |
+|Estado implantado |wstring, padrão é L"Desativado" |Estático |Remoção de CSS em 2 estágios. |
+
 ## <a name="clustermanager"></a>ClusterManager
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
@@ -95,6 +101,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
+|Permitir oCreateUpdateMultiInstancePerNodeServices |Bool, o padrão é falso. |Dinâmica|Permite a criação de múltiplos casos apátridas de um serviço por nó. Esta funcionalidade encontra-se em pré-visualização. |
 |PerfMonitorInterval |Tempo em segundos, o padrão é 1 |Dinâmica|Especifique a timepan em segundos. Intervalo de monitorização do desempenho. A definição para 0 ou valor negativo desativa a monitorização. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
@@ -304,6 +311,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
 |Ativar a AplicaçãoTypeHealthEvaluation |Bool, o padrão é falso. |Estático|Política de avaliação da saúde do cluster: permitir por avaliação de saúde tipo de aplicação. |
+|EnableNodeTypeHealthEvaluation |Bool, o padrão é falso. |Estático|Política de avaliação da saúde do cluster: permitir por node avaliação de saúde. |
 |MaxSuggestedNumberOfEntityHealthReports|Int, o padrão é 100 |Dinâmica|O número máximo de relatórios de saúde que uma entidade pode ter antes de levantar preocupações sobre a lógica de relatórios de saúde do cão de guarda. Cada entidade de saúde deve ter um número relativamente pequeno de relatórios de saúde. Se a contagem de relatórios for superior a este número; pode haver problemas com a implementação do cão de guarda. Uma entidade com muitos relatórios é sinalizada através de um relatório de saúde de advertência quando a entidade é avaliada. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
@@ -349,7 +357,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |DisableContainers|bool, o padrão é FALSO|Estático|Config para recipientes desativados - usado em vez de DisableContainerServiceStartOnContainerActivatorOpen que é depreciado config |
 |DisableDockerRequestRetry|bool, o padrão é FALSO |Dinâmica| Por defeito, a SF comunica com dD (docker dameon) com um tempo limite de 'DockerRequestTimeout' para cada pedido http enviado para o mesmo. Se o DD não responder dentro deste período de tempo; A SF reencaminho o pedido se a operação de nível superior ainda tiver tempo restante.  Com recipiente hiperv; DD às vezes demora muito mais tempo a trazer o recipiente ou desativá-lo. Nestes casos, o DD solicita tempos fora do ponto de vista da SF e SF retrição a operação. Às vezes isto parece aumentar a pressão sobre o DD. Este config permite desativar esta nova agem e esperar que o DD responda. |
 |DnsServerListTwoIps | Bool, o padrão é FALSO | Estático | Esta bandeira adiciona o servidor dns local duas vezes para ajudar a aliviar problemas de resolução intermitente. |
-| DockerTerminateOnLastHandleClosed | bool, o padrão é FALSO | Estático | Por padrão, se o FabricHost estiver a gerir o 'dockerd' (baseado em: SkipDockerProcessManagement == falso) esta definição configura o que acontece quando o FabricHost ou o estivador falham. Quando programado para `true` se qualquer um dos processos colidir com todos os recipientes de funcionamento será encerrado à força pelo HCS. Se estivermos `false` definidos para os recipientes, continuará a funcionar. Nota: Anterior a 8.0 este comportamento foi involuntariamente o equivalente a `false` . A definição padrão `true` daqui é o que esperamos que aconteça por padrão, avançando para que a nossa lógica de limpeza seja eficaz no reinício destes processos. |
+| DockerTerminateOnLastHandleClosed | bool, o padrão é VERDADEIRO | Estático | Por padrão, se o FabricHost estiver a gerir o 'dockerd' (baseado em: SkipDockerProcessManagement == falso) esta definição configura o que acontece quando o FabricHost ou o estivador falham. Quando programado para `true` se qualquer um dos processos colidir com todos os recipientes de funcionamento será encerrado à força pelo HCS. Se estivermos `false` definidos para os recipientes, continuará a funcionar. Nota: Anterior a 8.0 este comportamento foi involuntariamente o equivalente a `false` . A definição padrão `true` daqui é o que esperamos que aconteça por padrão, avançando para que a nossa lógica de limpeza seja eficaz no reinício destes processos. |
 | DoNotInjectLocalDnsServer | bool, o padrão é FALSO | Estático | Evita que o tempo de execução injete o IP local como servidor DNS para contentores. |
 |EnableActivateNoWindow| bool, o padrão é FALSO|Dinâmica| O processo ativado é criado em segundo plano sem qualquer consola. |
 |EnableContainerServiceDebugMode|bool, o padrão é VERDADEIRO|Estático|Ativar/desativar a sessão para recipientes de estivadores.  Só janelas.|
@@ -552,6 +560,8 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |MovementPerPartitionThrottleCountingInterval | Tempo em segundos, o padrão é 600 |Estático| Especifique a timepan em segundos. Indicar o comprimento do intervalo anterior para o qual rastrear os movimentos de réplica para cada partição (utilizado juntamente com MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Uint, o padrão é 50 |Dinâmica| Não ocorrerá nenhum movimento relacionado com o equilíbrio para uma partição se o número de movimentos relacionados de equilíbrio para réplicas dessa partição tiver atingido ou excedido o MovementPerFailoverUnitThrottle Detenha no intervalo anterior indicado pelo MovementPerPartitionThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Bool, o padrão é falso. |Dinâmica| Definição que determina se as réplicas dos pais podem ser movidas para corrigir restrições de afinidade.|
+|NodeTaggingEnabled | Bool, o padrão é falso. |Dinâmica| Se for verdade; A função nodeTagging será ativada. |
+|NodeTaggingConstraintPriority | Int, o padrão é 0 |Dinâmica| Prioridade configurável da marcação do nó. |
 |Serviços ParcialmentePlace | Bool, o padrão é verdadeiro |Dinâmica| Determina se todas as réplicas de serviço no cluster serão colocadas "tudo ou nada" dado os nós adequados limitados para eles.|
 |PlaceChildWithoutParent | Bool, o padrão é verdadeiro | Dinâmica|Definição que determina se a réplica do serviço infantil pode ser colocada se não houver uma réplica dos pais. |
 |ColocaçãoConstrateprioridade | Int, o padrão é 0 | Dinâmica|Determina a prioridade da restrição de colocação: 0: Difícil; 1: Macio; negativo: Ignorar. |
@@ -572,7 +582,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |UpgradeDomainConstraintPriority | Int, o padrão é 1| Dinâmica|Determina a prioridade da restrição de domínio de upgrade: 0: Difícil; 1: Macio; negativo: Ignorar. |
 |UseMoveCostReports | Bool, o padrão é falso. | Dinâmica|Instrui o LB a ignorar o elemento de custo da função de pontuação; resultando potencialmente grande número de movimentos para uma colocação mais equilibrada. |
 |UtilizaçãoSeparateSecondaryLoad | Bool, o padrão é verdadeiro | Dinâmica|Regulação que determina se deve ser utilizada uma carga separada para réplicas secundárias. |
-|UtilizaçãoSeparateSecondaryMoveCost | Bool, o padrão é falso. | Dinâmica|Definição que determina se o custo de movimento separado deve ser usado para réplicas secundárias. |
+|UtilizaçãoSeparateSecondaryMoveCost | Bool, o padrão é verdadeiro | Dinâmica|Definição que determina se o PLB deve utilizar um custo de movimento diferente para o secundário em cada nó. Se o UsoSeparateSecondaryMoveCost for desligado: - O custo de movimento reportado para o secundário num nó resultará num custo de movimento de sobrefervesição para cada secundário (em todos os outros nós) Se utilizar OEparateSecondaryMoveCost é virado em: - O custo de movimento reportado para o secundário num nó só produzirá efeitos nesse secundário (sem efeito sobre os secundários em outros nós) - Se ocorrer uma réplica de réplica - é criada nova réplica com o custo de movimento padrão especificado no nível de serviço - Se o PLB mover a réplica existente - o custo do movimento vai com ele. |
 |Validar SubstituiçãoConstrata | Bool, o padrão é verdadeiro |Dinâmica| Especifica se a expressão PlacementConstraint para um serviço é validada quando a Subscrição de Serviço de um serviço é atualizada. |
 |Validar SubstituiçãoPrimaryConstraintOnPromote| Bool, o padrão é VERDADEIRO |Dinâmica|Especifica se a expressão PlacementConstraint para um serviço é avaliada para preferência primária no failover. |
 |VerboseHealthReportLimit | Int, o padrão é 20 | Dinâmica|Define o número de vezes que uma réplica tem de ficar desatada antes de ser reportada uma advertência de saúde (se estiver ativado o relatório de saúde verboso). |
@@ -767,6 +777,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |Recuperação DePartitions |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para recuperar divisórias de serviço. |
 |Recuperação DePartitions Do Sistema |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para recuperar divisórias de serviço do sistema. |
 |Remover Indeativações |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para reverter a desativação em múltiplos nós. |
+|RelatórioConcorria |wstring, padrão é L"Admin" |Dinâmica| Configuração de segurança para reportar conclusão. |
 |ReportFabricUpgradeHealth |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para retomar atualizações de cluster com o progresso atual da atualização. |
 |RelatórioFault |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para reportar falha. |
 |ReportHealth |cadeia, padrão é "Administrador" |Dinâmica| Configuração de segurança para reportar saúde. |

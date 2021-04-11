@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cb57e424642141e73588a61d026d1ff2f1a8b096
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5157716058833e2cd9ae8c9ce7b1eb36bb0f82f
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905303"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256059"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha o nível de preços certo em Azure Maps
 
@@ -46,7 +46,7 @@ Se as APIs geoespaciais de base satisfarem os seus requisitos de serviço, escol
 | Geofencing                                |                    |✓        |
 | Dados do Azure Maps (Pré-visualização)                |                     | ✓        |
 | Mobilidade (Pré-visualização)                       |                     | ✓        |
-| Tempo (Pré-visualização)                        |✓                    |✓        |
+| Meteorologia                       |✓                    |✓        |
 |  Criador (Pré-visualização)                         |                   |✓        |
 |  Elevação (Pré-visualização)                        |                   |✓        |
 

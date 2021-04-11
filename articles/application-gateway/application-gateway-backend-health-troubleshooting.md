@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1373e0eeead805dcd3a439878c9737c46d75bf3b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592760"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078507"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Resolver problemas de estado de funcionamento do back-end no Gateway de Aplicação
 ==================================================
@@ -176,12 +176,12 @@ Verifique também se algum NSG/UDR/Firewall está bloqueando o acesso ao Ip e à
 
 | **Erro** | **Ações** |
 | --- | --- |
-| Desajuste do código da sonda: Recebido 401 | Verifique se o servidor backend requer autenticação. As sondas Application Gateway não podem passar credenciais para autenticação. Ou permite \" HTTP 401 \" numa correspondência de código de sonda ou sonda para um caminho onde o servidor não necessita de autenticação. | |
-| Desajuste do código da sonda: Recebido 403 | Acesso proibido. Verifique se o acesso ao caminho é permitido no servidor backend. | |
-| Desajuste do código da sonda: Recebido 404 | Página não encontrada. Verifique se o caminho do nome do anfitrião está acessível no servidor backend. Altere o nome do anfitrião ou o parâmetro do caminho para um valor acessível. | |
-| Desajuste do código da sonda: Recebido 405 | Os pedidos de sonda para o Gateway de Aplicação utilizam o método HTTP GET. Verifique se o seu servidor permite este método. | |
-| Desajuste do código da sonda: Recebido 500 | Erro interno do servidor. Verifique a saúde do servidor de backend e se os serviços estão em funcionamento. | |
-| Desajuste do código da sonda: Recebido 503 | Serviço indisponível. Verifique a saúde do servidor de backend e se os serviços estão em funcionamento. | |
+| Desajuste do código da sonda: Recebido 401 | Verifique se o servidor backend requer autenticação. As sondas Application Gateway não podem passar credenciais para autenticação. Ou permite \" HTTP 401 \" numa correspondência de código de sonda ou sonda para um caminho onde o servidor não necessita de autenticação. |
+| Desajuste do código da sonda: Recebido 403 | Acesso proibido. Verifique se o acesso ao caminho é permitido no servidor backend. |
+| Desajuste do código da sonda: Recebido 404 | Página não encontrada. Verifique se o caminho do nome do anfitrião está acessível no servidor backend. Altere o nome do anfitrião ou o parâmetro do caminho para um valor acessível. |
+| Desajuste do código da sonda: Recebido 405 | Os pedidos de sonda para o Gateway de Aplicação utilizam o método HTTP GET. Verifique se o seu servidor permite este método. |
+| Desajuste do código da sonda: Recebido 500 | Erro interno do servidor. Verifique a saúde do servidor de backend e se os serviços estão em funcionamento. |
+| Desajuste do código da sonda: Recebido 503 | Serviço indisponível. Verifique a saúde do servidor de backend e se os serviços estão em funcionamento. |
 
 Ou, se acha que a resposta é legítima e quer que o Application Gateway aceite outros códigos de estado como Healthy, pode criar uma sonda personalizada. Esta abordagem é útil em situações em que o site backend precisa de autenticação. Como os pedidos da sonda não têm credenciais de utilizador, falharão e um código de estado HTTP 401 será devolvido pelo servidor backend.
 

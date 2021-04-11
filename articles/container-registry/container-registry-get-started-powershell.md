@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registo privado de Docker no Registo
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc, devx-track-azurepowershell
-ms.openlocfilehash: 91d4209ccf558bf7c8038d8a753ec038428bc484
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6928f1c45cdac93b70797daf41205b4c5db27e0
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020021"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283823"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Quickstart: Criar um registo de contentores privados utilizando a Azure PowerShell
 
@@ -55,7 +55,7 @@ Neste quickstart você cria um registo *Básico,* que é uma opção otimizada p
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
-Antes de enviar e solicitar imagens de contentor, tem de iniciar sessão no registo. Em cenários de produção deve utilizar uma identidade ou um principal de serviço individual para acesso ao registo de contentores, mas para manter este resumo de arranque rápido, ative o utilizador administrativo no seu registo com o comando [Get-AzContainerRegistryCredential:][Get-AzContainerRegistryCredential]
+Antes de enviar e solicitar imagens de contentor, tem de iniciar sessão no registo. Para manter este resumo de arranque rápido, ative o utilizador administrativo no seu registo com o comando [Get-AzContainerRegistryCredential.][Get-AzContainerRegistryCredential] Em cenários de produção deve utilizar um método de [autenticação](container-registry-authentication.md) alternativo para o acesso ao registo, como um diretor de serviço. 
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -68,6 +68,10 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 ```
 
 O comando devolve `Login Succeeded` depois de estar concluído.
+
+> [!TIP]
+> O Azure CLI fornece o `az acr login` comando, uma forma conveniente de iniciar sessão num registo de contentores utilizando a sua [identidade individual,](container-registry-authentication.md#individual-login-with-azure-ad)sem passar credenciais de estivador.
+
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 

@@ -3,12 +3,12 @@ title: Utilize pontos finais privados para integrar funções do Azure com uma r
 description: Este tutorial mostra-lhe como ligar uma função a uma rede virtual Azure e bloqueá-la utilizando pontos finais privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: e8ca853908b366b99e150f04ced404f42acc7d21
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1ed944250f05f52860c47f6cb61130f50b08e7c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027419"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078779"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integrar funções do Azure com uma rede virtual Azure utilizando pontos finais privados
 
@@ -160,7 +160,7 @@ Crie os pontos finais privados para o armazenamento de Ficheiros Azure e para o 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
     | **Subscrição** | A sua subscrição | A subscrição sob a qual os seus recursos são criados. | 
-    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que criou com a sua aplicação de função. | |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que criou com a sua aplicação de função. |
     | **Nome** | ponto final de ficheiro | O nome do ponto final privado para ficheiros da sua conta de armazenamento. |
     | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região onde criou a sua conta de armazenamento. |
 

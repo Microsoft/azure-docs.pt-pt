@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ce250b19478c70109fe28d199ac771a77c42c7dc
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a3771a21914831f249696fc3d733c5ea935c2c7e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113341"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251350"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>Adicionar identidade gerida à sua solução de Serviços de Comunicação (JS)
 
@@ -29,7 +29,9 @@ import { SmsClient, SmsSendRequest } from "@azure/communication-sms";
 
 Os exemplos abaixo estão a utilizar o [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential). Esta credencial é adequada para ambientes de produção e desenvolvimento.
 
-Para registar a aplicação no ambiente de desenvolvimento e configurar variáveis ambientais, consulte [Autorizar o acesso com identidade gerida](../managed-identity-from-cli.md)
+Para uma forma fácil de saltar para a autenticação de identidade gerida, consulte [Autorizar o acesso com identidade gerida](../managed-identity-from-cli.md)
+
+Para uma análise mais aprofundada de como funciona o objeto DefaultAzureCredential e como pode usá-lo de formas que não são especificadas neste arranque rápido, consulte [a biblioteca de clientes de Identidade Azure para JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)
 
 ### <a name="create-an-identity-and-issue-a-token-with-managed-identity"></a>Criar uma identidade e emitir um símbolo com Identidade Gerida
 

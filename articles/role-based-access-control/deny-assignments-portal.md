@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e644d81c2a47ec07833010ae93f4dbb0c57474b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84790251"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077844"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Lista Azure nega atribuições usando o portal Azure
 
@@ -54,7 +54,7 @@ Siga estes passos para listar as atribuições de negação no âmbito do grupo 
 
     ![Missões de negação - Colunas](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    |  |  |
+    | Coluna | Descrição  |
     | --- | --- |
     | **Nome** | O nome da missão de negação. |
     | **Tipo de principal** | Utilizador, grupo, grupo definido pelo sistema ou principal de serviço. |
@@ -79,7 +79,7 @@ Siga estes passos para listar detalhes adicionais sobre uma atribuição de nega
 
     A lâmina **do Utilizadores** inclui as duas secções seguintes.
 
-    |  |  |
+    | Negar definição  | Description |
     | --- | --- |
     | **A atribuição de negação aplica-se a**  | Princípios de segurança a que a atribuição de negação se aplica. |
     | **Negar atribuição exclui** | Princípios de segurança que estão excluídos da missão de negação. |

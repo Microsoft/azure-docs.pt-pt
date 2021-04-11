@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d942099d0abbdfc4ddfa0276184500166250728
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4ed0f075aad09b77a0c50682bad92522f4e5472
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014966"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280280"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserir anúncios no lado do cliente
 
@@ -590,7 +590,7 @@ Esta amostra utiliza o VmapSchedulerPlugin para agendar anúncios usando um fich
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementação de um leitor de vídeo iOS com suporte a anúncios
-A Plataforma Microsoft Media: Player Framework for iOS contém uma coleção de aplicações de amostra que mostram como implementar uma aplicação de leitor de vídeo usando a estrutura. Você pode baixar o Quadro de Jogadores e as amostras do [Azure Media Player Framework](https://github.com/CloudMetal/azure-media-player-framework). A página do GitHub tem um link para um Wiki que contém informações adicionais sobre a estrutura do jogador e uma introdução à amostra do jogador: [Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+A Plataforma Microsoft Media: Player Framework for iOS contém uma coleção de aplicações de amostra que mostram como implementar uma aplicação de leitor de vídeo usando a estrutura. Você pode baixar o Quadro de Jogadores e as amostras do [Azure Media Player Framework](https://github.com/CloudMetal/azure-media-player-framework). A página do GitHub tem um link para um Wiki que contém informações adicionais sobre a estrutura do jogador e uma introdução à amostra do jogador: [Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-player-use-azure-media-player-how-to-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Agendamento de Anúncios com VMAP
 O exemplo a seguir mostra como agendar anúncios usando um ficheiro VMAP.

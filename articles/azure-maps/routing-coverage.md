@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93618e28821ed10d84d1d54ef26493001d0aaf02
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896179"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076302"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de encaminhamento Azure Maps
 
@@ -70,7 +70,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Ruanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
 | Seicheles                     |        ✓       |                       |             |
-| África do Sul                   |        ✓       ||         ✓            |             |
+| África do Sul                   |        ✓       |         ✓            |             |
 | Suazilândia                      |        ✓       |                       |             |
 | Tanzânia                       |        ✓       |                       |             |
 | Togo                           |        ✓       |                       |             |

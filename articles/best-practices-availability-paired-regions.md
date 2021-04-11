@@ -5,15 +5,15 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/30/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fda6f913fcb5325c811671cd6476dcbf2413766
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511234"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058022"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade de negócio e recuperação após desastre (BCDR): Regiões Emparelhadas do Azure
 
@@ -51,14 +51,15 @@ N.º Os clientes podem aproveitar os serviços da Azure para arquiteto um servi�
 |:--- |:--- |:--- |
 | Asia-Pacific |Ásia Oriental (Hong Kong) | Sudeste Asiático (Singapura) |
 | Austrália |Leste da Austrália |Austrália Sudeste |
-| Austrália |Austrália Central |Austrália Central 2 |
+| Austrália |Austrália Central |Austrália Central 2* |
 | Brasil |Sul do Brasil |E.U.A. Centro-Sul |
+| Brasil |Sudeste do Brasil* |Sul do Brasil |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |China Norte 2 |China Leste 2|
 | Europa |Europa do Norte (Irlanda) |Europa Ocidental (Países Baixos) |
-| França |França Central|Sul de França|
-| Alemanha |Alemanha Central |Nordeste da Alemanha |
+| França |França Central|França Sul*|
+| Alemanha |Alemanha Centro-Oeste |Alemanha Norte* |
 | Índia |Índia Central |Sul da Índia |
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
@@ -67,15 +68,17 @@ N.º Os clientes podem aproveitar os serviços da Azure para arquiteto um servi�
 | América do Norte |E.U.A. Leste 2 |E.U.A. Central |
 | América do Norte |E.U.A. Centro-Norte |E.U.A. Centro-Sul |
 | América do Norte |E.U.A. Oeste 2 |E.U.A. Centro-Oeste |
-| Noruega | Leste da Noruega | Oeste da Noruega |
-| África do Sul | Norte da África do Sul |Oeste da África do Sul |
-| Suíça | Suíça Norte |Suíça Oeste |
+| Noruega | Leste da Noruega | Noruega Oeste* |
+| África do Sul | Norte da África do Sul |África do Sul Oeste* |
+| Suíça | Suíça Norte |Suíça Oeste* |
 | REINO UNIDO |Oeste do Reino Unido |Sul do Reino Unido |
-| Emirados Árabes Unidos | Uae Norte | Centro dos Emirados Árabes Unidos
-| Departamento de Defesa dos EUA |US DoD - Leste |US DoD Centro |
-| Governo dos Estados Unidos |US Gov - Arizona |US Gov - Texas |
-| Governo dos Estados Unidos |US Gov - Iowa |US Gov - Virginia |
-| Governo dos Estados Unidos |US Gov - Virginia |US Gov - Texas |
+| Emirados Árabes Unidos | Uae Norte | UAE Central* |
+| Departamento de Defesa dos EUA |DoD Leste dos EUA* |US DoD Central* |
+| Governo dos Estados Unidos |Eua Gov Arizona* |EUA Gov Texas* |
+| Governo dos Estados Unidos |Eua Gov Iowa* |Eua Gov Virginia* |
+| Governo dos Estados Unidos |Eua Gov Virginia* |EUA Gov Texas* |
+
+(*) Algumas regiões são acesso restrito para apoiar cenários específicos de clientes, por exemplo, a recuperação de desastres no país. Estas regiões só estão disponíveis mediante solicitação através [da criação de um novo pedido de apoio no portal Azure.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 > [!Important]
 > - A Índia Ocidental é emparelhada numa só direção. A região secundária da Índia Ocidental é a Índia meridional, mas a região secundária do Sul da Índia é a Índia Central.

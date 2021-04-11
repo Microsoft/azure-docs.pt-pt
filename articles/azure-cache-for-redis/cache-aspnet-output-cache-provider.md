@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7ea409163a6ce28f65799163bd3217d47569751
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993392"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220594"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET fornecedor de cache de saída para cache Azure para Redis
 
@@ -52,7 +52,7 @@ O pacote NuGet descarrega e adiciona as referências de montagem necessárias e 
 
 Configure os atributos com os valores da sua lâmina de cache no portal Microsoft Azure e configuure os outros valores conforme desejado. Para obter instruções sobre o acesso às propriedades do seu cache, consulte [a Cache Configure Azure para as definições de Redis](cache-configure.md#configure-azure-cache-for-redis-settings).
 
-| Atributo | Tipo | Predefinição | Description |
+| Atributo | Tipo | Predefinição | Descrição |
 | --------- | ---- | ------- | ----------- |
 | *hospedeiro* | string | "Localhost" | O endereço IP do servidor Redis ou o nome de anfitrião |
 | *porto* | inteiro positivo | 6379 (não-TLS/SSL)<br/>6380 (TLS/SSL) | Porta de servidor Redis |
@@ -65,7 +65,7 @@ Configure os atributos com os valores da sua lâmina de cache no portal Microsof
 | *definiçõesFinaname*<br/>*definiçõesMethodName* | string<br/>string | *n/a* | *Estes atributos só podem ser especificados através de web.config ou AppSettings.*<br/><br/>Utilize estes atributos para fornecer uma cadeia de ligação. *definições O Nome de Classe* deve ser um nome de classe qualificado de montagem que contenha o método especificado pelas *definiçõesMethodName*.<br/><br/>O método especificado pelas *definições O Nome de Method* deve ser público, estático e vazio (não tomar quaisquer parâmetros), com um tipo de **cadeia** de retorno . Este método devolve a cadeia de ligação real. |
 | *nome de classes de registo*<br/>*nome de Method logging* | string<br/>string | *n/a* | *Estes atributos só podem ser especificados através de web.config ou AppSettings.*<br/><br/>Utilize estes atributos para depurar a sua aplicação fornecendo registos da Sessão Estado/Cache de saída juntamente com registos de StackExchange.Redis. *loggingClassName* deve ser um nome de classe qualificado de montagem que contém o método especificado por *loggingMethodName*.<br/><br/>O método especificado por *loggingMethodName* deve ser público, estático e vazio (não tomar quaisquer parâmetros), com um tipo de retorno de **System.IO.TextWriter**. |
 | *aplicativoName* | string | O nome do módulo do processo atual ou "/" | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>O prefixo do nome da aplicação para usar na cache Redis. O cliente pode utilizar a mesma cache Redis para diferentes finalidades. Para garantir que as teclas de sessão não colidem, pode ser pré-fixado com o nome da aplicação. |
-| *throwOnError* | boolean | true | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Se lançar uma exceção quando ocorre um erro.<br/><br/>Para obter mais informações sobre *o throwOnError*, consulte [notas no *throwOnError*](#notes-on-throwonerror) na secção [notas do Atributo.](#attribute-notes) |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
+| *throwOnError* | boolean | true | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Se lançar uma exceção quando ocorre um erro.<br/><br/>Para obter mais informações sobre *o throwOnError*, consulte [notas no *throwOnError*](#notes-on-throwonerror) na secção [notas do Atributo.](#attribute-notes) |
 | *retryTimeoutInMilliseconds* | inteiro positivo | 5000 | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Quanto tempo para tentar novamente quando uma operação falha. Se este valor for inferior *ao funcionamentoTimeoutInMilisconds,* o fornecedor não voltará a tentar.<br/><br/>Para obter mais informações sobre *retryTimeoutInMilliseconds*, consulte [notas sobre *retryTimeoutInMilisconds*](#notes-on-retrytimeoutinmilliseconds) na secção [notas de atributo.](#attribute-notes) |
 | *redisSerializerType* | string | *n/a* | Especifica o nome de tipo qualificado de montagem de uma classe que implementa Microsoft.Web.Redis. ISerializador e que contém a lógica personalizada para serializar e desseializar os valores. Para obter mais informações, consulte [ *Sobre o redisSerializerType*](#about-redisserializertype) na secção [notas do Atributo.](#attribute-notes) |
 

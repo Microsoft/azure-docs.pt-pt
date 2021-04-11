@@ -12,12 +12,12 @@ ms.date: 01/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9eb28ad19d53df542769a89b839668bbb205e30
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555251"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256111"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Criar o fornecedor local de identidade de conta
 
@@ -143,7 +143,7 @@ Depois de baixar o pacote de arranque.
 
 1. Em cada ficheiro, substitua a cadeia `yourtenant` pelo nome do seu inquilino Azure AD B2C. Por exemplo, se o nome do seu inquilino B2C for *contosob2c,* todos os casos `yourtenant.onmicrosoft.com` de se tornar `contosob2c.onmicrosoft.com` .
 
-1. Complete os passos nos [IDs](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de aplicação Add à secção de política personalizada de Começar com [políticas personalizadas no Azure Ative Directory B2C](custom-policy-get-started.md). Por exemplo, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com os **IDs de Aplicação (cliente)** das duas aplicações que registou ao completar os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
+1. Complete os passos nos [IDs](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-application-ids-to-the-custom-policy) de aplicação Add à secção de política personalizada de Começar com [políticas personalizadas no Azure Ative Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Por exemplo, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com os **IDs de Aplicação (cliente)** das duas aplicações que registou ao completar os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 1. Faça upload dos ficheiros de política
 
 ::: zone-end

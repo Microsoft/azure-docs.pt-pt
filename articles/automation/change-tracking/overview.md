@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed29def305bfa33a0a947a331775de89275e5f7f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572610"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220871"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -40,6 +40,8 @@ As máquinas ligadas ao espaço de trabalho Log Analytics utilizam o [agente Log
 
 > [!NOTE]
 > Alterar o Tracking and Inventory requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](../how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
+
+Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para o [Farol de Azure.](../../lighthouse/overview.md) O Azure Lighthouse permite-lhe realizar operações em escala através de vários inquilinos do Azure Ative Directory (Azure AD) de uma só vez, tornando as tarefas de gestão como Change Tracking e Inventory mais eficientes entre os inquilinos pelos quais é responsável. O Change Tracking and Inventory pode gerir máquinas em várias subscrições no mesmo inquilino, ou através de inquilinos que utilizam [a gestão de recursos delegados da Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md)
 
 ## <a name="current-limitations"></a>Limitações atuais
 
@@ -176,7 +178,7 @@ Para otimizar o desempenho, o agente Log Analytics apenas rastreia as alteraçõ
 
 Uma capacidade chave do Change Tracking and Inventory está a alertar para as alterações ao estado de configuração do seu ambiente híbrido. Muitas ações úteis estão disponíveis para desencadear em resposta a alertas. Por exemplo, ações em funções Azure, livros de automação, webhooks e similares. Alertar sobre as alterações ao ficheiro **c:\windows\system32\drivers\etc\hosts** para uma máquina é uma boa aplicação de alertas para os dados de Change Tracking e Inventory. Há muitos mais cenários para alertar também, incluindo os cenários de consulta definidos na tabela seguinte.
 
-|Consulta  |Description  |
+|Consulta  |Descrição  |
 |---------|---------|
 |ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Ficheiros" e FileSystemPath contém " c: \\ sistema de \\ janelas32 \\ controladores \\ "|Útil para rastrear alterações em ficheiros críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c: \\ \\ windows system32 \\ drivers etc \\ \\ hosts"|Útil para rastrear modificações em ficheiros de configuração de chaves.|

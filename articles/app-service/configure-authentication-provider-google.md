@@ -3,16 +3,16 @@ title: Configure a autenticação do Google
 description: Saiba como configurar a autenticação do Google como fornecedor de identidade para o seu Serviço de Aplicações ou aplicação Azure Functions.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6bec32fa928e840569ed95c35a056db91ea9737
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80519934"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077997"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login do Google
 
@@ -34,21 +34,20 @@ Para completar o procedimento neste tópico, tem de ter uma conta google que ten
 
 ## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Adicione informações do Google à sua aplicação
 
-1. No [portal Azure, aceda]à sua aplicação De Serviço de Aplicações.
-1. Selecione **Definições**  >  **Autenticação / Autorização**, e certifique-se de que a **autenticação do serviço de aplicações** está **acesa**.
-1. Selecione **o Google,** em seguida, cole nos valores de ID da App e App Secret que obteve anteriormente. Ativar todos os âmbitos necessários à sua aplicação.
-1. Selecione **OK**.
+1. Inscreva-se no [portal Azure] e navegue para a sua aplicação.
+1. Selecione **Autenticação** no menu à esquerda. Clique **em Adicionar Fornecedor de identidade**.
+1. Selecione o **Google** no dropdown do fornecedor de identidade. Cole nos valores de ID e App Secret que obteve anteriormente.
 
-   O Serviço de Aplicações fornece autenticação, mas não restringe o acesso autorizado ao conteúdo do seu site e APIs. Para mais informações, consulte [Autorizar ou negar utilizadores.](app-service-authentication-how-to.md#authorize-or-deny-users)
+    O segredo será armazenado como uma [configuração](./configure-common.md#configure-app-settings) de aplicação adesivo chamado `GOOGLE_PROVIDER_AUTHENTICATION_SECRET` . Pode atualizar essa definição mais tarde para utilizar [referências do Key Vault](./app-service-key-vault-references.md) se desejar gerir o segredo no Cofre de Chaves Azure.
 
-1. (Opcional) Para restringir o acesso do site apenas aos utilizadores autenticados pela Google, desemote **a ação a tomar quando o pedido não for autenticado** no **Google.** Ao definir esta funcionalidade, a sua aplicação requer que todos os pedidos sejam autenticados. Também redireciona todos os pedidos não autenticados para a Google para autenticação.
+1. Se este for o primeiro fornecedor de identidade configurado para a aplicação, também será solicitado com uma secção de **configurações de autenticação do Serviço de Aplicações.** Caso contrário, pode passar para o próximo passo.
+    
+    Estas opções determinam como a sua aplicação responde a pedidos não autenticados, e as seleções predefinidos redirecionarão todos os pedidos para iniciar sessão com este novo fornecedor. Pode alterar o comportamento agora ou ajustar estas definições mais tarde a partir do ecrã principal de **Autenticação,** escolhendo **Editar** ao lado **das definições de Autenticação**. Para saber mais sobre estas opções, consulte [o fluxo de autenticação.](overview-authentication-authorization.md#authentication-flow)
 
-    > [!CAUTION]
-    > Restringir o acesso desta forma aplica-se a todas as chamadas para a sua app, o que pode não ser desejável para aplicações que tenham uma página inicial disponível ao público, como em muitas aplicações de página única. Para tais aplicações, **permitir pedidos anónimos (nenhuma ação)** pode ser preferido para que a aplicação comece manualmente a autenticação em si. Para mais informações, consulte [o fluxo de autenticação.](overview-authentication-authorization.md#authentication-flow)
+1. (Opcional) Clique **em seguida: Scopes** e adicione quaisquer âmbitos necessários pela aplicação. Estes serão solicitados no momento de início de sessão para fluxos baseados no navegador.
+1. Clique em **Adicionar**.
 
-1. Selecione **Guardar**.
-
-Está agora pronto para usar o Google para autenticação na sua aplicação.
+Está agora pronto para usar o Google para autenticação na sua aplicação. O fornecedor será listado no ecrã de **Autenticação.** A partir daí, pode editar ou eliminar esta configuração do fornecedor.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 

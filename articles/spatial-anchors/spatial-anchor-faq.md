@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fc92543f5954cda9db42e53cab18db1d8f3366c3
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384243"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284209"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas frequentes sobre âncoras espaciais Azure
 
@@ -52,6 +52,10 @@ Para mais informações, consulte [a visão geral das Âncoras Espaciais Azure](
 **P: Como é que a Azure Spatial Anchors armazena dados?**
 
 **A:** Todos os dados são armazenados encriptados com uma chave de encriptação de dados gerida pela Microsoft e todos os dados são armazenados regionalmente para cada um dos recursos.
+
+**P: Onde é que a Azure Spatial Anchors armazena dados?**
+
+**A:** As contas Azure Spatial Anchors permitem especificar a região onde os seus dados serão armazenados. A Microsoft pode replicar dados para outras regiões para resiliência, mas a Microsoft não replica ou move dados fora da geografia. Estes dados são armazenados na região onde a conta Azure Spatial Anchors está configurada. Por exemplo, se a conta estiver registada na região leste dos EUA, estes dados são armazenados na região leste dos EUA, mas podem ser replicados noutra região da América do Norte para garantir a resiliência.
 
 **P: Que informação sobre um ambiente é transmitida e armazenada no serviço quando se utiliza âncoras espaciais Azure? As imagens do ambiente são transmitidas e armazenadas?**
 

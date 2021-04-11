@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5fa62c649287fc6c9d02ea4f12db8c6cc5bb7df7
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 64fdc41ddb7802c2b0a195ce4dda50ad4823e146
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106126023"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283224"
 ---
 <!--Feature availability in region-->
 ## <a name="united-kingdom"></a>Reino Unido
@@ -21,5 +21,5 @@ ms.locfileid: "106126023"
 | [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md) |![AudioAnalyzerPreset UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset UK Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encode-concept.md) |![StandardEncoderPreset UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset UK West Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
 | [LiveEvents](../stream-live-streaming-concept.md) |![LiveEvents UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![LiveEvents UK West disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [StreamingEndpoints](../streaming-endpoint-concept.md) |![StreamingEndpoints UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg) | ![StreamingEndpoints UK Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
+| [StreamingEndpoints](../stream-streaming-endpoint-concept.md) |![StreamingEndpoints UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg) | ![StreamingEndpoints UK Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
 | [LiveTranscription](../live-event-live-transcription-how-to.md) |![Disponibilidade geral do LiveTranscription UK South](../media/azure-clouds-regions/ga.svg) |![Disponibilidade geral do LiveTranscription UK West](../media/azure-clouds-regions/ga.svg) |

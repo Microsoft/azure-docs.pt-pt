@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 2/7/2021
-ms.reviewer: mbullwin
-ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/30/2021
+ms.reviewer: lagayhar
+ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726197"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078405"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -25,7 +25,7 @@ Se tiver dúvidas sobre como funciona o preço para a Application Insights, pode
 
 ## <a name="pricing-model"></a>Modelo preços
 
-O preço da [Azure Application Insights][start] é um modelo **Pay-As-You-Go** baseado no volume de dados ingerido e opcionalmente para uma maior retenção de dados. Cada recurso Application Insights é cobrado como um serviço separado e contribui para a fatura da sua subscrição Azure. O volume de dados é medido como o tamanho do pacote de dados JSON não comprimido que é recebido pela Application Insights da sua aplicação. Não existe uma carga de volume de dados para a utilização do [Live Metrics Stream](./live-stream.md).
+O preço da [Azure Application Insights][start] é um modelo **Pay-As-You-Go** baseado no volume de dados ingerido e opcionalmente para uma maior retenção de dados. Cada recurso Application Insights é cobrado como um serviço separado e contribui para a fatura da sua subscrição Azure. O volume de dados é medido como o tamanho do pacote de dados JSON não comprimido que é recebido pela Application Insights da sua aplicação. O volume de dados é medido em GB (10^9 bytes). Não existe uma carga de volume de dados para a utilização do [Live Metrics Stream](./live-stream.md).
 
 [Os testes web em várias etapas](./availability-multistep.md) incorrem numa taxa adicional. Testes web em várias etapas são testes web que realizam uma sequência de ações. Não há carga separada para *testes* de ping de uma única página. A telemetria dos testes de ping e os testes em várias etapas são cobrados da mesma forma que outras telemetrias da sua aplicação.
 
@@ -43,7 +43,10 @@ Existem duas abordagens para resolver esta questão: utilização de monitoriza�
 
 ### <a name="data-collection-when-using-sampling"></a>Recolha de dados ao utilizar amostragem
 
-Com a [amostragem adaptativa](sampling.md#adaptive-sampling)da ASP.NET SDK, o volume de dados é ajustado automaticamente para manter dentro de uma taxa máxima de tráfego especificada para monitorização padrão de Insights de Aplicação. Se a aplicação produzir uma baixa quantidade de telemetria, como quando depurado ou devido a uma utilização baixa, os itens não serão deixados pelo processador de amostragem enquanto o volume estiver abaixo dos eventos configurados por segundo nível. Para uma aplicação de alto volume, com o limiar de padrão de cinco eventos por segundo, a amostragem adaptativa limitará o número de eventos diários a 432.000. Utilizando um tamanho médio típico de evento de 1 KB, este corresponde a 13,4 GB de telemetria por 31 dias por mês por nó que hospeda a sua aplicação (uma vez que a amostragem é feita localmente a cada nó.) 
+Com a [amostragem adaptativa](sampling.md#adaptive-sampling)da ASP.NET SDK, o volume de dados é ajustado automaticamente para manter dentro de uma taxa máxima de tráfego especificada para monitorização padrão de Insights de Aplicação. Se a aplicação produzir uma baixa quantidade de telemetria, como quando depurado ou devido a uma utilização baixa, os itens não serão deixados pelo processador de amostragem enquanto o volume estiver abaixo dos eventos configurados por segundo nível. Para uma aplicação de alto volume, com o limiar de padrão de cinco eventos por segundo, a amostragem adaptativa limitará o número de eventos diários a 432.000. Utilizando um tamanho médio típico de evento de 1 KB, isto corresponde a 13,4 GB de telemetria por 31 dias por mês por nó, uma vez que a amostragem é feita localmente a cada nó.
+
+> [!NOTE]
+> O tamanho dos dados de registo do Azure Monitor é calculado em GB (1 GB = 10^9 bytes).
 
 Para os SDKs que não suportam amostras adaptativas, pode utilizar amostras de [ingestão,](./sampling.md#ingestion-sampling)que amostras quando os dados são recebidos pela Application Insights com base numa percentagem de dados para reter, ou [amostragem de taxa fixa para ASP.NET, ASP.NET Web e Java websites](sampling.md#fixed-rate-sampling) para reduzir o tráfego enviado do seu servidor web e navegadores web
 
