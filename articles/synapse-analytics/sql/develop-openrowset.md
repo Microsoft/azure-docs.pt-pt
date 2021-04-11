@@ -10,10 +10,10 @@ ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: a6af8f4600544007a9ecb4fcff5ac9016fd7dfbf
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105640336"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor em Azure Synapse Analytics

@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o cliente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: a18f230c1b7b1eb2c953542e276127f4f47cbb39
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 6fb3ed3644ccdb5de8f03bedf56943a91570322b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802527"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105733031"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -176,7 +176,10 @@ A extensão de Configuração do Hóspede escreve ficheiros de registo para os s
 
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+Linux
+
+- Azure VM: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+- Azure VM: `/var/lib/GuestConfig/arc_policy_logs/gc_agent.log`
 
 ### <a name="collecting-logs-remotely"></a>Recolha de troncos remotamente
 
@@ -210,9 +213,9 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 O cliente de Configuração de Hóspedes descarrega pacotes de conteúdo para uma máquina e extrai o conteúdo.
 Para verificar que conteúdo foi descarregado e armazenado, consulte as localizações da pasta abaixo.
 
-Windows: `c:\programdata\guestconfig\configurations`
+Windows: `c:\programdata\guestconfig\configuration`
 
-Linux: `/var/lib/guestconfig/configurations`
+Linux: `/var/lib/GuestConfig/Configuration`
 
 ## <a name="guest-configuration-samples"></a>Amostras de configuração de hóspedes
 

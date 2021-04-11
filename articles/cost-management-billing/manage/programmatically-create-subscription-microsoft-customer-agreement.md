@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 779a1410641f945dc8dbf38aecf65b97d64971b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5409c30020db2c8d7acf3c23df5a7d709d872341
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593977"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963279"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Criar programaticamente subscrições do Azure para um Contrato de Contrato de Cliente Microsoft com as APIs mais recentes
 
@@ -28,7 +28,9 @@ Quando cria uma subscrição do Azure através de programação, essa subscriç�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma função de proprietário, contribuidor ou criador de subscrição do Azure numa secção da fatura ou uma função de proprietário ou contribuidor num perfil de faturação ou numa conta de faturação para criar subscrições. Para obter mais informações, veja [Tarefas e funções da faturação da subscrição](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Tem de ter uma função de proprietário, contribuidor ou criador de subscrição do Azure numa secção da fatura ou uma função de proprietário ou contribuidor num perfil de faturação ou numa conta de faturação para criar subscrições. Também pode dar o mesmo papel a um nome principal de serviço (SPN). Para obter mais informações sobre funções e atribuir-lhes permissão, consulte [as funções e tarefas de faturação de subscrição](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+
+Se estiver a utilizar um SPN para criar subscrições, utilize o ObjectId do Registo de Aplicações AD Azure como o Principal ObjectId do Serviço utilizando o PowerShell ou o Azure Ative [Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) ou [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list). 
 
 Se não sabe se tem acesso a uma conta de Contrato de Cliente Microsoft, veja [Verificar o acesso a um Contrato de Cliente Microsoft](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 

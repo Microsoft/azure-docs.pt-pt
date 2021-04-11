@@ -1,15 +1,15 @@
 ---
 title: Detalhes da conformidade regulamentar para cis Microsoft Azure Foundations Benchmark 1.1.0
 description: Detalhes da iniciativa cis Microsoft Azure Foundations Benchmark 1.1.0 Regulatory Compliance incorporada. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7d26825e3e401984b52216c6827b8a3baf44ad62
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1d21d04fe4347a2ff7735045e786520c106309c7
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105032519"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091757"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa cis Microsoft Azure Foundations Benchmark 1.1.0 Regulatory Compliance
 
@@ -17,7 +17,7 @@ O artigo que se segue detalha como a definição de iniciativa integrada na conf
 Para obter mais informações sobre esta norma de conformidade, consulte [o CIS Microsoft Azure Foundations Benchmark 1.1.0](https://www.cisecurity.org/benchmark/azure/). Para compreender _a Propriedade_, consulte [a definição de política de Azure](../concepts/definition-structure.md#type) e [a responsabilidade partilhada na nuvem.](../../../security/fundamentals/shared-responsibility.md)
 
 Os seguintes mapeamentos são para os **controlos CIS Microsoft Azure Foundations Benchmark 1.1.0.** Utilize a navegação no direito de saltar diretamente para um domínio de **conformidade** específico . Muitos dos controlos são implementados com uma definição de iniciativa [política Azure.](../overview.md) Para rever a definição completa de iniciativa, abra **a Política** no portal Azure e selecione a página **Definições.**
-Em seguida, encontre e selecione a definição de iniciativa de referência de conformidade integrada **cis Microsoft Azure Foundations 1.1.0.**
+Em seguida, encontre e selecione a definição de iniciativa de referência das **Fundações CIS Microsoft Azure v1.1.0** Regulatory Compliance incorporada.
 
 Esta iniciativa incorporada é implementada como parte da amostra de [projeto benchmark 1.1.0 das Fundações CIS Microsoft Azure Foundations.](../../blueprints/samples/cis-azure-1-1-0.md)
 
@@ -70,7 +70,14 @@ Esta iniciativa incorporada é implementada como parte da amostra de [projeto be
 
 |Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[O nível de preços padrão do Centro de Segurança deve ser selecionado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |O nível de preços padrão permite a deteção de ameaças para redes e máquinas virtuais, fornecendo inteligência de ameaças, deteção de anomalias e análise de comportamento no Azure Security Center |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
+|[Azure Defender for App Service deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2913021d-f2fd-4f3d-b958-22354e2bdbcb) |O Azure Defender for App Service aproveita a escala da nuvem e a visibilidade que o Azure tem como fornecedor de nuvem, para monitorizar os ataques comuns de aplicações web. |AuditIfNotExists, Desativado |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnAppServices_Audit.json) |
+|[O Azure Defender para os servidores da Base de Dados Azure SQL deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |O Azure Defender for SQL fornece funcionalidades para aacessibilização e mitigação de potenciais vulnerabilidades de base de dados, detetando atividades anómalas que possam indicar ameaças às bases de dados SQL e descobrir e classificar dados sensíveis. |AuditIfNotExists, Desativado |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
+|[Azure Defender para registos de contentores deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |O Azure Defender para registos de contentores fornece uma verificação de vulnerabilidade de quaisquer imagens retiradas nos últimos 30 dias, empurradas para o seu registo, ou importadas, e expõe resultados detalhados por imagem. |AuditIfNotExists, Desativado |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
+|[Azure Defender para o Cofre de Chaves deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e6763cc-5078-4e64-889d-ff4d9a839047) |O Azure Defender for Key Vault fornece uma camada adicional de inteligência de proteção e segurança, detetando tentativas incomuns e potencialmente nocivas de aceder ou explorar contas-chave do cofre. |AuditIfNotExists, Desativado |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKeyVaults_Audit.json) |
+|[Azure Defender for Kubernetes deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F523b5cd1-3e23-492f-a539-13118b6d1e3a) |O Azure Defender for Kubernetes fornece proteção contra ameaças em tempo real para ambientes contentorizados e gera alertas para atividades suspeitas. |AuditIfNotExists, Desativado |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKubernetesService_Audit.json) |
+|[O Azure Defender para servidores deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |O Azure Defender para servidores fornece proteção contra ameaças em tempo real para cargas de trabalho do servidor e gera recomendações de endurecimento, bem como alertas sobre atividades suspeitas. |AuditIfNotExists, Desativado |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
+|[O Azure Defender para servidores SQL em máquinas deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6581d072-105e-4418-827f-bd446d56421b) |O Azure Defender for SQL fornece funcionalidades para aacessibilização e mitigação de potenciais vulnerabilidades de base de dados, detetando atividades anómalas que possam indicar ameaças às bases de dados SQL e descobrir e classificar dados sensíveis. |AuditIfNotExists, Desativado |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServerVirtualMachines_Audit.json) |
+|[Azure Defender para armazenamento deve ser ativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F308fbb08-4ab8-4e67-9b29-592e93fb94fa) |O Azure Defender for Storage fornece deteções de tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. |AuditIfNotExists, Desativado |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnStorageAccounts_Audit.json) |
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Certifique-se de que o "provisionamento automático do agente de monitorização" está definido para "On"
 

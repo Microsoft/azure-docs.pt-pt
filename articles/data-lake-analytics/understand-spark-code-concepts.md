@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: 4faa48a9edb5ea157fde67e4a4f3008864342075
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105639757"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Compreenda o código Apache Spark para desenvolvedores U-SQL

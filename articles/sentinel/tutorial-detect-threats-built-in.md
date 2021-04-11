@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/19/2021
 ms.author: yelevin
 ms.openlocfilehash: 951c616961ff68b810ca135d09a6f6253cb2b7ba
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104773560"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detetar ameaças com modelos prontos a utilizar

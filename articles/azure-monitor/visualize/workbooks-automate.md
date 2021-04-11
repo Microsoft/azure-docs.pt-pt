@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d4aac17ca823f4eaa0f52ab260b1daca3f52f94
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100618972"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109752"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerir programáticamente livros de trabalho
 
@@ -99,19 +99,19 @@ Existem dois tipos de recursos de livro que podem ser geridos programáticamente
 
 ### <a name="galleries"></a>Galerias
 
-| Galeria                                        | Tipo de recurso                                      | Tipo de livro |
-| :--------------------------------------------- |:---------------------------------------------------|:--------------|
-| Livros de trabalho no Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
-| VM Insights no Monitor Azure                   | `Azure Monitor`                                    | `vm-insights` |
-| Livros de trabalho no espaço de trabalho de analítica de log           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
-| Livros de trabalho em Insights de Aplicações              | `microsoft.insights/component`                     | `workbook`    |
-| Guias de resolução de problemas em Insights de Aplicações | `microsoft.insights/component`                     | `tsg`         |
-| Utilização em Insights de Aplicações                  | `microsoft.insights/component`                     | `usage`       |
-| Livros de trabalho no serviço Kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
-| Livros de trabalho em grupos de recursos                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
-| Livros de trabalho no Diretório Ativo Azure            | `microsoft.aadiam/tenant`                          | `workbook`    |
-| VM Insights em máquinas virtuais                | `microsoft.compute/virtualmachines`                | `insights`    |
-| VM Insights em conjuntos de escala de máquina virtual      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Galeria                                        | Tipo de recurso                                       | Tipo de livro |
+|:-----------------------------------------------|:----------------------------------------------------|:--------------|
+| Livros de trabalho no Azure Monitor                     | `Azure Monitor`                                     | `workbook`    |
+| VM Insights no Monitor Azure                   | `Azure Monitor`                                     | `vm-insights` |
+| Livros de trabalho no espaço de trabalho de analítica de log           | `microsoft.operationalinsights/workspaces`          | `workbook`    |
+| Livros de trabalho em Insights de Aplicações              | `microsoft.insights/components`                     | `workbook`    |
+| Guias de resolução de problemas em Insights de Aplicações | `microsoft.insights/components`                     | `tsg`         |
+| Utilização em Insights de Aplicações                  | `microsoft.insights/components`                     | `usage`       |
+| Livros de trabalho no serviço Kubernetes                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
+| Livros de trabalho em grupos de recursos                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
+| Livros de trabalho no Diretório Ativo Azure            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| VM Insights em máquinas virtuais                | `microsoft.compute/virtualmachines`                 | `insights`    |
+| VM Insights em conjuntos de escala de máquina virtual      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 
 ## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Modelo de gestor de recursos Azure para implantar uma instância de livro
 

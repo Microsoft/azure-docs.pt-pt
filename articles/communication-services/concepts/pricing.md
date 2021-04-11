@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cf4f427c76709022feed37c7a21f1ab4d594acd0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5f7b1e6d600f5d3652ce6a66a72cbfbf33b336c4
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728169"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091876"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços
 
@@ -44,6 +44,41 @@ A Alice fez uma chamada em grupo com os colegas, Bob e Charlie. Alice e Bob usar
 - 1 participante x 43 minutos x $0,004 por participante por minuto = $0,172 [tanto o vídeo como o áudio são cobrados à mesma taxa]
 
 **Custo total da chamada do grupo**: $0,48 + $0,172 = $0,652
+
+
+### <a name="pricing-example-outbound-call-from-app-using-js-sdk-to-a-pstn-number"></a>Exemplo de preços: Chamada de saída de app usando JS SDK para um número PSTN
+
+Alice faz uma chamada PSTN de uma aplicação para Bob no seu número de telefone dos EUA começando com `+1-425` .
+
+- Alice usou o JS SDK para construir a aplicação.
+- A chamada dura um total de 5 minutos.
+
+**Cálculos de custos**
+
+- 1 participante na perna VoIP (Alice) dos servidores da App to Communication Services x 10 minutos x $0,004 por perna participante por minuto = $0,04
+- 1 participante na perna de saída da PSTN (Charlie) dos servidores dos Serviços de Comunicação para um número de telefone dos EUA x 10 minutos x $0,013 por perna participante por minuto = $0,13.
+
+Nota: As tarifas mistas dos EUA são `+1-425` de $0,013. Consulte o seguinte link para mais detalhes: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+**Custo total da chamada do grupo**: $0,04 + $0,13 = $0,17
+
+
+### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>Exemplo de preços: Chamada de áudio em grupo utilizando JS SDK e 1 perna PSTN
+
+Alice e Bob estão numa chamada voip. O Bob aumentou a chamada para o Charlie no número pstn do Charlie, um número de telefone dos EUA a começar `+1-425` por.
+
+- Alice usou o JS SDK para construir a aplicação. Falaram 10 minutos antes de ligarem ao Charlie para o número da PSTN.
+- Assim que o Bob aumentou a chamada para o Charlie no seu número pstn, os três falaram por mais 10 minutos.
+
+**Cálculos de custos**
+
+- 2 participantes na perna VoIP (Alice e Bob) dos servidores da App to Communication Services x 20 minutos x $0,004 por perna participante por minuto = $0,16
+- 1 participante na perna de saída da PSTN (Charlie) dos servidores dos Serviços de Comunicação para o número de telefone dos EUA x 10 minutos x $0,013 por perna participante por minuto = $0,13
+
+Nota: As tarifas mistas dos EUA são `+1-425` de $0,013. Consulte o seguinte link para mais detalhes: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+**Custo total para a chamada VoIP + escalada**: $0,16 + $0,13 = $.29
+
 
 ### <a name="pricing-example-a-user-of-the-communication-services-javascript-sdk-joins-a-scheduled-microsoft-teams-meeting"></a>Exemplo de preços: Um utilizador dos Serviços de Comunicação JavaScript SDK junta-se a uma reunião agendada da Microsoft Teams
 

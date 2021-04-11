@@ -291,6 +291,8 @@
   items:
     - name: Top Azure Sentinel livros
       href: top-workbooks.md
+    - name: CLI do Azure
+      href: /cli/azure/ext/sentinel/sentinel
     - name: Funções RBAC do Azure
       items:
         - name: Todos os papéis de Azure

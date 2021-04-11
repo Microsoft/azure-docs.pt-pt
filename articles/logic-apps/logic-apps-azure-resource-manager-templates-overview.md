@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: ec72431d927fd59677075e7adfdf7df171574882
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772948"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110007"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: Automatizar a implementação para apps Azure Logic utilizando modelos de Gestor de Recursos Azure
 
@@ -67,7 +67,7 @@ Para um modelo de aplicação lógica, você trabalha principalmente com estes o
 |-----------|-------------|
 | `parameters` | Declara os parâmetros do modelo para aceitar os [valores](../azure-resource-manager/templates/template-syntax.md#parameters) a utilizar ao criar e personalizar recursos para implantação em Azure. Por exemplo, estes parâmetros aceitam os valores para o nome e localização da sua aplicação lógica, ligações e outros recursos necessários para a implementação. Pode armazenar estes valores de parâmetros num [ficheiro de parâmetros](#template-parameter-files), que é descrito mais tarde neste tópico. Para mais detalhes [gerais, consulte Parâmetros - Estrutura do modelo do Gestor de Recursos e sintaxe](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Define os [recursos](../azure-resource-manager/templates/template-syntax.md#resources) para criar ou atualizar e implementar para um grupo de recursos Azure, como a sua aplicação lógica, conexões, contas de armazenamento Azure, e assim por diante. Para mais detalhes gerais, consulte [Recursos - Estrutura do modelo do Gestor de Recursos e sintaxe.](../azure-resource-manager/templates/template-syntax.md#resources) |
-||||
+|||
 
 O seu modelo de aplicativo lógica utiliza este formato de nome de ficheiro:
 

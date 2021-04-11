@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 7b4bda5a439b1e0b35dc6d3af99e0273e4987568
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd180586b863e14953160689ddcc7946c2247e15
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091342"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067848"
 ---
 # <a name="how-to-use-the-shaka-player-with-azure-media-services"></a>Como usar o jogador Shaka com a Azure Media Services
 
@@ -152,4 +152,4 @@ Para obter mais informações, consulte [a documentação de proteção drm do j
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Use o Azure Media Player](../azure-media-player/azure-media-player-overview.md)
-* [Quickstart: Encriptar conteúdo](encrypt-content-quickstart.md)
+* [Quickstart: Encriptar conteúdo](drm-encrypt-content-how-to.md)

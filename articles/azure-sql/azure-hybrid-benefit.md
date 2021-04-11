@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 02/16/2021
 ms.openlocfilehash: f7a37e761e37e295bbb92e442b1813ebded2a7cd
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104955283"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance

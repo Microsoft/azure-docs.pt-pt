@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 22f4c5bba3ea6836a8c9b016315f3cfae36cb52d
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 225f1d311739bdafbe39971a2b4ac74917e770e9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112166"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279498"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificação de vídeo e áudio com Serviços de Media
 
@@ -31,7 +31,7 @@ Os vídeos são normalmente entregues em dispositivos e apps através [de downlo
 > Os Serviços de Comunicação Social não cobram por empregos cancelados ou erros. Por exemplo, um trabalho que tenha atingido 50% de progresso e seja cancelado não é cobrado em 50% das atas de trabalho. Só é cobrado por trabalhos acabados.
 
 * Para entregar através de download progressivo, pode utilizar o Azure Media Services para converter um ficheiro de mídia digital (mezanino) num ficheiro [MP4,](https://en.wikipedia.org/wiki/MPEG-4_Part_14) que contém vídeo que foi codificado com o codec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) e áudio que foi codificado com o codec [AAC.](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) Este ficheiro MP4 está escrito para um Ativo na sua conta de armazenamento. Pode utilizar as APIs ou SDKs de armazenamento Azure (por exemplo, [API de Armazenamento OU](../../storage/common/storage-rest-api-auth.md) [.NET SDK)](../../storage/blobs/storage-quickstart-blobs-dotnet.md)para descarregar o ficheiro diretamente. Se criou o Ativo de saída com um nome de recipiente específico armazenado, utilize essa localização. Caso contrário, pode utilizar os Serviços de Comunicação Social para [listar os URLs do contentor de ativos.](/rest/api/media/assets/listcontainersas) 
-* Para preparar o conteúdo para a entrega através do streaming de bitrate adaptativo, o ficheiro mezanino precisa de ser codificado a vários bitrates (de alto a baixo). Para garantir uma transição graciosa de qualidade, a resolução do vídeo é reduzida à medida que o bitrate é reduzido. Isto resulta numa chamada escada codificadora - uma tabela de resoluções e bitrates (ver [escada de bitrate adaptativa gerada automaticamente).](encode-autogen-bitrate-ladder.md) Pode utilizar os Serviços de Comunicação Social para codificar os seus ficheiros mezaninos em vários bitrates. Ao fazê-lo, obterá um conjunto de ficheiros MP4 e ficheiros de configuração de streaming associados escritos num Ativo na sua conta de armazenamento. Em seguida, pode utilizar a capacidade [de Embalagem Dinâmica](encode-dynamic-packaging-concept.md) nos Serviços de Media para entregar o vídeo através de protocolos de streaming como [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Isto requer que crie um [Localizador de Streaming](streaming-locators-concept.md) e construa URLs de streaming correspondentes aos protocolos suportados, que podem ser depois entregues a dispositivos/apps com base nas suas capacidades.
+* Para preparar o conteúdo para a entrega através do streaming de bitrate adaptativo, o ficheiro mezanino precisa de ser codificado a vários bitrates (de alto a baixo). Para garantir uma transição graciosa de qualidade, a resolução do vídeo é reduzida à medida que o bitrate é reduzido. Isto resulta numa chamada escada codificadora - uma tabela de resoluções e bitrates (ver [escada de bitrate adaptativa gerada automaticamente).](encode-autogen-bitrate-ladder.md) Pode utilizar os Serviços de Comunicação Social para codificar os seus ficheiros mezaninos em vários bitrates. Ao fazê-lo, obterá um conjunto de ficheiros MP4 e ficheiros de configuração de streaming associados escritos num Ativo na sua conta de armazenamento. Em seguida, pode utilizar a capacidade [de Embalagem Dinâmica](encode-dynamic-packaging-concept.md) nos Serviços de Media para entregar o vídeo através de protocolos de streaming como [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Isto requer que crie um [Localizador de Streaming](stream-streaming-locators-concept.md) e construa URLs de streaming correspondentes aos protocolos suportados, que podem ser depois entregues a dispositivos/apps com base nas suas capacidades.
 
 O diagrama seguinte mostra o fluxo de trabalho para codificação a pedido com embalagem dinâmica.
 
@@ -41,7 +41,7 @@ Este tópico dá-lhe orientação sobre como codificar o seu conteúdo com o Med
 
 ## <a name="transforms-and-jobs"></a>Transformações e tarefas
 
-Para codificar com os Media Services v3, é necessário criar uma [Transformação](/rest/api/media/transforms) e um [Trabalho.](/rest/api/media/jobs) A transformação define uma receita para as suas definições e saídas codificantes; o trabalho é um exemplo da receita. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
+Para codificar com os Media Services v3, é necessário criar uma [Transformação](/rest/api/media/transforms) e um [Trabalho.](/rest/api/media/jobs) A transformação define uma receita para as suas definições e saídas codificantes; o trabalho é um exemplo da receita. Para obter mais informações, veja [Transforms and Jobs](transform-jobs-concept.md) (Transformações e Trabalhos).
 
 Ao codificar com os Serviços de Comunicação, utiliza predefinições para dizer ao codificadora como os ficheiros de meios de entrada devem ser processados. Nos Serviços de Comunicação Social v3, utiliza o Standard Encoder para codificar os seus ficheiros. Por exemplo, pode especificar a resolução de vídeo e/ou o número de canais de áudio que deseja no conteúdo codificado.
 
@@ -84,8 +84,8 @@ Pode especificar para criar um [Jó](/rest/api/media/jobs/create) com um único 
 
 Ver exemplos:
 
-* [Subclip um vídeo com .NET](subclip-video-dotnet-howto.md)
-* [Subclip um vídeo com REST](subclip-video-rest-howto.md)
+* [Subclip um vídeo com .NET](transform-subclip-video-dotnet-how-to.md)
+* [Subclip um vídeo com REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="built-in-presets"></a>Predefinições embutidas
 

@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c89427f83600d3b8091d5293b1757fa6f1a15ef1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c43a49c6b4675e98b557ff73d6f8b6468d74da8
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202489"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057444"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Construa e implemente a ponte IoT Plug and Play
 

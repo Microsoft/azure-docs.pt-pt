@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44ff938d0990a1a7794140a82c0e9222bb69a5d7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596013"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384260"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade em Azure
 
@@ -23,7 +23,7 @@ Os serviços microsoft Azure estão disponíveis globalmente para conduzir as su
 
 Para melhor entender as regiões e as Zonas de Disponibilidade em Azure, ajuda a compreender termos ou conceitos chave.
 
-| Termo ou conceito | Description |
+| Termo ou conceito | Descrição |
 | --- | --- |
 | region | Um conjunto de datacenters implantados dentro de um perímetro definido pela latência e ligados através de uma rede regional dedicada de baixa latência. |
 | geografia | Uma área do mundo contendo pelo menos uma região de Azure. As geografias definem um mercado discreto que preserva os limites de residência de dados e conformidade. As localizações geográficas permitem que os clientes com uma residência de dados e necessidades de conformidade específicas mantenham os respetivos dados e aplicações próximos. As geografias são tolerantes a falhas para resistir ao fracasso total da região através da sua ligação à nossa dedicada infraestrutura de rede de alta capacidade. |
@@ -87,8 +87,8 @@ Se uma oferta de serviço não estiver disponível numa região específica, pod
 Como mencionado anteriormente, a Azure classifica os serviços em três categorias: fundacional, mainstream e especializada. As categorias de serviço são atribuídas à disponibilidade geral. Muitas vezes, os serviços iniciam o seu ciclo de vida como um serviço especializado e à medida que a procura e o aumento da utilização podem ser promovidos ao mainstream ou fundacional. A tabela a seguir enumera a categoria de serviços como fundamental, mainstream. Deve ter em conta o seguinte sobre a tabela:
 
 - Alguns serviços não são regionais. Para obter informações e uma lista de serviços não regionais, consulte [produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/)
-- A geração mais antiga de serviços ou máquinas virtuais não está listada. Para obter mais informações, consulte documentação em [gerações anteriores de tamanhos de máquinas virtuais](../virtual-machines/sizes-previous-gen.md)
-- . Os serviços não são atribuídos a uma categoria até disponibilidade geral (GA). Para obter informações e uma lista de serviços de pré-visualização, consulte [produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/) 
+- A geração mais antiga de serviços ou máquinas virtuais não está listada. Para obter mais informações, consulte a documentação em [gerações anteriores de tamanhos de máquinas virtuais.](../virtual-machines/sizes-previous-gen.md)
+- Os serviços não são atribuídos a uma categoria até disponibilidade geral (GA). Para obter informações e uma lista de serviços de pré-visualização, consulte [produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/) 
 
 > [!div class="mx-tableFixed"]
 > | Fundacional                           | Mainstream                                        | 

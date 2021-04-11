@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: sample, mvc, devx-track-azurecli
 ms.date: 5/6/2019
 ms.openlocfilehash: 17e86669ae764006fddafaa05490f9021fdc5859
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105607393"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Amostras de CLI Azure para Base de Dados Azure para PostgreSQL - Servidor Único

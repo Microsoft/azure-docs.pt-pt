@@ -2,31 +2,30 @@
 title: Configure as regras de firewall IP para o Azure Service Bus
 description: Como utilizar as Regras de Firewall para permitir ligações de endereços IP específicos para o Azure Service Bus.
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: e73f566533cb2357653f7f584ec9ca77333c0a63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/29/2021
+ms.openlocfilehash: 747e15e912033c5bc6a1f64ab389f1ab03f40c0b
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100560870"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962327"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de endereços ou intervalos IP específicos
 Por predefinição, os espaços de nome do Service Bus estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 Esta funcionalidade é útil em cenários em que o Azure Service Bus só deve ser acessível a partir de determinados sites conhecidos. As regras de firewall permitem-lhe configurar regras para aceitar tráfego originário de endereços IPv4 específicos. Por exemplo, se utilizar o Service Bus com [a Azure Express Route,][express-route]pode criar uma regra de **firewall** para permitir o tráfego a partir apenas dos endereços IP da sua infraestrutura no local ou endereços de um gateway NAT corporativo. 
 
-> [!IMPORTANT]
-> - Firewalls e Redes Virtuais são suportados apenas no nível **premium** de Service Bus. Se o upgrade para o nível **principal** não for uma opção, recomendamos que mantenha o token de Assinatura de Acesso Partilhado (SAS) seguro e partilhe apenas com utilizadores autorizados. Para obter informações sobre a autenticação sas, consulte [autenticação e autorização.](service-bus-authentication-and-authorization.md#shared-access-signature)
-> - Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso).  
-
 ## <a name="ip-firewall-rules"></a>Regras de firewall IP
 As regras de firewall IP são aplicadas ao nível do espaço de nomes do Service Bus. Por isso, as regras aplicam-se a todas as ligações dos clientes utilizando qualquer protocolo suportado. Qualquer tentativa de ligação a partir de um endereço IP que não corresponda a uma regra IP permitida no espaço de nomes do Service Bus é rejeitada como não autorizada. A resposta não menciona a regra do IP. As regras do filtro IP são aplicadas por ordem, e a primeira regra que corresponde ao endereço IP determina a ação de aceitação ou rejeição.
 
-Implementar regras de Firewall pode impedir que outros serviços Azure interajam com o Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos serviços fidedignos, mesmo quando a filtragem IP está ativada. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services) 
+## <a name="important-points"></a>Pontos importantes
+- Firewalls e Redes Virtuais são suportados apenas no nível **premium** de Service Bus. Se o upgrade para o nível **principal** não for uma opção, recomendamos que mantenha o token de Assinatura de Acesso Partilhado (SAS) seguro e partilhe apenas com utilizadores autorizados. Para obter informações sobre a autenticação sas, consulte [autenticação e autorização.](service-bus-authentication-and-authorization.md#shared-access-signature)
+- Especifique **pelo menos uma regra de firewall IP ou regra de rede virtual** para o espaço de nome para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso).  
+- Implementar regras de firewall pode impedir que outros serviços Azure interajam com o Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos **serviços fidedignos,** mesmo quando a filtragem IP está ativada. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services) 
 
-Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
-- Serviço de Aplicações do Azure
-- Funções do Azure
+    Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
+    - Serviço de Aplicações do Azure
+    - Funções do Azure
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall IP para um espaço de nomes de Service Bus. 

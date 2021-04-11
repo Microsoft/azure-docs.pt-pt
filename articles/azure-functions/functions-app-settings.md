@@ -4,10 +4,10 @@ description: Documentação de referência para as definições da aplicação A
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104773084"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
@@ -109,7 +109,7 @@ Quando esta definição da aplicação é omitida ou definida para `false` , uma
 
 ![Página de aterragem de aplicativo de função](media/functions-app-settings/function-app-landing-page.png)
 
-## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
+## <a name="azurewebjobsdotnetreleasecompilation&quot;></a>AzureWebJobsDotNetReleaseCompilation
 
 `true` significa utilizar o modo de desbloqueio ao compilar o código .NET; `false` significa usar o modo Debug. A predefinição é `true`.
 
@@ -117,7 +117,7 @@ Quando esta definição da aplicação é omitida ou definida para `false` , uma
 |---|------------|
 |AzureWebJobsDotNetReleaseCompilation|true|
 
-## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
+## <a name=&quot;azurewebjobsfeatureflags&quot;></a>AzureWebJobsFeatureFlags
 
 Uma lista delimitada por vírgulas de funcionalidades beta para ativar. As funcionalidades beta ativadas por estas bandeiras não estão prontas para produção, mas podem ser ativadas para uso experimental antes de entrarem em direto.
 
@@ -125,9 +125,9 @@ Uma lista delimitada por vírgulas de funcionalidades beta para ativar. As funci
 |---|------------|
 |AzureWebJobsFeatureFlags|recurso1,feature2|
 
-## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
+## <a name=&quot;azurewebjobssecretstoragetype&quot;></a>AzureWebJobsSecretStorageType
 
-Especifica o repositório ou o fornecedor para o armazenamento de chaves. Atualmente, os repositórios suportados são o armazenamento de bolhas ("Blob") e o sistema de ficheiros local ("Ficheiros"). O padrão é blob na versão 2 e sistema de ficheiros na versão 1.
+Especifica o repositório ou o fornecedor para o armazenamento de chaves. Atualmente, os repositórios suportados são o armazenamento de bolhas (&quot;Blob") e o sistema de ficheiros local ("Ficheiros"). O padrão é blob na versão 2 e sistema de ficheiros na versão 1.
 
 |Chave|Valor da amostra|
 |---|------------|

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
 ms.openlocfilehash: 4b0c2b734366f9a74a9b007ab9450ab4b4f51feb
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104800436"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar a uma máquina virtual: Azure Bastion
