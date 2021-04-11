@@ -618,6 +618,8 @@
               href: active-directory-saml-protocol-reference.md
             - name: Tokens SAML
               href: reference-saml-tokens.md
+    - name: CLI do Azure
+      href: /cli/azure/identity
     - name: Tipos de aplicações e OAuth 2.0
       displayName: 'App types, OAuth'
       href: v2-app-types.md

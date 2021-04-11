@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: d59b449a2dbf2ed3b1177db6e543de4c34a8ecb1
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604163"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Ligar à Base de Dados do Azure para PostgreSQL com a Identidade Gerida

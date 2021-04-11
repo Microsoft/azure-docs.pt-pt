@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: bab3df857dfdac3ca3b9193bda1caea0040a4cbb
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866986"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar as políticas apache kafka em HDInsight com pacote de segurança empresarial (pré-visualização)

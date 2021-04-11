@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
 ms.openlocfilehash: 2146ccb0c4d7f263c3e1a69db9b172649fcd25ea
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863501"
 ---
 # <a name="optimize-clusters-with-apache-ambari-in-azure-hdinsight"></a>Otimizar clusters com Apache Ambari em Azure HDInsight

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13ead70f278f12866dbe00b53c487aebcc43304f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40094c00a4b896756c5c0e51116e0ae33ae2a096
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742641"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580731"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar firewalls de cofre de chaves Azure e redes virtuais
 
@@ -29,13 +29,14 @@ Esta secção cobrirá as diferentes formas de configurar a firewall Azure Key V
 
 ### <a name="key-vault-firewall-disabled-default"></a>Firewall de cofre de chave desativado (Padrão)
 
-Por defeito, quando criar um novo cofre de chaves, a firewall Azure Key Vault está desativada. Todas as aplicações e serviços da Azure podem aceder ao cofre da chave e enviar pedidos para o cofre da chave. Nota: esta configuração não significa que qualquer utilizador possa realizar operações no seu cofre de chaves. O cofre-chave ainda se restringe a segredos, chaves e certificados armazenados no cofre de chaves, exigindo permissões de autenticação e de acesso ao Azure Ative Directory. Para compreender a autenticação do cofre chave em mais detalhes, consulte o documento de fundamentação da autenticação do cofre [aqui.](./authentication-fundamentals.md)
+Por defeito, quando criar um novo cofre de chaves, a firewall Azure Key Vault está desativada. Todas as aplicações e serviços da Azure podem aceder ao cofre da chave e enviar pedidos para o cofre da chave. Nota: esta configuração não significa que qualquer utilizador possa realizar operações no seu cofre de chaves. O cofre-chave ainda se restringe a segredos, chaves e certificados armazenados no cofre de chaves, exigindo permissões de autenticação e de acesso ao Azure Ative Directory. Para compreender a autenticação do cofre chave em mais detalhes, consulte o documento de fundamentação da autenticação do cofre [aqui.](./authentication-fundamentals.md) Para obter mais informações, consulte [o Access Azure Key Vault atrás de uma firewall](./access-behind-firewall.md).
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Firewall de cofre de chaves ativado (apenas serviços fidedignos)
 
-Quando ativar o Firewall do Cofre de Chaves, será-lhe dada a opção de "Permitir que os Serviços Microsoft Fidedignos contornem esta firewall" A lista de serviços fidedignos não cobre todos os serviços Azure. Por exemplo, a Azure DevOps não está na lista de serviços fidedignos. **Isto não implica que os serviços que não aparecem na lista de serviços fidedignos não são de confiança ou inseguros.** A lista de serviços fidedignos engloba serviços onde a Microsoft controla todo o código que funciona no serviço. Uma vez que os utilizadores podem escrever código personalizado em serviços Azure, como o Azure DevOps, a Microsoft não oferece a opção de criar uma aprovação geral para o serviço. Além disso, só porque um serviço aparece na lista de serviços fidedignos, não significa que seja permitido para todos os cenários.
+Quando ativar o Firewall do Cofre de Chaves, será-lhe dada a opção de "Permitir que os Serviços Microsoft Fidedignos contornem esta firewall" A lista de serviços fidedignos não cobre todos os serviços Azure. Por exemplo, a Azure DevOps não está na lista de serviços fidedignos. **Isto não implica que os serviços que não aparecem na lista de serviços fidedignos não são de confiança ou inseguros.** A lista de serviços fidedignos engloba serviços onde a Microsoft controla todo o código que funciona no serviço. Uma vez que os utilizadores podem escrever código personalizado em serviços Azure, como o Azure DevOps, a Microsoft não oferece a opção de criar uma aprovação geral para o serviço. Além disso, só porque um serviço aparece na lista de serviços fidedignos, não significa que seja permitido para todos os cenários. 
 
 Para determinar se um serviço que está a tentar utilizar está na lista de serviços fidedignos, consulte [aqui](./overview-vnet-service-endpoints.md#trusted-services)o seguinte documento .
+Para orientar, siga as instruções aqui para [Portal, Azure CLI e Powershell](https://docs.microsoft.com/azure/key-vault/general/network-security#use-the-azure-portal)
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall de cofre de chaves ativado (endereços e intervalos IPv4 - IPs estáticos)
 

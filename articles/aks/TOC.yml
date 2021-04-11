@@ -295,6 +295,8 @@
           href: enable-host-encryption.md
     - name: Monitorização e registos
       items:
+        - name: Ver métricas de clusters
+          href: view-metrics.md
         - name: Azure Monitor para contentores
           href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
@@ -349,6 +351,8 @@
       items:
         - name: Acerca das Malhas de Serviço
           href: servicemesh-about.md
+        - name: Open Service Mesh Addon AKS (pré-visualização)
+          href: servicemesh-osm-about.md
         - name: Utilizar o Istio
           items:
             - name: Acerca do Istio

@@ -6,10 +6,10 @@ ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
 ms.openlocfilehash: 1391dfe39659bf2d885bdfe4facebdca9c6cc66a
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105104049"
 ---
 |Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |

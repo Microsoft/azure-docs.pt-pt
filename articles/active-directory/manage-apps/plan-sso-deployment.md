@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: a7949324cd4ad0459aa5ba111037b2f580da9cf8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103601717"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
@@ -32,7 +32,7 @@ Muitas organizações confiam no software como aplicações de serviço (SaaS), 
 
 O Azure Marketplace tem mais de 3000 aplicações com ligações SSO pré-integradas, facilitando a sua integração no seu inquilino.
 
-## <a name="licensing"></a>Licensing
+## <a name="licensing"></a>Licenciamento
 
 - **O licenciamento Azure AD** - SSO para aplicações SaaS pré-integradas é gratuito. No entanto, o número de objetos no seu diretório e as funcionalidades que pretende implementar podem necessitar de licenças adicionais. Para obter uma lista completa dos requisitos de licença, consulte [o Azure Ative Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenciamento de pedidos** - Você precisará das licenças apropriadas para seus pedidos SaaS para atender às suas necessidades de negócio. Trabalhe com o titular da aplicação para determinar se os utilizadores afetados à aplicação têm as licenças adequadas para as suas funções dentro da aplicação. Se a Azure AD gerir o provisionamento automático com base em funções, as funções atribuídas no Azure AD devem alinhar-se com o número de licenças detidas dentro da aplicação. O número indevido de licenças detidas no pedido pode resultar em erros durante o provisionamento/atualização de um utilizador.

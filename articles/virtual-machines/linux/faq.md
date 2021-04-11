@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: d510fa35163a4c4a79352f5f35af9c384bf85304
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104596319"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais Linux

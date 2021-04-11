@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: dfabb3ef521b496a073d502efd4fd672cfcf3b8c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ef8b4ddcbf09fa3ec0e3b07ae797693aed095c88
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597745"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104971"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar VMs de início/paragem durante as horas fora de horas
 
 Este artigo descreve como configurar os [VMs iniciar/parar durante o](automation-solution-vm-management.md) período de folga para suportar os cenários descritos. Também pode aprender a:
 
-* [Configurar as notificações por e-mail](#configure-email-notifications)
+* [Configure notificações de e-mail](#configure-email-notifications)
 * [Adicionar uma VM](#add-a-vm)
 * [Excluir uma VM](#exclude-a-vm)
 * [Modifique os horários de arranque e de paragem](#modify-the-startup-and-shutdown-schedules)
@@ -57,7 +57,7 @@ Pode ativar a ação contra um grupo de subscrição e recursos, ou direcionar u
     > [!NOTE]
     > O valor para **nomes do Grupo de Recursos-Alvo** é armazenado como valores para ambos `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames` . Para obter mais granularidade, pode modificar cada uma destas variáveis para direcionar diferentes grupos de recursos. Para iniciar a ação, `External_Start_ResourceGroupNames` utilize-se e `External_Stop_ResourceGroupNames` use-o para parar a ação. Os VMs são automaticamente adicionados aos horários de início e paragem.
 
-## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>Cenário 2: Iniciar/Parar VMS em sequência utilizando tags
+## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>Cenário 2: VMs de início/paragem em sequência utilizando tags
 
 Num ambiente que inclua dois ou mais componentes em vários VMs suportando uma carga de trabalho distribuída, apoiar a sequência em que os componentes são iniciados e parados em ordem é importante. 
 
@@ -137,7 +137,7 @@ Para alterar notificações de e-mail após a implementação de VMs de início/
 > [!NOTE]
 > As subscrições na nuvem do Governo Azure não suportam a funcionalidade de e-mail desta funcionalidade.
 
-1. No portal Azure, clique em **Alertas** em **Monitorização,** em seguida, **Gerir as ações**. Na página **'Gerir acções',** certifique-se de que está no separador **Grupos de Ação.** Selecione o grupo de ação chamado **StartStop_VM_Notification**.
+1. No portal Azure, clique em **Alertas** em **Monitorização,** em seguida, **Gerir as ações**. Na página **'Gerir ações',** certifique-se de que está no separador **Grupos de Ação.** Selecione o grupo de ação chamado **StartStop_VM_Notification**.
 
     :::image type="content" source="media/automation-solution-vm-management/azure-monitor-sm.png" alt-text="Screenshot da página Monitor - Grupos de ação." lightbox="media/automation-solution-vm-management/azure-monitor-lg.png":::
 

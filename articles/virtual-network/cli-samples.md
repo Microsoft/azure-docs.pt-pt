@@ -17,10 +17,10 @@ ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 97d63598f6a9cca199779e56cc211b9622117301
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105048838"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Exemplos da CLI do Azure para a rede virtual

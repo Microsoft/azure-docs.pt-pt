@@ -13,12 +13,12 @@ ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e152d9c242a44fe869eb7bfe7a16fbd7dfc8049d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6c0d9d5430d84006b208c50e78b8d875c95b8ac
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580127"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028388"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta Amazon utilizando o Azure Ative Directory B2C
 
@@ -175,7 +175,7 @@ Pode definir uma conta Amazon como fornecedor de sinistros adicionando-a ao elem
 ## <a name="test-your-custom-policy"></a>Teste a sua política personalizada
 
 1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
-1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](tutorial-register-applications.md) A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Selecione o botão **Executar agora.**
 1. A partir da página de inscrição ou inscrição, selecione **Amazon** para iniciar scontabilidade da Amazon.
 

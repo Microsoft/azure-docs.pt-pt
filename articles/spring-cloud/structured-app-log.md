@@ -8,10 +8,10 @@ ms.date: 02/05/2021
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 844530c6d1650b5fddd27b10c775c4364a3f5147
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878359"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Registo de aplicações estruturado para Azure Spring Cloud
@@ -23,9 +23,9 @@ Para melhorar a experiência de consulta de registo, é necessário um registo d
 
 **Requisitos de esquema JSON:**
 
-| Chave Json      | Tipo de valor Json|  Necessário | Coluna em Log Analytics| Descrição |
+| Chave Json      | Tipo de valor Json|  Necessário | Coluna em Log Analytics| Description |
 | --------------| ------------|-----------|-----------------|--------------------------|
-| carimbo de data/hora     | string      |     Sim   | AppTimestamp    | timetamp em formato UTC  |
+| carimbo de data/hora     | string      |     Yes   | AppTimestamp    | timetamp em formato UTC  |
 | madeireiro        | cadeia (de carateres)      |     No    | Madeir          | madeireiro                   |
 | nível         | cadeia (de carateres)      |     No    | PersonalizadoSLevel     | nível de log                |
 | fio        | cadeia (de carateres)      |     No    | Fio          | fio                   |

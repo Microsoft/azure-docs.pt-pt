@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 468f1b91d6c6157cd2af6de9599bad7f43c1ad8f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ed73c114c015ce38fefa02d2b71e27e8f85dca39
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492562"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028677"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestor de segurança Azure IoT Edge
 
@@ -119,12 +119,17 @@ O silício seguro é necessário para ancorar a confiança dentro do hardware do
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Integração e manutenção do gestor de segurança IoT Edge
 
-O gestor de segurança IoT Edge tem como objetivo identificar e isolar os componentes que defendem a segurança e integridade da plataforma Azure IoT Edge para o endurecimento personalizado. Terceiros, como fabricantes de dispositivos, devem utilizar funcionalidades de segurança personalizadas disponíveis com o hardware do dispositivo.  Consulte a secção de próximos passos para obter links que demonstrem como endurecer o gestor de segurança Azure IoT com o Módulo de Plataforma Fidedigna (TPM) nas plataformas Linux e Windows. Estes exemplos utilizam software ou TPMs virtuais, mas aplicam-se diretamente à utilização de dispositivos TPM discretos.  
+O gestor de segurança IoT Edge tem como objetivo identificar e isolar os componentes que defendem a segurança e integridade da plataforma Azure IoT Edge para o endurecimento personalizado. Terceiros, como fabricantes de dispositivos, devem utilizar funcionalidades de segurança personalizadas disponíveis com o hardware do dispositivo.  
+
+Saiba como endurecer o gestor de segurança Azure IoT com o Módulo plataforma fidedigna (TPM) utilizando software ou TPMs virtuais:  
+
+Criar e forrar um [dispositivo IoT Edge com um TPM virtual numa máquina virtual Linux.](how-to-auto-provision-simulated-device-linux.md)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Criar e providenciar um [dispositivo IoT Edge com um TPM simulado no Windows](how-to-auto-provision-simulated-device-windows.md).
+:::moniker-end
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Leia o blog sobre [a garantia da borda inteligente.](https://azure.microsoft.com/blog/securing-the-intelligent-edge/)
-
-Criar e forrar um [dispositivo IoT Edge com um TPM virtual numa máquina virtual Linux.](how-to-auto-provision-simulated-device-linux.md)
-
-Criar e providenciar um [dispositivo IoT Edge com um TPM simulado no Windows](how-to-auto-provision-simulated-device-windows.md).

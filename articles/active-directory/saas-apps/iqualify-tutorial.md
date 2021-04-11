@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: bdd68a4f0dafd3b336bf5a3fb34399d725c9ff5c
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105626117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Diretório Ativo Azure com iQualify LMS

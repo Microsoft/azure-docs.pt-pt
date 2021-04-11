@@ -11,10 +11,10 @@ ms.date: 1/31/2021
 ms.author: amberz
 ms.co-author: Donnana
 ms.openlocfilehash: 45cd44cc0678b7f3a006a88bf66be2bca091af76
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104595384"
 ---
 # <a name="process-data-from-automated-machine-learning-models-by-using-data-flows"></a>Processar dados de modelos automatizados de aprendizagem automática de máquinas utilizando fluxos de dados

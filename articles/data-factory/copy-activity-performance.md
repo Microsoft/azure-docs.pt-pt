@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75f9080b43333168802a72e60751eec2a765c6d4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616082"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580816"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e de escalabilidade da Atividade de cópia
 
@@ -62,7 +62,10 @@ Esta utilização completa significa que pode estimar a produção global medind
 * Arquivo de dados de destino
 * Largura de banda de rede entre as lojas de dados de origem e destino
 
-O quadro abaixo calcula a duração da cópia. A duração baseia-se no tamanho dos dados e no limite de largura de banda da rede/data store para o seu ambiente.
+O quadro abaixo mostra o cálculo da duração do movimento de dados. A duração de cada célula é calculada com base numa determinada rede e na largura de banda da loja de dados e num dado tamanho de carga útil.
+
+> [!NOTE]
+> A duração fornecida abaixo destina-se a representar um desempenho exequível numa solução de integração de dados de ponta a ponta implementada através da ADF, utilizando uma ou mais técnicas de otimização de desempenho descritas nas [funcionalidades de otimização de desempenho do Copy](#copy-performance-optimization-features), incluindo a utilização do ForEach para partição e desova de várias atividades de cópia simultânea. Recomendamos que siga os passos estabelecidos nas [etapas de afinação de desempenho](#performance-tuning-steps) para otimizar o desempenho da cópia para o seu conjunto de dados específico e configuração do sistema. Deve utilizar os números obtidos nos seus testes de afinação de desempenho para planeamento de implantação de produção, planeamento de capacidades e projeção de faturação.
 
 &nbsp;
 

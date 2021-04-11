@@ -4,10 +4,10 @@ description: Saiba mais sobre os diferentes métodos de autenticação disponív
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.openlocfilehash: bd4d89d8664dae2421ff7f268b3710b5a906427b
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784616"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação de agentes de segurança
@@ -44,7 +44,7 @@ Consulte os parâmetros de [instalação do agente](#security-agent-installation
 Ao [utilizar um agente de segurança,](how-to-deploy-agent.md)os dados de autenticação devem ser fornecidos como argumentos.
 Estes argumentos estão documentados na tabela seguinte.
 
-|Nome do parâmetro linux | Nome do parâmetro do Windows | Parâmetro de abreviatura |Descrição|Opções|
+|Nome do parâmetro linux | Nome do parâmetro do Windows | Parâmetro de abreviatura |Description|Opções|
 |---------------------|---------------|---------|---------------|---------------|
 |autenticação-identidade|AutenticaçãoDídeo|aui|Identidade de autenticação| **SegurançaModule** ou **Dispositivo**|
 |método de autenticação|AutenticaçãoMethod|aum|Método de autenticação|**SimétricaKey** ou **SelfSignedCertificate**|

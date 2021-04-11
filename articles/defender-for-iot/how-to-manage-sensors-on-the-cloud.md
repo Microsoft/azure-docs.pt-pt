@@ -1,16 +1,16 @@
 ---
-title: A bordo e gerir sensores e subscrições no portal Defender para IoT
+title: Gerir sensores e subscrições no Portal Defender para IoT
 description: Saiba como embarcar, ver e gerir sensores no portal Defender para IoT.
 ms.date: 2/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 5c529a5679e8b3d4879b003fa3d168e911f9b518
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b4c8b3d10fe88816e07eb775b2bf3827d578b17
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781828"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383053"
 ---
-# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>A bordo e gerir sensores e subscrições no portal Defender para IoT
+# <a name="manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Gerir sensores e subscrições no Portal Defender para IoT
 
 Este artigo descreve como embarcar, visualizar e gerir sensores no [portal Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -137,6 +137,6 @@ Para offboard uma subscrição:
 
 O ambiente no local não é afetado, mas deve desinstalar o sensor do ambiente no local ou reatribuir o sensor a outra subscrição, de modo a evitar que quaisquer dados relacionados fluam para a consola de gestão no local. 
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Ativar e configurar o seu sensor](how-to-activate-and-set-up-your-sensor.md)

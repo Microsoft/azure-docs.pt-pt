@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef56db4ef67515d14f8462db2975e68a1a86f238
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647477"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959862"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Azure Ative Directory 
 
@@ -193,6 +193,8 @@ Se limpar a instalação de uma máquina híbrida Azure AD, após o processo de 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Não consigo levar o SSO ao meu recurso de rede NTLM depois de assinar com o FIDO e obter uma solicitação de credencial.
 
 Certifique-se de que controladores de domínio suficientes estão remendados para responder a tempo para atender o seu pedido de recursos. Para verificar se consegue ver um controlador de domínio que está a executar a funcionalidade, reveja a saída de `nltest /dsgetdc:contoso /keylist /kdc` .
+
+Nota: Este interruptor /Keylist no comando nltest pode ser encontrado a partir do computador windows 10 v2004 e superior
 
 ## <a name="next-steps"></a>Passos seguintes
 

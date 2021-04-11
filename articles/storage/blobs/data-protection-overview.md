@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
 ms.openlocfilehash: afd98e629500bc90cc9ddd1ed4ab2472f733e845
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803798"
 ---
 # <a name="data-protection-overview"></a>Descrição geral da proteção de dados
@@ -43,7 +43,7 @@ O quadro seguinte resume as opções disponíveis no Azure Storage para cenário
 
 | Scenario | Opção de proteção de dados | Recomendações | Benefício de proteção | Disponível para armazenamento de data lake |
 |--|--|--|--|--|
-| Evite que uma conta de armazenamento seja eliminada ou modificada. | Bloqueio do Gestor de Recursos Azure<br />[Saiba mais...](../common/lock-account-resource.md) | Bloqueie todas as suas contas de armazenamento com um bloqueio do Azure Resource Manager para evitar a eliminação da conta de armazenamento. | Protege a conta de armazenamento contra alterações de eliminação ou configuração.<br /><br />Não protege os recipientes ou bolhas na conta de serem apagados ou substituídos. | Sim |
+| Evite que uma conta de armazenamento seja eliminada ou modificada. | Bloqueio do Gestor de Recursos Azure<br />[Saiba mais...](../common/lock-account-resource.md) | Bloqueie todas as suas contas de armazenamento com um bloqueio do Azure Resource Manager para evitar a eliminação da conta de armazenamento. | Protege a conta de armazenamento contra alterações de eliminação ou configuração.<br /><br />Não protege os recipientes ou bolhas na conta de serem apagados ou substituídos. | Yes |
 | Evite que um recipiente e as suas bolhas sejam apagados ou modificados durante um intervalo que controle. | Política de imutabilidade num recipiente<br />[Saiba mais...](storage-blob-immutable-storage.md) | Definir uma política de imutabilidade num contentor para proteger documentos críticos de negócio, por exemplo, a fim de satisfazer os requisitos legais ou regulamentares de conformidade. | Protege um recipiente e as suas bolhas de todas as eliminações e substituições.<br /><br />Quando uma detenção legal ou uma política de retenção baseada no tempo bloqueado está em vigor, a conta de armazenamento também está protegida contra a supressão. Os contentores para os quais não tenha sido definida nenhuma política de imutabilidade não estão protegidos contra a supressão. | Sim, na pré-estreia |
 | Restaurar um recipiente eliminado dentro de um intervalo especificado. | Eliminação suave do recipiente (pré-visualização)<br />[Saiba mais...](soft-delete-container-overview.md) | Ativar a eliminação suave do recipiente para todas as contas de armazenamento, com um intervalo mínimo de retenção de 7 dias.<br /><br />Ativar a versão blob e a eliminação suave do blob juntamente com a eliminação suave do recipiente para proteger as bolhas individuais num recipiente.<br /><br />Armazenar recipientes que exijam diferentes períodos de retenção em contas de armazenamento separadas. | Um recipiente eliminado e o seu conteúdo podem ser restaurados dentro do período de retenção.<br /><br />Apenas as operações ao nível do contentor (por exemplo, [Delete Container](/rest/api/storageservices/delete-container)) podem ser restauradas. A eliminação suave do recipiente não lhe permite restaurar uma bolha individual no recipiente se a bolha for apagada. | Sim, na pré-estreia |
 | Guarde automaticamente o estado de uma bolha numa versão anterior quando esta for substituída ou eliminada. | Versão blob<br />[Saiba mais...](versioning-overview.md) | Ativar a versão blob, juntamente com a eliminação macia do recipiente e a eliminação suave de bolhas, para contas de armazenamento onde necessita de uma proteção ótima para os dados do blob.<br /><br />Armazenar dados blob que não exijam a versão numa conta separada para limitar os custos. | Cada operação de substituição ou eliminação de bolhas cria uma nova versão. Uma bolha pode ser restaurada a partir de uma versão anterior se a bolha for eliminada ou substituída. | No |
@@ -58,14 +58,14 @@ O quadro seguinte resume as opções de proteção de dados do Azure Storage de 
 
 | Opção de proteção de dados | Protege uma conta da eliminação | Protege um recipiente da eliminação | Protege uma bolha da eliminação | Protege uma bolha de substituições |
 |--|--|--|--|--|
-| Bloqueio do Gestor de Recursos Azure | Sim | Não<sup>1</sup> | No | No |
-| Política de imutabilidade num recipiente | Sim<sup>2</sup> | Sim | Sim | Sim |
-| Eliminação macia do recipiente | No | Sim | No | No |
-| Versão blob<sup>3</sup> | No | No | Sim | Sim |
-| Blob soft delete<sup>3</sup> | No | No | Sim | Sim |
-| Restauro pontual<sup>3</sup> | No | No | Sim | Sim |
-| Snapshot blob | No | No | No | Sim |
-| Roll-your-your-own solução para copiar dados para uma segunda conta<sup>4</sup> | No | Sim | Sim | Sim |
+| Bloqueio do Gestor de Recursos Azure | Yes | Não<sup>1</sup> | No | No |
+| Política de imutabilidade num recipiente | Sim<sup>2</sup> | Yes | Yes | Yes |
+| Eliminação macia do recipiente | No | Yes | No | No |
+| Versão blob<sup>3</sup> | No | No | Yes | Yes |
+| Blob soft delete<sup>3</sup> | No | No | Yes | Yes |
+| Restauro pontual<sup>3</sup> | No | No | Yes | Yes |
+| Snapshot blob | No | No | No | Yes |
+| Roll-your-your-own solução para copiar dados para uma segunda conta<sup>4</sup> | No | Yes | Yes | Yes |
 
 <sup>1</sup> Um bloqueio do Gestor de Recursos Azure não protege um recipiente da eliminação.<br />
 <sup>2</sup> Enquanto uma política de retenção por tempo ou de tempo bloqueado estiver em vigor para um contentor, a conta de armazenamento também está protegida contra a supressão.<br />

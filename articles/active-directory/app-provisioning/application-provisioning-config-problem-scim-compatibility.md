@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 04/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d13629b4cb05995b9652e862f769a0ffcae30a8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 268931715500631ac2d10feacebff1d5c65931bf
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256903"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028796"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Questões e resoluções conhecidas com o protocolo SCIM 2.0 cumprimento do serviço de fornecimento de utilizadores Azure AD
 
@@ -51,7 +51,7 @@ Use as bandeiras abaixo no URL do inquilino da sua aplicação para alterar o co
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Scim bandeiras para comportamento posterior.":::
 
 * Utilize o seguinte URL para atualizar o comportamento do PATCH e garantir a conformidade do SCIM (por exemplo, ativo como remoção de membros booleanos e adequados para membros do grupo). Este comportamento está atualmente disponível apenas quando se usa a bandeira, mas tornar-se-á o comportamento padrão ao longo dos próximos meses. Note que esta bandeira de pré-visualização não funciona atualmente com o provisionamento a pedido. 
-  * **URL (Conformidade COM a SCIM):** AzureAdScimPatch062020
+  * **URL (Conformidade SCIM):** aadOptscim062020
   * **Referências SCIM RFC:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
   * **Comportamento:**

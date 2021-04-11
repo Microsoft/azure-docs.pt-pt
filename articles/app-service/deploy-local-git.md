@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/16/2021
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 5dd6183bf88c167adb2f084c319cd90b94351dfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: faf3afc60c8517509199e6a306f511a15b32358c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100560490"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732844"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação local de Git para o Serviço de Aplicações Azure
 
@@ -140,6 +140,7 @@ Pode ver as seguintes mensagens de erro comuns quando utiliza o Git para publica
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|A aplicação não está a funcionar.|Inicie a aplicação no portal Azure. A implementação do Git não está disponível quando a aplicação web é interrompida.|
 |`Couldn't resolve host 'hostname'`|As informações de endereço do telecomando "azul" estão incorretas.|Utilize o `git remote -v` comando para listar todos os telecomandos, juntamente com o URL associado. Verifique se o URL do telecomando 'azul' está correto. Se necessário, remova e recrie este telecomando utilizando o URL correto.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Não especificou um ramo `git push` durante, ou não definiu o `push.default` valor em `.gitconfig` .|Corra `git push` novamente, especificando o ramo principal: `git push azure main` .|
+|`Error - Changes committed to remote repository but deployment to website failed.`|Empurrou uma filial local que não corresponde à sucursal de implementação de aplicações em 'azure'.|Verifique se o ramo atual está `master` . Para alterar o ramo predefinido, utilize a `DEPLOYMENT_BRANCH` definição de aplicação.|
 |`src refspec [branchname] does not match any.`|Tentou empurrar para um ramo diferente do principal no controlo remoto do "azul".|Corra `git push` novamente, especificando o ramo principal: `git push azure main` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|Este erro pode ocorrer se tentar empurrar um repositório de git grande sobre HTTPS.|Mude a configuração do git na máquina local para fazer o `postBuffer` maior. Por exemplo: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Implementou uma aplicação Node.js com uma _package.jsno_ ficheiro que especifica módulos adicionais necessários.|Reveja as `npm ERR!` mensagens de erro antes deste erro para mais contexto na falha. São as causas conhecidas deste erro e as `npm ERR!` respetivas mensagens:<br /><br />**package.jsmal formados no ficheiro:**`npm ERR! Couldn't read dependencies.`<br /><br />**O módulo nativo não tem uma distribuição binária para o Windows:**<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />ou <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|

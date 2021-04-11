@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 6a7545d4d927418e6153ce3bf439fc8c3e2dc702
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104774920"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados no Application Insights

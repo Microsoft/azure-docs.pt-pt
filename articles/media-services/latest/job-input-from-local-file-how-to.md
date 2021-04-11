@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 466c609b21d115340a919ab32bd9dcf9c8d3a7ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fe1274c6f659f97e528e788116949fce60e6020
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092278"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960071"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada de trabalho a partir de um arquivo local
 
@@ -26,7 +26,7 @@ Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
+* [Criar uma conta de Serviços de Comunicação](./account-create-how-to.md)Social.
 
 ## <a name="net-sample"></a>amostra .NET
 

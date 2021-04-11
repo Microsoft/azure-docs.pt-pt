@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: 9794aa0750a886803aac3fec7622f6b3770acf9d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785585"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: criar a primeira fábrica de dados com o portal do Azure
@@ -204,7 +204,7 @@ Neste passo, irá criar conjuntos de dados para representar os dados de entrada 
     ```
     A tabela seguinte fornece descrições das propriedades JSON utilizadas no fragmento.
 
-   | Propriedade | Aninhado sob | Descrição |
+   | Propriedade | Aninhado sob | Description |
    |:--- |:--- |:--- |
    | tipo | propriedades |O tipo de propriedade está definido como **AzureBlob**, porque os dados estão contidos no armazenamento de blobs. |
    | linkedServiceName | formato |Refere-se ao AzureStorageLinkedService que criou anteriormente. |
@@ -431,7 +431,7 @@ Neste tutorial, criou uma fábrica de dados para processar dados, ao executar o 
 Neste artigo, criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script do Hive num cluster do HDInsight a pedido. Para ver como utilizar uma atividade copy para copiar dados do armazenamento de bolhas para a Base de Dados Azure SQL, consulte [Tutorial: Copiar dados do armazenamento blob para a Base de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Ver também
-| Tópico | Descrição |
+| Tópico | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |
 | [Conjuntos de dados](data-factory-create-datasets.md) |Este artigo ajuda-o a compreender os conjuntos de dados no Data Factory. |

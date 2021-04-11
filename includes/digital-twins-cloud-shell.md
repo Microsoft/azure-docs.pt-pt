@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: e61b6b9a09d759571029db4f01dd8f9d707ca518
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ab5c71b787876c31aaa70fbbfb04fc86721dd168
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102244930"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958348"
 ---
 Para começar a trabalhar com a Azure Digital Twins numa janela aberta da [Azure Cloud Shell,](https://shell.azure.com) a primeira coisa a fazer é iniciar sessão e definir o contexto da concha para a sua subscrição para esta sessão. Executar estes comandos na sua Cloud Shell:
 
@@ -27,9 +27,11 @@ Se esta é a primeira vez que usa esta subscrição com a Azure Digital Twins, g
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Em seguida, irá adicionar a [**extensão IoT do Microsoft Azure para O Azure CLI**](/cli/azure/ext/azure-iot/iot) à sua Cloud Shell, para permitir comandos para interagir com a Azure Digital Twins e outros serviços IoT. 
+Em seguida, irá adicionar a [**extensão IoT do Microsoft Azure para O Azure CLI**](/cli/azure/ext/azure-iot/iot) à sua Cloud Shell, para permitir comandos para interagir com a Azure Digital Twins e outros serviços IoT. Executar este comando para se certificar de que tem a versão mais recente da extensão:
 
-[!INCLUDE [digital-twins-cloud-shell-extensions.md](digital-twins-cloud-shell-extensions.md)]
+```azurecli-interactive
+az extension add --upgrade -n azure-iot
+```
 
 Agora estás pronto para trabalhar com a Azure Digital Twins na Cloud Shell.
 

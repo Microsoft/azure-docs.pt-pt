@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.openlocfilehash: c2d0cfc15457d45701f129ae329295064d773a09
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604112"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Servidor Único

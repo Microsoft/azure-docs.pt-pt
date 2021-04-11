@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e740fdb9cd232892dadfe98c4d739759be66bf55
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cf2f0cdf8b7c540e569067d68374eef55d3479fe
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488725"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028201"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configurar o início de saúde com um fornecedor de SAML salesforce utilizando o protocolo SAML em Azure Ative Directory B2C
 
@@ -202,7 +202,7 @@ Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao 
 ## <a name="test-your-custom-policy"></a>Teste a sua política personalizada
 
 1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
-1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](tutorial-register-applications.md) A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Selecione o botão **Executar agora.**
 1. A partir da página de inscrição ou de inscrição, selecione **Salesforce** para iniciar scontabilidade da Salesforce.
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: fd65177fb6202b0396545043c2e63a87c7f01bbb
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104864606"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Visão geral do Fluxo Estruturado de Faíscas Apache Spark

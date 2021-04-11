@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: a8a4f84db140ca442371cb71886bebf9214d3e43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 444185dc41532bfa55c271e2f0027eb8b71de42f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026543"
+ms.locfileid: "105959920"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avançadas do explorador de métricas Azure
 
@@ -79,11 +79,28 @@ Para criar outro gráfico que utilize uma métrica diferente, **selecione Add ch
 
 Para reencomendar ou eliminar vários gráficos, selecione o botão elipse **(...)** para abrir o menu do gráfico. Em seguida, escolha **Mover-se,** **mover-se para baixo**, ou **eliminar**.
 
-## <a name="aggregation"></a>Agregação
+## <a name="time-range-controls"></a>Controlos do intervalo de tempo
+
+Além de alterar o intervalo de tempo utilizando o painel de recolha de [tempo,](metrics-getting-started.md#select-a-time-range)também pode fazer panorâmica e fazer zoom utilizando os controlos na área do gráfico.
+### <a name="pan"></a>Pan
+
+Para fazer uma panela, clique nas setas esquerda e direita na borda da tabela.  Isto irá mover o intervalo de tempo selecionado para trás e para a frente por metade do tempo da tabela.  Por exemplo, se estiver a ver as últimas 24 horas, clicar na seta esquerda fará com que o intervalo de tempo se desloque para um dia e meio a 12 horas atrás.
+
+A maioria das métricas suporta 93 dias de retenção, mas só lhe permite ver 30 dias de cada vez.  Utilizando os controlos da panela, você olha para os últimos 30 dias e, em seguida, facilmente volta 15 dias de cada vez para ver o resto do período de retenção.
+
+![Gif animado mostrando os controlos da panela esquerda e direita.](./media/metrics-charts/metrics-pan-controls.gif)
+
+### <a name="zoom"></a>Zoom
+
+Pode clicar e arrastar na tabela para fazer zoom numa secção de um gráfico.  O zooming atualizará o intervalo de tempo do gráfico para abranger a sua seleção e selecionará um grão de tempo menor se o grão de tempo estiver definido para "Automático".  O novo intervalo de tempo aplicar-se-á a todos os gráficos em Métricas.
+
+![Gif animado mostrando a característica de zoom métricas.](./media/metrics-charts/metrics-zoom-control.gif)
+
+## <a name="aggregation&quot;></a>Agregação
 
 Quando se adiciona uma métrica a um gráfico, o explorador de métricas aplica automaticamente uma agregação padrão. O padrão faz sentido em cenários básicos. Mas pode usar uma agregação diferente para obter mais informações sobre a métrica. 
 
-Antes de usar agregações diferentes num gráfico, deve entender como o explorador de métricas as trata. As métricas são uma série de medições (ou "valores métricos") que são capturadas ao longo de um período de tempo. Quando se traça um gráfico, os valores da métrica selecionada são agregados separadamente ao longo do grão de *tempo*. 
+Antes de usar agregações diferentes num gráfico, deve entender como o explorador de métricas as trata. As métricas são uma série de medições (ou &quot;valores métricos") que são capturadas ao longo de um período de tempo. Quando se traça um gráfico, os valores da métrica selecionada são agregados separadamente ao longo do grão de *tempo*. 
 
 Selecione o tamanho do grão de tempo utilizando o painel de recolha de tempo do explorador de [métricas](./metrics-getting-started.md#select-a-time-range). Se não selecionar explicitamente o grão de tempo, o intervalo de tempo atualmente selecionado é utilizado por predefinição. Após o tempo em que os grãos são determinados, os valores métricos que foram capturados durante cada vez que os grãos são agregados na tabela, um ponto de dados por grão de tempo.
 

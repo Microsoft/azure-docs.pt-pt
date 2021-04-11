@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/10/2021
-ms.openlocfilehash: ffc09daa15e742ca2b5b8a2fa9323e33fe317c60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 827e4d883fd9e80ae84845d620cc4ca00816f56e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200397"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551323"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Como criar uma oferta de máquina virtual no Azure Marketplace
 
@@ -58,20 +58,7 @@ Para ativar uma unidade de teste, selecione a caixa **de verificação de aciona
 
 ## <a name="configure-customer-leads-management"></a>Configure a gestão de lideranças de clientes
 
-Quando publicar uma oferta ao mercado comercial com o Partner Center, conecte-a ao seu sistema de Gestão de Relacionamento com o Cliente (CRM). Isto permite-lhe receber informações de contacto do cliente assim que alguém manifestar interesse ou utilizar o seu produto. É necessária uma ligação a um CRM se pretender ativar uma unidade de teste (ver a secção anterior). Caso contrário, a ligação a um CRM é opcional.
-
-1. Sob **os comandos do Cliente,** selecione o link **'Ligar'.**
-1. Na caixa de diálogo **de detalhes de Ligação,** selecione um destino de chumbo.
-1. Complete os campos que aparecem. Para etapas detalhadas, consulte os seguintes artigos:
-
-   - [Configure a sua oferta de envio leva à mesa Azure](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
-   - [Configure a sua oferta de envio de leads para Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (anteriormente Dynamics CRM Online)
-   - [Configure a sua oferta para enviar leva ao ponto final HTTPS](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
-   - [Configure a sua oferta de envio leva ao Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
-   - [Configure a sua oferta de envio leva à Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
-
-1. Para validar a configuração fornecida, selecione o link **Validate.**
-1. Selecione **Ligar**.
+[!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
 **Selecione Guardar** o rascunho antes de continuar para o separador seguinte no menu de navegação à esquerda, **Propriedades**.
 

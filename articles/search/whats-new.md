@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/12/2021
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: b9ae576a2d0ab8aee00be5b755c348806b412bef
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 8db1a671904233098610a9ba55ce260e6214c38c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108494"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028507"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -26,9 +26,8 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 | [Pesquisa semântica](semantic-search-overview.md) | Uma coleção de funcionalidades relacionadas com consultas que melhoram significativamente a relevância dos resultados da pesquisa através de ajustes mínimos a um pedido de consulta. </br></br>[O ranking semântico](semantic-ranking.md) calcula pontuações de relevância usando o significado semântico por trás de palavras e conteúdo. </br></br>[As legendas semânticas](semantic-how-to-query-request.md) devolvem passagens relevantes do documento que melhor resumem o documento, com destaques sobre os termos ou frases mais importantes. </br></br>[As respostas semânticas](semantic-answers.md) devolvem passagens-chave, extraídas de um documento de pesquisa, que são formuladas como resposta direta a uma consulta que parece uma pergunta. | Pré-visualização pública ([a pedido).](https://aka.ms/SemanticSearchPreviewSignup) </br></br>Utilize [documentos de pesquisa (REST)](/rest/api/searchservice/preview-api/search-documents) versão api=2020-06-30-Preview ou [Explorador de Pesquisa](search-explorer.md) no portal Azure. </br></br>Aplicam-se restrições de região e de nível. |
 | [Termos de consulta de verificação ortográfica](speller-how-to-add.md) | Antes de os termos de consulta chegarem ao motor de busca, pode verificar se há erros ortográficos. A `speller` opção funciona com qualquer tipo de consulta (simples, completa ou semântica). |  Pré-visualização pública, REST only, api-version=2020-06-30-Preview|
 | [Indexador Online SharePoint](search-howto-index-sharepoint-online.md) | Este indexante liga-o a um site SharePoint Online para que possa indexar o conteúdo a partir de uma biblioteca de documentos. | Pré-visualização pública, REST only, api-version=2020-06-30-Preview |
-| [Normalizadores](search-normalizers.md) | Os normalizadores fornecem um simples pré-processamento de texto como invólucro, remoção de sotaque, asciifolding e assim por diante sem passar por toda a cadeia de análise.| Pré-visualização pública, REST only, api-version=2020-06-30-Preview |
-[**Competência de procura de entidade personalizada**](cognitive-search-skill-custom-entity-lookup.md ) |  Uma habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos. | Geralmente disponível. |
-|
+| [Normalizadores](search-normalizers.md) | Os normalizadores fornecem um simples pré-processamento de texto: invólucro consistente, remoção de acento e dobragem ASCII, sem invocar a cadeia completa de análise de texto.| Pré-visualização pública, REST only, api-version=2020-06-30-Preview |
+| [Competência de procura de entidade personalizada](cognitive-search-skill-custom-entity-lookup.md ) |  Uma habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos. | Geralmente disponível. |
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

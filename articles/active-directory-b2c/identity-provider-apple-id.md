@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 63183eb6a77b3a7aecfb6f3e8a7c9ee7c2544de2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f5e4ff93b90c7644c1d1498a14c8b9954041cb34
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543912"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028371"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar o pré-serviço e iniciar seduca com um Apple ID utilizando o Azure Ative Directory B2C (Pré-visualização)
 
@@ -250,7 +250,7 @@ Pode definir um Apple ID como fornecedor de sinistros adicionando-o ao elemento 
 ## <a name="test-your-custom-policy"></a>Teste a sua política personalizada
 
 1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
-1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](tutorial-register-applications.md) A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Selecione o botão **Executar agora.**
 1. A partir da página de inscrição ou de inscrição, selecione **Apple** para iniciar sedições com o Apple ID.
 

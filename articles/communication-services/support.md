@@ -9,10 +9,10 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: e403fb8bcd25d1274eda287bc62465bacdb9b613
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105045472"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Opções de ajuda e apoio para serviços de comunicação da Azure

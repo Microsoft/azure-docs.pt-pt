@@ -9,10 +9,10 @@ ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f1d3223114e9f691bfb3802a65abea003a7aec6e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105582684"
 ---
 Pode consultar os links desta secção para obter mais informações sobre os serviços oferecidos pelos parceiros. Se o seu parceiro de dispositivo de filial não estiver listado na secção abaixo, contacte-nos. Podem contactar-nos enviando um e-mail azurevirtualwan@microsoft.com para.

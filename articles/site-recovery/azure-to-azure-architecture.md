@@ -2,18 +2,15 @@
 title: Azure to Azure arquitetura de recuperação de desastres na Recuperação do Local de Azure
 description: Visão geral da arquitetura utilizada quando configura a recuperação de desastres entre as regiões de Azure para VMs Azure, utilizando o serviço de Recuperação do Local Azure.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
-ms.author: raynew
-ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38bf9d41f81a76c4263952a94b5526984db0705f
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652250"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580940"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 

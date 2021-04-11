@@ -12,10 +12,10 @@ ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
 ms.openlocfilehash: 5a583d74ae0bf421a7a863a65442d250489a2f8f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104775396"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Receita: Manutenção preditiva com os Serviços Cognitivos para Big Data
