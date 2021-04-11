@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: f84dc66828f2ebf13316b3348fd93933a2223b5a
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.openlocfilehash: 0d9ef13de29ac140d94e9e4c05b14f35b9e5834c
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612284"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968174"
 ---
 # <a name="what-is-document-translation-preview"></a>O que é Tradução de Documentos (Pré-visualização)?
 
@@ -54,7 +54,6 @@ Os seguintes tipos de ficheiros de documentos são suportados pela Tradução do
 |Microsoft Word|.docx| Um ficheiro de documento de texto.|
 |Separados valores/SEPARADOS|.tsv/.tab| Um ficheiro de dados brutos delimitado por separadores utilizado por programas de folha de cálculo.|
 |Texto|.txt| Um documento de texto não testado.|
-|Troca de Memória de Tradução|.tmx|Uma norma XML aberta utilizada para o intercâmbio de dados de memória de tradução (TM) criados por Aplicações de Tradução Ajuda Computacional (CAT) e localização.|
 
 ## <a name="supported-glossary-formats"></a>Formatos glossários suportados
 

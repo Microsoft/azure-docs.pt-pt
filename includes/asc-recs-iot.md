@@ -6,15 +6,15 @@ ms.date: 03/22/2021
 ms.author: memildin
 ms.custom: generated
 ms.openlocfilehash: 388798b9f1ada6921fb79363678ecd17a3041227
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801490"
 ---
 Há **12** recomendações nesta categoria.
 
-|Recomendação |Descrição |Gravidade |
+|Recomendação |Description |Gravidade |
 |---|---|---|
 |A política de filtro IP predefinido deve ser Deny |A Configuração do Filtro IP deve ter regras definidas para tráfego permitido e deve negar todo o tráfego por padrão<br />(Sem política relacionada) |Médio |
 |Os registos de diagnóstico no IoT Hub devem ser ativados |Ativar os registos e retê-los até um ano. Isto permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou a sua rede está comprometida.<br />(Política relacionada: [Os registos de diagnóstico no IoT Hub devem ser ativados)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f383856f8-de7f-44a2-81fc-e5135b5c2aa4) |Baixo |

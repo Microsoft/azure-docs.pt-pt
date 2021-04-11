@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bec31f830adddfc7251ce36e13ef0bfaa0af7638
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5813ea33e83316a7207da973a54ce10e2ddf503
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "88931714"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063054"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Moderado com listas de imagem personalizadas em C #
 

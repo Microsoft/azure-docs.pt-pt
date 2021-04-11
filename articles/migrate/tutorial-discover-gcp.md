@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/13/2021
 ms.custom: mvc
 ms.openlocfilehash: c5d57705ca0d49db1fb1d67e20beb609f21b1d5b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104771435"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descubra os casos da Plataforma Google Cloud (GCP) com a Azure Migrate: Descoberta e avaliação

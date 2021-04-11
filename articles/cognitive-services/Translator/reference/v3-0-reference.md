@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 567e28ee7f698565d6ad0020db7abdca0557f053
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b391c5a435c2dd2f19a3f170bf7c84edd7143f2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100650767"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063037"
 ---
 # <a name="translator-v30"></a>Tradutor v3.0
 
@@ -35,7 +35,7 @@ O Microsoft Tradutor é servido a partir de vários locais do datacenter. Atualm
 
 * **Américas:** Leste dos EUA, Centro Sul dos EUA, Centro-Oeste dos EUA e Oeste dos EUA 2 
 * **Ásia-Pacífico:** Coreia do Sul, Japão Leste, Sudeste Asiático e Austrália Oriental
-* **Europa:** Norte da Europa, Europa Ocidental, Suíça Norte <sup>1,2</sup>e Suíça Oeste <sup>1,2</sup>
+* **Europa:** Norte da Europa, Europa Ocidental
 
 Os pedidos ao Microsoft Tradutor são, na maioria dos casos, tratados pelo datacenter que está mais próximo do local de origem do pedido. Em caso de falha no datacenter, o pedido pode ser encaminhado para fora da geografia Azure.
 
@@ -48,7 +48,7 @@ Para forçar o pedido a ser tratado por uma geografia específica do Azure, alte
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Ásia-Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
-<sup>1</sup> O cliente com um recurso localizado na Suíça Norte ou Suíça West pode garantir que os seus pedidos de API de texto são servidos na Suíça. Para garantir que os pedidos são tratados na Suíça, crie o recurso Tradutor na "Região de Recursos" 'Suíça Norte' ou 'Suíça Oeste', em seguida, use o ponto final personalizado do recurso nos seus pedidos de API. Por exemplo: Se criar um recurso Tradutor no portal Azure com "Região de Recursos" como 'Suíça Norte' e o seu nome de recurso for 'my-ch-n' então o seu ponto final personalizado é https://my-ch-n.cognitiveservices.azure.com " E um pedido de amostra para traduzir é:
+<sup>1</sup> Os clientes com um recurso localizado na Suíça Norte ou Suíça West podem garantir que os seus pedidos de API de texto são servidos na Suíça. Para garantir que os pedidos são tratados na Suíça, crie o recurso Tradutor na "Região de Recursos" 'Suíça Norte' ou 'Suíça Oeste', em seguida, use o ponto final personalizado do recurso nos seus pedidos de API. Por exemplo: Se criar um recurso Tradutor no portal Azure com "Região de Recursos" como 'Suíça Norte' e o seu nome de recurso for 'my-ch-n' então o seu ponto final personalizado é https://my-ch-n.cognitiveservices.azure.com " E um pedido de amostra para traduzir é:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \

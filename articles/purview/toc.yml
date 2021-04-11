@@ -12,6 +12,10 @@ items:
         href: create-catalog-portal.md
       - name: Criar uma conta do Purview - Azure PowerShell
         href: create-catalog-powershell.md
+      - name: Criar uma conta Desívisão - .NET SDK
+        href: create-purview-dotnet.md
+      - name: Criar uma conta Depview - Python
+        href: create-purview-python.md
   - name: Tutoriais
     items:
       - name: Kit para iniciantes

@@ -14,10 +14,10 @@ keywords: ''
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
 ms.openlocfilehash: 58ba530e434a9dc141ba8cb98120f6325eb06f7e
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104950478"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Implementar Micro Focus Enterprise Server 5.0 a AKS

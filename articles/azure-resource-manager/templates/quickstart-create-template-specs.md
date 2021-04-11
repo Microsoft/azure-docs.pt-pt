@@ -6,10 +6,10 @@ ms.date: 12/14/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ms.openlocfilehash: 28987486726f5a88d20efe9fe8a766e536062c2c
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889965"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
@@ -106,7 +106,7 @@ A especificação do modelo é um tipo de recurso chamado `Microsoft.Resources/t
 1. Selecione **Rever + Criar**.
 1. Selecione **Criar**.
 
-# <a name="arm-template"></a>[Modelo do ARM](#tab/azure-resource-manager)
+# <a name="arm-template"></a>[Modelo ARM](#tab/azure-resource-manager)
 
 > [!NOTE]
 > Em vez de utilizar um modelo ARM, recomendamos que utilize o PowerShell ou o CLI para criar a especificação do seu modelo. Essas ferramentas convertem automaticamente os modelos ligados a artefactos ligados ao seu modelo principal. Quando utilizar um modelo ARM para criar a especificação do modelo, deve adicionar manualmente os modelos ligados como artefactos, o que pode ser complicado.
@@ -321,7 +321,7 @@ Para implementar uma especificação de modelo, use os mesmos comandos de implem
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**.
 
-# <a name="arm-template"></a>[Modelo do ARM](#tab/azure-resource-manager)
+# <a name="arm-template"></a>[Modelo ARM](#tab/azure-resource-manager)
 
 1. Copie o modelo seguinte e guarde-o localmente para um ficheiro nomeado **storage.jsem**.
 
@@ -476,7 +476,7 @@ Em vez de criar uma nova especificação de modelo para o modelo revisto, adicio
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**.
 
-# <a name="arm-template"></a>[Modelo do ARM](#tab/azure-resource-manager)
+# <a name="arm-template"></a>[Modelo ARM](#tab/azure-resource-manager)
 
 1. Mais uma vez, você deve fazer algumas alterações no seu modelo local para fazê-lo funcionar com especificações de modelo. Copie o modelo seguinte e guarde-o localmente à medida que azuredeploy.js.
 

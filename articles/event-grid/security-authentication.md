@@ -3,12 +3,12 @@ title: Autenticar a entrega do evento aos manipuladores de eventos (Azure Event 
 description: Este artigo descreve diferentes formas de autenticar a entrega aos manipuladores de eventos na Azure Event Grid.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f7a105c36b7c924e35c295edc43107353d738d5b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98633125"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968140"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticar a entrega do evento aos manipuladores de eventos (Azure Event Grid)
 Este artigo fornece informações sobre a autenticação da entrega de eventos aos manipuladores de eventos. Também mostra como proteger os pontos finais do webhook que são usados para receber eventos da Grade de Eventos usando O Diretório Ativo Azure (Azure AD) ou um segredo partilhado.
@@ -40,7 +40,7 @@ Como os parâmetros de consulta podem conter segredos de clientes, eles são tra
 Para obter mais informações sobre a entrega de eventos a webhooks, consulte [a entrega do evento Webhook](webhook-event-delivery.md)
 
 > [!IMPORTANT]
-A Azure Event Grid suporta apenas pontos finais **https** webhook. 
+> A Azure Event Grid suporta apenas pontos finais **https** webhook. 
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação de ponto final com CloudEvents v1.0
 Se já está familiarizado com a Grade de Eventos, poderá estar ciente do aperto de mão de validação de ponto final para prevenir abusos. O CloudEvents v1.0 implementa a sua própria [semântica de proteção](webhook-event-delivery.md) contra abusos utilizando o método **HTTP OPTIONS.** Para ler mais sobre o mesmo, consulte [HTTP 1.1 Web Hooks para entrega de eventos - Versão 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando utiliza o esquema cloudEvents para saída, a Grade de Eventos utiliza a proteção contra abusos CloudEvents v1.0 em vez do mecanismo de validação da Grelha de Eventos. Para obter mais informações, consulte [o esquema de utilização de CloudEvents v1.0 com grelha de eventos](cloudevents-schema.md). 

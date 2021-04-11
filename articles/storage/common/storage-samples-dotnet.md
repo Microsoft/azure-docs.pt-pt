@@ -1,18 +1,18 @@
 ---
 title: Amostras de armazenamento Azure usando .NET | Microsoft Docs
 description: Ver, descarregar e executar código de amostra e aplicações para Azure Storage. Descubra a obtenção de amostras para bolhas, filas, mesas e ficheiros, utilizando as bibliotecas de clientes de armazenamento .NET.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c140234ce93ff9146ef3b1a5a135258ad707c807
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92359786"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275707"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 .NET
 

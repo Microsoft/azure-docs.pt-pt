@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 419d8d0cd20c13bffdd192060d81975ee94b47fe
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95561355"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106126064"
 ---
 > [!NOTE]
 > Para recursos que não são fixados, abra um bilhete de apoio para pedir um aumento das quotas. Não crie contas adicionais da Azure Media Services numa tentativa de obter limites mais elevados.
@@ -66,9 +66,9 @@ Qualquer registo de Trabalho na sua conta com mais de 90 dias será automaticame
 | --- | --- |
 | Eventos ao Vivo <sup>(4)</sup> por conta de Serviços de Mídia |5|
 | Saídas ao vivo por Evento Ao Vivo |3 <sup>(5)</sup> |
-| Duração da saída ao vivo max | [Tamanho da janela DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
+| Duração da saída ao vivo max | [Tamanho da janela DVR](../articles/media-services/latest/live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> Para obter informações detalhadas sobre as limitações do Evento Ao Vivo, consulte [a comparação e limitações dos tipos de Eventos Ao Vivo.](../articles/media-services/latest/live-event-types-comparison.md)
+<sup>4</sup> Para obter informações detalhadas sobre as limitações do Evento Ao Vivo, consulte [a comparação e limitações dos tipos de Eventos Ao Vivo.](../articles/media-services/latest/live-event-types-comparison-reference.md)
 
 <sup>5</sup> As saídas ao vivo começam na criação e param quando apagadas.
 

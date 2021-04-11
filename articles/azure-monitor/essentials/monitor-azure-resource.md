@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: af2803a945821a23ff59f196967d792a6593009f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 203af340a8bd48bdb6dee70f92c2ecc39708b8e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033389"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732334"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorizar os recursos do Azure com o Azure Monitor
 Quando você tem aplicações críticas e processos de negócio contando com recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pelos recursos da Azure e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.
@@ -47,7 +47,7 @@ Pode haver custos do Azure Monitor associados com os seguintes. Ver [preços do 
 ## <a name="monitoring-data"></a>Monitorizar dados
 Os recursos em Azure geram [registos](../logs/data-platform-logs.md) e [métricas mostrados](../essentials/data-platform-metrics.md) no diagrama seguinte. Consulte a documentação de cada serviço Azure para os dados específicos que geram e quaisquer soluções ou insights adicionais que forneçam.
 
-![Descrição geral](media/monitor-azure-resource/logs-metrics.png)
+![Descrição Geral](media/monitor-azure-resource/logs-metrics.png)
 
 
 
@@ -63,7 +63,7 @@ Alguns dados de monitorização são recolhidos automaticamente, mas pode ser ne
 
 - [Métricas da plataforma](../essentials/data-platform-metrics.md) - As métricas da plataforma são recolhidas automaticamente em [Métricas do Monitor Azure](../essentials/data-platform-metrics.md) sem necessidade de configuração. Crie uma definição de diagnóstico para enviar entradas para registos do Monitor Azure ou para reencamizá-las para fora do Azure.
 - [Registos de recursos](./platform-logs-overview.md) - Os registos de recursos são gerados automaticamente pelos recursos do Azure, mas não recolhidos sem uma definição de diagnóstico.  Crie uma definição de diagnóstico para enviar entradas para registos do Monitor Azure ou para reencamizá-las para fora do Azure.
-- [Registo de atividade](./platform-logs-overview.md) - O registo de atividade é recolhido automaticamente sem necessidade de configuração e pode ser visto no portal Azure. Crie uma definição de diagnóstico para copiá-los para Registos do Monitor Azure ou para reencamizá-los para fora de Azure.
+- [Registo de atividade](./platform-logs-overview.md) - O registo de atividade é recolhido automaticamente sem necessidade de configuração e pode ser visualizado no portal Azure. Crie uma definição de diagnóstico para copiá-los para Registos do Monitor Azure ou para reencamizá-los para fora de Azure.
 
 ### <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
 A recolha de dados em Registos monitores Azure requer um espaço de trabalho log analytics. Pode começar a monitorizar o seu serviço rapidamente criando um novo espaço de trabalho, mas pode haver valor na utilização de um espaço de trabalho que está a recolher dados de outros serviços. Consulte [Criar um espaço de trabalho log Analytics no portal Azure](../logs/quick-create-workspace.md) para obter detalhes sobre a criação de um espaço de trabalho e [conceber a sua implementação de Registos monitores Azure](../logs/design-logs-deployment.md) para ajudar a determinar o melhor design do espaço de trabalho para os seus requisitos. Se utilizar um espaço de trabalho existente na sua organização, então necessitará de permissões apropriadas, conforme descrito na [Gestão do acesso a dados de registo e espaços de trabalho no Azure Monitor.](../logs/manage-access.md) 
@@ -85,7 +85,7 @@ Siga o procedimento na [configuração de diagnóstico para recolher registos e 
 ## <a name="monitoring-in-the-azure-portal"></a>Monitorização no portal Azure
  Pode aceder aos dados de monitorização da maioria dos recursos Azure a partir do menu do recurso no portal Azure. Isto lhe dará acesso aos dados de um único recurso utilizando ferramentas padrão do Azure Monitor. Alguns serviços da Azure fornecerão diferentes opções, pelo que deverá fazer referência à documentação desse serviço para obter informações adicionais. Utilize o menu **Azure Monitor** para analisar dados de todos os recursos monitorizados. 
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 Muitos serviços incluirão a monitorização de dados na sua página **de Visão Geral** como um rápido olhar para o seu funcionamento. Isto será normalmente baseado num subconjunto de métricas de plataforma armazenadas em Métricas do Monitor Azure. Outras opções de monitorização estarão normalmente disponíveis numa secção de **monitorização** do menu do serviço.
 
 ![Página de descrição geral](media/monitor-azure-resource/overview-page.png)

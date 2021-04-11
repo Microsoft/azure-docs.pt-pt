@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: c47e67375e093ff6e9a5cf7193c76eeeb5228e29
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: ab450c6ec6ae32cafcf07e88940736f209973d8d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045659"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168047"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte da plataforma Azure IoT Device SDKs
 
@@ -22,7 +22,7 @@ Além dos SDKs do dispositivo, a Microsoft fornece várias outras vias para capa
 
 * A Microsoft colabora com várias empresas parceiras para os ajudar a publicar kits de desenvolvimento, com base no Azure IoT C SDK, para as suas plataformas de hardware.
 
-* A Microsoft trabalha com parceiros de confiança da Microsoft para fornecer um conjunto de dispositivos em constante expansão que foram testados e certificados para o Azure IoT. Para obter uma lista atual destes dispositivos, consulte o [Azure certificado para o catálogo de dispositivos IoT](https://catalog.azureiotsolutions.com/).
+* A Microsoft trabalha com parceiros de confiança da Microsoft para fornecer um conjunto de dispositivos em constante expansão que foram testados e certificados para o Azure IoT. Para obter uma lista atual destes dispositivos, consulte o [Azure certificado para o catálogo de dispositivos IoT](https://devicecatalog.azure.com/).
 
 * A Microsoft fornece uma camada de abstração de plataforma (PAL) no Azure IoT Hub Device C SDK que ajuda os desenvolvedores a facilmente colocar o SDK na sua plataforma. Para saber mais, consulte a [orientação de porção da C SDK.](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 
@@ -114,9 +114,9 @@ Se a plataforma do seu dispositivo não estiver coberta por uma das secções an
 
 A Microsoft trabalha com vários parceiros para expandir continuamente o universo Azure IoT com dispositivos testados e certificados Azure IoT.
 
-* Para navegar em dispositivos certificados Azure IoT, consulte [o Microsoft Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/).
+* Para navegar em dispositivos certificados Azure IoT, consulte [o Microsoft Azure Certified for IoT Device Catalog](https://devicecatalog.azure.com/).
 
-* Para saber mais sobre o ecossistema Azure Certified for IoT, consulte [Junte-se ao ecossistema Certificado para IoT.](https://catalog.azureiotsolutions.com/register)
+* Para saber mais sobre o ecossistema Azure Certified for IoT, consulte [Junte-se ao ecossistema Certificado para IoT.](../certification/overview.md)
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Ligação ao IoT Hub sem um SDK
 

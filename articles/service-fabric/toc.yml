@@ -502,7 +502,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Atualizar
               items:
-                - name: Atualizar a versão do Service Fabric
+                - name: Gerir atualizações de cluster de tecido de serviço
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Atualizar configuração do cluster
                   href: service-fabric-cluster-config-upgrade-azure.md

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 4d162918644727d4c79ad606f1ed34816f543d81
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105044384"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>A sua aplicação de Tecido de Serviço e os próximos passos

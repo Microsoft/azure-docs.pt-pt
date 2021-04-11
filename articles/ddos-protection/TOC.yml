@@ -49,6 +49,8 @@
       href: ddos-protection-partner-onboarding.md
 - name: Referência
   items:
+    - name: Incorporações do Azure Policy
+      href: policy-reference.md
     - name: CLI do Azure
       href: /cli/azure/network/ddos-protection
     - name: Azure PowerShell

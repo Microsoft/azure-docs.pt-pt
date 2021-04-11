@@ -4,10 +4,10 @@ description: Conheça as atualizações da plataforma para Azure VMware Solution
 ms.topic: reference
 ms.date: 03/24/2021
 ms.openlocfilehash: da6317d49edd3f40e1a8f2518f91fe353bbae285
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105045217"
 ---
 # <a name="platform-updates-for-azure-vmware-solution"></a>Atualizações da plataforma para Azure VMware Solution

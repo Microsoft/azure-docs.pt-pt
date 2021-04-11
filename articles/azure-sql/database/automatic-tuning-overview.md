@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/23/2021
 ms.openlocfilehash: 6bd8d6001fcd3bfa487259aa219ff771f26a8a94
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104951288"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonização automática na Base de Dados Azure SQL e Azure SQL Gestão de Instância
@@ -63,9 +63,9 @@ As opções de afinação automática disponíveis na Base de Dados Azure SQL e 
 
 | Opção de afinação automática | Base de dados única e suporte de base de dados em conjunto | Suporte de base de dados de casos |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX** - Identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e verifica automaticamente que o desempenho das consultas melhorou. | Sim | No |
-| **ÍNDICE DROP** - Cai sem ser usutado (nos últimos 90 dias) e duplica os índices. Os índices únicos, incluindo índices que suportam a chave primária e constrangimentos únicos, nunca são eliminados. Esta opção pode ser automaticamente desativada quando as consultas com indicações de índice estiverem presentes na carga de trabalho, ou quando a carga de trabalho efetua a comutação de partição. Nos níveis de serviço Premium e Business Critical, esta opção nunca irá baixar índices não reutilizados, mas irá baixar índices duplicados, se houver. | Sim | No |
-| **FORCE LAST GOOD PLAN** (correção automática do plano) - Identifica as consultas Azure SQL utilizando um plano de execução mais lento do que o plano anterior, e consultas utilizando o último bom plano conhecido em vez do plano regressaltado. | Sim | Sim |
+| **CREATE INDEX** - Identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e verifica automaticamente que o desempenho das consultas melhorou. | Yes | No |
+| **ÍNDICE DROP** - Cai sem ser usutado (nos últimos 90 dias) e duplica os índices. Os índices únicos, incluindo índices que suportam a chave primária e constrangimentos únicos, nunca são eliminados. Esta opção pode ser automaticamente desativada quando as consultas com indicações de índice estiverem presentes na carga de trabalho, ou quando a carga de trabalho efetua a comutação de partição. Nos níveis de serviço Premium e Business Critical, esta opção nunca irá baixar índices não reutilizados, mas irá baixar índices duplicados, se houver. | Yes | No |
+| **FORCE LAST GOOD PLAN** (correção automática do plano) - Identifica as consultas Azure SQL utilizando um plano de execução mais lento do que o plano anterior, e consultas utilizando o último bom plano conhecido em vez do plano regressaltado. | Yes | Yes |
 
 ### <a name="automatic-tuning-for-sql-database"></a>Sintonização automática para base de dados SQL
 

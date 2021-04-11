@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Use Azure Storage v11 para .NET para gerir uma fila'
 description: Neste arranque rápido, aprende-se a usar a biblioteca de clientes Azure Storage para .NET para criar uma fila e adicionar-lhe mensagens. Em seguida, aprende-se a ler e processar mensagens da fila.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23703dc507aa909aea4711289a4d7d5c5e6a170e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10ab1c487095fe1587a3c665d8a06e0d5cbab7e0
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97588204"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275894"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Quickstart: Use o Azure Storage SDK v11 para .NET para gerir uma fila
 

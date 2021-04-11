@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1bc1df4582c83b093b6ed25d03cc73aef9a81483
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5423c26b15c5ba9fa84e5d823f75f3c82a8cb8b4
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563944"
+ms.locfileid: "105968123"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança Azure para a Grade de Eventos
 
@@ -48,9 +48,7 @@ A Azure Event Grid também suporta controlos de acesso baseados em IP públicos 
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: Monitorizar e registar a configuração e o tráfego de redes virtuais, sub-redes e NICs
 
-**Orientação**: Utilize o Centro de Segurança Azure e siga as recomendações de proteção da rede para ajudar a proteger os recursos da rede de eventos em Azure. Se utilizar
-
-As máquinas virtuais Azure acedem aos seus recursos de Rede de Eventos, permitem registos de fluxo do grupo de segurança de rede (NSG) e enviam registos para uma conta de armazenamento para auditoria de tráfego.
+**Orientação**: Utilize o Centro de Segurança Azure e siga as recomendações de proteção da rede para ajudar a proteger os recursos da rede de eventos em Azure. Se utilizar máquinas virtuais Azure para aceder aos seus recursos de Rede de Eventos, ative os registos de fluxo do grupo de segurança da rede (NSG) e envie registos para uma conta de armazenamento para auditoria de tráfego.
 
 - [Como ativar registos de fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 

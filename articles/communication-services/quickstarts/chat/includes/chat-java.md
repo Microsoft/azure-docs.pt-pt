@@ -10,21 +10,20 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 800acddcb3527b9ca16d7fc664c2a3c27b528c25
-ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
+ms.openlocfilehash: 7fe50a6236cf67f1048dddecbf46fea836ec05c5
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105726681"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106126046"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Java Development Kit (JDK)](/java/azure/jdk/) versão 8 ou superior.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) versão 8 ou superior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Um recurso de serviços de comunicação implantado e uma cadeia de conexão. [Criar um recurso de Serviços de Comunicação.](../../create-communication-resource.md)
 - Um [token de acesso ao utilizador](../../access-tokens.md). Certifique-se de definir o âmbito para "chat", e note a cadeia simbólica, bem como a cadeia userId.
-
 
 ## <a name="setting-up"></a>Configuração
 
@@ -56,7 +55,7 @@ No seu ficheiro POM, faça referência ao `azure-communication-chat` pacote com 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.7</version> 
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -66,7 +65,7 @@ Para a autenticação, o seu cliente necessita de fazer referência ao `azure-co
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version> 
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -82,7 +81,7 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 | ChatThreadAsyncClient | Esta classe é necessária para a funcionalidade chat thread assíncronos. Obtém um caso através do ChatAsyncClient e utiliza-o para enviar/receber/atualizar/apagar mensagens, adicionar/remover/obter utilizadores, enviar notificações de dactilografia e ler recibos. |
 
 ## <a name="create-a-chat-client"></a>Criar um cliente de chat
-Para criar um cliente de chat, utilizará o ponto final do Serviço de Comunicações e o token de acesso que foi gerado como parte das etapas pré-necessárias. Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure. Assim que gerar estas fichas no seu servidor, passe-as de volta para um dispositivo cliente. Você precisa usar a classe CommunicationTokenCredential do Common SDK para passar o símbolo para o seu cliente de chat. 
+Para criar um cliente de chat, utilizará o ponto final do Serviço de Comunicações e o token de acesso que foi gerado como parte das etapas pré-necessárias. Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure. Assim que gerar estas fichas no seu servidor, passe-as de volta para um dispositivo cliente. Você precisa usar a classe CommunicationTokenCredential do Common SDK para passar o símbolo para o seu cliente de chat.
 
 Saiba mais sobre [a Arquitetura chat](../../../concepts/chat/concepts.md)
 
@@ -94,8 +93,6 @@ package com.communication.quickstart;
 import com.azure.communication.chat.*;
 import com.azure.communication.chat.models.*;
 import com.azure.communication.common.*;
-import com.azure.core.http.HttpClient;
-import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
 import com.azure.core.http.rest.PagedIterable;
 
 import java.io.*;
@@ -106,14 +103,9 @@ public class App
     public static void main( String[] args ) throws IOException
     {
         System.out.println("Azure Communication Services - Chat Quickstart");
-        
+
         // Your unique Azure Communication service endpoint
         String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-
-        // Create an HttpClient builder of your choice and customize it
-        // Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
-        NettyAsyncHttpClientBuilder yourHttpClientBuilder = new NettyAsyncHttpClientBuilder();
-        HttpClient httpClient = yourHttpClientBuilder.build();
 
         // User access token fetched from your trusted service
         String userAccessToken = "<USER_ACCESS_TOKEN>";
@@ -124,8 +116,7 @@ public class App
         // Initialize the chat client
         final ChatClientBuilder builder = new ChatClientBuilder();
         builder.endpoint(endpoint)
-            .credential(userCredential)
-            .httpClient(httpClient);
+            .credential(userCredential);
         ChatClient chatClient = builder.buildClient();
     }
 }
@@ -139,7 +130,8 @@ Utilize o `createChatThread` método para criar um fio de chat.
 - Utilize o `topic` parâmetro do construtor para dar um tópico a este chat; O tópico pode ser atualizado após a criação do fio de chat utilizando a `UpdateThread` função.
 - Utilize `participants` para listar os participantes do fio a adicionar ao fio. `ChatParticipant`leva o utilizador criado no quickstart [do User Access Token.](../../access-tokens.md)
 
-`CreateChatThreadResult` é a resposta devolvida da criação de um fio de chat. Contém um `getChatThread()` método que devolve o objeto que pode ser usado para obter o cliente thread a partir do qual `ChatThread` você pode obter o para executar `ChatThreadClient` operações no fio criado: adicionar participantes, enviar mensagem, etc. O `ChatThread` objeto também contém o método que recupera o `getId()` ID único do fio.
+`CreateChatThreadResult` é a resposta devolvida da criação de um fio de chat.
+Contém um `getChatThread()` método que devolve o objeto que pode ser usado para obter o cliente thread a partir do qual `ChatThread` você pode obter o para executar `ChatThreadClient` operações no fio criado: adicionar participantes, enviar mensagem, etc. O `ChatThread` objeto também contém o método que recupera o `getId()` ID único do fio.
 
 ```Java
 ChatParticipant firstThreadParticipant = new ChatParticipant()

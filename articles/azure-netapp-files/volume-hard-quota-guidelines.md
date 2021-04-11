@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 12807e83f7841bc67999ce385d0cb82bf15f4c71
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 52e855cb4ab42ed78a055ecdc31cffa886dc9bf2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175996"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731994"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>O que mudar para volume de quota dura significa para o seu serviço Azure NetApp Files
 
 Desde o início do serviço, o Azure NetApp Files tem vindo a utilizar um mecanismo de fornecimento de capacidade e de crescimento automático. Os volumes Azure NetApp Files são pouco abastetados num conjunto de capacidades de subposição, abasteçados pelo cliente de um nível e tamanho selecionados. Os tamanhos de volume (quotas) são utilizados para proporcionar desempenho e capacidade, e as quotas podem ser ajustadas no voo a qualquer momento. Este comportamento significa que, atualmente, a quota de volume é uma alavanca de desempenho usada para controlar a largura de banda ao volume. Atualmente, os pools de capacidade de subposição crescem automaticamente quando a capacidade se enche.   
 
 > [!IMPORTANT] 
-> O comportamento do Azure NetApp Files de volume e capacidade de fornecimento de piscinas mudará para um mecanismo *manual* e *controlável.* **A partir de 1 de abril de 2021 (atualizado), os tamanhos de volume (quota) vão gerir o desempenho da largura de banda, bem como a capacidade a provisionada, e os pools de capacidade subjacentes deixarão de crescer automaticamente.** 
+> O comportamento do Azure NetApp Files de volume e capacidade de fornecimento de piscinas mudará para um mecanismo *manual* e *controlável.* **A partir de 30 de abril de 2021 (atualizado), os tamanhos de volume (quota) vão gerir o desempenho da largura de banda, bem como a capacidade a provisionada, e as piscinas de capacidade subjacentes deixarão de crescer automaticamente.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Razões para a alteração da quota dura do volume
 

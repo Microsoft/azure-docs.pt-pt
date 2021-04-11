@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: seodec18
 ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104950744"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Melhores práticas para escolher um ID da Série Temporal

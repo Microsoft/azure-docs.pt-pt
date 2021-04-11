@@ -1,18 +1,15 @@
 ---
 title: VMware VM arquitetura de recuperação de desastres na Recuperação do Local de Azure
 description: Este artigo fornece uma visão geral dos componentes e arquitetura utilizados na criação de recuperação de desastres de VMware VMs para Azure com Azure Site Recovery
-author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
-ms.author: raynew
-ms.openlocfilehash: 5cf4dc5123040fd2af8efe54153867a8709fe1ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24333ccc5096e7f04f016444de2b0a7e13ae7bfa
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652233"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579817"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para Azure arquitetura de recuperação de desastres
 
@@ -47,7 +44,7 @@ Se estiver a usar um proxy de firewall baseado em URL para controlar a conectivi
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
-| Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que a VM comunique com o serviço Site Recovery. |
+| Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`   | Permite que a VM comunique com o serviço Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
 
 Para que a lista exaustiva de URLs seja filtrada para comunicação entre as infraestruturas de recuperação do local Azure e os serviços Azure, consulte a [secção de requisitos de rede no artigo pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequisites).
