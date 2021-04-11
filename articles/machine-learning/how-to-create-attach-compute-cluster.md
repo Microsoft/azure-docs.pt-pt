@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: c11176f0c7760e76b755406bda96b72b302f8857
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1e3549a6f5f4f9d7f6a6da574378c90c20e42dcf
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506944"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169577"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de cálculo de aprendizagem automática Azure
 
@@ -44,11 +44,9 @@ Os clusters computativos podem executar empregos de forma segura num [ambiente d
 
 ## <a name="limitations"></a>Limitações
 
-* **Não crie anexos múltiplos e simultâneos ao mesmo cálculo** do seu espaço de trabalho. Por exemplo, anexar um cluster de cálculo a um espaço de trabalho utilizando dois nomes diferentes. Cada novo acessório quebrará os acessórios existentes anteriores.
-
-    Se pretender voltar a anexar um alvo de cálculo, por exemplo para alterar as definições de configuração do cluster, tem primeiro de remover o acessório existente.
-
 * Alguns dos cenários listados neste documento são marcados como __pré-visualização__. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* Atualmente apoiamos apenas a criação (e não atualização) de clusters através de modelos ARM [ https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json ]. Para atualizar o cálculo, recomendamos a utilização do SDK, CLI ou UX por enquanto.
 
 * O Azure Machine Learning Compute tem limites predefinidos, como o número de núcleos que podem ser atribuídos. Para obter mais informações, consulte [Gerir e solicitar quotas para recursos Azure.](how-to-manage-quotas.md)
 

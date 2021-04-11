@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: a431060be380952940bdb99c65abc7a9740091de
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105038163"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109191"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Como codificar e transmitir ficheiros de vídeo com Node.JS
 
@@ -58,7 +58,7 @@ A amostra está localizada na pasta [StreamFilesSample.](https://github.com/Azur
 
 O exemplo realiza as seguintes ações:
 
-1. Cria uma **transformação** com uma [predefinição de codificação consciente do conteúdo.](./content-aware-encoding.md) Verifica primeiro se existe a Transformação especificada.
+1. Cria uma **transformação** com uma [predefinição de codificação consciente do conteúdo.](./encode-content-aware-concept.md) Verifica primeiro se existe a Transformação especificada.
 1. Cria um **Ativo** de saída que é usado pelo **trabalho** de codificação para conter a saída
 1. Envia opcionalmente um ficheiro local usando o Storage Blob SDK
 1. Cria a entrada **Job** que se baseia num URL HTTPS ou num ficheiro carregado

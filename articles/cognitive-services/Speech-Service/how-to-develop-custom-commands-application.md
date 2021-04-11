@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddf36530e52703ab1033b8e2e787b42b6dc60332
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97935823"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553282"
 ---
 # <a name="develop-custom-commands-applications"></a>Desenvolver aplicações de comandos personalizados
 
@@ -212,7 +212,7 @@ Comece por editar o comando existente `TurnOn` para ligar e desligar vários dis
     | **É Global**          | Não selecionado             |
     | **Obrigatório**           | Selecionado               |
     | **Resposta para parâmetro requerido**     | **Editor simples** > `Which device do you want to control?`    | 
-    | **Tipo**               | **String**                |          |
+    | **Tipo**               | **String**                |     
     | **Configuração**      | **Aceite valores de entrada predefinidos de um catálogo interno** | 
     | **Valores de entrada predefinidos** | `tv`, `fan`               |
     | **Pseudónimos** `tv`      | `television`, `telly`     |
@@ -633,7 +633,7 @@ Outra forma de personalizar as respostas de Comandos Personalizados é seleciona
 > ![Screenshot mostrando frases e parâmetros da amostra.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Para vozes públicas, os tipos neurais estão disponíveis apenas para regiões específicas. Para obter mais informações, consulte [as regiões apoiadas pelo serviço speech.](./regions.md#standard-and-neural-voices)
+> Para vozes públicas, os tipos neurais estão disponíveis apenas para regiões específicas. Para obter mais informações, consulte [as regiões apoiadas pelo serviço speech.](./regions.md#neural-and-standard-voices)
 >
 > Pode criar vozes personalizadas na página do projeto **Custom Voice.** Para mais informações, consulte [Começar com a Voz Personalizada.](./how-to-custom-voice.md)
 

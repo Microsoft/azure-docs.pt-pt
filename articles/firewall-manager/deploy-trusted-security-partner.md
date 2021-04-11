@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/31/2021
 ms.author: victorh
-ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e10eef89df12807cabd96d64d9c7d659f91d6c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96485727"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109514"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Implementar um fornecedor de parceiros de segurança
 
@@ -90,28 +90,25 @@ Para configurar túneis para o VPN Gateway do seu hub virtual, os fornecedores d
    
 2. Pode olhar para o estado de criação do túnel no portal Azure Virtual WAN em Azure. Assim que os túneis mostrarem **ligados** tanto no Azure como no portal do parceiro, continue com os próximos passos para definir rotas para selecionar quais os ramos e VNets que devem enviar o tráfego de Internet para o parceiro.
 
-## <a name="configure-route-settings"></a>Configurar definições de rota
+## <a name="configure-security-with-firewall-manager"></a>Configure a segurança com o Gestor de Firewall
 
 1. Navegue pelo Azure Firewall Manager -> Secured Hubs. 
-2. Selecione um hub. O estatuto do Hub deve agora mostrar **provisionado** em vez de **Conexão** de Segurança Pendente .
+2. Selecione um hub. O estado do hub deve agora mostrar **provisionado** em vez de **Conexão** de Segurança Pendente .
 
    Certifique-se de que o fornecedor de terceiros pode ligar-se ao hub. Os túneis na porta de entrada da VPN devem estar num estado **ligado.** Este estado é mais reflexo da ligação entre o centro e o parceiro de terceiros, em comparação com o estado anterior.
-3. Selecione o hub e navegue para **definições de rota**.
+3. Selecione o hub e navegue para **configurações de segurança**.
 
    Quando coloca um fornecedor de terceiros no centro, converte o hub num *centro virtual seguro.* Isto garante que o fornecedor de terceiros está a publicitar uma rota 0.0.0.0/0 (padrão) para o hub. No entanto, as ligações VNet e os sites ligados ao hub não obtêm esta rota a menos que opte por quais ligações devem obter esta rota predefinido.
-4. No **tráfego de Internet**, selecione **VNet-to-Internet** ou **Branch-to-Internet** ou ambas as rotas são configuradas enviar através de terceiros.
+4. Configure a segurança virtual WAN definindo **o tráfego de Internet** através do Azure Firewall e do Tráfego **Privado** através de um parceiro de segurança confiável. Isto protege automaticamente as ligações individuais no WAN Virtual.
 
-   Isto apenas indica que tipo de tráfego deve ser encaminhado para o centro, mas ainda não afeta as rotas em VNets ou ramos. Estas rotas não são propagadas a todos os VNets/ramos ligados ao hub por padrão.
-5. Tem de selecionar **ligações seguras** e selecionar as ligações em que estas rotas devem ser definidas. Isto indica quais vNets/branches podem começar a enviar tráfego de Internet para o fornecedor de terceiros.
-6. A partir **das definições** de Rota , selecione **ligações Seguras** no tráfego da Internet e, em seguida, selecione o VNet ou os ramos *(sites* em WAN Virtual) a serem protegidos. Selecione **tráfego de Internet seguro**.
-   ![Tráfego de Internet seguro](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Navegue de volta para a página dos hubs. O estatuto de fornecedor de **parceiros** de segurança do centro deve agora ser **garantido.**
+   :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Configuração de segurança":::
+5. Além disso, se a sua organização utilizar gamas de IP públicas em redes virtuais e sucursais, tem de especificar explicitamente esses prefixos IP utilizando **prefixos de tráfego privado.** Os prefixos de endereço IP públicos podem ser especificados individualmente ou como agregados.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Tráfego de internet de sucursais ou VNet através de serviço de terceiros
 
 Em seguida, pode verificar se as máquinas virtuais VNet ou o site da sucursal podem aceder à Internet e validar que o tráfego está a fluir para o serviço de terceiros.
 
-Depois de terminar os passos de definição da rota, as máquinas virtuais VNet, bem como os sites de ramificação, são enviadas uma rota de serviço de 0/0 para terceiros. Não se pode pDR ou SSH nestas máquinas virtuais. Para iniciar sação, pode implantar o serviço [Azure Bastion](../bastion/bastion-overview.md) num VNet com par.
+Depois de terminar os passos de definição da rota, as máquinas virtuais VNet, bem como os sites de ramificação são enviados um 0/0 para a rota de serviço de terceiros. Não se pode pDR ou SSH nestas máquinas virtuais. Para iniciar sação, pode implantar o serviço [Azure Bastion](../bastion/bastion-overview.md) num VNet com par.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 254f424694df72a290a07369fe910587fadf58d4
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385552"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552959"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -104,6 +104,15 @@ Ao aceder ao armazenamento protegido com a firewall, pode utilizar a **Identidad
 #### <a name="user-identity"></a>Identidade do Utilizador
 
 Para aceder ao armazenamento que está protegido com a firewall através da Identidade do Utilizador, pode utilizar o módulo PowerShell Az.Storage.
+#### <a name="configuration-via-azure-portal"></a>Configuração via portal Azure
+
+1. Procure a sua Conta de Armazenamento no portal Azure.
+1. Ir para networking sob seção Definições.
+1. Na secção "Instâncias de Recursos" adicione uma exceção para o seu espaço de trabalho Synapse.
+1. Selecione Microsoft.Synapse/workspaces como um tipo de recurso.
+1. Selecione o nome do seu espaço de trabalho como nome de instância.
+1. Clique em Guardar.
+
 #### <a name="configuration-via-powershell"></a>Configuração via PowerShell
 
 Siga estes passos para configurar a firewall da sua conta de armazenamento e adicione uma exceção para o espaço de trabalho da Synapse.

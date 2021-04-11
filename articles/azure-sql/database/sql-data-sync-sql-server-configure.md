@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98882234"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968616"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,7 +64,7 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
    | **Use link privado** | Escolha um ponto final privado gerido por um serviço para estabelecer uma ligação segura entre o serviço de sincronização e a base de dados do hub. |
 
    > [!NOTE]
-   > A Microsoft recomenda a criação de uma nova base de dados vazia para utilização como **Base de Dados de Metadados de Sincronização**. O Data Sync cria tabelas nesta base de dados e executa uma carga de trabalho frequente. Esta base de dados é partilhada como base **de dados de metríduo sincronizado** para todos os grupos sincronizados numa região selecionada e subscrição. Não é possível alterar a base de dados ou o nome sem remover todos os grupos de sincronização e agentes sincronizados da região.
+   > A Microsoft recomenda a criação de uma nova base de dados vazia para utilização como **Base de Dados de Metadados de Sincronização**. O Data Sync cria tabelas nesta base de dados e executa uma carga de trabalho frequente. Esta base de dados é partilhada como base **de dados de metríduo sincronizado** para todos os grupos sincronizados numa região selecionada e subscrição. Não é possível alterar a base de dados ou o nome sem remover todos os grupos de sincronização e agentes sincronizados da região. Além disso, uma base de dados de empregos elástica não pode ser usada como base de dados de metadados SQL Data Sync e vice-versa.  
 
    Selecione **OK** e aguarde que o grupo de sincronização seja criado e implantado.
    

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdbf853a96f319cb27c10136004a1398014e602f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89227904"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109157"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho automatizados baseados em eventos utilizando webhooks HTTP em Azure Logic Apps
 
@@ -145,9 +145,9 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação http Webh
 | Nome da propriedade | Tipo | Description |
 |---------------|------|-------------|
 | cabeçalhos | objeto | Os cabeçalhos do pedido |
-| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
+| body | objeto | O objeto com o conteúdo do corpo do pedido |
 | código de estado | int | O código de estado do pedido |
-|||
+||||
 
 | Código de estado | Description |
 |-------------|-------------|

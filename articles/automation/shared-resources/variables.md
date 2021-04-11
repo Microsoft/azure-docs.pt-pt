@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 961dd40f7b0c17b554ff3a5d3e8e2cb5692b96fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74b808b941c00c9c47fbff31223274318ebeb2a0
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729393"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169390"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis em Azure Automation
 
@@ -120,8 +120,11 @@ $rgName = "ResourceGroup01"
 $accountName = "MyAutomationAccount"
 $variableValue = "My String"
 
-New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyStringVariable" –Encrypted $false –Value $variableValue
-$string = (Get-AzAutomationVariable -ResourceGroupName $rgName -AutomationAccountName $accountName –Name "MyStringVariable").Value
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" 
+-AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable' `
+-Encrypted $false -Value 'My String'
+$string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+-AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable').Value
 ```
 
 O exemplo a seguir mostra como criar uma variável com um tipo complexo e, em seguida, recuperar as suas propriedades. Neste caso, é utilizado um objeto de máquina virtual da [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) especificando um subconjunto das suas propriedades.
@@ -130,10 +133,11 @@ O exemplo a seguir mostra como criar uma variável com um tipo complexo e, em se
 $rgName = "ResourceGroup01"
 $accountName = "MyAutomationAccount"
 
-$vm = Get-AzVM -ResourceGroupName $rgName –Name "VM01" | Select Name, Location, Tags
-New-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" -Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable" -Encrypted $false -Value $vm
 
-$vmValue = Get-AzAutomationVariable -ResourceGroupName $rgName –AutomationAccountName $accountName –Name "MyComplexVariable"
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+-AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable"
 
 $vmName = $vmValue.Value.Name
 $vmTags = $vmValue.Value.Tags
@@ -158,7 +162,7 @@ Write-Output "Runbook has been run $numberOfRunnings times."
 for ($i = 1; $i -le $numberOfIterations; $i++) {
     Write-Output "$i`: $sampleMessage"
 }
-Set-AutomationVariable –Name numberOfRunnings –Value ($numberOfRunnings += 1)
+Set-AutomationVariable -Name numberOfRunnings -Value ($numberOfRunnings += 1)
 ```
 
 # <a name="python-2"></a>[Python 2](#tab/python2)

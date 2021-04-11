@@ -10,17 +10,17 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 8d495c04d5753c3771a0870659cc92fb1e604216
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 5dd6735b5ef17f97de1d2272bd98f6b87b0bc84b
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031210"
+ms.locfileid: "106553112"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-database"></a>Guia de migração: IBM Db2 para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Neste guia, aprende [a migrar as](https://azure.microsoft.com/migration/migration-journey) suas bases de dados IBM Db2 para Azure SQL Database, utilizando o [SqL Server Migration](https://azure.microsoft.com/migration/migration-journey) Assistant para db2. 
+Este guia ensina-o a migrar as suas bases de dados IBM Db2 para Azure SQL Database, utilizando o SqL Server Migration Assistant para Db2. 
 
 Para outros guias de migração, consulte os [Guias de Migração da Base de Dados Azure.](https://docs.microsoft.com/data-migration) 
 
@@ -35,7 +35,7 @@ Para migrar a sua base de dados Db2 para a Base de Dados SQL, precisa de:
 
 ## <a name="pre-migration"></a>Pré-migração
 
-Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da sua [migração em nuvem Azure.](https://azure.microsoft.com/migration)
+Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da sua migração. 
 
 ### <a name="assess-and-convert"></a>Avaliar e converter
 
@@ -153,7 +153,7 @@ Algumas funcionalidades do SQL Server só estão disponíveis quando o [nível d
 
 Para assistência adicional, consulte os seguintes recursos, que foram desenvolvidos em apoio a um envolvimento de um projeto de migração no mundo real:
 
-|Recurso  |Description  |
+|Recurso  |Descrição  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo e automatizada e uniforme processo de decisão da plataforma-alvo.|
 |[Pacote de descoberta e avaliação de ativos de dados DB2 zOS](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|Depois de executar o script SQL numa base de dados, pode exportar os resultados para um ficheiro no sistema de ficheiros. Vários formatos de ficheiros são suportados, incluindo *.csv, para que possa capturar os resultados em ferramentas externas, tais como folhas de cálculo. Este método pode ser útil se quiser partilhar facilmente resultados com equipas que não tenham a bancada de trabalho instalada.|
@@ -174,8 +174,7 @@ A equipa de Engenharia Data SQL desenvolveu estes recursos. A principal carta de
 
 - Para saber mais sobre o ciclo de enquadramento e adoção para migrações em nuvem, consulte:
    -  [Cloud Adoption Framework para o Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Best practices for costing and sizing workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) (Melhores práticas para avaliar custos e dimensionar as cargas de trabalho migradas para o Azure)
-   -  [Recursos migratórios em nuvem](https://azure.microsoft.com/migration/resources) 
+   -  [Best practices for costing and sizing workloads migrated to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) (Melhores práticas para avaliar custos e dimensionar as cargas de trabalho migradas para o Azure) 
 
 - Para avaliar a camada de acesso à aplicação, consulte o [Kit de Ferramentas de Migração do Acesso a Dados.](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - Para obter mais informações sobre como realizar testes da camada A/B de acesso a dados, consulte [o Assistente de Experimentação da Base de Dados](/sql/dea/database-experimentation-assistant-overview).

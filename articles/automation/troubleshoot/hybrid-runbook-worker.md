@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 565d801fb569f818613fd31b7492c0847eef9a7a
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580985"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169356"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Resolver problemas da Função de Trabalho de Runbook Híbrida
 
@@ -128,7 +128,7 @@ As seguintes questões são possíveis causas:
 #### <a name="resolution"></a>Resolução
 
 ##### <a name="mistyped-workspace-id-or-key"></a>ID ou chave do espaço de trabalho mal-ajustado
-Para verificar se a chave de iD ou espaço de trabalho do agente foi mal escrita, consulte [adicionar ou remover um espaço de trabalho – agente Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) para o agente Windows ou adicionar ou remover um espaço de trabalho – agente [Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) para o agente Linux. Certifique-se de selecionar a cadeia completa do portal Azure e copiá-la e colá-la cuidadosamente.
+Para verificar se a chave de iD ou espaço de trabalho do agente foi mal escrita, consulte [adicionar ou remover um espaço de trabalho - agente Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) para o agente Windows ou adicionar ou remover um espaço de trabalho - agente [Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) para o agente Linux. Certifique-se de selecionar a cadeia completa do portal Azure e copiá-la e colá-la cuidadosamente.
 
 ##### <a name="configuration-not-downloaded"></a>Configuração não descarregada
 

@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d106021d90304a06ea7c08494d626511bb903df0
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90019534"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553044"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o Hub IoT
 
@@ -44,7 +44,13 @@ Para utilizar a funcionalidade de upload de ficheiros, tem primeiro de ligar uma
 Os ficheiros upload do seu dispositivo para a nuvem com guias [IoT Hub](iot-hub-csharp-csharp-file-upload.md) como fazer fornecem uma passagem completa do processo de upload de ficheiros. Estes guias de como usar o portal Azure para associar uma conta de armazenamento a um hub IoT.
 
 > [!NOTE]
-> Os [Azure IoT SDKs](iot-hub-devguide-sdks.md) manuseiam automaticamente a recuperação do SAS URI, o upload do ficheiro e a notificação do IoT Hub de um upload concluído.
+> Os [Azure IoT SDKs](iot-hub-devguide-sdks.md) manuseiam automaticamente a recuperação da assinatura de acesso partilhado URI, o upload do ficheiro e a notificação do IoT Hub de um upload concluído. Se uma firewall bloquear o acesso ao ponto final do Blob Storage mas permitir o acesso ao ponto final do IoT Hub, o processo de upload de ficheiros falha e mostra o seguinte erro para o dispositivo IoT C# SDK:
+>
+> `---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond`
+>
+> Para que a funcionalidade de upload de ficheiros funcione, o acesso ao ponto final do IoT Hub e ao ponto final do Blob Storage deve estar disponível para o dispositivo.
+> 
+
 
 ## <a name="initialize-a-file-upload"></a>Inicialize um upload de ficheiros
 O IoT Hub tem um ponto final especificamente para os dispositivos solicitarem um SAS URI para armazenamento para carregar um ficheiro. Para iniciar o processo de upload de ficheiros, o dispositivo envia um pedido DEM para `{iot hub}.azure-devices.net/devices/{deviceId}/files` com o seguinte corpo JSON:

@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4330b72ef7e1440689e0ec4af9009f551553a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c253e75c7924a05c940b1d09b6f0c3fd281f696
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96547275"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056951"
 ---
 # <a name="what-is-enterprise-user-management"></a>O que é a gestão de utilizadores da empresa?
 

@@ -2,17 +2,19 @@
 title: Credenciais de reset vSphere para Solução VMware Azure
 description: Saiba como redefinir as credenciais vSphere para a sua nuvem privada Azure VMware Solution e certifique-se de que o conector HCX tem as mais recentes credenciais vSphere.
 ms.topic: how-to
-ms.date: 03/16/2021
-ms.openlocfilehash: 1376b6322250da506d32b8ced0a62ddbf60ba9f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/31/2021
+ms.openlocfilehash: 793b79e42a0adbca54804d1b66102736aff22d7a
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587632"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109106"
 ---
 # <a name="reset-vsphere-credentials-for-azure-vmware-solution"></a>Credenciais de reset vSphere para Solução VMware Azure
 
 Neste artigo, vamos percorrer os passos para redefinir as credenciais vCenter Server e NSX-T Manager para a sua nuvem privada Azure VMware Solution. Isto permitir-lhe-á garantir que o conector HCX tem as mais recentes credenciais do VCenter Server.
+
+Além deste como fazer, também pode ver o vídeo para [repor o vCenter CloudAdmin & palavra-passe de administrador NSX-T](https://youtu.be/cK1qY3knj88).
 
 ## <a name="reset-your-azure-vmware-solution-credentials"></a>Repor as suas credenciais de Solução VMware Azure
 

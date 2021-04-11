@@ -1,6 +1,6 @@
 ---
 title: Atribuir uma política de acesso a azure key vault (CLI)
-description: Como utilizar o CLI Azure para atribuir uma política de acesso ao Cofre chave a um principal de serviço ou identidade de aplicação.
+description: Como utilizar o CLI do Azure para atribuir uma política de acesso ao Cofre chave a um diretor de segurança ou identidade de aplicação.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0c7910ac149c8de43eeac92913a0d314fcc1854e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9dc03f776ac430072e456332955cbfc75d73bf2
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934582"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968854"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Atribuir uma política de acesso ao Cofre de Chaves
 
-Uma política de acesso ao Cofre-Chave determina se um dado responsável de serviço, nomeadamente uma aplicação ou grupo de utilizadores, pode realizar diferentes operações em [segredos](../secrets/index.yml)do Cofre chave, [chaves](../keys/index.yml)e [certificados](../certificates/index.yml). Pode atribuir políticas de acesso utilizando o [portal Azure,](assign-access-policy-portal.md)o Azure CLI (este artigo) ou [Azure PowerShell](assign-access-policy-powershell.md).
+Uma política de acesso ao Cofre-Chave determina se um dado principal de segurança, nomeadamente um utilizador, aplicação ou grupo de utilizadores, pode realizar diferentes operações em [segredos](../secrets/index.yml)do Cofre chave, [chaves](../keys/index.yml)e [certificados](../certificates/index.yml). Pode atribuir políticas de acesso utilizando o [portal Azure,](assign-access-policy-portal.md)o Azure CLI (este artigo) ou [Azure PowerShell](assign-access-policy-powershell.md).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -69,7 +69,7 @@ Utilize o comando [de definição de chave-tevault az](/cli/azure/keyvault#az-ke
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
 ```
 
-`<object-id>`Substitua-o pelo ID do objeto do seu principal de serviço.
+`<object-id>`Substitua-o pela identificação do objeto do seu principal de segurança.
 
 Só é necessário incluir `--secret-permissions` , e ao atribuir `--key-permissions` `--certificate-permissions` permissões a esses tipos específicos. Os valores admissíveis para `<secret-permissions>` `<key-permissions>` , e são `<certificate-permissions>` dados na documentação [de definição de keyvault az.](/cli/azure/keyvault#az-keyvault-set-policy)
 

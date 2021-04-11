@@ -4,20 +4,19 @@ description: Este quickstart mostra como usar o Azure Front Door Standard/Premiu
 services: frontdoor
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: 175fb82a5fdf300915f89c3d8cdc238638a742e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c6fe355621b4f096814268dea8fd2fc8e1166a7
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565134"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552874"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Quickstart: Criar um perfil Standard/Premium da Porta Frontal Azure - Portal Azure
 
@@ -148,7 +147,7 @@ Configure Azure Front Door Standard/Premium (Preview) para direcionar o tráfego
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot de adicionar um ponto final.":::
 
-1. Em seguida, adicione um Grupo Origin que contenha as suas duas aplicações web.  **Selecione + Adicionar** para abrir Adicione uma página de grupo de    **origem.** Para nomear, insira *o myOrignGroup* e, em seguida, selecione **+ Adicione uma origem**.
+1. Em seguida, adicione um Grupo Origin que contenha as suas duas aplicações web.  **Selecione + Adicionar** para abrir Adicione uma página de grupo de    **origem.** Para nomear, insira *o myOriginGroup,* em seguida, selecione **+ Adicione uma origem**.
  
      :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Screenshot de adicionar um grupo de origem.":::
 

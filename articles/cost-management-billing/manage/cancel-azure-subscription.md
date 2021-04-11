@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b20134cbfb85c2dcaef1227e6390c8c6047ad5be
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735780"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109395"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar a sua subscrição do Azure
 
@@ -77,6 +77,10 @@ Se tiver uma subscrição de avaliação gratuita, não tem de aguardar 30 dias 
 1. Selecione a subscrição que quer eliminar.
 1. Selecione **Descrição geral** e, em seguida, selecione **Eliminar subscrição**.
 
+## <a name="delete-other-subscriptions"></a>Eliminar outras subscrições
+
+O único tipo de subscrição que pode eliminar manualmente é uma subscrição de teste gratuita. Todos os outros tipos de subscrição, incluindo subscrições pay-as-you-go, são eliminados apenas através do processo de cancelamento de [subscrição.](#cancel-subscription-in-the-azure-portal) Por outras palavras, não pode excluir uma subscrição diretamente a menos que seja uma subscrição de teste gratuito. No entanto, depois de cancelar uma subscrição, pode criar um [pedido de suporte Azure](https://go.microsoft.com/fwlink/?linkid=2083458) para pedir que a subscrição seja eliminada imediatamente.
+
 ## <a name="reactivate-a-subscription"></a>Reativar uma subscrição
 
 Se cancelar a sua subscrição com tarifas Pay-As-You-Go acidentalmente, pode [reativá-la no portal Azure](subscription-disabled.md).
@@ -89,7 +93,7 @@ Talvez não tenha as permissões necessárias para cancelar uma subscrição. Ve
 
 ## <a name="how-do-i-delete-my-azure-account"></a>Como devo proceder para eliminar a minha Conta do Azure?
 
-*Preciso de remover a minha conta, incluindo todas as minhas informações pessoais. Já cancelei as minhas subscrições ativas (Avaliação Gratuita). Não tenho nenhuma subscrição ativa e gostaria de eliminar totalmente a minha conta*.
+*Preciso de remover a minha conta, incluindo todas as minhas informações pessoais. Já cancelei as minhas assinaturas ativas (Teste Gratuito). Não tenho nenhuma subscrição ativa, e gostaria de apagar totalmente a minha conta.*
 
 * Se tiver uma conta de Azure Active Directory através da sua organização, o administrador do Azure AD poderá eliminar a conta. Depois disso, os seus serviços serão desativados. Isto significa que as máquinas virtuais são desalocadas, os endereços IP temporários são libertados e o armazenamento é só de leitura. Em resumo, depois de cancelar, a faturação é interrompida imediatamente.
 

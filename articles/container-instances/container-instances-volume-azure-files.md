@@ -2,23 +2,27 @@
 title: Monte Azure Files volume para grupo de contentores
 description: Saiba como montar um volume de Ficheiros Azure para persistir com instâncias de contentores Azure
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 03/24/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09a4d9922a4f9ba4296fc194d72c621fecb8342d
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97954979"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968905"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar uma partilha de ficheiros do Azure no Azure Container Instances
 
 Por predefinição, o Azure Container Instances não tem monitorização de estado. Se o contentor for reiniciado, se despenhar ou parar, todo o seu estado está perdido. Para manter as informações de estado para além da duração do contentor, tem de montar um volume a partir de um arquivo externo. Como mostrado neste artigo, a Azure Container Instances pode montar uma partilha de ficheiros Azure criada com [ficheiros Azure](../storage/files/storage-files-introduction.md). O Azure Files oferece ações de ficheiros totalmente geridas, hospedadas no Azure Storage, acessíveis através do protocolo padrão do Bloco de Mensagens do Servidor (SMB) da indústria. A utilização de uma partilha de ficheiros Azure com a Azure Container Instances fornece funcionalidades de partilha de ficheiros semelhantes à utilização de uma partilha de ficheiros Azure com máquinas virtuais Azure.
 
+## <a name="limitations"></a>Limitações
+
+* Só é possível montar partilhas de Ficheiros Azure em contentores Linux. Reveja mais sobre as diferenças no suporte de funcionalidades para grupos de contentores Linux e Windows na [visão geral](container-instances-overview.md#linux-and-windows-containers).
+* O suporte de volume de partilha de ficheiros Azure requer que o recipiente Linux corra como *raiz* .
+* Os suportes de volume de partilha de ficheiros Azure estão limitados ao suporte CIFS.
+
 > [!NOTE]
-> A montagem de uma partilha de Ficheiros Azure está atualmente restrita aos contentores Linux. Encontre as diferenças da plataforma atuais na [visão geral.](container-instances-overview.md#linux-and-windows-containers)
->
-> A montagem de uma partilha de Ficheiros Azure para uma instância de contentor é semelhante a um [suporte de encaixe](https://docs.docker.com/storage/bind-mounts/)docker . Tenha em atenção que se montar uma partilha num diretório de contentores em que existam ficheiros ou diretórios, estes ficheiros ou diretórios são obscurecidos pelo suporte e não estão acessíveis enquanto o contentor funciona.
+> A montagem de uma partilha de Ficheiros Azure para uma instância de contentor é semelhante a um [suporte de encaixe](https://docs.docker.com/storage/bind-mounts/)docker . Se montar uma partilha num diretório de contentores no qual existem ficheiros ou diretórios, o suporte obscurece ficheiros ou diretórios, tornando-os inacessíveis enquanto o recipiente funciona.
 >
 
 > [!IMPORTANT]

@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 398b4b6f1f1e1d812e4782bfb6c96870d68e0cec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 68b5fc7c958f611c43ba3f38bf30ceb63608886a
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107150"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106112927"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -80,7 +80,7 @@ main().catch((error) => {
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantiizar a `CommunicationIdentityClient` com a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação dos recursos.](../create-communication-resource.md#store-your-connection-string)
+Instantiizar a `CommunicationIdentityClient` com a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação do seu recurso.](../create-communication-resource.md#store-your-connection-string)
 
 Adicione o seguinte código ao método `main`:
 
@@ -108,7 +108,7 @@ Se tiver gerido a configuração de identidade, consulte [utilização de identi
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
 const tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential);
 ```
 
 ## <a name="create-an-identity"></a>Criar uma identidade
@@ -140,7 +140,7 @@ Utilize o `createUserAndToken` método para criar uma identidade dos Serviços d
 
 ```javascript
 // Issue an identity and an access token with the "voip" scope for the new identity
-let identityTokenResponse = await this.client.createUserAndToken(["voip"]);
+let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
 const { token, expiresOn, user } = identityTokenResponse;
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);

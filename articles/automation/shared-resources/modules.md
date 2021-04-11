@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 57dfc388dcba926706a695c93d2afa1956432be8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c86eab249167fab2d1ad72bba22e1d507122138c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953940"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169407"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Utilizar módulos na Automatização do Azure
 
@@ -224,7 +224,7 @@ Inclua uma sinopse, descrição e ajude o URI para cada cmdlet do seu módulo. N
 
   switch ($PSCmdlet.ParameterSetName) {
      "UserAccount" {
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $UserName, $Password
+        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $UserName, $Password
         Connect-Contoso -Credential $cred
      }
      "ConnectionObject" {
@@ -249,7 +249,7 @@ O exemplo do seguinte runbook utiliza um ativo de ligação Contoso chamado `Con
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
 
-  $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $contosoConnection.UserName, $contosoConnection.Password
+  $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $contosoConnection.UserName, $contosoConnection.Password
   Connect-Contoso -Credential $cred
   }
   ```
