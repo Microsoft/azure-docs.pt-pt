@@ -4,10 +4,10 @@ description: Aprenda a implementar uma especificação de modelo existente numa 
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.openlocfilehash: 8d4ccd77c8b37a696fab7494a8d3f8052fc89b35
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889268"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementar uma especificação de modelo como um modelo ligado (Pré-visualização)

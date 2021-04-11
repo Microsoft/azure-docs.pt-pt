@@ -1,16 +1,16 @@
 ---
-title: Instale o Defender para o micro agente IoT (pré-visualização)
-description: Aprenda a instalar e autentica o Micro-Agente Defender.
+title: 'Quickstart: Instalar o Defender para o micro agente IoT (pré-visualização)'
+description: Neste arranque rápido, aprenda a instalar e autentica o Micro Agente Defender.
 ms.date: 3/9/2021
 ms.topic: quickstart
-ms.openlocfilehash: ecde9f42acc5cf4a924a657f4f0cdc545c4a668e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a153b640a1d1e86f9b761817d05fda7d3e47da98
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782729"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384413"
 ---
-# <a name="install-defender-for-iot-micro-agent-preview"></a>Instale o Defender para o micro agente IoT (pré-visualização)
+# <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>Quickstart: Instalar o Defender para o micro agente IoT (pré-visualização)
 
 Este artigo fornece uma explicação de como instalar e autenticar o micro-agente Defender.
 
@@ -148,4 +148,5 @@ sudo apt-get install defender-iot-micro-agent=<version>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Construção do micro agente Defender a partir do código fonte](quickstart-building-the-defender-micro-agent-from-source.md)
+> [!div class="nextstepaction"]
+> [Construção do micro agente Defender a partir do código fonte](quickstart-building-the-defender-micro-agent-from-source.md)

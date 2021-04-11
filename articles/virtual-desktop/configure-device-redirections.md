@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 5eca75da57027789a06259e22e7c6cd5231404b6
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95018380"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448156"
 ---
 # <a name="configure-device-redirections"></a>Configurar redirecionamentos de dispositivo
 

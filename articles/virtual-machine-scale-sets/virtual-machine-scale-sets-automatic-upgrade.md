@@ -5,16 +5,16 @@ author: avirishuv
 ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9194ab70e37c0659e77cbe9c10ffca10e1a76de8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684615"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011873"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas da imagem do SO do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -79,7 +79,7 @@ As seguintes plataformas SKUs são atualmente suportadas (e mais são adicionada
 ### <a name="service-fabric-requirements"></a>Requisitos de tecido de serviço
 
 Se estiver a utilizar o Service Fabric, certifique-se de que estão reunidas as seguintes condições:
--   O [nível de durabilidade do](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) tecido de serviço é prata ou ouro, e não bronze.
+-   O [nível de durabilidade](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) do tecido de serviço é prateado ou dourado, e não bronze (exceto nótypes apátridas, que suportam upgrades automáticos de OS).
 -   A extensão do Tecido de Serviço na definição do modelo definidor de escala deve ter TypeHandlerVersion 1.1 ou superior.
 -   O nível de durabilidade deve ser o mesmo na extensão do cluster de tecido de serviço e do tecido de serviço na definição do modelo definido em escala.
 - Não é necessária uma sonda de saúde adicional ou a utilização de uma extensão de saúde da aplicação.
@@ -163,7 +163,7 @@ A sonda de compensação de carga pode ser referenciada na *redeProfile* do conj
 ```
 
 > [!NOTE]
-> Ao utilizar atualizações automáticas de OS com Tecido de Serviço, a nova imagem de SO é lançada domínio de atualização por Atualização do Domínio para manter uma elevada disponibilidade dos serviços em execução no Tecido de Serviço. Para utilizar atualizações automáticas de OS no Tecido de Serviço, o seu cluster deve ser configurado para utilizar o Nível de Durabilidade prateada ou superior. Para obter mais informações sobre as características de durabilidade dos clusters de Tecidos de Serviço, consulte [esta documentação.](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)
+> Ao utilizar atualizações automáticas de OS com Tecido de Serviço, a nova imagem de SO é lançada domínio de atualização por Atualização do Domínio para manter uma elevada disponibilidade dos serviços em execução no Tecido de Serviço. Para utilizar atualizações automáticas de OS no Tecido de Serviço, o seu nódizo cluster deve ser configurado para utilizar o Nível de Durabilidade prateada ou superior. Para o nível de durabilidade de bronze, o upgrade automático de SO só é suportado para nóótipos apátridas. Para obter mais informações sobre as características de durabilidade dos clusters de Tecidos de Serviço, consulte [esta documentação.](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)
 
 ### <a name="keep-credentials-up-to-date"></a>Manter as credenciais atualizadas
 Se o seu conjunto de escalas utilizar quaisquer credenciais para aceder a recursos externos, como uma extensão VM configurada para usar um token SAS para conta de armazenamento, então certifique-se de que as credenciais são atualizadas. Se alguma credencial, incluindo certificados e fichas, tiver expirado, a atualização falhará e o primeiro lote de VMs será deixado num estado de falha.

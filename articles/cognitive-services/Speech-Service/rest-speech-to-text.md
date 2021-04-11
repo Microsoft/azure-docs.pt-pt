@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0c041d64b3dbd0c38979f4d8d0fa563a72f6a4b1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606910"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168200"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -153,7 +153,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 Recomendamos vivamente o streaming (em pedaços) ao publicar os dados áudio, o que pode reduzir significativamente a latência. Consulte [o código de amostra em diferentes linguagens de programação](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) para saber como permitir o streaming.
 
 >[!NOTE]
->A funcionalidade de avaliação da pronúncia está atualmente disponível apenas em `en-US` linguagem.
+> A funcionalidade de avaliação da pronúncia suporta atualmente a `en-US` linguagem, disponível em todas as [regiões de expressão para texto.](regions.md#speech-to-text) O apoio `en-GB` e `zh-CN` as línguas estão em pré-visualização, que está disponível em `westus` , e `eastasia` `centralindia` regiões.
 
 ### <a name="sample-request"></a>Pedido de amostra
 

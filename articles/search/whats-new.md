@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 99a7f08b6d366f2f928b99caba2424c2fae0d625
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b9ae576a2d0ab8aee00be5b755c348806b412bef
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559524"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108494"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -27,6 +27,8 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 | [Termos de consulta de verificação ortográfica](speller-how-to-add.md) | Antes de os termos de consulta chegarem ao motor de busca, pode verificar se há erros ortográficos. A `speller` opção funciona com qualquer tipo de consulta (simples, completa ou semântica). |  Pré-visualização pública, REST only, api-version=2020-06-30-Preview|
 | [Indexador Online SharePoint](search-howto-index-sharepoint-online.md) | Este indexante liga-o a um site SharePoint Online para que possa indexar o conteúdo a partir de uma biblioteca de documentos. | Pré-visualização pública, REST only, api-version=2020-06-30-Preview |
 | [Normalizadores](search-normalizers.md) | Os normalizadores fornecem um simples pré-processamento de texto como invólucro, remoção de sotaque, asciifolding e assim por diante sem passar por toda a cadeia de análise.| Pré-visualização pública, REST only, api-version=2020-06-30-Preview |
+[**Competência de procura de entidade personalizada**](cognitive-search-skill-custom-entity-lookup.md ) |  Uma habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos. | Geralmente disponível. |
+|
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

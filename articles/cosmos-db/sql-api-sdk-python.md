@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: rosouz
 ms.custom: devx-track-python
 ms.openlocfilehash: 470ae497acab4c75e83a13e485d1bcb118485ab9
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104799518"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK Python do Azure Cosmos DB para a API SQL: Notas de versão e recursos

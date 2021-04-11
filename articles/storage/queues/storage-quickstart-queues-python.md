@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-python
 ms.openlocfilehash: b4c25ceb2e7b3f224dccdd7d24d86389100c8a2e
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801915"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Quickstart: Azure Queue Storage client library v12 for Python

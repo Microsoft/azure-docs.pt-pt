@@ -8,10 +8,10 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 2a26a71e956a7e1313af9e99cc92232d0caf91e7
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878661"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Resolução de problemas problemas comuns da Nuvem de primavera de Azure

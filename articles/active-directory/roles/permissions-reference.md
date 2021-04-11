@@ -14,24 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f467fc739b3120fd43bec4e21e1e336c1cdf186f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ad8466dca6634b0e72ef4a65acb537006dba3bda
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935418"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108545"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções incorporadas do Azure AD
 
 No Azure Ative Directory (Azure AD), se outro administrador ou não administrador precisar de gerir os recursos Azure AD, atribua-lhes uma função AD Azure que fornece as permissões de que necessitam. Por exemplo, pode atribuir funções para permitir adicionar ou alterar utilizadores, redefinir palavras-passe do utilizador, gerir licenças de utilizador ou gerir nomes de domínio.
 
 Este artigo lista as funções incorporadas AD AZure que pode atribuir para permitir a gestão dos recursos AZure AD. Para obter informações sobre como atribuir funções, consulte [atribuir funções AZure AD aos utilizadores](manage-roles-portal.md).
-
-## <a name="limit-use-of-global-administrator"></a>Limitar a utilização do Administrador Global
-
-Os utilizadores que estão atribuídos à função de Administrador Global podem ler e modificar todas as definições administrativas da sua organização AZure AD. Por padrão, quando um utilizador se inscreve para um serviço de cloud da Microsoft, é criado um inquilino AZure AD e o utilizador é nomeado membro do papel de Administrador Global. Quando adiciona uma subscrição a um inquilino existente, não está atribuído ao papel de Administrador Global. Apenas administradores globais e administradores de funções privilegiadas podem delegar funções de administrador. Para reduzir o risco para o seu negócio, recomendamos que atribua este papel ao menor número possível de pessoas na sua organização.
-
-Como uma boa prática, recomendamos que atribua este papel a menos de cinco pessoas na sua organização. Se tiver mais de cinco administradores atribuídos ao papel de Administrador Global na sua organização, eis algumas formas de reduzir o seu uso.
 
 ## <a name="all-roles"></a>Todos os papéis
 
@@ -771,6 +765,9 @@ Este administrador gere a federação entre organizações AD da Azure e fornece
 ## <a name="global-administrator"></a>Administrador Global
 
 Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas no Azure Ative Directory, bem como serviços que utilizam identidades do Azure Ative Directory como o Microsoft 365 security center, o Microsoft 365 compliance center, o Exchange Online, o SharePoint Online e o Skype para business online. Além disso, os Administradores Globais podem [elevar o seu acesso](../../role-based-access-control/elevate-access-global-admin.md) para gerir todas as subscrições e grupos de gestão da Azure. Isto permite que os Administradores Globais tenham acesso total a todos os recursos Azure usando o respetivo Azure AD Tenant. A pessoa que se inscreve na organização AZure AD torna-se administradora global. Pode haver mais do que um Administrador Global na sua empresa. Os Administradores Globais podem redefinir a palavra-passe para qualquer utilizador e todos os outros administradores.
+
+> [!NOTE]
+> Como uma boa prática, a Microsoft recomenda que atribua o papel de Administrador Global a menos de cinco pessoas na sua organização. Para mais informações, consulte [as melhores práticas para as funções de Ad Azure.](best-practices.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -1841,6 +1838,23 @@ Os utilizadores com esta função podem criar utilizadores e gerir todos os aspe
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o serviço de saúde no centro de administração Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de serviço microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos no centro de administração Microsoft 365 |
+
+## <a name="how-to-understand-role-permissions"></a>Como compreender permissões de função
+
+O esquema para permissões segue vagamente o formato REST do Microsoft Graph:
+
+`<namespace>/<entity>/<propertySet>/<action>`
+
+Por exemplo:
+
+`microsoft.directory/applications/credentials/update`
+
+| Elemento de permissão | Description |
+| --- | --- |
+| espaço de nomes | Produto ou serviço que expõe a tarefa e está preparado com `microsoft` . Por exemplo, todas as tarefas em Azure AD usam o `microsoft.directory` espaço de nome. |
+| entidade | Característica lógica ou componente exposto pelo serviço no Microsoft Graph. Por exemplo, a Azure AD expõe o Utilizador e os Grupos, o OneNote expõe notas e a Exchange expõe caixas de correio e calendários. Existe uma `allEntities` palavra-chave especial para especificar todas as entidades num espaço de nome. Isto é frequentemente usado em papéis que concedem acesso a um produto inteiro. |
+| conjunto de propriedades | Propriedades ou aspetos específicos da entidade para a qual o acesso está a ser concedido. Por exemplo, `microsoft.directory/applications/authentication/read` concede a capacidade de ler o URL de resposta, URL de logout e propriedade de fluxo implícito no objeto de aplicação em Azure AD.<ul><li>`allProperties` designa todas as propriedades da entidade, incluindo propriedades privilegiadas.</li><li>`standard` designa propriedades comuns, mas exclui as privilegiadas relacionadas com a `read` ação. Por exemplo, `microsoft.directory/user/standard/read` inclui a capacidade de ler propriedades padrão como número de telefone público e endereço de e-mail, mas não o número de telefone secundário privado ou endereço de e-mail usado para a autenticação de vários fatores.</li><li>`basic` designa propriedades comuns, mas exclui as privilegiadas relacionadas com a `update` ação. O conjunto de propriedades que pode ler pode ser diferente do que pode atualizar. É por isso que há `standard` `basic` e palavras-chave para refletir isso.</li></ul> |
+| ação | Operação sendo concedida, a maioria normalmente criar, ler, atualizar ou apagar (CRUD). Existe uma `allTasks` palavra-chave especial para especificar todas as capacidades acima (criar, ler, atualizar e eliminar). |
 
 ## <a name="deprecated-roles"></a>Papéis precotados
 

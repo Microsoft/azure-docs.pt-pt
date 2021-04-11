@@ -11,10 +11,10 @@ ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
 ms.openlocfilehash: a49ede283899cec42898672f5a376221265dea10
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104726957"
 ---
 # <a name="3---deploy-the-search-enabled-website"></a>3 - Implementar o site ativado por pesquisa

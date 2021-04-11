@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c8a9121d0e36eb51cd02c2c884ddcaa0dd79a79
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96750225"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226214"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e boas práticas para o Azure Ative Directory B2C
 
@@ -26,7 +26,7 @@ As seguintes boas práticas e recomendações abrangem alguns dos aspetos primá
 
 | Melhores práticas | Description |
 |--|--|
-| Escolha os fluxos de utilizador para a maioria dos cenários | O Quadro de Experiência de Identidade do Azure AD B2C é a força central do serviço. As políticas descrevem totalmente experiências de identidade como inscrição, inscrição ou edição de perfis. Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal Azure AD B2C inclui políticas predefinidas e configuráveis chamadas fluxos de utilizador. Com os fluxos do utilizador, pode criar excelentes experiências de utilizador em minutos, com apenas alguns cliques. [Saiba quando utilizar fluxos de utilizador vs. políticas personalizadas](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
+| Escolha os fluxos de utilizador para a maioria dos cenários | O Quadro de Experiência de Identidade do Azure AD B2C é a força central do serviço. As políticas descrevem totalmente experiências de identidade como inscrição, inscrição ou edição de perfis. Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal Azure AD B2C inclui políticas predefinidas e configuráveis chamadas fluxos de utilizador. Com os fluxos do utilizador, pode criar excelentes experiências de utilizador em minutos, com apenas alguns cliques. [Saiba quando utilizar fluxos de utilizador vs. políticas personalizadas](user-flow-overview.md#comparing-user-flows-and-custom-policies).|
 | Registos de aplicações | Todas as aplicações (web, nativas) e API que estão a ser protegidas devem estar registadas no Azure AD B2C. Se uma aplicação tiver uma versão web e nativa do iOS e Android, pode registá-las como uma aplicação no Azure AD B2C com o mesmo ID do cliente. Saiba como [registar aplicações OIDC, SAML, web e native.](./tutorial-register-applications.md?tabs=applications) Saiba mais sobre [os tipos de aplicações que podem ser usados em Azure AD B2C](./application-types.md). |
 | Passar para faturação mensal de utilizadores ativos | O Azure AD B2C passou de autenticações ativas mensais para faturação mensal de utilizadores ativos (MAU). A maioria dos clientes vai achar este modelo rentável. [Saiba mais sobre a faturação mensal dos utilizadores ativos.](https://azure.microsoft.com/updates/mau-billing/) |
 
@@ -78,7 +78,7 @@ Gerencie o seu ambiente Azure AD B2C.
 |--|--|
 | Criar vários ambientes | Para facilitar as operações e implantação, crie ambientes separados para o desenvolvimento, teste, pré-produção e produção. Crie inquilinos Azure AD B2C para cada um. |
 | Use o controlo de versão para as suas políticas personalizadas | Considere usar GitHub, Azure Repos ou outro sistema de controlo de versão baseado na nuvem para as suas políticas personalizadas Azure AD B2C. |
-| Utilize a Microsoft Graph API para automatizar a gestão dos seus inquilinos B2C | APIs do Gráfico da Microsoft:<br/>Gerir [o Quadro de Experiência de Identidade](/graph/api/resources/trustframeworkpolicy?preserve-view=true&view=graph-rest-beta) (políticas personalizadas)<br/>[Chaves](/graph/api/resources/trustframeworkkeyset?preserve-view=true&view=graph-rest-beta)<br/>[Fluxos de Utilizador](/graph/api/resources/identityuserflow?preserve-view=true&view=graph-rest-beta) |
+| Utilize a Microsoft Graph API para automatizar a gestão dos seus inquilinos B2C | APIs do Gráfico da Microsoft:<br/>Gerir [o Quadro de Experiência de Identidade](/graph/api/resources/trustframeworkpolicy?preserve-view=true&view=graph-rest-beta) (políticas personalizadas)<br/>[Chaves](/graph/api/resources/trustframeworkkeyset?preserve-view=true&view=graph-rest-beta)<br/>[Fluxos do Utilizador](/graph/api/resources/identityuserflow?preserve-view=true&view=graph-rest-beta) |
 | Integre com Azure DevOps | Um [gasoduto CI/CD](deploy-custom-policies-devops.md) facilita o código de movimento entre diferentes ambientes e garante sempre a prontidão da produção.   |
 | Integre-se com o Azure Monitor | [Os eventos de registo de auditoria](view-audit-logs.md) só são mantidos por sete dias. [Integre-se com o Azure Monitor](azure-monitor.md) para reter os registos para uso a longo prazo, ou integrar-se com ferramentas de segurança de terceiros e de gestão de eventos (SIEM) para obter informações sobre o seu ambiente. |
 | Configuração de alerta e monitorização ativa | [Acompanhe o comportamento do utilizador](./analytics-with-application-insights.md) em Azure AD B2C utilizando Insights de Aplicação. |

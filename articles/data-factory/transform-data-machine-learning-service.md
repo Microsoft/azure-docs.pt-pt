@@ -3,15 +3,15 @@ title: Executar gasodutos de aprendizagem automática Azure
 description: Aprenda a executar os seus oleodutos Azure Machine Learning nos seus oleodutos Azure Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: daperlov
-author: djpmsft
+ms.author: weetok
+author: dcstwh
 ms.date: 07/16/2020
-ms.openlocfilehash: db1816baf0ebc476a132b344d8db3cdbdd170e50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0b941325d6bbabcb083b5f71a40c145d3ef48d0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373934"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103475"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Execute os oleodutos Azure Machine Learning na Azure Data Factory
 
@@ -55,6 +55,7 @@ mlPipelineId | ID do oleoduto de aprendizagem automática Azure publicado | Cord
 experimentName | Executar o nome da experiência de história do gasoduto Machine Learning | Corda (ou expressão com resultadoType de corda) | No
 mlPipelineParametros | Chave, pares de valor a serem passados para o ponto final do pipeline Azure Machine Learning publicado. As teclas devem corresponder aos nomes dos parâmetros do gasoduto definidos no pipeline de Machine Learning publicado | Objeto com pares de valor chave (ou Expressão com objeto de tipo resultado) | No
 mlParentRunId | O oleoduto de aprendizagem da máquina de azure pai executar iD | Corda (ou expressão com resultadoType de corda) | No
+dataPassignments | Dicionário usado para mudar datapaths na aprendizagem da máquina Azure. Permite a comutação de datapaths | Objeto com pares de valor chave | No
 continueOnStepFailure | Se continuar a execução de outros passos no gasoduto machine learning executado se um passo falhar | boolean | No
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfe365af868f01b868e737a409724e92f1d57f81
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879246"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106994"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Apoio ao programa de marketplace comercial no Partner Center
 
@@ -24,7 +24,7 @@ A Microsoft fornece suporte para uma grande variedade de produtos e serviços. E
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obtenha ajuda ou abra um bilhete de apoio
 
-1. Inscreva-se na sua conta de trabalho. Se ainda não o fez, terá de [criar uma conta Partner Center](partner-center-portal/create-account.md).
+1. Inscreva-se na sua conta de trabalho. Se ainda não o fez, terá de [criar uma conta Partner Center](create-account.md).
 
 1. No menu no canto superior direito da página, selecione o ícone **De suporte.** O **painel de ajuda e apoio** aparece no lado direito da página.
 

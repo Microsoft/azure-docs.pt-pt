@@ -8,10 +8,10 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 5903cc39e2480821cd3d81b4f8dd59c59e2db3d4
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105037427"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-attestation"></a>Definições de Azure Policy incorporadas para Azure Attestation

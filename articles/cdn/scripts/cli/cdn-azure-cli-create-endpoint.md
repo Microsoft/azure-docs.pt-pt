@@ -10,10 +10,10 @@ ms.service: azure-cdn
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ce01c1f851a5dbaedc85d848b12bf0b0831a16ef
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104726933"
 ---
 # <a name="create-an-azure-cdn-profile-and-endpoint-using-the-azure-cli"></a>Criar um perfil E ponto final Azure CDN usando o Azure CLI

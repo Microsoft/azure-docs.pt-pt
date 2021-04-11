@@ -13,10 +13,10 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: ea6ecf456bbcea01bf4c1eef5377d918bf0918fd
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104798957"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicativo de desktop que chama APIs web
@@ -32,7 +32,7 @@ Se ainda não o fez, crie a sua primeira aplicação completando um arranque rá
 - [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação nativa do macOS](./quickstart-v2-ios.md)
 - [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação Node.js & Electron](./quickstart-v2-nodejs-desktop.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Escreve uma aplicação para desktop e pretende iniciar sísem os utilizadores na sua aplicação e ligar para apis web como o Microsoft Graph, outras APIs da Microsoft ou a sua própria API web. Tem várias opções:
 

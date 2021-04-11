@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: c775d81b88c891d6d8ea0a4597b4fa4fee29c86a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: a849b65fd25e6943925ffa245430cd8a27529fdb
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737550"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448428"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurar a anexação de aplicações MSIX com o portal do Azure
 

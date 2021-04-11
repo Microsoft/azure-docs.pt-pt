@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/08/2018
+ms.date: 04/06/2021
 ms.author: kumud
-ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 077e92b67f0cf6dac673cc870b7ff8c86fbe60dd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234159"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551293"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
 
-A recuperação de desastres centra-se na recuperação de uma grave perda de funcionalidade de aplicação. Para escolher uma solução de recuperação de desastres, os proprietários de empresas e tecnologia devem primeiro determinar o nível de funcionalidade que é necessário durante uma catástrofe, como - indisponível, parcialmente disponível através de funcionalidades reduzidas, ou disponibilidade retardada, ou totalmente disponível.
+A recuperação de desastres centra-se na recuperação de uma grave perda de funcionalidade de aplicação. Para escolher uma solução de recuperação de desastres, os proprietários de negócios e tecnologia devem primeiro determinar o nível de funcionalidade que é necessário durante uma catástrofe, como - indisponível, parcialmente disponível através de funcionalidades reduzidas, ou disponibilidade retardada, ou totalmente disponível.
 A maioria dos clientes empresariais está a escolher uma arquitetura multi-região para resiliência contra uma aplicação ou falha de nível de infraestrutura. Os clientes podem escolher várias abordagens na busca de alcançar o failover e a alta disponibilidade através de arquitetura redundante. Eis algumas das abordagens populares:
 
-- **Ativamente passiva com atenção a frio**: Nesta solução de failover, os VMs e outros aparelhos que estão a funcionar na região de espera não estão ativos até que haja necessidade de falha. No entanto, o ambiente de produção é replicado sob a forma de backups, imagens VM ou modelos de Gestor de Recursos, para uma região diferente. Este mecanismo de failover é rentável, mas demora mais tempo a empreender um completo fracasso.
+- **Ativo passivo com espera a frio**: Nesta solução de failover, os VMs e outros aparelhos que estão a funcionar na região de espera não estão ativos até que haja necessidade de falha. No entanto, o ambiente de produção é replicado sob a forma de backups, imagens VM ou modelos de Gestor de Recursos, para uma região diferente. Este mecanismo de failover é rentável, mas demora mais tempo a empreender um completo fracasso.
  
     ![Ativo/Passivo com espera fria](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
     *Figura - Ativa/Passiva com configuração de recuperação de desastres em espera a frio*
 
-- **Ativo/Passivo com luz piloto**: Nesta solução de failover, o ambiente de espera é configurado com uma configuração mínima. A configuração tem apenas os serviços necessários em execução para suportar apenas um conjunto mínimo e crítico de aplicações. Na sua forma nativa, este cenário só pode executar a funcionalidade mínima, mas pode aumentar e criar serviços adicionais para tomar a maior parte da carga de produção em caso de falha.
+- **Ativo/Passivo com luz piloto**: Nesta solução de failover, o ambiente de espera é configurado com uma configuração mínima. A configuração tem apenas os serviços necessários em execução para suportar apenas um conjunto mínimo e crítico de aplicações. Na sua forma nativa, este cenário só pode executar a funcionalidade mínima, mas pode escalar e gerar mais serviços para tomar a maior parte da carga de produção em caso de falha.
     
     ![Ativo/Passivo com luz piloto](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
     *Figura: Ativo/Passivo com configuração piloto de recuperação de desastres ligeiros*
 
-- **Ativo/Passivo com standby quente**: Nesta solução de failover, a região de espera está pré-aquecida e está pronta para assumir a carga base, a escala automática é ligada e todas as ocorrências estão a funcionar. Esta solução não é dimensionada para levar a carga de produção completa, mas é funcional, e todos os serviços estão em funcionamento. Esta solução é uma versão aumentada da abordagem da luz piloto.
+- **Ativo/Passivo com standby quente**: Nesta solução de failover, a região de espera fica pré-aquecida e está pronta para assumir a carga base, a escala automática é ligada e todas as instâncias estão a funcionar. Esta solução não é dimensionada para levar a carga de produção completa, mas é funcional, e todos os serviços estão em funcionamento. Esta solução é uma versão aumentada da abordagem da luz piloto.
     
     ![Ativo/Passivo com standby quente](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     
@@ -64,7 +64,7 @@ O DNS é um dos mecanismos mais eficientes para desviar o tráfego da rede porqu
 - **Encaminhamento prioritário** – O encaminhamento prioritário baseia-se em verificações de saúde dos pontos finais. Por defeito, o gestor de tráfego da Azure envia todo o tráfego para o ponto final prioritário mais elevado, e após uma falha ou desastre, o Gestor de Tráfego encaminha o tráfego para o ponto final secundário. Para obter mais informações, consulte [o método de encaminhamento prioritário](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
 
 ## <a name="manual-failover-using-azure-dns"></a>Falha manual usando DNS do Azure
-A solução de falha manual Azure DNS para recuperação de desastres utiliza o mecanismo dNS padrão para falhar no local de backup. A opção manual via Azure DNS funciona melhor quando utilizada em conjunto com o modo de espera frio ou a abordagem da luz piloto. 
+A solução de falha manual Azure DNS para recuperação de desastres utiliza o mecanismo dNS padrão para falhar no site de backup. A opção manual via Azure DNS funciona melhor quando utilizada em conjunto com o modo de espera frio ou a abordagem da luz piloto. 
 
 ![Falha manual usando DNS do Azure](./media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
 
@@ -94,7 +94,7 @@ Dentro desta zona crie três registos (por exemplo - www \. contoso.com, prod.co
 
 *Figura - Criar registos de zonas DNS em Azure*
 
-Neste cenário, o site, www \. contoso.com tem um TTL de 30 minutos, que está muito abaixo do RTO declarado, e aponta para o local de produção prod.contoso.com. Esta configuração é durante operações comerciais normais. O TTL de prod.contoso.com e dr.contoso.com foi programado para 300 segundos ou 5 minutos. Pode utilizar um serviço de monitorização Azure, como o Azure Monitor ou o Azure App Insights, ou, qualquer soluções de monitorização de parceiros como a Dynatrace, pode até usar soluções caseiras que possam monitorizar ou detetar falhas de aplicação ou de infraestrutura virtual.
+Neste cenário, o site, www \. contoso.com tem um TTL de 30 minutos, que está muito abaixo do RTO declarado, e aponta para o local de produção prod.contoso.com. Esta configuração é durante operações comerciais normais. O TTL de prod.contoso.com e dr.contoso.com foi programado para 300 segundos ou 5 minutos. Pode utilizar um serviço de monitorização Azure, como o Azure Monitor ou o Azure App Insights, ou qualquer soluções de monitorização de parceiros, como a Dynatrace. Pode até utilizar soluções caseiras que possam monitorizar ou detetar falhas de aplicação ou de nível de infraestrutura virtual.
 
 ### <a name="step-3-update-the-cname-record"></a>Passo 3: Atualizar o recorde da CNAME
 
@@ -116,7 +116,7 @@ Também pode executar o seguinte comando Azure CLI para alterar o valor CNAME:
 Este passo pode ser executado manualmente ou através da automatização. Pode ser feito manualmente através da consola ou pelo Azure CLI. O Azure SDK e a API podem ser utilizados para automatizar a atualização CNAME de modo a que não seja necessária qualquer intervenção manual. A automatização pode ser construída através de funções Azure ou dentro de uma aplicação de monitorização de terceiros ou mesmo a partir de instalações.
 
 ### <a name="how-manual-failover-works-using-azure-dns"></a>Como funciona o failover manual usando o Azure DNS
-Uma vez que o servidor DNS está fora da zona de failover ou de desastre, é isolado contra qualquer tempo de inatividade. Isto permite ao utilizador arquitetar um cenário simples de failover que é rentável e funcionará todo o tempo assumindo que o operador tem conectividade de rede durante o desastre e pode fazer o flip. Se a solução for scriptada, então deve-se garantir que o servidor ou serviço que executa o script deve ser isolado contra o problema que afeta o ambiente de produção. Além disso, tenha em mente o baixo TTL que foi definido contra a zona para que nenhum resolver em todo o mundo mantenha o ponto final em cache por muito tempo e os clientes podem aceder ao site dentro do RTO. Para uma luz fria e piloto, uma vez que pode ser necessária alguma atividade administrativa pré-aguerrida e outras atividades administrativas – deve-se também dar tempo suficiente antes de fazer o lançamento.
+Uma vez que o servidor DNS está fora da zona de failover ou desastre, está isolado contra qualquer tempo de inatividade. Isto permite ao utilizador arquitetar um cenário simples de failover que é rentável e funcionará todo o tempo assumindo que o operador tem conectividade de rede durante o desastre e pode fazer o flip. Se a solução for scriptada, então deve-se garantir que o servidor ou serviço que executa o script deve ser isolado contra o problema que afeta o ambiente de produção. Além disso, tenha em mente o baixo TTL que foi definido contra a zona para que nenhum resolver em todo o mundo mantenha o ponto final em cache por muito tempo e os clientes podem aceder ao site dentro do RTO. Para uma luz fria e piloto, uma vez que pode ser necessária alguma atividade administrativa pré-aguerrida e outras atividades administrativas – deve-se também dar tempo suficiente antes de fazer o lançamento.
 
 ## <a name="automatic-failover-using-azure-traffic-manager"></a>Falha automática usando O Gestor de Tráfego Azure
 Quando você tem arquiteturas complexas e múltiplos conjuntos de recursos capazes de executar a mesma função, você pode configurar Azure Traffic Manager (com base em DNS) para verificar a saúde dos seus recursos e encaminhar o tráfego do recurso não saudável para o recurso saudável. No exemplo seguinte, tanto a região primária como a região secundária têm uma implantação completa. Esta implementação inclui os serviços em nuvem e uma base de dados sincronizada. 
@@ -165,7 +165,7 @@ Se a Retry estiver definida para 1 e TTL estiver definida para 10 segundos, ent�
 
 ### <a name="how-automatic-failover-works-using-traffic-manager"></a>Como funciona a falha automática usando o Gestor de Tráfego
 
-Durante um desastre, o principal ponto final é sondado e o estado muda para **degradar-se** e o local de recuperação de desastres permanece **On-line**. Por predefinição, o Gestor de Tráfego envia todo o tráfego para o ponto final primário (com a prioridade mais alta). Se o ponto final primário parecer degradado, o Gestor de Tráfego encaminha o tráfego para o segundo ponto final, desde que se mantenha saudável. Uma pessoa tem a opção de configurar mais pontos finais dentro do Traffic Manager que podem servir como pontos finais adicionais de failover, ou, como equilibradores de carga que partilham a carga entre pontos finais.
+Durante um desastre, o principal ponto final é sondado e o estado muda para **degradar-se** e o local de recuperação de desastres permanece **On-line**. Por predefinição, o Gestor de Tráfego envia todo o tráfego para o ponto final primário (com a prioridade mais alta). Se o ponto final primário parecer degradado, o Gestor de Tráfego encaminha o tráfego para o segundo ponto final, desde que se mantenha saudável. Pode-se configurar mais pontos finais dentro do Traffic Manager que podem servir como pontos finais extra de failover, ou, como equilibradores de carga que partilham a carga entre pontos finais.
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [o Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).

@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
 ms.openlocfilehash: 346c331596f984cbb068c03110997c2478499488
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104950676"
 ---
 # <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Começar com tmaxSoft OpenFrame em Azure

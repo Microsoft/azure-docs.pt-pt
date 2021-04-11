@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0477153b466702bec0fa2d5221fee1e054d06314
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b6aae76b0b35f8195fb52b7fb11de43d8fa511ba
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033783"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028439"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de reset de palavra-passe de força no Azure Ative Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "102033783"
 
 Como administrador, pode [redefinir a palavra-passe de um utilizador](manage-users-portal.md#reset-a-users-password) se o utilizador esquecer a sua palavra-passe. Ou gostaria de forçá-los a redefinir a senha. Neste artigo, você vai aprender a forçar uma palavra-passe reset nestes cenários.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando um administrador reinicia a palavra-passe de um utilizador através do portal Azure, o valor do atributo [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) é definido para `true` .
 
@@ -92,7 +92,7 @@ Para ativar a definição de **reset da palavra-passe forçada** num fluxo de ut
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. No âmbito **de Políticas**, selecione Identity **Experience Framework**.
 1. Selecione a `B2C_1A_signup_signin_Custom_ForcePasswordReset` política para abri-la. 
-1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](tutorial-register-applications.md) A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Selecione o botão **Executar agora.**
 1. Faça o sômis com a conta de utilizador para a qual repõe a palavra-passe.
 1. Tem agora de alterar a palavra-passe para o utilizador. Altere a palavra-passe e **selecione Continue**. O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si.

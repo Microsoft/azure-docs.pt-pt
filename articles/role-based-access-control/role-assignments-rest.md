@@ -2,7 +2,6 @@
 title: Atribuir funções Azure utilizando a API REST - Azure RBAC
 description: Saiba como conceder acesso aos recursos Azure para utilizadores, grupos, principais serviços ou identidades geridas utilizando o controlo de acesso baseado em funções REST API e Azure (Azure RBAC).
 services: active-directory
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
@@ -10,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: d012173adb5e238282e107b832ed9c6895237e48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a61f54530f25ac33c6ef097698198a11cf1275e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556065"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581440"
 ---
 # <a name="assign-azure-roles-using-the-rest-api"></a>Atribuir funções Azure utilizando a API REST
 
@@ -109,6 +108,26 @@ O seguinte mostra um exemplo da saída:
     "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
     "type": "Microsoft.Authorization/roleAssignments",
     "name": "{roleAssignmentId1}"
+}
+```
+
+### <a name="new-service-principal"></a>Novo diretor de serviços
+
+Se criar um novo diretor de serviço e tentar imediatamente atribuir um papel a esse diretor de serviço, essa atribuição de funções pode falhar em alguns casos. Por exemplo, se criar uma nova identidade gerida e tentar atribuir um papel a esse diretor de serviço, a atribuição de funções poderá falhar. A razão para esta falha é provavelmente um atraso de replicação. O principal serviço é criado numa região; no entanto, a atribuição de funções pode ocorrer em uma região diferente que ainda não replicou o principal serviço.
+
+Para abordar este cenário, deverá definir o `principalType` imóvel para `ServicePrincipal` a criação da atribuição de funções. Também deve definir a `apiVersion` atribuição de funções para `2018-09-01-preview` ou mais tarde.
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2018-09-01-preview
+```
+
+```json
+{
+  "properties": {
+    "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+    "principalId": "{principalId}",
+    "principalType": "ServicePrincipal"
+  }
 }
 ```
 

@@ -3,12 +3,12 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ee451ce4be59c51299d66e4042ed344026100cf
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869094"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011005"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -20,7 +20,7 @@ O VMware HCX Advanced Connector está pré-implantado na Solução VMware Azure.
 >Embora a ferramenta VMware Configuration Maximum descreva os pares máximos do site para ser de 25 entre o Conector no local e o Cloud Manager, o licenciamento limita-o a três para HCX Advanced e 10 para HCX Enterprise Edition.
 
 >[!NOTE]
->A VMware HCX Enterprise está disponível com a Azure VMware Solution como um serviço de pré-visualização. É gratuito e está sujeito a termos e condições para um serviço de pré-visualização. Depois de o serviço VMware HCX Enterprise estar geralmente disponível, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar ou excluir o serviço. Não existe um caminho simples de downgrade da VMware HCX Enterprise para a VMware HCX Advanced. Se decidir desvalorizar, terá de se redistribuir, incorrendo tempo de inativo.
+>A VMware HCX Enterprise está disponível com a Azure VMware Solution como um serviço de pré-visualização. É gratuito e está sujeito a termos e condições para um serviço de pré-visualização. Depois de o serviço VMware HCX Enterprise estar geralmente disponível, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar ou excluir o serviço. A redução da HCx Enterprise para a HCX Advanced é possível sem a recolocação, mas terás de registar um bilhete de apoio para essa ação ter lugar. Se planear uma degradação, certifique-se de que não estão agendadas migrações e ou características como RAV, MON não estão a ser utilizadas.
 
 Primeiro, reveja [Antes de começar,](#before-you-begin) [os requisitos de versão de software](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html)e os [Pré-requisitos](#prerequisites). 
 

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
 ms.openlocfilehash: a3589aff65b24563cf21f175ccfc3a706891d699
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954008"
 ---
 # <a name="azure-monitor-service-limits"></a>Limites de serviço do Azure Monitor

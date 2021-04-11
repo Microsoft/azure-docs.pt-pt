@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: e071692a1c6fe423b048dab884164d9b3c98f1fd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e606e21fe2b80683737970b92d57ce87b9103144
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102613617"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106875"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Parceiro Cloud para o Centro de Parceiros
 
@@ -24,7 +24,7 @@ Pode continuar a fazer negócios no Partner Center:
 
 | Área | Alterações |
 | --- | --- |
-| Conta | Não há necessidade de criar uma nova conta partner Center; pode utilizar as credenciais existentes do Cloud Partner Portal para iniciar sessão no Partner Center, onde irá agora gerir a sua conta, utilizadores, permissões e faturação. O contrato de publicação e as informações de perfil da empresa são migrados para a sua nova conta Partner Center, juntamente com qualquer informação de perfil de pagamento, contas e permissões de utilizador e ofertas ativas. Saiba mais na [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
+| Conta | Não há necessidade de criar uma nova conta partner Center; pode utilizar as credenciais existentes do Cloud Partner Portal para iniciar sessão no Partner Center, onde irá agora gerir a sua conta, utilizadores, permissões e faturação. O contrato de publicação e as informações de perfil da empresa são migrados para a sua nova conta Partner Center, juntamente com qualquer informação de perfil de pagamento, contas e permissões de utilizador e ofertas ativas. Saiba mais na [Manage your commercial marketplace account in Partner Center](manage-account.md). |
 | Oferecer experiência de publicação e gestão de ofertas | Mudamos os dados da sua oferta do Portal do Parceiro Cloud para o Partner Center. Agora terá acesso às suas ofertas no Partner Center, que oferece uma melhor experiência de utilizador e interface intuitiva. Saiba como [atualizar uma oferta existente no mercado comercial.](partner-center-portal/update-existing-offer.md) |
 | Disponibilidade das suas ofertas no mercado comercial | Sem alterações. Se a sua oferta for ao vivo no mercado comercial, continuará a ser ao vivo. |
 | Novas compras e implementações | Sem alterações. Os seus clientes podem continuar a comprar e implementar as suas ofertas sem interrupções. |

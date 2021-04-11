@@ -8,10 +8,10 @@ ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889149"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de networking do Serviço de Aplicações

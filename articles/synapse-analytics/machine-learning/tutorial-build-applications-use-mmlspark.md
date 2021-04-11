@@ -9,12 +9,12 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: 928e2ef8b373626a91a291b1798f3ebb7ef290e8
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 5258d8f16e288e7df7e1286eb1902cc6ba6d10f7
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105608838"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227726"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>Tutorial: Construa aplicações de machine learning utilizando o Microsoft Machine Learning for Apache Spark (Preview)
 
@@ -23,7 +23,7 @@ A Synapse Spark fornece bibliotecas MMLSpark incorporadas, incluindo:
 
 - [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) – Serviços de biblioteca para machine learning para permitir análise de texto como análise de sentimento em tweets.
 - [Serviços Cognitivos na Spark](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) – Combinar a característica dos Serviços Cognitivos Azure em oleodutos SparkML de forma a obter o design de solução para serviços de modelação de dados cognitivos como a deteção de anomalias.
-- [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM é uma estrutura de aumento de gradiente que utiliza algoritmos de aprendizagem baseados em árvores. Foi concebido para ser distribuído e com maior eficiência.
+- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM é uma estrutura de aumento de gradiente que utiliza algoritmos de aprendizagem baseados em árvores. Foi concebido para ser distribuído e com maior eficiência.
 - KNN condicional - Modelos KNN escaláveis com consultas condicionais.
 - [HTTP on Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) – Permite a orquestração distribuída de Microservices na integração da acessibilidade baseada no protocolo Spark e HTTP.
 

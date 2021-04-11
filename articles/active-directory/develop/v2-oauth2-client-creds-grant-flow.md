@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/2/2020
+ms.date: 4/1/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 96f7d7c94ce908d953a6941bfa237fe8da1dc482
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b3e27f266551eb7425d4801d14261a5e428e4c2
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98752667"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168115"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e fluxo de credenciais de clientes OAuth 2.0
 
@@ -25,7 +25,7 @@ Você pode usar a concessão de credenciais de [cliente OAuth 2.0](https://tools
 
 Este artigo descreve como programar diretamente contra o protocolo na sua aplicação. Quando possível, recomendamos que utilize as Bibliotecas de Autenticação da Microsoft (MSAL) suportadas para [adquirir fichas e chamar APIs web seguras](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dê também uma olhada nas aplicações de [amostra que utilizam o MSAL.](sample-v2-code.md)
 
-O OAuth 2.0 concede o fluxo de credenciais ao cliente que permite que um serviço web (cliente confidencial) utilize as suas próprias credenciais, em vez de se fazer passar por utilizador, para autenticar quando liga para outro serviço web. Neste cenário, o cliente é tipicamente um serviço web de nível médio, um serviço daemon ou um site. Para um nível de garantia mais elevado, a plataforma de identidade da Microsoft também permite que o serviço de chamadas utilize um certificado (em vez de um segredo partilhado) como credencial.
+O OAuth 2.0 concede o fluxo de credenciais ao cliente que permite que um serviço web (cliente confidencial) utilize as suas próprias credenciais, em vez de se fazer passar por utilizador, para autenticar quando liga para outro serviço web. Para um nível de garantia mais elevado, a plataforma de identidade da Microsoft também permite que o serviço de chamadas utilize um certificado (em vez de um segredo partilhado) como credencial.  Como as próprias credenciais estão a ser utilizadas, estas credenciais devem ser mantidas em segurança - _nunca_ publique essa credencial no seu código fonte, incorpore-a em páginas web ou use-a numa aplicação nativa amplamente distribuída. 
 
 No fluxo de credenciais do cliente, as permissões são concedidas diretamente ao próprio pedido por um administrador. Quando a aplicação apresenta um símbolo a um recurso, o recurso reforça que a própria app tem autorização para realizar uma ação, uma vez que não existe nenhum utilizador envolvido na autenticação.  Este artigo abrange ambas as etapas necessárias para [autorizar um pedido de chamada API,](#application-permissions)bem como como obter os [tokens necessários para chamar a essa API.](#get-a-token)
 

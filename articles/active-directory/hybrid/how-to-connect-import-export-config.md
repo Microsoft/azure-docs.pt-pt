@@ -11,12 +11,12 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e2bdaa2c7a7648124fbe0be60e5a0af2f83238f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98681960"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226566"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importar e exportar configurações de configuração AZure AD Connect 
 
@@ -42,7 +42,7 @@ Importar configurações previamente exportadas:
 1. Selecione **Definições de sincronização de importação**. Navegue para o ficheiro de definições JSON previamente exportado.
 1. Selecione **Instalar**.
 
-   ![Screenshot que mostra o ecrã de componentes necessários para instalar](media/how-to-connect-import-export-config/import1.png)
+   ![Screenshot que mostra o ecrã de componentes necessários para instalar](media/how-to-connect-import-export-config/import-1.png)
 
 > [!NOTE]
 > Substitua as definições nesta página como a utilização do SQL Server em vez do LocalDB ou a utilização de uma conta de serviço existente em vez de um VSA predefinido. Estas definições não são importadas a partir do ficheiro de definições de configuração. Estão lá para fins de informação e comparação.
@@ -57,7 +57,7 @@ Estas são as únicas alterações que podem ser feitas durante a experiência d
 - **Credenciais de diretório no local**: Para cada diretório no local incluído nas definições de sincronização, deve fornecer credenciais para criar uma conta de sincronização ou fornecer uma conta de sincronização personalizada pré-criada. Este procedimento é idêntico à experiência de instalação limpa com a exceção de que não pode adicionar ou remover diretórios.
 - **Opções de configuração**: Tal como acontece com uma instalação limpa, poderá optar por configurar as definições iniciais para iniciar a sincronização automática ou ativar o modo de realização. A principal diferença é que o modo de encenação é intencionalmente ativado por padrão para permitir a comparação dos resultados de configuração e sincronização antes de exportar ativamente os resultados para Azure.
 
-![Screenshot que mostra o ecrã De Ligar os seus diretórios](media/how-to-connect-import-export-config/import2.png)
+![Screenshot que mostra o ecrã De Ligar os seus diretórios](media/how-to-connect-import-export-config/import-2.png)
 
 > [!NOTE]
 > Apenas um servidor de sincronização pode estar no papel principal e exportar ativamente alterações de configuração para Azure. Todos os outros servidores devem ser colocados no modo de preparação.
@@ -71,21 +71,27 @@ A migração requer a execução de um script PowerShell que extrai as definiç�
 ### <a name="migration-process"></a>Processo de migração 
 Para migrar as definições:
 
-1. Inicie **AzureADConnect.msi** no novo servidor de encenação e pare na página de **boas-vindas** do Azure AD Connect.
+ 1. Inicie **AzureADConnect.msi** no novo servidor de encenação e pare na página de **boas-vindas** do Azure AD Connect.
 
-1. Copie **MigrateSettings.ps1** do diretório microsoft Ad Connect\Tools para uma localização no servidor existente. Um exemplo é C:\configuração, onde a configuração é um diretório que foi criado no servidor existente.
+ 2. Copie **MigrateSettings.ps1** do diretório microsoft Ad Connect\Tools para uma localização no servidor existente. Um exemplo é C:\configuração, onde a configuração é um diretório que foi criado no servidor existente.</br>
+     ![Screenshot que mostra a azure AD Connect diretórios.](media/how-to-connect-import-export-config/migrate-1.png)
 
-   ![Screenshot que mostra a azure AD Connect diretórios.](media/how-to-connect-import-export-config/migrate1.png)
+     >[!NOTE]
+     > Se vir uma mensagem: "Não é possível encontrar um parâmetro posicional que aceite o argumento **Verdadeiro**.", como abaixo:
+     >
+     >
+     >![Screenshot de erro ](media/how-to-connect-import-export-config/migrate-5.png) Em seguida, edite o ficheiro MigrateSettings.ps1 e remova **$true** e execute o script: Screenshot ![ para editar config](media/how-to-connect-import-export-config/migrate-6.png)
+ 
 
-1. Execute o script como mostrado aqui, e guarde todo o diretório de configuração do servidor de nível inferior. Copie este diretório para o novo servidor de encenação. Tem de copiar toda a pasta **Exported-ServerConfiguration para** o novo servidor.
 
-   ![Screenshot que mostra script no Windows PowerShell. ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ Screenshot que mostra a cópia da pasta Exported-ServerConfiguration-* .](media/how-to-connect-import-export-config/migrate3.png)
 
-1. Inicie **o Azure AD Connect** clicando duas vezes no ícone no ambiente de trabalho. Aceite os Termos de Licença de Software da Microsoft e na página seguinte, **selecione Personalize**.
-1. Selecione a caixa **de verificação das definições de sincronização de Importação.** **Selecione Procurar** para navegar na pasta Exported-ServerConfiguration-* copiada. Selecione a MigratedPolicy.jspara importar as definições migradas.
+ 3. Execute o script como mostrado aqui, e guarde todo o diretório de configuração do servidor de nível inferior. Copie este diretório para o novo servidor de encenação. Tem de copiar toda a pasta **Exported-ServerConfiguration para** o novo servidor.
+     ![Screenshot que mostra script no Windows PowerShell. ](media/how-to-connect-import-export-config/migrate-2.png)![ Screenshot que mostra a cópia da pasta Exported-ServerConfiguration-* .](media/how-to-connect-import-export-config/migrate-3.png)
 
-   ![Screenshot que mostra a opção de sincronização de importação.](media/how-to-connect-import-export-config/migrate4.png)
+ 4. Inicie **o Azure AD Connect** clicando duas vezes no ícone no ambiente de trabalho. Aceite os Termos de Licença de Software da Microsoft e na página seguinte, **selecione Personalize**.
+ 5. Selecione a caixa **de verificação das definições de sincronização de Importação.** **Selecione Procurar** para navegar na pasta Exported-ServerConfiguration-* copiada. Selecione a MigratedPolicy.jspara importar as definições migradas.
+
+     ![Screenshot que mostra a opção de sincronização de importação.](media/how-to-connect-import-export-config/migrate-4.png)
 
 ## <a name="post-installation-verification"></a>Verificação pós-instalação 
 

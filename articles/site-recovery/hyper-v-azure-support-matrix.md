@@ -1,18 +1,15 @@
 ---
 title: Apoio à recuperação de hiper-V para Azure com recuperação do local de Azure
 description: Resume os componentes e requisitos suportados para a recuperação de desastres hiper-VM para Azure com recuperação do local de Azure
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.author: raynew
-ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 936950ef5dd2c1c7343e30536ab8836fcd198bd0
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735527"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580836"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -60,16 +57,16 @@ Adicione o disco no Hiper-V VM replicado | Não suportado. Desativar a replicaç
 
 **Componente** | **Hiper-V com gestor de máquinas virtuais** | **Hiper-V sem Gestor de Máquinas Virtuais**
 --- | --- | ---
-Rede de anfitriões: NIC Teaming | Yes | Yes
-Rede de anfitriões: VLAN | Yes | Yes
-Rede de anfitriões: IPv4 | Yes | Yes
+Rede de anfitriões: NIC Teaming | Sim | Sim
+Rede de anfitriões: VLAN | Sim | Sim
+Rede de anfitriões: IPv4 | Sim | Sim
 Rede de anfitriões: IPv6 | No | No
 Rede VM convidada: NIC Teaming | No | No
-Rede VM convidada: IPv4 | Yes | Yes
-Rede VM convidada: IPv6 | No | Yes
-Rede VM do hóspede: IP estático (Windows) | Yes | Yes
+Rede VM convidada: IPv4 | Sim | Sim
+Rede VM convidada: IPv6 | No | Sim
+Rede VM do hóspede: IP estático (Windows) | Sim | Sim
 Rede VM convidada: IP estático (Linux) | No | No
-Rede VM convidada: Multi-NIC | Yes | Yes
+Rede VM convidada: Multi-NIC | Sim | Sim
 Procuração https | No | No
 Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md). | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
@@ -80,15 +77,15 @@ Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saib
 
 **Componente** | **Hiper-V com gestor de máquinas virtuais** | **Hiper-V sem Gestor de Máquinas Virtuais**
 --- | --- | ---
-Azure ExpressRoute | Yes | Yes
-ILB | Yes | Yes
-ELB | Yes | Yes
-Gestor de Tráfego do Azure | Yes | Yes
-Multi-NIC | Yes | Yes
-IP reservado | Yes | Yes
-IPv4 | Yes | Yes
-Reter endereço IP de origem | Yes | Yes
-Pontos finais de serviço da Rede Virtual Azure<br/> (sem firewalls de armazenamento Azure) | Yes | Yes
+Azure ExpressRoute | Sim | Sim
+ILB | Sim | Sim
+ELB | Sim | Sim
+Gestor de Tráfego do Azure | Sim | Sim
+Multi-NIC | Sim | Sim
+IP reservado | Sim | Sim
+IPv4 | Sim | Sim
+Reter endereço IP de origem | Sim | Sim
+Pontos finais de serviço da Rede Virtual Azure<br/> (sem firewalls de armazenamento Azure) | Sim | Sim
 Redes Aceleradas | No | No
 
 
@@ -97,18 +94,18 @@ Redes Aceleradas | No | No
 **Armazenamento** | **Hiper-V com gestor de máquinas virtuais** | **Hiper-V sem Gestor de Máquinas Virtuais**
 --- | --- | --- 
 NFS | ND | ND
-SMB 3.0 | Yes | Yes
-SAN (ISCSI) | Yes | Yes
-Multi-caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON | Yes | Yes
+SMB 3.0 | Sim | Sim
+SAN (ISCSI) | Sim | Sim
+Multi-caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON | Sim | Sim
 
 ## <a name="hyper-v-vm-guest-storage"></a>Armazenamento de hóspedes Hyper-V VM
 
 **Armazenamento** | **Hiper-V com gestor de máquinas virtuais** | **Hiper-V sem Gestor de Máquinas Virtuais**
 --- | --- | ---
 VMDK | ND | ND
-VHD/VHDX | Yes | Yes
-VM de 2ª Geração | Yes | Yes
-EFI/UEFI<br></br>O VM migrado em Azure será automaticamente convertido para um VM de arranque BIOS. O VM deve estar a executar o Windows Server 2012 e mais tarde apenas. O disco de so deve ter até cinco divisórias ou menos e o tamanho do disco de SO deve ser inferior a 300 GB.| Yes | Yes
+VHD/VHDX | Sim | Sim
+VM de 2ª Geração | Sim | Sim
+EFI/UEFI<br></br>O VM migrado em Azure será automaticamente convertido para um VM de arranque BIOS. O VM deve estar a executar o Windows Server 2012 e mais tarde apenas. O disco de so deve ter até cinco divisórias ou menos e o tamanho do disco de SO deve ser inferior a 300 GB.| Sim | Sim
 Disco de cluster compartilhado | No | No
 Disco encriptado | No | No
 NFS | ND | ND
@@ -116,42 +113,42 @@ SMB 3.0 | No | No
 RDM | ND | ND
 Disco >1 TB | Sim, até 4.095 GB | Sim, até 4.095 GB
 Disco: Sector lógico e físico 4K | Não suportado: Gen 1/Gen 2 | Não suportado: Gen 1/Gen 2
-Disco: 4K lógico e 512 bytes sector físico | Yes |  Yes
-Gestão lógica do volume (LVM). A LVM é suportada apenas em discos de dados. O Azure fornece apenas um único disco de SO. | Yes | Yes
-Volume com disco listrado >1 TB | Yes | Yes
+Disco: 4K lógico e 512 bytes sector físico | Sim |  Sim
+Gestão lógica do volume (LVM). A LVM é suportada apenas em discos de dados. O Azure fornece apenas um único disco de SO. | Sim | Sim
+Volume com disco listrado >1 TB | Sim | Sim
 Espaços de Armazenamento | No | No
 Disco de adicionar/remover quente | No | No
-Excluir o disco | Yes | Yes
-Multi-caminhos (MPIO) | Yes | Yes
+Excluir o disco | Sim | Sim
+Multi-caminhos (MPIO) | Sim | Sim
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
 **Componente** | **Hiper-V com gestor de máquinas virtuais** | **Hiper-V sem Gestor de Máquinas Virtuais**
 --- | --- | ---
-Armazenamento localmente redundante | Yes | Yes
-Armazenamento georredundante | Yes | Yes
-Armazenamento georredundante com acesso de leitura | Yes | Yes
+Armazenamento localmente redundante | Sim | Sim
+Armazenamento georredundante | Sim | Sim
+Armazenamento georredundante com acesso de leitura | Sim | Sim
 Armazenamento com redundância entre zonas | No | No
 Armazenamento fresco | No | No
 Armazenamento quente| No | No
 Blobs de blocos | No | No
-Encriptação em repouso (SSE)| Yes | Yes
+Encriptação em repouso (SSE)| Sim | Sim
 Encriptação em repouso (CMK) <br></br> (Apenas para falhas a gerir discos)| Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Dupla encriptação em repouso <br></br> (Apenas para falhas a gerir discos) <br></br> Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md) | Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
-Armazenamento Premium | Yes | Yes
-Armazenamento Standard | Yes | Yes
+Armazenamento Premium | Sim | Sim
+Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | No | No
 Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
 Modificar a conta de armazenamento | N.º A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | No
-Opção de transferência segura | Yes | Yes
+Opção de transferência segura | Sim | Sim
 
 
 ## <a name="azure-compute-features"></a>Características do cálculo Azure
 
 **Funcionalidade** | **Hiper-V com gestor de máquinas virtuais** | **Hiper-V sem Gestor de Máquinas Virtuais**
 --- | --- | ---
-Conjuntos de disponibilidade | Yes | Yes
-HUB | Yes | Yes  
+Conjuntos de disponibilidade | Sim | Sim
+HUB | Sim | Sim  
 Managed disks | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado. | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado.
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure

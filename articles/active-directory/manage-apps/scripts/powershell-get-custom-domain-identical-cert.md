@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: a45333b9df2e75e443ed40568943c03c703799f3
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105044112"
 ---
 # <a name="get-all-application-proxy-apps-that-are-published-with-the-identical-certificate"></a>Obtenha todas as aplicações Proxy de aplicação que são publicadas com o certificado idêntico

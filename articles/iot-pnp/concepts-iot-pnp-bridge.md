@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: a45efd90043ecb4d457db7ed39651f1a9b5bbd4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e20e8ff6492db39d281fb70e35dd575ac3f8f991
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98890612"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066862"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Bridge do IoT Plug and Play
 

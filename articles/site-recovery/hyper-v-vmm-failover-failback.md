@@ -2,18 +2,15 @@
 title: Configurar failover/failback para um site secundário de Hiper-V com recuperação do site Azure
 description: Aprenda a falhar sobre os Hiper-VMs para o seu local secundário no local e falhe de volta ao local primário, durante a recuperação de desastres com a Recuperação do Local de Azure.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72b23e37a365287cc8a850f960137fdb7ec08497
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74082590"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581118"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Falha e falha hiper-V VMs replicados no seu local secundário no local
 

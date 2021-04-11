@@ -1,22 +1,25 @@
 ---
-title: Como digitalizar a Azure Synapse Analytics
-description: Esta forma de orientar descreve detalhes de como digitalizar a Azure Synapse Analytics.
+title: Como digitalizar piscinas SQL dedicadas
+description: Este como guiar descreve detalhes de como digitalizar piscinas SQL dedicadas.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: d287f5dc239339f79d2d8237e7739de7793920c4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7d6a0b04306c2ed6ae4887c79962cbb5528643fc
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108613"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106977"
 ---
-# <a name="register-and-scan-azure-synapse-analytics"></a>Registar e digitalizar Azure Synapse Analytics
+# <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Registar e digitalizar piscinas SQL dedicadas (anteriormente SQL DW)
 
-Este artigo discute como registar e digitalizar um exemplo de Azure Synapse Analytics (anteriormente SQL DW) em Purview.
+> [!NOTE]
+> Se procura registar-se e digitalizar uma base de dados SQL dedicada dentro de um espaço de trabalho da Synapse, deve seguir as instruções [aqui.](register-scan-synapse-workspace.md)
+
+Este artigo discute como registar e digitalizar uma instância de piscina DE SQL dedicada (anteriormente SQL DW) em Purview.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -24,7 +27,8 @@ A Azure Synapse Analytics (anteriormente SQL DW) suporta digitalizações comple
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-Azure Purview não suporta digitalização de [pontos](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) de vista no Azure Synapse Analytics
+> * A Azure Purview não suporta a digitalização de [pontos](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) de vista no Azure Synapse Analytics.
+> * O Azure Purview não suporta mais de 300 colunas no separador Schema e mostrará "Colunas Adicionais-Truncadas". 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -114,14 +118,14 @@ Quando o método de autenticação selecionado for **a autenticação SQL,** tem
 1. Se o cofre da chave ainda não estiver ligado ao Purview, terá de [criar uma nova ligação](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) ao cofre de chaves
 1. Finalmente, [crie uma nova credencial](manage-credentials.md#create-a-new-credential) usando a chave para configurar o seu scan
 
-## <a name="register-an-azure-synapse-analytics-instance-formerly-sql-dw"></a>Registar um exemplo de Azure Synapse Analytics (anteriormente SQL DW)
+## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>Registe uma piscina dedicada SQL (anteriormente SQL DW)
 
 Para registar um novo servidor Azure Synapse Analytics no seu Catálogo de Dados, faça o seguinte:
 
 1. Navegue para a sua conta Desemis
 1. Selecione **Fontes** na navegação à esquerda
 1. Selecione **Registar-se**
-1. Nas **fontes de registo**, selecione **Azure Synapse Analytics (anteriormente SQL DW)**
+1. Nas **fontes de registo**, selecione **sql pool dedicado (anteriormente SQL DW)**
 1. Selecione **Continuar**
 
 No ecrã **'Azure Synapse Analytics',** faça o seguinte:

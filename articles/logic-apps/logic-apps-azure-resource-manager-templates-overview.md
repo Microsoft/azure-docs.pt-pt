@@ -7,10 +7,10 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
 ms.openlocfilehash: ec72431d927fd59677075e7adfdf7df171574882
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104772948"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: Automatizar a implementação para apps Azure Logic utilizando modelos de Gestor de Recursos Azure
@@ -332,7 +332,7 @@ Aqui estão os atributos específicos da definição de recursos de aplicação 
 |-----------|----------|------|-------------|
 | `state` | Sim | String | O estado da sua aplicação lógica em implementação onde `Enabled` significa que a sua aplicação lógica está ao vivo e significa que a sua `Disabled` aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto mas quiser implementar uma versão de projeto, pode usar a `Disabled` opção. |
 | `integrationAccount` | No | Objeto | Se a sua aplicação lógica utilizar uma conta de integração, que armazena artefactos para cenários business-to-business (B2B), este objeto inclui o `id` atributo, que especifica o ID para a conta de integração. |
-| `definition` | Sim | Objeto | A definição subjacente do fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na visão de código e está totalmente descrito na referência de Schema para o tópico [de Linguagem de Definição de Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-definition-language.md) Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte [a definição e os parâmetros do Fluxo de Trabalho.](#workflow-definition-parameters) <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "design view" para "code view" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer](https://resources.azure.com). |
+| `definition` | Yes | Objeto | A definição subjacente do fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na visão de código e está totalmente descrito na referência de Schema para o tópico [de Linguagem de Definição de Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-definition-language.md) Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte [a definição e os parâmetros do Fluxo de Trabalho.](#workflow-definition-parameters) <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "design view" para "code view" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | No | Objeto | Os [valores do parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) para usar no tempo de execução da aplicação lógica. As definições de parâmetros para estes valores aparecem dentro [do objeto de parâmetros da definição de fluxo de trabalho.](#workflow-definition-parameters) Além disso, se a sua aplicação lógica utilizar [conectores geridos](../connectors/apis-list.md) para aceder a outros serviços e sistemas, este objeto inclui um `$connections` objeto que define os valores de ligação a utilizar no tempo de execução. |
 | `accessControl` | No | Objeto | Para especificar atributos de segurança para a sua aplicação lógica, como restringir o acesso IP a gatilhos de pedido ou executar entradas e saídas de histórico. Para obter mais informações, consulte [acesso seguro a aplicações lógicas.](../logic-apps/logic-apps-securing-a-logic-app.md) |
 | `runtimeConfiguration` | No | Objeto | Para especificar quaisquer `operationOptions` propriedades que controlem a forma como a sua aplicação lógica se comporta no tempo de execução. Por exemplo, pode executar a sua aplicação lógica em [modo de produção elevado](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |

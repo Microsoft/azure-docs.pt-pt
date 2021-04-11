@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 1196982fedc7321805e36cceed27c90e43a6e705
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 8b6bad32ec653fb2ba63c6940cf6a89a13a8afd0
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99558333"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448326"
 ---
 # <a name="set-up-msix-app-attach-preview-using-powershell"></a>Configurar o anexo de aplicações MSIX (pré-visualização) utilizando o PowerShell
 

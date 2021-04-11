@@ -68,10 +68,24 @@
       items:
         - name: Atualizações de dispositivos de resolução de problemas
           href: troubleshoot-device-update.md
+        - name: Códigos de erro do cliente de atualização do dispositivo
+      href: device-update-error-codes.md
 - name: Referência
   items:
-    - name: Códigos de erro do cliente de atualização do dispositivo
-      href: device-update-error-codes.md
+    - name: API REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/deviceupdate/'
+    - name: Avião de controlo SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/en-us/dotnet/api/overview/azure/iot/management?view=azure-dotnet'
+    - name: SDK de avião de dados
+      items:
+        - name: JavaScript
+          href: 'https://docs.microsoft.com/en-us/javascript/api/@azure/iot-device-update/?view=azure-node-preview'
+        - name: Java
+          href: 'https://docs.microsoft.com/en-us/java/api/com.azure.iot.deviceupdate?view=azure-java-preview'
+        - name: Python
+          href: 'https://docs.microsoft.com/en-us/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview'
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda
