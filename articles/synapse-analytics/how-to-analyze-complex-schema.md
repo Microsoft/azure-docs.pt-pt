@@ -10,10 +10,10 @@ ms.date: 06/15/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.openlocfilehash: d4004887a4806a5b8e50429031fb204f4eec5000
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105627970"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analise tipos de dados complexos no Azure Synapse Analytics

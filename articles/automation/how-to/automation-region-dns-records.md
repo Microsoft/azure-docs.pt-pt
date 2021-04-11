@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d41d825c7bc33e05815c7528b436c85873859928
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575988"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168931"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registos dns para regiões Azure utilizadas pela Azure Automation
 
@@ -98,7 +98,7 @@ Recomendamos que utilize os endereços listados ao definir [exceções](../autom
 * [Gamas Azure IP e Tags de Serviço - Público Azure](https://www.microsoft.com/download/details.aspx?id=56519)
 * [Gamas Azure IP e tags de serviço- Governo Azure](https://www.microsoft.com/download/details.aspx?id=57063)
 * [Gamas Azure IP e Tags de Serviço - Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)
-* [Gamas Azure IP e Tags de Serviço – Azure China Vianet 21](https://www.microsoft.com/download/details.aspx?id=57062)
+* [Gamas Azure IP e Tags de Serviço - Azure China Vianet 21](https://www.microsoft.com/download/details.aspx?id=57062)
 
 O ficheiro de endereço IP lista os intervalos de endereços IP utilizados nos datacenters do Microsoft Azure. Inclui gamas de cálculo, SQL e armazenamento, e reflete as gamas atualmente implementadas e quaisquer alterações futuras nas gamas IP. As novas gamas que aparecem no ficheiro não são utilizadas nos datacenters durante pelo menos uma semana.
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 41bdf5251881fa9307a3cd4d214081845e967900
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174534"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209524"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
 
@@ -52,19 +52,19 @@ Para obter mais instruções passo a passo, consulte [Criar ou atualizar um grup
 
 ![Adicionar regra de adesão para um grupo dinâmico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
-### <a name="rule-syntax-for-a-single-expression"></a>Sintaxe de regra para uma única expressão
+### <a name="rule-syntax-for-a-single-expression&quot;></a>Sintaxe de regra para uma única expressão
 
 Uma única expressão é a forma mais simples de uma regra de adesão e tem apenas as três partes acima mencionadas. Uma regra com uma única expressão é semelhante a esta: `Property Operator Value` , onde a sintaxe para a propriedade é o nome de object.property.
 
 Segue-se um exemplo de uma regra de adesão devidamente construída com uma única expressão:
 
 ```
-user.department -eq "Sales"
+user.department -eq &quot;Sales&quot;
 ```
 
-Os parênteses são opcionais para uma única expressão. O comprimento total do corpo da sua regra de adesão não pode exceder os caracteres de 2048.
+Os parênteses são opcionais para uma única expressão. O comprimento total do corpo da sua regra de adesão não pode exceder 3072 caracteres.
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>Construção do corpo de uma regra de adesão
+## <a name=&quot;constructing-the-body-of-a-membership-rule&quot;></a>Construção do corpo de uma regra de adesão
 
 Uma regra de adesão que povoa automaticamente um grupo com utilizadores ou dispositivos é uma expressão binária que resulta num resultado verdadeiro ou falso. As três partes de uma regra simples são:
 
@@ -74,7 +74,7 @@ Uma regra de adesão que povoa automaticamente um grupo com utilizadores ou disp
 
 A ordem das peças dentro de uma expressão é importante para evitar erros de sintaxe.
 
-## <a name="supported-properties"></a>Propriedades suportadas
+## <a name=&quot;supported-properties&quot;></a>Propriedades suportadas
 
 Existem três tipos de propriedades que podem ser usadas para construir uma regra de adesão.
 
@@ -84,18 +84,18 @@ Existem três tipos de propriedades que podem ser usadas para construir uma regr
 
 Seguem-se as propriedades do utilizador que pode utilizar para criar uma única expressão.
 
-### <a name="properties-of-type-boolean"></a>Propriedades do tipo boolean
+### <a name=&quot;properties-of-type-boolean&quot;></a>Propriedades do tipo boolean
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
 | accountEnabled |verdadeiro falso |user.accountEnabled -eq verdadeiro |
 | dirSyncEnabled |verdadeiro falso |user.dirSyncEnabled -eq verdadeiro |
 
-### <a name="properties-of-type-string"></a>Propriedades de cadeia de tipo
+### <a name=&quot;properties-of-type-string&quot;></a>Propriedades de cadeia de tipo
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| city |Qualquer valor de corda ou *nulo* |(user.city -eq "value") |
+| city |Qualquer valor de corda ou *nulo* |(user.city -eq &quot;value") |
 | país |Qualquer valor de corda ou *nulo* |(user.country -eq "value") |
 | nome da empresa | Qualquer valor de corda ou *nulo* | (user.companyName -eq "valor") |
 | departamento |Qualquer valor de corda ou *nulo* |(user.department -eq "value") |
