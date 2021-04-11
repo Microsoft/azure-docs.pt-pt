@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: afedbe739e955499f94d00a8ced940e7a4e9c27c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c9ad00a8910562e1a3a53af5120030bc482c927
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898694"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060215"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutorial: Dados de transferência com Azure Stack Edge Pro
 

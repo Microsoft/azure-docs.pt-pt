@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Este artigo descreve como criar um monitor no Monitor de Ligação utilizando o portal Azure.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: vinynigam
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9942b608601b495dd041a8b59aaecb3f5dd81fa7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702169"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505234"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Criar um monitor no Monitor de Ligação utilizando o portal Azure
 
@@ -121,7 +121,7 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
 
    * Para escolher agentes no local, selecione o **separador pontos finais Non-Azure.** Por defeito, os agentes são agrupados em espaços de trabalho por região. Todos estes espaços de trabalho têm o Monitor de Desempenho de Rede configurado. 
    
-       Se precisar de adicionar monitor de desempenho de rede ao seu espaço de trabalho, obtenha-o no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](../azure-monitor/insights/solutions.md). 
+       Se precisar de adicionar monitor de desempenho de rede ao seu espaço de trabalho, obtenha-o no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](../azure-monitor/insights/solutions.md). Para obter informações sobre como configurar agentes para máquinas no local, consulte [agentes para máquinas no local](connection-monitor-overview.md#agents-for-on-premises-machines).
    
        No **Monitor de Ligação Create**, no separador **Básicos,** a região predefinida é selecionada. Se mudar a região, pode escolher agentes de espaços de trabalho na nova região. Pode selecionar um ou mais agentes ou sub-redes. Na vista **Subnet,** pode selecionar IPs específicos para monitorização. Se adicionar várias sub-redes, será criada uma rede personalizada no local chamada **OnPremises_Network_1.** Também pode alterar o **Grupo por** selecionador para grupo por agentes.
 
@@ -144,7 +144,7 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
     
     * Para escolher agentes não-Azure como destinos, selecione o **separador pontos finais Non-Azure.** Por defeito, os agentes são agrupados em espaços de trabalho por região. Todos estes espaços de trabalho têm o Monitor de Desempenho da Rede configurado. 
     
-      Se precisar de adicionar Monitor de Desempenho de Rede ao seu espaço de trabalho, obtenha-o no Azure Marketplace. Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](../azure-monitor/insights/solutions.md). 
+      Se precisar de adicionar Monitor de Desempenho de Rede ao seu espaço de trabalho, obtenha-o no Azure Marketplace. Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](../azure-monitor/insights/solutions.md). Para obter informações sobre como configurar agentes para máquinas no local, consulte [agentes para máquinas no local](connection-monitor-overview.md#agents-for-on-premises-machines).
 
       No **Monitor de Ligação Create**, no separador **Básicos,** a   região predefinida é selecionada. Se mudar a região, pode escolher agentes de espaços de trabalho na nova região. Pode selecionar um ou mais agentes ou sub-redes. Na vista **Subnet,** pode selecionar IPs específicos para monitorização. Se adicionar várias sub-redes, será criada uma rede personalizada no local chamada **OnPremises_Network_1.**  
 

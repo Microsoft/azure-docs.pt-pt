@@ -5,14 +5,14 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: e6ec59e3cb8d285652935b42493c820a7379eeb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c103a7eba2e5da7ac040b50fcc0009a0b7237b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956082"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449873"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuração completa do Leitor de Multimédia do Azure #
 
@@ -20,7 +20,7 @@ O Azure Media Player é fácil de configurar. Bastam alguns momentos para obter 
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Passo 1: Incluir os ficheiros JavaScript e CSS na cabeça da sua página ##
 
-Com o Azure Media Player, pode aceder aos scripts a partir da versão hospedada pela CDN. Muitas vezes é recomendado agora colocar JavaScript antes da etiqueta de corpo final `<body>` em vez do , mas `<head>` Azure Meia Player inclui um 'HTML5 Shiv', que precisa estar na cabeça para versões IE mais antigas para respeitar a etiqueta de vídeo como um elemento válido.
+Com o Azure Media Player, pode aceder aos scripts a partir da versão hospedada pela CDN. Muitas vezes é recomendado agora colocar JavaScript antes da etiqueta de corpo final `<body>` em vez do , mas O `<head>` Azure Media Player inclui um 'HTML5 Shiv', que precisa estar na cabeça para versões IE mais antigas para respeitar a etiqueta de vídeo como um elemento válido.
 
 > [!NOTE]
 > Se já estiver a utilizar um shiv HTML5 como [o Modernizr,](https://modernizr.com/) pode incluir o JavaScript do Azure Media Player em qualquer lugar. No entanto, certifique-se de que a sua versão de Modernizr inclui o shiv para vídeo.
@@ -33,7 +33,7 @@ Com o Azure Media Player, pode aceder aos scripts a partir da versão hospedada 
 ```
 
 > [!IMPORTANT]
-> **NÃO** deve utilizar a `latest` versão em produção, uma vez que esta está sujeita a alterações a pedido. Substitua `latest` por uma versão do Azure Media Player. Por exemplo, `latest` substitua-o por `2.1.1` . As versões Azure Media Player podem ser consultadas a partir [daqui](azure-media-player-changelog.md).
+> **NÃO** deve utilizar a `latest` versão em produção, uma vez que esta está sujeita a alterações a pedido. Substitua `latest` por uma versão do Azure Media Player. Por exemplo, `latest` substitua-o por `2.1.1` . As versões Azure Media Player podem ser consultadas a partir [daqui](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 > [!NOTE]
 > Desde o `1.2.0` lançamento, já não é necessário incluir a localização para os técnicos de retorno (irá automaticamente recolher a localização a partir do caminho relativo do ficheiro azuremediaplayer.min.js). Pode modificar a localização dos técnicos de retorno adicionando o seguinte script nos `<head>` scripts acima referidos.

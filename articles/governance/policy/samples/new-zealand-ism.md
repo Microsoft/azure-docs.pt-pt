@@ -1,15 +1,15 @@
 ---
 title: Detalhes da conformidade regulamentar para a Nova Zelândia ISM Restrito
 description: Detalhes da iniciativa de conformidade regulamentar restrita do ISM da Nova Zelândia. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: e7d5f298864b0fdc4d3a8856a192d6184d3abe19
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4369a11a037f2e966d6f485fbbc970057818b233
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034423"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093916"
 ---
 # <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa de conformidade regulamentar restrita do ISM da Nova Zelândia
 

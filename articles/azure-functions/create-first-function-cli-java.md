@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 0ef52da8400cfadfaaa26664d984d8b898a3b9a3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 261ba24a360dd49a9759bc70f561810a9e1fd2c8
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729305"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277084"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Java em Azure a partir da linha de comando
 
@@ -152,11 +152,7 @@ O arquétipo também gera um teste de unidade para a sua função. Quando altera
     > [!NOTE]  
     > Se httpExample não aparecer como mostrado acima, é provável que tenha iniciado o hospedeiro de fora da pasta raiz do projeto. Nesse caso, utilize **o Ctrl** + **C** para parar o hospedeiro, navegue na pasta raiz do projeto e volte a executar o comando anterior.
 
-1. Copie o URL da sua `HttpExample` função desta saída para um browser e apencha a cadeia de `?name=<YOUR_NAME>` consulta, fazendo com que o URL completo seja semelhante `http://localhost:7071/api/HttpExample?name=Functions` a . O navegador deve exibir uma mensagem `Hello Functions` como:
-
-    ![Resultado da função executado localmente no navegador](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
-    
-    O terminal em que iniciou o seu projeto também mostra a saída de registo à medida que faz pedidos.
+1. Copie o URL da sua `HttpExample` função desta saída para um browser e apencha a cadeia de `?name=<YOUR_NAME>` consulta, fazendo com que o URL completo seja semelhante `http://localhost:7071/api/HttpExample?name=Functions` a . O navegador deve exibir uma mensagem que ecoe o valor da sua cadeia de consulta. O terminal em que iniciou o seu projeto também mostra a saída de registo à medida que faz pedidos.
 
 1. Quando terminar, use **ctrl** + **C** e opte por `y` parar o hospedeiro de funções.
 

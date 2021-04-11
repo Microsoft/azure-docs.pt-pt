@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: f349d260fff32427712442615cabf6d3958468ac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 997a4e115f8632544b2f73aef498d40dceb0d459
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640038"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449975"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração - Azure Monitor Application Insights for Java
 
@@ -39,14 +39,14 @@ Encontrará mais detalhes e opções de configuração adicionais abaixo.
 
 ## <a name="configuration-file-path"></a>Caminho do arquivo de configuração
 
-Por predefinição, a Application Insights Java 3.0 espera que o ficheiro de configuração seja `applicationinsights.json` nomeado, e que esteja localizado no mesmo diretório que `applicationinsights-agent-3.0.2.jar` .
+Por predefinição, a Application Insights Java 3.0 espera que o ficheiro de configuração seja `applicationinsights.json` nomeado, e que esteja localizado no mesmo diretório que `applicationinsights-agent-3.0.3.jar` .
 
 Pode especificar o seu próprio caminho de ficheiro de configuração usando qualquer um
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` variável de ambiente, ou
 * `applicationinsights.configuration.file` Propriedade do sistema Java
 
-Se especificar um caminho relativo, será resolvido em relação ao diretório onde `applicationinsights-agent-3.0.2.jar` está localizado.
+Se especificar um caminho relativo, será resolvido em relação ao diretório onde `applicationinsights-agent-3.0.3.jar` está localizado.
 
 ## <a name="connection-string"></a>Cadeia de ligação
 
@@ -61,7 +61,7 @@ Se especificar um caminho relativo, será resolvido em relação ao diretório o
 }
 ```
 
-Também pode definir a cadeia de ligação utilizando a variável ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` (que terá precedência se a cadeia de ligação também for especificada na configuração json).
+Também pode definir a cadeia de ligação utilizando a variável ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` (que terá precedência sobre a cadeia de ligação especificada na configuração json).
 
 Não definir a cadeia de ligação irá desativar o agente Java.
 
@@ -81,7 +81,7 @@ Se quiser definir o nome da função de nuvem:
 
 Se o nome da função de nuvem não estiver definido, o nome do recurso Application Insights será utilizado para rotular o componente no mapa de aplicações.
 
-Também pode definir o nome da função de nuvem usando a variável ambiente `APPLICATIONINSIGHTS_ROLE_NAME` (que terá precedência se o nome da função de nuvem também for especificado na configuração json).
+Também pode definir o nome da função de nuvem usando a variável ambiente `APPLICATIONINSIGHTS_ROLE_NAME` (que terá então precedência sobre o nome da função de nuvem especificada na configuração json).
 
 ## <a name="cloud-role-instance"></a>Instância de papel em nuvem
 
@@ -98,7 +98,7 @@ Se quiser definir a instância de papel em nuvem para algo diferente do nome da 
 }
 ```
 
-Também pode definir a instância de função em nuvem usando a variável ambiente `APPLICATIONINSIGHTS_ROLE_INSTANCE` (que terá precedência se a instância de função da nuvem também for especificada na configuração json).
+Também pode definir a instância de função em nuvem usando a variável ambiente `APPLICATIONINSIGHTS_ROLE_INSTANCE` (que terá então precedência sobre a instância de função de nuvem especificada na configuração json).
 
 ## <a name="sampling"></a>Amostragem
 
@@ -117,14 +117,14 @@ Aqui está um exemplo de como definir a amostragem para capturar aproximadamente
 }
 ```
 
-Também pode definir a percentagem de amostragem utilizando a variável ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (que terá precedência se a percentagem de amostragem também for especificada na configuração json).
+Também pode definir a percentagem de amostragem utilizando a variável ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (que terá precedência sobre a percentagem de amostragem especificada na configuração json).
 
 > [!NOTE]
 > Para a percentagem de amostragem, escolha uma percentagem próxima de 100/N onde N é um inteiro. Atualmente, a amostragem não suporta outros valores.
 
 ## <a name="sampling-overrides-preview"></a>Sobreposições de amostragem (pré-visualização)
 
-Esta funcionalidade encontra-se em pré-visualização, a partir de 3.0.3-BETA.2.
+Esta funcionalidade está em pré-visualização, a partir de 3.0.3.
 
 As sobreposições de amostragem permitem-lhe anular a [percentagem de amostragem padrão,](#sampling)por exemplo:
 * Desafete a percentagem de amostragem a 0 (ou algum pequeno valor) para verificações de saúde ruidosas.
@@ -215,7 +215,7 @@ O nível padrão configurado para Insights de Aplicação é `INFO` . Se quiser 
 }
 ```
 
-Também pode definir o nível utilizando a variável ambiente `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (que terá precedência se o nível também for especificado na configuração json).
+Também pode definir o nível utilizando a variável ambiente `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (que terá precedência sobre o nível especificado na configuração json).
 
 Estes são os `level` valores válidos que pode especificar no `applicationinsights.json` ficheiro e como correspondem aos níveis de registo em diferentes quadros de registo:
 
@@ -256,9 +256,32 @@ Para desativar a recolha automática de métricas do Micrometro (incluindo métr
 }
 ```
 
+## <a name="auto-collected-azure-sdk-telemetry"></a>Telemetria Azure SDK recolhida automaticamente
+
+Esta funcionalidade está em pré-visualização.
+
+Muitas das mais recentes bibliotecas Azure SDK emitem telemetria.
+
+A partir da versão 3.0.3, pode ativar a recolha desta telemetria:
+
+```json
+{
+  "preview": {
+    "instrumentation": {
+      "azureSdk": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+Também pode ativar esta funcionalidade utilizando a variável ambiente `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
+(que, em seguida, terá precedência sobre o habilitado especificado na configuração json).
+
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Suprimir a telemetria auto-recolhida específica
 
-A partir da versão 3.0.2, a telemetria auto-recolhida específica pode ser suprimida utilizando estas opções de configuração:
+A partir da versão 3.0.3, a telemetria auto-recolhida específica pode ser suprimida utilizando estas opções de configuração:
 
 ```json
 {
@@ -267,6 +290,9 @@ A partir da versão 3.0.2, a telemetria auto-recolhida específica pode ser supr
       "enabled": false
     },
     "jdbc": {
+      "enabled": false
+    },
+    "jms": {
       "enabled": false
     },
     "kafka": {
@@ -280,13 +306,28 @@ A partir da versão 3.0.2, a telemetria auto-recolhida específica pode ser supr
     },
     "redis": {
       "enabled": false
+    },
+    "springScheduling": {
+      "enabled": false
     }
   }
 }
 ```
 
-> NOTA Se estiver à procura de um controlo mais fino, por exemplo, para suprimir algumas chamadas de redis, mas nem todas as chamadas redis, consulte [sobreposições de amostragem](./java-standalone-sampling-overrides.md).
+Também pode suprimir estas instrumentações utilizando estas variáveis ambientais:
 
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
+
+(que, em seguida, terá precedência sobre o habilitado especificado na configuração json).
+
+> NOTA Se estiver à procura de um controlo mais fino, por exemplo, para suprimir algumas chamadas de redis, mas nem todas as chamadas redis, consulte [sobreposições de amostragem](./java-standalone-sampling-overrides.md).
 
 ## <a name="heartbeat"></a>Heartbeat
 
@@ -324,7 +365,7 @@ Esta funcionalidade está em pré-visualização.
 
 Por predefinição, as métricas são capturadas a cada 60 segundos.
 
-A partir da versão 3.0.3-BETA, pode alterar este intervalo:
+A partir da versão 3.0.3, pode alterar este intervalo:
 
 ```json
 {
@@ -384,13 +425,13 @@ Por predefinição, os registos De Aplicação Java 3.0 estão ao nível `INFO` 
 
 `level` pode ser um `OFF` `ERROR` dos, `WARN` , , , , ou `INFO` `DEBUG` `TRACE` .
 
-`path` pode ser um caminho absoluto ou relativo. Caminhos relativos são resolvidos contra o diretório onde `applicationinsights-agent-3.0.2.jar` está localizado.
+`path` pode ser um caminho absoluto ou relativo. Caminhos relativos são resolvidos contra o diretório onde `applicationinsights-agent-3.0.3.jar` está localizado.
 
 `maxSizeMb` é o tamanho máximo do ficheiro de registo antes de rolar.
 
 `maxHistory` é o número de ficheiros de registo retorlados que são retidos (além do ficheiro de registo atual).
 
-A partir da versão 3.0.2, também pode definir os autodiagnóscos `level` utilizando a variável ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (que terá precedência se o autodiagnósto `level` também for especificado na configuração json).
+A partir da versão 3.0.2, também pode definir os autodiagnóscos `level` utilizando a variável ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (que terá então precedência sobre o nível de autodiagnósc diagnóstico especificado na configuração json).
 
 ## <a name="an-example"></a>Um exemplo
 

@@ -105,6 +105,32 @@
               href: cloud-services-role-config-xpath.md
         - name: Gerir certificados
           items:
+            - name: Azure PowerShell
+              href: cloud-services-diagnostics-powershell.md
+            - name: .NET
+              href: cloud-services-dotnet-diagnostics.md
+            - name: Visual Studio
+              href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
+        - name: Armazenar e ver dados de diagnósticos no Armazenamento do Azure
+          href: diagnostics-extension-to-storage.md
+        - name: Rastrear Serviço Cloud com os Diagnósticos
+          href: cloud-services-dotnet-diagnostics-trace-flow.md
+    - name: Migrate
+      items:
+        - name: Descrição geral da migração
+          href: ../cloud-services-extended-support/in-place-migration-overview.md?toc=/azure/cloud-services/toc.json
+        - name: Detalhes técnicos da migração
+          href: ../cloud-services-extended-support/in-place-migration-technical-details.md?toc=/azure/cloud-services/toc.json
+        - name: Migrar usando o portal Azure
+          href: ../cloud-services-extended-support/in-place-migration-portal.md?toc=/azure/cloud-services/toc.json
+        - name: Migrar com o PowerShell
+          href: ../cloud-services-extended-support/in-place-migration-powershell.md?toc=/azure/cloud-services/toc.json
+        - name: Erros comuns e questões conhecidas
+          href: ../cloud-services-extended-support/in-place-migration-common-errors.md?toc=/azure/cloud-services/toc.json
+    - name: Resolução de problemas
+      items:
+        - name: Depurar
+          items:
             - name: Serviços em Nuvem e gestão de certificados
               href: cloud-services-certs-create.md
             - name: Configurar o SSL
@@ -172,6 +198,8 @@
                   href: cloud-services-deployment-faq.md
     - name: Referência
       items:
+        - name: CLI do Azure
+          href: /cli/azure/cloud
         - name: Exemplos de código
           href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'
         - name: Esquema de XML .csdef
@@ -196,17 +224,25 @@
           href: /rest/api/compute/cloudservices/
     - name: Recursos
       items:
-        - name: Mapa do Azure
-          href: 'https://azure.microsoft.com/roadmap/?category=compute'
-        - name: Percurso de aprendizagem
-          href: /learn/paths/azure-fundamentals/
-        - name: Página de perguntas das Perguntas e Respostas da Microsoft
-          href: /answers/topics/azure-cloud-services.html
-        - name: Preços
-          href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
-        - name: Calculadora de preços
-          href: 'https://azure.microsoft.com/pricing/calculator/'
-        - name: Atualizações de serviço
-          href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
-        - name: Vídeos
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'
+        - name: Esquema de função
+          href: schema-cscfg-role.md
+        - name: Esquema de NetworkConfiguration
+          href: schema-cscfg-networkconfiguration.md
+    - name: REST
+      href: /rest/api/compute/cloudservices/
+- name: Recursos
+  items:
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Percurso de aprendizagem
+      href: /learn/paths/azure-fundamentals/
+    - name: Página de perguntas das Perguntas e Respostas da Microsoft
+      href: /answers/topics/azure-cloud-services.html
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'

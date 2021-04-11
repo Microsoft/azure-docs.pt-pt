@@ -11,20 +11,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 03/16/2021
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 110a94c78427087f4ca5555f59055ab8e3bebcee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 87c0ce72348f67c22759915a3a15c69193ad2f60
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592666"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552801"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Criar uma revisão de acesso das funções de recursos da Azure na Gestão de Identidade Privilegiada
 
 A necessidade de acesso a funções privilegiadas de recursos Azure por parte dos colaboradores muda ao longo do tempo. Para reduzir o risco associado a atribuições de funções velhas, deve rever regularmente o acesso. Você pode usar O Diretório Ativo Azure (Azure AD) Gestão de Identidade Privilegiada (PIM) para criar avaliações de acesso para acesso privilegiado a funções de recurso Azure. Também pode configurar comentários de acesso recorrentes que ocorrem automaticamente. Este artigo descreve como criar uma ou mais avaliações de acesso.
+
+## <a name="prerequisite-license"></a>Licença pré-requisito
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Para obter mais informações sobre licenças para PIM, consulte os [requisitos da Licença para utilizar a Gestão de Identidade Privilegiada.](subscription-requirements.md)
+
+> [!Note]
+>  Atualmente, você pode estender uma revisão de acesso aos diretores de serviços com acesso a funções de recursos Azure AD e Azure (Preview) com uma edição Azure Ative Directory Premium P2 ativa no seu inquilino. O modelo de licenciamento para os principais de serviço será finalizado para a disponibilidade geral desta funcionalidade e poderão ser necessárias licenças adicionais.
 
 ## <a name="prerequisite-role"></a>Papel pré-requisito
 
@@ -34,9 +41,9 @@ A necessidade de acesso a funções privilegiadas de recursos Azure por parte do
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que está atribuído a uma das funções pré-requisitos.
 
-1. Open **Azure AD Gestão de Identidade Privilegiada.**
-
-1. No menu esquerdo, selecione **recursos Azure**.
+1. Selecione **Governação da Identidade**
+ 
+1. No menu esquerdo, selecione **recursos Azure** sob **gestão de identidade privilegiada Azure AD.**
 
 1. Selecione o recurso que pretende gerir, como uma subscrição.
 
@@ -58,9 +65,12 @@ A necessidade de acesso a funções privilegiadas de recursos Azure por parte do
 
 1. Utilize a definição **'Fim'** para especificar como terminar as séries de revisão de acesso recorrentes. A série pode terminar de três maneiras: funciona continuamente para iniciar revisões indefinidamente, até uma data específica, ou depois de um número definido de ocorrências ter sido concluída. Você, outro administrador do Utilizador ou outro administrador Global pode parar a série após a criação alterando a data em **Definições**, de modo que termine nessa data.
 
-1. Na secção **Utilizadores,** selecione uma ou mais funções que pretende rever a adesão.
+1. Na secção **Utilizadores,** selecione o âmbito da revisão. Para rever os utilizadores, **selecione Utilizadores ou selecione (Preview) Service Principals** para rever as contas da máquina com acesso à função Azure.   
 
     ![Margem de utilizadores para rever a adesão à função](./media/pim-resource-roles-start-access-review/users.png)
+
+
+1. Sob **a subscrição de funções de Revisão,** selecione os papéis privilegiados do Azure para rever. 
 
     > [!NOTE]
     > - As funções selecionadas aqui incluem [papéis permanentes e elegíveis.](../privileged-identity-management/pim-how-to-add-role-to-user.md)
@@ -77,9 +87,9 @@ A necessidade de acesso a funções privilegiadas de recursos Azure por parte do
 
     ![Lista de revisores de utilizadores ou membros selecionados (auto)](./media/pim-resource-roles-start-access-review/reviewers.png)
 
-    - **Utilizadores selecionados** - Utilize esta opção quando não souber quem precisa de acesso. Com esta opção, pode atribuir o comentário a um proprietário de recursos ou gestor de grupo para completar.
-    - **Membros (self)** - Utilize esta opção para que os utilizadores revejam as suas próprias atribuições de funções. 
-    - **Gestor** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Ao selecionar Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório. 
+    - **Utilizadores selecionados** - Utilize esta opção para designar um utilizador específico para completar o reexame. Esta opção está disponível independentemente do Âmbito da revisão, e os revisores selecionados podem rever os utilizadores e os principais serviços. 
+    - **Membros (self)** - Utilize esta opção para que os utilizadores revejam as suas próprias atribuições de funções. Esta opção só está disponível se a revisão for analisada para **os Utilizadores.**
+    - **Gestor** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Esta opção só está disponível se a revisão for analisada para **os Utilizadores.** Ao selecionar Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório. 
 
 ### <a name="upon-completion-settings"></a>Após definições de conclusão
 

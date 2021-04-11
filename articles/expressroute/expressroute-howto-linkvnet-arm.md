@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 69067ca34b231f1b14f8cc854288c3ed4c4ac82a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eda575e0f29abbe18750a24fbfc212a9d84819cf
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91855995"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110364"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>Tutorial: Ligue uma rede virtual a um circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Este artigo ajuda-o a ligar redes virtuais (VNets) aos circuitos Azure ExpressRo
 
 * Pode ligar até 10 redes virtuais a um circuito Standard ExpressRoute. Todas as redes virtuais devem estar na mesma região geopolítica quando utilizarem um circuito ExpressRoute padrão. 
 
-* Um único VNet pode ser ligado a até quatro circuitos ExpressRoute. Utilize os passos deste artigo para criar um novo objeto de ligação para cada circuito ExpressRoute a que se está a ligar. Os circuitos ExpressRoute podem estar na mesma subscrição, subscrições diferentes ou uma mistura de ambos.
+* Um único VNet pode ser ligado a até 16 circuitos ExpressRoute. Utilize os passos deste artigo para criar um novo objeto de ligação para cada circuito ExpressRoute a que se está a ligar. Os circuitos ExpressRoute podem estar na mesma subscrição, subscrições diferentes ou uma mistura de ambos.
 
 * Se ativar o addon premium ExpressRoute, pode ligar redes virtuais fora da região geopolítica do circuito ExpressRoute. O addon premium também lhe permitirá ligar mais de 10 redes virtuais ao seu circuito ExpressRoute, dependendo da largura de banda escolhida. Consulte as [FAQ](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
 

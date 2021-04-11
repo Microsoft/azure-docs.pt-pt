@@ -5,12 +5,12 @@ author: ConnorMcMahon
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: ea4aaa1cdbe10e2db9cf619452558d104a2293ab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 91c04b3943af5eee436bb4a18a946000b76cff3c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449378"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057988"
 ---
 # <a name="data-persistence-and-serialization-in-durable-functions-azure-functions"></a>Persistência de dados e serialização em Funções Duradouras (Funções Azure)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/09/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5b13d434c15a6d9302e46011d6b32c74c2f3f3aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b52641e87b07bfdab58dedc4a4dab90f420627cb
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102608207"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218838"
 ---
 # <a name="microsoft-azure-active-directory-external-identities-videos"></a>Vídeos de identidades externas do Microsoft Azure Ative Directory
 
@@ -28,7 +28,7 @@ Conheça os fundamentos das identidades externas - Azure Ative Directory B2C (Az
 Obtenha uma visão mais profunda sobre as características e aspetos técnicos do serviço Azure AD B2C.
 
 
-| Título de vídeo    |      |  Título de vídeo     |        |
+| Título de vídeo    | Vídeo     |  Título de vídeo     | Vídeo |
 |:------|:------|:------|:------|
 |[Inscrição de inscrição Azure AD B2C](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=6&t=2s) 10:25       | [:::image type="icon" source="./media/external-identities-videos/customer-sign-up-sign-in.png" border="false":::](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=6)  | [Azure AD B2C único sinal on e autosserviço senha reposta](https://www.youtube.com/watch?v=kRV-7PSLK38&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=7) 8:40       | [:::image type="icon" source="./media/external-identities-videos/single-sign-on.png" border="false":::](https://www.youtube.com/watch?v=kRV-7PSLK38&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=7) |
 | [Aplicação e migração de identidade para Azure AD B2C](https://www.youtube.com/watch?v=Xw_YwSJmhIQ&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9) 10:34       | [:::image type="icon" source="./media/external-identities-videos/identity-migration-aad-b2c.png" border="false":::](https://www.youtube.com/watch?v=Xw_YwSJmhIQ&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9) | [Construa fluxos resilientes e escaláveis utilizando Azure AD B2C](https://www.youtube.com/watch?v=8f_Ozpw9yTs&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=12) 16:47       | [:::image type="icon" source="./media/external-identities-videos/b2c-scalable-flows.png" border="false":::](https://www.youtube.com/watch?v=8f_Ozpw9yTs&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=12) |
@@ -39,7 +39,8 @@ Obtenha uma visão mais profunda sobre as características e aspetos técnicos d
 
 Saiba como executar vários casos de uso em Azure AD B2C.
 
-|  Título de vídeo   |      |  Título de vídeo     |      |
+|  Título de vídeo   | Vídeo  |  Título de vídeo     | Vídeo  |
 |:------|:------|:------|:------|
 |[Azure AD: Monitorização e reporte Azure AD B2C utilizando o Monitor Azure](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1) 6:57       | [:::image type="icon" source="./media/external-identities-videos/monitoring-reporting-aad-b2c.png" border="false":::](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1) | [Migração de utilizadores AZure AD B2C usando Microsoft Graph API](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=5) 7:09       | [:::image type="icon" source="./media/external-identities-videos/user-migration-msgraph-api.png" border="false":::](https://www.youtube.com/watch?v=9BRXBtkBzL4list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=5) |
-| [Estratégias de migração de utilizadores Azure AD B2C](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2) 8:22       | [:::image type="icon" source="./media/external-identities-videos/user-migration-stratagies.png" border="false":::](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2) | [Como localizar ou personalizar a linguagem utilizando o Azure AD B2C](https://www.youtube.com/watch?v=yqrX5_tA7Ms&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=13) 20:41       | [:::image type="icon" source="./media/external-identities-videos/language-localization.png" border="false":::](https://www.youtube.com/watch?v=yqrX5_tA7Ms&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=13) |
+| [Estratégias de migração de utilizadores Azure AD B2C](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2) 8:22       | [:::image type="icon" source="./media/external-identities-videos/user-migration-stratagies.png" border="false":::](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2) | [Como localizar ou personalizar a linguagem utilizando o Azure AD B2C](https://www.youtube.com/watch?v=yqrX5_tA7Ms&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=13) 20:41       | [:::image type="icon" source="./media/external-identities-videos/language-localization.png" border="false":::](https://www.youtube.com/watch?v=yqrX5_tA7Ms&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=13) | 
+|[Monitorização de configuração: Azure AD B2C utilizando o Monitor Azure](https://www.youtube.com/watch?v=tF2JS6TGc3g&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=14) 17:23    | [:::image type="icon" source="./media/external-identities-videos/configure-monitoring.png" border="false":::](https://www.youtube.com/watch?v=tF2JS6TGc3g&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=14) |

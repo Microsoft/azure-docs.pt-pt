@@ -6,14 +6,14 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 03/03/2021
-ms.custom: template-quickstart
+ms.custom: template-quickstart, references_regions
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 3fc522c4bdda9eb1047d5258bcc431d0268990b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b4cbd45f8478674c7c6bacc50f068bc0ec691a14
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121648"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449924"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Quickstart: Ligue um cluster Kubernetes existente ao Arco de Azure 
 
@@ -23,36 +23,35 @@ Neste arranque rápido, colheremos os benefícios do Azure Arc ativado pela Kube
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-* Verifique se tem:
-    * Um aglomerado kubernetes em funcionamento.
-    * Um `kubeconfig` ficheiro que aponta para o cluster que pretende ligar ao Arco Azure.
-    * Permissões de 'Ler' e 'Escrever' para o utilizador ou principal de serviço que liga a criação do tipo de recurso de recurso Azure Arc ativado por Kubernetes ( `Microsoft.Kubernetes/connectedClusters` ).
+* Um aglomerado kubernetes em funcionamento. Se não tiver um, pode criar um cluster usando uma destas opções:
+    * [Kubernetes em Docker (KIND)](https://kind.sigs.k8s.io/)
+    * Crie um cluster Kubernetes usando Docker para [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) ou [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+    * Cluster Kubernetes auto-gerido usando [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
+
+    >[!NOTE]
+    > O cluster precisa de ter pelo menos um nó de sistema operativo e tipo de `linux/amd64` arquitetura. Aglomerados com `linux/arm64` apenas nós ainda não estão apoiados.
+    
+* Um `kubeconfig` ficheiro e contexto que aponta para o seu cluster.
+* Permissões de 'Ler' e 'Escrever' no Arco Azure ativaram o tipo de recurso Kubernetes `Microsoft.Kubernetes/connectedClusters` ().
+
 * Instale o [último lançamento do Helm 3](https://helm.sh/docs/intro/install).
-* Instale as seguintes extensões CLI ativadas por Kubernetes de versões >= 1.0.0:
+
+- [Instalar ou atualizar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para a versão >= 2.16.0
+* Instale a `connectedk8s` extensão Azure CLI da versão >= 1.0.0:
   
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8s-configuration
-  ```
-  * Para atualizar estas extensões para a versão mais recente, execute os seguintes comandos:
-  
-  ```azurecli
-  az extension update --name connectedk8s
-  az extension update --name k8s-configuration
   ```
 
+>[!TIP]
+> Se a `connectedk8s` extensão já estiver instalada, atualize-a para a versão mais recente utilizando o seguinte comando - `az extension update --name connectedk8s`
+
+
 >[!NOTE]
->**Regiões apoiadas:**
->* E.U.A. Leste
->* Europa Ocidental
->* E.U.A. Centro-Oeste
->* E.U.A. Centro-Sul
->* Sudeste Asiático
->* Sul do Reino Unido
->* E.U.A. Oeste 2
->* Leste da Austrália
->* E.U.A. Leste 2
->* Europa do Norte
+>A lista de regiões apoiadas por Azure Arc habilitada a Kubernetes pode ser encontrada [aqui.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)
+
+>[!NOTE]
+> Se você quiser usar localizações personalizadas no cluster, então use regiões do Leste dos EUA ou da Europa Ocidental para ligar o seu cluster como localizações personalizadas só está disponível nestas regiões a partir de agora. Todas as outras funcionalidades de Kubernetes ativadas pelo Azure Arc estão disponíveis em todas as regiões listadas acima.
 
 ## <a name="meet-network-requirements"></a>Cumprir os requisitos da rede
 
@@ -61,10 +60,10 @@ Neste arranque rápido, colheremos os benefícios do Azure Arc ativado pela Kube
 >* TCP na porta 443: `https://:443`
 >* TCP no porto 9418: `git://:9418`
   
-| Ponto final (DNS) | Description |  
+| Ponto final (DNS) | Descrição |  
 | ----------------- | ------------- |  
 | `https://management.azure.com`                                                                                 | É necessário que o agente se conecte ao Azure e registe o cluster.                                                        |  
-| `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com`, `https://westcentralus.dp.kubernetesconfiguration.azure.com`, `https://southcentralus.dp.kubernetesconfiguration.azure.com`, `https://southeastasia.dp.kubernetesconfiguration.azure.com`, `https://uksouth.dp.kubernetesconfiguration.azure.com`, `https://westus2.dp.kubernetesconfiguration.azure.com`, `https://australiaeast.dp.kubernetesconfiguration.azure.com`, `https://eastus2.dp.kubernetesconfiguration.azure.com`, `https://northeurope.dp.kubernetesconfiguration.azure.com` | Ponto final do plano de dados para o agente empurrar o estado e obter informações de configuração.                                      |  
+| `https://<region>.dp.kubernetesconfiguration.azure.com` | Ponto final do plano de dados para o agente empurrar o estado e obter informações de configuração.                                      |  
 | `https://login.microsoftonline.com`                                                                            | Necessário para buscar e atualizar fichas do Azure Resource Manager.                                                                                    |  
 | `https://mcr.microsoft.com`                                                                            | Obrigado a retirar imagens de contentores para agentes do Azure Arc.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Necessário para retirar certificados de identidade de serviço gerido (MSI) atribuídos pelo sistema.                                                                  |
@@ -75,11 +74,13 @@ Neste arranque rápido, colheremos os benefícios do Azure Arc ativado pela Kube
     ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
+    az provider register --namespace Microsoft.ExtendedLocation
     ```
 2. Monitorize o processo de registo. A inscrição pode demorar até 10 minutos.
     ```azurecli
     az provider show -n Microsoft.Kubernetes -o table
-    az provider show -n Microsoft.KubernetesConfiguration -o table    
+    az provider show -n Microsoft.KubernetesConfiguration -o table
+    az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos

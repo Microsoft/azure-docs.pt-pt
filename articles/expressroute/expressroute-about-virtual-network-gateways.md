@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 3f8cf5de012999c0f814964fd41042a0caf78b42
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 796e35be12939920f9392e6f3ce4cae660415f80
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106675"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504711"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Sobre os gateways de rede virtual ExpressRoute
 
@@ -39,8 +39,8 @@ A tabela a seguir mostra os tipos de gateway e as performances estimadas. Esta t
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> O desempenho da aplicação depende de vários fatores, tais como a latência de ponta a ponta, e o número de fluxos de tráfego que a aplicação abre. Os números na tabela representam o limite superior que a aplicação pode teoricamente atingir num ambiente ideal.
->
+> * O número de VMs na rede virtual também inclui VMs em redes virtuais com vista que utilizam o gateway ExpressRoute remoto.
+> * O desempenho da aplicação depende de vários fatores, tais como a latência de ponta a ponta, e o número de fluxos de tráfego que a aplicação abre. Os números na tabela representam o limite superior que a aplicação pode teoricamente atingir num ambiente ideal.
 >
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>Sub-rede de gateway

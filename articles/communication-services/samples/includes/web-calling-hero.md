@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: c1ad467dcd27bb48d7b1472d8cfb829dcd005f4f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729814"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554547"
 ---
 O Grupo de Serviços de Comunicação Azure **Call Hero Sample** demonstra como os serviços de comunicação que chamam Web SDK podem ser usados para construir uma experiência de chamada de grupo.
 
@@ -23,7 +23,7 @@ Neste quickstart da amostra, vamos aprender como a amostra funciona antes de pas
 
 ## <a name="download-code"></a>Transferir código
 
-Encontre o código finalizado para este arranque rápido no [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
+Encontre o projeto para esta amostra no [GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero) Uma versão da amostra com [teams Interop](../../concepts/teams-interop.md) pode ser encontrada em um [ramo](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop)separado .
 
 ## <a name="overview"></a>Descrição Geral
 
@@ -46,6 +46,9 @@ Componentes do ecrã principal de chamada:
 - **Media Gallery**: O palco principal onde os participantes são mostrados. Se um participante tiver a sua câmara ativada, o seu feed de vídeo é mostrado aqui. Cada participante tem um azulejo individual que mostra o seu nome de exibição e fluxo de vídeo (quando há um)
 - **Cabeçalho**: É aqui que se encontram os controlos de chamada primário para alternar as definições e a barra lateral do participante, ligar o vídeo e misturar,partilhar o ecrã e deixar a chamada.
 - **Barra lateral**: É aqui que são mostradas informações sobre os participantes e as definições quando alternadas utilizando os controlos do cabeçalho. O componente pode ser descartado utilizando o 'X' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais utilizadores a conversar. A barra lateral permite configurar as definições do microfone e da câmara.
+
+> [!NOTE]
+> Com base nas limitações do Web Calling SDK, apenas um fluxo de vídeo remoto é renderizado. Para mais informações consulte, [chamando o Suporte para Fluxo SDK](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support).
 
 Abaixo encontrará mais informações sobre pré-requisitos e passos para configurar a amostra.
 

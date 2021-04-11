@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 018e61fbc74091fa25211b8a25ce067862a0cc7d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: ed1d360b5e816627bf161f479addcd6e0eb776a1
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132402"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058854"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Analisar a utilização dos recursos do Azure com a API REST
 

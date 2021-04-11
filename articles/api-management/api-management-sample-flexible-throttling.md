@@ -1,5 +1,5 @@
 ---
-title: Limitação de pedidos avançada com a Gestão de API do Azure
+title: Adescoplamento avançado de pedido com a Azure API Management
 description: Saiba como criar e aplicar políticas flexíveis de quota e limitação de taxas com a Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 36b21196207f65975dae950f43ec0c7094991dad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f91ed2238a7a23b967cd3e3556c8ade88af0044
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100362034"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449737"
 ---
-# <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de pedidos avançada com a Gestão de API do Azure
+# <a name="advanced-request-throttling-with-azure-api-management"></a>Adescoplamento avançado de pedido com a Azure API Management
 Ser capaz de acelerar os pedidos de entrada é um papel fundamental da Azure API Management. Quer controlando a taxa de pedidos ou o total de pedidos/dados transferidos, a API Management permite que os fornecedores de API protejam as suas APIs de abusos e criem valor para diferentes níveis de produtos API.
 
 ## <a name="rate-limits-and-quotas"></a>Limites de taxas e quotas
@@ -91,7 +91,7 @@ Quando a chave de estrangulamento é definida usando uma [expressão de polític
 Isto permite que a aplicação do cliente do desenvolvedor escolha como eles querem criar a chave de limitação de taxa. Os desenvolvedores de clientes poderiam criar os seus próprios níveis de tarifas, alocando conjuntos de chaves aos utilizadores e rodando a utilização da chave.
 
 ## <a name="summary"></a>Resumo
-A Azure API Management fornece taxa e cotação para proteger e acrescentar valor ao seu serviço API. As novas políticas de estrangulamento com regras de scoping personalizadas permitem-lhe um controlo mais fino sobre essas políticas para permitir que os seus clientes construam aplicações ainda melhores. Os exemplos deste artigo demonstram a utilização destas novas políticas através da taxa de produção limitando as chaves com endereços IP do cliente, identidade de utilizador e valores gerados pelo cliente. No entanto, existem muitas outras partes da mensagem que poderiam ser usadas como o agente do utilizador, fragmentos de caminhos URL, tamanho da mensagem.
+A Azure API Management fornece taxa e estrangulamento de quota para proteger e acrescentar valor ao seu serviço API. As novas políticas de estrangulamento com regras de scoping personalizadas permitem-lhe um controlo mais fino sobre essas políticas para permitir que os seus clientes construam aplicações ainda melhores. Os exemplos deste artigo demonstram a utilização destas novas políticas através da taxa de produção limitando as chaves com endereços IP do cliente, identidade de utilizador e valores gerados pelo cliente. No entanto, existem muitas outras partes da mensagem que poderiam ser usadas como o agente do utilizador, fragmentos de caminhos URL, tamanho da mensagem.
 
 ## <a name="next-steps"></a>Passos seguintes
 Por favor, dê-nos o seu feedback como uma questão do GitHub para este tópico. Seria ótimo ouvir sobre outros potenciais valores-chave que têm sido uma escolha lógica nos seus cenários.

@@ -1,0 +1,45 @@
+- name: Documentação do dispositivo certificado Azure
+  href: index.yml
+- name: Descrição Geral
+  items:
+    - name: O que é o programa Azure Certified Device?
+      href: overview.md
+- name: Tutoriais
+  expanded: true
+  items:
+    - name: 1 - Selecionando a certificação certa
+      href: tutorial-00-selecting-your-certification.md
+    - name: 2 - Criar o seu projeto
+      href: tutorial-01-creating-your-project.md
+    - name: 3 - Adicionar detalhes do dispositivo
+      href: tutorial-02-adding-device-details.md
+    - name: 4 - Testar o seu dispositivo
+      href: tutorial-03-testing-your-device.md
+    - name: 5 - Publicar o seu dispositivo
+      href: tutorial-04-publishing-your-device.md
+- name: Requisitos do Programa
+  items:
+    - name: Dispositivo Certificado Azure
+      href: program-requirements-azure-certified-device.md
+    - name: IoT Plug and Play
+      href: program-requirements-pnp.md
+    - name: Edge Gerido
+      href: program-requirements-edge-managed.md
+    - name: Edge Secured-core (Pré-visualização)
+      href: program-requirements-edge-secured-core.md
+- name: Conceitos
+  items:
+    - name: Conceitos de marketing
+      href: concepts-marketing.md
+- name: Guias de procedimentos
+  items:
+    - name: Como editar um dispositivo publicado
+      href: how-to-edit-published-device.md
+    - name: Como certificar um dispositivo indiretamente ligado
+      href: how-to-indirectly-connected-devices.md
+    - name: Como utilizar a funcionalidade de componentes
+      href: how-to-using-the-components-feature.md
+- name: Recursos
+  items:
+    - name: Glossário de Certificação
+      href: resources-glossary.md

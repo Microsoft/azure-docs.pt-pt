@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/06/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 10741fbf2deb61d63f444ff9e2247bc59f41af38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e521305f517a697c8d71c692f2581f2cce380980
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97968724"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058804"
 ---
 # <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Tutorial: Transforme os dados com Azure Stack Edge Pro
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: f547b353091cc81816f0974fced8d4dc836d22b2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 45c509ea2391c370aa0a399b2f0c621238fabc55
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023825"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209685"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Quickstart: Obter uma chave de ponta LUIS
 
@@ -61,7 +61,7 @@ Na página **de definições de Chaves e Ponto final:**
 ![Chaves de subscrição da aplicação LUIS](~/articles/cognitive-services/Speech-Service/media/sdk/luis-keys-assigned.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Reconhecer Intenções](~/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md)
+> [Reconhecer Intenções](~/articles/cognitive-services/Speech-Service/get-started-intent-recognition.md)

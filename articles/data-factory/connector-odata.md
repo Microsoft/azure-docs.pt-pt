@@ -4,14 +4,14 @@ description: Saiba como copiar dados de fontes OData para lojas de dados de sumi
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/30/2021
 ms.author: jingwang
-ms.openlocfilehash: 90cc4e3f9915db424cec89cfc764771b5be785e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9dd86b4982edf5d206e64431a5e1458c4b848e9e
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389727"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968500"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copie dados de uma fonte OData utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -326,6 +326,48 @@ Ao copiar dados do OData, são utilizados os seguintes mapeamentos entre os tipo
 
 > [!NOTE]
 > Os tipos de dados complexos oData (como **o Object)** não são suportados.
+
+## <a name="copy-data-from-project-online"></a>Copiar dados do Project Online
+
+Para copiar dados do Project Online, pode utilizar o conector OData e um token de acesso obtido a partir de ferramentas como o Carteiro.
+
+> [!CAUTION]
+> O token de acesso expira em 1 hora por padrão, você precisa obter um novo token de acesso quando expirar.
+
+1. Use **o Carteiro** para obter o token de acesso:
+
+   1. Navegue para o separador **autorização** no site do Carteiro.
+   1. Na caixa **Tipo,** selecione **OAuth 2.0**, e nos **dados** de autorização adicionar para caixa, selecione **Cabeçalhos de Pedido**.
+   1. Preencha as seguintes informações na página **Configure New Token** para obter um novo token de acesso: 
+      - **Tipo de concessão**: Código **de Autorização Selecionado**.
+      - **URL de retorno:** Insira `https://www.localhost.com/` . 
+      - **URL Auth**: Insira `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com` . Substitua `<your tenant name>` pelo seu próprio nome de inquilino. 
+      - **Acesso TOKen URL**: Insira `https://login.microsoftonline.com/common/oauth2/token` .
+      - **ID do cliente:** Insira o seu ID principal de serviço AAD.
+      - **Segredo do Cliente:** Insira o seu principal segredo de serviço.
+      - **Autenticação do cliente**: Selecione **Enviar como cabeçalho Básico de Auth**.
+     
+   1. Ser-lhe-á pedido que faça login com o seu nome de utilizador e senha.
+   1. Assim que tiver o seu token de acesso, por favor, copie e guarde-o para o próximo passo.
+   
+    [![Use o Carteiro para obter o token de acesso](./media/connector-odata/odata-project-online-postman-access-token-inline.png)](./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox)
+
+1. Criar o serviço ligado ao OData:
+    - **URL de serviço**: Insira `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata` . Substitua `<your tenant name>` pelo seu próprio nome de inquilino. 
+    - **Tipo de autenticação**: Selecione **Anonymous**.
+    - **Cabeçalhos auth:**
+        - **Nome da propriedade**: Escolha **a Autorização.**
+        - **Valor**: Introduza o **token** de acesso copiado do passo 1.
+    - Teste o serviço ligado.
+
+    ![Criar serviço ligado ao OData](./media/connector-odata/odata-project-online-linked-service.png)
+
+1. Criar o conjunto de dados OData:
+    1. Crie o conjunto de dados com o serviço ligado ao OData criado no passo 2.
+    1. Dados de pré-visualização.
+ 
+    ![Dados de pré-visualização](./media/connector-odata/odata-project-online-preview-data.png)
+ 
 
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura

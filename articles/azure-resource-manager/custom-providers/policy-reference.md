@@ -1,17 +1,17 @@
 ---
 title: Definições de políticas incorporadas para fornecedores de recursos personalizados Azure
 description: Lista definições de políticas incorporadas da Azure Policy para fornecedores de recursos personalizados Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 2933bd0b36932e68532a4ffa40747c4490f24fd1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d83332a8ec0f0f56a402cb331a03bf3153f321a5
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105032396"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094205"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-custom-resource-providers"></a>Definições incorporadas da Política Azure para fornecedores de recursos personalizados Azure
 

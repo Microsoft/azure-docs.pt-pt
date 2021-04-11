@@ -5,19 +5,19 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: 71fa79cb8847d16ac0890f9aba647cb8f5e2e444
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: d958d93731f38b4b553bca94f48c740c1b75cfd5
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99089347"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449855"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria Plugin Azure Media Player #
 
 ## <a name="plugins"></a>Plug-ins ##
 
-| Nome plugin                         | URL de demonstração                    | Código Fonte                | Description    |
+| Nome plugin                         | URL de demonstração                    | Código Fonte                | Descrição    |
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Características adicionais                 | | | |
 | **Novo!** AMP360Video                | [Demonstração](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | O plugin permite visualizar 360 vídeos em Amp, quer no seu ambiente de trabalho, quer em dispositivos compatíveis com VR. A documentação completa está disponível [aqui:](https://doc.babylonjs.com/extensions/amp360video) |

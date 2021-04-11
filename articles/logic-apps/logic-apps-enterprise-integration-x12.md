@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87a2bcc386ec5688fadb68aabdd2e5239e205516
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96015201"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077477"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para integração empresarial B2B em Azure Logic Apps com Pacote de Integração Empresarial
 
@@ -79,7 +79,6 @@ Depois de definir as propriedades do contrato, pode configurar como este acordo 
 |----------|-------------|
 | **TA1 Esperado** | Devolver um reconhecimento técnico (TA1) ao remetente de intercâmbio. |
 | **FA Esperado** | Devolva um reconhecimento funcional (FA) ao remetente de intercâmbio. <p>Para a propriedade **fa version,** com base na versão schema, selecione os agradecimentos 997 ou 999. <p>Para ativar a geração de loops AK2 em reconhecimentos funcionais para conjuntos de transações aceites, **selecione Incluir AK2 / IK2 Loop**. |
-||||
 
 <a name="inbound-schemas"></a>
 

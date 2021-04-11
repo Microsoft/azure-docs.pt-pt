@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bbd778eabf150b734b04e004006dfeea2254ec4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542682"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077487"
 ---
 # <a name="sizing-guidance"></a>Orientação de Dimensionamento
 
@@ -92,9 +92,9 @@ Cada cápsula de instância gerida sql que é criada tem três recipientes:
 
 |Nome do contentor|Pedido cpu|Pedido de Memória|Limite do CPU|Limite de memória|Notas|
 |---|---|---|---|---|---|
-|fluentbit|100m|100Mi|Não especificado|Não especificado|Os pedidos de recursos de recipiente fluentbit são _para além_ dos pedidos especificados para a instância gerida pelo SQL.||
-|arc-sqlmi|Utilizador especificado ou não especificado.|Utilizador especificado ou não especificado.|Utilizador especificado ou não especificado.|Utilizador especificado ou não especificado.||
-|recolhido|Não especificado|Não especificado|Não especificado|Não especificado||
+|fluentbit|100m|100Mi|Não especificado|Não especificado|Os pedidos de recursos de recipiente fluentbit são _para além_ dos pedidos especificados para a instância gerida pelo SQL.|
+|arc-sqlmi|Utilizador especificado ou não especificado.|Utilizador especificado ou não especificado.|Utilizador especificado ou não especificado.|Utilizador especificado ou não especificado.|
+|recolhido|Não especificado|Não especificado|Não especificado|Não especificado|
 
 O tamanho do volume predefinido para todos os volumes persistentes é 5Gi.
 

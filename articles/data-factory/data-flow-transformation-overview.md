@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb5021c0125c3140ef44a1ec3304b9d0ac40c30f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593871"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060232"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Visão geral da transformação do fluxo de dados de mapeamento
 
@@ -42,3 +42,4 @@ Abaixo está uma lista das transformações atualmente suportadas no fluxo de da
 | [União](data-flow-union.md) | Múltiplas entradas/saídas | Combine vários fluxos de dados verticalmente |
 | [Anular dinamização](data-flow-unpivot.md) | Modificador de esquemas | Colunas de pivô em valores de linha |
 | [Janela](data-flow-window.md) | Modificador de esquemas |  Defina agregações baseadas em janelas de colunas nos seus fluxos de dados. |
+| [Parse](data-flow-parse.md) | Modificador de esquemas |  Dados da coluna de análise a Json ou texto delimitado |
