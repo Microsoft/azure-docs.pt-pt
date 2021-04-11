@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5df7088551e7e7f616077342b762baca179f8640
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a71a53cd2aff16102a54f5a24063615e02d11872
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123365"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169526"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)
 
@@ -63,6 +63,7 @@ Os seguintes cenários não são apoiados neste momento:
 - *Clientes licenciados Azure AD P2 apenas* Mesmo depois de eliminar o grupo, é ainda mostrado um membro elegível do papel na PIM UI. Funcionalmente não há problema; é apenas um problema de cache no portal Azure.  
 - Utilize o novo [Exchange Admin Center](https://admin.exchange.microsoft.com/) para atribuições de funções através da adesão ao grupo. O antigo Exchange Admin Center ainda não suporta esta funcionalidade. Os cmdlets de Câmbio PowerShell funcionarão como esperado.
 - O Portal de Proteção de Informação Azure (o portal clássico) ainda não reconhece a adesão ao papel através do grupo. Pode [migrar para a plataforma de rotulagem unificada](/azure/information-protection/configure-policy-migrate-labels) de sensibilidade e, em seguida, utilizar o Centro de Conformidade & de Segurança do Office 365 para utilizar atribuições de grupo para gerir funções.
+- [Apps Admin Center](https://config.office.com/) ainda não suporta esta funcionalidade. Atribua os utilizadores diretamente à função de Administrador de Aplicações do Office.
 
 Estamos a resolver estas questões.
 

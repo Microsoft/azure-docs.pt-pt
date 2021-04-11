@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: c2fa1441f5b7d8af4d610c5341f60009e57173af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 120bfe2eefae3c1721073060231c6c2a1962b7c8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560952"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110279"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configurar uma porta de rede virtual para ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Os passos para esta tarefa utilizam um VNet com base nos valores da seguinte lis
    ```azurepowershell-interactive
    $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
    ```
-1. Adicione uma sub-rede de gateway à sua Rede Virtual. A sub-rede gateway deve ser denominada "GatewaySubnet". A sub-rede gateway tem de ser /27 ou maior (/26, /25, e assim por diante).
+1. Adicione uma sub-rede de gateway à sua Rede Virtual. A sub-rede gateway deve ser denominada "GatewaySubnet". A sub-rede gateway tem de ser /27 ou maior (/26, /25, e assim por diante). Se planeia ligar 16 circuitos ExpressRoute ao seu gateway, **tem de** criar uma sub-rede de gateway de /26 ou maior.
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26

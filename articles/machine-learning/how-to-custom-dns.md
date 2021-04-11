@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/12/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q3
-ms.openlocfilehash: c3f21471e486f88daf8d79b74633c076d27ac8e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9021c3f70c9fc053998d1b31271a1ca3b0124b4d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557586"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169543"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como utilizar a área de trabalho com um servidor DNS personalizado
 
-Ao utilizar um espaço de trabalho de aprendizagem automática Azure com um ponto final privado, [existem várias formas de lidar com a resolução do nome DNS](../private-link/private-endpoint-dns.md). Por predefinição, o Azure lida automaticamente com a resolução de nomes para o seu espaço de trabalho e ponto final privado. Se, em vez disso, _utilizar o seu próprio servidor DNS personalizado_ _, deve criar manualmente entradas de DNS ou utilizar reencaminhadores condicional para o espaço de trabalho.
+Ao utilizar um espaço de trabalho de aprendizagem automática Azure com um ponto final privado, [existem várias formas de lidar com a resolução do nome DNS](../private-link/private-endpoint-dns.md). Por predefinição, o Azure lida automaticamente com a resolução de nomes para o seu espaço de trabalho e ponto final privado. Se, em vez disso, __utilizar o seu próprio servidor DNS personalizado,__ deve criar manualmente entradas DE DNS ou utilizar reencaminhadores condicional para o espaço de trabalho.
 
 > [!IMPORTANT]
 > Este artigo abrange apenas como encontrar os endereços de domínio totalmente qualificados (FQDN) e IP para estas entradas, não fornece informações sobre a configuração dos registos DNS para estes itens. Consulte a documentação do seu software DNS para obter informações sobre como adicionar registos.
@@ -46,11 +46,12 @@ A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN)
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > O nome do espaço de trabalho para este FQDN pode ser truncado. A truncação é feita para manter o FQDN inferior ou igual a 63 caracteres.
+    > O nome do espaço de trabalho para este FQDN pode ser truncado. A truncação é feita para manter `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 caracteres.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
-    > As instâncias computacional só podem ser acedidas a partir da rede virtual.
+    > * As instâncias computacional só podem ser acedidas a partir da rede virtual.
+    > * O endereço IP para este FQDN **não** é o IP da instância computacional. Em vez disso, utilize o endereço IP privado do ponto final privado do espaço de trabalho (o IP das `*.api.azureml.ms` entradas.)
 
 ## <a name="azure-china-21vianet-regions"></a>Regiões Azure China 21Vianet
 
@@ -61,7 +62,7 @@ As seguintes FQDNs são para as regiões Azure China 21Vianet:
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
-    > O nome do espaço de trabalho para este FQDN pode ser truncado. A truncação é feita para manter o FQDN inferior ou igual a 63 caracteres.
+    > O nome do espaço de trabalho para este FQDN pode ser truncado. A truncação é feita para manter `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 caracteres.
 * `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Encontre os endereços IP
 
@@ -108,7 +109,7 @@ A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e en
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * Se tiver uma instância computacional, `<instance-name>.<region>.instances.azureml.ms` use, onde `<instance-name>` está o nome da sua instância de computação. Por favor, utilize o endereço IP privado do ponto final privado do espaço de trabalho. Por favor, note que a instância compute pode ser acedida apenas a partir da rede virtual.
+> * Se tiver uma instância computacional, `<instance-name>.<region>.instances.azureml.ms` use, onde `<instance-name>` está o nome da sua instância de computação. Utilize o endereço IP privado do ponto final privado do espaço de trabalho. A instância computacional só pode ser acedida a partir da rede virtual.
 >
 > Para todos estes endereços IP, utilize o mesmo endereço que as `*.api.azureml.ms` entradas devolvidas das etapas anteriores.
 

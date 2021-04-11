@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
 ms.openlocfilehash: 27f625e7fced5ff710a6fa0e8b2045a8c5434258
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954365"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover o armazenamento do computador principal para Azure
@@ -52,7 +52,7 @@ O armazenamento Azure está disponível como [Azure Disks](../../../managed-disk
 
 <table>
 <thead>
-    <tr><th>Tipo</th><th>Descrição</th><th>Use quando quiser:</th></tr>
+    <tr><th>Tipo</th><th>Description</th><th>Use quando quiser:</th></tr>
 </thead>
 <tbody>
 <tr><td>Ficheiros do Azure

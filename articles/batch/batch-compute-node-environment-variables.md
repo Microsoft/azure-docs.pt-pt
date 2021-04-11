@@ -4,10 +4,10 @@ description: Orientação variável do ambiente de tempo de execução de tarefa
 ms.topic: conceptual
 ms.date: 12/30/2020
 ms.openlocfilehash: dbdc13e28a3a0c772480d2602f147e0d3354ff48
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104669989"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis do ambiente de runtime do Azure Batch

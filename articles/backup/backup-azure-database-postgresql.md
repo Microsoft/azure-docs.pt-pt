@@ -2,14 +2,14 @@
 title: Cópia de Segurança da Base de Dados do Azure para PostgreSQL
 description: Saiba mais sobre a Base de Dados Azure para cópia de segurança pós-SQL com retenção a longo prazo (pré-visualização)
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5eba9d78dda45197c0d1e92195980f3d731734a8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737577"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011721"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Base de Dados Azure para backup pós-SQL com retenção a longo prazo (pré-visualização)
 
@@ -135,10 +135,9 @@ As seguintes instruções são um guia passo a passo para configurar a cópia de
 
 1. Defina **as definições de retenção.** Pode adicionar uma ou mais regras de retenção. Cada regra de retenção pressupõe entradas para cópias de segurança específicas e a duração da loja de dados e retenção para essas cópias de segurança.
 
-1. Pode optar por armazenar as suas cópias de segurança numa das duas lojas de dados (ou níveis): **Loja de dados de backup** (nível padrão) ou loja de **dados Archive** (em pré-visualização). Pode escolher entre **duas opções de tiering** para definir quando as cópias de segurança são niveladas nas duas datastores:
+1. Pode optar por armazenar as suas cópias de segurança numa das duas lojas de dados (ou níveis): **Loja de dados de backup** (nível padrão) ou loja de **dados Archive** (em pré-visualização).
 
-    - Opte por copiar **imediatamente** se preferir ter uma cópia de segurança nas lojas de dados de backup e arquivo simultaneamente.
-    - Opte por **mover-se No-expiry** se preferir mover a cópia de segurança para arquivar a loja de dados no seu termo na loja de dados de backup.
+   Pode escolher **O termo para** mover a cópia de segurança para arquivar a loja de dados no seu termo na loja de dados de backup.
 
 1. A **regra de retenção por defeito** é aplicada na ausência de qualquer outra regra de retenção, e tem um valor padrão de três meses.
 
@@ -197,7 +196,21 @@ Siga este guia passo a passo para desencadear uma restauração:
 
     ![Restaurar como ficheiros](./media/backup-azure-database-postgresql/restore-as-files.png)
 
+1. Se o ponto de recuperação estiver no nível de arquivo, deve reidratar o ponto de recuperação antes de restaurar.
+   
+   ![Definições de reidratação](./media/backup-azure-database-postgresql/rehydration-settings.png)
+   
+   Fornecer os seguintes parâmetros adicionais necessários para a reidratação:
+   - **Prioridade de reidratação:** O padrão é **standard**.
+   - **Duração da reidratação:** A duração máxima de reidratação é de 30 dias e a duração mínima de reidratação é de 10 dias. O valor predefinido é **de 15**.
+   
+   O ponto de recuperação é armazenado na **loja de dados de backup** para a duração de reidratação especificada.
+
+
 1. Reveja as informações e **selecione Restaurar.** Isto irá desencadear um trabalho de Restauro correspondente que pode ser rastreado sob **trabalhos de backup**.
+
+>[!NOTE]
+>O suporte de arquivo para Azure Database for PostgreSQL está em pré-visualização pública limitada.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permissões pré-requisitos para configurar backup e restaurar
 
@@ -220,7 +233,7 @@ Escolha entre a lista de regras de retenção definidas na política de Backup a
 
 ### <a name="stop-protection"></a>Parar proteção
 
-Pode parar a proteção num item de reserva. Isto também eliminará os pontos de recuperação associados para esse item de backup. Ainda não fornecemos a opção de parar a proteção, mantendo os pontos de recuperação existentes.
+Pode parar a proteção num item de reserva. Isto também eliminará os pontos de recuperação associados para esse item de backup. Se os pontos de recuperação não estiverem no nível de arquivo durante um mínimo de seis meses, a supressão desses pontos de recuperação incorrerá num custo de supressão precoce. Ainda não fornecemos a opção de parar a proteção, mantendo os pontos de recuperação existentes.
 
 ![Parar proteção](./media/backup-azure-database-postgresql/stop-protection.png)
 

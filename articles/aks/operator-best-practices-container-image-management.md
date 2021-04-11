@@ -3,45 +3,57 @@ title: Melhores práticas do operador - Gestão de imagem de contentores nos Ser
 description: Aprenda as melhores práticas do operador do cluster para gerir e proteger imagens de contentores no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 1d2f5465356a94b9ad7014e75aa6fe1515411a81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/11/2021
+ms.openlocfilehash: 998d8602b6aa0e71a04f75aff1c29551ba09c8a3
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564922"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105124"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para gestão de imagem de contentores e segurança no Serviço Azure Kubernetes (AKS)
 
-À medida que desenvolve e executa aplicações no Serviço Azure Kubernetes (AKS), a segurança dos seus contentores e imagens de contentores é uma consideração fundamental. Os recipientes que incluem imagens base desatualizadas ou tempos de execução de aplicações não reparados introduzem um risco de segurança e um possível vetor de ataque. Para minimizar estes riscos, deve integrar ferramentas que analisem e remediam problemas nos seus recipientes no tempo de construção, bem como tempo de execução. Quanto mais cedo no processo a vulnerabilidade ou a imagem base desatualizada for capturada, mais seguro é o cluster. Neste artigo, os *recipientes* significam tanto as imagens dos contentores armazenadas num registo de contentores como os contentores em funcionamento.
+A segurança da imagem do contentor e do contentor é uma das principais prioridades enquanto desenvolve e executa aplicações no Serviço Azure Kubernetes (AKS). Os recipientes com imagens base desatualizadas ou tempos de execução de aplicações não remutizados introduzem um risco de segurança e um possível vetor de ataque. 
+
+Minimizar os riscos integrando e executando ferramentas de digitalização e reparação nos seus recipientes em tempo de construção e execução. Quanto mais cedo apanhares a vulnerabilidade ou a imagem de base desatualizada, mais seguro é o teu cluster. 
+
+Neste artigo, *"contentores"* significa ambos:
+* As imagens do contentor guardadas num registo de contentores.
+* Os contentores de corrida.
 
 Este artigo centra-se em como proteger os seus contentores em AKS. Saiba como:
 
 > [!div class="checklist"]
-> * Procurar e corrigir vulnerabilidades de imagem
-> * Desencadeie e reimplante automaticamente imagens de contentores quando uma imagem base é atualizada
+> * Procure e remediar as vulnerabilidades de imagem.
+> * Desencadeie e reimplante automaticamente as imagens do recipiente quando uma imagem base é atualizada.
 
 Também pode ler as melhores práticas para [a segurança][best-practices-cluster-security] do cluster e para a segurança [do casulo.][best-practices-pod-security]
 
-Também pode utilizar a [segurança do contentor no Centro de Segurança][security-center-containers] para ajudar a digitalizar os seus recipientes para obter vulnerabilidades.  Há também [integração do Registo de Contentores Azure][security-center-acr] com o Security Center para ajudar a proteger as suas imagens e o registo de vulnerabilidades.
+Também pode utilizar a [segurança do contentor no Centro de Segurança][security-center-containers] para ajudar a digitalizar os seus recipientes para obter vulnerabilidades. [A integração do Registo de Contentores Azure][security-center-acr] com o Security Center ajuda a proteger as suas imagens e o registo de vulnerabilidades.
 
 ## <a name="secure-the-images-and-run-time"></a>Proteja as imagens e corra tempo
 
-**Orientação para as melhores práticas** - Verifique as imagens do seu contentor para obter vulnerabilidades e apenas implemente imagens que tenham passado a validação. Atualize regularmente as imagens base e o tempo de execução da aplicação e, em seguida, reimplante cargas de trabalho no cluster AKS.
+> **Orientação de melhor prática** 
+>
+> Digitalize as imagens do seu contentor para obter vulnerabilidades. Apenas implemente imagens validadas. Atualize regularmente as imagens base e o tempo de execução da aplicação. Reposicionar cargas de trabalho no cluster AKS.
 
-Uma das preocupações com a adoção de cargas de trabalho baseadas em contentores é verificar a segurança das imagens e o tempo de funcionamento utilizado para construir as suas próprias aplicações. Como é que te certificas de que não introduzes vulnerabilidades de segurança nas tuas implementações? O seu fluxo de trabalho de implementação deve incluir um processo para digitalizar imagens de contentores usando ferramentas como [Twistlock][twistlock] ou [Aqua][aqua], e, em seguida, apenas permitir que imagens verificadas sejam implantadas.
+Ao adotar cargas de trabalho baseadas em contentores, deverá verificar a segurança das imagens e do tempo de funcionamento utilizados para construir as suas próprias aplicações. Como evitar introduzir vulnerabilidades de segurança nas suas implementações? 
+* Inclua no seu fluxo de trabalho de implantação um processo para digitalizar imagens de contentores usando ferramentas como [Twistlock][twistlock] ou [Aqua][aqua].
+* Só permita a implantação de imagens verificadas.
 
 ![Digitalizar e remediar imagens de contentores, validar e implantar](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
-Num exemplo do mundo real, pode utilizar um gasoduto de integração contínua e implementação contínua (CI/CD) para automatizar as imagens, verificação e implementações. O Registo de Contentores Azure inclui estas vulnerabilidades de digitalização de capacidades.
+Por exemplo, pode utilizar um gasoduto de integração contínua e de implementação contínua (CI/CD) para automatizar as imagens, verificação e implementações. O Registo de Contentores Azure inclui estas vulnerabilidades de digitalização de capacidades.
 
 ## <a name="automatically-build-new-images-on-base-image-update"></a>Construa automaticamente novas imagens na atualização da imagem base
 
-**Orientação para as melhores práticas** - Ao utilizar imagens base para imagens de aplicações, utilize a automatização para construir novas imagens quando a imagem base for atualizada. Como essas imagens base normalmente incluem correções de segurança, atualize quaisquer imagens de recipientes de aplicação a jusante.
+> **Orientação de melhor prática** 
+>
+> Ao utilizar imagens base para imagens de aplicações, utilize a automatização para construir novas imagens quando a imagem base for atualizada. Uma vez que as imagens de base atualizadas normalmente incluem correções de segurança, atualize quaisquer imagens de contentores de aplicação a jusante.
 
-Cada vez que uma imagem base é atualizada, quaisquer imagens de contentores a jusante também devem ser atualizadas. Este processo de construção deve ser integrado em oleodutos de validação e implantação, tais como [Azure Pipelines][azure-pipelines] ou Jenkins. Estes oleodutos garantem que as suas aplicações continuam a funcionar nas imagens atualizadas. Uma vez validadas as imagens do contentor da aplicação, as implementações AKS podem ser atualizadas para executar as imagens mais recentes e seguras.
+Cada vez que uma imagem base é atualizada, também deve atualizar quaisquer imagens de contentores a jusante. Integre este processo de construção em oleodutos de validação e implantação, tais como [Azure Pipelines][azure-pipelines] ou Jenkins. Estes oleodutos asseguram que as suas aplicações continuam a funcionar nas imagens atualizadas. Uma vez validadas as imagens do contentor da aplicação, as implementações AKS podem ser atualizadas para executar as imagens mais recentes e seguras.
 
-As tarefas de registo de contentores Azure também podem atualizar automaticamente as imagens dos contentores quando a imagem base é atualizada. Esta funcionalidade permite-lhe construir um pequeno número de imagens base, e mantê-las atualizadas regularmente com correções de bugs e segurança.
+As tarefas de registo de contentores Azure também podem atualizar automaticamente as imagens dos contentores quando a imagem base é atualizada. Com esta funcionalidade, você constrói algumas imagens base e mantém-nas atualizadas com correções de bugs e segurança.
 
 Para obter mais informações sobre atualizações de imagens base, consulte [a imagem do Automatismo na atualização da imagem base com as Tarefas de Registo de Contentores Azure][acr-base-image-update].
 

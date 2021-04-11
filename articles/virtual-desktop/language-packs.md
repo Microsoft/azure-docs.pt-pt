@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc7892db2ca11ab7970835f8979360961ee01104
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1bac5ef9805dba5f06befeae3049566cb0483306
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463345"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169560"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adicione pacotes de idiomas a uma imagem multi-sessão do Windows 10
 
@@ -265,4 +265,4 @@ Depois de um utilizador alterar as suas definições de idioma, terá de iniciar
 
 Se está curioso sobre problemas conhecidos para pacotes de idiomas, consulte [adicionar pacotes de idiomas no Windows 10, versão 1803 e versões posteriores: Problemas conhecidos](/windows-hardware/manufacture/desktop/language-packs-known-issue).
 
-Se tiver mais alguma dúvida sobre o Windows 10 Enterprise multi-sessão, consulte as nossas [FAQ](windows-10-multisession-faq.md).
+Se tiver mais alguma dúvida sobre o Windows 10 Enterprise multi-sessão, consulte as nossas [FAQ](windows-10-multisession-faq.yml).

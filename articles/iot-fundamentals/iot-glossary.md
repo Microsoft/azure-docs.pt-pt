@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
 ms.openlocfilehash: d7ae1e72dee28509c1338a1b56cf42a5293af9bf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104670261"
 ---
 # <a name="glossary-of-iot-terms"></a>Glossário de termos IoT

@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 6f08fa0b2126112fa17fd61be6f44bb5cc6d5396
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627064"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552160"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
-Este artigo explica as diferentes opções e requisitos para a publicação de software como um serviço (SaaS) oferece ao mercado comercial da Microsoft. A SaaS oferece soluções de software de entrega e licença aos seus clientes através de subscrições online. Como editor da SaaS, gere e paga a infraestrutura necessária para apoiar o uso da sua oferta pelos seus clientes. Este artigo irá ajudá-lo a preparar a sua oferta de publicação no mercado comercial com o Partner Center.
+Este artigo explica as diferentes opções e requisitos para a publicação de software como um serviço (SaaS) oferece ao mercado comercial da Microsoft. A SaaS oferece-se para lhe permitir entregar e licenciar soluções de software para os seus clientes através de subscrições online. Como editor da SaaS, gere e paga a infraestrutura necessária para apoiar o uso da sua oferta pelos seus clientes. Este artigo irá ajudá-lo a preparar a sua oferta de publicação no mercado comercial com o Partner Center.
 
 ## <a name="listing-options"></a>Opções de listagem
 
@@ -113,10 +113,10 @@ Se a sua oferta SaaS for *simultaneamente* uma solução de TI (Azure Marketplac
 
 | Faturação medido | Plano público | Plano privado | Disponível em: |
 |---|---|---|---|
-| Yes             | Yes         | No           | Azure Marketplace e portal Azure |
-| Yes             | Yes         | Yes          | Azure Marketplace e portal Azure * |
-| Yes             | No          | Yes          | Apenas portal Azure |
-| No              | No          | Yes          | Apenas portal Azure |
+| Sim             | Sim         | No           | Azure Marketplace e portal Azure |
+| Sim             | Sim         | Sim          | Azure Marketplace e portal Azure * |
+| Sim             | No          | Sim          | Apenas portal Azure |
+| No              | No          | Sim          | Apenas portal Azure |
 |||||
 
 &#42; O plano privado da oferta só estará disponível através do portal Azure
@@ -134,6 +134,28 @@ Se optar por utilizar o contrato padrão, tem a opção de adicionar termos de e
 > [!NOTE]
 > Depois de publicar uma oferta utilizando o contrato padrão para o mercado comercial, não pode utilizar os seus próprios termos e condições personalizados. É um cenário "ou". Ou oferece a sua solução de acordo com o contrato padrão ou os seus próprios termos e condições. Se quiser modificar os termos do contrato padrão, pode fazê-lo através de Alterações Padrão contratuais.
 
+
+## <a name="microsoft-365-integration"></a>Integração do Microsoft 365
+
+A integração com o Microsoft 365 permite que a sua oferta SaaS forneça experiência conectada em várias superfícies de aplicações da Microsoft 365 através de add-ins gratuitos relacionados como apps teams, add-ins do Office e soluções SharePoint Framework. Pode ajudar os seus clientes a descobrir facilmente todas as facetas da sua solução E2E (serviço web + add-ins relacionados) e implantá-las dentro de um processo, fornecendo as seguintes informações. 
+  - Se a sua oferta SaaS se integrar com o Microsoft Graph, então forneça o ID de aplicação Azure Ative (AAD) usado pela sua oferta SaaS para a integração. Os administradores podem rever as permissões de acesso necessárias para o bom funcionamento da sua oferta SaaS, conforme definido no ID da App AAD e conceder acesso se for necessária uma permissão de administração avançada no momento da implementação. 
+    
+     Se optar por vender a sua oferta através da Microsoft, então este é o mesmo ID da aplicação AAD que registou para usar na sua página de aterragem para obter informações básicas do utilizador necessárias para completar a ativação da subscrição do cliente. Para obter orientações detalhadas, consulte [Construir a página de aterragem para a sua oferta de SaaS transacionável no mercado comercial.](azure-ad-transactable-saas-landing-page.md) 
+    
+   -    Forneça uma lista de add-ins relacionados que funcionam com a sua oferta SaaS que pretende ligar. Os clientes poderão descobrir a sua solução E2E no AppSource e os administradores podem implementar tanto o SaaS como todos os add-ins relacionados que ligou no mesmo processo através do Microsoft 365.
+    
+        Para ligar add-ins relacionados, precisa fornecer a ligação AppSource do add-in, isto significa que o add-in deve ser publicado pela primeira vez no AppSource. Os tipos de add-in suportados que pode ligar são: apps de equipas, add-ins do Office e soluções SharePoint Framework (SPFx). Cada add-in ligado deve ser único para uma oferta SaaS. 
+
+Para produtos ligados, a pesquisa no AppSource regressará com um resultado que inclui tanto o SaaS como todos os add-ins ligados. O cliente pode navegar entre as páginas de detalhes do produto da oferta SaaS e os add-ins ligados. Os administradores de TI podem rever e implementar tanto os add-ins SaaS como os add-ins ligados no mesmo processo através de uma experiência integrada e conectada dentro do centro de administração microsoft 365. Para saber mais, consulte [o Teste e implemente as aplicações microsoft 365 - Microsoft 365 administração](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
+
+### <a name="microsoft-365-integration-support-limitations"></a>Limitações de suporte à integração da Microsoft 365
+A Discovery como uma única solução E2E é suportada no AppSource para todos os casos, no entanto, a implementação simplificada da solução E2E, tal como acima descrita através do centro de administração Microsoft 365, não é suportada para os seguintes cenários:
+
+   - O mesmo add-in está ligado a mais de uma oferta saaS.
+   - A oferta saaS está ligada a add-ins, mas não se integra com o Microsoft Graph e não é fornecido nenhum ID de aplicação AAD.
+  - A oferta saaS está ligada a add-ins, mas o ID da App AAD fornecido para a integração do Microsoft Graph é partilhado em várias ofertas de SaaS.
+
+ 
 ## <a name="offer-listing-details"></a>Oferecer detalhes da listagem
 
 Quando [criar uma nova oferta SaaS](create-new-saas-offer.md) no Partner Center, introduzirá texto, imagens, vídeos opcionais e outros detalhes na página **de listagem da Oferta.** Esta é a informação que os clientes verão quando descobrirem a sua oferta no mercado comercial, como mostra o exemplo seguinte.
@@ -150,7 +172,7 @@ Quando [criar uma nova oferta SaaS](create-new-saas-offer.md) no Partner Center,
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Description
+9. Descrição
 10. Screenshots/vídeos
 11. Documentos
 

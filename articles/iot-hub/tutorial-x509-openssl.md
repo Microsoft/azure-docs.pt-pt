@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 0d083d856138d7895a6e03f4d290ef3c4ddebd05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4379c8f43bbfa539179b821bf6b18a01518afad6
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630722"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384311"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>Tutorial: Utilizar o OpenSSL para criar certificados de teste
 
@@ -101,6 +101,13 @@ authorityKeyIdentifier   = keyid:always
 basicConstraints         = critical,CA:true,pathlen:0
 extendedKeyUsage         = clientAuth,serverAuth
 keyUsage                 = critical,keyCertSign,cRLSign
+subjectKeyIdentifier     = hash
+
+[client_ext]
+authorityKeyIdentifier   = keyid:always
+basicConstraints         = critical,CA:false
+extendedKeyUsage         = clientAuth
+keyUsage                 = critical,digitalSignature
 subjectKeyIdentifier     = hash
 
 ```
@@ -244,13 +251,19 @@ Tem agora um certificado de CA raiz e um certificado de CA subordinado. Pode uti
 
 1. Selecione **Código de Verificação de Geração**. Para mais informações, consulte [Prove a posse de um certificado de AC.](tutorial-x509-prove-possession.md)
 
-1. Copie o código de verificação para a área de transferência. Tem de definir o código de verificação como o sujeito do certificado. Por exemplo, se o código de verificação for BB0C656E69AF75E3F3C8D922C1760C58C1DA5B05AAA9D0A, adicione-o como objeto do seu certificado como indicado no passo seguinte.
+1. Copie o código de verificação para a área de transferência. Tem de definir o código de verificação como o sujeito do certificado. Por exemplo, se o código de verificação for BB0C656E69AF75E3F3C8D922C1760C58C1DA5B05AAA9D0A, adicione-o como objeto do seu certificado como indicado no passo 9.
 
 1. Gere uma chave privada.
 
   ```bash
-    $ openssl req -new -key pop.key -out pop.csr
+    $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+  ```
 
+9. Gere um pedido de assinatura de certificado (RSE) a partir da chave privada. Adicione o código de verificação como objeto do seu certificado.
+
+  ```bash
+  openssl req -new -key pop.key -out pop.csr
+  
     -----
     Country Name (2 letter code) [XX]:.
     State or Province Name (full name) []:.
@@ -267,16 +280,16 @@ Tem agora um certificado de CA raiz e um certificado de CA subordinado. Pode uti
  
   ```
 
-9. Crie um certificado utilizando o ficheiro de configuração raiz CA e o CSR.
+10. Crie um certificado utilizando o ficheiro de configuração raiz CA e o CSR para o certificado de prova de posse.
 
   ```bash
     openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
-10. Selecione o novo certificado na vista Detalhes do **Certificado**
+11. Selecione o novo certificado na vista Detalhes do **Certificado.** Para encontrar o ficheiro PEM, navegue na pasta certs.
 
-11. Depois do upload do certificado, **selecione Verificar**. O estado do certificado de CA deve ser alterado para **Verificado**.
+12. Depois do upload do certificado, **selecione Verificar**. O estado do certificado de CA deve ser alterado para **Verificado**.
 
 ## <a name="step-8---create-a-device-in-your-iot-hub"></a>Passo 8 - Crie um dispositivo no seu IoT Hub
 

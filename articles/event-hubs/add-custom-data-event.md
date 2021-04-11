@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como adicionar dados personalizados a evento
 ms.topic: how-to
 ms.date: 03/19/2021
 ms.openlocfilehash: 3362b6ac4b0d624969aa3ba36d2ebc83b8777cf5
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104893480"
 ---
 # <a name="add-custom-data-to-events-in-azure-event-hubs"></a>Adicionar dados personalizados a eventos em Azure Event Hubs

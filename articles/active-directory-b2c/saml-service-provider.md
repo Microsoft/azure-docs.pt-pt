@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1035f43642f3884e7cc0f6ab47e9c9afd1f29170
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 97718fef0aecd07dd364677ce1b72eb5bba78475
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102107769"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384277"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -34,7 +34,7 @@ Neste artigo, saiba como ligar as suas aplicações de Markup Language (SAML) (p
 
 ::: zone pivot="b2c-custom-policy"
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 As organizações que utilizam o Azure AD B2C como a sua solução de gestão de identidade e acesso podem exigir integração com aplicações que autenticam usando o protocolo SAML. O diagrama seguinte mostra como o Azure AD B2C serve como *um fornecedor* de identidade (IdP) para alcançar um único sign-on (SSO) com aplicações baseadas em SAML.
 
@@ -71,22 +71,42 @@ Para construir uma relação de confiança entre a sua aplicação e o Azure AD 
 
 | Utilização | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Assinatura de pedido saml  | No | Um certificado com uma chave privada armazenada na sua aplicação web, utilizado pela sua aplicação para assinar pedidos SAML enviados para Azure AD B2C. A aplicação web deve expor a chave pública através do seu ponto final de metadados SAML. O Azure AD B2C valida a assinatura do pedido SAML utilizando a chave pública a partir dos metadados da aplicação.|
-| Encriptação de afirmação SAML  | No | Um certificado com uma chave privada armazenada na sua aplicação web. A aplicação web deve expor a chave pública através do seu ponto final de metadados SAML. O Azure AD B2C pode encriptar afirmações à sua aplicação utilizando a chave pública. A aplicação utiliza a chave privada para desencriptar a afirmação.|
+| Assinatura de pedido saml  | Não | Um certificado com uma chave privada armazenada na sua aplicação web, utilizado pela sua aplicação para assinar pedidos SAML enviados para Azure AD B2C. A aplicação web deve expor a chave pública através do seu ponto final de metadados SAML. O Azure AD B2C valida a assinatura do pedido SAML utilizando a chave pública a partir dos metadados da aplicação.|
+| Encriptação de afirmação SAML  | Não | Um certificado com uma chave privada armazenada na sua aplicação web. A aplicação web deve expor a chave pública através do seu ponto final de metadados SAML. O Azure AD B2C pode encriptar afirmações à sua aplicação utilizando a chave pública. A aplicação utiliza a chave privada para desencriptar a afirmação.|
 
 **Certificados Azure AD B2C**
 
 | Utilização | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Assinatura de resposta SAML | Yes | Um certificado com uma chave privada armazenada em Azure AD B2C. Este certificado é utilizado pela Azure AD B2C para assinar a resposta SAML enviada à sua candidatura. A sua aplicação lê a chave pública de metadados Azure AD B2C para validar a assinatura da resposta SAML. |
+| Assinatura de resposta SAML | Sim  | Um certificado com uma chave privada armazenada em Azure AD B2C. Este certificado é utilizado pela Azure AD B2C para assinar a resposta SAML enviada à sua candidatura. A sua aplicação lê a chave pública de metadados Azure AD B2C para validar a assinatura da resposta SAML. |
+| Assinatura de afirmação SAML | Sim | Um certificado com uma chave privada armazenada em Azure AD B2C. Este certificado é utilizado pela Azure AD B2C para assinar a afirmação da resposta SAML. A `<saml:Assertion>` parte da resposta da SAML.  |
 
 Num ambiente de produção, recomendamos a utilização de certificados emitidos por uma autoridade de certificados públicos. No entanto, também pode completar este procedimento com certificados auto-assinados.
 
-### <a name="prepare-a-self-signed-certificate-for-saml-response-signing"></a>Preparar um certificado auto-assinado para a assinatura de resposta SAML
+### <a name="create-a-policy-key"></a>Criar uma chave de política
 
-Tem de criar um certificado de assinatura de resposta SAML para que o seu pedido possa confiar na afirmação da Azure AD B2C.
+Para ter uma relação de confiança entre a sua aplicação e a Azure AD B2C, crie um certificado de assinatura de resposta SAML. A Azure AD B2C utiliza este certificado para assinar a resposta SAML enviada para a sua aplicação. A sua aplicação lê a chave pública de metadados Azure AD B2C para validar a assinatura da resposta SAML. 
+
+> [!TIP]
+> Pode utilizar a chave de política que cria nesta secção, para outros fins, como a [afirmação de SEML](saml-service-provider-options.md#saml-assertions-signature). 
+
+### <a name="obtain-a-certificate"></a>Obter um certificado
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
+
+### <a name="upload-the-certificate"></a>Carregar o certificado
+
+Você precisa armazenar seu certificado no seu inquilino Azure AD B2C.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+1. Na página 'Visão Geral', selecione **Identity Experience Framework**.
+1. Selecione **As teclas de política** e, em seguida, selecione **Adicionar**.
+1. Para **Opções,** escolha `Upload` .
+1. Insira um **Nome** para a chave de política. Por exemplo, `SamlIdpCert`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
+1. Navegue e selecione o seu ficheiro certificado .pfx com a chave privada.
+1. Clique em **Criar**.
 
 ## <a name="enable-your-policy-to-connect-with-a-saml-application"></a>Habilitar a sua política a ligar-se a uma aplicação SAML
 
@@ -111,6 +131,7 @@ Localize a `<ClaimsProviders>` secção e adicione o seguinte corte XML para imp
       </Metadata>
       <CryptographicKeys>
         <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
+        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
@@ -147,51 +168,6 @@ Pode alterar o valor do `IssuerUri` item dos metadados no perfil técnico do emi
     </TechnicalProfile>
 ```
 
-#### <a name="sign-the-azure-ad-b2c-idp-saml-metadata-optional"></a>Assine os metadados Azure AD B2C IdP SAML (opcional)
-
-Pode instruir o Azure AD B2C a assinar o seu documento de metadados SAML IdP, se necessário pela aplicação. Para tal, gere e carrede uma chave de assinatura de metadados SAML IdP, tal como mostrado na [Preparação de um certificado auto-assinado para a assinatura de resposta SAML](#prepare-a-self-signed-certificate-for-saml-response-signing). Em seguida, configuure o `MetadataSigning` item dos metadados no perfil técnico do emitente de token SAML. Deve `StorageReferenceId` referenciar o nome-chave da política.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <!-- SAML Token Issuer technical profile -->
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
-        ...
-      <CryptographicKeys>
-        <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlMetadataCert"/>
-        ...
-      </CryptographicKeys>
-    ...
-    </TechnicalProfile>
-```
-
-#### <a name="sign-the-azure-ad-b2c-idp-saml-response-element-optional"></a>Assine o elemento de resposta Azure AD B2C IdP SAML (opcional)
-
-Pode especificar um certificado a ser utilizado para assinar as mensagens SAML. A mensagem é o `<samlp:Response>` elemento dentro da resposta SAML enviada para a aplicação.
-
-Para especificar um certificado, gere e carrefique uma chave de política como mostrado na [Preparação de um certificado auto-assinado para a assinatura de resposta SAML](#prepare-a-self-signed-certificate-for-saml-response-signing). Em seguida, configuure o `SamlMessageSigning` item metadados no perfil técnico do emitente do token SAML. O `StorageReferenceId` nome deve fazer referência ao nome chave de política.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <!-- SAML Token Issuer technical profile -->
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
-        ...
-      <CryptographicKeys>
-        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlMessageCert"/>
-        ...
-      </CryptographicKeys>
-    ...
-    </TechnicalProfile>
-```
 ## <a name="configure-your-policy-to-issue-a-saml-response"></a>Configure a sua política para emitir uma resposta SAML
 
 Agora que a sua política pode criar respostas SAML, tem de configurar a política para emitir uma resposta SAML em vez da resposta padrão do JWT à sua aplicação.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
 ms.openlocfilehash: 4abe8e07a8311bab9b6e98746d0fc05bd2e89395
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104956116"
 ---
 # <a name="advanced-development-with-azure-percept"></a>Desenvolvimento avançado com Azure Percept

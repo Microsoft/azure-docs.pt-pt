@@ -5,15 +5,15 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f77bac93b7bb5e3319409c01e328c73cd08a9a0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616405"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058957"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar o HTTPS num domínio personalizado da CDN do Azure
 
@@ -172,15 +172,18 @@ Dê permissão à CDN do Azure para aceder aos certificados (segredos) na conta 
 
 3. Em Tipo de gestão de certificado, selecione **Utilizar o meu próprio certificado**. 
 
-    ![Configurar o certificado](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Screenshot de como configurar o certificado para o ponto final do CDN.":::
 
-4. Selecione um cofre de chaves, o certificado (segredo) e a versão do certificado.
+4. Selecione um cofre chave, certificado/segredo e versão Certificado/Segredo.
 
     A CDN do Azure lista as seguintes informações: 
     - As contas do cofre de chaves do ID da sua subscrição. 
-    - Os certificados (segredos) no cofre de chaves selecionado. 
-    - As versões dos certificados disponíveis. 
+    - Os certificados/segredos sob o cofre de chaves selecionado. 
+    - O certificado/versões secretas disponíveis.
  
+    > [!NOTE]
+    > Para que o certificado seja automaticamente rodado para a versão mais recente quando uma versão mais recente do certificado estiver disponível no seu Cofre-Chave, por favor, desa um certificado/versão secreta para 'Mais recente'. Se for selecionada uma versão específica, terá de voltar a selecionar a nova versão manualmente para a rotação do certificado. Leva até 24 horas para que a nova versão do certificado/segredo seja implantada. 
+   
 5. Selecione **Ativar** para ativar o HTTPS.
   
 6. Quando utiliza o certificado, a validação de domínio não é necessária. Continue a [aguardar a propagação.](#wait-for-propagation)

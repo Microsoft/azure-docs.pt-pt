@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: f7f48c8b81b1da48737d01efce3237e65154232e
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: ddf8ec846ff153b7b1d71e0a0d06d36d659cbf7e
+  ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102506995"
+  ms.lasthandoff: 04/07/2021
+  ms.locfileid: "107029102"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -32,6 +32,10 @@ landingContent:
       url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
     - text: SKUs do Balanceador de Carga
       url: skus.md
+  - linkListType: learn
+    links:
+    - text: Melhorar a escalabilidade e a resiliência da aplicação com o Balanceador de Carga do Azure
+      url: /learn/modules/improve-app-scalability-resiliency-with-load-balancer/
 - title: Introdução
   linkLists:
   - linkListType: quickstart

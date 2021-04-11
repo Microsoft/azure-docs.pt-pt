@@ -2,26 +2,29 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: e8ef354480c69fa9b0b5407c88209b368485127d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.author: dademath
+ms.openlocfilehash: c6e8be5462e0caffec7a1c88dae54f3f818ec323
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729877"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498812"
 ---
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
+
+
 O Grupo de Serviços de Comunicação Azure **Call Hero Sample para Android** demonstra como os serviços de comunicação que chamam o Android SDK podem ser usados para construir uma experiência de chamada de grupo que inclui voz e vídeo. Neste arranque rápido da amostra, você aprenderá a configurar e executar a amostra. Para o contexto está prevista uma visão geral da amostra.
 
 ## <a name="download-code"></a>Transferir código
 
-Encontre o código finalizado para este arranque rápido no [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero).
+Encontre o projeto para esta amostra no [GitHub.](https://github.com/Azure-Samples/communication-services-android-calling-hero) Uma versão da amostra com [teams Interop](../../concepts/teams-interop.md) pode ser encontrada em um [ramo](https://github.com/Azure-Samples/communication-services-android-calling-hero/tree/feature/teams_interop)separado .
 
 ## <a name="overview"></a>Descrição Geral
 

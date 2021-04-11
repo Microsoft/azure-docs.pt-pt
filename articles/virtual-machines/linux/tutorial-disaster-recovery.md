@@ -9,24 +9,23 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fa43f40d4849a8e773241fa17a1e1787ce86a8ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5e83f883b5e1e35842ab128e4732e993fb937a0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564752"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383698"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-linux-virtual-machines"></a>Tutorial: Criar recuperação de desastres para máquinas virtuais Linux
-
 
 Este tutorial mostra-lhe como configurar a recuperação de desastres para os VMs Azure que executam o Linux. Neste artigo, saiba como:
 
 > [!div class="checklist"]
 > * Permitir a recuperação de desastres para um Linux VM
-> * Executar um teste de recuperação após desastre
+> * Faça um exercício de recuperação de desastres para verificar se funciona como esperado.
 > * Pare de replicar o VM após a broca
 
-Quando ativa a replicação de um VM, a extensão do serviço de mobilidade de recuperação do local instala-se no VM e regista-a com [a Recuperação do Sítio Azure](../../site-recovery/site-recovery-overview.md). Durante a replicação, os discos VM são enviados para uma conta de armazenamento de cache na região de origem. Os dados são enviados de lá para a região alvo, e os pontos de recuperação são gerados a partir dos dados.  Quando se falha um VM noutra região durante a recuperação de desastres, é utilizado um ponto de recuperação para restaurar o VM na região alvo.
+Quando ativa a replicação de um VM, a extensão do serviço de mobilidade de recuperação do local instala-se no VM e regista-a com [a Recuperação do Sítio Azure](../../site-recovery/site-recovery-overview.md). Durante a replicação, os discos VM são enviados para uma conta de armazenamento de cache na região de VM de origem. Os dados são enviados de lá para a região alvo, e os pontos de recuperação são gerados a partir dos dados.  Quando se falha um VM noutra região durante a recuperação de desastres, é utilizado um ponto de recuperação para criar um VM na região alvo.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
@@ -60,26 +59,67 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     GuestAndHybridManagement | Utilize se pretender atualizar automaticamente o agente de Mobilidade de Recuperação do Site que está a funcionar em VMs ativados para replicação.
 5. Certifique-se de que os VMs têm os últimos certificados de raiz. No Linux VMs, siga as orientações fornecidas pelo seu distribuidor Linux, para obter os mais recentes certificados de raiz fidedignos e lista de revogação de certificados no VM.
 
-## <a name="enable-disaster-recovery"></a>Permitir a recuperação de desastres
+## <a name="create-a-vm-and-enable-disaster-recovery"></a>Criar um VM e permitir a recuperação de desastres
+
+Pode opcionalmente permitir a recuperação de desastres quando criar um VM.
+
+1. [Criar um Linux VM](quick-create-portal.md).
+2. No **separador Gestão,** no **âmbito da recuperação do local,** **selecione Permitir a recuperação de desastres.**
+3. Na **região Secundária,** selecione a região-alvo para a qual pretende replicar o VM para recuperação de desastres.
+4. Na **subscrição secundária,** selecione a subscrição-alvo na qual o VM-alvo será criado. O VM alvo é criado quando falha sobre a fonte VM da região de origem para a região alvo.
+5. No **cofre dos Serviços de Recuperação,** selecione o cofre que pretende utilizar para a replicação. Se não tiver um cofre, selecione **Criar novo**. Selecione um grupo de recursos para colocar o cofre e um nome de cofre.
+6. Na **política de Recuperação de Sítios,** deixe a política predefinido ou selecione Criar **novos** valores personalizados.
+
+    - Os pontos de recuperação são criados a partir de instantâneos de discos VM tirados num determinado ponto no tempo. Quando falhas num VM, usas um ponto de recuperação para restaurar o VM na região alvo. 
+    - Um ponto de recuperação consistente é criado a cada cinco minutos. Esta definição não pode ser modificada. Um instantâneo consistente captura dados que estavam no disco quando a fotografia foi tirada. Não inclui nada na memória. 
+    - Por predefinição, a Recuperação do Local mantém os pontos de recuperação consistentes por acidentes durante 24 horas. Pode definir um valor personalizado entre 0 e 72 horas.
+    - Uma imagem consistente de aplicações é tirada a cada 4 horas.
+    - Por predefinição, a Recuperação do Local armazena pontos de recuperação durante 24 horas.
+
+7. Nas **opções de Disponibilidade**, especifique se o VM é implantado como autónomo, numa zona de disponibilidade ou num conjunto de disponibilidade.
+
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Ativar a replicação na página de propriedades de gestão VM.":::
+
+8. Termine de criar o VM.
+
+## <a name="enable-disaster-recovery-for-an-existing-vm"></a>Permitir a recuperação de desastres para um VM existente
+
+Se pretender permitir a recuperação de desastres num VM existente, utilize este procedimento.
 
 1. No portal Azure, abra a página de propriedades VM.
 2. Em **Operações**, selecione **Recuperação após desastre**.
-3. Na região **Base**  >  **Alvo,** selecione a região à qual pretende replicar o VM. As regiões-alvo e de origem devem estar no mesmo inquilino do Azure Ative Directory.
-4. Clique **em Revisão + Iniciar a replicação.**
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="Ativar a replicação na página de recuperação de desastres de propriedades VM.":::
+    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Opções de recuperação de desastres abertas para um VM existente.":::
 
-5. Em **Revisão + Iniciar a replicação,** verifique as definições:
+3. Em **Basics**, se o VM for implantado numa zona de disponibilidade, pode selecionar a recuperação de desastres entre zonas de disponibilidade.
+4. Na **região Alvo,** selecione a região à qual pretende replicar o VM. As regiões-alvo e de origem devem estar no mesmo inquilino do Azure Ative Directory.
 
-    - **Definições do alvo**. Por predefinição, a Recuperação do Site espelha as definições de origem para criar recursos-alvo.
-    - **Definições de armazenamento-conta de armazenamento cache**. A recuperação utiliza uma conta de armazenamento na região origem. As alterações de origem VM são cached nesta conta, antes de serem replicadas para a localização do alvo.
-    - **Definições de armazenamento-Réplica do disco**. Por predefinição, a Recuperação do Site cria discos geridos por réplicas na região alvo que espelham discos de origem VM geridos com o mesmo tipo de armazenamento (padrão ou premium).
-    - **Definições de replicação**. Mostra os detalhes do cofre e indica que os pontos de recuperação criados pela Recuperação do Local são mantidos durante 24 horas.
-    - **Definições de extensão**. Indica que a Recuperação do Site irá gerir as atualizações da extensão do Serviço de Mobilidade de Recuperação do Site que está instalada em VMs que replica. A conta de automação Azure indicada gere o processo de atualização.
+    :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Desajuste as opções básicas de recuperação de desastres para um VM.":::
+
+5. Selecione **Seguinte: Definições avançadas**.
+6. Nas **definições avançadas,** pode rever as definições e modificar valores para definições personalizadas. Por predefinição, a Recuperação do Site espelha as definições de origem para criar recursos-alvo.
+
+    - **Assinatura de destino**. A subscrição na qual o VM alvo é criado após o failover.
+    - **Grupo de recursos VM alvo**. O grupo de recursos no qual o VM alvo é criado após o failover.
+    - **Rede virtual de destino.** A rede virtual Azure em que o VM alvo está localizado quando é criado após o failover.
+    - **Disponibilidade do alvo**. Quando o VM-alvo é criado como um único exemplo, num conjunto de disponibilidade ou zona de disponibilidade.
+    - **Colocação de proximidade**. Se aplicável, selecione o grupo de colocação de proximidade no qual o VM alvo está localizado após a falha.
+    - **Definições de armazenamento-conta de armazenamento cache**. A recuperação utiliza uma conta de armazenamento na região de origem como uma loja de dados temporário. As alterações de origem VM são cached nesta conta, antes de serem replicadas para a localização do alvo.
+        - Por predefinição, uma conta de armazenamento de cache é criada por abóbada e reutilizada.
+        - Pode selecionar uma conta de armazenamento diferente se quiser personalizar a conta de cache para o VM.
+    - **Definições de armazenamento-Réplica do disco gerido.** Por predefinição, a Recuperação do Site cria discos geridos por réplicas na região alvo.
+        -  Por predefinição, o espelho de disco gerido pelo alvo os discos geridos por VM de origem, utilizando o mesmo tipo de armazenamento (HDD/SSD padrão ou SSD premium).
+        - Pode personalizar o tipo de armazenamento conforme necessário.
+    - **Definições de replicação**. Mostra o cofre no qual o VM está localizado, e a política de replicação usada para o VM. Por predefinição, os pontos de recuperação criados pela Recuperação do Local para o VM são mantidos durante 24 horas.
+    - **Definições de extensão**. Indica que a Recuperação do Site gere atualizações para a extensão do Serviço de Mobilidade de Recuperação do Site que está instalada em VMs que replica.
+        - A conta de automação Azure indicada gere o processo de atualização.
+        - Pode personalizar a conta de automação.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/settings-summary.png" alt-text="Página mostrando resumo das definições de alvo e replicação.":::
 
-2. Selecione **a replicação do início**. A implementação começa e a Recuperação do Site começa a criar recursos-alvo. Pode monitorizar o progresso da replicação nas notificações.
+6. **Selecione Review + Iniciar a replicação.**
+
+7. Selecione **a replicação do início**. A implementação começa e a Recuperação do Site começa a criar recursos-alvo. Pode monitorizar o progresso da replicação nas notificações.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/notifications.png" alt-text="Notificação para o progresso da replicação.":::
 
@@ -97,7 +137,6 @@ Após o fim do trabalho de replicação, pode verificar o estado de replicação
 5. Na **vista de infraestrutura**, obtenha uma visão geral visual de VMs de origem e alvo, discos geridos e a conta de armazenamento de cache.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/infrastructure.png" alt-text="mapa visual da infraestrutura para recuperação de desastres VM.":::
-
 
 ## <a name="run-a-drill"></a>Faça um exercício
 

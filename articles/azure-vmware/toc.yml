@@ -66,8 +66,6 @@
       href: configure-nsx-network-components-azure-portal.md
     - name: Implementar a recuperação após desastre para VMs
       href: disaster-recovery-for-virtual-machines.md
-    - name: Implementar uma VM através da biblioteca de conteúdos
-      href: ./deploy-vm-content-library.md
     - name: Configurar o GitHub Enterprise Server
       href: github-enterprise-server.md
     - name: Utilização de IP público
@@ -100,12 +98,16 @@
           href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Gestor de Tráfego
           href: deploy-traffic-manager-balance-workloads.md
+        - name: Configurar alertas e trabalhar com métricas
+          href: configure-alerts-for-azure-vmware-solution.md
     - name: Soluções VMware
       items:
         - name: Configurar o vRealize Operations
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: Implementar o VMware Horizon
           href: azure-vmware-solution-horizon.md
+        - name: Implementar VMs da biblioteca de conteúdos
+          href: ./deploy-vm-content-library.md
     - name: Ecossistema do VMware
       items:
         - name: Soluções de cópia de segurança para VMs
@@ -119,7 +121,23 @@
         - name: Criar um pedido de suporte para falhas de implementação
           href: fix-deployment-provisioning-failures.md
     - name: FAQ
-      href: faq.yml
+      items:
+        - name: Geral
+          href: /azure/azure-vmware/faq#general
+        - name: Comunicação ao cliente
+          href: /azure/azure-vmware/faq#customer-communication
+        - name: Solução Azure VMware e software VMware
+          href: /azure/azure-vmware/faq#azure-vmware-solution-and-vmware-software
+        - name: 'Computação, rede, armazenamento e backup'
+          href: '/azure/azure-vmware/faq#compute,-network,-storage,-and-backup'
+        - name: 'Anfitriões, aglomerados e nuvens privadas'
+          href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
+        - name: Conectividade
+          href: /azure/azure-vmware/faq#connectivity
+        - name: Contas e privilégios
+          href: /azure/azure-vmware/faq#accounts-and-privileges
+        - name: Faturação e apoio
+          href: /azure/azure-vmware/faq#billing-and-support
     - name: Vídeos
       items:
         - name: Lista de reprodução
@@ -130,12 +148,14 @@
           href: 'https://youtu.be/BoQYvqzb6Y8'
         - name: Migração e planeamento de capacidades
           href: 'https://youtu.be/NoNG-hkksrA'
+        - name: Rode vCenter & palavras-passe NSX-T usando Azure Logic App
+          href: 'https://youtu.be/cK1qY3knj88'
 - name: Referência
   items:
+    - name: API REST
+      href: /rest/api/avs
     - name: CLI do Azure
       href: /cli/azure/ext/vmware/vmware
-    - name: Loja de dados Azure CLI
-      href: /cli/azure/ext/vmware/vmware/datastore
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
     - name: Fornecedor Terraform Azure

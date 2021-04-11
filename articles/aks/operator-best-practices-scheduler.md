@@ -3,17 +3,17 @@ title: Melhores práticas do operador - Funcionalidades básicas de programador 
 description: Aprenda as melhores práticas do operador do cluster para utilizar funcionalidades básicas de programador, tais como quotas de recursos e orçamentos de interrupção de cápsulas no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.openlocfilehash: 087c1d2efc93b8460a3683a4e66916d73fd4e885
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/09/2021
+ms.openlocfilehash: 8c0f1d0cda61638abe03b92c627a5ea0455c31cb
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87015685"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104903"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades básicas de programador no Serviço Azure Kubernetes (AKS)
 
-À medida que gere clusters no Serviço Azure Kubernetes (AKS), muitas vezes precisa isolar equipas e cargas de trabalho. O programador Kubernetes fornece funcionalidades que permitem controlar a distribuição de recursos computacional ou limitar o impacto de eventos de manutenção.
+À medida que gere clusters no Serviço Azure Kubernetes (AKS), muitas vezes precisa isolar equipas e cargas de trabalho. O programador Kubernetes permite controlar a distribuição de recursos computacional, ou limitar o impacto de eventos de manutenção.
 
 Este artigo de boas práticas centra-se nas funcionalidades básicas de agendamento de Kubernetes para os operadores de cluster. Neste artigo, vai aprender a:
 
@@ -24,17 +24,19 @@ Este artigo de boas práticas centra-se nas funcionalidades básicas de agendame
 
 ## <a name="enforce-resource-quotas"></a>Impor quotas de recursos
 
-**Orientação de boas práticas** - Planeie e aplique quotas de recursos ao nível do espaço de nome. Se as cápsulas não definirem pedidos e limites de recursos, rejeite a implantação. Monitorize a utilização dos recursos e ajuste as quotas conforme necessário.
+> **Orientação de melhor prática** 
+> 
+> Planeie e aplique quotas de recursos ao nível do espaço de nome. Se as cápsulas não definirem pedidos e limites de recursos, rejeite a implantação. Monitorize a utilização dos recursos e ajuste as quotas conforme necessário.
 
-Os pedidos e limites de recursos são colocados na especificação do casulo. Estes limites são usados pelo programador Kubernetes na hora de implantação para encontrar um nó disponível no cluster. Estes limites e pedidos funcionam a nível de cada vagem. Para obter mais informações sobre como definir estes valores, consulte [Definir pedidos e limites de recursos do pod][resource-limits]
+Os pedidos e limites de recursos são colocados na especificação do casulo. Os limites são usados pelo programador Kubernetes na hora de implantação para encontrar um nó disponível no cluster. Os limites e pedidos funcionam a nível de vagem individual. Para obter mais informações sobre como definir estes valores, consulte [Definir pedidos e limites de recursos do pod][resource-limits]
 
 Para fornecer uma forma de reservar e limitar recursos através de uma equipa ou projeto de desenvolvimento, você deve usar *quotas de recursos.* Estas quotas são definidas num espaço de nome, podendo ser utilizadas para definir quotas na seguinte base:
 
 * **Recursos de cálculo**, como CPU e memória, ou GPUs.
-* **Recursos de armazenamento**, inclui o número total de volumes ou quantidade de espaço em disco para uma determinada classe de armazenamento.
+* **Recursos de** armazenamento , incluindo o número total de volumes ou quantidade de espaço em disco para uma determinada classe de armazenamento.
 * **A contagem de objetos**, como o número máximo de segredos, serviços ou empregos pode ser criado.
 
-Kubernetes não compromete recursos excessivos. Uma vez que o total acumulado de pedidos ou limites de recursos passa a quota atribuída, nenhuma outra implementação é bem sucedida.
+Kubernetes não compromete recursos excessivos. Uma vez que o seu pedido de recurso cumulativo total passa a quota atribuída, todas as outras implementações serão infrutíferas.
 
 Quando define as quotas de recursos, todas as cápsulas criadas no espaço de nomes devem fornecer limites ou pedidos nas suas especificações de vagem. Se não fornecerem estes valores, pode rejeitar a implantação. Em vez disso, pode [configurar pedidos e limites predefinidos para um espaço de nome][configure-default-quotas].
 
@@ -64,18 +66,33 @@ Para obter mais informações sobre objetos de recursos disponíveis, âmbitos e
 
 ## <a name="plan-for-availability-using-pod-disruption-budgets"></a>Plano de disponibilidade utilizando orçamentos de interrupção do casulo
 
-**Orientação para as melhores práticas** - Para manter a disponibilidade de aplicações, defina os Orçamentos de Interrupção do Pod (PDBs) para garantir que um número mínimo de cápsulas estão disponíveis no cluster.
+> **Orientação de melhor prática** 
+>
+> Para manter a disponibilidade de aplicações, defina os Orçamentos de Interrupção do Pod (PDBs) para garantir que um número mínimo de cápsulas estão disponíveis no cluster.
 
 Há dois eventos disruptivos que fazem com que as cápsulas sejam removidas:
 
-* *Perturbações involuntárias* são eventos fora do controlo típico do operador de cluster ou proprietário de aplicações.
-  * Estas perturbações involuntárias incluem uma falha de hardware na máquina física, um pânico de núcleo, ou a eliminação de um VM de nó
-* *Perturbações voluntárias* são eventos solicitados pelo operador do cluster ou pelo proprietário da aplicação.
-  * Estas perturbações voluntárias incluem upgrades de cluster, um modelo de implementação atualizado, ou acidentalmente eliminar uma cápsula.
+### <a name="involuntary-disruptions"></a>Perturbações involuntárias
 
-As perturbações involuntárias podem ser atenuadas utilizando múltiplas réplicas das suas cápsulas numa implantação. Executar múltiplos nós no cluster AKS também ajuda com estas perturbações involuntárias. Para interrupções voluntárias, a Kubernetes fornece *orçamentos de interrupção do pod* que permitem ao operador do cluster definir uma contagem mínima de recursos disponível ou máxima indisponível. Estes orçamentos de disrupção da cápsula permitem-lhe planear como as implementações ou conjuntos de réplicas respondem quando ocorre um evento de interrupção voluntária.
+*Perturbações involuntárias* são eventos fora do controlo típico do operador de cluster ou proprietário de aplicações. Incluir:
+* Falha de hardware na máquina física
+* Pânico kernel
+* Supressão de um VM de nó
 
-Se um cluster for atualizado ou um modelo de implementação atualizado, o programador Kubernetes garante que as cápsulas adicionais são agendadas em outros nós antes que os eventos de interrupção voluntária possam continuar. O agendador aguarda antes de um nó ser reiniciado até que o número definido de cápsulas seja programado com sucesso em outros nós no cluster.
+As perturbações involuntárias podem ser atenuadas por:
+* Usando várias réplicas das suas cápsulas numa implantação. 
+* Executando vários nós no cluster AKS. 
+
+### <a name="voluntary-disruptions"></a>Perturbações voluntárias
+
+*Perturbações voluntárias* são eventos solicitados pelo operador do cluster ou pelo proprietário da aplicação. Incluir:
+* Atualizações de cluster
+* Modelo de implementação atualizado
+* Acidentalmente apagar uma vagem
+
+Kubernetes fornece *orçamentos de interrupção de pod* para interrupções voluntárias, permitindo-lhe planear como implementações ou conjuntos de réplicas respondem quando ocorre um evento de interrupção voluntária. Utilizando orçamentos de interrupção de cápsulas, os operadores de cluster podem definir uma contagem mínima de recursos disponível ou máxima indisponível. 
+
+Se atualizar um cluster ou atualizar um modelo de implementação, o programador Kubernetes irá agendar cápsulas extras em outros nós antes de permitir que eventos de interrupção voluntária continuem. O agendador espera para reiniciar um nó até que o número definido de cápsulas seja programado com sucesso em outros nós no cluster.
 
 Vejamos um exemplo de uma réplica com cinco cápsulas que executam o NGINX. As cápsulas do conjunto de réplicas são atribuídas à etiqueta `app: nginx-frontend` . Durante um evento de interrupção voluntária, como um upgrade de cluster, você deve ter certeza de que pelo menos três cápsulas continuam a funcionar. O seguinte manifesto YAML para um objeto *PodDisruptionBudget* define estes requisitos:
 
@@ -119,13 +136,15 @@ Para obter mais informações sobre a utilização de orçamentos de interrupç�
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verifique regularmente se há problemas de cluster com o kube-advisor
 
-**Orientação para as melhores práticas** - Execute regularmente a versão mais recente da `kube-advisor` ferramenta open source para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster AKS existente, corra `kube-advisor` primeiro para encontrar cápsulas que não tenham pedidos de recursos e limites definidos.
+> **Orientação de melhor prática** 
+>
+> Execute regularmente a versão mais recente da `kube-advisor` ferramenta open source para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster AKS existente, corra `kube-advisor` primeiro para encontrar cápsulas que não tenham pedidos de recursos e limites definidos.
 
-A ferramenta [kube-advisor][kube-advisor] é um projeto de open source AKS associado que analisa um cluster Kubernetes e reporta sobre problemas que encontra. Uma verificação útil é identificar cápsulas que não têm pedidos de recursos e limites no lugar.
+A ferramenta [kube-advisor][kube-advisor] é um projeto de open source AKS associado que analisa um cluster Kubernetes e relata problemas identificados. `kube-advisor` revela-se útil na identificação de cápsulas sem pedidos de recursos e limites em vigor.
 
-A ferramenta kube-advisor pode reportar sobre o pedido de recursos e os limites em falta em PodSpecs para aplicações Windows, bem como aplicações Linux, mas a própria ferramenta de kube-advisor deve ser agendada num pod Linux. Pode agendar um pod para correr numa piscina de nó com um sistema operativo específico utilizando um [seletor de nó][k8s-node-selector] na configuração do pod.
+Embora a ferramenta possa reportar sobre o `kube-advisor` pedido de recursos e os limites em falta em PodSpecs para aplicações Windows e Linux, a ferramenta em si deve ser agendada numa cápsula Linux. Agende um pod para correr numa piscina de nó com um sistema operativo específico utilizando um [seletor de nó][k8s-node-selector] na configuração do pod.
 
-Num cluster AKS que acolhe várias equipas e aplicações de desenvolvimento, pode ser difícil rastrear cápsulas sem estes pedidos de recursos e limites definidos. Como uma boa prática, execute regularmente `kube-advisor` os seus clusters AKS, especialmente se não atribuir quotas de recursos a espaços de nome.
+Os pods de rastreio sem definir pedidos de recursos e limites num cluster AKS que acolhe várias equipas de desenvolvimento e aplicações podem ser difíceis. Como uma boa prática, execute regularmente `kube-advisor` os seus clusters AKS, especialmente se não atribuir quotas de recursos a espaços de nome.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -43,10 +43,10 @@
           displayName: 'azure stack, ash, windows, linux, hybrid, arc'
           href: quickstart-onboard-machines.md
         - name: Ligar contas AWS
-          displayName: 'hybrid, multicloud, amazon, arc'
+          displayName: 'hybrid, multicloud, multi-cloud, amazon, arc'
           href: quickstart-onboard-aws.md
         - name: Ligar contas GCP
-          displayName: 'hybrid, multicloud, google'
+          displayName: 'hybrid, multicloud, multi-cloud, google'
           href: quickstart-onboard-gcp.md
     - name: 6. Criar respostas automáticas a alertas
       displayName: 'Resource Manager, ARM'
@@ -198,6 +198,9 @@
         - name: Desativar descobertas específicas de vulnerabilidades de imagens
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
+        - name: Defender O Arco de Azure permitiu clusters kubernetes
+          displayName: 'k8s, containers, aks, hybrid, arc, azure arc, multicloud'
+          href: defender-for-kubernetes-azure-arc.md
         - name: Proteger cargas de trabalho do Kubernetes
           displayName: 'k8s, containers, aks'
           href: kubernetes-workload-protections.md
@@ -312,6 +315,8 @@
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Avaliação e recomendações da proteção de ponto final
       href: security-center-endpoint-protection.md
+    - name: CLI do Azure
+      href: /cli/azure/security
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

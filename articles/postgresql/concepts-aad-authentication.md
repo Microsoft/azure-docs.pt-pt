@@ -1,17 +1,17 @@
 ---
 title: Autenticação de Diretório Ativo - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Conheça os conceitos do Azure Ative Directory para autenticação com Base de Dados Azure para PostgreSQL - Servidor Único
-author: rothja
-ms.author: jroth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: c2265e0c134f3608830088e2a6754b6d3c88d0d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff588a2fdc079c4b5a1cd50ddc4441a079d3feed
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935759"
+ms.locfileid: "105960925"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utilizar o Azure Ative Directory para a autenticação com o PostgreSQL
 

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f9be9272a898ad48f3553d4c5e48952e1fcdde81
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ea51c1f7fcfce5b795965eab2f9c03a820a6ab03
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218643"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059365"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configure a encriptação com chaves geridas pelo cliente armazenadas no Azure Key Vault Managed HSM (pré-visualização)
 
@@ -65,7 +65,9 @@ az keyvault role assignment create \
 
 ## <a name="configure-encryption-with-a-key-in-the-managed-hsm"></a>Configurar encriptação com uma chave no HSM gerido
 
-Por fim, configurar a encriptação do Armazenamento Azure com as chaves geridas pelo cliente para utilizar uma chave armazenada no HSM gerido. Os tipos de chaves suportados incluem as chaves RSA-HSM dos tamanhos 2048, 3072 e 4096. Instale o Azure CLI 2.12.0 ou posteriormente para configurar a encriptação para utilizar uma chave gerida pelo cliente num HSM gerido por um HSM gerido. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
+Por fim, configurar a encriptação do Armazenamento Azure com as chaves geridas pelo cliente para utilizar uma chave armazenada no HSM gerido. Os tipos de chaves suportados incluem as chaves RSA-HSM dos tamanhos 2048, 3072 e 4096. Para aprender a criar uma chave num HSM gerido, consulte [Criar uma chave HSM](../../key-vault/managed-hsm/key-management.md#create-an-hsm-key).
+
+Instale o Azure CLI 2.12.0 ou posteriormente para configurar a encriptação para utilizar uma chave gerida pelo cliente num HSM gerido por um HSM gerido. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 Para atualizar automaticamente a versão chave para uma chave gerida pelo cliente, omita a versão chave quando configurar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az_storage_account_update) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte. `--encryption-key-source parameter`Inclua-o e desa cotado `Microsoft.Keyvault` para ativar as chaves geridas pelo cliente para a conta. Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
 

@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7d9e2f02eadec9fac93f14a0fe137c72a35224be
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 35c3bd0213b6d895a81605f5858f924182e1e307
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727914"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168863"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Começar com a amostra de chamada web
 
@@ -25,7 +25,7 @@ Esta amostra foi construída para desenvolvedores e torna muito fácil para voc�
 ## <a name="get-started-with-the-web-calling-sample"></a>Começar com a amostra de chamada web
 
 > [!IMPORTANT]
-> [Esta amostra está disponível em Github.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
+> [Esta amostra está disponível **no Github.**](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
 Siga o /Project/readme.md para configurar o projeto e executá-lo localmente na sua máquina.
 Assim que a [amostra de chamada](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) web estiver a funcionar na sua máquina, verá a seguinte página de aterragem:

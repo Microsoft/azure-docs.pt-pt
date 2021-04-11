@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 5e6bec71c44d7fbcf2841e087af9887d99c94e6f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867581"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitor desempenho do cluster em Azure HDInsight
@@ -24,7 +24,7 @@ Os clusters hadoop podem proporcionar o melhor desempenho quando a carga no clus
 
 Para obter uma visibilidade de alto nível para os nós do seu cluster e para o seu carregamento, inscreva-se no [Ambari Web UI,](hdinsight-hadoop-manage-ambari.md)em seguida, selecione o **separador Anfitriões.** Os seus anfitriões estão listados pelos seus nomes de domínio totalmente qualificados. O estado de funcionamento de cada hospedeiro é indicado por um indicador de saúde colorido:
 
-| Cor | Descrição |
+| Cor | Description |
 | --- | --- |
 | Red | Pelo menos um componente principal no hospedeiro está em baixo. Hover para ver uma ponta de ferramenta que lista os componentes afetados. |
 | Laranja | Pelo menos um componente secundário no hospedeiro está em baixo. Hover para ver uma ponta de ferramenta que lista os componentes afetados. |

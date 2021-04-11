@@ -1,18 +1,18 @@
 ---
 title: FAQ - Azure ExpressRoute | Microsoft Docs
-description: O ExpressRoute FAQ contém informações sobre serviços de Azure suportados, custos, dados e conexões, SLA, Fornecedores e Localizações, Largura de Banda e Detalhes Técnicos adicionais.
+description: O ExpressRoute FAQ contém informações sobre serviços de Azure suportados, custos, dados e conexões, SLA, Fornecedores e Localizações, Largura de Banda e outros Detalhes Técnicos.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 579a7114a06386fe48fcc074cc1095e980837ba0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: efa5c3192ca6f51c219cc308a776e6db7212103c
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732181"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552245"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -22,7 +22,7 @@ O ExpressRoute é um serviço Azure que permite criar ligações privadas entre 
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Quais são os benefícios da utilização de ligações ExpressRoute e rede privada?
 
-As ligações do ExpressRoute não passam para a Internet pública. Oferecem maior segurança, fiabilidade e velocidades, com latências mais baixas e consistentes do que as ligações típicas através da Internet. Em alguns casos, a utilização de ligações ExpressRoute para transferir dados entre dispositivos no local e a Azure pode trazer benefícios significativos de custos.
+As ligações do ExpressRoute não utilizam a Internet pública. Oferecem maior segurança, fiabilidade e velocidades, com latências mais baixas e consistentes do que as ligações típicas através da Internet. Em alguns casos, a utilização de ligações ExpressRoute para transferir dados entre dispositivos no local e a Azure pode trazer benefícios significativos de custos.
 
 ### <a name="where-is-the-service-available"></a>Onde está o serviço disponível?
 
@@ -46,7 +46,7 @@ N.º Pode adquirir uma ligação privada de qualquer velocidade ao seu prestador
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Se eu pagar por um circuito ExpressRoute de uma determinada largura de banda, tenho a capacidade de usar mais do que a minha largura de banda?
 
-Sim, pode utilizar até duas vezes o limite de largura de banda que adquiriu utilizando a largura de banda disponível na ligação secundária do seu circuito ExpressRoute. A redundância incorporada do seu circuito é configurada utilizando ligações primárias e secundárias, cada uma das larguras de banda adquiridas, a dois routers Microsoft Enterprise Edge (MSEEs). A largura de banda disponível através da sua ligação secundária pode ser utilizada para tráfego adicional, se necessário. No entanto, uma vez que a ligação secundária se destina a despedimentos, não está garantida e não deve ser utilizada para tráfego adicional durante um período de tempo prolongado. Para saber mais sobre como utilizar ambas as connneções para transmitir tráfego, consulte [utilização como PATH.](./expressroute-optimize-routing.md#solution-use-as-path-prepending)
+Sim, pode utilizar até duas vezes o limite de largura de banda que adquiriu utilizando a largura de banda disponível na ligação secundária do seu circuito ExpressRoute. A redundância incorporada do seu circuito é configurada utilizando ligações primárias e secundárias, cada uma das larguras de banda adquiridas, a dois routers Microsoft Enterprise Edge (MSEEs). A largura de banda disponível através da sua ligação secundária pode ser utilizada para tráfego adicional, se necessário. No entanto, uma vez que a ligação secundária se destina a despedimentos, não está garantida e não deve ser utilizada para tráfego adicional durante um período de tempo prolongado. Para saber mais sobre como utilizar ambas as ligações para transmitir tráfego, consulte [a utilização do AS PATH.](./expressroute-optimize-routing.md#solution-use-as-path-prepending)
 
 Se pretender utilizar apenas a sua ligação primária para transmitir tráfego, a largura de banda para a ligação é fixada e tentar subscrever-se excessivamente resultará em quedas de pacotes aumentadas. Se o tráfego fluir através de um Portal ExpressRoute, a largura de banda para o Gateway SKU é fixa e não é reprovada. Para a largura de banda de cada Gateway SKU, consulte [as portas de rede virtual Sobre ExpressRoute](expressroute-about-virtual-network-gateways.md#aggthroughput).
 
@@ -95,7 +95,7 @@ Se o seu circuito ExpressRoute estiver ativado para o Azure Microsoft, pode aced
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidade Azure Global Services)
 * Endereços IP públicos Azure para IaaS (Máquinas Virtuais, Gateways de Rede Virtual, Equilibradores de Carga, etc.)  
-* A maioria dos outros serviços da Azure também são apoiados. Verifique diretamente com o serviço que pretende utilizar para verificar o suporte.
+* A maioria dos outros serviços da Azure também são apoiados. Consulte diretamente o serviço que pretende utilizar para verificar o suporte.
 
 **Não suportado:**
 
@@ -108,7 +108,7 @@ Se o seu circuito ExpressRoute estiver ativado para o Azure Microsoft, pode aced
 
 ### <a name="public-peering"></a>Peering público
 
-O espreitamento público foi desativado nos novos circuitos ExpressRoute. Os serviços Azure estão agora disponíveis no espreitamento da Microsoft. Se for criado um circuito que foi criado antes de o olhar público ser depreciado, pode optar por utilizar o espreitamento da Microsoft ou o seu olhar público, dependendo dos serviços que pretende.
+O espreitamento público foi desativado nos novos circuitos ExpressRoute. Os serviços Azure estão agora disponíveis no espreitamento da Microsoft. Se for criado um circuito que foi criado antes de o olhar público ser depreciado, pode optar por usar o olhar da Microsoft ou o seu olhar público, dependendo dos serviços que pretende.
 
 Para obter mais informações e passos de configuração para espreitar o público, consulte [o expressRoute public peering](about-public-peering.md).
 
@@ -171,7 +171,7 @@ Consulte [aqui](./designing-for-high-availability-with-expressroute.md) para des
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir uma elevada disponibilidade numa rede virtual ligada ao ExpressRoute?
 
-Pode obter uma elevada disponibilidade ligando até quatro circuitos ExpressRoute no mesmo local de observação à sua rede virtual, ou ligando circuitos ExpressRoute em diferentes locais de observação (por exemplo, Singapura, Singapura2) à sua rede virtual. Se um circuito ExpressRoute se avariar, a conectividade falhará noutro circuito ExpressRoute. Por predefinição, o tráfego que sai da sua rede virtual é encaminhado com base no Roteamento multi-caminhos de custo igual (ECMP). Pode utilizar o Peso de Ligação para preferir um circuito a outro. Para obter mais informações, consulte [o Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
+Pode obter uma elevada disponibilidade ligando até 16 circuitos ExpressRoute no mesmo local de observação à sua rede virtual, ou ligando circuitos ExpressRoute em diferentes locais de observação (por exemplo, Singapura, Singapura2) à sua rede virtual. Se um circuito ExpressRoute se avariar, a conectividade falhará noutro circuito ExpressRoute. Por predefinição, o tráfego que sai da sua rede virtual é encaminhado com base no Roteamento multi-caminhos de custo igual (ECMP). Pode utilizar o Peso de Ligação para preferir um circuito a outro. Para obter mais informações, consulte [o Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Como posso garantir que o meu tráfego destinado a serviços públicos Azure como o Azure Storage e o Azure SQL na Microsoft a espreitar ou a espreitar publicamente é preferido no caminho ExpressRoute?
 
@@ -351,13 +351,17 @@ Consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/ex
 Sim. Os custos premium ExpressRoute aplicam-se em cima dos custos e encargos do circuito ExpressRoute exigidos pelo fornecedor de conectividade.
 
 ## <a name="expressroute-local"></a>ExpressRoute Local
+
 ### <a name="what-is-expressroute-local"></a>O que é ExpressRoute Local?
-ExpressRoute Local é um circuito SKU da ExpressRoute, além do Standard SKU e do Premium SKU. Uma característica chave do Local é que um circuito local em um local de observação ExpressRoute dá-lhe acesso apenas a uma ou duas regiões de Azure dentro ou perto do mesmo metro. Em contraste, um circuito Standard dá-lhe acesso a todas as regiões do Azure numa área geopolítica e um circuito Premium a todas as regiões do Azure a nível global. 
+
+ExpressRoute Local é um circuito SKU da ExpressRoute, além do Standard SKU e do Premium SKU. Uma característica chave do Local é que um circuito local em um local de observação ExpressRoute dá-lhe acesso apenas a uma ou duas regiões de Azure dentro ou perto do mesmo metro. Em contraste, um circuito Standard dá-lhe acesso a todas as regiões do Azure numa área geopolítica e um circuito Premium a todas as regiões do Azure a nível global. Especificamente, com um SKU local, só é possível anunciar rotas (sobre a Microsoft e o seu conhecimento privado) a partir da região local correspondente do circuito ExpressRoute. Não poderá receber rotas para outras regiões diferentes da região local definida.
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quais são os benefícios do ExpressRoute Local?
+
 Embora precise de pagar transferência de dados de saída para o seu circuito Standard ou Premium ExpressRoute, não paga transferência de dados de saída separadamente para o seu circuito ExpressRoute Local. Por outras palavras, o preço do ExpressRoute Local inclui taxas de transferência de dados. O ExpressRoute Local é uma solução mais económica se tiver uma quantidade massiva de dados para transferir e pode trazer os seus dados através de uma ligação privada a um local de observação ExpressRoute perto das regiões de Azure desejadas. 
 
 ### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Quais as funcionalidades disponíveis e as que não estão no ExpressRoute Local?
+
 Em comparação com um circuito Standard ExpressRoute, um circuito local tem o mesmo conjunto de funcionalidades, exceto:
 * Âmbito de acesso às regiões de Azure, tal como acima descrito
 * ExpressRoute Global Reach não está disponível no Local
@@ -365,6 +369,7 @@ Em comparação com um circuito Standard ExpressRoute, um circuito local tem o m
 O ExpressRoute Local também tem os mesmos limites de recursos (por exemplo, o número de VNets por circuito) que o Standard. 
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Onde está disponível o ExpressRoute Local e quais as regiões de Azure a que se mapeia cada local de observação?
+
 O ExpressRoute Local está disponível nos locais de observação onde uma ou duas regiões de Azure estão por perto. Não está disponível num local de observação onde não exista região de Azure nesse estado ou província ou país/região. Por favor, consulte os mapeamentos exatos [na página Locais.](expressroute-locations-providers.md)  
 
 ## <a name="expressroute-for-microsoft-365"></a>ExpressRoute para a Microsoft 365

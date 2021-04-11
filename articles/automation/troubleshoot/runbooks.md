@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea9d8a4899b0d725c9791192d68373b44acee11f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101723814"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168744"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Resolver problemas de runbooks
 
@@ -90,9 +90,9 @@ Para determinar o que está errado, siga estes passos:
    ```powershell
    $Cred = Get-Credential
    #Using Azure Service Management
-   Add-AzureAccount –Credential $Cred
+   Add-AzureAccount -Credential $Cred
    #Using Azure Resource Manager
-   Connect-AzAccount –Credential $Cred
+   Connect-AzAccount -Credential $Cred
    ```
 
 1. Se a sua autenticação falhar localmente, não configura corretamente as suas credenciais Azure Ative Directory (Azure AD). Para obter a conta AZure AD configurada corretamente, consulte o artigo [Authenticate to Azure utilizando o Azure Ative Directory](../automation-use-azure-ad.md).
@@ -201,11 +201,11 @@ Siga estes passos para determinar se autenticou o Azure e tem acesso à subscri�
 
 1. Para se certificar de que o seu script funciona autónomo, teste-o fora da Azure Automation.
 1. Certifique-se de que o seu script executa o [cmdlet Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) antes de executar o `Select-*` cmdlet.
-1. Adicione `Disable-AzContextAutosave –Scope Process` ao início do seu runbook. Este cmdlet garante que quaisquer credenciais se aplicam apenas à execução do livro de aplicação atual.
+1. Adicione `Disable-AzContextAutosave -Scope Process` ao início do seu runbook. Este cmdlet garante que quaisquer credenciais se aplicam apenas à execução do livro de aplicação atual.
 1. Se ainda vir a mensagem de erro, modifique o seu código adicionando o `AzContext` parâmetro para , e execute o `Connect-AzAccount` código.
 
    ```powershell
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -242,7 +242,7 @@ O contexto de subscrição pode perder-se quando um livro de bordo invoca vário
 * Para evitar fazer referência à subscrição errada, desative a poupança de contexto nos seus livros de automação utilizando o seguinte código no início de cada livro de execução.
 
    ```azurepowershell-interactive
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
    ```
 
 * Os cmdlets Azure PowerShell suportam o `-DefaultProfile` parâmetro. Isto foi adicionado a todos os cmdlets Az e AzureRm para suportar a execução de vários scripts PowerShell no mesmo processo, permitindo-lhe especificar o contexto e qual subscrição a utilizar para cada cmdlet. Com os seus runbooks, deve guardar o objeto de contexto no seu runbook quando o livro de execução for criado (isto é, quando uma conta se inscreve) e sempre que for alterada, e fazer referência ao contexto quando especificar um cmdlet Az.

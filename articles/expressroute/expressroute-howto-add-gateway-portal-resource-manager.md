@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e70b41dfba03b7439313350746724c6f8e90bc34
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f81446111ab87b280d50caceb93beefc7aedef3b
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564777"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110330"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configurar uma porta de rede virtual para ExpressRoute usando o portal Azure
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expr
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Adicionar a sub-rede do gateway":::
 
-1. O **Nome** da sub-rede é preenchido automaticamente com o valor "GatewaySubnet". Este valor é obrigatório para que o Azure reconheça a sub-rede como a sub-rede do gateway. Ajuste os valores de **gama de endereços** preenchidos automaticamente de modo a corresponder aos seus requisitos de configuração. Recomendamos a criação de uma sub-rede de gateway com um /27 ou maior (/26, /25, e assim por diante.).
+1. O **Nome** da sub-rede é preenchido automaticamente com o valor "GatewaySubnet". Este valor é obrigatório para que o Azure reconheça a sub-rede como a sub-rede do gateway. Ajuste os valores de **gama de endereços** preenchidos automaticamente de modo a corresponder aos seus requisitos de configuração. Recomendamos a criação de uma sub-rede de gateway com um /27 ou maior (/26, /25, e assim por diante.). Se planeia ligar 16 circuitos ExpressRoute ao seu gateway, **tem de** criar uma sub-rede de gateway de /26 ou maior.
 
     Se estiver a utilizar uma rede virtual de pilha dupla e planeie utilizar o peering privado baseado no IPv6 sobre o ExpressRoute, clique em **Adicionar espaço de endereço IP6** e inserir valores de intervalo de **endereços IPv6.**
 

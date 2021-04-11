@@ -10,10 +10,10 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.openlocfilehash: 03a075cb2098557d72f0d864da4df910f5bc5f8c
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954297"
 ---
 # <a name="azure-white-papers-about-mainframe-topics"></a>Livros brancos Azure sobre temas do mainframe
