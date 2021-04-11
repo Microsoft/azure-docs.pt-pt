@@ -1,14 +1,14 @@
 ---
-title: Economize custos com a Azure VMware Solution reservado instância
-description: Saiba como comprar uma instância reservada para a Azure VMware Solution.
+title: Instâncias reservadas da Azure VMware Solution
+description: Saiba como comprar uma instância reservada para a Azure VMware Solution. O caso reservado cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 6f181d4b6ee7e2098130633fef0eb8558add0308
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550980"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210029"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a Azure VMware Solution
 
@@ -56,7 +56,7 @@ Estes requisitos aplicam-se à compra de um caso de anfitrião dedicado reservad
    | ------------ | ------------ |
    | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), Microsoft Customer Agreement, ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo do Pré-pagamento do Azure (que antes se chamava alocação monetária), se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas de pagamento, os encargos são cobrados no cartão de crédito da subscrição ou num método de pagamento de fatura. |
    | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos únicos</b> - Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único</b> - Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito partilhado</b> - Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
-   | Region       | A região de Azure que está coberta pela reserva.   |
+   | Região       | A região de Azure que está coberta pela reserva.   |
    | Tamanho do anfitrião    | AV36    |
    | Termo         | Um ano ou três anos.  |
    | Quantidade     | O número de casos para comprar dentro da reserva. A quantidade é o número de anfitriões da Azure VMware Solution que podem obter o desconto de faturação.    |
@@ -85,7 +85,7 @@ Os CSPs que pretendam adquirir instâncias reservadas para os seus clientes deve
    | ------------ | ------------ |
    | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de assinatura deve ser elegível, que neste caso é uma subscrição CSP|
    | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos únicos</b> - Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único</b> - Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito partilhado</b> - Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
-   | Region       | A região de Azure que está coberta pela reserva.   |
+   | Região       | A região de Azure que está coberta pela reserva.   |
    | Tamanho do anfitrião    | AV36    |
    | Termo         | Um ano ou três anos.  |
    | Quantidade     | O número de casos para comprar dentro da reserva. A quantidade é o número de anfitriões da Azure VMware Solution que podem obter o desconto de faturação.     |
@@ -135,7 +135,7 @@ Os CSPs podem cancelar, trocar ou reembolsar reservas, com determinadas limitaç
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que cobriu a compra de um caso reservado da Azure VMware Solution, talvez queira saber:
+Agora que cobriu a instância reservada da Azure VMware Solution, talvez queira saber:
 
 - [Criar uma avaliação da Solução VMware Azure](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Gestão da DHCP para a Azure VMware Solution](manage-dhcp.md).

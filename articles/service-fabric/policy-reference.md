@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para o tecido de serviço Azure
 description: Lista definições de políticas incorporadas da Azure Policy para o Azure Service Fabric. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bd94d4763ef908a0b60955566cd513061abc551c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: be5dcec1ae598b066005292b9809881b9aa60f1b
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031239"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090384"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Definições incorporadas da Política Azure para o Tecido de Serviço Azure
 

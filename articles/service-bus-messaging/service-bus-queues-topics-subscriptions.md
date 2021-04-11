@@ -2,13 +2,13 @@
 title: Mensagens de autocarro da Azure Service - filas, tópicos e subscrições
 description: Este artigo fornece uma visão geral das entidades de mensagens Azure Service Bus (fila, tópicos e subscrições).
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: ccd91d5091dbbba072cf222e5a73c3db1d48c321
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096337"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209829"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
 A Azure Service Bus suporta um conjunto de tecnologias de middleware baseadas em nuvem e orientadas para mensagens, incluindo mensagens de mensagens fiáveis e mensagens de publicação/subscrição duradouras. Estas capacidades de mensagens intermediadas podem ser consideradas como funcionalidades de mensagens dissociadas que suportam cenários de subscrição, dissociação temporal e equilíbrio de cargas utilizando a carga de trabalho de mensagens Service Bus. A comunicação dissociada tem muitas vantagens. Por exemplo, os clientes e servidores podem conectar-se conforme necessário e fazer as suas operações de forma assíncronea.
@@ -53,7 +53,7 @@ Em muitos cenários, as mensagens com características específicas devem ser pr
 
 Para obter um exemplo completo de trabalho, consulte a [amostra TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) no GitHub.
 
-Para obter mais informações sobre possíveis valores de filtro, consulte a documentação para as classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction.](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+Para obter mais informações sobre filtros, consulte [filtros e ações tópicos.](topic-filters.md)
 
 ## <a name="java-message-service-jms-20-entities"></a>Serviço de mensagens Java (JMS) 2.0 entidades
 As seguintes entidades estão acessíveis através do serviço de mensagens Java (JMS) 2.0 API.

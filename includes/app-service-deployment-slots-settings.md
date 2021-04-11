@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: 922a34bd1a147d407041d2945b14df18a18d7287
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed53cb60f6fb3bca93900941a8a6a53bed99d779
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104761121"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073493"
 ---
 Quando clona a configuração a partir de outra ranhura de implantação, a configuração clonada é editável. Alguns elementos de configuração seguem o conteúdo através de uma troca (não específica para a ranhura), enquanto outros elementos de configuração permanecem na mesma ranhura após uma troca (específica slot). As listas que se seguem mostram as definições que mudam quando troca slots.
 
@@ -40,6 +40,7 @@ As características marcadas com um asterisco (*) estão planeadas para não ser
 * Partilha de recursos transversais à origem (CORS)
 * Integração da rede virtual
 * Mapeamentos de caminhos
+* Configurações que terminam com o sufixo _EXTENSION_VERSION
 
 > [!NOTE]
 > Para tornar estas definições permutáveis, adicione a definição da aplicação `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` em cada ranhura da aplicação e defina o seu valor para ou `0` `false` . Estas definições são todas permutáveis ou não são nada trocadas. Não podes fazer apenas algumas definições trocadas e não as outras.

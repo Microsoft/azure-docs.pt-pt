@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 06/11/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cc8f89720dddbee3f69cb5d933268edb17acfd2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89178676"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055625"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Como identidades geridas para recursos Azure funcionam com máquinas virtuais Azure
 

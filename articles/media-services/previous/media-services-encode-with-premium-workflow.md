@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8d39d54498872201afe2f705da1fc5654d8befb2
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105644996"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Advanced encoding with Media Encoder Premium Workflow (Codificação avançada com o Media Encoder Premium Workflow)

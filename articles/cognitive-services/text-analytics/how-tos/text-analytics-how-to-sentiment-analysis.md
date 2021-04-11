@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599143"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276999"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Como: Análise de sentimento e mineração de opinião
 
-A funcionalidade de Análise de Sentimento da API de Análise de Texto analytics fornece duas formas de detetar sentimentos positivos e negativos. Se enviar um pedido de Análise de Sentimento, a API devolverá rótulos de sentimento (tais como "negativo", "neutro" e "positivo") e pontuações de confiança a nível da frase e do documento. Também pode enviar pedidos de Mineração de Opinião utilizando o ponto final de Análise de Sentimento, que fornece informações granulares sobre as opiniões relacionadas com palavras (como os atributos de produtos ou serviços) no texto. 
+A funcionalidade de Análise de Sentimento da API de Análise de Texto analytics fornece duas formas de detetar sentimentos positivos e negativos. Se enviar um pedido de Análise de Sentimento, a API devolverá rótulos de sentimento (tais como "negativo", "neutro" e "positivo") e pontuações de confiança a nível da frase e do documento. Também pode enviar pedidos de Mineração de Opinião utilizando o ponto final de Análise de Sentimento, que fornece informações granulares sobre as opiniões relacionadas com palavras (como os atributos de produtos ou serviços) no texto.
 
 Os modelos de IA utilizados pela API são fornecidos pelo serviço, basta enviar conteúdo para análise.
 
@@ -151,7 +151,7 @@ O resultado é devolvido imediatamente. Pode transmitir os resultados para uma a
 
 A Análise de Sentimento v3.1 pode devolver objetos de resposta tanto para análise de sentimento como para mineração de opinião.
   
-A análise do sentimento devolve um rótulo de sentimento e uma pontuação de confiança para todo o documento, e cada frase dentro dele. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. Um documento pode ter várias frases, e as pontuações de confiança dentro de cada documento ou frase somam 1. avaliações 
+A análise do sentimento devolve um rótulo de sentimento e uma pontuação de confiança para todo o documento, e cada frase dentro dele. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. Um documento pode ter várias frases, e as pontuações de confiança dentro de cada documento ou frase somam 1.
 
 A Mineração de Opinião localizará alvos (substantivos ou verbos) no texto e a sua avaliação associada (adjetivo). Na resposta abaixo, a frase *O restaurante tinha boa comida e o nosso empregado de mesa era amigável* tem dois alvos: *comida* e *garçom.* A propriedade de cada alvo `relations` contém um valor com a referência `ref` URI `documents` `sentences` aos, e `assessments` objetos associados.
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 03/29/2021
+ms.date: 04/06/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad8466dca6634b0e72ef4a65acb537006dba3bda
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 0e356363d91c3aa429fd958c1dd3bc553e7a4d29
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108545"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030241"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções incorporadas do Azure AD
 
@@ -57,6 +57,7 @@ Este artigo lista as funções incorporadas AD AZure que pode atribuir para perm
 > | [Administrador de Nome de Domínio](#domain-name-administrator) | Pode gerir nomes de domínio em nuvem e no local. | 8329153b-31d0-4727-b945-745eb3bc5f31 |
 > | [Administrador dinâmico 365](#dynamics-365-administrator) | Pode gerir todos os aspetos do produto Dynamics 365. | 44367163-eba1-44c3-98af-f5787879f96a |
 > | [Administrador de Intercâmbio](#exchange-administrator) | Pode gerir todos os aspetos do produto Exchange. | 29232cdf-9323-42fd-ade2-1d097af3e4de |
+> | [Administrador do Destinatário de Intercâmbio](#exchange-recipient-administrator) | Pode criar ou atualizar os destinatários do Exchange Online dentro da organização Exchange Online. | 31392ffb-586c-42d1-9346-e59415a2cc4e |
 > | [Administrador de fluxo de id externo](#external-id-user-flow-administrator) | Pode criar e gerir todos os aspetos dos fluxos de utilizadores. | 6e591065-9bad-43ed-90f3-e9424366d2f0 |
 > | [Administrador de atributo de fluxo de id do utilizador externo](#external-id-user-flow-attribute-administrator) | Pode criar e gerir o esquema de atributos disponível para todos os fluxos do utilizador. | 0f971eea-41eb-4569-a71e-57bb8a3eff1e |
 > | [Administrador de fornecedor de identidade externa](#external-identity-provider-administrator) | Pode configurar fornecedores de identidade para uso na federação direta. | be2f45a1-457d-42af-a067-6ec1fa63bc45 |
@@ -121,9 +122,9 @@ Esta função também concede a capacidade de consentir para permissões delegad
 > | microsoft.diretório/aplicações/delete | Eliminar todos os tipos de aplicações |
 > | microsoft.diretório/aplicações/aplicaçãoProxy/read | Leia todas as propriedades de procuração de aplicações |
 > | microsoft.diretório/aplicações/applicationProxy/update | Atualizar todas as propriedades de procuração de aplicações |
-> | microsoft.diretório/aplicações/applicationProxyAuthentication/update | Atualizar propriedades de autenticação de procuração de aplicativos |
-> | microsoft.diretório/aplicações/aplicaçãoProxySslCertificate/update | Atualizar domínios personalizados de procuração de aplicativos |
-> | microsoft.diretório/aplicações/applicationProxyUrlSettings/update | Atualização de pedidos de proxy URLs internos e externos |
+> | microsoft.diretório/aplicações/applicationProxyAuthentication/update | Atualizar a autenticação em todos os tipos de aplicações |
+> | microsoft.diretório/aplicações/aplicaçãoProxySslCertificate/update | Atualizar as definições de certificado SSL para procuração de aplicações |
+> | microsoft.diretório/aplicações/applicationProxyUrlSettings/update | Atualizar definições de URL para procuração de aplicações |
 > | microsoft.diretório/aplicações/appRoles/update | Atualizar a propriedade appRoles em todos os tipos de aplicações |
 > | microsoft.diretório/aplicações/audiência/atualização | Atualizar a propriedade do público para aplicações |
 > | microsoft.diretório/aplicações/autenticação/atualização | Atualizar a autenticação em todos os tipos de aplicações |
@@ -198,7 +199,7 @@ Os utilizadores desta função podem criar cargas de ataque, mas não realmente 
 > | Ações | Descrição |
 > | --- | --- |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Criar e gerir cargas de ataque no Simulador de Ataque |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de simulação de ataque, respostas e treino associado |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de respostas de simulação de ataque e treino associado |
 
 ## <a name="attack-simulation-administrator"></a>Administrador de simulação de ataque
 
@@ -208,7 +209,7 @@ Os utilizadores desta função podem criar e gerir todos os aspetos da criação
 > | Ações | Descrição |
 > | --- | --- |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Criar e gerir cargas de ataque no Simulador de Ataque |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de simulação de ataque, respostas e treino associado |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de respostas de simulação de ataque e treino associado |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Criar e gerir modelos de simulação de ataque no Simulador de Ataque |
 
 ## <a name="authentication-administrator"></a>Administrador de Autenticação
@@ -261,7 +262,7 @@ As funções [de administrador de autenticação](#authentication-administrator)
 | Administrador de política de autenticação | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
-> Esta função não consegue gerir as definições de MFA no antigo portal de gestão de MFA ou fichas de OATH de Hardware. 
+> Esta função não consegue gerir as definições de MFA no antigo portal de gestão de MFA ou fichas de OATH de Hardware.
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -491,12 +492,12 @@ Os utilizadores com esta função têm a capacidade de gerir as definições de 
 > | --- | --- |
 > | microsoft.diretório/condicionalAccessPolicies/create | Criar políticas de acesso condicional |
 > | microsoft.diretório/condicionalAccessPolicies/delete | Eliminar políticas de acesso condicional |
-> | microsoft.diretório/condicionalAccessPolicies/standard/read | Ler políticas.conditionalAposa propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/owners/read | Ler políticas.conditionalAposa propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/policyAppliedTo/read | Ler políticas.conditionalAposa propriedade |
+> | microsoft.diretório/condicionalAccessPolicies/standard/read | Ler acesso condicional para políticas |
+> | microsoft.diretório/condicionalAccessPolicies/owners/read | Leia os proprietários de políticas de acesso condicional |
+> | microsoft.diretório/condicionalAccessPolicies/policyAppliedTo/read | Leia a propriedade "aplicada" para políticas de acesso condicional |
 > | microsoft.diretório/condicionalAccessPolicies/basic/update | Atualizar propriedades básicas para políticas de acesso condicional |
-> | microsoft.diretório/condicionalAccessPolicies/owners/update | Atualização de políticas.propriedade deacessoacis |
-> | microsoft.diretório/condicionalAccessPolicies/tenantDefault/update | Atualização de políticas.propriedade deacessoacis |
+> | microsoft.diretório/condicionalAccessPolicies/owners/update | Atualizar os proprietários para políticas de acesso condicional |
+> | microsoft.diretório/condicionalAccessPolicies/tenantDefault/update | Atualizar o inquilino predefinido para políticas de acesso condicional |
 > | microsoft.diretório/crossTenantAccessPolicies/create | Criar políticas de acesso ao inquilino transversal |
 > | microsoft.diretório/crossTenantAccessPolicies/delete | Eliminar as políticas de acesso ao inquilino transversal |
 > | microsoft.diretório/crossTenantAccessPolicies/standard/read | Ler propriedades básicas das políticas de acesso ao inquilino transversal |
@@ -655,7 +656,7 @@ Os utilizadores desta função podem ler e atualizar informações básicas de u
 > | microsoft.diretório/grupos/dynamicMembershipRule/update | Atualizar regra de adesão dinâmica dos grupos, excluindo grupos atribuíveis por funções |
 > | microsoft.diretório/grupos/grupoType/atualização | Atualizar a propriedade groupType para um grupo |
 > | microsoft.diretório/grupos/membros/atualização | Atualizar membros de grupos, excluindo grupos atribuíveis por funções |
-> | microsoft.diretório/grupos/onPremWriteBack/update | Atualizar os grupos AD da Azure a serem reensitados para as instalações |
+> | microsoft.diretório/grupos/onPremWriteBack/update | Atualizar os grupos de diretório ativo Azure a serem reensitados para as instalações com Azure AD Connect |
 > | microsoft.diretório/grupos/proprietários/atualização | Atualizar os proprietários de grupos, excluindo grupos atribuíveis por funções |
 > | microsoft.diretório/grupos/definições/atualização | Configurações de atualização de grupos |
 > | microsoft.diretório/grupos/visibilidade/atualização | Atualizar a propriedade de visibilidade dos grupos |
@@ -667,7 +668,7 @@ Os utilizadores desta função podem ler e atualizar informações básicas de u
 > | microsoft.diretório/serviçoPrincipals/synchronizationCredentiss/manage | Gerir a aplicação que prevê segredos e credenciais |
 > | microsoft.diretório/serviçoPrincipals/sincronizaçãoJobs/gerir | Iniciar, reiniciar e interromper a aplicação de provisão de empregos de sincronização |
 > | microsoft.diretório/serviçoPrincipals/sincronizaçãoSchema/gerir | Criar e gerir os trabalhos de sincronização e esquemas de sincronização de aplicações |
-> | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder um acesso direto pricípo ao serviço aos dados de um grupo |
+> | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder um acesso direto principal de serviço aos dados de um grupo |
 > | microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/update | Atualizar atribuições de funções principais de serviço |
 > | microsoft.diretório/utilizadores/assignLicense | Gerir licenças de utilizador |
 > | microsoft.diretório/utilizadores/criar | Adicionar utilizadores |
@@ -731,6 +732,17 @@ Os utilizadores com esta função têm permissões globais dentro do Microsoft E
 > | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de serviço microsoft 365 |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Ler relatórios de utilização do Office 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos no centro de administração Microsoft 365 |
+
+## <a name="exchange-recipient-administrator"></a>Administrador do Destinatário de Intercâmbio
+
+Os utilizadores com esta função leram o acesso aos destinatários e escreveram acesso aos atributos desses destinatários no Exchange Online. Mais informações em [Exchange Recipients](/exchange/recipients/recipients).
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | microsoft.office365.exchange/allRecipients/allProperties/allTasks | Criar e eliminar todos os destinatários e ler e atualizar todas as propriedades dos destinatários no Exchange Online |
+> | microsoft.office365.exchange/messageTracking/allProperties/allTasks | Gerir todas as tarefas no rastreio de mensagens no Exchange Online |
+> | microsoft.office365.exchange/migration/allProperties/allTasks | Gerir todas as tarefas relacionadas com a migração de destinatários em Exchange Online |
 
 ## <a name="external-id-user-flow-administrator"></a>Administrador de fluxo de id externo
 
@@ -820,10 +832,10 @@ Os utilizadores com esta função têm acesso a todas as funcionalidades adminis
 > | microsoft.diretório/serviçoAction/activateService | Pode realizar a ação de "ativar o serviço" para um serviço |
 > | microsoft.directy/serviceAction/disableDirectDirectfature | Pode executar a ação de serviço de "desativação do diretório" |
 > | microsoft.directy/serviceAction/enableDirectoryFeature | Pode executar a ação de serviço "enable directy feature" |
-> | microsoft.diretório/serviçoAction/getAvailableExtentionProperties | Pode realizar a ação de serviço de propriedades de exteneridades disponíveis |
+> | microsoft.diretório/serviçoAction/getAvailableExtentionProperties | Pode realizar a ação de serviçoAvailableExtentionProperties |
 > | microsoft.diretório/serviçoPrincipals/allProperties/allTasks | Criar e apagar os principais de serviços e ler e atualizar todas as propriedades |
 > | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForAll.microsoft-company-admin | Conceder consentimento para qualquer permissão a qualquer pedido |
-> | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder um acesso direto pricípo ao serviço aos dados de um grupo |
+> | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder um acesso direto principal de serviço aos dados de um grupo |
 > | microsoft.diretório/serviçoPrincipals/sincronização/standard/read | Leia as definições de provisionamento associadas ao seu principal serviço |
 > | microsoft.diretório/signInReports/allProperties/read | Leia todas as propriedades em relatórios de inscrição, incluindo propriedades privilegiadas |
 > | microsoft.diretório/subscritoSkus/allProperties/allTasks | Comprar e gerir subscrições e apagar subscrições |
@@ -898,9 +910,9 @@ Os utilizadores desta função podem ler definições e informações administra
 > | microsoft.diretório/políticas/standard/read | Ler propriedades básicas sobre políticas |
 > | microsoft.diretório/políticas/proprietários/ler | Ler os proprietários de políticas |
 > | microsoft.diretório/políticas/policyAppliedTo/read | Ler políticas.policyAppliedTo propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/standard/read | Ler políticas.conditionalAposa propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/owners/read | Ler políticas.conditionalAposa propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/policyAppliedTo/read | Ler políticas.conditionalAposa propriedade |
+> | microsoft.diretório/condicionalAccessPolicies/standard/read | Ler acesso condicional para políticas |
+> | microsoft.diretório/condicionalAccessPolicies/owners/read | Leia os proprietários de políticas de acesso condicional |
+> | microsoft.diretório/condicionalAccessPolicies/policyAppliedTo/read | Leia a propriedade "aplicada" para políticas de acesso condicional |
 > | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento |
 > | microsoft.diretório/serviçoPrincipals/autenticação/leitura | Ler propriedades de autenticação em principais de serviço |
 > | microsoft.diretório/serviçoPrincipals/sincronização/standard/read | Leia as definições de provisionamento associadas ao seu principal serviço |
@@ -934,11 +946,11 @@ Os utilizadores desta função podem criar/gerir grupos e as suas definições c
 > | microsoft.diretório/grupos/dynamicMembershipRule/update | Atualizar regra de adesão dinâmica dos grupos, excluindo grupos atribuíveis por funções |
 > | microsoft.diretório/grupos/grupoType/atualização | Atualizar a propriedade groupType para um grupo |
 > | microsoft.diretório/grupos/membros/atualização | Atualizar membros de grupos, excluindo grupos atribuíveis por funções |
-> | microsoft.diretório/grupos/onPremWriteBack/update | Atualizar os grupos AD da Azure a serem reensitados para as instalações |
+> | microsoft.diretório/grupos/onPremWriteBack/update | Atualizar os grupos de diretório ativo Azure a serem reensitados para as instalações com Azure AD Connect |
 > | microsoft.diretório/grupos/proprietários/atualização | Atualizar os proprietários de grupos, excluindo grupos atribuíveis por funções |
 > | microsoft.diretório/grupos/definições/atualização | Configurações de atualização de grupos |
 > | microsoft.diretório/grupos/visibilidade/atualização | Atualizar a propriedade de visibilidade dos grupos |
-> | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder um acesso direto pricípo ao serviço aos dados de um grupo |
+> | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder um acesso direto principal de serviço aos dados de um grupo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir bilhetes de apoio Azure |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o serviço de saúde no centro de administração Microsoft 365 |
@@ -1133,7 +1145,7 @@ Os utilizadores desta função têm acesso total a todos os conhecimentos, apren
 > | microsoft.diretório/grupos.security/owners/update | Atualizar os proprietários de grupos de segurança com a exclusão de grupos atribuíveis por funções |
 > | microsoft.office365.knowledge/contentUnderstanding/allProperties/allTasks | Leia e atualize todas as propriedades da compreensão de conteúdos no Microsoft 365 admin center |
 > | microsoft.office365.knowledge/knowledgeNetwork/allProperties/allTasks | Leia e atualize todas as propriedades da rede de conhecimento no Microsoft 365 admin center |
-> | microsoft.office365.protectionCenter/sensitivityLabels/allProperties/read | Leia etiquetas de sensibilidade nos centros de segurança e conformidade |
+> | microsoft.office365.protectionCenter/sensitivityLabels/allProperties/read | Leia todas as propriedades dos rótulos de sensibilidade nos centros de segurança e conformidade |
 > | microsoft.office365.sharePoint/allEntities/allTasks | Criar e eliminar todos os recursos e ler e atualizar propriedades padrão no SharePoint |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de serviço microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos no centro de administração Microsoft 365 |
@@ -1292,7 +1304,7 @@ Não utilizar. Este papel foi depreciado e será removido da Azure AD no futuro.
 > | microsoft.diretório/contactos/criar | Criar contactos |
 > | microsoft.diretório/contactos/excluir | Eliminar contactos |
 > | microsoft.diretório/contactos/básico/atualização | Atualizar propriedades básicas em contactos |
-> | microsoft.diretório/domínios/básico/allTasks | Criar e eliminar domínios e ler e atualizar propriedades padrão |
+> | microsoft.diretório/domínios/allProperties/allTasks | Criar e eliminar domínios, e ler e atualizar todas as propriedades |
 > | microsoft.diretório/grupos/criar | Criar grupos, excluindo grupos atribuíveis por funções |
 > | microsoft.diretório/grupos/delete | Eliminar grupos, excluindo o grupo que atribui funções |
 > | microsoft.diretório/grupos/restaurar | Restaurar os grupos eliminados |
@@ -1528,12 +1540,12 @@ Windows Defender ATP e EDR | Atribuir funções<br>Gerir grupos de máquinas<br>
 > | microsoft.diretório/políticas/tenantDefault/update | Atualizar as políticas de organização padrão |
 > | microsoft.diretório/condicionalAccessPolicies/create | Criar políticas de acesso condicional |
 > | microsoft.diretório/condicionalAccessPolicies/delete | Eliminar políticas de acesso condicional |
-> | microsoft.diretório/condicionalAccessPolicies/standard/read | Ler políticas.conditionalAposa propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/owners/read | Ler políticas.conditionalAposa propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/policyAppliedTo/read | Ler políticas.conditionalAposa propriedade |
+> | microsoft.diretório/condicionalAccessPolicies/standard/read | Ler acesso condicional para políticas |
+> | microsoft.diretório/condicionalAccessPolicies/owners/read | Leia os proprietários de políticas de acesso condicional |
+> | microsoft.diretório/condicionalAccessPolicies/policyAppliedTo/read | Leia a propriedade "aplicada" para políticas de acesso condicional |
 > | microsoft.diretório/condicionalAccessPolicies/basic/update | Atualizar propriedades básicas para políticas de acesso condicional |
-> | microsoft.diretório/condicionalAccessPolicies/owners/update | Atualização de políticas.propriedade deacessoacis |
-> | microsoft.diretório/condicionalAccessPolicies/tenantDefault/update | Atualização de políticas.propriedade deacessoacis |
+> | microsoft.diretório/condicionalAccessPolicies/owners/update | Atualizar os proprietários para políticas de acesso condicional |
+> | microsoft.diretório/condicionalAccessPolicies/tenantDefault/update | Atualizar o inquilino predefinido para políticas de acesso condicional |
 > | microsoft.diretório/privilegiadoIdmentManagement/allProperties/read | Ler todos os recursos em Gestão de Identidade Privilegiada |
 > | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento |
 > | microsoft.diretório/serviçoPrincipals/políticas/atualização | Atualizar políticas dos principais serviços |
@@ -1543,7 +1555,7 @@ Windows Defender ATP e EDR | Atribuir funções<br>Gerir grupos de máquinas<br>
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Ler propriedades padrão de todos os recursos nos centros de Segurança e Conformidade |
 > | microsoft.office365.protectionCenter/allEntities/basic/update | Atualizar propriedades básicas de todos os recursos nos centros de Segurança e Conformidade |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Criar e gerir cargas de ataque no Simulador de Ataque |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de simulação de ataque, respostas e treino associado |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de respostas de simulação de ataque e treino associado |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Criar e gerir modelos de simulação de ataque no Simulador de Ataque |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o serviço de saúde no centro de administração Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de serviço microsoft 365 |
@@ -1606,16 +1618,16 @@ Windows Defender ATP e EDR | Ver e investigar alertas. Quando liga o controlo de
 > | microsoft.diretório/políticas/standard/read | Ler propriedades básicas sobre políticas |
 > | microsoft.diretório/políticas/proprietários/ler | Ler os proprietários de políticas |
 > | microsoft.diretório/políticas/policyAppliedTo/read | Ler políticas.policyAppliedTo propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/standard/read | Ler políticas.conditionalAposa propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/owners/read | Ler políticas.conditionalAposa propriedade |
-> | microsoft.diretório/condicionalAccessPolicies/policyAppliedTo/read | Ler políticas.conditionalAposa propriedade |
+> | microsoft.diretório/condicionalAccessPolicies/standard/read | Ler acesso condicional para políticas |
+> | microsoft.diretório/condicionalAccessPolicies/owners/read | Leia os proprietários de políticas de acesso condicional |
+> | microsoft.diretório/condicionalAccessPolicies/policyAppliedTo/read | Leia a propriedade "aplicada" para políticas de acesso condicional |
 > | microsoft.diretório/privilegiadoIdmentManagement/allProperties/read | Ler todos os recursos em Gestão de Identidade Privilegiada |
 > | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento |
 > | microsoft.diretório/signInReports/allProperties/read | Leia todas as propriedades em relatórios de inscrição, incluindo propriedades privilegiadas |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health |
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Ler propriedades padrão de todos os recursos nos centros de Segurança e Conformidade |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/read | Leia todas as propriedades das cargas de ataque no Simulador de Ataque |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de simulação de ataque, respostas e treino associado |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leia relatos de respostas de simulação de ataque e treino associado |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/read | Leia todas as propriedades dos modelos de simulação de ataque no Simulador de Ataque |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o serviço de saúde no centro de administração Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leia propriedades básicas em todos os recursos no centro de administração Microsoft 365 |
@@ -1697,7 +1709,7 @@ Os utilizadores desta função podem gerir todos os aspetos da carga de trabalho
 > | microsoft.diretório/grupos.unificado/básico/atualização | Atualizar propriedades básicas em grupos Microsoft 365 com a exclusão de grupos atribuíveis por funções |
 > | microsoft.diretório/grupos.unificado/membros/atualização | Atualizar membros de grupos Microsoft 365 com a exclusão de grupos atribuíveis por funções |
 > | microsoft.diretório/grupos.unificado/proprietários/atualização | Atualizar os proprietários de grupos Microsoft 365 com a exclusão de grupos atribuíveis por funções |
-> | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder um acesso direto pricípo ao serviço aos dados de um grupo |
+> | microsoft.diretório/serviçoPrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder um acesso direto principal de serviço aos dados de um grupo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir bilhetes de apoio Azure |
 > | microsoft.office365.network/performance/allProperties/read | Leia todas as propriedades de desempenho da rede no centro de administração Microsoft 365 |
@@ -1814,7 +1826,7 @@ Os utilizadores com esta função podem criar utilizadores e gerir todos os aspe
 > | microsoft.diretório/grupos/dynamicMembershipRule/update | Atualizar regra de adesão dinâmica dos grupos, excluindo grupos atribuíveis por funções |
 > | microsoft.diretório/grupos/grupoType/atualização | Atualizar a propriedade groupType para um grupo |
 > | microsoft.diretório/grupos/membros/atualização | Atualizar membros de grupos, excluindo grupos atribuíveis por funções |
-> | microsoft.diretório/grupos/onPremWriteBack/update | Atualizar os grupos AD da Azure a serem reensitados para as instalações |
+> | microsoft.diretório/grupos/onPremWriteBack/update | Atualizar os grupos de diretório ativo Azure a serem reensitados para as instalações com Azure AD Connect |
 > | microsoft.diretório/grupos/proprietários/atualização | Atualizar os proprietários de grupos, excluindo grupos atribuíveis por funções |
 > | microsoft.diretório/grupos/definições/atualização | Configurações de atualização de grupos |
 > | microsoft.diretório/grupos/visibilidade/atualização | Atualizar a propriedade de visibilidade dos grupos |
@@ -1854,7 +1866,7 @@ Por exemplo:
 | espaço de nomes | Produto ou serviço que expõe a tarefa e está preparado com `microsoft` . Por exemplo, todas as tarefas em Azure AD usam o `microsoft.directory` espaço de nome. |
 | entidade | Característica lógica ou componente exposto pelo serviço no Microsoft Graph. Por exemplo, a Azure AD expõe o Utilizador e os Grupos, o OneNote expõe notas e a Exchange expõe caixas de correio e calendários. Existe uma `allEntities` palavra-chave especial para especificar todas as entidades num espaço de nome. Isto é frequentemente usado em papéis que concedem acesso a um produto inteiro. |
 | conjunto de propriedades | Propriedades ou aspetos específicos da entidade para a qual o acesso está a ser concedido. Por exemplo, `microsoft.directory/applications/authentication/read` concede a capacidade de ler o URL de resposta, URL de logout e propriedade de fluxo implícito no objeto de aplicação em Azure AD.<ul><li>`allProperties` designa todas as propriedades da entidade, incluindo propriedades privilegiadas.</li><li>`standard` designa propriedades comuns, mas exclui as privilegiadas relacionadas com a `read` ação. Por exemplo, `microsoft.directory/user/standard/read` inclui a capacidade de ler propriedades padrão como número de telefone público e endereço de e-mail, mas não o número de telefone secundário privado ou endereço de e-mail usado para a autenticação de vários fatores.</li><li>`basic` designa propriedades comuns, mas exclui as privilegiadas relacionadas com a `update` ação. O conjunto de propriedades que pode ler pode ser diferente do que pode atualizar. É por isso que há `standard` `basic` e palavras-chave para refletir isso.</li></ul> |
-| ação | Operação sendo concedida, a maioria normalmente criar, ler, atualizar ou apagar (CRUD). Existe uma `allTasks` palavra-chave especial para especificar todas as capacidades acima (criar, ler, atualizar e eliminar). |
+| action | Operação sendo concedida, a maioria normalmente criar, ler, atualizar ou apagar (CRUD). Existe uma `allTasks` palavra-chave especial para especificar todas as capacidades acima (criar, ler, atualizar e eliminar). |
 
 ## <a name="deprecated-roles"></a>Papéis precotados
 
@@ -1882,7 +1894,7 @@ Utilizador Convidado | Não mostrado porque não pode ser usado | ND
 Suporte de Nível 1 do Parceiro | Não mostrado porque não deve ser usado | [Documentação de suporte do Parceiro Tier1](#partner-tier1-support)
 Suporte parceiro tier 2 | Não mostrado porque não deve ser usado | [Documentação de suporte de parceiro Tier2](#partner-tier2-support)
 Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
-User | Não mostrado porque não pode ser usado | ND
+Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](#deprecated-roles)
 
 ## <a name="password-reset-permissions"></a>Permissões de reset de palavra-passe

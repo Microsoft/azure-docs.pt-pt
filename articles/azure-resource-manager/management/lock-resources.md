@@ -2,14 +2,14 @@
 title: Bloquear recursos para evitar alterações
 description: Impedir que os utilizadores atualem ou apaguem os recursos do Azure aplicando um bloqueio para todos os utilizadores e funções.
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/07/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6d989f2077618ce80382b38acc651553cb331d5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1cc96a855c2bfe79bbf5876f0476c016d36ca9a4
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932765"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030071"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -32,13 +32,15 @@ Os bloqueios do Resource Manager aplicam-se apenas a operações que ocorrem no 
 
 A aplicação de bloqueios pode levar a resultados inesperados porque algumas operações que não parecem modificar o recurso requerem realmente ações que são bloqueadas pelo bloqueio. O Bloqueio impedirá qualquer operação que exija um pedido de CORREIO à API gestora de recursos Azure. Alguns exemplos comuns das operações que são bloqueadas por fechaduras são:
 
-* Um bloqueio apenas de leitura numa **conta de armazenamento** impede os utilizadores de listar as chaves da conta. A operação Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) é gerida através de um pedido DEM para proteger o acesso às chaves da conta, que fornecem acesso completo aos dados na conta de armazenamento. Quando um bloqueio apenas de leitura é configurado para uma conta de armazenamento, os utilizadores que não possuam as chaves da conta devem usar credenciais AD AD Azure para aceder a dados de bolha ou fila. Um bloqueio só de leitura também impede a atribuição de funções Azure RBAC que são telescópios na conta de armazenamento ou num recipiente de dados (recipiente blob ou fila).
+* Um bloqueio apenas de leitura numa **conta de armazenamento** impede os utilizadores de listar as chaves da conta. A operação Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) é gerida através de um pedido DEM para proteger o acesso às chaves da conta, que fornecem acesso completo aos dados na conta de armazenamento. Quando um bloqueio apenas de leitura é configurado para uma conta de armazenamento, os utilizadores que não têm as chaves da conta devem usar credenciais AD AD Azure para aceder a dados de bolha ou fila. Um bloqueio só de leitura também impede a atribuição de funções Azure RBAC que são telescópios na conta de armazenamento ou num recipiente de dados (recipiente blob ou fila).
 
 * Um bloqueio não pode eliminar uma **conta de armazenamento** não impede que os dados dentro dessa conta sejam eliminados ou modificados. Este tipo de bloqueio apenas protege a própria conta de armazenamento de ser eliminada, e não protege os dados blob, fila, tabela ou ficheiro dentro dessa conta de armazenamento. 
 
-* Um bloqueio de leitura numa **conta de armazenamento** não impede que os dados dentro dessa conta sejam eliminados ou modificados. Este tipo de bloqueio apenas protege a própria conta de armazenamento de ser eliminada ou modificada, e não protege os dados blob, fila, tabela ou ficheiro dentro dessa conta de armazenamento. 
+* Um bloqueio apenas de leitura numa **conta de armazenamento** não impede que os dados dentro dessa conta sejam eliminados ou modificados. Este tipo de bloqueio apenas protege a própria conta de armazenamento de ser eliminada ou modificada, e não protege os dados blob, fila, tabela ou ficheiro dentro dessa conta de armazenamento. 
 
 * Um bloqueio apenas de leitura num recurso do Serviço de **Aplicações** impede o Visual Studio Server Explorer de exibir ficheiros para o recurso porque essa interação requer acesso de escrita.
+
+* Um bloqueio de leitura apenas num grupo de **recursos** que contenha um plano de Serviço de **Aplicações** impede-o de [aumentar ou de sair do plano](../../app-service/manage-scale-up.md).
 
 * Um bloqueio apenas de leitura num grupo de **recursos** que contenha uma **máquina virtual** impede todos os utilizadores de iniciar ou reiniciar a máquina virtual. Estas operações requerem um pedido de CORREIO.
 
@@ -324,7 +326,7 @@ az lock delete --ids $lockid
 
 ### <a name="rest-api"></a>API REST
 
-Pode bloquear recursos implantados com a [API REST para bloqueios de gestão](/rest/api/resources/managementlocks/managementlocks). A API REST permite-lhe criar e eliminar fechaduras e recuperar informações sobre fechaduras existentes.
+Pode bloquear recursos implantados com a [API REST para bloqueios de gestão](/rest/api/resources/managementlocks). A API REST permite-lhe criar e eliminar fechaduras e recuperar informações sobre fechaduras existentes.
 
 Para criar uma fechadura, corra:
 

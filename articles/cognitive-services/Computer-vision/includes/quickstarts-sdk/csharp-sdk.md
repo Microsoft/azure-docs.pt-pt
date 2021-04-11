@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Biblioteca de clientes da Visão de Computador para .NET'
-description: Neste arranque rápido, começa com a biblioteca de clientes da Computação Vision para .NET.
+title: 'Quickstart: Biblioteca de clientes de reconhecimento de caracteres óticos para .NET'
+description: Neste arranque rápido, começa com a biblioteca de clientes de reconhecimento de caracteres óticos para .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,19 +10,16 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0509ba61e21fa38daf1747124000c8d1270cc4db
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 410ced99b1c5053c084921edf4d9bbde1a9443c4
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103621972"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073349"
 ---
 <a name="HOLTop"></a>
 
-Utilize a biblioteca do cliente da Visão De Computador para:
-
-* Analise uma imagem para tags, descrição de texto, rostos, conteúdo adulto, e muito mais.
-* Leia texto impresso e manuscrito com a API de Leitura.
+Utilize a biblioteca de clientes OCR para ler texto impresso e manuscrito a partir de uma imagem.
 
 [Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/client/computervision)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/)  |  [Amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -100,8 +97,6 @@ No método da `Main` aplicação, adicione chamadas para os métodos utilizados 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
-
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 > [!div class="nextstepaction"]
@@ -109,20 +104,18 @@ No método da `Main` aplicação, adicione chamadas para os métodos utilizados 
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e interfaces lidam com algumas das principais características do Computer Vision .NET SDK.
+As seguintes classes e interfaces lidam com algumas das principais características do OCR .NET SDK.
 
 |Nome|Descrição|
 |---|---|
 | [ComputadorVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) | Esta classe é necessária para todas as funcionalidades de Visão de Computador. Você instantanea-o com as suas informações de subscrição, e você usá-lo para fazer a maioria das operações de imagem.|
 |[ComputerVisionClientExtensions](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions)| Esta classe contém métodos adicionais para o **ComputerVisionClient**.|
-|[VisualFeatureTypes](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)| Este enum define os diferentes tipos de análise de imagem que podem ser feitos numa operação de Análise padrão. Especifica um conjunto de valores VisualFeatureTypes dependendo das suas necessidades. |
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes da Visão de Computador para .NET:
+Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes OCR para .NET:
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Analisar uma imagem](#analyze-an-image)
 * [Ler texto impresso e manuscrito](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
@@ -132,113 +125,11 @@ Num novo método na classe **Programa,** instantânea um cliente com a sua chave
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [Autensei o cliente](?success=authenticate-client#analyze-an-image) [que encontrei num problema.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client)
-
-## <a name="analyze-an-image"></a>Analisar uma imagem
-
-O código que se segue define um método, `AnalyzeImageUrl` que utiliza o objeto do cliente para analisar uma imagem remota e imprimir os resultados. O método devolve uma descrição de texto, categorização, lista de tags, rostos detetados, bandeiras de conteúdo adulto, cores principais e tipo de imagem.
-
-> [!TIP]
-> Também pode analisar uma imagem local. Consulte os métodos [ComputerVisionClient,](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) tais como **AnalyzeImageInStreamAsync**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) para cenários que envolvam imagens locais.
-
-### <a name="set-up-test-image"></a>Configurar a imagem de teste
-
-Na sua aula **de Programa,** guarde uma referência ao URL da imagem que pretende analisar.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_url)]
-
-### <a name="specify-visual-features"></a>Especifique as características visuais
-
-Defina o seu novo método de análise de imagem. Adicione o código abaixo, que especifica as funcionalidades visuais que gostaria de extrair na sua análise. Consulte os **[VisualFeatureTypes](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)** enum para obter uma lista completa.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_visualfeatures)]
-
-Insira qualquer um dos seguintes blocos de código no seu método **AnalyzeImageUrl** para implementar as suas funcionalidades. Lembre-se de adicionar um suporte de fecho no final.
-
-```csharp
-}
-```
-
-### <a name="analyze"></a>Análise
-
-O método **AnalyzeImageAsync** devolve um objeto **ImageAnalysis** que contém toda a informação extraída.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_call)]
-
-As seguintes secções mostram como analisar esta informação em detalhe.
-
-### <a name="get-image-description"></a>Obtenha a descrição da imagem
-
-O seguinte código obtém a lista de legendas geradas para a imagem. Consulte [as imagens](../../concept-describing-images.md) para mais detalhes.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_describe)]
-
-### <a name="get-image-category"></a>Obtenha categoria de imagem
-
-O seguinte código obtém a categoria detetada da imagem. Consulte [as imagens categorize](../../concept-categorizing-images.md) para mais detalhes.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_categorize)]
-
-### <a name="get-image-tags"></a>Obtenha etiquetas de imagem
-
-O seguinte código obtém o conjunto de tags detetadas na imagem. Consulte [as etiquetas de conteúdo](../../concept-tagging-images.md) para mais detalhes.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_tags)]
-
-### <a name="detect-objects"></a>Detetar objetos
-
-O código a seguir deteta objetos comuns na imagem e imprime-os na consola. Consulte [a deteção de objetos](../../concept-object-detection.md) para obter mais detalhes.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_objects)]
-
-### <a name="detect-brands"></a>Detetar marcas
-
-O código que se segue deteta marcas e logótipos corporativos na imagem e imprime-os na consola. Consulte [a deteção da marca](../../concept-brand-detection.md) para mais detalhes.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_brands)]
-
-### <a name="detect-faces"></a>Detetar rostos
-
-O código seguinte devolve as faces detetadas na imagem com as suas coordenadas de retângulo e seleciona atributos faciais. Consulte [a deteção do rosto](../../concept-detecting-faces.md) para obter mais detalhes.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_faces)]
-
-### <a name="detect-adult-racy-or-gory-content"></a>Detetar conteúdo adulto, picante ou sangrento
-
-O código que se segue imprime a presença detetada de conteúdo adulto na imagem. Consulte [o conteúdo adulto, picante e sangrento](../../concept-detecting-adult-content.md) para mais detalhes.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_adult)]
-
-### <a name="get-image-color-scheme"></a>Obtenha esquema de cores de imagem
-
-O código seguinte imprime os atributos de cor detetados na imagem, como as cores dominantes e a cor do acento. Consulte [os esquemas de cores](../../concept-detecting-color-schemes.md) para obter mais detalhes.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_color)]
-
-### <a name="get-domain-specific-content"></a>Obtenha conteúdo específico de domínio
-
-A Visão Computacional pode utilizar modelos especializados para fazer mais análises nas imagens. Consulte [o conteúdo específico do domínio](../../concept-detecting-domain-content.md) para obter mais detalhes. 
-
-O código seguinte analisa dados sobre celebridades detetadas na imagem.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_celebs)]
-
-O código seguinte analisa dados sobre marcos detetados na imagem.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_landmarks)]
-
-### <a name="get-the-image-type"></a>Obtenha o tipo de imagem
-
-O código que se segue imprime informações sobre o tipo de &mdash; imagem, seja clip art ou um desenho de linha.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_type)]
-
-> [!div class="nextstepaction"]
-> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [que encontrei num problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=analyze-image)
+> [Autensei o cliente](?success=authenticate-client#read-printed-and-handwritten-text) [que encontrei num problema.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client)
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
-A Visão computacional pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, consulte o doc conceptual de [reconhecimento de caracteres óticos (OCR).](../../concept-recognizing-text.md#read-api) O código nesta secção utiliza a mais recente [versão SDK da Visão De Computador para a Leitura 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) e define um método, `BatchReadFileUrl` que utiliza o objeto do cliente para detetar e extrair texto na imagem.
+O serviço OCR pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, consulte a visão geral do [reconhecimento de caracteres óticos (OCR).](../../overview-ocr.md) O código nesta secção utiliza a mais recente [versão SDK da Visão De Computador para a Leitura 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) e define um método, `BatchReadFileUrl` que utiliza o objeto do cliente para detetar e extrair texto na imagem.
 
 > [!TIP]
 > Também pode extrair texto de uma imagem local. Consulte os métodos [ComputerVisionClient,](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) tais como **ReadInStreamAsync**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) para cenários que envolvam imagens locais.
@@ -292,8 +183,10 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
->[Referência API de Visão Computacional (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision)
+Neste arranque rápido, aprendeu a instalar a biblioteca de clientes OCR e a utilizar a API de Leitura. Em seguida, saiba mais sobre as funcionalidades da API de Leitura.
 
-* [O que é a Imagem Digitalizada?](../../overview.md)
+> [!div class="nextstepaction"]
+>[Ligue para a API de leitura](../../Vision-API-How-to-Topics/call-read-api.md)
+
+* [Visão geral do OCR](../../overview-ocr.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

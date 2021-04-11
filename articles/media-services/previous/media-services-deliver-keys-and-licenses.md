@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2d965ec17fb605362c1e8cd8ef781a6bd2029d0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465713"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067389"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilize serviços de mídia para entregar licenças DE DRM ou chaves AES
 
@@ -54,7 +54,7 @@ O diagrama que se segue mostra os principais passos que precisa de tomar para ut
     ```
  
 ## <a name="net-code-example"></a>exemplo de código .NET
-O exemplo de código que se segue mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença PlayReady ou Widevine. Para configurar o seu servidor no local, precisa de uma chave de conteúdo, o ID chave e o URL de aquisição de licença. Depois de configurar o servidor no local, pode transmitir a partir do seu próprio servidor de streaming. Como o fluxo encriptado aponta para um servidor de licença de Media Services, o seu jogador solicita uma licença dos Media Services. Se optar por autenticação simbólica, o servidor de licença dos Media Services valida o token que enviou através do HTTPS. Se o token for válido, o servidor de licença devolve a licença ao seu jogador. O exemplo de código que se segue apenas mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença PlayReady ou Widevine. Se quiser entregar as teclas AES-128, tem de criar uma chave de conteúdo de envelope e obter um URL de aquisição chave. Para obter mais informações, consulte [o serviço de encriptação dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
+O exemplo de código que se segue mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença PlayReady ou Widevine. Para configurar o seu servidor no local, precisa de uma chave de conteúdo, o ID chave e o URL de aquisição de licença. Depois de configurar o servidor no local, pode transmitir a partir do seu próprio servidor de streaming. Como o fluxo encriptado aponta para um servidor de licença de Media Services, o seu jogador solicita uma licença dos Media Services. Se optar por autenticação simbólica, o servidor de licença dos Media Services valida o token que enviou através do HTTPS. Se o token for válido, o servidor de licença devolve a licença ao seu jogador. O exemplo de código que se segue apenas mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença PlayReady ou Widevine. Se quiser entregar as teclas AES-128, tem de criar uma chave de conteúdo de envelope e obter um URL de aquisição chave. Para obter mais informações, consulte [o serviço de encriptação dinâmica AES-128 e o serviço de entrega de chaves](media-services-playready-license-template-overview.md).
 
 ```csharp
 using System;
@@ -357,4 +357,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>Ver também
 * [Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
-* [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md)
+* [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](media-services-playready-license-template-overview.md)

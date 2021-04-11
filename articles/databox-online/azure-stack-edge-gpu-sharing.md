@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
 ms.openlocfilehash: ff1c7b79a49b0b659056c89af3c61f28b72ebc50
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105645241"
 ---
 # <a name="gpu-sharing-on-your-azure-stack-edge-pro-gpu-device"></a>GPU partilhando no seu dispositivo GPU Azure Stack Edge Pro

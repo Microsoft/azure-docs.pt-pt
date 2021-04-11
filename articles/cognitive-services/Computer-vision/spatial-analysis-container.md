@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 1a107f812ceb46649126bdbefcf3b828e1938ff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87076febd4597556fd2b28245f47442308cd6e6c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612903"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108369"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
 
@@ -311,7 +311,7 @@ Em seguida, registe o computador anfitrião como um dispositivo IoT Edge na sua 
 Tem de ligar o dispositivo IoT Edge ao seu Azure IoT Hub. Tem de copiar a cadeia de ligação do dispositivo IoT Edge que criou anteriormente. Em alternativa, pode executar o comando abaixo no CLI Azure.
 
 ```bash
-sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+sudo az iot hub device-identity connection-string show --device-id my-edge-device --hub-name test-iot-hub-123
 ```
 
 No computador anfitrião aberto  `/etc/iotedge/config.yaml` para edição. `ADD DEVICE CONNECTION STRING HERE`Substitua-a pela cadeia de ligação. Guarde e feche o ficheiro. Executar este comando para reiniciar o serviço IoT Edge no computador anfitrião.
@@ -334,7 +334,7 @@ Abra o assistente [criar uma máquina virtual](https://ms.portal.azure.com/#crea
 
 Dê um nome ao seu VM e selecione a região para ser (EUA) West US 2. Certifique-se de definir `Availability Options` "Não é necessário despedimento de infraestruturas". Consulte a figura abaixo para a configuração completa e o passo seguinte para ajudar a localizar o tamanho correto do VM. 
 
-:::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.png" alt-text="Detalhes da configuração da máquina virtual." lightbox="media/spatial-analysis/virtual-machine-instance-details.png":::
+:::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.jpg" alt-text="Detalhes da configuração da máquina virtual." lightbox="media/spatial-analysis/virtual-machine-instance-details.jpg":::
 
 Para localizar o tamanho VM, selecione "Ver todos os tamanhos" e, em seguida, consulte a lista para "Tamanhos VM de armazenamento não premium", mostrados abaixo.
 
@@ -473,7 +473,7 @@ Em seguida, registe o VM como um dispositivo IoT Edge na sua instância IoT Hub,
 Tem de ligar o dispositivo IoT Edge ao seu Azure IoT Hub. Tem de copiar a cadeia de ligação do dispositivo IoT Edge que criou anteriormente. Em alternativa, pode executar o comando abaixo no CLI Azure.
 
 ```bash
-sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+sudo az iot hub device-identity connection-string show --device-id my-edge-device --hub-name test-iot-hub-123
 ```
 
 No VM aberto  `/etc/iotedge/config.yaml` para edição. `ADD DEVICE CONNECTION STRING HERE`Substitua-a pela cadeia de ligação. Guarde e feche o ficheiro. Executar este comando para reiniciar o serviço IoT Edge no VM.
@@ -542,10 +542,6 @@ Uma vez concluída a implantação e o contentor em funcionamento, o **computado
 ## <a name="configure-the-operations-performed-by-spatial-analysis"></a>Configure as operações realizadas por análise espacial
 
 Terá de utilizar [operações de análise espacial](spatial-analysis-operations.md) para configurar o recipiente para utilizar câmaras conectadas, configurar as operações e muito mais. Para cada dispositivo de câmara que configurar, as operações de análise espacial gerarão um fluxo de saída de mensagens JSON, enviadas para o seu exemplo de Azure IoT Hub.
-
-## <a name="redeploy-or-delete-the-deployment"></a>Reimplantar ou eliminar a implantação
-
-Se precisar de atualizar a implementação, tem de se certificar de que as suas implementações anteriores estão implantadas com sucesso ou que tem de eliminar as implementações do dispositivo IoT Edge que não foram concluídas. Caso contrário, essas implementações continuarão, deixando o sistema em mau estado. Pode utilizar o portal Azure ou o [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Utilize a saída gerada pelo recipiente
 

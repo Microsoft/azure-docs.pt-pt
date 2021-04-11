@@ -8,36 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 21433e1a0441ef458dd5f8ea4b968211ef82cd46
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bce09fad6ffa169a019628498a686226eff266c7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865609"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384985"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de Serviços cloud Azure (suporte alargado)
 
-> [!IMPORTANT]
-> Os Serviços cloud (suporte alargado) estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Para garantir uma implementação bem sucedida dos Cloud Services (suporte alargado) reveja os passos abaixo e complete cada item antes de tentar quaisquer implementações. 
-
-## <a name="register-the-cloudservices-feature"></a>Registar a funcionalidade CloudServices
-Registe a funcionalidade da sua subscrição. A inscrição pode demorar vários minutos a ser concluída. 
-
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-```
-
-Verifique o estado do registo utilizando o seguinte:  
-```powershell
-Get-AzProviderFeature 
-
-#Sample output
-FeatureName               ProviderName      RegistrationState
-CloudServices           Microsoft.Compute    Registered
-```
 
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Configurações de serviço necessárias (.cscfg) atualizações de ficheiros
 

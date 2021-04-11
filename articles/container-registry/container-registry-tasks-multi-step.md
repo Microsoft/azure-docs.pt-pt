@@ -3,12 +3,12 @@ title: Tarefa em várias etapas para construir, testar & imagem de patch
 description: Introdução a tarefas em várias etapas, uma característica das tarefas ACR no Registo de Contentores Azure que fornece fluxos de trabalho baseados em tarefas para a construção, teste e remendação de imagens de contentores na nuvem.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc671006beb1934b32fcd6ccf967a5bf9ff817fb
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78399692"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169203"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Executar tarefas de construção, teste e patch em tarefas ACR
 
@@ -65,7 +65,7 @@ steps:
     build: -t $Registry/hello-world:$ID .
     when: ["-"]
   - id: build-tests
-    build -t $Registry/hello-world-tests ./funcTests
+    build: -t $Registry/hello-world-tests ./funcTests
     when: ["-"]
   - id: push
     push: ["$Registry/helloworld:$ID"]

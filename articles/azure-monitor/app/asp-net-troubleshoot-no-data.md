@@ -4,12 +4,12 @@ description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 40fbe4d08676d7cc56478d3740424fccaa7addc0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbf53f6d4a928215d25874f4e405147c73cbf81f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562200"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056577"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -143,7 +143,7 @@ A chave de instrumentação ApplicationInsights.config controla onde a telemetri
 
 Correção:
 
-* No Solution Explorer, clique com o botão direito no projeto e escolha Insights de Aplicação, Configure Application Insights. No diálogo, pode optar por enviar telemetria para um recurso existente ou criar um novo. Arte
+* No Solution Explorer, clique com o botão direito no projeto e escolha Insights de Aplicação, Configure Application Insights. No diálogo, pode optar por enviar telemetria para um recurso existente ou criar um novo. Ou:
 * Abra o recurso diretamente. Inscreva-se [no portal Azure,](https://portal.azure.com)clique em Insights de Aplicação na barra de navegação esquerda e, em seguida, selecione a sua aplicação.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Onde encontro a minha telemetria?
@@ -282,7 +282,9 @@ Para mais informações,
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Recolher troncos com traços de dotnet
 
-Um método alternativo de recolha de troncos para resolução de problemas que pode ser particularmente útil para ambientes baseados em linux é [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
+Em alternativa, os clientes também podem utilizar uma ferramenta cross-platform .NET Core, [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) para recolher registos que possam ajudar ainda mais na resolução de problemas. Isto pode ser particularmente útil para ambientes baseados em linux.
+
+Após a instalação [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace) de , execute o comando abaixo em bash.
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
@@ -294,4 +296,3 @@ Saiba como remover os Insights de Aplicação no Estúdio Visual seguindo os pas
 
 ## <a name="still-not-working"></a>Ainda não estou a funcionar...
 * [Microsoft Q&Uma página de perguntas para Insights de Aplicações](/answers/topics/azure-monitor.html)
-

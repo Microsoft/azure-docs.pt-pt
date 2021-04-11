@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
-ms.openlocfilehash: b27db94775e2ba8275dbdab4bf5bd61cc0fdf5c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04a3fb9e4e7dd1d498714cd3b2ebd4c5f6b55bec
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666873"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210351"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicações oracle que integram a Microsoft Azure e a Oracle Cloud Infrastructure
 
@@ -50,6 +50,8 @@ A conectividade entre nuvens cruzadas limita-se às seguintes regiões:
 * Azure West Europe (WestEurope) & OCI Amsterdam (Noroeste da Holanda)
 * Azure Japan East (JapãoEast) & OCI Tokyo (Japão Leste)
 * Azure West US (WestUS) & OCI San Jose (EUA)
+* Alemanha West Central (Frankfurt) & OCI Germany Central (Frankfurt)
+
 
 ## <a name="networking"></a>Rede
 

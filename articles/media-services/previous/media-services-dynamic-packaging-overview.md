@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: d2394cba157a7049e3b63b09fda9e018f0a0b32f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0358f7a6591309ad9ffa7263cdee417647a8fa2b
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103013623"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108171"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
-> * [Versão 3](../latest/dynamic-packaging-overview.md)
+> * [Versão 3](../latest/encode-dynamic-packaging-concept.md)
 > * [Versão 2](media-services-dynamic-packaging-overview.md)
 
 > [!NOTE]

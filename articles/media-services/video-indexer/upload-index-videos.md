@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3c2812a4ecfa1a80539804122042bc2dc2f3a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3cc9051190bd314ac93e3de2689a6aa0ec2b6235
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199191"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108086"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -35,7 +35,7 @@ O artigo mostra como carregar e indexar os seus vídeos com estas opções:
 
 ## <a name="supported-file-formats-for-video-indexer"></a>Formatos de ficheiros suportados para Indexador de Vídeo
 
-Consulte o artigo [de formatos de recipiente/ficheiro](../latest/media-encoder-standard-formats.md#input-containerfile-formats) de entrada para obter uma lista de formatos de ficheiros que pode utilizar com o Video Indexer.
+Consulte o artigo [de formatos de recipiente/ficheiro](../latest/encode-media-encoder-standard-formats-reference.md) de entrada para obter uma lista de formatos de ficheiros que pode utilizar com o Video Indexer.
 
 ## <a name="video-files-storage"></a>Armazenamento de ficheiros de vídeo
 
@@ -113,7 +113,7 @@ Assim que o seu vídeo for carregado, o Video Indexer codifica opcionalmente o v
 Ao utilizar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Reindexar Vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), um dos parâmetros opcionais é `streamingPreset`. Se definir o parâmetro `streamingPreset` para `Default`, `SingleBitrate` ou `AdaptiveBitrate`, o processo de codificação é acionado. Assim que as tarefas de indexação e codificação estiverem concluídas, o vídeo é publicado para que também o possa transmitir em fluxo. O Ponto Final de Transmissão em Fluxo a partir do qual quer transmitir o vídeo tem de estar no estado **Em execução**.
 
 Para o SingleBitrate, o custo padrão do codificador será aplicado por saída. Se a altura do vídeo for maior ou igual a 720, o Video Indexer codifica-o como 1280x720. Caso contrário, como 640x468.
-A definição predefinição é [codificação de conteúdo consciente](../latest/content-aware-encoding.md).
+A definição predefinição é [codificação de conteúdo consciente](../latest/encode-content-aware-concept.md).
 
 Para executar as tarefas de indexação e codificação, a [conta dos Serviços de Multimédia do Azure associada à sua conta do Video Indexer](connect-to-azure.md) necessita de Unidades Reservadas. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Como estas são tarefas de computação intensiva, o tipo de unidade S3 é altamente recomendado. O número de RUs define o número máximo de tarefas que podem ser executadas em paralelo. A recomendação de linha de base é de 10 RUs S3. 
 

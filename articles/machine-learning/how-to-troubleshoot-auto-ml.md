@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/08/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl, references_regions
-ms.openlocfilehash: 28aac830326d60161f54d7ad5fa03326c1d66462
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e6e4e468adec76d50242b31922e4db1c7e910ab
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563679"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210487"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Experiências automatizadas de ML em Python
 

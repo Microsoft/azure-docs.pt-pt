@@ -10,13 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: a84627b2b426385d21ad72b85780db86e7dd5ee3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c23f961b8aeaae3e338f9c513a9f2b9d07b64abb
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096080"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056407"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Azure Key Vault para outra subscrição
 

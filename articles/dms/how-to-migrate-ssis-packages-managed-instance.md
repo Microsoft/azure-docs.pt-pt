@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: 1f6df64a66c0700f3a13a40ea5046515a2bf1a51
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105643845"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrar pacotes de Serviços de Integração de ServidorES SQL para uma instância gerida Azure SQL

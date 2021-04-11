@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 65e93cdeb5592eef92fe8c8261231179fae6af67
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3f6071813a8189605d632231a5f9b8942068a48a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731807"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067440"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Mover dados para e entre os passos de pipeline de ML (Python)
 

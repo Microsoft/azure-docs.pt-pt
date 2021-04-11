@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3ede2941e882f1f9a02eb9b31f6b3ab490e9d37e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 24f5e4dafa70f4597193c2aa76ac27ca498ae238
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105033182"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090870"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[A Configuração da Aplicação deve desativar o acesso à rede pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3d9f5e4c-9947-4579-9539-2a7695fbc187) |A desativação do acesso à rede pública melhora a segurança, garantindo que o recurso não seja exposto na internet pública. Em vez disso, pode limitar a exposição dos seus recursos através da criação de pontos finais privados. Saiba mais em: [https://aka.ms/appconfig/private-endpoint](https://aka.ms/appconfig/private-endpoint) . |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Configuration/PrivateLink_PublicNetworkAccess_Audit.json) |
 |[A Configuração da Aplicação deve usar uma chave gerida pelo cliente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F967a4b4b-2da9-43c1-b7d0-f98d0d74d0b1) |As teclas geridas pelo cliente fornecem uma proteção de dados melhorada, permitindo-lhe gerir as suas chaves de encriptação. Isto é frequentemente necessário para satisfazer os requisitos de conformidade. |Auditoria, Negar, Deficientes |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Configuration/CustomerManagedKey_Audit.json) |

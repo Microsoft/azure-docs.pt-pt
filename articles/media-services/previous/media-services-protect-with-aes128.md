@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7dacc01b37fb91f02fe67f76fe79c0bfa9375ea7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4375e7b68f0b279a971e92775ca454f06dcbd45
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009543"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067338"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-aes128.md)
+> * [.NET](media-services-playready-license-template-overview.md)
 > * [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >  
@@ -55,7 +55,7 @@ Execute os seguintes passos gerais quando encriptar os seus ativos com a AES uti
 
 2. [Codificar o ativo que contém o ficheiro para o conjunto de BITRATE adaptativo MP4](media-services-protect-with-aes128.md#encode_asset).
 
-3. [Crie uma chave de conteúdo e associe-a ao ativo codificado.](media-services-protect-with-aes128.md#create_contentkey) Nos Serviços de Multimédia, a chave de conteúdo contém a chave de encriptação do elemento.
+3. [Crie uma chave de conteúdo, e associe-a ao ativo codificado]media-services-protect-with-aes128.md#create_contentkey). Nos Serviços de Multimédia, a chave de conteúdo contém a chave de encriptação do elemento.
 
 4. [Configure a política de autorização da chave de conteúdo.](media-services-protect-with-aes128.md#configure_key_auth_policy) Tem de configurar a política de autorização da chave de conteúdo. O cliente tem de satisfazer a política antes de a chave de conteúdo lhe ser entregue.
 
