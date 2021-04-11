@@ -5,54 +5,51 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 0f028f264d02d7300bb888e2053708ef6b06ea51
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b1254e7db0e62d08ea2a3d6d30f2abd379675c55
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721567"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078320"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login AZure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este artigo mostra-lhe como configurar a autenticação para o Azure App Service ou para as Funções Azure para que a sua aplicação assine nos utilizadores com o Azure Ative Directory (Azure AD) como fornecedor de autenticação.
+Este artigo mostra-lhe como configurar a autenticação para o Azure App Service ou para as Funções Azure para que a sua aplicação assine nos utilizadores com a [Plataforma de Identidade](../active-directory/develop/v2-overview.md) da Microsoft (Azure AD) como fornecedor de autenticação.
 
-## <a name="configure-with-express-settings"></a><a name="express"> </a>Configure com configurações expressas
+A funcionalidade de autenticação do Serviço de Aplicações pode criar automaticamente um registo de aplicações com a Plataforma de Identidade da Microsoft. Também pode utilizar um registo que você ou um administrador de diretórios criam separadamente.
 
-A opção **Express** foi concebida para tornar a autenticação ativada simples e requer apenas alguns cliques.
-
-As definições expressas criarão automaticamente um registo de aplicação que utiliza o ponto final do Azure Ative Directory V1. Para utilizar [o Azure Ative Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [o MSAL),](../active-directory/develop/msal-overview.md)siga as [instruções avançadas de configuração](#advanced).
+- [Criar um novo registo de aplicações automaticamente](#express)
+- [Utilize um registo existente criado separadamente](#advanced)
 
 > [!NOTE]
-> A opção **Express** não está disponível para nuvens governamentais.
+> A opção de criar um novo registo não está disponível para nuvens governamentais. Em vez disso, [defina um registo separadamente](#advanced).
 
-Para ativar a autenticação utilizando a opção **Express,** siga estes passos:
+## <a name="create-a-new-app-registration-automatically"></a><a name="express"> </a>Criar um novo registo de aplicações automaticamente
 
-1. No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação.
-2. A partir da navegação à esquerda, selecione **Autenticação / Autorização**  >  **Em**.
-3. Selecione **Azure Ative Directory**  >  **Express**.
+Esta opção foi concebida para tornar a autenticação ativada simples e requer apenas alguns cliques.
 
-   Se quiser escolher um registo de aplicações existente:
+1. Inscreva-se no [portal Azure] e navegue para a sua aplicação.
+1. Selecione **Autenticação** no menu à esquerda. Clique **em Adicionar Fornecedor de identidade**.
+1. Selecione **a Microsoft** no dropdown do fornecedor de identidade. A opção de criar um novo registo é selecionada por padrão. Pode alterar o nome do registo ou dos tipos de conta suportados.
 
-   1. Escolha **selecionar a aplicação AD existente** e, em seguida, clique na App **AD AZure**.
-   2. Escolha um registo de aplicações existente e clique **em OK.**
+    Um segredo de cliente será criado e armazenado como uma configuração de [aplicação](./configure-common.md#configure-app-settings) adesivo chamado `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET` . Pode atualizar essa definição mais tarde para utilizar [referências do Key Vault](./app-service-key-vault-references.md) se desejar gerir o segredo no Cofre de Chaves Azure.
 
-4. Selecione **OK** para registar a aplicação Serviço de Aplicações no Diretório Ativo Azure. É criado um novo registo de aplicações.
+1. Se este for o primeiro fornecedor de identidade configurado para a aplicação, também será solicitado com uma secção de **configurações de autenticação do Serviço de Aplicações.** Caso contrário, pode passar para o próximo passo.
+    
+    Estas opções determinam como a sua aplicação responde a pedidos não autenticados, e as seleções predefinidos redirecionarão todos os pedidos para iniciar sessão com este novo fornecedor. Pode alterar o comportamento agora ou ajustar estas definições mais tarde a partir do ecrã principal de **Autenticação,** escolhendo **Editar** ao lado **das definições de Autenticação**. Para saber mais sobre estas opções, consulte [o fluxo de autenticação.](overview-authentication-authorization.md#authentication-flow)
 
-    ![Definições expressas no Diretório Ativo Azure](./media/configure-authentication-provider-aad/express-settings.png)
+1. (Opcional) Clique **em seguida: Permissões** e adicione quaisquer âmbitos necessários pela aplicação. Estes serão adicionados ao registo da aplicação, mas também pode alterá-los mais tarde.
+1. Clique em **Adicionar**.
 
-5. (Opcional) Por predefinição, o Serviço de Aplicações fornece autenticação mas não restringe o acesso autorizado ao conteúdo do seu site e APIs. Tem de autorizar os utilizadores no seu código de aplicação. Para restringir o acesso da aplicação apenas aos utilizadores autenticados pelo Azure Ative Directory, desconfiem **de Ação a tomar quando o pedido não for autenticado** para **iniciar sessão com o Azure Ative Directory**. Ao definir esta funcionalidade, a sua aplicação requer que todos os pedidos sejam autenticados. Também redireciona todos os não autenticados para o Azure Ative Directory para a autenticação.
-
-    > [!CAUTION]
-    > Restringir o acesso desta forma aplica-se a todas as chamadas para a sua app, o que pode não ser desejável para aplicações que tenham uma página inicial disponível ao público, como em muitas aplicações de página única. Para tais aplicações, poderá ser preferido **solicitar pedidos anónimos (nenhuma ação),** com a aplicação a iniciar manualmente o próprio login. Para mais informações, consulte [o fluxo de autenticação.](overview-authentication-authorization.md#authentication-flow)
-6. Selecione **Guardar**.
+Está agora pronto para utilizar a Plataforma de Identidade da Microsoft para autenticação na sua aplicação. O fornecedor será listado no ecrã de **Autenticação.** A partir daí, pode editar ou eliminar esta configuração do fornecedor.
 
 Para um exemplo de configurar o login Azure AD para uma aplicação web que acede ao Azure Storage e ao Microsoft Graph, consulte [este tutorial](scenario-secure-app-authentication-app-service.md).
 
-## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Configure com configurações avançadas
+## <a name="use-an-existing-registration-created-separately"></a><a name="advanced"> </a>Utilize um registo existente criado separadamente
 
-Para que a Azure AD atue como o fornecedor de autenticação da sua aplicação, tem de registar a sua aplicação com ela. A opção Express faz isto automaticamente. A opção Advanced permite-lhe registar manualmente a sua aplicação, personalizando o registo e introduzindo manualmente os dados de registo no Serviço de Aplicações. Isto é útil, por exemplo, se você quiser usar um registo de aplicação de um inquilino AD Azure diferente daquele em que o seu Serviço de Aplicações está.
+Também pode registar manualmente a sua candidatura para a Plataforma de Identidade da Microsoft, personalizando o registo e configurando a Autenticação do Serviço de Aplicações com os dados de registo. Isto é útil, por exemplo, se você quiser usar um registo de aplicação de um inquilino AZure AD diferente daquele em que a sua aplicação está.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Crie um registo de aplicações em Azure AD para a sua app App Service
 
@@ -87,22 +84,27 @@ Para registar a aplicação, execute os seguintes passos:
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Ativar o Azure Ative Directory na sua aplicação De Serviço de Aplicações
 
-1. No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação.
-1. No painel esquerdo, em **Definições,** selecione **Autenticação / Autorização**  >  **Em**.
-1. (Opcional) Por predefinição, a autenticação do Serviço de Aplicações permite o acesso não autenticado à sua aplicação. Para impor a autenticação do utilizador, detenha **a ação a tomar quando o pedido não for autenticado** para **iniciar sessão com o Azure Ative Directory**.
-1. No âmbito **dos Fornecedores de Autenticação**, selecione **Azure Ative Directory**.
-1. No **modo Gestão,** selecione **Autenticação avançada** e configurada do Serviço de Aplicações de acordo com a seguinte tabela:
+1. Inscreva-se no [portal Azure] e navegue para a sua aplicação.
+1. Selecione **Autenticação** no menu à esquerda. Clique **em Adicionar Fornecedor de identidade**.
+1. Selecione **a Microsoft** no dropdown do fornecedor de identidade.
+1. Para **o tipo de registo de Aplicações,** pode optar por escolher um registo de **aplicações existente neste diretório** que recolherá automaticamente as informações necessárias da aplicação. Se o seu registo for de outro inquilino ou não tiver permissão para visualizar o objeto de registo, escolha **Fornecer os detalhes de um registo de aplicações existente.** Para esta opção, terá de preencher os seguintes detalhes de configuração:
 
     |Campo|Descrição|
     |-|-|
-    |ID de Cliente| Utilize o ID de **Aplicação (cliente)** do registo da aplicação. |
-    |Url emitente| Use `<authentication-endpoint>/<tenant-id>/v2.0` , e *\<authentication-endpoint>* substitua-o pelo ponto final de [autenticação para o seu ambiente em nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " para a https://login.microsoftonline.com Azure global), substituindo também *\<tenant-id>* pelo ID do **Diretório (inquilino)** no qual foi criado o registo da aplicação. Este valor é usado para redirecionar os utilizadores para o inquilino AZure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emitente simbólico, por exemplo. Para aplicações que usam Azure AD v1 e para aplicações Azure Functions, `/v2.0` omite no URL.|
+    |ID da Aplicação (cliente)| Utilize o ID de **Aplicação (cliente)** do registo da aplicação. |
     |Segredo do Cliente (Opcional)| Use o segredo do cliente que gerou no registo da aplicação. Com um segredo de cliente, o fluxo híbrido é usado e o Serviço de Aplicações devolverá acesso e atualização de fichas. Quando o segredo do cliente não é definido, o fluxo implícito é usado e apenas um símbolo de identificação é devolvido. Estes tokens são enviados pelo fornecedor e armazenados na loja de token easyAuth.|
+    |Url emitente| Use `<authentication-endpoint>/<tenant-id>/v2.0` , e *\<authentication-endpoint>* substitua-o pelo ponto final de [autenticação para o seu ambiente em nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " para a https://login.microsoftonline.com Azure global), substituindo também *\<tenant-id>* pelo ID do **Diretório (inquilino)** no qual foi criado o registo da aplicação. Este valor é usado para redirecionar os utilizadores para o inquilino AZure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emitente simbólico, por exemplo. Para aplicações que usam Azure AD v1 e para aplicações Azure Functions, `/v2.0` omite no URL.|
     |Audiências token permitidas| Se se trata de uma aplicação de cloud ou servidor e pretender permitir fichas de autenticação a partir de uma aplicação web, adicione aqui o **ID URI** da aplicação web. O **ID do Cliente** configurado é *sempre* implicitamente considerado como um público permitido.|
 
-2. Selecione **OK** e, em seguida, selecione **Guardar**.
+    O segredo do cliente será armazenado como uma configuração de [aplicação](./configure-common.md#configure-app-settings) adesivo chamado `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET` . Pode atualizar essa definição mais tarde para utilizar [referências do Key Vault](./app-service-key-vault-references.md) se desejar gerir o segredo no Cofre de Chaves Azure.
 
-Está agora pronto para usar o Azure Ative Directory para autenticação na sua aplicação de Serviço de Aplicações.
+1. Se este for o primeiro fornecedor de identidade configurado para a aplicação, também será solicitado com uma secção de **configurações de autenticação do Serviço de Aplicações.** Caso contrário, pode passar para o próximo passo.
+    
+    Estas opções determinam como a sua aplicação responde a pedidos não autenticados, e as seleções predefinidos redirecionarão todos os pedidos para iniciar sessão com este novo fornecedor. Pode alterar o comportamento agora ou ajustar estas definições mais tarde a partir do ecrã principal de **Autenticação,** escolhendo **Editar** ao lado **das definições de Autenticação**. Para saber mais sobre estas opções, consulte [o fluxo de autenticação.](overview-authentication-authorization.md#authentication-flow)
+
+1. Clique em **Adicionar**.
+
+Está agora pronto para utilizar a Plataforma de Identidade da Microsoft para autenticação na sua aplicação. O fornecedor será listado no ecrã de **Autenticação.** A partir daí, pode editar ou eliminar esta configuração do fornecedor.
 
 ## <a name="configure-client-apps-to-access-your-app-service"></a>Configure as aplicações do cliente para aceder ao seu Serviço de Aplicações
 

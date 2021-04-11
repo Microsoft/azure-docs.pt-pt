@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para a Azure API Management
 description: Lista definições políticas incorporadas da Azure Policy para a Azure API Management. Estas definições políticas incorporadas fornecem abordagens para gerir os seus recursos Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a4d8fdb59e8427b2a515a650487752a9b6265b7e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0956ccd28909b985c86666712330d19bfaa88a43
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035388"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095892"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Definições políticas incorporadas da Azure Policy para a Azure API Management
 

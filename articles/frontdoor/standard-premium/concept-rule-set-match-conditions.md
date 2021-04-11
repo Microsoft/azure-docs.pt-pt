@@ -5,14 +5,14 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 039effb885463c1c53085535a6980601be890340
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9e8defa9e929d21f210c48ffbd3b22e44195c17d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561514"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061626"
 ---
 # <a name="azure-front-door-standardpremium-preview-rule-set-match-conditions"></a>Azure Front Door Standard/Premium (Pré-visualização) Regra Definida condições de jogo
 
@@ -685,7 +685,7 @@ Neste exemplo, correspondemos a todos os pedidos em que o pedido utiliza o `HTTP
 
 ## <a name="request-url"></a><a name="RequestUrl"></a> URL de pedido
 
-Identifica pedidos que correspondam à URL especificada. Toda a URL é avaliada. Pode especificar vários valores para combinar, que serão combinados usando a lógica OR.
+Identifica pedidos que correspondam à URL especificada. Todo o URL é avaliado, incluindo o protocolo e a cadeia de consulta, mas não o fragmento. Pode especificar vários valores para combinar, que serão combinados usando a lógica OR.
 
 > [!TIP]
 > Quando utilizar esta condição de regra, certifique-se de incluir o protocolo. Por exemplo, use `https://www.contoso.com` em vez de `www.contoso.com` apenas.
@@ -790,10 +790,6 @@ Expressões regulares não suportam as seguintes operações:
 * O `\K` início da diretiva de reset de partidas.
 * Chamadas e código incorporado.
 * Agrupamentos atómicos e quantificadores possessivos.
-
-## <a name="arm-template-support"></a>Suporte do modelo ARM
-
-Os conjuntos de regras podem ser configurados usando modelos do Gestor de Recursos Azure. [Consulte um modelo de exemplo.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set) Pode adicionar condições de correspondência utilizando os snippets JSON ou Bicep incluídos nos exemplos acima.
 
 ## <a name="next-steps"></a>Passos seguintes
 

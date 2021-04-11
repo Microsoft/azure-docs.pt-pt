@@ -1,19 +1,19 @@
 ---
 title: Configurar a faturação do Contrato de Cliente Microsoft – Azure
-description: Saiba como configurar a conta de faturação para um Contrato de Cliente da Microsoft. Veja os pré-requisitos da configuração e veja recursos disponíveis adicionais.
+description: Saiba como configurar a conta de faturação para um Contrato de Cliente da Microsoft. Consulte os pré-requisitos para a configuração e veja outros recursos disponíveis.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 03/19/2021
 ms.author: banders
-ms.openlocfilehash: 7e930ca938b2531fb001c327132f79f703b2ea74
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.openlocfilehash: 15aa3acab9fe98a4c2f5103ba211dde34220c54e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316418"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255689"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar a conta de faturação para um Contrato de Cliente da Microsoft
 
@@ -24,7 +24,7 @@ A renovação inclui os seguintes passos:
 1. Aceitar o novo Contrato de Cliente da Microsoft. Trabalhe com o seu representante no terreno da Microsoft para compreender os detalhes e aceitar o novo contrato.
 2. Configurar a nova conta de faturação criada para o novo Contrato de Cliente da Microsoft.
 
-Para configurar a conta de faturação, deve realizar a transição da faturação das subscrições do Azure, da sua inscrição de Contrato Enterprise para a nova conta. A configuração não afeta os serviços do Azure em execução nas suas subscrições. No entanto, altera a forma como vai gerir a faturação das suas subscrições.
+Para configurar a conta de faturação, deve realizar a transição da faturação das subscrições do Azure, da sua inscrição de Contrato Enterprise para a nova conta. A configuração não afeta os serviços Azure que estão a ser executadas nas suas subscrições. No entanto, altera a forma como vai gerir a faturação das suas subscrições.
 
 - Em vez do [EA Portal](https://ea.azure.com), vai gerir os serviços e a faturação do Azure no [portal do Azure](https://portal.azure.com).
 - Receberá mensalmente uma fatura digital dos seus custos. Pode ver e analisar a fatura na página Azure Cost Management + Faturação.
@@ -49,31 +49,54 @@ Antes de iniciar a configuração, recomendamos que realize as ações seguintes
 
 Para concluir a configuração, precisa do seguinte acesso:
 
-- O proprietário do perfil de faturação que foi criado quando o Contrato de Cliente da Microsoft foi assinado. Para saber mais sobre perfis de faturação, veja [Compreender os perfis de faturação](../understand/mca-overview.md#billing-profiles).
-
+- O proprietário do perfil de faturação que foi criado quando o Contrato de Cliente da Microsoft foi assinado. Para saber mais sobre perfis de faturação, veja [Compreender os perfis de faturação](../understand/mca-overview.md#billing-profiles).  
+&mdash; E &mdash;
 - O administrador do Enterprise na inscrição que é renovada.
+
+### <a name="start-migration-and-get-permission-needed-to-complete-setup"></a>Inicie a migração e obtenha permissão necessária para completar a configuração
+
+Pode utilizar as seguintes opções para iniciar a experiência de migração para a sua inscrição na EA no seu Microsoft Customer Agreement.
+
+
+- Inicie sessão no portal do Azure com a ligação no e-mail que recebeu quando assinou o Contrato de Cliente da Microsoft.
+
+- Se não tiver o e-mail, inicie sessão com a ligação a seguir. Substitua `enrollmentNumber` pelo número de inscrição do contrato Enterprise que foi renovado.
+
+  `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+
+Se tiver tanto o administrador da empresa como as funções de proprietário de conta de faturação ou a função de perfil de faturação, consulte a página seguinte no portal Azure. Pode continuar a configurar as suas matrículas EA e a conta de faturação do Microsoft Customer Agreement para a transição.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page.png" alt-text="Screenshot mostrando a configuração da sua página de conta de faturação" lightbox="./media/mca-setup-account/setup-billing-account-page.png" :::
+
+Se não tiver o papel de administrador da empresa para o acordo de empresa ou a função de proprietário do perfil de faturação para o Acordo de Cliente da Microsoft, use as seguintes informações para obter o acesso que precisa para completar a configuração.
 
 ### <a name="if-youre-not-an-enterprise-administrator-on-the-enrollment"></a>Se não for um administrador do Enterprise na inscrição
 
-Pode pedir aos administradores do Enterprise da inscrição para concluírem a configuração da sua conta de faturação.
+Você vê a página seguinte no portal Azure se você tem uma conta de faturação ou papel de proprietário de perfil de faturação, mas você não é um administrador da empresa.
 
-1. Inicie sessão no portal do Azure com a ligação no e-mail que recebeu quando assinou o Contrato de Cliente da Microsoft.
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" alt-text="Screenshot mostrando a página de conta de faturação - Prepare as inscrições do Seu Acordo Empresarial para a transição." lightbox="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" :::
 
-2. Se não tiver o e-mail, inicie sessão com a ligação a seguir. Substitua `<enrollmentNumber>` pelo número de inscrição do contrato Enterprise que foi renovado.
+Tem duas opções:
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+- Peça ao administrador da empresa da inscrição para lhe dar o papel de administrador da empresa. Para mais informações, consulte [Criar outro administrador da empresa.](ea-portal-administration.md#create-another-enterprise-administrator)
+-  Pode dar a um administrador da empresa o papel de proprietário de conta de faturação ou de proprietário de perfil de faturação. Para obter mais informações, consulte [Gerir as funções de faturação no portal Azure.](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
-3. Selecione os administradores do Enterprise para os quais quer enviar o pedido.
-
-   ![Captura de ecrã que mostra o convite aos administradores do Enterprise](./media/mca-setup-account/ea-mca-invite-admins.png)
-
-4. Selecione **Enviar pedido**.
-
-   Os administradores receberão um e-mail com instruções para concluírem a configuração.
+Se lhe for dada a função de administrador da empresa, copie o link na página 'Configurar' a sua conta de faturação. Abra-o no seu navegador web para continuar a configurar o seu Microsoft Customer Agreement. Caso contrário, envie-o ao administrador da empresa.
 
 ### <a name="if-youre-not-an-owner-of-the-billing-profile"></a>Se não for um proprietário do perfil de faturação
 
-O utilizador na sua organização, que assinou o Contrato de Cliente da Microsoft, é adicionado como o proprietário no perfil de faturação. Peça ao utilizador que o adicione como um proprietário para que possa concluir a configuração.
+Se é administrador da empresa mas não tem uma conta de faturação ou papel de proprietário de perfil de faturação para o seu Contrato de Cliente da Microsoft, vê a página seguinte no portal Azure.
+
+Se acredita que tem acesso ao proprietário do perfil de faturação ao Correto Microsoft Customer Agreement e vê a seguinte mensagem, certifique-se de que está no inquilino correto para a sua organização. Talvez precises de mudar de diretório.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" alt-text="Screenshot mostrando a página de conta de faturação - Conta de faturação do Microsoft Customer Agreement." lightbox="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" :::
+
+Tem duas opções:
+
+- Peça a um proprietário de conta de faturação existente para lhe dar a conta de faturação ou a função de proprietário de perfil de faturação. Para mais informações, consulte [Gerir funções de faturação no portal Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+- Dê o papel de administrador da empresa a um proprietário de conta de faturação existente. Para mais informações, consulte [Criar outro administrador da empresa.](ea-portal-administration.md#create-another-enterprise-administrator)
+
+Se lhe for dado o titular da conta de faturação ou a função de proprietário de perfil de faturação, copie o link na página 'Configurar' a sua conta de faturação. Abra-o no seu navegador web para continuar a configurar o seu Microsoft Customer Agreement. Caso contrário, envie o link para o proprietário da conta de faturação.
 
 ## <a name="understand-changes-to-your-billing-hierarchy"></a>Compreender as alterações à hierarquia de faturação
 

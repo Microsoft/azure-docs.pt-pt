@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: f2ea960d28bcdcbf586570933ac00dccae18e46a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bc7b1a0742e79c3c84bf533e75467b5def2706b4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068001"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277730"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga a sua própria chave (chaves geridas pelo cliente) com serviços de mídia
 
@@ -46,8 +46,8 @@ Os Serviços de Mídia suportam automaticamente a dupla encriptação. Para os d
 
 ## <a name="tutorials"></a>Tutoriais
 
-- [Utilize o portal Azure para utilizar chaves geridas pelo cliente ou BYOK com Serviços de Mídia](tutorial-byok-portal.md)
-- [Utilize chaves geridas pelo cliente ou BYOK com serviços de mídia REST API](tutorial-byok-postman.md).
+- [Utilize o portal Azure para utilizar chaves geridas pelo cliente ou BYOK com Serviços de Mídia](security-customer-managed-keys-portal-tutorial.md)
+- [Utilize chaves geridas pelo cliente ou BYOK com serviços de mídia REST API](security-customer-managed-keys-rest-postman-tutorial.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

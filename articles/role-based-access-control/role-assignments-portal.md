@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: e25bbe4e1a96e4efaaa13732aea571d26d4b006e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b159d9ca7d8d7739d623bb3a48752b4d03e24bc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555270"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385973"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Atribuir funções Azure usando o portal Azure
 
@@ -66,7 +66,7 @@ Se precisar de atribuir funções de administrador no Azure Ative Directory, con
 
     O painel Adicionar atribuição de função é aberto.
 
-   ![Adicione painel de atribuição de funções](./media/shared/add-role-assignment.png)
+   ![Adicionar página de atribuição de funções](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="step-3-select-the-appropriate-role"></a>Passo 3: Selecione a função adequada
 
@@ -82,7 +82,7 @@ Se precisar de atribuir funções de administrador no Azure Ative Directory, con
 
 1. No acesso à lista **de atribuições,** selecione o tipo de princípio de segurança para atribuir acesso.
 
-    | Tipo | Description |
+    | Tipo | Descrição |
     | --- | --- |
     | **Utilizador, grupo ou principal de serviço** | Se pretender atribuir a função a um utilizador, grupo ou principal de serviço (aplicação), selecione este tipo. |
     | **Identidade gerida atribuída pelo utilizador** | Se pretender atribuir a função a uma [identidade gerida atribuída pelo utilizador,](../active-directory/managed-identities-azure-resources/overview.md)selecione este tipo. |

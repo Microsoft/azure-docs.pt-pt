@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 93821979e0c14a879b805049a4f662e9ef6d5b15
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 5baf5f503542f31b26c4c210741f1ce986f6a549
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075683"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580121"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente
 
@@ -69,21 +69,21 @@ Vários recursos Azure têm uma dependência de uma subscrição ou de um diret�
 
 | Serviço ou recurso | Impactado | Recuperável | Foi atingido? | O que pode fazer |
 | --------- | --------- | --------- | --------- | --------- |
-| Atribuições de funções | Yes | Yes | [Listar atribuições de função](#save-all-role-assignments) | Todas as atribuições de funções são permanentemente eliminadas. Deve mapear utilizadores, grupos e princípios de serviço para objetos correspondentes no diretório alvo. Tens de recriar as atribuições de papéis. |
-| Funções personalizadas | Yes | Yes | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são permanentemente eliminadas. Deve recriar as funções personalizadas e quaisquer atribuições de papéis. |
-| Identidades geridas atribuídas pelo sistema | Yes | Yes | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve desativar e reativar as identidades geridas. Tens de recriar as atribuições de papéis. |
-| Identidades geridas atribuídas pelo utilizador | Yes | Yes | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve eliminar, recriar e anexar as identidades geridas ao recurso apropriado. Tens de recriar as atribuições de papéis. |
-| Azure Key Vault | Yes | Yes | [Políticas de acesso ao cofre de chaves de lista](#list-key-vaults) | Tem de atualizar a identificação do inquilino associada aos cofres das chaves. Tem de remover e adicionar novas políticas de acesso. |
-| Bases de dados Azure SQL com integração de autenticação AD AZure habilitados | Yes | No | [Consulte as bases de dados do Azure SQL com a autenticação AZure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  | 
-| Azure Storage e Azure Data Lake Storage Gen2 | Yes | Yes |  | Tens de recriar quaisquer ACLs. |
-| Azure Data Lake Storage Gen1 | Sim | Yes |  | Tens de recriar quaisquer ACLs. |
-| Ficheiros do Azure | Yes | Yes |  | Tens de recriar quaisquer ACLs. |
-| Azure File Sync | Yes | Yes |  |  |
-| Managed Disks do Azure | Yes | Yes |  |  Se estiver a utilizar os Conjuntos de Encriptação do Disco para encriptar Discos Geridos com teclas geridas pelo cliente, tem de desativar e reativar as identidades atribuídas ao sistema associadas aos Conjuntos de Encriptação do Disco. E deve recriar as atribuições de funções, ou seja, conceder novamente as permissões necessárias aos Conjuntos de Encriptação de Discos nos Cofres-Chave. |
-| Azure Kubernetes Service | Yes | Yes |  |  |
-| Azure Policy | Yes | No | Todos os objetos da Política Azure, incluindo definições personalizadas, atribuições, isenções e dados de conformidade. | Deve [exportar,](../governance/policy/how-to/export-resources.md)importar e reatribuir definições. Em seguida, criar novas atribuições políticas e quaisquer [isenções políticas necessárias.](../governance/policy/concepts/exemption-structure.md) |
-| Azure Active Directory Domain Services | Yes | No |  |  |
-| Registos de aplicações | Yes | Yes |  |  |
+| Atribuições de funções | Sim | Sim | [Listar atribuições de função](#save-all-role-assignments) | Todas as atribuições de funções são permanentemente eliminadas. Deve mapear utilizadores, grupos e princípios de serviço para objetos correspondentes no diretório alvo. Tens de recriar as atribuições de papéis. |
+| Funções personalizadas | Sim | Sim | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são permanentemente eliminadas. Deve recriar as funções personalizadas e quaisquer atribuições de papéis. |
+| Identidades geridas atribuídas pelo sistema | Sim | Sim | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve desativar e reativar as identidades geridas. Tens de recriar as atribuições de papéis. |
+| Identidades geridas atribuídas pelo utilizador | Sim | Sim | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve eliminar, recriar e anexar as identidades geridas ao recurso apropriado. Tens de recriar as atribuições de papéis. |
+| Azure Key Vault | Sim | Sim | [Políticas de acesso ao cofre de chaves de lista](#list-key-vaults) | Tem de atualizar a identificação do inquilino associada aos cofres das chaves. Tem de remover e adicionar novas políticas de acesso. |
+| Bases de dados Azure SQL com integração de autenticação AD AZure habilitados | Sim | No | [Consulte as bases de dados do Azure SQL com a autenticação AZure AD](#list-azure-sql-databases-with-azure-ad-authentication) | Não é possível transferir uma base de dados Azure SQL com autenticação Azure AD ativada para um diretório diferente. Para mais informações, consulte [a autenticação do Azure Ative Directory](../azure-sql/database/authentication-aad-overview.md). | 
+| Azure Storage e Azure Data Lake Storage Gen2 | Sim | Sim |  | Tens de recriar quaisquer ACLs. |
+| Azure Data Lake Storage Gen1 | Sim | Sim |  | Tens de recriar quaisquer ACLs. |
+| Ficheiros do Azure | Sim | Sim |  | Tens de recriar quaisquer ACLs. |
+| Azure File Sync | Sim | Sim |  | O serviço de sincronização de armazenamento e/ou conta de armazenamento pode ser transferido para um diretório diferente. Para obter mais informações, consulte [perguntas frequentes (FAQ) sobre Ficheiros Azure](../storage/files/storage-files-faq.md#azure-file-sync) |
+| Managed Disks do Azure | Sim | Sim |  |  Se estiver a utilizar os Conjuntos de Encriptação do Disco para encriptar Discos Geridos com teclas geridas pelo cliente, tem de desativar e reativar as identidades atribuídas ao sistema associadas aos Conjuntos de Encriptação do Disco. E deve recriar as atribuições de funções, ou seja, conceder novamente as permissões necessárias aos Conjuntos de Encriptação de Discos nos Cofres-Chave. |
+| Azure Kubernetes Service | Sim | No |  | Não é possível transferir o seu cluster AKS e os seus recursos associados para um diretório diferente. Para mais informações, consulte [Perguntas frequentes sobre o Serviço Azure Kubernetes (AKS)](../aks/faq.md) |
+| Azure Policy | Sim | No | Todos os objetos da Política Azure, incluindo definições personalizadas, atribuições, isenções e dados de conformidade. | Deve [exportar,](../governance/policy/how-to/export-resources.md)importar e reatribuir definições. Em seguida, criar novas atribuições políticas e quaisquer [isenções políticas necessárias.](../governance/policy/concepts/exemption-structure.md) |
+| Azure Active Directory Domain Services | Sim | No |  | Não é possível transferir um domínio gerido por Azure AD Domain Services para um diretório diferente. Para obter mais informações, consulte [perguntas frequentes (FAQs) sobre Azure Ative Directory (AD) Domain Services](../active-directory-domain-services/faqs.md) |
+| Registos de aplicações | Sim | Sim |  |  |
 
 > [!WARNING]
 > Se estiver a usar encriptação em repouso para um recurso, como uma conta de armazenamento ou uma base de dados SQL, que tenha uma dependência de um cofre chave que **não** esteja na mesma subscrição que está a ser transferida, pode levar a um cenário irrecuperável. Se tiver esta situação, deve tomar medidas para utilizar um cofre de chave diferente ou desativar temporariamente as chaves geridas pelo cliente para evitar este cenário irrecuperável.
