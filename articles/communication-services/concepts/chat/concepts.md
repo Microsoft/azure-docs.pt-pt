@@ -9,14 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 389d2282812406c50cddf255be2219fa203b0895
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 292f430a1b08d59efdf05405437b3d1aa49ea2b7
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729665"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168603"
 ---
 # <a name="chat-concepts"></a>Conceitos de chat 
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 Os SDKs de chat dos Serviços de Comunicação Azure podem ser utilizados para adicionar chat de texto em tempo real às suas aplicações. Esta página resume os principais conceitos e capacidades do Chat.    
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
 ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105606152"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor
@@ -49,7 +49,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 |[**InfluxDB (InfluxQL)**](#influxdb) | Básico |
 |[**MongoDB**](#mongodb) | Básico |
 |[**MySQL**](#mysql) | Básico |
-|[**PostgreSQL**](#pgsql)| Básico|
+|[**Postgresql**](#pgsql)| Básico|
 
 Crie uma entidade credencial** e utilize-a para autenticar as suas fontes de dados. As seguintes secções especificam os parâmetros exigidos para a autenticação *básica.* 
 

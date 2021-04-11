@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
 ms.openlocfilehash: da51fabaaa3c02137770f0b2d9a851b1f6702980
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105044054"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introdução ao FreeBSD no Azure

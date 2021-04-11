@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Data Analytics'
 - devx-track-azurecli
 ms.openlocfilehash: 0eb91754c3c70a7b477d456158454f707a874207
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105630715"
 ---
 # <a name="tutorial-proving-possession-of-a-ca-certificate"></a>Tutorial: Comprovativo da posse de um certificado de AC

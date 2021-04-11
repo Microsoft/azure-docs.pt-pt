@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf99d02a0968fb1073a02425ecb8b0d5ba7f5ac6
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98183477"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109701"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como: Implementar uma aplicação web people Counting
 
@@ -172,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Para instalar o recipiente, crie uma nova App Web Azure para contentores e preencha os parâmetros necessários. Em seguida, vá ao **separador Docker** e selecione **Single Container**, em seguida, Registo do **Contentor Azure**. Use o seu exemplo de Registo de Contentores Azure onde empurrou a imagem acima.
+Para instalar o recipiente, crie um novo Serviço de Aplicações Azure e preencha os parâmetros necessários. Em seguida, vá ao **separador Docker** e selecione **Single Container**, em seguida, Registo do **Contentor Azure**. Use o seu exemplo de Registo de Contentores Azure onde empurrou a imagem acima.
 
 ![Insira detalhes de imagem](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -189,7 +189,7 @@ Assim que estas 2 definições forem adicionadas, clique em **Guardar**. Em segu
 
 ### <a name="test-the-app"></a>Testar a aplicação
 
-Vá à App Azure Web e verifique se a implementação foi bem sucedida, e a aplicação web está em execução. Navegue para o url configurado: `<yourapp>.azurewebsites.net` para ver a aplicação de execução.
+Vá ao Serviço Azure e verifique se a implementação foi bem sucedida, e a aplicação web está em execução. Navegue para o url configurado: `<yourapp>.azurewebsites.net` para ver a aplicação de execução.
 
 ![Testar a implementação](./media/spatial-analysis/solution-app-output.png)
 

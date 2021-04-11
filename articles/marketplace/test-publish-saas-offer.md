@@ -9,10 +9,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/25/2021
 ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105045251"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Como testar e publicar uma oferta saaS para o mercado comercial

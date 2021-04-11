@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: tchladek
 ms.openlocfilehash: 3f49977ce5bf32f03dbb301e2d7a37449d7de4cc
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105630240"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos

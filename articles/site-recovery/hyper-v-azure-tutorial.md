@@ -1,19 +1,16 @@
 ---
 title: Configurar a recuperação de desastres hiper-V usando a recuperação do local de Azure
 description: Aprenda a configurar a recuperação de desastres de Hiper-V VMs (sem VMM) para Azure utilizando a Recuperação do Local.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5ce98c785700301bba92926d7d5a243b614eca7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c98728b0da92e198e158cef29e69b2f60818770
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87504233"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580859"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local para o Azure
 

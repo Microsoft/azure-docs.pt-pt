@@ -79,13 +79,12 @@
           href: tokens-overview.md
         - name: Pedir token de acesso
           href: access-tokens.md
-    - name: Chaves da política
-      href: policy-keys-overview.md
-    - name: Fluxo e política de utilizador
+    - name: Experiência do utilizador
+      expanded: true
       items:
-        - name: Fluxos do utilizador
+        - name: Fluxos de utilizadores e políticas personalizadas
           href: user-flow-overview.md
-        - name: Políticas personalizadas
+        - name: Descrição geral da política personalizada
           href: custom-policy-overview.md
     - name: Contas de utilizador
       href: user-overview.md
@@ -93,6 +92,8 @@
       href: user-profile-attributes.md
     - name: Identity Protection e Acesso Condicional
       href: conditional-access-identity-protection-overview.md
+    - name: Chaves da política
+      href: policy-keys-overview.md
 - name: Guias de procedimentos
   items:
     - name: Integração de aplicações
@@ -268,8 +269,6 @@
           href: add-api-connector.md
     - name: Política personalizada
       items:
-        - name: Descrição geral da política personalizada
-          href: custom-policy-trust-frameworks.md
         - name: Introdução às políticas personalizadas
           href: custom-policy-get-started.md
         - name: Verificação personalizada do e-mail
@@ -298,9 +297,8 @@
             - name: Recolher registos com o Application Insights
               href: troubleshoot-with-application-insights.md
               displayName: 'troubleshooting, app insights'
-            - name: Validação de políticas
+            - name: Resolução de problemas de políticas personalizadas
               href: troubleshoot-custom-policies.md
-              displayName: troubleshooting
         - name: Referência
           items:
             - name: TrustFrameworkPolicy

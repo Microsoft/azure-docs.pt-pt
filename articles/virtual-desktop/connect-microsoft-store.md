@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 9bab2a11ff9e7907621087e5027929e3e42eaf29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 5662b32d8e2c9af457ded62b0302c2c64b31edea
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91744866"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448020"
 ---
 # <a name="connect-with-the-microsoft-store-client"></a>Ligar ao cliente da Microsoft Store
 

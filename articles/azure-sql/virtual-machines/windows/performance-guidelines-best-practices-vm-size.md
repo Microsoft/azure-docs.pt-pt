@@ -15,10 +15,10 @@ ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
 ms.openlocfilehash: 9427ae1b9bd68f63df40d24122cc13b5460fbc27
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105572501"
 ---
 # <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>Tamanho VM: Melhores práticas de desempenho para SQL Server em VMs Azure

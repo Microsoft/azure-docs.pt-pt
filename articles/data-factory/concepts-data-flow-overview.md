@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
 ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103564325"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeamento de fluxos de dados na Azure Data Factory
@@ -33,11 +33,11 @@ Os fluxos de dados são criados a partir do painel de recursos de fábrica, como
 
 Esta ação leva-o à tela do fluxo de dados, onde pode criar a sua lógica de transformação. **Selecione Adicionar fonte** para começar a configurar a sua transformação de origem. Para obter mais informações, consulte [a transformação de Fonte.](data-flow-source.md)
 
-## <a name="authoring-data-flows"></a>Fluxos de dados de autoria
+## <a name="authoring-data-flows&quot;></a>Fluxos de dados de autoria
 
 O fluxo de dados de mapeamento tem uma tela de autoria única projetada para tornar a lógica de transformação de construção fácil. A tela de fluxo de dados é separada em três partes: a barra superior, o gráfico e o painel de configuração. 
 
-![A screenshot mostra a tela de fluxo de dados com barra superior, gráfico e painel de configuração rotulado.](media/data-flow/canvas-1.png "Telas")
+![A screenshot mostra a tela de fluxo de dados com barra superior, gráfico e painel de configuração rotulado.](media/data-flow/canvas-1.png &quot;Telas")
 
 ### <a name="graph"></a>Graph
 
@@ -63,11 +63,11 @@ O **separador Otimize** contém configurações para configurar esquemas de part
 
 ![O screenshot mostra o separador Otimize, que inclui a opção de partição, o tipo de partição e o número de divisórias.](media/data-flow/optimize.png)
 
-#### <a name="inspect"></a>Inspecione
+#### <a name="inspect&quot;></a>Inspecione
 
 O **separador Inspect** fornece uma visão dos metadados do fluxo de dados que está a transformar. Pode ver as contagens de colunas, as colunas alteradas, as colunas adicionadas, os tipos de dados, a ordem da coluna e as referências de colunas. **Inspecione-se** uma visão apenas de leitura dos seus metadados. Não é necessário ter o modo de depuragem habilitado para ver metadados no painel **de inspeção.**
 
-![Inspecione](media/data-flow/inspect1.png "Inspecione")
+![Inspecione](media/data-flow/inspect1.png &quot;Inspecione")
 
 À medida que altera a forma dos seus dados através de transformações, verá as alterações dos metadados fluem no painel **de inspeção.** Se não houver um esquema definido na sua transformação de origem, então os metadados não serão visíveis no painel **de inspeção.** A falta de metadados é comum em cenários de deriva de esquemas.
 

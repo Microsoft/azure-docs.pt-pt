@@ -6,10 +6,10 @@ ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953515"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1e8df39cc836890526b0dad1885f31dc15eaa837
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 7eb576a3d084630ebe6020b57814f12687dc9bd9
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105629211"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168625"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
 
@@ -333,7 +333,7 @@ $getJobParams = @{
     ResourceGroupName     = 'MyResourceGroup'
     Runbookname           = 'Test-Runbook'
 }
-$job = (Get-AzAutomationJob @getJobParams | Sort-Object LastModifiedDate –Desc)[0]
+$job = (Get-AzAutomationJob @getJobParams | Sort-Object LastModifiedDate -Desc)[0]
 $job | Select-Object JobId, Status, JobParameters
 
 $getOutputParams = @{

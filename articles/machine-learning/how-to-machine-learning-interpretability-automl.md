@@ -10,12 +10,12 @@ ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 709c85bed4a028c6c168c79cd9fffd6b7b40cb68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 535ff489060c8099ba3c695f2b615f3c38309698
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100008048"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167945"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidade de interpretação: explicações de modelos no machine learning automatizado (pré-visualização)
 
@@ -133,6 +133,41 @@ Pode ligar para o `explain()` método em MimicWrapper com as amostras de teste t
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
+```
+Para modelos treinados com ML automatizado, você pode obter o melhor modelo usando o `get_output()` método e explicações computacionais localmente.  Pode visualizar os resultados da explicação com `ExplanationDashboard` o `interpret-community` pacote.
+
+```python
+best_run, fitted_model = remote_run.get_output()
+
+from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train,
+                                                             X_test=X_test, y=y_train,
+                                                             task='regression')
+
+from interpret.ext.glassbox import LGBMExplainableModel
+from azureml.interpret.mimic_wrapper import MimicWrapper
+
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel,
+                         init_dataset=automl_explainer_setup_obj.X_transform, run=best_run,
+                         features=automl_explainer_setup_obj.engineered_feature_names,
+                         feature_maps=[automl_explainer_setup_obj.feature_map],
+                         classes=automl_explainer_setup_obj.classes)
+                         
+pip install interpret-community[visualization]
+
+engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
+print(engineered_explanations.get_feature_importance_dict()),
+from interpret_community.widget import ExplanationDashboard
+ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_estimator, datasetX=automl_explainer_setup_obj.X_test_transform)
+
+ 
+
+raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
+                                     raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
+                                     eval_dataset=automl_explainer_setup_obj.X_test_transform)
+print(raw_explanations.get_feature_importance_dict()),
+from interpret_community.widget import ExplanationDashboard
+ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, datasetX=automl_explainer_setup_obj.X_test_raw)
 ```
 
 ### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Use o Explicador Mimic para computação e visualização da importância da funcionalidade bruta

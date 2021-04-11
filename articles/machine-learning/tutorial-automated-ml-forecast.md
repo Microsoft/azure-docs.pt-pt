@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Previsão da procura & AutoML'
 titleSuffix: Azure Machine Learning
-description: Aprenda a treinar e implementar um modelo de previsão de procura com aprendizagem automática de máquinas no estúdio Azure Machine Learning.
+description: Treine e implemente um modelo de previsão de procura sem código de escrita, utilizando a interface automatizada de aprendizagem automática de máquinas (ML) da Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,21 +11,18 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a5f7c0cf95d62df2d06c91abd99a1827524d5d6b
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879364"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210555"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsão da procura com aprendizagem automática de máquinas
 
+Aprenda a criar um [modelo de previsão de séries temporizadas](concept-automated-ml.md#time-series-forecasting) sem escrever uma única linha de código usando machine learning automatizado no estúdio Azure Machine Learning. Este modelo irá prever a procura de aluguer de um serviço de partilha de bicicletas.  
 
-Neste tutorial, você usa machine learning automatizado, ou ML automatizado, no estúdio Azure Machine Learning para criar um modelo de previsão de séries temporizadas para prever a procura de aluguer de um serviço de partilha de bicicletas.
-
-Para um exemplo de modelo de classificação, consulte [Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas.](tutorial-first-experiment-automated-ml.md)
-
-Neste tutorial, aprende-se a fazer as seguintes tarefas:
+Não vais escrever nenhum código neste tutorial, vais usar a interface do estúdio para realizar treinos.  Aprenderá a fazer as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar e carregar um conjunto de dados.
@@ -34,13 +31,18 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 > * Explore os resultados da experiência.
 > * Implemente o melhor modelo.
 
+Experimente também a aprendizagem automática de máquinas para estes outros tipos de modelos:
+
+* Para um exemplo sem código de um modelo de classificação, consulte Tutorial: Criar um modelo de [classificação com ML automatizado em Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md).
+* Para obter um primeiro exemplo de código de um modelo de regressão, consulte o [Tutorial: Utilize machine learning automatizado para prever tarifas de táxi.](tutorial-auto-train-models.md)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma área de trabalho do Azure Machine Learning. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md). 
 
 * Descarregue o ficheiro de dados [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Começar no estúdio Azure Machine Learning
+## <a name="sign-in-to-the-studio"></a>Inscreva-se no estúdio
 
 Para este tutorial, você cria a sua experiência automatizada de ML executada no estúdio Azure Machine Learning, uma interface web consolidada que inclui ferramentas de machine learning para executar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. O estúdio não é suportado nos navegadores do Internet Explorer.
 
@@ -148,7 +150,7 @@ Complete a configuração para a sua experiência automatizada de ML especifican
 
 1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas definições são para controlar melhor o trabalho de treino e especificar as definições para a sua previsão. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
 
-    &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
+    &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
     ------|---------|---
     Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|Raiz normalizada significa erro quadrado
     Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
@@ -233,7 +235,7 @@ Elimine apenas a instância de implantação do estúdio Azure Machine Learning,
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você usou ML automatizado no estúdio Azure Machine Learning para criar e implementar um modelo de previsão de séries temporizadas que prevê a procura de aluguer de partilha de bicicletas. 
 

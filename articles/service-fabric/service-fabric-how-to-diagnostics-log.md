@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: dd3afed85dc3eff81cbe60f252cdc16b0d4018c8
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628123"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adicionar registos à sua aplicação do Service Fabric

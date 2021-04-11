@@ -9,10 +9,10 @@ ms.date: 03/08/2021
 ms.author: amverma
 ms.reviewer: jushiman
 ms.openlocfilehash: 6978c8588b877c065a78bfd6e99a01f9f75066f3
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104800861"
 ---
 # <a name="hbv2-series"></a>Série HBv2

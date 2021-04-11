@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b55fe0bf404ecb8a81e3fe1975dfa9f5ba5dfb06
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91274238"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103356"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Gestão de sessão VPN ponto-a-local
 
@@ -32,6 +32,8 @@ Para visualizar e desligar uma sessão no portal:
    :::image type="content" source="./media/p2s-session-management/portal.png" alt-text="Exemplo do portal":::
 1. Pode ver todas as sessões atuais na vidraça.
 1. Selecione **"..."** para a sessão que pretende desligar e, em seguida, **selecione Desligar**.
+
+Atualmente, não é possível utilizar esta funcionalidade no portal para VPNGw4 e VpnGw5 SKUs. Se tiver um destes gateways, use o método PowerShell descrito na secção seguinte.
 
 ## <a name="powershell"></a>PowerShell
 

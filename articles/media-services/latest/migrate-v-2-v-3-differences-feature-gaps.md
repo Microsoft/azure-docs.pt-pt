@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 07e43bdb0969c26120231013cc0c0354e6968ceb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 564f3127fc6901695890daa520152a7aa1a2337f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567955"
+ms.locfileid: "105962973"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Lacunas de características entre a Azure Media Services V2 e v3
 
@@ -42,7 +42,7 @@ A API V3 tem as seguintes lacunas de características com a API V2. Algumas das 
     - Adicionámos suporte para mapeamento de canais de áudio ao codificar Standard.  Consulte [o Áudio nos Serviços de Comunicação Encoding Swagger documentação](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).
     - Se estiver a utilizar funcionalidades avançadas ou formatos de saída do produto licenciado por terceiros, como mXF ou ProRes, utilize a solução Azure Partner da Telestream, que será transacional no momento da reforma do V2. Alternativamente, pode utilizar a Imagine Communications, ou [Bitmovin](http://bitmovin.com).
 
-- A propriedade "conjunto de disponibilidade" no Streaming Endpoint em V2 já não é suportada. Consulte o projeto de amostra e orientação para a entrega [de VOD de Alta Disponibilidade](./media-services-high-availability-encoding.md) na API V3.
+- A propriedade "conjunto de disponibilidade" no Streaming Endpoint em V2 já não é suportada. Consulte o projeto de amostra e orientação para a entrega [de VOD de Alta Disponibilidade](./architecture-high-availability-encoding-concept.md) na API V3.
 
 - Nos Serviços de Comunicação Social V3, o FairPlay IV não pode ser especificado. Embora não tenha impacto nos clientes que utilizam os Media Services tanto para a embalagem como para a entrega de licenças, pode ser um problema quando se utiliza um sistema de DRM de terceiros para entregar as licenças FairPlay (modo híbrido).
 

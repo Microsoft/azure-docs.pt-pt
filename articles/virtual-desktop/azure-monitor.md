@@ -3,15 +3,15 @@ title: Utilizar monitor do Monitor Windows Monitor virtual Desktop Monitor - Azu
 description: Como utilizar o Monitor Azure para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 03/31/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+manager: femila
+ms.openlocfilehash: 7da35f77dd232e5f523e2bdc3f125c68015ab871
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709553"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448190"
 ---
 # <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Utilize o Monitor Azure para o Windows Virtual Desktop para monitorizar a sua implementação
 
@@ -43,7 +43,7 @@ Qualquer pessoa que monitorize o Monitor Azure para o Windows Virtual Desktop pa
 
 Pode abrir o Azure Monitor para o Windows Virtual Desktop com um dos seguintes métodos:
 
-- Vai para [aka.ms/azmonwvdi.](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks)
+- Vai para [aka.ms/azmonwvdi.](https://aka.ms/azmonwvdi)
 - Procure e selecione **o Windows Virtual Desktop** a partir do portal Azure e, em seguida, selecione **Insights**.
 - Procure e selecione **Monitor Azure** a partir do portal Azure. Selecione **Insights Hub** em **Insights** e, em seguida, selecione Windows **Virtual Desktop**.
 Assim que tiver a página aberta, insira a  gama de **Assinaturas, Grupo de Recursos,** **Conjunto de Anfitriões** e Tempo do ambiente que pretende monitorizar. 
@@ -62,7 +62,7 @@ Para começar a utilizar o Monitor Azure para o Windows Virtual Desktop, necessi
 
 Se for a primeira vez que abre o Azure Monitor para o Ambiente de Trabalho Virtual do Windows, terá de configurar o Azure Monitor para o ambiente de ambiente de trabalho virtual do Windows. Para configurar os seus recursos:
 
-1. Abra o Monitor Azure para o Windows Virtual Desktop no portal Azure [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), em seguida, selecione **o livro de configuração**.
+1. Abra o Monitor Azure para o Windows Virtual Desktop no portal Azure [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi), em seguida, selecione **o livro de configuração**.
 2. Selecione um ambiente para configurar em **Subscrição,** **Grupo de Recursos** e Pool **anfitrião**.
 
 O livro de configuração configura o ambiente de monitorização e permite-lhe verificar a configuração depois de terminar o processo de configuração. É importante verificar a sua configuração se os itens no painel de instrumentos não estão a ser apresentados corretamente ou quando o grupo de produtos publica atualizações que requerem novas definições.
@@ -193,4 +193,5 @@ Para obter mais informações sobre a recolha e utilização de dados, consulte 
 Agora que configuraste o Azure Monitor para o ambiente de secretária virtual do Windows, eis alguns recursos que podem ajudá-lo a começar a monitorizar o seu ambiente:
 
 - Consulte o nosso [glossário](azure-monitor-glossary.md) para saber mais sobre termos e conceitos relacionados com o Azure Monitor para o Windows Virtual Desktop.
+- Para estimar, medir e gerir os seus custos de armazenamento de dados, consulte [os custos do Monitor De Estimativa Azure](azure-monitor-costs.md).
 - Se encontrar algum problema, consulte o nosso [guia de resolução de problemas](troubleshoot-azure-monitor.md) para obter ajuda e problemas conhecidos.

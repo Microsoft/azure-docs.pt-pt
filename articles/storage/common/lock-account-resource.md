@@ -10,10 +10,10 @@ ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 79b88ad58a2eb95a48a140b3b98d606af495cb94
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104799790"
 ---
 # <a name="apply-an-azure-resource-manager-lock-to-a-storage-account"></a>Aplicar um bloqueio do Gestor de Recursos Azure numa conta de armazenamento

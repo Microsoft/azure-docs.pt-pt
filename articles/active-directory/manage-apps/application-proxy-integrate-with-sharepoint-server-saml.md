@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34aaafcd03e737b1e59529f8001e0c008bd39b70
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104888877"
 ---
 # <a name="integrate-with-sharepoint-saml"></a>Integre com SharePoint (SAML)

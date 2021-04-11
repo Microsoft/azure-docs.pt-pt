@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: krsh
 ms.date: 03/25/2021
 ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105630206"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem

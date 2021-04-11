@@ -3,7 +3,7 @@ title: Azure DDoS Proteção boas práticas fundamentais
 description: Aprenda as melhores práticas de segurança utilizando a proteção DDoS.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 66c1ab1cb5ed478aa34825fb6903e4d06f834097
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea5e9e9883c8c1da17cf99dabc72f2339c8dbe1a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94989478"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107102982"
 ---
 # <a name="fundamental-best-practices"></a>Melhores práticas fundamentais
 

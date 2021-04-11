@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 5e4351529fb7b6a66f554182a195bc26f79c0e2b
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889489"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configure uma aplicação core ASP.NET para o Azure App Service

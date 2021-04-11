@@ -8,10 +8,10 @@ author: rayne-wiselman
 ms.author: raynew
 ms.custom: subject-policy-reference
 ms.openlocfilehash: e7349d388d4474505d90292973257574e5c961a0
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105036854"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Azure Policy definições incorporadas para Azure Migrate

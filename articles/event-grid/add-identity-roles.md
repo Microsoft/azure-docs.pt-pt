@@ -3,14 +3,14 @@ title: Adicione identidade gerida a um papel no destino Azure Event Grid
 description: Este artigo descreve como adicionar identidade gerida a funções Azure em destinos como Azure Service Bus e Azure Event Hubs.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 1bcef878c982122d80980dd7194fae2de6fc8762
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 1578e4c24201614ce89351b3c3cee52a09cadc30
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630456"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280484"
 ---
-# <a name="add-an-identity-to-azure-roles-on-azure-event-grid-destinations"></a>Adicione uma identidade aos papéis da Azure nos destinos da Azure Event Grid
+# <a name="grant-managed-identity-the-access-to-event-grid-destination"></a>Grant geriu identidade o acesso ao destino Event Grid
 Esta secção descreve como adicionar a identidade para o tópico do seu sistema, tópico personalizado ou domínio a um papel Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -89,6 +89,6 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que atribuiu uma identidade atribuída ao seu sistema, tópico personalizado ou domínio, e adicionou a identidade às funções apropriadas nos destinos, consulte [eventos do Devlier usando a identidade](managed-service-identity.md) na entrega de eventos a destinos usando a identidade.
+Agora que atribuiu uma identidade atribuída ao seu sistema, tópico personalizado ou domínio, e adicionou a identidade às funções apropriadas nos destinos, consulte [Entregar eventos usando a identidade gerida](managed-service-identity.md) na entrega de eventos a destinos usando a identidade.
 
 

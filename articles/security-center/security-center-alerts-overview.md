@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 9d917b3682d3b503743e706e8c952854e86fbc5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cdf46a5f0185e33e1e877e3682ab418a00725de2
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727047"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012551"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Alertas de segurança e incidentes no Centro de Segurança Azure
 
@@ -78,7 +78,7 @@ O Centro de Segurança atribui uma gravidade aos alertas, para o ajudar a priori
 | **Alto**          | Há uma grande probabilidade de o seu recurso estar comprometido. Devia investigar imediatamente. O Centro de Segurança tem alta confiança tanto na intenção maliciosa como nas descobertas usadas para emitir o alerta. Por exemplo, um alerta que deteta a execução de uma ferramenta maliciosa conhecida como Mimikatz, uma ferramenta comum usada para roubo de credenciais.                                                                                                               |
 | **Medium**        | Isto é provavelmente uma atividade suspeita pode indicar que um recurso está comprometido. A confiança do Centro de Segurança no analítico ou na descoberta é média e a confiança da intenção maliciosa é média a alta. Estes seriam geralmente aprendizagem automática ou deteções baseadas em anomalias. Por exemplo, uma tentativa de inscrição de um local anómalo.                                                                                                                |
 | **Baixo**           | Isto pode ser um positivo benigno ou um ataque bloqueado. O Centro de Segurança não está confiante o suficiente para que a intenção seja maliciosa e a atividade possa ser inocente. Por exemplo, o log clear é uma ação que pode acontecer quando um intruso tenta esconder os seus rastos, mas em muitos casos é uma operação de rotina realizada por administradores. O Centro de Segurança não costuma dizer-te quando os ataques foram bloqueados, a não ser que seja um caso interessante que sugiramos que investigas. |
-| **Informativo** | Só verá alertas informativos quando perfurar um incidente de segurança, ou se utilizar a API REST com um ID de alerta específico. Um incidente é normalmente composto por uma série de alertas, alguns dos quais podem aparecer por si sós como apenas informativos, mas no contexto dos outros alertas podem ser dignos de um olhar mais atento.                                                                                                                         |
+| **Informativo** | Um incidente é normalmente composto por uma série de alertas, alguns dos quais podem aparecer por si sós como apenas informativos, mas no contexto dos outros alertas podem ser dignos de um olhar mais atento.                                                                                                                         |
 
 ## <a name="export-alerts"></a>Exportar alertas
 

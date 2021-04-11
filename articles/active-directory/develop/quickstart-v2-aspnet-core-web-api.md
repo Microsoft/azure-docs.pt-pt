@@ -13,10 +13,10 @@ ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
 ms.openlocfilehash: 30593c51f17b99989409ddd22c9c1caa28468039
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104720836"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-the-microsoft-identity-platform"></a>Quickstart: Proteja uma API web core ASP.NET com a plataforma de identidade microsoft

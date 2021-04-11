@@ -12,10 +12,10 @@ ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
 ms.openlocfilehash: 322a599d5ad02ddcf19c61261d968d098b6c9871
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105563131"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenário de streaming ao vivo

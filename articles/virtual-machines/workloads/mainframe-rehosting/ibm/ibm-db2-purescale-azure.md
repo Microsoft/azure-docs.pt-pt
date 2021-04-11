@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 4ab0dfabc5fc4773413e7009bb8a16e6b77d5c09
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104950200"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale em Azure
 
 O ambiente IBM DB2 pureScale fornece um cluster de base de dados para a Azure com elevada disponibilidade e escalabilidade nos sistemas operativos Linux. Este artigo mostra uma arquitetura para executar DB2 pureScale on Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Há muito que as empresas utilizam plataformas tradicionais de gestão de bases de dados relacionais (RDBMS) para atender às suas necessidades de processamento de transações online (OLTP). Hoje em dia, muitos estão a migrar os seus ambientes de base de dados baseados em computadores principais para Azure como forma de expandir a capacidade, reduzir custos e manter uma estrutura de custos operacional estável. A migração é muitas vezes o primeiro passo na modernização de uma plataforma legado. 
 

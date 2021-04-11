@@ -8,10 +8,10 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
 ms.openlocfilehash: f22a847be5fc750cb3a3d9e6736d08940f30e4fe
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954467"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função JavaScript em Azure utilizando o Código do Estúdio Visual

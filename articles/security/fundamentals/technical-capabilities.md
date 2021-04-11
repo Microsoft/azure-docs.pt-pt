@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
 ms.openlocfilehash: 54be25317717bcf98b9e296d5c9ed59643cd334e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105044758"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure

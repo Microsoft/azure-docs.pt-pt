@@ -1,19 +1,16 @@
 ---
 title: Capacidade do plano para recuperação de desastres hiper-V com recuperação do local de Azure
 description: Utilize este artigo para estimar a capacidade ao configurar a recuperação de desastres com o serviço de Recuperação do Local Azure.
-author: rayne-wiselman
-manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: aa96845a2bd2f4659da1155c4f75281268dce76d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0bdc66b46e83a1592d1ea74c1080d6f8080f4635
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737720"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580658"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planear a capacidade para recuperação após desastre da VM Hyper-V 
 

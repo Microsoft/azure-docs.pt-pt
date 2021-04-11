@@ -3,17 +3,16 @@ title: Tutorial:Tráfego de rota para pontos finais ponderados - Gestor de Tráf
 description: Este artigo de tutorial descreve como encaminhar tráfego para pontos finais ponderados com o Gestor de Tráfego.
 services: traffic-manager
 author: duongau
-Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20864d46ac93d5fcefec20028dd2a78ded142ba3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96003791"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067185"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o encaminhamento de tráfego com pontos finais ponderados com o Gestor de Tráfego
 

@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Azure Queue Storage Client Library v12 - .NET'
 description: Saiba como utilizar a biblioteca de clientes Azure Queue Storage v12 para .NET para criar uma fila e adicionar mensagens à fila. Em seguida, aprende-se a ler e a apagar mensagens da fila. Também aprenderá a apagar uma fila.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22038e4145acabc067083177fcf297464972ad58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c4af7afd96f6c503f35cdb4896c3b49d4ef6ed3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589530"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276234"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Quickstart: Azure Queue Storage Client Library v12 for .NET
 

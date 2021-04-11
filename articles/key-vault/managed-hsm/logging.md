@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d5749894fd277ff6a2f77e3db9721e6989d72ac
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211809"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109242"
 ---
 # <a name="managed-hsm-logging"></a>Registo de HSM gerido 
 
@@ -74,9 +74,10 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 O que é registado:
 
 * Todos os pedidos autenticados da API, incluindo pedidos falhados como resultado de permissões de acesso, erros do sistema ou maus pedidos.
-* Operações no próprio HSM gerido, incluindo criação, eliminação e atualização de atributos como tags.
+* Geriu operações de avião no próprio recurso gerido do HSM, incluindo criação, eliminação e atualização de atributos, tais como tags.
 * Operações relacionadas com o Domínio de Segurança, tais como inicializar & descarregar, inicializar a recuperação, carregar
 * Operações completas de backup hSM, restauro e restauro seletivo
+* Operações de gestão de funções tais como criar/visualizar/eliminar atribuições de funções e criar/visualizar/eliminar definições de funções personalizadas
 * Operações em chaves, incluindo:
   * Criar, modificar ou apagar as chaves.
   * Assinar, verificar, encriptar, desencriptar, embrulhar e desembrulhar chaves, listar chaves.
@@ -121,30 +122,13 @@ As bolhas individuais são armazenadas como texto, formatadas como JSON. Vamos v
 ]
 ```
 
-A tabela que se segue lista os nomes e descrições do campo:
 
-| Nome do campo | Description |
-| --- | --- |
-| **TenantId** | ID do inquilino do Azure Ative Directory de subscrição onde o HSM gerido é criado |
-| **Hora** |Data e hora na UTC. |
-| **recursosId** |Identificação de recursos do Azure Resource Manager. Para registos geridos de HSM, este é sempre o ID de recurso gerido do HSM. |
-| **operationName** |Nome da operação, conforme documentada na tabela seguinte. |
-| **operaçãoVer** |Versão REST API solicitada pelo cliente. |
-| **categoria** |Tipo de resultado. Para registos geridos de HSM, **o AuditEvent** é o valor único disponível. |
-| **resultadoType** |Resultado do pedido da API REST. |
-| **propriedades** |Informação que varia com base na operação **(operaçãoName)**|
-| **assinatura resultados** |Estado de HTTP. |
-| **resultadoDescrição** |Descrição adicional sobre o resultado, quando disponível. |
-| **duraçõesMs** |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Não inclui a latência de rede, assim, o tempo que medir do lado do cliente poderá não corresponder a este período de tempo. |
-| **callerIpAddress** |Endereço IP do cliente que fez o pedido. |
-| **correlationId** |Um GUID opcional que o cliente pode passar para correlacionar registos do lado do cliente com registos do lado do serviço. |
-| **identidade** |Identidade do símbolo que foi apresentado no pedido da API REST. Este é geralmente um "utilizador", um "principal de serviço". |
-| **requestUri** | O RESTANTE API solicita URI |
-| **clientInfo** | 
 
 ## <a name="use-azure-monitor-logs"></a>Utilizar os registos do Azure Monitor
 
-Pode utilizar a solução Key Vault nos registos do Azure Monitor para rever os registos geridos do HSM **AuditEvent.** Nos registos do Azure Monitor, utiliza consultas de registo para analisar dados e obter a informação de que necessita. 
+Pode utilizar a solução Key Vault nos registos do Azure Monitor para rever os registos geridos do HSM **AuditEvent.** Nos registos do Azure Monitor, utiliza consultas de registo para analisar dados e obter a informação de que necessita.
+
+Para obter mais informações, incluindo como configurar isto, consulte [o Azure Key Vault no Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

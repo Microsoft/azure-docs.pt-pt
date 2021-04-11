@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
 ms.openlocfilehash: 3eb5ea468a234aea228539c2390ab6cae9352948
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105630199"
 ---
 **Os alvos de cálculo podem ser reutilizados de um trabalho de treino para o outro.** Por exemplo, depois de anexar um VM remoto ao seu espaço de trabalho, pode reutilizá-lo para vários trabalhos. Para os gasodutos de aprendizagem automática, utilize o passo de [gasoduto](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) adequado para cada alvo de cálculo.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jgao
 ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889387"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Use scripts de implementação em modelos ARM
@@ -566,7 +566,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 
 ## <a name="deployment-script-error-codes"></a>Códigos de erro de script de implementação
 
-| Código de erro | Descrição |
+| Código de erro | Description |
 |------------|-------------|
 | ImplementaçãoScriptInvalidOperação | A definição de recursos de script de implementação no modelo contém nomes de propriedade inválidos. |
 | ImplementaçãoScriptResourceConflict | Não é possível apagar um recurso de script de implantação que esteja em estado não terminal e a execução não tenha excedido 1 hora. Ou não pode refazer o mesmo script de implementação com o mesmo identificador de recursos (mesma subscrição, nome de grupo de recursos e nome de recurso), mas diferentes conteúdos corporais de script ao mesmo tempo. |

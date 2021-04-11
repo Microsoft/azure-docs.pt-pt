@@ -8,10 +8,10 @@ ms.date: 03/22/2021
 ms.author: memildin
 ms.custom: generated
 ms.openlocfilehash: 2d9f76bd3c6ad0060a90f52abba1c7378b310e67
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801479"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança: um guia de referência

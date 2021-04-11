@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: de113e3c005e11bd2bcd13ec6c1554664ba8fbaf
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 52b3d902b2cbfdacfe92117dcf0057dab1fe9a83
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878254"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012214"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor Config da Nuvem de primavera para o seu serviço
 
@@ -59,7 +59,7 @@ Todas as propriedades configuráveis que são usadas para configurar o repositó
 
 | Propriedade        | Necessário | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | Sim    | O URI do repositório git que é usado como o Config Server back end começa com *http://*, *https://*, *git@*, ou *ssh://*. |
+| `uri`           | Yes    | O URI do repositório git que é usado como o Config Server back end começa com *http://*, *https://*, *git@*, ou *ssh://*. |
 | `default-label` | No     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
 | `search-paths`  | No     | Uma variedade de cordas que são usadas para pesquisar subdiretivas do repositório de Git. |
 
@@ -74,7 +74,7 @@ Todas as propriedades configuráveis utilizadas para configurar o repositório p
 
 | Propriedade                   | Necessário | Funcionalidade                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
-| `uri`                      | Sim    | O URI do repositório git usado como back end do Config Server, deve ser iniciado com *http://*, *https://*, *git@* ou *ssh://*. |
+| `uri`                      | Yes    | O URI do repositório git usado como back end do Config Server, deve ser iniciado com *http://*, *https://*, *git@* ou *ssh://*. |
 | `default-label`            | No     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
 | `search-paths`             | No     | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
 | `private-key`              | No     | A chave privada SSH para aceder ao repositório Git, _necessária_ quando o URI começa com *git@* ou *ssh://*. |
@@ -96,7 +96,7 @@ Todas as propriedades configuráveis utilizadas para configurar o repositório p
 
 | Propriedade        | Necessário | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | Sim    | O URI do repositório git que é usado como a parte de trás do Config Server deve ser iniciado com *http://*, *https://*, *git@*, ou *ssh://*. |
+| `uri`           | Yes    | O URI do repositório git que é usado como a parte de trás do Config Server deve ser iniciado com *http://*, *https://*, *git@*, ou *ssh://*. |
 | `default-label` | No     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
 | `search-paths`  | No     | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
 | `username`      | No     | O nome de utilizador que é usado para aceder ao servidor repositório git, _exigido_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
@@ -153,15 +153,15 @@ Agora que os seus ficheiros de configuração são guardados num repositório, t
 
 8. Deverá receber uma notificação quando a configuração estiver completa.
 
-### <a name="enter-repository-information-directly-to-the-azure-portal"></a>Insira informações de repositório diretamente no portal Azure
+### <a name="enter-repository-information-directly-to-the-azure-portal&quot;></a>Insira informações de repositório diretamente no portal Azure
 
-#### <a name="default-repository"></a>Repositório padrão
+#### <a name=&quot;default-repository&quot;></a>Repositório padrão
 
 * **Repositório público**: Na secção **de repositório padrão,** na caixa **Uri,** cole o URI do repositório.  Desconfige a **etiqueta.**  Certifique-se de que a **definição de autenticação** é **pública** e, em seguida, selecione **Aplicar** para terminar. 
 
 * **Repositório privado**: Azure Spring Cloud suporta a autenticação básica baseada em password/token e SSH.
 
-    * **Autenticação Básica**: Na secção **de repositório predefinido,** na caixa **Uri,** cole o URI do repositório e, em seguida, selecione o botão **autenticação** (ícone "lápis"). No painel **de autenticação de edição,** na lista de drop-down **do tipo autenticação,** selecione **HTTP Basic**, e, em seguida, insira o seu nome de utilizador e palavra-passe/token para garantir o acesso à Nuvem de primavera de Azure. Selecione **OK** e, em seguida, selecione **Aplicar** para terminar a configuração da sua instância Config Server.
+    * **Autenticação Básica**: Na secção **de repositório predefinido,** na caixa **Uri,** cole o URI do repositório e, em seguida, selecione o botão **autenticação** (ícone &quot;lápis"). No painel **de autenticação de edição,** na lista de drop-down **do tipo autenticação,** selecione **HTTP Basic**, e, em seguida, insira o seu nome de utilizador e palavra-passe/token para garantir o acesso à Nuvem de primavera de Azure. Selecione **OK** e, em seguida, selecione **Aplicar** para terminar a configuração da sua instância Config Server.
 
     ![O painel de autenticação de edição auth básico](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
@@ -242,9 +242,9 @@ O Azure Spring Cloud pode aceder a repositórios Git que sejam públicos, esteja
 
    ![Servidor de configuração do Spring Cloud](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## <a name="delete-your-app-configuration"></a>Elimine a configuração da sua aplicação
+## <a name="delete-your-configuration"></a>Elimine a sua configuração
 
-Depois de ter guardado um ficheiro de configuração, o botão **de configuração** da aplicação Delete aparece no **separador Configuração.** A seleção deste botão apagará completamente as definições existentes. Deve selecioná-lo se pretender ligar a sua instância do Config Server a outra fonte, como mudar-se de GitHub para Azure DevOps.
+Pode selecionar o botão **Reset** que aparece no separador **Servidor Config** para apagar completamente as definições existentes. Elimine as definições do servidor config se pretender ligar a sua instância do Config Server a outra fonte, tal como mudar-se do GitHub para o Azure DevOps.
 
 
 

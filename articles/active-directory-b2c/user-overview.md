@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
 ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105043602"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Azure Ative Directory B2C

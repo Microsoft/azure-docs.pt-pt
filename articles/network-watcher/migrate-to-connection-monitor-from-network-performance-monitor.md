@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
 ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105045489"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrar para o Monitor de Ligação do Monitor de Desempenho da Rede

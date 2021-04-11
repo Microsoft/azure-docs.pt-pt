@@ -4,10 +4,10 @@ description: Compreender quais são as regras de ação no Azure Monitor e como 
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105036786"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
@@ -59,9 +59,9 @@ Primeiro escolha o âmbito (subscrição Azure, grupo de recursos ou recurso alv
 
 ![Âmbito de regras de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
-### <a name="filter-criteria"></a>Critérios de filtragem
+### <a name="filter-criteria&quot;></a>Critérios de filtragem
 
-Pode definir opcionalmente filtros para que a regra se aplique a um subconjunto específico dos alertas, ou a eventos específicos em cada alerta (por exemplo, apenas "Disparado" ou apenas "Resolvido").
+Pode definir opcionalmente filtros para que a regra se aplique a um subconjunto específico dos alertas, ou a eventos específicos em cada alerta (por exemplo, apenas &quot;Disparado&quot; ou apenas &quot;Resolvido").
 
 Os filtros disponíveis são:
 
