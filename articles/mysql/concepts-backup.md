@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103010359"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
@@ -96,7 +96,7 @@ O tempo estimado para a recuperação do servidor depende de vários fatores:
 ```sql
 select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
 ```
-Para uma base de dados grande ou muito ativa, a restauração pode demorar várias horas. Se houver uma paragem prolongada numa região, é possível que um elevado número de pedidos de geo-restauro seja iniciado para a recuperação de desastres. Quando há muitos pedidos, o tempo de recuperação para bases de dados individuais pode aumentar. A maioria das casas de dados restaura em menos de 12 horas.
+Para uma base de dados grande ou muito ativa, a restauração pode demorar várias horas. Se houver uma indisponibilidade prolongada numa região, é possível que seja iniciado um número elevado de pedidos de georrestauro para a recuperação após desastre. Quando existem muitos pedidos, o tempo de recuperação de bases de dados individuais pode aumentar. A maioria das casas de dados restaura em menos de 12 horas.
 
 > [!IMPORTANT]
 > Os servidores eliminados só podem ser restaurados no prazo de **cinco dias** após o qual as cópias de segurança são eliminadas. A cópia de segurança da base de dados só pode ser acedida e restaurada a partir da subscrição Azure que hospeda o servidor. Para restaurar um servidor abandonado, consulte [os passos documentados](howto-restore-dropped-server.md). Para proteger os recursos do servidor, a implantação pós-implantação, contra a eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](../azure-resource-manager/management/lock-resources.md).

@@ -6,20 +6,20 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 02/05/2021
-ms.openlocfilehash: 37df9a276339b80a81e6ac5d5db14872de9edff4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 4/1/2021
+ms.openlocfilehash: e1d3d495d958465e966701aa7ce91bc2706b48e0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065859"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219591"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classificações apoiadas em Azure Purview
 
 Este artigo lista as classificações suportadas e definidas do sistema em Azure Purview (Preview).
 
 
-- **Limiar de correspondência distinto**: O número total de valores de dados distintos que precisam de ser encontrados numa coluna antes que o scanner executa o padrão de dados nele. As nossas regras de classificação do sistema exigem que existam pelo menos 8 valores distintos em cada coluna para os submeter à classificação. O sistema requer este valor para se certificar de que a coluna contém dados suficientes para que o scanner o classifique com precisão. Por exemplo, uma coluna que contenha várias linhas que contenham o valor 1 não será classificada. Colunas que contêm uma linha com um valor e o resto das linhas têm valores nulos também não serão classificados. Se especificar vários padrões, este valor aplica-se a cada um deles.
+- **Limiar de correspondência distinto**: O número total de valores de dados distintos que precisam de ser encontrados numa coluna antes que o scanner executa o padrão de dados nele. O limiar de correspondência distinto não tem nada a ver com a correspondência de padrões, mas é um pré-requisito para a correspondência de padrões. As nossas regras de classificação do sistema exigem que existam pelo menos 8 valores distintos em cada coluna para os submeter à classificação. O sistema requer este valor para se certificar de que a coluna contém dados suficientes para que o scanner o classifique com precisão. Por exemplo, uma coluna que contenha várias linhas que contenham o valor 1 não será classificada. Colunas que contêm uma linha com um valor e o resto das linhas têm valores nulos também não serão classificados. Se especificar vários padrões, este valor aplica-se a cada um deles.
 
 - **Limiar mínimo de correspondência**: É a percentagem mínima de correspondências de valor de dados numa coluna que deve ser encontrada pelo scanner para a classificação a aplicar. O valor de classificação do sistema é fixado em 60%.
 

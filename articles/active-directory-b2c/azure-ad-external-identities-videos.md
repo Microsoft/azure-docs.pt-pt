@@ -12,10 +12,10 @@ ms.date: 02/09/2021
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 5b13d434c15a6d9302e46011d6b32c74c2f3f3aa
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102608207"
 ---
 # <a name="microsoft-azure-active-directory-external-identities-videos"></a>Vídeos de identidades externas do Microsoft Azure Ative Directory

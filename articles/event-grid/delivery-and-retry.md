@@ -3,12 +3,12 @@ title: Entrega e reagem à grelha de eventos Azure
 description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: e7fa627464ddb85ebded3ae99229b7fe8dd3fde3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629279"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276744"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e redação de mensagem da Grelha de Eventos
 
@@ -17,7 +17,7 @@ Este artigo descreve como a Azure Event Grid lida com eventos quando a entrega n
 A Grade de Eventos proporciona uma entrega duradoura. Entrega cada mensagem **pelo menos uma vez** por cada subscrição. Os eventos são enviados para o ponto final registado de cada subscrição imediatamente. Se um ponto final não reconhecer a receção de um evento, a Event Grid retira a entrega do evento.
 
 > [!NOTE]
-> A Grade de Eventos não garante a encomenda para entrega de eventos, pelo que o assinante pode recebê-los fora de encomenda. 
+> A Grade de Eventos não garante a encomenda para entrega de eventos, pelo que os subscritores podem recebê-los fora de encomenda. 
 
 ## <a name="batched-event-delivery"></a>Entrega de eventos em lote
 
@@ -55,11 +55,11 @@ Para obter mais informações sobre a utilização do Azure CLI com a Grade de [
 
 ## <a name="retry-schedule-and-duration"></a>Horário e duração de redominação
 
-Quando o EventGrid recebe um erro para uma tentativa de entrega de eventos, a EventGrid decide se deve voltar a tentar a entrega ou a carta morta ou largar o evento com base no tipo de erro. 
+Quando o EventGrid recebe um erro para uma tentativa de entrega de eventos, a EventGrid decide se deve voltar a tentar a entrega, a letra morta do evento ou deixar cair o evento com base no tipo de erro. 
 
-Se o erro devolvido pelo ponto final subscrito for um erro relacionado com a configuração que não pode ser corrigido com retornas (por exemplo, se o ponto final for eliminado), o EventGrid realizará a letra morta do evento ou abandonará o evento se a letra morta não estiver configurada.
+Se o erro devolvido pelo ponto final subscrito for um erro relacionado com a configuração que não pode ser corrigido com retornas (por exemplo, se o ponto final for eliminado), o EventGrid realizará letras mortas no evento ou abandonará o evento se a letra morta não estiver configurada.
 
-Seguem-se os tipos de pontos finais para os quais não acontece novamente:
+A tabela a seguir descreve os tipos de pontos finais e erros para os quais não acontece novamente:
 
 | Tipo de ponto final | Códigos de erro |
 | --------------| -----------|
@@ -67,7 +67,7 @@ Seguem-se os tipos de pontos finais para os quais não acontece novamente:
 | Webhook | 400 Mau Pedido, 413 Entidade de Pedido Demasiado Grande, 403 Proibido, 404 Não Encontrado, 401 Não Autorizado |
  
 > [!NOTE]
-> Se Dead-Letter não estiver configurado para o ponto final, os eventos serão eliminados quando ocorrerem erros acima. Considere configurar a Carta Morta, se não quiser que este tipo de eventos sejam eliminados.
+> Se Dead-Letter não estiver configurado para um ponto final, os eventos serão eliminados quando os erros acima acontecerem. Considere configurar Dead-Letter se não quiser que este tipo de eventos sejam abandonados.
 
 Se o erro devolvido pelo ponto final subscrito não estiver entre a lista acima, a EventGrid executa a repetição utilizando as políticas descritas abaixo:
 
@@ -89,7 +89,7 @@ Se o ponto final responder dentro de 3 minutos, a Grade de Eventos tentará remo
 
 A Grade de Eventos adiciona uma pequena aleatoriedade a todos os passos de rejularia e pode oportunisticamente saltar certas recaídas se um ponto final for consistentemente insalubre, para baixo por um longo período, ou parece estar sobrecarregado.
 
-Para um comportamento determinístico, desa esta altura do evento para as tentativas de entrega ao vivo e máximo nas políticas de [relemis de subscrição](manage-event-delivery.md).
+Para um comportamento determinístico, desa estale as tentativas de entrega do evento em tempo de vida e de entrega máxima nas [políticas de relícuro](manage-event-delivery.md)de subscrição .
 
 Por predefinição, a Grade de Eventos expira todos os eventos que não são entregues dentro de 24 horas. Pode [personalizar a política de repetição](manage-event-delivery.md) ao criar uma subscrição de eventos. Fornece o número máximo de tentativas de entrega (o padrão é de 30) e o tempo de vida do evento (o padrão é de 1440 minutos).
 
@@ -111,11 +111,11 @@ A Grade de Eventos envia um evento para o local da carta morta quando tentou tod
 
 A expiração do tempo de vida é verificada apenas na próxima tentativa de entrega programada. Assim, mesmo que o tempo de vida expire antes da próxima tentativa de entrega programada, o prazo de validade do evento é verificado apenas no momento da próxima entrega e, em seguida, letra morta. 
 
-Há um atraso de cinco minutos entre a última tentativa de entrega de um evento e quando é entregue no local da carta morta. Este atraso destina-se a reduzir o número de operações de armazenamento blob. Se o local da carta morta não estiver disponível durante quatro horas, o evento será retirado.
+Há um atraso de cinco minutos entre a última tentativa de entrega de um evento e quando é entregue no local da carta morta. Este atraso destina-se a reduzir o número de operações de armazenamento Blob. Se o local da carta morta não estiver disponível durante quatro horas, o evento será retirado.
 
 Antes de definir o local da letra morta, deve ter uma conta de armazenamento com um recipiente. Você fornece o ponto final para este recipiente ao criar a subscrição do evento. O ponto final está no formato de: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Talvez queira ser notificado quando um evento for enviado para o local da carta morta. Para utilizar a Grade de Eventos para responder a eventos não entregues, [crie uma subscrição](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) de evento para o armazenamento de bolhas de letra morta. Sempre que o seu armazenamento de bolhas de letra morta recebe um evento não entregue, a Grade de Eventos notifica o seu manipulador. O manipulador responde com ações que deseja tomar para conciliar eventos não entregues. Para um exemplo de criação de uma localização de carta morta e políticas de relícuro, consulte [as políticas de carta morta e relagem](manage-event-delivery.md).
+Talvez queira ser notificado quando um evento for enviado para o local da carta morta. Para utilizar a Grade de Eventos para responder a eventos não entregues, [crie uma subscrição](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) de evento para o armazenamento de bolhas de letra morta. Sempre que o seu armazenamento de bolhas de letra morta recebe um evento não entregue, a Grade de Eventos notifica o seu manipulador. O manipulador responde com ações que deseja tomar para conciliar eventos não entregues. Para um exemplo de criação de uma localização de letra morta e políticas de repetição, consulte [as políticas de letra morta e de repetição](manage-event-delivery.md).
 
 ## <a name="delivery-event-formats"></a>Formatos de eventos de entrega
 Esta secção dá-lhe exemplos de eventos e eventos com letras mortas em diferentes formatos de esquema de entrega (esquema de Grelha de Eventos, esquema cloudEvents 1.0 e esquema personalizado). Para obter mais informações sobre estes formatos, consulte [esquemas de Grelha de Eventos](event-schema.md) e artigos [de esquemas cloud 1.0.](cloud-event-schema.md) 
@@ -288,15 +288,15 @@ Todos os outros códigos não no conjunto acima (200-204) são considerados falh
 | 503 Serviço Indisponível | Relemissar após 30 segundos ou mais |
 | Todos os outros | Relemissar após 10 segundos ou mais |
 
-## <a name="delivery-with-custom-headers"></a>Entrega com cabeçalhos personalizados
-As subscrições de eventos permitem-lhe configurar cabeçalhos http que estão incluídos em eventos entregues. Esta capacidade permite-lhe definir cabeçalhos personalizados que são necessários por um destino. Pode configurar até 10 cabeçalhos ao criar uma subscrição de eventos. Cada valor do cabeçalho não deve ser superior a 4.096 bytes (4K). Pode definir cabeçalhos personalizados sobre os eventos que são entregues nos seguintes destinos:
+## <a name="custom-delivery-properties"></a>Propriedades de entrega personalizada
+As subscrições de eventos permitem-lhe configurar cabeçalhos HTTP que estão incluídos em eventos entregues. Esta capacidade permite-lhe definir cabeçalhos personalizados que são necessários por um destino. Pode configurar até 10 cabeçalhos ao criar uma subscrição de eventos. Cada valor do cabeçalho não deve ser superior a 4.096 bytes (4K). Pode definir cabeçalhos personalizados sobre os eventos que são entregues nos seguintes destinos:
 
 - Webhooks
 - Tópicos e filas de autocarros da Azure Service
 - Azure Event Hubs
 - Conexões híbridas de retransmissão
 
-Para obter mais informações, consulte [a Entrega com cabeçalhos personalizados.](delivery-properties.md) 
+Para mais informações, consulte [as propriedades de entrega personalizadas.](delivery-properties.md) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

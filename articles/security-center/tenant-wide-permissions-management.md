@@ -8,10 +8,10 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102617493"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Conceder e solicitar visibilidade ao inquilina

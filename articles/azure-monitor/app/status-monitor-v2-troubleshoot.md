@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2641218fa9ddef65c45f2f1a9c9ce807cef35048
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cf3d8fd1566f3d71541aab7648680063e85079bf
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642734"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121834"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Agente de Insights de Aplicação de Resolução de Problemas (anteriormente denominado Status Monitor v2)
 
@@ -152,16 +152,6 @@ Reveja a [referência da API](status-monitor-v2-api-reference.md) para uma descr
 3. Numa consola de comando com privilégios de Administração, executar o comando para iniciar o `iisreset /start` IIS.
 4. Tente navegar na sua aplicação.
 5. Depois de a sua aplicação estar carregada, volte ao PerfView e selecione **Stop Collection**.
-
-### <a name="how-to-capture-full-sql-command-text"></a>Como capturar texto de comando SQL completo
-
-Para capturar o texto de comando SQL completo, é necessário modificar o ficheiro applicationinsights.config com o seguinte:
-
-```xml
-<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">,
-<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
-</Add>
-```
 
 ## <a name="next-steps"></a>Passos seguintes
 

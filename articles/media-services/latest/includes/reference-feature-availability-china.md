@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
 ms.openlocfilehash: e3b441bd4302506582314e8baaed91a988a04acb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104612260"
 ---
 <!--Feature availability in region-->

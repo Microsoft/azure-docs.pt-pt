@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de6a80f73a97a5732f00e10107fff2330038210a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732569"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122021"
 ---
 # <a name="networking"></a>Rede
 
@@ -87,7 +87,7 @@ Mais informações sobre as regras de segurança de entrada:
 
 * **Aplicação**. A gama de portas de aplicação deve ser suficientemente grande para cobrir os requisitos do ponto final das suas aplicações. Esta gama deve ser exclusiva da gama de portas dinâmicas da máquina, ou seja, a gama efémera DePorts como definida na configuração. O Tecido de Serviço utiliza estas portas sempre que são necessárias novas portas e cuida de abrir a firewall para estas portas nos nós.
 
-* **SMB**. O protocolo SMB está em uso pelo serviço ImageStore para dois cenários. Esta porta é necessária para descarregar os pacotes da ImageStore pelos nós, bem como para os replicar entre as réplicas. 
+* **SMB**. Opcional, a versão de tempo de execução 7.1+ já não utiliza SMB por padrão. O protocolo SMB está em uso pelo serviço ImageStore para dois cenários. Esta porta é necessária para descarregar os pacotes da ImageStore pelos nós, bem como para os replicar entre as réplicas. 
 
 * **PDR**. Opcional, se o PDR for necessário da Internet ou da VirtualNetwork para cenários de jumpbox. 
 

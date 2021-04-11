@@ -9,14 +9,16 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b641ec37d134303ae6b31c092cd3c50811477a7
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: cf6553cd7c59febd19f9654e31188f127b8eb065
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108422"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276761"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidade com o Teams
+
+[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 > [!IMPORTANT]
 > Para permitir/desativar [a interoperabilidade do inquilino das equipas,](../concepts/teams-interop.md)preencha [este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
@@ -41,7 +43,7 @@ Quando um utilizador dos Serviços de Comunicação se juntar à reunião de Equ
 
 Equipas de Serviços de Comunicação Interop está atualmente em pré-visualização privada. Quando geralmente disponíveis, os utilizadores dos Serviços de Comunicação serão tratados como "utilizadores de acesso externo". Saiba mais sobre o acesso externo em [Call, chat e colabore com pessoas fora da sua organização em Microsoft Teams.](/microsoftteams/communicate-with-users-from-other-organizations)
 
-Os utilizadores dos Serviços de Comunicação podem participar em reuniões agendadas de equipas desde que as junções anónimas estejam ativadas nas definições de [reunião](/microsoftteams/meeting-settings-in-teams).
+Os utilizadores dos Serviços de Comunicação podem participar em reuniões agendadas de equipas desde que as junções anónimas estejam ativadas nas definições de [reunião](/microsoftteams/meeting-settings-in-teams). Se a reunião estiver agendada para um canal, os utilizadores dos Serviços de Comunicação não poderão aderir ao chat ou enviar e receber mensagens.
 
 ## <a name="teams-in-government-clouds-gcc"></a>Equipas em Nuvens do Governo (GCC)
 A interoperabilidade dos Serviços de Comunicação Azure não é compatível com as implementações das Equipas usando [as nuvens governamentais do Microsoft 365 (GCC)](/MicrosoftTeams/plan-for-government-gcc) neste momento. 

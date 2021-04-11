@@ -8,10 +8,10 @@ ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: d8ef3efcda55868abec188c10ef904ae40a56722
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101728149"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança Azure para Batch

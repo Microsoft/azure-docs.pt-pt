@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
 ms.date: 3/23/2021
-ms.openlocfilehash: eedbc46ee5feb0aa6f6a26c3f5b3c67ac8ca0a5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 259a8581d16f4fd6958a0d9ec2631f667d362b19
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044265"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579465"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Plano para eventos de manutenção Azure em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ O evento de manutenção pode produzir reconfigurações únicas ou múltiplas, 
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Como simular um evento de manutenção planeado
 
-Garantir que a aplicação do seu cliente é resiliente a eventos de manutenção antes de ser implementado para a produção ajudará a mitigar o risco de falhas de aplicação e contribuirá para a disponibilidade de aplicações para os seus utilizadores finais. Pode testar o comportamento da sua aplicação do cliente durante eventos de manutenção planeados [iniciando a falha manual](https://aka.ms/mifailover-techblog) através da PowerShell, CLI ou REST API. Produzirá um comportamento idêntico como evento de manutenção, colocando a réplica primária offline.
+Garantir que a aplicação do seu cliente é resiliente a eventos de manutenção antes de ser implementado para a produção ajudará a mitigar o risco de falhas de aplicação e contribuirá para a disponibilidade de aplicações para os seus utilizadores finais. Pode testar o comportamento da aplicação do seu cliente durante eventos de manutenção planeados [testando a resiliência da falha da aplicação](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla#testing-application-fault-resiliency) através da PowerShell, CLI ou REST API. Consulte também [o início do failover manual](https://aka.ms/mifailover-techblog) para a Instância Gerida. Produzirá um comportamento idêntico como evento de manutenção, colocando a réplica primária offline.
 
 ## <a name="retry-logic"></a>Repetir a lógica
 

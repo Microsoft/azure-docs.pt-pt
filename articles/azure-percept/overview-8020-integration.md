@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: template-concept
 ms.openlocfilehash: 32254b1ca094ee3e34ca95088210bb7c2e7bc0e8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105562754"
 ---
 # <a name="azure-percept-dk-8020-integration-overview"></a>Visão geral da integração de Azure Percept DK 80/20

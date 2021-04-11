@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80878430"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934041"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar recipientes face Docker
 
@@ -67,7 +67,7 @@ As definições de configuração na `CloudAI` secção fornecem opções espec�
 
 ### <a name="storage-scenario-settings"></a>Definições de cenário de armazenamento
 
-O recipiente Face armazena bolhas, cache, metadados e dados de fila, dependendo do que está a ser armazenado. Por exemplo, os índices de formação e os resultados de um grupo de pessoas grandes são armazenados como dados blob. O recipiente Face fornece dois cenários de armazenamento diferentes ao interagir e armazenar este tipo de dados:
+O recipiente Face armazena bolhas, cache, metadados e dados de fila, dependendo do que está a ser armazenado. Por exemplo, os índices de formação e os resultados de um **LargePersonGroup** são armazenados como dados blob. O recipiente Face fornece dois cenários de armazenamento diferentes ao interagir e armazenar este tipo de dados:
 
 * Memória  
   Todos os quatro tipos de dados são armazenados na memória. Não são distribuídos, nem são persistentes. Se o recipiente Face for parado ou removido, todos os dados armazenados para esse recipiente serão destruídos.  

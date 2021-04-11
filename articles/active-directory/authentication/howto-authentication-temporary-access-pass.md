@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/31/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0805ac84318a4fee98c30127ac80c0dac2b96309
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8774df6a2eee15f8b5a0c37362e5b20f14b07549
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558266"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167367"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configure o Passe de Acesso Temporário em Azure AD para registar métodos de autenticação sem palavras-passe (Pré-visualização)
 
@@ -57,7 +57,7 @@ Para configurar a política do método de autenticação do Passe de Acesso Temp
    | Uso único | Falso | Verdadeiro / Falso | Quando a apólice é definida como falsa, os passes no arrendatário podem ser usados uma ou mais uma vez durante a sua validade (duração máxima de vida). Ao impor uma utilização única na política do Passe de Acesso Temporário, todos os passes criados no arrendatário serão criados como uso único. |
    | Comprimento | 8 | 8-48 caracteres | Define o comprimento da senha. |
 
-## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Criar um Passe de Acesso Temporário no Portal AD Azure
+## <a name="create-a-temporary-access-pass"></a>Criar um passe de acesso temporário
 
 Depois de ativar uma política, pode criar um Passe de Acesso Temporário para um utilizador em Azure AD. Estas funções podem executar as seguintes ações relacionadas com um Passe de Acesso Temporário.
 
@@ -66,9 +66,7 @@ Depois de ativar uma política, pode criar um Passe de Acesso Temporário para u
 - Os administradores de autenticação podem criar, excluir, ver um Passe de Acesso Temporário sobre os membros (exceto eles próprios)
 - O Administrador Global pode ver os detalhes do Passe de Acesso Temporário no utilizador (sem ler o código em si).
 
-Para criar um Passe de Acesso Temporário:
-
-1. Inscreva-se no portal como administrador global, administrador de autenticação privilegiada ou administrador de autenticação. 
+1. Inscreva-se no portal Azure como administrador global, administrador de autenticação privilegiada ou administrador de autenticação. 
 1. Clique em **Azure Ative Directory,** navegue para os Utilizadores, selecione um utilizador, como *Chris Green,* e depois escolha **métodos de autenticação**.
 1. Se necessário, selecione a opção para **experimentar a experiência dos novos métodos de autenticação do utilizador**.
 1. Selecione a opção para **adicionar métodos de autenticação.**
@@ -80,6 +78,30 @@ Para criar um Passe de Acesso Temporário:
 1. Uma vez adicionados, os detalhes do Passe de Acesso Temporário são mostrados. Tome nota do valor real do Passe de Acesso Temporário. Fornece este valor ao utilizador. Não pode ver este valor depois de clicar **em Ok**.
    
    ![Screenshot dos detalhes do Passe de Acesso Temporário](./media/how-to-authentication-temporary-access-pass/details.png)
+
+Os seguintes comandos mostram como criar e obter um Passe de Acesso Temporário utilizando o PowerShell:
+
+```powershell
+# Create a Temporary Access Pass for a user
+$properties = @{}
+$properties.isUsableOnce = $True
+$properties.startDateTime = '2021-03-11 06:00:00'
+$propertiesJSON = $properties | ConvertTo-Json
+
+New-MgUserAuthenticationTemporaryAccessPassMethod -UserId user2@contoso.com -BodyParameter $propertiesJSON
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM TAPRocks!
+
+# Get a user's Temporary Access Pass
+Get-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM
+
+```
 
 ## <a name="use-a-temporary-access-pass"></a>Use um passe de acesso temporário
 
@@ -108,6 +130,13 @@ Um passe de acesso temporário expirado não pode ser usado. De acordo com os **
 1. No portal AD Azure, navegue para **os Utilizadores,** selecione um utilizador, como *o Utilizador tap,* em seguida, escolha **métodos de autenticação**.
 1. No lado direito do método de autenticação do **Passe de Acesso Temporário (Pré-visualização)** indicado na lista, selecione **Delete**.
 
+Também pode utilizar o PowerShell:
+
+```powershell
+# Remove a user's Temporary Access Pass
+Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId c5dbd20a-8b8f-4791-a23f-488fcbde3b38
+```
+
 ## <a name="replace-a-temporary-access-pass"></a>Substitua um Passe de Acesso Temporário 
 
 - Um utilizador só pode ter um Passe de Acesso Temporário. A senha pode ser utilizada durante o início e o fim do Passe de Acesso Temporário.
@@ -123,8 +152,8 @@ Tenha em mente estas limitações:
 
 - Ao utilizar um Passe de Acesso Temporário único para registar um método sem palavras-passe, como FIDO2 ou acesso telefónico, o utilizador deve completar o registo no prazo de 10 minutos após a entrada com o passe de acesso temporário único. Esta limitação não se aplica a um Passe de Acesso Temporário que possa ser utilizado mais de uma vez.
 - Os utilizadores convidados não podem iniciar sedução com um Passe de Acesso Temporário.
-- Os utilizadores no âmbito da política de registo de autosserviço de reset de password (SSPR) serão obrigados a registar um dos métodos SSPR depois de terem assinado com um Passe de Acesso Temporário. Se o utilizador apenas utilizar a chave FIDO2, exclua-a da política SSPR ou desative a política de registo SSPR. 
-- Um Passe de Acesso Temporário não pode ser utilizado com a extensão do Servidor de Política de Rede (NPS) e o adaptador ative Directory Federation Services (AD FS).
+- Os utilizadores no âmbito da política de registo de autosserviço de reset (SSPR) *ou* [da política de registo de autenticação multi-factor de proteção de identidade](../identity-protection/howto-identity-protection-configure-mfa-policy.md) serão obrigados a registar métodos de autenticação depois de terem assinado com um Passe de Acesso Temporário. Os utilizadores com âmbito para estas políticas serão redirecionados para o [modo de interrupção do registo combinado](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Esta experiência não suporta atualmente o registo fido2 e de inscrição de inscrição no telefone. 
+- Um passe de acesso temporário não pode ser utilizado com a extensão do Servidor de Política de Rede (NPS) e o adaptador ative Directory Federation Services (AD FS) ou durante a configuração/experiência fora de caixa do Windows (OOBE) e AutoPilot. 
 - Quando o SSO sem emenda está ativado no arrendatário, os utilizadores são solicitados a introduzir uma senha. Em **vez disso,** o link Use o seu Passe de Acesso Temporário estará disponível para o utilizador iniciar sação com um Passe de Acesso Temporário.
 
   ![Screenshot de usar um passe de acesso temporário em vez](./media/how-to-authentication-temporary-access-pass/alternative.png)

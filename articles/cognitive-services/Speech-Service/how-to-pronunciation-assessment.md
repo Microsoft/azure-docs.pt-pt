@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: dc1ab8bd1a851f7fafd5c001ac73e66973e1b64c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d1b5e490b7c8212e6103e3d169c1b5491d01dde
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102051893"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167435"
 ---
 # <a name="pronunciation-assessment"></a>Avaliação da pronúncia
 
@@ -28,7 +28,7 @@ Os educadores podem usar a capacidade de avaliar a pronúncia de vários falante
 Neste artigo, você vai aprender a configurar `PronunciationAssessmentConfig` e recuperar o uso do discurso `PronunciationAssessmentResult` SDK.
 
 > [!NOTE]
-> A funcionalidade de avaliação da pronúncia apenas suporta a linguagem `en-US` atualmente.
+> A funcionalidade de avaliação da pronúncia suporta atualmente a `en-US` linguagem, disponível em todas as [regiões de expressão para texto.](regions.md#speech-to-text-text-to-speech-and-translation) O apoio `en-GB` e `zh-CN` as línguas estão em pré-visualização, que está disponível em `westus` , e `eastasia` `centralindia` regiões.
 
 ## <a name="pronunciation-assessment-with-the-speech-sdk"></a>Avaliação de pronúncia com o SDK do discurso
 
@@ -194,9 +194,63 @@ Esta tabela enumera os parâmetros de resultado da avaliação da pronúncia.
 | `PronunciationScore` | Pontuação geral indicando a qualidade da pronúncia do discurso dado. Isto é agregado de `AccuracyScore` , `FluencyScore` e com `CompletenessScore` peso. |
 | `ErrorType` | Este valor indica se uma palavra é omitida, inserida ou mal pronunciada, em comparação com `ReferenceText` . Os valores possíveis são `None` (ou seja, nenhum erro nesta palavra), `Omission` `Insertion` e `Mispronunciation` . |
 
+### <a name="sample-responses"></a>Respostas da amostra
+
+Uma avaliação típica da pronúncia resulta em JSON:
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "400000",
+  "Duration": "11000000",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "good morning",
+        "ITN" : "good morning",
+        "MaskedITN" : "good morning",
+        "Display" : "Good morning.",
+        "PronunciationAssessment":
+        {
+            "PronScore" : 84.4,
+            "AccuracyScore" : 100.0,
+            "FluencyScore" : 74.0,
+            "CompletenessScore" : 100.0,
+        },
+        "Words": [
+            {
+              "Word" : "Good",
+              "Offset" : 500000,
+              "Duration" : 2700000,
+              "PronunciationAssessment":
+              {
+                "AccuracyScore" : 100.0,
+                "ErrorType" : "None"
+              }
+            },
+            {
+              "Word" : "morning",
+              "Offset" : 5300000,
+              "Duration" : 900000,
+              "PronunciationAssessment":
+              {
+                "AccuracyScore" : 100.0,
+                "ErrorType" : "None"
+              }
+            }
+        ]
+      }
+  ]
+}
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 
 <!-- TODO: update JavaScript sample links after release -->
+
+* Veja a [introdução](https://www.youtube.com/watch?v=cBE8CUHOFHQ) em vídeo e [vídeo tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) de avaliação de pronúncia
+
+* Experimente a [demonstração de avaliação de pronúncia](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS)
 
 ::: zone pivot="programming-language-csharp"
 * Consulte o código de [amostra](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L949) no GitHub para avaliação da pronúncia.
@@ -219,3 +273,5 @@ Esta tabela enumera os parâmetros de resultado da avaliação da pronúncia.
 ::: zone-end
 
 * [Documentação de referência do SDK de fala](speech-sdk.md)
+
+* [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)

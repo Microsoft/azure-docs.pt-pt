@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6b502690a62410f1e8d2950074e8b479f7dc7f88
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b9d3f6973c210e7bd91c088ee7a276bfbcc48ce
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609736"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121987"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de grelha de eventos Azure para eventos de Serviços de Mídia
 
@@ -330,7 +330,7 @@ O objeto de dados tem as seguintes propriedades:
 | encoderPort | string | Porto do codificar de onde vem este riacho. |
 | resultadosDesco | string | A razão pela qual a ligação foi rejeitada. Os códigos de resultados estão listados na tabela seguinte. |
 
-Pode encontrar os códigos de resultado de erro nos [códigos de erro do Evento ao vivo](../live-event-error-codes.md).
+Pode encontrar os códigos de resultado de erro nos [códigos de erro do Evento ao vivo](../live-event-error-codes-reference.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoder Ligado
 
@@ -400,7 +400,7 @@ O objeto de dados tem as seguintes propriedades:
 | encoderPort | string | Porto do codificar de onde vem este riacho. |
 | resultadosDesco | string | A razão para a desconexão do codificante. Pode ser uma desconexão graciosa ou de um erro. Os códigos de resultados estão listados na tabela seguinte. |
 
-Pode encontrar os códigos de resultado de erro nos [códigos de erro do Evento ao vivo](../live-event-error-codes.md).
+Pode encontrar os códigos de resultado de erro nos [códigos de erro do Evento ao vivo](../live-event-error-codes-reference.md).
 
 Os graciosos códigos de resultados de desconexão são:
 
@@ -676,4 +676,4 @@ Um evento tem os seguintes dados de alto nível:
 
 - [EventGrid .NET SDK que inclui eventos de Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Códigos de erro do Evento Ao Vivo](../live-event-error-codes.md)
+- [Códigos de erro do Evento Ao Vivo](../live-event-error-codes-reference.md)

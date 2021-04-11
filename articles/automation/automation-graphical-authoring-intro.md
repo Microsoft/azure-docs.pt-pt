@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57d5627e45e79263408b9b5760c8332122ce8c91
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501233"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167401"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Livros gráficos do autor na Azure Automation
 
@@ -328,19 +328,19 @@ Utilize [operadores de comparação](/powershell/module/microsoft.powershell.cor
 Por exemplo, a seguinte condição determina se a máquina virtual de uma atividade nomeada `Get-AzureVM` está atualmente parada.
 
 ```powershell-interactive
-$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+$ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped"
 ```
 
 A seguinte condição determina se a mesma máquina virtual está em qualquer estado que não seja parado.
 
 ```powershell-interactive
-$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+$ActivityOutput["Get-AzureVM"].PowerState -ne "Stopped"
 ```
 
 Pode juntar várias condições no seu livro de bordo utilizando um [operador lógico,](/powershell/module/microsoft.powershell.core/about/about_logical_operators)como `-and` ou `-or` . Por exemplo, a seguinte condição verifica se a máquina virtual no exemplo anterior está num estado de paragem ou paragem.
 
 ```powershell-interactive
-($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
+($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopping")
 ```
 
 ### <a name="use-hashtables"></a>Use haxixe

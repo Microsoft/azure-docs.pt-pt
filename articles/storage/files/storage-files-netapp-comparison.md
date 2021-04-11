@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/19/2021
 ms.author: jeffpatt
 ms.openlocfilehash: 652d362a11e80a488c9278dfeff38e715acee784
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105641941"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Comparação de ficheiros Azure e Azure NetApp

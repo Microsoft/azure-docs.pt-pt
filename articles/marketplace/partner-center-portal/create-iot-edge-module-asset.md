@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8eddd5d346003af0c2b41d65fc0aa09c86f48c7
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93346779"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167452"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare os seus ativos técnicos do módulo IoT Edge
 
@@ -39,14 +39,14 @@ O seu módulo deve suportar todas as plataformas tier 1 suportadas pelo IoT Edge
 
 - Forneça uma etiqueta mais recente e uma etiqueta de versão (por exemplo, 1.0.1) que sejam marcas manifestas construídas com a [ferramenta GitHub Manifest](https://github.com/estesp/manifest-tool).
 
-- Utilize o separador de listagem de ofertas no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) para adicionar um link na secção **links Úteis** ao catálogo de [dispositivos certificados Azure IoT Edge](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}/).
+- Utilize o separador de listagem de ofertas no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) para adicionar um link na secção **links Úteis** ao catálogo de [dispositivos certificados Azure IoT Edge](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Um subconjunto de plataformas de Nível 1 suportado pela IoT Edge
 
 O seu módulo deve suportar um subconjunto (pelo menos um) de plataformas de Nível 1 suportadas pelo IoT Edge (tal como registado no [suporte Azure IoT Edge).](../../iot-edge/support.md) Um módulo que utilize esta opção de plataforma deve:
 
 - Forneça uma etiqueta mais recente e uma etiqueta de versão (por exemplo, 1.0.1) que sejam marcas manifestas construídas com a [ferramenta manifesto](https://github.com/estesp/manifest-tool) GitHub se mais de uma plataforma for suportada. As etiquetas manifesto só são opcionais quando uma plataforma é suportada.
-- Utilize o separador de listagem de oferta no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) para adicionar um link na secção **links Úteis** a pelo menos um dispositivo IoT Edge do catálogo de [dispositivos Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
+- Utilize o separador de listagem de oferta no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) para adicionar um link na secção **links Úteis** a pelo menos um dispositivo IoT Edge do catálogo de [dispositivos Azure IoT Edge Certified](https://devicecatalog.azure.com/).
 
 :::image type="content" source="media/iot-edge-module-technical-assets-offer-listing.png" alt-text="Esta é uma imagem da secção de Listagem de Ofertas dentro do Centro de Parceiros":::
 
@@ -54,7 +54,7 @@ O seu módulo deve suportar um subconjunto (pelo menos um) de plataformas de Ní
 
 As dimensões dos módulos IoT Edge (tais como CPU, RAM, armazenamento e GPU) em dispositivos IoT Edge direcionados devem satisfazer os seguintes requisitos:
 
-- O módulo deve funcionar com pelo menos um dispositivo IoT Edge do catálogo de [dispositivos Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
+- O módulo deve funcionar com pelo menos um dispositivo IoT Edge do catálogo de [dispositivos Azure IoT Edge Certified](https://devicecatalog.azure.com/).
 
 - Os requisitos mínimos de hardware devem ser documentados como o último parágrafo na descrição da oferta (no separador de listagem de oferta no [Partner Center).](https://partner.microsoft.com/dashboard/commercial-marketplace) Opcionalmente, também pode listar os requisitos de hardware recomendados se diferirem significativamente. Por exemplo, adicione a seguinte secção no final da descrição da sua oferta:
 

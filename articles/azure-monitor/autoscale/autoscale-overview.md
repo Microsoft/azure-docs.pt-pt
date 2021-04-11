@@ -5,10 +5,10 @@ ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101726007"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Visão geral da autoescala no Microsoft Azure
@@ -81,8 +81,8 @@ Para exemplos de código, ver
 * [Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM](autoscale-virtual-machine-scale-sets.md)  
 * [API de REPOUSO de Autoescala](/rest/api/monitor/autoscalesettings)
 
-## <a name="horizontal-vs-vertical-scaling"></a>Escala horizontal vs vertical
-A escala automática apenas horizontalmente, o que é um aumento ("out") ou diminuição ("in") no número de instâncias VM.  Horizontal é mais flexível numa situação de nuvem, pois permite-lhe executar potencialmente milhares de VMs para manusear a carga.
+## <a name="horizontal-vs-vertical-scaling&quot;></a>Escala horizontal vs vertical
+A escala automática apenas horizontalmente, o que é um aumento (&quot;out") ou diminuição ("in") no número de instâncias VM.  Horizontal é mais flexível numa situação de nuvem, pois permite-lhe executar potencialmente milhares de VMs para manusear a carga.
 
 Em contraste, a escala vertical é diferente. Mantém o mesmo número de VMs, mas torna os VMs mais ("up") ou menos ("down") poderosos. A energia é medida na memória, na velocidade do CPU, no espaço do disco, etc.  A escala vertical tem mais limitações. Depende da disponibilidade de hardware maior, que rapidamente atinge um limite superior e pode variar por região. A escala vertical também requer geralmente um VM para parar e reiniciar.
 

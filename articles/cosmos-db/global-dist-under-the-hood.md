@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 1b47ad27abbe59eceabd15d091f88f4659d8dad6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 592a9b89379094c88881c3c8485c7e38a1613b34
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102486391"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219489"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição global de dados com Azure Cosmos DB - sob o capot
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -61,7 +61,7 @@ O serviço permite-lhe configurar as suas bases de dados cosmos com uma única r
 
 ## <a name="conflict-resolution"></a>Resolução de conflitos
 
-O nosso design para a propagação de atualização, resolução de conflitos e rastreio de causalidade é inspirado no trabalho prévio sobre [algoritmos epidémicos](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) e o sistema [Bayou.](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) Embora os núcleos das ideias tenham sobrevivido e fornecendo um conveniente quadro de referência para comunicar o design do sistema cosmos DB, eles também sofreram uma transformação significativa à medida que as aplicamos ao sistema Cosmos DB. Isto era necessário, porque os sistemas anteriores não foram concebidos nem com a governação dos recursos nem com a escala a que a Cosmos DB precisa de operar, nem para fornecer as capacidades (por exemplo, a consistência limitada) e as SLAs rigorosas e abrangentes que a Cosmos DB fornece aos seus clientes.  
+O nosso design para a propagação de atualização, resolução de conflitos e rastreio de causalidade é inspirado no trabalho prévio sobre [algoritmos epidémicos](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) e o sistema [Bayou.](https://people.cs.umass.edu/~mcorner/courses/691M/papers/terry.pdf) Embora os núcleos das ideias tenham sobrevivido e fornecendo um conveniente quadro de referência para comunicar o design do sistema cosmos DB, eles também sofreram uma transformação significativa à medida que as aplicamos ao sistema Cosmos DB. Isto era necessário, porque os sistemas anteriores não foram concebidos nem com a governação dos recursos nem com a escala a que a Cosmos DB precisa de operar, nem para fornecer as capacidades (por exemplo, a consistência limitada) e as SLAs rigorosas e abrangentes que a Cosmos DB fornece aos seus clientes.  
 
 Lembre-se que um conjunto de divisórias é distribuído por várias regiões e segue o protocolo de replicação de Cosmos DBs (multi-região escreve) para replicar os dados entre as divisórias físicas que compreendem um determinado conjunto de divisórias. Cada divisória física (de um conjunto de divisórias) aceita escritas e serve leituras tipicamente para os clientes que são locais para aquela região. As gravações aceites por uma partição física dentro de uma região são duramente comprometidas e disponibilizadas altamente dentro da partição física antes de serem reconhecidas ao cliente. Estas são escritas provisórias e são propagadas a outras divisórias físicas dentro do conjunto de partição usando um canal anti-entropia. Os clientes podem solicitar escritos provisórios ou comprometidos, passando um cabeçalho de pedido. A propagação anti-entropia (incluindo a frequência de propagação) é dinâmica, baseada na topologia do conjunto de partição, na proximidade regional das divisórias e no nível de consistência configurado. Dentro de um conjunto de partição, Cosmos DB segue um esquema de compromisso primário com uma partição de árbitros selecionado dinamicamente. A seleção do árbitro é dinâmica e é parte integrante da reconfiguração do conjunto de partição com base na topologia da sobreposição. As escritas comprometidas (incluindo atualizações multi-linha/lotadas) são garantidas para serem encomendadas. 
 

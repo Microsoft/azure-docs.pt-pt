@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 338de996b06769b9d2891c7208b9050cc3acc7ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491253"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167299"
 ---
 # <a name="create-modular-runbooks"></a>Criar runbooks modulares
 
@@ -56,15 +56,15 @@ Quando o seu runbook chama um livro de trabalho gráfico ou powerShell workflow 
 O exemplo a seguir inicia um ensaio de ensaio para crianças que aceita um objeto complexo, um valor inteiro e um valor booleano. O resultado do runbook subordinado é atribuído a uma variável. Neste caso, o livro de recortes para crianças é um manual de fluxo de trabalho PowerShell.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 Aqui está o mesmo exemplo usando um manual PowerShell como a criança.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## <a name="start-a-child-runbook-using-a-cmdlet"></a>Inicie um livro infantil usando um cmdlet
@@ -84,7 +84,7 @@ Os parâmetros para um livro infantil iniciado com um cmdlet são fornecidos com
 
 O contexto de subscrição pode perder-se quando se iniciam os livros infantis como trabalhos separados. Para que o livro de aplicação da criança execute cmdlets de móduloS Az contra uma subscrição específica do Azure, a criança deve autenticar esta subscrição independentemente do livro de bordo dos pais.
 
-Se os trabalhos dentro da mesma conta Automation funcionarem com mais de uma subscrição, selecionar uma subscrição num trabalho pode alterar o contexto de subscrição atualmente selecionado para outros trabalhos. Para evitar esta situação, `Disable-AzContextAutosave –Scope Process` utilize-o no início de cada livro de bordo. Esta ação só guarda o contexto para a execução do livro de bordo.
+Se os trabalhos dentro da mesma conta Automation funcionarem com mais de uma subscrição, selecionar uma subscrição num trabalho pode alterar o contexto de subscrição atualmente selecionado para outros trabalhos. Para evitar esta situação, `Disable-AzContextAutosave -Scope Process` utilize-o no início de cada livro de bordo. Esta ação só guarda o contexto para a execução do livro de bordo.
 
 ### <a name="example"></a>Exemplo
 
@@ -92,7 +92,7 @@ O exemplo a seguir inicia um livro de aplicação de crianças com parâmetros e
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -108,11 +108,11 @@ $AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.Subscr
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
