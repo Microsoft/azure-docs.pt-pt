@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: c6152d4b9ee28554efcb5b08b7a2d161a0723852
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104670909"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução automatizada de recuperação de desastres utilizando a recuperação do site Azure para ações de ficheiros hospedadas no StorSimple
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Microsoft Azure StorSimple é uma solução híbrida de armazenamento em nuvem que aborda as complexidades de dados não estruturados geralmente associados a ações de ficheiros. O StorSimple utiliza o armazenamento em nuvem como uma extensão da solução no local e tiers automaticamente dados através do armazenamento no local e armazenamento em nuvem. A proteção integrada de dados, com instantâneos locais e em nuvem, elimina a necessidade de uma infraestrutura de armazenamento em expansão.
 
 [A Azure Site Recovery](../site-recovery/site-recovery-overview.md) é um serviço baseado em Azure que fornece capacidades de recuperação de desastres (DR) orquestrando replicação, failover e recuperação de máquinas virtuais. A Azure Site Recovery suporta uma série de tecnologias de replicação para replicar, proteger e falhar perfeitamente sobre máquinas virtuais e aplicações para nuvens privadas/públicas ou hospedadas.

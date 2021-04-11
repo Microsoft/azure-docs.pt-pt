@@ -1,18 +1,15 @@
 ---
 title: Suporte a recuperação de desastres matrix-Hiper-V para um site secundário de VMM com recuperação do local de Azure
 description: Resume o suporte para a replicação do Hiper-VM nas nuvens VMM para um local secundário com recuperação do local de Azure.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
-ms.author: raynew
-ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82f34d660c4012e192a157dc836574bc1ab25233
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86131173"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579954"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs Hyper-V para um site secundário
 
@@ -53,14 +50,14 @@ Apenas as máquinas Linux com o seguinte armazenamento podem ser replicadas:
 
 **Configuração** | **Suportado**  
 --- | --- 
-Anfitrião - EQUIPA NIC | Yes 
-Anfitrião - VLAN | Yes 
-Anfitrião - IPv4 | Yes 
+Anfitrião - EQUIPA NIC | Sim 
+Anfitrião - VLAN | Sim 
+Anfitrião - IPv4 | Sim 
 Anfitrião - IPv6 | No 
 VM convidado - EQUIPA NIC | No
-VM convidado - IPv4 | Yes
+VM convidado - IPv4 | Sim
 VM convidado - IPv6 | No
-VM convidado - Windows/Linux - Endereço IP estático | Yes
+VM convidado - Windows/Linux - Endereço IP estático | Sim
 VM convidado - Multi-NIC | Sim
 
 
@@ -71,9 +68,9 @@ VM convidado - Multi-NIC | Sim
 **Armazenamento (hospedeiro)** | **Suportado**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  Yes
-SAN (ISCSI) | Yes
-Multi-caminhos (MPIO) | Yes
+SMB 3.0 |  Sim
+SAN (ISCSI) | Sim
+Multi-caminhos (MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidores físicos ou de hóspedes
 
@@ -81,19 +78,19 @@ Multi-caminhos (MPIO) | Yes
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
-Gen 2 VM | Yes
+Gen 2 VM | Sim
 Disco de cluster compartilhado | No
 Disco encriptado | No
 UEFI| N/D
 NFS | No
 SMB 3.0 | No
 RDM | N/D
-Disco > 1 TB | Yes
-Volume com disco listrado > 1 TB<br/><br/> LVM | Yes
-Espaços de Armazenamento | Yes
+Disco > 1 TB | Sim
+Volume com disco listrado > 1 TB<br/><br/> LVM | Sim
+Espaços de Armazenamento | Sim
 Disco de adicionar/remover quente | No
-Excluir o disco | Yes
-Multi-caminhos (MPIO) | Yes
+Excluir o disco | Sim
+Multi-caminhos (MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 

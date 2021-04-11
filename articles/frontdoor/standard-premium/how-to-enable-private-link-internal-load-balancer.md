@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: tyao
 ms.openlocfilehash: 6876692bcf752570ecdc5d42b65da81992ad3743
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803822"
 ---
 # <a name="connect-azure-front-door-premium-to-an-internal-load-balancer-origin-with-private-link"></a>Ligue o Azure Front Door Premium a uma origem interna do equilibrador de carga com o Link Privado

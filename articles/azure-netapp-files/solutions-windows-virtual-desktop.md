@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a765d689307b7f56e5100e75d9f7121e944cea14
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91932469"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168285"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Benefícios da utilização do Azure NetApp Files com o Windows Virtual Desktop 
 
@@ -29,7 +29,7 @@ O Azure NetApp Files é um serviço de armazenamento de ficheiros altamente perf
 
 ## <a name="sample-blueprints"></a>Plantas de amostra
 
-As seguintes plantas de amostra mostram a integração do Windows Virtual Desktop com ficheiros Azure NetApp. Num cenário de ambiente de trabalho em conjunto, os utilizadores são direcionados para a melhor sessão disponível (o [primeiro modo de amplitude)](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)hospedar na piscina, utilizando [máquinas virtuais multi-sessão](../virtual-desktop/windows-10-multisession-faq.md#what-is-windows-10-enterprise-multi-session). Por outro lado, os ambientes de trabalho pessoais são reservados para cenários em que cada utilizador tem a sua própria máquina virtual.
+As seguintes plantas de amostra mostram a integração do Windows Virtual Desktop com ficheiros Azure NetApp. Num cenário de ambiente de trabalho em conjunto, os utilizadores são direcionados para a melhor sessão disponível (o [primeiro modo de amplitude)](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)hospedar na piscina, utilizando [máquinas virtuais multi-sessão](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session). Por outro lado, os ambientes de trabalho pessoais são reservados para cenários em que cada utilizador tem a sua própria máquina virtual.
 
 ### <a name="pooled-desktop-scenario"></a>Cenário de ambiente de trabalho em piscina
 

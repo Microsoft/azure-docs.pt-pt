@@ -4,7 +4,7 @@ description: Aprenda as melhores práticas para projetar, construir e gerir apli
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: techlake
 ms.assetid: ''
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 03/29/2021
 ms.author: terrylan
-ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d28d55c8dff16df987f6535b0f1452b840b35c43
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841993"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960508"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações PaaS
 
@@ -127,10 +127,8 @@ Seguem-se as melhores práticas para a utilização do Serviço de Aplicações.
 **Melhores práticas**: Monitorize o estado de segurança dos seus ambientes de Serviço de Aplicações.   
 **Detalhe**: Utilize o Centro de Segurança Azure para monitorizar os ambientes do serviço de aplicações. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria [recomendações](../../security-center/asset-inventory.md) que o orientam através do processo de configuração dos controlos necessários.
 
-> [!NOTE]
-> O Serviço de Aplicações de Monitorização está em pré-visualização e está disponível apenas no [nível padrão](../../security-center/security-center-pricing.md) do Centro de Segurança.
->
->
+## <a name="azure-cloud-services"></a>Cloud Services do Azure
+[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) é um exemplo de um PaaS. Tal como o Azure App Service, esta tecnologia foi concebida para suportar aplicações que sejam escaláveis, fiáveis e baratas para operar. Da mesma forma que o Serviço de Aplicações está hospedado em máquinas virtuais (VMs), também o Azure Cloud Services. No entanto, tens mais controlo sobre os VMs. Pode instalar o seu próprio software em VMs que utilizam os Serviços Azure Cloud, e pode aceder-lhes remotamente.
 
 ## <a name="install-a-web-application-firewall"></a>Instale uma firewall de aplicação web
 Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em muitas camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
@@ -149,13 +147,13 @@ Validar defesas de segurança é tão importante como testar qualquer outra func
 
 O teste de fuzz é um método para encontrar falhas de programa (erros de código) fornecendo dados de entrada mal formados para interfaces de programa (pontos de entrada) que analisam e consomem estes dados. [A Deteção](https://www.microsoft.com/en-us/security-risk-detection/) de Riscos de Segurança da Microsoft é uma ferramenta baseada na nuvem que pode usar para procurar bugs e outras vulnerabilidades de segurança no seu software antes de o implementar no Azure. A ferramenta foi concebida para capturar vulnerabilidades antes de implementar software para que não tenha de corrigir um bug, lidar com falhas ou responder a um ataque após o lançamento do software.
 
-
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, focamo-nos nas vantagens de segurança de uma implementação do Azure PaaS e nas melhores práticas de segurança para aplicações em nuvem. Em seguida, aprenda práticas recomendadas para garantir as suas soluções web e móveis PaaS utilizando serviços Azure específicos. Começaremos com o Azure App Service, Azure SQL Database e Azure Synapse Analytics e Azure Storage. À medida que os artigos sobre práticas recomendadas para outros serviços Azure ficarem disponíveis, os links serão fornecidos na seguinte lista:
+Neste artigo, focamo-nos nas vantagens de segurança de uma implementação do Azure PaaS e nas melhores práticas de segurança para aplicações em nuvem. Em seguida, aprenda práticas recomendadas para garantir as suas soluções web e móveis PaaS utilizando serviços Azure específicos. Começaremos com o Azure App Service, Azure SQL Database e Azure Synapse Analytics, Azure Storage e Azure Cloud Services. À medida que os artigos sobre práticas recomendadas para outros serviços Azure ficarem disponíveis, os links serão fornecidos na seguinte lista:
 
 - [Serviço de Aplicações do Azure](paas-applications-using-app-services.md)
 - [Azure SQL Database e Azure Synapse Analytics](paas-applications-using-sql.md)
 - [Armazenamento do Azure](paas-applications-using-storage.md)
+- [Cloud Services do Azure](../../cloud-services/security-baseline.md)
 - Cache do Azure para Redis
 - Service Bus do Azure
 - Firewalls de aplicações web
@@ -165,5 +163,6 @@ Consulte [o Desenvolvimento de aplicações seguras no Azure](https://azure.micr
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 
 Estão disponíveis os seguintes recursos para fornecer informações mais gerais sobre a segurança da Azure e serviços relacionados com a Microsoft:
-* [Azure Security Team Blog](/archive/blogs/azuresecurity/) - para informações atualizadas sobre as últimas informações em Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com
+
+- [Azure Security Team Blog](/archive/blogs/azuresecurity/) - para informações atualizadas sobre as últimas informações em Azure Security
+- [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com

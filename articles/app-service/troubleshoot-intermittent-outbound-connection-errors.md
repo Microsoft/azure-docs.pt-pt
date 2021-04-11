@@ -8,10 +8,10 @@ ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
 ms.openlocfilehash: 2b4719561ad94d54267410d0af28db6ee8d82b00
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104799110"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Resolução de problemas erros de ligação intermitente de saída no Serviço de Aplicações Azure
@@ -125,7 +125,7 @@ Embora o PHP não suporte o agrupamento de ligações, pode tentar utilizar liga
 
 Evitar os limites de saída da TCP é mais fácil de resolver, uma vez que os limites são definidos pelo tamanho do seu trabalhador. Pode ver os limites em [Limites Numéricos Cross VM da Sandbox - Conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Descrição|Pequeno (A1)|Meio (A2)|Grande (A3)|Nível isolado (ASE)|
+|Nome limite|Description|Pequeno (A1)|Meio (A2)|Grande (A3)|Nível isolado (ASE)|
 |---|---|---|---|---|---|
 |Ligações|Número de ligações em todo o VM|1920|3968|8064|16 000|
 
@@ -157,7 +157,7 @@ As ligações TCP e as portas SNAT não estão diretamente relacionadas. Um dete
 * O limite de ligações TCP acontece ao nível da instância do trabalhador. O equilíbrio de carga de saída da Rede Azure não utiliza a métrica de ligações TCP para limitar a porta SNAT.
 * Os limites das ligações TCP são descritos em [Limites Numéricos VM Cross Sandbox - Conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Descrição|Pequeno (A1)|Meio (A2)|Grande (A3)|Nível isolado (ASE)|
+|Nome limite|Description|Pequeno (A1)|Meio (A2)|Grande (A3)|Nível isolado (ASE)|
 |---|---|---|---|---|---|
 |Ligações|Número de ligações em todo o VM|1920|3968|8064|16 000|
 

@@ -297,6 +297,8 @@
           href: 'https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc'
         - name: Biblioteca de gestão
           href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc'
+    - name: CLI do Azure
+      href: /cli/azure/eventhubs
     - name: REST
       href: /rest/api/eventhub
     - name: Modelo do Resource Manager

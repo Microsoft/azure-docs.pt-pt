@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
 ms.openlocfilehash: 472cf7b69078b3247c393ff65139bc29e5683a32
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105639372"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutorial: Publicar Azure Static Web Apps com Azure DevOps

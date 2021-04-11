@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: bb0ee52d37fe901a610723d5864240b8778d8b17
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: 2fa03fa948c7768f5e74cc68b528e847c5351273
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103574599"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447865"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinar a latência da ligação do utilizador no Windows Virtual Desktop
 

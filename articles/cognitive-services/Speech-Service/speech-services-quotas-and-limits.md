@@ -1,25 +1,25 @@
 ---
-title: Limites e Quotas dos Serviços de Voz
+title: Quotas e Limites do Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Referência rápida, descrição detalhada e boas práticas sobre quotas e limites de serviços de fala cognitiva Azure
+description: Referência rápida, descrição detalhada e boas práticas sobre quotas e limites de serviço de discurso cognitivo do Azure
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f851d7999b063a2b1334564902d81343e3789439
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937061"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011178"
 ---
-# <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
+# <a name="speech-service-quotas-and-limits"></a>Quotas e Limites do Serviço de Fala
 
-Este artigo contém uma referência rápida e a **descrição detalhada** das quotas e limites dos serviços de fala cognitiva Azure para todos os [níveis de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) Contém também algumas boas práticas para evitar o estrangulamento do pedido. 
+Este artigo contém uma referência rápida e a **descrição detalhada** das quotas e limites do serviço de discurso cognitivo Azure para todos os [níveis de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Contém também algumas boas práticas para evitar o estrangulamento do pedido. 
 
 ## <a name="quotas-and-limits-quick-reference"></a>Quotas e Limites referência rápida
 Saltar para [quotas e limites de texto para discurso](#text-to-speech-quotas-and-limits-per-speech-resource)
@@ -98,9 +98,13 @@ As secções seguintes descrevem casos específicos de ajustamento das quotas.<b
 Salta [para o Texto-a-Discurso. Aumento do limite](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice) de pedido simultâneo de transcrição para voz personalizada
 
 ### <a name="speech-to-text-increasing-online-transcription-concurrent-request-limit"></a>Discurso-a-texto: aumento do limite de pedido simultâneo de transcrição online
-Por predefinição, o número de pedidos simultâneos é limitado a 20 por recurso de fala (modelo base) ou por ponto final personalizado (modelo personalizado). Para o nível de preços standard este montante pode ser aumentado. Antes de submeter o pedido, certifique-se de que conhece o material [desta secção](#detailed-description-quota-adjustment-and-best-practices) e está ciente [destas boas práticas.](#general-best-practices-to-mitigate-throttling-during-autoscaling)
+Por predefinição, o número de pedidos simultâneos é limitado a 100 por recurso de fala (modelo base) e a 20 por ponto final personalizado (modelo personalizado). Para o nível de preços standard este montante pode ser aumentado. Antes de submeter o pedido, certifique-se de que conhece o material [desta secção](#detailed-description-quota-adjustment-and-best-practices) e está ciente [destas boas práticas.](#general-best-practices-to-mitigate-throttling-during-autoscaling)
 
-Aumentar o limite de Pedido Simultâneo **não** afeta diretamente os seus custos. Os Serviços de Fala utilizam o modelo "Pague apenas pelo que usa". O limite define a altura da escala do Serviço antes de iniciar o aceleração dos seus pedidos.
+>[!NOTE]
+> Se utilizar modelos personalizados, tenha em atenção que um recurso da Speech pode estar associado a muitos pontos finais personalizados que hospedam muitas implementações personalizadas de modelos. Cada ponto final personalizado tem o número padrão de limite de pedido simultâneo (20) definido por criação. Se precisar de o ajustar, tem de fazer o ajuste de cada ponto final **personalizado separadamente**. Note também que o valor do número de limite de pedido simultâneo para o modelo base de um recurso De discurso não tem **qualquer** efeito nos pontos finais personalizados associados a este recurso.
+
+
+Aumentar o limite de Pedido Simultâneo **não** afeta diretamente os seus custos. O serviço de fala utiliza o modelo "Pague apenas pelo que usa". O limite define a altura da escala do Serviço antes de iniciar o aceleração dos seus pedidos.
 
 Os limites de pedido simultâneos para modelos **base** e **personalizados** devem ser ajustados **separadamente**.
 
@@ -112,9 +116,9 @@ O valor existente do parâmetro limite de pedido simultâneo **não** é visíve
 #### <a name="have-the-required-information-ready"></a>Tenha as informações necessárias prontas:
 - Para **o modelo Base:**
   - ID de recursos de fala
-  - Region
+  - Região
 - Para **modelo personalizado:** 
-  - Region
+  - Região
   - ID de ponto final personalizado
 
 - **Como obter informações (modelo base)**:  
@@ -168,7 +172,7 @@ Geralmente, é altamente recomendado testar a carga de trabalho e os padrões de
 ### <a name="text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice"></a>Texto-a-discurso: aumento do limite de pedido simultâneo de transcrição para Voz Personalizada
 Por predefinição, o número de pedidos simultâneos para um ponto final de Voz Personalizado é limitado a 10. Para o nível de preços standard este montante pode ser aumentado. Antes de submeter o pedido, certifique-se de que conhece o material [desta secção](#detailed-description-quota-adjustment-and-best-practices) e está ciente [destas boas práticas.](#general-best-practices-to-mitigate-throttling-during-autoscaling)
 
-Aumentar o limite de Pedido Simultâneo **não** afeta diretamente os seus custos. Os Serviços de Fala utilizam o modelo "Pague apenas pelo que usa". O limite define a altura da escala do Serviço antes de iniciar o aceleração dos seus pedidos.
+Aumentar o limite de Pedido Simultâneo **não** afeta diretamente os seus custos. O serviço de fala utiliza o modelo "Pague apenas pelo que usa". O limite define a altura da escala do Serviço antes de iniciar o aceleração dos seus pedidos.
 
 O valor existente do parâmetro limite de pedido simultâneo **não** é visível através do portal Azure, Command-Line ferramentas ou pedidos de API. Para verificar o valor existente, crie um Pedido de Suporte Azure.
 

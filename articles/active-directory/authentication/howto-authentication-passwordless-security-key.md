@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8779ee2d3c4d83c06a2c1803e65219d43f0ef14
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653835"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275809"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Ativar o sing-in da chave de segurança sem palavras-passe 
 
@@ -89,6 +89,8 @@ Se quiser partilhar feedback ou encontrar problemas com esta funcionalidade, par
 ### <a name="security-key-provisioning"></a>Provisão de chaves de segurança
 
 O fornecimento e desavising das chaves de segurança não estão disponíveis.
+
+**Nota:** Fido2 Cached logon falha na máquina híbrida Azure AD específica para ganhar 10 20H2 versão (quando LOS para DC indisponível). Isto está atualmente sob investigação com a Engenharia.
 
 ### <a name="upn-changes"></a>Alterações de UPN
 

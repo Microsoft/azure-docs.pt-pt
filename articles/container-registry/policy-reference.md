@@ -8,10 +8,10 @@ ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 54fa2655dea79d129e773478b4097f41fbc878a4
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105034691"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Definições incorporadas da Política Azure para o Registo de Contentores de Azure

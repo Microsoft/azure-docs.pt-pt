@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 86296385a0e657246e415f326261ce401e3cdeaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b47a205cac1717dfc66594f856fd9370a01a9ae3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604190"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168217"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Resolução de problemas problemas comuns do Windows Virtual Desktop Agent
 
@@ -106,7 +106,7 @@ Para resolver este problema, verifique se pode contactar a BrokerURI e a BrokerU
    > ![Screenshot do acesso global de corretor carregado sem sucesso](media/unsuccessful-broker-global.png)
 
 8. Se a rede estiver a bloquear estes URLs, terá de desbloquear os URLs necessários. Para obter mais informações, consulte [a Lista de URL Necessária.](safe-url-list.md)
-9. Se isto não resolver o seu problema, certifique-se de que não tem nenhuma política de grupo com cifras que bloqueiem a ligação do agente ao corretor. O Windows Virtual Desktop utiliza as mesmas cifras TLS 1.2 que [a Porta Frontal Azure](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). Para mais informações, consulte [a Connection Security](network-connectivity.md#connection-security).
+9. Se isto não resolver o seu problema, certifique-se de que não tem nenhuma política de grupo com cifras que bloqueiem a ligação do agente ao corretor. O Windows Virtual Desktop utiliza as mesmas cifras TLS 1.2 que [a Porta Frontal Azure](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Para mais informações, consulte [a Connection Security](network-connectivity.md#connection-security).
 
 ## <a name="error-3703"></a>Erro: 3703
 

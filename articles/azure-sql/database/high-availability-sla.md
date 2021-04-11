@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: a14f8e0ba3ae5cca75cf6518320023703a6d1700
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: fbf2a30d029a579026fa9c590f59bedff594f4b8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626389"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109208"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -119,7 +119,7 @@ Para obter mais informações sobre a elevada disponibilidade em Hiperescala, co
 
 ## <a name="testing-application-fault-resiliency"></a>Teste de resiliência da falha da aplicação
 
-A elevada disponibilidade é uma parte fundamental da plataforma SQL Managed Instance e da Base de Dados SQL que funcionam de forma transparente na aplicação de base de dados. No entanto, reconhecemos que possa querer testar de que forma as operações de ativação pós-falha automáticas e iniciadas durante eventos planeados ou não planeados afetam a aplicação antes de a implementar para produção. Pode desencadear manualmente uma falha, chamando uma API especial para reiniciar uma base de dados, uma piscina elástica ou uma instância gerida. No caso de uma base de dados redundante ou piscina elástica, a chamada da API resultaria na reorientação das ligações dos clientes para a nova primária numa Zona de Disponibilidade diferente da Zona de Disponibilidade da antiga primária. Assim, além de testar como o failover impacta as sessões de base de dados existentes, também pode verificar se altera o desempenho de ponta a ponta devido a alterações na latência da rede. Como a operação de reinício é intrusiva e um grande número deles pode stressar a plataforma, apenas uma chamada de failover é permitida a cada 15 minutos para cada base de dados, piscina elástica ou instância gerida.
+A elevada disponibilidade é uma parte fundamental da plataforma SQL Managed Instance e da Base de Dados SQL que funcionam de forma transparente na aplicação de base de dados. No entanto, reconhecemos que possa querer testar de que forma as operações de ativação pós-falha automáticas e iniciadas durante eventos planeados ou não planeados afetam a aplicação antes de a implementar para produção. Pode desencadear manualmente uma falha, chamando uma API especial para reiniciar uma base de dados, uma piscina elástica ou uma instância gerida. No caso de uma zona redundante sem servidor ou fornecendo base de dados de Final Geral ou piscina elástica, a chamada API resultaria na reorientação das ligações do cliente para a nova primária numa Zona de Disponibilidade diferente da Zona de Disponibilidade da antiga primária. Assim, além de testar como o failover impacta as sessões de base de dados existentes, também pode verificar se altera o desempenho de ponta a ponta devido a alterações na latência da rede. Como a operação de reinício é intrusiva e um grande número deles pode stressar a plataforma, apenas uma chamada de failover é permitida a cada 15 minutos para cada base de dados, piscina elástica ou instância gerida.
 
 Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
 

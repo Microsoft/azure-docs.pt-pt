@@ -7,10 +7,10 @@ author: yanancai
 ms.author: yanacai
 ms.date: 03/23/2021
 ms.openlocfilehash: 676b4ccd52e8a6f1f378756a255ad55b74f18ebe
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105111468"
 ---
 # <a name="find-the-host-names-of-cluster-nodes"></a>Encontre os nomes dos anfitriões dos Nóns de Cluster

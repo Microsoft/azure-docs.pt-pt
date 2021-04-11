@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: d0b2ccc0bf5d38e9a72bf780875d3b6f29733189
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: b38f2831136b0ccec4aa241135f2fd342c939845
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026756"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936891"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Quickstart: Criar e configurar norma de proteção Azure DDoS
 
@@ -70,10 +70,9 @@ Não é possível mover uma rede virtual para outro grupo de recursos ou subscri
 ### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Ativar a proteção DDoS para uma rede virtual existente
 
 1. Crie um plano de proteção DDoS preenchendo as etapas no [Criar um plano de proteção DDoS,](#create-a-ddos-protection-plan)se não tiver um plano de proteção DDoS existente.
-2. **Selecione Criar um recurso** no canto superior esquerdo do portal Azure.
-3. Insira o nome da rede virtual que pretende ativar a Norma de Proteção DDoS para os **recursos de pesquisa, serviços e caixa** de docs no topo do portal. Quando o nome da rede virtual aparecer nos resultados da pesquisa, selecione-o.
-4. Selecione **a proteção DDoS,** em **DEFINIÇÕES**.
-5. Selecione **Standard**. No âmbito **do plano de proteção DDoS,** selecione um plano de proteção DDoS existente ou o plano que criou no passo 1 e, em seguida, selecione **Save**. O plano que seleciona pode ser na mesma, ou subscrição diferente da rede virtual, mas ambas as subscrições devem estar associadas ao mesmo inquilino do Azure Ative Directory.
+2. Insira o nome da rede virtual que pretende ativar o DDoS Protection Standard para os **recursos de pesquisa, serviços e caixa** de docs no topo do portal Azure. Quando o nome da rede virtual aparecer nos resultados da pesquisa, selecione-o.
+3. Selecione **a proteção DDoS,** em **DEFINIÇÕES**.
+4. Selecione **Standard**. No âmbito **do plano de proteção DDoS,** selecione um plano de proteção DDoS existente ou o plano que criou no passo 1 e, em seguida, selecione **Save**. O plano que seleciona pode ser na mesma, ou subscrição diferente da rede virtual, mas ambas as subscrições devem estar associadas ao mesmo inquilino do Azure Ative Directory.
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Ativar a proteção DDoS para todas as redes virtuais
 

@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68d90fa56d5dce902a44a32b322e582a81e419d5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392787"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011644"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapeamento do tipo de dados na atividade da cópia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -22,7 +22,7 @@ Este artigo descreve como a atividade de cópia da Azure Data Factory executa o 
 
 ### <a name="default-mapping"></a>Mapeamento padrão
 
-Por predefinição, a atividade de cópia mapeia dados de origem para afundar **por nomes** de colunas de forma sensível ao caso. Se não existirem pias, por exemplo, escrevendo para ficheiros, os nomes de campo de origem serão persistidos como nomes de pia. Este mapeamento predefinido suporta esquemas flexíveis e o esquema deriva da fonte para afundar da execução para a execução - todos os dados devolvidos pela loja de dados de origem podem ser copiados para afundar.
+Por predefinição, a atividade de cópia mapeia dados de origem para afundar **por nomes** de colunas de forma sensível ao caso. Se não existirem pias, por exemplo, escrevendo para ficheiros, os nomes de campo de origem serão persistidos como nomes de pia. Se a pia já existir, deve conter todas as colunas copiadas da fonte. Este mapeamento predefinido suporta esquemas flexíveis e o esquema deriva da fonte para afundar da execução para a execução - todos os dados devolvidos pela loja de dados de origem podem ser copiados para afundar.
 
 Se a sua fonte for ficheiro de texto sem linha de cabeçalho, é necessário [um mapeamento explícito,](#explicit-mapping) uma vez que a fonte não contém nomes de colunas.
 

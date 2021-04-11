@@ -2,14 +2,14 @@
 title: Configurar pontos finais de serviço de rede virtual para Azure Service Bus
 description: Este artigo fornece informações sobre como adicionar um ponto final de serviço Microsoft.ServiceBus a uma rede virtual.
 ms.topic: article
-ms.date: 02/12/2021
+ms.date: 03/29/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b5aba6c5ad4e1e6d0c90b99ebcdf441bb35cc39
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559570"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960457"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de redes virtuais específicas
 A integração do Service Bus com [os pontos finais de serviço da Rede Virtual (VNet)][vnet-sep] permite o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades.
@@ -18,16 +18,14 @@ Uma vez configurado para ser ligado a pelo menos um ponto final de serviço de s
 
 O resultado é uma relação privada e isolada entre as cargas de trabalho ligadas à sub-rede e o respetivo espaço de nomes do Service Bus, apesar do endereço de rede observável do ponto final do serviço de mensagens estar numa gama pública de IP.
 
-Implementar a integração de Redes Virtuais pode impedir que outros serviços da Azure interajam com o Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos serviços fidedignos, mesmo quando os pontos finais do serviço de rede estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
+## <a name="important-points"></a>Pontos importantes
+- As Redes Virtuais são suportadas apenas em espaços de nomes de serviços de serviço de [nível Premium.](service-bus-premium-messaging.md) Ao utilizar pontos finais de serviço VNet com Service Bus, não deve ativar estes pontos finais em aplicações que misturem espaços de nomes standard e premium Tier Service Bus. Porque o nível padrão não suporta VNets. O ponto final é restrito apenas aos espaços de nome de nível Premium.
+- Implementar a integração de Redes Virtuais pode impedir que outros serviços da Azure interajam com o Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos **serviços fidedignos,** mesmo quando os pontos finais do serviço de rede estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
 
-Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
-- Serviço de Aplicações do Azure
-- Funções do Azure
-
-As Redes Virtuais são suportadas apenas em espaços de nomes de serviços de serviço de [nível Premium.](service-bus-premium-messaging.md) Ao utilizar pontos finais de serviço VNet com Service Bus, não deve ativar estes pontos finais em aplicações que misturem espaços de nomes standard e premium Tier Service Bus. Porque o nível padrão não suporta VNets. O ponto final é restrito apenas aos espaços de nome de nível Premium.
-
-> [!IMPORTANT]
-> Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso).  
+    Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
+    - Serviço de Aplicações do Azure
+    - Funções do Azure
+- Especifique **pelo menos uma regra de IP ou rede virtual** para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração do VNet 
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: reconhecimento de intenção
-ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 532101c8cc307e6a5bb65022702b516c492a51fe
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018706"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210382"
 ---
 # <a name="what-is-intent-recognition"></a>O que é o reconhecimento de intenções?
 
@@ -33,7 +33,7 @@ Utilizando o reconhecimento de intenções, as suas aplicações, ferramentas e 
 
 ## <a name="get-started"></a>Introdução
 
-Veja o [quickstart](quickstarts/intent-recognition.md) para começar com o reconhecimento de intenção.
+Veja o [quickstart](get-started-intent-recognition.md) para começar com o reconhecimento de intenção.
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -53,6 +53,6 @@ Código de amostra para reconhecimento de intenções:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Complete o início rápido do reconhecimento [de intenção](quickstarts/intent-recognition.md)
+* Complete o início rápido do reconhecimento [de intenção](get-started-intent-recognition.md)
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 * [Obtenha o Discurso SDK](speech-sdk.md)

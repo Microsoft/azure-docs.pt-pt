@@ -2,13 +2,13 @@
 title: Novidades com o agente de servidores Azure Arc
 description: Este artigo tem notas de lançamento para o agente de servidores ativado pelo Azure Arc. Para muitas das questões resumidas, há ligações a mais detalhes.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/31/2021
+ms.openlocfilehash: ecff23225f4d482cc1e9a4f7b7724c8ffe0a1d73
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470511"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109072"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novidades com o agente de servidores Azure Arc
 
@@ -24,9 +24,9 @@ Versão 1.4
 
 ## <a name="new-feature"></a>Nova funcionalidade
 
-- Apoio adicional a pontos finais privados.
+- Apoio adicional aos pontos finais privados, que está atualmente em pré-visualização limitada.
 - Lista alargada de códigos de saída para azcmagent.
-- Os parâmetros de configuração do agente podem agora ser lidos a partir de um ficheiro com o parâmetro --config.
+- Os parâmetros de configuração do agente podem agora ser lidos a partir de um ficheiro com o `--config` parâmetro.
 
 ## <a name="fixed"></a>Fixo
 

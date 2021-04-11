@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104798889"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
@@ -48,10 +48,10 @@ Antes de configurar as identidades do dispositivo em Azure AD para o seu ambient
 
 | Tipo de identidade do dispositivo | Infraestrutura de identidade | Dispositivos Windows | Versão da plataforma VDI | Suportado |
 | --- | --- | --- | --- | --- |
-| associado ao Azure AD Híbrido | Federado<sup>3</sup> | Windows current e Windows down-level | Persistente | Sim |
+| associado ao Azure AD Híbrido | Federado<sup>3</sup> | Windows current e Windows down-level | Persistente | Yes |
 |   |   | Corrente do Windows | Não Persistente | Sim<sup>5</sup> |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
-|   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Sim |
+|   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Yes |
 |   |   | Corrente do Windows | Não Persistente | No |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
 | Azure AD associado | Federados | Corrente do Windows | Persistente | No |

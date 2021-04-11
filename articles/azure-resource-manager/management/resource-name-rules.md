@@ -2,13 +2,13 @@
 title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 20f7b6dc6c49b972b873ae3b275451829dec5c14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/08/2021
+ms.openlocfilehash: a1dbe409eb5479c4027834cd33e095d12c31e238
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934177"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210198"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -16,7 +16,7 @@ Este artigo resume as regras de nomeação e as restrições para os recursos da
 
 Este artigo lista os recursos pelo espaço de nome do fornecedor de recursos. Para obter uma lista de como os fornecedores de recursos correspondem aos serviços da Azure, consulte [os fornecedores de recursos para os serviços Azure](azure-services-resource-providers.md).
 
-Os nomes dos recursos são insensíveis a caso, a menos que sejam especificamente indicados na coluna de caracteres válidos.
+Os nomes dos recursos são insensíveis a caso, a menos que indicados na coluna de caracteres válidos.
 
 Nas tabelas seguintes, o termo alfanumérico refere-se:
 
@@ -110,7 +110,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | lotAcons | Region | 3-24 | Letras minúsculas e números. |
+> | lotAcons | Região | 3-24 | Letras minúsculas e números. |
 > | lotacos / aplicações | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos /certificados | conta de lote | 5-45 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos / piscinas | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
@@ -177,11 +177,18 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | galerias / imagens / versões | image | Inteiro de 32 bits | Números e períodos. |
 > | imagens | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
 > | instantâneos | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
-> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Os VMs do Windows não podem incluir período ou fim com hífen.<br><br>Os VMs Linux não podem terminar com período ou hífen. |
-> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
+> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Os VMs do Windows não podem incluir período ou fim com hífen.<br><br>Os VMs Linux não podem terminar com período ou hífen. |
+> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
 
 > [!NOTE]
 > As máquinas virtuais Azure têm dois nomes distintos: nome de recurso e nome de hospedeiro. Quando se cria uma máquina virtual no portal, o mesmo valor é utilizado para ambos os nomes. As restrições na tabela anterior são para o nome de anfitrião. O nome do recurso real pode ter até 64 carateres.
+
+## <a name="microsoftcommunication"></a>Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Entidade | Âmbito | Comprimento | Carateres Válidos |
+> | --- | --- | --- | --- |
+> | Serviços de comunicação | global | 1-63 | Alfanuméricos, hífens e sublinhados. |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
@@ -599,7 +606,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
 > | implementações | grupo de recursos | 1-64 | Alfanuméricos, sublinhados, parênteses, hífens e períodos. |
-> | grupos de recursos | subscrição | 1-90 | Alfanuméricos, sublinhados, parênteses, hífens, períodos e caracteres unicode que correspondem à [documentação regex](/rest/api/resources/resources/resourcegroups/createorupdate).<br><br>Não pode terminar com o período. |
+> | grupos de recursos | subscrição | 1-90 | Alfanuméricos, sublinhados, parênteses, hífens, períodos e caracteres unicode que correspondem à [documentação regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>Não pode terminar com o período. |
 > | tagNames | recurso | 1-512 | Não posso usar:<br>`<>%&\?/` |
 > | tagNames / tagValues | nome tag | 1-256 | Todos os personagens. |
 > | modeloSpecs | grupo de recursos | 1-90 | Alfanuméricos, sublinhados, parênteses, hífens e períodos. |
@@ -706,10 +713,12 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | --- | --- | --- | --- |
 > | certificados | grupo de recursos | 1-260 | Não posso usar:<br>`/` <br><br>Não pode terminar com espaço ou período.  | 
 > | serverfarms | grupo de recursos | 1-40 | Alfanuméricos e hífens. |
-> | sites | global | 2-60 | Contém alfanuméricos e hífens.<br><br>Não se pode começar ou acabar com hífen. |
+> | sites | global ou por domínio. Veja a nota abaixo. | 2-60 | Contém alfanuméricos e hífens.<br><br>Não se pode começar ou acabar com hífen. |
 > | sites / slots | site | 2-59 | Alfanuméricos e hífens. |
 
 > [!NOTE]
+> Um site deve ter um URL globalmente único. Quando cria um web site que utiliza um plano de hospedagem, o URL é `http://<app-name>.azurewebsites.net` . O nome da aplicação deve ser globalmente único. Quando cria um web site que utiliza um Ambiente de Serviço de Aplicações, o nome da aplicação deve ser único dentro do [domínio para o Ambiente de Serviço de Aplicações.](../../app-service/environment/using-an-ase.md#app-access) Em ambos os casos, o URL do site é globalmente único.
+>
 > A Azure Functions tem as mesmas regras e restrições de nomeação que a Microsoft.Web/sites.
 
 ## <a name="next-steps"></a>Passos seguintes

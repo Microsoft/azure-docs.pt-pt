@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: jeedes
 ms.openlocfilehash: c6db83dd46d988b5e8b4122a9e89e3c36136ad89
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104799018"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moqups"></a>Tutorial: Azure Ative Directory integração única (SSO) com Moqups

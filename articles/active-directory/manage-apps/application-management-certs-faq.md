@@ -12,10 +12,10 @@ ms.date: 03/19/2021
 ms.author: kenwith
 ms.reviewer: secherka, mifarca, shchaur, shravank, sureshja
 ms.openlocfilehash: 928bf02e2d628379738483b40631e36f0f929176
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104803807"
 ---
 # <a name="azure-active-directory-azure-ad-application-management-certificates-frequently-asked-questions"></a>Certificados de Gestão de Aplicações Azure Ative (Azure AD) frequentemente questionados

@@ -1,5 +1,5 @@
 ---
-title: Monitorização de diagnóstico Azure - Azure Attestation
+title: Monitorização de diagnóstico Azure para Azure Attestation
 description: Monitorização de diagnóstico Azure para Azure Attestation
 services: attestation
 author: msmbaldwin
@@ -7,22 +7,20 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d01e7817906927295591353b710afe2899aacdf1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d2773be4bc67e125c18d5d38c951685e4f4fceaf
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726483"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168353"
 ---
-# <a name="setting-up-diagnostics-with-trusted-platform-module-tpm-endpoint-of-azure-attestation"></a>Criação de diagnósticos com Módulo de Plataforma Fidedigna (TPM) ponto final da Attestation Azure
+# <a name="set-up-diagnostics-with-a-trusted-platform-module-tpm-endpoint-of-azure-attestation"></a>Configurar diagnósticos com um módulo de plataforma fidedigna (TPM) ponto final da Attestation Azure
 
-[Os registos da plataforma](../azure-monitor/essentials/platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](../azure-monitor/essentials/data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos. 
+Este artigo ajuda-o a criar e configurar configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos. [Os registos da plataforma](/azure/azure-monitor/platform/platform-logs-overview) em Azure, incluindo os registos de atividades azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure de que dependem. [As métricas da plataforma](/azure/azure-monitor/platform/data-platform-metrics) são recolhidas por padrão e são armazenadas na base de dados Azure Monitor Metrics.
 
-O serviço de ponto final TPM está ativado com definição de diagnóstico e pode ser utilizado para monitorizar a atividade. Para configurar [o Azure Monitoring](../azure-monitor/overview.md) para o ponto final de serviço TPM utilizando o PowerShell siga gentilmente os passos abaixo. 
+Antes de começar, certifique-se de ter [configurado a Azure Attestation com a Azure PowerShell](quickstart-powershell.md).
 
-Configurar o serviço Azure Attestation. 
-
-[Configurar a Azure Attestation com a Azure PowerShell](./quickstart-powershell.md)
+O serviço de ponto final do Módulo plataforma fidedigna (TPM) está ativado nas definições de diagnóstico e pode ser utilizado para monitorizar a atividade. Confiúdice [Azure Monitoring](/azure/azure-monitor/overview) para o ponto de terminamento do serviço TPM utilizando o seguinte código.
 
 ```powershell
 
@@ -41,4 +39,5 @@ Configurar o serviço Azure Attestation.
  Set-AzDiagnosticSetting -ResourceId $ attestationProvider.Id -StorageAccountId $ storageAccount.Id -Enabled $true 
 
 ```
-Os registos de atividade podem ser encontrados na secção de Contentores da conta de armazenamento. Informações detalhadas podem ser encontradas em [registos de recursos de um recurso Azure e analisar com O Azure Monitor - Azure Monitor](../azure-monitor/essentials/tutorial-resource-logs.md)
+
+Os registos de atividade estão na secção **de Contentores** da conta de armazenamento. Para obter mais informações, consulte [Recolher e analisar registos de recursos a partir de um recurso Azure.](/azure/azure-monitor/learn/tutorial-resource-logs)

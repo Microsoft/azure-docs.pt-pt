@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: b-juche
 ms.openlocfilehash: 2819ee3bc76c0b9ff0f35d442e52149096ddc9f7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104590981"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>Apresentar o estado de funcionamento da relação de replicação 
