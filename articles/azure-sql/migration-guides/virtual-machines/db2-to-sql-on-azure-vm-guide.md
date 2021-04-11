@@ -11,10 +11,10 @@ ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
 ms.openlocfilehash: 003448255a82d0062e9abc3c358a47687cd5ae90
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105644202"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guia de migração: Db2 para SQL Server em VMs Azure

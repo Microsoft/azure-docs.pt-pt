@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 074bffb8614be1f71ba1956fd5a238bc19354c58
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611832"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028748"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
 
@@ -31,6 +31,18 @@ Os registos de atividades detalhados aqui descritos devem ser ativados **apenas*
 ## <a name="set-up-application-insights"></a>Configurar Insights de Aplicação
 
 Se ainda não tiver um, crie uma instância de Application Insights na sua subscrição.
+
+> [!TIP]
+> Uma única instância de Application Insights pode ser usada para vários inquilinos Azure AD B2C. Em seguida, na sua consulta, você pode filtrar pelo inquilino, ou nome de política. Para obter mais informações, [consulte os registos nas amostras de Insights de Aplicação.](#see-the-logs-in-application-insights)
+
+Para utilizar uma instância de saída de Insights de Aplicação na sua subscrição, siga estes passos:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a sua subscrição Azure (não o seu diretório Azure AD B2C).
+1. Abra o recurso Application Insights que criou anteriormente.
+1. Na página **'Visão Geral'** e grave a **Chave de Instrumentação**
+
+Para criar uma instância de Insights de Aplicação na sua subscrição, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a sua subscrição Azure (não o seu diretório Azure AD B2C).
@@ -96,12 +108,59 @@ Aqui está uma lista de consultas que pode usar para ver os registos:
 
 | Consulta | Description |
 |---------------------|--------------------|
-`traces` | Veja todos os registos gerados por Azure AD B2C |
-`traces | where timestamp > ago(1d)` | Veja todos os registos gerados pela Azure AD B2C para o último dia
+| `traces` | Obtenha todos os registos gerados por Azure AD B2C |
+| `traces | where timestamp > ago(1d)` | Obtenha todos os registos gerados pelo Azure AD B2C para o último dia.|
+| `traces | where message contains "exception" | where timestamp > ago(2h)`|  Obtenha todos os registos com erros das últimas duas horas.|
+| `traces | where customDimensions.Tenant == "contoso.onmicrosoft.com" and customDimensions.UserJourney  == "b2c_1a_signinandup"` | Obtenha todos os registos gerados pelo Azure AD B2C *contoso.onmicrosoft.com* inquilino, e a viagem do utilizador é *b2c_1a_signinandup*. |
+| `traces | where customDimensions.CorrelationId == "00000000-0000-0000-0000-000000000000"`| Obtenha todos os registos gerados pelo Azure AD B2C para uma identificação de correlação. Substitua o ID da correlação pelo seu ID de correlação. | 
 
 As entradas podem ser longas. Exportar para CSV para um olhar mais atento.
 
 Para obter mais informações sobre consultas, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+
+## <a name="see-the-logs-in-vs-code-extension"></a>Consulte os registos na extensão do Código VS
+
+Recomendamos que instale a [extensão Azure AD B2C](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) para [o Código VS](https://code.visualstudio.com/). Com a extensão Azure AD B2C, os registos são organizados para si pelo nome da política, iD de correlação (os insights da aplicação apresentam o primeiro dígito do ID de correlação) e a marca de tempo de registo. Esta funcionalidade ajuda-o a encontrar o registo relevante com base no timetamp local e ver a viagem do utilizador executada por Azure AD B2C.
+
+> [!NOTE]
+> A comunidade desenvolveu a extensão de código vs para Azure AD B2C para ajudar os desenvolvedores de identidade. A extensão não é suportada pela Microsoft, e é disponibilizada estritamente como está.
+
+### <a name="set-application-insights-api-access"></a>Definir Informações de Acesso API
+
+Depois de configurar os Insights de Aplicação e configurar a política personalizada, precisa de obter o **ID API** dos Seus Insights de Aplicação e criar **a Chave API**. Tanto a tecla API ID como a API são utilizadas pela extensão AZURE AD B2C para ler os eventos Application Insights (telemetria). As suas chaves API devem ser geridas como senhas. Mantenha-o em segredo.
+
+> [!NOTE]
+> A chave de instrumentação de Insights de Aplicação que a sua criação anterior é usada pela Azure AD B2C para enviar telemetrias para Insights de Aplicação. Utilize a tecla de instrumentação apenas na sua política Azure AD B2C, e não na extensão do código vs.
+
+Para obter ID e chave de Insights de Aplicação:
+
+1. No portal Azure, abra o recurso Application Insights para a sua aplicação.
+1. Selecione **Definições** e, em seguida, selecione **API Access**.
+1. Copiar o **ID da aplicação**
+1. Selecione **Criar Chave API**
+1. Verifique a caixa **de telemetria Read.**
+1. Copie a **chave** antes de fechar a lâmina da chave API Create e guarde-a em algum lugar seguro. Se perder a chave, terá de criar outra.
+
+    ![Screenshot que demonstra como criar a chave de acesso API.](./media/troubleshoot-with-application-insights/application-insights-api-access.png)
+
+### <a name="set-up-azure-ad-b2c-vs-code-extension"></a>Configurar extensão do Código Azure AD B2C VS
+
+Agora que tem informações sobre a aplicação API ID e Key, pode configurar a extensão de código vs para ler os registos. A extensão do código Azure AD B2C VS fornece dois âmbitos para as definições:
+
+- **Configurações Globais do Utilizador** - Configurações que se aplicam globalmente a qualquer instância do Código VS que abre.
+- **Definições de espaço de trabalho** - Configurações armazenadas dentro do seu espaço de trabalho e só se aplicam quando o espaço de trabalho é aberto (utilizando a pasta **aberta** do Código VS).
+
+1. A partir do explorador **Azure AD B2C Trace,** clique no ícone **Definições.**
+
+    ![Screenshot que demonstra selecionar as definições de insights de aplicação.](./media/troubleshoot-with-application-insights/app-insights-settings.png)
+
+1. Forneça o ID e **a chave** **Azure** Application Insights .
+1. Clique em **Guardar**
+
+Depois de guardar as definições, os registos de insights da Aplicação aparecem na janela **Azure AD B2C Trace (App Insights).**
+
+![Screenshot da extensão AZURE AD B2C para vscode, apresentando o traço de insights da Aplicação Azure.](./media/troubleshoot-with-application-insights/vscode-extension-application-insights-trace.png)
+
 
 ## <a name="configure-application-insights-in-production"></a>Configure insights de aplicação na produção
 
@@ -128,12 +187,8 @@ Para melhorar o desempenho do seu ambiente de produção e uma melhor experiênc
    
 1. Faça upload e teste a sua política.
 
+
+
 ## <a name="next-steps"></a>Passos seguintes
 
-A comunidade desenvolveu um visualizador do percurso do utilizador para ajudar os programadores de identidade. O visualizador lê a partir da instância do Application Insights e disponibiliza uma vista bem estruturada dos eventos do percurso do utilizador. Deve obter o código fonte e implementá-lo na sua própria solução.
-
-O jogador de viagem de utilizador não é suportado pela Microsoft e é disponibilizado estritamente como está.
-
-Pode encontrar a versão do espectador que lê eventos a partir de Application Insights no GitHub, aqui:
-
-[Azure-Samples/active-directy-b2c-advanced-policies](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
+- Saiba como [resolver as políticas personalizadas Azure AD B2C](troubleshoot-custom-policies.md)

@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Data Analytics'
 - devx-track-azurecli
 ms.openlocfilehash: 88f5803e1d4348b79c7675d627a541ff47700dc0
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105630802"
 ---
 # <a name="tutorial-understanding-public-key-cryptography-and-x509-public-key-infrastructure"></a>Tutorial: Compreender a Criptografia da Chave Pública e A Infraestrutura Chave Pública X.509

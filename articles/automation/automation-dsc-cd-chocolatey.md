@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bb5f7b5e8214bd3b04bd7b9544ab4bc589f6c4bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955e6b22c22d9cbe5891bcd0109806cb9270a456
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896330"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168659"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurar a implementação contínua com o Chocolatey
 
@@ -47,7 +47,7 @@ Uma característica chave de um modelo de Gestor de Recursos é a sua capacidade
 
 ## <a name="quick-trip-around-the-diagram"></a>Viagem rápida em torno do diagrama
 
-A partir de cima, escreve-se o seu código, constrói-o, testa-o e cria-se um pacote de instalação. A Chocolatey pode lidar com vários tipos de embalagens de instalação, tais como MSI, MSU, ZIP. E tens todo o poder da PowerShell para fazer a instalação se as capacidades nativas da Chocolatey não estiverem à altura. Coloque a embalagem em algum lugar acessível - um repositório de pacote. Este exemplo de utilização utiliza uma pasta pública numa conta de armazenamento de bolhas Azure, mas pode estar em qualquer lugar. A Chocolatey trabalha nativamente com servidores NuGet e alguns outros para a gestão de metadados de pacote. [Este artigo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descreve as opções. O exemplo de utilização utiliza o NuGet. Um Nuspec é metadados sobre os seus pacotes. A informação nuspec é compilada num NuPkg e armazenada num servidor NuGet. Quando a sua configuração solicita um pacote pelo nome e faz referência a um servidor NuGet, o recurso DSC chocolatey no VM agarra o pacote e instala-o. Também pode solicitar uma versão específica de um pacote.
+A partir de cima, escreve-se o seu código, constrói-o, testa-o e cria-se um pacote de instalação. A Chocolatey pode lidar com vários tipos de embalagens de instalação, tais como MSI, MSU, ZIP. E tens todo o poder da PowerShell para fazer a instalação se as capacidades nativas da Chocolatey não estiverem à altura. Coloque o pacote em algum lugar acessível - um repositório de pacote. Este exemplo de utilização utiliza uma pasta pública numa conta de armazenamento de bolhas Azure, mas pode estar em qualquer lugar. A Chocolatey trabalha nativamente com servidores NuGet e alguns outros para a gestão de metadados de pacote. [Este artigo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descreve as opções. O exemplo de utilização utiliza o NuGet. Um Nuspec é metadados sobre os seus pacotes. A informação nuspec é compilada num NuPkg e armazenada num servidor NuGet. Quando a sua configuração solicita um pacote pelo nome e faz referência a um servidor NuGet, o recurso DSC chocolatey no VM agarra o pacote e instala-o. Também pode solicitar uma versão específica de um pacote.
 
 Na parte inferior esquerda da imagem, há um modelo de Gestor de Recursos Azure. Neste exemplo de utilização, a extensão VM regista o VM com o servidor de puxar o estado de azure automation como nó. A configuração é armazenada duas vezes no servidor de puxar: uma vez como texto simples e uma vez compilada como um ficheiro MOF. No portal Azure, o MOF representa uma configuração de nó, em oposição a uma configuração simples. É o artefacto que está associado a um nó para que o nó saiba a sua configuração. Os detalhes abaixo mostram como atribuir a configuração do nó ao nó.
 
@@ -73,8 +73,8 @@ A fonte completa para este exemplo de utilização está [neste projeto do Estú
 Numa linha de `Connect-AzAccount` comando PowerShell autenticada: (pode demorar alguns minutos enquanto o servidor de puxar é configurado)
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-New-AzAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+New-AzResourceGroup -Name MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES
+New-AzAutomationAccount -ResourceGroupName MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES -Name MY-AUTOMATION-ACCOUNT
 ```
 
 Você pode colocar a sua conta de Automação em qualquer uma das seguintes regiões (também conhecidas como localizações): Leste EUA 2, South Central EUA, EUA Gov Virginia, Europa Ocidental, Sudeste Asiático, Japão Leste, Índia Central e Sudeste da Austrália, Canadá Central, Norte da Europa.
@@ -103,7 +103,7 @@ Há também uma abordagem manual, usada apenas uma vez por recurso, a menos que 
 2. Instale o módulo de integração.
 
     ```azurepowershell-interactive
-    Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
+    Install-Module -Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
     ```
 
 3. Copie a pasta do módulo a partir de **c:\Ficheiros de programa\WindowsPowerShell\Modules\MODULE-NAME** para uma pasta temporária.
@@ -119,14 +119,14 @@ Há também uma abordagem manual, usada apenas uma vez por recurso, a menos que 
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME -ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 O exemplo incluído implementa estes passos para cChoco e xNetworking. 
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Passo 4: Adicione a configuração do nó ao servidor pull
 
-Não há nada de especial na primeira vez que importa a sua configuração para o servidor pull e compila. Todas as importações posteriores ou compilações da mesma configuração são exatamente iguais. Sempre que atualizar o seu pacote e precisar de o empurrar para a produção, faça este passo depois de garantir que o ficheiro de configuração está correto – incluindo a nova versão do seu pacote. Aqui está o ficheiro de configuração **ISVBoxConfig.ps1:**
+Não há nada de especial na primeira vez que importa a sua configuração para o servidor pull e compila. Todas as importações posteriores ou compilações da mesma configuração são exatamente iguais. Sempre que atualizar o seu pacote e precisar de o empurrar para a produção, faça este passo depois de se ter assegurado que o ficheiro de configuração está correto - incluindo a nova versão do seu pacote. Aqui está o ficheiro de configuração **ISVBoxConfig.ps1:**
 
 ```powershell
 Configuration ISVBoxConfig
@@ -175,18 +175,18 @@ Aqui está o **New-ConfigurationScript.ps1** script (modificado para usar o mód
 
 ```powershell
 Import-AzAutomationDscConfiguration `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 `
-    -Published –Force
+    -Published -Force
 
 $jobData = Start-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -ConfigurationName ISVBoxConfig
 
 $compilationJobId = $jobData.Id
 
 Get-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -Id $compilationJobId
 ```
 

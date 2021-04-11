@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a26f7c63b639f9aeb6a8f526e77dacb37fb4d87
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555640"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068069"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Painel de clientes na análise do mercado comercial
 
@@ -163,6 +163,7 @@ _**Quadro 1: Dicionário de termos de dados**_
 | CommerceRootCustomer | Cliente raiz de comércio | Um ID de conta de faturação pode ser associado a vários IDs de cliente.<br>Uma combinação de um ID de conta de faturação e um ID do cliente pode ser associada a várias subscrições de marketplace comercial.<br>O Cliente Raiz de Comércio significa o nome do cliente da subscrição. | CommerceRootCustomer |
 | ID de Cliente | ID de Cliente | O identificador único atribuído a um cliente. Um cliente pode ter zero ou mais subscrições do Azure Marketplace. | CustomerId |
 | ID de conta de faturação | ID de conta de faturação | O identificador da conta em que a faturação é gerada. **Mapear iD de conta** de faturação ao **clienteID** para ligar o seu Relatório de Transações de Pagamento com os Relatórios de Cliente, Ordem e Utilização. | BillingAccountId |
+| Tipo de Cliente | Tipo de Cliente | O valor deste campo significa o tipo de cliente. Os valores possíveis são:<ul><li>indivíduo</li> <li>organização</li></ul> | Tipól do Cliente |
 |||||
 
 ### <a name="customers-page-filters"></a>Filtros de página de clientes

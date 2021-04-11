@@ -7,13 +7,13 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
-ms.date: 2/25/2020
-ms.openlocfilehash: 386a0e27c0f73f5bcd42397ed515f7561d5097fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: b4b67a6bf4eea72b3a81bd01398cc60cc33c0d0a
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955062"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227046"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utilizar identidades geridas para aceder ao App Configuration
 
@@ -145,7 +145,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
     >```
-    >Como explicado nas [Identidades Geridas para recursos Azure FAQs,](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)existe uma forma padrão de resolver que identidade gerida é usada. Neste caso, a biblioteca de identidade Azure obriga-o a especificar a identidade desejada para evitar problemas de tempo de execução posíveis no futuro (por exemplo, se for adicionada uma nova identidade gerida atribuída ao utilizador ou se a identidade gerida atribuída ao sistema estiver ativada). Assim, terá de especificar o ClientId mesmo que apenas uma identidade gerida atribuída ao utilizador seja definida, e não exista uma identidade gerida atribuída ao sistema.
+    >Como explicado nas [Identidades Geridas para recursos Azure FAQs,](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)existe uma forma padrão de resolver que identidade gerida é usada. Neste caso, a biblioteca de identidade Azure obriga-o a especificar a identidade desejada para evitar problemas de tempo de execução posíveis no futuro (por exemplo, se for adicionada uma nova identidade gerida atribuída ao utilizador ou se a identidade gerida atribuída ao sistema estiver ativada). Assim, terá de especificar o ClientId mesmo que apenas uma identidade gerida atribuída ao utilizador seja definida, e não exista uma identidade gerida atribuída ao sistema.
 
 
 1. Para utilizar tanto os valores de Configuração de Aplicações como as referências do Key Vault, atualiza *o Programa.cs* como mostrado abaixo. Este código chama `SetCredential` como parte de dizer ao fornecedor `ConfigureKeyVault` config qual a credencial a usar ao autenticar o Key Vault.

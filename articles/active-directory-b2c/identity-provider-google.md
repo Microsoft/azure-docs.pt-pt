@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 7d5786c4188db63efc3012e565071f8fd410b92f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4dee196d3ff0796802d2552f073446ad6912663
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579965"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028269"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar o sº de inscrição e o inseúbmento com uma conta google utilizando o Azure Ative Directory B2C
 
@@ -181,7 +181,7 @@ Pode definir uma conta Google como um fornecedor de sinistros adicionando-a ao e
 ## <a name="test-your-custom-policy"></a>Teste a sua política personalizada
 
 1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
-1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](tutorial-register-applications.md) A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Selecione o botão **Executar agora.**
 1. A partir da página de inscrição ou de inscrição, selecione **o Google** para iniciar scontabilidade do Google.
 

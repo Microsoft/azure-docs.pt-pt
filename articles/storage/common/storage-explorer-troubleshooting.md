@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 593ccac7326a0a04884fe433cac85cb8eaf79319
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439464"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228236"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -289,20 +289,20 @@ Se quiser preservar as ligações que não são corrompidas, pode usar os seguin
 
 Depois de analisar todas as suas ligações, para todos os nomes de ligações que não são adicionados de volta, você deve limpar os seus dados corrompidos (se houver algum) e adicioná-los de volta usando os passos padrão no Explorador de Armazenamento:
 
-# <a name="windows"></a>[Windows](#tab/Windows)
+### <a name="windows"></a>[Windows](#tab/Windows)
 
 1. No menu **Iniciar,** procure **o Gestor credencial** e abra-o.
 2. Ir para as **credenciais do Windows**.
 3. Sob **as Credenciais Genéricas,** procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Elimine estas entradas e reensiem as ligações.
 
-# <a name="macos"></a>[macOS](#tab/macOS)
+### <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Abra o holofote (Barra de espaço Command+Space) e procure **acesso ao Keychain**.
 2. Procure por entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Elimine estas entradas e reensiem as ligações.
 
-# <a name="linux"></a>[Linux](#tab/Linux)
+### <a name="linux"></a>[Linux](#tab/Linux)
 
 A gestão de credenciais locais varia consoante a distribuição do Linux. Se a sua distribuição Linux não fornecer uma ferramenta GUI incorporada para gestão de credenciais locais, pode instalar uma ferramenta de terceiros para gerir as suas credenciais locais. Por exemplo, você pode usar [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), uma ferramenta GUI de código aberto para gerir credenciais locais linux.
 
@@ -356,7 +356,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
 > [!NOTE]
 > A versão 1.7.0 do Storage Explorer e anteriormente requerem .NET Core 2.0. Se tiver uma versão mais recente de .NET Core instalada, terá de [corrigir o Storage Explorer.](#patching-storage-explorer-for-newer-versions-of-net-core) Se estiver a executar o Storage Explorer 1.8.0 ou mais tarde, precisa de pelo menos .NET Core 2.1.
 
-# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
+### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Descarregue o ficheiro .tar.gz do Storage Explorer.
 2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
@@ -369,7 +369,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
+### <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Descarregue o ficheiro .tar.gz do Storage Explorer.
 2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
@@ -382,7 +382,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
+### <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Descarregue o ficheiro .tar.gz do Storage Explorer.
 2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
@@ -431,6 +431,98 @@ Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se d
 * Mozilla Firefox
 * Google Chrome
 * Microsoft Internet Explorer
+
+## <a name="gathering-logs"></a>Recolha de troncos
+
+Quando reportar um problema ao GitHub, poderá ser-lhe pedido que recolha certos registos para ajudar a diagnosticar o seu problema.
+
+### <a name="storage-explorer-logs"></a>Registos do Explorador de Armazenamento
+
+Começando pela versão 1.16.0, o Storage Explorer regista várias coisas nos seus próprios registos de aplicações. Pode facilmente aceder a estes registos clicando em Help > Open Logs Directory. Por predefinição, o Storage Explorer regista-se a um nível baixo de verbosidade. Para alterar o nível de verbosidade, adicione uma variável ambiental com o nome de `STG_EX_LOG_LEVEL` , e qualquer um dos seguintes valores:
+- `silent`
+- `critical`
+- `error`
+- `warning`
+- `info` (nível predefinido)
+- `verbose`
+- `debug`
+
+Os registos são divididos em pastas para cada sessão do Explorador de Armazenamento que executou. Para quaisquer ficheiros de registo que necessite de partilhar, é aconselhável colocá-los num arquivo zip, com ficheiros de diferentes sessões em diferentes pastas.
+
+### <a name="authentication-logs"></a>Troncos de autenticação
+
+Para questões relacionadas com a biblioteca de autenticação do Explorador de Armazenamento ou desinsusação, é provável que necessite de recolher registos de autenticação. Os registos de autenticação são armazenados em:
+- Windows: `C:\Users\<your username>\AppData\Local\Temp\servicehub\logs`
+- macOS e Linux `~/.ServiceHub/logs`
+
+Geralmente, pode seguir estes passos para recolher os registos:
+
+1. Vá a Definições > Iniciar sessão > verificar o registo de autenticação verbose. Se o Storage Explorer não estiver a ser lançado devido a um problema com a sua biblioteca de autenticação, isso será feito por si.
+2. Fechar o Explorador de Armazenamento.
+1. Opcional/recomendado: limpe os registos existentes da `logs` pasta. Ao fazê-lo, reduzirá a quantidade de informação que tem de nos enviar.
+4. Abra o Explorador de Armazenamento e reproduza o seu problema
+5. Explorador de armazenamento próximo
+6. Feche o conteúdo da `log` pasta.
+
+### <a name="azcopy-logs"></a>Troncos AzCopy
+
+Se tiver problemas em transferir dados, poderá ter de obter os registos AzCopy. Os registos AzCopy podem ser encontrados facilmente através de dois métodos diferentes:
+- Para transferências falhadas ainda no Registo de Atividades, clique em "Ir para O Arquivo de Registos AzCopy"
+- Para transferências que falharam no passado, vá à pasta de registos AzCopy. Esta pasta pode ser encontrada em:
+  - Windows: `C:\Users\<your username>\.azcopy`
+  - macOS e Linux '~/.azcopy
+
+### <a name="network-logs"></a>Registos de rede
+
+Para alguns problemas, terá de fornecer registos das chamadas de rede es feitas pelo Storage Explorer. No Windows, pode fazê-lo utilizando o Fiddler.
+
+> [!NOTE]
+> Os vestígios do fiddler podem conter senhas que inseriu/enviou no seu navegador durante a recolha do rastreio. Certifique-se de ler as instruções sobre como higienizar um traço de violino. Não carrede os vestígios do Fiddler para o GitHub. Dir-lhe-ão onde pode enviar o seu rasto de Violino.
+
+Parte 1: Instalar e configurar o violinista
+
+1. Instalar Violinista
+2. Iniciar Violino
+3. Ir a Ferramentas > Opções
+4. Clique no separador HTTPS
+5. Certifique-se de que os CONNECTs de captura e o tráfego HTTPS desencriptam são verificados
+6. Clique no botão Ações
+7. Escolha "Trust Root Certificate" e depois "Sim" no próximo diálogo
+8. Clique novamente no botão Ações
+9. Escolha "Certificado de raiz de exportação para desktop"
+10. Vá para o seu ambiente de trabalho
+11. Encontre o ficheiro .cer FiddlerRoot
+12. Clique duplo para abrir
+13. Vá ao separador "Detalhes"
+14. Clique em "Copiar para Arquivar..."
+15. No assistente de exportação escolha as seguintes opções
+    - Base-64 codificado X.509
+    - Para o nome do ficheiro, navegue... a C:\Utilizadores \<your user dir> \AppData\Roaming\StorageExplorer\certs, e depois pode guardá-lo como qualquer nome de ficheiro
+16. Feche a janela do certificado
+17. Iniciar explorador de armazenamento
+18. Ir para editar > Configure Proxy
+19. No diálogo, escolha "Use as definições de procuração de aplicativos", e defina o URL http://localhost e a porta para 8888
+20. Clique em Ok
+21. Reiniciar explorador de armazenamento
+22. Devia começar a ver chamadas de rede de um `storageexplorer:` processo que aparece no Fiddler
+
+Parte 2: Reproduzir a questão
+1. Feche todas as aplicações que não o Fiddler
+2. Limpe o log do Fiddler (ícone X na parte superior esquerda, perto do menu Ver)
+3. Opcional/recomendado: deixe o Violinista definir por alguns minutos, se vir chamadas de rede aparecerem, clique com o botão direito e escolha 'Filter Now' > <process name> 'Hide'
+4. Iniciar explorador de armazenamento
+5. Reproduza o problema
+6. Clique em 'Arquivar > Guardar > Todas as Sessões..., guardar em algum lugar que não esquecerá
+7. Close Fiddler e Explorador de Armazenamento
+
+Parte 3: Sanitize o traço do Violinista
+1. Clique duas vezes no traço do violinista (ficheiro.saz)
+2. Imprensa `ctrl`+`f`
+3. No diálogo que aparece, certifique-se de que as seguintes opções estão definidas: Pesquisa = Pedidos e respostas, Examine = Cabeçalhos e corpos
+4. Procure por quaisquer palavras-passe utilizadas durante a recolha do traço do violinista, quaisquer entradas que sejam realçadas, clique à direita e escolha Remover > Sessões Selecionadas
+5. Se definitivamente introduziu senhas no seu navegador enquanto recolhe o rastreio, mas não encontra nenhuma entrada ao usar ctrl+f e não quer alterar as suas palavras-passe/as palavras-passe utilizadas são usadas para outras contas, então sinta-se à vontade para saltar o ficheiro .saz. É melhor prevenir do que remediar. :)
+6. Guarde o traço novamente com um novo nome
+7. Opcional: apagar o traço original
 
 ## <a name="next-steps"></a>Passos seguintes
 

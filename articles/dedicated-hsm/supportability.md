@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/25/2021
 ms.author: keithp
 ms.openlocfilehash: cd949bdb7c489478df6a16d6dccd0bf358637604
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105606934"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Suporte dedicado ao HSM Azure

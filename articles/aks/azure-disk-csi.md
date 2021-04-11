@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 2b4079b6d4eb39b65a7a60cd4d149c7748ab39ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5f9e28ac568f70801b2bd955c201712cfcb80084
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178886"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963338"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utilize os controladores da Interface de Armazenamento de Contentores de Disco Azure (CSI) no Serviço Azure Kubernetes (AKS) (pré-visualização)
 O controlador Azure Disk Container Storage Interface (CSI) é um controlador de [especificações CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)utilizado pelo Azure Kubernetes Service (AKS) para gerir o ciclo de vida dos discos Azure.
@@ -71,9 +71,9 @@ test.txt
 
 As aulas de armazenamento padrão combinam com os cenários mais comuns, mas não todos. Em alguns casos, talvez queira ter a sua própria classe de armazenamento personalizada com os seus próprios parâmetros. Por exemplo, temos um cenário em que talvez queira mudar a `volumeBindingMode` classe.
 
-As classes de armazenamento predefinido utilizam uma `volumeBindingMode: Immediate` classe que garante que ocorre imediatamente após a criação do PVC. Nos casos em que as piscinas de nó são limitadas, por exemplo, utilizando zonas de disponibilidade, os PVs seriam vinculados ou alobrados sem conhecimento dos requisitos de agendamento da cápsula (neste caso, para estar em uma zona específica).
+Pode utilizar uma `volumeBindingMode: Immediate` classe que garanta o que ocorre imediatamente após a criação do PVC. Nos casos em que as piscinas de nó são limitadas, por exemplo, utilizando zonas de disponibilidade, os PVs seriam vinculados ou alobrados sem conhecimento dos requisitos de agendamento da cápsula (neste caso, para estar em uma zona específica).
 
-Para resolver este cenário, pode utilizar `volumeBindingMode: WaitForFirstConsumer` - o que atrasa a ligação e o provisionamento de um PV até que seja criado um casulo que utiliza o PVC. Desta forma, o PV estará em conformidade e será alotado na zona de disponibilidade (ou outra topologia) que é especificada pelas restrições de agendamento da cápsula.
+Para resolver este cenário, pode utilizar `volumeBindingMode: WaitForFirstConsumer` - o que atrasa a ligação e o provisionamento de um PV até que seja criado um casulo que utiliza o PVC. Desta forma, o PV estará em conformidade e será alotado na zona de disponibilidade (ou outra topologia) que é especificada pelas restrições de agendamento da cápsula. As classes de armazenamento predefinido usam `volumeBindingMode: WaitForFirstConsumer` classe.
 
 Crie um ficheiro chamado `sc-azuredisk-csi-waitforfirstconsumer.yaml` , e cole o seguinte manifesto.
 A aula de armazenamento é a mesma da nossa `managed-csi` aula de armazenamento, mas com uma `volumeBindingMode` classe diferente.

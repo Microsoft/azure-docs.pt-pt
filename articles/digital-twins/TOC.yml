@@ -172,7 +172,7 @@
             - name: SDK Python
               href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: CLI do Digital Twins
-      href: /cli/azure/ext/azure-iot/dt
+      href: /cli/azure/dt
     - name: Especificação DTDL v2
       href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
 - name: Recursos

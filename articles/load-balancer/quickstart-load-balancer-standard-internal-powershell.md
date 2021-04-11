@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
@@ -16,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 5844b321fd3050bab9288657189ddcd87bba14db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d94a784aba5995fd7e4645c3b56929874da2bcd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98562340"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056373"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio usando Azure PowerShell
 

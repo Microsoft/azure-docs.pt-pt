@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 2dbf7c31e6b0b40fa9dc2d59e86c0ecc731657e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 73282145abd8bfe804b47fda3bf5f12dc691ff3a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172414"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551361"
 ---
 # <a name="azure-functions-deployment-slots"></a>Slots de implementação de funções Azure
 
@@ -20,9 +20,6 @@ As seguintes funções são afetadas pela troca de faixas horárias:
 
 - A reorientação do tráfego é perfeita; nenhum pedido é retirado por causa de uma troca.
 - Se uma função estiver a ser executada durante uma troca, a execução continua e os próximos gatilhos são encaminhados para a instância da aplicação trocada.
-
-> [!NOTE]
-> Atualmente, as faixas horárias não estão disponíveis para o plano de consumo de Linux.
 
 ## <a name="why-use-slots"></a>Por que usar slots?
 
@@ -229,7 +226,7 @@ Existem dois níveis de suporte para slots de implantação:
 | Consumo de Janelas       | Disponibilidade geral |
 | Windows Premium           | Disponibilidade geral  |
 | Windows Dedicado         | Disponibilidade geral |
-| Consumo de Linux         | Não suportado          |
+| Consumo de Linux         | Pré-visualizar          |
 | Linux Premium             | Disponibilidade geral  |
 | Linux Dedicado           | Disponibilidade geral |
 

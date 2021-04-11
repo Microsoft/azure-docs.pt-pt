@@ -8,13 +8,13 @@ ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/10/2020
-ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2020
+ms.openlocfilehash: a7a7bbb8b911f86b81cdeafe3fe57e1fdf820681
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98680195"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228287"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporte e elimine os dados dos seus clientes em Compreensão de Linguagem (LUIS) em Serviços Cognitivos
 
@@ -85,7 +85,15 @@ Os recursos de autoria dos Estados Unidos (também conhecidos como APIs program�
 
 * Geografias azuis não apoiadas pelas regiões autorais da Europa ou da Austrália
 
-Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia dos Estados Unidos da Azure para uma aprendizagem ativa. 
+Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia dos Estados Unidos da Azure para uma aprendizagem ativa.
+
+### <a name="switzerland-north"></a>Suíça Norte
+
+Os recursos de autoria do Norte da Suíça (também conhecidos como APIs programáticos) são hospedados na geografia suíça de Azure, e apoiam a implantação de pontos finais para as seguintes geografias Azure:
+
+* Suíça 
+
+Ao implementar estas geografias Azure, as declarações recebidas pelo ponto final dos utilizadores finais da sua app serão armazenadas na geografia suíça do Azure para uma aprendizagem ativa.
 
 ## <a name="disable-active-learning"></a>Desativar a aprendizagem ativa
 

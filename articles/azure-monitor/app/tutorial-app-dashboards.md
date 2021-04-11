@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperf-fy21q1
-ms.openlocfilehash: ebe34735a84e44526e6b96821a2a1da090884886
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 7bad0b17bb2fed9d9f54cdd44042ec88708f35fd
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383257"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103730"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 
@@ -59,7 +59,7 @@ Um único dashboard pode conter recursos de várias aplicações, grupos de recu
 5. Localize o mosaico **Markdown** e arraste-o para o dashboard.  Este azulejo permite-lhe adicionar texto formatado em marcação, o que é ideal para adicionar texto descritivo ao seu painel de instrumentos. Para saber mais, consulte [Use um azulejo de marcação nos painéis Azure para mostrar conteúdo personalizado](../../azure-portal/azure-portal-markdown-tile.md).
 6. Adicione texto às propriedades do mosaico e redimensione-o na tela do dashboard.
 
-    [![Editar mosaico Markdown](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
+    [![Editar mosaico Markdown](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/markdown.png#lightbox)
 
 7. Selecione **Fazer a personalização** na parte superior do ecrã para sair do modo de personalização do azulejo.
 

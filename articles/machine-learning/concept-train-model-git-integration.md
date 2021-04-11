@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 11/16/2020
-ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 04/08/2021
+ms.openlocfilehash: 2dc50702113f591075b790878347c4ca47beec4e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102547854"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027810"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração de Git para Azure Machine Learning
 
@@ -25,6 +25,11 @@ A Azure Machine Learning suporta totalmente os repositórios de Git para o traba
 Ao submeter um trabalho ao Azure Machine Learning, se os ficheiros de origem forem armazenados num repositório local, então a informação sobre o repo é rastreada como parte do processo de treino.
 
 Uma vez que a Azure Machine Learning rastreia informações de um repo local, não está ligada a nenhum repositório central específico. O seu repositório pode ser clonado do GitHub, GitLab, Bitbucket, Azure DevOps ou de qualquer outro serviço compatível com git.
+
+> [!TIP]
+> Utilize o Código do Estúdio Visual para interagir com o Git através de uma interface gráfica do utilizador. Para ligar a uma instância de computação remota Azure Machine Learning utilizando o Código do Estúdio Visual, consulte [Connect to a Azure Machine Learning compute instance in Visual Studio Code (pré-visualização)](how-to-set-up-vs-code-remote.md)
+>
+> Para obter mais informações sobre as funcionalidades de controlo da versão Visual Studio Code, consulte [o Controlo de Versão Usando o Código VS](https://code.visualstudio.com/docs/editor/versioncontrol) e [trabalhando com o GitHub no Código VS](https://code.visualstudio.com/docs/editor/github).
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonar repositórios Git no sistema de ficheiros da área de trabalho
 O Azure Machine Learning fornece um sistema de ficheiros partilhado para todos os utilizadores no espaço de trabalho.

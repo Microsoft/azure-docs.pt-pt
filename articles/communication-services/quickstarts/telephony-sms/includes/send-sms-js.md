@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: bertong
 ms.openlocfilehash: 8fe8b853fe07af40603950a61c0dd2a1df74d14e
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105644347"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando os Serviços de Comunicação JavaScript SMS SDK para enviar mensagens SMS.

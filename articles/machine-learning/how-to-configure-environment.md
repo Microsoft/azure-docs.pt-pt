@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 11/16/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 686274bc90f516f597a397a6b0270fb638e30c95
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501622"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027715"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Crie um ambiente de desenvolvimento python para a aprendizagem de máquinas Azure
 
@@ -134,7 +134,12 @@ Para utilizar o Código do Estúdio Visual para o desenvolvimento:
 1. Instale [o Código do Estúdio Visual](https://code.visualstudio.com/Download).
 1. Instale a extensão do [Código do Estúdio Visual Azure Machine Learning](tutorial-setup-vscode-extension.md) (pré-visualização).
 
-Assim que tiver a extensão visual Studio Code instalada, pode gerir os seus [recursos de Aprendizagem de Máquinas Azure,](how-to-manage-resources-vscode.md) [executar e depurar experiências](how-to-debug-visual-studio-code.md)e implementar [modelos treinados.](tutorial-train-deploy-image-classification-model-vscode.md)
+Assim que tiver a extensão do Código Do Estúdio Visual instalada, utilize-a para:
+
+* [Gerir os seus recursos de Aprendizagem automática Azure](how-to-manage-resources-vscode.md)
+* [Ligue-se a um caso de cálculo de aprendizagem automática Azure](how-to-set-up-vs-code-remote.md)
+* [Executar e depurar experiências](how-to-debug-visual-studio-code.md)
+* [Implementar modelos treinados.](tutorial-train-deploy-image-classification-model-vscode.md)
 
 ## <a name="azure-machine-learning-compute-instance"></a><a id="compute-instance"></a>Instância de computação do Azure Machine Learning
 
@@ -151,7 +156,7 @@ Para saber mais sobre casos de computação, incluindo como instalar pacotes, co
 
 Além de um servidor Jupyter Notebook e JupyterLab, você pode usar instâncias computatadas na [funcionalidade de caderno integrado dentro do estúdio Azure Machine Learning](how-to-run-jupyter-notebooks.md).
 
-Também pode utilizar a extensão do Código de Estúdio Visual Azure Machine Learning para [configurar uma instância computacional de aprendizagem automática Azure como um servidor remoto do Jupyter Notebook](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
+Também pode utilizar a extensão Azure Machine Learning Visual Studio Code para [ligar a uma instância de computação remota utilizando o Código VS](how-to-set-up-vs-code-remote.md).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Máquina Virtual de Ciência de Dados
 

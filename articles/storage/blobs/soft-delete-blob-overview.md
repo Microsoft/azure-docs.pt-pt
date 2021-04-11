@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 29d9dd7757319e59fc12b42d89c2ce16dec71b8b
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: c0cc29e6cbc9be1e7683b1b4412fa47f71c0538d
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551072"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227029"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
 
 A eliminação macia de blob protege uma bolha, instantâneo ou versão individuais de eliminações ou substituições acidentais mantendo os dados eliminados no sistema por um período de tempo especificado. Durante o período de retenção, pode restaurar um objeto apagado suave ao seu estado no momento em que foi eliminado. Após o período de retenção ter expirado, o objeto é permanentemente eliminado.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="recommended-data-protection-configuration"></a>Configuração recomendada de proteção de dados
 
@@ -29,8 +31,6 @@ A eliminação suave blob faz parte de uma estratégia abrangente de proteção 
 - Blob soft delete, para restaurar uma bolha, instantâneo ou versão que foi eliminada. Para aprender a permitir a eliminação suave do blob, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-blob-enable.md).
 
 Para saber mais sobre as recomendações da Microsoft para a proteção de dados, consulte a [visão geral da proteção de dados](data-protection-overview.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-soft-delete-works"></a>Como blob soft delete funciona
 

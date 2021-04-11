@@ -15,6 +15,8 @@
       href: quickstart-create-data-factory-portal.md
     - name: Criar fábrica de dados - Copiar ferramenta de dados
       href: quickstart-create-data-factory-copy-data-tool.md
+    - name: Criar fábrica de dados - Azure CLI
+      href: quickstart-create-data-factory-azure-cli.md
     - name: Criar fábrica de dados - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
     - name: Criar fábrica de dados - .NET
@@ -105,6 +107,8 @@
       items:
         - name: Transformar dados com fluxos de dados de mapeamento
           items:
+            - name: Melhores práticas para dados de aterragem no lago com ADLS Gen2
+              href: tutorial-data-flow-write-to-lake.md
             - name: Transforme dados no lago com o Lago Delta
               href: tutorial-data-flow-delta-lake.md
             - name: Transformar dados com fluxos de dados de mapeamento
@@ -789,9 +793,7 @@
         - name: Acionadores de Pipeline
           href: pipeline-trigger-troubleshoot-guide.md
         - name: Fluxos de Dados
-          items:
-            - name: Visão geral dos fluxos de dados
-              href: data-flow-troubleshoot-guide.md
+          href: data-flow-troubleshoot-guide.md
         - name: Integração e implementação contínua
           href: ci-cd-github-troubleshoot-guide.md
         - name: Controlo de acesso e segurança
@@ -820,6 +822,8 @@
       href: /python/api/overview/azure/datafactory
     - name: Incorporações do Azure Policy
       href: policy-reference.md
+    - name: CLI do Azure
+      href: /cli/azure/ext/datafactory/datafactory
 - name: Recursos
   items:
     - name: Documentos técnicos

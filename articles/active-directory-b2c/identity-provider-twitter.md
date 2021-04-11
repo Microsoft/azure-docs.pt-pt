@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/06/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3699743c5d1b3330715984d2b6116cfebafe74f1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 97a8134e858112d7e1deff6744b5555c172692f2
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579846"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028184"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta no Twitter utilizando o Azure Ative Directory B2C
 
@@ -45,7 +45,7 @@ Para ativar o sessão de sessão para utilizadores com uma conta no Twitter em A
 1. Em **definições de autenticação**, selecione **Editar**
     1. Selecione **Ative Enable 3-legged OAuth** checkbox.
     1. Selecione Enviar por email o artigo Solicitação da caixa de verificação **dos utilizadores.**
-    1. Para os **URLs callback, insira** `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` .  Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino e o id de fluxo do utilizador mesmo que sejam definidos com letras maiúsculas em Azure AD B2C. Substituir:
+    1. Para os **URLs callback, insira** `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` .  Se utilizar um [domínio personalizado,](custom-domain.md)insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Utilize todas as letras minúsculas ao introduzir o nome do seu inquilino e iD de fluxo do utilizador, mesmo que sejam definidas com letras maiúsculas em Azure AD B2C. Substituir:
         - `your-tenant-name` com o nome do seu nome de inquilino.
         - `your-domain-name` com o seu domínio personalizado.
         - `your-user-flow-Id` com o identificador do fluxo do seu utilizador. Por exemplo, `b2c_1a_signup_signin_twitter`. 
@@ -179,7 +179,7 @@ Pode definir uma conta de Twitter como fornecedor de sinistros adicionando-a ao 
 ## <a name="test-your-custom-policy"></a>Teste a sua política personalizada
 
 1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
-1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](tutorial-register-applications.md) A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Selecione o botão **Executar agora.**
 1. A partir da página de inscrição ou de inscrição, selecione **Twitter** para iniciar scontabilidade do Twitter.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 6faec27bf368b3eb45e05a91307df6027bda93b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb5203629915914ab9af22d89e5f2865078a8e44
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100094003"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012612"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ do Serviço de Aplicações do Azure no Linux
 
@@ -144,6 +144,20 @@ Temos deteção automática da porta. Também pode especificar uma configuraçã
 
 Não, a plataforma lida com a rescisão HTTPS nas extremidades dianteiras partilhadas.
 
+**Preciso de utilizar a variável PORT em código para recipientes embutidos?**
+
+Não, a variável PORT não é necessária devido à deteção automática da porta. Se não for detetada nenhuma porta, passa a 80.
+Para configurar manualmente uma porta personalizada, utilize as instruções EXPOR no Dockerfile e na definição da aplicação, WEBSITES_PORT, com um valor de porta para se ligar ao recipiente.
+
+**Preciso de usar WEBSITES_PORT para recipientes personalizados?**
+
+Sim, isto é necessário para recipientes personalizados. Para configurar manualmente uma porta personalizada, utilize as instruções EXPOR no Dockerfile e na definição da aplicação, WEBSITES_PORT, com um valor de porta para se ligar ao recipiente.
+
+**Posso usá ASPNETCORE_URLS na imagem do Docker?**
+
+Sim, substitua a variável ambiental antes do início da aplicação .NET core.
+Por exemplo, No init.sh script: export ASPNETCORE_URLS={Your value}
+
 ## <a name="multi-container-with-docker-compose"></a>Multi-contentor com Docker Compose
 
 **Como configurar o Registo de Contentores Azure (ACR) para utilizar com vários contentores?**
@@ -206,3 +220,4 @@ Pode submeter a sua ideia no fórum de feedback das [Web Apps.](https://aka.ms/w
 - [O que é o Serviço de Aplicações Azure no Linux?](overview.md#app-service-on-linux)
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure](deploy-staging-slots.md)
 - [Implementação contínua com aplicação web para contentores](./deploy-ci-cd-custom-container.md)
+- [Coisas que você deve saber: Web Apps e Linux](https://techcommunity.microsoft.com/t5/apps-on-azure/things-you-should-know-web-apps-and-linux/ba-p/392472)

@@ -1,17 +1,17 @@
 ---
 title: Conectividade encriptada utilizando TLS/SSL na Base de Dados Azure para PostgreSQL - Servidor Flexível
 description: Instruções e informações sobre como ligar utilizando o TLS/SSL na Base de Dados Azure para PostgreSQL - Servidor Flexível.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 0ba04ff14e62cd411515a765dc95ef7a3e72b709
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d47c7c6b980df46ee44a44758313571506e79e44
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90938920"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551208"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-in-azure-database-for-postgresql---flexible-server"></a>Conectividade encriptada usando segurança da camada de transporte na base de dados Azure para PostgreSQL - Servidor Flexível
 

@@ -1,18 +1,18 @@
 ---
 title: Armazenamento de crescimento automático - Azure CLI - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Este artigo descreve como pode configurar o armazenamento de crescimento automático utilizando o Azure CLI na Base de Dados Azure para PostgreSQL - Servidor Único.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 8/7/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6b6f3875af4c7f0eace327d810c632a6bb217092
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e323dfd0449b0fb4ad5119955227a2aa9bea1031
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94534199"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551157"
 ---
 # <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>Base de dados Azure de crescimento automático para armazenamento pós-greSQL - Servidor Único usando o Azure CLI
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento de servidores PostgreSQL crescer sem afetar a carga de trabalho.

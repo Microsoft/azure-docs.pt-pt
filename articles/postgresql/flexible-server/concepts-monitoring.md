@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 3d26c585593161ccf4f8ec33f913cc7163531f89
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105606662"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Monitorize métricas na Base de Dados Azure para PostgreSQL - Servidor Flexível

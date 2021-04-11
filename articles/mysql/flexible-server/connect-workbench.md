@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Connect - MySQL Workbench - Azure Database for MySQL - Servidor Flexível'
 description: Este Quickstart fornece os passos para utilizar a bancada de trabalho MySQL para ligar e consultar dados da Base de Dados Azure para o MySQL - Servidor Flexível.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: d604ca8c8979ec98b990f8002ce29d0df92ac2af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95ecb64165075a7effe0c6eaf568ee172ad67b9b
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90948520"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226299"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>Quickstart: Use a bancada mySQL workbench para ligar e consultar dados na Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 

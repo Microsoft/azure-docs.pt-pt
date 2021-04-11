@@ -7,27 +7,28 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 02/19/2021
-ms.openlocfilehash: 0146e4fcaf70d37975dc587a266c47bf4b3f4601
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 80d1e4f39d69f761b801ccec834c0228057e4847
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461679"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448530"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para o Microsoft Azure
 
 > [!NOTE]
 > Para utilizar esta funcionalidade, a sua organização deve ter um [plano de suporte Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **Desenvolvedor.**
 
-O Sistema de Proteção de Dados do Cliente para o Microsoft Azure proporciona uma interface para os clientes reverem e aprovarem ou rejeitarem pedidos de acesso a dados do cliente. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados do cliente durante um pedido de suporte.
+A maioria das operações, suporte e resolução de problemas realizadas por pessoal e sub-processadores da Microsoft não requerem acesso aos dados dos clientes. Nas raras circunstâncias em que esse acesso é necessário, o Customer Lockbox para o Microsoft Azure fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É usado em casos em que um engenheiro da Microsoft precisa de aceder aos dados dos clientes, seja em resposta a um bilhete de suporte iniciado pelo cliente ou a um problema identificado pela Microsoft.
 
 Este artigo abrange como ativar o Lockbox do Cliente e como os pedidos do Lockbox são iniciados, rastreados e armazenados para avaliações e auditorias posteriores.
 
 <a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
-## <a name="supported-services-and-scenarios-general-availability"></a>Serviços e cenários apoiados (Disponibilidade Geral)
+## <a name="supported-services-and-scenarios"></a>Serviços e cenários apoiados
 
-Os seguintes serviços estão agora geralmente disponíveis para o Lockbox do cliente:
+### <a name="general-availability"></a>Disponibilidade Geral
+Os seguintes serviços estão geralmente disponíveis para o Lockbox do cliente:
 
 - API Management do Azure
 - Serviço de Aplicações do Azure
@@ -49,6 +50,12 @@ Os seguintes serviços estão agora geralmente disponíveis para o Lockbox do cl
 - Azure Synapse Analytics
 - Máquinas virtuais em Azure (abrangendo o acesso remoto ao ambiente de trabalho, acesso a despejos de memória e discos geridos)
 
+### <a name="public-preview"></a>Pré-visualização pública
+Os seguintes serviços estão atualmente em pré-visualização para o Lockbox do cliente:
+
+- Azure Machine Learning
+- Azure Batch
+
 ## <a name="enable-customer-lockbox"></a>Ativar o bloqueio do cliente
 
 Pode agora ativar o Bloqueio do Cliente a partir do [módulo Administração](https://aka.ms/customerlockbox/administration) na lâmina do Bloqueio do Cliente.  
@@ -66,7 +73,7 @@ Os passos seguintes descrevem um fluxo de trabalho típico para um pedido de blo
 
 3. Um Engenheiro de Suporte Azure revê o pedido de serviço e determina os próximos passos para resolver o problema.
 
-4. Se o engenheiro de suporte não conseguir resolver o problema utilizando ferramentas padrão e telemetria, o próximo passo é solicitar permissões elevadas utilizando um serviço de acesso Just-In-Time (JIT). Este pedido pode ser do engenheiro de suporte original ou de um engenheiro diferente porque o problema é escalado para a equipa de Azure DevOps.
+4. Se o engenheiro de suporte não conseguir resolver o problema utilizando ferramentas padrão e dados gerados por serviço, o próximo passo é solicitar permissões elevadas utilizando um serviço de acesso Just-In-Time (JIT). Este pedido pode ser do engenheiro de suporte original ou de um engenheiro diferente porque o problema é escalado para a equipa de Azure DevOps.
 
 5. Após o pedido de acesso ser submetido pelo Engenheiro Azure, o serviço Just-In-Time avalia o pedido tendo em conta fatores como:
     - O âmbito do recurso
@@ -129,8 +136,10 @@ Introduzimos um novo controlo de base[(3.13)](../benchmarks/security-control-ide
 
 Os pedidos de bloqueio do cliente não são desencadeados nos seguintes cenários de suporte à engenharia:
 
-- Um engenheiro da Microsoft precisa de realizar uma atividade que está fora dos procedimentos operacionais padrão. Por exemplo, para recuperar ou restaurar serviços em cenários inesperados ou imprevisíveis.
-- Um engenheiro da Microsoft acede à plataforma do Azure como parte da resolução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a Equipa de Rede do Azure executa a resolução de problemas que resulta numa captura de pacotes num dispositivo de rede. Neste cenário, se o cliente encriptar os dados enquanto este está em trânsito, então o engenheiro não pode ler os dados.
+- Cenários de emergência que ficam fora dos procedimentos operacionais padrão. Por exemplo, uma grande paralisação do serviço requer atenção imediata para recuperar ou restaurar os serviços num cenário inesperado ou imprevisível. Estes eventos de "break glass" são raros e, na maioria dos casos, não requerem qualquer acesso aos dados dos clientes para resolver.
+- Um engenheiro da Microsoft acede à plataforma Azure como parte da resolução de problemas e é inadvertidamente exposto aos dados dos clientes. Por exemplo, a Equipa de Rede do Azure executa a resolução de problemas que resulta numa captura de pacotes num dispositivo de rede. É raro que tais cenários resultem no acesso a quantidades significativas de dados dos clientes. Os clientes podem proteger ainda mais os seus dados através da utilização de em trânsito e em repouso encriptação.
+
+Os pedidos de bloqueio do cliente também não são desencadeados por exigências legais externas de dados. Para mais detalhes, consulte a discussão dos pedidos de [dados](https://www.microsoft.com/trust-center/) do governo no Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Passos seguintes
 

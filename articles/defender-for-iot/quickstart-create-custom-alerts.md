@@ -1,14 +1,14 @@
 ---
 title: Criar alertas personalizados
 description: Compreenda, crie e atribua alertas de dispositivos personalizados para o Azure Defender para o serviço de segurança IoT.
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: 836619fa200983bc91d26db4d063e8545b11a1b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d9bb7811396579ec9096715809a101aebbf36a3
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781046"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384549"
 ---
 # <a name="create-custom-alerts"></a>Criar alertas personalizados
 

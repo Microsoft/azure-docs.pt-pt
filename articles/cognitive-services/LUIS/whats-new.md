@@ -4,19 +4,23 @@ description: Este artigo é atualizado regularmente com notícias sobre a Azure 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 02/16/2021
-ms.openlocfilehash: bd70bb1a031b61e77fa84ff5567d95dc6d1e8788
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 04/07/2021
+ms.openlocfilehash: f6c6f2ba20a67cd39d4142ffadddc803927c936c
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706746"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227063"
 ---
 # <a name="whats-new-in-language-understanding"></a>Quais as novidades na compreensão da linguagem
 
 Saiba o que há de novo no serviço. Estes itens incluem notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para manter-se atualizado com o serviço.
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="april-2021"></a>abril de 2021
+
+* Região [de autoria](luis-reference-regions.md#publishing-to-europe)suíça do Norte.
 
 ### <a name="january-2021"></a>Janeiro de 2021
 

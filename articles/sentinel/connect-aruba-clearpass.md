@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2021
 ms.author: yelevin
 ms.openlocfilehash: 8050b4f173476d7af66cb858ff5f785e5a12af43
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046577"
 ---
 # <a name="connect-your-aruba-clearpass-to-azure-sentinel"></a>Ligue o seu Aruba ClearPass ao Azure Sentinel

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a66486d791968f5752b96ed00374f8662b9c30fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 944eff6e76f4e5759f70105fe9d09aa61093917f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580050"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028303"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com o fornecedor de identidade SAML utilizando o Azure Ative Directory B2C
 
@@ -227,7 +227,7 @@ Abra um navegador e navegue para o URL. Certifique-se de que escreve o URL corre
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. No âmbito **de políticas**, selecione Identity **Experience Framework**
 1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
-1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](tutorial-register-applications.md) A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Selecione o botão **Executar agora.**
 1. A partir da página de inscrição ou inscrição, **selecione Contoso** para iniciar scontabilidade de Contoso.
 

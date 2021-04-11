@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/11/2021
-ms.openlocfilehash: bc8f7aa6827ce251799acd0673d43344c0833c3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149329"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276659"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -48,12 +48,8 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
 
 - Se quiser utilizar um cluster AKS privado (utilizando o Azure Private Link), deve criar primeiro o cluster e, em seguida, **anexá-lo** ao espaço de trabalho. Para obter mais informações, consulte [criar um cluster privado de Serviço Azure Kubernetes](../aks/private-clusters.md).
 
-- O nome computacional do cluster AKS DEVE ser único dentro do seu espaço de trabalho Azure ML.
-    - O nome é necessário e deve ter entre 3 a 24 caracteres de comprimento.
-    - Caracteres válidos são letras maiúsculas e minúsculas, dígitos e o - personagem.
-    - O nome deve começar com uma carta.
-    - O nome tem de ser único em todos os cálculos existentes dentro de uma região de Azure. Verá um alerta se o nome que escolher não for único.
-   
+- O nome computacional do cluster AKS DEVE ser único dentro do seu espaço de trabalho Azure ML. Pode incluir letras, dígitos e traços. Deve começar com uma letra, terminar com uma letra ou dígito, e ter entre 3 e 24 caracteres de comprimento.
+ 
  - Se pretender implantar modelos para nós **GPU** ou nóns **FPGA** (ou qualquer SKU específico), então deve criar um cluster com o SKU específico. Não existe suporte para a criação de um conjunto de nó secundário num cluster existente e modelos de implantação na piscina de nó secundário.
  
 - Ao criar ou anexar um cluster, pode selecionar se deve criar o cluster para __teste dev__ ou __produção__. Se pretender criar um cluster AKS para __desenvolvimento,__ __validação__ e __teste__ em vez de produção, desabrava o objetivo do __cluster__ __para dev-teste__. Se não especificar o objetivo do cluster, é criado um cluster de __produção.__ 

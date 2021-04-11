@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 3f49977ce5bf32f03dbb301e2d7a37449d7de4cc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: db6e4a9c6d2829c7980164d5b79bd33e4b3fb6eb
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630240"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113031"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ pip install azure-communication-identity
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instantiizar a `CommunicationIdentityClient` com a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação dos recursos.](../create-communication-resource.md#store-your-connection-string)
+Instantiizar a `CommunicationIdentityClient` com a sua cadeia de ligação. O código abaixo recupera a cadeia de ligação para o recurso a partir de uma variável ambiental chamada `COMMUNICATION_SERVICES_CONNECTION_STRING` . Saiba como gerir a [cadeia de ligação do seu recurso.](../create-communication-resource.md#store-your-connection-string)
 
 Adicione este código dentro do `try` bloco:
 

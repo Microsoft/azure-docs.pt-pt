@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d15e2b8bfcddfd1f554ab2a27083fe5256e9e2b
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462682"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226333"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -94,19 +94,14 @@ Aqui está um exemplo de consulta especificando um valor para os três parâmetr
 
 Ao consultar com base nas **relações** dos gémeos digitais, a linguagem de consulta Azure Digital Twins tem uma sintaxe especial.
 
-As relações são solicitadas para o âmbito de pesquisa na cláusula `FROM`. Uma distinção importante das línguas "clássicas" do tipo SQL é que cada expressão nesta `FROM` cláusula não é uma tabela; pelo contrário, a cláusula expressa uma relação transversal `FROM` transversal, e é escrita com uma versão Azure Digital Twins de `JOIN` .
+As relações são solicitadas para o âmbito de pesquisa na cláusula `FROM`. Ao contrário de línguas "clássicas" do tipo SQL, cada expressão nesta `FROM` cláusula não é uma tabela; pelo contrário, a cláusula expressa uma relação `FROM` transversal. Para atravessar relações, a Azure Digital Twins usa uma versão personalizada de `JOIN` .
 
-Recorde-se que com as capacidades do [modelo](concepts-models.md) Azure Digital Twins, as relações não existem independentemente dos gémeos. Isto significa que o `JOIN` da linguagem de consulta do Azure Digital Twins é um pouco diferente do `JOIN` do SQL, uma vez que as relações não podem ser consultadas de forma independente e têm de estar ligadas a um duplo.
-Para incorporar esta diferença, a palavra-chave `RELATED` é utilizada na cláusula `JOIN` para fazer referência a um conjunto de relações de um duplo.
+Recorde-se que com as capacidades do [modelo](concepts-models.md) Azure Digital Twins, as relações não existem independentemente dos gémeos. Isto significa que as relações aqui não podem ser questionadas independentemente e devem estar ligadas a um gémeo.
+Para lidar com isto, a palavra-chave `RELATED` é usada na cláusula para puxar o conjunto de um certo tipo de relação proveniente da coleção de `JOIN` gémeos. A consulta deve então filtrar na cláusula que os `WHERE` gémeos específicos devem utilizar na consulta de relacionamento (utilizando os valores dos `$dtId` gémeos).
 
-A secção seguinte dá vários exemplos do que isto parece.
+As seguintes secções dão exemplos do que isto parece.
 
-> [!TIP]
-> Conceptualmente, esta funcionalidade imita a funcionalidade centrada no documento do CosmosDB, onde `JOIN` pode ser realizada em objetos infantis dentro de um documento. CosmosDB usa a `IN` palavra-chave para indicar que se `JOIN` destina a iterar sobre elementos de matriz dentro do documento de contexto atual.
-
-### <a name="relationship-based-query-examples"></a>Exemplos de consulta baseados em relacionamentos
-
-Para obter um conjunto de dados que inclua relacionamentos, use uma única `FROM` declaração seguida de `JOIN` declarações N, onde as `JOIN` declarações expressam relações sobre o resultado de um `FROM` anterior ou `JOIN` declaração.
+### <a name="basic-relationship-query"></a>Consulta básica de relacionamento
 
 Aqui está uma consulta baseada em relacionamentos. Este código seleciona todos os gémeos digitais com uma propriedade de *ID* de 'ABC', e todos os gémeos digitais relacionados com estes gémeos digitais através de uma relação *contenha.*
 
@@ -114,6 +109,18 @@ Aqui está uma consulta baseada em relacionamentos. Este código seleciona todos
 
 > [!NOTE]
 > O desenvolvedor não precisa de correlacionar isto `JOIN` com um valor chave na cláusula `WHERE` (ou especificar um valor chave em linha com a `JOIN` definição). Esta correlação é calculada automaticamente pelo sistema, uma vez que as próprias propriedades de relação identificam a entidade de destino.
+
+### <a name="query-by-the-source-or-target-of-a-relationship"></a>Consulta pela fonte ou alvo de uma relação
+
+Pode usar a estrutura de consulta de relacionamento para identificar um gémeo digital que é a fonte ou o alvo de uma relação.
+
+Por exemplo, pode começar com um gémeo de origem e seguir as suas relações para encontrar os gémeos-alvo das relações. Aqui está um exemplo de uma consulta que encontra os gémeos alvo das *relações de feeds provenientes* da *fonte* gémea gémea.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+
+Você também pode começar com o alvo da relação e rastrear a relação de volta para encontrar o gémeo de origem. Aqui está um exemplo de uma consulta que encontra a origem gémea de uma relação *de feeds* com o *gémeo-gémeo.*
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
 
 ### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
 
@@ -128,7 +135,9 @@ No exemplo acima, note como *a comunicaçãoCondition* é uma propriedade da pr�
 
 ### <a name="query-with-multiple-joins"></a>Consulta com vários JOINs
 
-Até cinco `JOIN` s são suportados numa única consulta. Isto permite-lhe percorrer vários níveis de relacionamentos ao mesmo tempo.
+Até cinco `JOIN` s são suportados numa única consulta. Isto permite-lhe percorrer vários níveis de relacionamentos ao mesmo tempo. 
+
+Para consultar vários níveis de relacionamento, use uma única `FROM` declaração seguida de declarações de `JOIN` N, onde as `JOIN` declarações expressam relações sobre o resultado de uma `FROM` declaração anterior ou `JOIN` afirmação.
 
 Aqui está um exemplo de uma consulta multi-junção, que recebe todas as lâmpadas contidas nos painéis de luz nas salas 1 e 2.
 

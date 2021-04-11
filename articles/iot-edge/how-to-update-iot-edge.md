@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b24276974eba76aa841cdd7f02145210713474eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ed9aef66e9e1a672274b814abbc4e83600761f5
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872290"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028711"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualizar o daemon de segurança e o tempo de execução do IoT Edge
 
@@ -87,17 +87,17 @@ Se pretender atualizar para a versão mais recente do daemon de segurança, util
    sudo apt-get install iotedge
    ```
 
-Se pretender atualizar para uma versão específica do daemon de segurança, especifique a versão a partir da saída da lista apta. Sempre que **o iotedge** é atualizado, tenta automaticamente atualizar o pacote **libiothsm-std** para a sua versão mais recente, o que pode causar um conflito de dependência. Se não for à versão mais recente, não se esqueça de direcionar ambos os pacotes para a mesma versão. Por exemplo, o seguinte comando instala uma versão específica da versão 1.0.9:
+Se pretender atualizar para uma versão específica do daemon de segurança, especifique a versão a partir da saída da lista apta. Sempre que **o iotedge** é atualizado, tenta automaticamente atualizar o pacote **libiothsm-std** para a sua versão mais recente, o que pode causar um conflito de dependência. Se não for à versão mais recente, não se esqueça de direcionar ambos os pacotes para a mesma versão. Por exemplo, o seguinte comando instala uma versão específica da versão 1.1:
 
    ```bash
-   sudo apt-get install iotedge=1.0.9-1 libiothsm-std=1.0.9-1
+   sudo apt-get install iotedge=1.1.1 libiothsm-std=1.1.1
    ```
 
 Se a versão que pretende instalar não estiver disponível através do apt-get, pode utilizar o curl para direcionar qualquer versão do [repositório IoT Edge.](https://github.com/Azure/azure-iotedge/releases) Para qualquer versão que pretenda instalar, localize os **ficheiros libiothsm-std apropriados** e **iotedge** para o seu dispositivo. Para cada ficheiro, clique com o botão direito no link do ficheiro e copie o endereço de link. Utilize o endereço de ligação para instalar as versões específicas desses componentes:
 
 ```bash
-curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
-curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
+curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 ```
 <!-- end 1.1 -->
 :::moniker-end
@@ -140,7 +140,7 @@ Atualmente, não existe suporte para a versão 1.2 do IoT Edge em execução em 
 
 ## <a name="update-the-runtime-containers"></a>Atualizar os recipientes de tempo de execução
 
-A forma como atualiza os recipientes do ioT Edge e do hub IoT Edge depende se utiliza etiquetas rolantes (como 1.0) ou tags específicas (como 1.0.7) na sua implantação.
+A forma como atualiza os recipientes do ioT Edge e do hub IoT Edge depende se utiliza etiquetas rolantes (como 1.1) ou etiquetas específicas (como 1.1.1) na sua implantação.
 
 Verifique a versão dos módulos IoT Edge e hub IoT Edge atualmente no seu dispositivo utilizando os comandos `iotedge logs edgeAgent` ou `iotedge logs edgeHub` .
 
@@ -156,13 +156,13 @@ As imagens IoT Edge e IoT Edge estão marcadas com a versão IoT Edge a que est�
 
 ### <a name="update-a-rolling-tag-image"></a>Atualizar uma imagem de marca rolante
 
-Se utilizar etiquetas rolantes na sua colocação (por exemplo, mcr.microsoft.com/azureiotedge-hub:**1.0**), então tem de forçar o tempo de funcionamento do contentor no seu dispositivo para retirar a versão mais recente da imagem.
+Se utilizar etiquetas rolantes na sua colocação (por exemplo, mcr.microsoft.com/azureiotedge-hub:**1.1**), então tem de forçar o tempo de funcionamento do contentor no seu dispositivo para retirar a versão mais recente da imagem.
 
 Elimine a versão local da imagem do seu dispositivo IoT Edge. Nas máquinas do Windows, desinstalar o daemon de segurança também remove as imagens de tempo de execução, pelo que não precisa de dar este passo novamente.
 
 ```bash
-docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
-docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
+docker rmi mcr.microsoft.com/azureiotedge-hub:1.1
+docker rmi mcr.microsoft.com/azureiotedge-agent:1.1
 ```
 
 Pode ser necessário usar a bandeira de força `-f` para remover as imagens.
@@ -171,7 +171,7 @@ O serviço IoT Edge irá retirar as versões mais recentes das imagens de tempo 
 
 ### <a name="update-a-specific-tag-image"></a>Atualizar uma imagem de marcação específica
 
-Se utilizar etiquetas específicas na sua implantação (por exemplo, mcr.microsoft.com/azureiotedge-hub:**1.0.8),** então tudo o que precisa de fazer é atualizar a etiqueta no seu manifesto de implantação e aplicar as alterações no seu dispositivo.
+Se utilizar etiquetas específicas na sua implantação (por exemplo, mcr.microsoft.com/azureiotedge-hub:**1.1.1**) então tudo o que precisa de fazer é atualizar a etiqueta no seu manifesto de implantação e aplicar as alterações no seu dispositivo.
 
 1. No Hub IoT no portal Azure, selecione o seu dispositivo IoT Edge e selecione **set Modules**.
 
@@ -267,9 +267,9 @@ Agora que o serviço IoT Edge em funcionamento nos seus dispositivos foi atualiz
 
 O Azure IoT Edge lança regularmente novas versões do serviço IoT Edge. Antes de cada lançamento estável, há uma ou mais versões de candidatos de lançamento (RC). As versões RC incluem todas as funcionalidades planeadas para o lançamento, mas ainda estão a passar por testes e validação. Se quiser testar uma nova funcionalidade mais cedo, pode instalar uma versão RC e fornecer feedback através do GitHub.
 
-As versões de candidatos de lançamento seguem a mesma convenção de numeração de lançamentos, mas têm **-rc** mais um número incremental anexado ao final. Pode ver os candidatos de lançamento na mesma lista de lançamentos do [Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases) que as versões estáveis. Por exemplo, encontre **1.0.9-rc5** e **1.0.9-rc6**, dois dos candidatos de libertação que vieram antes de **1.0.9**. Também pode ver que as versões RC estão marcadas com etiquetas **pré-lançamento.**
+As versões de candidatos de lançamento seguem a mesma convenção de numeração de lançamentos, mas têm **-rc** mais um número incremental anexado ao final. Pode ver os candidatos de lançamento na mesma lista de lançamentos do [Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases) que as versões estáveis. Por exemplo, encontre **1.2.0-rc4**, um dos candidatos de libertação libertados antes de **1.2.0**. Também pode ver que as versões RC estão marcadas com etiquetas **pré-lançamento.**
 
-O agente IoT Edge e os módulos hub têm versões RC que estão marcadas com a mesma convenção. Por exemplo, **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc6.**
+O agente IoT Edge e os módulos hub têm versões RC que estão marcadas com a mesma convenção. Por exemplo, **mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4.**
 
 Como pré-visualizações, as versões de lançamento dos candidatos não estão incluídas como a versão mais recente que os instaladores regulares visam. Em vez disso, tem de direcionar manualmente os ativos para a versão RC que pretende testar. Na maior parte das vezes, instalar ou atualizar para uma versão RC é o mesmo que visar qualquer outra versão específica do IoT Edge.
 

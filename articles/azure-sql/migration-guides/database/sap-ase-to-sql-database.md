@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 138a23b610ab96194424bb0f88cf94f516c2d223
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: f4648c216a0b6d06309c0166aba501d4f3f02a10
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626457"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027521"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guia de migração: SAP ASE para Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Neste guia, aprende a migrar as bases de dados DO Servidor adaptador SAP Enterprise (ASE) para uma base de dados Azure SQL utilizando o SqL Server Migration Assistant for SAP Adapter Server Enterprise.
+Neste guia, aprende [a migrar](https://azure.microsoft.com/migration/migration-journey) as bases de dados DO Servidor adaptador SAP Enterprise (ASE) para uma base de dados Azure SQL utilizando o [SqL Server Migration](https://azure.microsoft.com/migration/migration-journey) Assistant for SAP Adapter Server Enterprise.
 
 Para outros guias de migração, consulte [o Guia de Migração da Base de Dados Azure.](https://docs.microsoft.com/data-migration) 
 
@@ -34,7 +34,7 @@ Antes de começar a migrar a sua base de dados SAP SE para a sua base de dados S
 
 ## <a name="pre-migration"></a>Pré-migração
 
-Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da sua migração.
+Depois de conhecer os pré-requisitos, está pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da sua [migração em nuvem Azure.](https://azure.microsoft.com/migration)
 
 ### <a name="assess"></a>Avaliação
 
@@ -123,6 +123,7 @@ Para obter mais informações sobre estas questões e os passos para os mitigar,
 - Para saber mais sobre o ciclo de enquadramento e adoção para migrações em nuvem, consulte:
    -  [Cloud Adoption Framework para o Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Melhores práticas para custos e dimensionamento de cargas de trabalho para a migração para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Recursos migratórios em nuvem](https://azure.microsoft.com/migration/resources)
 
 - Para avaliar a camada de acesso à aplicação, consulte o [Data Access Migration Toolkit (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Para mais detalhes sobre como realizar testes da Camada A/B do Acesso de Dados consulte [o Assistente de Experimentação da Base de Dados](/sql/dea/database-experimentation-assistant-overview).
