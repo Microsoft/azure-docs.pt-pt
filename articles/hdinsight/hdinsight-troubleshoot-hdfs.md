@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: c725e7b4e7af33181cb616d2bce2ae19521a5e7d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104871882"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Resolver problemas do HDFS do Apache Hadoop com o Azure HDInsight

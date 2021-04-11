@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: willzhan
 ms.openlocfilehash: 576ac636f166e2daebbb9919d6666fea913a17be
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103017057"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do castLabs para entregar licenças de Widevine para Serviços de Multimédia do Azure
@@ -32,7 +32,7 @@ ms.locfileid: "103017057"
 > 
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo descreve como pode utilizar a Azure Media Services (AMS) para entregar um stream que é dinamicamente encriptado pela AMS com DRMs PlayReady e Widevine. A licença PlayReady provém do servidor de licenças PlayReady dos Media Services e a licença Widevine é entregue pelo servidor de licença **castLabs.**
 

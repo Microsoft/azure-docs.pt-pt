@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 6c262e75bfc3fe9c7fb5ce3e00b42b0ff6cbe3bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0e5a817bad87391b84c43ceae0751fc6ebffd1f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952954"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076160"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>How to troubleshoot issues with the Log Analytics agent for Linux (Como resolver problemas com o agente do Log Analytics para Linux) 
 
@@ -88,12 +88,12 @@ Vimos que uma reinstalação limpa do agente resolverá a maioria dos problemas.
 
 | Código de Erro | Significado |
 | --- | --- |
-| NOT_DEFINED | Como as dependências necessárias não estão instaladas, o plugin auditado auoms não será instalado | A instalação de auoms falhou, instalou pacote auditado. |
+| NOT_DEFINED | Como as dependências necessárias não estão instaladas, o plugin auditado auoms não será instalado. A instalação de auoms falhou, instalou pacote auditado. |
 | 2 | Opção inválida fornecida ao pacote de conchas. Correr `sudo sh ./omsagent-*.universal*.sh --help` para uso |
 | 3 | Nenhuma opção fornecida ao pacote de conchas. Corra `sudo sh ./omsagent-*.universal*.sh --help` para uso. |
 | 4 | Configurações de procuração inválidas do tipo de pacote INVÁLidas ou inválidas; Os pacotes de .sh omsagent-*rpm* só podem ser instalados em sistemas baseados em RPM, e pacotes omsagent-deb .sh pacotes só podem ser instalados em sistemas baseados em Debian. Recomenda-se que utilize o instalador universal a partir da [versão mais recente](../vm/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de procuração. |
 | 5 | O feixe de concha deve ser executado como raiz OU houve 403 erros devolvidos durante o embarque. Executar o seu comando utilizando `sudo` . |
-| 6 | Arquitetura de pacote inválida OU houve erro 200 devolvido durante o embarque; Os *pacotes omsagent-x64.sh só podem ser instalados em sistemas de 64 bits, e* os pacotes x86.sh só podem ser instalados em sistemas de 32 bits. Descarregue o pacote correto para a sua arquitetura a partir do [último lançamento.](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest) |
+| 6 | Arquitetura de pacote inválida OU houve erro 200 devolvido durante o embarque; Os \* pacotes omsagent-x64.sh só podem ser instalados em sistemas de 64 bits, e \* os pacotes x86.sh só podem ser instalados em sistemas de 32 bits. Descarregue o pacote correto para a sua arquitetura a partir do [último lançamento.](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest) |
 | 17 | A instalação do pacote OMS falhou. Procurem através da saída de comando para a falha da raiz. |
 | 18 | A instalação do pacote OMSConfig falhou. Procurem através da saída de comando para a falha da raiz. |
 | 19 | A instalação do pacote OMI falhou. Procurem através da saída de comando para a falha da raiz. |

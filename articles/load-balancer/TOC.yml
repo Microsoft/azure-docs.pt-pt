@@ -47,6 +47,10 @@
           href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
         - name: Integrar o equilibrador interno de carga do gateway NAT
           href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Backend baseado em IP
+      items:
+        - name: Criar um equilibrador de carga pública com um backend baseado em IP - Portal
+          href: tutorial-load-balancer-ip-backend-portal.md
 - name: Amostras
   items:
     - name: CLI do Azure

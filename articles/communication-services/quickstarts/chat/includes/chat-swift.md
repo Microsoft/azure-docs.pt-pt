@@ -10,58 +10,57 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: b7bf924ba8514aa8da1d466ea4852f3f9caaf646
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5bf4bbe2c8dc863f67dffb50609f7775a4499e3a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726658"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073743"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
 
 - Crie uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 
-- Instale [Xcode](https://developer.apple.com/xcode/) e [Cacau,](https://cocoapods.org/)estaremos a usar o Xcode para criar uma aplicação iOS para o arranque rápido e cacau para instalar dependências.
-- Criar um recurso Azure Communication Services. Para mais detalhes, consulte [Criar um Recurso de Comunicação Azure](../../create-communication-resource.md). Terá de **gravar o seu ponto final de recurso** para este arranque rápido.
-- Crie **dois** Utilizadores ACS e emita-lhes um token de acesso ao [utilizador Token](../../access-tokens.md). Certifique-se de definir o âmbito para **o chat**, e note a **cadeia simbólica, bem como a cadeia userId**. Neste quickstart vamos criar um fio com um participante inicial e, em seguida, adicionar um segundo participante ao fio.
+- Instale [Xcode](https://developer.apple.com/xcode/) e [Cacau.](https://cocoapods.org/) Utiliza o Xcode para criar uma aplicação iOS para o arranque rápido e os Cacau para instalar dependências.
+- Criar um recurso Azure Communication Services. Para mais detalhes, consulte [Quickstart: Criar e gerir os recursos dos Serviços de Comunicação.](../../create-communication-resource.md) Para este arranque rápido, tem de gravar o seu ponto final de recurso.
+- Crie dois utilizadores nos Serviços de Comunicação Azure e emita-lhes um [token de acesso ao utilizador](../../access-tokens.md). Certifique-se de definir o alcance para `chat` , e note a corda assim como a `token` `userId` corda. Neste arranque rápido, cria-se um fio com um participante inicial e, em seguida, adiciona-se um segundo participante ao fio.
 
 ## <a name="setting-up"></a>Configuração
 
 ### <a name="create-a-new-ios-application"></a>Criar uma nova aplicação iOS
 
-Abra o Xcode e selecione `Create a new Xcode project` .
+Abra o Xcode e **selecione Criar um novo projeto Xcode**. Em seguida, selecione **o iOS** como plataforma e **App** para o modelo.
 
-Na janela seguinte, selecione `iOS` como plataforma e para o `App` modelo.
+Para o nome do projeto, **insira ChatQuickstart**. Em seguida, selecione **Storyboard** como interface, **Delegado de Aplicação UIKit** como o ciclo de vida, e **Swift** como o idioma.
 
-Ao escolher opções insira `ChatQuickstart` como o nome do projeto. Selecione `Storyboard` como interface, `UIKit App Delegate` como ciclo de vida, e como o `Swift` idioma.
-
-Clique em seguida e escolha o diretório onde deseja que o projeto seja criado.
+Selecione **Next**, e escolha o diretório onde pretende que o projeto seja criado.
 
 ### <a name="install-the-libraries"></a>Instalar as bibliotecas
 
-Usaremos cacau para instalar as dependências necessárias dos Serviços de Comunicação.
+Utilize cacau para instalar as dependências necessárias dos Serviços de Comunicação.
 
-A partir da linha de comando navegue dentro do diretório de raiz do `ChatQuickstart` projeto iOS.
-
-Criar um Podfile: `pod init`
+A partir da linha de comando, entre no diretório de raiz do `ChatQuickstart` projeto iOS. Criar um Podfile com o seguinte comando: `pod init` .
 
 Abra o Podfile e adicione as seguintes dependências ao `ChatQuickstart` alvo:
+
 ```
 pod 'AzureCommunication', '~> 1.0.0-beta.9'
 pod 'AzureCommunicationChat', '~> 1.0.0-beta.9'
 ```
 
-Instale as dependências, isto também criará um espaço de trabalho Xcode: `pod install`
+Instale as dependências com o seguinte comando: `pod install` . Note que isto também cria um espaço de trabalho Xcode.
 
-**Depois de executar a instalação do pod, reabrimos o projeto em Xcode selecionando o recém-criado `.xcworkspace` .**
+Após a `pod install` execução, reabrimos o projeto em Xcode selecionando o recém-criado `.xcworkspace` .
 
-### <a name="setup-the-placeholders"></a>Configurar os espaços reservados
+### <a name="set-up-the-placeholders"></a>Configurar os espaços reservados
 
-Abra o espaço de trabalho `ChatQuickstart.xcworkspace` em Xcode e, em seguida, abra `ViewController.swift` .
+Abra o espaço de trabalho `ChatQuickstart.xcworkspace` em Xcode e, em seguida, `ViewController.swift` abra.
 
-Neste Quickstart, adicionaremos o nosso código para `viewController` , e visualizaremos a saída na consola Xcode. Este quickstart não aborda a construção de um UI no iOS. 
+Neste arranque rápido, adiciona-se o seu código para `viewController` , e vê a saída na consola Xcode. Este quickstart não aborda a construção de uma interface de utilizador no iOS. 
 
-No topo da `viewController.swift` importação das `AzureCommunication` `AzureCommunicatonChat` bibliotecas:
+No topo de `viewController.swift` , importar as `AzureCommunication` `AzureCommunicatonChat` bibliotecas e bibliotecas:
 
 ```
 import AzureCommunication
@@ -98,7 +97,7 @@ override func viewDidLoad() {
     }
 ```
 
-Usaremos um semáforo para sincronizar o nosso código para fins de demonstração. Nos passos seguintes, substituiremos os espaços reservados por um código de amostra utilizando a biblioteca Azure Communication Services Chat.
+Para fins de demonstração, usaremos um semáforo para sincronizar o seu código. Nos passos seguintes, substitui os espaços reservados por um código de amostra utilizando a biblioteca Azure Communication Services Chat.
 
 
 ### <a name="create-a-chat-client"></a>Criar um cliente de chat
@@ -120,24 +119,24 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
     )
 ```
 
-`<ACS_RESOURCE_ENDPOINT>`Substitua-o pelo ponto final do seu recurso ACS.
-Substitua `<ACCESS_TOKEN>` por um token de acesso ACS válido.
+`<ACS_RESOURCE_ENDPOINT>`Substitua-o pelo ponto final do seu recurso Azure Communication Services. Substitua `<ACCESS_TOKEN>` por um token de acesso válido dos Serviços de Comunicação.
 
-Este quickstart não cobre a criação de um nível de serviço para gerir fichas para a sua aplicação de chat, embora seja recomendado. Consulte a seguinte documentação para obter mais detalhes [Sobre a Arquitetura chat](../../../concepts/chat/concepts.md)
+Este quickstart não cobre a criação de um nível de serviço para gerir fichas para a sua aplicação de chat, mas isso é recomendado. Para mais informações, consulte a secção "Chat architecture" dos [conceitos Chat.](../../../concepts/chat/concepts.md)
 
-Saiba mais sobre [tokens de acesso ao utilizador.](../../access-tokens.md)
+Para obter mais informações sobre fichas de acesso ao utilizador, consulte [Quickstart: Criar e gerir fichas de acesso.](../../access-tokens.md)
 
 ## <a name="object-model"></a>Modelo de objeto 
+
 As seguintes classes e interfaces lidam com algumas das principais características do Azure Communication Services Chat SDK para JavaScript.
 
 | Nome                                   | Descrição                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ChatClient | Esta classe é necessária para a funcionalidade Chat. Você instantaneamente com as suas informações de subscrição, e usá-lo para criar, obter e apagar fios. |
-| ChatThreadClient | Esta classe é necessária para a funcionalidade Chat Thread. Obtém um caso através do ChatClient e utiliza-o para enviar/receber/atualizar/apagar mensagens, adicionar/remover/receber utilizadores, enviar notificações de dactilografia e ler recibos, subscrever eventos de chat. |
+| `ChatClient` | Esta classe é necessária para a funcionalidade do chat. Você instantaneamente com as suas informações de subscrição, e usá-lo para criar, obter e apagar fios. |
+| `ChatThreadClient` | Esta classe é necessária para a funcionalidade do fio de chat. Obtém-se um caso através `ChatClient` de , e utiliza-o para enviar, receber, atualizar e apagar mensagens. Também pode usá-lo para adicionar, remover e obter utilizadores, enviar notificações de dactilografia e ler recibos, e subscrever eventos de chat. |
 
 ## <a name="start-a-chat-thread"></a>Inicie um fio de chat
 
-Agora vamos usar o nosso `ChatClient` para criar um novo fio com um utilizador inicial.
+Agora usa o seu `ChatClient` para criar um novo fio com um utilizador inicial.
 
 Substitua o comentário `<CREATE A CHAT THREAD>` pelo código seguinte:
 
@@ -168,11 +167,11 @@ semaphore.wait()
 
 Substitua `<USER_ID>` por um ID de utilizador válido dos Serviços de Comunicação.
 
-Estamos a usar um semáforo para esperar pelo manipulador de conclusão antes de continuar. Usaremos a `threadId` resposta devolvida ao manipulador de conclusão em etapas posteriores.
+Estás a usar um semáforo para esperar pelo manipulador de conclusão antes de continuares. Em etapas posteriores, você usará a `threadId` resposta devolvida ao manipulador de conclusão.
 
 ## <a name="get-a-chat-thread-client"></a>Obtenha um cliente de linha de chat
 
-Agora que criámos um fio chat, vamos obter um `ChatThreadClient` para realizar operações dentro do fio.
+Agora que criou um fio de chat, pode obter um `ChatThreadClient` para realizar operações dentro do fio.
 
 Substitua o comentário `<CREATE A CHAT THREAD CLIENT>` pelo código seguinte:
 
@@ -202,7 +201,7 @@ chatThreadClient.send(message: message) { result, _ in
 semaphore.wait()
 ```
 
-Primeiro construímos o `SendChatMessageRequest` que contém o nome de exibição de conteúdos e remetentes (também opcionalmente pode conter o tempo de histórico de partilha). A resposta devolvida ao manipulador de conclusão contém a identificação da mensagem que foi enviada.
+Primeiro, constrói-se o `SendChatMessageRequest` , que contém o conteúdo e o nome de visualização do remetente. Este pedido também pode conter o tempo de histórico de partilha, se quiser incluí-lo. A resposta devolvida ao manipulador de conclusão contém a identificação da mensagem que foi enviada.
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Adicione um utilizador como participante ao fio de chat
 
@@ -226,9 +225,9 @@ chatThreadClient.add(participants: [user]) { result, _ in
 semaphore.wait()
 ```
 
-Substitua-o pelo `<USER_ID>` ID do utilizador ACS do utilizador a adicionar.
+Substitua-se pelo `<USER_ID>` ID do utilizador dos Serviços de Comunicação do utilizador a adicionar.
 
-Ao adicionar um participante a um fio, a resposta devolvida pode conter erros. Estes erros representam a falta de adição de participantes específicos.
+Quando se adiciona um participante a um fio, a resposta devolvida pode conter erros. Estes erros representam a falta de adição de participantes específicos.
 
 ## <a name="list-users-in-a-thread"></a>Listar utilizadores em um fio
 
@@ -270,9 +269,9 @@ chatThreadClient
     }
 ```
 
-`<USER ID>`Substitua-o pelo ID do utilizador dos Serviços de Comunicação do participante que está a ser removido.
+`<USER ID>`Substitua-se pelo ID do utilizador dos Serviços de Comunicação do participante que está a ser removido.
 
 ## <a name="run-the-code"></a>Executar o código
 
-No Xcode, premir o botão Executar para construir e executar o projeto. Na consola pode ver a saída a partir do código e a saída do madeireiro a partir do ChatClient.
+No Xcode, selecione **Run** para construir e executar o projeto. Na consola, pode ver a saída a partir do código e a saída do madeireiro do cliente do chat.
 

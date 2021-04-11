@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc054d1294b55ddd3937ebc7b91643aa349cd8ea
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071575"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122191"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
@@ -46,7 +46,7 @@ Quando cria um cofre chave numa subscrição do Azure, está automaticamente ass
 
 - **Apenas para aplicação**: A aplicação representa um principal serviço ou identidade gerida. Esta identidade é o cenário mais comum para aplicações que periodicamente precisam de aceder a certificados, chaves ou segredos do cofre chave. Para que este cenário funcione, `objectId` a aplicação deve ser especificada na política de acesso e `applicationId` _a_ não deve ser especificada ou deve ser `null` .
 - **Apenas para o utilizador**: O utilizador acede ao cofre de chaves a partir de qualquer aplicação registada no arrendatário. Exemplos deste tipo de acesso incluem a Azure PowerShell e o portal Azure. Para que este cenário funcione, `objectId` o do utilizador deve ser especificado na política de acesso e o não deve ser especificado ou deve `applicationId` ser  `null` .
-- **Aplicação-plus-user** (por vezes designada como _identidade composta):_ O utilizador é obrigado a aceder ao cofre de uma aplicação específica _e_ a aplicação deve utilizar o fluxo de autenticação em nome do utilizador (OBO) para personificar o utilizador. Para que este cenário funcione, ambos `applicationId` devem `objectId` ser especificados na política de acesso. Identifica `applicationId` a aplicação necessária e `objectId` identifica o utilizador. Atualmente, esta opção não está disponível para o plano de dados Azure RBAC (pré-visualização).
+- **Aplicação-plus-user** (por vezes designada como _identidade composta):_ O utilizador é obrigado a aceder ao cofre de uma aplicação específica _e_ a aplicação deve utilizar o fluxo de autenticação em nome do utilizador (OBO) para personificar o utilizador. Para que este cenário funcione, ambos `applicationId` devem `objectId` ser especificados na política de acesso. Identifica `applicationId` a aplicação necessária e `objectId` identifica o utilizador. Atualmente, esta opção não está disponível para o plano de dados Azure RBAC.
 
 Em todos os tipos de acesso, a aplicação autentica-se com Azure AD. A aplicação utiliza qualquer [método de autenticação suportado](../../active-directory/develop/authentication-vs-authorization.md) com base no tipo de aplicação. A aplicação adquire um símbolo para um recurso no avião para conceder acesso. O recurso é um ponto final na gestão ou plano de dados, baseado no ambiente Azure. A aplicação utiliza o token e envia um pedido de API REST para o Key Vault. Para saber mais, reveja todo o [fluxo de autenticação.](../../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
@@ -61,14 +61,14 @@ O acesso aos cofres ocorre através de duas interfaces ou aviões. Estes aviões
 - O *avião de gestão* é onde gere o Key Vault em si e é a interface usada para criar e apagar cofres. Também pode ler as principais propriedades do cofre e gerir as políticas de acesso.
 - O *plano de dados* permite-lhe trabalhar com os dados armazenados num cofre chave. Pode adicionar, excluir e modificar chaves, segredos e certificados.
 
-As aplicações acedem aos aviões através de pontos finais. Os controlos de acesso dos dois aviões funcionam de forma independente. Para conceder a uma aplicação acesso a chaves de utilização num cofre de chaves, concede acesso a um plano de dados utilizando uma política de acesso ao Cofre-Chave ou a Azure RBAC (pré-visualização). Para conceder a um utilizador o acesso às propriedades e etiquetas do Key Vault, mas não ter acesso a dados (chaves, segredos ou certificados), concede acesso de avião de gestão com o Azure RBAC.
+As aplicações acedem aos aviões através de pontos finais. Os controlos de acesso dos dois aviões funcionam de forma independente. Para conceder a uma aplicação acesso a chaves de utilização num cofre de chaves, você concede acesso a um plano de dados usando uma política de acesso ao Cofre chave ou Azure RBAC. Para conceder a um utilizador o acesso às propriedades e etiquetas do Key Vault, mas não ter acesso a dados (chaves, segredos ou certificados), concede acesso de avião de gestão com o Azure RBAC.
 
 A tabela seguinte mostra os pontos finais para os aviões de gestão e dados.
 
 | Avião de acesso &nbsp; | Pontos finais de acesso | Operações | Mecanismo &nbsp; de controlo de acesso |
 | --- | --- | --- | --- |
 | Plano de gestão | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Governo Azure US:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 | Criar, ler, atualizar e apagar cofres-chave<br><br>Definir políticas de acesso ao cofre de chaves<br><br>Definir tags de cofre de chaves | RBAC do Azure |
-| Plano de dados | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Governo Azure US:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Chaves: encriptar, desencriptar, embrulharKey, desembrulharKey, assinar, verificar, obter, listar, criar, atualizar, importar, excluir, recuperar, backup, restaurar, purgar<br><br> Certificados: gerenciamentos, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recovery, backup, restore, purpur<br><br>  Segredos: obter, listar, definir, excluir,recuperar, apoiar, restaurar, purgar | Política de acesso ao Cofre de Chaves ou RBAC Azure (pré-visualização)|
+| Plano de dados | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Governo Azure US:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Chaves: encriptar, desencriptar, embrulharKey, desembrulharKey, assinar, verificar, obter, listar, criar, atualizar, importar, excluir, recuperar, backup, restaurar, purgar<br><br> Certificados: gerenciamentos, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recovery, backup, restore, purpur<br><br>  Segredos: obter, listar, definir, excluir,recuperar, apoiar, restaurar, purgar | Política de acesso ao Cofre chave ou RBAC Azure |
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Gerir o acesso administrativo ao Cofre-Chave
 

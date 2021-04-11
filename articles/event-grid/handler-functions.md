@@ -4,10 +4,10 @@ description: Descreve como pode utilizar funções criadas e hospedadas pela Azu
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.openlocfilehash: f547b09fe7e62eb3fa9e02bd17298a936350f871
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103496546"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Use uma função como manipulador de eventos para eventos de Grelha de Eventos

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3a09e3f2bf29c09066e9414f9aa02a7879375425
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c0108cf07f1c734ccf4b6e42c013f7237eb7daf2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563536"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122072"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de embalagem e entrega
 
@@ -30,10 +30,10 @@ Grandes alterações na forma como o conteúdo é publicado na V3 API. O novo mo
 
 ## <a name="packaging-and-delivery-in-v3"></a>Embalagem e entrega em v3
 
-1. Criar [Políticas de Chave de Conteúdo](content-key-policy-concept.md).
+1. Criar [Políticas de Chave de Conteúdo](drm-content-key-policy-concept.md).
 1. Criar [localizadores de streaming](streaming-locators-concept.md).
 1. Obtenha os [caminhos de streaming](create-streaming-locator-build-url.md) 
-    1. Configuure-o para um leitor [DE DASH](dynamic-packaging-overview.md#mpeg-dash-protocol) ou [HLS.](dynamic-packaging-overview.md#hls-protocol)
+    1. Configuure-o para um leitor [DE DASH](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) ou [HLS.](encode-dynamic-packaging-concept.md#hls-protocol)
 
 Consulte conceitos de publicação, tutoriais e como guiar abaixo para etapas específicas.
 
@@ -41,9 +41,9 @@ Consulte conceitos de publicação, tutoriais e como guiar abaixo para etapas es
 
 ### <a name="concepts"></a>Conceitos
 
-- [Embalagem dinâmica em Media Services v3](dynamic-packaging-overview.md)
+- [Embalagem dinâmica em Media Services v3](encode-dynamic-packaging-concept.md)
 - [Filtros](filters-concept.md)
-- [Filtrar os seus manifestos usando o Dynamic Packager](filters-dynamic-manifest-overview.md)
+- [Filtrar os seus manifestos usando o Dynamic Packager](filters-dynamic-manifest-concept.md)
 - [Streaming Endpoints (Origem) em Azure Media Services](streaming-endpoint-concept.md)
 - [Stream de conteúdo com integração de CDN](scale-streaming-cdn.md)
 - [Localizadores de streaming](streaming-locators-concept.md)
@@ -53,7 +53,7 @@ Consulte conceitos de publicação, tutoriais e como guiar abaixo para etapas es
 - [Gerir pontos finais de streaming com os Media Services v3](manage-streaming-endpoints-howto.md)
 - [Exemplo da CLI: publicar um elemento](cli-publish-asset.md)
 - [Criar um localizador de transmissão e compilar URLs](create-streaming-locator-build-url.md)
-- [Descarregue os resultados de um trabalho](download-results-howto.md)
+- [Descarregue os resultados de um trabalho](job-download-results-how-to.md)
 - [Faixas de áudio descritivas de sinal](signal-descriptive-audio-howto.md)
 - [Configuração completa do Leitor de Multimédia do Azure](../azure-media-player/azure-media-player-full-setup.md)
 - [Como utilizar o jogador Video.js com a Azure Media Services](how-to-video-js-player.md)

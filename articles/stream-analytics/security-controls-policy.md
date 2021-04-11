@@ -8,10 +8,10 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-compliancecontrols
 ms.openlocfilehash: 2811a3cc2d1bb592a5c6698397ef563ba0988614
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105036680"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-stream-analytics"></a>Controlos de conformidade regulamentar da política Azure para a Azure Stream Analytics

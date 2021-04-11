@@ -1,14 +1,14 @@
 ---
-title: Sobre alertas de sensores
+title: Compreender alertas de sensores
 description: Trabalhe com alertas para ajudá-lo a melhorar a segurança e o funcionamento da sua rede.
-ms.date: 11/30/2020
+ms.date: 3/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a34871342e9a868ba593ae894fdd91b5e99c5a44
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781352"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729427"
 ---
 # <a name="about-sensor-alerts"></a>Sobre alertas de sensores
 
@@ -44,7 +44,7 @@ Estão disponíveis ferramentas adicionais que o ajudam a melhorar e a acelerar 
 
 Os alertas são acionados quando os motores dos sensores detetam alterações no tráfego da rede e no comportamento que precisam da sua atenção. Este artigo descreve o tipo de alertas que cada motor dispara.
 
-| Tipo de alerta | Descrição |
+| Tipo de alerta | Description |
 |-|-|
 | Alertas de violação de políticas | Acionado quando o motor de Violação de Política deteta um desvio do tráfego previamente aprendido. Por exemplo: <br /> - Um novo dispositivo é detetado.  <br /> - É detetada uma nova configuração num dispositivo. <br /> - Um dispositivo não definido como dispositivo de programação realiza uma alteração de programação. <br /> - Uma versão de firmware mudou. |
 | Alertas de violação de protocolo | Acionado quando o motor de Violação de Protocolo deteta estruturas de pacotes ou valores de campo que não cumprem a especificação do protocolo. | 
@@ -64,9 +64,10 @@ Por exemplo:
 
   - Os eventos de malware detetados em dispositivos de rede são relatados em relatórios de Avaliação de Riscos. Quando os alertas sobre eventos de malware forem *silenciados,* os dispositivos afetados não serão calculados no relatório de Avaliação de Riscos.
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
-- [Modos de Aprendizagem e Aprendizagem de TI Inteligentes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-- [Ver as informações fornecidas pelos alertas](how-to-view-information-provided-in-alerts.md)
-- [Gerir o evento de alerta](how-to-manage-the-alert-event.md)
-- [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)
+Modos de [Aprendizagem e Aprendizagem de TI Inteligentes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes) 
+ [Ver informações fornecidas em alertas](how-to-view-information-provided-in-alerts.md) 
+ [Gerir o evento](how-to-manage-the-alert-event.md) 
+ de alerta [Acelerar fluxos](how-to-accelerate-alert-incident-response.md) 
+ de trabalho de alerta [Tipos e descrições de alerta](alert-engine-messages.md)

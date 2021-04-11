@@ -5,18 +5,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c26a7f53609193bf373c3f7f9b1037405d4e518
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102509035"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122140"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor
-
->[!NOTE]
->À medida que o Microsoft Operations Management Suite (OMS) passa para o Microsoft Azure Monitor, a terminologia está a mudar. Este artigo refere-se ao OMS Gateway como o gateway Azure Log Analytics. 
->
 
 Este artigo descreve como configurar a comunicação com a Azure Automation e o Azure Monitor utilizando o gateway Log Analytics quando os computadores que estão ligados diretamente ou que são monitorizados pelo Gestor de Operações não têm acesso à Internet. 
 
@@ -89,6 +85,9 @@ O gateway Log Analytics está disponível nestes idiomas:
 O gateway Log Analytics suporta apenas a Segurança da Camada de Transporte (TLS) 1.0, 1.1 e 1.2.  Não suporta a camada de tomadas seguras (SSL).  Para garantir a segurança dos dados em trânsito para o Log Analytics, configure o gateway para utilizar pelo menos TLS 1.2. As versões mais antigas de TLS ou SSL são vulneráveis. Embora atualmente permitam retrocompatibilidade, evite usá-las.  
 
 Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
+
+>[!NOTE]
+>O portal é um representante de reencaminhamento que não armazena dados. Uma vez que o agente estabeleça a ligação com o Azure Monitor, segue o mesmo fluxo de encriptação com ou sem o gateway. Os dados são encriptados entre o cliente e o ponto final. Como o portal é apenas um túnel, não tem a capacidade de inspecionar o que está a ser enviado.
 
 ### <a name="supported-number-of-agent-connections"></a>Número suportado de ligações de agentes
 

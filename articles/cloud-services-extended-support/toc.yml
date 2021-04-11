@@ -51,14 +51,26 @@
           href: schema-cscfg-role.md
         - name: Esquema deconfiguação de rede
           href: schema-cscfg-networkconfiguration.md
-    - name: Perguntas Mais Frequentes
-      href: faq.md
 - name: Procedimento
   items:
-    - name: Aplicar extensão de ambiente de trabalho remoto
-      href: enable-rdp.md
-    - name: Aplicar extensão WAD
-      href: enable-wad.md
+    - name: Migrar para serviços na Nuvem (suporte alargado)
+      items:
+        - name: Descrição geral da migração
+          href: in-place-migration-overview.md
+        - name: Detalhes técnicos da migração
+          href: in-place-migration-technical-details.md
+        - name: Migrar usando o portal Azure
+          href: in-place-migration-portal.md
+        - name: Migrar com o PowerShell
+          href: in-place-migration-powershell.md
+        - name: Erros comuns e questões conhecidas
+          href: in-place-migration-common-errors.md
+    - name: Aplicar extensões
+      items:
+        - name: Aplicar extensão de ambiente de trabalho remoto
+          href: enable-rdp.md
+        - name: Aplicar extensão WAD
+          href: enable-wad.md
     - name: Ativar alertas
       href: enable-alerts.md
     - name: Escalagem de configuração
@@ -67,6 +79,16 @@
       href: certificates-and-key-vault.md
     - name: Gerar modelo ARM usando o Portal
       href: generate-template-portal.md
+    - name: Trocar dois serviços na nuvem
+      href: swap-cloud-service.md
+    - name: Anular detalhes da SKU
+      href: override-sku.md
+    - name: Resolução de problemas
+      items:
+        - name: Falha na startup de função
+          href: role-startup-failure.md
+        - name: Perguntas mais frequentes
+          href: faq.md
 - name: Amostras
   items:
     - name: Modelos de amostra

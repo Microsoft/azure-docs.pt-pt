@@ -8,10 +8,10 @@ ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 414f7dc64027b286d8a963452d2b86126b3c5818
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878553"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Bind Azure Cache para Redis para a sua aplicação Azure Spring Cloud 

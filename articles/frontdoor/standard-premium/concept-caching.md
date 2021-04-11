@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: 63ea252a4b4c673ae3028adb7ab793ac21fb2e99
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105564590"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Caching com Azure Front Door Standard/Premium (Pré-visualização)

@@ -3,19 +3,19 @@ title: Suporte ao cliente fino do windows virtual desktop - Azure
 description: Uma breve visão geral do suporte do cliente fino para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90459c3eb171e03b1c28c91e766d3a6b765565b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 905451b4ce9c7a2a7c7aa2331ce3d433a9952223
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491474"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122038"
 ---
 # <a name="linux-support"></a>Apoio Técnico para Linux
 
-Pode aceder aos recursos de Desktop Virtual do Windows a partir dos seus dispositivos Linux com o [cliente web](connect-web.md) ou os seguintes clientes suportados, fornecidos pelos nossos parceiros de clientes finos Linux. Estamos a trabalhar com vários parceiros para permitir clientes de desktop virtual suportados do Windows em mais sistemas operativos e dispositivos baseados no Linux. Se precisar de suporte para desktop virtual do Windows numa plataforma Linux que não esteja listada aqui, informe-nos na nossa [página UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Pode aceder aos recursos de Desktop Virtual do Windows a partir dos seus dispositivos Linux com o [cliente web](connect-web.md) ou os seguintes clientes suportados, fornecidos pelos nossos parceiros de clientes finos Linux. Estamos a trabalhar com vários parceiros para permitir clientes de desktop virtual suportados do Windows em mais sistemas operativos e dispositivos baseados no Linux.
 
 ## <a name="connect-with-your-linux-device"></a>Conecte-se com o seu dispositivo Linux
 

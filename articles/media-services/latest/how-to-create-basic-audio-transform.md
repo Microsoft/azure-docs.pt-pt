@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
-ms.openlocfilehash: 80edac3106a79a706ee1ef18c48d41d1ad6c3eaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce0ed303790ad27c99864cc44ea85c96ac3ec468
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724596"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962242"
 ---
 # <a name="create-a-basic-audio-transform"></a>Criar uma transformação áudio básica
 
@@ -29,7 +29,7 @@ Este artigo mostra como criar uma transformação áudio básica.  O modo básic
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Siga os passos na [Criar uma conta de Serviços](./create-account-howto.md) de Comunicação para criar a conta e grupo de recursos necessários para criar um ativo.
+Siga os passos na [Criar uma conta de Serviços](./account-create-how-to.md) de Comunicação para criar a conta e grupo de recursos necessários para criar um ativo.
 
 ## <a name="methods"></a>Métodos
 

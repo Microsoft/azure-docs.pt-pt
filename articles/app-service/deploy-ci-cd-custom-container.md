@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.custom: seodec18
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105643344"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Implantação contínua com recipientes personalizados no Azure App Service

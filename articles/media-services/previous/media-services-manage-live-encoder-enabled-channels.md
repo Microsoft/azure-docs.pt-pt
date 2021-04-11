@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: b9b4cd54375a13da95259e27da680255f785df45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013215"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
@@ -29,7 +29,7 @@ ms.locfileid: "103013215"
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo deixarão de suportar o protocolo de transmissão rtp/MPEG-2. Por favor, migrar de PROTOCOLOs de ingestão RTP/MPEG-2 para RTMP ou MP4 (Smooth Streaming).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Na Azure Media Services (AMS), um **Canal** representa um oleoduto para o processamento de conteúdos de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma de duas maneiras:
 
 * Um codificador ao vivo no local envia um fluxo de bitrate único para o Canal que está habilitado a realizar codificação ao vivo com os Media Services num dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.

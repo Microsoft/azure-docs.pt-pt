@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 3c665795325ed3863583eb0f21f3e0d3f534154a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201526"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Tutorial: Integrar a Sincronização com o Diretório Ativo Azure
@@ -95,13 +95,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="configure-syncplicity-sso"></a>Configure sincronização SSO
+### <a name="configure-syncplicity-sso&quot;></a>Configure sincronização SSO
 
 1. Inscreva-se no seu inquilino **de Syncplicity.**
 
-1. No menu em cima, clique em **Administração,** selecione **Definições** e, em seguida, clique **em "Personal domain" e 'sign-on' único**.
+1. No menu em cima, clique em **Administração,** selecione **Definições** e, em seguida, clique **em &quot;Personal domain&quot; e 'sign-on' único**.
 
-    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
+    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png &quot;Syncplicity")
 
 1. Na página de diálogo **single Sign-On (SSO),** execute os seguintes passos:
 
