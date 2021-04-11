@@ -12,10 +12,10 @@ author: nishankgu
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 ms.openlocfilehash: 4d037bdf266e70a2621b2627bc88abce30af652c
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612624"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning

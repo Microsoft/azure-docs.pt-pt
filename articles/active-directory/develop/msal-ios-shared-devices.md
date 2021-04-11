@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 3353d87291492563acbd3a85bbae266c711377f2
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105611808"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo partilhado para dispositivos iOS

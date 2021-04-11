@@ -9,10 +9,10 @@ ms.service: media-services
 ms.custom: subject-monitoring
 ms.date: 03/17/2021
 ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105609093"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Referência de dados dos Serviços de Mídia de Monitorização

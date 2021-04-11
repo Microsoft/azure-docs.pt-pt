@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
 ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612029"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configurar um aparelho para servidores em Hiper-V

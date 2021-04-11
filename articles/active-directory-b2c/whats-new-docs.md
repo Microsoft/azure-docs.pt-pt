@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 7a2384a451d851d1bede24fc2dd73a386c019430
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 61c24a7c14eb2fafff8a052f24a50a85f03de404
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443717"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107225959"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Ative Directory B2C: Quais as novidades
 
@@ -87,7 +87,7 @@ Bem-vindos às novidades da documentação do Azure Ative Directory B2C. Este ar
 - [Configurar inscrição e inscrição com uma conta no Twitter utilizando o Azure Ative Directory B2C](identity-provider-twitter.md)
 - [Configurar inscrição e inscrição com uma conta WeChat utilizando o Azure Ative Directory B2C](identity-provider-wechat.md)
 - [Configurar inscrição e inscrição com uma conta Weibo utilizando o Azure Ative Directory B2C](identity-provider-weibo.md)
-- [Visão geral da política personalizada AZURE AD B2C](custom-policy-trust-frameworks.md)
+- [Visão geral da política personalizada AZURE AD B2C](custom-policy-overview.md)
 
 
 ## <a name="december-2020"></a>Dezembro de 2020

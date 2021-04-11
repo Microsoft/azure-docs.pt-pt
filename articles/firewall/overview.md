@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 04/05/2021
+ms.date: 03/10/2021
 ms.author: victorh
-ms.openlocfilehash: bb89b6acbc76a4020ee721e87272b154bab6d0a4
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 6855eb50519afacdf971ffcb8b70aa289b7cfe26
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385178"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066335"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -52,8 +52,9 @@ Para saber as novidades com o Azure Firewall, consulte as atualizações do [Azu
 
 O Azure Firewall tem os seguintes problemas conhecidos:
 
-|Problema  |Descrição  |Mitigação  |
+|Problema  |Description  |Mitigação  |
 |---------|---------|---------|
+|Se atualizar uma regra do endereço IP para o Ip Group ou vice-versa utilizando o portal, ambos os tipos são guardados, mas apenas um é apresentado no portal.|Esta questão acontece com as regras clássicas.<br><br>Quando utiliza o portal para atualizar um tipo de origem de regra NAT do endereço IP para o Ip Group ou vice-versa, guarda ambos os tipos no backend, mas apresenta apenas o tipo recém-actualizado.<br><br>O mesmo problema existe quando atualiza um tipo de destino de regra de rede ou aplicação do endereço IP para o tipo ip group ou vice-versa.|Uma correção do portal está prevista para março de 2021.<br><br>Entretanto, utilize a Azure PowerShell, Azure CLI ou API para modificar uma regra do endereço IP para o Ip Group ou vice-versa.|
 |As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem da rede para protocolos não-TCP/UDP não funcionam com o SNAT no seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](../load-balancer/load-balancer-overview.md). Estamos a explorar opções para apoiar este cenário num futuro lançamento.|
 |Suporte do PowerShell e CLI em falta para ICMP|A Azure PowerShell e CLI não suportam o ICMP como um protocolo válido nas regras de rede.|Ainda é possível utilizar o ICMP como protocolo através do portal e da API REST. Estamos a trabalhar para adicionar ICMP na PowerShell e na CLI em breve.|
 |As etiquetas FQDN requerem um protocolo: porta a definir|As regras de aplicação com tags FQDN requerem porta: definição de protocolo.|Pode utilizar **https** como a porta: valor de protocolo. Estamos a trabalhar para tornar este campo opcional quando as etiquetas FQDN são usadas.|
@@ -77,7 +78,6 @@ O Azure Firewall tem os seguintes problemas conhecidos:
 |Start/Stop não funciona com uma firewall configurada em modo de túnel forçado|O arranque/paragem não funciona com firewall Azure configurado em modo de túnel forçado. Tentar iniciar a Firewall do Azure com túneis forçados configurados resulta no seguinte erro:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuração IP não pode ser adicionada a uma firewall existente. Reimplantar com uma configuração IP de gestão se quiser utilizar suporte de túneis forçado. <br> StatusCode: 400 <br> ReasonPhrase: Mau pedido*|Sob investigação.<br><br>Como uma solução alternativa, pode eliminar a firewall existente e criar uma nova com os mesmos parâmetros.|
 |Não é possível adicionar tags de política de firewall usando o portal|A Azure Firewall Policy tem uma limitação de suporte de patch que o impede de adicionar uma etiqueta usando o portal Azure. O seguinte erro é gerado: *Não foi possível guardar as etiquetas para o recurso*.|Uma correção está a ser investigada. Ou, pode utilizar o cmdlet Azure PowerShell `Set-AzFirewallPolicy` para atualizar as tags.|
 |IPv6 ainda não apoiado|Se adicionar um endereço IPv6 a uma regra, a firewall falha.|Utilize apenas endereços IPv4. O apoio do IPv6 está sob investigação.|
-|A atualização de vários grupos IP falha com erro de conflito.|Quando atualiza dois ou mais IPGroups ligados à mesma firewall, um dos recursos entra num estado falhado.|Esta é uma questão/limitação conhecida. <br><br>Quando atualiza um IPGroup, ativa uma atualização em todas as firewalls a que o IPGroup está ligado. Se uma atualização de um segundo IPGroup for iniciada enquanto a firewall ainda estiver no estado *de Atualização,* então a atualização do IPGroup falha.<br><br>Para evitar a falha, os IPGroups ligados à mesma firewall devem ser atualizados um de cada vez. Dê tempo suficiente entre atualizações para permitir que a firewall saia do estado de *Atualização.*| 
 
 
 ## <a name="next-steps"></a>Passos seguintes

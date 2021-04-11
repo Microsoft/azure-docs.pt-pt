@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 382cdf87016044748685e5e64ff04ebac53f018d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70b3ed53747deb1f3bdc90de8fe71f42f8f7ce13
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199121"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580490"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Ligue um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge (Pré-visualização)
 
@@ -130,7 +130,7 @@ Certifique-se de que o utilizador **iotedge** leu permissões para o diretório 
 1. Instale o **certificado de CA raiz** neste dispositivo IoT Edge.
 
    ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem
+   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
    ```
 
 1. Atualize a loja de certificados.

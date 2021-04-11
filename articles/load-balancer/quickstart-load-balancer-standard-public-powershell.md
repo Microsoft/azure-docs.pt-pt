@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
@@ -16,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 2052669d3d1ae2bdb7aa1687c4dc348c9420d126
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed585b3309cc03ed1eca4ed8023b3004c4f9dc79
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615368"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056186"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 

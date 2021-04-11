@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/25/2021
 ms.custom: mvc
 ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612522"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descubra servidores em execução em Hiper-V com Azure Migrate: Descoberta e avaliação

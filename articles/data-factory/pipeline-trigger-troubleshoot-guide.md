@@ -3,16 +3,16 @@ title: Resolução de problemas da orquestração e desencadeamentos de gasoduto
 description: Utilize diferentes métodos para resolver problemas de desencadeamento de gasodutos na Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 03/13/2021
+ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49205025e26f7c0eb609638e70a58c9c0c14748e
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563417"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385416"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Resolução de problemas da orquestração e desencadeamentos de gasodutos na Fábrica de Dados do Azure
 
@@ -83,7 +83,26 @@ Atingiste o limite de capacidade do tempo de integração. Você pode estar exec
 - Executar os seus oleodutos em diferentes momentos de disparo.
 - Crie um novo tempo de integração e divida os seus oleodutos através de vários tempos de integração.
 
-### <a name="how-to-perform-activity-level-errors-and-failures-in-pipelines"></a>Como executar erros e falhas a nível de atividade em gasodutos
+### <a name="a-pipeline-run-error-while-invoking-rest-api-in-a-web-activity"></a>Um erro de execução do gasoduto ao invocar rest api numa atividade web
+
+**Problema**
+
+Mensagem de erro:
+
+`
+Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFailed”,”message”:”The client ‘<client>’ with object id ‘<object>’ does not have authorization to perform action ‘Microsoft.DataFactory/factories/pipelineruns/cancel/action’ over scope ‘/subscriptions/<subscription>/resourceGroups/<resource group>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelineruns/<pipeline run id>’ or the scope is invalid. If access was recently granted, please refresh your credentials.”}}
+`
+
+**Motivo**
+
+Os oleodutos podem utilizar a atividade Web para ligar para os métodos ADF REST API se e somente se o membro da Azure Data Factory for atribuído o papel de Contribuinte. Primeiro, deve configurar adicionar a identidade gerida pela Azure Data Factory à função de segurança do Contribuinte. 
+
+**Resolução**
+
+Antes de utilizar a API REST da Azure Data Factory no separador Definições de uma atividade Web, a segurança deve ser configurada. Os oleodutos Azure Data Factory podem utilizar a atividade Web para ligar para os métodos ADF REST API se e somente se a identidade gerida pela Azure Data Factory for atribuída a função *de Contribuinte.* Comece por abrir o portal Azure e clicar na ligação **todos os recursos** no menu esquerdo. Selecione **Azure Data Factory** para adicionar identidade gerida a ADF com papel de Contribuinte clicando no botão **Adicionar** uma caixa de atribuição *de funções.*
+
+
+### <a name="how-to-check-and-branch-on-activity-level-success-and-failure-in-pipelines"></a>Como verificar e ramificar o sucesso e a falha a nível de atividade nos oleodutos
 
 **Motivo**
 
@@ -115,7 +134,7 @@ O grau de paralelismo em *ForEach* é, na verdade, o grau máximo de paralelismo
 
 Factos Conhecidos sobre *ForEach*
  * Foreach tem uma propriedade chamada contagem de lote(n) onde o valor padrão é 20 e o máximo é de 50.
- * A contagem de lotes, n, é usada para construir n filas. Mais tarde discutiremos alguns detalhes sobre a forma como estas filas são construídas.
+ * A contagem de lotes, n, é usada para construir n filas. 
  * Cada fila corre sequencialmente, mas você pode ter várias filas correndo em paralelo.
  * As filas são pré-criadas. Isto significa que não há reequilíbrio das filas durante o tempo de funcionamento.
  * A qualquer momento, tem no máximo um item sendo processado por fila. Isto significa que, no máximo, n itens estão a ser processados a qualquer momento.
@@ -124,7 +143,8 @@ Factos Conhecidos sobre *ForEach*
 **Resolução**
 
  * Não deve utilizar a atividade *SetVariable* dentro *de cada um* que funciona em paralelo.
- * Tendo em conta a forma como as filas são construídas, o cliente pode melhorar o desempenho do foreach, definindo *múltiplas falhas em* que cada proa terá itens com tempo de processamento semelhante. Isto assegurará que os longos prazos sejam processados paralelamente de forma bastante sequencial.
+ * Tendo em conta a forma como as filas são construídas, o cliente pode melhorar o desempenho do foreach, definindo múltiplos de *proa* onde cada *proa* terá itens com tempo de processamento semelhante. 
+ * Isto assegurará que os longos prazos sejam processados paralelamente de forma bastante sequencial.
 
  ### <a name="pipeline-status-is-queued-or-stuck-for-a-long-time"></a>O estado do gasoduto está na fila ou preso por muito tempo
  

@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d877f666e03bbbe2b9d4f01bc9059b95f9a1f6b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095360"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385280"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -78,7 +78,8 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
       E.U.A. Leste 2  
       Leste DOS EUA 2  
       França Central  
-      Alemanha Centro-Oeste Japão Leste  
+      Alemanha Centro-Oeste  
+      Leste do Japão  
       Oeste do Japão  
       Coreia do Sul Central  
       Sul da Coreia do Sul  
@@ -130,9 +131,7 @@ O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
    :::column span="":::
       E.U.A. Leste 2  
       Leste DOS EUA 2  
-      França Central  
-      Alemanha Centro-Oeste  
-      Leste do Japão  
+      França Centro do Japão Oriental  
       Coreia do Sul Central  
       E.U.A. Centro-Norte  
       Europa do Norte  
