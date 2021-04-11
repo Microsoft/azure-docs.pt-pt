@@ -3,12 +3,12 @@ title: Azure Monitor regista modelo de dados
 description: Neste artigo, conheça os dados do modelo de dados do Azure Monitor Log Analytics para os dados do Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2682bf0483b38c50e64bf4ec5255c89f931ab0f0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500993"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078915"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Registar modelo de dados do Analytics para dados de backup do Azure
 
@@ -199,9 +199,9 @@ Esta tabela fornece detalhes sobre campos relacionados com políticas.
 | MonthlyRetentionDaysOfTheWeek_s |Texto ||Dias da semana selecionados para retenção mensal |
 | MonthlyRetentionWeeksOfTheMonth_s |Texto ||Semanas do mês em que a retenção mensal é configurada, por exemplo, First, Last |
 | YearlyRetentionDuration_s |Número Decimal ||Duração total da retenção em anos para cópias de segurança configuradas |
-| YearlyRetentionTimes_s |Texto ||Data e hora em que a retenção anual é configurada |
-| YearlyRetentionMonthsOfTheYear_s |Texto ||Meses do ano selecionados para retenção anual |
-| YearlyRetentionFormat_s |Texto ||Tipo de configuração para retenção anual, por exemplo, diária para base diurna, semanalmente para a semana | |
+| YearlyRetentionTimes_s |Texto | | Data e hora em que a retenção anual é configurada |
+| YearlyRetentionMonthsOfTheYear_s |Texto | | Meses do ano selecionados para retenção anual |
+| YearlyRetentionFormat_s |Texto ||Tipo de configuração para retenção anual, por exemplo, diária para base diurna, semanalmente para a semana |
 | YearlyRetentionDaysOfTheMonth_s |Texto ||Datas do mês selecionadas para retenção anual |
 | SynchronisationFrequencyPerDay_s |Número Inteiro |v2|Número de vezes num dia uma cópia de segurança de ficheiros é sincronizada para SC DPM e MABS |
 | DiffBackupFormat_s |Texto |v2|Formato para backups diferenciais para SQL em backup VM Azure |

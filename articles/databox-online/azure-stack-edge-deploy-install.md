@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 9aa02521d91d41380b1bdac3efe50ab3d196a856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caf64de55c48d763b8600988e5ff2aba2c83e4f9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90894210"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060198"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro"></a>Tutorial: Instalar Azure Stack Edge Pro
 

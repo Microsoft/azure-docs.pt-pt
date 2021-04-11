@@ -6,15 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
-ms.openlocfilehash: 84077f174fabd02afcd5171e8d365e8cbd3a52c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e709b04b4eac60e6cc0ba3e53eb77583162dfef
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027738"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078898"
 ---
 # <a name="use-the-azure-portal-to-manage-network-interfaces-on-the-vms-on-your-azure-stack-edge-pro-gpu"></a>Utilize o portal Azure para gerir interfaces de rede nos VMs no gpu Azure Stack Edge Pro
 
@@ -40,7 +39,7 @@ O seu dispositivo suporta apenas um interruptor virtual, mas várias interfaces 
 
 Antes de começar a gerir VMs no seu dispositivo através do portal Azure, certifique-se de que:
 
-1. Ativou uma interface de rede para calcular o seu dispositivo. Esta ação cria um interruptor virtual na interface de rede no seu VM. 
+1. Tem acesso a um dispositivo GPU Azure Stack Edge Pro ativado. Ativou uma interface de rede para calcular o seu dispositivo. Esta ação cria um interruptor virtual na interface de rede no seu VM. 
     1. Na UI local do seu dispositivo, vá ao **Compute.** Selecione a interface de rede que utilizará para criar um interruptor virtual.
 
         > [!IMPORTANT] 

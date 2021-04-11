@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fec4eb55f43bd17db5935ab32e5429927c74f5b9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 953b987e908736df703c354067ee27fc27d56073
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066216"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220713"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar cadernos Jupyter no seu espaço de trabalho
 
@@ -46,16 +46,19 @@ Também pode lançar Jupyter ou JupyterLab a partir da barra de ferramentas do p
 
 Utilize o modo de focagem para expandir a sua visão atual para que possa concentrar-se nos separadores ativos. O modo focus esconde o explorador de ficheiros Notebooks.
 
-1. Na barra de ferramentas da janela do terminal, selecione **o modo Focus** para ligar o modo de focagem. Dependendo da largura da janela, este pode estar localizado sob o item do **menu na** sua barra de ferramentas.
+1. Na barra de ferramentas da janela do terminal, selecione **o modo Focus** para ligar o modo de focagem. Dependendo da largura da janela, a ferramenta pode estar localizada sob o item do **menu na** sua barra de ferramentas.
 1. Enquanto está no modo de focagem, volte à vista padrão selecionando a **vista Standard**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Modo de foco de alternação / visão padrão":::
 
 ## <a name="code-completion-intellisense"></a>Conclusão do código (IntelliSense)
 
-[O IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) é um auxílio de conclusão de código que inclui uma série de funcionalidades: Membros da Lista, Informações de Parâmetros, Informações Rápidas e Palavra Completa. Estas funcionalidades ajudam-no a aprender mais sobre o código que está a usar, a acompanhar os parâmetros que está a digitar e a adicionar chamadas a propriedades e métodos com apenas algumas teclas.  
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) é um auxílio de conclusão de código que inclui muitas funcionalidades: Membros da Lista, Informações de Parâmetros, Informações Rápidas e Palavra Completa. Com apenas algumas teclas, pode:
+* Saiba mais sobre o código que está a usar
+* Acompanhe os parâmetros que está a escrever
+* Adicionar chamadas a propriedades e métodos 
 
-### <a name="use-code-snippets-preview"></a>Use snippets de código (pré-visualização)
+### <a name="insert-code-snippets-preview"></a>Inserir snippets de código (pré-visualização)
 
 Utilize **ctrl+Space** para acionar os cortes de código IntelliSense.  Percorra as sugestões ou comece a escrever para encontrar o código que pretende inserir.  Assim que inserir código, faça um separador através dos argumentos para personalizar o código para a sua própria utilização.
 
@@ -67,7 +70,7 @@ Pode navegar e pesquisar a lista de cortes utilizando a barra de ferramentas do 
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Abra a ferramenta do painel de corte na barra de ferramentas do portátil":::
 
-Do painel de snippets também pode submeter um pedido para adicionar novos snippets.
+A partir do painel de snippets, também pode submeter um pedido para adicionar novos snippets.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Painel snippet permite-lhe propor um novo corte":::
 
@@ -91,7 +94,7 @@ Na barra de ferramentas do portátil, selecione o menu e, em seguida, **&gt; Gua
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot da ferramenta de salvamento na barra de ferramentas do portátil":::
 
-Todos os cadernos são automaticamente a cada 30 segundos. Faça automaticamente atualizações apenas no ficheiro *ipynb* inicial, não no ficheiro de verificação.
+Todos os cadernos são automaticamente a cada 30 segundos. O AutoSave atualiza apenas o ficheiro *ipynb* inicial, não o ficheiro de verificação.
  
 Selecione **Checkpoints** no menu do portátil para criar um ponto de verificação nomeado e reverter o caderno para um ponto de verificação guardado.
 
@@ -208,7 +211,7 @@ Uma célula está no modo de comando quando não há cursor de texto que lhe ord
 
    :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Célula de portátil no modo de comando ":::
 
-| Atalho                      | Description                          |
+| Atalho                      | Descrição                          |
 | ----------------------------- | ------------------------------------|
 | ENTER                         | Entrar no modo de edição             |        
 | Shift + Enter                 | Executar célula, selecione abaixo         |     
@@ -252,7 +255,7 @@ O modo de edição é indicado por um cursor de texto que o leva a escrever na �
 
 Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais facilmente em cadernos Azure Machine Learning quando estiver no modo Editar.
 
-| Atalho                      | Description|                                     
+| Atalho                      | Descrição|                                     
 | ----------------------------- | ----------------------------------------------- |
 | Esc                        | Insira o modo de comando|  
 | Controlo/Comando + Espaço       | Ativar o IntelliSense |
@@ -285,8 +288,8 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 * Se não conseguir ligar-se a um bloco de notas, certifique-se de que a comunicação da tomada web **não** está desativada. Para que a funcionalidade do Jupyter funcione, a comunicação da tomada web deve ser ativada. Certifique-se de que a sua rede permite ligações websocket a *.instances.azureml.net e *.instances.azureml.ms. 
-
 * Quando a instância computacional é implantada num espaço de trabalho de ligação privada, só pode ser [acedida a partir de uma rede virtual](./how-to-secure-training-vnet.md#compute-instance). Se estiver a utilizar o ficheiro DNS ou anfitriões personalizado, por favor adicione uma entrada para < nome de instância >.< região >.instances.azureml.ms com endereço IP privado do ponto final privado do espaço de trabalho. Para mais informações consulte o artigo [DNS personalizado.](./how-to-custom-dns.md?tabs=azure-cli)
+
     
 ## <a name="next-steps"></a>Passos seguintes
 

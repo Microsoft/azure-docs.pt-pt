@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 71a2b8f0734de80f71dbb2372f8600b464d6c606
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0bbfb54d6ba7483e96633bdf05bb580e5517d216
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258444"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277747"
 ---
 # <a name="managed-identities"></a>Identidades geridas
 
@@ -47,8 +47,8 @@ Para obter mais informações sobre as chaves geridas pelo cliente e o Key Vault
 
 Estes tutoriais incluem ambos os cenários acima mencionados.
 
-- [Utilize o portal Azure para utilizar chaves geridas pelo cliente ou BYOK com Serviços de Mídia](tutorial-byok-portal.md)
-- [Utilize chaves geridas pelo cliente ou BYOK com serviços de mídia REST API](tutorial-byok-postman.md).
+- [Utilize o portal Azure para utilizar chaves geridas pelo cliente ou BYOK com Serviços de Mídia](security-customer-managed-keys-portal-tutorial.md)
+- [Utilize chaves geridas pelo cliente ou BYOK com serviços de mídia REST API](security-customer-managed-keys-rest-postman-tutorial.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

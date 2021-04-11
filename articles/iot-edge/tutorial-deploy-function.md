@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 85bc54402237ff8e9c82c43ab9cdbe2dc6658af1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 693c181f8a4a6db3b8b163f4b4d3350a3730b618
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464110"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221652"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar funções de Azure como módulos IoT Edge
 
@@ -43,7 +43,7 @@ A Função Azure que cria neste tutorial filtra os dados de temperatura gerados 
 Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge utilizando recipientes Linux](tutorial-develop-for-linux.md). Ao completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
-* Um dispositivo em execução Azure IoT Edge. Pode utilizar os arranques rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou [dispositivo Windows](quickstart.md).
+* Um dispositivo que funciona Azure IoT Edge com recipientes Linux. Pode utilizar os arranques rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou [dispositivo Windows](quickstart.md).
 * Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) configurado com as [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores Linux.

@@ -8,32 +8,32 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8bb1f8bb2aaeab88e5a9ea19534c8983af8c1626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c80b9fd65588fe6c390f44b34509168f3bfb549
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895755"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077691"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Garantir alta disponibilidade da aplicação ao correr em VMware em Azure
 
 A solução CloudSimple proporciona uma elevada disponibilidade para as suas aplicações em execução em VMware no ambiente Azure. A tabela que se segue lista os cenários de falha e as funcionalidades de alta disponibilidade associadas.
 
-| Cenário de falha | Aplicação protegida? | Recurso HA da plataforma | Funcionalidade VMware HA | Recurso Azure HA |
------------- | ------------- | ------------ | ------------ | ------------- |
-| Falha do disco | SIM | Substituição rápida do nó falhado | [Sobre a política de armazenamento padrão vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
-| Falha do ventilador | SIM | Adeptos redundantes, substituição rápida do nó falhado |  |  |
-| Falha do NIC | SIM | NIC redundante, substituição rápida do nó falhado
-| Falha de energia do hospedeiro | SIM | Fornecimento de energia redundante |  |  |
-| Falha do anfitrião ESXi | SIM | rápida substituição do nó falhado | [VMware vSphere Alta Disponibilidade](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
-| Falha em VM | SIM | [Balanceadores de carga](load-balancers.md)  | [VMware vSphere Alta Disponibilidade](https://www.vmware.com/products/vsphere/high-availability.html) | Balançador de carga Azure para VMware apátrida |
-| Falha da porta do interruptor de folha | SIM | NIC redundante |  |  |
-| Falha do interruptor de folha | SIM | Interruptores de folhas redundantes |  |  |
-| Falha na cremalheira | SIM | Grupos de colocação |  |  |
-| Conectividade da rede para as instalações da DC | SIM  | Serviços de rede redundantes |  | Circuitos ER redundantes |
-| Conectividade da rede para Azure | SIM | |  | Circuitos ER redundantes |
-| Falha do Datacenter | SIM |  |  | Zonas de disponibilidade |
-| Falha Regional | SIM  |  |  | Regiões do Azure |
+|  Cenário de falha  |  Aplicação protegida?  |  Recurso HA da plataforma  |  Funcionalidade VMware HA  |  Recurso Azure HA  |
+|----------------------------------------|------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+|  Falha do disco  |  SIM  |  Substituição rápida do nó falhado  |  [Sobre a política de armazenamento padrão vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html)  |  |
+|  Falha do ventilador  |  SIM  |  Adeptos redundantes, substituição rápida do nó falhado  |  |  |
+|  Falha do NIC  |  SIM  |  NIC redundante, substituição rápida do nó falhado  |  |  |
+|  Falha de energia do hospedeiro  |  SIM  |  Fornecimento de energia redundante  |  |  |
+|  Falha do anfitrião ESXi  |  SIM  |  rápida substituição do nó falhado  |  [VMware vSphere Alta Disponibilidade](https://www.vmware.com/products/vsphere/high-availability.html)  |  |
+|  Falha em VM  |  SIM  |  [Balançadores de carga](load-balancers.md)  |  [VMware vSphere Alta Disponibilidade](https://www.vmware.com/products/vsphere/high-availability.html)  |  Balançador de carga Azure para VMware apátrida  |
+|  Falha da porta do interruptor de folha  |  SIM  |  NIC redundante  |  |  |
+|  Falha do interruptor de folha  |  SIM  |  Interruptores de folhas redundantes  |  |  |
+|  Falha na cremalheira  |  SIM  |  Grupos de colocação  |  |  |
+|  Conectividade da rede para as instalações da DC  |  SIM  |  Serviços de rede redundantes  |  |  Circuitos ER redundantes  |
+|  Conectividade da rede para Azure  |  SIM  |  |  |  Circuitos ER redundantes  |
+|  Falha do Datacenter  |  SIM  |  |  |  Zonas de disponibilidade  |
+|  Falha Regional  |  SIM  |  |  |  Regiões de Azure  |
 
 A Azure VMware Solution by CloudSimple fornece as seguintes funcionalidades de alta disponibilidade.
 

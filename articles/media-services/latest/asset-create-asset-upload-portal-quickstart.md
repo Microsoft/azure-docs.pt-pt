@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 3f175ff8e7c809032f35cdea9dc3cffa8345b82c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 929d8412b3be894e80a13d9a2bd07ab7401b8dda
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106828"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277866"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Quickstart: Carregar, codificar e transmitir conteúdo com portal
 
@@ -41,8 +41,8 @@ Este quickstart mostra-lhe como usar o portal Azure para carregar, codificar e t
     
     Comentário:
 
-    * [Localizadores de transmissão em fluxo](streaming-locators-concept.md)
-    * [Políticas de transmissão em fluxo](streaming-policy-concept.md)
+    * [Localizadores de transmissão em fluxo](stream-streaming-locators-concept.md)
+    * [Políticas de transmissão em fluxo](stream-streaming-policy-concept.md)
     * [Empacotamento e entrega](encode-dynamic-packaging-concept.md)
     * [Filtros](filters-concept.md)
 * Pode proteger o seu conteúdo encriptando-o com o Advanced Encryption Standard (AES-128) ou/e qualquer um dos três principais sistemas DRM: Microsoft PlayReady, Google Widevine e Apple FairPlay. O [conteúdo encrypt com o portal Azure](drm-encrypt-content-how-to.md) quickstart mostra como configurar a proteção de conteúdos.
@@ -94,7 +94,7 @@ Para publicar um ativo, precisa agora de adicionar um localizador de streaming a
 
     > [!NOTE]
     > Se quiser que o seu stream seja encriptado, tem de criar uma política de chave de conteúdo e defini-la no localizador de streaming. Para mais informações, consulte [conteúdo encriptar com o portal Azure](drm-encrypt-content-how-to.md).
-1. Na janela **de localização de streaming Add,** escolha uma das políticas de streaming predefinidas. Para obter informações detalhadas, consulte [as políticas de streaming](streaming-policy-concept.md)
+1. Na janela **de localização de streaming Add,** escolha uma das políticas de streaming predefinidas. Para obter informações detalhadas, consulte [as políticas de streaming](stream-streaming-policy-concept.md)
 
     ![Localizador de streaming](./media/asset-create-asset-upload-portal-quickstart/streaming-locator.png)
 
@@ -105,7 +105,7 @@ Uma vez publicado o ativo, pode transmiti-lo diretamente no portal.
 Ou, copie o URL de streaming e use-o no seu leitor cliente.
 
 > [!NOTE]
-> Certifique-se de que o [ponto final de streaming](streaming-endpoint-concept.md) está a funcionar. Quando cria uma conta De Serviço de Media pela primeira vez, o ponto final de streaming predefinido é criado e está num estado parado, pelo que tem de o iniciar antes de poder transmitir o seu conteúdo.<br/>Só és cobrado quando o teu ponto final de streaming está no estado de funcionamento.
+> Certifique-se de que o [ponto final de streaming](stream-streaming-endpoint-concept.md) está a funcionar. Quando cria uma conta De Serviço de Media pela primeira vez, o ponto final de streaming predefinido é criado e está num estado parado, pelo que tem de o iniciar antes de poder transmitir o seu conteúdo.<br/>Só és cobrado quando o teu ponto final de streaming está no estado de funcionamento.
 
 ## <a name="cleanup-resources"></a>Recursos de limpeza
 

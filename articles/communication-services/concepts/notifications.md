@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9a878dc5cdbbe336e7279d0cd919bd17cd42d0e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1b7e091fe09bc2c093cc84473bd07917347f26d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728220"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220802"
 ---
 # <a name="communication-services-notifications"></a>Notificações dos Serviços de Comunicação
 
@@ -67,13 +67,24 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### <a name="using-the-azure-portal-to-link-your-notification-hub"></a>Utilizar o portal Azure para ligar o seu Centro de Notificação
 
-No portal, navegue para o seu recurso Azure Communication Services. Dentro do recurso Serviços de Comunicação, selecione Notificações push a partir do menu esquerdo da página serviços de comunicação e ligue o Centro de Notificação que aprovisionou anteriormente. Você precisará fornecer a sua cadeia de conexão e recursosId aqui:
+1. No portal, aceda ao seu recurso Azure Communication Services.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot mostrando as definições de Notificações push dentro do portal Azure.":::
+1. Dentro do recurso Serviços de Comunicação, selecione **Notificações push** a partir do menu esquerdo da página serviços de comunicação e ligue o Centro de Notificação que aprovisionou anteriormente.
+
+1. Selecione **o centro de notificação De Ligação**. Você verá uma lista de centros de notificação disponíveis para ligar.
+ 
+1. Selecione o centro de notificação que pretende utilizar para este recurso.
+ 
+   - Se precisar de criar um novo hub, selecione **Criar um novo centro de notificação** para obter um novo hub previsto para este recurso.
+
+   :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot mostrando as definições de Notificações push dentro do portal Azure.":::
+
+Agora verá o centro de notificação que ligou ao estado ligado.
+
+Se quiser utilizar um hub diferente para o recurso, selecione **Disconnect** e, em seguida, repita os passos para ligar o diferente hub de notificação.
 
 > [!NOTE]
-> Se a cadeia de ligação Azure Notification Hub for atualizada, o recurso serviços de comunicação também tem de ser atualizado.
-Qualquer alteração na forma como o hub está ligado será refletida no plano de dados (isto é, ao enviar uma notificação) dentro de um período máximo de ``10`` minutos. Isto aplica-se também quando o hub está ligado pela primeira vez **se** houver notificações enviadas anteriormente.
+> Qualquer alteração na forma como o hub está ligado reflete-se no plano de dados (isto é, ao enviar uma notificação) dentro de um período máximo de 10 minutos. Este mesmo comportamento aplica-se quando o hub está ligado pela primeira vez, **se** as notificações forem enviadas antes da alteração.
 
 ### <a name="device-registration"></a>Registo de dispositivo
 

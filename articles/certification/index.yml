@@ -1,0 +1,24 @@
+### YamlMime:Landing
+title: Documentação do dispositivo certificado Azure
+summary: Este programa é a sua única paragem para facilmente diferenciar, promover e encontrar dispositivos IoT construídos para funcionar em Azure.
+metadata:
+  title: Programa de Dispositivos Certificados Azure
+  description: Este programa é a sua única paragem para facilmente diferenciar, promover e encontrar dispositivos IoT construídos para funcionar em Azure.
+  ms.service: certification
+  ms.topic: landing-page
+  author: cbroad
+  ms.author: cbroad
+  ms.date: 03/18/2021
+  ms.openlocfilehash: 3fa7e18388fc35eebdfdd0d0aec2be308765b4e1
+  ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/30/2021
+  ms.locfileid: "105970093"
+landingContent:
+- title: Sobre o programa Azure Certified Device
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o programa Azure Certified Device?
+      url: ./overview.md

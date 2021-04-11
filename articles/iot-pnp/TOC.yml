@@ -44,7 +44,7 @@
     - name: Digital Twins
       href: concepts-digital-twin.md
     - name: Certificação de dispositivos
-      href: concepts-certification-program.md
+      href: ../certification/program-requirements-pnp.md
     - name: Repositório de modelos
       href: concepts-model-repository.md
     - name: Utilizar modelos numa solução
@@ -61,8 +61,6 @@
       href: howto-use-embedded-c.md
     - name: Gerir duplos digitais
       href: howto-manage-digital-twin.md
-    - name: Certificar um dispositivo
-      href: howto-certify-device.md
     - name: Como ligar uma amostra de ponte IoT Plug e Play
       href: howto-use-iot-pnp-bridge.md
     - name: Construa e implemente a ponte IoT Plug e Play

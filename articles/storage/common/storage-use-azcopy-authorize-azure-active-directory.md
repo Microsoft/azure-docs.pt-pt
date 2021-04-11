@@ -4,15 +4,15 @@ description: Pode fornecer credenciais de autorização para operações AzCopy 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd3aeaf133c02ef54eceaff776ead34cc2318260
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97672496"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220482"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizar o acesso a blobs com AzCopy e Azure Ative Directory (Azure AD)
 
@@ -261,9 +261,10 @@ Digite o seguinte comando e, em seguida, prima a tecla ENTER.
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_APPLICATION_ID=<application-id>
 export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Substitua o `<application-id>` espaço reservado pelo ID de aplicação do registo da aplicação do seu titular de serviço. Substitua o `<client-secret>` espaço reservado pelo segredo do cliente.
+Substitua o `<application-id>` espaço reservado pelo ID de aplicação do registo da aplicação do seu titular de serviço. Substitua o `<client-secret>` espaço reservado pelo segredo do cliente. Substitua o `<tenant-id>` espaço reservado pelo ID do inquilino da organização a que pertence a conta de armazenamento. Para encontrar o ID do inquilino, selecione **Azure Ative Directory > Properties > ID do Diretório** no portal Azure. 
 
 > [!NOTE]
 > Considere utilizar um pedido para recolher a palavra-passe do utilizador. Assim, a sua senha não aparecerá no seu histórico de comando. 
@@ -282,9 +283,10 @@ Digite o seguinte comando e, em seguida, prima a tecla ENTER.
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
 export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo ou totalmente qualificado para o ficheiro do certificado. A AzCopy guarda o caminho para este certificado mas não guarda uma cópia do certificado, por isso certifique-se de manter esse certificado no lugar. Substitua o `<certificate-password>` espaço reservado pela palavra-passe do certificado.
+Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo ou totalmente qualificado para o ficheiro do certificado. A AzCopy guarda o caminho para este certificado mas não guarda uma cópia do certificado, por isso certifique-se de manter esse certificado no lugar. Substitua o `<certificate-password>` espaço reservado pela palavra-passe do certificado. Substitua o `<tenant-id>` espaço reservado pelo ID do inquilino da organização a que pertence a conta de armazenamento. Para encontrar o ID do inquilino, selecione **Azure Ative Directory > Properties > ID do Diretório** no portal Azure. 
 
 > [!NOTE]
 > Considere utilizar um pedido para recolher a palavra-passe do utilizador. Assim, a sua senha não aparecerá no seu histórico de comando. 

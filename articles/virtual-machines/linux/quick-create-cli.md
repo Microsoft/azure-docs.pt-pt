@@ -5,9 +5,8 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/09/2018
+ms.date: 03/30/2021
 ms.author: cynthn
 ms.custom:
 - mvc
@@ -15,18 +14,18 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: fd411255247e6a37b857ac11c1b0abbd4558d02a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e8c1a06244c46f5789506e8a77d410f5493bbf3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549775"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058583"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início Rápido: criar uma máquina virtual do Linux com a CLI do Azure
 
 Este quickstart mostra-lhe como usar a interface de linha de comando Azure (CLI) para implantar uma máquina virtual Linux (VM) em Azure. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts.
 
-Neste tutorial, vamos instalar o Ubuntu 16.04 LTS. Para mostrar a VM em ação, irá ligar à mesma através de SSH e instalar o servidor Web NGINX.
+Neste tutorial, vamos instalar a mais recente imagem Ubuntu LTS. Para mostrar a VM em ação, irá ligar à mesma através de SSH e instalar o servidor Web NGINX.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -88,10 +87,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
 
-Estabeleça o SSH para a VM como habitualmente. Substitua **publicIpAddress** pelo endereço IP público da VM, conforme indicado no resultado anterior da VM:
+Estabeleça o SSH para a VM como habitualmente. Substitua o endereço IP no exemplo pelo endereço IP público do seu VM, conforme indicado na saída anterior:
 
 ```bash
-ssh azureuser@publicIpAddress
+ssh azureuser@40.68.254.142
 ```
 
 ## <a name="install-web-server"></a>Instalar o servidor Web

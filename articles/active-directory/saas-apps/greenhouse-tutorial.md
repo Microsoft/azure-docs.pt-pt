@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a14b16e34faa827228594bf6d4f0bd9ed48cf72
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731924"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Integração do Diretório Ativo Azure com Greenhouse
 
@@ -40,7 +40,7 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Estufa apoia **SP** iniciado SSO
+* A Greenhouse apoia **o SP e o IDP** iniciado sSO.
 
 ## <a name="adding-greenhouse-from-the-gallery"></a>Adicionando estufa da galeria
 
@@ -73,18 +73,28 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração de aplicações **Greenhouse,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
+1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<companyname>.greenhouse.io`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<COMPANYNAME>.greenhouse.io`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<companyname>.greenhouse.io`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
+    
+    | URL de Resposta|
+    | -------------- |
+    | `https://<COMPANYNAME>.greenhouse.io/users/saml/consume` |
+    | `https://app.greenhouse.io/<ENTITY ID>/users/saml/consume` |
+    |
+
+1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
+
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<COMPANYNAME>.greenhouse.io`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente greenhouse](https://www.greenhouse.io/contact) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e sinal no URL. Contacte [a equipa de suporte do Cliente greenhouse](https://www.greenhouse.io/contact) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -127,7 +137,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![screenshot para a página sso](./media/greenhouse-tutorial/configure.png)
 
-1. Execute os seguintes passos na página Single Sign-On.
+1. Execute os seguintes passos na página **'Sign-On' único.**
 
     ![screenshot para a página de configuração sso](./media/greenhouse-tutorial/sso-page.png)
 
@@ -172,15 +182,22 @@ A fim de permitir que os utilizadores de Azure AD acedam à Estufa, devem ser a 
       >[!NOTE]
       >Os detentores de conta Azure Ative Directory receberão um e-mail incluindo um link para confirmar a conta antes de se tornar ativa.
 
-### <a name="test-sso"></a>Teste SSO 
+## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para URL de entrada de estufa, onde pode iniciar o fluxo de login. 
+#### <a name="sp-initiated"></a>SP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Greenhouse Sign on URL onde pode iniciar o fluxo de login.  
 
 * Vá diretamente ao URL de inscrição de greenhouse e inicie o fluxo de login a partir daí.
 
-* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo greenhouse nas My Apps, este será redirecionado para URL de sinal de estufa. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="idp-initiated"></a>IDP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na Estufa para a qual configura o SSO 
+
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo greenhouse nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na Estufa para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

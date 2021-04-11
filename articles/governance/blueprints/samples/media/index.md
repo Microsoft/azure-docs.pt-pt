@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema Media
 description: Descrição geral do exemplo de esquema Media. Este exemplo de esquema ajuda os clientes a avaliar controlos Media específicos.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: f2b9e29d8f5095947587107cc372beb34b18abb7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
-ms.translationtype: HT
+ms.openlocfilehash: f883a22b7af50adedd527bc6783cab435904010a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034990"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386368"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Descrição geral do exemplo de esquema Media
 

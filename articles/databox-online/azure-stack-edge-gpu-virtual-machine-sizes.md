@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 88b2a87fe0f01d3b14a1119dadea6f782d2be5af
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c32aa15b3c1ac9e794e66936219ba645d3ec425d
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438937"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078809"
 ---
 # <a name="vm-sizes-and-types-for-azure-stack-edge-pro"></a>Tamanhos e tipos de VM para Azure Stack Edge Pro 
 

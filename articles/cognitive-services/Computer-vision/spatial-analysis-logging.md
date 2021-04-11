@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722706"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077623"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
@@ -103,21 +103,21 @@ Uma vez implantado o módulo telegraf, as métricas reportadas podem ser acedida
 
 ### <a name="system-health-events"></a>Eventos de saúde do sistema
 
-| Nome do Evento | Description|
-|------|---------|
-|archon_exit     |Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
-|archon_error     |Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.  |
-|InputRate     |A taxa a que o gráfico processa a entrada de vídeo. Reportado a cada 5 minutos. | 
-|Taxa de saída     |A taxa a que o gráfico produz insights de IA. Reportado a cada 5 minutos. |
-|archon_allGraphsStarted | Enviado quando todos os gráficos terminarem de começar. |
-|archon_configchange     | Enviado quando uma configuração de gráfico mudou. |
-|archon_graphCreationFailed     |Enviado quando o gráfico com o relato `graphId` não começa. |
-|archon_graphCreationSuccess     |Enviado quando o gráfico com o relatado `graphId` começa com sucesso. |
-|archon_graphCleanup     | Enviado quando o gráfico com o relato `graphId` limpa e sai. |
-|archon_graphHeartbeat     |Batimentos cardíacos enviados a cada minuto por cada gráfico de uma habilidade. |
-|archon_apiKeyAuthFail |Enviado quando a tecla de recursos de Visão Por Computador não autentica o recipiente por mais de 24 horas, devido às seguintes razões: Fora de Quota, Inválido, Offline. |
-|VideoIngesterHeartbeat     |Enviado a cada hora para indicar que o vídeo é transmitido a partir da fonte de Vídeo, com o número de erros naquela hora. Reportado para cada gráfico. |
-|Estado do VideoIngester | Relatórios *Parados* ou *Iniciados* para transmissão de vídeo. Reportado para cada gráfico. |
+| Nome do Evento                  | Description    |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| archon_exit                 | Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
+| archon_error                | Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.      |
+| InputRate                   | A taxa a que o gráfico processa a entrada de vídeo. Reportado a cada 5 minutos.              |
+| Taxa de saída                  | A taxa a que o gráfico produz insights de IA. Reportado a cada 5 minutos.                |
+| archon_allGraphsStarted     | Enviado quando todos os gráficos terminarem de começar.                                           |
+| archon_configchange         | Enviado quando uma configuração de gráfico mudou.                                              |
+| archon_graphCreationFailed  | Enviado quando o gráfico com o relato `graphId` não começa.                           |
+| archon_graphCreationSuccess | Enviado quando o gráfico com o relatado `graphId` começa com sucesso.                      |
+| archon_graphCleanup         | Enviado quando o gráfico com o relato `graphId` limpa e sai.                      |
+| archon_graphHeartbeat       | Batimentos cardíacos enviados a cada minuto por cada gráfico de uma habilidade.                                   |
+| archon_apiKeyAuthFail       | Enviado quando a tecla de recursos de Visão Por Computador não autentica o recipiente por mais de 24 horas, devido às seguintes razões: Fora de Quota, Inválido, Offline. |
+| VideoIngesterHeartbeat      | Enviado a cada hora para indicar que o vídeo é transmitido a partir da fonte de Vídeo, com o número de erros naquela hora. Reportado para cada gráfico. |
+| Estado do VideoIngester          | Relatórios *Parados* ou *Iniciados* para transmissão de vídeo. Reportado para cada gráfico.              |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Resolução de problemas de um dispositivo de borda IoT
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc803814e493ffef6f5928dc9971f9f6f864342d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102619159"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221743"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
 
@@ -394,6 +394,16 @@ Se estiver a utilizar o V1 SKU do serviço Application Gateway/WAF, então terá
 Para mais informações, consulte a documentação [aqui.](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)
 
 Se estiver a utilizar o V2 SKU do serviço Application Gateway/WAF, não tem de carregar o novo certificado nas definições HTTP, uma vez que o V2 SKU utiliza "certificados de raiz fidedignos" e não é necessário tomar aqui qualquer ação.
+
+## <a name="configuration---mutual-authentication"></a>Configuração - autenticação mútua
+
+### <a name="what-is-mutual-authentication"></a>O que é a autenticação mútua?
+
+A autenticação mútua é a autenticação bidirecciona entre um cliente e um servidor. A autenticação mútua com a Application Gateway permite atualmente verificar a porta de entrada para verificar o cliente que envia o pedido, que é a autenticação do cliente. Normalmente, o cliente é o único que autentica o Gateway de Aplicações. Como o Application Gateway pode agora também autenticar o cliente, torna-se a autenticação mútua onde o Application Gateway e o cliente estão a autenticar-se mutuamente. 
+
+### <a name="is-mutual-authentication-available-between-application-gateway-and-its-backend-pools"></a>A autenticação mútua está disponível entre o Application Gateway e as suas piscinas de backend?
+
+Não, a autenticação mútua é atualmente apenas entre o cliente frontal e o Gateway de aplicação. Atualmente, a autenticação mútua de backend não é suportada.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuração - controlador de entrada para AKS
 

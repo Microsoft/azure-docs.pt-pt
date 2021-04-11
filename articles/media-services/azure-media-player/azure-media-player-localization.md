@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
-ms.openlocfilehash: 8a459d1fba4353b4b3e092e83a759314cc455ead
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: e78ff237fb488a995d9161814fe61590fb1c6d5b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87087293"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449848"
 ---
 # <a name="azure-media-player-localization"></a>Localização do Azure Media Player #
 

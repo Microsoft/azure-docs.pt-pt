@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 1d9918786b22faddaeb07a12f0840b36a11ffe4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b55f0562ae08a6e5a6b38bd0b6fc9f781b94ab64
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778386"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078694"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação (migrar para a Solução VMware Azure)
 
@@ -31,6 +31,9 @@ As avaliações que cria com a Azure Migrate são uma imagem pontual dos dados. 
 **VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais do Azure. Pode avaliar os seus servidores no local em ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hiper-V](how-to-set-up-appliance-hyper-v.md) e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs Azure usando este tipo de avaliação.
 **SQL do Azure** | Avaliações para migrar os seus servidores SQL no local do seu ambiente VMware para Azure SQL Database ou Azure SQL Managed Instance.
 **Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Se o número de avaliações de Azure VM ou AVS estiver incorreto na ferramenta Discovery e de avaliação, clique no número total de avaliações para navegar para todas as avaliações e recalcular as avaliações de Azure VM ou AVS. A ferramenta Discovery e assessment mostrará então a contagem correta para este tipo de avaliação. 
 
 A avaliação da Solução VMware Azure (AVS) fornece duas opções de critérios de dimensionamento:
 

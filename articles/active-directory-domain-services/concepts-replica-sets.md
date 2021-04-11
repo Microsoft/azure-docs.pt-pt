@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 03/30/2021
 ms.author: justinha
-ms.openlocfilehash: 8eb1560887c08c3f64fa599c39e5577242d2a1e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bcd3ebef027ec72728be21b0fe1504236f553ba
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689067"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058175"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services"></a>Réplica define conceitos e funcionalidades para Azure Ative Directory Domain Services
 
@@ -54,7 +54,7 @@ O exemplo a seguir mostra um domínio gerido com três conjuntos de réplicas pa
 
 O SKU padrão para um domínio gerido é o *Enterprise* SKU, que suporta vários conjuntos de réplicas. Para criar conjuntos de réplicas adicionais se tiver mudado para o *SKU Standard,* [atualize o domínio gerido](change-sku.md) para *Enterprise* ou *Premium*.
 
-O número máximo suportado de conjuntos de réplicas é de quatro, incluindo a primeira réplica criada quando criou o domínio gerido.
+O número máximo suportado de conjuntos de réplicas é de cinco, incluindo a primeira réplica criada quando criou o domínio gerido.
 
 A faturação de cada conjunto de réplicas baseia-se na configuração de domínio SKU. Por exemplo, se tiver um domínio gerido que utilize o *SKU da Enterprise* e tiver três conjuntos de réplicas, a sua subscrição é faturada por hora para cada um dos três conjuntos de réplicas.
 
@@ -66,7 +66,7 @@ N.º Os conjuntos de réplicas devem estar na mesma subscrição que o domínio 
 
 ### <a name="how-many-replica-sets-can-i-create"></a>Quantos conjuntos de réplicas posso criar?
 
-Pode criar um máximo de quatro conjuntos de réplicas — o conjunto de réplicas iniciais para o domínio gerido, mais três conjuntos de réplicas adicionais.
+Pode criar um máximo de cinco conjuntos de réplicas — o conjunto de réplicas iniciais para o domínio gerido, mais quatro conjuntos de réplicas adicionais.
 
 ### <a name="how-does-user-and-group-information-get-synchronized-to-my-replica-sets"></a>Como é que as informações de utilizador e de grupo são sincronizadas com os meus conjuntos de réplicas?
 

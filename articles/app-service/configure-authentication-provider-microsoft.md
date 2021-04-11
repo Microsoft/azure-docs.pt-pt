@@ -3,16 +3,16 @@ title: Configure a autenticação da Microsoft
 description: Saiba como configurar a autenticação da Conta microsoft como fornecedor de identidade para o seu Serviço de Aplicações ou aplicação Azure Functions.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 9ec9c102680496407106a3bf9b7683890c7a63ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e7b4c7ed1950b2fa585639a3097cc1f5688d739
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93043241"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077955"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para utilizar o login da Conta Microsoft
 
@@ -20,8 +20,8 @@ ms.locfileid: "93043241"
 
 Este tópico mostra-lhe como configurar o Azure App Service ou Azure Functions para usar o AAD para suportar logins pessoais de contas da Microsoft.
 
-> [!NOTE]
-> Tanto as contas pessoais da Microsoft como as contas organizacionais utilizam o fornecedor de identidade AAD. Neste momento, não é possível configurar este fornecedor de identidade para suportar ambos os tipos de logins.
+> [!IMPORTANT]
+> Embora o fornecedor de Conta Microsoft ainda esteja suportado, recomenda-se que as aplicações utilizem o fornecedor da Plataforma de Identidade da [Microsoft (Azure AD)](./configure-authentication-provider-aad.md). A Plataforma de Identidade da Microsoft oferece suporte tanto para contas organizacionais como para contas pessoais da Microsoft.
 
 ## <a name="register-your-app-with-microsoft-account"></a><a name="register-microsoft-account"> </a>Registe a sua aplicação na Conta Microsoft
 

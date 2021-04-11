@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261dceb70a6059c76dbe3bd1d7636eee5d9d77bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5037450d401153811899b8d769ca92af7ce4068e
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936296"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103781"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Utilizar a CLI do Azure Digital Twins
 
@@ -25,7 +25,7 @@ Além de gerir a sua instância Azure Digital Twins no portal Azure, a Azure Dig
 * Gerir [rotas](concepts-route-events.md)
 * Configurar a [segurança](concepts-security.md) através do controlo de acesso baseado em funções Azure (Azure RBAC)
 
-O conjunto de comandos é chamado **az dt,** e faz parte da [extensão Azure IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Pode ver a lista completa de comandos e a sua utilização como parte da documentação de referência para o conjunto de `az iot` comandos: referência de comando [ *az dt*](/cli/azure/ext/azure-iot/dt).
+O conjunto de comandos é chamado **az dt,** e faz parte da [extensão Azure IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Pode ver a lista completa de comandos e a sua utilização como parte da documentação de referência para o conjunto de `az iot` comandos: referência de comando [ *az dt*](/cli/azure/dt).
 
 ## <a name="uses-deploy-and-validate"></a>Utilizações (implantar e validar)
 
@@ -61,4 +61,4 @@ az extension add --upgrade -n azure-iot
 ## <a name="next-steps"></a>Passos seguintes
 
 Explore o CLI e o seu conjunto completo de comandos através dos documentos de referência:
-* [referência de comando *az dt*](/cli/azure/ext/azure-iot/dt)
+* [referência de comando *az dt*](/cli/azure/dt)

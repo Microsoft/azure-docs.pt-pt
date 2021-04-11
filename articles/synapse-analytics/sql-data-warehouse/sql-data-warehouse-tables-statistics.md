@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3ade41c51cbb8065734e8957cfc8b9f0c22b2df3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42dd34f0fe4006411f413002eb7c351646e72390
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673371"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078966"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estatísticas de tabela para piscina SQL dedicada em Azure Synapse Analytics
 
@@ -90,7 +90,7 @@ No entanto, se o seu pool de SQL dedicado apenas contiver um país/região, e vo
 
 Seguem-se recomendações que atualizam as estatísticas:
 
-|||
+| Atributo de estatística | Recomendação|
 |-|-|
 | **Frequência das atualizações de estatísticas**  | Conservador: Diariamente </br> Depois de carregar ou transformar os seus dados |
 | **Amostragem** |  Menos de mil milhões de linhas, use amostragem padrão (20 por cento). </br> Com mais de mil milhões de filas, use amostragem de 2%. |

@@ -4,7 +4,6 @@ description: Neste tutorial, irá aprender a ligar redes virtuais com o peering 
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -13,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 71ba82cfd5f0f4166d25983f3f80530da45bdeac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b7fcf7f60b18d0d44ded67cb5b22bcdcdcd56a77
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932952"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059331"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
 

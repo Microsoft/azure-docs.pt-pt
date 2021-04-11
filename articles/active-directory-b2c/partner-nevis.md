@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e72cab6d6220b71e93550eec7649752201180a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98674998"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256587"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutorial para configurar Nevis com Azure Ative Directory B2C para autenticação sem palavras-passe
 
@@ -32,7 +32,7 @@ Para começar, vai precisar de:
 
 - Um [inquilino Azure AD B2C](./tutorial-create-tenant.md) que está ligado à sua assinatura Azure.
 
-- Ambiente Azure AD B2C configurado para a utilização de [políticas personalizadas,](./custom-policy-get-started.md)se desejar integrar o Nevis no seu fluxo de políticas de inscrição.
+- Ambiente Azure AD B2C configurado para a utilização de [políticas personalizadas,](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)se desejar integrar o Nevis no seu fluxo de políticas de inscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -270,4 +270,4 @@ Para obter informações adicionais, reveja os seguintes artigos
 
 - [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

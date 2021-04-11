@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 44dfd07a5b749d88552bb1dcac2ee4b4e5ce65e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565245"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554081"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 
@@ -140,7 +140,7 @@ Para obter mais informações sobre como utilizar o Azure RBAC para gerir o aces
 
 ## <a name="using-conditional-access"></a>Usando acesso condicional
 
-Pode impor políticas de Acesso Condicional, tais como autenticação de vários fatores ou verificação de risco de entrada no utilizador antes de autorizar o acesso a VMs Linux em Azure que estão ativados com o sinal AD Azure. Para aplicar a política de Acesso Condicional, tem de selecionar a aplicação "Azure Linux VM Sign-In" a partir da opção de atribuição de aplicações na nuvem ou ações e, em seguida, utilizar o risco de acesso como condição e/ou exigir a autenticação de vários fatores como controlo de acesso a subvenções. 
+Pode impor políticas de Acesso Condicional, tais como autenticação de vários fatores ou verificação de risco de entrada no utilizador antes de autorizar o acesso a VMs Linux em Azure que estão ativados com o sinal AD Azure. Para aplicar a política de Acesso Condicional, tem de selecionar a aplicação "Microsoft Azure Linux Virtual Machine Sign-In" a partir da opção de atribuição de aplicações na nuvem ou ações e, em seguida, utilizar o risco de acesso de acesso como condição e/ou exigir a autenticação de vários fatores como controlo de acesso a subvenções. 
 
 > [!WARNING]
 > Por utilizador Ativado/Aplicado Azure AD Multi-Factor Authentication não é suportado para o sismo VM.

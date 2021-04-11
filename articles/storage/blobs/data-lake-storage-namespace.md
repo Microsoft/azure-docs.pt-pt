@@ -4,16 +4,16 @@ description: Descreve o conceito de um espaço hierárquico para Azure Data Lake
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 26062d73ae4c61af77b15dd2cac0541f2a988d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de7f62dd4d4205e819278e6dc90d905e825580f2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912999"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220509"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espaço hierárquico de nome hierárquico Azure Data Lake De armazenamento Gen2
 
@@ -44,6 +44,10 @@ Em geral, recomendamos que ligue um espaço hierárquico para cargas de trabalho
 As razões para permitir um espaço hierárquico são determinadas por uma análise de TCO. De um modo geral, as melhorias na latência da carga de trabalho devido à aceleração do armazenamento exigirão recursos computacional por menos tempo. A latência para muitas cargas de trabalho pode ser melhorada devido à manipulação do diretório atómico que é possibilitada por um espaço hierárquico de nomes. Em muitas cargas de trabalho, o recurso computacional representa > 85% do custo total e, portanto, mesmo uma redução modesta da latência da carga de trabalho equivale a uma quantidade significativa de poupanças de TCO. Mesmo nos casos em que permitir um espaço hierárquico aumenta os custos de armazenamento, o TCO continua a ser reduzido devido à redução dos custos de computação.
 
 Para analisar as diferenças nos preços de armazenamento de dados, preços de transação e preços de reserva de capacidade de armazenamento entre contas que têm um espaço hierárquico plano e um espaço hierárquico de nomes, consulte [o preço da Azure Data Lake Storage Gen2.](https://azure.microsoft.com/pricing/details/storage/data-lake/)
+
+## <a name="enabling-a-hierarchical-namespace"></a>Permitir um espaço hierárquico de nomes
+
+Não é possível ativar um espaço hierárquico numa conta de armazenamento existente. Só pode ativar um espaço hierárquico de nomes quando criar uma conta de armazenamento. Para obter orientação, consulte [Criar uma conta de armazenamento para utilizar com a Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

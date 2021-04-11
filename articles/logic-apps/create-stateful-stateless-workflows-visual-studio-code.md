@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/30/2021
+ms.openlocfilehash: 491d5f14cc8f456d228a5bc6efaa6686575979c1
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557017"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078745"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -101,8 +101,8 @@ Para construir e executar localmente o seu projeto de aplicação lógica no Có
 1. Guarde a cadeia de ligação em algum lugar seguro. Depois de criar o seu projeto de aplicação lógica no Código do Estúdio Visual, tem de adicionar a cadeia à **local.settings.jsno** ficheiro na pasta de nível de raiz do seu projeto.
 
    > [!IMPORTANT]
-   > Se planeia implantar num recipiente Docker, também tem de adicionar esta cadeia de ligação ao ficheiro Docker que utiliza para implantação.
-
+   > Se planeia implantar num recipiente Docker, também tem de utilizar esta cadeia de ligação com o ficheiro Docker que utiliza para a implantação. Para cenários de produção, certifique-se de que protege e protege tais segredos e informações sensíveis, por exemplo, utilizando um cofre chave.
+  
 ### <a name="tools"></a>Ferramentas
 
 * [Visual Studio Code 1.30.1 (janeiro 2019) ou superior](https://code.visualstudio.com/), que é gratuito. Além disso, descarregue e instale estas ferramentas para Código de Estúdio Visual, se ainda não as tiver:
@@ -304,6 +304,9 @@ Antes de poder criar a sua aplicação lógica, crie um projeto local para que p
          }
       }
       ```
+
+      > [!IMPORTANT]
+      > Para cenários de produção, certifique-se de que protege e protege tais segredos e informações sensíveis, por exemplo, utilizando um cofre chave.
 
    1. Quando terminar, certifique-se de guardar as suas alterações.
 
@@ -1205,7 +1208,10 @@ Se não está familiarizado com o Docker, reveja estes tópicos:
 
 * Um ficheiro Docker para o fluxo de trabalho que usa ao construir o seu contentor Docker
 
-  Por exemplo, esta amostra ficheiro Docker implementa uma aplicação lógica. O especificado a cadeia de ligação que contém a chave de acesso para a conta de Armazenamento Azure que foi usada para publicar a aplicação lógica para o portal Azure. Para encontrar esta cadeia, consulte [obter o fio de ligação da conta de armazenamento](#find-storage-account-connection-string).
+  Por exemplo, esta amostra O ficheiro Docker implementa uma aplicação lógica e especifica a cadeia de ligação que contém a chave de acesso para a conta de Armazenamento Azure que foi usada para publicar a aplicação lógica para o portal Azure. Para encontrar esta cadeia, consulte [obter o fio de ligação da conta de armazenamento](#find-storage-account-connection-string). Para obter mais informações, [reveja as melhores práticas para escrever ficheiros Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+  
+  > [!IMPORTANT]
+  > Para cenários de produção, certifique-se de que protege e protege tais segredos e informações sensíveis, por exemplo, utilizando um cofre chave. Para ficheiros Docker especificamente, [reveja construir imagens com BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) e [gerir dados sensíveis com Docker Secrets](https://docs.docker.com/engine/swarm/secrets/).
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
@@ -1219,8 +1225,6 @@ Se não está familiarizado com o Docker, reveja estes tópicos:
 
    RUN cd /home/site/wwwroot
    ```
-
-   Para obter mais informações, consulte [as melhores práticas para escrever ficheiros Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 <a name="find-storage-account-connection-string"></a>
 

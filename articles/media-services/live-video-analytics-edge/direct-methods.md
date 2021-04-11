@@ -3,12 +3,12 @@ title: Utilize métodos diretos em Live Video Analytics em IoT Edge - Azure
 description: Live Video Analytics on IoT Edge expõe vários métodos diretos. Os métodos diretos baseiam-se nas convenções descritas neste tópico.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56fbf565af45a9b3877ff8d6c48a56713ddc3da6
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97656245"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076994"
 ---
 # <a name="direct-methods"></a>Métodos diretos
 
@@ -381,7 +381,7 @@ Aspectos-chave:
 | Erros de validação de gráficos | 400 | GraphValidationError |
 | Erros de validação do módulo | 400 | MóduloValidationError |
 | Erros de validação de recursos | 409 | RecursoValidationError |
-| Erros gerais do servidor | Gama 500 |  |  |
+| Erros gerais do servidor | Gama 500 |  | 
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 

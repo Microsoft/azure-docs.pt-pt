@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: duau
-ms.openlocfilehash: a1e1bd107e8b3b9209f99d1abfc4d7e391c3c4a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 376aa04228113c56f0f797f737833802c9eca021
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98184344"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029493"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gestor de Tráfego
 
@@ -30,7 +30,7 @@ O Gestor de Tráfego oferece dois benefícios fundamentais:
 
 Quando um cliente tenta estabelecer ligação a um serviço, primeiro tem de resolver o nome DNS do serviço para um endereço IP. Em seguida, o cliente estabelece ligação a esse endereço IP para aceder ao serviço.
 
-**O ponto mais importante a compreender é que o Gestor de Tráfego trabalha ao nível do DNS.**  O Gestor de Tráfego utiliza o DNS para direcionar os clientes para pontos finais de serviço específicos com base nas regras do método de encaminhamento de tráfego. Os clientes ligam-se **diretamente** ao ponto final selecionado. O gerente de trânsito não é um representante ou um portal. O Gestor de Trânsito não vê o trânsito a passar entre o cliente e o serviço.
+**O ponto mais importante a compreender é que o Gestor de Tráfego trabalha ao nível do DNS que está na camada de Aplicação (Camada-7).**  O Gestor de Tráfego utiliza o DNS para direcionar os clientes para pontos finais de serviço específicos com base nas regras do método de encaminhamento de tráfego. Os clientes ligam-se **diretamente** ao ponto final selecionado. O gerente de trânsito não é um representante ou um portal. O Gestor de Trânsito não vê o trânsito a passar entre o cliente e o serviço.
 
 ## <a name="traffic-manager-example"></a>Exemplo do Gestor de Tráfego
 

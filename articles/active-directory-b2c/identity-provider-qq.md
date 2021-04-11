@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0f09b4557f9bbf2f074948bd7c8dbd349cd397bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3456ecb1de4b6197b274f09a0d25c31c51f43ca0
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103488674"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028847"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta QQ utilizando o Azure Ative Directory B2C
 
@@ -177,7 +177,7 @@ Pode definir uma conta QQ como fornecedor de sinistros adicionando-a ao elemento
 ## <a name="test-your-custom-policy"></a>Teste a sua política personalizada
 
 1. Selecione a sua política partidária de dependência, por exemplo `B2C_1A_signup_signin` .
-1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](troubleshoot-custom-policies.md#troubleshoot-the-runtime) A **URL de resposta** deve mostrar `https://jwt.ms` .
+1. Para **Aplicação**, selecione uma aplicação web que já [se registou anteriormente.](tutorial-register-applications.md) A **URL de resposta** deve mostrar `https://jwt.ms` .
 1. Selecione o botão **Executar agora.**
 1. A partir da página de inscrição ou de inscrição, selecione **QQ** para iniciar scontabilidade QQ.
 

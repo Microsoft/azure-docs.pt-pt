@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab9f33616547c073e8e3a2128a441238bf3a17d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84697848"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220458"
 ---
 # <a name="http-api-reference"></a>Referência HTTP API
 
@@ -18,7 +18,7 @@ A extensão Funções Duradouras expõe um conjunto de APIs HTTP incorporadas qu
 
 Todas as APIs HTTP implementadas pela extensão requerem os seguintes parâmetros. O tipo de dados de todos os parâmetros é `string` .
 
-| Parâmetro        | Tipo de parâmetro  | Description |
+| Parâmetro        | Tipo de parâmetro  | Descrição |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Cadeias de consulta    | O nome do centro de [tarefas.](durable-functions-task-hubs.md) Se não for especificado, assume-se o nome do centro de tarefas da aplicação de funções atual. |
 | **`connection`** | Cadeias de consulta    | O **nome** da cadeia de ligação para a conta de armazenamento. Se não for especificado, assume-se a cadeia de ligação predefinida para a aplicação de funções. |
@@ -128,6 +128,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 Na versão 2.x do tempo de execução das Funções, o formato URL tem todos os mesmos parâmetros, mas com um prefixo ligeiramente diferente:
@@ -140,6 +141,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 Os parâmetros de pedido para esta API incluem o conjunto predefinido mencionado anteriormente, bem como os seguintes parâmetros únicos:
@@ -153,20 +155,21 @@ Os parâmetros de pedido para esta API incluem o conjunto predefinido mencionado
 | **`createdTimeFrom`**   | Cadeias de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de casos devolvidos que foram criados no ou após o determinado semp de tempo ISO8601.|
 | **`createdTimeTo`**     | Cadeias de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de casos devolvidos que foram criados no ou antes do determinado semp de tempo ISO8601.|
 | **`runtimeStatus`**     | Cadeias de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de casos devolvidos com base no seu estado de funcionação. Para ver a lista de possíveis valores de estado de funcionamento, consulte o artigo [casos de consulta.](durable-functions-instance-management.md) |
+| **`returnInternalServerErrorOnFailure`**  | Cadeias de consulta    | Parâmetro opcional. Se estiver `true` definido, esta API devolverá uma resposta HTTP 500 em vez de 200 se a instância estiver em estado de avaria. Este parâmetro destina-se a cenários automatizados de votação de estado. |
 
 ### <a name="response"></a>Resposta
 
 Vários valores possíveis de código de estado podem ser devolvidos.
 
-* **HTTP 200 (OK)**: A instância especificada encontra-se num estado completo.
+* **HTTP 200 (OK)**: A instância especificada encontra-se num estado completo ou falhado.
 * **HTTP 202 (Aceite)**: A instância especificada está em curso.
 * **HTTP 400 (Mau Pedido)**: A instância especificada falhou ou foi encerrada.
 * **HTTP 404 (Não Encontrado)**: A instância especificada não existe ou não começou a funcionar.
-* **HTTP 500 (Erro do Servidor Interno)**: A instância especificada falhou com uma exceção não manipulada.
+* **HTTP 500 (Erro do Servidor Interno)**: Devolvido apenas quando o `returnInternalServerErrorOnFailure` programado e a instância `true` especificada falhou com uma exceção não manipulada.
 
 A carga útil de resposta para os casos **HTTP 200** e **HTTP 202** é um objeto JSON com os seguintes campos:
 
-| Campo                 | Tipo de dados | Description |
+| Campo                 | Tipo de dados | Descrição |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | cadeia (de carateres)    | O estado de funcionação do caso. Os valores incluem *Execução,* *Pendente,* *Falhado,* *Cancelado,* *Terminado,* *Concluído*. |
 | **`input`**           | JSON      | Os dados do JSON usados para inicializar o caso. Este campo é `null` se o parâmetro de cadeia de consulta está definido para `showInput` `false` .|
@@ -427,7 +430,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 Os parâmetros de pedido para esta API incluem o conjunto predefinido mencionado anteriormente, bem como os seguintes parâmetros únicos:
 
-| Campo                 | Tipo de parâmetro  | Description |
+| Campo                 | Tipo de parâmetro  | Descrição |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | Cadeias de consulta    | Filtra a lista de casos purgados que foram criados no ou após o determinado semp de tempo ISO8601.|
 | **`createdTimeTo`**   | Cadeias de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de casos purgados que foram criados no ou antes do determinado semp timetamp ISO8601.|

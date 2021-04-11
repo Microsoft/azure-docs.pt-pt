@@ -525,9 +525,9 @@
           href: dynamicsignal-tutorial.md
         - name: Dynatrace
           href: dynatrace-tutorial.md
-        - name: EAB Navigate
+        - name: EAB
           href: eab-navigate-tutorial.md
-        - name: EAB Navigate IMPL
+        - name: Implementação do EAB
           href: eab-navigate-impl-tutorial.md
         - name: EAB Navigate Strategic Care
           href: eab-navigate-strategic-care-tutorial.md
@@ -1305,6 +1305,8 @@
           href: oracle-cloud-tutorial.md
         - name: Oracle Fusion ERP
           href: oracle-fusion-erp-tutorial.md
+        - name: Oracle PeopleSoft - Protegido por F5 BIG-IP APM
+          href: oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md
         - name: OrgChart Now
           href: orgchartnow-tutorial.md
         - name: Origami
@@ -1529,6 +1531,8 @@
           href: roadmunk-tutorial.md
         - name: Robin
           href: robin-tutorial.md
+        - name: RSA Archer Suite
+          href: rsa-archer-suite-tutorial.md
         - name: Autenticação SAML do RStudio Connect
           href: rstudio-connect-tutorial.md
         - name: Autenticação SAML do RStudio Server Pro
@@ -2144,6 +2148,8 @@
           href: bonusly-provisioning-tutorial.md
         - name: Box
           href: box-userprovisioning-tutorial.md
+        - name: Boxcryptor
+          href: boxcryptor-provisioning-tutorial.md
         - name: Estação Bpanda
           href: bpanda-provisioning-tutorial.md
         - name: Brivo Onair Identity Connector

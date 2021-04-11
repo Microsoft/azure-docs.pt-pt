@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 779a8745688e6a1fb8a15bc9119c6fbc1803ca2c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951849"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078932"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto final REST utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -495,7 +495,7 @@ O modelo define dois parâmetros:
 
     | Propriedade | Descrição |
     |:--- |:--- |
-    | URL |Especifique o url para recuperar o símbolo do portador de OAuth de. por exemplo, na amostra aqui é https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Especifique o url para recuperar o símbolo do portador de OAuth de. por exemplo, na amostra aqui é https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
     | Método | O método HTTP. Os valores permitidos são **Post** and **Get**. | 
     | Cabeçalhos | O cabeçalho é definido pelo utilizador, que faz referência a um nome de cabeçalho no pedido HTTP. | 
     | Corpo | O corpo para o pedido HTTP. | 

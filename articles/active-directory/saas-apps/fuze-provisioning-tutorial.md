@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 04/05/2021
 ms.author: zhchia
-ms.openlocfilehash: 2fcb85b2c16bc2dd418c2260420733dd8663382a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 809b32fcf6f39ba9dec2980a79e8824e282b54b7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96179262"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450094"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Tutorial: Configure Fuze para o fornecimento automático de utilizadores
 
@@ -144,6 +144,7 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 ## <a name="connector-limitations"></a>Limitações do conector
 
 * Fuze suporta atributos SCIM personalizados **chamados Direitos.** Estes atributos só podem ser criados e não atualizados. 
+* A API fuze SCIM não suporta a filtragem no atributo userName. Como resultado, pode ver falhas nos registos ao tentar sincronizar um utilizador existente que não tenha um atributo de nome de utilizador, mas que exista com um e-mail que corresponda ao nome do utilizadorPrincipalName em Azure AD. 
 
 ## <a name="change-log"></a>Change log
 
