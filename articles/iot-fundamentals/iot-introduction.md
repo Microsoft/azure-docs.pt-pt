@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1053062302c9a00cf49cee1cd8de5ca6652b745
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96453020"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167707"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é Azure Internet of Things (IoT)?
 
@@ -30,7 +30,7 @@ Um dispositivo IoT é normalmente composto por uma placa de circuito com sensore
 * Um acelerómetro num elevador.
 * Sensores de presença numa sala.
 
-Há uma grande variedade de dispositivos disponíveis de diferentes fabricantes para construir a sua solução. Para obter uma lista de dispositivos certificados para trabalhar com o Azure IoT Hub, consulte o [catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsolutions.com/alldevices). Para prototipagem, pode utilizar dispositivos como um [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) ou um [Raspberry Pi](https://www.raspberrypi.org/). O Devkit tem sensores incorporados para temperatura, pressão, humidade e um giroscópio, acelerómetro e magnetómetro. O Raspberry Pi permite-lhe anexar vários tipos diferentes de sensores. 
+Há uma grande variedade de dispositivos disponíveis de diferentes fabricantes para construir a sua solução. Para obter uma lista de dispositivos certificados para trabalhar com o Azure IoT Hub, consulte o [catálogo de dispositivos Azure Certified for IoT](https://devicecatalog.azure.com). Para prototipagem, pode utilizar dispositivos como um [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) ou um [Raspberry Pi](https://www.raspberrypi.org/). O Devkit tem sensores incorporados para temperatura, pressão, humidade e um giroscópio, acelerómetro e magnetómetro. O Raspberry Pi permite-lhe anexar vários tipos diferentes de sensores. 
 
 A Microsoft fornece [SDKs](../iot-hub/iot-hub-devguide-sdks.md) de dispositivo de código aberto que pode usar para construir as aplicações que executam nos seus dispositivos. Estes [SDKs simplificam e aceleram](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) o desenvolvimento das suas soluções IoT.
 

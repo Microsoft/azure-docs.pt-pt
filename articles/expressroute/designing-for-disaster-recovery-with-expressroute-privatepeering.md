@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 3da044057784763df8d071af6c101f7baffbefc6
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: d0aa9e8bfd565eeb7599d52adc0ac5b854e750bb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562312"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937231"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Desenho para recuperação de desastres com o espreitamento privado ExpressRoute
 
@@ -47,7 +47,7 @@ No entanto, se carregar o tráfego de equilíbrio através de caminhos paralelos
 
 ### <a name="different-metros"></a>Metros diferentes
 
-Ao utilizar diferentes metros para redundância, a localização secundária deve ser na mesma [região geopolítica.](expressroute-locations-providers.md#locations) Para escolher uma localização fora da região geopolítica, você precisará usar Premium SKU para ambos os circuitos nos caminhos paralelos. A vantagem desta configuração é que as hipóteses de um desastre natural causar uma interrupção em ambas as ligações são muito mais baixas, mas à custa do aumento da latência de ponta a ponta.
+Ao utilizar diferentes metros para redundância, deve selecionar a localização secundária na mesma [região geopolítica.](expressroute-locations-providers.md#locations) Para escolher uma localização fora da região geopolítica, você precisará usar Premium SKU para ambos os circuitos nos caminhos paralelos. A vantagem desta configuração é que as hipóteses de um desastre natural causar uma interrupção em ambas as ligações são muito mais baixas, mas à custa do aumento da latência de ponta a ponta.
 
 Neste artigo, vamos discutir como enfrentar os desafios que pode enfrentar ao configurar caminhos geo-redundantes.
 

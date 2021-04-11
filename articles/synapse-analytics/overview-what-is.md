@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78b31cb32e3df9b0d8e198d8c2122e492e609283
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625823"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383410"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
@@ -43,9 +43,9 @@ ms.locfileid: "105625823"
 
 A Azure Synapse remove as barreiras tecnológicas tradicionais entre a utilização de SQL e Spark juntos. Pode misturar e combinar perfeitamente com base nas suas necessidades e conhecimentos.
 
-* Um sistema de metadados partilhado compatível com hiv permite que as tabelas definidas em ficheiros no lago de dados sejam perfeitamente consumidas por Spark ou Hive.
+* As tabelas definidas em ficheiros no lago de dados são perfeitamente consumidas por Spark ou Hive.
 * SQL e Spark podem explorar e analisar diretamente os ficheiros Parquet, CSV, TSV e JSON armazenados no lago de dados.
-* Carga e descarga rápida de carga escalável para dados que vão entre bases de dados SQL e Spark
+* Carregamento rápido e escalável de dados entre bases de dados SQL e Spark
 
 ## <a name="built-in-data-integration"></a>Integração de dados incorporados
 
@@ -53,7 +53,7 @@ O Azure Synapse contém o mesmo motor e experiências de Integração de Dados q
 
 * Ingerir dados de mais de 90 fontes de dados
 * Code-Free ETL com atividades de fluxo de dados
-* Orquestrar Cadernos, Trabalhos de Faísca, Procedimentos Armazenados, Scripts SQL e muito mais
+* Orquestrar cadernos, trabalhos de faísca, procedimentos armazenados, scripts SQL, e muito mais
 
 ## <a name="unified-management-monitoring-and-security"></a>Gestão, monitorização e segurança unificadas
 
@@ -71,10 +71,10 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 * Produtividade líder na indústria para a escrita de CÓDIGO SQL ou Spark: autoria, depuração e otimização de desempenho
 * Integrar-se com o processo CI/CD da empresa
 
-## <a name="engage-with-the-synapse-engineering-team"></a>Envolva-se com a equipa de engenharia da Sinapse
+## <a name="engage-with-the-synapse-community"></a>Envolva-se com a comunidade sinapse
 
+- [Microsoft Q&A](/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Faça perguntas de desenvolvimento.
-- [Microsoft Q&Uma página de perguntas](/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

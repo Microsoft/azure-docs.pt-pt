@@ -6,17 +6,17 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 08/10/2020
-ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: b0aa9d5dec25d8d600ecbcde59a57e67917c6411
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026238"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011156"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funções na Hiperescala (Citus) SQL API
 
-Esta secção contém informações de referência para as funções definidas pelo utilizador fornecidas pela Hyperscale (Citus). Estas funções ajudam a fornecer funcionalidades distribuídas adicionais à Hyperscale (Citus) que não os comandos SQL padrão.
+Esta secção contém informações de referência para as funções definidas pelo utilizador fornecidas pela Hyperscale (Citus). Estas funções ajudam a fornecer funcionalidades distribuídas à Hiperescala (Citus).
 
 > [!NOTE]
 >
@@ -178,6 +178,48 @@ SELECT create_distributed_function(
 );
 ```
 
+### <a name="alter_columnar_table_set"></a>alter_columnar_table_set
+
+A função alter_columnar_table_set altera as definições numa [tabela colunar](concepts-hyperscale-columnar.md). Chamar esta função numa tabela não-colunar dá um erro. Todos os argumentos, exceto o nome da mesa, são opcionais.
+
+Para visualizar as opções atuais para todas as tabelas colunar, consulte esta tabela:
+
+```postgresql
+SELECT * FROM columnar.options;
+```
+
+Os valores predefinidos para as definições colunares para as tabelas recém-criadas podem ser ultrapassados com estes GUCs:
+
+* columnar.compression
+* columnar.compression_level
+* columnar.stripe_row_count
+* columnar.chunk_row_count
+
+#### <a name="arguments"></a>Argumentos
+
+**table_name:** Nome da mesa de coluna.
+
+**chunk_row_count:** (Opcional) O número máximo de linhas por pedaço para dados recém-inseridos. Os pedaços de dados existentes não serão alterados e poderão ter mais linhas do que este valor máximo. O valor predefinido é 10000.
+
+**stripe_row_count:** (Opcional) O número máximo de filas por listra para dados recém-inseridos. As riscas de dados existentes não serão alteradas e poderão ter mais linhas do que este valor máximo. O valor predefinido é 150000.
+
+**compressão:** (Opcional) `[none|pglz|zstd|lz4|lz4hc]` O tipo de compressão para dados recém-inseridos. Os dados existentes não serão recomprimidos ou descomprimidos. O valor padrão e sugerido é zstd (se o suporte tiver sido compilado em).
+
+**compression_level:** (Opcional) As definições válidas são de 1 a 19. Se o método de compressão não suportar o nível escolhido, o nível mais próximo será selecionado.
+
+#### <a name="return-value"></a>Valor devolvido
+
+N/D
+
+#### <a name="example"></a>Exemplo
+
+```postgresql
+SELECT alter_columnar_table_set(
+  'my_columnar_table',
+  compression => 'none',
+  stripe_row_count => 10000);
+```
+
 ## <a name="metadata--configuration-information"></a>Metadados / Informações de Configuração
 
 ### <a name="master_get_table_metadata"></a>mestre \_ obter \_ \_ metadados de mesa
@@ -220,7 +262,7 @@ SELECT * from master_get_table_metadata('github_events');
 
 ### <a name="get_shard_id_for_distribution_column"></a>obter \_ id fragmento \_ para coluna \_ de \_ distribuição \_
 
-A Hiperescala (Citus) atribui cada linha de uma tabela distribuída a um fragmento com base no valor da coluna de distribuição da linha e no método de distribuição da tabela. Na maioria dos casos, o mapeamento preciso é um detalhe de baixo nível que o administrador da base de dados pode ignorar. No entanto, pode ser útil determinar o fragmento de uma linha, seja para tarefas manuais de manutenção da base de dados ou apenas para satisfazer a curiosidade. A `get_shard_id_for_distribution_column` função fornece esta informação para tabelas distribuídas por haxixe e gama, bem como tabelas de referência. Não funciona para a distribuição do apêndice.
+A Hiperescala (Citus) atribui cada linha de uma tabela distribuída a um fragmento com base no valor da coluna de distribuição da linha e no método de distribuição da tabela. Na maioria dos casos, o mapeamento preciso é um detalhe de baixo nível que o administrador da base de dados pode ignorar. No entanto, pode ser útil determinar o fragmento de uma linha, seja para tarefas manuais de manutenção da base de dados ou apenas para satisfazer a curiosidade. A `get_shard_id_for_distribution_column` função fornece esta informação para tabelas de referência distribuídas por haxixe, distribuição de gama e de referência. Não funciona para a distribuição do apêndice.
 
 #### <a name="arguments"></a>Argumentos
 

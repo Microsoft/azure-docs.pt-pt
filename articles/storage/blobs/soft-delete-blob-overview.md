@@ -6,196 +6,140 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29d9dd7757319e59fc12b42d89c2ce16dec71b8b
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390362"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551072"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
 
-A eliminação recuperável de blobs impede os dados de serem modificados ou eliminados acidentalmente. Quando a eliminação recuperável de blobs estiver ativada para uma conta de armazenamento, os blobs, as versões de blobs e os instantâneos nessa conta de armazenamento poderão ser recuperados depois de serem eliminados, dentro de um período de retenção especificado.
+A eliminação macia de blob protege uma bolha, instantâneo ou versão individuais de eliminações ou substituições acidentais mantendo os dados eliminados no sistema por um período de tempo especificado. Durante o período de retenção, pode restaurar um objeto apagado suave ao seu estado no momento em que foi eliminado. Após o período de retenção ter expirado, o objeto é permanentemente eliminado.
 
-Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se apague suavemente. Para obter mais informações sobre a ativação da eliminação suave, consulte [Ativar e gerir a eliminação suave para bolhas](./soft-delete-blob-enable.md).
+## <a name="recommended-data-protection-configuration"></a>Configuração recomendada de proteção de dados
+
+A eliminação suave blob faz parte de uma estratégia abrangente de proteção de dados para dados blob. Para uma proteção ótima para os seus dados blob, a Microsoft recomenda que permita todas as seguintes funcionalidades de proteção de dados:
+
+- Recipiente apagar suavemente, para restaurar um recipiente que foi eliminado. Para aprender a permitir a eliminação suave do recipiente, consulte [Ativar e gerir a eliminação suave para recipientes](soft-delete-container-enable.md).
+- Versão blob, para manter automaticamente as versões anteriores de uma bolha. Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada. Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob](versioning-enable.md).
+- Blob soft delete, para restaurar uma bolha, instantâneo ou versão que foi eliminada. Para aprender a permitir a eliminação suave do blob, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-blob-enable.md).
+
+Para saber mais sobre as recomendações da Microsoft para a proteção de dados, consulte a [visão geral da proteção de dados](data-protection-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-## <a name="about-soft-delete-for-blobs"></a>Sobre excluir suave para bolhas
+## <a name="how-blob-soft-delete-works"></a>Como blob soft delete funciona
 
-Quando a eliminação suave para bolhas estiver ativada numa conta de armazenamento, pode recuperar objetos depois de eliminados, dentro do período de retenção de dados especificado. Esta proteção estende-se a quaisquer bolhas (bolhas de bloco, bolhas de apêndio ou bolhas de página) que são apagadas como resultado de um excesso de substituição.
+Quando ativar a eliminação suave da bolha para uma conta de armazenamento, especifique um período de retenção para objetos apagados entre 1 e 365 dias. O período de retenção indica quanto tempo os dados permanecem disponíveis após a sua exposição ou substituído. O relógio começa no período de retenção assim que um objeto é apagado ou substituído.
 
-O seguinte diagrama mostra como uma bolha apagada pode ser restaurada quando a mancha de exclusão suave está ativada:
+Enquanto o período de retenção estiver ativo, pode restaurar uma bolha apagada, juntamente com as suas imagens, ou uma versão eliminada, chamando a operação [Undelete Blob.](/rest/api/storageservices/undelete-blob) O seguinte diagrama mostra como um objeto eliminado pode ser restaurado quando a eliminação suave da bolha está ativada:
 
 :::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagrama mostrando como uma bolha desagravada pode ser restaurada":::
 
-Se os dados de uma bolha ou instantâneo existentes forem eliminados enquanto a eliminação macia de blob estiver ativada, mas a versão blob não estiver ativada, então é gerada uma imagem suave eliminada para salvar o estado dos dados substituídos. Após o período de retenção especificado ter expirado, o objeto é permanentemente eliminado.
+Pode alterar o período de retenção de eliminação suave a qualquer momento. Um período de retenção atualizado aplica-se apenas aos dados que foram eliminados após a alteração do período de retenção. Quaisquer dados que foram eliminados antes da alteração do período de retenção estão sujeitos ao período de retenção que estava em vigor quando foi eliminado.
 
-Se a versão blob e a eliminação suave do blob estiverem ativadas na conta de armazenamento, então a eliminação de uma bolha cria uma nova versão em vez de uma imagem depagou-se suavemente. A nova versão não é eliminada suavemente e não é removida quando o período de retenção de eliminação suave expirar. As versões de uma bolha com soft-dele podem ser restauradas dentro do período de retenção, chamando a operação [Undelete Blob.](/rest/api/storageservices/undelete-blob) A bolha pode ser posteriormente restaurada a partir de uma das suas versões, chamando a operação [Copy Blob.](/rest/api/storageservices/copy-blob) Para obter mais informações sobre a utilização da versão blob e eliminar suavemente, consulte [a versão Blob e a eliminação suave](versioning-overview.md#blob-versioning-and-soft-delete).
+Tentar eliminar um objeto apagado não afeta o seu tempo de validade.
 
-Os objetos suaves apagados são invisíveis a menos que explicitamente listados.
+Se desativar a mancha de exclusão suave, pode continuar a aceder e a recuperar objetos apagados suavemente na sua conta de armazenamento até que o período de retenção de eliminação suave tenha decorrido.
 
-O blob soft delete é compatível com o contrário, pelo que não tem de fazer alterações nas suas aplicações para tirar partido das proteções que esta funcionalidade oferece. No entanto, [a recuperação de dados](#recovery) introduz uma nova API **da Undelete Blob.**
+A versão blob está disponível para as contas de armazenamento v2, block blob e Blob. As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas.
 
-Blob soft delete está disponível para as contas de armazenamento v2, v1 e Blob de uso geral novos e existentes. Os tipos de conta standard e premium são suportados. Blob soft delete está disponível para todos os níveis de armazenamento, incluindo quente, fresco e arquivo. A soft delete está disponível para discos não geridos, que são bolhas de página sob as capas, mas não estão disponíveis para discos geridos.
+Versão 2017-07-29 e superior do suporte Azure Storage REST API soft delete.
 
-### <a name="configuration-settings"></a>Definições de configuração
+> [!IMPORTANT]
+> Pode utilizar o blob soft delete apenas para restaurar uma bolha individual, instantâneo ou versão. Para restaurar um recipiente e o seu conteúdo, a eliminação suave do contentor também deve ser ativada para a conta de armazenamento. A Microsoft recomenda que se permita eliminar suavemente o recipiente e a versão blob juntamente com a eliminação macia de bolhas para garantir uma proteção completa para os dados do blob. Para obter mais informações, consulte [a visão geral da proteção de dados.](data-protection-overview.md)
+>
+> A eliminação macia da bolha não protege contra a eliminação de uma conta de armazenamento. Para proteger uma conta de armazenamento da supressão, configuure um bloqueio no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio de uma conta de armazenamento, consulte [aplicar um bloqueio do Gestor de Recursos Azure numa conta de armazenamento.](../common/lock-account-resource.md)
 
-Quando cria uma nova conta, a eliminação suave é desativada por padrão. A eliminação suave também é desativada por padrão para as contas de armazenamento existentes. Pode ativar ou desativar a exclusão suave para uma conta de armazenamento a qualquer momento.
+### <a name="how-deletions-are-handled-when-soft-delete-is-enabled"></a>Como as supressões são manuseadas quando a eliminação suave é ativada
 
-Quando ativar a eliminação suave, deve configurar o período de retenção. O período de retenção indica a quantidade de tempo em que os dados eliminados suaves são armazenados e disponíveis para recuperação. Para objetos que são explicitamente eliminados, o relógio do período de retenção começa quando os dados são eliminados. Para versões ou instantâneos apagados suaves gerados pela função de exclusão suave quando os dados são substituídos, o relógio começa quando a versão ou instantâneo é gerado. O período de retenção pode ser de 1 a 365 dias.
+Quando a bolha de exclusão suave estiver ativada, eliminando uma mancha que blob como apagada suavemente. Nenhum instantâneo é criado. Quando o período de retenção expirar, a bolha apagada é permanentemente eliminada.
 
-Pode alterar o período de retenção de eliminação suave a qualquer momento. Um período de retenção atualizado aplica-se apenas aos dados recentemente eliminados. Os dados previamente eliminados expiram com base no período de retenção configurado quando esses dados foram eliminados. Tentar eliminar um objeto apagado suave não afeta o seu tempo de validade.
+Se uma bolha tiver instantâneos, a bolha não pode ser apagada a menos que as imagens sejam também eliminadas. Quando apaga uma bolha e as suas fotografias, tanto a bolha como as imagens são marcadas como apagadas suavemente. Não são criados novos instantâneos.
 
-Se desativar a eliminação suave, pode continuar a aceder e a recuperar dados suaves eliminados na sua conta de armazenamento que foram guardados enquanto a funcionalidade estava ativada.
+Também pode eliminar um ou mais instantâneos ativos sem eliminar a bolha de base. Neste caso, o instantâneo é apagado suavemente.
 
-### <a name="saving-deleted-data"></a>Guardar dados eliminados
+Os objetos apagados são invisíveis a menos que sejam explicitamente exibidos ou listados. Para obter mais informações sobre como listar objetos com emissões suaves, consulte [Gerir e restaurar as bolhas apagadas suaves](soft-delete-blob-manage.md).
 
-A eliminação suave preserva os seus dados em muitos casos em que os objetos são eliminados ou substituídos.
+### <a name="how-overwrites-are-handled-when-soft-delete-is-enabled"></a>Como os overwrites são manuseados quando a eliminação suave é ativada
 
-Quando uma bolha é substituída através do **Put Blob**, **Put Block List**, ou Copy **Blob**, uma versão ou instantâneo do estado da bolha antes da operação de escrita é gerada automaticamente. Este objeto é invisível a menos que os objetos apagados sejam explicitamente listados. Consulte a secção [Recovery](#recovery) para saber como listar objetos apagados suaves.
+Chamar uma operação como [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list)ou Copy [Blob](/rest/api/storageservices/copy-blob) substitui os dados numa bolha. Quando a eliminação suave da bolha está ativada, a sobreposição de uma bolha cria automaticamente uma imagem do estado da bolha apagada antes da operação de escrita. Quando o período de retenção expira, o instantâneo apagado é permanentemente eliminado.
 
-![Um diagrama que mostra como as imagens de bolhas são armazenadas à medida que são substituídas através da Put Blob, Put Block List ou Copy Blob.](media/soft-delete-blob-overview/storage-blob-soft-delete-overwrite.png)
+As imagens apagadas são invisíveis a menos que os objetos apagados sejam explicitamente exibidos ou listados. Para obter mais informações sobre como listar objetos com emissões suaves, consulte [Gerir e restaurar as bolhas apagadas suaves](soft-delete-blob-manage.md).
 
-*Os dados apagados suaves são cinzentos, enquanto os dados ativos são azuis. Os dados mais recentemente escritos aparecem abaixo dos dados mais antigos. Quando B0 é substituído com B1, é gerada uma imagem suave apagada de B0. Quando B1 é substituído com B2, é gerada uma imagem suave apagada de B1.*
+Para proteger uma operação de cópia, a eliminação macia blob deve ser ativada para a conta de armazenamento de destino.
 
-> [!NOTE]  
-> A eliminação suave só oferece proteção excessiva para operações de cópia quando é ligada para a conta da blob de destino.
+A blob soft delete não protege contra operações para escrever metadados ou propriedades blob. Nenhum instantâneo apagado é criado quando os metadados ou propriedades de uma bolha são atualizados.
 
-> [!NOTE]  
-> A eliminação suave não permite uma proteção excessiva para bolhas no nível de arquivo. Se uma bolha no arquivo for substituída com uma nova bolha em qualquer nível, a bolha substituída expirará permanentemente.
+A eliminação macia da bolha não permite uma proteção excessiva para bolhas no nível de arquivo. Se uma bolha no nível de arquivo for substituída com uma nova bolha em qualquer nível, então a bolha substituída é permanentemente eliminada.
 
-Quando **delete Blob** é chamado em um instantâneo, esse instantâneo é marcado como suave apagado. Um novo instantâneo não é gerado.
+Para contas de armazenamento premium, as imagens de acabamentos suaves não contam para o limite por blob de 100 instantâneos.
 
-![Um diagrama que mostra como as imagens de bolhas são apagadas suavemente quando se utilizam Delete Blob.](media/soft-delete-blob-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+### <a name="restoring-soft-deleted-objects"></a>Restaurar objetos apagados
 
-*Os dados apagados suaves são cinzentos, enquanto os dados ativos são azuis. Os dados mais recentemente escritos aparecem abaixo dos dados mais antigos. Quando **o Snapshot Blob** é chamado, B0 torna-se um instantâneo e B1 é o estado ativo da bolha. Quando a imagem B0 é apagada, é marcada como suavemente apagada.*
+Pode restaurar as bolhas apagadas suaves, chamando a operação [Undelete Blob](/rest/api/storageservices/undelete-blob) dentro do período de retenção. A **operação Undelete Blob** restaura uma bolha e quaisquer instantâneos apagados e suaves associados a ela. Quaisquer instantâneos que foram eliminados durante o período de retenção são restaurados.
 
-Quando **delete Blob** é chamado numa bolha de base (qualquer bolha que não seja em si uma instantânea), essa bolha é marcada como suave apagada. Consistente com o comportamento anterior, chamar **Delete Blob** numa bolha que tenha instantâneos ativos devolve um erro. Chamar **Delete Blob** numa bolha com instantâneos apagados suaves não devolve um erro. Pode ainda apagar uma bolha e todas as suas imagens numa única operação quando a eliminação suave é ligada. Ao fazê-lo, marca a bolha de base e as instantâneas como suaves apagadas.
+Chamar **Undelete Blob** numa bolha que não seja apagada suave irá restaurar quaisquer instantâneos apagados suaves que estejam associados à bolha. Se a bolha não tiver instantâneos e não for apagada suavemente, então chamar **Undelete Blob** não tem efeito.
 
-![Um diagrama que mostra o que acontece quando o Delete Blog é chamado numa bolha de base.](media/soft-delete-blob-overview/storage-blob-soft-delete-explicit-include.png)
+Para promover uma imagem suave apagada para a bolha de base, ligue primeiro para **Undelete Blob** na bolha de base para restaurar a bolha e as suas fotos. Em seguida, copie a imagem desejada sobre a bolha de base. Também pode copiar a imagem para uma nova bolha.
 
-*Os dados apagados suaves são cinzentos, enquanto os dados ativos são azuis. Os dados mais recentemente escritos aparecem abaixo dos dados mais antigos. Aqui, é feita uma chamada **Delete Blob** para eliminar B2 e todas as imagens associadas. A bolha ativa, B2, e todos os instantâneos associados são marcados como suaves apagados.*
+Os dados numa bolha ou instantâneo apagados não podem ser lidos até que o objeto tenha sido restaurado.
 
-> [!NOTE]  
-> Quando uma bolha apagada suave é substituída, uma imagem suave apagada do estado da bolha antes da operação de escrita é gerada automaticamente. A nova bolha herda o nível da bolha substituída.
+Para obter mais informações sobre como restaurar objetos apagados suavemente, consulte [Gerir e restaurar as bolhas apagadas suaves](soft-delete-blob-manage.md).
 
-A eliminação suave não guarda os seus dados em casos de eliminação de contentores ou contas, nem quando os metadados blob e as propriedades blob são substituídos. Para proteger uma conta de armazenamento da eliminação, pode configurar uma fechadura utilizando o Gestor de Recursos Azure. Para obter mais informações, consulte o Azure Resource Manager artigo [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).  Para proteger os recipientes contra a eliminação acidental, configurar o recipiente para apagar suavemente para a conta de armazenamento. Para obter mais informações, consulte [a exclusão suave para recipientes (pré-visualização)](soft-delete-container-overview.md).
+## <a name="blob-soft-delete-and-versioning"></a>Blob soft delete e versão
 
-Os seguintes detalhes da tabela são comportamentos esperados quando a eliminação suave é ligada:
+Se a versão blob e a eliminação suave blob estiverem ambas ativadas para uma conta de armazenamento, então a sobreposição de uma bolha cria automaticamente uma nova versão. A nova versão não é eliminada suavemente e não é removida quando o período de retenção de eliminação suave expirar. Não são criados instantâneos apagados. Quando elimina uma bolha, a versão atual do blob torna-se uma versão anterior e a versão atual é eliminada. Nenhuma nova versão é criada e não são criados instantâneos de apagação suave.
 
-| Operação REST API | Tipo de recurso | Description | Mudança de comportamento |
-|--------------------|---------------|-------------|--------------------|
-| [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Elimina a conta de armazenamento, incluindo todos os recipientes e bolhas que contém.                           | Nenhuma alteração. Os recipientes e bolhas na conta eliminada não são recuperáveis. |
-| [Eliminar Contentor](/rest/api/storageservices/delete-container) | Contentor | Elimina o recipiente, incluindo todas as bolhas que contém. | Nenhuma alteração. As bolhas no recipiente apagado não são recuperáveis. |
-| [Colocar o Blob](/rest/api/storageservices/put-blob) | Bloco, apêndice e bolhas de página | Cria uma nova bolha ou substitui uma bolha existente dentro de um recipiente | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for substituída por uma bolha do mesmo tipo (Bloco, apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
-| [Eliminar Blob](/rest/api/storageservices/delete-blob) | Bloco, apêndice e bolhas de página | Marca uma bolha ou uma foto de bolha para a eliminação. A bolha ou instantâneo é mais tarde apagada durante a recolha do lixo | Se for utilizado para apagar uma imagem de bolha, esta imagem é marcada como suave apagada. Se for utilizado para apagar uma bolha, esta bolha é marcada como suave apagada. |
-| [Copiar Blob](/rest/api/storageservices/copy-blob) | Bloco, apêndice e bolhas de página | Copia uma bolha de origem para uma bolha de destino na mesma conta de armazenamento ou em outra conta de armazenamento. | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for substituída por uma bolha do mesmo tipo (Bloco, apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
-| [Colocar Bloco](/rest/api/storageservices/put-block) | Blobs de blocos | Cria um novo bloco para ser cometido como parte de uma bolha de bloco. | Se usado para comprometer um bloqueio a uma bolha que está ativa, não há nenhuma mudança. Se usado para comprometer um bloco a uma bolha que é suavemente eliminada, uma nova bolha é criada e um instantâneo é gerado automaticamente para capturar o estado da bolha suave apagada. |
-| [Colocar lista de blocos](/rest/api/storageservices/put-block-list) | Blobs de blocos | Compromete uma bolha especificando o conjunto de IDs de bloco que compõem a bolha de bloco. | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for uma bolha de bloco. Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
-| [Colocar página](/rest/api/storageservices/put-page) | Blobs de páginas | Escreve uma gama de páginas para uma bolha de página. | Nenhuma alteração. Os dados do blob da página que são substituídos ou limpos utilizando esta operação não são guardados e não são recuperáveis. |
-| [Bloco de Apêndice](/rest/api/storageservices/append-block) | Blobs de acréscimo | Escreve um bloco de dados para o fim de uma bolha de apêndice | Nenhuma alteração. |
-| [Definir propriedades blob](/rest/api/storageservices/set-blob-properties) | Bloco, apêndice e bolhas de página | Define valores para as propriedades do sistema definidas para uma bolha. | Nenhuma alteração. As propriedades de bolhas sobreescritas não são recuperáveis. |
-| [Definir metadados blob](/rest/api/storageservices/set-blob-metadata) | Bloco, apêndice e bolhas de página | Define os metadados definidos pelo utilizador para a bolha especificada como um ou mais pares de valor-nome. | Nenhuma alteração. Os metadados blob sobrescritos não são recuperáveis. |
+Permitir a eliminação suave e a versão em conjunto protege as versões blob da eliminação. Quando a eliminação suave é ativada, a eliminação de uma versão cria uma versão de eliminação suave. Pode utilizar a operação **Undelete Blob** para restaurar uma versão desafortuçada, desde que exista uma versão atual da bolha. Se não houver uma versão atual, então deve copiar uma versão anterior para a versão atual antes de ligar para a operação **Undelete Blob.**
 
-É importante notar que chamar **a Página put** para substituir ou limpar intervalos de uma bolha de página não gerará automaticamente instantâneos. Os discos de máquinas virtuais são apoiados por bolhas de página e usam **a Página Put** para escrever dados.
+> [!NOTE]
+> Chamar a operação **Undelete Blob** numa bolha apagada quando a versão é ativada restaura quaisquer versões ou instantâneos apagados suaves, mas não restaura a bolha de base. Para restaurar a bolha de base, promova uma versão anterior copiando-a para a bolha de base.
 
-### <a name="recovery"></a>Recuperação
+A Microsoft recomenda permitir a eliminação suave de versão e bolha para as suas contas de armazenamento para uma ótima proteção de dados. Para obter mais informações sobre a utilização da versão blob e eliminar suavemente, consulte [a versão Blob e a eliminação suave](versioning-overview.md#blob-versioning-and-soft-delete).
 
-Chamar a operação [Undelete Blob](/rest/api/storageservices/undelete-blob) numa bolha de base apagada suave restaura-a e todos os instantâneos suaves apagados associados como ativos. Chamar a **operação Undelete Blob** numa bolha de base ativa restaura todos os instantâneos suaves e suaves associados como ativos. Quando as imagens são restauradas como ativas, parecem imagens geradas pelo utilizador; não substituem a bolha da base.
+## <a name="blob-soft-delete-protection-by-operation"></a>Blob soft delete proteção por operação
 
-Para restaurar uma bolha para um instantâneo específico e suave, pode chamar **Undelete Blob** na bolha de base. Em seguida, pode copiar a imagem sobre a bolha agora ativa. Também pode copiar a imagem para uma nova bolha.
+A tabela a seguir descreve o comportamento esperado para eliminar e escrever operações quando a blob soft delete está ativada, com ou sem versões blob:
 
-![Um diagrama que mostra o que acontece quando a bolha undelete é usada.](media/soft-delete-blob-overview/storage-blob-soft-delete-recover.png)
-
-*Os dados apagados suaves são cinzentos, enquanto os dados ativos são azuis. Os dados mais recentemente escritos aparecem abaixo dos dados mais antigos. Aqui, **Undelete Blob** é chamado na bolha B, restaurando assim a bolha de base, B1, e todos os instantâneos associados, aqui apenas B0, como ativo. No segundo passo, B0 é copiado sobre a bolha da base. Esta operação de cópia gera uma imagem suave apagada de B1.*
-
-Para visualizar bolhas e instantâneos de bolhas apagadas suaves, pode optar por incluir dados eliminados em **List Blobs**. Pode optar por ver apenas bolhas de base apagadas suaves ou incluir instantâneos de bolhas apagados suaves também. Para todos os dados eliminados suavemente, pode ver a hora em que os dados foram eliminados, bem como o número de dias antes de os dados serem expirados permanentemente.
-
-### <a name="example"></a>Exemplo
-
-Segue-se a saída da consola de um script .NET que carrega, substitui, faz instantâneos, elimina e restaura uma bolha chamada *HelloWorld* quando a eliminação suave é ligada:
-
-```bash
-Upload:
-- HelloWorld (is soft deleted: False, is snapshot: False)
-
-Overwrite:
-- HelloWorld (is soft deleted: True, is snapshot: True)
-- HelloWorld (is soft deleted: False, is snapshot: False)
-
-Snapshot:
-- HelloWorld (is soft deleted: True, is snapshot: True)
-- HelloWorld (is soft deleted: False, is snapshot: True)
-- HelloWorld (is soft deleted: False, is snapshot: False)
-
-Delete (including snapshots):
-- HelloWorld (is soft deleted: True, is snapshot: True)
-- HelloWorld (is soft deleted: True, is snapshot: True)
-- HelloWorld (is soft deleted: True, is snapshot: False)
-
-Undelete:
-- HelloWorld (is soft deleted: False, is snapshot: True)
-- HelloWorld (is soft deleted: False, is snapshot: True)
-- HelloWorld (is soft deleted: False, is snapshot: False)
-
-Copy a snapshot over the base blob:
-- HelloWorld (is soft deleted: False, is snapshot: True)
-- HelloWorld (is soft deleted: False, is snapshot: True)
-- HelloWorld (is soft deleted: True, is snapshot: True)
-- HelloWorld (is soft deleted: False, is snapshot: False)
-```
-
-Consulte a secção [etapas seguintes](#next-steps) para obter um ponteiro para a aplicação que produziu esta saída.
+| Operações REST API | Excluir suavemente ativado | Eliminação suave e versão ativada |
+|--|--|--|
+| [Eliminar Conta de Armazenamento](/rest/api/storagerp/storageaccounts/delete) | Nenhuma alteração. Os recipientes e bolhas na conta eliminada não são recuperáveis. | Nenhuma alteração. Os recipientes e bolhas na conta eliminada não são recuperáveis. |
+| [Eliminar Contentor](/rest/api/storageservices/delete-container) | Nenhuma alteração. As bolhas no recipiente apagado não são recuperáveis. | Nenhuma alteração. As bolhas no recipiente apagado não são recuperáveis. |
+| [Eliminar Blob](/rest/api/storageservices/delete-blob) | Se for utilizado para apagar uma bolha, esta bolha é marcada como suave apagada. <br /><br /> Se for utilizado para apagar uma imagem de bolha, o instantâneo é marcado como suave apagado. | Se for utilizada para eliminar uma bolha, a versão atual torna-se uma versão anterior e a versão atual é eliminada. Nenhuma nova versão é criada e não são criados instantâneos de apagação suave.<br /><br /> Se for utilizada para eliminar uma versão blob, a versão é marcada como suavemente eliminada. |
+| [Undelete Blob](/rest/api/storageservices/delete-blob) | Restaura uma bolha e quaisquer instantâneos que foram eliminados dentro do período de retenção. | Restaura uma bolha e quaisquer versões que foram eliminadas dentro do período de retenção. |
+| [Colocar o Blob](/rest/api/storageservices/put-blob)<br />[Colocar lista de blocos](/rest/api/storageservices/put-block-list)<br />[Copiar Blob](/rest/api/storageservices/copy-blob)<br />[Bolha de cópia da URL](/rest/api/storageservices/copy-blob) | Se for chamada numa bolha ativa, então uma imagem do estado da bolha antes da operação é gerada automaticamente. <br /><br /> Se for chamada numa bolha depagou-se suavemente, então uma imagem do estado anterior da bolha só é gerada se for substituída por uma bolha do mesmo tipo. Se a bolha for de um tipo diferente, todos os dados eliminados suaves existentes são permanentemente eliminados. | Uma nova versão que captura o estado da bolha antes da operação é gerada automaticamente. |
+| [Colocar Bloco](/rest/api/storageservices/put-block) | Se usado para comprometer um bloco a uma bolha ativa, não há nenhuma mudança.<br /><br />Se usado para comprometer um bloco a uma bolha que é apagada suavemente, uma nova bolha é criada e um instantâneo é gerado automaticamente para capturar o estado da bolha de apagamento suave. | Nenhuma alteração. |
+| [Colocar página](/rest/api/storageservices/put-page)<br />[Colocar página de URL](/rest/api/storageservices/put-page-from-url) | Nenhuma alteração. Os dados do blob da página que são substituídos ou limpos utilizando esta operação não são guardados e não são recuperáveis. | Nenhuma alteração. Os dados do blob da página que são substituídos ou limpos utilizando esta operação não são guardados e não são recuperáveis. |
+| [Bloco de Apêndice](/rest/api/storageservices/append-block)<br />[Bloco de Apêndice de URL](/rest/api/storageservices/append-block-from-url) | Nenhuma alteração. | Nenhuma alteração. |
+| [Definir propriedades blob](/rest/api/storageservices/set-blob-properties) | Nenhuma alteração. As propriedades de bolhas sobreescritas não são recuperáveis. | Nenhuma alteração. As propriedades de bolhas sobreescritas não são recuperáveis. |
+| [Definir metadados blob](/rest/api/storageservices/set-blob-metadata) | Nenhuma alteração. Os metadados blob sobrescritos não são recuperáveis. | Uma nova versão que captura o estado da bolha antes da operação é gerada automaticamente. |
+| [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (Definir Camada de Blob) | A bolha da base é transferida para o novo nível. Quaisquer instantâneos ativos ou apagados permanecem no nível original. Não é criado nenhum instantâneo apagado. | A bolha da base é transferida para o novo nível. Quaisquer versões ativas ou desausidas permanecem no nível original. Nenhuma nova versão é criada. |
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
-Todos os dados eliminados suaves são faturados à mesma taxa que os dados ativos. Não será cobrado por dados que sejam permanentemente eliminados após o período de retenção configurado. Para um mergulho mais profundo em instantâneos e como acumulam encargos, consulte [compreender como os instantâneos acumulam encargos](./snapshots-overview.md).
+Todos os dados eliminados suaves são faturados à mesma taxa que os dados ativos. Não será cobrado por dados que sejam permanentemente eliminados após o período de retenção.
 
-Não será cobrado para as transações relacionadas com a geração automática de instantâneos. Será cobrado para transações **da Undelete Blob** à taxa para operações de escrita.
-
-Para obter mais detalhes sobre os preços do Azure Blob Storage em geral, consulte a [página de preços de armazenamento Azure Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-Quando inicialmente liga o soft delete, a Microsoft recomenda usar um curto período de retenção para entender melhor como a funcionalidade irá afetar a sua conta.
+Quando ativa a eliminação suave, a Microsoft recomenda a utilização de um curto período de retenção para entender melhor como a funcionalidade irá afetar a sua conta. O período mínimo de retenção recomendado é de sete dias.
 
 Permitir a eliminação suave de dados frequentemente substituídos pode resultar num aumento dos encargos de capacidade de armazenamento e no aumento da latência ao enumerar bolhas. Pode atenuar este custo e latência adicionais armazenando os dados frequentemente sobreescritos numa conta de armazenamento separada onde a eliminação suave é desativada.
 
-## <a name="faq"></a>FAQ
+Não é faturado para transações relacionadas com a geração automática de instantâneos ou versões quando uma bolha é substituída ou eliminada. Está a ser cobrado para chamadas para a operação **Undelete Blob** à taxa de transação para operações de escrita.
 
-### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Posso utilizar o set Blob Tier API para colocar bolhas de nível com instantâneos suaves apagados?
+Para obter mais informações sobre os preços para o Blob Storage, consulte a página [de preços do Blob Storage.](https://azure.microsoft.com/pricing/details/storage/blobs/)
 
-Sim. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
+## <a name="blob-soft-delete-and-virtual-machine-disks"></a>Blob soft delete e discos de máquinas virtuais  
 
-### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>As contas de armazenamento premium têm um limite de instantâneo por bolha de 100. Os instantâneos apagados suaves contam para este limite?
+Blob soft delete está disponível tanto para discos premium como padrão não geridos, que são bolhas de página sob as capas. A eliminação suave pode ajudá-lo a recuperar os dados eliminados ou substituídos pela **Blob Delete,** **Put Blob,** **Put Block List** e Copy **Blob** apenas.
 
-Não, as imagens apagadas suaves não contam para este limite.
-
-### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Se eu apagar uma conta inteira ou um recipiente com exclusão suave ligado, todas as bolhas associadas serão guardadas?
-
-Não, se apagar uma conta ou um recipiente inteiro, todas as bolhas associadas serão permanentemente eliminadas. Para obter mais informações sobre a proteção de uma conta de armazenamento ser acidentalmente eliminada, consulte [Os Recursos de Bloqueio para Evitar Alterações Inesperadas](../../azure-resource-manager/management/lock-resources.md).
-
-### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Posso ver as métricas de capacidade para dados eliminados?
-
-Os dados eliminados suaves estão incluídos como parte da sua capacidade total de conta de armazenamento. Para obter mais informações sobre a capacidade de armazenamento de rastreio e monitorização, consulte [Storage Analytics](../common/storage-analytics.md).
-
-### <a name="can-i-read-and-copy-out-soft-deleted-snapshots-of-my-blob"></a>Posso ler e copiar fotos suaves apagadas da minha bolha?  
-
-Sim, mas primeiro tens de ligar ao Undelete.
-
-### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>A exclusão suave está disponível para discos de máquinas virtuais?  
-
-A eliminação suave está disponível tanto para discos premium como não geridos padrão, que são bolhas de página sob as capas. A eliminação suave só o ajudará a recuperar os dados eliminados por **Delete Blob,** **Put Blob,** **Put Block List** e **Copy Blob** operações. Os dados substituídos por uma chamada para **Put Page** não são recuperáveis.
-
-Uma máquina virtual Azure escreve para um disco não gerido usando chamadas para **Put Page**, por isso usar exclusão suave para desfazer escreve para um disco não gerido a partir de um Azure VM não é um cenário suportado.
-
-### <a name="do-i-need-to-change-my-existing-applications-to-use-soft-delete"></a>Preciso de alterar as minhas aplicações existentes para utilizar a eliminação suave?
-
-É possível aproveitar a eliminação suave independentemente da versão API que está a utilizar. No entanto, para listar e recuperar blobs e snapshots de bolhas apagadas suaves, terá de utilizar a versão 2017-07-29 da [API de Armazenamento Azure REST](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou superior. A Microsoft recomenda sempre a utilização da versão mais recente da Azure Storage API.
+Os dados que são substituídos por uma chamada para **Put Page** não são recuperáveis. Uma máquina virtual Azure escreve para um disco não gerido usando chamadas para **Put Page**, por isso usar exclusão suave para desfazer escreve para um disco não gerido a partir de um Azure VM não é um cenário suportado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar a eliminação recuperável para blobs](./soft-delete-blob-enable.md)
+- [Gerir e restaurar bolhas apagadas suaves](soft-delete-blob-manage.md)
 - [Versão blob](versioning-overview.md)

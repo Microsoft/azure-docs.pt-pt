@@ -86,6 +86,8 @@
           href: automation-role-based-access-control.md
         - name: Mover a conta de Automatização para outra subscrição
           href: how-to/move-account.md
+        - name: Eliminar conta de Automação
+          href: delete-account.md
         - name: Migrar do Orchestrator para a Automatização do Azure (Beta)
           href: automation-orchestrator-migration.md
     - name: Recursos partilhados
@@ -332,6 +334,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Referência
   items:
+    - name: CLI do Azure
+      href: /cli/azure/ext/automation/automation
     - name: Az do Azure PowerShell
       href: /powershell/module/az.automation
     - name: AzureRM do Azure PowerShell

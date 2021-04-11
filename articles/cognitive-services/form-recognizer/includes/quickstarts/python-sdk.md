@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: f28fba451a5fbad9efe76e0d6bd39488beebb103
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e37ff8a003bc10d69fd32794f26acfa8f5326423
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761101"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073751"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -77,7 +77,7 @@ Crie variáveis para o ponto final e chave Azure do seu recurso.
 
 ## <a name="object-model"></a>Modelo de objeto
 
-Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro, `form_recognizer_client` é usado para consultar o serviço para campos de forma reconhecidos e conteúdos. A segunda é `form_training_client` a utilização para criar e gerir modelos personalizados que pode usar para melhorar o reconhecimento. 
+Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro, `form_recognizer_client` é usado para consultar o serviço para reconhecer campos de forma e conteúdo. A `form_training_client` segunda, é usada para criar e gerir modelos personalizados que pode usar para melhorar o reconhecimento. 
 
 ### <a name="formrecognizerclient"></a>FormulárioRecognizerClient
 
@@ -139,7 +139,7 @@ Terá de adicionar referências aos URLs para os seus dados de treino e teste.
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
   
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperação de URL SAS":::
-* Utilize a amostra e as imagens de receção incluídas nas amostras abaixo (também disponível no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ou pode utilizar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. 
+* Utilize o formulário de amostra e as imagens de receção incluídas nas amostras abaixo (também disponível no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ou pode utilizar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. 
 
 > [!NOTE]
 > Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação](/python/api/azure-ai-formrecognizer) de referência e [nas amostras.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)

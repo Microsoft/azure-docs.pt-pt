@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa3614aa3c4fbaec3611806406e5129379999bc3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102522398"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067146"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -790,7 +790,7 @@ Para cancelar uma encomenda da Caixa de Dados Azure, corra [`az databox job canc
    |grupo de recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a eliminar. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
    |razão [Necessário]| O motivo para cancelar a encomenda. | "Inseri informações erradas e precisei de cancelar a encomenda." |
-   |sim| Não pedir confirmação. | --sim (-y)| --sim-y |
+   |sim| Não pedir confirmação. | --sim (-y)| 
    |depurar| Incluir depurar informações para verbose logging | --depurar |
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
@@ -827,7 +827,7 @@ Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode correr [`az datab
    |grupo de recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a eliminar. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
    |subscrição| O nome ou ID (GUID) da sua assinatura Azure. | "xxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxx" |
-   |sim| Não pedir confirmação. | --sim (-y)| --sim-y |
+   |sim| Não pedir confirmação. | --sim (-y)|
    |depurar| Incluir depurar informações para verbose logging | --depurar |
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |

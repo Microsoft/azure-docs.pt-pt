@@ -4,10 +4,10 @@ description: Fornece uma visão geral de como você pode embarcar como um parcei
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105109344"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Visão geral do parceiro no rodapé (Azure Event Grid)

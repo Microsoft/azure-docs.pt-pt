@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: c82c646e4befef9d409bb8e59a442642913ada22
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f207cefaf333fc21eb56dc15b1e4d191bf8e5fae
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641511"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108307"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
 
@@ -36,18 +36,18 @@ Este artigo dá uma visão geral e orientação de streaming ao vivo com os Medi
 
 ## <a name="dynamic-packaging-and-delivery"></a>Embalagem e entrega dinâmicas
 
-Com os Media Services, pode aproveitar [a embalagem dinâmica,](dynamic-packaging-overview.md)que lhe permite visualizar e transmitir os seus streams ao vivo nos [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) a partir do feed de contribuição que está a ser enviado para o serviço. Os seus espectadores podem reproduzir o live stream com qualquer hls, DASH ou jogadores compatíveis com o Streaming Suave. Pode utilizar [o Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) na sua web ou aplicações móveis para entregar o seu stream em qualquer um destes protocolos.
+Com os Media Services, pode aproveitar [a embalagem dinâmica,](encode-dynamic-packaging-concept.md)que lhe permite visualizar e transmitir os seus streams ao vivo nos [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) a partir do feed de contribuição que está a ser enviado para o serviço. Os seus espectadores podem reproduzir o live stream com qualquer hls, DASH ou jogadores compatíveis com o Streaming Suave. Pode utilizar [o Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) na sua web ou aplicações móveis para entregar o seu stream em qualquer um destes protocolos.
 
 ## <a name="dynamic-encryption"></a>Encriptação dinâmica
 
-A encriptação dinâmica permite-lhe encriptar dinamicamente o seu conteúdo ao vivo ou a pedido com o AES-128 ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. Para obter mais informações, consulte [a encriptação dinâmica.](content-protection-overview.md)
+A encriptação dinâmica permite-lhe encriptar dinamicamente o seu conteúdo ao vivo ou a pedido com o AES-128 ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. Para obter mais informações, consulte [a encriptação dinâmica.](drm-content-protection-concept.md)
 
 > [!NOTE]
 > Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="dynamic-filtering"></a>Filtragem dinâmica
 
-A filtragem dinâmica é usada para controlar o número de faixas, formatos, bitrates e janelas de tempo de apresentação que são enviadas para os jogadores. Para mais informações, consulte [filtros e manifestos dinâmicos.](filters-dynamic-manifest-overview.md)
+A filtragem dinâmica é usada para controlar o número de faixas, formatos, bitrates e janelas de tempo de apresentação que são enviadas para os jogadores. Para mais informações, consulte [filtros e manifestos dinâmicos.](filters-dynamic-manifest-concept.md)
 
 ## <a name="live-event-types"></a>Tipos de eventos ao vivo
 

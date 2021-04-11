@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5d4ff622f69445880c0de8cb74dc1aeee422c89b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 540f0725427ace4aec76de373556cd6699a1b229
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052165"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732759"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Ativar a saúde dos hóspedes (pré-visualização)
 A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como ativar esta funcionalidade na sua subscrição e como ativar a monitorização do hóspede para cada máquina virtual.
@@ -20,6 +20,7 @@ A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como defin
 A saúde dos hóspedes tem as seguintes limitações na visualização pública:
 
 - Apenas máquinas virtuais Azure são suportadas atualmente. Neste momento, não há suporte para o Azure Arc para servidores.
+- Os proxies da rede não são suportados atualmente.
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados

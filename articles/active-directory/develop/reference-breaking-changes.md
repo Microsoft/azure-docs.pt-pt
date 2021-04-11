@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 2/22/2021
+ms.date: 3/30/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb75450527fc31d6ea4a9f9d60d676718ad79bda
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647426"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167588"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação?
 
@@ -35,9 +35,21 @@ O sistema de autenticação altera e adiciona funcionalidades de forma contínua
 
 ## <a name="upcoming-changes"></a>Próximas alterações
 
+### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>Correção de erro: O Azure AD deixará de codificar o parâmetro de estado duas vezes.
+
+**Data de efetivo**: maio 2021
+
+**Pontos finais impactados:** v1.0 e v2.0 
+
+**Protocolo impactado**: Todos os fluxos que visitam o `/authorize` ponto final (fluxo implícito de fluxo e código de autorização)
+
+Um inseto foi encontrado e corrigido na resposta de autorização da AD Azure. Durante a `/authorize` parte da autenticação, o `state` parâmetro do pedido é incluído na resposta, de forma a preservar o estado da aplicação e ajudar a prevenir ataques de CSRF. O Azure AD codificava incorretamente o `state` parâmetro antes de o inserir na resposta, onde foi codificado mais uma vez.  Isto resultaria em aplicações que rejeitassem incorretamente a resposta da Azure AD. 
+
+O Azure AD deixará de codificar este parâmetro duas vezes, permitindo que as aplicações analisem corretamente o resultado. Esta alteração será feita para todas as aplicações. 
+
 ### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>O Acesso Condicional só irá desencadear para âmbitos explicitamente solicitados
 
-**Data efetiva**: março 2021
+**Data efetiva**: maio 2021, com lançamento gradual a partir de abril. 
 
 **Pontos finais impactados:** v2.0
 
@@ -48,6 +60,8 @@ As aplicações que utilizam o consentimento dinâmico hoje em dia recebem todas
 Para reduzir o número de pedidos de acesso condicional desnecessários, o Azure AD está a alterar a forma como os âmbitos não solicitados são fornecidos às aplicações de modo que apenas os âmbitos explicitamente solicitados desencadeiam o Acesso Condicional. Esta alteração pode fazer com que as aplicações dependentes do comportamento anterior da AZure AD (nomeadamente, fornecendo todas as permissões mesmo quando não foram solicitadas) para quebrar, uma vez que os tokens que solicitam estarão a faltar permissões.
 
 As aplicações passarão a receber tokens de acesso com um misto de permissões neste caso - as solicitadas, bem como aquelas que tenham consentimento para que não necessitem de solicitações de Acesso Condicional.  Os âmbitos do token de acesso refletem-se no parâmetro da resposta `scope` simbólica. 
+
+Esta alteração será feita para todas as aplicações, exceto aquelas com uma dependência observada deste comportamento.  Os desenvolvedores receberão ajuda se estiverem isentos desta mudança, uma vez que podem ter uma dependência das solicitações de acesso condicional adicionais. 
 
 **Exemplos**
 

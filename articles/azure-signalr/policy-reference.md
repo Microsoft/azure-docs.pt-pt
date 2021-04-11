@@ -8,10 +8,10 @@ ms.service: signalr
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.openlocfilehash: d7be8125bbd38c7ec8871c583d125ecabc66a081
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105036969"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Definições incorporadas da Política Azure para O Sinal de Azure

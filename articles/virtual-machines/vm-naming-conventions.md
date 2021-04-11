@@ -9,10 +9,10 @@ ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
 ms.openlocfilehash: 2fa362a56eb1246381fcc944e82ea85d31ff3d39
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104599906"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Tamanhos de máquina virtual Azure nomeando convenções

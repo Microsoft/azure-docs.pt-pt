@@ -6,13 +6,11 @@
       href: concepts-baremetal-infrastructure-overview.md
     - name: Conhecer os termos
       href: know-baremetal-terms.md
-    - name: Ligue unidades de exemplo BareMetal em Azure
+    - name: Conecte as instâncias BareMetal em Azure
       displayName: 'Azure CLI, az baremetalinstance, az baremetalinstance restart'
       href: connect-baremetal-infrastructure.md
 - name: Cargas de Trabalho
   items:
-    - name: Tipos de carga de trabalho de Bare-metal
-      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
     - name: SAP HANA no Azure (Instâncias Grandes)
       items:
         - name: Certificação

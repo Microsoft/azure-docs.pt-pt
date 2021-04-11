@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 3d43a532f57feab361c6a3de79269991f46fc55d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cf15d6f669718cca8b99d67a7912d3959d9c191f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684027"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732511"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>Preparar dados com a disputa de dados
 
@@ -20,7 +20,7 @@ ms.locfileid: "98684027"
 A luta de dados na fábrica de dados permite-lhe construir mash-ups de power query interativos nativamente em ADF e, em seguida, executá-los em escala dentro de um oleoduto ADF.
 
 > [!NOTE]
-> A acitividade da consulta de energia em ADF é atualmente avilável na pré-visualização pública
+> A atividade de consulta de energia em ADF está atualmente disponível em visualização pública
 
 ## <a name="create-a-power-query-activity"></a>Criar uma atividade de consulta de energia
 

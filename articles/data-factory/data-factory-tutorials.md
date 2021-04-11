@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 03/16/2021
-ms.openlocfilehash: 77899366ed256e147ddbc705d68096cb1b879d8d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8fccd508d5d6dbe380b21a85faa3889e99b9942f
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104610229"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579531"
 ---
 # <a name="azure-data-factory-tutorials"></a>Tutoriais da Fábrica de Dados Azure
 
@@ -60,6 +60,8 @@ Abaixo está uma lista de tutoriais para ajudar a explicar e caminhar através d
 [Discussão de dados com a Consulta de Energia](wrangling-tutorial.md)
 
 [Fluxos de dados dentro do VNet gerido](tutorial-data-flow-private.md)
+
+[Melhores práticas para dados do lago na ADLS Gen2](tutorial-data-flow-write-to-lake.md)
 
 ## <a name="external-data-services"></a>Serviços de dados externos
 

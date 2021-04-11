@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 5473daedc8a7ad5a3b6ddffc65234160d4b3019d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878594"
 ---
 # <a name="app-and-deployment-in-azure-spring-cloud"></a>App e implementação em Azure Spring Cloud
@@ -29,7 +29,7 @@ O nível padrão da Cloud Azure Spring permite que uma Aplicação tenha uma imp
 ## <a name="app"></a>Aplicação
 As seguintes funcionalidades/propriedades são definidas ao nível da App.
 
-| Funcionalidades | Descrição |
+| Funcionalidades | Description |
 |:--|:----------------|
 | Público</br>Ponto final | O URL para aceder à app |
 | Personalizado</br>Domínio | REGISTO CNAME que assegura o domínio personalizado |

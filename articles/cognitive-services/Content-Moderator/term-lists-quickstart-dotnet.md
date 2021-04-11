@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93d90232fb530a6c14c40558fc6a9974a1da42de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e32f18e7ff9e222586b1c9ca328e0f6c4eb3ba51
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92900924"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055557"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Verifique o texto contra uma lista de termos personalizados em C #
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 21f9b3dcb94be105c8b7279e6ac447540da65447
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105110105"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Configurar os parâmetros do servidor na Base de Dados Azure para o MySQL Flexible Server utilizando o Azure CLI

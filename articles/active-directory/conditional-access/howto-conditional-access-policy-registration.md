@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 03/29/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 711d4bdf2be2ad3158c12e4690a70fb83fe7a846
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 38ddd825321a3cb7947eb76c4f5f6cdbc6cb3414
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559507"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055710"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: Proteger o registo de informações de segurança
 
@@ -52,7 +52,7 @@ A seguinte política aplica-se aos utilizadores selecionados, que tentam regista
 1. Defina **Ativar política** como **Ativado**.
 1. Em seguida, selecione **Criar**.
 
-Os administradores terão agora de emitir credenciais de Passe de Acesso Temporário a novos utilizadores para que possam satisfazer os requisitos para que a autenticação multi-factor se registe. Passos para realizar esta tarefa, encontram-se na secção [Criar um Passe de Acesso Temporário no Portal AD AZure](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass-in-the-azure-ad-portal).
+Os administradores terão agora de emitir credenciais de Passe de Acesso Temporário a novos utilizadores para que possam satisfazer os requisitos para que a autenticação multi-factor se registe. Passos para realizar esta tarefa, encontram-se na secção [Criar um Passe de Acesso Temporário no Portal AD AZure](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
 
 As organizações podem optar por exigir outros controlos de subvenção para além ou em vez de **exigirem a autenticação de vários fatores** no passo 6b. Ao selecionar vários controlos, certifique-se de que seleciona o botão de rádio apropriado para exigir **todos** ou **um dos** controlos selecionados ao escoar esta alteração.
 

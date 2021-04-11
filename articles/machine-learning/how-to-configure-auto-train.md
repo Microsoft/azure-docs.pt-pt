@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 24c0d57490ecd039039992310f93ca3e21c47b3b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12a6761ac2cd305e6ff949ffa59ee3bbdff1934d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563492"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732895"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -217,7 +217,7 @@ Conheça as definições específicas destas métricas na Compreensão dos [resu
 
 ### <a name="primary-metrics-for-classification-scenarios"></a>Métricas primárias para cenários de classificação 
 
-As métricas limiares postais, `accuracy` `average_precision_score_weighted` como, `norm_macro_recall` , e podem `precision_score_weighted` não otimizar tão bem para conjuntos de dados que são muito pequenos, têm uma inclinação de classe muito grande (desequilíbrio de classe), ou quando o valor métrico esperado é muito próximo de 0,0 ou 1.0. Nesses casos, `AUC_weighted` pode ser uma escolha melhor para a métrica primária. Após a conclusão automatizada da aprendizagem automática de máquinas, pode escolher o modelo vencedor com base na métrica mais adequada às necessidades do seu negócio.
+As métricas limiares postais, `accuracy` `average_precision_score_weighted` como, `norm_macro_recall` , e podem `precision_score_weighted` não otimizar tão bem para conjuntos de dados que são pequenos, têm uma inclinação de classe muito grande (desequilíbrio de classe), ou quando o valor métrico esperado é muito próximo de 0,0 ou 1.0. Nesses casos, `AUC_weighted` pode ser uma escolha melhor para a métrica primária. Após a conclusão automatizada da aprendizagem automática de máquinas, pode escolher o modelo vencedor com base na métrica mais adequada às necessidades do seu negócio.
 
 | Metric | Casos de uso de exemplo |
 | ------ | ------- |
@@ -386,16 +386,113 @@ Configure  `max_concurrent_iterations` no seu `AutoMLConfig` objeto. Se não est
 
 ## <a name="explore-models-and-metrics"></a>Explore modelos e métricas
 
-Pode ver os resultados do seu treino num widget ou inline se estiver num caderno. Consulte [Track e avalie os modelos](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para obter mais detalhes.
+A ML automatizada oferece opções para monitorizar e avaliar os resultados da sua formação. 
 
-Consulte [avaliar os resultados automatizados](how-to-understand-automated-ml.md) da experiência de machine learning para definições e exemplos dos gráficos de desempenho e métricas fornecidas para cada execução. 
+* Pode ver os resultados do seu treino num widget ou inline se estiver num caderno. Veja [como monitorizar ml automatizado corre](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para mais detalhes.
 
-Para obter um resumo de exibição e entender que características foram adicionadas a um determinado modelo, consulte [a transparência da Participação.](how-to-configure-auto-features.md#featurization-transparency) 
+* Para definições e exemplos dos gráficos de desempenho e métricas fornecidas para cada execução, consulte [os resultados automatizados da experiência de aprendizagem automática](how-to-understand-automated-ml.md) de máquinas . 
 
+* Para obter um resumo de exibição e entender que características foram adicionadas a um determinado modelo, consulte [a transparência da Participação.](how-to-configure-auto-features.md#featurization-transparency) 
+
+Pode ver os hiperparímetros, as técnicas de escala e normalização e algoritmo aplicado a uma ml automática específica com a seguinte solução de código personalizado. 
+
+O seguinte define o método personalizado, `print_model()` que imprime os hiperparímetros de cada passo do gasoduto de treino automatizado ML.
+ 
+```python
+from pprint import pprint
+
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        elif hasattr(step[1], '_base_learners') and hasattr(step[1], '_meta_learner'):
+            print("\nMeta Learner")
+            pprint(step[1]._meta_learner)
+            print()
+            for estimator in step[1]._base_learners:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()   
+```
+
+Para uma corrida local ou remota que foi submetida e treinada a partir do mesmo caderno de experiências, você pode passar no melhor modelo usando o `get_output()` método. 
+
+```python
+best_run, fitted_model = run.get_output()
+print(best_run)
+         
+print_model(fitted_model)
+```
+
+A seguinte saída indica que:
+ 
+* A técnica StandardScalerWrapper foi utilizada para escalar e normalizar os dados antes do treino.
+
+* O algoritmo XGBoostClassifier foi identificado como o melhor executado, e também mostra os valores do hiperparímetro. 
+
+```python
+StandardScalerWrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing.data',
+ 'with_mean': False,
+ 'with_std': False}
+
+XGBoostClassifier
+{'base_score': 0.5,
+ 'booster': 'gbtree',
+ 'colsample_bylevel': 1,
+ 'colsample_bynode': 1,
+ 'colsample_bytree': 0.6,
+ 'eta': 0.4,
+ 'gamma': 0,
+ 'learning_rate': 0.1,
+ 'max_delta_step': 0,
+ 'max_depth': 8,
+ 'max_leaves': 0,
+ 'min_child_weight': 1,
+ 'missing': nan,
+ 'n_estimators': 400,
+ 'n_jobs': 1,
+ 'nthread': None,
+ 'objective': 'multi:softprob',
+ 'random_state': 0,
+ 'reg_alpha': 0,
+ 'reg_lambda': 1.6666666666666667,
+ 'scale_pos_weight': 1,
+ 'seed': None,
+ 'silent': None,
+ 'subsample': 0.8,
+ 'tree_method': 'auto',
+ 'verbose': -10,
+ 'verbosity': 1}
+```
+
+Para uma corrida existente a partir de uma experiência diferente no seu espaço de trabalho, obtenha o ID de execução específico que você quer explorar e passar isso para o `print_model()` método. 
+
+```python
+from azureml.train.automl.run import AutoMLRun
+
+ws = Workspace.from_config()
+experiment = ws.experiments['automl-classification']
+automl_run = AutoMLRun(experiment, run_id = 'AutoML_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx')
+
+automl_run
+best_run, model_from_aml = automl_run.get_output()
+
+print_model(model_from_aml)
+
+```
 > [!NOTE]
 > Os algoritmos que a ML automatizada emprega têm aleatoriedade inerente que pode causar uma ligeira variação na pontuação final das métricas de um modelo recomendado, como precisão. A ML automatizada também realiza operações em dados como divisão de ensaios de comboio, divisão de validação de comboios ou validação cruzada quando necessário. Portanto, se executar uma experiência com as mesmas configurações e métrica primária várias vezes, provavelmente verá variação em cada experiência métricas pontuadas devido a estes fatores. 
 
 ## <a name="register-and-deploy-models"></a>Registar e implantar modelos
+
 Pode registar um modelo, para que possa voltar para uso posterior. 
 
 Para registar um modelo a partir de uma execução automática de ML, utilize o [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) método. 

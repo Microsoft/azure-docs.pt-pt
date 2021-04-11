@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 745cc7be37120cda27fe4d4077b9bda0fa07badf
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96435455"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550783"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planeie a sua Azure AD aderir à implementação
 
@@ -168,13 +168,11 @@ Os utilizadores obtêm SSO de dispositivos aderidos a Azure AD se o dispositivo 
 
 ### <a name="on-premises-network-shares"></a>Ações de rede no local
 
-Os seus utilizadores têm SSO de Azure AD ligado a dispositivos quando um dispositivo tem acesso a um controlador de domínio no local.
+Os seus utilizadores têm SSO de Azure AD ligado a dispositivos quando um dispositivo tem acesso a um controlador de domínio no local. [Saiba como isto funciona](azuread-join-sso.md)
 
 ### <a name="printers"></a>Impressoras
 
-Para impressoras, é necessário implementar [uma impressão em nuvem híbrida](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) para descobrir impressoras em dispositivos aderidos Azure. 
-
-Embora as impressoras não possam ser automaticamente descobertas num ambiente apenas na nuvem, os seus utilizadores também podem usar o caminho unc das impressoras para adicioná-las diretamente. 
+Recomendamos a implementação [da Universal Print](/universal-print/fundamentals/universal-print-whatis) para ter uma solução de gestão de impressão baseada na nuvem sem qualquer dependência no local. 
 
 ### <a name="on-premises-applications-relying-on-machine-authentication"></a>Aplicações no local com base na autenticação da máquina
 
@@ -201,11 +199,11 @@ Aqui está uma comparação destas três abordagens
  
 | Elemento | Configuração de self-service | Windows Autopilot | Inscrição em massa |
 | --- | --- | --- | --- |
-| Requerem interação do utilizador para configurar | Yes | Yes | No |
-| Exigir esforço de TI | No | Yes | Sim |
+| Requerem interação do utilizador para configurar | Sim | Sim | No |
+| Exigir esforço de TI | No | Sim | Sim |
 | Fluxos aplicáveis | Definições de & OOBE | Apenas OOBE | Apenas OOBE |
 | Direitos de administrador local para o utilizador primário | Sim, por defeito. | Configurável | Não |
-| Requera suporte ao OEM do dispositivo | No | Yes | No |
+| Requera suporte ao OEM do dispositivo | No | Sim | No |
 | Versões suportadas | 1511+ | 1709+ | 1703+ |
  
 Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e revendo as seguintes considerações para a adoção de qualquer uma das abordagens:  
@@ -221,7 +219,7 @@ Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e
 
 ## <a name="configure-your-device-settings"></a>Configure as definições do seu dispositivo
 
-O portal Azure permite-lhe controlar a implementação de dispositivos aderidos a Azure AD na sua organização. Para configurar as definições relacionadas, na **página do Diretório Ativo Azure,** selecione `Devices > Device settings` .
+O portal Azure permite-lhe controlar a implementação de dispositivos aderidos a Azure AD na sua organização. Para configurar as definições relacionadas, na **página do Diretório Ativo Azure,** selecione `Devices > Device settings` . [Saiba mais](device-management-azure-portal.md)
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Os utilizadores podem associar dispositivos ao Azure AD
 
@@ -235,11 +233,13 @@ Escolha **Selecionado** e selecione os utilizadores que pretende adicionar ao gr
 
 ![Administradores locais adicionais nos dispositivos associados do Azure AD](./media/azureadjoin-plan/02.png)
 
-### <a name="require-multi-factor-auth-to-join-devices"></a>Requerem que a Auth multi-factor se junte a dispositivos
+### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>Requerem a autenticação de vários fatores (MFA) para aderir a dispositivos
 
 Selecione **"Sim,** se exigir que os utilizadores realizem MFA enquanto juntam dispositivos ao Azure AD. Para os utilizadores que unem dispositivos ao Azure AD utilizando o MFA, o próprio dispositivo torna-se um segundo fator.
 
 ![Requerem que a Auth multi-factor se junte a dispositivos](./media/azureadjoin-plan/03.png)
+
+**Recomendação:** Utilize o registo de ação do utilizador [ou junte-se a dispositivos](/conditional-access/concept-conditional-access-cloud-apps#user-actions) no Acesso Condicional para impor mFA para a junção de dispositivos.
 
 ## <a name="configure-your-mobility-settings"></a>Configure as suas definições de mobilidade
 

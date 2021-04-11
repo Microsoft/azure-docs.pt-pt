@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/17/2021
 ms.author: Zhchia
 ms.openlocfilehash: 7258aaba738b63db4d37af78389003d36874dcb9
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878409"
 ---
 # <a name="tutorial-configure-logicgate-for-automatic-user-provisioning"></a>Tutorial: Configurar LogicGate para o fornecimento automático de utilizadores

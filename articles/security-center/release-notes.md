@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: f6ec14c577d1203b92085b791f89e4873a97c41a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 81f741fd9b0e3d40eb0027a5cbe0ba4b7113bbea
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786104"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027623"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -24,6 +24,93 @@ Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao C
 
 > [!TIP]
 > Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
+
+## <a name="april-2021"></a>abril de 2021
+
+As atualizações em abril incluem:
+- [Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Use o Azure Defender para Kubernetes para proteger as implementações híbridas e multi-cloud Kubernetes (pré-visualização)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [11 Alertas do Azure Defender deprecados](#11-azure-defender-alerts-deprecated)
+- [Foram deprecadas duas recomendações do controlo de segurança "Aplicar atualizações do sistema"](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
+
+### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)
+
+Os relatórios de extensão da [configuração](../governance/policy/concepts/guest-configuration.md) do hóspede do Azure para ajudar a garantir que as definições de hóspedes das suas máquinas virtuais são endurecidas. A extensão não é necessária para servidores ativados pelo Arc porque está incluído no agente Da Máquina Ligada ao Arco. A extensão requer uma identidade gerida pelo sistema na máquina.
+
+Adicionámos quatro novas recomendações ao Centro de Segurança para aproveitar ao máximo esta extensão.
+
+- Duas recomendações levam-no a instalar a extensão e a sua identidade gerida pelo sistema:
+    - **A extensão de configuração do hóspede deve ser instalada nas suas máquinas**
+    - **A extensão de Configuração de Hóspedes das máquinas virtuais deve ser implementada com identidade gerida atribuída ao sistema**
+
+- Quando a extensão estiver instalada e em funcionamento, começará a auditar as suas máquinas e será solicitado para endurecer as definições, tais como a configuração do sistema operativo e as definições de ambiente. Estas duas recomendações levar-lhe-ão a endurecer as suas máquinas Windows e Linux, conforme descrito:
+    - **A Guarda de Exploração do Windows Defender deve ser ativada nas suas máquinas**
+    - **A autenticação nas máquinas Linux deve necessitar de chaves SSH**
+
+Saiba mais na [Configuração de Hóspedes da Understand Azure Policy](../governance/policy/concepts/guest-configuration.md).
+
+
+### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Use o Azure Defender para Kubernetes para proteger as implementações híbridas e multi-cloud Kubernetes (pré-visualização)
+
+O Azure Defender for Kubernetes está a expandir as suas capacidades de proteção contra ameaças para defender os seus clusters onde quer que sejam implantados. Isto foi ativado através da integração com [o Azure Arc, ativando a Kubernetes](../azure-arc/kubernetes/overview.md) e as suas novas [capacidades de extensões.](../azure-arc/kubernetes/extensions.md) 
+
+Quando tiver ativado o Azure Arc nos seus clusters não-Azure Kubernetes, uma nova recomendação do Azure Security Center oferece-se para implementar a extensão do Azure Defender com apenas alguns cliques.
+
+Utilize a recomendação (**Azure Arc permitiu que os clusters kubernetes tivessem a extensão do Azure Defender instalada**) e a extensão para proteger os clusters kubernetes implantados em outros fornecedores de nuvem, embora não nos seus serviços geridos de Kubernetes.
+
+Esta integração entre o Azure Security Center, a Azure Defender e o Azure Arc habilitado a Kubernetes traz:
+
+- Fácil provisão da extensão do Azure Defender para arco azure desprotegido permitiu que os agrupamentos de Kubernetes (manualmente e à escala)
+- Monitorização da extensão do Azure Defender e do seu estado de provisionamento a partir do Portal do Arco de Azure
+- Recomendações de segurança do Centro de Segurança são reportadas na nova página de Segurança do Portal Azure Arc
+- As ameaças de segurança identificadas do Azure Defender são relatadas na nova página de Segurança do Portal do Arco de Azure
+- Azure Arc habilitado os clusters Kubernetes estão integrados na plataforma e experiência do Azure Security Center
+
+Saiba mais em [Use Azure Defender para Kubernetes com os seus aglomerados de Kubernetes em várias nuvens.](defender-for-kubernetes-azure-arc.md)
+
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="A recomendação do Azure Security Center para a implementação da extensão do Azure Defender para o Arco Azure permitiu clusters kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+
+### <a name="11-azure-defender-alerts-deprecated"></a>11 Alertas do Azure Defender deprecados
+
+Os onze alertas do Azure Defender listados abaixo foram deprecados.
+
+- Novos alertas irão substituir estes dois alertas e fornecer uma melhor cobertura:
+
+    | AlertaType                | Nome de Alertadisplay                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | PREVIEW - Kit de ferramentas MicroBurst "Get-AzureDomainInfo" executado |
+    | ARM_MicroBurstRunbook    | PREVIEW - O conjunto de ferramentas MicroBurst "Get-AzurePasswords" executado  |
+    |                          |                                                                          |
+
+- Estes nove alertas dizem respeito a um conector de proteção de identidade ativa do Azure Ative (IPC) que já foi depreciado:
+
+    | AlertaType           | Nome de Alertadisplay              |
+    |---------------------|-------------------------------|
+    | Localização desconhecida  | Propriedades de inícios de sessão desconhecidos |
+    | Anónimos      | Endereço IP anónimo          |
+    | InfectuadoDeviceLogin | Endereço IP ligado a malware     |
+    | ImpossibleTravel    | Viagem atípica               |
+    | MaliciousIP         | Endereço IP malicioso          |
+    | Fugas de informação   | Fuga de credenciais            |
+    | PasswordSpray       | Spray de palavra-passe                |
+    | Fugas de informação   | Inteligência de ameaça Azure AD  |
+    | AADAI               | Azure AD AI                   |
+    |                     |                               |
+ 
+    > [!TIP]
+    > Estes nove alertas do IPC nunca foram alertas do Centro de Segurança. Fazem parte do conector de Proteção de Identidade (AAD) do Azure Ative Protection (IPC) que os estava a enviar para o Centro de Segurança. Nos últimos dois anos, os únicos clientes que têm visto esses alertas são as organizações que configuraram a exportação (do conector para a ASC) em 2019 ou mais cedo. O IPC da AAD continuou a mostrá-los nos seus próprios sistemas de alerta e continuaram a estar disponíveis no Azure Sentinel. A única mudança é que já não aparecem no Centro de Segurança.
+
+### <a name="two-recommendations-from-apply-system-updates-security-control-were-deprecated"></a>Foram deprecadas duas recomendações do controlo de segurança "Aplicar atualizações do sistema" 
+
+As duas recomendações seguintes foram depreciadas e as alterações podem resultar num ligeiro impacto na sua pontuação segura:
+
+- **As suas máquinas devem ser reiniciadas para aplicar atualizações do sistema**
+- **O agente de monitorização deve ser instalado nas suas máquinas**. Esta recomendação diz respeito apenas a máquinas no local e parte da sua lógica será transferida para outra recomendação, **as questões de saúde do agente Log Analytics devem ser resolvidas nas suas máquinas.**
+
+Recomendamos verificar as suas configurações contínuas de automação de exportação e fluxo de trabalho para ver se estas recomendações estão incluídas nas suas recomendações. Além disso, quaisquer dashboards ou outras ferramentas de monitorização que possam estar a usá-los devem ser atualizados em conformidade.
+
+Saiba mais sobre estas recomendações na página de referência das [recomendações de segurança](recommendations-reference.md).
 
 
 ## <a name="march-2021"></a>março de 2021
@@ -489,7 +576,7 @@ As atualizações em dezembro incluem:
 O Azure Security Center oferece dois planos Azure Defender para servidores SQL:
 
 - **Azure Defender para servidores de base de dados Azure SQL** - defende os seus Servidores SQL nativos do Azure 
-- **Azure Defender para servidores SQL em máquinas** - alarga as mesmas proteções aos seus servidores SQL em ambientes híbridos, multicloud e no local
+- **Azure Defender para servidores SQL em máquinas** - alarga as mesmas proteções aos seus servidores SQL em ambientes híbridos, multi-nuvem e no local
 
 Com este anúncio, **o Azure Defender para a SQL** protege agora as suas bases de dados e os seus dados onde quer que estejam localizados.
 
@@ -753,154 +840,3 @@ As **atualizações do Sistema devem ser instaladas na** recomendação das suas
 Pode agora ver se as suas subscrições têm ou não a política padrão do Centro de Segurança atribuída, na página de política de segurança do Portal Azure do Centro de **Segurança.**
 
 :::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="A página de gestão de políticas do Azure Security Center mostrando as atribuições de política padrão":::
-
-## <a name="october-2020"></a>Outubro de 2020
-
-As atualizações em outubro incluem:
-- [Avaliação de vulnerabilidade para máquinas no local e multi-nuvens (pré-visualização)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
-- [Recomendação do Azure Firewall adicionada (pré-visualização)](#azure-firewall-recommendation-added-preview)
-- [As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes atualizada com uma correção rápida](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
-- [Painel de conformidade regulamentar agora inclui opção para remover normas](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
-- [Microsoft.Security/securityStatuses removido do Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
-
-### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Avaliação de vulnerabilidade para máquinas no local e multi-nuvens (pré-visualização)
-
-[O Azure Defender para](defender-for-servers-introduction.md)o scanner integrado de avaliação de vulnerabilidades dos servidores (alimentado por Qualys) agora verifica servidores ativados a Azure Arc.
-
-Quando tiver ativado o Azure Arc nas suas máquinas não-Azure, o Security Center oferecer-se-á para implementar o scanner integrado de vulnerabilidade neles - manual e à escala.
-
-Com esta atualização, pode libertar o poder do **Azure Defender para os servidores** consolidarem o seu programa de gestão de vulnerabilidades em todos os seus ativos Azure e não-Azure.
-
-Principais capacidades:
-
-- Monitorização do estado de provisionamento do scanner VA (avaliação de vulnerabilidade) nas máquinas Azure Arc
-- Provisionando o agente VA integrado às máquinas de Windows e Arú azul desprotegidas (manual e à escala)
-- Receber e analisar vulnerabilidades detetadas de agentes implantados (manualmente e à escala)
-- Experiência unificada para VMs Azure e máquinas Azure Arc
-
-[Saiba mais sobre a implementação do scanner de vulnerabilidade integrado nas suas máquinas híbridas.](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
-
-[Saiba mais sobre os servidores ativados do Azure Arc](../azure-arc/servers/index.yml).
-
-
-### <a name="azure-firewall-recommendation-added-preview"></a>Recomendação do Azure Firewall adicionada (pré-visualização)
-
-Foi adicionada uma nova recomendação para proteger todas as suas redes virtuais com a Azure Firewall.
-
-A recomendação, **as redes virtuais devem ser protegidas pelo Azure Firewall,** aconselha-o a restringir o acesso às suas redes virtuais e a prevenir potenciais ameaças utilizando o Azure Firewall.
-
-Saiba mais sobre [a Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
-
-
-### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes atualizada com uma correção rápida
-
-A recomendação **De que os intervalos de IP autorizados sejam definidos nos Serviços Kubernetes** tem agora uma opção de correção rápida.
-
-Para obter mais informações sobre esta recomendação e todas as outras recomendações do Centro de Segurança, consulte [recomendações de Segurança - um guia de referência](recommendations-reference.md).
-
-:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes com a opção de correção rápida":::
-
-
-### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>Painel de conformidade regulamentar agora inclui opção para remover normas
-
-O painel de conformidade regulamentar do Security Center fornece informações sobre a sua postura de conformidade com base na forma como está a cumprir controlos e requisitos específicos de conformidade.
-
-O painel inclui um conjunto padrão de normas regulamentares. Se algum dos padrões fornecidos não for relevante para a sua organização, é agora um processo simples para removê-los da UI para uma subscrição. As normas só podem ser removidas ao nível da *subscrição;* não o âmbito do grupo de gestão.
-
-Saiba mais em [Remover um padrão do seu painel de instrumentos](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
-
-
-### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Microsoft.Security/securityStatuses removido do Azure Resource Graph (ARG)
-
-O Azure Resource Graph é um serviço em Azure que é projetado para fornecer uma exploração eficiente de recursos com a capacidade de consultar em escala através de um determinado conjunto de subscrições para que possa governar eficazmente o seu ambiente. 
-
-Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/) para consultar uma ampla gama de dados de postura de segurança. Por exemplo:
-
-- Utilizações de inventário de ativos (ARG)
-- Documentamos uma consulta de amostra ARG sobre como [identificar contas sem autenticação de vários fatores (MFA) ativada](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
-
-Dentro da ARG, existem tabelas de dados para utilizar nas suas consultas.
-
-:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis":::
-
-> [!TIP]
-> A documentação ARG lista todas as tabelas disponíveis na [tabela Azure Resource Graph e referência do tipo de recurso.](../governance/resource-graph/reference/supported-tables-resources.md)
-
-A partir desta atualização, a tabela **Microsoft.Security/securityStatuses** foi removida. A API de segurançastatuses ainda está disponível.
-
-A substituição de dados pode ser utilizada pela tabela Microsoft.Security/Assessments.
-
-A grande diferença entre microsoft.Security/securityStatuses e Microsoft.Security/Assessments é que, embora a primeira mostre agregação de avaliações, os segundos detenha um único recorde para cada um.
-
-Por exemplo, microsoft.Security/securityStatuses devolveria um resultado com uma série de duas avaliações de política:
-
-```
-{
-id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
-name: "mico-rg-vnet",
-type: "Microsoft.Security/securityStatuses",
-properties:  {
-    policyAssessments: [
-        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
-        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
-    ],
-    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
-    name: "GenericResourceHealthProperties",
-    type: "VirtualNetwork",
-    securitystate: "High"
-}
-```
-Considerando que a Microsoft.Security/Assessments manterá um registo para cada avaliação de política da seguinte forma:
-
-```
-{
-type: "Microsoft.Security/assessments",
-id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
-name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
-properties:  {
-    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
-    displayName: "Azure DDOS Protection Standard should be enabled",
-    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
-}
-
-{
-type: "Microsoft.Security/assessments",
-id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
-name: "8efac66a-1ec5-be63-a824-eb28671dc527",
-properties: {
-    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
-    displayName: "Audit diagnostic setting",
-    status:  {code: "Unhealthy"}
-}
-```
-
-**Exemplo de conversão de uma consulta ARG existente utilizando segurançaSés para utilizar agora o quadro de avaliações:**
-
-Consulta que refere Índices de Segurança:
-
-```kusto
-SecurityResources 
-| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
-| where name in ({vmnames}) 
-| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
-```
-
-Consulta de substituição do quadro de avaliações:
-
-```kusto
-securityresources
-| where type == "microsoft.security/assessments" and id contains "virtualMachine"
-| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
-| extend source = tostring(properties.resourceDetails.Source)
-| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
-source =~ "aws", properties.additionalData.AzureResourceId,
-source =~ "gcp", properties.additionalData.AzureResourceId,
-extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
-| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
-| where resourceName in ({vmnames}) 
-| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
-```
-
-Saiba mais nos seguintes links:
-- [Como criar consultas com o Explorador do Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
-- [Linguagem de Consulta Kusto (KQL)](/azure/data-explorer/kusto/query/)
