@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599219"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029782"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -34,6 +34,14 @@ Antes de utilizar a API text Analytics, terá de criar um recurso Azure com uma 
 2.  Selecione a região que pretende utilizar para o seu ponto final.  Por favor, note que os `/analyze` `/health` pontos finais estão disponíveis apenas nas seguintes regiões: West US 2, East US 2, Central US, North Europe e West Europe.
 
 3.  Crie o recurso Text Analytics e vá para a "lâmina de teclas e ponto final" no lado esquerdo da página. Copie a chave a ser usada mais tarde quando ligar para as APIs. Vais acrescentar isto mais tarde como um valor para o `Ocp-Apim-Subscription-Key` cabeçalho.
+
+4. Para verificar o número de registos de texto enviados através do seu recurso Text Analytics:
+
+    1. Navegue para o seu recurso Text Analytics no portal Azure. 
+    2. Clique **em Métricas,** localizadas em **Monitorização** no menu de navegação à esquerda. 
+    3. Selecione *registos de texto processados* na caixa de entrega **para métrica**.
+    
+Um disco de texto é de 1000 caracteres.
 
 ## <a name="change-your-pricing-tier"></a>Altere o seu nível de preços 
 

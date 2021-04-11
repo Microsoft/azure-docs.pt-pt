@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 545331fdea56aef3d7b9dac8062d4fc2d6891254
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 254f424694df72a290a07369fe910587fadf58d4
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501576"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385552"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -36,11 +36,11 @@ Um utilizador que tenha iniciado sessão num pool SQL sem servidor deve ser auto
 **Identidade do Utilizador**, também conhecida como "Azure AD pass-through", é um tipo de autorização onde a identidade do utilizador Azure AD que iniciou sessão no pool SQL sem servidor é usada para autorizar o acesso aos dados. Antes de aceder aos dados, o administrador do Azure Storage deve conceder permissões ao utilizador Azure AD. Como indicado na tabela abaixo, não é suportado para o tipo de utilizador SQL.
 
 > [!IMPORTANT]
-> Precisa de ter uma função de Proprietário/Contribuinte/Leitor de Armazenamento para utilizar a sua identidade para aceder aos dados.
-> Mesmo que você é proprietário de uma conta de armazenamento, você ainda precisa adicionar-se a uma das funções de Armazenamento Blob Data.
->
-> Para saber mais sobre o controlo de acessos na Azure Data Lake Store Gen2, reveja o [controlo access in Azure Data Lake Storage Gen2.](../../storage/blobs/data-lake-storage-access-control.md)
->
+> O token de autenticação AAD pode ser cached pelas aplicações do cliente. Por exemplo, powerbi caches AAD token e reutiliza o mesmo token durante uma hora. As consultas a longo prazo podem falhar se o símbolo expirar no meio da execução de consultas. Se estiver a sentir falhas de consulta causadas pelo token de acesso AAD que expira no meio da consulta, considere mudar para [identidade gerida](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou assinatura de [acesso partilhado](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+Precisa de ter uma função de Proprietário/Contribuinte/Leitor de Armazenamento para utilizar a sua identidade para aceder aos dados. Como alternativa, pode especificar regras ACL de grão fino para aceder a ficheiros e pastas. Mesmo que você é proprietário de uma conta de armazenamento, você ainda precisa adicionar-se a uma das funções de Armazenamento Blob Data.
+Para saber mais sobre o controlo de acessos na Azure Data Lake Store Gen2, reveja o [controlo access in Azure Data Lake Storage Gen2.](../../storage/blobs/data-lake-storage-access-control.md)
+
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso partilhado](#tab/shared-access-signature)
 
@@ -54,6 +54,10 @@ Pode obter um token SAS navegando para o **portal Azure -> Storage Account -> As
 > Sas token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&&&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 Para ativar o acesso através de um token SAS, é necessário criar uma credencial de âmbito de base de dados ou de âmbito de servidor 
+
+
+> [!IMPORTANT]
+> Não pode aceder a contas de armazenamento privadas com o token SAS. Considere mudar para [identidade gerida](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou autenticação [pass-through Azure para](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) aceder ao armazenamento protegido.
 
 ### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 

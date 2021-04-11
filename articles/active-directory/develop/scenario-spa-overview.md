@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 47b8c8c074a5e0ce3ed73a2a9a4b06aa307cdff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64dfd35d387e5907792440ec40522d976706db22
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98756423"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966865"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
 
@@ -27,7 +27,7 @@ Aprenda tudo o que precisa para construir uma aplicação de uma página (SPA).
 
 Se ainda não o fez, crie a sua primeira aplicação completando o arranque rápido javaScript SPA:
 
-[Quickstart: Aplicação de página única](./quickstart-v2-javascript.md)
+[Quickstart: Aplicação de página única](./quickstart-v2-javascript-auth-code.md)
 
 ## <a name="overview"></a>Descrição Geral
 

@@ -10,14 +10,14 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67018a2ec6b9239661a7022ad7fb9eeb6c9a5f64
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709723"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385586"
 ---
-# <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
+# <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrar para a autenticação na cloud com a implementação faseada
 
 O lançamento encenado permite testar seletivamente grupos de utilizadores com capacidades de autenticação em nuvem como Azure AD Multi-Factor Authentication (MFA), Acesso Condicional, Proteção de Identidade para credenciais vazadas, Governação de Identidade, entre outros, antes de cortar os seus domínios.  Este artigo discute como fazer a troca. Antes de iniciar o lançamento encenado, no entanto, deve considerar as implicações se uma ou mais das seguintes condições forem verdadeiras:
     
@@ -79,7 +79,7 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 - Os administradores podem lançar a autenticação em nuvem utilizando grupos de segurança. Para evitar a latência sincronizada quando estiver a utilizar grupos de segurança do Ative Directory no local, recomendamos que utilize grupos de segurança na nuvem. Aplicam-se as seguintes condições:
 
     - Pode utilizar um máximo de 10 grupos por recurso. Ou seja, pode utilizar 10 grupos cada para *sincronização de haxixe de palavra-passe,* *autenticação de passagem* e *SSO sem costura.*
-    - Os grupos aninhados não são *apoiados.* Este âmbito aplica-se também à visualização pública.
+    - Os grupos aninhados não são *apoiados.* 
     - Os grupos dinâmicos não são *apoiados* para o lançamento encenado.
     - Os objetos de contacto no interior do grupo impedirão a adição do grupo.
 
@@ -168,19 +168,19 @@ Pode lançar uma destas opções:
 
 Faça o seguinte:
 
-1. Para aceder ao UX de pré-visualização, inscreva-se no [portal AD AZure](https://aka.ms/stagedrolloutux).
+1. Para aceder ao UX, inscreva-se no [portal AD AZure](https://aka.ms/stagedrolloutux).
 
-2. Selecione o lançamento encenado de Enable para o link **de entrada de utilizador gerido (Pré-visualização).**
+2. Selecione o lançamento encenado de Enable para o link **de entrada de utilizador gerido.**
 
    Por exemplo, se pretender ativar a *Opção A*, deslize o **Sync de Hash De palavra-passe** e os controlos **de entrada única sem emenda** para **On**, como mostram as seguintes imagens.
 
-   ![A página Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   ![A página "Ativar funcionalidades de lançamento encenadas (Pré-visualização)"](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. Adicione os grupos à funcionalidade para permitir a *autenticação pass-through* e *sSO sem costura*. Para evitar uma rização ux, certifique-se de que os grupos de segurança não contêm mais de 200 membros inicialmente.
 
-   ![A página "Gerir grupos para password Hash Sync (Pré-visualização)"](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >Os membros de um grupo estão automaticamente habilitados para o lançamento encenado. Grupos aninhados e dinâmicos não são apoiados para o lançamento encenado.

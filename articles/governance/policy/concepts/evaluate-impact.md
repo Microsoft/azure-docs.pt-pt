@@ -1,18 +1,18 @@
 ---
 title: Avaliar o impacto de uma nova definição de Política Azure
 description: Compreenda o processo a seguir ao introduzir uma nova definição de política no seu ambiente Azure.
-ms.date: 10/05/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 187a64ce3581c4aaa893e2a805ce787a0bfd6c79
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590811"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091723"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Avaliar o impacto de uma nova definição de Política Azure
 
-A Azure Policy é uma ferramenta poderosa para gerir os seus recursos Azure aos padrões de negócio e para atender às necessidades de conformidade. Quando pessoas, processos ou oleodutos criam ou atualizam recursos, a Azure Policy revê o pedido. Quando o efeito de definição de política é [Modificar,](./effects.md#modify) [Apêndice](./effects.md#deny) ou [ImplementarIfNotExists,](./effects.md#deployifnotexists)a política altera o pedido ou adiciona-lhe. Quando o efeito de definição de política é [Auditoria](./effects.md#audit) ou [AuditIfNotExists,](./effects.md#auditifnotexists)a política faz com que seja criada uma entrada de registo de atividade para novos recursos atualizados. E quando o efeito de definição de política é [Deny,](./effects.md#deny)a política para a criação ou alteração do pedido.
+A Azure Policy é uma ferramenta poderosa para gerir os seus recursos Azure aos padrões de negócio e para atender às necessidades de conformidade. Quando pessoas, processos ou oleodutos criam ou atualizam recursos, a Azure Policy revê o pedido. Quando o efeito de definição de política é [Modificar,](./effects.md#modify) [Apêndice](./effects.md#deny)ou [ImplementarIfNotExists,](./effects.md#deployifnotexists)a política altera o pedido ou adiciona-lhe. Quando o efeito de definição de política é [Auditoria](./effects.md#audit) ou [AuditIfNotExists,](./effects.md#auditifnotexists)a política faz com que seja criada uma entrada de registo de atividade para novos recursos atualizados. E quando o efeito de definição de política é [Deny,](./effects.md#deny)a política para a criação ou alteração do pedido.
 
 Estes resultados são exatamente como desejado quando sabemos que a política está corretamente definida. No entanto, é importante validar um novo trabalho político como pretendido antes de permitir que mude ou bloqueie o trabalho. A validação deve assegurar que apenas os recursos pretendidos sejam determinados como incompatíveis e que não sejam incluídos recursos conformes incorretamente (conhecidos como _falso positivos)_ nos resultados.
 

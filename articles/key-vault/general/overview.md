@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3e6ed6bc8ba426a981b7a2390e7d00d9c3b1e785
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105643461"
 ---
 # <a name="about-azure-key-vault"></a>Acerca do Azure Key Vault

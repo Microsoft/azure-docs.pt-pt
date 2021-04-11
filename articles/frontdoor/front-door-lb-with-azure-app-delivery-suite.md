@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 04/06/2021
 ms.author: duau
-ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a7e81c57552fdc24262522343a08fdabba71bfd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019468"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552585"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure
 
@@ -40,8 +40,8 @@ Ao combinar estes serviços globais e regionais, a sua aplicação beneficiará 
 
 ## <a name="global-load-balancing"></a>Equilíbrio global da carga
 **O Traffic Manager** proporciona um equilíbrio global de carga de DNS. Olha para os pedidos de DNS que chegam e responde com um backend saudável, seguindo a política de encaminhamento que o cliente selecionou. As opções para os métodos de encaminhamento são:
-- **O encaminhamento de desempenho envia pedidos para o backend mais próximo com a menor latência.
-- **O encaminhamento prioritário direciona** todo o tráfego para um backend, com outros backends como backup.
+- **O encaminhamento de** desempenho envia pedidos para o backend mais próximo com a menor latência.
+- **O encaminhamento prioritário** direciona todo o tráfego para um backend, com outros backends como backup.
 - **O encaminhamento de robin redondo ponderado** distribui o tráfego com base na ponderação atribuída a cada backend.
 - **O encaminhamento geográfico** garante que os pedidos provenientes de regiões geográficas específicas são tratados por backends mapeados para essas regiões. (Por exemplo, todos os pedidos da Espanha devem ser dirigidos à região de France Central Azure)
 - **O encaminhamento de sub-redes** permite mapear intervalos de endereços IP para backends, de modo que os pedidos de entrada para esses IPs serão enviados para o backend específico. (Por exemplo, qualquer utilizadores que se conectem a partir da gama de endereços IP do seu QG corporativo devem obter conteúdos web diferentes dos utilizadores gerais)

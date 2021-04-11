@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentação de credenciais verificáveis do Diretório Ativo Azure
+summary: Credenciais verificáveis ajudam-no a construir soluções que capacitem os clientes a gerir os seus próprios dados.
+metadata:
+  author: barclayn
+  description: Saiba como incorporar credenciais verificáveis nas suas soluções capacitando os clientes para controlarem a informação sobre si mesmos
+  manager: daveba
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 03/30/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 13eb88e8e8613c913f66185eba751a1fe3c36e1e
+  ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 04/01/2021
+  ms.locfileid: "106175706"
+landingContent:
+- title: Sobre credenciais verificáveis
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introdução ao Diretório Ativo Azure Credenciais Verificáveis
+      url: decentralized-identifier-overview.md
+  - linkListType: video
+    links:
+    - text: Gerir o acesso aos seus recursos
+      url: https://www.youtube.com/watch?v=r20hCF9NbTo
+- title: Credenciais verificáveis colocam as pessoas no controlo das suas informações pessoais
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Começar com credenciais verificáveis
+      url: get-started-verifiable-credentials.md
+  - linkListType: concept
+    links:
+    - text: Exemplos de comunicação de serviço de emitentes
+      url: issuer-openid.md
+- title: Como ligar o seu DID
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ligue o seu Domínio ao seu Identificador Distribuído
+      url: how-to-dnsbind.md

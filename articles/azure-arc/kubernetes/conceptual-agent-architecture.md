@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Este artigo fornece uma visão geral arquitetônica de Azure Arc habilitado agentes Kubernetes
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: ec95efdfef871777e7f53617b057529e301739dd
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: f59a897e4868d7b16d0a50c28ce2142320992f71
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953073"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442546"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Azure Arc permitiu a Arquitetura do Agente Kubernetes
 
@@ -49,7 +49,10 @@ A maioria dos centros de dados pré-directrizes de rede aplicam regras rígidas 
         | `deployment.apps/cluster-metadata-operator` | Recolhe metadados do cluster, incluindo a versão do cluster, a contagem de nós e a versão do agente do Azure Arc. |
         | `deployment.apps/resource-sync-agent` | Sincroniza os metadados de cluster acima mencionados para Azure. |
         | `deployment.apps/flux-logs-agent` | Recolhe registos dos operadores de fluxo implantados como parte da configuração do controlo de fontes. |
-    
+        | `deployment.apps/extension-manager` | Instala e gere o ciclo de vida dos gráficos de leme de extensão |  
+        | `deployment.apps/clusterconnect-agent` | Agente de procuração invertido que permite que a funcionalidade de ligação do cluster forneça acesso ao `apiserver` cluster. Este é um componente opcional implantado apenas se `cluster-connect` a funcionalidade estiver ativada no cluster   |
+        | `deployment.apps/guard` | Servidor webhook de autenticação e autorização utilizado para a funcionalidade AAD RBAC. Este é um componente opcional implantado apenas se `azure-rbac` a funcionalidade estiver ativada no cluster   |
+
 1. Uma vez que todas as cápsulas de agente kubernetes ativadas pelo Arco Azure estejam no `Running` estado, verifique se o seu cluster está ligado ao Arco Azure. Devia ver:
     * Um Arco Azure permitiu o recurso Kubernetes no [Azure Resource Manager](../../azure-resource-manager/management/overview.md). A Azure acompanha este recurso como uma projeção do cluster Kubernetes gerido pelo cliente, e não o cluster kubernetes em si.
     * Os metadados de cluster (como a versão Kubernetes, a versão do agente e o número de nós) aparecem no Azure Arc ativado recurso Kubernetes como metadados.

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b5d0a8b12ad07c5be3a4cfc0840acc81aa0c395
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879331"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060738"
 ---
-# <a name="how-to-plan-a-virtual-machine-offer"></a>Como planear uma oferta de máquina virtual
+# <a name="plan-a-virtual-machine-offer"></a>Planear uma oferta de máquina virtual
 
 Este artigo explica as diferentes opções e requisitos para a publicação de uma oferta de máquina virtual (VM) ao mercado comercial. As ofertas de VM são ofertas transacionáveis implementadas e faturadas através do Azure Marketplace.
 
@@ -102,7 +102,7 @@ Pode restringir a descoberta e implantação do seu VM a um conjunto específico
 
 Para mais informações, consulte [Planos e preços para ofertas de marketplace comercial](plans-pricing.md) e [ofertas privadas no mercado comercial da Microsoft.](private-offers.md)
 
-## <a name="test-drives"></a>Versões de teste
+## <a name="test-drive"></a>Unidade de teste
 
 Pode optar por ativar um test drive para o seu VM. Os test drives dão aos clientes acesso a um ambiente pré-configurado por um número fixo de horas. Pode ativar as unidades de teste para qualquer opção de publicação, no entanto esta funcionalidade tem requisitos adicionais. Para saber mais sobre test drives, veja [o que é um test drive?](what-is-test-drive.md) Para obter informações sobre a configuração de diferentes tipos de test drives, consulte a [configuração técnica do test drive](test-drive-technical-configuration.md).
 

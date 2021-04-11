@@ -7,19 +7,18 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
-Customer intent: As an IT administrator, I want to troubleshoot Virtual Network NAT.
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 51bc4233393be6d914578581597e8cce9d0373b0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98223436"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059263"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Resolução de problemas Azure Rede Virtual NAT conectividade
 

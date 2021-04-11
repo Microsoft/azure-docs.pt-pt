@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: 41d9962657aa81dbe34a52302d1b68ec655f2893
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e26dd7ea9f45af6f725f4deaefd9b5bd79a37e1c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102095294"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073507"
 ---
 Se ainda não tiver um certificado, pode usar um certificado auto-assinado. Um certificado auto-assinado é um certificado de segurança que não é assinado por uma autoridade de certificados (CA) e não fornece as garantias de segurança de um certificado assinado por uma AC. 
 

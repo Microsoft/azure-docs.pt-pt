@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47691ae404f65f04ace36485cb01fc5617d00a9a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7c32940d5fc40249257d1d0bb38ef67c12dc2ef
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031771"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029692"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitorização da saúde de inscrição do pedido de resiliência
 
@@ -175,47 +175,32 @@ Modifique as suas consultas e alertas para obter a máxima eficácia.
 ```kusto
 
 let today = SigninLogs
-
-| where TimeGenerated > ago(1h) // Query failure rate in the last hour
- 
+| where TimeGenerated > ago(1h) // Query failure rate in the last hour 
 | project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
 // Optionally filter by a specific application
-
 //| where AppDisplayName == **APP NAME**
-
 | summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate
-
 | project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
-
 | sort by TimeGenerated desc
-
 | serialize rowNumber = row_number();
-
 let yesterday = SigninLogs
-
 | where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Query failure rate at the same time yesterday
-
 | project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
 // Optionally filter by a specific application
-
 //| where AppDisplayName == **APP NAME**
-
 | summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate at same time yesterday
-
 | project TimeGenerated, failureRateYesterday = (failure * 1.0) / ((failure + success) * 1.0)
-
 | sort by TimeGenerated desc
-
 | serialize rowNumber = row_number();
 today
 | join (yesterday) on rowNumber // join data from same time today and yesterday
-
 | project TimeGenerated, failureRate, failureRateYesterday
-
 // Set threshold to be the percent difference in failure rate in the last hour as compared to the same time yesterday
-
+// Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
+| extend day = dayofweek(now())
+| where day != time(6.00:00:00) // exclude Sat
+| where day != time(0.00:00:00) // exclude Sun
+| where day != time(1.00:00:00) // exclude Mon
 | where abs(failureRate - failureRateYesterday) > 0.5
 
 ```
@@ -231,60 +216,35 @@ O rácio na parte inferior pode ser ajustado conforme necessário e representa a
 
 ```Kusto
  let today = SigninLogs // Query traffic in the last hour
-
 | where TimeGenerated > ago(1h)
-
 | project TimeGenerated, AppDisplayName, UserPrincipalName
-
 // Optionally filter by AppDisplayName to scope query to a single application
-
 //| where AppDisplayName contains "Office 365 Exchange Online"
-
 | summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr) // Count distinct users in the last hour
-
 | sort by TimeGenerated desc
-
 | serialize rn = row_number();
-
 let yesterday = SigninLogs // Query traffic at the same hour yesterday
-
 | where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Count distinct users in the same hour yesterday
-
 | project TimeGenerated, AppDisplayName, UserPrincipalName
-
 // Optionally filter by AppDisplayName to scope query to a single application
-
 //| where AppDisplayName contains "Office 365 Exchange Online"
-
 | summarize usersYesterday = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
 | sort by TimeGenerated desc
-
 | serialize rn = row_number();
-
 today
 | join // Join data from today and yesterday together
 (
 yesterday
 )
 on rn
-
 // Calculate the difference in number of users in the last hour compared to the same time yesterday
-
 | project TimeGenerated, users, usersYesterday, difference = abs(users - usersYesterday), max = max_of(users, usersYesterday)
-
- extend ratio = (difference * 1.0) / max // Ratio is the percent difference in traffic in the last hour as compared to the same time yesterday
-
+| extend ratio = (difference * 1.0) / max // Ratio is the percent difference in traffic in the last hour as compared to the same time yesterday
 // Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
-
 | extend day = dayofweek(now())
-
 | where day != time(6.00:00:00) // exclude Sat
-
 | where day != time(0.00:00:00) // exclude Sun
-
 | where day != time(1.00:00:00) // exclude Mon
-
 | where ratio > 0.7 // Threshold percent difference in sign-in traffic as compared to same hour yesterday
 
 ```

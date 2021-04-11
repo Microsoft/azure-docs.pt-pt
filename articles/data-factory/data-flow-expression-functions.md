@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2021
-ms.openlocfilehash: 313cca7a0db81502ac68a2cb7e9981f712a82548
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/01/2021
+ms.openlocfilehash: fdf7f52bf781d0e8da21f0b36bacc3f4ade52e8c
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933117"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581889"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -174,12 +174,6 @@ Concatenates um número variável de cordas juntamente com um separador. O prime
 * ``concatWS(' ', 'dataflow', 'is', 'awesome') -> 'dataflow is awesome'``  
 * ``isNull(concatWS(null, 'dataflow', 'is', 'awesome')) -> true``  
 * ``concatWS(' is ', 'dataflow', 'awesome') -> 'dataflow is awesome'``  
-___
-### <code>contains</code>
-<code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
-Retorna verdadeira se qualquer elemento na matriz fornecida avaliar como verdadeiro no predicado fornecido. Contém espera uma referência a um elemento na função predicado como #item.  
-* ``contains([1, 2, 3, 4], #item == 3) -> true``  
-* ``contains([1, 2, 3, 4], #item > 5) -> false``  
 ___
 ### <code>cos</code>
 <code><b>cos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -351,12 +345,6 @@ Verifica se o primeiro parâmetro é nulo. Se não for nulo, o primeiro parâmet
 * ``iifNull(null, 20, 40) -> 20``  
 * ``iifNull('azure', 'data', 'factory') -> 'factory'``  
 * ``iifNull(null, 'data', 'factory') -> 'data'``  
-___
-### <code>in</code>
-<code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
-Verifica se um item está na matriz.  
-* ``in([10, 20, 30], 10) -> true``  
-* ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>initCap</code>
 <code><b>initCap(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -1061,6 +1049,12 @@ Cria uma variedade de itens. Todos os itens devem ser do mesmo tipo. Se não for
 * ``['Seattle', 'Washington'][1]``
 * ``'Washington'``
 ___
+### <code>contains</code>
+<code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
+Retorna verdadeira se qualquer elemento na matriz fornecida avaliar como verdadeiro no predicado fornecido. Contém espera uma referência a um elemento na função predicado como #item.  
+* ``contains([1, 2, 3, 4], #item == 3) -> true``  
+* ``contains([1, 2, 3, 4], #item > 5) -> false``  
+___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
 Filtra elementos fora da matriz que não satisfazem o predicado fornecido. O filtro espera uma referência a um elemento na função predicado como #item.  
@@ -1099,6 +1093,11 @@ Encontre o primeiro item de uma matriz que corresponda à condição. É necess�
                    ]
       )
     ``  
+___
+### <code>in</code>
+<code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></código><br/><br/> Verifica se um item is in the array.  
+* ``in([10, 20, 30], 10) -> true``  
+* ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></código><br/><br/> Mapeia cada elemento da matriz para um novo elemento usando a expressão fornecida. Mapa espera uma referência a um elemento na expressão function as #item.  
@@ -1148,6 +1147,12 @@ ___
                ]
   )
 ``  
+___
+### <code>in</code>
+<code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
+Checks if an item is in the array.  
+* ``in([10, 20, 30], 10) -> true``  
+* ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>

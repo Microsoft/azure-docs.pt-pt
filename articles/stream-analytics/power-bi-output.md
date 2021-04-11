@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/7/2021
+ms.openlocfilehash: 07b7715935756293467f2a3004109df9bf679661
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020065"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030012"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Saída de Power BI da Azure Stream Analytics
 
@@ -73,9 +73,10 @@ Double (Duplo) | Double (Duplo) | Cadeia | Cadeia | Double (Duplo)
 Cadeia | Cadeia | Cadeia | Cadeia | Cadeia 
 Datetime | Cadeia | Cadeia |  Datetime | String
 
-## <a name="output-batch-size"></a>Tamanho do lote de saída
+## <a name="limitations-and-best-practices"></a>Limitações e boas práticas
+Atualmente, o Power BI pode ser chamado aproximadamente uma vez por segundo. Streaming de suporte de visuais pacotes de 15 KB. Além disso, os visuais de streaming falham (mas o impulso continua a funcionar). Devido a estas limitações, o Power BI presta-se mais naturalmente aos casos em que o Azure Stream Analytics faz uma redução significativa da carga de dados. Recomendamos a utilização de uma janela de Tumbling ou janela Hopping para garantir que o impulso de dados é no máximo um empurrão por segundo, e que a sua consulta cai dentro dos requisitos de produção.
 
-Para o tamanho do lote de saída, consulte [os limites da API de repouso Power BI](/power-bi/developer/automation/api-rest-api-limitations).
+Para obter mais informações sobre o tamanho do lote de saída, consulte [os limites da API de repouso Power BI](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Passos seguintes
 

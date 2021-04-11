@@ -1,0 +1,50 @@
+- name: Documentação de credenciais verificáveis Azure AD
+  href: index.yml
+- name: Descrição Geral
+  expanded: true
+  items:
+    - name: Introdução ao Diretório Ativo Azure Credenciais Verificáveis
+      href: decentralized-identifier-overview.md
+- name: Tutoriais
+  expanded: true
+  items:
+    - name: Começar com credenciais verificáveis
+      href: get-started-verifiable-credentials.md
+    - name: Configure credenciais verificáveis no seu inquilino
+      items:
+        - name: 1 - Configurar o emitente de credenciais verificáveis no seu próprio Azure AD
+          href: enable-your-tenant-verifiable-credentials.md
+        - name: 2- Ligue o seu emitente de credenciais verificáveis ao seu próprio AZure AD
+          href: issue-verify-verifiable-credentials-your-tenant.md
+- name: Conceitos
+  expanded: true
+  items:
+    - name: Detalhes do protocolo OpenID Connect
+      href: issuer-openid.md
+- name: Guias de procedimentos
+  expanded: true
+  items:
+    - name: Como personalizar as suas credenciais
+      href: credential-design.md
+    - name: Gerir a revogação credencial
+      href: how-to-issuer-revoke.md
+    - name: Ligue o seu domínio ao seu DID
+      href: how-to-dnsbind.md
+    - name: Opte por não credenciais verificáveis
+      href: how-to-opt-out.md
+- name: Amostras
+  expanded: true
+  items:
+    - name: App de nó de amostra
+      href: 'https://github.com/Azure-Samples/active-directory-verifiable-credentials'
+    - name: Emitente de amostra
+      href: 'https://didvc-issuer-sample.azurewebsites.net/'
+    - name: Verificador de amostras
+      href: 'https://didvc-verifier-sample.azurewebsites.net/'
+- name: Recursos
+  expanded: true
+  items:
+    - name: FAQ
+      href: verifiable-credentials-faq.md
+    - name: Como criar uma conta de programador
+      href: how-to-create-a-free-developer-account.md

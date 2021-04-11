@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00a3fa397bf88520fa4923b6fbe7495c0aa0b8a2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596727"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277407"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Faixas de áudio descritivas de sinal
 
@@ -29,9 +29,9 @@ Este artigo mostra como codificar um vídeo, carregar um ficheiro MP4 (código A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
+- [Criar uma conta de Serviços de Comunicação](./account-create-how-to.md)Social.
 - Siga os passos na [Access Azure Media Services API com o Azure CLI](./access-api-howto.md) e guarde as credenciais. Terá de usá-los para aceder à API.
-- Rever [embalagem dinâmica.](dynamic-packaging-overview.md)
+- Rever [embalagem dinâmica.](encode-dynamic-packaging-concept.md)
 - Reveja o [tutorial de upload, codificação e stream](stream-files-tutorial-with-api.md) de vídeos.
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Criar um elemento de entrada e carregar um ficheiro local para ele 
@@ -64,7 +64,7 @@ No caso deste artigo, passe o `outputAsset.Name` valor para as `SubmitJobAsync` 
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Crie uma transformação e um trabalho que codifica o ficheiro carregado
 
-Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao apresentar novos empregos para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](./transforms-jobs-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
+Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao apresentar novos empregos para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](./transform-jobs-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
 
 O exemplo a seguir cria uma transformação (se não existir).
 
@@ -245,4 +245,4 @@ O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Analisar vídeos](analyze-videos-tutorial-with-api.md)
+[Analisar vídeos](analyze-videos-tutorial.md)
