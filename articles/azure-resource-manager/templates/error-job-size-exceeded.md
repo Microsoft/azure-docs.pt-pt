@@ -4,10 +4,10 @@ description: Descreve como resolver erros quando o tamanho ou o modelo do trabal
 ms.topic: troubleshooting
 ms.date: 03/23/2021
 ms.openlocfilehash: b39a0bba15e73bab1a85cbd9e36efebf82d6cf42
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889370"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Resolver erros para o tamanho do trabalho excedidos

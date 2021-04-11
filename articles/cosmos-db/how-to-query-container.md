@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cd90e994e620960e0d974ef7609a67f8a5eb58b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93335896"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448564"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta de um recipiente Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,19 +26,19 @@ Quando consulta dados de contentores, se a consulta tiver um filtro de chave de 
 Por exemplo, considere a consulta abaixo com um filtro de igualdade em `DeviceId` . Se executarmos esta consulta num recipiente `DeviceId` dividido, esta consulta filtra-se para uma única divisória física.
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
 Tal como no exemplo anterior, esta consulta também filtrará para uma única partição. A adição do filtro adicional `Location` não altera isto:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
 ```
 
 Aqui está uma consulta que tem um filtro de alcance na chave de partição e não será mirado a uma única divisória física. Para ser uma consulta de partição, a consulta deve ter um filtro de igualdade que inclua a chave de partição:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
 ```
 
 ## <a name="cross-partition-query"></a>Consulta entre partições
@@ -46,7 +46,7 @@ Aqui está uma consulta que tem um filtro de alcance na chave de partição e n�
 A seguinte consulta não tem um filtro na tecla de partição `DeviceId` (). Por isso, deve desatar a todas as divisórias físicas em que é executado contra o índice de cada partição:
 
 ```sql
-    SELECT * FROM c WHERE c.Location = 'Seattle`
+SELECT * FROM c WHERE c.Location = 'Seattle`
 ```
 
 Cada divisória física tem o seu próprio índice. Portanto, quando executa uma consulta de divisórias cruzadas num recipiente, está efetivamente a executar uma consulta *por* partição física. A Azure Cosmos DB agregará automaticamente resultados em diferentes divisórias físicas.

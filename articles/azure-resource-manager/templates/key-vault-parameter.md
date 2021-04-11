@@ -4,10 +4,10 @@ description: Mostra como passar um segredo de um cofre chave como parâmetro dur
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.openlocfilehash: 05749fe2e9179051c3183ea2e592cf7190ddb347
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889863"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utilizar o Azure Key Vault para passar um valor de parâmetro seguro durante a implementação

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e94b809513bda8edc7a51baf79ec05a2c9c77489
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102614416"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448559"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo Windows no seu cluster de Tecido de Serviço
 
@@ -222,7 +222,7 @@ Pode configurar o comportamento do POA para satisfazer as suas necessidades. Sob
 | WUOperationTimeOutInMinutes | int <br>(Predefinição: *90)*                   | Especifica o tempo limite para qualquer operação de Atualização do Windows (procurar ou descarregar ou instalar). Se a operação não estiver concluída dentro do intervalo especificado, será abortada.       |
 | WURescheduleCount     | int <br> (Predefinição: *5*)                  | O número máximo de vezes que o serviço reage a atualização do Windows se uma operação falhar persistentemente.          |
 | WURescheduleTimeInMinutes | int <br>(Predefinição: *30)* | O intervalo em que o serviço reagenda as atualizações do Windows se a falha persistir. |
-| WuFrequency           | Cadeia separada por vírgula (Padrão: *Semanal, quarta-feira, 7:00:00)*     | A frequência para instalar atualizações do Windows. O formato e os valores possíveis são: <br>- Mensalmente, DD, HH:MM:SS (exemplo: *Mensal, 5, 12:22:32*). Os valores permitidos para _DD_ de campo (dia) são números de 1 a 28 e _último_. <br>- Semanal, Dia, HH:MM:SS (exemplo: *Semanal, terça-feira, 12:22:32)*  <br>- Diariamente, HH:MM:SS (exemplo: *Diariamente, 12:22:32)*  <br>- Semana, Dia, HH:MM:SS (exemplo: *2, sexta-feira, 21:00:00* indica 21:00 UTC na sexta-feira da 2ª semana de cada mês) <br>- *Nenhum* indica que as atualizações do Windows não devem ser feitas.  <br><br> Os tempos estão na UTC.|
+| WuFrequency           | Cadeia separada por vírgula (Padrão: *Semanal, quarta-feira, 7:00:00)*     | A frequência para instalar atualizações do Windows. O formato e os valores possíveis são: <br>- Mensalmente, DD, HH:MM:SS (exemplo: *Mensal, 5, 12:22:32*). Os valores permitidos para _DD_ de campo (dia) são números de 1 a 28 e _último_. <br>- Semanal, Dia, HH:MM:SS (exemplo: *Semanal, terça-feira, 12:22:32)*  <br>- Diariamente, HH:MM:SS (exemplo: *Diariamente, 12:22:32)*  <br>- MonthlyByWeekAndDay, Semana, Dia, HH:MM:SS (exemplo: *MonthlyByWeekAndDay, 2, sexta-feira, 21:00:00* indica 9:00 PM UTC na sexta-feira da 2ª semana de cada mês) <br>- *Nenhum* indica que as atualizações do Windows não devem ser feitas.  <br><br> Os tempos estão na UTC.|
 | AcceptWindowsUpdateEula | Booleano <br>(Predefinição: *verdadeiro)* | Ao definir esta bandeira, a aplicação aceita o Contrato de Licença End-User para atualização do Windows em nome do proprietário da máquina.              |
 
 > [!TIP]
@@ -370,7 +370,7 @@ Para ajudá-lo a entender como as atualizações prosseguem num nó, vamos passo
 
    Se ainda houver mais problemas, inicie sessão na sua máquina virtual (VM) ou VMs e aprenda sobre eles utilizando registos de eventos windows. A tarefa de reparação anteriormente mencionada só pode existir nos seguintes subestuais executor:
 
-      Estado do ExecutorSub | Description
+      Estado do ExecutorSub | Descrição
     -- | -- 
       Nenhum=1 |  Implica que não houve uma operação em curso no nó. O Estado pode estar em transição.
       DownloadCompleted=2 | Implica que a operação de descarregamento foi concluída com sucesso, falha parcial ou falha.

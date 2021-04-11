@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 248d5e163eb046edd130d69307a1c553d434b92d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5a73f4eba9581965470b95111e6dda1d8014e4cb
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604673"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167503"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configuração seletiva de sincronização de hash de palavra-passe para Azure AD Connect
 
@@ -83,7 +83,7 @@ A secção seguinte descreve como permitir a sincronização seletiva de haxixe 
 - Desafine o valor do atributo, no diretório ativo, que foi definido como atributo de scoping nos utilizadores que pretende permitir na sincronização de hash de palavra-passe. 
 
 >[!Important]
->As etapas fornecidas para configurar a sincronização seletiva de hash de palavra-passe só afetarão objetos do utilizador que tenham o atributo **AdminDDDDdscription** povoado em Ative Directory com o valor de **PHSFiltered**.
+>As etapas fornecidas para configurar a sincronização seletiva de hash de palavra-passe apenas afetarão os objetos do utilizador que têm o atributo **AdminDDDDdscription** povoado em Ative Directory com o valor de **PHSFiltered**.
 Se este atributo não for povoado ou o valor for algo diferente do **PHSFiltered,** então estas regras não serão aplicadas aos objetos do utilizador.
 
 
@@ -95,7 +95,7 @@ Se este atributo não for povoado ou o valor for algo diferente do **PHSFiltered
      ![Selecione regra](media/how-to-connect-selective-password-hash-synchronization/exclude-2.png)
  3. A primeira regra irá desativar a sincronização de haxixe de palavra-passe. Fornecer o seguinte nome à nova regra personalizada: **In from AD - User AccountEnabled - Filter Users from PHS**.
  Altere o valor de precedência para um número inferior a 100 (por **exemplo, 90** ou o valor mais baixo disponível no seu ambiente).
- Certifique-se de que as caixas de verificação ativam o Sync e **o Desativado** da **Palavra-Passe** e c.
+ Certifique-se de que as caixas de verificação ativam o Sync e **o Desativado** da **Palavra-Passe.**
  Clique em **Seguinte**.
   ![Editar entrada](media/how-to-connect-selective-password-hash-synchronization/exclude-3.png)
  4. No **filtro Scoping,** clique na **cláusula Adicionar**.
@@ -155,7 +155,7 @@ Segue-se um resumo das ações que serão tomadas nos passos seguintes:
 - Desafine o valor do atributo, no diretório ativo, que foi definido como atributo de scoping nos utilizadores que pretende permitir na sincronização de hash de palavra-passe. 
 
 >[!Important]
->As etapas fornecidas para configurar a sincronização seletiva de hash de palavra-passe só afetarão objetos de utilizador que tenham o atributo **AdminDDDDdscription** povoado em Ative Directory com o valor de **PHSIncluded**.
+>As etapas fornecidas para configurar a sincronização seletiva de hash de palavra-passe apenas afetarão os objetos do utilizador que têm o atributo **AdminDDDDdscription** povoado em Ative Directory com o valor de **PHSIncluded**.
 Se este atributo não for povoado ou o valor for algo diferente de **PHSIncluded,** então estas regras não serão aplicadas aos objetos do utilizador.
 
 

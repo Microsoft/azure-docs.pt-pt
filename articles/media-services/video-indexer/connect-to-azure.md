@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
 ms.openlocfilehash: 35d01fd60d0549a528a45013add48bd203b86d6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104654684"
 ---
 # <a name="create-a-video-indexer-account"></a>Criar uma conta de Indexer de Vídeo

@@ -11,10 +11,10 @@ ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 6edaed1011b867cac9920a19be6bb5fb7157e16f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104721217"
 ---
 # <a name="hbv2-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HBv2

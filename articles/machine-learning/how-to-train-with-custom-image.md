@@ -11,10 +11,10 @@ ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: ea282cb0fcf25f7ac5f17bb9e2f693d189320078
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889166"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Treine um modelo usando uma imagem personalizada do Docker

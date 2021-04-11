@@ -8,10 +8,10 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 7ef9606da62ebd5ff53eca5fc21c22591bd3ce3b
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105037462"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Definições incorporadas da Política Azure para a Azure Stream Analytics

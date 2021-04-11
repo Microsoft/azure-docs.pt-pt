@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 204cc9a05d62caf62179100fa3496be422a3ec0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: a2d909d04c38a7d6bad42020175cbbbfcfd7bf9f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97426018"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448360"
 ---
 # <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Prepare uma imagem MSIX para o Windows Virtual Desktop
 

@@ -11,10 +11,10 @@ ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
 ms.openlocfilehash: 0fd28262f4a4b852386fa354037e69c5097109c5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104726982"
 ---
 # <a name="2---create-and-load-search-index-with-javascript"></a>2 - Criar e carregar índice de pesquisa com JavaScript

@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 04/05/2021
 ms.author: mimart
-ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a2382146cd8b85b8eef54b924a206dda7107b0f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85200160"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382470"
 ---
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/) 
 
@@ -19,8 +19,9 @@ ms.locfileid: "85200160"
 1. Selecione o **separador APIs** da Microsoft e, em seguida, selecione **o Gráfico do Microsoft**.
 1. Selecione **permissões de aplicação**.
 1. Expanda o grupo de permissão apropriado e selecione a caixa de verificação da permissão para conceder ao seu pedido de gestão. Por exemplo:
+    * **Utilizador**  >  **Utilizador.ReadWrite.All**: Para cenários de migração de utilizadores ou de gestão de utilizadores.
+    * **Grupo**  >  **Grupo.ReadWrite.All**: Para criar grupos, leia e atualize membros do grupo e elimine grupos.
     * **Auditoria**  >  **AuditLog.Read.All**: Para ler os registos de auditoria do diretório.
-    * **Diretório**  >  **Diretório.ReadWrite.All**: Para cenários de migração de utilizadores ou de gestão de utilizadores.
     * **Política**  >  **Policy.ReadWrite.TrustFramework**: Para cenários de integração contínua/entrega contínua (CI/CD). Por exemplo, a implementação de políticas personalizadas com a Azure Pipelines.
 1. **Selecione Permissões de adicionar**. Como dirigido, aguarde alguns minutos antes de seguir para o próximo passo.
 1. Selecione **o consentimento administrativo do Grant para (o nome do seu inquilino)**.

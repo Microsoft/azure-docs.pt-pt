@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: apimpm
 ms.openlocfilehash: dc3d3b4658bd9a26363b6d41377d448059e30c0f
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889676"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutorial: Publicar várias versões da sua API 

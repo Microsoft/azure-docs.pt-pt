@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
 ms.openlocfilehash: 7deba32eb9d0e098b75f98cc81fac2c01b8bb7f8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105567258"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisitos de armazenamento Azure Stack Edge Blob

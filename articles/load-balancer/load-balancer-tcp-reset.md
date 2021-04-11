@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b555d7972e88df85e08dbcb1737231755c21361
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94696749"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448853"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Reposição do reposição do balançador de carga e tempo de marcha lenta
 
@@ -58,7 +58,6 @@ A TCP mantém-se viva para cenários em que a vida útil da bateria não é um c
 ## <a name="limitations"></a>Limitações
 
 - Reposição de TCP apenas enviada durante a ligação TCP em estado estabelecido.
-- O reset TCP não é enviado para balançadores de carga internos com portas HA configuradas.
 - O tempo limite de inatividade da TCP não afeta as regras de equilíbrio de carga no protocolo UDP.
 
 ## <a name="next-steps"></a>Passos seguintes

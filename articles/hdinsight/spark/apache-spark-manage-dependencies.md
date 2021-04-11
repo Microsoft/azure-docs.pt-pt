@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: c950903522d42b3c279cb89f3a6031043fd49bf3
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: f4940da47b832c2b3c39ab2fa225a229d1d730bf
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868805"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062714"
 ---
 # <a name="manage-spark-application-dependencies"></a>Gerir dependências de aplicação do Spark
 

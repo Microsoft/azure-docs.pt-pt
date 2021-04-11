@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jordane
 author: jpe316
-ms.date: 06/22/2020
+ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3e073310d62bfb772ea1120bd379cdc277137da0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a22700782c584015add2c83ecc96ccc610b8509
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519117"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219625"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instale & utilize a extensão CLI para aprendizagem automática Azure
 
@@ -60,22 +60,7 @@ Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](/c
 
 ## <a name="install-the-extension"></a>Instalar a extensão
 
-Para instalar a extensão CLI machine learning, utilize o seguinte comando:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
-
-> [!TIP]
-> Os ficheiros de exemplo que pode utilizar com os comandos abaixo podem ser [consultados aqui](https://aka.ms/azml-deploy-cloud).
-
-Quando solicitado, selecione `y` para instalar a extensão.
-
-Para verificar se a extensão foi instalada, utilize o seguinte comando para apresentar uma lista de subcommandes específicos da ML:
-
-```azurecli-interactive
-az ml -h
-```
+A extensão é automaticamente instalada quando se tenta utilizar pela primeira vez um comando que começa por `az ml` .
 
 ## <a name="update-the-extension"></a>Atualizar a extensão
 
@@ -84,7 +69,6 @@ Para atualizar a extensão do CLI de aprendizagem automática, utilize o seguint
 ```azurecli-interactive
 az extension update -n azure-cli-ml
 ```
-
 
 ## <a name="remove-the-extension"></a>Remover a extensão
 
@@ -408,7 +392,7 @@ Se usou o `az ml environment scaffold` comando, gera um ficheiro de modelo `azur
 
 A tabela seguinte detalha cada campo de alto nível no ficheiro JSON, é tipo, e uma descrição. Se um tipo de objeto estiver ligado a uma classe do Python SDK, há uma correspondência solta de 1:1 entre cada campo JSON e o nome variável público na classe Python. Em alguns casos, o campo pode mapear para um argumento de construtor em vez de uma variável de classe. Por exemplo, o `environmentVariables` campo mapeia para a `environment_variables` variável na [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) classe.
 
-| Campo JSON | Tipo | Description |
+| Campo JSON | Tipo | Descrição |
 |---|---|---|
 | `name` | `string` | O nome do ambiente. Não comece o nome com **Microsoft** ou **AzureML**. |
 | `version` | `string` | Versão do ambiente. |

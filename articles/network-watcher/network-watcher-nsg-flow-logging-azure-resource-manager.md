@@ -16,10 +16,10 @@ ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2cae673dd319e55670357ae468d21ff63e4f9c72
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104669445"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar registos de fluxo NSG de um modelo de gestor de recursos Azure

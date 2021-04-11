@@ -10,18 +10,27 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dcd48354372a196ea903c335e5e22caf20e25996
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720394"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219659"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Melhores práticas para piscina SQL sem servidor em Azure Synapse Analytics
 
 Neste artigo, você encontrará uma coleção de boas práticas para usar a piscina SQL sem servidor. Serverless SQL pool é um recurso em Azure Synapse Analytics.
 
 O pool SQL sem servidor permite-lhe consultar ficheiros nas suas contas de armazenamento Azure. Não tem capacidades locais de armazenamento ou ingestão. Assim, todos os ficheiros que os alvos de consulta são externos ao pool SQL sem servidor. Tudo relacionado com a leitura de ficheiros de armazenamento pode ter um impacto no desempenho da consulta.
+
+Algumas orientações genéricas são:
+- Certifique-se de que as aplicações do seu cliente são collocadas com a piscina SQL sem servidor.
+  - Se estiver a utilizar aplicações de clientes fora do Azure (por exemplo, Power BI Desktop, SSMS, ADS), certifique-se de que está a utilizar a piscina sem servidor numa região próxima do computador do cliente.
+- Certifique-se de que o armazenamento (Azure Data Lake, Cosmos DB) e a piscina SQL sem servidor estão na mesma região.
+- Tente [otimizar](#prepare-files-for-querying) o layout de armazenamento utilizando a partição e mantendo os seus ficheiros entre 100 MB e 10 GB.
+- Se estiver a devolver um grande número de resultados, certifique-se de que está a utilizar SSMS ou ADS e não o Synapse Studio. O Synapse Studio é uma ferramenta web que não é projetada para grandes conjuntos de resultados. 
+- Se estiver a filtrar os resultados por coluna de cordas, tente utilizar alguma `BIN2_UTF8` colisão.
+- Tente cache os resultados do lado do cliente utilizando o modo de importação de Power BI ou serviços de análise Azure, e refresque-os periodicamente. As piscinas SQL sem servidor não podem fornecer experiência interativa no modo de consulta direta Power BI se estiver a utilizar consultas complexas ou a processar uma grande quantidade de dados.
 
 ## <a name="client-applications-and-network-connections"></a>Aplicações de clientes e ligações de rede
 
@@ -66,7 +75,11 @@ Se possível, pode preparar ficheiros para um melhor desempenho:
 
 ### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>Coloque o seu armazenamento analítico CosmosDB e piscina SQL sem servidor
 
-Certifique-se de que o seu armazenamento analítico CosmosDB é colocado na mesma região que o espaço de trabalho da Synapse. Consultas entre regiões podem causar enormes latências.
+Certifique-se de que o seu armazenamento analítico CosmosDB é colocado na mesma região que o espaço de trabalho da Synapse. Consultas entre regiões podem causar enormes latências. Utilize propriedade da região na cadeia de ligação para especificar explicitamente a região onde a loja analítica é colocada (ver [consulta CosmosDb usando piscina SQL sem servidor):](query-cosmos-db-analytical-store.md#overview)
+
+```
+'account=<database account name>;database=<database name>;region=<region name>'
+```
 
 ## <a name="csv-optimizations"></a>Otimizações do CSV
 

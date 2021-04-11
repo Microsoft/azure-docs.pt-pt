@@ -3,15 +3,15 @@ title: Azure Advisor Windows Virtual Desktop Walkthrough - Azure
 description: Como resolver as recomendações do Azure Advisor para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 666f882dec6c00b9fe5421485afded1fbd57d961
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90033035"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448309"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Como resolver as recomendações do Azure Advisor
 
@@ -72,10 +72,6 @@ Esta recomendação surge no âmbito da Excelência Operacional.
 É necessário desbloquear URLs específicos para se certificar de que a sua máquina virtual (VM) funciona corretamente. Pode ver a lista na [lista de URL seguro.](safe-url-list.md) Se os URLs não estiverem desbloqueados, então o seu VM não funcionará corretamente.
 
 Para resolver esta recomendação, certifique-se de desbloquear todos os URLs na [lista de URL seguro](safe-url-list.md). Também pode utilizar tags Service Tag ou FQDN para desbloquear URLs.
-
-## <a name="propose-new-recommendations"></a>Propor novas recomendações
-
-Pode ajudar-nos a melhorar o Azure Advisor, apresentando ideias para recomendações. A sua recomendação pode ajudar outro utilizador a sair de uma situação difícil. Para submeter uma sugestão, vá ao [nosso fórum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) e preencha o formulário de submissão. Quando preencher o formulário, certifique-se de nos dar o máximo de detalhes possível.
 
 ## <a name="next-steps"></a>Passos seguintes
 

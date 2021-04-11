@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.openlocfilehash: 63151fa26e2e0d35f9f6bde86e69d3442c50822a
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889526"
 ---
 # <a name="partner-spotlight"></a>Destaque para parceiros
 
 Obtenha ajuda especializada de parceiros da Microsoft que constroem soluções de ponta a ponta que incluem Azure Cognitive Search. Os seguintes parceiros têm uma experiência profunda em alavancar a pesquisa de texto completo e o enriquecimento de IA em vários cenários de negócio e técnicos.
 
-| Parceiro | Descrição | Ligação do produto |
+| Parceiro | Description | Ligação do produto |
 |---------|-------------|----------------------|
 | ![Agolo](media/resource-partners/agolo-logo.png "Logotipo da empresa Agolo") | [**Agolo**](https://www.agolo.com) é o principal motor de resumo para uso empresarial. A plataforma de IA da Agolo analisa centenas de milhares de artigos de media, documentos de pesquisa e informações de propriedade para dar a cada cliente um resumo de pontos-chave específicos das suas áreas de interesse. </br></br>A nossa parceria com a Microsoft combina a potência e adaptabilidade da plataforma Azure Cognitive Search, integrada com a sumização de Agolo. Em vez de cortes típicos do motor de busca, a página de resultados apresenta resumos Agolo contextualmente relevantes, permitindo instantaneamente ao utilizador determinar a relevância desse documento para as suas necessidades específicas. O impacto da pesquisa alimentada por resumos é que os utilizadores encontram conteúdo mais relevante mais rapidamente, permitindo-lhes fazer o seu trabalho de forma mais eficaz e ganhar uma vantagem competitiva. | [Página do produto](https://www.agolo.com/microsoft-azure-cognitive-search ) |
 | ![BlueGranite](media/resource-partners/blue-granite-full-color.png "Logotipo da empresa de granito azul") | [**A BlueGranite**](https://www.bluegranite.com/) oferece 25 anos de experiência em modernas soluções de Business Intelligence, Data Platforms e IA em várias indústrias. Os seus serviços de Mineração de Conhecimento permitem às organizações obter insights únicos a partir de fontes de dados estruturadas e não estruturadas. As capacidades modulares de IA executam pesquisas em inúmeros tipos de ficheiros para indexar dados e associar esses dados com fontes de dados mais tradicionais. As ferramentas de análise extraem padrões e tendências dos dados enriquecidos e mostram resultados aos utilizadores a todos os níveis. | [Página do produto](https://www.bluegranite.com/knowledge-mining) |

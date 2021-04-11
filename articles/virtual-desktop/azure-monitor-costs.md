@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 099def5a29c8a9b46733ba435befed7210756012
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+manager: femila
+ms.openlocfilehash: 5bd89a734a20c913bacca1f5531aa76d76418c80
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709987"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448224"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Estimativa custos do Monitor Azure
 

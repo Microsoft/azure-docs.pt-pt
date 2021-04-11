@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 1bf844dafe450e90213db2e447bb5392064eb245
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fac488ba1881b6b79139eaf2468237e546737177
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786775"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077335"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Melhores práticas para criar avaliações
 
@@ -27,6 +27,8 @@ Avaliações que cria com a Azure Migrate: A ferramenta de descoberta e avaliaç
 **SQL do Azure** | Avaliações para migrar os seus servidores SQL no local do seu ambiente VMware para Azure SQL Database ou Azure SQL Managed Instance. [Saiba mais](concepts-azure-sql-assessment-calculation.md)
 **Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
+> [!NOTE]
+> Se o número de avaliações de Azure VM ou AVS estiver incorreto na ferramenta Discovery e de avaliação, clique no número total de avaliações para navegar para todas as avaliações e recalcular as avaliações de Azure VM ou AVS. A ferramenta Discovery e assessment mostrará então a contagem correta para este tipo de avaliação. 
 
 ### <a name="sizing-criteria"></a>Critérios de dimensionamento
 Opções de critérios de dimensionamento nas avaliações da Azure Migrate:

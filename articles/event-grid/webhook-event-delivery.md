@@ -3,12 +3,12 @@ title: Entrega de eventos WebHook
 description: Este artigo descreve a entrega de eventos WebHook e a validação do ponto final quando se utiliza webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42ba36a21d307ca85d9cdae850c0c9a991e4f30e
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87461243"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968004"
 ---
 # <a name="webhook-event-delivery"></a>Entrega do Evento Webhook
 Webhooks são uma das muitas formas de receber eventos da Azure Event Grid. Quando um novo evento estiver pronto, o serviço de Rede de Eventos POSTs um pedido HTTP para o ponto final configurado com o evento no organismo de pedido.
@@ -74,7 +74,7 @@ Para provar a propriedade do ponto final, ressoe o código de validação na pro
 }
 ```
 
-Tem de devolver um código de estado de resposta HTTP 200 OK. HTTP 202 Aceite não é reconhecido como uma resposta válida de validação de subscrição de Event Grid. O pedido http deve estar concluído dentro de 30 segundos. Se a operação não terminar dentro de 30 segundos, a operação será cancelada e poderá ser retribuída após 5 segundos. Se todas as tentativas falharem, será tratado como erro de aperto de mão de validação.
+Tem de devolver um código de estado de resposta HTTP 200 OK. HTTP 202 Aceite não é reconhecido como uma resposta válida de validação de subscrição de Event Grid. O pedido HTTP deve estar concluído dentro de 30 segundos. Se a operação não terminar dentro de 30 segundos, a operação será cancelada e poderá ser retribuída após 5 segundos. Se todas as tentativas falharem, será tratado como erro de aperto de mão de validação.
 
 Ou, pode validar manualmente a subscrição enviando um pedido GET para o URL de validação. A subscrição do evento permanece em estado pendente até ser validada. O Url de validação utiliza a porta 553. Se as regras de firewall bloquearem a porta 553, as regras poderão ter de ser atualizadas para um aperto de mão manual bem sucedido.
 

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: a177fc7e17dc91a0d57fa6dee87b80921d7fd8f5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 573f97c7f592186173b13ea592d151ee291b8249
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043585"
+ms.locfileid: "105967970"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou um VHDX do Windows para carregamento para o Azure
 
@@ -113,6 +113,10 @@ Depois de concluída a verificação SFC, instale as Atualizações do Windows e
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
+1. Para VMs com sistemas operativos legados (Windows Server 2012 R2 ou Windows 8.1 e abaixo), certifique-se de que os mais recentes Serviços de Componentes de Integração Hyper-V estão instalados. Para obter mais informações, consulte [a atualização dos componentes de integração Hyper-V para o Windows VM](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
+
+> [!NOTE]
+> Num cenário em que os VMs devem ser configurado com uma solução de recuperação de desastres entre o servidor VMware no local e o Azure, os Serviços de Componentes de Integração Hiper-V não podem ser utilizados. Se for esse o caso, contacte o suporte VMware para migrar o VM para Azure e torná-lo co-residente no servidor VMware.
 
 ## <a name="check-the-windows-services"></a>Check the Windows services (Verificar os serviços Windows)
 
@@ -266,6 +270,8 @@ Certifique-se de que o VM está saudável, seguro e pDR acessível:
 1. Defina as definições de Dados de Configuração de Arranque (BCD).
 
    ```powershell
+   cmd
+
    bcdedit.exe /set "{bootmgr}" integrityservices enable
    bcdedit.exe /set "{default}" device partition=C:
    bcdedit.exe /set "{default}" integrityservices enable
@@ -279,6 +285,8 @@ Certifique-se de que o VM está saudável, seguro e pDR acessível:
    bcdedit.exe /set "{bootmgr}" bootems yes
    bcdedit.exe /ems "{current}" ON
    bcdedit.exe /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+   exit
    ```
 
 1. O registo de despejo pode ser útil na resolução de problemas com o Windows. Ativar a recolha de registos de despejo:
@@ -351,6 +359,10 @@ Certifique-se de que o VM está saudável, seguro e pDR acessível:
 1. Desinstale qualquer outro software ou controlador de terceiros relacionado com componentes físicos ou qualquer outra tecnologia de virtualização.
 
 ### <a name="install-windows-updates"></a>Instalar atualizações do Windows
+
+> [!NOTE]
+> Para evitar um reinício acidental durante o fornecimento de VM, recomendamos completar todas as instalações de atualização do Windows e certificar-nos de que não há reinício pendente. Uma forma de o fazer é instalar todas as atualizações do Windows e reiniciar o VM antes de realizar a migração para a Azure. </br><br>
+>Se também precisar de fazer uma generalização do SISTEMA (sysprep), tem de atualizar o Windows e reiniciar o VM antes de executar o comando Sysprep.
 
 O ideal é manter a máquina atualizada ao *nível* do patch , se tal não for possível, certifique-se de que as seguintes atualizações estão instaladas. Para obter as últimas atualizações, consulte as páginas de histórico da atualização do Windows: [Windows 10 e Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4009470) e [Windows 7 SP1 e Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 

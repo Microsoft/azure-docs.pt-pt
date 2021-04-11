@@ -6,17 +6,17 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 17979bd548ca0d7b704ebdeb4d060bf35973b319
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7602392b78f53e5b896e92058836fca60de39d64
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024152"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448887"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Sobreposições de amostragem (pré-visualização) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> A função de sobreposições de amostragem está em pré-visualização, a partir de 3.0.3-BETA.2.
+> A função de sobreposições de amostragem está em pré-visualização, a partir de 3.0.3.
 
 As sobreposições de amostragem permitem-lhe anular a [percentagem de amostragem padrão,](./java-standalone-config.md#sampling)por exemplo:
  * Desafete a percentagem de amostragem a 0 (ou algum pequeno valor) para verificações de saúde ruidosas.
@@ -81,7 +81,7 @@ Se nenhuma amostragem se sobrepor:
 * Se esta for a primeira extensão do vestígio, então a [percentagem de amostragem padrão](./java-standalone-config.md#sampling) é utilizada.
 * Se esta não for a primeira extensão do vestígio, então a decisão de amostragem dos pais é utilizada.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Quando tiver sido tomada a decisão de não recolher um período de tempo, então todos os períodos a jusante também não serão recolhidos, mesmo que existam sobreposições de amostragem que correspondam ao período a jusante.
 > Este comportamento é necessário porque, de outra forma, os vestígios partidos resultariam, com os vãos a jusante a serem recolhidos, mas sendo parentados em vãos que não foram recolhidas.
 

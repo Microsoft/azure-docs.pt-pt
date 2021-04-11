@@ -16,17 +16,17 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c2ec7c8fe312787d153c76b0b0194354e1717db7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103016717"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalização de predefinições padrão media Encoder
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este artigo mostra como realizar codificação avançada com a Media Encoder Standard (MES) utilizando uma predefinição personalizada. O artigo utiliza .NET para criar uma tarefa de codificação e um trabalho que executa esta tarefa.  
 
