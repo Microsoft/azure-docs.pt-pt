@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Azure Blob storage client library v10 for JavaScript'
 description: Criar, carregar e apagar bolhas e recipientes em Node.js com a biblioteca de clientes Azure Storage v10 para JavaScript
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 2371c789b9e4a9fc70f4207fd8a634e419c97912
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ddcce3e624de7e8bed62783bdc22c5c4211e19e2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98599454"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280110"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Quickstart: Gerir blobs com JavaScript v10 SDK em Node.js
 

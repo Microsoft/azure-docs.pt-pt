@@ -17,19 +17,19 @@ ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b17e7f34da1428eec219a393417b0a2a7b461078
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574565"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552738"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividades de inscrição do Azure Ative Directory - pré-visualização
 
 A arquitetura de reporte no Azure Ative Directory (Azure AD) consiste nos seguintes componentes:
 
 - **Atividade** 
-    - **Ins- Ins-** Informações sobre quando os utilizadores, aplicações e recursos geridos insinuam-se na Azure AD e acedem a recursos.
+    - **Ins- Ins-** Informações sobre quando os utilizadores, aplicações e recursos geridos insinuam-se no Azure AD e recursos de acesso.
     - **Registos de**  -  auditoria [Os registos de auditoria](concept-audit-logs.md) fornecem informações sobre a atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
 - **Segurança** 
     - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição por alguém que não é o legítimo proprietário de uma conta de utilizador.
@@ -210,7 +210,7 @@ Para facilitar a digestão dos dados, os eventos de entrada não interativo são
 
 - Aplicação
 
-- User
+- Utilizador
 
 - Endereço IP
 

@@ -4,12 +4,12 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: 8f18e19eca8895549f17c9f0f6822ecb4da2914b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb10e2023187c74a9e8b9a2e4c72115841e89a84
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773509"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552602"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir múltiplos conjuntos de nós para um cluster no Azure Kubernetes Service (AKS)
 
@@ -738,6 +738,34 @@ Para os clusters AKS existentes, você também pode adicionar um novo conjunto d
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
+### <a name="use-a-public-ip-prefix"></a>Use um prefixo IP público
+
+Existem uma série de [benefícios para a utilização de um prefixo IP público.][public-ip-prefix-benefits] A AKS suporta a utilização de endereços a partir de um prefixo IP público existente para os seus nós, passando o ID de recurso com a bandeira `node-public-ip-prefix` ao criar um novo cluster ou adicionando um conjunto de nós.
+
+Em primeiro lugar, crie um prefixo IP público utilizando [a criação de prefixo ip de rede az:][az-public-ip-prefix-create]
+
+```azurecli-interactive
+az network public-ip prefix create --length 28 --location eastus --name MyPublicIPPrefix --resource-group MyResourceGroup3
+```
+
+Veja a saída e tome nota do `id` prefixo:
+
+```output
+{
+  ...
+  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix",
+  ...
+}
+```
+
+Finalmente, ao criar um novo cluster ou adicionar uma nova piscina de nó, use a bandeira `node-public-ip-prefix` e passe no ID de recursos do prefixo:
+
+```azurecli-interactive
+az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+```
+
+### <a name="locate-public-ips-for-nodes"></a>Localizar iPs públicos para os nóns
+
 Pode localizar os IPs públicos para os seus nóns de várias formas:
 
 * Utilize o comando Azure CLI [az vmss list-instance-public-ips][az-list-ips].
@@ -821,3 +849,5 @@ Utilize [grupos de colocação de proximidade][reduce-latency-ppg] para reduzir 
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
+[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md#why-create-a-public-ip-address-prefix
+[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98107876"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731671"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
 
@@ -126,7 +126,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
    Após completar o assistente, o Seamless SSO será desativado no seu inquilino. No entanto, verá uma mensagem no ecrã que diz o seguinte:
 
-   "O único sinal de sação está agora desativado, mas existem passos manuais adicionais a serem cumpridos para completar a limpeza. Saiba mais"
+   "O único sinal de sação está agora desativado, mas existem passos manuais adicionais a serem cumpridos para completar a limpeza. [Saiba mais](tshoot-connect-sso.md#step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature)"
 
    Para completar o processo de limpeza, siga os passos 2 e 3 no servidor no local onde está a executar O AZure AD Connect.
 

@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.openlocfilehash: d68c3729e8a63f8342cd51b62413aec3276c6165
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104871015"
 ---
 # <a name="discover-installed-software-inventory-and-sql-server-instances-and-databases"></a>Descubra o inventário de software instalado e as instâncias e bases de dados do SQL Server

@@ -10,22 +10,29 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/16/2021
+ms.date: 4/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310122177d4bd1603f5f498aa2a51620eeda4a20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2aba8d9de5e068cd98675f67cb26b0eac8d1ad6d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592801"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552835"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Criar uma revisão de acesso das funções AZURE AD na Gestão de Identidade Privilegiada
 
 Para reduzir o risco associado a atribuições de funções velhas, deve rever regularmente o acesso. Você pode usar Azure AD Gestão de Identidade Privilegiada (PIM) para criar avaliações de acesso para funções privilegiadas da Azure AD. Também pode configurar comentários de acesso recorrentes que ocorrem automaticamente.
 
 Este artigo descreve como criar uma ou mais avaliações de acesso para funções privilegiadas de Azure AD.
+
+## <a name="prerequisite-license"></a>Licença pré-requisito
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Para obter mais informações sobre licenças para PIM, consulte os [requisitos da Licença para utilizar a Gestão de Identidade Privilegiada.](subscription-requirements.md)
+
+> [!Note]
+>  Atualmente, você pode estender uma revisão de acesso aos diretores de serviços com acesso a funções de recursos Azure AD e Azure (Preview) com uma edição Azure Ative Directory Premium P2 ativa no seu inquilino. O modelo de licenciamento para os principais de serviço será finalizado para a disponibilidade geral desta funcionalidade e poderão ser necessárias licenças adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,9 +42,11 @@ Este artigo descreve como criar uma ou mais avaliações de acesso para funçõe
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que é membro da função de administrador de função Privileged.
 
-1. Open **Azure AD Gestão de Identidade Privilegiada.**
-
-1. Selecione **funções AD Azure**.
+1. Selecione **Governação da Identidade**
+ 
+1. Selecione **funções de AD AD** no **âmbito da Azure AD Privileged Identity Management**.
+ 
+1. Selecione **as funções AD do Azure** novamente no **comando do Manage**.
 
 1. Em Gestão, selecione **avaliações de Acesso** e, em seguida, selecione **New**.
 
@@ -57,9 +66,11 @@ Clique **em Novo** para criar uma nova revisão de acesso.
 
 1. Utilize a definição **'Fim'** para especificar como terminar as séries de revisão de acesso recorrentes. A série pode terminar de três maneiras: funciona continuamente para iniciar revisões indefinidamente, até uma data específica, ou depois de um número definido de ocorrências ter sido concluída. Você, outro administrador do Utilizador ou outro administrador Global pode parar a série após a criação alterando a data em **Definições**, de modo que termine nessa data.
 
-1. Na secção **Utilizadores,** selecione uma ou mais funções que pretende rever a adesão.
+1. Na secção **Âmbito do Utilizadores,** selecione o âmbito da revisão. Para rever utilizadores e grupos com acesso à função AZure AD, selecione **Utilizadores e Grupos,** ou selecione **(Preview) Service Principals** para rever as contas de máquina com acesso à função AD Azure.
 
     ![Margem de utilizadores para rever a adesão à função](./media/pim-how-to-start-security-review/users.png)
+
+1. Sob **a subscrição de funções de Revisão,** selecione as funções privilegiadas Azure AD para rever. 
 
     > [!NOTE]
     > - As funções selecionadas aqui incluem [papéis permanentes e elegíveis.](../privileged-identity-management/pim-how-to-add-role-to-user.md)
@@ -77,9 +88,9 @@ Clique **em Novo** para criar uma nova revisão de acesso.
 
     ![Lista de revisores de utilizadores ou membros selecionados (auto)](./media/pim-how-to-start-security-review/reviewers.png)
 
-    - **Utilizadores selecionados** - Utilize esta opção quando não souber quem precisa de acesso. Com esta opção, pode atribuir o comentário a um proprietário de recursos ou gestor de grupo para completar.
-    - **Membros (self)** - Utilize esta opção para que os utilizadores revejam as suas próprias atribuições de funções. Os grupos designados para o papel não farão parte da revisão quando esta opção for selecionada.
-    - **Gestor** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Ao selecionar Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório. Os grupos designados para o papel serão revistos pelo revisor Fallback se um for selecionado. 
+    - **Utilizadores selecionados** - Utilize esta opção para designar um utilizador específico para completar o reexame. Esta opção está disponível independentemente do Âmbito da revisão, e os revisores selecionados podem rever utilizadores, grupos e diretores de serviço. 
+    - **Membros (self)** - Utilize esta opção para que os utilizadores revejam as suas próprias atribuições de funções. Os grupos designados para o papel não farão parte da revisão quando esta opção for selecionada. Esta opção só está disponível se a revisão for analisada para **Utilizadores e Grupos.**
+    - **Gestor** – Utilize esta opção para que o gestor do utilizador reveja a sua atribuição de funções. Esta opção só está disponível se a revisão for analisada para **Utilizadores e Grupos.** Ao selecionar Manager, também terá a opção de especificar um revisor de recuo. Os revisores de recuo são convidados a rever um utilizador quando o utilizador não tem nenhum gestor especificado no diretório. Os grupos designados para o papel serão revistos pelo revisor Fallback se um for selecionado. 
 
 ### <a name="upon-completion-settings"></a>Após definições de conclusão
 

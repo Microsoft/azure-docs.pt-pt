@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d657f1df14b083631227cb7c19f64b65be8801d0
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587870"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010470"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Introdução à garantia de contas de serviço da Azure
 
@@ -26,7 +26,7 @@ Existem três tipos de contas de serviço nativas do Azure Ative Directory: Iden
 
 ## <a name="types-of-azure-active-directory-service-accounts"></a>Tipos de contas de serviço do Azure Ative Directory
 
-Para serviços hospedados em Azure, recomendamos a utilização de uma identidade gerida, se possível, e um diretor de serviço, se não. Identidades geridas não podem ser usadas para serviços alojados fora de Azure. Nesse caso, recomendamos um diretor de serviço. Se puder utilizar uma identidade gerida ou um principal de serviço, faça-o. Recomendamos que não utilize uma conta de utilizador do Azure Ative Directory como diretor de serviço. Consulte a seguinte tabela para obter um resumo.
+Para serviços hospedados em Azure, recomendamos a utilização de uma identidade gerida, se possível, e um diretor de serviço, se não. Identidades geridas não podem ser usadas para serviços alojados fora de Azure. Nesse caso, recomendamos um diretor de serviço. Se puder utilizar uma identidade gerida ou um principal de serviço, faça-o. Recomendamos que não utilize uma conta de utilizador do Azure Ative Directory como conta de serviço. Consulte a seguinte tabela para obter um resumo.
  
 
 | Hospedagem de serviço| Identidade gerida| Service principal (Principal de serviço)| Conta de utilizador Azure |
@@ -54,7 +54,7 @@ Um diretor de serviço é a representação local de um objeto de aplicação em
 
 Existem dois mecanismos de autenticação utilizando os principais serviços — certificados de cliente e segredos de cliente. Os certificados são mais seguros: use certificados de cliente, se possível. Ao contrário dos segredos dos clientes, os certificados de cliente não podem ser incorporados acidentalmente em código.
 
-Para obter informações sobre a segurança dos principais serviços, consulte os principais de serviços de segurança.
+Para obter informações sobre a segurança dos principais serviços, consulte [os principais de serviços de garantia.](service-accounts-principal.md)
 
  
 ## <a name="next-steps"></a>Passos seguintes

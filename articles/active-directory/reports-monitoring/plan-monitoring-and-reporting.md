@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c37c672f8784052424e058837d31bc1d22fcfc57
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577756"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552619"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
 
@@ -47,7 +47,7 @@ Com a monitorização AD AZure, pode encaminhar os registos para:
 * um centro de eventos Azure onde pode integrar-se com as suas ferramentas SIEM existentes, como Splunk, Sumologic ou QRadar.
 
 > [!NOTE]
-Recentemente começamos a usar os registos do Azure Monitor em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Azure Monitor.](../../azure-monitor/data-platform.md) Consulte [as alterações da terminologia do Azure Monitor](../../azure-monitor/terminology.md) para mais detalhes.
+> Recentemente começamos a usar os registos do Azure Monitor em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Azure Monitor.](../../azure-monitor/data-platform.md) Consulte [as alterações da terminologia do Azure Monitor](../../azure-monitor/terminology.md) para mais detalhes.
 
 [Saiba mais sobre as políticas de retenção de relatórios.](./reference-reports-data-retention.md)
 
@@ -99,7 +99,7 @@ O reporte e monitorização são usados para satisfazer os requisitos do seu neg
 * É bom ter de atender às necessidades do negócio
 * Não aplicável
 
-|Área |Description |
+|Área |Descrição |
 |-|-|
 |Retenção| **Retenção de registos superiores a 30 dias**. Devido a requisitos legais ou empresariais, é necessário armazenar registos de auditoria e assinar em registos de Azure AD por mais de 30 dias. |
 |Análise| **Os registos têm de ser pesmáveis.** Os registos armazenados devem ser pescêjáveis com ferramentas analíticas. |

@@ -10,16 +10,16 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af9d520bab3ff49b30672717414fbd651c915dd4
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800749"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552382"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)
 
-A eliminação suave para recipientes (pré-visualização) protege os seus dados de serem acidental ou maliciosamente eliminados. Quando a eliminação recuperável de contentores estiver ativada para uma conta de armazenamento, todos os contentores e conteúdo eliminado serão mantidos no Armazenamento do Microsoft Azure durante o período que especificar. Durante o período de retenção, poderá restaurar contentores eliminados anteriormente. O restauro de um contentor restaura quaisquer blobs nesse contentor eliminado.
+A eliminação suave para recipientes (pré-visualização) protege os seus dados de serem acidental ou maliciosamente eliminados. Quando a eliminação suave do contentor está ativada para uma conta de armazenamento, um recipiente apagado e o seu conteúdo são retidos no Azure Storage durante o período que especificar. Durante o período de retenção, poderá restaurar contentores eliminados anteriormente. O restauro de um contentor restaura quaisquer blobs nesse contentor eliminado.
 
 Para uma proteção final para os seus dados blob, a Microsoft recomenda que se coloquem as seguintes funcionalidades de proteção de dados:
 
@@ -37,7 +37,7 @@ Quando ativar a eliminação suave do recipiente, pode especificar um período d
 Quando restaurar um recipiente, as bolhas do recipiente e quaisquer versões blob também são restauradas. No entanto, só pode utilizar a eliminação macia do recipiente para restaurar as bolhas se o próprio recipiente for eliminado. Para restaurar uma bolha apagada quando o seu recipiente-mãe não tiver sido apagado, deve utilizar a versão de exclusão macia ou bolha.
 
 > [!WARNING]
-> A eliminação suave do recipiente só pode restaurar recipientes inteiros e as bolhas que continham no momento da eliminação. Não é possível restaurar uma bolha apagada dentro de um recipiente utilizando uma eliminação macia do recipiente.
+> A eliminação suave do contentor só pode restaurar recipientes inteiros e o seu conteúdo no momento da eliminação. Não é possível restaurar uma bolha apagada dentro de um recipiente utilizando uma eliminação macia do recipiente. A Microsoft recomenda também permitir a eliminação macia de bolhas e a versão blob para proteger as bolhas individuais num recipiente.
 
 O seguinte diagrama mostra como um recipiente eliminado pode ser restaurado quando o contentor é eliminado suavemente:
 
@@ -50,7 +50,7 @@ Após o período de retenção ter expirado, o recipiente é permanentemente eli
 A desativação do recipiente de eliminação suave não resulta na supressão permanente dos recipientes que foram previamente eliminados. Os recipientes apagados serão permanentemente eliminados no termo do período de retenção que estava em vigor no momento da sua perda do contentor.
 
 > [!IMPORTANT]
-> A eliminação suave do contentor não protege contra a supressão de uma conta de armazenamento, mas apenas contra a supressão de contentores nessa conta. Para proteger uma conta de armazenamento da supressão, configuure um bloqueio no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure Resource Manager, consulte [os recursos do Lock para evitar alterações inesperadas.](../../azure-resource-manager/management/lock-resources.md)
+> A eliminação suave do contentor não protege contra a supressão de uma conta de armazenamento. Protege apenas contra a supressão de contentores nessa conta. Para proteger uma conta de armazenamento da supressão, configuure um bloqueio no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio de uma conta de armazenamento, consulte [aplicar um bloqueio do Gestor de Recursos Azure numa conta de armazenamento.](../common/lock-account-resource.md)
 
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 

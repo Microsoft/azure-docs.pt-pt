@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11182b8331f218b970d867764f575ba5b7854d62
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023440"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550698"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
@@ -66,7 +66,7 @@ Ambas as opções permitem aos administradores a capacidade de:
 > [!TIP]
 > - O Hybrid AZure AD Juntou-se aos dispositivos windows 10 que não possuem um proprietário. Se estiver à procura de um dispositivo pelo proprietário e não o encontrar, procure pelo ID do dispositivo.
 >
-> - Se vir um dispositivo que seja "Hybrid Azure AD" com um estado "Pendente" sob a coluna REGISTERED, indica que o dispositivo foi sincronizado a partir da ligação AD AD do Azure e aguarda a inscrição completa do cliente. Leia mais sobre como planear a [sua Ad Hybrid Azure aderir à implementação.](hybrid-azuread-join-plan.md) Informações adicionais podem ser encontradas no artigo, [Dispositivos frequentemente questionados](faq.md).
+> - Se vir um dispositivo que seja "Hybrid Azure AD" com um estado "Pendente" sob a coluna REGISTERED, indica que o dispositivo foi sincronizado a partir da ligação AD AD do Azure e aguarda a inscrição completa do cliente. Leia mais sobre como planear a [sua Ad Hybrid Azure aderir à implementação.](hybrid-azuread-join-plan.md) Informações adicionais podem ser encontradas no artigo, [Dispositivos frequentemente questionados](faq.yml).
 >
 > - Para alguns dispositivos iOS, os nomes do dispositivo que contêm apóstrofos podem potencialmente usar diferentes caracteres que se parecem com apóstrofos. Assim, procurar por estes dispositivos é um pouco complicado - se não estiver a ver os resultados da pesquisa corretamente, certifique-se de que a cadeia de pesquisa contém caracteres apóstrofo correspondentes.
 

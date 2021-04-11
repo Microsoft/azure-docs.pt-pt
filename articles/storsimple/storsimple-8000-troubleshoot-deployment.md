@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 01/25/2021
 ms.author: alkohli
 ms.openlocfilehash: f1bce5c0ecdab4a9c96c3f2cc0e9734247bdfd66
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102566350"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Problemas de resolução de problemas Problemas de implementação de dispositivos StorSimple
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo fornece orientações úteis para a resolução de problemas para a sua implementação Microsoft Azure StorSimple. Descreve problemas comuns, possíveis causas e medidas recomendadas para o ajudar a resolver problemas que poderá experimentar quando configurar storSimple. 
 
 Esta informação aplica-se tanto ao dispositivo físico da série StorSimple 8000 como ao StorSimple Cloud Appliance.

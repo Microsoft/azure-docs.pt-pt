@@ -4,10 +4,10 @@ description: Este artigo descreve como criar alertas de registo personalizados p
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101711200"
 ---
 # <a name="how-to-create-log-alerts-from-container-insights"></a>Como criar alertas de registo a partir de insights de contentores

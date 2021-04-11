@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
 ms.openlocfilehash: efa255ba38f7e00785335bf458ecc0ed91da646b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104608185"
 ---
 # <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>Quickstart: desboxe e monte os seus componentes Azure Percept DK
