@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: fd292fa6b4f613e0a5f5a80e0cd87675f529baf5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 350b7306b6d39b42fbfebcc6566762df305b11b4
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516176"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445980"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Migrar manualmente do Windows Virtual Desktop (clássico)
 

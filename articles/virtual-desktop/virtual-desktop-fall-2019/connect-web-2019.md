@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: c8a55e35ba89caefc362024fc871ac5eb800447b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 0ea095a8ed902b9636b0cb8026f86eb3a0882460
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008428"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445198"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>Conecte-se ao Windows Virtual Desktop (clássico) com o cliente web
 

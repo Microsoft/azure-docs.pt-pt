@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 12ec71a86a5df5954c14097e6a0ec5c8a5138fc5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: a4c63cc686b08d179e20e6f3e3a7aa1efa69a5f8
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652433"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447085"
 ---
 # <a name="data-and-metadata-locations-for-windows-virtual-desktop"></a>Localizações de dados e metadados para o Windows Virtual Desktop
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 8435cab1855e9df871d17ff7fa393b6ab2cf0cb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f07e9dbd574d8a27e6048154c72b9afc24b6ba4
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736351"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286200"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Tutorial: Azure Ative Directory integração única (SSO) com consola de administrador netskope
 
@@ -37,13 +37,12 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Consola de administrador da Netskope suporta **SP e IDP** iniciado SSO
+* A consola de administrador netskope suporta o SSO iniciado pelo **SP e iDP.**
 
 > [!NOTE]
 > O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
-
-## <a name="adding-netskope-administrator-console-from-the-gallery"></a>Adicionar consola de administrador netskope da galeria
+## <a name="add-netskope-administrator-console-from-the-gallery"></a>Adicione consola de administrador netskope da galeria
 
 Para configurar a integração da Consola administradora netskope em AD Azure, precisa adicionar a Consola de Administrador netskope da galeria à sua lista de aplicações geridas para o SaaS.
 
@@ -142,19 +141,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no **separador Definições** a partir do painel de navegação esquerdo.
 
-    ![Screenshot mostra Definição selecionada no painel de navegação.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Screenshot mostra Definição selecionada no painel de navegação.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Clique no separador **Administração.**
 
-    ![A screenshot mostra a Administração selecionada a partir de Definições.](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![A screenshot mostra a Administração selecionada a partir de Definições.](./media/netskope-cloud-security-tutorial/administration.png)
 
 1. Clique no separador **SSO.**
 
-    ![A screenshot mostra S S O selecionado na Administração.](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![A screenshot mostra S S O selecionado na Administração.](./media/netskope-cloud-security-tutorial/tab.png)
 
 1. Na secção **Definições de Rede,** execute os seguintes passos:
     
-    ![A screenshot mostra definições de rede onde pode introduzir os valores descritos.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![A screenshot mostra definições de rede onde pode introduzir os valores descritos.](./media/netskope-cloud-security-tutorial/network.png)
 
     a. Copiar O valor URL do Serviço de Apoio ao Consumidor de **Afirmação** e colá-lo na caixa de texto **URL de resposta** na secção **configuração básica do SAML** no portal Azure.
 
@@ -162,7 +161,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique nas **definições de EDITO** na secção **Definições SSO/SLO.**
 
-    ![A screenshot mostra as definições S S O / S L O onde pode selecionar DEFINIÇÕES DE EDIÇÃO.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![A screenshot mostra as definições S S O / S L O onde pode selecionar DEFINIÇÕES DE EDIÇÃO.](./media/netskope-cloud-security-tutorial/settings.png)
 
 1. Na janela popup **Definições,** execute os seguintes passos;
 
@@ -188,11 +187,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no **separador Definições** a partir do painel de navegação esquerdo.
 
-    ![A screenshot mostra definições selecionadas.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![A screenshot mostra definições selecionadas.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Clique no separador **Plataforma Ativa.**
 
-    ![A screenshot mostra plataforma ativa selecionada a partir de Definições.](./media/netskope-cloud-security-tutorial/user1.png)
+    ![A screenshot mostra plataforma ativa selecionada a partir de Definições.](./media/netskope-cloud-security-tutorial/user-1.png)
 
 1. Clique **no separador Utilizadores.**
 

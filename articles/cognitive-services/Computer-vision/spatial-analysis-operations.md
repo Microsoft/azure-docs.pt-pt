@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bdcbb38a56e46d01a5580f6d32ef733df8911b67
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 4b4ee9d1e583241f8ec9b467ae9ddfdb1360fb52
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108341"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284707"
 ---
-# <a name="spatial-analysis-operations"></a>Operações de análise espacial
+# <a name="spatial-analysis-operations"></a>Operações de Análise Espacial
 
-A análise espacial permite a análise do vídeo de transmissão em fluxo em tempo real de dispositivos com câmara. Para cada dispositivo com câmara configurado, as operações para a análise espacial gerarão um fluxo de saída de mensagens JSON enviadas para a instância do Hub IoT do Azure. 
+A Análise Espacial permite a análise do vídeo de streaming em tempo real a partir de dispositivos de câmara. Para cada dispositivo de câmara que configurar, as operações de Análise Espacial gerarão um fluxo de saída de mensagens JSON enviadas para o seu exemplo de Azure IoT Hub. 
 
-O recipiente de análise espacial implementa as seguintes operações:
+O contentor de Análise Espacial implementa as seguintes operações:
 
-| Identificador de Operação| Description|
+| Identificador de Operação| Descrição|
 |---------|---------|
 | serviços cognitivos.vision.spatialanalysis-personcount | Conta pessoas numa zona designada no campo de visão da câmara. A zona deve ser totalmente coberta por uma única câmara para que o PersonCount grave um total preciso. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -33,7 +33,7 @@ O recipiente de análise espacial implementa as seguintes operações:
 
 Acima das operações estão também disponíveis na `.debug` versão, que têm a capacidade de visualizar os quadros de vídeo à medida que estão a ser processados. Terá de ser executado `xhost +` no computador anfitrião para permitir a visualização de quadros de vídeo e eventos.
 
-| Identificador de Operação| Description|
+| Identificador de Operação| Descrição|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.debug | Conta pessoas numa zona designada no campo de visão da câmara. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -41,11 +41,11 @@ Acima das operações estão também disponíveis na `.debug` versão, que têm 
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Faixas quando as pessoas violam uma regra de distância. <br> Emite uma _pessoaSstevente_ periodicamente com a localização de cada violação à distância. |
 | serviços cognitivos.vision.spatialanalysis.debug | Operação genérica que pode ser usada para executar todos os cenários acima mencionados. Esta opção é mais útil quando pretende executar vários cenários na mesma câmara ou utilizar os recursos do sistema (por exemplo, GPU) de forma mais eficiente. |
 
-A análise espacial também pode ser executada com [o Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) como o seu módulo de IA de vídeo. 
+A Análise Espacial também pode ser executada com [o Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) como o seu módulo de IA de vídeo. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| Identificador de Operação| Description|
+| Identificador de Operação| Descrição|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics | Conta pessoas numa zona designada no campo de visão da câmara. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -58,13 +58,13 @@ As operações live video analytics também estão disponíveis na `.debug` vers
 > [!IMPORTANT]
 > Os modelos de IA de visão computacional detetam e localizam a presença humana em imagens de vídeo e saída usando uma caixa de delimitação em torno de um corpo humano. Os modelos de IA não tentam descobrir as identidades ou demografia dos indivíduos.
 
-Estes são os parâmetros exigidos por cada uma destas operações de análise espacial.
+Estes são os parâmetros exigidos por cada uma destas operações de Análise Espacial.
 
-| Parâmetros de operação| Description|
+| Parâmetros de operação| Descrição|
 |---------|---------|
 | ID da Operação | O Identificador da Operação da tabela acima.|
 | ativado | Boolean: verdadeiro ou falso|
-| VIDEO_URL| O url RTSP para o dispositivo da câmara (Exemplo: `rtsp://username:password@url` ). A análise espacial suporta o fluxo codificado H.264 através de RTSP, http ou mp4. Video_URL pode ser fornecido como um valor de cadeia base 64 obfuscado usando encriptação AES, e se o url de vídeo é obfuscado `KEY_ENV` então e `IV_ENV` precisa ser fornecido como variáveis ambientais. O utilitário de amostra para gerar chaves e encriptação pode ser encontrado [aqui.](/dotnet/api/system.security.cryptography.aesmanaged) |
+| VIDEO_URL| O url RTSP para o dispositivo da câmara (Exemplo: `rtsp://username:password@url` ). A Análise Espacial suporta o fluxo codificado H.264 através de RTSP, http ou mp4. Video_URL pode ser fornecido como um valor de cadeia base 64 obfuscado usando encriptação AES, e se o url de vídeo é obfuscado `KEY_ENV` então e `IV_ENV` precisa ser fornecido como variáveis ambientais. O utilitário de amostra para gerar chaves e encriptação pode ser encontrado [aqui.](/dotnet/api/system.security.cryptography.aesmanaged) |
 | VIDEO_SOURCE_ID | Um nome amigável para o dispositivo da câmara ou transmissão de vídeo. Isto será devolvido com a saída do evento JSON.|
 | VIDEO_IS_LIVE| Verdade para dispositivos de câmara; falso para vídeos gravados.|
 | VIDEO_DECODE_GPU_INDEX| Que GPU para descodificar a moldura de vídeo. Por defeito é 0. Deve ser o mesmo que `gpu_index` no outro nó config `VICA_NODE_CONFIG` como, . `DETECTOR_NODE_CONFIG` .|
@@ -74,7 +74,7 @@ Estes são os parâmetros exigidos por cada uma destas operações de análise e
 | ENABLE_FACE_MASK_CLASSIFIER | `True` para permitir detetar pessoas que usam máscaras faciais no fluxo de vídeo, `False` para desativá-la. Por predefinição, isto é desativado. A deteção da máscara facial requer que o parâmetro de largura de vídeo de entrada seja 1920 `"INPUT_VIDEO_WIDTH": 1920` . O atributo da máscara facial não será devolvido se as pessoas detetadas não estiverem viradas para a câmara ou estiverem muito longe dela. Consulte o guia de [colocação](spatial-analysis-camera-placement.md) da câmara para obter mais informações |
 
 ### <a name="detector-node-parameter-settings"></a>Definições do parâmetro do nó do detetor
-Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações de análise espacial.
+Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações de Análise Espacial.
 
 ```json
 {
@@ -107,20 +107,20 @@ Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações
 ```json
 {
 "zones":[{
-    "name": "lobbycamera",
-    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-    "events":[{
-        "type": "count",
-        "config":{
-            "trigger": "event",
+       "name": "lobbycamera",
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+              "type": "count",
+              "config":{
+                     "trigger": "event",
             "threshold": 16.00,
             "focus": "footprint"
       }
-    }]
+       }]
 }
 ```
 
-| Nome | Tipo| Description|
+| Nome | Tipo| Descrição|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -165,7 +165,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Description|
+| Nome | Tipo| Descrição|
 |---------|---------|---------|
 | `lines` | lista| Lista de linhas.|
 | `name` | string| Nome amigável para esta linha.|
@@ -211,7 +211,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Description|
+| Nome | Tipo| Descrição|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -231,22 +231,22 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
    "name": "lobbycamera",
    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
    "events":[{
-    "type": "persondistance",
-    "config":{
-        "trigger": "event",
-        "output_frequency":1,
-        "minimum_distance_threshold":6.0,
-        "maximum_distance_threshold":35.0,
+       "type": "persondistance",
+       "config":{
+           "trigger": "event",
+           "output_frequency":1,
+           "minimum_distance_threshold":6.0,
+           "maximum_distance_threshold":35.0,
         "aggregation_method": "average"
            "threshold": 16.00,
            "focus": "footprint"
-            }
-    }]
+                   }
+          }]
    }]
 }
 ```
 
-| Nome | Tipo| Description|
+| Nome | Tipo| Descrição|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -338,7 +338,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 
 Consulte as diretrizes [de colocação](spatial-analysis-camera-placement.md) da câmara para saber mais sobre como configurar zonas e linhas.
 
-## <a name="spatial-analysis-operation-output"></a>Análise espacial Operação Saída
+## <a name="spatial-analysis-operation-output"></a>Produção da Operação análise espacial
 
 Os eventos de cada operação são retirados para Azure IoT Hub no formato JSON.
 
@@ -431,7 +431,7 @@ Prove json para uma saída de evento por esta operação.
             "face_nomask": 0.99
             }
             }
-    }
+       }
     ],
     "schemaVersion": "1.0"
 }
@@ -635,7 +635,7 @@ Amostra JSON para deteção de saída por esta operação com `zonedwelltime` SP
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-        "durationMs": 7132.0
+              "durationMs": 7132.0
             },
             "zone": "queuecamera"
         }
@@ -839,15 +839,15 @@ A saída desta operação depende de configuração `events` , por exemplo, se h
 
 ## <a name="use-the-output-generated-by-the-container"></a>Utilize a saída gerada pelo recipiente
 
-Pode querer integrar a deteção de análises espaciais ou eventos na sua aplicação. Aqui estão algumas abordagens a considerar: 
+Pode querer integrar a deteção de Análise Espacial ou eventos na sua aplicação. Aqui estão algumas abordagens a considerar: 
 
 * Utilize o Azure Event Hub SDK para a sua linguagem de programação escolhida para ligar ao ponto final do Azure IoT Hub e receber os eventos. Consulte [as mensagens dispositivo-nuvem do ponto final incorporado](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) para obter mais informações. 
 * Confense o **Encaminhamento de Mensagens** no seu Azure IoT Hub para enviar os eventos para outros pontos finais ou guardar os eventos para o seu armazenamento de dados. Consulte [o Encaminhamento de Mensagens IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) para obter mais informações. 
 * Crie um trabalho Azure Stream Analytics para processar os eventos em tempo real à medida que chegam e criam visualizações. 
 
-## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Implantação de operações de análise espacial à escala (múltiplas câmaras)
+## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Implantação de operações de Análise Espacial à escala (múltiplas câmaras)
 
-Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisquer operações de análise espacial em várias câmaras usando instâncias de gráfico. Abaixo está uma amostra para executar a `cognitiveservices.vision.spatialanalysis-personcrossingline` operação em quinze câmaras.
+Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisquer operações de Análise Espacial em várias câmaras utilizando instâncias de gráfico. Abaixo está uma amostra para executar a `cognitiveservices.vision.spatialanalysis-personcrossingline` operação em quinze câmaras.
 
 ```json
   "properties.desired": {
@@ -1034,7 +1034,7 @@ Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisqu
       }
   }
   ```
-| Nome | Tipo| Description|
+| Nome | Tipo| Descrição|
 |---------|---------|---------|
 | `batch_size` | int | Se todas as câmaras tiverem a mesma resolução, `batch_size` definidas para o número de câmaras que serão utilizadas nessa operação, caso contrário, `batch_size` definidas para 1 ou deixar como padrão (1), o que indica que nenhum lote está suportado. |
 

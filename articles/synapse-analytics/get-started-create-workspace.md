@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: a4fa902268d9a19cd0003a2fdaa4c5e58989a4ff
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: f186acbe030dcbb0c2bad22586a8b2a5d1aa520d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218945"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259800"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -64,6 +64,16 @@ Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abri
 
 * Abra o seu espaço de trabalho sinapse no [portal Azure,](https://portal.azure.com)na secção **visão geral** do espaço de trabalho synapse, selecione **Open** na caixa Open Synapse Studio.
 * Vá ao `https://web.azuresynapse.net` e inscreva-se no seu espaço de trabalho.
+
+## <a name="place-sample-data-into-the-primary-storage-account"></a>Coloque os dados da amostra na conta de armazenamento primário
+Vamos usar um pequeno conjunto de dados de amostras de 100K linha de dados da NYX Taxi Cab para muitos exemplos neste guia de arranque. Começamos por colocá-lo na conta de armazenamento primário que criou para o espaço de trabalho.
+
+* Descarregue este ficheiro para o seu computador: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
+* Em Synapse Studiio, navegue para o Data Hub. 
+* Clique **em Linked**.
+* Na categoria **Azure Data Lake Storae Gen2** você verá um item com um nome como **myworkspace (Primary - contosolake)**
+* Clique no recipiente nomeado **utilizadores (Primário)**
+* Clique **em Upload** e selecione o ficheiro que `NYCTripSmall.parquet` descarregou
 
 ## <a name="next-steps"></a>Passos seguintes
 

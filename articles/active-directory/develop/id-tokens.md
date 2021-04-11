@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf7940af03c02d96f6ed2ca452322ad012bc6a2d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175393"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105362"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 
@@ -124,6 +124,12 @@ Para garantir que o tamanho do token não exceda os limites de tamanho do cabeç
   ...
 }
 ```
+
+## <a name="id-token-lifetime"></a>ID token vida
+
+Por padrão, um token de identificação é válido por 1 hora - após 1 hora, o cliente deve adquirir um novo token de ID.
+
+Pode ajustar o tempo de vida útil de um token de ID para controlar a frequência com que a aplicação do cliente expira na sessão de aplicação, e com que frequência requer que o utilizador reautena (silenciosamente ou interativamente). Para mais informações, leia [as vidas de símbolos configurais.](active-directory-configurable-token-lifetimes.md)
 
 ## <a name="validating-an-id_token"></a>Validação de um id_token
 

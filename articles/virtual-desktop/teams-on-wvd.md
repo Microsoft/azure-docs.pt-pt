@@ -3,20 +3,20 @@ title: Microsoft Teams no Windows Virtual Desktop - Azure
 description: Como utilizar as equipas do Microsoft no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 46796573e14dfc33d02d4faddd5504f3e8b7ee7b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+manager: femila
+ms.openlocfilehash: 0c528f183106472850d6b5d2a8b492ea8939eda6
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935725"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285263"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
 >[!IMPORTANT]
->A otimização dos meios de comunicação para equipas é suportada para o Governo da Microsoft 365 (GCC) e GCC-High ambientes. A otimização dos meios de comunicação para equipas não é suportada para GCC-High ou DoD.
+>A otimização dos meios de comunicação para equipas é suportada para o Governo da Microsoft 365 (GCC) e GCC-High ambientes. A otimização dos meios de comunicação para equipas não é suportada para o DoD 365 da Microsoft.
 
 >[!NOTE]
 >A otimização de meios para o Microsoft Teams só está disponível para o cliente do Windows Desktop em máquinas Windows 10. As otimizações dos meios de comunicação requerem a versão 1.2.1026.0 ou posterior do cliente do Windows Desktop.
@@ -148,11 +148,7 @@ Usar equipas num ambiente virtualizado é diferente de usar equipas num ambiente
 - A aplicação Teams não suporta botões HID ou comandos LED com outros dispositivos.
 - A Nova Experiência de Reunião (NME) não é atualmente suportada em ambientes VDI.
 
-Para equipas conhecidas questões que não estão relacionadas com ambientes virtualizados, consulte [equipas de apoio na sua organização](/microsoftteams/known-issues)
-
-## <a name="uservoice-site"></a>Site UserVoice
-
-Fornecer feedback para equipas da Microsoft no Ambiente de Trabalho Virtual do Windows no site Teams [UserVoice](https://microsoftteams.uservoice.com/).
+Para equipas conhecidas que não estão relacionadas com ambientes virtualizados, consulte [equipas de apoio na sua organização.](/microsoftteams/known-issues)
 
 ## <a name="collect-teams-logs"></a>Recolher registos de equipas
 

@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 03/26/2021
+ms.date: 04/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: 74f15fc302a8499e41a1413dd8915e6442d4bbe7
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a481759da3f1e7d67accdca7b4322db53abbcb0c
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064499"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490952"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de proteção de conteúdos
 
@@ -30,46 +30,62 @@ Este artigo fornece-lhe detalhes e orientações sobre a migração de casos de 
 
 Utilize o suporte para [funcionalidades multi-chave](architecture-design-multi-drm-system.md) na nova API v3.
 
-Consulte conceitos de proteção de conteúdos, tutoriais e como guiar abaixo para etapas específicas.
+Consulte conceitos de proteção de conteúdos, tutoriais e como guiar no final deste artigo para etapas específicas.
 
-## <a name="visibility-of-v2-assets-streaminglocators-and-properties-in-the-v3-api-for-content-protection-scenarios"></a>Visibilidade dos ativos v2, StreamingLocators e propriedades na API v3 para cenários de proteção de conteúdos
+> [!NOTE]
+> O resto deste artigo discute como pode migrar a sua proteção de conteúdo V2 para v3 com .NET.  Se precisar de instruções ou de um código de amostra para um idioma ou método diferente, por favor, crie um problema GitHub para esta página.
 
-Durante a migração para a V3 API, você vai descobrir que você precisa aceder a algumas propriedades ou chaves de conteúdo a partir dos seus V2 Ativos. Uma diferença fundamental é que a API v2 usaria o **AssetId** como chave de identificação primária e a nova API v3 utiliza o nome de Gestão de Recursos Azure da entidade como identificador primário.  A propriedade v2 **Asset.Name** não é normalmente usada como um identificador único, por isso, ao migrar para v3, verá que os seus nomes de Ativos V2 aparecem agora no campo **Ativo.Descrição.**
+## <a name="v3-visibility-of-v2-assets-streaminglocators-and-properties"></a>v3 visibilidade de v2 Ativos, StreamingLocators e propriedades
 
-Por exemplo, se já tinha um Ativo v2 com o ID de **"nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8",** então encontrará ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigos ativos v2 através da API v3, então você vai encontrar ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigos ativos v2 através da API v3, então você vai encontrar ao listar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigos ativos v2 através da API v3, então você vai encontrar ao enumerar os antigo o nome passará a ser a parte GUID no final (neste caso, **"8cb39104-122c-496e-9ac5-7f9e2c2547b8".**
+Na API `Assets` v2, `StreamingLocators` e foram `ContentKeys` usados para proteger o seu conteúdo de streaming. Ao migrar para a API v3, o seu V2 `Assets` API, e todos expostos automaticamente na `StreamingLocators` `ContentKeys` API v3 e todos os dados sobre os mesmos estão disponíveis para aceder.
 
-Pode consultar os **StreamingLocators associados** aos Ativos criados na API v2 utilizando o novo método v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) na entidade Desíprocos.  Consulte também a versão SDK do cliente .NET do [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+No entanto, não é possível *atualizar* quaisquer propriedades em entidades V2 através da V3 API que foram criadas em V2.
 
-Os resultados do método **ListStreamingLocators** fornecer-lhe-ão o **Nome** e **StreamingLocatorId** do localizador juntamente com o **Nome StreamingPolicyName**.
+Se necessitar de atualizar, alterar ou alterar os conteúdos armazenados em entidades V2, atualize-os com a API v2 ou crie novas entidades da API v3 para os migrar.
 
-Para encontrar as **Chave de Conteúdo utilizadas** nos seus **StreamingLocators** para proteção de conteúdos, pode ligar para o método [StreamingLocator.ListContentKeysAsync.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true)  
+## <a name="asset-identifier-differences"></a>Diferenças de identificador de ativos
 
-Quaisquer **Ativos** que tenham sido criados e publicados utilizando a API v2 terão uma [Política chave de conteúdo](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) e uma Chave de Conteúdo definida neles na API v3, em vez de utilizarem uma política de chave de conteúdo padrão na Política de [Streaming.](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept)
+Para migrar, terá de aceder a propriedades ou chaves de conteúdo a partir dos seus Ativos V2.  É importante entender que a API v2 usa a `AssetId` chave de identificação primária, mas a nova V3 API usa o nome de Gestão de *Recursos Azure* da entidade como identificador principal.  (A propriedade v2 `Asset.Name` não é usada como um identificador único.) Com a V3 API, o seu nome v2 Asset aparece agora como `Asset.Description` o .
+
+Por exemplo, se já tinha um Ativo V2 com o ID `nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8` de, o identificador encontra-se agora no final do GUID `8cb39104-122c-496e-9ac5-7f9e2c2547b8` . Verá isto ao listar os seus ativos V2 através da API v3.
+
+Quaisquer Ativos que tenham sido criados e publicados utilizando a API v2 terão tanto `ContentKeyPolicy` a a e a a na `ContentKey` API v3 em vez de uma política de chave de conteúdo padrão na `StreamingPolicy` .
+
+Para obter mais informações, consulte a documentação [da política-chave](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) de conteúdo e a documentação da [Política de Streaming.](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept)
+
+## <a name="use-azure-media-services-explorer-amse-v2-and-amse-v3-tools-side-by-side"></a>Utilize ferramentas Azure Media Services Explorer (AMSE) v2 e AMSE v3 lado a lado
+
+Utilize a [ferramenta v2 Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0) juntamente com a ferramenta [V3 Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) para comparar os dados lado a lado com um Ativo criado e publicado através de APIs v2. As propriedades devem ser visíveis, mas em locais diferentes.
+
+## <a name="use-the-net-content-protection-migration-sample"></a>Utilize a amostra de migração de proteção de conteúdo .NET
+
+Pode encontrar uma amostra de código para comparar as diferenças nos identificadores de Ativos utilizando o [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration) sob a Proteção de Conteúdos nas amostras de código dos Serviços de Comunicação.
+
+## <a name="list-the-streaming-locators"></a>Listar os localizadores de streaming
+
+Pode consultar os `StreamingLocators` Ativos associados aos Ativos criados na API v2 utilizando o novo método v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) na entidade Desíprocora.  Consulte também a versão SDK do cliente .NET do [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+
+Os resultados do `ListStreamingLocators` método fornecer-lhe-ão `Name` o e do `StreamingLocatorId` localizador juntamente com o `StreamingPolicyName` .
+
+## <a name="find-the-content-keys"></a>Encontre as chaves de conteúdo
+
+Para encontrar o `ContentKeys` usado com o seu , pode ligar para o método `StreamingLocators` [StreamingLocator.ListContentKeysAsync.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true)  
 
 Para obter mais informações sobre a proteção de conteúdos na API v3, consulte o artigo [Proteja o seu conteúdo com encriptação dinâmica dos Media Services.](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept)
 
-## <a name="how-to-list-your-v2-assets-and-content-protection-settings-using-the-v3-api"></a>Como listar os seus V2 Ativos e definições de proteção de conteúdos utilizando a API v3
+## <a name="change-the-v2-contentkeypolicy-keeping-the-same-contentkey"></a>Alterar o v2 ContentKeyPolicy mantendo o mesmo ContentKey
 
-Na API v2, utilizaria comumente **Ativos,** **StreamingLocators** e **ContentKeys** para proteger o seu conteúdo de streaming.
-Ao migrar para a V3 API, os seus ativos API v2, StreamingLocators e ContentKeys são todos expostos automaticamente na API v3 e todos os dados sobre eles estão disponíveis para você aceder.
+Em primeiro lugar, deve não publicar (remover todos os localizadores de streaming) no Ativo através do V2 SDK. Eis como:
 
-## <a name="can-i-update-v2-properties-using-the-v3-api"></a>Posso atualizar as propriedades v2 utilizando a API v3?
+1. Apague o localizador.
+1. Desvincula-se. `ContentKeyAuthorizationPolicy`
+1. Desvincula-se. `AssetDeliveryPolicy`
+1. Desvincula-se. `ContentKey`
+1. Elimine o `ContentKey` .
+1. Crie um novo `StreamingLocator` em v3 utilizando um V3 `StreamingPolicy` `ContentKeyPolicy` e, especificando o identificador de chave de conteúdo específico e o valor chave necessário.
 
-Não, não é possível atualizar quaisquer propriedades em entidades V2 através da V3 API que foram criadas utilizando StreamingLocators, StreamingPolicies, Políticas chave de conteúdo e Chaves de Conteúdo em v2.
-Se precisar de atualizar, alterar ou alterar os conteúdos armazenados em entidades V2, terá de o atualizar através da API v2 ou criar novas entidades da API v3 para os migrar para a frente.
-
-## <a name="how-do-i-change-the-contentkeypolicy-used-for-a-v2-asset-that-is-published-and-keep-the-same-content-key"></a>Como posso alterar o ContentKeyPolicy usado para um Ativo V2 que é publicado e manter a mesma chave de conteúdo?
-
-Nesta situação, deve primeiro não publicar (remover todos os localizadores de streaming) no Ativo através do v2 SDK (eliminar o localizador, desvincular a Política de Autorização de Chave de Conteúdo, desvincular a Política de Entrega de Ativos, desvincular a Chave de Conteúdo, eliminar a Chave de Conteúdo) e, em seguida, criar um novo **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** em v3 utilizando uma V3 [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept) e [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept).
-
-É necessário especificar o identificador de chave de conteúdo específico e o valor-chave necessário quando estiver a criar o **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)**.
-
-Note que é possível eliminar o localizador V2 utilizando a API v3, mas isso não removerá a chave de conteúdo ou a política de chave de conteúdo utilizada se forem criadas na API v2.  
-
-## <a name="using-amse-v2-and-amse-v3-side-by-side"></a>Utilizando AMSE v2 e AMSE v3 lado a lado
-
-Ao migrar o seu conteúdo de V2 para V3, é aconselhável instalar a [ferramenta V2 Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0) juntamente com a ferramenta [V3 Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) para ajudar a comparar os dados que mostram lado a lado para um Ativo que é criado e publicado através de APIs v2. As propriedades devem ser visíveis, mas em locais ligeiramente diferentes agora.  
-
+> [!NOTE]
+> É possível eliminar o localizador V2 utilizando a API v3, mas isso não removerá a chave de conteúdo ou a política de chave de conteúdo se forem criados na API v2.
 
 ## <a name="content-protection-concepts-tutorials-and-how-to-guides"></a>Conceitos de proteção de conteúdos, tutoriais e como guiar
 
@@ -80,7 +96,7 @@ Ao migrar o seu conteúdo de V2 para V3, é aconselhável instalar a [ferramenta
 - [Serviços de Mídia v3 com modelo de licença PlayReady](drm-playready-license-template-concept.md)
 - [Serviços de Mídia v3 com visão geral do modelo de licença widevine](drm-widevine-license-template-concept.md)
 - [Requisitos de licença e configuração do Apple FairPlay](drm-fairplay-license-overview.md)
-- [Políticas de streaming](streaming-policy-concept.md)
+- [Políticas de streaming](stream-streaming-policy-concept.md)
 - [Políticas-chave de conteúdo](drm-content-key-policy-concept.md)
 
 ### <a name="tutorials"></a>Tutoriais
@@ -96,7 +112,8 @@ Ao migrar o seu conteúdo de V2 para V3, é aconselhável instalar a [ferramenta
 
 ## <a name="samples"></a>Amostras
 
-Também pode [comparar o código V2 e V3 nas amostras de código](migrate-v-2-v-3-migration-samples.md).
+- [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration)
+- Também pode [comparar o código V2 e V3 nas amostras de código](migrate-v-2-v-3-migration-samples.md).
 
 ## <a name="tools"></a>Ferramentas
 

@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 46cf34bd40832488985008a645f1da25eb87b9d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a47c4c5bdc90e148916900b1e72bc2a392d2e473
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467396"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285338"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura pré-construído do Reconhecimento de Formulário
 
-O Azure Form Recogniser pode analisar e extrair informações das faturas de venda utilizando os seus modelos de fatura pré-construídos. A Fatura API permite que os clientes levem faturas em diversos formatos e devolvam dados estruturados para automatizar o processamento da fatura. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/concept-recognizing-text.md) com a compreensão da fatura de modelos de aprendizagem profunda para extrair informações-chave das faturas em inglês. Extrai o texto, tabelas e informações como cliente, fornecedor, identificação de fatura, data de vencimento da fatura, total, valor da fatura devido, valor do imposto, envio para, conta para, itens de linha e muito mais. A API de fatura pré-construída está disponível publicamente na pré-visualização do Reconhecimento de Formulários v2.1.
+O Azure Form Recogniser pode analisar e extrair informações das faturas de venda utilizando os seus modelos de fatura pré-construídos. A Fatura API permite que os clientes levem faturas em diversos formatos e devolvam dados estruturados para automatizar o processamento da fatura. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/overview-ocr.md) com a compreensão da fatura de modelos de aprendizagem profunda para extrair informações-chave das faturas em inglês. Extrai o texto, tabelas e informações como cliente, fornecedor, identificação de fatura, data de vencimento da fatura, total, valor da fatura devido, valor do imposto, envio para, conta para, itens de linha e muito mais. A API de fatura pré-construída está disponível publicamente na pré-visualização do Reconhecimento de Formulários v2.1.
 
 ## <a name="what-does-the-invoice-service-do"></a>O que faz o serviço de Fatura?
 
@@ -73,7 +73,7 @@ A saída JSON tem 3 partes:
 
 O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem-se os campos extraídos de uma fatura na resposta de saída JSON (a saída abaixo utiliza esta [fatura de amostra).](media/sample-invoice.jpg)
 
-|Nome| Tipo | Description | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente a ser faturado | Microsoft Corp |  |
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
@@ -104,7 +104,7 @@ O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem
 
 Seguem-se os itens de linha extraídos de uma fatura na resposta de saída JSON (a saída abaixo utiliza esta [fatura de amostra)](./media/sample-invoice.jpg)  
 
-|Nome| Tipo | Description | Texto (#1 de rubrica) | Valor (saída padronizada) |
+|Nome| Tipo | Descrição | Texto (#1 de rubrica) | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | Itens | string | Linha de texto de corda completa do item da linha | 3/4/2021 Serviços de Consultoria A123 2 horas $30,00 10% $60,00 | |
 | Montante | número | A quantidade do item da linha | $60,00 | 100 |

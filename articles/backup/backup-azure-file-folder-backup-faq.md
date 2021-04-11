@@ -2,13 +2,13 @@
 title: Agente dos Serviços de Recuperação da Microsoft Azure (MARS) – FAQ
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com Azure Backup.
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 98f558c091f1680c165ee26ffb20a8022ab15520
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917363"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107181"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Perguntas frequentes - Agente da Microsoft Azure Recovery Services (MARS)
 
@@ -100,6 +100,10 @@ Este aviso pode aparecer mesmo tendo configurado uma política de backup, quando
 
 * Quando o servidor ou as definições tiverem sido recuperadas para um bom estado conhecido, os horários de backup podem tornar-se insincronizados.
 * Se receber este aviso, [configuure](backup-azure-manage-windows-server.md) novamente a política de backup e, em seguida, execute uma cópia de segurança a pedido para resincronizar o servidor local com a Azure.
+
+### <a name="i-see-a-few-jobs-are-stuck-in-the-in-progress-state-for-a-long-time-under-backup-jobs-in-the-azure-portal-how-can-i-resolve-these"></a>Vejo que alguns empregos estão presos no estado em progresso há muito tempo sob o comando de Backup Jobs no portal Azure. Como posso resolver isto?
+
+Isto pode acontecer se um trabalho não puder ser concluído por razões, tais como problemas de conectividade de rede, paragem de máquinas ou interrupção do processo. Não é necessária nenhuma ação do utilizador aqui. Estes trabalhos serão automaticamente marcados como **Falhados** ao fim de 30 dias. [Saiba mais](backup-windows-with-mars-agent.md#run-an-on-demand-backup) para executar um trabalho de reserva a pedido usando o agente MARS.
 
 ## <a name="manage-the-backup-cache-folder"></a>Gerir a pasta de cache de reserva
 
@@ -198,7 +202,7 @@ Se tiver a mesma palavra-passe (que forneceu durante o registo) da máquina orig
 
 | Máquina Original | Frase-passe | Opções disponíveis |
 | --- | --- | --- |
-| Perdido |Disponível |Pode instalar e registar o agente MARS noutra máquina com a mesma frase de passe que forneceu durante o registo da máquina original. Escolha **A Opção de Recuperação**  >  **Outro local** para realizar a sua restauração. Para mais informações, consulte este [artigo.](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+| Perdido |Disponível |Pode instalar e registar o agente MARS noutra máquina com a mesma frase de passe que forneceu durante o registo da máquina original. Escolha **A Opção de Recuperação**  >  **Outro local** para realizar a sua restauração. Para obter mais informações, veja [este](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) artigo.
 | Perdido |Perdido |Não é possível recuperar os dados ou os dados não estão disponíveis |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Os meus trabalhos de apoio têm falhado ou não estão a funcionar há muito tempo. Já passei do período de retenção. Ainda posso restaurar?

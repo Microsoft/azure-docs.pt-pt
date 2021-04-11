@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: 90267f2b75b7b9c1e77a45d7e3faa4b0bf6dd63a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 492571ac76acfcf388954a4b714b6603aced7338
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91708548"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107674"
 ---
 # <a name="iot-edge-modules"></a>Módulos do IoT Edge
 
@@ -58,7 +58,7 @@ Todos os termos dos acordos e políticas do Microsoft Azure Marketplace aplicam-
 
 Para publicar um módulo IoT Edge no Azure Marketplace, tem de cumprir os seguintes requisitos:
 
-- Acesso ao Centro de Parceiros. Para obter mais informações, consulte [Criar uma conta comercial no Partner Center.](partner-center-portal/create-account.md)
+- Acesso ao Centro de Parceiros. Para obter mais informações, consulte [Criar uma conta comercial no Partner Center.](create-account.md)
 - Hospedar o seu módulo IoT Edge num Registo de Contentores Azure.
 - Tenha os metadados do módulo IoT Edge prontos, tais como (lista não exaustiva):
     - Um título

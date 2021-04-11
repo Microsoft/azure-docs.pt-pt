@@ -1,14 +1,14 @@
 ---
 title: Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para o Farol de Azure.
-ms.date: 02/17/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092140"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107453"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 
@@ -16,7 +16,7 @@ Neste artigo, você aprenderá a publicar uma oferta de Serviço Gerido público
 
 ## <a name="publishing-requirements"></a>Requisitos de publicação
 
-Precisa de ter uma conta válida [no Partner Center](../../marketplace/partner-center-portal/create-account.md) para criar e publicar ofertas. Se ainda não tiver uma conta, o processo de inscrição irá [levá-lo](https://aka.ms/joinmarketplace) através dos passos de criação de uma conta no Partner Center e inscrição no programa Mercado Comercial.
+Precisa de ter uma conta válida [no Partner Center](../../marketplace/create-account.md) para criar e publicar ofertas. Se ainda não tiver uma conta, o processo de inscrição irá [levá-lo](https://aka.ms/joinmarketplace) através dos passos de criação de uma conta no Partner Center e inscrição no programa Mercado Comercial.
 
 De acordo com os [requisitos de certificação do Serviço Gerido,](/legal/marketplace/certification-policies#700-managed-services)você deve ter um [nível](/partner-center/learn-about-competencies) de competência silver ou Gold Cloud Platform ou ser um [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido. Também tem de [introduzir um destino de chumbo que irá criar um registo no seu sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) sempre que um cliente implementar a sua oferta.
 
@@ -26,13 +26,14 @@ A tabela a seguir pode ajudar a determinar se devem ou não embarcar clientes pu
 
 |**Consideração**  |**Oferta de Serviço Gerido**  |**Modelos de ARM**  |
 |---------|---------|---------|
-|Requer [conta partner center](../../marketplace/partner-center-portal/create-account.md)   |Yes         |No        |
+|Requer [conta partner center](../../marketplace/create-account.md)   |Yes         |No        |
 |Requer [nível](/partner-center/learn-about-competencies) de competência da Plataforma Cloud prateada ou dourada ou [MSP expert Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Yes         |No         |
 |Disponível para novos clientes através do Azure Marketplace     |Yes     |No       |
 |Pode limitar a oferta a clientes específicos     |Sim (apenas com ofertas privadas, que não podem ser usadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP)         |Yes         |
 |Requer aceitação do cliente no portal Azure     |Yes     |No   |
 |Pode usar a automatização para embarcar várias subscrições, grupos de recursos ou clientes |No     |Yes    |
 |Acesso imediato a novas funções incorporadas e características do Farol Azure     |Nem sempre (geralmente disponível após algum atraso)         |Yes         |
+|Os clientes podem rever e aceitar ofertas atualizadas no portal Azure | Yes | No |
 
 > [!NOTE]
 > As ofertas de Serviço Gerido podem não estar disponíveis no Governo de Azure e noutras nuvens nacionais.
@@ -62,6 +63,8 @@ Depois de um cliente adicionar a sua oferta, eles serão capazes [de delegar uma
 > A delegação deve ser feita por uma conta não hóspede no arrendatário do cliente que tenha um papel com a `Microsoft.Authorization/roleAssignments/write` permissão, como o [Proprietário,](../../role-based-access-control/built-in-roles.md#owner)para que a subscrição seja a bordo (ou que contenha os grupos de recursos que estão a ser a bordo). Para encontrar utilizadores que possam delegar a subscrição, um utilizador no arrendatário do cliente pode selecionar a subscrição no portal Azure, abrir o **controlo de acesso (IAM)** e [ver todos os utilizadores com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Uma vez que o cliente delega uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição), o fornecedor de recursos **Microsoft.ManagedServices** será registado para essa subscrição, e os utilizadores no seu inquilino poderão aceder aos recursos delegados de acordo com as autorizações da sua oferta.
+
+Se publicar uma versão atualizada da sua oferta, o cliente pode [rever as alterações no portal Azure e aceitar a nova versão](view-manage-service-providers.md#update-service-provider-offers).
 
 ## <a name="next-steps"></a>Passos seguintes
 

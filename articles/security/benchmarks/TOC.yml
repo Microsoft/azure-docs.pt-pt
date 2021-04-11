@@ -67,6 +67,8 @@
       href: ../../application-gateway/security-baseline.md
     - name: Linha de base de segurança da Automatização
       href: ../../automation/security-baseline.md
+    - name: Linha de segurança do Diretório Ativo Azure
+      href: ../../active-directory/fundamentals/security-baseline.md
     - name: Linha de base de segurança do Assistente do Azure
       href: ../../advisor/security-baseline.md
     - name: Linha de base de segurança do Azure App Configuration

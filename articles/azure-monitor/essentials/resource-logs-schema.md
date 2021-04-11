@@ -2,18 +2,18 @@
 title: Azure Resource Logs suportados serviços e esquemas
 description: Compreenda os serviços suportados e o esquema de eventos para registos de recursos Azure.
 ms.topic: reference
-ms.date: 09/01/2020
-ms.openlocfilehash: 661cba2d78dbb176bb04e6831cf8e045a285535e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/07/2020
+ms.openlocfilehash: 09415353d93313f1b3c4844202b59f577ef3838d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033100"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105770"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para registos de recursos Azure
 
 > [!NOTE]
-> Os registos de recursos eram anteriormente conhecidos como registos de diagnóstico. O nome foi alterado em outubro de 2019, uma vez que os tipos de registos recolhidos pelo Azure Monitor mudaram para incluir mais do que apenas o recurso Azure. Além disso, a lista de categorias de registo de recursos que poderia recolher costumava estar listada neste artigo. Foram transferidos para [categorias de registo de recursos.](resource-logs-categories.md) 
+> Os registos de recursos eram anteriormente conhecidos como registos de diagnóstico. O nome foi alterado em outubro de 2019, uma vez que os tipos de registos recolhidos pelo Azure Monitor mudaram para incluir mais do que apenas o recurso Azure. Além disso, a lista de categorias de registo de recursos que pode recolher costumava estar listada neste artigo. Estão agora nas [categorias de registo de recursos.](resource-logs-categories.md) 
 
 [Os registos de recursos do Azure Monitor](../essentials/platform-logs-overview.md) são registos emitidos pelos serviços da Azure que descrevem o funcionamento desses serviços ou recursos. Todos os registos de recursos disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos.
 
@@ -65,6 +65,7 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Base de Dados do Azure para MySQL | [Base de Dados Azure para registos de diagnóstico mySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Base de Dados do Azure para PostgreSQL | [Base de Dados Azure para registos PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Registo de diagnósticos no Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Proteção contra DDoS | [Registo de registo para norma de proteção DDoS Azure](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Configurar diagnósticos de gémeos digitais Azure](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Hubs de Eventos |[Logs de hubs de eventos Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schema não está disponível. |
@@ -76,13 +77,13 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Balanceador de Carga |[Análise de registos para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Proteção contra DDoS | [Registo de registo para norma de proteção DDoS Azure](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI Dedicado | [Registo de Power BI Incorporado em Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Serviços de Recuperação | [Modelo de dados para backup Azure](../../backup/backup-azure-reports-data-model.md)|
 | Pesquisar |[Ativar e utilizar a Pesquisa traffic Analytics](../../search/search-traffic-analytics.md) |
 | Service Bus |[Registos de ônibus de serviço Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Base de Dados SQL | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registos de trabalhos](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Armazenamento | [Blobs,](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview) [Arquivos,](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview) [Filas, Tabelas](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview) [](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
 | Gestor de Tráfego | [Esquema de registo do gestor de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Redes Virtuais | Schema não está disponível. |
 | Gateways de Rede Virtual | Schema não está disponível. |

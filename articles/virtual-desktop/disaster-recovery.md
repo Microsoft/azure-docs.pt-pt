@@ -7,13 +7,13 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 968f82a143872fd282222539ab71a70db488a20d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 18089bc00e9d02087acb149511fbc2c55077c153
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91935768"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106446932"
 ---
 # <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>Criar um plano de continuidade de negócios e recuperação de desastres
 

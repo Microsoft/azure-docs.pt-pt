@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/01/2021
+ms.date: 04/06/2021
 ms.author: yashar
-ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a6ddcef1493f15442a723bcc93850e6197db84d8
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030713"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285603"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho da máquina virtual com o Reserved VM Instances
 
@@ -39,6 +39,7 @@ Você compra uma instância VM reservada com o tamanho Standard_DS4_v2 onde o r�
 - Cenário 1: Executar oito VMs de tamanho Standard_DS1_v2 com um rácio de 1. O seu desconto de reserva aplica-se a todos os oito VMs.
 - Cenário 2: Executar dois VMs de tamanho Standard_DS2_v2 com uma razão de 2 cada. Também executar um VM de tamanho Standard_DS3_v2 com uma proporção de 4. A pegada total é de 2+2+4=8. Assim, o seu desconto de reserva aplica-se a todos os três VMs.
 - Cenário 3: Executar um Standard_DS5_v2 com uma razão de 16. O seu desconto de reserva aplica-se a metade do custo de cálculo da VM.
+- Cenário 4: Executar um Standard_DS5_v2 com um rácio de 16 e comprar uma reserva adicional de Standard_DS4_v2 com um rácio de 8. Ambas as reservas combinam e aplicam o desconto a toda a VM.
 
 As secções seguintes mostram quais os tamanhos do grupo da série do mesmo tamanho quando você compra um exemplo VM reservado otimizado, por exemplo, flexibilidade de tamanho.
 

@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 70676bd1a07acdfcbba071a906b390ed66d70074
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: cf654f07cbbd729fac8feb9e2f8f7ceff471ae6a
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91279863"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447000"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificar e diagnosticar problemas de ambiente de trabalho virtual do Windows
 

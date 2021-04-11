@@ -20,6 +20,8 @@
       href: walkthrough-exchange-all.md
     - name: Instruções para parceiros do Peering Service
       href: walkthrough-peering-service-all.md
+    - name: Parceiro de serviços de comunicações walkthrough
+      href: walkthrough-communications-services-partner.md
     - name: Associar o ASN do elemento de rede à subscrição do Azure
       items:
         - name: Portal

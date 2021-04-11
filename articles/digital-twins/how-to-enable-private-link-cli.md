@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5bd7ffda508980a9a56d86037887fc53a0fed640
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4dab08983fc1348ca49e728a65d48aa65fe19a47
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102202948"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105719"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Permitir o acesso privado com Link Privado (pré-visualização): Azure CLI
 
@@ -53,21 +53,21 @@ Para obter uma lista completa dos parâmetros necessários e opcionais, bem como
 
 ### <a name="manage-private-endpoint-connections-on-the-instance"></a>Gerir ligações privadas de ponto final no caso
 
-Uma vez criado um ponto final privado para a sua instância Azure Digital Twins, pode utilizar os comandos [**de ligação de pontos de terminação da rede Az DT**](/cli/azure/ext/azure-iot/dt/network/private-endpoint/connection) para continuar a gerir **ligações privadas** de ponto final no que diz respeito à instância. As operações incluem:
+Uma vez criado um ponto final privado para a sua instância Azure Digital Twins, pode utilizar os comandos [**de ligação de pontos de terminação da rede Az DT**](/cli/azure/dt/network/private-endpoint/connection) para continuar a gerir **ligações privadas** de ponto final no que diz respeito à instância. As operações incluem:
 * Mostrar uma ligação de ponto final privado
 * Definir o estado da ligação private-endpoint
 * Eliminar a ligação de ponto final privado
 * Listar todas as ligações de ponto final privado para um exemplo
 
-Para obter mais informações e exemplos, consulte a [documentação de referência de referência **de ponto final privado da rede AZ DT**](/cli/azure/ext/azure-iot/dt/network/private-endpoint).
+Para obter mais informações e exemplos, consulte a [documentação de referência de referência **de ponto final privado da rede AZ DT**](/cli/azure/dt/network/private-endpoint).
 
 ### <a name="manage-other-private-link-information-on-an-azure-digital-twins-instance"></a>Gerir outras informações de Private Link sobre um caso Azure Digital Twins
 
-Pode obter informações adicionais sobre o estado do Link Privado do seu caso com os comandos [**de ligação privada da rede Az DT.**](/cli/azure/ext/azure-iot/dt/network/private-link) As operações incluem:
+Pode obter informações adicionais sobre o estado do Link Privado do seu caso com os comandos [**de ligação privada da rede Az DT.**](/cli/azure/dt/network/private-link) As operações incluem:
 * Listar links privados associados a uma instância Azure Digital Twins
 * Mostrar uma ligação privada associada ao caso
 
-Para obter mais informações e exemplos, consulte a [documentação de referência **de ligação privada da rede Az DT**](/cli/azure/ext/azure-iot/dt/network/private-link).
+Para obter mais informações e exemplos, consulte a [documentação de referência **de ligação privada da rede Az DT**](/cli/azure/dt/network/private-link).
 
 ## <a name="disable--enable-public-network-access-flags"></a>Desativar / permitir bandeiras de acesso à rede pública
 
@@ -79,7 +79,7 @@ Este artigo mostra como atualizar o valor da bandeira da rede utilizando o [CLI 
 
 ### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 
-No CLI Azure, pode desativar ou permitir o acesso à rede pública adicionando um `--public-network-access` parâmetro ao `az dt create` comando. Embora este comando também possa ser usado para criar um novo exemplo, você pode usá-lo para editar as propriedades de uma instância existente, fornecendo-lhe o nome de um caso que já existe. (Para obter mais informações sobre este comando, consulte a sua [documentação de referência](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) ou as [instruções gerais para a criação de um exemplo de Gémeos Digitais Azure).](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)
+No CLI Azure, pode desativar ou permitir o acesso à rede pública adicionando um `--public-network-access` parâmetro ao `az dt create` comando. Embora este comando também possa ser usado para criar um novo exemplo, você pode usá-lo para editar as propriedades de uma instância existente, fornecendo-lhe o nome de um caso que já existe. (Para obter mais informações sobre este comando, consulte a sua [documentação de referência](/cli/azure/dt#az_dt_create) ou as [instruções gerais para a criação de um exemplo de Gémeos Digitais Azure).](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)
 
 Para **desativar** o acesso à rede pública para uma instância Azure Digital Twins, utilize o `--public-network-access` parâmetro como este:
 

@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: c673f7a9556193fb05e05ea372bfccd17cd3c5ed
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: eeeaf01dd20e5b309884a01f954ceca576cbcbb9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868516"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259630"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
-O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume SMB3.
+O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. 
+
+Este artigo mostra-lhe como criar um volume SMB3. Para volumes NFS, consulte [Criar um volume NFS](azure-netapp-files-create-volumes.md). Para volumes de duplo protocolo, consulte [Criar um volume de duplo protocolo](create-volumes-dual-protocol.md).
 
 ## <a name="before-you-begin"></a>Antes de começar 
 
@@ -128,10 +130,12 @@ O acesso a um volume SMB é gerido através de permissões.
 
 ### <a name="share-permissions"></a>Partilhar permissões  
 
-Por predefinição, um novo volume tem as permissões de partilha **De Todos /Controlo Total.** Os membros do grupo Domain Admins podem alterar as permissões de partilha utilizando a Gestão de Computadores na conta de computador que é utilizada para o volume de Ficheiros Azure NetApp.
+Por predefinição, um novo volume tem as permissões de partilha **De Todos /Controlo Total.** Os membros do grupo Domain Admins podem alterar as permissões de partilha da seguinte forma:  
 
-![SMB caminho de montagem ](../media/azure-netapp-files/smb-mount-path.png) 
- ![ Definir permissões de partilha](../media/azure-netapp-files/set-share-permissions.png) 
+1. Mapear a partilha para uma unidade.  
+2. Clique com o botão direito na unidade, selecione **Propriedades** e, em seguida, vá para o **separador Segurança.**
+
+[![Definir permissões de partilha](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 
 ### <a name="ntfs-file-and-folder-permissions"></a>Permissões de ficheiros e pastas NTFS  
 

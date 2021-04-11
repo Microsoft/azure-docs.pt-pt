@@ -3,21 +3,21 @@ title: Quais as novidades no Windows Virtual Desktop? - Azure
 description: Novas funcionalidades e atualizações de produtos para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/20/2021
+ms.date: 04/08/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: acb9b6d9d2080c63243ec4b924d07a927d6ccdfd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774444"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107062"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
-Atualizações de Ambiente de Trabalho Virtual do Windows regularmente. Este artigo é onde você vai descobrir sobre:
+Windows Virtual Desktop atualiza regularmente. Este artigo é onde você vai descobrir sobre:
 
 - As últimas atualizações
 - Novas funcionalidades
@@ -40,14 +40,64 @@ Consulte estes artigos para saber mais sobre as atualizações para os nossos cl
 
 O agente virtual do Windows atualiza pelo menos uma vez por mês.
 
-Aqui está o que mudou no Windows Virtual Desktop Agent:
+Eis o que mudou no Windows Virtual Desktop Agent:
 
-- Versão 1.0.2800.2800: Esta atualização foi lançada em março de 2021 e corrigiu um problema de ligação inversa.
-- Versão 1.0.2800.2700: Esta atualização foi lançada em fevereiro de 2021 e fixou um problema de orquestração negado de acesso.
+- Versão 1.0.2866.1500: Esta atualização foi lançada a 26 de março de 2021 e resolveu um problema com o cheque de saúde da stack.
+- Versão 1.0.2800.2802: Esta atualização foi lançada a 10 de março de 2021 e tem melhorias gerais e correções de bugs.
+- Versão 1.0.2800.2800: Esta atualização foi lançada a 2 de março de 2021 e corrigiu um problema de ligação inversa.
+- Versão 1.0.2800.2700: Esta atualização foi lançada a 10 de fevereiro de 2021 e tem melhorias gerais e correções de bugs.
+- Versão 1.0.2800.2700: Esta atualização foi lançada a 4 de fevereiro de 2021 e fixou um problema de orquestração negado de acesso.
 
 ## <a name="fslogix-updates"></a>Atualizações da FSLogix
 
 Curioso sobre as últimas atualizações para fSLogix? Confira [as novidades da FSLogix.](/fslogix/whats-new)
+
+## <a name="march-2021"></a>março de 2021
+
+Eis o que mudou em março de 2021.
+
+### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Atualizações para o portal Azure UI para Windows Virtual Desktop
+
+Fizemos as seguintes atualizações para o Windows Virtual Desktop para o portal Azure:
+
+- Permitimos novas opções de disponibilidade (disponibilidade definida e zonas) para os fluxos de trabalho criarem piscinas hospedeiras e adicionarem VMs.
+- Resolvemos um problema em que um hospedeiro com o estatuto de "Assistência às Necessidades" parecia indisponível. Agora o anfitrião terá um ícone de aviso ao lado.
+- Permitimos a triagem para sessões ativas.
+- Pode agora enviar mensagens ou assinar utilizadores específicos no separador detalhes do anfitrião.
+- Mudamos o campo limite máximo de sessão.
+- Adicionámos um caminho de validação da U ao fluxo de trabalho para criar uma piscina de anfitriões.
+- Agora pode utilizar a versão mais recente da imagem do Windows 10 quando criar um pool de anfitriões pessoais.
+
+### <a name="generation-2-images-and-trusted-launch"></a>Imagens da Geração 2 e Lançamento Fidedigno
+
+O Azure Marketplace conta agora com imagens da Geração 2 para o Windows 10 Enterprise e para o Windows 10 Enterprise multi-sessão. Estas imagens permitir-lhe-ão utilizar VMs de lançamento fidedignos. Saiba mais sobre os VMs da Geração 2 em [Caso eu crie uma máquina virtual de geração 1 ou 2.](../virtual-machines/generation-2.md) Para saber como providenciar VMs de lançamento fidedignos de desktop virtual do Windows, consulte [o nosso post TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+
+### <a name="fslogix-is-now-preinstalled-on-windows-10-enterprise-multi-session-images"></a>FSLogix está agora pré-instalado em imagens multi-sessão do Windows 10 Enterprise
+
+Com base no feedback dos clientes, criamos uma nova versão da imagem multi-sessão do Windows 10 Enterprise que tem uma versão não configurada do FSLogix já instalada. Esperamos que isto facilite a implementação do seu Windows Virtual Desktop.
+
+### <a name="azure-monitor-for-windows-virtual-desktop-is-now-in-general-availability"></a>O Monitor Azure para o Ambiente de Trabalho Virtual do Windows está agora em Disponibilidade Geral
+
+O Azure Monitor para Windows Virtual Desktop está agora disponível para o público. Esta funcionalidade é um serviço automatizado que monitoriza as suas implementações e permite-lhe visualizar eventos, saúde e sugestões de resolução de problemas num único local. Para mais informações, consulte a [nossa documentação](azure-monitor.md) ou consulte o [nosso posto TechCommunity.](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861)
+
+### <a name="march-2021-updates-for-teams-on-windows-virtual-desktop"></a>Atualizações de março de 2021 para Equipas no Windows Virtual Desktop
+
+Fizemos as seguintes atualizações para equipas no Windows Virtual Desktop:
+
+- Melhorámos o desempenho da qualidade do vídeo nas chamadas e no modo 2x2.
+- Reduzimos a utilização do CPU em 5-10% (dependendo da geração cpU) usando o descarregamento de hardware do processamento de vídeo (XVP).
+- As máquinas mais antigas podem agora utilizar o XVP e a descodagem de hardware para exibir mais streams de vídeo que chegam suavemente no modo 2x2.
+- Atualizámos a stack WebRTC de M74 a M88 para um melhor desempenho de sincronização de AV e menos problemas transitórios.
+- Substituímos o nosso codificar de software H264 por OpenH264 (OSS usado em Equipas na web), o que aumentou a qualidade de vídeo da câmara de saída.
+- Adorámos o modo 2x2 para o Teams Server para o público em geral a 30 de março. O modo 2x2 mostra até quatro streams de vídeo ao mesmo tempo.
+
+### <a name="start-vm-on-connect-public-preview"></a>Iniciar VM na pré-visualização pública do Connect
+
+A nova configuração da piscina do anfitrião, Start VM on Connect, já está disponível em pré-visualização pública. Esta definição permite ligar os seus VM sempre que precisar. Se quiser economizar custos, terá de negociar os seus VMs configurando as definições do Azure Compute. Para mais informações, confira o [nosso blog post](https://aka.ms/wvdstartvmonconnect) e a nossa [documentação.](start-virtual-machine-connect.md)
+
+### <a name="windows-virtual-desktop-specialty-certification"></a>Certificação de especialidade de desktop virtual do Windows
+
+Lançámos uma versão beta do exame AZ-140 que lhe permitirá provar a sua experiência no Windows Virtual Desktop em Azure. Para saber mais, confira o [nosso post TechCommunity.](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107)
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

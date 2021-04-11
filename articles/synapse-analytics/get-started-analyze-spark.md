@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 0becbbdb68f75072e10a51f5a2eae95291b9ed77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5d08bc216157fce9ad81eaf3c0f540c7a4d8c3f2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108337"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259834"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
@@ -32,20 +32,16 @@ Neste tutorial, você vai aprender os passos básicos para carregar e analisar d
 
 ## <a name="understanding-serverless-apache-spark-pools"></a>Compreender piscinas Apache Spark sem servidor
 
-Uma piscina spark sem servidor é uma forma de indicar como um utilizador quer trabalhar com a Spark. Quando você começar a usar uma piscina, uma sessão de faísca é criada se necessário. A piscina controla quantos recursos spark serão utilizados por essa sessão e quanto tempo a sessão durará muito antes de parar automaticamente. Você paga pelos recursos de faísca usados durante a sessão, não para a própria piscina. Desta forma, uma piscina spark permite-lhe trabalhar com a Spark, sem ter que se preocupar em gerir clusters. Isto é semelhante ao funcionamento de uma piscina SQL sem servidor.
+Uma piscina spark sem servidor é uma forma de indicar como um utilizador quer trabalhar com a Spark. Quando você começar a usar uma piscina, uma sessão de faísca é criada se necessário. A piscina controla quantos recursos spark serão utilizados por essa sessão e quanto tempo a sessão durará antes de parar automaticamente. Você paga pelos recursos de faísca usados durante a sessão, não para a própria piscina. Desta forma, uma piscina spark permite-lhe trabalhar com a Spark, sem ter que se preocupar em gerir clusters. Isto é semelhante ao funcionamento de uma piscina SQL sem servidor.
 
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analise os dados do táxi de NYC no armazenamento de bolhas usando a Spark
 
-1. No Estúdio Synapse ir para o centro **de Desenvolvimento**
+1. No Estúdio Synapse, vá ao centro **de Desenvolvimento**
 2. Crie um novo Caderno com o idioma padrão definido para **PySpark (Python)**.
 3. Crie uma nova célula de código e cole o seguinte código nessa célula.
     ```py
     %%pyspark
-    from azureml.opendatasets import NycTlcYellow
-
-    data = NycTlcYellow()
-    df = data.to_spark_dataframe()
-    # Display 10 rows
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
     display(df.limit(10))
     ```
 1. No caderno, no **menu Attach,** escolha a piscina **Spark1** sem servidor que criamos anteriormente.
@@ -60,7 +56,7 @@ Uma piscina spark sem servidor é uma forma de indicar como um utilizador quer t
 
 Os dados estão disponíveis através do **dataframe dados denominados.** Coloque-o numa base de dados spark chamada **nyctaxi.**
 
-1. Adicione um novo ao caderno e, em seguida, introduza o seguinte código:
+1. Adicione uma nova célula de código ao caderno e, em seguida, introduza o seguinte código:
 
     ```py
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")

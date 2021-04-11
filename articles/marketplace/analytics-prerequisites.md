@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 1cdd3dba8203ce9e8daeaa963f1722389d89d19d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b61608c0cb53ab808c5d3d789ec5ddc318c6923d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563825"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106807"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Pré-requisitos para aceder programaticamente a dados de análise
 
@@ -20,7 +20,7 @@ Antes de poder aceder programáticamente aos dados de análise de marketplace co
 
 ## <a name="commercial-marketplace-enrollment"></a>Inscrição no mercado comercial
 
-Para aceder programaticamente a dados de análise de marketplace comercial, precisa de estar inscrito no programa de marketplace comercial e ter uma conta Partner Center. Para saber como, consulte [Criar uma conta de mercado comercial no Partner Center.](./partner-center-portal/create-account.md)
+Para aceder programaticamente a dados de análise de marketplace comercial, precisa de estar inscrito no programa de marketplace comercial e ter uma conta Partner Center. Para saber como, consulte [Criar uma conta de mercado comercial no Partner Center.](create-account.md)
 
 ## <a name="create-azure-active-directory-application"></a>Criar aplicação de Diretório Ativo Azure
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: trbye
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8f1e5f38e97a1b51a2d919deebbdc452e9daf993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddba62b37c200ade87dbb51042fe0cb084a9ef9a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98539781"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106127"
 ---
 # <a name="what-is-the-speech-cli"></a>O que é a CLI de Voz?
 
@@ -36,7 +36,7 @@ Utilize o SDK de discurso quando:
 
 * Reconhecimento de voz - Converta a fala-a-texto a partir de ficheiros áudio ou diretamente de um microfone, ou transcreva uma conversa gravada.
 
-* Síntese de fala - Converta texto-a-fala utilizando a entrada de ficheiros de texto ou introduza diretamente a partir da linha de comando. Personalize as características de saída da fala utilizando [configurações SSML](speech-synthesis-markup.md), e [vozes padrão ou neurais](speech-synthesis-markup.md#standard-neural-and-custom-voices).
+* Síntese de fala - Converta texto-a-fala utilizando a entrada de ficheiros de texto ou introduza diretamente a partir da linha de comando. Personalize as características de saída da fala utilizando [configurações SSML](speech-synthesis-markup.md), e [vozes padrão ou neurais](speech-synthesis-markup.md#neural-and-custom-voices).
 
 * Tradução da fala - Traduza o áudio numa língua de origem para texto ou áudio numa língua-alvo.
 

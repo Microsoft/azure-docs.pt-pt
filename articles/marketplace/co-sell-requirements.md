@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28fdd8b10c7106380c296c8131ade909ee88d0f8
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593395"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107096"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de co-venda
 
@@ -35,7 +35,7 @@ Para uma oferta para obter o estatuto de co-venda, deve cumprir os seguintes req
 
 **Todos os parceiros:**
 
-- Tenha uma identificação mpn e uma conta de mercado comercial ativa [no Partner Center.](./partner-center-portal/create-account.md)
+- Tenha uma identificação mpn e uma conta de mercado comercial ativa [no Partner Center.](create-account.md)
 - Certifique-se de que tem um [perfil de negócio](/partner-center/create-a-marketing-profile) completo no Partner Center. Como parceiro qualificado da Microsoft, o seu perfil de negócio ajuda a mostrar o seu negócio a clientes que procuram as suas soluções e conhecimentos únicos para responder às suas necessidades de negócio, resultando em [referências.](/partner-center/referrals)
 - Complete a **Co-venda com** o separador Microsoft e publique a oferta no mercado comercial.
 - Fornecer um contacto de vendas para cada co-venda de geografia elegível e fatura de materiais necessários.
@@ -59,7 +59,7 @@ Fornecemos modelos para ajudá-lo a criar estes documentos. Para obter mais info
 
 ### <a name="publish-your-offer-live"></a>Publique a sua oferta ao vivo
 
-Para se qualificar para o estatuto de co-venda, a sua oferta ou solução deve ser publicada em direto para pelo menos uma das lojas online do mercado comercial: Azure Marketplace ou Microsoft AppSource. Para obter informações sobre ofertas de publicação no mercado comercial, consulte [o guia de publicação por tipo de oferta.](publisher-guide-by-offer-type.md) Se ainda não publicou uma oferta no mercado comercial, certifique-se de que tem uma [conta de mercado comercial.](./partner-center-portal/create-account.md)
+Para se qualificar para o estatuto de co-venda, a sua oferta ou solução deve ser publicada em direto para pelo menos uma das lojas online do mercado comercial: Azure Marketplace ou Microsoft AppSource. Para obter informações sobre ofertas de publicação no mercado comercial, consulte [o guia de publicação por tipo de oferta.](publisher-guide-by-offer-type.md) Se ainda não publicou uma oferta no mercado comercial, certifique-se de que tem uma [conta de mercado comercial.](create-account.md)
 
 ## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Requisitos para Azure IP Co-vender estatuto incentivado
 

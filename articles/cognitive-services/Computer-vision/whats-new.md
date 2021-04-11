@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f102bbe45fd5eea853ba63def4f1c1a92888ca46
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487105"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285948"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
@@ -40,7 +40,7 @@ A pré-visualização pública da API v3.2 da Computer Vision, disponível como 
 * Extrair texto apenas para páginas selecionadas para um documento de várias páginas.
 * Disponível como [recipiente distrosiável](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para implantação no local.
 
-[Saiba mais](concept-recognizing-text.md) sobre a API de Leitura.
+Consulte o guia de como ler [a API para](Vision-API-How-to-Topics/call-read-api.md) saber mais.
 
 > [!div class="nextstepaction"]
 > [Utilize a API de Leitura v3.2 Visualização pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
@@ -50,7 +50,7 @@ A pré-visualização pública da API v3.2 da Computer Vision, disponível como 
 
 ### <a name="spatial-analysis-container-update"></a>Atualização do contentor de análise espacial
 
-Uma nova versão do recipiente de [análise espacial](spatial-analysis-container.md) foi lançada com um novo conjunto de funcionalidades. Este recipiente Docker permite-lhe analisar o streaming de vídeo em tempo real para entender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos. 
+Uma nova versão do [recipiente de Análise Espacial](spatial-analysis-container.md) foi lançada com um novo conjunto de funcionalidades. Este recipiente Docker permite-lhe analisar o streaming de vídeo em tempo real para entender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos. 
 
 * [As operações de análise espacial](spatial-analysis-operations.md) podem agora ser configuradas para detetar se uma pessoa está a usar uma cobertura facial protetora, como uma máscara. 
     * Um classificador de máscara pode ser ativado para o `personcount` , `personcrossingline` e `personcrossingpolygon` operações configurando o `ENABLE_FACE_MASK_CLASSIFIER` parâmetro.
@@ -59,8 +59,8 @@ Uma nova versão do recipiente de [análise espacial](spatial-analysis-container
 * **Breaking change**: O evento *personZoneEvent* foi renomeado para *personZoneEnterExitEvent*. Este evento é levantado pela operação *personcrossingpolygon* quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi atravessada.
 * O URL de vídeo pode ser fornecido como "Parâmetro Privado/obfuscado" em todas as operações. A obfuscção é opcional agora e só funcionará se `KEY` e for fornecida como `IV` variáveis ambientais.
 * A calibração é ativada por padrão para todas as operações. `do_calibration: false`Desative-o.
-* Suporte adicional para recalibração automática (por defeito desativado) através do `enable_recalibration` parâmetro, consulte [as operações de análise espacial](./spatial-analysis-operations.md) para mais detalhes
-* Parâmetros de calibração da câmara para o `DETECTOR_NODE_CONFIG` . Consulte [as operações de análise espacial](./spatial-analysis-operations.md) para obter mais detalhes.
+* Suporte adicional para recalibração automática (por defeito desativado) através do `enable_recalibration` parâmetro, consulte [as operações de Análise Espacial](./spatial-analysis-operations.md) para mais detalhes
+* Parâmetros de calibração da câmara para o `DETECTOR_NODE_CONFIG` . Consulte as [operações de Análise Espacial](./spatial-analysis-operations.md) para obter mais detalhes.
 
 
 ## <a name="october-2020"></a>Outubro de 2020
@@ -73,7 +73,7 @@ A API de Visão Computacional em Disponibilidade Geral foi atualizada para v3.1.
 
 ### <a name="spatial-analysis-container-preview"></a>Pré-visualização do recipiente de análise espacial
 
-O [recipiente de análise espacial](spatial-analysis-container.md) está agora em pré-visualização. A funcionalidade de análise espacial da Visão Computacional permite-lhe analisar vídeos de streaming em tempo real para entender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos. A análise espacial é um recipiente Docker que podes usar no local. 
+O [recipiente de Análise Espacial](spatial-analysis-container.md) está agora em pré-visualização. A funcionalidade de Análise Espacial da Visão Computacional permite-lhe analisar vídeos de streaming em tempo real para compreender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos. Análise Espacial é um recipiente Docker que pode usar no local. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Ler API v3.1 Visualização Pública adiciona OCR para japonês
 A pré-visualização pública da API v3.1 da Computer Vision adiciona estas capacidades:
@@ -83,7 +83,7 @@ A pré-visualização pública da API v3.1 da Computer Vision adiciona estas cap
 
 * Esta versão de pré-visualização da API de leitura suporta línguas inglesa, holandesa, francesa, alemã, italiana, japonesa, portuguesa, chinesa simplificada e espanhola.
 
-Consulte a [visão geral](concept-recognizing-text.md) da API para saber mais.
+Consulte o guia de como ler [a API para](Vision-API-How-to-Topics/call-read-api.md) saber mais.
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a API v3.1 Visualização Pública 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
@@ -95,18 +95,20 @@ A pré-visualização pública da API v3.1 da Computer Vision adiciona suporte p
 
 * Esta versão de pré-visualização da API de leitura suporta línguas inglesa, holandesa, francesa, alemã, italiana, portuguesa, chinesa simplificada e espanhola.
 
-Consulte a [visão geral](concept-recognizing-text.md) da API para saber mais.
+Consulte o guia de como ler [a API para](Vision-API-How-to-Topics/call-read-api.md) saber mais.
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a API v3.1 Visualização Pública 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maio de 2020
-A API de Visão Computacional v3.0 entrou na Disponibilidade Geral, com atualizações para [ler a API:](concept-recognizing-text.md)
+A API de Visão Computacional v3.0 entrou na Disponibilidade Geral, com atualizações para a API de Leitura:
 
 * Apoio ao inglês, holandês, francês, alemão, italiano, português e espanhol
 * Maior precisão
 * Pontuação de confiança para cada palavra extraída
 * Novo formato de saída
+
+Consulte a [visão geral](overview-ocr.md) do OCR para saber mais.
 
 ## <a name="march-2020"></a>Março de 2020
 

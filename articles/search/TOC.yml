@@ -392,6 +392,8 @@
       items:
         - name: Análise de desempenho
           href: search-performance-analysis.md
+        - name: Testes de referência do desempenho
+          href: performance-benchmarks.md
         - name: Dicas para um melhor desempenho
           href: search-performance-tips.md
         - name: Registo de diagnósticos

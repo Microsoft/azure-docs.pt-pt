@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 32b41c1c4446ba34e3bfad52f1d3cbd7ed72096d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 91c8834b48625aac0f279f84648d374df15fbdd0
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108814"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285399"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Responsabilidades do cliente para executar Azure Spring Cloud em VNET
 Este documento inclui especificações para a utilização da Azure Spring Cloud numa rede virtual.
@@ -33,7 +33,7 @@ Segue-se uma lista de requisitos de recursos para os serviços Azure Spring Clou
 ## <a name="azure-spring-cloud-network-requirements"></a>Requisitos de rede Azure Spring Cloud
 
   | Ponto final de destino | Porta | Utilização | Nota |
-  |------|------|------|
+  |------|------|------|------|
   | *:1194 *Ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:1194 | UDP:1194 | Gestão subjacente do Cluster Kubernetes. | |
   | *:443 *Ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443 | TCP:443 | Gestão do Serviço de Nuvem de primavera Azure. | A informação sobre a instância de serviço "requeredTraffics" poderia ser conhecida na carga útil de recursos, na secção "networkProfile". |
   | *:9000 *Ou* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:9000 | TCP:9000 | Gestão subjacente do Cluster Kubernetes. |
@@ -43,9 +43,9 @@ Segue-se uma lista de requisitos de recursos para os serviços Azure Spring Clou
   | *.servicebus.windows.net:443 Ou  [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443 | Centro de Eventos Azure. | Pode ser substituído ativando o ponto final de serviço *do Azure Event Hubs* [na rede virtual.](../virtual-network/virtual-network-service-endpoints-overview.md) |
   
 
-## <a name="azure-spring-cloud-fqdn-requirements--application-rules"></a>Requisitos de FQDN da nuvem de primavera de Azure
+## <a name="azure-spring-cloud-fqdn-requirementsapplication-rules"></a>Requisitos/regras de aplicação da Azure Spring Cloud Cloud FQDN
 
-A Azure Firewall fornece uma etiqueta de domínio totalmente qualificada (FQDN) **AzureKubernetesService** para simplificar as seguintes configurações.
+A Azure Firewall fornece a tag FQDN **AzureKubernetesService** para simplificar as seguintes configurações:
 
   | Destino FQDN | Porta | Utilização |
   |------|------|------|
@@ -61,6 +61,15 @@ A Azure Firewall fornece uma etiqueta de domínio totalmente qualificada (FQDN) 
   | *mscrl.microsoft.com* | HTTPS:80 | Percursos em cadeia de certificados da Microsoft. |
   | *crl.microsoft.com* | HTTPS:80 | Percursos em cadeia de certificados da Microsoft. |
   | *crl3.digicert.com* | HTTPS:80 | 3º Partido SSL Certificate Chain Paths. |
+  
+## <a name="azure-spring-cloud-optional-fqdn-for-third-party-application-performance-management"></a>Azure Spring Cloud opcional FQDN para gestão de desempenho de aplicações de terceiros
+
+A Azure Firewall fornece a tag FQDN **AzureKubernetesService** para simplificar as seguintes configurações:
+
+  | Destino FQDN | Porta | Utilização                                                          |
+  | ---------------- | ---- | ------------------------------------------------------------ |
+  | colecionador*.newrelic.com | TCP:443/80 | Redes necessárias de novos agentes APM de Relíquias da região dos EUA, também ver [redes de agentes da APM.](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents) |
+  | collector*.eu01.nr-data.net | TCP:443/80 | Redes necessárias de novos agentes APM de relíquias da região da UE, também ver [redes de agentes da APM](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
 
 ## <a name="see-also"></a>Ver também
 * [Aceda à sua aplicação numa rede privada](access-app-virtual-network.md)
