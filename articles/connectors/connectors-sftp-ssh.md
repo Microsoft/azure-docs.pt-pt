@@ -6,18 +6,18 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 tags: connectors
-ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449633"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385858"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com o SSH e o Azure Logic Apps
+# <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Criar e gerir ficheiros SFTP utilizando apps SSH e Azure Logic
 
-Para automatizar tarefas que monitorizem, criem, enviem e recebam ficheiros num servidor [de Protocolo de Transferência de Ficheiros Seguro (SFTP),](https://www.ssh.com/ssh/sftp/) utilizando o protocolo Secure Shell [(SSH),](https://www.ssh.com/ssh/protocol/) pode construir e automatizar fluxos de trabalho de integração utilizando apps Azure Logic e o conector SFTP-SSH. O SFTP é um protocolo de rede que fornece acesso a ficheiros, transferência de ficheiros e gestão de ficheiros através de qualquer fluxo de dados fiável.
+Para automatizar tarefas que criam e gerem ficheiros num servidor [secure file transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) utilizando o protocolo Secure Shell [(SSH),](https://www.ssh.com/ssh/protocol/) pode criar fluxos de trabalho de integração automatizados utilizando apps lógicas Azure e o conector SFTP-SSH. O SFTP é um protocolo de rede que fornece acesso a ficheiros, transferência de ficheiros e gestão de ficheiros através de qualquer fluxo de dados fiável.
 
 Aqui estão algumas tarefas de exemplo que pode automatizar:
 
@@ -27,7 +27,7 @@ Aqui estão algumas tarefas de exemplo que pode automatizar:
 * Obtenha conteúdo de ficheiro e metadados.
 * Extrair arquivos para pastas.
 
-Pode utilizar gatilhos que monitorizem eventos no seu servidor SFTP e disponibilizem a saída para outras ações. Pode utilizar ações que executam várias tarefas no seu servidor SFTP. Também pode ter outras ações na sua aplicação lógica que utilizam a saída das ações da SFTP. Por exemplo, se recuperar regularmente ficheiros do seu servidor SFTP, pode enviar alertas de e-mail sobre esses ficheiros e o seu conteúdo utilizando o conector Do Office 365 Outlook ou o conector Outlook.com. Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+No seu fluxo de trabalho, pode utilizar um gatilho que monitoriza eventos no seu servidor SFTP e disponibiliza a saída para outras ações. Em seguida, pode utilizar ações para executar várias tarefas no seu servidor SFTP. Também pode incluir outras ações que utilizam a saída das ações SFTP-SSH. Por exemplo, se recuperar regularmente ficheiros do seu servidor SFTP, pode enviar alertas de e-mail sobre esses ficheiros e o seu conteúdo utilizando o conector do Office 365 Outlook ou o conector Outlook.com. Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a secção [Compare SFTP-SSH versus SFTP](#comparison) mais tarde neste tópico.
 
@@ -40,20 +40,18 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
   * OpenText Secure MFT
   * OpenText GXS
 
-* O conector SFTP-SSH suporta a autenticação privada da chave ou a autenticação por palavra-passe, e não ambos.
-
-* As ações SFTP-SSH que [suportam a chunking](../logic-apps/logic-apps-handle-large-messages.md) podem lidar com ficheiros até 1 GB, enquanto as ações SFTP-SSH que não suportam o chunking podem lidar com ficheiros até 50 MB. Embora o tamanho do pedaço padrão seja de 15 MB, este tamanho pode mudar dinamicamente, começando de 5 MB e aumentando gradualmente para o máximo de 50-MB, com base em fatores como latência de rede, tempo de resposta do servidor, e assim por diante.
+* As ações SFTP-SSH que [suportam a chunking](../logic-apps/logic-apps-handle-large-messages.md) podem lidar com ficheiros até 1 GB, enquanto as ações SFTP-SSH que não suportam o chunking podem lidar com ficheiros até 50 MB. O tamanho do pedaço predefinido é de 15 MB. No entanto, este tamanho pode mudar dinamicamente, a partir de 5 MB e gradualmente aumentando para o máximo de 50-MB. O dimensionamento dinâmico baseia-se em fatores como a latência da rede, o tempo de resposta do servidor, e assim por diante.
 
   > [!NOTE]
   > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector requer que se utilizem os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
   Pode anular este comportamento adaptativo quando [especificar um tamanho constante](#change-chunk-size) de pedaço para usar. Este tamanho pode variar de 5 MB a 50 MB. Por exemplo, suponha que tem um ficheiro de 45-MB e uma rede que pode suportar esse tamanho de ficheiro sem latência. O chunking adaptativo resulta em várias chamadas, em vez daquela chamada. Para reduzir o número de chamadas, pode tentar definir um tamanho de pedaço de 50 MB. Em diferentes cenários, se a sua aplicação lógica estiver a cronometrar, por exemplo, ao utilizar pedaços de 15-MB, pode tentar reduzir o tamanho para 5 MB.
 
-  O tamanho do pedaço está associado a uma ligação, o que significa que você pode usar a mesma conexão para ações que suportam o chunking e, em seguida, para ações que não suportam o chunking. Neste caso, o tamanho do pedaço para ações que não suportam o chunking varia de 5 MB a 50 MB. Este quadro mostra quais as ações da SFTP-SSH que suportam a chunking:
+  O tamanho do pedaço está associado a uma ligação. Este atributo significa que pode usar a mesma ligação para ambas as ações que suportam o chunking e ações que não suportam o chunking. Neste caso, o tamanho do pedaço para ações que não suportam o chunking varia de 5 MB a 50 MB. Este quadro mostra quais as ações da SFTP-SSH que suportam a chunking:
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | No | Não aplicável |
+  | **Ficheiro de cópia** | Não | Não aplicável |
   | **Criar ficheiro** | Yes | Yes |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar ficheiro** | Não aplicável | Não aplicável |
@@ -64,20 +62,20 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | No | Não aplicável |
+  | **Atualizar ficheiro** | Não | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:
 
-  1. Utilize um gatilho SFTP-SSH que retorna apenas propriedades de ficheiros, tais como **Quando um ficheiro é adicionado ou modificado (apenas propriedades)**.
+  1. Utilize um gatilho SFTP-SSH que retorna apenas propriedades de ficheiros. Estes gatilhos têm nomes que incluem a descrição, **(apenas propriedades)**.
 
-  1. Siga o gatilho com a ação de conteúdo de **ficheiro** SFTP-SSH, que lê o ficheiro completo e utiliza implicitamente o corte de mensagens.
+  1. Siga o gatilho com a ação de conteúdo de **ficheiro** SFTP-SSH. Esta ação lê o ficheiro completo e utiliza implicitamente o chunking de mensagens.
 
 <a name="comparison"></a>
 
 ## <a name="compare-sftp-ssh-versus-sftp"></a>Compare SFTP-SSH versus SFTP
 
-Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conector SFTP onde o conector SFTP-SSH tem estas capacidades:
+A lista a seguir descreve as principais capacidades SFTP-SSH que diferem do conector SFTP:
 
 * Utiliza a [biblioteca SSH.NET](https://github.com/sshnet/SSH.NET), que é uma biblioteca secure shell (SSH) de código aberto que suporta .NET.
 
@@ -85,30 +83,25 @@ Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conect
 
 * Fornece a ação **de ficheiro Rename,** que renomeia um ficheiro no servidor SFTP.
 
-* Caches a ligação ao servidor SFTP *até 1 hora*, o que melhora o desempenho e reduz o número de tentativas de ligação ao servidor. Para definir a duração deste comportamento de caching, edite a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na configuração SSH no seu servidor SFTP.
+* Caches a ligação ao servidor SFTP *por um máximo de 1 hora*. Esta capacidade melhora o desempenho e reduz a frequência com que o conector tenta ligar-se ao servidor. Para definir a duração deste comportamento de caching, edite a propriedade [ **ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na configuração SSH no seu servidor SFTP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* O endereço do servidor SFTP e as credenciais de conta, que permitem que a sua aplicação lógica aceda à sua conta SFTP. Você também precisa de acesso a uma chave privada SSH e a senha de chave privada SSH. Para utilizar o chunking ao carregar ficheiros grandes, precisa de ler e escrever permissões para a pasta raiz no seu servidor SFTP. Caso contrário, obtém-se um erro "401 Não Autorizado".
+* O endereço do servidor SFTP e as credenciais de conta, para que o seu fluxo de trabalho possa aceder à sua conta SFTP. Você também precisa de acesso a uma chave privada SSH e a senha de chave privada SSH. Para fazer o upload de ficheiros grandes utilizando o chunking, é necessário ler e escrever o acesso para a pasta raiz no seu servidor SFTP. Caso contrário, obtém-se um erro "401 Não Autorizado".
 
-  > [!IMPORTANT]
-  >
-  > O conector SFTP-SSH suporta *apenas* estes formatos de chave privadas, algoritmos e impressões digitais:
-  >
-  > * **Formatos chave privados**: Teclas RSA (Rivest Shamir Adleman) e DSA (Algoritmo de Assinatura Digital) em ambos os formatos OpenSSH e ssh.com. Se a sua chave privada estiver no formato de ficheiro PuTTY (.ppk), [primeiro converta a chave para o formato de ficheiro OpenSSH (.pem).](#convert-to-openssh)
-  >
-  > * **Algoritmos de encriptação**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
-  >
-  > * **Impressão digital**: MD5
-  >
-  > Depois de adicionar o gatilho SFTP-SSH ou a ação que pretende à sua aplicação lógica, tem de fornecer informações de ligação para o seu servidor SFTP. Quando fornecer a sua chave privada SSH para esta ligação, ***não introduza ou edite manualmente a tecla***, o que pode causar a falha da ligação. Em vez disso, certifique-se de que ***copia a chave*** do seu ficheiro de chave privada SSH e ***cole*** essa chave nos detalhes da ligação. 
-  > Para mais informações, consulte a [secção Connect to SFTP com SSH](#connect) mais tarde este artigo.
+  O conector SFTP-SSH suporta a autenticação privada da chave e a autenticação por palavra-passe. No entanto, o conector SFTP-SSH suporta *apenas* estes formatos de chaves privadas, algoritmos e impressões digitais:
+
+  * **Formatos chave privados**: Teclas RSA (Rivest Shamir Adleman) e DSA (Algoritmo de Assinatura Digital) em ambos os formatos OpenSSH e ssh.com. Se a sua chave privada estiver no formato de ficheiro PuTTY (.ppk), [primeiro converta a chave para o formato de ficheiro OpenSSH (.pem).](#convert-to-openssh)
+  * **Algoritmos de encriptação**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
+  * **Impressão digital**: MD5
+
+  Depois de adicionar um gatilho SFTP-SSH ou ação ao seu fluxo de trabalho, tem de fornecer informações de ligação para o seu servidor SFTP. Quando fornecer a sua chave privada SSH para esta ligação, ***não introduza manualmente ou edite a tecla** _, o que pode causar a falha da ligação. Em vez disso, certifique-se de que _*_copia a chave_*_ do seu ficheiro de chave privada SSH e _ *_cole_** essa chave nos detalhes da ligação. Para mais informações, consulte a [secção Connect to SFTP com SSH](#connect) mais tarde este artigo.
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A aplicação lógica onde pretende aceder à sua conta SFTP. Para começar com um gatilho SFTP-SSH, [crie uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar uma ação SFTP-SSH, inicie a sua aplicação lógica com outro gatilho, por exemplo, o gatilho **recorrência.**
+* O fluxo de trabalho de aplicações lógicas onde pretende aceder à sua conta SFTP. Para começar com um gatilho SFTP-SSH, [crie um fluxo de trabalho de aplicações lógicas em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar uma ação SFTP-SSH, inicie o seu fluxo de trabalho com outro gatilho, por exemplo, o gatilho **de Recorrência.**
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Como os acionadores do SFTP-SSH funcionam
 
@@ -130,13 +123,13 @@ Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo fichei
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Mudança de recorrência do gatilho e deriva
 
-Os gatilhos baseados em ligação onde é necessário criar uma ligação em primeiro lugar, como o gatilho SFTP-SSH, diferem dos gatilhos incorporados que funcionam de forma nativa em Azure Logic Apps, como o [gatilho de Recorrência](../connectors/connectors-native-recurrence.md). Em gatilhos baseados em ligação recorrente, o calendário de recorrência não é o único condutor que controla a execução, e o fuso horário apenas determina a hora de início inicial. As execuções subsequentes dependem do calendário de recorrência, da última execução do *gatilho, e* de outros fatores que podem causar tempos de fuga ou produzir comportamentos inesperados, por exemplo, não mantendo o horário especificado quando o horário de verão (DST) começa e termina. Para garantir que o tempo de recorrência não muda quando o DST entra em vigor, ajuste manualmente a recorrência para que a sua aplicação lógica continue a funcionar no momento esperado. Caso contrário, a hora de início muda uma hora para a frente quando o DST começa e uma hora para trás quando o DST termina. Para obter mais informações, consulte [Recorrência para gatilhos baseados em ligação](../connectors/apis-list.md#recurrence-connection-based).
+Os gatilhos baseados em ligação onde é necessário criar uma ligação em primeiro lugar, como o gatilho SFTP-SSH, diferem dos gatilhos incorporados que funcionam de forma nativa em Azure Logic Apps, como o [gatilho de Recorrência](../connectors/connectors-native-recurrence.md). Em gatilhos baseados em ligação recorrente, o calendário de recorrência não é o único condutor que controla a execução, e o fuso horário apenas determina a hora de início inicial. As execuções subsequentes dependem do calendário de recorrência, da última execução do *gatilho, e* de outros fatores que podem causar tempos de fuga ou produzir comportamentos inesperados. Por exemplo, o comportamento inesperado pode incluir a falha na manutenção do horário especificado quando o horário de verão (DST) começa e termina. Para garantir que o tempo de recorrência não muda quando o DST faz efeito, ajuste manualmente a recorrência. Assim, o seu fluxo de trabalho continua a funcionar no momento esperado. Caso contrário, a hora de início muda uma hora para a frente quando o DST começa e uma hora para trás quando o DST termina. Para obter mais informações, consulte [Recorrência para gatilhos baseados em ligação](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 
 ## <a name="convert-putty-based-key-to-openssh"></a>Converter a chave baseada em PuTTY para o OpenSSH
 
-Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome do ficheiro .ppk (Chave Privada PuTTY), primeiro converta a chave para o formato OpenSSH, que utiliza a extensão do nome do ficheiro .pem (Privacy Enhanced Mail).
+O formato PuTTY e o formato OpenSSH utilizam diferentes extensões de nome de ficheiro. O formato PuTTY utiliza a extensão do nome do ficheiro .ppk, ou PuTTY Private. O formato OpenSSH utiliza a extensão de nome de ficheiro .pem, ou Privacy Enhanced Mail. Se a sua chave privada estiver no formato PuTTY e tiver de utilizar o formato OpenSSH, primeiro converta a chave para o formato OpenSSH seguindo estes passos:
 
 ### <a name="unix-based-os"></a>Sistema operativo unix
 
@@ -176,9 +169,9 @@ Esta secção descreve considerações a rever quando utiliza os gatilhos e aç�
 
 ### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Utilize diferentes pastas SFTP para o upload e processamento de ficheiros
 
-No seu servidor SFTP, certifique-se de que utiliza pastas separadas para onde armazena ficheiros carregados e onde o gatilho monitoriza esses ficheiros para processamento, o que significa que precisa de uma forma de mover ficheiros entre essas pastas. Caso contrário, o gatilho não dispara e comporta-se de forma imprevisível, por exemplo, ignorando um número aleatório de ficheiros que o gatilho processa.
+No seu servidor SFTP, utilize pastas separadas para armazenar ficheiros carregados e para que o gatilho monitorize esses ficheiros para o processamento. Caso contrário, o gatilho não dispara e comporta-se de forma imprevisível, por exemplo, ignorando um número aleatório de ficheiros que o gatilho processa. No entanto, este requisito significa que precisa de uma forma de mover ficheiros entre essas pastas. 
 
-Se este problema acontecer, retire os ficheiros da pasta que o gatilho monitoriza e utilize uma pasta diferente para armazenar os ficheiros carregados.
+Se este problema de gatilho acontecer, retire os ficheiros da pasta que o gatilho monitoriza e utilize uma pasta diferente para armazenar os ficheiros carregados.
 
 <a name="create-file"></a>
 
@@ -216,7 +209,7 @@ Para criar um ficheiro no seu servidor SFTP, pode utilizar a ação de ficheiro 
 
    1. Selecione   >  **Editar Copy**.
 
-   1. No gatilho ou ação SFTP-SSH que adicionou, cole a chave *completa* que copiou para a propriedade **chave privada SSH,** que suporta várias linhas.  **_Certifique-se de colar_*_ a chave. _* Não _introduza manualmente ou edite a chave_**.
+   1. No gatilho ou ação SFTP-SSH, *cole a* chave copiada completa na propriedade chave **privada SSH,** que suporta várias linhas. **_Não introduza ou edite manualmente a chave._**
 
 1. Depois de terminar de introduzir os detalhes da ligação, selecione **Criar**.
 
@@ -244,9 +237,9 @@ Para anular o comportamento adaptativo predefinido que o chunking utiliza, pode 
 
 ### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - Gatilho SSH: Quando um ficheiro é adicionado ou modificado
 
-Este gatilho inicia um fluxo de trabalho de aplicações lógicas quando um ficheiro é adicionado ou alterado num servidor SFTP. Por exemplo, pode adicionar uma condição que verifica o conteúdo do ficheiro e obtém o conteúdo com base no facto de o conteúdo cumprir uma condição especificada. Em seguida, pode adicionar uma ação que obtém o conteúdo do ficheiro e coloca esse conteúdo numa pasta no servidor SFTP.
+Este gatilho inicia um fluxo de trabalho quando um ficheiro é adicionado ou alterado num servidor SFTP. Como exemplo de ações de acompanhamento, o fluxo de trabalho pode usar uma condição para verificar se o conteúdo do ficheiro cumpre os critérios especificados. Se o conteúdo satisfaça a condição, a ação SFTP-SSH do conteúdo do **ficheiro Get** SFTP-SSH pode obter o conteúdo e, em seguida, outra ação SFTP-SSH pode colocar esse ficheiro numa pasta diferente no servidor SFTP.
 
-**Exemplo da empresa**: Pode utilizar este gatilho para monitorizar uma pasta SFTP para novos ficheiros que representem as ordens dos clientes. Em seguida, pode utilizar uma ação SFTP, como **obter conteúdo de ficheiros,** para obter o conteúdo da encomenda para posterior processamento e armazenar essa encomenda numa base de dados de encomendas.
+**Exemplo da empresa**: Pode utilizar este gatilho para monitorizar uma pasta SFTP para novos ficheiros que representem as ordens dos clientes. Em seguida, pode utilizar uma ação SFTP-SSH, como obter o conteúdo do **ficheiro,** para obter o conteúdo da encomenda para posterior processamento e armazenar essa encomenda numa base de dados de encomendas.
 
 <a name="get-content"></a>
 
@@ -282,7 +275,7 @@ Este erro pode ocorrer quando a sua aplicação lógica não consegue estabelece
 
 ### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 erro: "Foi feita uma referência a um ficheiro ou pasta que não existe"
 
-Este erro pode ocorrer quando a sua aplicação lógica cria um novo ficheiro no seu servidor SFTP através da ação de ficheiro SFTP-SSH **Create,** mas move imediatamente o ficheiro recém-criado antes que o serviço De aplicações lógicas possa obter os metadados do ficheiro. Quando a sua aplicação lógica executa a ação **de ficheiro Create,** o serviço De aplicações lógicas também liga automaticamente para o seu servidor SFTP para obter os metadados do ficheiro. No entanto, se a sua aplicação lógica mover o ficheiro, o serviço De Aplicações Lógicas já não pode encontrar o ficheiro para obter a `404` mensagem de erro.
+Este erro pode ocorrer quando o seu fluxo de trabalho cria um ficheiro no seu servidor SFTP com a ação de ficheiro SFTP-SSH **Create,** mas move imediatamente esse ficheiro antes que o serviço De aplicações lógicas possa obter os metadados do ficheiro. Quando o seu fluxo de trabalho executa a ação **de ficheiros Create,** o serviço De aplicações lógicas liga automaticamente para o servidor SFTP para obter os metadados do ficheiro. No entanto, se a sua aplicação lógica mover o ficheiro, o serviço De Aplicações Lógicas já não pode encontrar o ficheiro para obter a `404` mensagem de erro.
 
 Se não conseguir evitar ou atrasar a deslocação do ficheiro, pode ignorar a leitura dos metadados do ficheiro após a criação do ficheiro, seguindo estes passos:
 

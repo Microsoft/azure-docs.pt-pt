@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 03/29/2021
 ms.author: aahi
 keywords: no local, Docker, contentor, análise de sentimento, processamento de linguagem natural
-ms.openlocfilehash: cc5406cec54defd118ba350ba59b8d7311cff563
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 012e725e31097af5af634a1aba7693048c4c6b3e
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089733"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277475"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
@@ -32,7 +32,7 @@ Os contentores permitem-lhe executar as APIs de Análise de Texto no seu própri
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 > [!IMPORTANT]
-> A conta gratuita está limitada a 5.000 transações por mês e apenas os <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">níveis de preços</a> **Gratuitos** e **Standard** são válidos para contentores. Para obter mais informações sobre as taxas de pedido de transação, consulte [Limites de Dados](../overview.md#data-limits).
+> A conta gratuita está limitada a 5.000 transações por mês e apenas os <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">níveis de preços</a> **Gratuitos** e **Standard** são válidos para contentores. Para obter mais informações sobre as taxas de pedido de transação, consulte [Limites de Dados](../concepts/data-limits.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

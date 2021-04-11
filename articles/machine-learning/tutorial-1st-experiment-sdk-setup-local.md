@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Começar com machine learning - Python'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você vai começar com o Azure Machine Learning SDK para Python correndo em seu ambiente de desenvolvimento pessoal.
+description: Começa com o Azure Machine Learning SDK para Python a funcionar no teu ambiente de desenvolvimento pessoal.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: devx-track-python, contperf-fy21q3
 adobe-target: true
-ms.openlocfilehash: 81b9b5d53e1b61322d25d5dead85429474c1272c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 69340245cdebda570b526afd4f11ac8314384b43
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935554"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210623"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Começa com a Azure Machine Learning no teu ambiente de desenvolvimento (parte 1 de 4)
 
@@ -30,16 +30,18 @@ Na primeira parte desta série tutorial, você:
 > * Configurar a estrutura do diretório para código.
 > * Criar um espaço de trabalho de aprendizagem automática Azure.
 > * Configure o seu ambiente de desenvolvimento local.
-> * Crie um cluster de computação.
+> * Crie um cluster de computação, um recurso baseado na nuvem para treinar os seus modelos.
 
-> [!NOTE]
-> Esta série tutorial centra-se nos conceitos de Aprendizagem automática Azure necessários para submeter **trabalhos** em lote - é aqui que o código é submetido à nuvem para ser executado em segundo plano sem qualquer interação do utilizador. Isto é útil para scripts ou códigos acabados que deseja executar repetidamente, ou para tarefas de aprendizagem automática intensiva de computação. Se estiver mais interessado num fluxo de trabalho exploratório, pode utilizar [o Jupyter ou o RStudio num caso de aprendizagem automática Azure](tutorial-1st-experiment-sdk-setup.md).
+Esta série tutorial centra-se nos conceitos de Aprendizagem automática Azure necessários para submeter **trabalhos** em lote - é aqui que o código é submetido à nuvem para ser executado em segundo plano sem qualquer interação do utilizador. Isto é útil para scripts ou códigos acabados que deseja executar repetidamente, ou para tarefas de aprendizagem automática intensiva de computação.
+
+Outra ótima maneira de começar a usar Azure Machine Learning é com um caderno Jupyter.  Ver [Tutorial: Começar com Azure Machine Learning em Cadernos Jupyter](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente [a aprendizagem automática Azure.](https://aka.ms/AMLFree)
 - [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) para gerir ambientes virtuais Python e instalar pacotes.  
 - Se não está familiarizado com o uso de conda, veja [Como começa com conda.](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)
+- Qualquer IDE ou editor de texto para criar os seus scripts Python.
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Instalar o Azure Machine Learning SDK
 

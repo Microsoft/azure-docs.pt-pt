@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 01/27/2021
+ms.date: 04/07/2021
 ms.author: alkohli
-ms.openlocfilehash: b6389152116a47bedbc9c2dc44231f3e1732fdc6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 43477f11effaafb0bcd6158be6843c79d19092ac
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055115"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210815"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Quickstart: Começa com o Azure Stack Edge Pro com GPU 
 
@@ -36,7 +36,7 @@ Antes de partir, certifique-se de que estão em vigor os seguintes pré-requisit
 
 ## <a name="deployment-steps"></a>Passos da implementação
 
-1. **Instalação:** Ligue a PORTA 1 a um computador cliente através de um cabo de cruzamento ou adaptador USB Ethernet. Ligue pelo menos uma outra porta de dispositivo para obter dados, de preferência 25 GbE( da PORTA 3 a PORT 6) para a Internet através de pelo menos 1 comutador de GbE e cabos de cobre SFP+. Ligue os cabos de alimentação fornecidos às Unidades de Alimentação e separe as tomadas de distribuição de energia. Pressione o botão de alimentação no painel frontal para ligar o aparelho.  
+1. **Instalação:** Ligue a PORTA 1 a um computador cliente através de um cabo de cruzamento ou adaptador USB Ethernet. Ligue pelo menos uma outra porta de dispositivo para obter dados, de preferência 25 GbE, (de PORT 3 a PORT 6) à Internet através de cabos de cobre SFP+ ou utilize o PORTO 2 com o cabo de remendo RJ45. Ligue os cabos de alimentação fornecidos às Unidades de Alimentação e separe as tomadas de distribuição de energia. Pressione o botão de alimentação no painel frontal para ligar o aparelho.  
 
     Consulte [a Matriz de Interoperabilidade da Série Cavium FastlinQ 41000](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) e a dupla porta [Mellanox 25G ConnectX-4 produtos compatíveis com a rede](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) de canais para obter cabos e interruptores de rede compatíveis.
 

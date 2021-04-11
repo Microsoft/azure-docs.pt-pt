@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: dc0655aba424d29a4055f0d50a20057f22d084ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c365f367a090f1697b71c51f24679b9ea09561d0
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015460"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490017"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -240,7 +240,7 @@ A tabela a seguir resume como o dispositivo Azure IoT Central apresenta o mapa n
 | Telemetria | Mensagens dispositivo-a-nuvem |
 | Comandos offline | Mensagens nuvem-para-dispositivo |
 | Propriedade | Propriedades reportadas de twin dispositivo |
-| Propriedade (depreciada) | Propriedades duplas do dispositivo desejadas e reportadas |
+| Propriedade (writable) | Propriedades duplas do dispositivo desejadas e reportadas |
 | Comando | Métodos diretos |
 
 ### <a name="protocols"></a>Protocolos

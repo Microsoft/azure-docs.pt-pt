@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/11/2021
-ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.date: 04/08/2021
+ms.openlocfilehash: 075b02e3e5f2e409298bf31eb0b6720e64af68a0
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276659"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210833"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -67,6 +67,10 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
     - [Configurar o autoescalador de cluster em AKS](../aks/cluster-autoscaler.md)
 
 - __Não atualize diretamente o cluster utilizando uma configuração YAML__. Enquanto a Azure Kubernetes Services suporta atualizações através da configuração YAML, as implementações de Machine Learning do Azure irão sobrepor-se às suas alterações. Os únicos dois campos YAML que não serão substituídos são __os limites__ de pedido e __o CPU e a memória.__
+
+- Criar um cluster AKS usando o estúdio Azure Machine Learning UI, SDK ou extensão CLI __não__ é idempotente. Tentar criar novamente o recurso resultará num erro que já existe um cluster com o mesmo nome.
+    
+    - A utilização de um modelo de Gestor de Recursos Azure e o recurso [Microsoft.MachineLearningServices/workspaces/computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) para criar um cluster AKS também __não__ é idempotente. Se tentar utilizar novamente o modelo para atualizar um recurso já existente, receberá o mesmo erro.
 
 ## <a name="azure-kubernetes-service-version"></a>Versão do Azure Kubernetes Service
 

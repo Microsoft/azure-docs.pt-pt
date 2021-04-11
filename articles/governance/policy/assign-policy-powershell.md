@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Nova atribuição de políticas com a PowerShell'
 description: Neste arranque rápido, você usa a Azure PowerShell para criar uma atribuição de Política Azure para identificar recursos não conformes.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: e941b74101308af703f243197fb4043f8f32d233
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1043bd53fa2c494d34b0007a851b95afd937d991
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88548417"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091417"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando a Azure PowerShell
 

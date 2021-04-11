@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 47c641eedbbe096a75223286563acb0a2405b1a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d5ff0f2444aac153116e8e33a6ed2af74c93f057
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935214"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553520"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
 Este artigo fornece referências às melhores práticas que podem ajudá-lo a entender as arquiteturas de solução para a utilização de Ficheiros Azure NetApp.  
@@ -54,10 +54,11 @@ Esta secção fornece referências para aplicações Windows e soluções SQL Se
 
 ### <a name="sql-server"></a>SQL Server
 
+* [Servidor SQL no guia de implementação do Azure usando ficheiros Azure NetApp](https://www.netapp.com/pdf.html?item=/media/27154-tr-4888.pdf)
+* [Benefícios da utilização de ficheiros Azure NetApp para implementação de servidor SQL](solutions-benefits-azure-netapp-files-sql-server.md)
 * [Implementar servidor SQL sobre SMB com ficheiros Azure NetApp](https://www.youtube.com/watch?v=x7udfcYbibs)
 * [Implementar o sql server Always-On Failover Cluster sobre SMB com ficheiros Azure NetApp](https://www.youtube.com/watch?v=zuNJ5E07e8Q) 
 * [Implementar grupos de disponibilidade Always-On com ficheiros Azure NetApp](https://www.youtube.com/watch?v=y3VQmzzeyvc) 
-* [Benefícios da utilização de ficheiros Azure NetApp para implementação de servidor SQL](solutions-benefits-azure-netapp-files-sql-server.md)
 
 ## <a name="sap-on-azure-solutions"></a>SOLUÇÕES SAP em Azure
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: f027b2d41f63b5aa7ea3df87e06224abd629799b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 995f4670b17d55fe04d5c30a834ea4be576a8348
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100535319"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106489983"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payloads de comandos, propriedades e telemetria
 
@@ -51,6 +51,10 @@ A IoT Central permite-lhe visualizar os dados brutos que um dispositivo envia pa
     Nesta vista, pode selecionar as colunas para visualizar e definir um intervalo de tempo para visualizar. A coluna **de dados não modelo** mostra dados do dispositivo que não correspondem a nenhuma definição de propriedade ou telemetria no modelo do dispositivo.
 
 ## <a name="telemetry"></a>Telemetria
+
+### <a name="telemetry-in-components"></a>Telemetria em componentes
+
+Se a telemetria for definida num componente, adicione uma propriedade de mensagem personalizada chamada `$.sub` com o nome do componente definido no modelo do dispositivo. Para saber mais, consulte [Tutorial: Crie e ligue uma aplicação ao cliente à sua aplicação Azure IoT Central](tutorial-connect-device.md).
 
 ### <a name="primitive-types"></a>Tipos primitivos
 
@@ -437,6 +441,21 @@ Um cliente de dispositivo deve enviar o estado como JSON que parece o seguinte e
 > [!NOTE]
 > Os formatos de carga útil para propriedades aplicam-se às aplicações criadas em ou após 07/14/2020.
 
+### <a name="properties-in-components"></a>Propriedades em componentes
+
+Se a propriedade for definida num componente, envolva a propriedade no nome do componente. O exemplo a seguir define `maxTempSinceLastReboot` o `thermostat2` componente. O marcador `__t` indica que este é um componente:
+
+```json
+{
+  "thermostat2" : {  
+    "__t" : "c",  
+    "maxTempSinceLastReboot" : 38.7
+    } 
+}
+```
+
+Para saber mais, consulte [Tutorial: Crie e ligue uma aplicação ao cliente à sua aplicação Azure IoT Central](tutorial-connect-device.md).
+
 ### <a name="primitive-types"></a>Tipos primitivos
 
 Esta secção mostra exemplos de tipos de propriedade primitiva que um dispositivo envia para uma aplicação IoT Central.
@@ -715,15 +734,31 @@ Um cliente do dispositivo deve enviar uma carga útil JSON que se pareça com o 
 }
 ```
 
-### <a name="writeable-property-types"></a>Tipos de propriedades escritas
+### <a name="writable-property-types"></a>Tipos de propriedade writable
 
-Esta secção mostra exemplos de tipos de propriedades escritas que um dispositivo recebe de uma aplicação IoT Central.
+Esta secção mostra exemplos de tipos de propriedade writable que um dispositivo recebe de uma aplicação IoT Central.
 
-A IoT Central espera uma resposta do dispositivo para atualizações de propriedades escritas. A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` é opcional. Veja os seguintes excertos, por exemplo.
+Se a propriedade writable for definida num componente, a mensagem de propriedade desejada inclui o nome do componente. O exemplo a seguir mostra a mensagem solicitando ao dispositivo para atualizar `targetTemperature` o `thermostat2` componente. O marcador `__t` indica que este é um componente:
+
+```json
+{
+  "thermostat2": {
+    "targetTemperature": {
+      "value": 57
+    },
+    "__t": "c"
+  },
+  "$version": 3
+}
+```
+
+Para saber mais, consulte [Tutorial: Crie e ligue uma aplicação ao cliente à sua aplicação Azure IoT Central](tutorial-connect-device.md).
+
+A IoT Central espera uma resposta do dispositivo para atualizações de propriedade. A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` é opcional. Veja os seguintes excertos, por exemplo.
 
 `ac` é um campo numérico que utiliza os valores na tabela seguinte:
 
-| Valor | Etiqueta | Description |
+| Valor | Etiqueta | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202`  ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso |
@@ -734,7 +769,7 @@ A IoT Central espera uma resposta do dispositivo para atualizações de propried
 
 `ad` é uma descrição do string de opção.
 
-O seguinte corte de um modelo de dispositivo mostra a definição de um tipo de `string` propriedade escrever:
+O seguinte corte de um modelo de dispositivo mostra a definição de um tipo de `string` propriedade writable:
 
 ```json
 {
@@ -769,7 +804,7 @@ O dispositivo deve enviar a seguinte carga JSON para a IoT Central depois de pro
 }
 ```
 
-O seguinte corte de um modelo de dispositivo mostra a definição de um tipo de `Enum` propriedade escrever:
+O seguinte corte de um modelo de dispositivo mostra a definição de um tipo de `Enum` propriedade writable:
 
 ```json
 {
@@ -834,6 +869,8 @@ O dispositivo deve enviar a seguinte carga JSON para a IoT Central depois de pro
 ```
 
 ## <a name="commands"></a>Comandos
+
+Se o comando for definido num componente, o nome do comando que o dispositivo recebe inclui o nome do componente. Por exemplo, se o comando for chamado `getMaxMinReport` e o componente for `thermostat2` chamado, o dispositivo recebe um pedido para executar um comando chamado `thermostat2*getMaxMinReport` .
 
 O seguinte corte de um modelo de dispositivo mostra a definição de um comando que não tem parâmetros e que não espera que o dispositivo devolva nada:
 
