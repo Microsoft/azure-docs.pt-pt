@@ -1,72 +1,173 @@
 ---
-title: Azure Ative Directory B2C políticas personalizadas | Microsoft Docs
-description: Saiba mais sobre as políticas personalizadas do Azure Ative Directory B2C.
+title: Visão geral da política personalizada do Azure Ative Directory B2C | Microsoft Docs
+description: Um tópico sobre as políticas personalizadas do Azure Ative Directory B2C e o Quadro de Experiência de Identidade.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 06/06/2019
-ms.custom: project-no-code
+ms.topic: reference
+ms.date: 04/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 043cf83d804803e1b5b47d3ac51bbccaa06e4e87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a8aabac6960909f2a3d90fcee01cebb0ad7a832
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87116417"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256944"
 ---
-# <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Ative Directory B2C
+# <a name="azure-ad-b2c-custom-policy-overview"></a>Visão geral da política personalizada AZURE AD B2C
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+As políticas personalizadas são ficheiros de configuração que definem o comportamento do inquilino do Azure Active Directory B2C (AAD B2C). Embora os [fluxos de utilizador](user-flow-overview.md) estejam predefinidos no portal Azure AD B2C para as tarefas de identidade mais comuns, as políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidade para completar muitas tarefas diferentes.
 
-As políticas personalizadas são ficheiros de configuração que definem o comportamento do inquilino do Azure Active Directory B2C (AAD B2C). Os fluxos de utilizador estão predefinidos no portal do Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um programador de identidades para concluir várias tarefas diferentes.
+Uma política personalizada é totalmente configurável e orientada pela política. Uma política personalizada orquestra a confiança entre entidades em protocolos padrão. Por exemplo, OpenID Connect, OAuth, SAML e alguns não padrão, por exemplo, permutas de sistema-sistema baseadas em API. A estrutura cria experiências fáceis de utilizar e etiquetas brancas.
 
-## <a name="comparing-user-flows-and-custom-policies"></a>Comparar fluxos de utilizadores e políticas personalizadas
+Uma política personalizada é representada como um ou mais ficheiros com formato XML, que se referem uns aos outros numa cadeia hierárquica. Os elementos XML definem os blocos de construção, a interação com o utilizador, e outras partes, e a lógica de negócio. 
 
-| Contexto | Fluxos do utilizador | Políticas personalizadas |
-|-|-------------------|-----------------|
-| Utilizadores-alvo | Todos os desenvolvedores de aplicações com ou sem conhecimento de identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipas de identidade interna. São confortáveis com os fluxos OpenID Connect e compreendem os fornecedores de identidade e a autenticação baseada em sinistros. |
-| Método de configuração | Portal Azure com uma interface de utilizador fácil de utilizar (UI). | Editar diretamente ficheiros XML e, em seguida, fazer o upload para o portal Azure. |
-| Personalização de UI | Personalização completa da UI, incluindo HTML, CSS e JavaScript.<br><br>Suporte multilanguage com cordas personalizadas. | Mesma |
-| Personalização de atributos | Atributos padrão e personalizados. | Mesma |
-| Gestão de token e sessão | Token personalizado e várias opções de sessão. | Mesma |
-| Fornecedores de Identidade | Predefinido provedor local ou social e a maioria dos fornecedores de identidade OIDC, como federação com inquilinos do Azure Ative Directory. | OIDC, OAUTH e SAML baseados em padrões.  A autenticação também é possível utilizando a integração com AS REST. |
-| Tarefas identitárias | Inscreva-se ou inscreva-se com contas locais ou muitas contas sociais.<br><br>Redefinição da palavra-passe de autosserviço.<br><br>Edição de perfil.<br><br>Autenticação multi-factor.<br><br>Personalize fichas e sessões.<br><br>O acesso aos fluxos de fichas. | Complete as mesmas tarefas que os fluxos do utilizador utilizando fornecedores de identidade personalizados ou utilize âmbitos personalizados.<br><br>Disponibilização de uma conta de utilizador noutro sistema no momento do registo.<br><br>Envie um e-mail de boas-vindas usando o seu próprio fornecedor de serviços de e-mail.<br><br>Utilize uma loja de utilizadores fora do Azure AD B2C.<br><br>Validar o utilizador forneceu informações com um sistema fidedigno utilizando uma API. |
+## <a name="custom-policy-starter-pack"></a>Pacote de arranque de política personalizada
 
-## <a name="policy-files"></a>Ficheiros de política
+O [pacote de arranque](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) de política personalizada Azure AD B2C vem com várias políticas pré-construídas para que você vá rapidamente. Cada um destes pacotes de arranque contém o menor número de perfis técnicos e viagens de utilizador necessárias para alcançar os cenários descritos:
 
-Estes três tipos de ficheiros de política são utilizados:
+- **LocalAccounts** - Permite a utilização apenas de contas locais.
+- **SocialAccounts** - Permite a utilização apenas de contas sociais (ou federadas).
+- **SocialAndLocalAccounts** - Permite o uso de contas locais e sociais. A maioria das nossas amostras referem-se a esta política.
+- **SocialAndLocalAccountsWithMFA** - Permite opções de autenticação social, local e multi-fatores.
 
-- **Ficheiro base** - contém a maioria das definições. Recomenda-se que faça um número mínimo de alterações neste ficheiro para ajudar na resolução de problemas e na manutenção a longo prazo das suas políticas.
-- **Extensions file** - detém as alterações de configuração únicas para o seu inquilino.
-- **Ficheiro Do Partido De Gestão (RP)** - O único ficheiro focado em tarefas que é invocado diretamente pela aplicação ou serviço (também, conhecido como Partido De Gestão). Cada tarefa única requer o seu próprio RP e, dependendo dos requisitos de marca, o número pode ser "total de aplicações x número total de casos de uso".
+## <a name="understanding-the-basics"></a>Compreender o básico 
 
-Os fluxos do utilizador em Azure AD B2C seguem o padrão de ficheiro acima descrito, mas o desenvolvedor apenas vê o ficheiro RP, enquanto o portal Azure faz alterações no fundo do ficheiro de extensões.
+### <a name="claims"></a>Afirmações
 
-Embora existam três tipos de ficheiros de política, não está restrito a apenas três ficheiros. Pode ter vários ficheiros de cada tipo de ficheiro. Por exemplo, se não quiser fazer alterações no seu ficheiro Extensões, pode criar um ficheiro Extensions2 para prolongar ainda mais o ficheiro Extensões.
+Uma reclamação fornece armazenamento temporário de dados durante uma execução política Azure AD B2C. Pode armazenar informações sobre o utilizador, como o nome próprio, apelido ou qualquer outra reclamação obtida do utilizador ou de outros sistemas (trocas de reclamações). O [esquema de reclamações](claimsschema.md) é o lugar onde declara as suas reivindicações. 
 
-## <a name="custom-policy-core-concepts"></a>Conceitos de núcleo de política personalizada
+Quando a apólice é executada, a Azure AD B2C envia e recebe reclamações de e de partidos internos e externos e, em seguida, envia um subconjunto destas reivindicações para a sua aplicação do partido dependente como parte do token. As reclamações são utilizadas desta forma: 
 
-O serviço de gestão de identidade e acesso ao cliente (CIAM) em Azure inclui:
+- Uma reclamação é guardada, lida ou atualizada contra o objeto do utilizador do diretório.
+- Uma reclamação é recebida de um fornecedor de identidade externo.
+- As reclamações são enviadas ou recebidas através de um serviço de API REST personalizado.
+- Os dados são recolhidos como reclamações do utilizador durante os fluxos de perfis de inscrição ou de edição.
 
-- Um diretório de utilizadores que é acessível através da utilização do Microsoft Graph e que contém dados de utilizadores tanto para contas locais como para contas federadas.
-- Acesso ao **Quadro de Experiência de Identidade** que orquestra a confiança entre utilizadores e entidades e passa reclamações entre eles para completar uma tarefa de gestão de identidade ou acesso.
-- Um serviço de símbolos de segurança (STS) que emite fichas de identificação, tokens de atualização e tokens de acesso (e afirmações SAML equivalentes) e os valida para proteger recursos.
+### <a name="manipulating-your-claims"></a>Manipular as suas reivindicações
 
-O Azure AD B2C interage com fornecedores de identidade, utilizadores, outros sistemas e com o diretório de utilizadores local em sequência para alcançar uma tarefa de identidade. Por exemplo, iniciar sposição num utilizador, registar um novo utilizador ou redefinir uma palavra-passe. O Quadro de Experiência de Identidade e uma política (também chamada de viagem de utilizador ou política de enquadramento de confiança) estabelece a confiança multipartidária e define explicitamente os atores, as ações, os protocolos e a sequência de passos a concluir.
+As [transformações de sinistros](claimstransformations.md) são funções predefinidas que podem ser usadas para converter uma determinada reivindicação em outra, avaliar uma reclamação ou definir um valor de reclamação. Por exemplo, adicionar um item a uma coleção de cordas, alterar o caso de uma cadeia, ou avaliar uma data e uma reclamação de hora. Uma transformação de sinistros especifica um método de transformação. 
 
-O Quadro de Experiência de Identidade é uma plataforma Azure totalmente configurável, orientada por políticas e baseada em nuvem que orquestra a confiança entre entidades em formatos de protocolo padrão como OpenID Connect, OAuth, SAML e algumas não-standard, por exemplo, trocas de sistema-sistema baseadas em REST API. A estrutura cria experiências fáceis de utilizar e etiquetadas com rótulo branco que suportam HTML e CSS.
+### <a name="customize-and-localize-your-ui"></a>Personalize e localize o seu UI
 
-Uma política personalizada é representada como um ou vários ficheiros com formatação XML que fazem referência entre si numa cadeia hierárquica. Os elementos XML definem o esquema de reclamações, as transformações de reclamações, as definições de conteúdo, os fornecedores de sinistros, os perfis técnicos e as etapas de orquestração de jornadas de utilizador, entre outros elementos. Uma política personalizada é acessível como um ou vários ficheiros XML que são executados pelo Quadro de Experiência de Identidade quando invocados por uma parte dependente. Os desenvolvedores que configuram políticas personalizadas devem definir as relações fidedignas com cuidado para incluir pontos finais de metadados, definições exatas de troca de alegações e configurar segredos, chaves e certificados, conforme necessário por cada fornecedor de identidade.
+Quando pretender recolher informações dos seus utilizadores apresentando uma página no seu navegador, utilize o [perfil técnico autoafirmado.](self-asserted-technical-profile.md) Pode editar o seu perfil técnico autoafirmado para [adicionar reclamações e personalizar a entrada do utilizador](./configure-user-input.md).
 
-### <a name="inheritance-model"></a>Modelo de herança
+Para [personalizar a interface do utilizador](customize-ui-with-html.md) para o seu perfil técnico autoafirmado, especifica um URL no elemento de [definição](contentdefinitions.md) de conteúdo com conteúdo HTML personalizado. No perfil técnico autoafirmado, aponta-se para este ID de definição de conteúdo.
 
-Quando uma aplicação chama o ficheiro de política de RP, o Quadro de Experiência de Identidade em Azure AD B2C adiciona todos os elementos do ficheiro base, do ficheiro de extensões e, em seguida, do ficheiro de política rp para montar a política atual em vigor.  Elementos do mesmo tipo e nome no ficheiro RP sobrepõem-se aos que estão nas extensões, e as extensões sobrepõem-se à base.
+Para personalizar cordas específicas da linguagem, utilize o elemento [de localização.](localization.md) Uma definição de conteúdo pode conter uma referência [de localização](localization.md) que especifica uma lista de recursos localizados para carregar. O Azure AD B2C funde elementos de interface de utilizador com o conteúdo HTML que é carregado a partir do seu URL e, em seguida, exibe a página para o utilizador. 
 
+## <a name="relying-party-policy-overview"></a>Visão geral da política partidária de confiar
+
+Uma aplicação de partidos dependentes, que no protocolo SAML é conhecido como prestador de serviços, chama a [política do partido dependente](relyingparty.md) para executar uma viagem específica do utilizador. A política do partido em gestão especifica a jornada do utilizador a executar, e a lista de reclamações que o símbolo inclui. 
+
+![Diagrama mostrando o fluxo de execução da política](./media/custom-policy-overview/custom-policy-execution.png)
+
+Todas as aplicações de partes que usam a mesma política receberão as mesmas reclamações simbólicas, e o utilizador passa pela mesma viagem de utilizador.
+
+### <a name="user-journeys"></a>Viagens de utilizador
+
+[As viagens de utilizador](userjourneys.md) permitem definir a lógica de negócio com o caminho pelo qual o utilizador seguirá para ter acesso à sua aplicação. O utilizador é levado através da viagem do utilizador para recuperar as reclamações que devem ser apresentadas à sua aplicação. Uma viagem de utilizador é construída a partir de uma sequência de passos de [orquestração](userjourneys.md#orchestrationsteps). Um utilizador deve chegar ao último passo para adquirir um token. 
+
+As seguintes instruções descrevem como pode adicionar passos de orquestração à política [de pacote de arranque de conta social e local.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts) Aqui está um exemplo de uma chamada de API REST que foi adicionada.
+
+![viagem personalizada do utilizador](media/custom-policy-overview/user-journey-flow.png)
+
+
+### <a name="orchestration-steps"></a>Etapas de orquestração
+
+O passo de orquestração refere-se a um método que implementa o seu propósito ou funcionalidade pretendido. Este método chama-se [perfil técnico.](technicalprofiles.md) Quando a sua viagem de utilizador precisa de se ramificar para melhor representar a lógica do negócio, o passo de orquestração refere-se à [sub-viagem.](subjourneys.md) Uma sub-jornada contém o seu próprio conjunto de passos de orquestração.
+
+Um utilizador deve alcançar o último passo de orquestração na jornada do utilizador para adquirir um token. Mas os utilizadores podem não precisar de viajar por todos os passos de orquestração. Os passos de orquestração podem ser executados condicionalmente com base em [condições prévias definidas](userjourneys.md#preconditions) no passo de orquestração. 
+
+Após a conclusão de um passo de orquestração, o Azure AD B2C armazena as reclamações outputted no **saco de reclamações**. As reclamações no saco de reclamações podem ser utilizadas por quaisquer outras etapas de orquestração na viagem do utilizador.
+
+O diagrama que se segue mostra como os passos de orquestração da viagem do utilizador podem aceder ao saco de reclamações.
+
+![Viagem de utilizador Azure AD B2C](media/custom-policy-overview/user-journey-diagram.png)
+
+### <a name="technical-profile"></a>Perfil técnico
+
+Um perfil técnico fornece uma interface para comunicar com diferentes tipos de partes. Uma viagem de utilizador combina chamar perfis técnicos através de passos de orquestração para definir a sua lógica de negócio.
+
+Todos os tipos de perfis técnicos partilham o mesmo conceito. Envias pedidos de entrada, geres a transformação de reclamações e comunicas com a parte configurada. Após o processo estar concluído, o perfil técnico devolve os pedidos de saída ao saco de reclamações. Para mais informações, consulte [a visão geral dos perfis técnicos.](technicalprofiles.md)
+
+### <a name="validation-technical-profile"></a>Perfil técnico de validação
+
+Quando um utilizador interage com a interface do utilizador, pode querer validar os dados recolhidos. Para interagir com o utilizador, deve ser utilizado um [perfil técnico autoafirmado.](self-asserted-technical-profile.md)
+
+Para validar a entrada do utilizador, é chamado um perfil técnico de [validação](validation-technical-profile.md) do perfil técnico autoafirmado. Um perfil técnico de validação é um método para chamar qualquer perfil técnico não interativo. Neste caso, o perfil técnico pode devolver reclamações de saída ou uma mensagem de erro. A mensagem de erro é entregue ao utilizador no ecrã, permitindo que o utilizador redoça.
+
+O diagrama que se segue ilustra como o Azure AD B2C utiliza um perfil técnico de validação para validar as credenciais do utilizador.
+
+![Diagrama de perfil técnico de validação](media/custom-policy-overview/validation-technical-profile.png)
+
+## <a name="inheritance-model"></a>Modelo de herança
+
+Cada pacote de arranque inclui os seguintes ficheiros:
+
+- Um ficheiro **Base** que contém a maioria das definições. Para ajudar na resolução de problemas e na manutenção a longo prazo das suas políticas, tente minimizar o número de alterações que faz a este ficheiro.
+- Um ficheiro **Extensões** que contém as alterações de configuração únicas para o seu inquilino. Este ficheiro de política é derivado do ficheiro Base. Utilize este ficheiro para adicionar uma nova funcionalidade ou sobrepor-se à funcionalidade existente. Por exemplo, utilize este ficheiro para federar com novos fornecedores de identidade.
+- Um ficheiro **Relying Party (RP)** que é o único ficheiro focado em tarefas que é invocado diretamente pela aplicação do partido, como as aplicações web, mobile ou desktop. Cada tarefa única, como inscrição, inscrição, reset de password ou edição de perfil, requer o seu próprio ficheiro de política do partido. Este ficheiro de política é derivado do ficheiro de extensões.
+
+O modelo de herança é o seguinte:
+
+- A política infantil a qualquer nível pode herdar da política dos pais e alargá-la adicionando novos elementos.
+- Para cenários mais complexos, pode adicionar mais níveis de herança (até 10 no total).
+- Pode adicionar mais políticas partidárias de dependência. Por exemplo, apagar a minha conta, alterar um número de telefone, a política do partido de singing SAML e muito mais.
+
+O diagrama que se segue mostra a relação entre os ficheiros políticos e as aplicações do partido em gestão.
+
+![Diagrama mostrando o modelo de herança de política de confiança](media/custom-policy-overview/policies.png)
+
+
+## <a name="guidance-and-best-practices"></a>Documentação de orientação e melhores práticas
+
+### <a name="best-practices"></a>Melhores práticas
+
+Dentro de uma política personalizada Azure AD B2C, pode integrar a sua própria lógica de negócio para construir as experiências de utilizador que necessita e alargar a funcionalidade do serviço. Temos um conjunto de boas práticas e recomendações para começar.
+
+- Crie a sua lógica dentro da **política de extensão,** ou **baseando-se na política partidária.** Pode adicionar novos elementos, que irão sobrepor-se à política de base, fazendo referência ao mesmo ID. Isto irá permitir-lhe escalar o seu projeto, facilitando o upgrade da política de base mais tarde se a Microsoft lançar novos packs de arranque.
+- Dentro da **política de base,** recomendamos vivamente evitar fazer quaisquer alterações. Quando necessário, faça comentários onde as alterações são feitas.
+- Quando estiver a sobrevaver um elemento, como metadados de perfil técnico, evite copiar todo o perfil técnico da política base. Em vez disso, copie apenas a secção necessária do elemento. Consulte [a verificação de e-mail desativada](./disable-email-verification.md) para um exemplo de como fazer a alteração.
+- Para reduzir a duplicação de perfis técnicos, onde a funcionalidade principal é partilhada, utilize a [inclusão do perfil técnico.](technicalprofiles.md#include-technical-profile)
+- Evite escrever para o diretório AD Azure durante a entrada, o que pode levar a problemas de estrangulamento.
+- Se a sua política tiver dependências externas, como ASP de REST, certifique-se de que estão altamente disponíveis.
+- Para uma melhor experiência do utilizador, certifique-se de que os seus modelos HTML personalizados são implantados globalmente usando [a entrega de conteúdo on-line](../cdn/index.yml). A Azure Content Delivery Network (CDN) permite reduzir os tempos de carga, poupar largura de banda e melhorar a velocidade de resposta.
+- Se pretender alterar a viagem do utilizador, copie toda a viagem do utilizador da política base para a política de extensão. Forneça um ID de viagem de utilizador único para a viagem de utilizador que copiou. Em seguida, na [política do partido em apoio,](relyingparty.md)altere o elemento de [viagem do utilizador predefinido](relyingparty.md#defaultuserjourney) para apontar para a nova jornada do utilizador.
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Ao desenvolver-se com as políticas Azure AD B2C, poderá encontrar erros ou exceções durante a execução da sua viagem de utilizador. O pode ser investigado usando Insights de Aplicação.
+
+- Integrar Insights de Aplicação com Azure AD B2C para [diagnosticar exceções](troubleshoot-with-application-insights.md).
+- A [extensão AZURE AD B2C para Código do Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) pode ajudá-lo a aceder e [visualizar os registos](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) com base num nome e hora de política.
+- O erro mais comum na configuração de políticas personalizadas é o XML formatado de formação inadequada. Utilize a [validação do esquema XML](troubleshoot-custom-policies.md) para identificar erros antes de carregar o seu ficheiro XML.
+
+## <a name="continuous-integration"></a>Integração contínua
+
+Utilizando um pipeline de integração e entrega contínua (CI/CD) que instalou em Azure Pipelines, pode [incluir as suas políticas personalizadas Azure AD B2C na sua entrega de software](deploy-custom-policies-devops.md) e automatização de controlo de código. À medida que se implanta em diferentes ambientes AD B2C Ad, por exemplo dev, teste e produção, recomendamos que remova os processos manuais e realize testes automatizados utilizando gasodutos Azure.
+
+## <a name="prepare-your-environment"></a>Preparar o ambiente
+
+Você começa com a política personalizada Azure AD B2C:
+
+1. [Criar um inquilino do Azure AD B2C](tutorial-create-tenant.md)
+1. [Registe uma aplicação web](tutorial-register-applications.md) utilizando o portal Azure para que possa testar a sua política.
+1. Adicione as [chaves de política necessárias](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys) e [registe as aplicações do Quadro de Experiência de Identidade](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications).
+1. [Obtenha o pacote de arranque de política Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) e faça o upload para o seu inquilino. 
+1. Depois de fazer o upload do pacote inicial, [teste a sua política de inscrição ou de inscrição](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy).
+1. Recomendamos que descarregue e instale [o Código do Estúdio Visual](https://code.visualstudio.com/) (Código VS). Visual Studio Code é um editor de código fonte leve mas poderoso, que funciona no seu ambiente de trabalho e está disponível para Windows, macOS e Linux. Com o Código VS, pode navegar rapidamente e editar os seus ficheiros XML de política personalizada Azure AD B2C, instalando a [extensão Azure AD B2C para o Código VS](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
+ 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Introdução às políticas personalizadas](custom-policy-get-started.md)
+Depois de configurar e testar a sua política Azure AD B2C, pode começar a personalizar a sua política. Veja os seguintes artigos para aprender a:
+
+- [Adicione reclamações e personalize a entrada do utilizador](./configure-user-input.md) usando políticas personalizadas. Saiba como definir uma reclamação e adicionar uma reclamação à interface do utilizador personalizando alguns dos perfis técnicos do pacote inicial.
+- [Personalize a interface](customize-ui-with-html.md) de utilizador da sua aplicação utilizando uma política personalizada. Aprenda a criar o seu próprio conteúdo HTML e personalize a definição de conteúdo.
+- [Localize a interface](./language-customization.md) de utilizador da sua aplicação utilizando uma política personalizada. Aprenda a configurar a lista de línguas apoiadas e forneça rótulos específicos da linguagem, adicionando o elemento de recursos localizado.
+- Durante o desenvolvimento e teste da sua política, pode [desativar a verificação de e-mail.](./disable-email-verification.md) Saiba como substituir um metadados de perfil técnico.
+- [Instale o sôm-in com uma conta google](./identity-provider-google.md) utilizando políticas personalizadas. Saiba como criar um novo fornecedor de reclamações com perfil técnico OAuth2. Em seguida, personalize a viagem do utilizador para incluir a opção de inscrição no Google.
+- Para diagnosticar problemas com as suas políticas personalizadas pode [recolher registos B2C do Azure Ative Directory com Insights de Aplicação.](troubleshoot-with-application-insights.md) Aprenda a adicionar novos perfis técnicos e configuure a sua política partidária.

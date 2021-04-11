@@ -1,14 +1,14 @@
 ---
 title: Políticas de autor para propriedades de matrizes em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões linguísticas de matriz, avalie o pseudónimo [*] e apedguia elementos com regras de definição de Política de Azure.
-ms.date: 10/22/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 75f4fcfb88bd4cb1ac0c8bfeac236b452479b8c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4e059f3691554aa91dfd15cf308ef62afa58928
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721618"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089972"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matrizes em recursos Azure
 
@@ -99,7 +99,7 @@ Para utilizar esta cadeia com cada SDK, utilize os seguintes comandos:
 
 ## <a name="using-arrays-in-conditions"></a>Usando matrizes em condições
 
-### <a name="in-and-notin"></a>`In` e `notIn`
+### <a name="in-and-notin"></a>Dentro e não
 
 As `in` `notIn` condições funcionam apenas com valores de matriz. Verificam a existência de um valor numa matriz. A matriz pode ser uma matriz JSON literal ou uma referência a um parâmetro de matriz. Por exemplo:
 
@@ -135,7 +135,7 @@ A [expressão de contagem de valor](../concepts/definition-structure.md#value-co
 }
 ```
 
-Para avaliar a expressão, a Política Azure avalia a `where` condição 3 vezes, uma vez para cada membro de `[ "test*", "dev*", "prod*" ]` , contando quantas vezes foi avaliada para `true` . Em cada iteração, o valor do membro da matriz atual é emparelhado com o `pattern` nome de índice definido por `count.name` . Este valor pode então ser referenciado dentro da `where` condição, chamando uma função especial do modelo: `current('pattern')` .
+Para avaliar a expressão, a Política Azure avalia a `where` condição três vezes, uma para cada membro de `[ "test*", "dev*", "prod*" ]` , contando quantas vezes foi avaliada para `true` . Em cada iteração, o valor do membro da matriz atual é emparelhado com o `pattern` nome de índice definido por `count.name` . Este valor pode então ser referenciado dentro da `where` condição, chamando uma função especial do modelo: `current('pattern')` .
 
 | Iteração | `current('pattern')` valor devolvido |
 |:---|:---|
@@ -243,7 +243,7 @@ As propriedades dos recursos array são geralmente representadas por dois tipos 
 
 #### <a name="referencing-the-array"></a>Referenciando a matriz
 
-O primeiro pseudónimo representa um único valor, o valor dos `stringArray` imóveis a partir do conteúdo do pedido. Como o valor dessa propriedade é uma matriz, não é muito útil em condições políticas. Por exemplo:
+O primeiro pseudónimo representa um único valor, o valor dos `stringArray` imóveis a partir do conteúdo do pedido. Como o valor dessa propriedade é uma matriz, não é útil em condições políticas. Por exemplo:
 
 ```json
 {
@@ -290,9 +290,9 @@ Se a matriz contiver `[*]` objetos, um pseudónimo pode ser usado para seleciona
 }
 ```
 
-Esta condição é verdadeira se os valores de todas as `property` propriedades são iguais a `objectArray` `"value"` . Para mais exemplos, consulte [ \[ \* \] exemplos adicionais de pseudónimos.](#appendix--additional--alias-examples)
+Esta condição é verdadeira se os valores de todas as `property` propriedades são iguais a `objectArray` `"value"` . Para mais exemplos, consulte [ \[ \* \] exemplos adicionais de pseudónimos.](#additional--alias-examples)
 
-Ao utilizar a `field()` função para referenciar um pseudónimo de matriz, o valor devolvido é um conjunto de todos os valores selecionados. Este comportamento significa que o caso de uso comum da `field()` função, a capacidade de aplicar funções de modelo aos valores de propriedade de recursos, é muito limitado. As únicas funções do modelo que podem ser usadas neste caso são as que aceitam argumentos de matriz. Por exemplo, é possível obter o comprimento da matriz com `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` . No entanto, cenários mais complexos como aplicar a função do modelo a cada membro da matriz e compará-lo com um valor desejado só são possíveis quando se utiliza a `count` expressão. Para obter mais informações, consulte [a expressão contagem de campo.](#field-count-expressions)
+Ao utilizar a `field()` função para referenciar um pseudónimo de matriz, o valor devolvido é um conjunto de todos os valores selecionados. Este comportamento significa que o caso de uso comum da `field()` função, a capacidade de aplicar funções de modelo aos valores de propriedade de recursos, é limitado. As únicas funções do modelo que podem ser usadas neste caso são as que aceitam argumentos de matriz. Por exemplo, é possível obter o comprimento da matriz com `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` . No entanto, cenários mais complexos como aplicar a função do modelo a cada membro da matriz e compará-lo com um valor desejado só são possíveis quando se utiliza a `count` expressão. Para obter mais informações, consulte [a expressão contagem de campo.](#field-count-expressions)
 
 Para resumir, consulte o seguinte exemplo de conteúdo de recursos e os valores selecionados devolvidos por vários pseudónimos:
 
@@ -371,7 +371,7 @@ Quando usado sem `where` uma condição, `count` basta retornar o comprimento de
 }
 ```
 
-Este comportamento também funciona com matrizes aninhadas. Por exemplo, a expressão a seguir `count` é avaliada, uma `true` vez que existem quatro membros de matrizes nas `nestedArray` matrizes:
+Este comportamento também funciona com matrizes aninhadas. Por exemplo, a expressão a seguir `count` é avaliada, uma `true` vez que existem quatro membros de matriz nas `nestedArray` matrizes:
 
 ```json
 {
@@ -382,7 +382,7 @@ Este comportamento também funciona com matrizes aninhadas. Por exemplo, a expre
 }
 ```
 
-O poder `count` está na `where` condição. Quando é especificado, a Política Azure enumera os membros da matriz e avalia cada um deles contra a condição, contando quantos membros da matriz avaliados para `true` . Especificamente, em cada iteração da avaliação da condição, a `where` Azure Policy seleciona um único membro da matriz ***i** _ e avalia o conteúdo do recurso contra a `where` condição _*como se **_i_*_ é o único membro da array_*. Ter apenas um membro da matriz disponível em cada iteração fornece uma maneira de aplicar condições complexas em cada membro da matriz individual.
+O poder `count` está na `where` condição. Quando é especificado, a Política Azure enumera os membros da matriz e avalia cada um deles contra a condição, contando quantos membros da matriz avaliados para `true` . Especificamente, em cada iteração da avaliação da condição, a `where` Azure Policy seleciona um único membro da matriz ***i** _ e avalia o conteúdo do recurso contra a `where` condição _*como se ***i**_ é o único membro da array_*. Ter apenas um membro da matriz disponível em cada iteração fornece uma maneira de aplicar condições complexas em cada membro da matriz individual.
 
 Exemplo:
 
@@ -398,7 +398,9 @@ Exemplo:
   "equals": 1
 }
 ```
-Para avaliar a expressão, a `count` Política Azure avalia a `where` condição 3 vezes, uma vez para cada membro de `stringArray` , contando quantas vezes foi avaliada para `true` . Quando a `where` condição se refere aos membros da `Microsoft.Test/resourceType/stringArray[*]` matriz, em vez de selecionar todos os membros `stringArray` de, ele apenas selecionará um único membro de matriz de cada vez:
+
+Para avaliar a expressão, a `count` Política Azure avalia a `where` condição três vezes, uma para cada membro de `stringArray` , contando quantas vezes foi avaliada para `true` .
+Quando a `where` condição se refere aos membros da `Microsoft.Test/resourceType/stringArray[*]` matriz, em vez de selecionar todos os membros `stringArray` de, ele apenas selecionará um único membro de matriz de cada vez:
 
 | Iteração | `Microsoft.Test/resourceType/stringArray[*]`Valores selecionados | `where` Resultado da avaliação |
 |:---|:---|:---|
@@ -406,7 +408,7 @@ Para avaliar a expressão, a `count` Política Azure avalia a `where` condição
 | 2 | `"b"` | `false` |
 | 3 | `"c"` | `false` |
 
-E assim o `count` testamento vai `1` voltar.
+As `count` `1` devoluções.
 
 Aqui está uma expressão mais complexa:
 
@@ -436,7 +438,7 @@ Aqui está uma expressão mais complexa:
 | 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `false` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4`| `true` |
 
-E assim os `count` `1` retornos.
+As `count` `1` devoluções.
 
 O facto de a `where` expressão ser avaliada em função de **todo** o conteúdo do pedido (com alterações apenas ao membro da matriz que está atualmente a ser enumerado) significa que a condição também `where` pode referir-se a campos fora da matriz:
 
@@ -458,7 +460,7 @@ O facto de a `where` expressão ser avaliada em função de **todo** o conteúdo
 | 1 | `tags.env` => `"prod"` | `true` |
 | 2 | `tags.env` => `"prod"` | `true` |
 
-Expressões de contagem aninhada podem ser usadas para aplicar condições em campos de matriz aninhado. Por exemplo, a seguinte condição verifica se a `objectArray[*]` matriz tem exatamente 2 membros com `nestedArray[*]` o que contém 1 ou mais membros:
+Expressões de contagem aninhada podem ser usadas para aplicar condições em campos de matriz aninhado. Por exemplo, a seguinte condição verifica que a `objectArray[*]` matriz tem exatamente dois membros com `nestedArray[*]` que contém um ou mais membros:
 
 ```json
 {
@@ -480,9 +482,9 @@ Expressões de contagem aninhada podem ser usadas para aplicar condições em ca
 | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` tem 2 membros => `true` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` tem 2 membros => `true` |
 
-Uma vez que ambos os membros `objectArray[*]` têm uma matriz infantil com `nestedArray[*]` 2 membros, a expressão da contagem exterior regressa `2` .
+Uma vez que ambos os membros `objectArray[*]` têm uma matriz infantil com dois `nestedArray[*]` membros, a expressão da contagem exterior regressa `2` .
 
-Exemplo mais complexo: verifique se a `objectArray[*]` matriz tem exatamente 2 membros `nestedArray[*]` com qualquer membro igual ou `2` `3` :
+Exemplo mais complexo: verifique se a `objectArray[*]` matriz tem exatamente dois membros `nestedArray[*]` com qualquer membro igual ou `2` `3` :
 
 ```json
 {
@@ -538,13 +540,13 @@ Ao utilizar as funções do modelo, utilize a `current()` função para aceder a
 
 #### <a name="the-field-function-inside-where-conditions"></a>A função de campo dentro onde as condições
 
-A `field()` função também pode ser usada para aceder ao valor do membro da matriz atual, desde que a expressão **da contagem** não esteja dentro de uma condição de **existência** `field()` (função consulte sempre o recurso avaliado na condição **de se** a condição).
-O comportamento de `field()` quando se refere à matriz avaliada baseia-se nos seguintes conceitos:
+A `field()` função também pode ser usada para aceder ao valor do membro da matriz atual, desde que a expressão **da contagem** não esteja dentro de uma condição de **existência** `field()` (função consulte sempre o recurso avaliado na condição **se).** O comportamento de `field()` quando se refere à matriz avaliada baseia-se nos seguintes conceitos:
+
 1. Os pseudónimos de matriz são resolvidos numa coleção de valores selecionados de todos os membros da matriz.
 1. `field()` funções referentes aliases de matriz devolvem uma matriz com os valores selecionados.
 1. Referindo-se ao pseudónimo de matriz contado dentro da `where` condição, devolve uma coleção com um único valor selecionado do membro da matriz que é avaliado na iteração atual.
 
-Este comportamento significa que, quando se refere ao membro da matriz contada com uma `field()` função dentro da `where` condição, **devolve uma matriz com um único membro**. Embora isto possa não ser intuitivo, é consistente com a ideia de que os pseudónimos de matriz devolvem sempre uma coleção de propriedades selecionadas. Eis um exemplo:
+Este comportamento significa que, quando se refere ao membro da matriz contada com uma `field()` função dentro da `where` condição, **devolve uma matriz com um único membro**. Embora este comportamento possa não ser intuitivo, é consistente com a ideia de que os pseudónimos de matriz devolvem sempre uma coleção de propriedades selecionadas. Eis um exemplo:
 
 ```json
 {
@@ -589,7 +591,7 @@ Para exemplos úteis, consulte [exemplos de contagem de campos.](../concepts/def
 
 ## <a name="modifying-arrays"></a>Modificação de matrizes
 
-O [apêndice](../concepts/effects.md#append) e [modifica propriedades](../concepts/effects.md#modify) alterando um recurso durante a criação ou atualização. Ao trabalhar com propriedades de matriz, o comportamento destes efeitos depende se a operação está a tentar modificar o  **\[\*\]** pseudónimo ou não:
+O [apêndice](../concepts/effects.md#append) e [modifica propriedades](../concepts/effects.md#modify) alterando um recurso durante a criação ou atualização. Ao trabalhar com propriedades de matriz, o comportamento destes efeitos depende se a operação está a tentar modificar o **\[\*\]** pseudónimo ou não:
 
 > [!NOTE]
 > A utilização do `modify` efeito com pseudónimos encontra-se atualmente em **pré-visualização**.
@@ -608,9 +610,9 @@ O [apêndice](../concepts/effects.md#append) e [modifica propriedades](../concep
 
 Para mais informações, consulte os exemplos do [apêndice.](../concepts/effects.md#append-examples)
 
-## <a name="appendix--additional--alias-examples"></a>Apêndice- exemplos adicionais de pseudónimos
+## <a name="additional--alias-examples"></a>Exemplos adicionais de pseudónimos
 
-Recomenda-se a utilização das [expressões](#field-count-expressions) de contagem de campo para verificar se "todos" ou "qualquer um dos" membros de uma matriz no conteúdo do pedido cumprem uma condição. No entanto, para algumas condições simples, é possível obter o mesmo resultado utilizando um acessório de campo com um pseudónimo de matriz (conforme descrito em [Referência à coleção de membros da matriz).](#referencing-the-array-members-collection) Isto pode ser útil em regras políticas que excedam o limite de expressões de **contagem** permitidas. Aqui estão exemplos para casos de uso comum:
+Recomenda-se a utilização das [expressões](#field-count-expressions) de contagem de campo para verificar se 'todos' ou 'qualquer um' dos membros de uma matriz no conteúdo do pedido cumprem uma condição. No entanto, para algumas condições simples é possível obter o mesmo resultado usando um acessório de campo com um pseudónimo de matriz, conforme descrito em [Referência à coleção de membros da matriz](#referencing-the-array-members-collection). Este padrão pode ser útil em regras políticas que excedam o limite de expressões de **contagem** permitidas. Aqui estão exemplos para casos de uso comum:
 
 A regra da política de exemplo para o quadro de cenários abaixo:
 

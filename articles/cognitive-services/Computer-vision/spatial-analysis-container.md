@@ -10,27 +10,27 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 87076febd4597556fd2b28245f47442308cd6e6c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d257a77940b460bf8be64e3f8376353a859365f7
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108369"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284724"
 ---
-# <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
+# <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de Análise Espacial (Pré-visualização)
 
-O recipiente de análise espacial permite-lhe analisar vídeos de streaming em tempo real para entender as relações espaciais entre as pessoas, o seu movimento e interações com objetos em ambientes físicos. Os contentores são ótimos para requisitos específicos de governação de dados e segurança.
+O recipiente de Análise Espacial permite-lhe analisar vídeos de streaming em tempo real para entender as relações espaciais entre as pessoas, o seu movimento e interações com objetos em ambientes físicos. Os contentores são ótimos para requisitos específicos de governação de dados e segurança.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão De Computador crie um recurso de "  target="_blank"> Visão De Computador para o </a> nível S1 padrão no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
-    * Necessitará da chave e ponto final do recurso que criar para executar o recipiente de análise espacial. Usará a sua chave e o ponto final mais tarde.
+    * Necessitará da chave e ponto final do recurso que criar para executar o recipiente de Análise Espacial. Usará a sua chave e o ponto final mais tarde.
 
 
 ### <a name="spatial-analysis-container-requirements"></a>Requisitos do contentor de análise espacial
 
-Para executar o recipiente de análise espacial, precisa de um dispositivo computacional com um [GPU NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). Recomendamos que utilize [o Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) com aceleração gpu, no entanto o recipiente funciona em qualquer outra máquina de ambiente de trabalho que cumpra os requisitos mínimos. Vamos referir-nos a este dispositivo como o computador anfitrião.
+Para executar o recipiente de Análise Espacial, precisa de um dispositivo computacional com um [GPU NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). Recomendamos que utilize [o Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) com aceleração gpu, no entanto o recipiente funciona em qualquer outra máquina de ambiente de trabalho que cumpra os requisitos mínimos. Vamos referir-nos a este dispositivo como o computador anfitrião.
 
 #### <a name="azure-stack-edge-device"></a>[Dispositivo Azure Stack Edge](#tab/azure-stack-edge)
 
@@ -68,7 +68,7 @@ No nosso exemplo, vamos utilizar uma [série NC VM](../../virtual-machines/nc-se
 
 | Requisito | Description |
 |--|--|
-| Câmara | O recipiente de análise espacial não está ligado a uma marca de câmara específica. O dispositivo da câmara precisa de suportar Real-Time Protocolo de Streaming (RTSP) e codificação H.264, estar acessível ao computador anfitrião e ser capaz de ser transmitido a 15FPS e resolução de 1080p. |
+| Câmara | O recipiente de Análise Espacial não está ligado a uma marca de câmara específica. O dispositivo da câmara precisa de suportar Real-Time Protocolo de Streaming (RTSP) e codificação H.264, estar acessível ao computador anfitrião e ser capaz de ser transmitido a 15FPS e resolução de 1080p. |
 | Linux OS | [O Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) deve ser instalado no computador anfitrião.  |
 
 
@@ -94,7 +94,7 @@ Recomenda-se que utilize um dispositivo Azure Stack Edge para o seu computador a
 
 ### <a name="configure-compute-on-the-azure-stack-edge-portal"></a>Configuure computação no portal Azure Stack Edge 
  
-A análise espacial utiliza as características computacionais do Azure Stack Edge para executar uma solução de IA. Para ativar as funcionalidades de cálculo, certifique-se de que: 
+A Análise Espacial utiliza as características computacionais do Azure Stack Edge para executar uma solução de IA. Para ativar as funcionalidades de cálculo, certifique-se de que: 
 
 * [Ligou e ativou](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) o seu dispositivo Azure Stack Edge. 
 * Tem um sistema de clientes Windows a executar o PowerShell 5.0 ou mais tarde, para aceder ao dispositivo.  
@@ -249,7 +249,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>Configure Azure IoT Edge no computador anfitrião
 
-Para implantar o recipiente de análise espacial no computador anfitrião, crie uma instância de um serviço [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) utilizando o nível de preços Standard (S1) ou Free (F0). 
+Para implantar o recipiente de Análise Espacial no computador anfitrião, crie uma instância de um serviço [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) utilizando o nível de preços Standard (S1) ou Free (F0). 
 
 Utilize o CLI Azure para criar um exemplo de Azure IoT Hub. Substitua os parâmetros, se for caso disso. Em alternativa, pode criar o Azure IoT Hub no [portal Azure](https://portal.azure.com/).
 
@@ -320,13 +320,13 @@ No computador anfitrião aberto  `/etc/iotedge/config.yaml` para edição. `ADD 
 sudo systemctl restart iotedge
 ```
 
-Implementar o recipiente de análise espacial como módulo IoT no computador anfitrião, quer a partir do [portal Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou [do Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows). Se estiver a utilizar o portal, deite a imagem URI para a localização do seu Registo de Contentores Azure. 
+Implementar o recipiente de Análise Espacial como módulo IoT no computador anfitrião, quer a partir do [portal Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou [do Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows). Se estiver a utilizar o portal, deite a imagem URI para a localização do seu Registo de Contentores Azure. 
 
 Utilize os degraus abaixo para colocar o recipiente utilizando o Azure CLI.
 
 #### <a name="azure-vm-with-gpu"></a>[Azure VM com GPU](#tab/virtual-machine)
 
-Uma Máquina Virtual Azure com uma GPU também pode ser usada para executar análises espaciais. O exemplo abaixo utilizará uma [série NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM que tem um K80 GPU.
+Uma máquina virtual Azure com uma GPU também pode ser usada para executar análise espacial. O exemplo abaixo utilizará uma [série NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM que tem um K80 GPU.
 
 #### <a name="create-the-vm"></a>Criar a VM
 
@@ -411,7 +411,7 @@ Agora que montou e configuraram o seu VM, siga os passos abaixo para configurar 
 
 ## <a name="configure-azure-iot-edge-on-the-vm"></a>Configure Azure IoT Edge no VM
 
-Para implantar o recipiente de análise espacial no VM, crie uma instância de um serviço [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) utilizando o nível de preços Standard (S1) ou Free (F0).
+Para implantar o recipiente de Análise Espacial no VM, crie uma instância de um serviço [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) utilizando o nível de preços Standard (S1) ou Free (F0).
 
 Utilize o CLI Azure para criar um exemplo de Azure IoT Hub. Substitua os parâmetros, se for caso disso. Em alternativa, pode criar o Azure IoT Hub no [portal Azure](https://portal.azure.com/).
 
@@ -482,7 +482,7 @@ No VM aberto  `/etc/iotedge/config.yaml` para edição. `ADD DEVICE CONNECTION S
 sudo systemctl restart iotedge
 ```
 
-Desloque o recipiente de análise espacial como módulo IoT no VM, quer a partir do [portal Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou [do Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows). Se estiver a utilizar o portal, deite a imagem URI para a localização do seu Registo de Contentores Azure. 
+Implementar o recipiente de Análise Espacial como módulo IoT no VM, quer a partir do [portal Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou [do Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows). Se estiver a utilizar o portal, deite a imagem URI para a localização do seu Registo de Contentores Azure. 
 
 Utilize os degraus abaixo para colocar o recipiente utilizando o Azure CLI.
 
@@ -533,26 +533,26 @@ Este comando iniciará a implantação. Navegue para a página do seu exemplo Az
 
 ## <a name="validate-that-the-deployment-is-successful"></a>Validar que a implementação é bem sucedida
 
-Há várias formas de validar que o contentor está a funcionar. Localizar o Estado de *execução* nas Definições do **Módulo de Borda IoT** para o módulo de análise espacial no seu exemplo Azure IoT Hub no portal Azure. Validar que o **valor desejado** e o **valor reportado** para o estado de *execução* *estão em execução.*
+Há várias formas de validar que o contentor está a funcionar. Localizar o Estado de *execução* nas definições do **módulo de borda IoT** para o módulo de análise espacial no seu exemplo de Hub IoT Azure no portal Azure. Validar que o **valor desejado** e o **valor reportado** para o estado de *execução* *estão em execução.*
 
 ![Verificação de implementação de exemplo](./media/spatial-analysis/deployment-verification.png)
 
 Uma vez concluída a implantação e o contentor em funcionamento, o **computador anfitrião** começará a enviar eventos para o Azure IoT Hub. Se utilizar a `.debug` versão das operações, verá uma janela de visualizador para cada câmara que configurar no manifesto de implantação. Pode agora definir as linhas e zonas que pretende monitorizar no manifesto de implantação e seguir as instruções para ser novamente implantado. 
 
-## <a name="configure-the-operations-performed-by-spatial-analysis"></a>Configure as operações realizadas por análise espacial
+## <a name="configure-the-operations-performed-by-spatial-analysis"></a>Configure as operações realizadas pela Análise Espacial
 
-Terá de utilizar [operações de análise espacial](spatial-analysis-operations.md) para configurar o recipiente para utilizar câmaras conectadas, configurar as operações e muito mais. Para cada dispositivo de câmara que configurar, as operações de análise espacial gerarão um fluxo de saída de mensagens JSON, enviadas para o seu exemplo de Azure IoT Hub.
+Terá de utilizar [as operações de Análise Espacial](spatial-analysis-operations.md) para configurar o recipiente para utilizar câmaras conectadas, configurar as operações e muito mais. Para cada dispositivo de câmara que configurar, as operações de Análise Espacial gerarão um fluxo de saída de mensagens JSON, enviadas para o seu exemplo de Azure IoT Hub.
 
 ## <a name="use-the-output-generated-by-the-container"></a>Utilize a saída gerada pelo recipiente
 
 Se pretender começar a consumir a saída gerada pelo recipiente, consulte os seguintes artigos:
 
-*   Utilize o Azure Event Hub SDK para a sua linguagem de programação escolhida para ligar ao ponto final do Azure IoT Hub e receber os eventos. Consulte [as mensagens dispositivo-nuvem do ponto final incorporado](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) para obter mais informações. 
-*   Confise o Encaminhamento de Mensagens no seu Azure IoT Hub para enviar os eventos para outros pontos finais ou guardar os eventos para o Azure Blob Storage, etc. Consulte [o Encaminhamento de Mensagens IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) para obter mais informações. 
+*    Utilize o Azure Event Hub SDK para a sua linguagem de programação escolhida para ligar ao ponto final do Azure IoT Hub e receber os eventos. Consulte [as mensagens dispositivo-nuvem do ponto final incorporado](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) para obter mais informações. 
+*    Confise o Encaminhamento de Mensagens no seu Azure IoT Hub para enviar os eventos para outros pontos finais ou guardar os eventos para o Azure Blob Storage, etc. Consulte [o Encaminhamento de Mensagens IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) para obter mais informações. 
 
-## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Execução da análise espacial com um ficheiro de vídeo gravado
+## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Análise Espacial com um ficheiro de vídeo gravado
 
-Pode utilizar a análise espacial com vídeo gravado ou ao vivo. Para utilizar a análise espacial para vídeo gravado, tente gravar um ficheiro de vídeo e guarde-o como um ficheiro mp4. Crie uma conta de armazenamento de bolhas em Azure, ou use uma existente. Em seguida, atualize as seguintes definições de armazenamento de bolhas no portal Azure:
+Pode utilizar a Análise Espacial com vídeo gravado ou ao vivo. Para utilizar a Análise Espacial para vídeo gravado, tente gravar um ficheiro de vídeo e guarde-o como um ficheiro mp4. Crie uma conta de armazenamento de bolhas em Azure, ou use uma existente. Em seguida, atualize as seguintes definições de armazenamento de bolhas no portal Azure:
     1. Alterar **Transferência Segura necessária** para **Deficientes**
     2. Alterar **Permitir o acesso público do Blob** a **Enabled**
 
@@ -560,9 +560,9 @@ Navegue na secção **do Recipiente** e crie um novo recipiente ou utilize um ex
 
 Clique em **Generate SAS Token e URL** e copie o URL Blob SAS. Substitua o início `https` e teste o URL num browser que suporte a `http` reprodução de vídeo.
 
-Substitua `VIDEO_URL` no manifesto de implantação do seu dispositivo [Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179) [máquina de ambiente de trabalho,](https://go.microsoft.com/fwlink/?linkid=2152270)ou [Azure VM por GPU](https://go.microsoft.com/fwlink/?linkid=2152189) com o URL que criou, para todos os gráficos. Definir `VIDEO_IS_LIVE` para , e `false` recolocar o recipiente de análise espacial com o manifesto atualizado. Veja o exemplo abaixo.
+Substitua `VIDEO_URL` no manifesto de implantação do seu dispositivo [Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179) [máquina de ambiente de trabalho,](https://go.microsoft.com/fwlink/?linkid=2152270)ou [Azure VM por GPU](https://go.microsoft.com/fwlink/?linkid=2152189) com o URL que criou, para todos os gráficos. Definir `VIDEO_IS_LIVE` para , e `false` recolocar o recipiente de Análise Espacial com o manifesto atualizado. Veja o exemplo abaixo.
 
-O módulo de análise espacial começará a consumir ficheiro de vídeo e também irá reproduzir-se continuamente automaticamente.
+O módulo de Análise Espacial começará a consumir ficheiro de vídeo e também irá reproduzir-se continuamente automaticamente.
 
 
 ```json
@@ -588,16 +588,16 @@ Se encontrar problemas ao iniciar ou executar o recipiente, consulte [a telemetr
 
 ## <a name="billing"></a>Faturação
 
-O recipiente de análise espacial envia informações de faturação para o Azure, utilizando um recurso de Visão De Computador na sua conta Azure. A utilização da análise espacial na visualização pública é atualmente gratuita. 
+O recipiente de Análise Espacial envia informações de faturação para o Azure, utilizando um recurso de Visão De Computador na sua conta Azure. A utilização da Análise Espacial na pré-visualização pública é atualmente gratuita. 
 
 Os recipientes Azure Cognitive Services não estão licenciados para funcionar sem estarem ligados ao ponto final de medição/faturação. Deve permitir que os recipientes comuniquem sempre informações de faturação com o ponto final de faturação. Os contentores dos Serviços Cognitivos não enviam dados dos clientes, como o vídeo ou a imagem que está a ser analisado, para a Microsoft.
 
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar o recipiente de análise espacial. Em resumo:
+Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar o recipiente de Análise Espacial. Em resumo:
 
-* A análise espacial é um contentor Linux para o Docker.
+* Análise Espacial é um contentor Linux para Docker.
 * As imagens do contentor são descarregadas a partir do Registo de Contentores da Microsoft.
 * As imagens do contentor funcionam como Módulos IoT em Azure IoT Edge.
 * Como configurar o recipiente e implantá-lo numa máquina hospedeira.

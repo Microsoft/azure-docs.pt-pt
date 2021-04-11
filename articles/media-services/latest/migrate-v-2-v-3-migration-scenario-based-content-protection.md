@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9141fb025cb2c7976f88d894768972b10ea3a3d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74f15fc302a8499e41a1413dd8915e6442d4bbe7
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729410"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064499"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de proteção de conteúdos
 
@@ -28,7 +28,7 @@ Este artigo fornece-lhe detalhes e orientações sobre a migração de casos de 
 
 ## <a name="protect-content-in-v3-api"></a>Proteger o conteúdo em V3 API
 
-Utilize o suporte para [funcionalidades multi-chave](design-multi-drm-system-with-access-control.md) na nova API v3.
+Utilize o suporte para [funcionalidades multi-chave](architecture-design-multi-drm-system.md) na nova API v3.
 
 Consulte conceitos de proteção de conteúdos, tutoriais e como guiar abaixo para etapas específicas.
 
@@ -44,9 +44,9 @@ Os resultados do método **ListStreamingLocators** fornecer-lhe-ão o **Nome** e
 
 Para encontrar as **Chave de Conteúdo utilizadas** nos seus **StreamingLocators** para proteção de conteúdos, pode ligar para o método [StreamingLocator.ListContentKeysAsync.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true)  
 
-Quaisquer **Ativos** que tenham sido criados e publicados utilizando a API v2 terão uma [Política chave de conteúdo](https://docs.microsoft.com/azure/media-services/latest/content-key-policy-concept) e uma Chave de Conteúdo definida neles na API v3, em vez de utilizarem uma política de chave de conteúdo padrão na Política de [Streaming.](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept)
+Quaisquer **Ativos** que tenham sido criados e publicados utilizando a API v2 terão uma [Política chave de conteúdo](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) e uma Chave de Conteúdo definida neles na API v3, em vez de utilizarem uma política de chave de conteúdo padrão na Política de [Streaming.](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept)
 
-Para obter mais informações sobre a proteção de conteúdos na API v3, consulte o artigo [Proteja o seu conteúdo com encriptação dinâmica dos Media Services.](https://docs.microsoft.com/azure/media-services/latest/content-protection-overview)
+Para obter mais informações sobre a proteção de conteúdos na API v3, consulte o artigo [Proteja o seu conteúdo com encriptação dinâmica dos Media Services.](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept)
 
 ## <a name="how-to-list-your-v2-assets-and-content-protection-settings-using-the-v3-api"></a>Como listar os seus V2 Ativos e definições de proteção de conteúdos utilizando a API v3
 
@@ -60,7 +60,7 @@ Se precisar de atualizar, alterar ou alterar os conteúdos armazenados em entida
 
 ## <a name="how-do-i-change-the-contentkeypolicy-used-for-a-v2-asset-that-is-published-and-keep-the-same-content-key"></a>Como posso alterar o ContentKeyPolicy usado para um Ativo V2 que é publicado e manter a mesma chave de conteúdo?
 
-Nesta situação, deve primeiro não publicar (remover todos os localizadores de streaming) no Ativo através do v2 SDK (eliminar o localizador, desvincular a Política de Autorização de Chave de Conteúdo, desvincular a Política de Entrega de Ativos, desvincular a Chave de Conteúdo, eliminar a Chave de Conteúdo) e, em seguida, criar um novo **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** em v3 utilizando uma V3 [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept) e [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/content-key-policy-concept).
+Nesta situação, deve primeiro não publicar (remover todos os localizadores de streaming) no Ativo através do v2 SDK (eliminar o localizador, desvincular a Política de Autorização de Chave de Conteúdo, desvincular a Política de Entrega de Ativos, desvincular a Chave de Conteúdo, eliminar a Chave de Conteúdo) e, em seguida, criar um novo **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** em v3 utilizando uma V3 [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept) e [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept).
 
 É necessário especificar o identificador de chave de conteúdo específico e o valor-chave necessário quando estiver a criar o **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)**.
 
@@ -75,24 +75,24 @@ Ao migrar o seu conteúdo de V2 para V3, é aconselhável instalar a [ferramenta
 
 ### <a name="concepts"></a>Conceitos
 
-- [Proteja o seu conteúdo com encriptação dinâmica dos Media Services](content-protection-overview.md)
-- [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
-- [Serviços de Mídia v3 com modelo de licença PlayReady](playready-license-template-overview.md)
-- [Serviços de Mídia v3 com visão geral do modelo de licença widevine](widevine-license-template-overview.md)
-- [Requisitos de licença e configuração do Apple FairPlay](fairplay-license-overview.md)
+- [Proteja o seu conteúdo com encriptação dinâmica dos Media Services](drm-content-protection-concept.md)
+- [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](architecture-design-multi-drm-system.md)
+- [Serviços de Mídia v3 com modelo de licença PlayReady](drm-playready-license-template-concept.md)
+- [Serviços de Mídia v3 com visão geral do modelo de licença widevine](drm-widevine-license-template-concept.md)
+- [Requisitos de licença e configuração do Apple FairPlay](drm-fairplay-license-overview.md)
 - [Políticas de streaming](streaming-policy-concept.md)
-- [Políticas-chave de conteúdo](content-key-policy-concept.md)
+- [Políticas-chave de conteúdo](drm-content-key-policy-concept.md)
 
 ### <a name="tutorials"></a>Tutoriais
 
-[Quickstart: Use o portal para encriptar conteúdo](encrypt-content-quickstart.md)
+[Quickstart: Use o portal para encriptar conteúdo](drm-encrypt-content-how-to.md)
 
 ### <a name="how-to-guides"></a>Guias de procedimentos
 
-- [Obter uma chave de assinatura da política existente](get-content-key-policy-dotnet-howto.md)
-- [Streaming Offline FairPlay para iOS com Media Services v3](offline-fairplay-for-ios.md)
-- [Streaming offline Widevine para Android com Media Services v3](offline-widevine-for-android.md)
-- [Streaming Offline PlayReady para Windows 10 com Media Services v3](offline-plaready-streaming-for-windows-10.md)
+- [Obter uma chave de assinatura da política existente](drm-get-content-key-policy-dotnet-how-to.md)
+- [Streaming Offline FairPlay para iOS com Media Services v3](drm-offline-fairplay-for-ios-concept.md)
+- [Streaming offline Widevine para Android com Media Services v3](drm-offline-widevine-for-android.md)
+- [Streaming Offline PlayReady para Windows 10 com Media Services v3](drm-offline-playready-streaming-for-windows-10.md)
 
 ## <a name="samples"></a>Amostras
 

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 31f960b39e771e7bfbf67c6e52c5da8e1fc6e0ec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8a8cc6563d8e3cae942c4dfb43afa3d05f6f2b75
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932459"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257313"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](how-to-interpret-event-data.md) ou recursos de computação conectados. Isto é feito ao, em primeiro lugar, configurar **pontos finais** que podem receber os eventos. Em seguida, pode criar [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
+Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](concepts-event-notifications.md) ou recursos de computação conectados. Isto é feito ao, em primeiro lugar, configurar **pontos finais** que podem receber os eventos. Em seguida, pode criar [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
 
 Este artigo acompanha-o através do processo de criação de pontos finais e rotas utilizando o [portal Azure.](https://portal.azure.com)
 
@@ -202,4 +202,4 @@ Aqui estão os filtros de rota suportados. O detalhe na coluna *de esquema de te
 ## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre os diferentes tipos de mensagens de evento que pode receber:
-* [*Como fazer: Interpretar dados do evento*](how-to-interpret-event-data.md)
+* [*Conceitos: Notificações de eventos*](concepts-event-notifications.md)

@@ -9,19 +9,19 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de511fa30caa608c2dc87b6c0ba166ed56ff9499
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589876"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490187"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Análises de desempenho do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Blob Azure (pré-visualização)
 
 O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este artigo contém recomendações que o ajudam a otimizar o desempenho dos seus pedidos de armazenamento. Para saber mais sobre o suporte NFS 3.0 no Armazenamento Azure Blob, consulte [o suporte ao sistema de ficheiros de rede (NFS) 3.0 no armazenamento do Blob Azure Blob (pré-visualização)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> O suporte do protocolo NFS 3.0 no armazenamento Azure Blob está em pré-visualização pública. Suporta contas de armazenamento GPV2 com desempenho de nível padrão nas seguintes regiões: Austrália Leste, Coreia Central e South Central EUA. A pré-visualização também suporta blob de bloco com nível de desempenho premium em todas as regiões públicas.
+> O suporte do protocolo NFS 3.0 no armazenamento Azure Blob está em pré-visualização pública. Suporta contas de armazenamento GPV2 com desempenho de nível padrão nas seguintes regiões: Austrália Leste, Coreia Central, Leste dos EUA e South Central EUA. A pré-visualização também suporta blob de bloco com nível de desempenho premium em todas as regiões públicas.
 
 ## <a name="add-clients-to-increase-throughput"></a>Adicionar clientes para aumentar a produção 
 

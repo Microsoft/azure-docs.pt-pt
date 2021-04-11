@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: 9c53cb53517c4696a1bb47c2cb72335979d58d3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3c65d3a7316d431c57d9fb75775e271bf9f34ca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178835"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223273"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerir piscinas de nó de sistema no Serviço Azure Kubernetes (AKS)
 
@@ -43,7 +43,8 @@ As piscinas de nó de sistema têm as seguintes restrições:
 * Os tipos de piscinas do sistema devem ser o Linux.
 * Os grupos de nó do utilizador osType podem ser Linux ou Windows.
 * As piscinas do sistema devem conter pelo menos um nó e as piscinas de nó do utilizador podem conter zero ou mais nós.
-* As piscinas de nó do sistema requerem um VM SKU de pelo menos 2 vCPUs e memória de 4GB.
+* As piscinas de nó do sistema requerem um VM SKU de pelo menos 2 vCPUs e memória de 4GB. Mas não é recomendável que a série B seja rebentada.
+* Recomenda-se um mínimo de dois nós 4 vCPUs (por exemplo, Standard_DS4_v2), especialmente para grandes clusters (réplicas múltiplas do Pod CoreDNS, add-ons 3-4+, etc.).
 * Os conjuntos de nós do sistema devem suportar pelo menos 30 cápsulas, conforme descrito pela [fórmula de valor mínimo e máximo para as cápsulas][maximum-pods].
 * Piscinas de nó no spot requerem piscinas de nó do utilizador.
 * Adicionar um conjunto adicional de nó de sistema ou alterar qual o conjunto de nós é um conjunto de nós do sistema *NÃO* moverá automaticamente as cápsulas do sistema. As cápsulas do sistema podem continuar a funcionar na mesma piscina de nós, mesmo que a altere para uma piscina de nó de utilizador. Se eliminar ou reduzir as cápsulas do sistema de funcionamento de uma piscina de nó de nó que era anteriormente uma piscina de nó de sistema, essas cápsulas de sistema são redistribuídas com agendamento preferido para o novo conjunto de nós do sistema.

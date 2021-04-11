@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9fe49f44e157708c3083e2c73757988877fbfcb5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b7d99e3de8a796dea19f3a2ad7a03b98239981e2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563468"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121103"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -54,7 +54,7 @@ Os idiomas adicionais para transcrição de vídeo e legendagem estão agora dis
 * Tailandês, 'th-TH'
 * Turco, 'tr-TR'
 
-Veja os idiomas mais recentes disponíveis no [artigo de conceito de Arquivos de Vídeo e Áudio.](analyzing-video-audio-files-concept.md)
+Veja os idiomas mais recentes disponíveis no [artigo de conceito de Arquivos de Vídeo e Áudio.](analyze-video-audio-files-concept.md)
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
@@ -134,7 +134,7 @@ Veja as últimas amostras nos **[media-services-v3-node-tutorials](https://githu
 
 Live Events agora suporta um modo de faturação mais baixo para "stand-by". Isto permite que os clientes pré-aloquem Eventos Ao Vivo a um custo mais baixo para a criação de "piscinas quentes". Os clientes podem então usar os eventos de stand-by ao vivo para a transição para o estado de Corrida mais rapidamente do que começar do frio na criação.  Isto reduz o tempo para iniciar o canal de forma significativa e permite a atribuição rápida de máquinas que executam em modo de preço mais baixo.
 Veja [aqui](https://azure.microsoft.com/pricing/details/media-services)os últimos detalhes dos preços.
-Para obter mais informações sobre o estado de StandBy e os outros estados de Eventos Ao Vivo consulte o artigo - [Estados de evento ao vivo e faturação.](./live-event-states-billing.md)
+Para obter mais informações sobre o estado de StandBy e os outros estados de Eventos Ao Vivo consulte o artigo - [Estados de evento ao vivo e faturação.](./live-event-states-billing-concept.md)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
@@ -146,17 +146,17 @@ A Azure Media Services está agora disponível na região leste da Noruega no po
 
 ### <a name="basic-audio-analysis"></a>Análise áudio básica
 
-A predefinição de Análise áudio inclui agora um nível de preços de modo básico. O novo modo Basic Audio Analyzer oferece uma opção de baixo custo para extrair transcrição de voz e legendas e legendas de saída de formato. Este modo executa a transcrição de discurso-a-texto e a geração de um ficheiro de legenda/legenda VTT. A saída deste modo inclui um ficheiro Insights JSON, incluindo apenas as palavras-chave, transcrição e informações de tempo. A deteção automática de idiomas e a diarização dos altifalantes não estão incluídas neste modo. Consulte a lista de [línguas apoiadas.](analyzing-video-audio-files-concept.md#built-in-presets)
+A predefinição de Análise áudio inclui agora um nível de preços de modo básico. O novo modo Basic Audio Analyzer oferece uma opção de baixo custo para extrair transcrição de voz e legendas e legendas de saída de formato. Este modo executa a transcrição de discurso-a-texto e a geração de um ficheiro de legenda/legenda VTT. A saída deste modo inclui um ficheiro Insights JSON, incluindo apenas as palavras-chave, transcrição e informações de tempo. A deteção automática de idiomas e a diarização dos altifalantes não estão incluídas neste modo. Consulte a lista de [línguas apoiadas.](analyze-video-audio-files-concept.md#built-in-presets)
 
 Os clientes que usam Indexer v1 e Indexer v2 devem migrar para a predefinição de Análise Áudio Básica.
 
-Para obter mais informações sobre o modo Analisador de Áudio Básico, consulte [os ficheiros De Vídeo e Áudio](analyzing-video-audio-files-concept.md)de Análise .  Para aprender a utilizar o modo Analisador de Áudio Básico com a API REST, consulte [Como Criar uma Transformação Áudio Básica](how-to-create-basic-audio-transform.md).
+Para obter mais informações sobre o modo Analisador de Áudio Básico, consulte [os ficheiros De Vídeo e Áudio](analyze-video-audio-files-concept.md)de Análise .  Para aprender a utilizar o modo Analisador de Áudio Básico com a API REST, consulte [Como Criar uma Transformação Áudio Básica](how-to-create-basic-audio-transform.md).
 
 ### <a name="live-events"></a>Eventos em Direto
 
 As atualizações para a maioria das propriedades são agora permitidas quando os eventos ao vivo são interrompidos. Além disso, os utilizadores estão autorizados a especificar um prefixo para o nome de anfitrião estático para os URLs de entrada e pré-visualização do evento ao vivo. A VanityUrl é agora chamada `useStaticHostName` para melhor refletir a intenção da propriedade.
 
-Os eventos ao vivo têm agora um estado de espera.  Ver [Eventos Ao Vivo e Saídas Ao Vivo nos Serviços de Media.](./live-events-outputs-concept.md)
+Os eventos ao vivo têm agora um estado de espera.  Ver [Eventos Ao Vivo e Saídas Ao Vivo nos Serviços de Media.](./live-event-outputs-concept.md)
 
 Um evento ao vivo suporta receber vários rácios de aspeto de entrada. O modo alongamento permite que os clientes especifiquem o comportamento de alongamento para a saída.
 
@@ -173,7 +173,7 @@ A codificação ao vivo adiciona agora a capacidade de saída de fragmentos de i
 
 O suporte para a encriptação de ficheiros interoperáveis (PIFF 1.1) do legado PlayReady Protected Está agora disponível no Pacote Dinâmico. Isto fornece suporte para séries de TV inteligentes legacy da Samsung e LG que implementaram os primeiros rascunhos da norma de encriptação comum (CENC) publicada pela Microsoft.  O formato PIFF 1.1 é também conhecido como o formato de encriptação que foi previamente suportado pela biblioteca do cliente Silverlight. Hoje em dia, o único cenário de uso para este formato de encriptação é direcionar o legado mercado smart TV onde permanece um número não trivial de Smart TVs em algumas regiões que apenas suportam o Smooth Streaming com encriptação PIFF 1.1.
 
-Para utilizar o novo suporte de encriptação PIFF 1.1, altere o valor de encriptação para 'piff' no caminho URL do Localizador de Streaming. Para mais detalhes, consulte a [visão geral da Proteção de Conteúdos.](content-protection-overview.md)
+Para utilizar o novo suporte de encriptação PIFF 1.1, altere o valor de encriptação para 'piff' no caminho URL do Localizador de Streaming. Para mais detalhes, consulte a [visão geral da Proteção de Conteúdos.](drm-content-protection-concept.md)
 Por exemplo: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -187,11 +187,11 @@ As transcrições ao vivo suportam agora 19 línguas e 8 regiões.
 
 ### <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Proteger o seu conteúdo com serviços de media e Azure AD
 
-Publicámos um tutorial chamado [proteção de conteúdo de ponta a ponta usando a Azure AD](./azure-ad-content-protection.md).
+Publicámos um tutorial chamado [proteção de conteúdo de ponta a ponta usando a Azure AD](./architecture-azure-ad-content-protection.md).
 
 ### <a name="high-availability"></a>Elevada disponibilidade
 
-Publicámos uma [visão geral](./media-services-high-availability-encoding.md) e uma amostra de Alta Disponibilidade com Serviços de Comunicação Social e [Vídeo](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)a Pedido (VOD).
+Publicámos uma [visão geral](./architecture-high-availability-encoding-concept.md) e uma amostra de Alta Disponibilidade com Serviços de Comunicação Social e [Vídeo](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)a Pedido (VOD).
 
 ## <a name="june-2020"></a>Junho de 2020
 
@@ -243,7 +243,7 @@ Para ver parte da troca de cabeçalho em ação, pode experimentar os seguintes 
 
 A transcrição ao vivo está agora em pré-visualização pública e disponível para uso na região oeste dos EUA 2.
 
-A transcrição ao vivo é projetada para trabalhar em conjunto com eventos ao vivo como uma capacidade de complemento.  É suportado em eventos de passagem e Standard ou Premium codificando ao vivo.  Quando esta funcionalidade está ativada, o serviço utiliza a funcionalidade [Discurso-Texto](../../cognitive-services/speech-service/speech-to-text.md) dos Serviços Cognitivos para transcrever as palavras faladas no áudio de entrada em texto. Este texto é então disponibilizado para entrega juntamente com vídeo e áudio nos protocolos MPEG-DASH e HLS. A faturação baseia-se num novo medidor adicional que é um custo adicional para o evento ao vivo quando está no estado "Running".  Para mais detalhes sobre transcrição e faturação ao vivo, consulte [a transcrição ao vivo](live-transcription.md)
+A transcrição ao vivo é projetada para trabalhar em conjunto com eventos ao vivo como uma capacidade de complemento.  É suportado em eventos de passagem e Standard ou Premium codificando ao vivo.  Quando esta funcionalidade está ativada, o serviço utiliza a funcionalidade [Discurso-Texto](../../cognitive-services/speech-service/speech-to-text.md) dos Serviços Cognitivos para transcrever as palavras faladas no áudio de entrada em texto. Este texto é então disponibilizado para entrega juntamente com vídeo e áudio nos protocolos MPEG-DASH e HLS. A faturação baseia-se num novo medidor adicional que é um custo adicional para o evento ao vivo quando está no estado "Running".  Para mais detalhes sobre transcrição e faturação ao vivo, consulte [a transcrição ao vivo](live-event-live-transcription-how-to.md)
 
 > [!NOTE]
 > Atualmente, a transcrição ao vivo só está disponível como uma funcionalidade de pré-visualização na região oeste dos EUA 2. Só neste momento apoia a transcrição de palavras faladas em inglês (en-us).
@@ -251,7 +251,7 @@ A transcrição ao vivo é projetada para trabalhar em conjunto com eventos ao v
 ### <a name="content-protection"></a>Proteção de conteúdo
 
 A funcionalidade *De Prevenção de Repetição token* lançada em regiões limitadas em setembro está agora disponível em todas as regiões.
-Os clientes dos Serviços de Comunicação Social podem agora estabelecer um limite no número de vezes que o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [a Prevenção de Repetição de Token.](content-protection-overview.md#token-replay-prevention)
+Os clientes dos Serviços de Comunicação Social podem agora estabelecer um limite no número de vezes que o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [a Prevenção de Repetição de Token.](drm-content-protection-concept.md#token-replay-prevention)
 
 ### <a name="new-recommended-live-encoder-partners"></a>Novos parceiros de codificação ao vivo recomendados
 
@@ -310,7 +310,7 @@ Para mais detalhes, consulte [a Migração WAME para Media Encoder Standard](../
 
 ### <a name="content-protection"></a>Proteção de conteúdo
 
-Ao transmitir conteúdo protegido com restrição simbólica, os utilizadores finais precisam de obter um token que é enviado como parte do pedido de entrega chave. A funcionalidade *De Prevenção de Repetição token* permite que os clientes dos Media Services estabeleçam um limite para quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [a Prevenção de Repetição de Token.](content-protection-overview.md#token-replay-prevention)
+Ao transmitir conteúdo protegido com restrição simbólica, os utilizadores finais precisam de obter um token que é enviado como parte do pedido de entrega chave. A funcionalidade *De Prevenção de Repetição token* permite que os clientes dos Media Services estabeleçam um limite para quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [a Prevenção de Repetição de Token.](drm-content-protection-concept.md#token-replay-prevention)
 
 A partir de julho, a funcionalidade de pré-visualização só estava disponível na Central dos EUA e na Central Ocidental dos EUA.
 
@@ -340,7 +340,7 @@ Para mais informações, consulte [as métricas dos Serviços de Mídia do Monit
 
 ### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Suporte de faixas de áudio multi-áudio em Embalagem Dinâmica 
 
-Ao transmitir Ativos que tenham múltiplas faixas de áudio com vários codecs e idiomas, [a Dynamic Packaging](dynamic-packaging-overview.md) suporta agora faixas de áudio multi-áudio para a saída HLS (versão 4 ou superior).
+Ao transmitir Ativos que tenham múltiplas faixas de áudio com vários codecs e idiomas, [a Dynamic Packaging](encode-dynamic-packaging-concept.md) suporta agora faixas de áudio multi-áudio para a saída HLS (versão 4 ou superior).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>Par regional da Coreia está aberto para serviços de media 
 
@@ -352,7 +352,7 @@ Para mais informações, consulte [Nuvens e regiões em que existem serviços de
 
 Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de Mídia.
 
-* O tamanho máximo do ficheiro suportado para o processamento foi atualizado. Quotas [e limites.](limits-quotas-constraints.md)
+* O tamanho máximo do ficheiro suportado para o processamento foi atualizado. Quotas [e limites.](limits-quotas-constraints-reference.md)
 * [Melhorias de velocidades de codificação](concept-media-reserved-units.md).
 
 ## <a name="april-2019"></a>Abril de 2019
@@ -360,11 +360,11 @@ Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de 
 ### <a name="new-presets"></a>Novas predefinições
 
 * [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado às predefinições do analisador incorporado.
-* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições codificadoras incorporadas. Para obter mais informações, consulte [codificação consciente do conteúdo.](content-aware-encoding.md) 
+* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições codificadoras incorporadas. Para obter mais informações, consulte [codificação consciente do conteúdo.](encode-content-aware-concept.md) 
 
 ## <a name="march-2019"></a>Março de 2019
 
-A Dynamic Packaging suporta agora o Dolby Atmos. Para obter mais informações, consulte [os codecs audio suportados por embalagens dinâmicas.](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)
+A Dynamic Packaging suporta agora o Dolby Atmos. Para obter mais informações, consulte [os codecs audio suportados por embalagens dinâmicas.](encode-dynamic-packaging-concept.md#audio-codecs-supported-by-dynamic-packaging)
 
 Agora pode especificar uma lista de filtros de ativos ou de conta, que se aplicaria ao seu Localizador de Streaming. Para obter mais informações, consulte [filtros Associados com Localizador de Streaming.](filters-concept.md#associating-filters-with-streaming-locator)
 
@@ -378,7 +378,7 @@ O evento [Microsoft.Media.JobOutputProgress](monitoring/media-services-event-sch
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard e MPI ficheiros 
 
-Ao codificar com a Media Encoder Standard para produzir ficheiros MP4, é gerado um novo ficheiro .mpi e adicionado à saída Ativo. Este ficheiro MPI destina-se a melhorar o desempenho para cenários [dinâmicos de embalagem](dynamic-packaging-overview.md) e streaming.
+Ao codificar com a Media Encoder Standard para produzir ficheiros MP4, é gerado um novo ficheiro .mpi e adicionado à saída Ativo. Este ficheiro MPI destina-se a melhorar o desempenho para cenários [dinâmicos de embalagem](encode-dynamic-packaging-concept.md) e streaming.
 
 Não deve modificar ou remover o ficheiro MPI, nem assumir qualquer dependência no seu serviço sobre a existência (ou não) de tal ficheiro.
 
@@ -518,7 +518,7 @@ Se criou Ativos ou Filtros de Conta entre 09/28 e 10/12 com Serviços de Mídia 
 
 As seguintes funcionalidades estão presentes no .NET SDK:
 
-* **Transforma** e **Empregos** para codificar ou analisar conteúdos de mídia. Por exemplo, consulte [os ficheiros stream](stream-files-tutorial-with-api.md) e [analise](analyze-videos-tutorial-with-api.md).
+* **Transforma** e **Empregos** para codificar ou analisar conteúdos de mídia. Por exemplo, consulte [os ficheiros stream](stream-files-tutorial-with-api.md) e [analise](analyze-videos-tutorial.md).
 * **Localizadores de streaming** para publicação e streaming de conteúdos para dispositivos de utilizador final
 * **Políticas de streaming** e **políticas de chave de conteúdo** para configurar a entrega de chaves e proteção de conteúdos (DRM) ao fornecer conteúdo.
 * **Live Events** e **Live Outputs** para configurar a ingestão e arquivamento de conteúdos de streaming ao vivo.

@@ -8,18 +8,21 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed81ca2c8f409b7f6c4a6f30f9bf75e594c6c208
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397931"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221709"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar as versões da política TLS e os conjuntos de cifras no Gateway de Aplicação
 
 Saiba como configurar versões de política TLS/SSL e suítes de cifra no Application Gateway. Pode selecionar a partir de uma lista de políticas predefinidas que contêm diferentes configurações de versões de política TLS e suites de cifra ativadas. Também tem a capacidade de definir uma [política TLS personalizada](#configure-a-custom-tls-policy) com base nos seus requisitos.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Recomendamos a utilização do TLS 1.2 como a sua versão mínima do protocolo TLS para uma melhor segurança no seu Gateway de Aplicações. 
 
 ## <a name="get-available-tls-options"></a>Obtenha opções TLS disponíveis
 
@@ -217,4 +220,6 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Visite [o Application Gateway redirecionando](./redirect-overview.md) a visão geral para saber como redirecionar o tráfego HTTPS para um ponto final HTTPS.
+Visite [o Application Gateway redirecionando](./redirect-overview.md) a visão geral para saber como redirecionar o tráfego HTTPS para um ponto final HTTPS. 
+
+Confira a criação de políticas SSL específicas do ouvinte na [criação de políticas específicas do ouvinte SSL através do Portal](./application-gateway-configure-listener-specific-ssl-policy.md)

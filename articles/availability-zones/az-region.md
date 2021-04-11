@@ -4,16 +4,16 @@ description: Para criar aplicações altamente disponíveis e resilientes no Azu
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/06/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: a81f3a3c51ffd0e1e0937c077a07fcbde16f0513
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 782e632f8707b4cafb6d33438f6c8da7e8b08c30
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961307"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491398"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -45,16 +45,16 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 
 
 ## <a name="azure-regions-with-availability-zones"></a>Regiões azure com Zonas de Disponibilidade
-
+ 
 
 | América           | Europa               | África              | Ásia-Pacífico   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
 | Sul do Brasil       | França Central       | África do Sul Norte* | Leste da Austrália |
-| Canadá Central     | Alemanha Centro-Oeste |                     | Leste do Japão     |
-| E.U.A. Central         | Europa do Norte         |                     | Coreia Central* |
-| E.U.A. Leste            | Sul do Reino Unido             |                     | Sudeste Asiático |
-| E.U.A. Leste 2          | Europa Ocidental          |                     |                |
+| Canadá Central     | Alemanha Centro-Oeste |                     | Centro da Índia* |
+| E.U.A. Central         | Europa do Norte         |                     | Leste do Japão     |
+| E.U.A. Leste            | Sul do Reino Unido             |                     | Coreia Central* |
+| E.U.A. Leste 2          | Europa Ocidental          |                     | Sudeste Asiático |
 | Centro-Sul dos EUA |                      |                     |                |
 | US Gov - Virginia    |                      |                     |                |
 | Oeste DOS EUA 2        |                      |                     |                |
@@ -115,89 +115,100 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 
 **Serviços mainstream**
 
-| Produtos                                        | Resiliência |
-|-------------------------------------------------|:------------:|
-| Ambientes do App Service                        |      :large_blue_diamond:  |
-| Azure Active Directory Domain Services          |      :large_blue_diamond:  |
-| Azure Bastion                                   |      :large_blue_diamond:  |
-| Cache do Azure para Redis                           |      :large_blue_diamond:  |
-| Serviços Cognitivos do Azure: Análise de Texto        |      :large_blue_diamond:  |
-| Azure Data Explorer                             |      :large_blue_diamond:  |
-| Base de Dados Azure para MySQL – Servidor Flexível      |      :large_blue_diamond:  |
-| Base de Dados Azure para PostgreSQL – Servidor Flexível |      :large_blue_diamond:  |
-| Azure DDoS Protection                           |      :large_blue_diamond:  |
-| Azure Disk Encryption                           |      :large_blue_diamond:  |
-| Azure Firewall                                  |      :large_blue_diamond:  |
-| Azure Firewall Manager                          |      :large_blue_diamond:  |
-| Azure Kubernetes Service (AKS)                  |      :large_blue_diamond:  |
-| Azure Private Link                              |      :large_blue_diamond:  |
-| Azure Red Hat OpenShift                         |      :large_blue_diamond:  |
-| Azure Site Recovery                             |      :large_blue_diamond:  |
-| Azure SQL: Máquina Virtual                      |      :large_blue_diamond:  |
-| Azure Search                                    |      :large_blue_diamond:  |
-| Firewall de Aplicações Web do Azure                  |      :large_blue_diamond:  |
-| Container Registry                              |      :large_blue_diamond:  |
-| Event Grid                                      |      :large_blue_diamond:  |
-| Observador de Rede                                 |      :large_blue_diamond:  |
-| Observador de Rede: Análise de Tráfego              |      :large_blue_diamond:  |
-| Power BI Embedded                               |      :large_blue_diamond:  |
-| Armazenamento Premium Blob                            |      :large_blue_diamond:  |
-| Armazenamento: Ficheiros Azure Premium                    |      :large_blue_diamond:  |
-| Máquinas Virtuais: Azure Anfitrião Dedicado          |      :large_blue_diamond:  |
-| Máquinas Virtuais: Ddsv4-Series                  |      :large_blue_diamond:  |
-| Máquinas Virtuais: Ddv4-Series                   |      :large_blue_diamond:  |
-| Máquinas Virtuais: Dsv4-Series                   |      :large_blue_diamond:  |
-| Máquinas Virtuais: Dv4-Series                    |      :large_blue_diamond:  |
-| Máquinas Virtuais: Edsv4-Series                  |      :large_blue_diamond:  |
-| Máquinas Virtuais: Edv4-Series                   |      :large_blue_diamond:  |
-| Máquinas Virtuais: Esv4-Series                   |      :large_blue_diamond:  |
-| Máquinas Virtuais: Ev4-Series                    |      :large_blue_diamond:  |
-| Máquinas Virtuais: Fsv2-Series                   |      :large_blue_diamond:  |
-| Máquinas Virtuais: Série M                      |      :large_blue_diamond:  |
-| WAN Virtual                                     |      :large_blue_diamond:  |
-| Virtual WAN: ExpressRoute                       |      :large_blue_diamond:  |
-| WAN Virtual: Gateway VPN ponto-a-local          |      :large_blue_diamond:  |
-| VIRTUAL WAN: Portal VPN site-to-site           |      :large_blue_diamond:  |
+
+|     Produtos                                                    | Resiliência             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Ambientes do App Service                                    | :large_blue_diamond:  |
+|     Azure Active Directory Domain Services                      | :large_blue_diamond:  |
+|     Azure Bastion                                               | :large_blue_diamond:  |
+|     Cache do Azure para Redis                                       | :large_blue_diamond:  |
+|     Azure Cognitive Search                                      | :large_blue_diamond:  |
+|     Serviços Cognitivos do Azure: Análise de Texto                    | :large_blue_diamond:  |
+|     Azure Data Explorer                                         | :large_blue_diamond:  |
+|     Base de Dados Azure para MySQL – Servidor Flexível                  | :large_blue_diamond:  |
+|     Base de Dados Azure para PostgreSQL – Servidor Flexível             | :large_blue_diamond:  |
+|     Azure DDoS Protection                                       | :large_blue_diamond:  |
+|     Azure Disk Encryption                                       | :large_blue_diamond:  |
+|     Azure Firewall                                              | :large_blue_diamond:  |
+|     Azure Firewall Manager                                      | :large_blue_diamond:  |
+|     Azure Kubernetes Service (AKS)                              | :large_blue_diamond:  |
+|     Azure Private Link                                          | :large_blue_diamond:  |
+|     Azure Site Recovery                                         | :large_blue_diamond:  |
+|     Azure SQL: Máquina Virtual                                  | :large_blue_diamond:  |
+|     Firewall de Aplicações Web do Azure                              | :large_blue_diamond:  |
+|     Container Registry                                          | :large_blue_diamond:  |
+|     Event Grid                                                  | :large_blue_diamond:  |
+|     Observador de Rede                                             | :large_blue_diamond:  |
+|     Observador de Rede: Análise de Tráfego                          | :large_blue_diamond:  |
+|     Power BI Embedded                                           | :large_blue_diamond:  |
+|     Armazenamento Premium Blob                                        | :large_blue_diamond:  |
+|     Armazenamento: Ficheiros Azure Premium                                | :large_blue_diamond:  |
+|     Máquinas Virtuais: Azure Anfitrião Dedicado                      | :large_blue_diamond:  |
+|     Máquinas Virtuais: Ddsv4-Series                              | :large_blue_diamond:  |
+|     Máquinas Virtuais: Ddv4-Series                               | :large_blue_diamond:  |
+|     Máquinas Virtuais: Dsv4-Series                               | :large_blue_diamond:  |
+|     Máquinas Virtuais: Dv4-Series                                | :large_blue_diamond:  |
+|     Máquinas Virtuais: Edsv4-Series                              | :large_blue_diamond:  |
+|     Máquinas Virtuais: Edv4-Series                               | :large_blue_diamond:  |
+|     Máquinas Virtuais: Esv4-Series                               | :large_blue_diamond:  |
+|     Máquinas Virtuais: Ev4-Series                                | :large_blue_diamond:  |
+|     Máquinas Virtuais: Fsv2-Series                               | :large_blue_diamond:  |
+|     Máquinas Virtuais: Série M                                  | :large_blue_diamond:  |
+|     WAN Virtual                                                 | :large_blue_diamond:  |
+|     Virtual WAN: ExpressRoute                                   | :large_blue_diamond:  |
+|     WAN Virtual: Gateway VPN ponto-a-local                      | :large_blue_diamond:  |
+|     VIRTUAL WAN: Portal VPN site-to-site                       | :large_blue_diamond:  |
+
+
+**Serviços Especializados**
+
+|     Produtos                                                    | Resiliência             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Azure Red Hat OpenShift                                     | :large_blue_diamond:  |
+|     Serviços Cognitivos: Detetor de Anomalias                        | :large_blue_diamond:  |
+|     Serviços Cognitivos: Reconhecimento de Formulários                         | :large_blue_diamond:  |
+|     Armazenamento: Disco Ultra                                         | :large_blue_diamond:  |
 
 
 **Não regional**
 
-|     Produtos                                  |     Resiliência    |
-|-----------------------------------------------|:-------------------:|
-|     DNS do Azure                                 |     :globe_with_meridians:             |
-|     Diretório Ativo Azure                  |     :globe_with_meridians:             |
-|     Proteção Avançada Contra Ameaças do Azure          |     :globe_with_meridians:             |
-|     Assistente do Azure                             |     :globe_with_meridians:             |
-|     Azure Blueprints                          |     :globe_with_meridians:             |
-|     Azure Bot Services                        |     :globe_with_meridians:             |
-|     Azure Front Door                          |     :globe_with_meridians:             |
-|     Azure Defender para IoT                  |     :globe_with_meridians:             |
-|     Azure Front Door                           |     :globe_with_meridians:             |
-|     Proteção de Informação Azure            |     :globe_with_meridians:             |
-|     Farol de Azure                        |     :globe_with_meridians:             |
-|     Aplicações geridas azure              |     :globe_with_meridians:             |
-|     Azure Maps                                |     :globe_with_meridians:             |
-|     Azure Policy                              |     :globe_with_meridians:             |
-|     Gráfico de recursos Azure                    |     :globe_with_meridians:             |
-|     Azure Sentinel                            |     :globe_with_meridians:             |
-|     Azure Stack                               |     :globe_with_meridians:             |
-|     Borda da pilha de Azure                        |     :globe_with_meridians:             |
-|     Cloud Shell                               |     :globe_with_meridians:             |
-|     Rede de Entrega de Conteúdos                  |     :globe_with_meridians:             |
-|     Cost Management                           |     :globe_with_meridians:             |
-|     Lockbox do cliente para Microsoft Azure    |     :globe_with_meridians:             |
-|     Intune                                    |     :globe_with_meridians:             |
-|     Microsoft Azure Peering Service         |     :globe_with_meridians:             |
-|     Portal Microsoft Azure                  |     :globe_with_meridians:             |
-|     Microsoft Cloud App Security              |     :globe_with_meridians:             |
-|     Microsoft Graph                           |     :globe_with_meridians:             |
-|     Centro de Segurança                         |     :globe_with_meridians:             |
-|     Gestor de Tráfego                         |     :globe_with_meridians:             |
+|     Produtos                                                    | Resiliência             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     DNS do Azure                                                   | :globe_with_meridians: |
+|     Diretório Ativo Azure                                    | :globe_with_meridians: |
+|     Proteção Avançada Contra Ameaças do Azure                            | :globe_with_meridians: |
+|     Assistente do Azure                                               | :globe_with_meridians: |
+|     Azure Blueprints                                            | :globe_with_meridians: |
+|     Azure Bot Services                                          | :globe_with_meridians: |
+|     Azure Front Door                                            | :globe_with_meridians: |
+|     Azure Defender para IoT                                    | :globe_with_meridians: |
+|     Azure Front Door                                            | :globe_with_meridians: |
+|     Proteção de Informação Azure                              | :globe_with_meridians: |
+|     Farol de Azure                                          | :globe_with_meridians: |
+|     Aplicações geridas azure                                | :globe_with_meridians: |
+|     Azure Maps                                                  | :globe_with_meridians: |
+|     Diagnóstico de Desempenho Azure                               | :globe_with_meridians: |
+|     Azure Policy                                                | :globe_with_meridians: |
+|     Gráfico de recursos Azure                                      | :globe_with_meridians: |
+|     Azure Sentinel                                              | :globe_with_meridians: |
+|     Azure Stack                                                 | :globe_with_meridians: |
+|     Borda da pilha de Azure                                          | :globe_with_meridians: |
+|     Cloud Shell                                                 | :globe_with_meridians: |
+|     Rede de Entrega de Conteúdos                                    | :globe_with_meridians: |
+|     Cost Management                                             | :globe_with_meridians: |
+|     Lockbox do cliente para Microsoft Azure                      | :globe_with_meridians: |
+|     Intune                                                      | :globe_with_meridians: |
+|     Microsoft Azure Peering Service                           | :globe_with_meridians: |
+|     Portal Microsoft Azure                                    | :globe_with_meridians: |
+|     Microsoft Cloud App Security                                | :globe_with_meridians: |
+|     Microsoft Graph                                             | :globe_with_meridians: |
+|     Centro de Segurança                                           | :globe_with_meridians: |
+|     Gestor de Tráfego                                           | :globe_with_meridians: |
 
 
 ## <a name="pricing-for-vms-in-availability-zones"></a>Preços para VMs em Zonas de Disponibilidade
 
-Não há custo adicional para máquinas virtuais implantadas numa Zona de Disponibilidade. Para mais informações, reveja [a página de preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+As Zonas de Disponibilidade Azure estão disponíveis com a sua subscrição Azure. Saiba mais aqui - [Página de preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 
 ## <a name="get-started-with-availability-zones"></a>Começar com Zonas de Disponibilidade

@@ -11,16 +11,16 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: dd62fb5e3c7450d50b9837ee5484ca480cab78aa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 511ee1aa5f5036f5ca5450def0e4481c0608db33
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640836"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227352"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Link Azure Synapse Analytics e Azure Machine Learning espaços de trabalho (pré-visualização)
 
-Neste artigo, você aprende a criar um serviço ligado que liga o seu espaço de trabalho [Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) e [o espaço de trabalho Azure Machine Learning](concept-workspace.md).
+Neste artigo, você aprende a criar um serviço ligado que liga o seu espaço de trabalho [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) e [o espaço de trabalho Azure Machine Learning](concept-workspace.md).
 
 Com o seu espaço de trabalho Azure Machine Learning ligado ao seu espaço de trabalho Azure Synapse, pode anexar uma piscina Apache Spark como um computamento dedicado para a luta de dados em escala e realizar treino de modelo a partir do mesmo caderno.
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40e9e2b0e7437566a132f2402d3bed01b284d11a
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102109282"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081125"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Criar um WebJob ativado manualmente
 
@@ -33,7 +33,7 @@ ms.locfileid: "102109282"
    | <abbr title="Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais para além `-` de `_` .">Name</abbr> | myTriggeredWebJob | 
     | <abbr title="Um *ficheiro .zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script.">Upload de ficheiros</abbr> | ConsoleApp.zip |
     | <abbr title="Os tipos incluem contínuo, desencadeado.">Tipo</abbr> | Desencadeado | 
-    | <abbr title="Os tipos incluem agendado ou manual">Acionadores</a> | Manual | |
+    | <abbr title="Os tipos incluem agendado ou manual">Acionadores</a> | Manual | 
 
 4. Clique em **OK**. 
 

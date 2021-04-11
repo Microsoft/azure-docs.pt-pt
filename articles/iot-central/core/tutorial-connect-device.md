@@ -11,18 +11,18 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 8f1b5eabe235d107b48dc7b2db5b6d4b1188a3fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833971"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491105"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Criar e ligar uma aplicação de cliente à sua aplicação Azure IoT Central
 
 *Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
-Este tutorial mostra-lhe como, como desenvolvedor de dispositivos, ligar uma aplicação do cliente à sua aplicação Azure IoT Central. A aplicação simula o comportamento de um dispositivo termóstato. Quando a aplicação se liga à IoT Central, envia o ID do modelo do dispositivo termóstato. A IoT Central utiliza o ID do modelo para recuperar o modelo do dispositivo e criar um modelo de dispositivo para si. Adiciona personalizações e vistas ao modelo do dispositivo para permitir que um operador interaja com um dispositivo.
+Este tutorial mostra-lhe como, como desenvolvedor de dispositivos, ligar uma aplicação do cliente à sua aplicação Azure IoT Central. A aplicação simula o comportamento de um dispositivo controlador de temperatura. Quando a aplicação se liga à IoT Central, envia o ID do modelo do dispositivo do controlador de temperatura. A IoT Central utiliza o ID do modelo para recuperar o modelo do dispositivo e criar um modelo de dispositivo para si. Adiciona personalizações e vistas ao modelo do dispositivo para permitir que um operador interaja com um dispositivo.
 
 Neste tutorial, ficará a saber como:
 

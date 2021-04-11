@@ -1,18 +1,18 @@
 ---
 title: Como utilizar o armazenamento de objetos (Blob) do iOS - Azure | Microsoft Docs
 description: Armazene dados não estruturados na nuvem com o Blob Storage do Azure (armazenamento de objetos).
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 7fc1b2638c2ab17c4cd58ca8d4508d2e6d244cfa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1b0653c997930c60950da335e79b0388edd43897
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95996826"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278359"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como utilizar o armazenamento blob do iOS
 

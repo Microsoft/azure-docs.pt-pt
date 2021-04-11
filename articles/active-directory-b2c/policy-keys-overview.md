@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37ff3300935e90304754b5f2b375df0adecdaefa
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94953360"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256247"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Visão geral das chaves de política no Azure Ative Directory B2C
 
@@ -28,7 +28,7 @@ O Azure Ative Directory B2C (Azure AD B2C) armazena segredos e certificados sob 
  Este artigo discute o que precisa de saber sobre as chaves de política que são usadas pelo Azure AD B2C.
 
 > [!NOTE]
-> Atualmente, a configuração das chaves de política está limitada apenas às [políticas personalizadas.](./custom-policy-get-started.md)
+> Atualmente, a configuração das chaves de política está limitada apenas às [políticas personalizadas.](./user-flow-overview.md)
 
 Pode configurar segredos e certificados para estabelecer confiança entre serviços no portal Azure no menu **de chaves Da Política.** As chaves podem ser simétricas ou assimétricas. A criptografia *simétrica,* ou criptografia de chaves privadas, é onde um segredo partilhado é usado para encriptar e desencriptar os dados. A criptografia *assimétrica,* ou criptografia de chaves públicas, é um sistema criptográfico que utiliza pares de chaves, consistindo de chaves públicas que são partilhadas com a aplicação do partido e chaves privadas que são conhecidas apenas por Azure AD B2C.
 

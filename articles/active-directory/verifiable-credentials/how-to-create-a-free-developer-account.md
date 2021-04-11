@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 1894ffb7ca75a283e3a74d17c3e73de51fc46d8d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1e8bb59c09622a39dad680940ff34e643ee0cc3b
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170249"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222746"
 ---
 # <a name="how-to-create-a-free-azure-active-directory-developer-tenant"></a>Como criar um inquilino de desenvolvimento gratuito do Azure Ative Directory
 
@@ -32,15 +32,15 @@ Existem duas maneiras fáceis de criar um Diretório Ativo Azure gratuito com um
 
 Se decidir inscrever-se no programa de desenvolvimento gratuito da Microsoft 365, tem de seguir alguns passos fáceis:
 
-1. Clique no botão 'Juntar-se' agora no ecrã
+1. Clique no botão **'Juntar-se'** no ecrã.
 
 2. Faça sing com uma nova Conta Microsoft ou use uma conta (trabalho) existente que já tenha.
 
-3. Na página de inscrição selecione a sua região, insira um nome de empresa e aceite os termos e condições do programa antes de clicar em seguida
+3. Na página de inscrição selecione a sua região, insira o nome da empresa e aceite os termos e condições do programa antes de clicar em **Next**.
 
-4. Clique na subscrição configurada. Especifique a região onde pretende criar o seu novo inquilino, crie um nome de utilizador, domínio e introduza uma senha. Isto vai criar um novo inquilino e o primeiro administrador do inquilino
+4. Clique na **subscrição configurada.** Especifique a região onde pretende criar o seu novo inquilino, crie um nome de utilizador, domínio e introduza uma senha. Isto criará um novo inquilino e o primeiro administrador do arrendatário.
 
-5. Insira as informações de segurança necessárias para proteger a conta do administrador do seu novo inquilino. Isto irá configurar a autenticação do MFA para a conta
+5. Insira as informações de segurança necessárias para proteger a conta do administrador do seu novo inquilino. Isto configurará a autenticação MFA para a conta.
 
 
 Neste momento, criou um inquilino com 25 licenças de utilizador E5. As licenças E5 incluem licenças Azure AD P2. Opcionalmente, pode adicionar pacotes de dados de amostra com utilizadores, grupos, correio e SharePoint para ajudá-lo a testar no seu ambiente de desenvolvimento. Para o serviço de emissão de credenciais verificáveis, não são necessários.

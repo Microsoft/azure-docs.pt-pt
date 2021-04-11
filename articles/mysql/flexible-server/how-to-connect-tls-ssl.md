@@ -6,28 +6,99 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: ce6150cf404f1ca68c93285a2f4a29a6373a55c0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 399cf8087d39f78184cfdae4b9f0e34efecaea66
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110029"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491617"
 ---
-# <a name="connect-to-azure-database-for-mysql---flexible-server-over-tls12ssl"></a>Ligue à Base de Dados Azure para MySQL - Servidor Flexível sobre TLS1.2/SSL
+# <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Ligue à Base de Dados Azure para o MySQL - Servidor Flexível com ligações encriptadas
 
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server está atualmente em pré-visualização pública
 
-A Azure Database for MySQL Flexible Server suporta ligar as aplicações do seu cliente ao serviço MySQL utilizando a Segurança da Camada de Transporte (TLS), anteriormente conhecida como Camada de Tomadas Seguras (SSL). O TLS é um protocolo padrão da indústria que garante ligações de rede encriptadas entre o servidor da base de dados e as aplicações do cliente, permitindo-lhe aderir aos requisitos de conformidade.
+A Azure Database for MySQL Flexible Server suporta ligar as aplicações do seu cliente ao servidor MySQL utilizando a camada de tomadas seguras (SSL) com a encriptação de segurança da camada de transporte (TLS). O TLS é um protocolo padrão da indústria que garante ligações de rede encriptadas entre o servidor da base de dados e as aplicações do cliente, permitindo-lhe aderir aos requisitos de conformidade.
 
-A base de dados Azure para o MySQL Flexible Server apenas suporta ligações encriptadas utilizando a Segurança da Camada de Transporte (TLS 1.2) e todas as ligações de entrada com TLS 1.0 e TLS 1.1 serão negadas. Para todos os servidores flexíveis, a aplicação das ligações TLS está ativada e não é possível desativar o TLS/SSL para a ligação ao servidor flexível.
+A Azure Database for MySQL Flexible Server suporta ligações encriptadas utilizando a Segurança da Camada de Transporte (TLS 1.2) por padrão e todas as ligações de entrada com TLS 1.0 e TLS 1.1 serão negadas por padrão. A aplicação de ligação encriptada ou a configuração da versão TLS no seu servidor flexível podem ser alteradas conforme discutido neste artigo. 
 
-## <a name="download-the-public-ssl-certificate"></a>Faça o download do certificado público SSL
-Para utilizar com as suas aplicações, por favor descarregue o [certificado SSL público](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem).
+Seguem-se as diferentes configurações das definições SSL e TLS que pode ter para o seu servidor flexível:
 
-Guarde o ficheiro de certificado para a sua localização preferida. Por exemplo, este tutorial utiliza `c:\ssl` ou no seu ambiente local ou no ambiente cliente onde a sua `\var\www\html\bin` aplicação está hospedada. Isto permitirá que as aplicações se conectem de forma segura à base de dados sobre ssl. 
+| Scenario   | Definições de parâmetros do servidor      | Descrição                                    |
+|------------|--------------------------------|------------------------------------------------|
+|Desativar o SSL (ligações encriptadas) | require_secure_transport = OFF |Se a sua aplicação legado não suportar ligações encriptadas ao servidor MySQL, pode desativar a aplicação de ligações encriptadas ao seu servidor flexível definindo require_secure_transport=OFF.|
+|Impor SSL com versão TLS < 1.2 | require_secure_transport = ON and tls_version = TLSV1 ou TLSV1.1| Se a sua aplicação antiga suportar ligações encriptadas mas necessitar da versão TLS < 1.2, pode ativar ligações encriptadas mas configurar o seu servidor flexível para permitir ligações com a versão tls (v1.0 ou v1.1) suportada pela sua aplicação|
+|Impor SSL com versão TLS = 1.2 (Configuração padrão)|require_secure_transport = ON and tls_version = TLSV1.2| Esta é a configuração recomendada e padrão para o servidor flexível.|
+|Impor SSL com versão TLS = 1.3 (Suportado com MySQL v8.0 ou superior)| require_secure_transport = ON and tls_version = TLSV1.3| Isto é útil e recomendado para o desenvolvimento de novas aplicações|
 
-### <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>Conecte-se usando o cliente da linha de comando mysql com tLS/SSL
+> [!Note]
+> As alterações ao SSL Cipher no servidor flexível não são suportadas. As suítes de cifra FIPS são aplicadas por padrão quando tls_version é definida para a versão TLS 1.2 . Para versões TLS que não a versão 1.2, a Cipher SSL está definida para definições padrão que vêm com a instalação comunitária mySQL.
+
+Neste artigo, aprenderá a:
+* Configure o seu servidor flexível 
+  * Com SSL desativado 
+  * Com sSL aplicado com versão TLS < 1.2
+* Ligue-se ao seu servidor flexível utilizando a linha de comando mysql 
+  * Com ligações encriptadas desativadas
+  * Com ligações encriptadas ativadas
+* Verifique o estado de encriptação da sua ligação
+* Conecte-se ao seu servidor flexível com ligações encriptadas utilizando várias estruturas de aplicação
+
+## <a name="disable-ssl-on-your-flexible-server"></a>Desative o SSL no seu servidor flexível
+Se a sua aplicação ao cliente não suportar ligações encriptadas, terá de desativar a aplicação de ligações encriptadas no seu servidor flexível. Para desativar a aplicação de ligações encriptadas, terá de definir require_secure_transport parâmetro do servidor para OFF, como mostrado na imagem e guardar a configuração do parâmetro do servidor para que este produza efeitos. require_secure_transport é um **parâmetro dinâmico do servidor** que entra em vigor imediatamente e não requer o reinício do servidor para fazer efeito.
+
+> :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Screenshot mostrando como desativar SSL com Base de Dados Azure para servidor flexível MySQL.":::
+
+### <a name="connect-using-mysql-command-line-client-with-ssl-disabled"></a>Conecte-se usando o cliente da linha de comando mysql com SSL desativado
+
+O exemplo a seguir mostra como ligar-se ao seu servidor utilizando a interface de linha de comando mysql. Utilize a `--ssl-mode=DISABLED` definição de cadeia de ligação para desativar a ligação TLS/SSL do cliente Mysql. Substitua os valores pelo nome e senha do seu servidor. 
+
+```bash
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
+```
+É importante notar que a definição require_secure_transport para OFF não significa que as ligações encriptadas não sejam suportadas no lado do servidor. Se definir require_secure_transport para OFF no servidor flexível, mas se o cliente ligar-se com a ligação encriptada, ele ainda será aceite. A seguinte ligação utilizando o cliente mysql para um servidor flexível configurado com require_secure_transport=OFF também funcionará como mostrado abaixo.
+
+```bash
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED
+```
+```output
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 5.7.29-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show global variables like '%require_secure_transport%';
++--------------------------+-------+
+| Variable_name            | Value |
++--------------------------+-------+
+| require_secure_transport | OFF   |
++--------------------------+-------+
+1 row in set (0.02 sec)
+```
+
+Em resumo, require_secure_transport=OFF a definição relaxa a aplicação de ligações encriptadas no servidor flexível e permite ligações não encriptadas ao servidor do cliente além das ligações encriptadas.
+
+## <a name="enforce-ssl-with-tls-version--12"></a>Impor SSL com versão TLS < 1.2
+
+Se a sua aplicação suportar ligações ao servidor MySQL com SSL, mas suporta a versão TLS < 1.2, será necessário definir o parâmetro do servidor de versões TLS no seu servidor flexível. Para definir as versões TLS que pretende que o seu servidor flexível suporte, terá de definir tls_version parâmetro do servidor para TLSV1, TLSV1.1 ou TLSV1 e TLSV1.1, como mostrado na imagem e guardar a configuração do parâmetro do servidor para que produza efeito. tls_version é um **parâmetro estático do servidor** que exigirá o reinício do servidor para que o parâmetro entre em vigor.
+
+> :::image type="content" source="./media/how-to-connect-tls-ssl/tls-version.png" alt-text="Screenshot mostrando como definir a versão tls para uma Base de Dados Azure para servidor flexível MySQL.":::
+
+## <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>Conecte-se usando o cliente da linha de comando mysql com tLS/SSL
+
+### <a name="download-the-public-ssl-certificate"></a>Faça o download do certificado público SSL
+Para utilizar ligações encriptadas com as aplicações do seu cliente, terá de descarregar o [certificado SSL público](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) que também está disponível na lâmina de rede do portal Azure, como mostrado na imagem abaixo.
+
+> :::image type="content" source="./media/how-to-connect-tls-ssl/download-ssl.png" alt-text="Screenshot mostrando como baixar o certificado SSL público do portal Azure.":::
+
+Guarde o ficheiro de certificado para a sua localização preferida. Por exemplo, este tutorial utiliza `c:\ssl` ou no seu ambiente local ou no ambiente cliente onde a sua `\var\www\html\bin` aplicação está hospedada. Isto permitirá que as aplicações se conectem de forma segura à base de dados sobre ssl.
 
 Se criou o seu servidor flexível com *acesso privado (VNet Integration)*, terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la ao VNet criado com o seu servidor flexível.
 
@@ -38,25 +109,30 @@ Pode escolher [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou
 O exemplo a seguir mostra como ligar-se ao seu servidor utilizando a interface de linha de comando mysql. Utilize a `--ssl-mode=REQUIRED` definição de cadeia de ligação para impor a verificação do certificado TLS/SSL. Passe o caminho do arquivo de certificado local para o `--ssl-ca` parâmetro. Substitua os valores pelo nome e senha do seu servidor. 
 
 ```bash
- mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\DigiCertGlobalRootCA.crt.pem
+sudo apt-get install mysql-client
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 > [!Note]
 > Confirme que o valor passado corresponde `--ssl-ca` ao caminho do ficheiro para o certificado que guardou.
 
-### <a name="verify-the-tlsssl-connection"></a>Verifique a ligação TLS/SSL
+Se tentar ligar ao seu servidor com ligações não encriptadas, verá que as ligações com recurso a transporte inseguro são proibidas de se encontrar semelhantes às que se seguem:
+
+```output
+ERROR 3159 (HY000): Connections using insecure transport are prohibited while --require_secure_transport=ON.
+```
+
+## <a name="verify-the-tlsssl-connection"></a>Verifique a ligação TLS/SSL
 
 Execute o comando **de estado** mysql para verificar se ligou ao seu servidor MySQL utilizando TLS/SSL:
 
 ```dos
 mysql> status
 ```
-Confirme que a ligação é encriptada através da revisão da saída, que deve mostrar:  **SSL: Cifra em uso é AES256-SHA**. Esta suíte de cifra mostra um exemplo e, com base no cliente, você pode ver uma suíte de cifra diferente.
+Confirme que a ligação é encriptada através da revisão da saída, que deve mostrar: **SSL: Cipher em uso é **. Esta suíte de cifra mostra um exemplo e, com base no cliente, você pode ver uma suíte de cifra diferente.
 
-## <a name="ensure-your-application-or-framework-supports-tls-connections"></a>Certifique-se de que a sua aplicação ou enquadramento suporta ligações TLS
+## <a name="connect-to-your-flexible-server-with-encrypted-connections-using-various-application-frameworks"></a>Conecte-se ao seu servidor flexível com ligações encriptadas utilizando várias estruturas de aplicação
 
-Alguns quadros de aplicação que utilizam o MySQL para os seus serviços de base de dados não permitem o TLS por padrão durante a instalação. O seu servidor MySQL aplica ligações TLS, mas se a aplicação não estiver configurada para TLS, a aplicação poderá não conseguir ligar-se ao servidor de base de dados. Consulte a documentação da sua aplicação para saber como ativar as ligações TLS.
-
-## <a name="sample-code"></a>Código de exemplo
 As cadeias de ligação pré-definidas na página "Connection Strings" disponível para o seu servidor no portal Azure incluem os parâmetros necessários para que as línguas comuns se conectem ao servidor da base de dados utilizando o TLS/SSL. O parâmetro TLS/SSL varia em com base no conector. Por exemplo, "useSSL=true", "sslmode=required", ou "ssl_verify_cert=true" e outras variações.
 
 Para estabelecer uma ligação encriptada ao seu servidor flexível sobre o TLS/SSL a partir da sua aplicação, consulte as seguintes amostras de código:

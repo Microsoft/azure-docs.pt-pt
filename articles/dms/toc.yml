@@ -37,7 +37,7 @@
   items:
     - name: Migrar o SQL Server
       items:
-        - name: para a Base de Dados Azure SQL
+        - name: para a Base de Dados SQL do Azure
           href: tutorial-sql-server-to-azure-sql.md
         - name: para a Instância Gerida do SQL no Azure (offline)
           href: tutorial-sql-server-to-managed-instance.md
@@ -93,6 +93,10 @@
           href: how-to-migrate-ssis-packages.md
         - name: Instância Gerida do Azure SQL
           href: how-to-migrate-ssis-packages-managed-instance.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/dms
 - name: Recursos
   items:
     - name: Perguntas mais frequentes

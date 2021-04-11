@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b6001932b6f53a60eda76b6136611a10011391a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df0fcaf7987e30f9c2599346aaef5fcabb4f04e9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928686"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256655"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Tutorial para configurar iDologia com Diretório Ativo Azure B2C 
 
@@ -93,7 +93,7 @@ A política da amostra utiliza estes nomes-chave:
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Parte 4 - Configurar a Política Azure AD B2C
 
-1. Siga este [documento](custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para descarregar o [pacote de iniciação LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) e configurar a política para o inquilino Azure AD B2C. Siga as instruções até completar a secção **'Testar a Política Personalizada'.**
+1. Siga este [documento](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) para descarregar o [pacote de iniciação LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) e configurar a política para o inquilino Azure AD B2C. Siga as instruções até completar a secção **'Testar a Política Personalizada'.**
 
 2. Descarregue as duas políticas de amostra [aqui.](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/policy)
 
@@ -145,4 +145,4 @@ Para obter informações adicionais, reveja os seguintes artigos:
 
 - [Políticas personalizadas no Azure AD B2C](custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](custom-policy-get-started.md?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

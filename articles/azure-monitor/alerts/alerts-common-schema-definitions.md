@@ -4,19 +4,19 @@ description: Compreender as definições comuns de esquema de alerta para o Azur
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 02092f5a241824d2a9aef242b544f8900af7ebec
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 709ec2dee1be6930ca7c09de334aede8a76e95f4
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045399"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491717"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
 Este artigo descreve as [definições comuns de esquema de alerta](./alerts-common-schema.md) para o Azure Monitor, incluindo as de webhooks, Azure Logic Apps, Azure Functions e Azure Automation. 
 
 Qualquer instância de alerta descreve o recurso que foi afetado e a causa do alerta. Estes casos são descritos no esquema comum nas seguintes secções:
-* **Essenciais**: Um conjunto de campos padronizados, comuns em todos os tipos de alerta, que descrevem em que recurso o alerta está ligado, juntamente com metadados de alerta comuns adicionais (por exemplo, gravidade ou descrição). 
+* **Essenciais**: Um conjunto de campos padronizados, comuns em todos os tipos de alerta, que descrevem em que recurso o alerta está ligado, juntamente com metadados de alerta comuns adicionais (por exemplo, gravidade ou descrição). As definições de gravidade podem ser encontradas na [visão geral](alerts-overview.md#overview)dos alertas . 
 * **Contexto de alerta**: Um conjunto de campos que descreve a causa do alerta, com campos que variam em função do tipo de alerta. Por exemplo, um alerta métrico inclui campos como o nome métrico e o valor métrico no contexto de alerta, enquanto um alerta de registo de atividade tem informações sobre o evento que gerou o alerta. 
 
 **Carga útil de alerta de amostra**

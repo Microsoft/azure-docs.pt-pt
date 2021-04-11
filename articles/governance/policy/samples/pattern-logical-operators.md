@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Operadores lógicos numa definição de política'
 description: Este padrão de Política Azure fornece exemplos de como utilizar os operadores lógicos numa definição de política.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88545595"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093355"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Padrão de política Azure: operadores lógicos
 
@@ -16,7 +16,7 @@ Uma definição de política pode conter várias declarações condicionais. Pod
 
 ## <a name="sample-1-one-logical-operator"></a>Amostra 1: Um operador lógico
 
-Esta definição de política avalia as contas do CosmosDB para ver se as falhas automáticas e vários locais de escrita estão configurados. Quando não estão, a [auditoria](../concepts/effects.md#audit) dispara e cria uma entrada de registo quando o recurso não conforme é criado ou atualizado.
+Esta definição de política avalia as contas [DB do Azure Cosmos](../../../cosmos-db/introduction.md) para ver se as falhas automáticas e vários locais de escrita estão configurados. Quando não estão, a [auditoria](../concepts/effects.md#audit) dispara e cria uma entrada de registo quando o recurso não conforme é criado ou atualizado.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -41,7 +41,7 @@ Esta **apóliceRule.se** o bloco também inclui um único **allOf**, mas cada co
 
 ## <a name="sample-3-combining-logical-operators"></a>Amostra 3: Combinar operadores lógicos
 
-Esta definição de política avalia as contas de Java Spring para ver se algum dos vestígios não está habilitado ou se o rastreio não está em um estado de sucesso.
+Esta definição de política avalia as contas [da primavera em Azure](/azure/developer/java/spring-framework) para ver se um dos vestígios não está ativado ou se o rastreio não está em um estado de sucesso.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

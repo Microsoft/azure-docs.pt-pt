@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.openlocfilehash: e882ae89da2fd081d6b41d3d42e998d3600f0e18
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 74cd5ce5912e5a656342a43b7c2b165fdf3c32d4
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120758"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490313"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novidades em Azure Sentinel
 
@@ -32,6 +32,7 @@ As funcionalidades notadas estão atualmente em PREVIEW. Os [Termos Complementar
 
 ## <a name="march-2021"></a>março de 2021
 
+- [Desemocione os livros para atualizar automaticamente enquanto está no modo de visualização](#set-workbooks-to-automatically-refresh-while-in-view-mode)
 - [Novas deteções para Azure Firewall](#new-detections-for-azure-firewall)
 - [Regras de automação e livros de jogadas desencadeados por incidentes](#automation-rules-and-incident-triggered-playbooks) (incluindo documentação totalmente nova do livro de jogadas)
 - [Novos enriquecimentos de alerta: mapeamento de entidades melhoradas e detalhes personalizados](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
@@ -39,6 +40,20 @@ As funcionalidades notadas estão atualmente em PREVIEW. Os [Termos Complementar
 - [Filtros de incidentes e preferências de classificação agora guardadas na sua sessão (visualização pública)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Integração de incidentes microsoft 365 Defender (visualização pública)](#microsoft-365-defender-incident-integration-public-preview)
 - [Novos conectores de serviço da Microsoft que utilizam a Política Azure](#new-microsoft-service-connectors-using-azure-policy)
+
+### <a name="set-workbooks-to-automatically-refresh-while-in-view-mode"></a>Desemocione os livros para atualizar automaticamente enquanto está no modo de visualização
+
+Os utilizadores do Azure Sentinel podem agora utilizar a nova capacidade do [Azure Monitor](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555) para atualizar automaticamente os dados do livro durante uma sessão de visualização.
+
+Em cada modelo de livro ou livro, selecione :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **'Renovar' automático** para mostrar as opções de intervalo. Selecione a opção que pretende utilizar para a sessão de visualização atual e selecione **Aplicar**.
+
+- Os intervalos de atualização suportados variam entre **5 minutos** e **1 dia**.
+- Por predefinição, a atualização automática é desligada. Para otimizar o desempenho, a atualização automática também é desligada cada vez que fecha um livro e não é executada em segundo plano. Volte a refrescar-se automaticamente da próxima vez que abrir o livro.
+- A atualização automática é interrompida enquanto edita um livro de trabalho, e os intervalos de atualização automática são reiniciados cada vez que muda para visualizar o modo de edição.
+
+    Os intervalos também são reiniciados se atualizar manualmente o livro, selecionando o :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: botão **Refresh.**
+
+Para obter mais informações, consulte [Tutorial: Visualize e monitorize os seus dados](tutorial-monitor-your-data.md) e a documentação do [Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
 
 ### <a name="new-detections-for-azure-firewall"></a>Novas deteções para Azure Firewall
 
@@ -190,7 +205,7 @@ As páginas de detalhes da entidade Azure Sentinel fornecem um [painel insights,
 
 Se tiver [a UEBA ativada,](ueba-enrichments.md)e tiver selecionado um prazo de pelo menos quatro dias, este painel de insights incluirá também as seguintes novas secções para insights da UEBA:
 
-|Section  |Description  |
+|Section  |Descrição  |
 |---------|---------|
 |**UEBA Insights**     | Resume as atividades anómalas do utilizador: <br>- Em locais geográficos, dispositivos e ambientes<br>- Através de horizontes de tempo e frequência, em comparação com a história do próprio utilizador <br>- Comparado com o comportamento dos pares <br>- Comparado com o comportamento da organização     |
 |**Pares de utilizadores baseados na adesão ao Grupo de Segurança**     |   Lista os pares do utilizador com base na adesão do Azure AD Security Groups, fornecendo às equipas de operações de segurança uma lista de outros utilizadores que partilham permissões semelhantes.  |
@@ -317,7 +332,7 @@ Esta atualização para o Azure Sentinel inclui novas consultas de caça que for
 - **Impacto**
 - **Acesso Inicial**
 - **Persistência**
-- **Escalada de Privilégios**
+- **Escalamento de Privilégios**
 
 As consultas de caça adicionadas são projetadas para ajudá-lo a encontrar atividade suspeita no seu ambiente. Embora possam devolver atividades legítimas e atividades potencialmente maliciosas, podem ser úteis para orientar a sua caça. 
 

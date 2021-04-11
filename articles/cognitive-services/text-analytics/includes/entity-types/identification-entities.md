@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 03/11/2021
 ms.author: aahi
-ms.openlocfilehash: 352b81bf2dfeca1d7413e7cac131264d06c7b92e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a74c0cad971389168d643c9504f5bb809438a1ea
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599309"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106097335"
 ---
 ### <a name="financial-account-identification"></a>Identificação de conta financeira
 
@@ -34,7 +34,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Números de encaminhamento da American Banker Association (ABA).
+        Números de encaminhamento da American Banker Association (ABA). Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `ABARoutingNumber` ao `pii-categories` parâmetro. `ABARoutingNumber` também serão devolvidos na resposta da API se for detetado.
       
@@ -62,7 +62,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Códigos SWIFT para informações de instruções de pagamento.
+        Códigos SWIFT para informações de instruções de pagamento. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `SWIFTCode` ao `pii-categories` parâmetro. `SWIFTCode` serão devolvidos na resposta da API se for detetado.
       
@@ -89,7 +89,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Números de cartão de crédito. 
+        Números de cartão de crédito. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `CreditCardNumber` ao `pii-categories` parâmetro. `CreditCardNumber` serão devolvidos na resposta da API se for detetado.
 
@@ -116,7 +116,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Códigos IBAN para informações de instruções de pagamento.
+        Códigos IBAN para informações de instruções de pagamento. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `InternationlBankingAccountNumber` ao `pii-categories` parâmetro. `InternationlBankingAccountNumber` serão devolvidos na resposta da API se for detetado.
       
@@ -144,12 +144,12 @@ As seguintes entidades são agrupadas e listadas por país:
     :::column span="":::
         **Entidade**
 
-        Número de Identidade Nacional argentina (DNI)
+        Número de Identidade Nacional argentina (DNI) 
 
     :::column-end:::
     :::column span="2":::
-        **Detalhes**
-
+        **Detalhes** Também devolvido `domain=phi` com.
+        
         Para obter esta categoria de entidade, adicione `ARNationalIdentityNumber` ao `pii-categories` parâmetro. `ARNationalIdentityNumber` serão devolvidos na resposta da API se for detetado.
       
     :::column-end:::

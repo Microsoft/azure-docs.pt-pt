@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3bc821f31e0463000c9089e48818249f2c046ede
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 5ac8c5bb68430a1e886a89709d5e256beb8819c8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103000"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257284"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integre as Gémeas Digitais Azure com Insights da Série De Tempo Azure
 
@@ -40,7 +40,7 @@ Você vai anexar Time Series Insights a Azure Digital Twins através do caminho 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Criar uma rota e filtrar notificações de atualização de duplos digitais
 
-As instâncias Azure Digital Twins podem emitir [eventos de atualização dupla](how-to-interpret-event-data.md) sempre que o estado de um gémeo é atualizado. Nesta secção, irá criar uma rota de [**eventos**](concepts-route-events.md) Azure Digital Twins que irá direcionar estes eventos de atualização para a Azure [Event Hubs](../event-hubs/event-hubs-about.md) para posterior processamento.
+As instâncias Azure Digital Twins podem emitir [eventos de mudança dupla](concepts-event-notifications.md#digital-twin-change-notifications) sempre que o estado de um gémeo é atualizado. Nesta secção, irá criar uma rota de [**eventos**](concepts-route-events.md) Azure Digital Twins que irá direcionar estes eventos de atualização para a Azure [Event Hubs](../event-hubs/event-hubs-about.md) para posterior processamento.
 
 O Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](./tutorial-end-to-end.md) num cenário em que um termómetro é usado para atualizar um atributo de temperatura num gémeo digital que representa uma sala. Este padrão baseia-se nas atualizações gémeas, em vez de encaminhar a telemetria de um dispositivo IoT, o que lhe dá flexibilidade para alterar a fonte de dados subjacente sem precisar de atualizar a lógica do Time Series Insights.
 

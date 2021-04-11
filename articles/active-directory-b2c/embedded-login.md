@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ccad323c1834894367cca0ef0d3f98eb1b1b1ec3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dc4450fb1e21211b43bc178d94cf4bdfe6da58e1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639918"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256791"
 ---
 # <a name="embedded-sign-in-experience"></a>Experiência de inscrição incorporada
 
@@ -49,7 +49,7 @@ Ao utilizar o iframe, considere o seguinte:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Complete os passos no [Get start com políticas personalizadas no Ative Directory B2C](custom-policy-get-started.md).
+* Complete os passos no [Get start com políticas personalizadas no Ative Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * [Ative os domínios personalizados](custom-domain.md) para as suas políticas.
 
 ## <a name="configure-your-policy"></a>Configure a sua política
