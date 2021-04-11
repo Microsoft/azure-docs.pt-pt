@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d61314dc89d341e376de7d3904568825ad3cfb04
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169288"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293877"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Sobre a Azure Cloud Services (suporte alargado)
 
-> [!IMPORTANT]
-> Os Serviços cloud (suporte alargado) estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cloud Services (suporte alargado) é um novo modelo de implementação baseado em [Recursos Azure para](../azure-resource-manager/management/overview.md) o produto [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) e está atualmente em pré-visualização pública. Os Serviços cloud (suporte alargado) têm o principal benefício de fornecer resiliência regional, juntamente com a paridade de recursos com os Serviços Azure Cloud implantados usando o Azure Service Manager. Também oferece algumas capacidades ARM, tais como acesso e controlo baseados em funções (RBAC), tags, políticas e modelos de implementação de suporte.  
+Cloud Services (suporte alargado) é um novo modelo de implementação baseado em [recursos Azure Para](../azure-resource-manager/management/overview.md) o produto [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) e está agora geralmente disponível. Os Serviços cloud (suporte alargado) têm o principal benefício de fornecer resiliência regional, juntamente com a paridade de recursos com os Serviços Azure Cloud implantados usando o Azure Service Manager. Também oferece algumas capacidades ARM, tais como acesso e controlo baseados em funções (RBAC), tags, política e suporta modelos de implementação.  
 
 Com esta alteração, o modelo de implementação baseado no Azure Service Manager para serviços cloud será renomeado [Cloud Services (clássico)](../cloud-services/cloud-services-choose-me.md). Irá manter a capacidade de construir e implementar rapidamente as suas aplicações e serviços web e cloud. Poderá escalar a sua infraestrutura de serviços em nuvem com base na procura atual e garantir que o desempenho das suas aplicações pode acompanhar, reduzindo simultaneamente os custos.  
 

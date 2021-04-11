@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 2cc9d3e0fb711a0662852ce4f2c5a08dc626f246
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b6104bcf68c720fa727d16e408a25adcba805aa
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96854738"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259579"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
-O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra-lhe como criar um volume NFS. 
+O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NFSv4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. 
+
+Este artigo mostra-lhe como criar um volume NFS. Para volumes SMB, consulte [Criar um volume SMB](azure-netapp-files-create-volumes-smb.md). Para volumes de duplo protocolo, consulte [Criar um volume de duplo protocolo](create-volumes-dual-protocol.md).
 
 ## <a name="before-you-begin"></a>Antes de começar 
 * Tem de ter um conjunto de capacidade já configurado.  
@@ -112,6 +114,8 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 
         São necessárias configurações adicionais se utilizar Kerberos com NFSv4.1. Siga as instruções na [encriptação Configure NFSv4.1 Kerberos](configure-kerberos-encryption.md).
 
+    * Se pretender capacitar os utilizadores do Diretório Ativo LDAP e grupos alargados (até 1024 grupos) para aceder ao volume, selecione a opção **LDAP.** Siga as instruções em [Configure ADDS LDAP com grupos alargados para acesso ao volume NFS](configure-ldap-extended-groups.md) para completar as configurações necessárias. 
+ 
     * Opcionalmente, [configurar a política de exportação para o volume NFS](azure-netapp-files-configure-export-policy.md).
 
     ![Especificar o protocolo NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
@@ -127,6 +131,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 
 * [Configurar o domínio predefinido do NFSv 4.1 para o Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Configurar a encriptação Kerberos NFSv4.1](configure-kerberos-encryption.md)
+* [Configure ADDS LDAP com grupos alargados para acesso ao volume NFS](configure-ldap-extended-groups.md)
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurar a política de exportação para um volume NFS](azure-netapp-files-configure-export-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

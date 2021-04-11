@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/18/2021
-ms.openlocfilehash: 27eac9cefe645087cae43c34cb6503b562fb7c07
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7d3ffd754959c59fb34f326473247d836871ea75
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656319"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106824"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar uma área de trabalho do Log Analytics no portal do Azure
 Utilize o menu **de espaços de trabalho Log Analytics** para criar um espaço de trabalho Log Analytics utilizando o portal Azure. Um espaço de trabalho Log Analytics é um ambiente único para os dados de registo do Azure Monitor. Cada espaço de trabalho tem o seu próprio repositório de dados e configuração, e as fontes de dados e soluções são configuradas para armazenar os seus dados num determinado espaço de trabalho. Necessita de um espaço de trabalho Log Analytics se pretender recolher dados a partir das seguintes fontes:
@@ -40,7 +40,7 @@ Clique **em Adicionar** e, em seguida, forneça valores para as seguintes opçõ
 
    * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
    * Para **o Grupo de Recursos,** opte por utilizar um grupo de recursos já existente configurado ou crie um novo.  
-   * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*. Este nome deve ser globalmente único em todas as subscrições do Azure Monitor.
+   * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*. Este nome deve ser único por grupo de recursos.
    * Selecione uma **Região** disponível.  Para obter mais informações, consulte em que [regiões o Log Analytics está disponível](https://azure.microsoft.com/regions/services/) e procure o Azure Monitor a partir do campo de **pesquisa de um** produto.  
 
 

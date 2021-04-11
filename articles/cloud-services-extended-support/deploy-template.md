@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 8804febe81afc79a4a7eadb56e8350e758ea38ba
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381779"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105515"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
 
@@ -25,14 +25,12 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
 
 2. Criar um novo grupo de recursos utilizando o [portal Azure](../azure-resource-manager/management/manage-resource-groups-portal.md) ou [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Este passo é opcional se estiver a utilizar um grupo de recursos existente.
 
-3. Crie um endereço IP público e desaponija a propriedade da etiqueta DNS do endereço IP público. Os Serviços cloud (suporte alargado) só suportam [Endereços https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) IP públicos] (endereços IP públicos SKU. Os IPs públicos padrão da SKU não funcionam com os Serviços cloud.
+3. Crie um endereço IP público e desaponija a propriedade da etiqueta DNS do endereço IP público. Os Serviços cloud (suporte alargado) só suportam endereços IP públicos [básicos](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) do SKU. Os IPs públicos padrão da SKU não funcionam com os Serviços cloud.
 Se estiver a utilizar um IP estático, tem de ser referenciado como um ficheiro IP reservado na configuração de serviço (.cscfg). Se utilizar um endereço IP existente, ignore este passo e adicione as informações do endereço IP diretamente nas definições de configuração do balançador de carga do seu modelo ARM.
-
-4. Crie um Objeto de Perfil de Rede e associe o endereço IP público à parte frontal do equilibrador de carga. A plataforma Azure cria automaticamente um recurso de balançador de carga SKU 'Classic' na mesma subscrição que o recurso de serviço de cloud. O recurso do balanceador de carga é um recurso apenas de leitura na ARM. Quaisquer atualizações ao recurso são suportadas apenas através dos ficheiros de implementação do serviço na nuvem (.cscfg & .csdef)
  
-5. Criar uma nova conta de armazenamento utilizando o [portal Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este passo é opcional se estiver a utilizar uma conta de armazenamento existente.
+4. Criar uma nova conta de armazenamento utilizando o [portal Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este passo é opcional se estiver a utilizar uma conta de armazenamento existente.
 
-6. Faça o upload dos ficheiros de Definição de Serviço (.csdef) e Configuração de Serviço (.cscfg) para a conta de armazenamento utilizando o [portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenha os URIs SAS de ambos os ficheiros a adicionar ao modelo ARM mais tarde neste tutorial.
+5. Faça o upload dos ficheiros de Definição de Serviço (.csdef) e Configuração de Serviço (.cscfg) para a conta de armazenamento utilizando o [portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenha os URIs SAS de ambos os ficheiros a adicionar ao modelo ARM mais tarde neste tutorial.
 
 6. (Opcional) Crie um cofre chave e carre fique com os certificados.
 

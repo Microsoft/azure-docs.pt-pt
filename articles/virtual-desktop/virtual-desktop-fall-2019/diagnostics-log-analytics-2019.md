@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: bfe8026f099c341b68a1aa1fc5e3fac425e29403
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+manager: femila
+ms.openlocfilehash: 9cfa50e13756692295c84b02d02dd71228b16eb9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100578901"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445006"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico no Windows Virtual Desktop (clássico)
 

@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 62686589b03f7187ec473dab8fba602eaf7176f2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008366"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445249"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Conecte-se com o cliente do Windows Desktop (clássico)
 

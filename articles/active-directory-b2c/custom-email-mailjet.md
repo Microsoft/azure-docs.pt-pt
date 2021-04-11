@@ -8,19 +8,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 48e823b19c1c6d30e73a7a673cbeab82a4d007a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: a40f3286b4e832f5c73e650859fa9a1d4fe4b6cb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489224"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256961"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificação personalizada de e-mail com Mailjet
 
-Utilize e-mail personalizado no Azure Ative Directory B2C (Azure AD B2C) para enviar e-mails personalizados aos utilizadores que se inscrevam para usar as suas aplicações. Ao utilizar [o DisplayControls](display-controls.md) (atualmente em pré-visualização) e o fornecedor de e-mail de terceiros Mailjet, pode utilizar o seu próprio modelo de e-mail e *de:* endereço e assunto, bem como apoiar a localização e as definições de senha única (OTP) personalizadas.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Utilize e-mail personalizado no Azure Ative Directory B2C (Azure AD B2C) para enviar e-mails personalizados aos utilizadores que se inscrevam para usar as suas aplicações. Ao utilizar o fornecedor de e-mail de terceiros Mailjet, pode utilizar o seu próprio modelo de e-mail e *de:* endereço e assunto, bem como apoiar a localização e as definições de senha única (OTP) personalizadas.
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 A verificação personalizada de e-mails requer a utilização de um fornecedor de e-mail de terceiros como [Mailjet,](https://Mailjet.com) [SendGrid,](./custom-email-sendgrid.md)ou [SparkPost,](https://sparkpost.com)um API REST personalizado ou qualquer fornecedor de e-mail baseado em HTTP (incluindo o seu próprio). Este artigo descreve a criação de uma solução que utiliza o Mailjet.
 
@@ -576,3 +587,5 @@ Pode encontrar um exemplo de uma política de verificação de email personaliza
 
 - [Verificação personalizada de e-mail - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 - Para obter informações sobre a utilização de um API de REST personalizado ou qualquer fornecedor de e-mail SMTP baseado em HTTP, consulte [definir um perfil técnico RESTful numa política personalizada Azure AD B2C](restful-technical-profile.md).
+
+::: zone-end

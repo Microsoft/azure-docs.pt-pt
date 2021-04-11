@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13c659592b7e0b45d0d58519e3620babb8cb3c6a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97679135"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107572"
 ---
 # <a name="power-bi-app-creation-overview"></a>Visão geral da criação de aplicativos Power BI
 
@@ -72,7 +72,7 @@ Depois de a sua aplicação ser criada e testada no Power BI, guarde o endereço
 
 Os requisitos comerciais incluem obrigações processuais, contratuais e legais. Tens de o fazer:
 
-- Seja uma editora de mercado comercial registada. Se não estiver registado, siga os passos na [Criar uma conta de mercado comercial no Partner Center.](create-account.md)
+- Seja uma editora de mercado comercial registada. Se não estiver registado, siga os passos na [Criar uma conta de mercado comercial no Partner Center.](../create-account.md)
 - Forneça conteúdo satisfatório que satisfaça os critérios para que a sua oferta seja listada no AppSource. Para mais informações, consulte [Tem uma aplicação para listar no AppSource? Eis como...](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how)
 - Concorde e siga a Declaração de Privacidade da [Microsoft.](https://privacy.microsoft.com/privacystatement)
 

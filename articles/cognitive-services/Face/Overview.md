@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento facial, software de reconhecimento facial, análise facial, correspondência facial, app de reconhecimento facial, pesquisa facial por imagem, pesquisa de reconhecimento facial
-ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532261"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258746"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?
 
@@ -29,12 +29,18 @@ O serviço Azure Face fornece algoritmos de IA que detetam, reconhecem e analisa
 
 O serviço Face fornece várias funções de análise facial diferentes que são descritas nas seguintes secções.
 
-## <a name="face-detection"></a>Deteção facial
+Esta documentação contém os seguintes tipos de artigos:
+* Os [arranques rápidos](./Quickstarts/client-libraries.md) são instruções passo a passo que permitem fazer chamadas para o serviço e obter resultados num curto espaço de tempo. 
+* Os [guias de como fazer](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contêm instruções para utilizar o serviço de forma mais específica ou personalizada.
+* Os [artigos conceptuais](./concepts/face-detection.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.
+* Os [tutoriais](./Tutorials/FaceAPIinCSharpTutorial.md) são guias mais longos que mostram como usar este serviço como componente em soluções de negócio mais amplas.
 
-O serviço Face deteta rostos humanos numa imagem e devolve as coordenadas do retângulo das suas localizações. Opcionalmente, a deteção facial pode extrair uma série de atributos relacionados com o rosto, tais como pose de cabeça, sexo, idade, emoção, pelos faciais e óculos.
+## <a name="face-detection"></a>Deteção de rostos
+
+A API deteta rostos humanos numa imagem e devolve as coordenadas do retângulo das suas localizações. Opcionalmente, a deteção facial pode extrair uma série de atributos relacionados com o rosto, tais como pose de cabeça, sexo, idade, emoção, pelos faciais e óculos. Estes atributos são previsões gerais, não classificações reais. 
 
 > [!NOTE]
-> A funcionalidade de deteção facial também está disponível através do [serviço de Visão de Computador.](../computer-vision/overview.md) No entanto, se pretender fazer mais operações com dados faciais, deverá utilizar este serviço.
+> A funcionalidade de deteção facial também está disponível através do [serviço de Visão de Computador.](../computer-vision/overview.md) No entanto, se pretender fazer mais operações face como Identificar, Verificar, Localizar Similares ou Grupo, deverá utilizar este serviço Face.
 
 ![Uma imagem de uma mulher e de um homem, com retângulos desenhados em torno dos seus rostos e idade e género exibidos](./Images/Face.detection.jpg)
 
@@ -42,7 +48,19 @@ Para obter mais informações sobre a deteção facial, consulte o artigo [de co
 
 ## <a name="face-verification"></a>Verificação de rostos
 
-A API verificar faz uma autenticação contra duas faces detetadas ou de um rosto detetado para um objeto de uma pessoa. Na prática, avalia se dois rostos pertencem à mesma pessoa. Esta capacidade é potencialmente útil em cenários de segurança. Para obter mais informações, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)
+A API de Verificação baseia-se na Deteção e aborda a questão: "Estas duas imagens são a mesma pessoa?". A verificação também é chamada de correspondência "um-para-um" porque a imagem da sonda é comparada com apenas um modelo inscrito. A verificação pode ser usada em cenários de verificação de identidade ou controlo de acesso para verificar que uma imagem corresponde a uma imagem previamente capturada (como a partir de uma foto de um cartão de identificação emitido pelo governo). Para obter mais informações, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)
+
+## <a name="face-identification"></a>Identificação de rostos
+
+A API de identificação também começa com Deteção e responde à pergunta: "Este rosto detetado pode ser igualado a qualquer rosto inscrito numa base de dados?" Porque é como a procura de reconhecimento facial, também é chamada de "um a muitos" igual. Os jogos dos candidatos são devolvidos com base na proximidade do modelo da sonda com o rosto detetado corresponde a cada um dos modelos inscritos.
+
+A imagem a seguir mostra um exemplo de uma base de dados chamada `"myfriends"` . Cada grupo pode conter até 1 milhão de objetos pessoais diferentes. Cada objeto de pessoa pode ter 248 rostos registados.
+
+![Uma grelha com três colunas para pessoas diferentes, cada uma com três linhas de imagens faciais](./Images/person.group.clare.jpg)
+
+Depois de criar e treinar uma base de dados, pode fazer a identificação contra o grupo com uma nova face detetada. Se o rosto for identificado como uma pessoa no grupo, esse objeto será devolvido.
+
+Para obter mais informações sobre a identificação da pessoa, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API identificar.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
 
 ## <a name="find-similar-faces"></a>Encontrar rostos semelhantes
 
@@ -64,21 +82,6 @@ Para encontrar quatro faces semelhantes, o modo **matchPerson** retorna a e b, q
 
 A API Agrupamento divide um conjunto de rostos desconhecidos em vários grupos com base na semelhança. Cada grupo é um subconjunto adequado e desassociado do conjunto original de rostos. Todos os rostos de um grupo são suscetíveis de pertencer à mesma pessoa. Pode haver vários grupos diferentes para uma única pessoa. Os grupos são diferenciados por outro fator, como a expressão, por exemplo. Para mais informações, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API do Grupo.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)
 
-## <a name="person-identification"></a>Identificação de pessoas
-
-A API de identificação é usada para identificar um rosto detetado contra uma base de dados de pessoas (pesquisa de reconhecimento facial). Esta funcionalidade pode ser útil para a marcação automática de imagens em software de gestão de fotografias. Cria-se a base de dados com antecedência e pode editá-la com o tempo.
-
-A imagem a seguir mostra um exemplo de uma base de dados chamada `"myfriends"` . Cada grupo pode conter até 1 milhão de objetos pessoais diferentes. Cada objeto de pessoa pode ter 248 rostos registados.
-
-![Uma grelha com três colunas para pessoas diferentes, cada uma com três linhas de imagens faciais](./Images/person.group.clare.jpg)
-
-Depois de criar e treinar uma base de dados, pode fazer a identificação contra o grupo com uma nova face detetada. Se o rosto for identificado como uma pessoa no grupo, esse objeto será devolvido.
-
-Para obter mais informações sobre a identificação da pessoa, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API identificar.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
-
-## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
-
-[Utilize o recipiente Face (pré-visualização)](face-how-to-install-containers.md) para implantar as funcionalidades API no local. Este recipiente Docker permite-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="sample-apps"></a>Exemplos de aplicações
 

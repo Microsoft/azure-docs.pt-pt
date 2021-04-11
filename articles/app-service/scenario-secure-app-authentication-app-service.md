@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905575"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223207"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Tutorial: Adicione autenticação à sua aplicação web em execução no Azure App Service
 
@@ -41,7 +41,7 @@ Neste tutorial, ficará a saber como:
 
 Para este tutorial, você precisa de uma aplicação web implantada no Serviço de Aplicações. Pode utilizar uma aplicação web existente, ou pode seguir o [ASP.NET Core quickstart](quickstart-dotnetcore.md) para criar e publicar uma nova aplicação web para o App Service.
 
-Quer utilize uma aplicação web existente ou crie uma nova, tome nota do nome da aplicação web e do nome do grupo de recursos para o qual a aplicação web está implantada. Precisa destes nomes durante este tutorial. Ao longo deste tutorial, os nomes de exemplo em procedimentos e imagens contêm *SecureWebApp*.
+Quer utilize uma aplicação web existente ou crie uma nova, tome nota do nome da aplicação web e do nome do grupo de recursos para o qual a aplicação web está implantada. Precisa destes nomes durante este tutorial. 
 
 ## <a name="configure-authentication-and-authorization"></a>Configurar a autenticação e a autorização
 
@@ -53,17 +53,19 @@ Nos **grupos de recursos,** encontre e selecione o seu grupo de recursos. Em **V
 
 :::image type="content" alt-text="Screenshot que mostra a seleção da página de gestão da sua aplicação." source="./media/scenario-secure-app-authentication-app-service/select-app-service.png":::
 
-No menu esquerdo da sua aplicação, selecione **Autenticação / Autorização**, e, em seguida, ative a Autenticação do Serviço de Aplicações selecionando **On**.
+No menu esquerdo da sua aplicação, selecione **Autenticação** e, em seguida, clique em **Adicionar fornecedor de identidade**.
 
-Em **Ação a tomar quando o pedido não é autenticado**, selecione **Iniciar sessão com o Azure Active Directory**.
+Na página **'Adicionar um fornecedor de identidade',** selecione **a Microsoft** como fornecedor **de Identidade** para assinar nas identidades da Microsoft e do Azure AD.
 
-No âmbito **dos Fornecedores de Autenticação**, selecione **Azure Ative Directory**. Selecione **Express** e, em seguida, aceite as definições predefinidos para criar uma nova aplicação Ative Directory. Selecione **OK**.
+Para **o** tipo de registo de  >  aplicação de **aplicação,** selecione **Criar novo registo de aplicações.**
 
-:::image type="content" alt-text="Screenshot que mostra a autenticação express." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+Para os tipos de conta suportada no **registo de**  >  **aplicações,** selecione **Atual inquilino único.**
 
-Na página **Autenticação/Autorização,** **selecione Guardar.**
+Na secção de definições de autenticação do **Serviço de Aplicações,** deixe **a autenticação** definida para **exigir a autenticação** e **os pedidos não autenticados definidos** para **http 302 Reencaminhar: recomendado para websites**.
 
-Quando vir a notificação com a `Successfully saved the Auth Settings for <app-name> App` mensagem, refresque a página do portal.
+Na parte inferior da página Adicionar um fornecedor de **identidade,** clique em **Adicionar** para ativar a autenticação para a sua aplicação web.
+
+:::image type="content" alt-text="Screenshot que mostra a autenticação configurante." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 Tem agora uma aplicação que é protegida pela autenticação e autorização do Serviço de Aplicações.
 

@@ -43,6 +43,8 @@
       href: concepts-query-units.md
     - name: Integração noutros serviços
       href: concepts-integration.md
+    - name: Notificações de eventos
+      href: concepts-event-notifications.md
     - name: Rotas de eventos
       href: concepts-route-events.md
     - name: Segurança para soluções Azure Digital Twins
@@ -91,8 +93,6 @@
           href: how-to-manage-twin.md
         - name: Gerir o grafo duplo com relações
           href: how-to-manage-graph.md
-        - name: Interpretar dados de eventos
-          href: how-to-interpret-event-data.md
         - name: Configurar uma função Azure para o processamento de dados
           href: how-to-create-azure-function.md
         - name: Consultar o grafo duplo

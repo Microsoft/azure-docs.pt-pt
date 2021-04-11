@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 7ebf38226ff725865104707a3f28e7ce51a86c31
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97092385"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445657"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Ativar a autenticação multifactor Azure para o Windows Virtual Desktop
 

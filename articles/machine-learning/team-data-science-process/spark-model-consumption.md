@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 659f61734001163ada6fd26caabe2fb007892f61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a8d46b5ff10fdaa62f7747aac654e0b1ca78c42
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774495"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259154"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalize modelos de aprendizagem automática construídos por faíscas
 
@@ -374,7 +374,8 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Tempo de execução acima da célula: 19,22 segundos
 
 ## <a name="score-a-linear-regression-model"></a>Marque um modelo linear de regressão
-Usamos [a LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) para treinar um modelo linear de regressão usando a Descida de Gradiente Stochastic (SGD) para otimização para prever o valor da gorjeta paga. 
+Usamos [a LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html
+) para treinar um modelo linear de regressão usando a Descida de Gradiente Stochastic (SGD) para otimização para prever o valor da gorjeta paga. 
 
 O código desta secção mostra como carregar um Modelo linear de regressão a partir do armazenamento do blob Azure, marcar usando variáveis em escala e, em seguida, guardar os resultados de volta para a bolha.
 

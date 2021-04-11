@@ -7,13 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 1120db685c54ff062f03aca9002bf77af549bc26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: a1094004bc523a59c3fcf7eb77c6f11bc4554080
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582124"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445861"
 ---
 # <a name="built-in-roles-for-windows-virtual-desktop"></a>Funções incorporadas para desktop virtual do Windows
 

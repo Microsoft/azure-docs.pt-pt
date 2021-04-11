@@ -6,15 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 04/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 1ceed171b0516e293ffe58bca0225d3d3dfdb414
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 653eacd11c4a3c7ab500abff809a6b9bf8229c1f
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094664"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492074"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Gerir as funções do Contrato Enterprise do Azure
 
@@ -22,6 +22,7 @@ Para ajudar a gerir a utilização e os gastos da sua organização, os clientes
 
 - Administrador do Enterprise (EA)
 - Administrador do Enterprise (só de leitura)<sup>1</sup>
+- Comprador da EA
 - Administrador de Departamento
 - Administrador de Departamento (só de leitura)
 - Proprietário da Conta <sup>2</sup>
@@ -61,6 +62,7 @@ O diagrama a seguir ilustra hierarquias do Azure EA simples.
 As seguintes funções de utilizador administrativo fazem parte da inscrição do Enterprise:
 
 - Administrador do Enterprise
+- Comprador da EA
 - Administrador de Departamento
 - Proprietário de Conta
 - Administrador de serviço
@@ -80,12 +82,24 @@ Os utilizadores com esta função têm o nível de acesso mais alto. Podem:
 - Gerir outros administradores do Enterprise.
 - Gerir os administradores de departamento.
 - Gerir os contactos de notificação.
+- Comprar serviços Azure, incluindo reservas.
 - Ver a utilização em todas as contas.
 - Ver custos não faturados em todas as contas.
 - Ver e gerir todas as encomendas de reservas e as reservas que se aplicam ao Contrato Enterprise.
   - O administrador do Enterprise (só de leitura) pode ver as encomendas de reservas e as reservas. Não as pode gerir.
 
 Pode ter vários administradores do Enterprise numa inscrição Enterprise. Pode conceder acesso só de leitura aos administradores do Enterprise. Todos eles herdam a função de administrador de departamento.
+
+### <a name="ea-purchaser"></a>Comprador da EA
+
+Os utilizadores com esta função têm permissões para comprar serviços Azure, mas não estão autorizados a gerir contas. Podem:
+
+- Comprar serviços Azure, incluindo reservas.
+- Ver a utilização em todas as contas.
+- Ver custos não faturados em todas as contas.
+- Ver e gerir todas as encomendas de reservas e as reservas que se aplicam ao Contrato Enterprise.
+
+A função de comprador da EA está atualmente ativada apenas para o acesso baseado na SPN. Para aprender a atribuir o papel a um nome principal de serviço, consulte [atribuir funções aos nomes principais do serviço do Azure Enterprise Agreement](assign-roles-azure-service-principals.md).
 
 ### <a name="department-administrator"></a>Administrador de Departamento
 
@@ -126,6 +140,7 @@ As seções seguintes descrevem as limitações e as capacidades de cada funçã
 |---|---|
 |Administrador do Enterprise (EA)|Ilimitado|
 |Administrador do Enterprise (só de leitura)|Ilimitado|
+| Comprador da EA atribuído a uma SPN | Ilimitado |
 |Administrador de Departamento|Ilimitado|
 |Administrador de Departamento (só de leitura)|Ilimitado|
 |Proprietário da Conta|1 por conta<sup>3</sup>|
@@ -134,18 +149,19 @@ As seções seguintes descrevem as limitações e as capacidades de cada funçã
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Estrutura e permissões da organização por função
 
-|Tarefas| Administrador do Enterprise (EA)|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura)|Proprietário da Conta| Parceiro|
-|---|---|---|---|---|---|---|
-|Ver Administradores do Enterprise|✔|✔|✘|✘|✘|✔|
-|Adicionar ou remover Administradores do Enterprise|✔|✘|✘|✘|✘|✘|
-|Ver Contactos de Notificações<sup>4</sup> |✔|✔|✘|✘|✘|✔|
-|Adicionar ou remover Contactos de Notificações<sup>4</sup> |✔|✘|✘|✘|✘|✘|
-|Criar e gerir Departamentos |✔|✘|✘|✘|✘|✘|
-|Ver Administradores de Departamento|✔|✔|✔|✔|✘|✔|
-|Adicionar ou remover Administradores de Departamento|✔|✘|✔|✘|✘|✘|
-|Ver Contas durante a inscrição |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
-|Adicionar Contas à inscrição e alterar o Proprietário da Conta|✔|✘|✔<sup>5</sup>|✘|✘|✘|
-|Criar e gerir subscrições e permissões de subscrições|✘|✘|✘|✘|✔|✘|
+|Tarefas| Administrador do Enterprise (EA)|Administrador do Enterprise (só de leitura)| Comprador da EA | Administrador de Departamento|Administrador de Departamento (só de leitura)|Proprietário da Conta| Parceiro|
+|---|---|---|---|---|---|---|---|
+|Ver Administradores do Enterprise|✔|✔| ✔|✘|✘|✘|✔|
+|Adicionar ou remover Administradores do Enterprise|✔|✘|✘|✘|✘|✘|✘|
+|Ver Contactos de Notificações<sup>4</sup> |✔|✔|✔|✘|✘|✘|✔|
+|Adicionar ou remover Contactos de Notificações<sup>4</sup> |✔|✘|✘|✘|✘|✘|✘|
+|Criar e gerir Departamentos |✔|✘|✘|✘|✘|✘|✘|
+|Ver Administradores de Departamento|✔|✔|✔|✔|✔|✘|✔|
+|Adicionar ou remover Administradores de Departamento|✔|✘|✘|✔|✘|✘|✘|
+|Ver Contas durante a inscrição |✔|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
+|Adicionar Contas à inscrição e alterar o Proprietário da Conta|✔|✘|✘|✔<sup>5</sup>|✘|✘|✘|
+|Reservas de compra|✔|✘|✔|✘|✘|✘|✘|
+|Criar e gerir subscrições e permissões de subscrições|✘|✘|✘|✘|✘|✔|✘|
 
 - <sup>4</sup> Os contactos de notificações recebem comunicações por e-mail sobre o Contrato Enterprise do Azure.
 - <sup>5</sup> A tarefa está limitada às contas no seu departamento.
@@ -166,14 +182,14 @@ Para obter mais informações sobre como adicionar um administrador de departame
 
 ## <a name="usage-and-costs-access-by-role"></a>Acesso de utilização e custos por função
 
-|Tarefas| Administrador do Enterprise (EA)|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura) |Proprietário da Conta| Parceiro|
-|---|---|---|---|---|---|---|
-|Ver saldo do crédito, incluindo o Pré-pagamento do Azure|✔|✔|✘|✘|✘|✔|
-|Ver quotas de despesas do departamento|✔|✔|✘|✘|✘|✔|
-|Definir quotas de despesas do departamento|✔|✘|✘|✘|✘|✘|
-|Ver folha de preços do EA da organização|✔|✔|✘|✘|✘|✔|
-|Ver detalhes de utilização e custo|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
-|Gerir recursos no portal do Azure|✘|✘|✘|✘|✔|✘|
+|Tarefas| Administrador do Enterprise (EA)|Administrador do Enterprise (só de leitura)|Comprador da EA|Administrador de Departamento|Administrador de Departamento (só de leitura) |Proprietário da Conta| Parceiro|
+|---|---|---|---|---|---|---|---|
+|Ver saldo do crédito, incluindo o Pré-pagamento do Azure|✔|✔|✔|✘|✘|✘|✔|
+|Ver quotas de despesas do departamento|✔|✔|✔|✘|✘|✘|✔|
+|Definir quotas de despesas do departamento|✔|✘|✘|✘|✘|✘|✘|
+|Ver folha de preços do EA da organização|✔|✔|✔|✘|✘|✘|✔|
+|Ver detalhes de utilização e custo|✔|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|Gerir recursos no portal do Azure|✘|✘|✘|✘|✘|✔|✘|
 
 - <sup>6</sup> Requer que o Administrador Empresarial ative a política **Os Administradores de Departamento podem ver os custos** no Enterprise Portal. O Administrador de Departamento pode assim ver os detalhes dos custos do departamento.
 - <sup>7</sup> Requer que o Administrador Empresarial ative a política **Os Proprietários de Contas podem ver os custos** no Enterprise Portal. O Proprietário da Conta pode ver os detalhes dos custos da conta.
@@ -198,8 +214,6 @@ A tabela seguinte mostra a relação entre as funções de administrador do Cont
 |Nenhuma|Não aplicável |Proprietário|Preços de retalho|
 
 Deve definir a função de administrador do Enterprise e as políticas de visualização de custos no Enterprise Portal. A função do Azure pode ser atualizada no portal do Azure. Para obter mais informações, consulte [as funções De Atribuição Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
-
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jingwang
-ms.openlocfilehash: daf3691b48f7bf12e9ef51de7d4253dad9dbd2b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1cff49e4ddb7423e1e5956e1436cefd18abe6dfe
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026875"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107079"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de textolimtado na Azure Data Factory
 
@@ -185,8 +185,7 @@ A tabela abaixo lista as propriedades suportadas por um lavatório de texto deli
 | Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
 | Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato `part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Ficheiro de nome como dados de coluna: Cadeia <br> Saída para um único ficheiro: `['<fileName>']` <br> Pasta de nome como dados de coluna: String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Citar tudo | Incluir todos os valores em cotações | não | `true` ou `false` | citaçãoTo |
-
-rowFolderUrlColumn:
+| Cabeçalho | Adicione cabeçalhos de clientes aos ficheiros de saída | não | `[<string array>]` | cabeçalho |
 
 ### <a name="sink-example"></a>Exemplo de pia
 

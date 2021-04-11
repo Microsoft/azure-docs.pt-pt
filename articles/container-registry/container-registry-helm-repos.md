@@ -3,12 +3,12 @@ title: Gráficos de leme da loja
 description: Saiba como armazenar gráficos Helm para as suas aplicações Kubernetes usando repositórios no Registo de Contentores Azure
 ms.topic: article
 ms.date: 06/12/2020
-ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9897ed6e43813c16314076b0322cd263cd2ed150
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86537872"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223086"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Empurre e puxe as fichas de Helm para um registo de contentores Azure
 
@@ -31,7 +31,7 @@ O leme 3 deve ser utilizado para hospedar gráficos helm no registo de contentor
 * Use `helm chart` comandos no Helm CLI para empurrar, puxar e gerir gráficos de Helm em um registo
 * Use `helm install` para instalar gráficos num cluster Kubernetes a partir de uma cache de repositório local.
 > [!NOTE]
-> A partir do Helm 3, os comandos [de leme az acr][az-acr-helm] para uso com o cliente Helm 2 estão a ser depreciados. Consulte o roteiro do [produto.](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga) Se já implementou previamente os gráficos Helm 2, consulte [o Leme Migratório v2 para v3](https://helm.sh/docs/topics/v2_v3_migration/).
+> A partir do Helm 3, os comandos [de leme az acr][az-acr-helm] para uso com o cliente Helm 2 estão a ser depreciados. Um pré-aviso mínimo de 3 meses será fornecido antes da remoção do comando. Se já implementou previamente os gráficos Helm 2, consulte [o Leme Migratório v2 para v3](https://helm.sh/docs/topics/v2_v3_migration/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

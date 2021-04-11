@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f60341ea51f1cf4e856b1b4598887da3dc37ebb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 80bcf647ee63242bfe60b63ed400b8d3b3dc1d9e
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102613124"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445674"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando Azure Automation
 

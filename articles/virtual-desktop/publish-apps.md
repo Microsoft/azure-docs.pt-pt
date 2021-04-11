@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 32441a7da0e079a2de2fbd6906184c518d60e4a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 68db8e9d50dff0bb4580476bae990374830a2a1f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562865"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445827"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publicar aplicativos incorporados no Windows Virtual Desktop
 

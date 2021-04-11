@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 8630dd2fb1157fbeba99f2a06d73712ab46a63f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f5a60f14799e872d835d651fc043edd27dfc6990
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035072"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105600"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -176,6 +176,12 @@ As identidades da Microsoft podem autenticar de diferentes formas, o que pode se
 | `ngcmfa` | Equivalente a `mfa` , utilizado para o provisionamento de certos tipos de credenciais avançados. |
 | `wiaormfa`| O utilizador utilizou o Windows ou uma credencial MFA para autenticar. |
 | `none` | Não foi feita nenhuma autenticação. |
+
+## <a name="access-token-lifetime"></a>Vida útil simbólica de acesso
+
+O período de vida útil padrão de um token de acesso varia, dependendo da aplicação do cliente que solicita o token. Por exemplo, a avaliação contínua do acesso (CAE) a clientes capazes que negoceiam sessões conscientes do CAE verão uma vida útil útil (até 28 horas).  Quando o token de acesso expirar, o cliente deve usar o token de atualização para (geralmente silenciosamente) adquirir um novo token de atualização e token de acesso.
+
+Pode ajustar o tempo de vida útil de um token de acesso para controlar a frequência com que a aplicação do cliente expira na sessão de aplicação, e com que frequência requer que o utilizador reautena (silenciosamente ou interativamente). Para mais informações, leia [as vidas de símbolos configurais.](active-directory-configurable-token-lifetimes.md)
 
 ## <a name="validating-tokens"></a>Validação de fichas
 

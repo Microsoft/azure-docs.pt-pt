@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: cd7496690ec88fbe4297386c32d1b8a2c3234577
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 5653ba4b1bcaab9e7b82dae3fe0842cbc7fb86b9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91540766"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445113"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personalize o feed para utilizadores do Windows Virtual Desktop (clássico)
 

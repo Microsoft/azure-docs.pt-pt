@@ -3,12 +3,12 @@ title: Como proteger a sua hierarquia de recursos - Azure Governance
 description: Saiba como proteger a sua hierarquia de recursos com definições de hierarquia que incluem a definição do grupo de gestão padrão.
 ms.date: 02/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0f0afb5401fc646d26598a211604790af191f156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d13a0235152046eff2585da170d5fba0e9d3b09
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594591"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259086"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos
 
@@ -50,7 +50,7 @@ Para configurar esta definição no portal Azure, siga estes passos:
 
 ### <a name="set-default-management-group-with-rest-api"></a>Definir grupo de gestão padrão com REST API
 
-Para configurar esta definição com a API REST, o ponto final [de Definições de Hierarquia](/rest/api/resources/hierarchysettings) é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. `{rootMgID}`Substitua-se pelo ID do seu grupo de gestão de raízes e `{defaultGroupID}` pelo ID do grupo de gestão para se tornar o grupo de gestão padrão:
+Para configurar esta definição com a API REST, o ponto final [de Definições de Hierarquia](/rest/api/managementgroups/hierarchysettings) é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. `{rootMgID}`Substitua-se pelo ID do seu grupo de gestão de raízes e `{defaultGroupID}` pelo ID do grupo de gestão para se tornar o grupo de gestão padrão:
 
 - URI da API REST
 
@@ -91,7 +91,7 @@ Para configurar esta definição no portal Azure, siga estes passos:
 
 ### <a name="set-require-authorization-with-rest-api"></a>Definir requer autorização com REST API
 
-Para configurar esta definição com a API REST, o ponto final [de Definições de Hierarquia](/rest/api/resources/hierarchysettings) é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. Este valor é um _booleano,_ por isso forneça **verdadeiro** ou **falso** para o valor. Um valor **verdadeiro** permite este método de proteger a sua hierarquia do grupo de gestão:
+Para configurar esta definição com a API REST, o ponto final [de Definições de Hierarquia](/rest/api/managementgroups/hierarchysettings) é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. Este valor é um _booleano,_ por isso forneça **verdadeiro** ou **falso** para o valor. Um valor **verdadeiro** permite este método de proteger a sua hierarquia do grupo de gestão:
 
 - URI da API REST
 

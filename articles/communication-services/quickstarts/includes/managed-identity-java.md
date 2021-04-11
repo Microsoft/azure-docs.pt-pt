@@ -1,11 +1,18 @@
 ---
-ms.openlocfilehash: f3d510c14d28dae0504ff67b450957a8339196aa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c1d19b5b37a60914c1d7f2a2e42cd387bd030583
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958300"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125705"
 ---
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) versão 8 ou superior.
+- [Apache Maven](https://maven.apache.org/download.cgi).
+- Um recurso de serviços de comunicação implantado e uma cadeia de conexão. [Criar um recurso de Serviços de Comunicação.](../create-communication-resource.md)
+
 ## <a name="add-managed-identity-to-your-communication-services-solution-java"></a>Adicione identidade gerida à sua solução de Serviços de Comunicação (Java)
 
 ### <a name="install-the-sdk-packages"></a>Instalar os pacotes SDK
@@ -39,8 +46,6 @@ import com.azure.communication.identity.*;
 import com.azure.communication.identity.models.*;
 import com.azure.communication.sms.*;
 import com.azure.core.credential.*;
-import com.azure.core.http.*;
-import com.azure.core.http.netty.*;
 import com.azure.identity.*;
 
 import java.io.IOException;
@@ -61,13 +66,11 @@ Em seguida, use o cliente para emitir um símbolo para um novo utilizador:
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
-          HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
           CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
                .endpoint(endpoint)
                .credential(credential)
-               .httpClient(httpClient)
                .buildClient();
 
           CommunicationUserIdentifier user = communicationIdentityClient.createUser();
@@ -85,13 +88,11 @@ O seguinte exemplo de código mostra como criar um objeto de cliente de serviço
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
-          HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
           SmsClient smsClient = new SmsClientBuilder()
                .endpoint(endpoint)
                .credential(credential)
-               .httpClient(httpClient)
                .buildClient();
 
           // Send the message and check the response for a message id
@@ -100,7 +101,6 @@ O seguinte exemplo de código mostra como criar um objeto de cliente de serviço
                "<to-phone-number>",
                "your message"
           );
-
           return response;
     }
 ```

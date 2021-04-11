@@ -8,14 +8,17 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3059d88c9894ba50a608afaf1cb23367dfaf089c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641999"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259460"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utilizar o Azure Firewall para inspecionar o tráfego destinado a um ponto final privado
+
+> [!NOTE]
+> Se pretender proteger o tráfego para pontos finais privados em Azure Virtual WAN utilizando um hub virtual seguro, consulte [o tráfego Secure destinado a pontos finais privados em Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
 
 Azure Private Endpoint é o bloco de construção fundamental para a Azure Private Link. Os pontos finais privados permitem que os recursos Azure implantados numa rede virtual comuniquem privadamente com recursos de ligação privada.
 
@@ -166,7 +169,7 @@ Substitua os seguintes parâmetros nos passos com as informações abaixo:
     | Grupo de recursos | Selecione **myResourceGroup**. Criou este grupo de recursos na secção anterior.  |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM**. |
-    | Region | Selecione **(EUA) South Central US**. |
+    | Região | Selecione **(EUA) South Central US**. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **Ubuntu Server 18.04 LTS - Gen1**. |
     | Tamanho | Selecione **Standard_B2s**. |
@@ -215,7 +218,7 @@ Substitua os seguintes parâmetros nos passos com as informações abaixo:
     | Grupo de recursos | Selecione **myResourceGroup**.  |
     | **Detalhes da instância** |  |
     | Name | Insira **myAzureFirewall**. |
-    | Region | Selecione **South Central US**. |
+    | Região | Selecione **South Central US**. |
     | Zona de disponibilidade | Deixe o padrão **Nenhum**. |
     | Escolher uma rede virtual    |    Selecione **Utilização existente**.    |
     | Rede virtual    |    Selecione **myAzFwVNet**.    |
@@ -301,7 +304,7 @@ Nesta secção, cria-se um ponto final privado para a base de dados Azure SQL na
     | Grupo de recursos | Selecione **myResourceGroup**. |
     | **Detalhes da instância** | |
     | Name | Insira **o SQLPrivateEndpoint**. |
-    | Region | Selecione **(EUA) South Central US.** |
+    | Região | Selecione **(EUA) South Central US.** |
 
 6. Selecione o **separador Recursos** ou selecione **Seguinte: Recurso** na parte inferior da página.
 
@@ -489,7 +492,7 @@ A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**.  |
     | **Detalhes da instância** |  |
-    | Region | Selecione **South Central US**. |
+    | Região | Selecione **South Central US**. |
     | Name | Insira **VMsubnet-to-AzureFirewall**. |
     | Rotas de gateway de propagação | Selecione **Não**. |
 

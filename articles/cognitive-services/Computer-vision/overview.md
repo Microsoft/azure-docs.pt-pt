@@ -8,101 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: visão computacional, aplicações de visão computacional, serviço de visão computacional
-ms.openlocfilehash: 804dacc4351da9e04ac75b2484b4330901a69271
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 875ef961148668a83e94c116622b5e461d2413fa
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488487"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286139"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O serviço de Visão Computacional da Azure dá-lhe acesso a algoritmos avançados que processam imagens e devolvem informações com base nas funcionalidades visuais que lhe interessam. Por exemplo, a Visão Computacional pode determinar se uma imagem contém conteúdo adulto, encontrar marcas ou objetos específicos ou encontrar rostos humanos.
+O serviço de Visão Computacional da Azure dá-lhe acesso a algoritmos avançados que processam imagens e devolvem informações com base nas funcionalidades visuais que lhe interessam. 
 
-Pode criar aplicações de Visão de Computador através de uma [biblioteca de clientes SDK](./quickstarts-sdk/client-library.md) ou ligando diretamente para a [API REST.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) Esta página cobre amplamente o que pode fazer com a Visão de Computador.
-
-Esta documentação contém os seguintes tipos de artigos:
-* Os [arranques rápidos](./quickstarts-sdk/client-library.md) são instruções passo a passo que permitem fazer chamadas para o serviço e obter resultados num curto espaço de tempo. 
-* Os [guias de como fazer](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contêm instruções para utilizar o serviço de forma mais específica ou personalizada.
-* Os [artigos conceptuais](concept-recognizing-text.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.
-* Os [tutoriais](./tutorials/storage-lab-tutorial.md) são guias mais longos que mostram como usar este serviço como componente em soluções de negócio mais amplas.
-
-## <a name="optical-character-recognition-ocr"></a>Reconhecimento ótico de carateres (OCR)
-
-A Visão Computacional inclui capacidades [de reconhecimento de caracteres óticos (OCR).](concept-recognizing-text.md) Pode utilizar a nova API de leitura para extrair texto impresso e manuscrito a partir de imagens e documentos. Utiliza modelos baseados em aprendizagem profunda e trabalha com texto em uma variedade de superfícies e fundos. Estes incluem documentos comerciais, faturas, recibos, cartazes, cartões de visita, cartas e quadros brancos. As APIs do OCR suportam a extração de texto impresso em [várias línguas.](./language-support.md) Siga um [arranque rápido](./quickstarts-sdk/client-library.md) para começar.
+| Serviço|Description|
+|---|---|
+|[Reconhecimento ótico de carateres (OCR)](overview-ocr.md)|O serviço de Reconhecimento de Caracteres Óticos (OCR) extrai texto de imagens. Pode utilizar a nova API de leitura para extrair texto impresso e manuscrito de fotos e documentos. Utiliza modelos baseados em aprendizagem profunda e trabalha com texto em uma variedade de superfícies e fundos. Estes incluem documentos comerciais, faturas, recibos, cartazes, cartões de visita, cartas e quadros brancos. As APIs do OCR suportam a extração de texto impresso em [várias línguas.](./language-support.md) Siga o [arranque rápido do OCR](quickstarts-sdk/client-library.md) para começar.|
+|[Análise de Imagem](overview-image-analysis.md)| O serviço de Análise de Imagem extrai muitas funcionalidades visuais de imagens, tais como objetos, rostos, conteúdo adulto e descrições de texto geradas automaticamente. Siga o [quickstart de Análise de Imagem](quickstarts-sdk/image-analysis-client-library.md) para começar.|
+| [Análise Espacial](intro-to-spatial-analysis-public-preview.md)| O serviço de Análise Espacial analisa a presença e o movimento de pessoas num feed de vídeo e produz eventos aos que outros sistemas podem responder. Instale o [recipiente de Análise Espacial](spatial-analysis-container.md) para começar.|
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visão de Computador para gestão de ativos digitais
 
 A Visão Computacional pode alimentar muitos cenários de gestão de ativos digitais (DAM). A DAM é o processo de negócio de organização, armazenamento e recuperação de ativos de media ricos e gestão de direitos e permissões digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logótipos visíveis, rostos, objetos, cores, e assim por diante. Ou, pode querer gerar automaticamente [legendas para imagens](./Tutorials/storage-lab-tutorial.md) e anexar palavras-chave para que sejam pescandizáveis. Para obter uma solução DAM tudo-em-um utilizando serviços cognitivos, pesquisa cognitiva Azure e relatórios inteligentes, consulte o [Guia de Acelerador de Soluções de Mineração de Conhecimento](https://github.com/Azure-Samples/azure-search-knowledge-mining) no GitHub. Para outros exemplos da DAM, consulte o [repositório de modelos de solução de visão](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) computacional.
-
-## <a name="analyze-images-for-insight"></a>Analisar imagens para obter informações
-
-Pode analisar imagens para fornecer insights sobre as suas características e características visuais. Todas as funcionalidades da tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) Siga um [arranque rápido](./quickstarts-sdk/client-library.md) para começar.
-
-
-### <a name="tag-visual-features"></a>Etiquetar elementos visuais
-
-Identificar e marcar características visuais numa imagem, a partir de um conjunto de milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as etiquetas são ambíguas ou não são de conhecimento comum, a resposta da API fornece dicas para clarificar o contexto da etiqueta. A identificação não se limita ao motivo principal, por exemplo, uma pessoa em primeiro plano, mas também inclui o cenário (interior ou exterior), mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc. [Etiquetar elementos visuais](concept-tagging-images.md)
-
-### <a name="detect-objects"></a>Detetar objetos
-
-A deteção de objetos é semelhante à marcação, mas a API devolve as coordenadas da caixa de limitação para cada tag aplicada. Por exemplo, se uma imagem contiver um cão, gato e pessoa, a operação Detect listará esses objetos juntamente com as suas coordenadas na imagem. Pode utilizar esta funcionalidade para processar mais relações entre os objetos numa imagem. Também lhe permite saber quando há vários casos da mesma etiqueta numa imagem. [Detetar objetos](concept-object-detection.md)
-
-### <a name="detect-brands"></a>Detetar marcas
-
-Identifique marcas comerciais em imagens ou vídeos de uma base de dados de milhares de logótipos globais. Pode utilizar esta funcionalidade, por exemplo, para descobrir quais as marcas mais populares nas redes sociais ou as mais predominantes na colocação de produtos de mídia. [Detetar marcas](concept-brand-detection.md)
-
-### <a name="categorize-an-image"></a>Categorizar uma imagem
-
-Identifique e categorize uma imagem inteira, com uma [taxonomia de categorias](Category-Taxonomy.md) com hierarquias hereditárias principais/subordinadas. As categorias podem ser utilizadas isoladamente ou com os nossos novos modelos de identificação.<br/>Atualmente, o inglês é o único idioma suportado para identificar e categorizar imagens. [Categorizar uma imagem](concept-categorizing-images.md)
-
-### <a name="describe-an-image"></a>Descrever uma imagem
-
-Gere uma descrição de uma imagem inteira numa linguagem legível por humanos, com frases completas. Os algoritmos da Imagem Digitalizada geram várias descrições com base nos objetos identificados na imagem. Cada uma das descrições é avaliada e é gerada uma pontuação de confiança. Em seguida, é devolvida uma lista ordenada da pontuação de confiança mais alta para a mais baixa. [Descrever uma imagem](concept-describing-images.md)
-
-### <a name="detect-faces"></a>Detetar rostos
-
-Detete rostos numa imagem e forneça informações sobre cada rosto detetado. A Imagem Digitalizada devolve as coordenadas, o retângulo, o sexo e a idade para cada rosto detetado.<br/>A Visão Computacional fornece um subconjunto da funcionalidade do serviço [Face.](../face/index.yml) Pode utilizar o serviço Face para análises mais detalhadas, como identificação facial e deteção de poses. [Detetar rostos](concept-detecting-faces.md)
-
-### <a name="detect-image-types"></a>Detetar tipos de imagem
-
-Detete características sobre uma imagem como, por exemplo, se uma imagem é um desenho de linha ou a probabilidade de uma imagem ser ClipArt. [Detetar tipos de imagem](concept-detecting-image-types.md)
-
-### <a name="detect-domain-specific-content"></a>Detetar conteúdo específico de um domínio
-
-Utilize modelos de domínio para detetar e identificar conteúdo específico de um domínio numa imagem, como celebridades e marcos de referência. Por exemplo, se uma imagem contiver pessoas, a Visão de Computador pode usar um modelo de domínio para as celebridades determinarem se as pessoas detetadas na imagem são celebridades conhecidas. [Detetar conteúdo específico de um domínio](concept-detecting-domain-content.md)
-
-### <a name="detect-the-color-scheme"></a>Detetar o esquema de cores
-
-Analise a utilização de cor numa imagem. A Imagem Digitalizada pode determinar se uma imagem é a preto e branco ou a cores, e no caso das imagens a cores, identificar as cores dominantes e de destaque. [Detetar o esquema de cores](concept-detecting-color-schemes.md)
-
-### <a name="generate-a-thumbnail"></a>Gerar uma miniatura
-
-Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Visão Computacional gera primeiro uma miniatura de alta qualidade e depois analisa os objetos dentro da imagem para determinar a *área de interesse*. A Visão Computacional, em seguida, planta a imagem para se adaptar às exigências da área de interesse. A miniatura gerada pode ser apresentada com uma proporção diferente da proporção da imagem original, consoante as suas necessidades. [Gerar uma miniatura](concept-generating-thumbnails.md)
-
-### <a name="get-the-area-of-interest"></a>Obter a área de interesse
-
-Analise o conteúdo de uma imagem para devolver as coordenadas da *área de interesse.* Em vez de cortar a imagem e gerar uma miniatura, a Visão Computacional devolve as coordenadas da caixa de delimitação da região, para que a aplicação de chamada possa modificar a imagem original conforme desejado. [Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)
-
-## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
-
-Pode utilizar a Visão De Computador para [detetar conteúdo adulto](concept-detecting-adult-content.md) numa imagem e devolver pontuações de confiança para diferentes classificações. O limiar para o conteúdo de sinalização pode ser definido numa escala deslizante para acomodar as suas preferências.
-
-## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
-
-Utilize recipientes de Visão de Computador para implantar funcionalidades de API no local. Estes recipientes Docker permitem-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais. A Computer Vision oferece os seguintes recipientes:
-
-* O [computador Vision lê o recipiente OCR (pré-visualização)](computer-vision-how-to-install-containers.md) permite-lhe reconhecer texto impresso e manuscrito em imagens.
-* O [recipiente de análise espacial Computer Vision (pré-visualização)](spatial-analysis-container.md) permite-lhe analisar o vídeo de streaming em tempo real para entender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 
@@ -119,6 +53,8 @@ Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Começa com a Visão De Computador seguindo o guia de arranque rápido na tua linguagem de desenvolvimento preferida:
+Siga um quickstart para implementar e executar um serviço na sua língua de desenvolvimento preferida.
 
-- [Quickstart: Computer Vision REST API ou bibliotecas de clientes](./quickstarts-sdk/client-library.md)
+* [Quickstart: Reconhecimento ótico de caracteres (OCR)](quickstarts-sdk/client-library.md)
+* [Quickstart: Análise de Imagem](quickstarts-sdk/image-analysis-client-library.md)
+* [Quickstart: Recipiente de análise espacial](spatial-analysis-container.md)

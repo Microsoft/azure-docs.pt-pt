@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 8b6a7c3e05b26cbda80ebf1a3fc0d4fed8255e6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa9c8e1d5579538df11358edc08eb7e2043cea74
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950810"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285846"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade cognitiva OCR
 
 A habilidade **de reconhecimento de caracteres óticos (OCR)** reconhece texto impresso e manuscrito em ficheiros de imagem. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) em Serviços Cognitivos. As habilidades **OCR** mapeiam para a seguinte funcionalidade:
 
-+ Para inglês, espanhol, alemão, francês, italiano, português e holandês, é utilizada a nova API ["Read".](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)
-+ Para todas as outras línguas, é utilizada a API ["OCR".](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api)
++ Para inglês, espanhol, alemão, francês, italiano, português e holandês, é utilizada a nova API ["Read".](../cognitive-services/computer-vision/overview-ocr.md#read-api)
++ Para todas as outras línguas, o [legado OCR](../cognitive-services/computer-vision/overview-ocr.md#ocr-api) API é usado.
 
 A habilidade **OCR** extrai texto de ficheiros de imagem. Os formatos de ficheiros suportados incluem:
 
@@ -43,23 +43,23 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| `detectOrientation`   | Permite a autodestecer a orientação da imagem. <br/> Valores válidos: verdadeiros / falsos.|
-| `defaultLanguageCode` | <p>   Código linguístico do texto de entrada. As linguagens suportadas incluem: <br/> zh-hans (Chinêss simplificados) <br/> zh-Hant (tradicional chinês) <br/>cs (checo) <br/>da (dinamarquês) <br/>nl (holandês) <br/>en (inglês) <br/>fi (finlandês)  <br/>fr (francês) <br/>  de (alemão) <br/>el (grego) <br/> hu (húngaro) <br/> que (italiano) <br/>  ja (japonês) <br/> ko (coreano) <br/> nb (norueguês) <br/>   pl (polaco) <br/> pt (português) <br/>  ru (russo) <br/>  es (espanhol) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (romeno) <br/> sr-Cyrl (SérvioCyrillic) <br/> sr-Latn (SérvioLatino) <br/>  sk (eslovaco) <br/>  unk (Desconhecido) <br/><br/> Se o código linguístico não for especificado ou nulo, o idioma será definido para inglês. Se a língua for explicitamente definida como "unk", a língua será detetada automaticamente. </p> |
+| `detectOrientation`    | Permite a autodestecer a orientação da imagem. <br/> Valores válidos: verdadeiros / falsos.|
+| `defaultLanguageCode` | <p>    Código linguístico do texto de entrada. As linguagens suportadas incluem: <br/> zh-hans (Chinêss simplificados) <br/> zh-Hant (tradicional chinês) <br/>cs (checo) <br/>da (dinamarquês) <br/>nl (holandês) <br/>en (inglês) <br/>fi (finlandês)  <br/>fr (francês) <br/>  de (alemão) <br/>el (grego) <br/> hu (húngaro) <br/> que (italiano) <br/>  ja (japonês) <br/> ko (coreano) <br/> nb (norueguês) <br/>   pl (polaco) <br/> pt (português) <br/>  ru (russo) <br/>  es (espanhol) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (romeno) <br/> sr-Cyrl (SérvioCyrillic) <br/> sr-Latn (SérvioLatino) <br/>  sk (eslovaco) <br/>  unk (Desconhecido) <br/><br/> Se o código linguístico não for especificado ou nulo, o idioma será definido para inglês. Se a língua for explicitamente definida como "unk", a língua será detetada automaticamente. </p> |
 | `lineEnding` | O valor a utilizar entre cada linha detetada. Valores possíveis: "Space", "CarriageReturn", "LineFeed".  O padrão é "Espaço". |
 
 Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especificar se a habilidade deveria extrair texto "impresso" ou "manuscrito".  Este parâmetro é precotado e já não é necessário, uma vez que o mais recente algoritmo de API de leitura é capaz de extrair ambos os tipos de texto ao mesmo tempo.  Se a sua definição de habilidade já inclui este parâmetro, não precisa removê-lo, mas deixará de ser utilizado e ambos os tipos de texto serão extraídos para a frente independentemente do que está definido.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                                          |
+| Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Tipo complexo. Atualmente, apenas funciona com o campo "/document/normalized_images", produzido pelo indexante Azure Blob quando ```imageAction``` é definido para um valor diferente de ```none``` . Consulte a [amostra](#sample-output) para mais informações.|
 
 
 ## <a name="skill-outputs"></a>Saídas de competências
-| Nome de saída     | Description                   |
+| Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
-| `text`            | Texto simples extraído da imagem.   |
+| `text`             | Texto simples extraído da imagem.   |
 | `layoutText`    | Tipo complexo que descreve o texto extraído e o local onde o texto foi encontrado.|
 
 

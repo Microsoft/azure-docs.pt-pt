@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2560c294b63d0554708eda1f804bf279d16d7d74
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87489520"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257964"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configure o seu nome OpenID Connect (OIDC) com o Azure Ative Directory B2C
 
@@ -157,4 +157,4 @@ Para obter informações adicionais, reveja os seguintes artigos:
 
 * [Políticas personalizadas no Azure AD B2C](custom-policy-overview.md)
 
-* [Começar com políticas personalizadas em Azure AD B2C](custom-policy-get-started.md?tabs=applications)
+* [Começar com políticas personalizadas em Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

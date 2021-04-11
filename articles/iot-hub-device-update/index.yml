@@ -11,12 +11,12 @@ metadata:
   ms.author: philmea
   manager: philmea
   ms.date: 2/17/2021
-  ms.openlocfilehash: 2868bc0bb8f79a217ed694a3ed1220f8beb58f7c
-  ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+  ms.openlocfilehash: b479eb8cd85f4a8bb11cd415d8eb06901d0f4389
+  ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/03/2021
-  ms.locfileid: "106279600"
+  ms.lasthandoff: 04/08/2021
+  ms.locfileid: "107107521"
 landingContent:
 - title: Sobre a atualização do dispositivo
   linkLists:
@@ -52,7 +52,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Construa, corra e modifique o agente de atualização do dispositivo
+    - text: Atualização do dispositivo de provisionamento para agente do hub IoT Azure
       url: device-update-agent-provisioning.md
 - title: Introdução
   linkLists:

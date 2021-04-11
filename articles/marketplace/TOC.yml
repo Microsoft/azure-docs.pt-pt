@@ -5,21 +5,39 @@
   href: overview.md
 - name: Gestão de contas
   items:
-    - name: Criar uma nova conta do Centro de Parceiros
-      href: partner-center-portal/create-account.md
-    - name: Gerir a sua conta
-      href: partner-center-portal/manage-account.md
-    - name: Localizar ou criar uma conta profissional da empresa
-      href: partner-center-portal/company-work-accounts.md
-    - name: Migração da conta do CPP para o Partner Center
-      href: partner-center-portal/account-migration-from-cpp-to-pc.md
-    - name: Notificando a Microsoft
-      href: submit-legal-notice.md
+    - name: Gestão de contas gerais
+      items:
+        - name: Criar uma nova conta do Centro de Parceiros
+          href: create-account.md
+        - name: Adicionar novos editores
+          href: add-publishers.md
+        - name: Gerir a sua conta
+          href: manage-account.md
+        - name: Trocar contas
+          href: switch-accounts.md
+        - name: Gerir inquilinos
+          href: manage-tenants.md
+        - name: Localizar ou criar uma conta profissional da empresa
+          href: company-work-accounts.md
+        - name: Migração da conta do CPP para o Partner Center
+          href: account-migration-from-cpp-to-pc.md
+        - name: Notificando a Microsoft
+          href: submit-legal-notice.md
+    - name: Gerir utilizadores
+      items:
+        - name: Adicionar e gerir utilizadores
+          href: add-manage-users.md
+        - name: Atribuir funções de utilizador
+          href: user-roles.md
+        - name: Gerir grupos
+          href: manage-groups.md
+        - name: Adicionar e gerir aplicações AD Azure
+          href: manage-aad-apps.md
 - name: Conceitos
   items:
     - name: Opções de listagem
       href: determine-your-listing-type.md
-    - name: Realizar transações no marketplace comercial
+    - name: Capacidades de transação
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Ofertas privadas
       href: private-offers.md

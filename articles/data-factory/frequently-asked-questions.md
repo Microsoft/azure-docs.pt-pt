@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2027e3555a7eb616ad024ec00bf6b0f8f452167c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739339"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258525"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
 
@@ -226,86 +226,11 @@ Utilize a atividade Copy para encenar dados de qualquer um dos outros conectores
 
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>O tempo de integração auto-organizado está disponível para fluxos de dados?
 
-O IR auto-hospedado é uma construção de gasoduto ADF que pode utilizar com a Atividade copy para adquirir ou mover dados de e para fontes de dados on-prem ou VM baseadas em sumidouros. Encenar os dados primeiro com uma Cópia, depois Fluxo de Dados para transformação e, em seguida, uma cópia subsequente se precisar de mover esses dados transformados de volta para a loja on-prem.
+O IR auto-hospedado é uma construção de gasoduto ADF que pode utilizar com a Atividade copy para adquirir ou mover dados de e para fontes de dados on-prem ou VM baseadas em sumidouros. As máquinas virtuais que utiliza para um IR auto-hospedado também podem ser colocadas dentro do mesmo VNET que as suas lojas de dados protegidas para acesso a essas lojas de dados a partir da ADF. Com os fluxos de dados, obterá esses mesmos resultados finais usando o Azure IR com VNET gerido em vez disso.
 
 ### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>O motor de computação de fluxo de dados serve vários inquilinos?
 
 Os agrupamentos nunca são partilhados. Garantimos o isolamento de cada trabalho executado em execuções de produção. Em caso de cenário de depuração, uma pessoa recebe um cluster, e todos os depurados irão para aquele cluster que são iniciados por esse utilizador.
-
-## <a name="wrangling-data-flows"></a>Fluxos de dados de estrangulamento
-
-### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quais são as regiões apoiadas para o fluxo de dados?
-
-O fluxo de dados de estrangulamento é atualmente suportado em fábricas de dados criadas nas seguintes regiões:
-
-* Leste da Austrália
-* Canadá Central
-* Índia Central
-* E.U.A. Leste
-* E.U.A. Leste 2
-* Leste do Japão
-* Europa do Norte
-* Sudeste Asiático
-* E.U.A. Centro-Sul
-* Sul do Reino Unido
-* E.U.A. Centro-Oeste
-* Europa Ocidental
-* E.U.A. Oeste
-* E.U.A. Oeste 2
-
-### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quais são as limitações e constrangimentos com o fluxo de dados?
-
-Os nomes do conjunto de dados só podem conter caracteres alfanuméricos. As seguintes lojas de dados são suportadas:
-
-* Conjunto de dados detexto delimitado no Armazenamento Azure Blob usando a autenticação da chave da conta
-* Conjunto de dados deslimitedText no Azure Data Lake Storage gen2 usando a chave de conta ou a autenticação principal do serviço
-* Conjunto de dados detexto delimitado no Azure Data Lake Storage gen1 usando a autenticação principal do serviço
-* Azure SQL Database and Data Warehouse utilizando a autenticação sql. Consulte os tipos de SQL suportados abaixo. Não existe polibase ou suporte de encenação para armazém de dados.
-
-Neste momento, a integração do Key Vault de serviço ligado não é suportada em fluxos de dados de estrangulamento.
-
-### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Qual é a diferença entre o mapeamento e os fluxos de dados?
-
-Os fluxos de dados de mapeamento fornecem uma forma de transformar dados em escala sem que seja necessário codificar. Você pode projetar um trabalho de transformação de dados na tela do fluxo de dados construindo uma série de transformações. Comece com qualquer número de transformações de origem seguidas por passos de transformação de dados. Complete o fluxo de dados com uma pia para aterrar os seus resultados num destino. O fluxo de dados de mapeamento é ótimo para mapear e transformar dados com esquemas conhecidos e desconhecidos nos lavatórios e fontes.
-
-Os fluxos de dados de escoamento permitem-lhe fazer uma preparação e exploração ágeis de dados usando o editor de mashup on-line de Power Query em escala através da execução de faíscas. Com o aumento dos lagos de dados, às vezes basta explorar um conjunto de dados ou criar um conjunto de dados no lago. Não estás a mapear um alvo conhecido. Os fluxos de dados de estrangulamento são utilizados para cenários de análise menos formais e baseados em modelos.
-
-### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Qual é a diferença entre fluxos de dados da Plataforma de Energia e fluxos de dados?
-
-Os fluxos de dados da Plataforma de Energia permitem que os utilizadores importem e transformem dados de uma vasta gama de fontes de dados para o Serviço Comum de Dados e para o Lago de Dados Azure para construir aplicações PowerApps, relatórios Power BI ou automações de fluxo. Os fluxos de dados da Plataforma de Energia utilizam as experiências de preparação de dados da Power Query, semelhantes às do Power BI e do Excel. Os fluxos de dados da Plataforma de Energia também permitem uma reutilização fácil dentro de uma organização e lidam automaticamente com a orquestração (por exemplo, refrescantes automaticamente fluxos de dados que dependem de outro fluxo de dados quando o primeiro é atualizado).
-
-A Azure Data Factory (ADF) é um serviço gerido de integração de dados que permite aos engenheiros de dados e ao integrador de dados dos cidadãos criar fluxos de trabalho complexos de extração híbrida de transformação de extrato (ETL) e de transformação de carga extraída (ELT). O fluxo de dados em ADF capacita os utilizadores com um ambiente sem código e sem servidor que simplifica a preparação de dados na nuvem e escala a qualquer tamanho de dados sem necessidade de gestão de infraestruturas. Utiliza a tecnologia de preparação de dados power query (também utilizada nos fluxos de dados da Power Platform, Excel, Power BI) para preparar e moldar os dados. Construído para lidar com todas as complexidades e desafios de escala da integração de big data, os fluxos de dados de luta permitem que os utilizadores preparem rapidamente dados em escala através da execução de faíscas. Os utilizadores podem construir oleodutos de dados resilientes num ambiente visual acessível com a nossa interface baseada no navegador e deixar a ADF lidar com as complexidades da execução do Spark. Construa horários para os seus oleodutos e monitorize as suas execuções de fluxo de dados a partir do portal de monitorização ADF. Gerir facilmente a disponibilidade de dados SLAs com a rica monitorização e alertas de disponibilidade da ADF e alavancar as capacidades de integração e implementação contínuas incorporadas para economizar e gerir os seus fluxos num ambiente gerido. Estabeleça alertas e veja os planos de execução para validar que a sua lógica está a funcionar conforme planeado à medida que afina os fluxos de dados.
-
-### <a name="supported-sql-types"></a>Tipos SQL suportados
-
-O fluxo de dados de escriminada suporta os seguintes tipos de dados em SQL. Obterá um erro de validação para usar um tipo de dados que não é suportado.
-
-* curto
-* double
-* real
-* float
-* char
-* nchar
-* varchar
-* nvarchar
-* número inteiro
-* int
-* bit
-* boolean
-* smallint
-* tinyint
-* bigint
-* long
-* texto
-* data
-* datetime
-* datetime2
-* hora pequena
-* carimbo de data/hora
-* uniqueidentifier
-* xml
-
-Outros tipos de dados serão suportados no futuro.
 
 ## <a name="next-steps"></a>Passos seguintes
 

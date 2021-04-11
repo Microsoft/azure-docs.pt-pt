@@ -4,19 +4,19 @@ description: Fornece uma visão geral da Infraestrutura BareMetal em Azure.
 ms.custom: references_regions
 ms.topic: conceptual
 ms.subservice: workloads
-ms.date: 04/06/2021
-ms.openlocfilehash: bccb171ce364a5129489c437f2f18156cc563a1b
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 04/08/2021
+ms.openlocfilehash: 7a4998a096a5c5d9e793c34d5046dce59262a2ae
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579028"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257573"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>O que é a Infraestrutura BareMetal em Azure?
 
 O Microsoft Azure oferece uma infraestrutura em nuvem com uma vasta gama de serviços integrados na nuvem para atender às necessidades do seu negócio. Em alguns casos, porém, poderá ter de executar serviços em servidores metálicos nus sem uma camada de virtualização. Pode necessitar de acesso à raiz e controlo sobre o sistema operativo (OS). Para responder a essa necessidade, a Azure oferece infraestruturas BareMetal para várias aplicações de alto valor e críticas à missão.
 
-A Infraestrutura BareMetal é composta por instâncias BareMetal dedicadas (instâncias computacionais), armazenamento de alto desempenho e aplicação apropriado (NFS, dNFS, ISCSI e Fiber Channel), bem como um conjunto de LANs virtuais específicas da função (VLANs) num ambiente isolado. O armazenamento pode ser partilhado em instâncias BareMetal para permitir funcionalidades como clusters de escala ou para criar pares de alta disponibilidade com STONITH.
+A Infraestrutura BareMetal é composta por instâncias BareMetal dedicadas (instâncias computacionais), armazenamento de alto desempenho e aplicação apropriado (NFS, ISCSI e Fiber Channel), bem como um conjunto de LANs virtuais específicas da função (VLANs) num ambiente isolado. O armazenamento pode ser partilhado em instâncias BareMetal para permitir funcionalidades como clusters de escala ou para criar pares de alta disponibilidade com STONITH.
  
 Este ambiente também tem VLANs especiais a que pode aceder se estiver a executar máquinas virtuais (VMs) em uma ou mais Redes Virtuais Azure (VNets) na sua subscrição Azure. Todo o ambiente é representado como um grupo de recursos na sua subscrição Azure.
 
@@ -40,7 +40,7 @@ A Infraestruturas BareMetal oferece estes benefícios:
     - Até 1 PB/inquilino 
     - IOPS até 1,2 milhões/inquilino 
     - Largura de banda de rede de 40/100 GB
-    - Acessível via NFS, dNFS, ISCSI e FC
+    - Acessível via NFS, ISCSI e FC
 - Energia redundante, fontes de alimentação, NICs, TORs, portos, WANs, armazenamento e gestão
 - Sobressalentes quentes para substituição de uma falha (sem necessidade de reconfiguração)
 - Janelas de manutenção coordenadas do cliente

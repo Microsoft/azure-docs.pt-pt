@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f1f2caa194972bb870dc58cfa0bd6ccb2f8db053
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 67d5ab663c3db78de2596b66836c139d39fe3d44
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100099919"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445419"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 

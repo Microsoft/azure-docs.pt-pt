@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 876564934b1ccbffa19c318a2d2c8393e5dca54e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: a1e6d2f4fc0444be364ce3c07c14f6408b3f19fe
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023984"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106446915"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configure um proxy do Centro de Distribuição de Chaves Kerberos (pré-visualização)
 

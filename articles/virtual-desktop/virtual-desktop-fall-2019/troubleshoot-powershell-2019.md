@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 08c9f7a6c5f8fd4a51c464018438bf6e7db119fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: e7db817e2fb355e3a69f7b90a4fc6eaa4adec515
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374903"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444229"
 ---
 # <a name="windows-virtual-desktop-classic-powershell"></a>Windows Virtual Desktop (clássico) PowerShell
 

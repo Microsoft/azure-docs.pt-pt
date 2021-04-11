@@ -7,18 +7,18 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 12/02/2020
-ms.openlocfilehash: 0c220daab0d1d9ae7d50d37d9303d6677bd52cc1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1661fd78812bff14d9efddf9ef1c31a359aa959d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97360310"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107368"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
 
 Este artigo descreve como criar uma nova oferta Dynamics 365 para o Envolvimento do Cliente & PowerApps. Todas as aplicações para Dynamics 365 para Envolvimento do Cliente (PowerApps, Vendas, Serviço, Serviço de Projeto e Serviço de Campo) devem passar pelo nosso processo de certificação, que verifica a sua solução para requisitos padrão, compatibilidade e práticas adequadas. A experiência experimental permite que os utilizadores implementem a sua solução para um ambiente Live Dynamics 365.
 
-Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](../create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 >[!NOTE]
 > Uma vez publicada uma oferta, as edições à oferta só serão atualizadas no Partner Center e na loja online depois de reenviar a oferta para publicação.

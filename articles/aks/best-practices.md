@@ -3,19 +3,24 @@ title: Boas práticas para o Serviço Azure Kubernetes (AKS)
 description: Recolha do operador de cluster e das melhores práticas do promotor para construir e gerir aplicações no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/07/2018
-ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/09/2021
+ms.openlocfilehash: f4bd109ce6827de26b1649380b6f6a2ba7c10e17
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686264"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105906"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Operador de cluster e desenvolvedor de boas práticas para construir e gerir aplicações no Serviço Azure Kubernetes (AKS)
 
-Para construir e executar aplicações com sucesso no Serviço Azure Kubernetes (AKS), existem algumas considerações fundamentais para entender e implementar. Estas áreas incluem recursos multi-arrendamento e programadores, segurança de cluster e pod, ou continuidade de negócios e recuperação de desastres. As seguintes boas práticas são agrupadas para ajudar os operadores de cluster e os desenvolvedores a compreender as considerações para cada uma destas áreas, e implementar as características apropriadas.
+A construção e execução de aplicações com sucesso no Serviço Azure Kubernetes (AKS) requerem compreensão e implementação de algumas considerações fundamentais, incluindo:
+* Recursos multi-arrendamento e agendamento.
+* Cluster e segurança de casulo.
+* Continuidade de negócios e recuperação de desastres. 
 
-Estas boas práticas e artigos conceptuais foram escritos em conjunto com o grupo de produtos AKS, equipas de engenharia e equipas de campo, incluindo cintos pretos globais (GBBs).
+
+O grupo de produtos AKS, equipas de engenharia e equipas de campo (incluindo os cintos pretos globais [GBBs]) contribuíram para, escreveu, e agrupou as seguintes boas práticas e artigos conceptuais. O seu objetivo é ajudar os operadores de cluster e os desenvolvedores a compreender as considerações acima e a implementar as características apropriadas.
+
 
 ## <a name="cluster-operator-best-practices"></a>As melhores práticas do operador do cluster
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c0cc29e6cbc9be1e7683b1b4412fa47f71c0538d
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: ef1ed584a609b2e4baa27111e47343df99146f5a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227029"
+ms.locfileid: "107257505"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
 
@@ -93,12 +93,14 @@ Para obter mais informações sobre como restaurar objetos apagados suavemente, 
 
 ## <a name="blob-soft-delete-and-versioning"></a>Blob soft delete e versão
 
-Se a versão blob e a eliminação suave blob estiverem ambas ativadas para uma conta de armazenamento, então a sobreposição de uma bolha cria automaticamente uma nova versão. A nova versão não é eliminada suavemente e não é removida quando o período de retenção de eliminação suave expirar. Não são criados instantâneos apagados. Quando elimina uma bolha, a versão atual do blob torna-se uma versão anterior e a versão atual é eliminada. Nenhuma nova versão é criada e não são criados instantâneos de apagação suave.
+Se a versão blob e a eliminação suave blob estiverem ambas ativadas para uma conta de armazenamento, então a sobreposição de uma bolha cria automaticamente uma nova versão. A nova versão não é eliminada suavemente e não é removida quando o período de retenção de eliminação suave expirar. Não são criados instantâneos apagados. Quando se apaga uma bolha, a versão atual do blob torna-se uma versão anterior, e já não existe uma versão atual. Nenhuma nova versão é criada e não são criados instantâneos de apagação suave.
 
-Permitir a eliminação suave e a versão em conjunto protege as versões blob da eliminação. Quando a eliminação suave é ativada, a eliminação de uma versão cria uma versão de eliminação suave. Pode utilizar a operação **Undelete Blob** para restaurar uma versão desafortuçada, desde que exista uma versão atual da bolha. Se não houver uma versão atual, então deve copiar uma versão anterior para a versão atual antes de ligar para a operação **Undelete Blob.**
+Permitir a eliminação suave e a versão em conjunto protege as versões blob da eliminação. Quando a eliminação suave é ativada, a eliminação de uma versão cria uma versão de eliminação suave. Pode utilizar a operação **Undelete Blob** para restaurar versões de eliminação suave durante o período de retenção de eliminação suave. A **operação Undelete Blob** restaura sempre todas as versões de bolhas apagadas suavemente. Não é possível restaurar apenas uma única versão soft-dele.
+
+Após o período de retenção de eliminação suave, quaisquer versões blob apagadas com soft-delete são permanentemente eliminadas.
 
 > [!NOTE]
-> Chamar a operação **Undelete Blob** numa bolha apagada quando a versão é ativada restaura quaisquer versões ou instantâneos apagados suaves, mas não restaura a bolha de base. Para restaurar a bolha de base, promova uma versão anterior copiando-a para a bolha de base.
+> Chamar a operação **Undelete Blob** numa bolha apagada quando a versão é ativada restaura quaisquer versões ou instantâneos apagados suaves, mas não restaura a versão atual. Para restaurar a versão atual, promova uma versão anterior copiando-a para a versão atual.
 
 A Microsoft recomenda permitir a eliminação suave de versão e bolha para as suas contas de armazenamento para uma ótima proteção de dados. Para obter mais informações sobre a utilização da versão blob e eliminar suavemente, consulte [a versão Blob e a eliminação suave](versioning-overview.md#blob-versioning-and-soft-delete).
 

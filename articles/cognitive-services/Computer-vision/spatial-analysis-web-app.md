@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: cf99d02a0968fb1073a02425ecb8b0d5ba7f5ac6
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 6d3be90cc81b1bcd9a55fc8e53cb9f2238e8c6de
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109701"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285982"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como: Implementar uma aplicação web people Counting
 
-Use este artigo para aprender a integrar a análise espacial numa aplicação web que compreende o movimento das pessoas e monitoriza o número de pessoas que ocupam um espaço físico. 
+Use este artigo para aprender a integrar a Análise Espacial numa aplicação web que compreende o movimento das pessoas e monitoriza o número de pessoas que ocupam um espaço físico. 
 
 Neste tutorial, vai aprender a:
 
-* Implantar o recipiente de análise espacial
+* Implantar o recipiente de Análise Espacial
 * Configure a operação e a câmara
 * Configure a ligação IoT Hub na Aplicação Web
 * Implementar e testar a Aplicação Web
@@ -34,7 +34,7 @@ Neste tutorial, vai aprender a:
 * Compreensão básica das configurações de implementação do Azure IoT Edge e um [Hub IoT Azure](../../iot-hub/index.yml)
 * Um [computador de anfitrião](spatial-analysis-container.md)configurado.
 
-## <a name="deploy-the-spatial-analysis-container"></a>Implantar o recipiente de análise espacial
+## <a name="deploy-the-spatial-analysis-container"></a>Implantar o recipiente de Análise Espacial
 
 Preencha o [pedido de pedido](https://aka.ms/csgate) para ter acesso ao funcionamento do contentor. 
 
@@ -63,7 +63,7 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Desloque o recipiente no Azure IoT Edge no computador anfitrião
 
-Desloque o recipiente de análise espacial como módulo IoT no computador anfitrião, utilizando o CLI Azure. O processo de implantação requer um ficheiro manifesto de implantação que delineie os recipientes, variáveis e configurações necessários para a sua implantação. Pode encontrar uma amostra [Azure Stack Edge manifesto de implantação específica](https://go.microsoft.com/fwlink/?linkid=2142179), [manifesto de implementação específico não-Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2152189), e [Azure VM com manifesto de implantação específico da GPU](https://go.microsoft.com/fwlink/?linkid=2152189) no GitHub, que inclui uma configuração básica de implantação para o recipiente *de análise espacial.* 
+Implementar o recipiente de Análise Espacial como módulo IoT no computador anfitrião, utilizando o CLI Azure. O processo de implantação requer um ficheiro manifesto de implantação que delineie os recipientes, variáveis e configurações necessários para a sua implantação. Pode encontrar uma amostra [Azure Stack Edge manifesto de implantação específica](https://go.microsoft.com/fwlink/?linkid=2142179), [manifesto de implementação específico não-Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2152189), e [Azure VM com manifesto de implantação específico da GPU](https://go.microsoft.com/fwlink/?linkid=2152189) no GitHub, que inclui uma configuração básica de implantação para o recipiente *de análise espacial.* 
 
 Em alternativa, pode utilizar as extensões Azure IoT para o Código do Estúdio Visual para realizar operações com o seu hub IoT. Vá ao [Deploy Azure IoT Edge Modules do Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) para saber mais.
 

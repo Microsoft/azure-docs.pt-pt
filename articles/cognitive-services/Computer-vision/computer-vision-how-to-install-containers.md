@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: no local, OCR, Docker, contentor
-ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53d59822b378a658f8b6c048de1a32db53a795d1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432558"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285727"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar Ler recipientes OCR Docker (Pré-visualização) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102432558"
 
 Os contentores permitem-lhe executar as APIs de Imagem Digitalizada no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de governação de dados e segurança. Neste artigo você vai aprender a descarregar, instalar e executar recipientes de Visão de Computador.
 
-O recipiente *Read* OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte a documentação da [API de leitura.](concept-recognizing-text.md#read-api)
+O recipiente *Read* OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte o [guia de como ler a API.](Vision-API-How-to-Topics/call-read-api.md)
 
 ## <a name="read-32-preview-container"></a>Ler 3.2 pré-visualização do recipiente
 
@@ -96,7 +96,7 @@ As imagens do recipiente para Ler estão disponíveis.
 
 Utilize o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para descarregar uma imagem de contentor.
 
-### <a name="docker-pull-for-the-read-container"></a>Docker puxa para o recipiente ler
+### <a name="docker-pull-for-the-read-ocr-container"></a>Docker puxa para o recipiente De Leitura OCR
 
 # <a name="version-32-preview"></a>[Versão 3.2-pré-visualização](#tab/version-3-2)
 
@@ -139,7 +139,7 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Executa o recipiente Ler a partir da imagem do recipiente.
+* Executa o recipiente De Leitura OCR a partir da imagem do recipiente.
 * Atribui 8 núcleos de CPU e 18 gigabytes (GB) de memória.
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
@@ -156,7 +156,7 @@ ApiKey={API_KEY}
 
 Este comando:
 
-* Executa o recipiente Ler a partir da imagem do recipiente.
+* Executa o recipiente De Leitura OCR a partir da imagem do recipiente.
 * Atribui 8 núcleos de CPU e 16 gigabytes (GB) de memória.
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
@@ -392,7 +392,7 @@ O `operation-location` url totalmente qualificado é acedido através de um HTTP
 ---
 
 > [!IMPORTANT]
-> Se colocar vários recipientes De leitura atrás de um equilibrador de carga, por exemplo, sob Docker Compose ou Kubernetes, deve ter uma cache externa. Como o recipiente de processamento e o recipiente de pedido GET podem não ser os mesmos, uma cache externa armazena os resultados e partilha-os através de contentores. Para obter mais informações sobre as definições de cache, consulte [os recipientes Configure Computer Vision Docker](./computer-vision-resource-container-config.md).
+> Se colocar vários recipientes de OCR de leitura atrás de um equilibrador de carga, por exemplo, sob Docker Compose ou Kubernetes, deve ter uma cache externa. Como o recipiente de processamento e o recipiente de pedido GET podem não ser os mesmos, uma cache externa armazena os resultados e partilha-os através de contentores. Para obter mais informações sobre as definições de cache, consulte [os recipientes Configure Computer Vision Docker](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Leitura sincronizada
 
@@ -445,7 +445,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 * A Visão Computacional fornece um recipiente Linux para Docker, encapsulando a Leitura.
 * As imagens do contentor são descarregadas a partir do registo do contentor "Pré-visualização do contentor" em Azure.
 * Imagens de contentores correm em Docker.
-* Pode utilizar a API REST ou a SDK para ligar para as operações em recipientes De leitura, especificando o hospedeiro URI do recipiente.
+* Pode utilizar a API REST ou a SDK para ligar para as operações em recipientes De Leitura de OCR especificando o hospedeiro URI do recipiente.
 * Deve especificar as informações de faturação ao instantaneamente um recipiente.
 
 > [!IMPORTANT]
@@ -454,7 +454,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
-* Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito
-* Consulte a [API de Visão De Computador](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) para obter mais informações sobre os métodos suportados pelo recipiente.
+* Reveja a [visão geral](overview-ocr.md) do OCR para saber mais sobre o reconhecimento de texto impresso e manuscrito
+* Consulte a [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) para obter mais informações sobre os métodos suportados pelo recipiente.
 * Consulte [perguntas frequentes (FAQ)](FAQ.md) para resolver problemas relacionados com a funcionalidade de Visão de Computador.
 * Use mais [recipientes de serviços cognitivos](../cognitive-services-container-support.md)

@@ -29,6 +29,8 @@
       href: program-requirements-edge-secured-core.md
 - name: Conceitos
   items:
+    - name: Dispositivos legados
+      href: concepts-legacy.md
     - name: Conceitos de marketing
       href: concepts-marketing.md
 - name: Guias de procedimentos

@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: e89cb847bcd5d0137354c07fe97148bcbeca2714
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af365ef9b94702fa6634235a95a91297d6b7ae50
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786299"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107134"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressões e funções no Azure Data Factory
 
@@ -161,6 +161,30 @@ No exemplo seguinte, o pipeline leva os parâmetros **inputPath** e **outputPath
     }
 }
 ```
+
+### <a name="replacing-special-characters"></a>Substituição de caracteres especiais
+
+O editor de conteúdo dinâmico escapa automaticamente a personagens como citação dupla, retrocesso no seu conteúdo quando termina a edição. Isto causa problemas se quiser substituir o feed de linha ou a guia utilizando a função **\n**, **\t** em substituição.). Pode editar o seu conteúdo dinâmico em visão de código para remover o extra \ na expressão, ou pode seguir passos abaixo para substituir caracteres especiais usando linguagem de expressão:
+
+1. URL codificando contra o valor original da cadeia
+1. Substitua a cadeia codificada url, por exemplo, o feed de linha (%0A), a devolução do transporte (%0D), a patilha horizontal (%09).
+1. Descodagem de URL
+
+Por exemplo, *a empresa variávelName* com um carácter newline no seu valor, a expressão `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` pode remover o caráter newline. 
+
+```json
+Contoso-
+Corporation
+```
+
+### <a name="escaping-single-quote-character"></a>Escapando de personagem de citação única
+
+As funções de expressão utilizam uma única cotação para parâmetros de valor de cadeia. Use duas citações individuais para escapar a um ' personagem em funções de corda. Por exemplo, a expressão `@concat('Baba', ''' ', 'book store')` voltará abaixo do resultado.
+
+```
+Baba's book store
+```
+
 ### <a name="tutorial"></a>Tutorial
 Este [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) acompanha-o como passar parâmetros entre um oleoduto e atividade, bem como entre as atividades.
 

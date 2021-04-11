@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: bb17918774d23dbeb2747fa55eefc4956812e254
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed31a2202a0eacbdc257e127e111d21215c27de4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775702"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258202"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Resolução de problemas Na configuração e problemas de alvo de armazenamento NFS
 
@@ -81,7 +81,7 @@ Por exemplo, um sistema pode mostrar três exportações como estas:
 
 A exportação ``/ifs/accounting/payroll`` é uma criança ``/ifs/accounting`` de, e é em si uma ``/ifs/accounting`` criança de ``/ifs`` .
 
-Se adicionar a ``payroll`` exportação como um alvo de armazenamento de cache HPC, a cache realmente monta ``/ifs/`` e acede ao diretório de folha de pagamento a partir daí. Assim, a Azure HPC Cache precisa de acesso raiz ``/ifs`` para aceder à ``/ifs/accounting/payroll`` exportação.
+Se adicionar a ``payroll`` exportação como alvo de armazenamento HPC Cache, a cache realmente monta ``/ifs/`` e acede ao diretório de folha de pagamento a partir daí. Assim, a Azure HPC Cache precisa de acesso raiz ``/ifs`` para aceder à ``/ifs/accounting/payroll`` exportação.
 
 Este requisito está relacionado com a forma como o cache indexa ficheiros e evita colisões de ficheiros, utilizando alças de ficheiro que o sistema de armazenamento fornece.
 

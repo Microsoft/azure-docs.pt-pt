@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: d245b780acee59afbc6cb8bde6c916bfd1046e3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 65ef7af1247fdb38a7c85c1a8134257942f5ef5b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508559"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447034"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 

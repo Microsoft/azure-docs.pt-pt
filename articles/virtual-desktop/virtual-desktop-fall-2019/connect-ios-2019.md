@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: c7efedadbba196223db2ad5700035e27d37fb414
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 297e2967c4e651c5b75ce232d56c51c07c872443
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008462"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445283"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>Conecte-se ao Windows Virtual Desktop (clássico) com o cliente iOS
 

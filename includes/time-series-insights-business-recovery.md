@@ -4,13 +4,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
-ms.date: 07/09/2020
-ms.openlocfilehash: f25c335c568c112c05f81df51d69e83aeff423e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/01/2021
+ms.openlocfilehash: 6529aa49d06e64947deb5ae54db0c39ad2575569
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96026663"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106288596"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperação de desastres de negócios
 
@@ -24,7 +24,7 @@ As funcionalidades adicionais de alta disponibilidade fornecidas através do Azu
 
 - **Failover**: A azul fornece [geo-replicação e equilíbrio de carga](/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Recuperação** e **recuperação de dados**: A Azure oferece [várias opções para preservar e recuperar dados.](/azure/architecture/resiliency/recovery-data-corruption)
-- **Recuperação do sítio Azure**: O Azure fornece funcionalidades de recuperação do local através da [Recuperação do Sítio Azure.](../articles/site-recovery/index.yml)
+- **Recuperação do sítio Azure**: O Azure fornece funcionalidades de recuperação através da [Recuperação do Sítio Azure.](../articles/site-recovery/index.yml)
 - **Azure Backup**: [Azure Backup](../articles/backup/backup-architecture.md) suporta tanto no local como na nuvem backup de VMs Azure.
 
 Certifique-se de que ativa as funcionalidades Azure relevantes para fornecer uma alta disponibilidade global e transversal para os seus dispositivos e utilizadores.
@@ -44,7 +44,7 @@ A integração da Azure Time Series Insights com os outros serviços proporciona
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-Existem várias formas de manter os dados, apps e serviços da Azure Time Series, mesmo que sejam perturbados. 
+Existem várias formas de manter os dados, apps e serviços da Azure Time Series, mesmo que sejam perturbados.
 
 No entanto, pode determinar que também é necessária uma cópia de backup completa do seu ambiente Azure Time Series, para as seguintes finalidades:
 
@@ -63,12 +63,13 @@ Para criar um ambiente duplicado:
 Se ocorrer um evento:
 
 1. Se a sua região primária for afetada durante um incidente de desastre, reencaminhe as operações para o ambiente de backup Azure Time Series Insights.
+1. Como os números de sequência do hub reiniciam a partir de 0 após o failover, recrie a fonte de eventos em ambas as regiões/ambientes com diferentes grupos de consumidores para evitar criar o que seria como eventos duplicados.
 1. Use a sua segunda região para fazer cópias de segurança e recuperar todos os dados de telemetria e consulta da Azure Time Series Insights.
 
 > [!IMPORTANT]
 > Se ocorrer uma falha:
-> 
-> * Um atraso também pode ocorrer.
-> * Pode ocorrer um pico momentâneo no processamento de mensagens, uma vez que as operações são reencaminhadas.
-> 
+>
+> - Um atraso também pode ocorrer.
+> - Pode ocorrer um pico momentâneo no processamento de mensagens, uma vez que as operações são reencaminhadas.
+>
 > Para obter mais informações, leia [Mitigate latência em Azure Time Series Insights](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md).

@@ -4,20 +4,20 @@ description: Esta informação explica por que deve atualizar o Agente de Backup
 services: backup
 cloud: ''
 suite: ''
-author: dcurwin
+author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.tgt_pltfrm: <optional>
 ms.devlang: <optional>
 ms.topic: article
 ms.date: 03/03/2020
-ms.author: dacurwin
-ms.openlocfilehash: bd298f758d6109b908db01dd2ae3b97e5e2f714a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: v-amallick
+ms.openlocfilehash: bf77103db93652e1df837f6b1032b5e53bd41e1f
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78673196"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106294119"
 ---
 ## <a name="upgrade-the-mars-agent"></a>Atualizar o Agente MARS
 

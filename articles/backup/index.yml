@@ -6,15 +6,15 @@ metadata:
   description: O serviço Azure Backup fornece soluções simples, seguras e económicas que lhe permitem fazer cópias de segurança dos seus dados e recuperá-los a partir da cloud do Microsoft Azure.
   ms.service: backup
   ms.topic: landing-page
-  author: dcurwin
-  ms.author: dacurwin
+  author: v-amallick
+  ms.author: v-amallick
   ms.date: 12/01/2019
-  ms.openlocfilehash: f6a601aa1b180aa10df3b1486c1e47a3c6269490
-  ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+  ms.openlocfilehash: 0ad0f1aec1ce4e0718952d82d08672df42924f51
+  ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/27/2021
-  ms.locfileid: "105629092"
+  ms.lasthandoff: 04/04/2021
+  ms.locfileid: "106293622"
 landingContent:
 - title: Saiba mais sobre o Azure Backup
   linkLists:

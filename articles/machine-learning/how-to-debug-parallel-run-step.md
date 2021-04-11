@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting
 ms.reviewer: larryfr, vaidyas, laobri, tracych
-ms.author: trmccorm
-author: tmccrmck
+ms.author: pansav
+author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: b5511c8ecc33238e0409b5ee4c1c7a11adddeac5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 619123cc2723fcf8e4bd80410c6b098b113d61c6
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522160"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286322"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Resolver problemas de ParallelRunStep
 
@@ -96,6 +96,9 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `mini_batch_size`: O tamanho do mini-lote passou para uma única `run()` chamada. (opcional; o valor predefinido são `10` ficheiros para `FileDataset` e para `1MB` `TabularDataset` .)
     - Para `FileDataset` , é o número de ficheiros com um valor mínimo de `1` . Pode combinar vários ficheiros num mini-lote.
     - Para, `TabularDataset` é o tamanho dos dados. Os valores de exemplo `1024` `1024KB` `10MB` são, `1GB` e. O valor recomendado é `1MB` . O mini-lote `TabularDataset` de nunca cruzará os limites do ficheiro. Por exemplo, se tiver ficheiros .csv com vários tamanhos, o ficheiro mais pequeno é de 100 KB e o maior é de 10 MB. Se `mini_batch_size = 1MB` definir, os ficheiros com um tamanho inferior a 1 MB serão tratados como um mini-lote. Os ficheiros com um tamanho superior a 1 MB serão divididos em vários mini-lotes.
+        > [!NOTE]
+        > Os Separadores Tabular apoiados por SQL não podem ser divididos. 
+
 - `error_threshold`: O número de falhas de registo `TabularDataset` e falhas de ficheiros para tal deve `FileDataset` ser ignorado durante o processamento. Se a contagem de erros para toda a entrada for superior a este valor, o trabalho será abortado. O limiar de erro é para toda a entrada e não para mini-lote individual enviado para o `run()` método. O alcance `[-1, int.max]` é. A `-1` peça indica ignorar todas as falhas durante o processamento.
 - `output_action`: Um dos seguintes valores indica como a saída será organizada:
     - `summary_only`: O script do utilizador armazena a saída. `ParallelRunStep` utilizará a saída apenas para o cálculo do limiar de erro.
@@ -110,7 +113,7 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `run_invocation_timeout`: O `run()` tempo de tempo de invocação do método em segundos. (opcional; valor predefinido `60` é)
 - `run_max_try`: Contagem máxima de tentativa `run()` para um mini-lote. A `run()` é falhado se uma exceção for lançada, ou nada for devolvido quando for alcançado `run_invocation_timeout` (opcional; o valor padrão `3` é). 
 
-Pode especificar `mini_batch_size` , , e como , para `node_count` `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` que, quando reenviar uma corrida de gasoduto, possa afinar os valores dos parâmetros. Neste exemplo, `PipelineParameter` `mini_batch_size` usa-se e `Process_count_per_node` muda estes valores quando voltar a apresentar uma execução mais tarde. 
+Pode especificar `mini_batch_size` , , e como , para `node_count` `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` que, quando reenviar uma corrida de gasoduto, possa afinar os valores dos parâmetros. Neste exemplo, `PipelineParameter` `mini_batch_size` usa-se e `Process_count_per_node` muda estes valores quando voltar a apresentar outra execução. 
 
 ### <a name="parameters-for-creating-the-parallelrunstep"></a>Parâmetros para a criação do ParallelRunStep
 
@@ -151,7 +154,7 @@ Os registos gerados a partir do script de entrada utilizando o helper EntryScrip
 
 - `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: Estes ficheiros são os registos escritos a partir de entry_script utilizando o ajudante de entrada.
 
-- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: Estes ficheiros são os registos da sestado (por exemplo, declaração de impressão) de entry_script.
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: Estes ficheiros são os registos da estatudo (por exemplo, declaração de impressão) de entry_script.
 
 - `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: Estes ficheiros são os registos da stderr de entry_script.
 
@@ -212,10 +215,11 @@ def run(mini_batch):
 
 O utilizador pode passar dados de referência para script usando side_inputs parâmetro do ParalleRunStep. Todos os conjuntos de dados fornecidos como side_inputs serão montados em cada nó de trabalhador. O utilizador pode obter a localização do monte através do argumento de passagem.
 
-Construa um [Conjunto de Dados](/python/api/azureml-core/azureml.core.dataset.dataset) contendo os dados de referência e registe-os com o seu espaço de trabalho. Passe-o para o `side_inputs` parâmetro do seu `ParallelRunStep` . Além disso, pode adicionar o seu caminho na `arguments` secção para aceder facilmente ao seu caminho montado:
+Construa um [Conjunto de Dados](/python/api/azureml-core/azureml.core.dataset.dataset) contendo os dados de referência, especifique uma trajetória de montagem local e registe-os com o seu espaço de trabalho. Passe-o para o `side_inputs` parâmetro do seu `ParallelRunStep` . Além disso, pode adicionar o seu caminho na `arguments` secção para aceder facilmente ao seu caminho montado:
 
 ```python
-label_config = label_ds.as_named_input("labels_input")
+local_path = "/tmp/{}".format(str(uuid.uuid4()))
+label_config = label_ds.as_named_input("labels_input").as_mount(local_path)
 batch_score_step = ParallelRunStep(
     name=parallel_step_name,
     inputs=[input_images.as_named_input("input_images")],

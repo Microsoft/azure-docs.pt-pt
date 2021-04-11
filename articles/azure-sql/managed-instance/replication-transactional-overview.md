@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e08fe67dece02b936aa3a22e9cac58d809f19f46
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225348"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285688"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com Azure SQL Gestded Instance (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -43,7 +43,7 @@ Os componentes-chave na replicação transacional são o **Editor,** **Distribui
 
 ![replicação com Base de Dados SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Função | Base de Dados SQL do Azure | Instância Gerida do SQL do Azure |
+| Função | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
 | **Publisher** | No | Yes |
 | **Distribuidor** | No | Yes|
@@ -72,7 +72,7 @@ Azure SQL Managed Instance pode suportar ser assinante a partir das seguintes ve
 
 Existem diferentes [tipos de replicação:](/sql/relational-databases/replication/types-of-replication)
 
-| Replicação | Base de Dados SQL do Azure | Instância Gerida do SQL do Azure |
+| Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
 | [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes |
 | [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|
@@ -154,7 +154,7 @@ Nesta configuração, uma base de dados na Base de Dados Azure SQL ou Azure SQL 
 
 [A geo-replicação ativa](../database/active-geo-replication-overview.md) não é suportada com uma SQL Managed Instance utilizando a replicação transacional. Em vez de geo-replicação ativa, utilize [grupos auto-failover](../database/auto-failover-group-overview.md), mas note que a publicação tem de ser [eliminada manualmente](transact-sql-tsql-differences-sql-server.md#replication) da instância gerida primária e recriada na segunda SQL Managed Instance após o failover.
 
-Se a geo-replicação estiver ativada num **editor** ou **distribuidor** SQL Managed Instance num grupo de [failover,](../database/auto-failover-group-overview.md)o administrador da SQL Managed Instance deve limpar todas as publicações sobre a antiga primária e reconfigurá-las na nova primária após a ocorrência de uma falha. Neste cenário são necessárias as seguintes atividades:
+Se um **editor** ou **distribuidor** SQL Managed Instance estiver num [grupo de failover,](../database/auto-failover-group-overview.md)o administrador da SQL Managed Instance deve limpar todas as publicações sobre a antiga primária e reconfigurá-las na nova primária após a ocorrência de uma falha. Neste cenário são necessárias as seguintes atividades:
 
 1. Parem com todos os trabalhos de replicação na base de dados, se houver.
 1. Largue os metadados de subscrição do editor executando o seguinte script na base de dados dos editores:
