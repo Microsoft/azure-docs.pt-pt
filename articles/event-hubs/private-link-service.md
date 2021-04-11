@@ -3,12 +3,12 @@ title: Integre os Hubs de Eventos Azure com o Azure Private Link Service
 description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Link Service
 ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5c01788044f3c3a5d875a24172e7222ff195f81
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94427756"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960848"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs através de pontos finais privados 
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
@@ -17,11 +17,10 @@ Um ponto final privado é uma interface de rede que o liga de forma privada e se
 
 Para mais informações, consulte [o que é a Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!WARNING]
-> Permitir pontos finais privados pode impedir que outros serviços Azure interajam com os Centros de Eventos.  Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Como exceção, pode permitir o acesso aos recursos do Event Hubs a partir de determinados serviços fidedignos, mesmo quando os pontos finais privados estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
-
->[!NOTE]
-> Esta funcionalidade é suportada tanto para níveis **standard** como **dedicado.** Não é suportado no nível **básico.**
+## <a name="important-points"></a>Pontos importantes
+- Esta funcionalidade é suportada tanto para níveis **standard** como **dedicado.** Não é suportado no nível **básico.**
+- Permitir pontos finais privados pode impedir que outros serviços Azure interajam com os Centros de Eventos.  Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Como exceção, pode permitir o acesso aos recursos do Event Hubs a partir de determinados **serviços fidedignos,** mesmo quando os pontos finais privados estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
+- Especifique **pelo menos uma regra de IP ou rede virtual** para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso). 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Adicione um ponto final privado usando o portal Azure
 
@@ -51,8 +50,8 @@ Se já tem um espaço de nomes do Event Hubs, pode criar uma ligação de ligaç
 
     :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Separador de redes - opção de redes selecionada" lightbox="./media/private-link-service/selected-networks-page.png":::    
 
-    > [!NOTE]
-    > Por predefinição, a opção **de rede Selecionada** é selecionada. Se não especificar uma regra de firewall IP ou adicionar uma rede virtual, o espaço de nome pode ser acedido através da internet pública. 
+    > [!WARNING]
+    > Por predefinição, a opção **de rede Selecionada** é selecionada. Se não especificar uma regra de firewall IP ou adicionar uma rede virtual, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso). 
 1. Selecione o **separador de ligações de ponto final privado** no topo da página. 
 1. Selecione o botão **+ Ponto final privado** na parte superior da página.
 

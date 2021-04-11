@@ -7,16 +7,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: b475990a6b079de5e9ff01e52c2135f3c99a4f2f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 15c97640ab1f4e862aab0aff4b3965822daafb2b
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055642"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219829"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Criar serviços incluídos na conta gratuita do Azure
 
-Durante os primeiros 30 dias após a criação de uma conta Azure gratuita, tem 200 créditos USD na sua moeda de faturação para utilizar em qualquer serviço, exceto para compras de marketplace de terceiros. Pode utilizar o crédito gratuito para experimentar diferentes escalões e tipos de serviços do Azure. Se, durante esse período, utilizar serviços ou recursos do Azure que não sejam gratuitos, os custos são debitados do crédito.
+Durante os primeiros 30 dias após a criação de uma conta Azure gratuita, tem crédito DE USD200 na sua moeda de faturação para utilizar em qualquer serviço, exceto para compras de marketplace de terceiros. Pode utilizar o crédito gratuito para experimentar diferentes escalões e tipos de serviços do Azure. Se, durante esse período, utilizar serviços ou recursos do Azure que não sejam gratuitos, os custos são debitados do crédito.
 
 Se não utilizar todo o crédito até ao fim dos 30 primeiros dias, este termina. Após os 30 primeiros dias e até 12 meses a seguir à inscrição, só pode utilizar uma quantidade limitada de *alguns serviços*; nem todos os serviços do Azure são gratuitos. Se atualizar antes dos 30 dias e ainda tiver crédito, pode utilizar o restante com uma subscrição pay as you go durante os dias que faltam. Por exemplo, se se inscrever na conta gratuita a 1 de novembro e atualizar a 5 de novembro, pode utilizar o crédito na nova subscrição pay as you go até 30 desse mês. 
 

@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentação do Azure
-summary: Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.
+summary: 'Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.'
 brand: azure
 metadata:
   title: Documentação do Azure
-  description: Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.
+  description: 'Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.'
   services: azure
   ms.service: azure
   ms.topic: hub-page
@@ -12,1383 +12,1377 @@ metadata:
   ms.author: rolyon
   ms.date: 03/03/2021
   featureFlags:
-  - clicktale
-  ms.openlocfilehash: f26db3f981de1f49ac2bc148098034dd226c891c
-  ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-  ms.translationtype: MT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/24/2021
-  ms.locfileid: "105022301"
+    - clicktale
 highlightedContent:
   items:
-  - title: Guia de introdução para programadores do Azure
-    itemType: get-started
-    url: guides/developer/azure-developer-guide.md
-  - title: Crie a sua aplicação com o Centro de Arquitetura do Azure
-    itemType: architecture
-    url: /azure/architecture/
-  - title: Prepare a sua organização com o Cloud Adoption Framework
-    itemType: overview
-    url: /azure/cloud-adoption-framework/
-  - title: Desenvolva as suas competências com o Microsoft Learn
-    itemType: learn
-    url: /learn/browse/?products=azure&resource_type=learning%20path
+    - title: Guia de introdução para programadores do Azure
+      itemType: get-started
+      url: guides/developer/azure-developer-guide.md
+    - title: Crie a sua aplicação com o Centro de Arquitetura do Azure
+      itemType: architecture
+      url: /azure/architecture/
+    - title: Prepare a sua organização com o Cloud Adoption Framework
+      itemType: overview
+      url: /azure/cloud-adoption-framework/
+    - title: Desenvolva as suas competências com o Microsoft Learn
+      itemType: learn
+      url: /learn/browse/?products=azure&resource_type=learning%20path
 productDirectory:
   title: Procurar produtos do Azure
   items:
-  - title: Azure Percept
-    summary: Inteligência de borda do silício ao serviço
-    imageSrc: ./media/index/azure-percept.svg
-    azureCategories:
-    - iot
-    url: azure-percept/index.yml
-  - title: Detetor de Anomalias
-    summary: Adicione facilmente capacidades de deteção de anomalias às suas aplicações
-    imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/anomaly-detector/index.yml
-  - title: Azure Bot Service
-    summary: Serviço bot inteligente sem servidor que dimensiona a pedido
-    imageSrc: https://static.docs.com/ui/media/product/azure/bot-service.svg
-    azureCategories:
-    - ai-machine-learning
-    url: /azure/bot-service/
-  - title: Azure Cognitive Search
-    summary: Serviço de pesquisa na cloud com tecnologia de IA para desenvolvimento de aplicações móveis e Web
-    imageSrc: https://static.docs.com/ui/media/product/azure/search.svg
-    azureCategories:
-    - ai-machine-learning
-    - mobile
-    - web
-    url: search/index.yml
-  - title: Serviços Cognitivos do Azure
-    summary: Adicione capacidades inteligentes de API para ativar interações contextuais
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - featured
-    - ai-machine-learning
-    - mobile
-    url: cognitive-services/index.yml
-  - title: Azure Databricks
-    summary: Plataforma de análise baseada no Apache Spark rápida, fácil e colaborativa
-    imageSrc: https://static.docs.com/ui/media/product/azure/databricks.svg
-    azureCategories:
-    - ai-machine-learning
-    - analytics
-    url: /azure/databricks/
-  - title: Bot de Saúde
-    summary: Um serviço gerido construído de propósito para o desenvolvimento de assistentes de saúde virtuais.
-    imageSrc: media/index/health-bot-logo.svg
-    azureCategories:
-    - ai-machine-learning
-    url: /azure/health-bot/
-  - title: Azure Machine Learning
-    summary: Leve a IA a todos com uma plataforma ponto a ponto, dimensionável e fiável com experimentação e gestão de modelos
-    imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
-    azureCategories:
-    - ai-machine-learning
-    - iot
-    url: machine-learning/index.yml
-  - title: Azure Open Datasets
-    summary: Plataforma cloud para alojar e partilhar conjuntos de dados abertos curados para acelerar o desenvolvimento de modelos de machine learning
-    imageSrc: https://static.docs.com/ui/media/product/azure/open-datasets.svg
-    azureCategories:
-    - ai-machine-learning
-    url: open-datasets/index.yml
-  - title: Azure RTOS
-    summary: Simplificar o desenvolvimento e a conectividade do IoT incorporado
-    imageSrc: https://static.docs.com/ui/media/product/azure/rtos.svg
-    azureCategories:
-    - iot
-    url: /azure/rtos/
-  - title: Sugestão Automática do Bing
-    summary: Dê à sua aplicação opções de sugestão automática inteligente para as pesquisas
-    imageSrc: ./media/index/API_Bing_AutoSuggest.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-autosuggest/get-suggested-search-terms.md
-  - title: Pesquisa Personalizada do Bing
-    summary: Uma ferramenta de pesquisa fácil de utilizar, sem publicidade, de nível comercial que lhe permite entregar os resultados que quer
-    imageSrc: ./media/index/API_Bing_Custom_Search.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-custom-search/overview.md
-  - title: Pesquisa de Entidades do Bing
-    summary: Diversifique as suas experiências ao identificar e aumentar informações sobre entidades da Web
-    imageSrc: ./media/index/API_Bing_Entity_Search.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-entities-search/overview.md
-  - title: Pesquisa de Imagens do Bing
-    summary: Pesquise imagens e obtenha resultados abrangentes
-    imageSrc: ./media/index/API_Bing_Image_Search.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-image-search/overview.md
-  - title: Pesquisa do Bing Notícias
-    summary: Pesquise notícias e obtenha resultados abrangentes
-    imageSrc: ./media/index/API_Bing_News_Search.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-news-search/search-the-web.md
-  - title: Verificação Ortográfica do Bing
-    summary: Detete e corrija erros ortográficos na aplicação
-    imageSrc: ./media/index/API_Bing_Spell_Check.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-spell-check/overview.md
-  - title: Pesquisa de Vídeos do Bing
-    summary: Pesquise vídeos e obtenha resultados abrangentes
-    imageSrc: ./media/index/API_Bing_Video_Search.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-video-search/overview.md
-  - title: Pesquisa Visual do Bing
-    summary: Obtenha informações detalhadas para ajudar a criar aplicações de imagens atrativas num dispositivo à sua escolha
-    imageSrc: ./media/index/API_Bing_Visual_Search.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-visual-search/overview.md
-  - title: Pesquisa Web do Bing
-    summary: Consiga detalhes de pesquisa avançada a partir de milhares de milhões de documentos Web
-    imageSrc: ./media/index/API_Bing_Web_Search.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/bing-web-search/overview.md
-  - title: Azure Communication Services (Pré-visualização)
-    summary: Crie experiências de comunicação avançadas com a mesma plataforma segura que o Microsoft Teams utiliza
-    imageSrc: ./media/index/communication-services.svg
-    azureCategories:
-    - web
-    - mobile
-    url: communication-services/overview.md
-  - title: Imagem Digitalizada
-    summary: Separe informações acionáveis de imagens
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/computer-vision/index.yml
-  - title: Content Moderator
-    summary: Moderação automática de imagens, texto e vídeo
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/content-moderator/index.yml
-  - title: Visão Personalizada
-    summary: Personalize facilmente os seus modelos de imagem digitalizada de ponta para o seu cenário de utilização específico
-    imageSrc: https://static.docs.com/ui/media/product/azure/custom-vision.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/custom-vision-service/index.yml
-  - title: Máquinas Virtuais de Ciência de Dados
-    summary: Ambiente pré-configurado multifacetado para o desenvolvimento de IA
-    imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-    azureCategories:
-    - ai-machine-learning
-    url: machine-learning/data-science-virtual-machine/index.yml
-  - title: Rostos
-    summary: Detete, identifique, analise, organize e assinale rostos em fotos
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/face/index.yml
-  - title: Reconhecedor de Formato
-    summary: O serviço de extração de documentos com suporte de IA que compreende os seus formulários
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/form-recognizer/index.yml
-  - title: Leitura Avançada
-    summary: Capacite os utilizadores de todas as idades e níveis de capacidade para os ajudar a ler e compreender textos
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/immersive-reader/index.yml
-  - title: Reconhecedor de Tinta Digital (Pré-visualização)
-    summary: Um serviço de IA que reconhece conteúdo de tinta digital, como escrita manual, formas e esquemas de documentos com tinta
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
-  - title: Kinect DK
-    summary: Crie modelos de imagem digitalizada e de voz com um kit de programador com sensores de IA avançados
-    imageSrc: ./media/index/kinect-viewer.svg
-    azureCategories:
-    - ai-machine-learning
-    - iot
-    - mixed-reality
-    url: kinect-dk/index.yml
-  - title: Language Understanding
-    summary: Ensine as suas aplicações a compreender comandos dados pelos utilizadores
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/luis/index.yml
-  - title: Microsoft Genomics
-    summary: Potencie a sequenciação de genomas e informações de pesquisa
-    imageSrc: https://static.docs.com/ui/media/product/azure/genomics.svg
-    azureCategories:
-    - ai-machine-learning
-    url: genomics/index.yml
-  - title: Assistente de Métricas (Pré-visualização)
-    summary: Um serviço de IA que monitoriza as métricas e diagnostica problemas
-    imageSrc: ./media/index/metrics-advisor.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/metrics-advisor/index.yml
-  - title: Personalizador
-    summary: Um serviço de IA que proporciona uma experiência de utilizador personalizada
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/personalizer/index.yml
-  - title: Projeto Bonsai (Pré-visualização)
-    summary: Um serviço de machine teaching para criar sistemas de controlo industrial inteligentes através de simulações
-    imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
-    azureCategories:
-    - ai-machine-learning
-    url: /bonsai/
-  - title: QnA Maker
-    summary: Converta informações em respostas de conversação fáceis de navegar
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/qnamaker/index.yml
-  - title: Reconhecimento de Orador (Pré-visualização)
-    summary: Utilize a voz para identificar e verificar oradores individuais
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: ./cognitive-services/speech-service/speaker-recognition-overview.md
-  - title: Conversão de Voz em Texto
-    summary: Converta áudio falado em texto para interações mais naturais
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: ./cognitive-services/speech-service/index-speech-to-text.yml
-  - title: Tradução de Voz
-    summary: Integre facilmente tradução de voz em tempo real na sua aplicação
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: ./cognitive-services/speech-service/index-speech-translation.yml
-  - title: Análise de Texto
-    summary: Avalie sentimentos e tópicos facilmente, de modo a compreender o que os utilizadores querem
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/text-analytics/index.yml
-  - title: Conversão de Texto em Voz
-    summary: Converta texto em voz para criar interfaces mais naturais e acessíveis
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: ./cognitive-services/speech-service/index-text-to-speech.yml
-  - title: Tradutor
-    summary: Realize facilmente traduções automática com uma simples chamada à API REST
-    imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-    azureCategories:
-    - ai-machine-learning
-    url: cognitive-services/translator/index.yml
-  - title: Indexador de Vídeos
-    summary: Desbloqueie informações de vídeo
-    imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
-    azureCategories:
-    - ai-machine-learning
-    - media
-    url: media-services/video-indexer/index.yml
-  - title: Azure Analysis Services
-    summary: Motor de análise de nível empresarial como um serviço
-    imageSrc: https://static.docs.com/ui/media/product/azure/analysis-services.svg
-    azureCategories:
-    - analytics
-    url: analysis-services/index.yml
-  - title: Azure Data Explorer
-    summary: Serviço de exploração de dados rápido e altamente dimensionável
-    imageSrc: https://static.docs.com/ui/media/product/azure/data-explorer.svg
-    azureCategories:
-    - analytics
-    url: /azure/data-explorer
-  - title: Armazenamento do Azure Data Lake
-    summary: Funcionalidade de data lake segura, dimensionável em massa, incorporada no Armazenamento de Blobs do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
-    azureCategories:
-    - analytics
-    - storage
-    url: storage/blobs/data-lake-storage-introduction.md
-  - title: Azure Data Share
-    summary: Um serviço simples e seguro para partilhar macrodados com organizações externas
-    imageSrc: https://static.docs.com/ui/media/product/azure/data-shares.svg
-    azureCategories:
-    - analytics
-    - storage
-    url: data-share/index.yml
-  - title: Azure Stream Analytics
-    summary: Análise em tempo real sobre a movimentação rápida de fluxos de dados de aplicações e dispositivos
-    imageSrc: https://static.docs.com/ui/media/product/azure/stream-analytics.svg
-    azureCategories:
-    - analytics
-    - iot
-    url: stream-analytics/index.yml
-  - title: Azure Synapse Analytics
-    summary: Serviço de análise ilimitado com uma velocidade de obtenção de informações sem rival
-    imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
-    azureCategories:
-    - analytics
-    url: synapse-analytics/index.yml
-  - title: Catálogo de Dados
-    summary: Extraia mais valor dos seus elementos de dados empresariais
-    imageSrc: https://static.docs.com/ui/media/product/azure/data-catalog.svg
-    azureCategories:
-    - analytics
-    url: data-catalog/index.yml
-  - title: Azure Purview
-    summary: Maximizar o valor comercial com gestão de dados unificada
-    imageSrc: https://static.docs.com/ui/media/product/azure/purview.svg
-    azureCategories:
-    - analytics
-    - management-and-governance
-    url: purview/index.yml
-  - title: Data Factory
-    summary: Integração de dados híbridos em escala empresarial, simplificada
-    imageSrc: https://static.docs.com/ui/media/product/azure/data-factory.svg
-    azureCategories:
-    - analytics
-    url: data-factory/index.yml
-  - title: Data Lake Analytics
-    summary: Serviço de análise distribuído que facilita a análise de macrodados
-    imageSrc: https://static.docs.com/ui/media/product/azure/data-lake-analytics.svg
-    azureCategories:
-    - analytics
-    url: data-lake-analytics/index.yml
-  - title: Hubs de Eventos
-    summary: Receba dados telemétricos de milhões de dispositivos
-    imageSrc: https://static.docs.com/ui/media/product/azure/event-hubs.svg
-    azureCategories:
-    - analytics
-    url: event-hubs/index.yml
-  - title: HDInsight
-    summary: Aprovisione clusters do Hadoop, Spark, R Server, HBase e Storm na cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
-    azureCategories:
-    - analytics
-    url: hdinsight/index.yml
-  - title: Log Analytics
-    summary: Observabilidade completa para aplicações, infraestrutura e rede
-    imageSrc: https://static.docs.com/ui/media/product/azure/log-analytics.svg
-    azureCategories:
-    - analytics
-    - management-and-governance
-    url: azure-monitor/index.yml
-  - title: Power BI Embedded
-    summary: Incorpore visualizações de dados espetaculares e totalmente interativas nas suas aplicações
-    imageSrc: https://static.docs.com/ui/media/product/azure/power-bi.svg
-    azureCategories:
-    - analytics
-    url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
-  - title: R Server para HDInsight
-    summary: Análise preditiva, machine learning e modelação estatística para macrodados
-    imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
-    azureCategories:
-    - analytics
-    url: hdinsight/r-server/r-server-overview.md
-  - title: Azure Blockchain Service (Pré-visualização)
-    summary: Criar, governar e expandir as redes de blockchain de consórcio
-    imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-service.svg
-    azureCategories:
-    - blockchain
-    url: blockchain/service/index.yml
-  - title: Azure Blockchain Workbench (Pré-visualização)
-    summary: Crie facilmente protótipos de aplicações de blockchain na cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
-    azureCategories:
-    - blockchain
-    url: blockchain/workbench/index.yml
-  - title: Azure Cosmos DB
-    summary: Base de dados NoSQL rápida com APIs abertas para qualquer escala
-    imageSrc: https://static.docs.com/ui/media/product/azure/cosmos-db.svg
-    azureCategories:
-    - featured
-    - blockchain
-    - databases
-    - iot
-    url: cosmos-db/index.yml
-  - title: Azure Managed Instance for Apache Cassandra
-    summary: Automatizar a implantação e a escala para centros de dados apaches de código aberto geridos
-    imageSrc: ./media/index/managed-instance-apache-cassandra.svg
-    azureCategories:
-    - databases
-    url: managed-instance-apache-cassandra/index.yml
-  - title: Aplicações Lógicas
-    summary: Automatize o acesso e utilização dos dados entre as nuvens sem ter que escrever código
-    imageSrc: https://static.docs.com/ui/media/product/azure/logic-apps.svg
-    azureCategories:
-    - blockchain
-    - integration
-    - iot
-    url: logic-apps/index.yml
-  - title: Aplicações API
-    summary: Crie e consuma facilmente APIs de Nuvem
-    imageSrc: https://static.docs.com/ui/media/product/azure/api-apps.svg
-    azureCategories:
-    - compute
-    - containers
-    - web
-    url: app-service/index.yml
-  - title: Serviço de Aplicações
-    summary: Crie rapidamente poderosas aplicações Web e móveis na cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
-    azureCategories:
-    - featured
-    - compute
-    - mobile
-    - web
-    url: app-service/index.yml
-  - title: Azure CycleCloud
-    summary: Criar, gerir, operar e otimizar os clusters de HPC e de macrocomputação de qualquer escala
-    imageSrc: ./media/index/logo_cyclecloud.svg
-    azureCategories:
-    - compute
-    url: /azure/cyclecloud/index
-  - title: Azure Dedicated Host
-    summary: Um servidor físico dedicado para alojar as suas VMs do Azure para Windows e Linux
-    imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-    azureCategories:
-    - compute
-    url: ./virtual-machines/dedicated-hosts.md
-  - title: Funções do Azure
-    summary: Processe eventos com código sem servidor
-    imageSrc: https://static.docs.com/ui/media/product/azure/functions.svg
-    azureCategories:
-    - featured
-    - compute
-    - containers
-    - iot
-    url: azure-functions/index.yml
-  - title: Serviço de Kubernetes do Azure (AKS)
-    summary: Simplifique a implementação, gestão e operações do Kubernetes
-    imageSrc: https://static.docs.com/ui/media/product/azure/kubernetes-services.svg
-    azureCategories:
-    - featured
-    - compute
-    - containers
-    url: aks/index.yml
-  - title: Azure Quantum (Pré-visualização)
-    summary: Experimente o impacto quântico hoje em Azure
-    imageSrc: ./media/index/quantum.svg
-    azureCategories:
-    - compute
-    - featured
-    url: /azure/quantum/
-  - title: Azure Spring Cloud
-    summary: Um serviço Spring Cloud totalmente gerido, criado e operado com Pivotal
-    imageSrc: https://static.docs.com/ui/media/product/azure/spring-cloud.svg
-    azureCategories:
-    - compute
-    - web
-    url: spring-cloud/index.yml
-  - title: Solução VMware no Azure
-    summary: Execute as suas cargas de trabalho do VMware de forma nativa no Azure
-    imageSrc: ./media/index/azure-vmware.svg
-    azureCategories:
-    - compute
-    url: azure-vmware/index.yml
-  - title: Batch
-    summary: Agendamento de tarefas à escala da nuvem e gestão de computação
-    imageSrc: https://static.docs.com/ui/media/product/azure/batch-accounts.svg
-    azureCategories:
-    - compute
-    url: batch/index.yml
-  - title: Serviços Cloud
-    summary: Crie aplicações e APIs na cloud altamente disponíveis e infinitamente dimensionáveis
-    imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
-    azureCategories:
-    - compute
-    url: cloud-services-extended-support/index.yml
-  - title: Container Instances
-    summary: Execute facilmente contentores no Azure sem gerir servidores
-    imageSrc: https://static.docs.com/ui/media/product/azure/container-instances.svg
-    azureCategories:
-    - compute
-    - containers
-    url: container-instances/index.yml
-  - title: Máquinas Virtuais do Linux
-    summary: Aprovisione máquinas virtuais para Ubuntu, Red Hat e muito mais
-    imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-    azureCategories:
-    - featured
-    - compute
-    url: ./virtual-machines/index.yml
-  - title: Service Fabric
-    summary: Desenvolva microsserviços e organize contentores no Windows ou no Linux
-    imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
-    azureCategories:
-    - compute
-    - containers
-    url: service-fabric/index.yml
-  - title: SQL Server em Máquinas Virtuais
-    summary: Aloje as aplicações empresariais do SQL Server na cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
-    azureCategories:
-    - compute
-    - databases
-    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - title: Aplicações Web Estáticas (Pré-visualização)
-    summary: Um serviço de aplicações Web moderno que oferece desenvolvimento simplificado de pilha completa de código fonte para elevada disponibilidade global
-    imageSrc: ./media/index/static-apps.svg
-    azureCategories:
-    - compute
-    - web
-    url: static-web-apps/index.yml
-  - title: Conjuntos de Dimensionamento de Máquinas Virtuais
-    summary: Faça a gestão e aumente verticalmente para milhares de máquinas virtuais do Linux e do Windows
-    imageSrc: https://static.docs.com/ui/media/product/azure/vm-scale-sets.svg
-    azureCategories:
-    - compute
-    url: virtual-machine-scale-sets/index.yml
-  - title: Aplicações Web
-    summary: Crie e implemente rapidamente aplicações Web fundamentais em escala
-    imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
-    azureCategories:
-    - compute
-    - containers
-    - web
-    url: app-service/index.yml
-  - title: Windows Virtual Desktop
-    summary: A melhor experiência de ambiente de trabalho virtual no Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg
-    azureCategories:
-    - featured
-    - compute
-    - windows-virtual-desktop
-    url: virtual-desktop/index.yml
-  - title: Máquinas Virtuais do Windows
-    summary: Aprovisione máquinas virtuais do Windows em segundos
-    imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-    azureCategories:
-    - featured
-    - compute
-    url: ./virtual-machines/index.yml
-  - title: Espaços de Programador do Azure
-    summary: Teste e desenvolva iterativamente a sua aplicação de microsserviços no Azure AKS
-    imageSrc: ./media/index/AzureDevSpaceController_50x.svg
-    azureCategories:
-    - containers
-    - developer-tools
-    url: dev-spaces/index.yml
-  - title: Azure Red Hat OpenShift
-    summary: Serviço OpenShift totalmente gerido e operado em conjunto com a Red Hat
-    imageSrc: https://static.docs.com/ui/media/product/azure/openshift.svg
-    azureCategories:
-    - containers
-    url: virtual-machines/linux/openshift-get-started.md
-  - title: Registo de Contentor
-    summary: Armazene e faça a gestão de imagens de contentor em todos os tipos de implementações do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/container-registry.svg
-    azureCategories:
-    - containers
-    url: container-registry/index.yml
-  - title: Aplicações Web para Contentores
-    summary: Implementar e executar facilmente aplicações Web contentorizadas que crescem com o seu negócio
-    imageSrc: https://static.docs.com/ui/media/product/azure/web-apps-containers.svg
-    azureCategories:
-    - containers
-    - web
-    url: ./app-service/index.yml
-  - title: API do Azure para FHIR
-    summary: Crie e implemente facilmente um serviço FHIR para soluções de dados de saúde e interoperabilidade
-    imageSrc: https://static.docs.com/ui/media/product/azure/api-for-fhir.svg
-    azureCategories:
-    - databases
-    - integration
-    url: healthcare-apis/fhir/index.yml
-  - title: Cache do Azure para Redis
-    summary: Confira às suas aplicações débito elevado e acesso a dados de baixa latência
-    imageSrc: https://static.docs.com/ui/media/product/azure/cache-redis.svg
-    azureCategories:
-    - databases
-    url: azure-cache-for-redis/index.yml
-  - title: Azure Database for MariaDB
-    summary: Serviço de base de dados MariaDB gerido para programadores de aplicações
-    imageSrc: https://static.docs.com/ui/media/product/azure/database-mariadb-server.svg
-    azureCategories:
-    - databases
-    url: mariadb/index.yml
-  - title: Base de Dados do Azure para MySQL
-    summary: Serviço de base de dados MySQL gerido para programadores de aplicações
-    imageSrc: https://static.docs.com/ui/media/product/azure/database-mysql-server.svg
-    azureCategories:
-    - databases
-    url: mysql/index.yml
-  - title: Base de Dados do Azure para PostgreSQL
-    summary: Serviço de base de dados PostgreSQL gerido para programadores de aplicações
-    imageSrc: https://static.docs.com/ui/media/product/azure/database-postgresql-server.svg
-    azureCategories:
-    - databases
-    - hybrid
-    url: postgresql/index.yml
-  - title: Azure Database Migration Service
-    summary: Simplifique a migração de bases de dados no local para a cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/database-migration-services.svg
-    azureCategories:
-    - databases
-    - migration
-    url: dms/index.yml
-  - title: SQL do Azure
-    summary: Família do SQL moderna para migração e modernização de aplicações
-    imageSrc: https://static.docs.com/ui/media/product/azure/sql.svg
-    azureCategories:
-    - featured
-    - hybrid
-    - databases
-    url: azure-sql/index.yml
-  - title: Base de Dados SQL do Azure
-    summary: SQL gerido e inteligente na cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
-    azureCategories:
-    - databases
-    url: azure-sql/database/index.yml
-  - title: Instância Gerida do Azure SQL
-    summary: Instância gerida e sempre atualizada do SQL na cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg
-    azureCategories:
-    - databases
-    url: azure-sql/managed-instance/index.yml
-  - title: SQL do Azure no Edge
-    summary: Motor de dados de pequena quantidade otimizado no edge com IA incorporado
-    imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
-    azureCategories:
-    - databases
-    - iot
-    url: azure-sql-edge/index.yml
-  - title: Armazenamento de Tabelas
-    summary: Armazenamento de valor chave NoSQL a utilizar conjuntos de dados semiestruturados
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
-    azureCategories:
-    - databases
-    url: ./storage/tables/table-storage-overview.md
-  - title: App Configuration
-    summary: Armazenamento de parâmetros rápido e dimensionável para o App Configuration
-    imageSrc: https://static.docs.com/ui/media/product/azure/app-configuration.svg
-    azureCategories:
-    - developer-tools
-    url: azure-app-configuration/index.yml
-  - title: Azure Data Studio
-    summary: Um editor simples que pode executar consultas do conjunto de SQL sem servidor e ver e guardar resultados como texto, JSON ou Excel.
-    imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
-    azureCategories:
-    - developer-tools
-    url: /sql/azure-data-studio/
-  - title: DevOps do Azure
-    summary: Serviços que permitem às equipas partilhar código, monitorizar trabalho e enviar software
-    imageSrc: https://static.docs.com/ui/media/product/azure/devops.svg
-    azureCategories:
-    - developer-tools
-    - devops
-    - hybrid
-    url: /azure/devops/
-  - title: Azure DevTest Labs
-    summary: Crie ambientes rapidamente com modelos e artefactos reutilizáveis
-    imageSrc: https://static.docs.com/ui/media/product/azure/devtest-labs.svg
-    azureCategories:
-    - developer-tools
-    - devops
-    url: lab-services/index.yml
-  - title: Azure Lab Services
-    summary: Configure laboratórios para salas de aula, avaliações, desenvolvimento, testes e outros cenários
-    imageSrc: https://static.docs.com/ui/media/product/azure/lab-services.svg
-    azureCategories:
-    - developer-tools
-    url: lab-services/index.yml
-  - title: Pipelines do Azure
-    summary: Crie, teste e implemente continuamente para qualquer plataforma e cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/pipelines.svg
-    azureCategories:
-    - developer-tools
-    - devops
-    url: /azure/devops/pipelines/
-  - title: Visual Studio
-    summary: Ambiente poderoso e flexível para desenvolver aplicações na cloud
-    imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
-    azureCategories:
-    - developer-tools
-    url: /visualstudio/windows
-  - title: Visual Studio Code
-    summary: Um avançado editor de código leve para desenvolvimento na cloud
-    imageSrc: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-    azureCategories:
-    - developer-tools
-    url: https://code.visualstudio.com/docs
-  - title: Visual Studio Codespaces (Pré-visualização)
-    summary: Ambientes de desenvolvimento com tecnologia de cloud acessíveis em todo o lado
-    imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
-    azureCategories:
-    - developer-tools
-    url: /visualstudio/online/overview/what-is-vsonline
-  - title: Application Insights
-    summary: Observabilidade completa para aplicações, infraestrutura e rede
-    imageSrc: https://static.docs.com/ui/media/product/azure/application-insights.svg
-    azureCategories:
-    - devops
-    - management-and-governance
-    url: azure-monitor/index.yml
-  - title: Artefactos do Azure
-    summary: Crie, aloje e partilhe pacotes com a sua equipa
-    imageSrc: https://static.docs.com/ui/media/product/azure/artifacts.svg
-    azureCategories:
-    - devops
-    url: /azure/devops/artifacts/
-  - title: Quadros do Azure
-    summary: Planeie, acompanhe e discuta o trabalho pelas suas equipas
-    imageSrc: https://static.docs.com/ui/media/product/azure/boards.svg
-    azureCategories:
-    - devops
-    url: /azure/devops/boards/
-  - title: Azure Monitor
-    summary: Observabilidade completa para aplicações, infraestrutura e rede
-    imageSrc: https://static.docs.com/ui/media/product/azure/monitor.svg
-    azureCategories:
-    - devops
-    - management-and-governance
-    url: azure-monitor/index.yml
-  - title: Repositórios do Azure
-    summary: Obtenha repositórios privados, alojados na cloud, ilimitados para o seu projeto
-    imageSrc: https://static.docs.com/ui/media/product/azure/repos.svg
-    azureCategories:
-    - devops
-    url: /azure/devops/repos/
-  - title: Planos de Teste do Azure
-    summary: Teste e faça lançamentos com confiança com um manual e um kit de ferramentas para testes exploratórios
-    imageSrc: https://static.docs.com/ui/media/product/azure/test-plans.svg
-    azureCategories:
-    - devops
-    url: /azure/devops/test/
-  - title: GitHub Actions para o Azure
-    summary: Criar, testar e implementar qualquer aplicação do GitHub no Azure
-    imageSrc: ./media/index/github-actions-icon.svg
-    azureCategories:
-    - devops
-    - developer-tools
-    url: /azure/developer/github/github-actions
-  - title: Azure Active Directory (AD)
-    summary: Sincronize diretórios no local e ative o início de sessão único
-    imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
-    azureCategories:
-    - hybrid
-    - identity
-    - security
-    url: active-directory/index.yml
-  - title: Azure Arc (Pré-visualização)
-    summary: Integre a gestão e os serviços do Azure em qualquer infraestrutura
-    imageSrc: https://static.docs.com/ui/media/product/azure/arc.svg
-    azureCategories:
-    - hybrid
-    url: azure-arc/index.yml
-  - title: Azure ExpressRoute
-    summary: Ligações de fibra de rede privada dedicada para o Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/expressroute.svg
-    azureCategories:
-    - hybrid
-    - networking
-    url: expressroute/index.yml
-  - title: Azure Sentinel
-    summary: Coloque o SIEM nativo da cloud e a análise de segurança inteligente em prática para ajudar a proteger a sua empresa
-    imageSrc: https://static.docs.com/ui/media/product/azure/sentinel.svg
-    azureCategories:
-    - hybrid
-    - security
-    url: sentinel/index.yml
-  - title: Azure Stack
-    summary: Crie e execute aplicações híbridas inovadoras através dos limites da cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/stack.svg
-    azureCategories:
-    - hybrid
-    url: /azure-stack/
-  - title: Azure Stack HCI
-    summary: Integre a infraestrutura hiperconvergente no Azure e nos serviços híbridos para executar cargas de trabalho virtuais no local
-    imageSrc: https://static.docs.com/ui/media/product/azure/stack-hci.svg
-    azureCategories:
-    - hybrid
-    url: /azure-stack/hci/
-  - title: Azure Stack Hub
-    summary: O Azure Stack Hub é vendido como um sistema de hardware integrado, com software pré-instalado no hardware validado
-    imageSrc: https://static.docs.com/ui/media/product/azure/stack-hub.svg
-    azureCategories:
-    - hybrid
-    url: /azure-stack/operator/
-  - title: Azure Stack Edge
-    summary: Uma aplicação gerida do Azure que leva a computação, o armazenamento e a inteligência do Azure até ao edge
-    imageSrc: https://static.docs.com/ui/media/product/azure/stack-edge.svg
-    azureCategories:
-    - hybrid
-    url: ./databox-online/index.yml
-  - title: Centro de Segurança
-    summary: Unifique a gestão de segurança e ative a proteção contra ameaças avançada em cargas de trabalho na cloud híbrida
-    imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
-    azureCategories:
-    - hybrid
-    - security
-    url: security-center/index.yml
-  - title: Azure IoT Edge
-    summary: Expanda a inteligência e análise da cloud para dispositivos edge
-    imageSrc: https://static.docs.com/ui/media/product/azure/iot-edge.svg
-    azureCategories:
-    - hybrid
-    - iot
-    url: iot-edge/index.yml
-  - title: Identidades Externas do Azure Active Directory
-    summary: Gestão de identidades e acessos do consumidor para a cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
-    azureCategories:
-    - identity
-    url: active-directory/external-identities/index.yml
-  - title: Azure Active Directory Domain Services
-    summary: Junte as máquinas virtuais do Azure a um domínio sem controladores de domínio
-    imageSrc: https://static.docs.com/ui/media/product/azure/ad-domain-services.svg
-    azureCategories:
-    - identity
-    - security
-    url: active-directory-domain-services/index.yml
-  - title: Azure Information Protection
-    summary: Proteja melhor as suas informações confidenciais, em qualquer altura e local
-    imageSrc: https://static.docs.com/ui/media/product/azure/information-protection.svg
-    azureCategories:
-    - identity
-    - security
-    url: /azure/information-protection/
-  - title: Gestão de API
-    summary: Publique APIs para programadores, parceiros e empregados de forma segura e em escala
-    imageSrc: https://static.docs.com/ui/media/product/azure/api-management.svg
-    azureCategories:
-    - integration
-    - iot
-    - mobile
-    - web
-    url: api-management/index.yml
-  - title: Event Grid
-    summary: Obtenha a entrega de eventos fiável numa escala massiva
-    imageSrc: https://static.docs.com/ui/media/product/azure/event-grid-domains.svg
-    azureCategories:
-    - integration
-    - iot
-    url: event-grid/index.yml
-  - title: Service Bus
-    summary: Ligue-se em ambientes de cloud privados e públicos
-    imageSrc: https://static.docs.com/ui/media/product/azure/service-bus.svg
-    azureCategories:
-    - integration
-    url: service-bus-messaging/index.yml
-  - title: Azure Digital Twins
-    summary: Crie soluções de inteligência espacial de IoT de próxima geração
-    imageSrc: https://static.docs.com/ui/media/product/azure/digital-twins.svg
-    azureCategories:
-    - iot
-    - mixed-reality
-    url: digital-twins/index.yml
-  - title: Azure IoT Central
-    summary: Acelere a criação de soluções de IoT
-    imageSrc: https://static.docs.com/ui/media/product/azure/iot-central.svg
-    azureCategories:
-    - iot
-    url: iot-central/index.yml
-  - title: Azure IoT Hub
-    summary: Ligue, monitorize e faça a gestão de milhares de milhões de recursos de IoT
-    imageSrc: https://static.docs.com/ui/media/product/azure/iot-hub.svg
-    azureCategories:
-    - iot
-    url: iot-hub/index.yml
-  - title: Aceleradores de soluções do Azure IoT
-    summary: Crie soluções totalmente personalizáveis com modelos para cenários de IoT comuns
-    imageSrc: ./media/index/iot-solution-accelerators.svg
-    azureCategories:
-    - iot
-    url: iot-accelerators/index.yml
-  - title: Azure Maps
-    summary: As APIs de localização simples e segura fornecem contexto geoespacial aos dados
-    imageSrc: https://static.docs.com/ui/media/product/azure/maps.svg
-    azureCategories:
-    - iot
-    - mobile
-    - web
-    url: azure-maps/index.yml
-  - title: Azure Sphere
-    summary: Ligue de forma segura os dispositivos com tecnologia MCU desde o silício à cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/sphere.svg
-    azureCategories:
-    - iot
-    url: /azure-sphere/
-  - title: Azure Time Series Insights
-    summary: Explore e analise dados de séries temporais a partir de dispositivos IoT
-    imageSrc: https://static.docs.com/ui/media/product/azure/time-series-insights-environments.svg
-    azureCategories:
-    - iot
-    url: time-series-insights/index.yml
-  - title: Hubs de Notificação
-    summary: Envie notificações push para qualquer plataforma em qualquer back-end
-    imageSrc: https://static.docs.com/ui/media/product/azure/notification-hubs.svg
-    azureCategories:
-    - iot
-    - mobile
-    - web
-    url: notification-hubs/index.yml
-  - title: Windows 10 IoT Core Services
-    summary: Suporte e serviços do SO de longo prazo para gerir atualizações de dispositivos e avaliar o estado de funcionamento do dispositivo
-    imageSrc: https://static.docs.com/ui/media/product/azure/iot-windows10-core-services.svg
-    azureCategories:
-    - iot
-    url: /windows/iot-core/
-  - title: Automatização
-    summary: Simplifique a gestão em cloud com a automatização de processos
-    imageSrc: https://static.docs.com/ui/media/product/azure/automation.svg
-    azureCategories:
-    - management-and-governance
-    url: automation/index.yml
-  - title: Azure Advisor
-    summary: O mecanismo de recomendação personalizado de melhores práticas do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/advisor.svg
-    azureCategories:
-    - management-and-governance
-    url: advisor/index.yml
-  - title: Azure Backup
-    summary: Simplifique a proteção de dados e proteja-se contra ransomware
-    imageSrc: https://static.docs.com/ui/media/product/azure/recovery-services-vaults.svg
-    azureCategories:
-    - management-and-governance
-    - storage
-    url: backup/index.yml
-  - title: Azure Blueprints (Pré-visualização)
-    summary: Ative a criação rápida e repetível de ambientes governados
-    imageSrc: https://static.docs.com/ui/media/product/azure/blueprints.svg
-    azureCategories:
-    - management-and-governance
-    url: governance/blueprints/index.yml
-  - title: Azure Lighthouse
-    summary: Capacite os fornecedores de serviços para gerir os clientes em escala e com precisão
-    imageSrc: https://static.docs.com/ui/media/product/azure/lighthouse.svg
-    azureCategories:
-    - management-and-governance
-    url: lighthouse/index.yml
-  - title: Aplicações Geridas do Azure
-    summary: Simplifique a gestão das ofertas da cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/managed-applications.svg
-    azureCategories:
-    - management-and-governance
-    url: azure-resource-manager/managed-applications/index.yml
-  - title: Azure Migrate
-    summary: Descubra, avalie, dimensione corretamente e migre, de forma fácil, as suas VMs no local para o Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/migrate.svg
-    azureCategories:
-    - management-and-governance
-    - migration
-    url: migrate/index.yml
-  - title: Azure Policy
-    summary: Implemente governação e normas empresariais em escala nos recursos do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/policy.svg
-    azureCategories:
-    - management-and-governance
-    url: governance/policy/index.yml
-  - title: Azure Resource Manager
-    summary: Simplificar a forma como gere os seus recursos de aplicação
-    imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
-    azureCategories:
-    - management-and-governance
-    url: azure-resource-manager/index.yml
-  - title: Azure Resource Mover (Pré-visualização)
-    summary: Simplificar a forma como move vários recursos entre regiões do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
-    azureCategories:
-    - management-and-governance
-    url: resource-mover/index.yml
-  - title: Modelos de ARM
-    summary: Forneça infraestrutura como código para todos os seus recursos do Azure com o Resource Manager
-    imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
-    azureCategories:
-    - management-and-governance
-    url: azure-resource-manager/templates/index.yml
-  - title: Azure Service Health
-    summary: Orientação e suporte personalizados para quando for afetado por problemas nos serviços do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/service-health.svg
-    azureCategories:
-    - management-and-governance
-    url: service-health/index.yml
-  - title: Azure Site Recovery
-    summary: Mantenha o seu negócio operacional com o serviço de recuperação após desastre incorporado
-    imageSrc: https://static.docs.com/ui/media/product/azure/recovery-services-vaults.svg
-    azureCategories:
-    - management-and-governance
-    - migration
-    url: site-recovery/index.yml
-  - title: Azure Cloud Shell
-    summary: Simplifique a administração do Azure com uma shell baseada no browser
-    imageSrc: https://static.docs.com/ui/media/product/azure/cloud-shell.svg
-    azureCategories:
-    - management-and-governance
-    url: cloud-shell/overview.md
-  - title: Gestão de Custos + Faturação
-    summary: Otimize o que gasta na cloud, ao mesmo tempo que maximiza o potencial da cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/cost-management.svg
-    azureCategories:
-    - management-and-governance
-    - migration
-    url: cost-management-billing/index.yml
-  - title: Portal do Microsoft Azure
-    summary: Crie, gira e monitorize todos os produtos do Azure numa única consola unificada
-    imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
-    azureCategories:
-    - management-and-governance
-    url: azure-portal/index.yml
-  - title: Observador de Rede
-    summary: Solução de monitorização e diagnóstico do desempenho de rede
-    imageSrc: https://static.docs.com/ui/media/product/azure/network-watcher.svg
-    azureCategories:
-    - management-and-governance
-    - networking
-    url: network-watcher/index.yml
-  - title: Gestor de Tráfego
-    summary: Encaminhar tráfego recebido para usufruir de desempenho e disponibilidade elevados
-    imageSrc: https://static.docs.com/ui/media/product/azure/traffic-manager.svg
-    azureCategories:
-    - management-and-governance
-    - networking
-    url: traffic-manager/index.yml
-  - title: Media Player do Azure
-    summary: Um único leitor para todas as suas necessidades de reprodução
-    imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
-    azureCategories:
-    - media
-    url: media-services/latest/use-azure-media-player.md
-  - title: Rede de Entrega de Conteúdos
-    summary: Garanta a entrega de conteúdos segura e fiável com ampla influência global
-    imageSrc: https://static.docs.com/ui/media/product/azure/cdn-profiles.svg
-    azureCategories:
-    - media
-    - networking
-    - web
-    url: cdn/index.yml
-  - title: Proteção de Conteúdo
-    summary: Forneça conteúdo de forma segura através do AES, PlayReady, Widevine e Fairplay
-    imageSrc: ./media/index/media-protection.svg
-    azureCategories:
-    - media
-    url: media-services/latest/content-protection-overview.md
-  - title: Codificação
-    summary: Codificação ao nível do estúdio à escala da cloud
-    imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
-    azureCategories:
-    - media
-    url: media-services/latest/encoding-concept.md
-  - title: Transmissão em Direto e a Pedido
-    summary: Forneça o conteúdo a praticamente todos os dispositivos com dimensionamento para corresponder às suas necessidades comerciais
-    imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
-    azureCategories:
-    - media
-    url: media-services/latest/stream-live-tutorial-with-api.md
-  - title: Live Video Analytics (Pré-visualização)
-    summary: Crie aplicações inteligentes baseadas em vídeo com a IA da sua preferência
-    imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
-    azureCategories:
-    - media
-    url: media-services/live-video-analytics-edge/overview.md
-  - title: Serviços de Multimédia
-    summary: Codifique, armazene e transmita em fluxo vídeo e áudio em escala
-    imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
-    azureCategories:
-    - media
-    url: media-services/latest/index.yml
-  - title: Data Box
-    summary: Aplicações e soluções de transferência de dados para o Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/data-box.svg
-    azureCategories:
-    - migration
-    - storage
-    url: databox/index.yml
-  - title: Âncoras de Objetos (Pré-visualização)
-    summary: Alinhe e ancore automaticamente o conteúdo 3D a objetos no mundo físico
-    imageSrc: ./media/index/object-anchors.svg
-    azureCategories:
-    - mixed-reality
-    url: object-anchors/index.yml
-  - title: Spatial Anchors
-    summary: Crie experiências de realidade mista com perceção espacial e para vários utilizadores
-    imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
-    azureCategories:
-    - mixed-reality
-    - mobile
-    url: spatial-anchors/index.yml
-  - title: Azure Remote Rendering
-    summary: Componha conteúdo 3D interativo de elevada qualidade e transmita-o em fluxo para os dispositivos em tempo real
-    imageSrc: https://static.docs.com/ui/media/product/azure/remote-rendering.svg
-    azureCategories:
-    - mixed-reality
-    url: remote-rendering/index.yml
-  - title: Visual Studio App Center
-    summary: Crie, teste, lance e monitorize continuamente as suas aplicações móveis e de ambiente de trabalho
-    imageSrc: https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg
-    azureCategories:
-    - mobile
-    url: /appcenter/
-  - title: Xamarin
-    summary: Crie aplicações móveis com tecnologia de cloud mais rapidamente
-    imageSrc: https://docs.microsoft.com/media/logos/logo_xamarin.svg
-    azureCategories:
-    - mobile
-    url: /xamarin/
-  - title: Gateway de Aplicação
-    summary: Crie front-ends Web seguros, dimensionáveis e de disponibilidade elevada no Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/application-gateways.svg
-    azureCategories:
-    - networking
-    - security
-    url: application-gateway/index.yml
-  - title: Azure Bastion
-    summary: Acesso RDP e SSH privado e totalmente gerido às suas máquinas virtuais
-    imageSrc: ./media/index/web_connect.svg
-    azureCategories:
-    - networking
-    url: bastion/index.yml
-  - title: Azure Defender
-    summary: Proteger cargas de trabalho de cloud híbrida
-    imageSrc: ./media/index/defender.svg
-    azureCategories:
-    - security
-    url: security-center/azure-defender.md
-  - title: Azure Defender para IoT
-    summary: Gestão de recursos e deteção de ameaças contínuas para dispositivos IoT/OT geridos e não geridos
-    imageSrc: ./media/index/defender-iot.svg
-    azureCategories:
-    - security
-    - iot
-    url: ./defender-for-iot/index.yml
-  - title: Proteção contra DDoS do Azure
-    summary: Proteja as suas aplicações contra ataques Denial of Service Distribuídos (DDoS)
-    imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg
-    azureCategories:
-    - networking
-    - security
-    url: ./ddos-protection/ddos-protection-overview.md
-  - title: DNS do Azure
-    summary: Aloje o domínio DNS no Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/dns.svg
-    azureCategories:
-    - networking
-    url: dns/index.yml
-  - title: Azure Firewall
-    summary: Capacidades de firewall nativas com elevada disponibilidade incorporada, escalabilidade da cloud ilimitada e sem necessidade de manutenção
-    imageSrc: https://static.docs.com/ui/media/product/azure/firewall.svg
-    azureCategories:
-    - networking
-    url: firewall/index.yml
-  - title: Azure Firewall Manager
-    summary: Gestão centralizada de rotas e políticas de segurança de rede para perímetros definidos por software distribuídos globalmente
-    imageSrc: https://static.docs.com/ui/media/product/azure/firewall-manager.svg
-    azureCategories:
-    - networking
-    url: firewall-manager/index.yml
-  - title: Azure Front Door
-    summary: Ponto de entrega dimensionável com segurança melhorada para aplicações Web globais baseadas em microsserviços
-    imageSrc: https://static.docs.com/ui/media/product/azure/front-door.svg
-    azureCategories:
-    - networking
-    - security
-    url: frontdoor/index.yml
-  - title: Azure Internet Analyzer (Pré-visualização)
-    summary: Teste como as alterações na infraestrutura de rede irão afetar o desempenho dos clientes
-    imageSrc: https://static.docs.com/ui/media/product/azure/internet-analyzer.svg
-    azureCategories:
-    - networking
-    url: internet-analyzer/index.yml
-  - title: Azure Private Link
-    summary: Acesso privado a serviços alojados na plataforma do Azure, que mantém os seus dados na rede da Microsoft
-    imageSrc: https://static.docs.com/ui/media/product/azure/private-link.svg
-    azureCategories:
-    - networking
-    url: private-link/index.yml
-  - title: Load balancer
-    summary: Aumente a disponibilidade e o desempenho da rede das suas aplicações
-    imageSrc: https://static.docs.com/ui/media/product/azure/load-balancer.svg
-    azureCategories:
-    - networking
-    url: load-balancer/index.yml
-  - title: Azure Route Server (Pré-visualização)
-    summary: Simplificar a gestão de operações dos seus aparelhos de rede
-    imageSrc: ./media/index/azure-route-server.svg
-    azureCategories:
-    - networking
-    url: route-server/index.yml
-  - title: Rede Virtual
-    summary: Fornecimento de redes privadas, ligação opcional a data centers locais
-    imageSrc: https://static.docs.com/ui/media/product/azure/virtual-networks.svg
-    azureCategories:
-    - networking
-    url: virtual-network/index.yml
-  - title: WAN Virtual
-    summary: Serviço hub-and-spoke gerido pela Microsoft para garantir conectividade e segurança
-    imageSrc: https://static.docs.com/ui/media/product/azure/virtual-wans.svg
-    azureCategories:
-    - networking
-    url: virtual-wan/index.yml
-  - title: Gateway de VPN
-    summary: Estabeleça conectividade segura em vários locais
-    imageSrc: https://static.docs.com/ui/media/product/azure/virtual-network-gateways.svg
-    azureCategories:
-    - networking
-    - security
-    url: vpn-gateway/index.yml
-  - title: Firewall de Aplicação Web
-    summary: Um serviço de firewall de aplicações Web (WAF) nativo da cloud que fornece proteção avançada para aplicações Web
-    imageSrc: https://static.docs.com/ui/media/product/azure/frontdoor-waf-policies.svg
-    azureCategories:
-    - networking
-    - security
-    url: web-application-firewall/index.yml
-  - title: HSM Dedicado do Azure
-    summary: Faça a gestão dos módulos de segurança de hardware que utiliza na cloud
-    imageSrc: ./media/index/dedicated-hsm.svg
-    azureCategories:
-    - security
-    url: dedicated-hsm/index.yml
-  - title: Cofre de Chaves
-    summary: Salvaguarde e mantenha controlo das chaves e outros segredos
-    imageSrc: https://static.docs.com/ui/media/product/azure/key-vault.svg
-    azureCategories:
-    - security
-    url: key-vault/index.yml
-  - title: Armazenamento de Arquivo
-    summary: Preço líder de indústria para armazenamento de dados raramente acedidos
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-explorer.svg
-    azureCategories:
-    - storage
-    url: storage/blobs/storage-blob-storage-tiers.md
-  - title: Avere vFXT for Azure
-    summary: Execute cargas de trabalho baseadas em ficheiros e de elevado desempenho na cloud
-    imageSrc: ./media/index/avere.svg
-    azureCategories:
-    - storage
-    url: avere-vfxt/index.yml
-  - title: Azure FXT Edge Filer
-    summary: Solução de otimização do armazenamento híbrido para ambientes de HPC
-    imageSrc: https://static.docs.com/ui/media/product/azure/fxt-edge-filer.svg
-    azureCategories:
-    - storage
-    url: fxt-edge-filer/index.yml
-  - title: Azure HPC Cache
-    summary: Colocação de ficheiros em cache para computação de alto desempenho (HPC)
-    imageSrc: https://static.docs.com/ui/media/product/azure/hpc-cache.svg
-    azureCategories:
-    - storage
-    url: hpc-cache/index.yml
-  - title: Azure NetApp Files
-    summary: Partilhas de ficheiros do Azure de nível empresarial, com tecnologia NetApp
-    imageSrc: https://static.docs.com/ui/media/product/azure/netapp-files.svg
-    azureCategories:
-    - storage
-    url: azure-netapp-files/index.yml
-  - title: Blob Storage
-    summary: Armazenamento de objetos baseados em REST para dados não estruturados
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
-    azureCategories:
-    - storage
-    url: storage/blobs/index.yml
-  - title: Armazenamento em Disco
-    summary: Armazenamento de blocos de elevado desempenho e altamente durável para as Máquinas Virtuais do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/disk-storage.svg
-    azureCategories:
-    - storage
-    url: virtual-machines/managed-disks-overview.md
-  - title: Ficheiros do Azure
-    summary: Partilhas de ficheiros que utilizam o protocolo 3.0 SMB padrão
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
-    azureCategories:
-    - storage
-    url: storage/files/index.yml
-  - title: Armazenamento de filas
-    summary: Dimensione aplicações de forma eficaz e de acordo com o tráfego
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
-    azureCategories:
-    - storage
-    url: storage/queues/index.yml
-  - title: Armazenamento
-    summary: Armazenamento na cloud durável, de elevada disponibilidade e extremamente dimensionável
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
-    azureCategories:
-    - storage
-    url: storage/index.yml
-  - title: Explorador de Armazenamento
-    summary: Veja e interaja com os recursos de Armazenamento do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/storage-explorer.svg
-    azureCategories:
-    - storage
-    url: vs-azure-tools-storage-manage-with-storage-explorer.md
-  - title: StorSimple
-    summary: Custos baixos com uma solução de armazenamento na cloud híbrido empresarial
-    imageSrc: https://static.docs.com/ui/media/product/azure/storsimple-device-managers.svg
-    azureCategories:
-    - storage
-    url: storsimple/index.yml
-  - title: Serviço Azure SignalR
-    summary: Adicione funcionalidades da Web em tempo real facilmente
-    imageSrc: https://static.docs.com/ui/media/product/azure/signalr-service.svg
-    azureCategories:
-    - web
-    url: azure-signalr/index.yml
+    - title: Azure Percept
+      summary: Inteligência de borda do silício ao serviço
+      imageSrc: ./media/index/azure-percept.svg
+      azureCategories:
+        - iot
+      url: azure-percept/index.yml
+    - title: Detetor de Anomalias
+      summary: Adicione facilmente capacidades de deteção de anomalias às suas aplicações
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/anomaly-detector.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/anomaly-detector/index.yml
+    - title: Azure Bot Service
+      summary: Serviço bot inteligente sem servidor que dimensiona a pedido
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/bot-service.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: /azure/bot-service/
+    - title: Azure Cognitive Search
+      summary: Serviço de pesquisa na cloud com tecnologia de IA para desenvolvimento de aplicações móveis e Web
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/search.svg'
+      azureCategories:
+        - ai-machine-learning
+        - mobile
+        - web
+      url: search/index.yml
+    - title: Serviços Cognitivos do Azure
+      summary: Adicione capacidades inteligentes de API para ativar interações contextuais
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - featured
+        - ai-machine-learning
+        - mobile
+      url: cognitive-services/index.yml
+    - title: Azure Databricks
+      summary: 'Plataforma de análise baseada no Apache Spark rápida, fácil e colaborativa'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/databricks.svg'
+      azureCategories:
+        - ai-machine-learning
+        - analytics
+      url: /azure/databricks/
+    - title: Bot de Saúde
+      summary: Um serviço gerido construído de propósito para o desenvolvimento de assistentes de saúde virtuais.
+      imageSrc: media/index/health-bot-logo.svg
+      azureCategories:
+        - ai-machine-learning
+      url: /azure/health-bot/
+    - title: Azure Machine Learning
+      summary: 'Leve a IA a todos com uma plataforma ponto a ponto, dimensionável e fiável com experimentação e gestão de modelos'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/machine-learning.svg'
+      azureCategories:
+        - ai-machine-learning
+        - iot
+      url: machine-learning/index.yml
+    - title: Azure Open Datasets
+      summary: Plataforma cloud para alojar e partilhar conjuntos de dados abertos curados para acelerar o desenvolvimento de modelos de machine learning
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/open-datasets.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: open-datasets/index.yml
+    - title: Azure RTOS
+      summary: Simplificar o desenvolvimento e a conectividade do IoT incorporado
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/rtos.svg'
+      azureCategories:
+        - iot
+      url: /azure/rtos/
+    - title: Sugestão Automática do Bing
+      summary: Dê à sua aplicação opções de sugestão automática inteligente para as pesquisas
+      imageSrc: ./media/index/API_Bing_AutoSuggest.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-autosuggest/get-suggested-search-terms.md
+    - title: Pesquisa Personalizada do Bing
+      summary: 'Uma ferramenta de pesquisa fácil de utilizar, sem publicidade, de nível comercial que lhe permite entregar os resultados que quer'
+      imageSrc: ./media/index/API_Bing_Custom_Search.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-custom-search/overview.md
+    - title: Pesquisa de Entidades do Bing
+      summary: Diversifique as suas experiências ao identificar e aumentar informações sobre entidades da Web
+      imageSrc: ./media/index/API_Bing_Entity_Search.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-entities-search/overview.md
+    - title: Pesquisa de Imagens do Bing
+      summary: Pesquise imagens e obtenha resultados abrangentes
+      imageSrc: ./media/index/API_Bing_Image_Search.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-image-search/overview.md
+    - title: Pesquisa do Bing Notícias
+      summary: Pesquise notícias e obtenha resultados abrangentes
+      imageSrc: ./media/index/API_Bing_News_Search.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-news-search/search-the-web.md
+    - title: Verificação Ortográfica do Bing
+      summary: Detete e corrija erros ortográficos na aplicação
+      imageSrc: ./media/index/API_Bing_Spell_Check.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-spell-check/overview.md
+    - title: Pesquisa de Vídeos do Bing
+      summary: Pesquise vídeos e obtenha resultados abrangentes
+      imageSrc: ./media/index/API_Bing_Video_Search.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-video-search/overview.md
+    - title: Pesquisa Visual do Bing
+      summary: Obtenha informações detalhadas para ajudar a criar aplicações de imagens atrativas num dispositivo à sua escolha
+      imageSrc: ./media/index/API_Bing_Visual_Search.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-visual-search/overview.md
+    - title: Pesquisa Web do Bing
+      summary: Consiga detalhes de pesquisa avançada a partir de milhares de milhões de documentos Web
+      imageSrc: ./media/index/API_Bing_Web_Search.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/bing-web-search/overview.md
+    - title: Azure Communication Services
+      summary: Crie experiências de comunicação avançadas com a mesma plataforma segura que o Microsoft Teams utiliza
+      imageSrc: ./media/index/communication-services.svg
+      azureCategories:
+        - web
+        - mobile
+      url: communication-services/overview.md
+    - title: Imagem Digitalizada
+      summary: Separe informações acionáveis de imagens
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/computer-vision/index.yml
+    - title: Content Moderator
+      summary: 'Moderação automática de imagens, texto e vídeo'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/content-moderator/index.yml
+    - title: Visão Personalizada
+      summary: Personalize facilmente os seus modelos de imagem digitalizada de ponta para o seu cenário de utilização específico
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/custom-vision.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/custom-vision-service/index.yml
+    - title: Máquinas Virtuais de Ciência de Dados
+      summary: Ambiente pré-configurado multifacetado para o desenvolvimento de IA
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-machine.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: machine-learning/data-science-virtual-machine/index.yml
+    - title: Rostos
+      summary: 'Detete, identifique, analise, organize e assinale rostos em fotos'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/face/index.yml
+    - title: Reconhecedor de Formato
+      summary: O serviço de extração de documentos com suporte de IA que compreende os seus formulários
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/form-recognizer/index.yml
+    - title: Leitura Avançada
+      summary: Capacite os utilizadores de todas as idades e níveis de capacidade para os ajudar a ler e compreender textos
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/immersive-reader/index.yml
+    - title: Reconhecedor de Tinta Digital (Pré-visualização)
+      summary: 'Um serviço de IA que reconhece conteúdo de tinta digital, como escrita manual, formas e esquemas de documentos com tinta'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
+    - title: "Kinect\_DK"
+      summary: Crie modelos de imagem digitalizada e de voz com um kit de programador com sensores de IA avançados
+      imageSrc: ./media/index/kinect-viewer.svg
+      azureCategories:
+        - ai-machine-learning
+        - iot
+        - mixed-reality
+      url: kinect-dk/index.yml
+    - title: Language Understanding
+      summary: Ensine as suas aplicações a compreender comandos dados pelos utilizadores
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/luis/index.yml
+    - title: Microsoft Genomics
+      summary: Potencie a sequenciação de genomas e informações de pesquisa
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/genomics.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: genomics/index.yml
+    - title: Assistente de Métricas (Pré-visualização)
+      summary: Um serviço de IA que monitoriza as métricas e diagnostica problemas
+      imageSrc: ./media/index/metrics-advisor.svg
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/metrics-advisor/index.yml
+    - title: Personalizador
+      summary: Um serviço de IA que proporciona uma experiência de utilizador personalizada
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/personalizer/index.yml
+    - title: Projeto Bonsai (Pré-visualização)
+      summary: Um serviço de machine teaching para criar sistemas de controlo industrial inteligentes através de simulações
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/bonsai.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: /bonsai/
+    - title: QnA Maker
+      summary: Converta informações em respostas de conversação fáceis de navegar
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/qnamaker/index.yml
+    - title: Reconhecimento de Orador (Pré-visualização)
+      summary: Utilize a voz para identificar e verificar oradores individuais
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: ./cognitive-services/speech-service/speaker-recognition-overview.md
+    - title: Conversão de Voz em Texto
+      summary: Converta áudio falado em texto para interações mais naturais
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: ./cognitive-services/speech-service/index-speech-to-text.yml
+    - title: Tradução de Voz
+      summary: Integre facilmente tradução de voz em tempo real na sua aplicação
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: ./cognitive-services/speech-service/index-speech-translation.yml
+    - title: Análise de Texto
+      summary: 'Avalie sentimentos e tópicos facilmente, de modo a compreender o que os utilizadores querem'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/text-analytics/index.yml
+    - title: Conversão de Texto em Voz
+      summary: Converta texto em voz para criar interfaces mais naturais e acessíveis
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: ./cognitive-services/speech-service/index-text-to-speech.yml
+    - title: Tradutor
+      summary: Realize facilmente traduções automática com uma simples chamada à API REST
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: cognitive-services/translator/index.yml
+    - title: Indexador de Vídeos
+      summary: Desbloqueie informações de vídeo
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/media-services.svg'
+      azureCategories:
+        - ai-machine-learning
+        - media
+      url: media-services/video-indexer/index.yml
+    - title: Azure Analysis Services
+      summary: Motor de análise de nível empresarial como um serviço
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/analysis-services.svg'
+      azureCategories:
+        - analytics
+      url: analysis-services/index.yml
+    - title: Azure Data Explorer
+      summary: Serviço de exploração de dados rápido e altamente dimensionável
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/data-explorer.svg'
+      azureCategories:
+        - analytics
+      url: /azure/data-explorer
+    - title: Armazenamento do Azure Data Lake
+      summary: 'Funcionalidade de data lake segura, dimensionável em massa, incorporada no Armazenamento de Blobs do Azure'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-accounts.svg'
+      azureCategories:
+        - analytics
+        - storage
+      url: storage/blobs/data-lake-storage-introduction.md
+    - title: Azure Data Share
+      summary: Um serviço simples e seguro para partilhar macrodados com organizações externas
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/data-shares.svg'
+      azureCategories:
+        - analytics
+        - storage
+      url: data-share/index.yml
+    - title: Azure Stream Analytics
+      summary: Análise em tempo real sobre a movimentação rápida de fluxos de dados de aplicações e dispositivos
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/stream-analytics.svg'
+      azureCategories:
+        - analytics
+        - iot
+      url: stream-analytics/index.yml
+    - title: Azure Synapse Analytics
+      summary: Serviço de análise ilimitado com uma velocidade de obtenção de informações sem rival
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/synapse.svg'
+      azureCategories:
+        - analytics
+      url: synapse-analytics/index.yml
+    - title: Catálogo de Dados
+      summary: Extraia mais valor dos seus elementos de dados empresariais
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/data-catalog.svg'
+      azureCategories:
+        - analytics
+      url: data-catalog/index.yml
+    - title: Azure Purview
+      summary: Maximizar o valor comercial com gestão de dados unificada
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/purview.svg'
+      azureCategories:
+        - analytics
+        - management-and-governance
+      url: purview/index.yml
+    - title: Data Factory
+      summary: 'Integração de dados híbridos em escala empresarial, simplificada'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/data-factory.svg'
+      azureCategories:
+        - analytics
+      url: data-factory/index.yml
+    - title: Data Lake Analytics
+      summary: Serviço de análise distribuído que facilita a análise de macrodados
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/data-lake-analytics.svg'
+      azureCategories:
+        - analytics
+      url: data-lake-analytics/index.yml
+    - title: Hubs de Eventos
+      summary: Receba dados telemétricos de milhões de dispositivos
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/event-hubs.svg'
+      azureCategories:
+        - analytics
+      url: event-hubs/index.yml
+    - title: HDInsight
+      summary: 'Aprovisione clusters do Hadoop, Spark, R Server, HBase e Storm na cloud'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/hdinsight.svg'
+      azureCategories:
+        - analytics
+      url: hdinsight/index.yml
+    - title: Log Analytics
+      summary: 'Observabilidade completa para aplicações, infraestrutura e rede'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/log-analytics.svg'
+      azureCategories:
+        - analytics
+        - management-and-governance
+      url: azure-monitor/index.yml
+    - title: Power BI Embedded
+      summary: Incorpore visualizações de dados espetaculares e totalmente interativas nas suas aplicações
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/power-bi.svg'
+      azureCategories:
+        - analytics
+      url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
+    - title: R Server para HDInsight
+      summary: 'Análise preditiva, machine learning e modelação estatística para macrodados'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/hdinsight.svg'
+      azureCategories:
+        - analytics
+      url: hdinsight/r-server/r-server-overview.md
+    - title: Azure Blockchain Service (Pré-visualização)
+      summary: 'Criar, governar e expandir as redes de blockchain de consórcio'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/blockchain-service.svg'
+      azureCategories:
+        - blockchain
+      url: blockchain/service/index.yml
+    - title: Azure Blockchain Workbench (Pré-visualização)
+      summary: Crie facilmente protótipos de aplicações de blockchain na cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg'
+      azureCategories:
+        - blockchain
+      url: blockchain/workbench/index.yml
+    - title: Azure Cosmos DB
+      summary: Base de dados NoSQL rápida com APIs abertas para qualquer escala
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cosmos-db.svg'
+      azureCategories:
+        - featured
+        - blockchain
+        - databases
+        - iot
+      url: cosmos-db/index.yml
+    - title: Azure Managed Instance for Apache Cassandra
+      summary: Automatizar a implantação e a escala para centros de dados apaches de código aberto geridos
+      imageSrc: ./media/index/managed-instance-apache-cassandra.svg
+      azureCategories:
+        - databases
+      url: managed-instance-apache-cassandra/index.yml
+    - title: Aplicações Lógicas
+      summary: Automatize o acesso e utilização dos dados entre as nuvens sem ter que escrever código
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/logic-apps.svg'
+      azureCategories:
+        - blockchain
+        - integration
+        - iot
+      url: logic-apps/index.yml
+    - title: Aplicações API
+      summary: Crie e consuma facilmente APIs de Nuvem
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/api-apps.svg'
+      azureCategories:
+        - compute
+        - containers
+        - web
+      url: app-service/index.yml
+    - title: Serviço de Aplicações
+      summary: Crie rapidamente poderosas aplicações Web e móveis na cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/app-service.svg'
+      azureCategories:
+        - featured
+        - compute
+        - mobile
+        - web
+      url: app-service/index.yml
+    - title: Azure CycleCloud
+      summary: 'Criar, gerir, operar e otimizar os clusters de HPC e de macrocomputação de qualquer escala'
+      imageSrc: ./media/index/logo_cyclecloud.svg
+      azureCategories:
+        - compute
+      url: /azure/cyclecloud/index
+    - title: Azure Dedicated Host
+      summary: Um servidor físico dedicado para alojar as suas VMs do Azure para Windows e Linux
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-machine.svg'
+      azureCategories:
+        - compute
+      url: ./virtual-machines/dedicated-hosts.md
+    - title: Funções do Azure
+      summary: Processe eventos com código sem servidor
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/functions.svg'
+      azureCategories:
+        - featured
+        - compute
+        - containers
+        - iot
+      url: azure-functions/index.yml
+    - title: Serviço de Kubernetes do Azure (AKS)
+      summary: 'Simplifique a implementação, gestão e operações do Kubernetes'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/kubernetes-services.svg'
+      azureCategories:
+        - featured
+        - compute
+        - containers
+      url: aks/index.yml
+    - title: Azure Quantum (Pré-visualização)
+      summary: Experimente o impacto quântico hoje em Azure
+      imageSrc: ./media/index/quantum.svg
+      azureCategories:
+        - compute
+        - featured
+      url: /azure/quantum/
+    - title: Azure Spring Cloud
+      summary: 'Um serviço Spring Cloud totalmente gerido, criado e operado com Pivotal'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/spring-cloud.svg'
+      azureCategories:
+        - compute
+        - web
+      url: spring-cloud/index.yml
+    - title: Solução VMware no Azure
+      summary: Execute as suas cargas de trabalho do VMware de forma nativa no Azure
+      imageSrc: ./media/index/azure-vmware.svg
+      azureCategories:
+        - compute
+      url: azure-vmware/index.yml
+    - title: Batch
+      summary: Agendamento de tarefas à escala da nuvem e gestão de computação
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/batch-accounts.svg'
+      azureCategories:
+        - compute
+      url: batch/index.yml
+    - title: Serviços Cloud
+      summary: Crie aplicações e APIs na cloud altamente disponíveis e infinitamente dimensionáveis
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cloud-services.svg'
+      azureCategories:
+        - compute
+      url: cloud-services-extended-support/index.yml
+    - title: Container Instances
+      summary: Execute facilmente contentores no Azure sem gerir servidores
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/container-instances.svg'
+      azureCategories:
+        - compute
+        - containers
+      url: container-instances/index.yml
+    - title: Máquinas Virtuais do Linux
+      summary: 'Aprovisione máquinas virtuais para Ubuntu, Red Hat e muito mais'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-machine.svg'
+      azureCategories:
+        - featured
+        - compute
+      url: ./virtual-machines/index.yml
+    - title: Service Fabric
+      summary: Desenvolva microsserviços e organize contentores no Windows ou no Linux
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg'
+      azureCategories:
+        - compute
+        - containers
+      url: service-fabric/index.yml
+    - title: SQL Server em Máquinas Virtuais
+      summary: Aloje as aplicações empresariais do SQL Server na cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/sql-server-vm.svg'
+      azureCategories:
+        - compute
+        - databases
+      url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - title: Aplicações Web Estáticas (Pré-visualização)
+      summary: Um serviço de aplicações Web moderno que oferece desenvolvimento simplificado de pilha completa de código fonte para elevada disponibilidade global
+      imageSrc: ./media/index/static-apps.svg
+      azureCategories:
+        - compute
+        - web
+      url: static-web-apps/index.yml
+    - title: Conjuntos de Dimensionamento de Máquinas Virtuais
+      summary: Faça a gestão e aumente verticalmente para milhares de máquinas virtuais do Linux e do Windows
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/vm-scale-sets.svg'
+      azureCategories:
+        - compute
+      url: virtual-machine-scale-sets/index.yml
+    - title: Aplicações Web
+      summary: Crie e implemente rapidamente aplicações Web fundamentais em escala
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/app-service.svg'
+      azureCategories:
+        - compute
+        - containers
+        - web
+      url: app-service/index.yml
+    - title: Windows Virtual Desktop
+      summary: A melhor experiência de ambiente de trabalho virtual no Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg'
+      azureCategories:
+        - featured
+        - compute
+        - windows-virtual-desktop
+      url: virtual-desktop/index.yml
+    - title: Máquinas Virtuais do Windows
+      summary: Aprovisione máquinas virtuais do Windows em segundos
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-machine.svg'
+      azureCategories:
+        - featured
+        - compute
+      url: ./virtual-machines/index.yml
+    - title: Espaços de Programador do Azure
+      summary: Teste e desenvolva iterativamente a sua aplicação de microsserviços no Azure AKS
+      imageSrc: ./media/index/AzureDevSpaceController_50x.svg
+      azureCategories:
+        - containers
+        - developer-tools
+      url: dev-spaces/index.yml
+    - title: Azure Red Hat OpenShift
+      summary: Serviço OpenShift totalmente gerido e operado em conjunto com a Red Hat
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/openshift.svg'
+      azureCategories:
+        - containers
+      url: virtual-machines/linux/openshift-get-started.md
+    - title: Registo de Contentor
+      summary: Armazene e faça a gestão de imagens de contentor em todos os tipos de implementações do Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/container-registry.svg'
+      azureCategories:
+        - containers
+      url: container-registry/index.yml
+    - title: Aplicações Web para Contentores
+      summary: Implementar e executar facilmente aplicações Web contentorizadas que crescem com o seu negócio
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/web-apps-containers.svg'
+      azureCategories:
+        - containers
+        - web
+      url: ./app-service/index.yml
+    - title: API do Azure para FHIR
+      summary: Crie e implemente facilmente um serviço FHIR para soluções de dados de saúde e interoperabilidade
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/api-for-fhir.svg'
+      azureCategories:
+        - databases
+        - integration
+      url: healthcare-apis/fhir/index.yml
+    - title: Cache do Azure para Redis
+      summary: Confira às suas aplicações débito elevado e acesso a dados de baixa latência
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cache-redis.svg'
+      azureCategories:
+        - databases
+      url: azure-cache-for-redis/index.yml
+    - title: Azure Database for MariaDB
+      summary: Serviço de base de dados MariaDB gerido para programadores de aplicações
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/database-mariadb-server.svg'
+      azureCategories:
+        - databases
+      url: mariadb/index.yml
+    - title: Base de Dados do Azure para MySQL
+      summary: Serviço de base de dados MySQL gerido para programadores de aplicações
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/database-mysql-server.svg'
+      azureCategories:
+        - databases
+      url: mysql/index.yml
+    - title: Base de Dados do Azure para PostgreSQL
+      summary: Serviço de base de dados PostgreSQL gerido para programadores de aplicações
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/database-postgresql-server.svg'
+      azureCategories:
+        - databases
+        - hybrid
+      url: postgresql/index.yml
+    - title: Azure Database Migration Service
+      summary: Simplifique a migração de bases de dados no local para a cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/database-migration-services.svg'
+      azureCategories:
+        - databases
+        - migration
+      url: dms/index.yml
+    - title: SQL do Azure
+      summary: Família do SQL moderna para migração e modernização de aplicações
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/sql.svg'
+      azureCategories:
+        - featured
+        - hybrid
+        - databases
+      url: azure-sql/index.yml
+    - title: Base de Dados SQL do Azure
+      summary: SQL gerido e inteligente na cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/sql-database.svg'
+      azureCategories:
+        - databases
+      url: azure-sql/database/index.yml
+    - title: Instância Gerida do Azure SQL
+      summary: Instância gerida e sempre atualizada do SQL na cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg'
+      azureCategories:
+        - databases
+      url: azure-sql/managed-instance/index.yml
+    - title: SQL do Azure no Edge
+      summary: Motor de dados de pequena quantidade otimizado no edge com IA incorporado
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/sql-database-edge.svg'
+      azureCategories:
+        - databases
+        - iot
+      url: azure-sql-edge/index.yml
+    - title: Armazenamento de Tabelas
+      summary: Armazenamento de valor chave NoSQL a utilizar conjuntos de dados semiestruturados
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-accounts.svg'
+      azureCategories:
+        - databases
+      url: ./storage/tables/table-storage-overview.md
+    - title: App Configuration
+      summary: Armazenamento de parâmetros rápido e dimensionável para o App Configuration
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/app-configuration.svg'
+      azureCategories:
+        - developer-tools
+      url: azure-app-configuration/index.yml
+    - title: Azure Data Studio
+      summary: 'Um editor simples que pode executar consultas do conjunto de SQL sem servidor e ver e guardar resultados como texto, JSON ou Excel.'
+      imageSrc: 'https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg'
+      azureCategories:
+        - developer-tools
+      url: /sql/azure-data-studio/
+    - title: DevOps do Azure
+      summary: 'Serviços que permitem às equipas partilhar código, monitorizar trabalho e enviar software'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/devops.svg'
+      azureCategories:
+        - developer-tools
+        - devops
+        - hybrid
+      url: /azure/devops/
+    - title: Azure DevTest Labs
+      summary: Crie ambientes rapidamente com modelos e artefactos reutilizáveis
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/devtest-labs.svg'
+      azureCategories:
+        - developer-tools
+        - devops
+      url: lab-services/index.yml
+    - title: Azure Lab Services
+      summary: 'Configure laboratórios para salas de aula, avaliações, desenvolvimento, testes e outros cenários'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/lab-services.svg'
+      azureCategories:
+        - developer-tools
+      url: lab-services/index.yml
+    - title: Pipelines do Azure
+      summary: 'Crie, teste e implemente continuamente para qualquer plataforma e cloud'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/pipelines.svg'
+      azureCategories:
+        - developer-tools
+        - devops
+      url: /azure/devops/pipelines/
+    - title: Visual Studio
+      summary: Ambiente poderoso e flexível para desenvolver aplicações na cloud
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+      azureCategories:
+        - developer-tools
+      url: /visualstudio/windows
+    - title: Visual Studio Code
+      summary: Um avançado editor de código leve para desenvolvimento na cloud
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+      azureCategories:
+        - developer-tools
+      url: 'https://code.visualstudio.com/docs'
+    - title: Visual Studio Codespaces (Pré-visualização)
+      summary: Ambientes de desenvolvimento com tecnologia de cloud acessíveis em todo o lado
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+      azureCategories:
+        - developer-tools
+      url: /visualstudio/online/overview/what-is-vsonline
+    - title: Application Insights
+      summary: 'Observabilidade completa para aplicações, infraestrutura e rede'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/application-insights.svg'
+      azureCategories:
+        - devops
+        - management-and-governance
+      url: azure-monitor/index.yml
+    - title: Artefactos do Azure
+      summary: 'Crie, aloje e partilhe pacotes com a sua equipa'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/artifacts.svg'
+      azureCategories:
+        - devops
+      url: /azure/devops/artifacts/
+    - title: Quadros do Azure
+      summary: 'Planeie, acompanhe e discuta o trabalho pelas suas equipas'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/boards.svg'
+      azureCategories:
+        - devops
+      url: /azure/devops/boards/
+    - title: Azure Monitor
+      summary: 'Observabilidade completa para aplicações, infraestrutura e rede'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/monitor.svg'
+      azureCategories:
+        - devops
+        - management-and-governance
+      url: azure-monitor/index.yml
+    - title: Repositórios do Azure
+      summary: 'Obtenha repositórios privados, alojados na cloud, ilimitados para o seu projeto'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/repos.svg'
+      azureCategories:
+        - devops
+      url: /azure/devops/repos/
+    - title: Planos de Teste do Azure
+      summary: Teste e faça lançamentos com confiança com um manual e um kit de ferramentas para testes exploratórios
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/test-plans.svg'
+      azureCategories:
+        - devops
+      url: /azure/devops/test/
+    - title: GitHub Actions para o Azure
+      summary: 'Criar, testar e implementar qualquer aplicação do GitHub no Azure'
+      imageSrc: ./media/index/github-actions-icon.svg
+      azureCategories:
+        - devops
+        - developer-tools
+      url: /azure/developer/github/github-actions
+    - title: Azure Active Directory (AD)
+      summary: Sincronize diretórios no local e ative o início de sessão único
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/active-directory.svg'
+      azureCategories:
+        - hybrid
+        - identity
+        - security
+      url: active-directory/index.yml
+    - title: Azure Arc (Pré-visualização)
+      summary: Integre a gestão e os serviços do Azure em qualquer infraestrutura
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/arc.svg'
+      azureCategories:
+        - hybrid
+      url: azure-arc/index.yml
+    - title: Azure ExpressRoute
+      summary: Ligações de fibra de rede privada dedicada para o Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/expressroute.svg'
+      azureCategories:
+        - hybrid
+        - networking
+      url: expressroute/index.yml
+    - title: Azure Sentinel
+      summary: Coloque o SIEM nativo da cloud e a análise de segurança inteligente em prática para ajudar a proteger a sua empresa
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/sentinel.svg'
+      azureCategories:
+        - hybrid
+        - security
+      url: sentinel/index.yml
+    - title: Azure Stack
+      summary: Crie e execute aplicações híbridas inovadoras através dos limites da cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/stack.svg'
+      azureCategories:
+        - hybrid
+      url: /azure-stack/
+    - title: Azure Stack HCI
+      summary: Integre a infraestrutura hiperconvergente no Azure e nos serviços híbridos para executar cargas de trabalho virtuais no local
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/stack-hci.svg'
+      azureCategories:
+        - hybrid
+      url: /azure-stack/hci/
+    - title: Azure Stack Hub
+      summary: 'O Azure Stack Hub é vendido como um sistema de hardware integrado, com software pré-instalado no hardware validado'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/stack-hub.svg'
+      azureCategories:
+        - hybrid
+      url: /azure-stack/operator/
+    - title: Azure Stack Edge
+      summary: 'Uma aplicação gerida do Azure que leva a computação, o armazenamento e a inteligência do Azure até ao edge'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/stack-edge.svg'
+      azureCategories:
+        - hybrid
+      url: ./databox-online/index.yml
+    - title: Centro de Segurança
+      summary: Unifique a gestão de segurança e ative a proteção contra ameaças avançada em cargas de trabalho na cloud híbrida
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/security-center.svg'
+      azureCategories:
+        - hybrid
+        - security
+      url: security-center/index.yml
+    - title: Azure IoT Edge
+      summary: Expanda a inteligência e análise da cloud para dispositivos edge
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/iot-edge.svg'
+      azureCategories:
+        - hybrid
+        - iot
+      url: iot-edge/index.yml
+    - title: Identidades Externas do Azure Active Directory
+      summary: Gestão de identidades e acessos do consumidor para a cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg'
+      azureCategories:
+        - identity
+      url: active-directory/external-identities/index.yml
+    - title: Azure Active Directory Domain Services
+      summary: Junte as máquinas virtuais do Azure a um domínio sem controladores de domínio
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/ad-domain-services.svg'
+      azureCategories:
+        - identity
+        - security
+      url: active-directory-domain-services/index.yml
+    - title: Azure Information Protection
+      summary: 'Proteja melhor as suas informações confidenciais, em qualquer altura e local'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/information-protection.svg'
+      azureCategories:
+        - identity
+        - security
+      url: /azure/information-protection/
+    - title: Gestão de API
+      summary: 'Publique APIs para programadores, parceiros e empregados de forma segura e em escala'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/api-management.svg'
+      azureCategories:
+        - integration
+        - iot
+        - mobile
+        - web
+      url: api-management/index.yml
+    - title: Event Grid
+      summary: Obtenha a entrega de eventos fiável numa escala massiva
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/event-grid-domains.svg'
+      azureCategories:
+        - integration
+        - iot
+      url: event-grid/index.yml
+    - title: Service Bus
+      summary: Ligue-se em ambientes de cloud privados e públicos
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/service-bus.svg'
+      azureCategories:
+        - integration
+      url: service-bus-messaging/index.yml
+    - title: Azure Digital Twins
+      summary: Crie soluções de inteligência espacial de IoT de próxima geração
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/digital-twins.svg'
+      azureCategories:
+        - iot
+        - mixed-reality
+      url: digital-twins/index.yml
+    - title: Azure IoT Central
+      summary: Acelere a criação de soluções de IoT
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/iot-central.svg'
+      azureCategories:
+        - iot
+      url: iot-central/index.yml
+    - title: Azure IoT Hub
+      summary: 'Ligue, monitorize e faça a gestão de milhares de milhões de recursos de IoT'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/iot-hub.svg'
+      azureCategories:
+        - iot
+      url: iot-hub/index.yml
+    - title: Aceleradores de soluções do Azure IoT
+      summary: Crie soluções totalmente personalizáveis com modelos para cenários de IoT comuns
+      imageSrc: ./media/index/iot-solution-accelerators.svg
+      azureCategories:
+        - iot
+      url: iot-accelerators/index.yml
+    - title: Azure Maps
+      summary: As APIs de localização simples e segura fornecem contexto geoespacial aos dados
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/maps.svg'
+      azureCategories:
+        - iot
+        - mobile
+        - web
+      url: azure-maps/index.yml
+    - title: Azure Sphere
+      summary: Ligue de forma segura os dispositivos com tecnologia MCU desde o silício à cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/sphere.svg'
+      azureCategories:
+        - iot
+      url: /azure-sphere/
+    - title: Azure Time Series Insights
+      summary: Explore e analise dados de séries temporais a partir de dispositivos IoT
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/time-series-insights-environments.svg'
+      azureCategories:
+        - iot
+      url: time-series-insights/index.yml
+    - title: Hubs de Notificação
+      summary: Envie notificações push para qualquer plataforma em qualquer back-end
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/notification-hubs.svg'
+      azureCategories:
+        - iot
+        - mobile
+        - web
+      url: notification-hubs/index.yml
+    - title: Windows 10 IoT Core Services
+      summary: Suporte e serviços do SO de longo prazo para gerir atualizações de dispositivos e avaliar o estado de funcionamento do dispositivo
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/iot-windows10-core-services.svg'
+      azureCategories:
+        - iot
+      url: /windows/iot-core/
+    - title: Automatização
+      summary: Simplifique a gestão em cloud com a automatização de processos
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/automation.svg'
+      azureCategories:
+        - management-and-governance
+      url: automation/index.yml
+    - title: Azure Advisor
+      summary: O mecanismo de recomendação personalizado de melhores práticas do Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/advisor.svg'
+      azureCategories:
+        - management-and-governance
+      url: advisor/index.yml
+    - title: Azure Backup
+      summary: Simplifique a proteção de dados e proteja-se contra ransomware
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/recovery-services-vaults.svg'
+      azureCategories:
+        - management-and-governance
+        - storage
+      url: backup/index.yml
+    - title: Azure Blueprints (Pré-visualização)
+      summary: Ative a criação rápida e repetível de ambientes governados
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/blueprints.svg'
+      azureCategories:
+        - management-and-governance
+      url: governance/blueprints/index.yml
+    - title: Azure Lighthouse
+      summary: Capacite os fornecedores de serviços para gerir os clientes em escala e com precisão
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/lighthouse.svg'
+      azureCategories:
+        - management-and-governance
+      url: lighthouse/index.yml
+    - title: Aplicações Geridas do Azure
+      summary: Simplifique a gestão das ofertas da cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/managed-applications.svg'
+      azureCategories:
+        - management-and-governance
+      url: azure-resource-manager/managed-applications/index.yml
+    - title: Azure Migrate
+      summary: 'Descubra, avalie, dimensione corretamente e migre, de forma fácil, as suas VMs no local para o Azure'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/migrate.svg'
+      azureCategories:
+        - management-and-governance
+        - migration
+      url: migrate/index.yml
+    - title: Azure Policy
+      summary: Implemente governação e normas empresariais em escala nos recursos do Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/policy.svg'
+      azureCategories:
+        - management-and-governance
+      url: governance/policy/index.yml
+    - title: Azure Resource Manager
+      summary: Simplificar a forma como gere os seus recursos de aplicação
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/resource-groups.svg'
+      azureCategories:
+        - management-and-governance
+      url: azure-resource-manager/index.yml
+    - title: Azure Resource Mover (Pré-visualização)
+      summary: Simplificar a forma como move vários recursos entre regiões do Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/resource-mover.svg'
+      azureCategories:
+        - management-and-governance
+      url: resource-mover/index.yml
+    - title: Modelos de ARM
+      summary: Forneça infraestrutura como código para todos os seus recursos do Azure com o Resource Manager
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/resource-groups.svg'
+      azureCategories:
+        - management-and-governance
+      url: azure-resource-manager/templates/index.yml
+    - title: Azure Service Health
+      summary: Orientação e suporte personalizados para quando for afetado por problemas nos serviços do Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/service-health.svg'
+      azureCategories:
+        - management-and-governance
+      url: service-health/index.yml
+    - title: Azure Site Recovery
+      summary: Mantenha o seu negócio operacional com o serviço de recuperação após desastre incorporado
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/recovery-services-vaults.svg'
+      azureCategories:
+        - management-and-governance
+        - migration
+      url: site-recovery/index.yml
+    - title: Azure Cloud Shell
+      summary: Simplifique a administração do Azure com uma shell baseada no browser
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cloud-shell.svg'
+      azureCategories:
+        - management-and-governance
+      url: cloud-shell/overview.md
+    - title: Gestão de Custos + Faturação
+      summary: 'Otimize o que gasta na cloud, ao mesmo tempo que maximiza o potencial da cloud'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cost-management.svg'
+      azureCategories:
+        - management-and-governance
+        - migration
+      url: cost-management-billing/index.yml
+    - title: Portal do Microsoft Azure
+      summary: 'Crie, gira e monitorize todos os produtos do Azure numa única consola unificada'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/azure.svg'
+      azureCategories:
+        - management-and-governance
+      url: azure-portal/index.yml
+    - title: Observador de Rede
+      summary: Solução de monitorização e diagnóstico do desempenho de rede
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/network-watcher.svg'
+      azureCategories:
+        - management-and-governance
+        - networking
+      url: network-watcher/index.yml
+    - title: Gestor de Tráfego
+      summary: Encaminhar tráfego recebido para usufruir de desempenho e disponibilidade elevados
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/traffic-manager.svg'
+      azureCategories:
+        - management-and-governance
+        - networking
+      url: traffic-manager/index.yml
+    - title: Media Player do Azure
+      summary: Um único leitor para todas as suas necessidades de reprodução
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/media-services.svg'
+      azureCategories:
+        - media
+      url: media-services/latest/player-use-azure-media-player-how-to.md
+    - title: Rede de Entrega de Conteúdos
+      summary: Garanta a entrega de conteúdos segura e fiável com ampla influência global
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cdn-profiles.svg'
+      azureCategories:
+        - media
+        - networking
+        - web
+      url: cdn/index.yml
+    - title: Proteção de Conteúdo
+      summary: 'Forneça conteúdo de forma segura através do AES, PlayReady, Widevine e Fairplay'
+      imageSrc: ./media/index/media-protection.svg
+      azureCategories:
+        - media
+      url: media-services/latest/drm-content-protection-concept.md
+    - title: Codificação
+      summary: Codificação ao nível do estúdio à escala da cloud
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/media-services.svg'
+      azureCategories:
+        - media
+      url: media-services/latest/encode-concept.md
+    - title: Transmissão em Direto e a Pedido
+      summary: Forneça o conteúdo a praticamente todos os dispositivos com dimensionamento para corresponder às suas necessidades comerciais
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/media-services.svg'
+      azureCategories:
+        - media
+      url: media-services/latest/stream-live-tutorial-with-api.md
+    - title: Live Video Analytics (Pré-visualização)
+      summary: Crie aplicações inteligentes baseadas em vídeo com a IA da sua preferência
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/media-services.svg'
+      azureCategories:
+        - media
+      url: media-services/live-video-analytics-edge/overview.md
+    - title: Serviços de Multimédia
+      summary: 'Codifique, armazene e transmita em fluxo vídeo e áudio em escala'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/media-services.svg'
+      azureCategories:
+        - media
+      url: media-services/latest/index.yml
+    - title: Data Box
+      summary: Aplicações e soluções de transferência de dados para o Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/data-box.svg'
+      azureCategories:
+        - migration
+        - storage
+      url: databox/index.yml
+    - title: Âncoras de Objetos (Pré-visualização)
+      summary: Alinhe e ancore automaticamente o conteúdo 3D a objetos no mundo físico
+      imageSrc: ./media/index/object-anchors.svg
+      azureCategories:
+        - mixed-reality
+      url: object-anchors/index.yml
+    - title: Spatial Anchors
+      summary: Crie experiências de realidade mista com perceção espacial e para vários utilizadores
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg'
+      azureCategories:
+        - mixed-reality
+        - mobile
+      url: spatial-anchors/index.yml
+    - title: Azure Remote Rendering
+      summary: Componha conteúdo 3D interativo de elevada qualidade e transmita-o em fluxo para os dispositivos em tempo real
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/remote-rendering.svg'
+      azureCategories:
+        - mixed-reality
+      url: remote-rendering/index.yml
+    - title: Visual Studio App Center
+      summary: 'Crie, teste, lance e monitorize continuamente as suas aplicações móveis e de ambiente de trabalho'
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg'
+      azureCategories:
+        - mobile
+      url: /appcenter/
+    - title: Xamarin
+      summary: Crie aplicações móveis com tecnologia de cloud mais rapidamente
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_xamarin.svg'
+      azureCategories:
+        - mobile
+      url: /xamarin/
+    - title: Gateway de Aplicação
+      summary: 'Crie front-ends Web seguros, dimensionáveis e de disponibilidade elevada no Azure'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/application-gateways.svg'
+      azureCategories:
+        - networking
+        - security
+      url: application-gateway/index.yml
+    - title: Azure Bastion
+      summary: Acesso RDP e SSH privado e totalmente gerido às suas máquinas virtuais
+      imageSrc: ./media/index/web_connect.svg
+      azureCategories:
+        - networking
+      url: bastion/index.yml
+    - title: Azure Defender
+      summary: Proteger cargas de trabalho de cloud híbrida
+      imageSrc: ./media/index/defender.svg
+      azureCategories:
+        - security
+      url: security-center/azure-defender.md
+    - title: Azure Defender para IoT
+      summary: Gestão de recursos e deteção de ameaças contínuas para dispositivos IoT/OT geridos e não geridos
+      imageSrc: ./media/index/defender-iot.svg
+      azureCategories:
+        - security
+        - iot
+      url: ./defender-for-iot/index.yml
+    - title: Proteção contra DDoS do Azure
+      summary: Proteja as suas aplicações contra ataques Denial of Service Distribuídos (DDoS)
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/ddos-protection.svg'
+      azureCategories:
+        - networking
+        - security
+      url: ./ddos-protection/ddos-protection-overview.md
+    - title: DNS do Azure
+      summary: Aloje o domínio DNS no Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/dns.svg'
+      azureCategories:
+        - networking
+      url: dns/index.yml
+    - title: Azure Firewall
+      summary: 'Capacidades de firewall nativas com elevada disponibilidade incorporada, escalabilidade da cloud ilimitada e sem necessidade de manutenção'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/firewall.svg'
+      azureCategories:
+        - networking
+      url: firewall/index.yml
+    - title: Azure Firewall Manager
+      summary: Gestão centralizada de rotas e políticas de segurança de rede para perímetros definidos por software distribuídos globalmente
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/firewall-manager.svg'
+      azureCategories:
+        - networking
+      url: firewall-manager/index.yml
+    - title: Azure Front Door
+      summary: Ponto de entrega dimensionável com segurança melhorada para aplicações Web globais baseadas em microsserviços
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/front-door.svg'
+      azureCategories:
+        - networking
+        - security
+      url: frontdoor/index.yml
+    - title: Azure Internet Analyzer (Pré-visualização)
+      summary: Teste como as alterações na infraestrutura de rede irão afetar o desempenho dos clientes
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/internet-analyzer.svg'
+      azureCategories:
+        - networking
+      url: internet-analyzer/index.yml
+    - title: Azure Private Link
+      summary: 'Acesso privado a serviços alojados na plataforma do Azure, que mantém os seus dados na rede da Microsoft'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/private-link.svg'
+      azureCategories:
+        - networking
+      url: private-link/index.yml
+    - title: Load balancer
+      summary: Aumente a disponibilidade e o desempenho da rede das suas aplicações
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/load-balancer.svg'
+      azureCategories:
+        - networking
+      url: load-balancer/index.yml
+    - title: Azure Route Server (Pré-visualização)
+      summary: Simplificar a gestão de operações dos seus aparelhos de rede
+      imageSrc: ./media/index/azure-route-server.svg
+      azureCategories:
+        - networking
+      url: route-server/index.yml
+    - title: Rede Virtual
+      summary: 'Fornecimento de redes privadas, ligação opcional a data centers locais'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-networks.svg'
+      azureCategories:
+        - networking
+      url: virtual-network/index.yml
+    - title: WAN Virtual
+      summary: Serviço hub-and-spoke gerido pela Microsoft para garantir conectividade e segurança
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-wans.svg'
+      azureCategories:
+        - networking
+      url: virtual-wan/index.yml
+    - title: Gateway de VPN
+      summary: Estabeleça conectividade segura em vários locais
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/virtual-network-gateways.svg'
+      azureCategories:
+        - networking
+        - security
+      url: vpn-gateway/index.yml
+    - title: Firewall de Aplicação Web
+      summary: Um serviço de firewall de aplicações Web (WAF) nativo da cloud que fornece proteção avançada para aplicações Web
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/frontdoor-waf-policies.svg'
+      azureCategories:
+        - networking
+        - security
+      url: web-application-firewall/index.yml
+    - title: HSM Dedicado do Azure
+      summary: Faça a gestão dos módulos de segurança de hardware que utiliza na cloud
+      imageSrc: ./media/index/dedicated-hsm.svg
+      azureCategories:
+        - security
+      url: dedicated-hsm/index.yml
+    - title: Cofre de Chaves
+      summary: Salvaguarde e mantenha controlo das chaves e outros segredos
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/key-vault.svg'
+      azureCategories:
+        - security
+      url: key-vault/index.yml
+    - title: Armazenamento de Arquivo
+      summary: Preço líder de indústria para armazenamento de dados raramente acedidos
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-explorer.svg'
+      azureCategories:
+        - storage
+      url: storage/blobs/storage-blob-storage-tiers.md
+    - title: Avere vFXT for Azure
+      summary: Execute cargas de trabalho baseadas em ficheiros e de elevado desempenho na cloud
+      imageSrc: ./media/index/avere.svg
+      azureCategories:
+        - storage
+      url: avere-vfxt/index.yml
+    - title: Azure FXT Edge Filer
+      summary: Solução de otimização do armazenamento híbrido para ambientes de HPC
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/fxt-edge-filer.svg'
+      azureCategories:
+        - storage
+      url: fxt-edge-filer/index.yml
+    - title: Azure HPC Cache
+      summary: Colocação de ficheiros em cache para computação de alto desempenho (HPC)
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/hpc-cache.svg'
+      azureCategories:
+        - storage
+      url: hpc-cache/index.yml
+    - title: Azure NetApp Files
+      summary: 'Partilhas de ficheiros do Azure de nível empresarial, com tecnologia NetApp'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/netapp-files.svg'
+      azureCategories:
+        - storage
+      url: azure-netapp-files/index.yml
+    - title: Blob Storage
+      summary: Armazenamento de objetos baseados em REST para dados não estruturados
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-accounts.svg'
+      azureCategories:
+        - storage
+      url: storage/blobs/index.yml
+    - title: Armazenamento em Disco
+      summary: Armazenamento de blocos de elevado desempenho e altamente durável para as Máquinas Virtuais do Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/disk-storage.svg'
+      azureCategories:
+        - storage
+      url: virtual-machines/managed-disks-overview.md
+    - title: Ficheiros do Azure
+      summary: Partilhas de ficheiros que utilizam o protocolo 3.0 SMB padrão
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-azure-files.svg'
+      azureCategories:
+        - storage
+      url: storage/files/index.yml
+    - title: Armazenamento de filas
+      summary: Dimensione aplicações de forma eficaz e de acordo com o tráfego
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-accounts.svg'
+      azureCategories:
+        - storage
+      url: storage/queues/index.yml
+    - title: Armazenamento
+      summary: 'Armazenamento na cloud durável, de elevada disponibilidade e extremamente dimensionável'
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-accounts.svg'
+      azureCategories:
+        - storage
+      url: storage/index.yml
+    - title: Explorador de Armazenamento
+      summary: Veja e interaja com os recursos de Armazenamento do Azure
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storage-explorer.svg'
+      azureCategories:
+        - storage
+      url: vs-azure-tools-storage-manage-with-storage-explorer.md
+    - title: StorSimple
+      summary: Custos baixos com uma solução de armazenamento na cloud híbrido empresarial
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/storsimple-device-managers.svg'
+      azureCategories:
+        - storage
+      url: storsimple/index.yml
+    - title: Serviço Azure SignalR
+      summary: Adicione funcionalidades da Web em tempo real facilmente
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/signalr-service.svg'
+      azureCategories:
+        - web
+      url: azure-signalr/index.yml
 tools:
   title: Linguagens e ferramentas
   items:
-  - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: /azure/developer/python/
-  - title: .NET
-    imageSrc: ./media/index/net-logo.svg
-    url: /dotnet/azure/
-  - title: JavaScript
-    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: /azure/developer/javascript/
-  - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: /azure/developer/java/
-  - title: Ir
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-    url: /azure/developer/go/
-  - title: API REST
-    imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
-    url: /rest/api/
-  - title: Azure PowerShell
-    imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
-    url: /powershell/azure/
-  - title: CLI do Azure
-    imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
-    url: /cli/azure/
-  - title: Modelos de ARM
-    imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
-    url: azure-resource-manager/templates/index.yml
-  - title: Jenkins
-    imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
-    url: /azure/developer/jenkins
-  - title: Terraform
-    imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
-    url: /azure/developer/terraform/
-  - title: Ansible
-    imageSrc: ./media/index/ansible.svg
-    url: /azure/developer/ansible
+    - title: Python
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_python.svg'
+      url: /azure/developer/python/
+    - title: .NET
+      imageSrc: ./media/index/net-logo.svg
+      url: /dotnet/azure/
+    - title: JavaScript
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_js.svg'
+      url: /azure/developer/javascript/
+    - title: Java
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_java.svg'
+      url: /azure/developer/java/
+    - title: Ir
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg'
+      url: /azure/developer/go/
+    - title: API REST
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_REST.svg'
+      url: /rest/api/
+    - title: Azure PowerShell
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+      url: /powershell/azure/
+    - title: CLI do Azure
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg'
+      url: /cli/azure/
+    - title: Modelos de ARM
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/resource-groups.svg'
+      url: azure-resource-manager/templates/index.yml
+    - title: Jenkins
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_jenkins.svg'
+      url: /azure/developer/jenkins
+    - title: Terraform
+      imageSrc: 'https://docs.microsoft.com/media/logos/logo_terraform.svg'
+      url: /azure/developer/terraform/
+    - title: Ansible
+      imageSrc: ./media/index/ansible.svg
+      url: /azure/developer/ansible
 additionalContent:
   sections:
-  - title: Clouds soberanas
-    items:
-    - title: Azure Government
-      summary: Uma cloud dedicada para agências governamentais dos EUA e respetivos parceiros.
-      url: azure-government/index.yml
-    - title: Azure Alemanha
-      summary: Uma cloud dedicada que cumpre os regulamentos alemães de processamento de dados.
-      url: germany/index.yml
-    - title: Azure China 21Vianet
-      summary: Uma cloud dedicada localizada na China e operada pela 21Vianet.
-      url: /azure/china/
-  - title: Soluções de parceiros
-    items:
-    - title: Soluções parceiras Azure
-      summary: Soluções parceiras integradas que pode utilizar no Azure para melhorar a sua infraestrutura em nuvem.
-      url: ./partner-solutions/overview.md
-    - title: Marketplace comercial
-      summary: Um mercado online de aplicações e serviços de parceiros independentes de fornecedores de software (ISV).
-      url: ./marketplace/index.yml
+    - title: Clouds soberanas
+      items:
+        - title: Azure Government
+          summary: Uma cloud dedicada para agências governamentais dos EUA e respetivos parceiros.
+          url: azure-government/index.yml
+        - title: Azure Alemanha
+          summary: Uma cloud dedicada que cumpre os regulamentos alemães de processamento de dados.
+          url: germany/index.yml
+        - title: Azure China 21Vianet
+          summary: Uma cloud dedicada localizada na China e operada pela 21Vianet.
+          url: /azure/china/
+    - title: Soluções de parceiros
+      items:
+        - title: Soluções parceiras Azure
+          summary: Soluções parceiras integradas que pode utilizar no Azure para melhorar a sua infraestrutura em nuvem.
+          url: ./partner-solutions/overview.md
+        - title: Marketplace comercial
+          summary: Um mercado online de aplicações e serviços de parceiros independentes de fornecedores de software (ISV).
+          url: ./marketplace/index.yml

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4ba5a9211cdb89f6ac5a92a315378e58f5d08a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 34ac4a3b7f55c42711e4bc33c75bba964b49c65e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709519"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551633"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configure a política de expiração para os grupos Microsoft 365
 
@@ -65,7 +65,7 @@ Seguem-se as funções que podem configurar e utilizar a expiração para os gru
 Função | Permissões
 -------- | --------
 Administrador global, administrador do grupo ou administrador de utilizadores | Pode criar, ler, atualizar ou eliminar as definições de política de expiração dos grupos Microsoft 365<br>Pode renovar qualquer grupo Microsoft 365
-User | Pode renovar um grupo Microsoft 365 que possuem<br>Pode restaurar um grupo Microsoft 365 que possuem<br>Pode ler as definições da política de expiração
+Utilizador | Pode renovar um grupo Microsoft 365 que possuem<br>Pode restaurar um grupo Microsoft 365 que possuem<br>Pode ler as definições da política de expiração
 
 Para obter mais informações sobre permissões para restaurar um grupo eliminado, consulte [Restaurar um grupo Microsoft 365 eliminado no Azure Ative Directory](groups-restore-deleted.md).
 
@@ -91,6 +91,7 @@ Para obter mais informações sobre permissões para restaurar um grupo eliminad
 > - Quando configurar a expiração pela primeira vez, quaisquer grupos mais velhos do que o intervalo de validade são definidos para 35 dias até ao termo, a menos que o grupo seja renovado automaticamente ou o proprietário o renove.
 > - Quando um grupo dinâmico é eliminado e restaurado, é visto como um novo grupo e realvoado de acordo com a regra. Este processo pode demorar até 24 horas.
 > - Os avisos de expiração para grupos utilizados nas Equipas aparecem no feed dos Proprietários das Equipas.
+> - Quando ativa a expiração para grupos selecionados, pode adicionar até 500 grupos à lista. Se precisar de adicionar mais de 500 grupos, pode permitir a expiração para todos os seus grupos. Nesse cenário, a limitação de 500 grupos não se aplica.
 
 ## <a name="email-notifications"></a>Notificações por e-mail
 

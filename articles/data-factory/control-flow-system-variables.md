@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.openlocfilehash: b85efa7ac4481ab9eb2b2637aee7d9e5e76e8f3f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786061"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema suportadas pela Azure Data Factory
@@ -24,7 +24,7 @@ Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. P
 
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gasoduto JSON.
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @pipeline(). DataFactory |Nome da fábrica de dados o gasoduto está em execução |
 | @pipeline(). Gasoduto |Nome do oleoduto |
@@ -41,7 +41,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gasodut
 
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @trigger().Horário programado |Hora em que o gatilho estava programado para invocar o gasoduto. |
 | @trigger().startTime |Hora em que o gatilho **disparou** para invocar o gasoduto. Isto pode diferir ligeiramente da hora programada do gatilho. |
@@ -50,7 +50,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho
 
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @trigger().outputs.windowStartTime |Início da janela associada ao acionador. |
 | @trigger().outputs.windowEndTime |Extremidade da janela associada ao acionador. |
@@ -61,7 +61,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho
 
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @triggerBody().fileName  |Nome do ficheiro cuja criação ou supressão causou o disparo.   |
 | @triggerBody().Nome de pasta  |Caminho para a pasta que contém o ficheiro especificado por `@triggerBody().fileName` . O primeiro segmento do caminho da pasta é o nome do recipiente de armazenamento Azure Blob.  |
@@ -74,7 +74,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho
 >[!NOTE]
 >A Azure Data Factory espera que o evento personalizado seja formatado com [o esquema de eventos Azure Event Grid](../event-grid/event-schema.md).
 
-| Nome da Variável | Descrição
+| Nome da Variável | Description
 | --- | --- |
 | @triggerBody().event.eventType | Tipo de eventos que desencadearam a execução do Trigger de Evento Personalizado. O tipo de evento é o campo definido pelo cliente e assume quaisquer valores do tipo de corda. |
 | @triggerBody().event.subject | Objeto do evento personalizado que causou o disparo. |

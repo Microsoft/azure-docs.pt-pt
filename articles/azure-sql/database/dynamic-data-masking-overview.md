@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccc648f06cad46b490ac73fe777066c9de2ff2b9
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918099"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551650"
 ---
 # <a name="dynamic-data-masking"></a>Máscara de dados dinâmica 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -72,13 +72,13 @@ Pode utilizar a API REST para gerir programáticamente a política e regras de m
 
 ### <a name="data-masking-policies"></a>Políticas de mascaramento de dados
 
-- [Criar ou atualizar:](/rest/api/sql/datamaskingpolicies/createorupdate)Cria ou atualiza uma política de mascaramento de dados de base de dados.
-- [Obter:](/rest/api/sql/datamaskingpolicies/get)Obtém uma política de mascaramento de dados de base de dados. 
+- [Criar ou atualizar:](/rest/api/sql/2014-04-01/datamaskingpolicies/createorupdate)Cria ou atualiza uma política de mascaramento de dados de base de dados.
+- [Obter:](/rest/api/sql/2014-04-01/datamaskingpolicies/get)Obtém uma política de mascaramento de dados de base de dados. 
 
 ### <a name="data-masking-rules"></a>Regras de mascaramento de dados
 
-- [Criar ou atualizar:](/rest/api/sql/datamaskingrules/createorupdate)Cria ou atualiza uma regra de mascaramento de dados de base de dados.
-- [Lista por base de dados](/rest/api/sql/datamaskingrules/listbydatabase): Obtém uma lista das regras de mascaramento de dados de bases de dados.
+- [Criar ou atualizar:](/rest/api/sql/2014-04-01/datamaskingrules/createorupdate)Cria ou atualiza uma regra de mascaramento de dados de base de dados.
+- [Lista por base de dados](/rest/api/sql/2014-04-01/datamaskingrules/listbydatabase): Obtém uma lista das regras de mascaramento de dados de bases de dados.
 
 ## <a name="permissions"></a>Permissões
 
@@ -86,4 +86,4 @@ A máscara dinâmica de dados pode ser configurada pela administração da Base 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Mascaramento de Dados Dinâmicos](/sql/relational-databases/security/dynamic-data-masking)
+[Mascaramento dinâmico de dados](/sql/relational-databases/security/dynamic-data-masking)

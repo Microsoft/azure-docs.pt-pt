@@ -512,6 +512,8 @@
               href: database/elastic-pool-resource-management.md
             - name: Diagnóstico de desempenho do Hyperscale
               href: database/hyperscale-performance-diagnostics.md
+            - name: Bloco T-SQL CRUD
+              href: database/block-crud-tsql.md
         - name: Proteger
           items:
             - name: Auditoria da conta de armazenamento protegida por VNet ou firewall

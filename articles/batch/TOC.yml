@@ -232,11 +232,11 @@
           displayName: command line
           href: batch-cli-get-started.md
         - name: Utilizar modelos da CLI do Batch
-          diplayName: extension
+          displayName: extension
           href: batch-cli-templates.md
-    - name: Utilizar o SDK do Batch em Node.js
+    - name: Utilizar o Lote JavaScript SDK
       displayName: json
-      href: batch-nodejs-get-started.md
+      href: batch-js-get-started.md
     - name: Executar cargas de trabalho
       items:
         - name: MPI
@@ -274,7 +274,7 @@
       href: /dotnet/api/overview/azure/batch
     - name: Java
       href: /java/api/overview/azure/batch
-    - name: Node.js
+    - name: JavaScript
       href: /javascript/api/overview/azure/batch
     - name: Python
       href: /python/api/overview/azure/batch

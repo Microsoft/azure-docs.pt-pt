@@ -12,10 +12,10 @@ ms.date: 03/11/2021
 ms.author: aahi
 ms.custom: references_regions
 ms.openlocfilehash: 80a943d235783852f57832363b5af8048f010575
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104599440"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar o Text Analytics para a saúde (pré-visualização)
@@ -501,17 +501,17 @@ A deteção de afirmação representa entidades negadas como um valor negativo p
                         "category": "SymptomOrSign",
                         "confidenceScore": 0.98,
                         "assertion": {
-                            "certainty": "negative"
+                            "certainty&quot;: &quot;negative"
                         },
                         "name": "Dyspnea",
                         "links": [
                             {
                                 "dataSource": "UMLS",
-                                "id": "C0013404"
+                                "id&quot;: &quot;C0013404"
                             },
                             {
                                 "dataSource": "AOD",
-                                "id": "0000005442"
+                                "id&quot;: &quot;0000005442"
                             },
     ...
 ```

@@ -2,14 +2,14 @@
 title: Utilização avançada da AuthN/AuthZ
 description: Aprenda a personalizar a funcionalidade de autenticação e autorização no Serviço de Aplicações para diferentes cenários, e obtenha reclamações de utilizadores e fichas diferentes.
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: fc2916cbccc21262467533b0b497b14f4f4b941c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b7faf47363a5efee6a60951e67d9ad2bed8bf76f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034882"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076875"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -18,10 +18,9 @@ Este artigo mostra-lhe como personalizar a autenticação e autorização incorp
 Para começar rapidamente, consulte um dos seguintes tutoriais:
 
 * [Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure](tutorial-auth-aad.md)
-* [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory](configure-authentication-provider-aad.md)
+* [Como configurar a sua app para utilizar o login da Plataforma de Identidade do Microsoft](configure-authentication-provider-aad.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Facebook](configure-authentication-provider-facebook.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Google](configure-authentication-provider-google.md)
-* [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft](configure-authentication-provider-microsoft.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Twitter](configure-authentication-provider-twitter.md)
 * [Como configurar a sua aplicação para iniciar sessão com um fornecedor OpenID Connect (Pré-visualização)](configure-authentication-provider-openid-connect.md)
 * [Como configurar a sua app para iniciar sessão usando um Login com a Apple (Pré-visualização)](configure-authentication-provider-apple.md)
@@ -37,8 +36,7 @@ Em **Ação a tomar quando o pedido não for autenticado,** selecione Permitir *
 Na página de iniciar s indicado, ou na barra de navegação, ou em qualquer outro local da sua aplicação, adicione um link de inscrição a cada um dos fornecedores que ativou `/.auth/login/<provider>` (). Por exemplo:
 
 ```html
-<a href="/.auth/login/aad">Log in with Azure AD</a>
-<a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
+<a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
@@ -159,7 +157,6 @@ A partir do código do seu servidor, os tokens específicos do fornecedor são i
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Facebook Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
-| Conta Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
@@ -175,7 +172,6 @@ Quando o token de acesso do seu fornecedor (não o token da [sessão)](#extend-s
 - **Google**: Apeia um `access_type=offline` parâmetro de cadeia de consulta à sua chamada `/.auth/login/google` API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (ver [Google Refresh Tokens).](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)
 - **Facebook**: Não fornece fichas de atualização. As fichas de longa duração expiram em 60 dias (ver [Expiração do Facebook e Extensão de Fichas de Acesso).](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)
 - **Twitter**: Os tokens de acesso não expiram (ver [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq)).
-- **Conta Microsoft**: Ao [configurar as Definições de Autenticação da Conta microsoft,](configure-authentication-provider-microsoft.md)selecione o `wl.offline_access` âmbito.
 - **Diretório Ativo Azure**: Em [https://resources.azure.com](https://resources.azure.com) , faça os seguintes passos:
     1. No topo da página, selecione **Ler/Escrever.**
     2. No navegador esquerdo, navegue para **subscrições** > **_\<subscription\_name_** > **recursos Os grupos** > **_ \<resource\_group\_name> _** ** > **fornecedores**  >  **microsoft.Web**  >  **sites** > **_ \<app\_name> _** > **config**  >  **authsettings**. 
@@ -280,14 +276,26 @@ O fornecedor de identidade pode fornecer determinada autorização chave-na-curv
 
 Se algum dos outros níveis não fornecer a autorização de que necessita, ou se a sua plataforma ou fornecedor de identidade não for suportado, deve escrever código personalizado para autorizar os utilizadores com base nas alegações do [utilizador.](#access-user-claims)
 
-## <a name="updating-the-configuration-version-preview"></a>Atualizar a versão de configuração (pré-visualização)
+## <a name="updating-the-configuration-version"></a>Atualizar a versão de configuração
 
-Existem duas versões da API de gestão para a funcionalidade autenticação/Autorização. A versão V2 de pré-visualização é necessária para a experiência "Autenticação (pré-visualização)" no portal Azure. Uma aplicação que já utiliza a API V1 pode fazer upgrade para a versão V2 uma vez que algumas alterações tenham sido feitas. Especificamente, a configuração secreta deve ser movida para as definições de aplicações pegajosas. A configuração do fornecedor de Conta Microsoft também não é suportada atualmente em V2.
+Existem duas versões da API de gestão para a funcionalidade autenticação/Autorização. A versão V2 é necessária para a experiência "Autenticação" no portal Azure. Uma aplicação que já utiliza a API V1 pode fazer upgrade para a versão V2 uma vez que algumas alterações tenham sido feitas. Especificamente, a configuração secreta deve ser movida para as definições de aplicações pegajosas. Isto pode ser feito automaticamente a partir da secção "Autenticação" do portal para a sua aplicação.
 
 > [!WARNING]
-> A migração para a pré-visualização V2 irá desativar a gestão da funcionalidade de Autenticação/Autorização do Serviço de Aplicações para a sua aplicação através de alguns clientes, como a sua experiência existente no portal Azure, Azure CLI e Azure PowerShell. Isto não pode ser invertido. Durante a pré-visualização, a migração das cargas de trabalho de produção não é encorajada ou apoiada. Só deve seguir os passos desta secção para aplicações de teste.
+> A migração para V2 irá desativar a gestão da funcionalidade de Autenticação/Autorização do Serviço de Aplicações para a sua aplicação através de alguns clientes, como a sua experiência existente no portal Azure CLI e Azure PowerShell. Isto não pode ser invertido.
 
-### <a name="moving-secrets-to-application-settings"></a>Movendo segredos para configurações de aplicações
+A API V2 não suporta a criação ou edição da Conta Microsoft como um fornecedor distinto, como foi feito em V1. Em vez disso, aproveita a plataforma de identidade da [Microsoft](../active-directory/develop/v2-overview.md) convergida para utilizadores que se inscrevam tanto com AD AD como com contas pessoais da Microsoft. Ao mudar para a API V2, a configuração V1 Azure Ative Directory é utilizada para configurar o fornecedor da Plataforma de Identidade da Microsoft. O fornecedor de Conta Microsoft V1 será transportado para a frente no processo de migração e continuará a funcionar normalmente, mas recomenda-se que se mude para o modelo mais recente da Plataforma de Identidade da Microsoft. Consulte [o Suporte para as inscrições do provedor da Conta microsoft](#support-for-microsoft-account-provider-registrations) para saber mais.
+
+O processo de migração automatizado irá mover os segredos do fornecedor em configurações de aplicações e, em seguida, converter o resto da configuração no novo formato. Para utilizar a migração automática:
+
+1. Navegue para a sua aplicação no portal e selecione a opção **menu autenticação.**
+1. Se a aplicação estiver configurada utilizando o modelo V1, verá um botão **de Atualização.**
+1. Reveja a descrição no aviso de confirmação. Se estiver pronto para realizar a migração, clique em **Atualizar** o pedido.
+
+### <a name="manually-managing-the-migration"></a>Gestão manual da migração
+
+Os seguintes passos permitir-lhe-ão migrar manualmente a aplicação para a API V2 se não pretender utilizar a versão automática acima mencionada.
+
+#### <a name="moving-secrets-to-application-settings"></a>Movendo segredos para configurações de aplicações
 
 1. Obtenha a sua configuração existente utilizando a API V1:
 
@@ -397,9 +405,7 @@ Existem duas versões da API de gestão para a funcionalidade autenticação/Aut
 
 Já emigrou a app para armazenar segredos de fornecedor de identidade como configurações de aplicações.
 
-### <a name="support-for-microsoft-account-registrations"></a>Suporte para registos de conta microsoft
-
-A API V2 não suporta atualmente a Microsoft Account como um fornecedor distinto. Em vez disso, aproveita a plataforma de identidade da [Microsoft](../active-directory/develop/v2-overview.md) convergida para utilizadores que se inscrevam com contas pessoais da Microsoft. Ao mudar para a API V2, a configuração V1 Azure Ative Directory é utilizada para configurar o fornecedor da Plataforma de Identidade da Microsoft.
+#### <a name="support-for-microsoft-account-provider-registrations"></a>Suporte para registos de fornecedores de conta da Microsoft
 
 Se a sua configuração existente contiver um fornecedor de Conta Microsoft e não contiver um fornecedor de Diretório Azure Ative, pode mudar a configuração para o fornecedor de Diretório Ativo Azure e, em seguida, executar a migração. Para efetuar este procedimento:
 
@@ -413,12 +419,10 @@ Se a sua configuração existente contiver um fornecedor de Conta Microsoft e n�
 1. Neste momento, copiou com sucesso a configuração, mas a configuração do fornecedor de Conta microsoft existente permanece. Antes de o remover, certifique-se de que todas as partes da sua aplicação referenciam o fornecedor Azure Ative Directory através de links de login, etc. Verifique se todas as partes da sua aplicação funcionam como esperado.
 1. Depois de ter validado que as coisas funcionam contra o fornecedor de Diretório AAD Azure Ative, poderá remover a configuração do fornecedor de conta da Microsoft.
 
-Algumas aplicações podem já ter registos separados para o Azure Ative Directory e para a Microsoft Account. Estas aplicações não podem ser migradas neste momento. 
-
 > [!WARNING]
 > É possível convergir os dois registos modificando os [tipos de conta suportados](../active-directory/develop/supported-accounts-validation.md) para o registo de aplicações AAD. No entanto, isto forçaria um novo consentimento para os utilizadores da Microsoft Account, e as alegações de identidade desses utilizadores podem ser diferentes na estrutura, `sub` nomeadamente alterando valores uma vez que um novo ID da App está a ser utilizado. Esta abordagem não é recomendada a menos que seja compreendida minuciosamente. Em vez disso, deve aguardar o apoio para as duas inscrições na superfície da API V2.
 
-### <a name="switching-to-v2"></a>Mudar para V2
+#### <a name="switching-to-v2"></a>Mudar para V2
 
 Uma vez realizados os passos acima, navegue para a aplicação no portal Azure. Selecione a secção "Autenticação (pré-visualização)". 
 

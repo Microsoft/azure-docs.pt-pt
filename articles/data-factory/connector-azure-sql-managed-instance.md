@@ -8,10 +8,10 @@ author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ms.openlocfilehash: eae085a73e8f43813aa3f02fa910c7931f10f36c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104597421"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure SQL Managed Instance usando Azure Data Factory
@@ -42,7 +42,7 @@ Para a atividade copy, este conector Azure SQL Database suporta estas funções:
 
 Para aceder ao ponto [final público](../azure-sql/managed-instance/public-endpoint-overview.md)sql Managed Instance, pode utilizar um tempo de integração Azure gerido pela Azure. Certifique-se de que ativa o ponto final público e também permite o tráfego de pontos finais públicos no grupo de segurança da rede para que a Azure Data Factory possa ligar-se à sua base de dados. Para mais informações, consulte [esta orientação.](../azure-sql/managed-instance/public-endpoint-configure.md)
 
-Para aceder ao ponto final privado SQL Managed Instance, crie um [tempo de integração auto-hospedado](create-self-hosted-integration-runtime.md) que possa aceder à base de dados. Se providenciar o tempo de integração auto-hospedado na mesma rede virtual que o seu caso gerido, certifique-se de que a sua máquina de tempo de execução de integração está numa sub-rede diferente da sua instância gerida. Se providenciar o tempo de integração auto-hospedado numa rede virtual diferente da sua instância gerida, pode utilizar um espreitamento de rede virtual ou uma rede virtual para a ligação de rede virtual. Para obter mais informações, consulte [Conecte a sua aplicação à SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
+Para aceder ao ponto final privado SQL Managed Instance, crie um [tempo de integração auto-hospedado](create-self-hosted-integration-runtime.md) que possa aceder à base de dados. Se aprovisionar o runtime de integração autoalojado na mesma rede virtual da instância gerida, confirme que a máquina virtual do runtime de integração está numa sub-rede diferente da instância gerida. Se aprovisionar o runtime de integração autoalojado numa rede virtual diferente da instância gerida, poderá utilizar um peering de rede virtual ou uma ligação de rede virtual para rede virtual. Para obter mais informações, consulte [Conecte a sua aplicação à SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
 
 ## <a name="get-started"></a>Introdução
 

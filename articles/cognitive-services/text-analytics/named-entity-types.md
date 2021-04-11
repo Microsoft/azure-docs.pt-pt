@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/11/2021
 ms.author: aahi
 ms.openlocfilehash: 8b596a5e54c0b59c4c0b49aa5cdc4fd6477d46dc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104599334"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Categorias de entidades apoiadas no Text Analytics API v3

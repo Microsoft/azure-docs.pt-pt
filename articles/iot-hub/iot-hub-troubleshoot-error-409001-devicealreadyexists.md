@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 93ab2ecc8e820c461a7c79082ac1d50c24f0ba8b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b075519fff2c7c328778d770ef68e9751922807b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76960792"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061133"
 ---
 # <a name="409001-devicealreadyexists"></a>409001 DeviceAlreadyExists
 

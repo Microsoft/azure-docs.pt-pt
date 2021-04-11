@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ms.openlocfilehash: af3f54778882df9aaa06297f291c12a0f4b1577c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046050"
 ---
 # <a name="register-and-scan-sap-ecc-source-preview"></a>Registar e digitalizar fonte ECC SAP (pré-visualização)

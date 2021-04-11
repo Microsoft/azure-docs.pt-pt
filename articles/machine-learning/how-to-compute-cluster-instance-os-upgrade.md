@@ -12,10 +12,10 @@ ms.date: 03/03/2021
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 710a860b1ed87f176b6f42b4963dad17acb323b1
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954059"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Atualizar instância de computação e computação cluster host OS

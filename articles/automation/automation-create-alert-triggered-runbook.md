@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/14/2021
 ms.topic: conceptual
 ms.openlocfilehash: ea7979ad4a401d317ec126b7abfe354690475235
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953107"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Use um alerta para ativar um runbook da Azure Automation
@@ -29,7 +29,7 @@ Pode utilizar livros de automatização com três tipos de alerta:
 
 Quando um alerta chama um runbook, a chamada real é um pedido HTTP POST para o webhook. O corpo do pedido POST contém um objeto em formatado JSON que tem propriedades úteis que estão relacionadas com o alerta. A tabela que se segue lista as ligações ao esquema de carga útil para cada tipo de alerta:
 
-|Alerta  |Descrição|Esquema de carga útil  |
+|Alerta  |Description|Esquema de carga útil  |
 |---------|---------|---------|
 |[Alerta comum](../azure-monitor/alerts/alerts-common-schema.md)|O esquema comum de alerta que normaliza a experiência de consumo para notificações de alerta hoje em Azure.|Esquema de carga útil de alerta comum|
 |[Alerta de registo de atividade](../azure-monitor/alerts/activity-log-alerts.md)    |Envia uma notificação quando qualquer novo evento no registo de atividades do Azure corresponde a condições específicas. Por exemplo, quando uma `Delete VM` operação ocorre no **myProductionResourceGroup** ou quando um novo evento de Saúde do Serviço Azure com um estado Ativo aparece.| [Esquema de carga útil de alerta de atividade](../azure-monitor/alerts/activity-log-alerts-webhook.md)        |

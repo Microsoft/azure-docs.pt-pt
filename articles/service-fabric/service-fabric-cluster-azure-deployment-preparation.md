@@ -4,10 +4,10 @@ description: Saiba mais sobre o planeamento e preparação para uma implantaçã
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046322"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planear e preparar uma implantação de clusters

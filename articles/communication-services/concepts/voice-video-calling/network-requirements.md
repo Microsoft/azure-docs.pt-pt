@@ -10,10 +10,10 @@ ms.date: 3/23/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 22bf8af89771e57621a0d8851ca31bb750b7cda2
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105108354"
 ---
 # <a name="ensure-high-quality-media-in-azure-communication-services"></a>Garantir meios de comunicação de alta qualidade nos Serviços de Comunicação Azure

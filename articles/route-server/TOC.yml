@@ -1,6 +1,6 @@
 - name: Documentação do Servidor de Rotas
   href: index.yml
-- name: Descrição geral
+- name: Descrição Geral
   items:
     - name: O que é O Azure Route Server (Pré-visualização)?
       href: overview.md
@@ -12,6 +12,8 @@
       href: quickstart-configure-route-server-powershell.md
     - name: Configurar um Servidor de Rota - CLI
       href: quickstart-configure-route-server-cli.md
+    - name: Configurar um servidor de rota - modelo ARM
+      href: quickstart-configure-template.md
   expanded: true
 - name: Conceitos
   items:

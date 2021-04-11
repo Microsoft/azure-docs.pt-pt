@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4ace5620bf98b06956c294a12b6b08881422e718
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104952342"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
@@ -251,18 +251,18 @@ Começando pelo kernel Linux 4.18, o módulo de kernel SMB, chamado `cifs` por r
 | Distribuição | Pode desativar o SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Sim |
-| Ubuntu 19.04+ | Sim |
+| Ubuntu 18.04 | Yes |
+| Ubuntu 19.04+ | Yes |
 | Debian 8-9 | No |
-| Debian 10+ | Sim |
-| Fedora 29+ | Sim |
+| Debian 10+ | Yes |
+| Fedora 29+ | Yes |
 | CentOS 7 | No | 
-| CentOS 8+ | Sim |
+| CentOS 8+ | Yes |
 | Red Hat Enterprise Linux 6.x-7.x | No |
-| Red Hat Enterprise Linux 8+ | Sim |
+| Red Hat Enterprise Linux 8+ | Yes |
 | openSUSE Leap 15.0 | No |
-| openSUSE Leap 15.1+ | Sim |
-| openSUSE Tumbleweed | Sim |
+| openSUSE Leap 15.1+ | Yes |
+| openSUSE Tumbleweed | Yes |
 | SUSE Linux Enterprise 11.x-12.x | No |
 | Empresa SUSE Linux 15 | No |
 | Empresa SUSE Linux 15.1 | No |

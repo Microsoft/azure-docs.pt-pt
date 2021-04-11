@@ -556,6 +556,9 @@
             - name: Transformar dados
               displayName: pipeline
               href: how-to-designer-transform-data.md
+            - name: Utilize parâmetros de gasoduto
+              displayName: 'designer, pipeline parameters'
+              href: how-to-use-pipeline-parameter.md
             - name: Preparar novamente com pipelines publicados
               displayName: 'retrain, designer, published pipeline'
               href: how-to-retrain-designer.md
@@ -621,6 +624,8 @@
     - name: Ambientes organizados
       displayName: 'environments, curated environments'
       href: resource-curated-environments.md
+    - name: CLI do Azure
+      href: /cli/azure/ext/azure-cli-ml/ml
 - name: Recursos
   items:
     - name: Notas de versão

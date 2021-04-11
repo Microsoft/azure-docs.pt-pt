@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 4ee3e9e7d2aa0247011415b43517147fd421902a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5585eb210b54dfa016d25c430256508e1b0b9f61
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094928"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076892"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance on-line usando DMS
 
@@ -209,7 +209,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 1. No ecrã **Configurar as definições da migração**, indique os detalhes seguintes:
 
-    | | |
+    | Parâmetro | Descrição |
     |--------|---------|
     |**Partilha de localização na Rede SMB** | A partilha de rede SMB local ou a partilha de ficheiros Azure que contém os ficheiros de backup de bases de dados completos e ficheiros de cópia de segurança de registo de transações que o Azure Database Migration Service pode usar para migração. A conta de serviço que estiver a executar a instância do SQL Server de origem tem de ter privilégios de leitura\escrita nesta partilha de rede. Indique um FQDN ou um endereço IP do servidor na partilha de rede, como, por exemplo, “\\\servername.domainname.com\backupfolder” ou “\\\IP address\backupfolder”. Para um melhor desempenho, recomenda-se a utilização de pastas separadas para cada base de dados a ser migrada. Pode fornecer o caminho de partilha de ficheiros de nível de base de dados utilizando a opção **Definições Avançadas.** Se estiver a detear problemas ligados à participação do SMB, consulte [a partilha do SMB](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
     |**Nome de utilizador** | Certifique-se de que o utilizador do Windows tem privilégio de controlo total na partilha de rede que indicou acima. O Serviço de Migração da Base de Dados Azure personificará a credencial do utilizador para enviar os ficheiros de cópia de segurança para o contentor de armazenamento Azure para restaurar o funcionamento. Se utilizar a partilha do Ficheiro Azure, utilize o nome da conta de armazenamento pré-pendido com AZURE\ como nome de utilizador. |

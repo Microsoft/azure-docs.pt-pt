@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 78cbf94bfc19757a4264c7884c3e47b230de5e46
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb5382014f82854086d6ec6f07cfe7f67e80726a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044095"
+ms.locfileid: "105961035"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Ligação de saída de armazenamento Azure Blob para funções Azure
 
@@ -300,6 +300,7 @@ No *function.jsem* ficheiro, a `queueTrigger` propriedade metadados é utilizada
     {
       "name": "inputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
@@ -307,6 +308,7 @@ No *function.jsem* ficheiro, a `queueTrigger` propriedade metadados é utilizada
     {
       "name": "outputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}-Copy",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
@@ -326,9 +328,8 @@ import logging
 import azure.functions as func
 
 
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
-         outputblob: func.Out[func.InputStream]):
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
+def main(queuemsg: func.QueueMessage, inputblob: bytes, outputblob: func.Out[bytes]):
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     outputblob.set(inputblob)
 ```
 

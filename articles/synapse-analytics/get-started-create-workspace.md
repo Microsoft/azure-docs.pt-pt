@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 695ad1463bb207e9dd61d7b0147adbe15b44df37
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fb30913d71df46f4c0afedd475d40205c1429258
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108065"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122208"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -34,15 +34,19 @@ Para completar os passos deste tutorial, precisa de ter acesso a um grupo de rec
 
 ## <a name="basics-tab--project-details"></a>Detalhes básicos do separador > projeto
 Preencha os seguintes campos:
-    1. **Subscrição** - Escolha qualquer subscrição.
-    1. **Grupo de recursos** - Utilize qualquer grupo de recursos.
-    1. **Grupo de recursos** - Deixe este em branco.
+
+1. **Subscrição** - Escolha qualquer subscrição.
+1. **Grupo de recursos** - Utilize qualquer grupo de recursos.
+1. **Grupo de recursos** - Deixe este em branco.
 
 
 ## <a name="basics-tab--workspace-details"></a>Detalhes básicos do separador > do espaço de trabalho
-Preencha os seguintes campos: 1. **Nome do espaço de** trabalho - Escolha qualquer nome globalmente único. Neste tutorial, usaremos **o meu espaço de trabalho.**
+Preencha os seguintes campos:
+
+1. **Nome do espaço de** trabalho - Escolha qualquer nome globalmente único. Neste tutorial, usaremos **o meu espaço de trabalho.**
 1. **Região** - Escolha qualquer região.
-1. **Selecione Data Lake Storage Gen 2** 1. Clique no botão **de partir da subscrição**.
+1. **Selecione Data Lake Storage Gen 2**
+1. Clique no botão **de partir da subscrição**.
 1. Por **nome de conta,** clique em **Criar Novo** e nomeie a nova conta de armazenamento **ou** similar como este nome deve ser único.
 1. Por **nome do sistema de ficheiros,** clique em Criar **Novos** e nomeie **os utilizadores**. Isto criará um recipiente de armazenamento chamado **utilizadores.** O espaço de trabalho utilizará esta conta de armazenamento como a conta de armazenamento "primária" para as tabelas Spark e os registos de aplicações Spark.
 1. Verifique a função "Atribua-me a função de contribuinte de dados de armazenamento na conta Gen2 de armazenamento de dados". 
@@ -60,16 +64,6 @@ Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abri
 
 * Abra o seu espaço de trabalho sinapse no [portal Azure,](https://portal.azure.com)na secção **visão geral** do espaço de trabalho synapse, selecione **Open** na caixa Open Synapse Studio.
 * Vá ao `https://web.azuresynapse.net` e inscreva-se no seu espaço de trabalho.
-
-
-
-
-
-
-
-
-
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

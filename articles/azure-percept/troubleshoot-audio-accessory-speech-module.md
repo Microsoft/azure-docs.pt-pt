@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: template-how-to
 ms.openlocfilehash: c4fc7d7564ecd30326fbec832639b2a81d55e6d5
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105605659"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Azure Percept Audio e resolução de problemas do módulo de fala

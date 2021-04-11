@@ -1,5 +1,5 @@
 ---
-title: O que é a Loja Azure Cosmos DB Analytical?
+title: O que é o Arquivo Analítico do Azure Cosmos DB?
 description: Saiba mais sobre a loja transacional Azure Cosmos DB (baseada em linha) e analítica (baseada em colunas). Benefícios da loja analítica, impacto no desempenho para cargas de trabalho em larga escala e sincronização automática de dados da loja transacional para a loja analítica
 author: Rodrigossz
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
 ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105046218"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é a loja analítica Azure Cosmos DB?
@@ -119,7 +119,7 @@ Os seguintes constrangimentos são aplicáveis nos dados operacionais da Azure C
   * As piscinas de faíscas em Azure Synapse representarão estas colunas como `undefined` .
   * Piscinas sem servidor SQL em Azure Synapse representarão estas colunas como `NULL` .
 
-#### <a name="schema-representation"></a>Representação de Schema
+#### <a name="schema-representation"></a>Representação do esquema
 
 Há dois modos de representação do esquema no arquivo analítico. Estes modos têm compromissos entre a simplicidade de uma representação em colunas, o processamento de esquemas polimórficos e a simplicidade da experiência de consulta:
 

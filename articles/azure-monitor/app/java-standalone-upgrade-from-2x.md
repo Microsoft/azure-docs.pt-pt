@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 342c535cadb1a2d3f2d18478d8941d9ea61bdf72
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040248"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448972"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Upgrade a partir de Application Insights Java 2.x SDK
 
@@ -45,72 +45,12 @@ No 2.x SDK, os nomes da operação foram prefixados pelo método http `GET` `POS
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Nomes de operação prefixados por método http":::
 
-O snippet abaixo configura 3 processadores de telemetria que combinam para replicar o comportamento anterior.
-Os processadores de telemetria executam as seguintes ações (por ordem):
+A partir de 3.0.3, você pode trazer de volta este comportamento 2.x usando
 
-1. O primeiro processador de telemetria é um processador de envergadura (tem `span` tipo), o que significa que se aplica a `requests` e `dependencies` .
-
-   Corresponderá a qualquer extensão que tenha um atributo nomeado `http.method` e tenha um nome de extensão que comece por `/` .
-
-   Em seguida, extrairá esse nome de extensão num atributo chamado `tempName` .
-
-2. O segundo processador de telemetria é também um processador de envergadura.
-
-   Corresponderá a qualquer extensão que tenha um atributo chamado `tempName` .
-
-   Em seguida, atualizará o nome da extensão, concatenando os dois atributos `http.method` `tempName` e, separado por um espaço.
-
-3. O último processador de telemetria é um processador de atributos (tem `attribute` tipo), o que significa que se aplica a toda a telemetria que tem atributos (atualmente `requests` , e `dependencies` `traces` ).
-
-   Corresponderá a qualquer telemetria que tenha um atributo chamado `tempName` .
-
-   Em seguida, eliminará o atributo denominado `tempName` , para que não seja reportado como uma dimensão personalizada.
-
-```
+```json
 {
   "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "include": {
-          "matchType": "regexp",
-          "attributes": [
-            { "key": "http.method", "value": "" }
-          ],
-          "spanNames": [ "^/" ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [ "^(?<tempName>.*)$" ]
-          }
-        }
-      },
-      {
-        "type": "span",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "name": {
-          "fromAttributes": [ "http.method", "tempName" ],
-          "separator": " "
-        }
-      },
-      {
-        "type": "attribute",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "actions": [
-          { "key": "tempName", "action": "delete" }
-        ]
-      }
-    ]
+    "httpMethodInOperationName": true
   }
 }
 ```

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbf936370b401a76479c7679499103d083e0752a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578044"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551752"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior 
 
@@ -106,4 +106,4 @@ Também pode encontrar as informações de estado no registo do evento em: **Apl
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para dúvidas, consulte a [faq de gestão](faq.md) de dispositivos  
+Para dúvidas, consulte a [faq de gestão](faq.yml) de dispositivos  

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d572509b3b2b3a0fc69f207d005984ee07ce34a4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389183"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076824"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para o Azure Data Factory
 
@@ -54,7 +54,7 @@ Ativar o serviço Private Link para cada um dos canais de comunicação anterior
    - As comunicações de comando entre o tempo de integração auto-hospedado e o serviço Azure Data Factory podem ser executados de forma segura num ambiente de rede privada. O tráfego entre o tempo de integração auto-hospedado e o serviço Azure Data Factory passa por Private Link. 
 - **Não suportado atualmente:**
    - A autoria interativa que utiliza um tempo de integração auto-hospedado, como a ligação de teste, a lista de pastas de navegação e a lista de tabelas, obter esquemas e dados de pré-visualização, passa pelo Private Link.
-   - A nova versão do tempo de funcionaamento de integração auto-hospedado pode ser automaticamente descarregada a partir do Microsoft Download Center se ativar o Auto-Update.
+   - A nova versão do tempo de integração auto-hospedado que pode ser automaticamente descarregado do Microsoft Download Center se ativar o Auto-Update, não é suportada neste momento .
 
    > [!NOTE]
    > Para funcionalidades que não são suportadas atualmente, ainda precisa configurar o domínio e a porta anteriormente mencionados na rede virtual ou na firewall corporativa. 

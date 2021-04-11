@@ -3,12 +3,12 @@ title: Utilize tarefas multi-instâncias para executar aplicações MPI
 description: Saiba como executar aplicações de Interface de Passagem de Mensagens (MPI) utilizando o tipo de tarefa de várias instâncias em Azure Batch.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 51fc580e0bb31e0e975c53b44887a5889a784eea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02764f8dd8a6bb3e4224b8b44fe78ab7e15ba85d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605676"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219858"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilize tarefas de várias instâncias para executar aplicações de Interface de Passagem de Mensagens (MPI) em Batch
 
@@ -21,7 +21,7 @@ As tarefas de várias instâncias permitem executar uma tarefa do Azure Batch em
 
 Em Batch, cada tarefa é normalmente executada num único nó de computação-- você submete várias tarefas a um trabalho, e o serviço Batch agenda cada tarefa para execução em um nó. No entanto, ao configurar **as definições de várias instâncias** de uma tarefa, diga ao Batch para criar uma tarefa primária e vários subtarefas que são depois executados em múltiplos nós.
 
-:::image type="content" source="media/batch-mpi/batch_mpi_01.png" alt-text="Diagrama mostrando uma visão geral das definições de vários casos.":::
+:::image type="content" source="media/batch-mpi/batch-mpi-01.png" alt-text="Diagrama mostrando uma visão geral das definições de vários casos.":::
 
 Quando submete uma tarefa com configurações de várias instâncias a um trabalho, o Batch executa vários passos exclusivos para tarefas multi-instâncias:
 

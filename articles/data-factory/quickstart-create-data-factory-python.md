@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/15/2021
+ms.date: 04/06/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 6b15585f029f9289736d8d498b61a3e0ba40f009
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889421"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449278"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
@@ -75,9 +75,12 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
     ```
     > [!NOTE] 
     > O pacote "identidade azul" pode ter conflitos com "azure-cli" em algumas dependências comuns. Se encontrar algum problema de autenticação, remova "azure-cli" e suas dependências, ou utilize uma máquina limpa sem instalar o pacote "azure-cli" para fazê-lo funcionar.
+    > Para nuvens soberanas, você deve usar as constantes específicas da nuvem apropriada.  Consulte a [Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs para instruções para se conectar com Python em nuvens soberanas.](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)
+    
     
 ## <a name="create-a-data-factory-client"></a>Criar um cliente de fábrica de dados
 
+  
 1. Crie um ficheiro denominado **datafactory.py**. Adicione as seguintes instruções para adicionar referências aos espaços de nomes.
 
     ```python
@@ -122,6 +125,7 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
     ```
 3. Adicione o código seguinte ao método **Main** que cria uma instância da classe DataFactoryManagementClient. Utilize este objeto para criar uma fábrica de dados, um serviço ligado, conjuntos de dados e um pipeline. Também pode utilizar este objeto para monitorizar os detalhes de execução do pipeline. Defina a variável **subscription_id** como o ID da sua subscrição do Azure. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
+        
     ```python
     def main():
 
@@ -136,6 +140,11 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
 
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+        
+        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
+        # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
+        
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 

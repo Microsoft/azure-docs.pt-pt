@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 8a42ca4cf69515c99bb2e0bd28bb62dfed0e18f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33adaf33ba15b49b0a7e4d3e8f1b2a8c435a7966
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650694"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449040"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -218,7 +218,7 @@ Utilizando o Código do Estúdio Visual, comprometa e empurre as suas alteraçõ
 
 ## <a name="create-a-static-web-app"></a>Criar uma aplicação Web estática
 
-1. Navegue até ao [portal Azure](https://portal.azure.com)
+1. Navegue para o [portal do Azure](https://portal.azure.com)
 1. Clique em **Criar um Recurso**.
 1. Pesquisa por **Aplicação Web Estática**
 1. Clique **em Aplicativo Web Estático (pré-visualização)**
@@ -255,7 +255,7 @@ Em seguida, adicione os seguintes detalhes de construção.
 
     :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Fluxo de trabalho do GitHub":::
 
-1. Uma vez concluída a implementação, ou pode navegar para a aplicação web, clicando no link _URL_ mostrado na página _'Vista Geral'._
+1. Uma vez concluída a implementação, pode navegar para a aplicação web, clicando no link _URL_ mostrado na página _'Vista Geral'._
 
     :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Acesso url de aplicativo estático a partir do portal Azure":::
 
@@ -263,7 +263,7 @@ Em seguida, adicione os seguintes detalhes de construção.
 
 Se não quiser manter esta aplicação para posterior utilização, pode utilizar os seguintes passos para eliminar a App Web Estática Azure e os seus recursos relacionados.
 
-1. Navegue até ao [portal Azure](https://portal.azure.com)
+1. Navegue para o [portal do Azure](https://portal.azure.com)
 1. Na barra de pesquisa superior, tipo **grupos de recursos**
 1. Clique **em grupos de recursos**
 1. Selecione **myResourceGroup**

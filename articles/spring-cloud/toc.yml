@@ -99,6 +99,8 @@
           href: how-to-bind-redis.md
         - name: Vincular uma aplicação ao Azure MySQL
           href: how-to-bind-mysql.md
+        - name: Identidade gerida para ligar Azure SQL Database
+          href: connect-managed-identity-to-azure-sql.md
         - name: Integrar nas Soluções de Balanceamento de Carga do Azure
           href: how-to-integrate-azure-load-balancers.md
     - name: Monitorizar
@@ -133,6 +135,20 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Criar funções e permissões
           href: how-to-permissions.md
+        - name: Ativar a segurança da camada de transporte de ponta a ponta
+          href: how-to-enable-end-to-end-tls.md
+        - name: Acesso Config Servidor e Registo de Serviço
+          href: how-to-access-data-plane-azure-ad-rbac.md
+    - name: Integrar
+      items:
+        - name: Vincular uma aplicação ao Azure CosmosDB
+          href: how-to-bind-cosmos.md
+        - name: Vincular uma aplicação à Cache do Azure para Redis
+          href: how-to-bind-redis.md
+        - name: Vincular uma aplicação ao Azure MySQL
+          href: how-to-bind-mysql.md
+        - name: Integrar nas Soluções de Balanceamento de Carga do Azure
+          href: how-to-integrate-azure-load-balancers.md
     - name: Automatizar
       items:
         - name: CI/CD com o Azure DevOps

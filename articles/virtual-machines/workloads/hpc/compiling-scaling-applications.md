@@ -9,10 +9,10 @@ ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 4ab2c599bea4b2e3e682755a80a2ee348e4de7ef
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105606781"
 ---
 # <a name="scaling-hpc-applications"></a>Aplicações de escala HPC

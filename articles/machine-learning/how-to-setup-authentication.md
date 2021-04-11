@@ -8,15 +8,15 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/05/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee767cbeafcce604ecb4a79ce0fdf21c70bbb47c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102210823"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219642"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação dos recursos e dos fluxos de trabalho do Azure Machine Learning
 
@@ -70,12 +70,6 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
     Se tiver várias subscrições do Azure, pode utilizar o `az account set -s <subscription name or ID>` comando para definir a subscrição. Para obter mais informações, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](/cli/azure/authenticate-azure-cli).
-
-1. Instale a extensão Azure Machine Learning:
-
-    ```azurecli-interactive
-    az extension add -n azure-cli-ml
-    ```
 
 1. Crie o diretor de serviço. No exemplo seguinte, é criado um SP chamado **ml-auth:**
 
@@ -143,7 +137,7 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
 
 1. A partir do [portal Azure,](https://portal.azure.com)selecione o seu espaço de trabalho e, em seguida, selecione __Access Control (IAM)__, Adicione a Atribuição de __Funções__ e selecione __a Máquina Virtual__ a partir do Access Access __To__ dropdown. Finalmente, selecione a identidade do seu VM.
 
-1. Selecione o papel a atribuir a esta identidade. Por exemplo, colaborador ou um papel personalizado. Para mais informações consulte, [Controle o acesso aos recursos.](how-to-assign-roles.md)
+1. Selecione o papel a atribuir a esta identidade. Por exemplo, colaborador ou um papel personalizado. Para mais informações, consulte, [Controle o acesso aos recursos.](how-to-assign-roles.md)
 
 ### <a name="managed-identity-with-compute-cluster"></a>Identidade gerida com cluster de computação
 

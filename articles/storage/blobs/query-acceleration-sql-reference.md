@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca4fe1410c18357a1fab10cc9c971cf3a81542fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95908783"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963262"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Referência linguística SQL de aceleração de consulta
 
@@ -122,8 +122,8 @@ A aceleração de consulta O idioma SQL suporta as seguintes funções padrão d
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Devolve uma expressão de caracteres com dados de caracteres minúsculos convertidos em maiúsculas.|
 |[SUB-CORDA](/sql/t-sql/functions/substring-transact-sql)    |Devolve parte de um personagem, binário, texto ou expressão de imagem no SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Remove o carvão do carácter do espaço(32) ou outros caracteres especificados do início e da extremidade de uma corda.|
-|LEVANDO    |Description|
-|TRAILING    |Description|
+|LEVANDO    |Remove o carvão do carácter do espaço(32) ou outros caracteres especificados desde o início de uma corda.|
+|TRAILING    |Remove o carvão do carácter do espaço(32) ou outros caracteres especificados da extremidade de uma corda.|
 
 Aqui estão alguns exemplos:
 

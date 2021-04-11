@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 7ab67602ebba2ae5446ecc0052ef4b03bba1e1bf
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104952988"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como resolver problemas com o agente do Log Analytics para Windows 
@@ -68,10 +68,10 @@ Verifique duas vezes se a firewall ou o proxy estão configurados para permitir 
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porto 443 |Saída|Sim |  
-|*.agentsvc.azure-automation.net |Porto 443 |Saída|Sim |  
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.blob.core.windows.net |Porto 443 |Saída|Yes |  
+|*.agentsvc.azure-automation.net |Porto 443 |Saída|Yes |  
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). Se pretender utilizar o Azure Automation Hybrid Runbook Worker para ligar e registar-se com o serviço de Automação para utilizar runbooks ou soluções de gestão no seu ambiente, deve ter acesso ao número de porta e aos URLs descritos em [Configurar a sua rede para o Trabalhador de Runbook Híbrido.](../../automation/automation-hybrid-runbook-worker.md#network-planning) 
 

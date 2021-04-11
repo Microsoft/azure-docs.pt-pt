@@ -4,14 +4,14 @@ description: Descreve como ativar a saúde dos hóspedes em VM na sua subscriç�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/16/2020
+ms.date: 04/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 540f0725427ace4aec76de373556cd6699a1b229
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6f6c67e0e9ef1dd2a4092033a9479801cd0e8e7d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732759"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449312"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Ativar a saúde dos hóspedes (pré-visualização)
 A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como ativar esta funcionalidade na sua subscrição e como ativar a monitorização do hóspede para cada máquina virtual.
@@ -26,6 +26,8 @@ A saúde dos hóspedes tem as seguintes limitações na visualização pública:
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 A Máquina Virtual deve executar um dos seguintes sistemas operativos: 
 
+  - CentOS 7.5, 7.6, 7.7, 7.8, 7.9
+  - RedHat 7.5, 7.6, 7.7, 7.8, 7.9
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 ou posterior
 

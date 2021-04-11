@@ -3,12 +3,12 @@ title: Teste da unidade de funções duradouras de Azure
 description: Saiba como unir o teste de Funções Duradouras.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 89b6419e95b3971b0d272490e19354f300204e1e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fe5a25e0296eb183ef2426e12f7bdee35633ec78
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491049"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076637"
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de funções duradouras
 
@@ -33,13 +33,13 @@ Os exemplos deste artigo requerem conhecimento dos seguintes conceitos e quadros
 
 O escárnio é suportado através da seguinte interface:
 
-* [IDurableOrchestrationClient,](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationClient) [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.IDurableEntityClient) e [IDurableClient](/dotnet/api/microsoft.azure.webjobs.IDurableClient)
+* [IDurableOrchestrationClient,](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient) [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentityclient) e [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient)
 
-* [IDurableOrchestrationContexto](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationContext)
+* [IDurableOrchestrationContexto](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
-* [IDurableActivityContexto](/dotnet/api/microsoft.azure.webjobs.IDurableActivityContext)
+* [IDurableActivityContexto](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
   
-* [IDurableEntityContexto](/dotnet/api/microsoft.azure.webjobs.IDurableEntityContext)
+* [IDurableEntityContexto](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
 Estas interfaces podem ser utilizadas com o gatilho e as ligações suportadas por Funções Duradouras. Ao executar as suas Funções Azure, o tempo de execução das funções executará o seu código de função com uma implementação concreta destas interfaces. Para testes de unidade, pode passar numa versão ridicularizada destas interfaces para testar a sua lógica de negócio.
 
