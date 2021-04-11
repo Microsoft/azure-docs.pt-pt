@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: mikben
 ms.openlocfilehash: 72941faf122be50d2c721fd4c8421ae4339d5d2c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104656248"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Tratamento de Eventos em Serviços de Comunicação Azure

@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: b9d782dc5158ff16ed65ffbf9c3254cca75da1ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5fa62c649287fc6c9d02ea4f12db8c6cc5bb7df7
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612957"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106126023"
 ---
 <!--Feature availability in region-->
 ## <a name="united-kingdom"></a>Reino Unido
@@ -17,9 +17,9 @@ ms.locfileid: "104612957"
 | Funcionalidade | Sul do Reino Unido | Oeste do Reino Unido |
 | --- | :---: | :---: |
 | [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Disponibilidade geral do Azure EventGrid UK South](../media/azure-clouds-regions/ga.svg)  |![Disponibilidade geral do Azure EventGrid UK West](../media/azure-clouds-regions/ga.svg) |
-| [VídeoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset UK West Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset UK Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset UK West Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [LiveEvents](../live-streaming-overview.md) |![LiveEvents UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![LiveEvents UK West disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
+| [VídeoAnalyzerPreset](../analyze-video-audio-files-concept.md) |![VideoAnalyzerPreset UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset UK West Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
+| [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md) |![AudioAnalyzerPreset UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset UK Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
+| [StandardEncoderPreset](../encode-concept.md) |![StandardEncoderPreset UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset UK West Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
+| [LiveEvents](../stream-live-streaming-concept.md) |![LiveEvents UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg)  | ![LiveEvents UK West disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
 | [StreamingEndpoints](../streaming-endpoint-concept.md) |![StreamingEndpoints UK Disponibilidade geral do Sul](../media/azure-clouds-regions/ga.svg) | ![StreamingEndpoints UK Disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
-| [LiveTranscription](../live-transcription.md) |![Disponibilidade geral do LiveTranscription UK South](../media/azure-clouds-regions/ga.svg) |![Disponibilidade geral do LiveTranscription UK West](../media/azure-clouds-regions/ga.svg) |
+| [LiveTranscription](../live-event-live-transcription-how-to.md) |![Disponibilidade geral do LiveTranscription UK South](../media/azure-clouds-regions/ga.svg) |![Disponibilidade geral do LiveTranscription UK West](../media/azure-clouds-regions/ga.svg) |

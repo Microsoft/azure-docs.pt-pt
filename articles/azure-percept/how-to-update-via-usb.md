@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: cd6e4e62123b4d4b927cf385aaf64a066eecc1e0
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104887755"
 ---
 # <a name="how-to-update-azure-percept-dk-over-a-usb-connection"></a>Como atualizar o Azure Percept DK sobre uma ligação USB

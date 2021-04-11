@@ -11,10 +11,10 @@ ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 3ecf4458b052f4fdc0eb2e6e697b0468c71ce9c2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102519661"
 ---
 # <a name="trigger-machine-learning-pipelines"></a>Gasodutos de aprendizagem de máquinas de gatilho

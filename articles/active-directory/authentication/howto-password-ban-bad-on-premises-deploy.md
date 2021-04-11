@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5134c0eeaf3ebd1467b35cf825aa64bd1b445bd5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653818"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010584"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planear e implementar no local Azure Ative Directory Password Protection
 
@@ -88,7 +88,7 @@ Aplicam-se os seguintes requisitos fundamentais:
 * O Serviço de Distribuição de Chaves deve ser ativado em todos os controladores de domínio do domínio que executam as versões Windows Server 2012 e posteriores. Por predefinição, este serviço é ativado através do arranque manual do gatilho.
 
 * A conectividade da rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospeda o serviço de procuração para a Proteção de Passwords AD Azure. Esta conectividade deve permitir ao controlador de domínio aceder à porta do mapa 135 do ponto final do RPC e à porta do servidor RPC no serviço de procuração.
-    * Por predefinição, a porta do servidor RPC é uma porta RPC dinâmica, mas pode ser configurada para [utilizar uma porta estática](#static).
+    * Por predefinição, a porta de servidor RPC é uma porta RPC dinâmica da gama (49152 - 65535), mas pode ser configurada para [utilizar uma porta estática](#static).
 * Todas as máquinas onde será instalado o serviço Azure AD Password Protection Proxy devem ter acesso à rede aos seguintes pontos finais:
 
     |**Ponto final**|**Objetivo**|

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 58db217ca173acbe0356596de916216c4ab7f241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a972123604cafbfc4c6753c1fe3ad21147b53b2d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715552"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550664"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Métricas de monitorização e troncos na Porta frontal de Azure
 
@@ -29,7 +29,7 @@ Ao utilizar a Porta Frontal Azure, pode monitorizar os recursos das seguintes fo
 
 As métricas são uma característica de certos recursos Azure que permitem visualizar contadores de desempenho no portal. Estão disponíveis as métricas da Porta frontal:
 
-| Metric | Nome de exibição métrica | Unidade | Dimensões | Description |
+| Metric | Nome de exibição métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
 | PedidoCount | Número de Pedidos | de palavras | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de pedidos de clientes servidos pela Porta da Frente.  |
 | Solicitação | Tamanho do pedido | Bytes | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de bytes enviados como pedidos de clientes para a Porta da Frente. |
@@ -71,7 +71,7 @@ Para configurar registos de diagnóstico para a sua porta frontal:
 
 3. **Selecione Ligue os diagnósticos**. Arquive os registos de diagnóstico juntamente com as métricas para uma conta de armazenamento, transmite-os para um centro de eventos ou envia-os para os registos do Azure Monitor.
 
-A Porta frontal fornece atualmente registos de diagnóstico (lotados por hora). Os registos de diagnóstico fornecem pedidos individuais de API com cada entrada com o seguinte esquema:
+A Porta frontal fornece atualmente registos de diagnóstico. Os registos de diagnóstico fornecem pedidos individuais de API com cada entrada com o seguinte esquema:
 
 | Propriedade  | Descrição |
 | ------------- | ------------- |

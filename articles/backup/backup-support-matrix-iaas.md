@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0150a4c1a8fbd756de6fc16142f0115b05098ed
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609792"
+ms.locfileid: "105967834"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -153,6 +153,7 @@ Backup de VMs Azure com fechaduras | Não suportado para VMs não geridos. <br><
 [Spot VMs](../virtual-machines/spot-vms.md) | Sem apoio. A Azure Backup restaura os VMs spot como VMs Azure regulares.
 [Anfitrião Dedicado Azure](../virtual-machines/dedicated-hosts.md) | Suportado
 Configuração de Espaços de Armazenamento do Windows de VMs Azure autónomos | Suportado
+[Conjuntos de escala Azure VM](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Apoiado para modelos de orquestração uniforme e flexível para apoiar e restaurar o Single Azure VM.
 
 ## <a name="vm-storage-support"></a>Suporte de armazenamento VM
 

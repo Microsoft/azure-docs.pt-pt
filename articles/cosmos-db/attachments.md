@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
 ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102521225"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Anexos DB Azure Cosmos

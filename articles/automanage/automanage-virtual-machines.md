@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 973bd1ac121513a297574bbb37d1663b5a18c345
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643535"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276914"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -70,6 +70,8 @@ Se estiver a habilitar a Automanage com uma nova conta Automanage:
 Se estiver a habilitar a Automanage com uma conta automanage existente:
 * **Papel do contribuinte** no grupo de recursos que contém os seus VMs
 
+A conta Automanage receberá permissões **de** Contribuinte e **Dedudo Dedução de Política de Recursos** para realizar ações em máquinas autogeridas.
+
 > [!NOTE]
 > Se pretender utilizar a Automanage num VM que esteja ligado a um espaço de trabalho numa subscrição diferente, deve ter as permissões acima descritas em cada subscrição.
 
@@ -94,6 +96,19 @@ Se é a primeira vez que permite a auto-produção para o seu VM, pode pesquisar
 
 A única altura em que poderá ter de interagir com este VM para gerir estes serviços é no caso de tentarmos remediar o seu VM, mas não o fizemos. Se remediarmos com sucesso o seu VM, vamos trazê-lo de volta ao cumprimento sem sequer alertá-lo. Para mais detalhes, consulte [o Estado dos VMs.](#status-of-vms)
 
+## <a name="enabling-automanage-for-vms-using-azure-policy"></a>Habilitar a auto-mutilação para VMs utilizando a Política Azure
+Também pode ativar a auto-produção em VMs em escala utilizando a Política Azure incorporada. A política tem um efeito DeployIfNotExists, o que significa que todos os VMs elegíveis localizados no âmbito da apólice serão automaticamente acedidos às Melhores Práticas de Automanage VM.
+
+Está [aqui uma](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3)ligação direta à política.
+
+### <a name="how-to-apply-the-policy"></a>Como aplicar a política
+1. Clique no botão **Atribuir** ao visualizar a definição de política
+1. Selecione o âmbito em que pretende aplicar a política (pode ser grupo de gestão, subscrição ou grupo de recursos)
+1. Nos **parâmetros**, especifique os parâmetros para a conta de auto-produção, perfil de configuração e efeito (o efeito deve normalmente ser DeployIfNotExists)
+    1. Se não tiver uma conta de auto-nomeagem, terá de [criar uma](#create-an-automanage-account).
+1. Em **Remediação,** verifique a caixa de verificação "Clique numa tarefa de reparação". Isto irá atuar a bordo da Automanage.
+1. Clique **em Rever + criar** e certifique-se de que todas as definições ficam boas.
+1. Clique em **Criar**.
 
 ## <a name="environment-configuration"></a>Configuração do ambiente
 
@@ -142,6 +157,43 @@ Se estiver a ativar a Automanage com uma Conta de Auto-gestão existente, tem de
 > [!NOTE]
 > Quando desativar as melhores práticas de auto-managem, as permissões da Conta De Auto-Manage em quaisquer subscrições associadas permanecerão. Remova manualmente as permissões indo para a página IAM da subscrição ou eliminando a Conta Desmanvação Automática. A Conta de Gestão Automática não pode ser eliminada se ainda estiver a gerir máquinas.
 
+### <a name="create-an-automanage-account"></a>Criar uma conta de auto-nomeagem
+Pode criar uma Conta de Auto-Produção utilizando o portal ou utilizando um modelo ARM.
+
+#### <a name="portal"></a>Portal
+1. Navegue até à lâmina **de auto-managem** no portal
+1. Clique **em Ativar na máquina existente**
+1. Em **Avançado**, clique em "Criar uma nova conta"
+1. Preencha os campos necessários e clique em **Criar**
+
+#### <a name="arm-template"></a>Modelo ARM
+Guarde o seguinte modelo ARM como `azuredeploy.json` e executar o seguinte comando: `az deployment group create --resource-group <resource group name> --template-file azuredeploy.json`
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automanageAccountName": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2020-06-30-preview",
+            "type": "Microsoft.Automanage/accounts",
+            "name": "[parameters('automanageAccountName')]",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "SystemAssigned"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="status-of-vms"></a>Estatuto dos VM
 

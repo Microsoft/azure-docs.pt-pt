@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: hirsin
 ms.openlocfilehash: 53dfdfaf37695059d6d52428c2ba109970d9f7f7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104589383"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Desative a aceleração automática para um IDP federado durante o início de sação do utilizador com a política home realm Discovery

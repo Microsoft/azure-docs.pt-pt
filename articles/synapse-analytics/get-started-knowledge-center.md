@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/16/2020
-ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/04/2021
+ms.openlocfilehash: a26f46da7b392bd3b4a49aacb360a4c6147f8d2c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98209207"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382645"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse
 
@@ -30,7 +30,7 @@ Há duas formas de encontrar o Knowledge Center no Estúdio Synapse:
 
 Escolha qualquer um dos métodos e abra o **Centro de Conhecimento.**
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O **Centro de Conhecimento** permite-lhe fazer três coisas:
 * **Utilize amostras imediatamente**. Se quiser um exemplo rápido de como funciona a Sinapse, escolha esta opção.
@@ -47,6 +47,7 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 1. Clique em Run (Executar). Só irá executar o código que selecionou.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Carregar mais dados de táxi de NYC
+
 1. Vá ao **Knowledge Center,** clique **na galeria Browse.**
 1. Selecione o separador **de scripts SQL** na parte superior.
 1. Selecione Carregar a amostra **de dados do Conjunto de Dados do Táxi de Nova Iorque,** clique em **Continuar**.
@@ -61,6 +62,6 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Introdução ao Azure Synapse Analytics](get-started.md)
-* [Criar uma área de trabalho](quickstart-create-workspace.md)
-* [Utilizar conjunto de SQL sem servidor](quickstart-sql-on-demand.md)
+> [!div class="nextstepaction"]
+> [Adicionar um administrador](get-started-add-admin.md)
+

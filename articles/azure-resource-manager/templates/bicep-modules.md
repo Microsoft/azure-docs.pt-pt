@@ -2,17 +2,19 @@
 title: Módulos Bicep
 description: Descreve como definir e consumir um módulo e como usar os âmbitos do módulo.
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: 7a680e8aa0fa4d5ef9cac7f9e7ba07a3aa4ee1e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 03/30/2021
+ms.openlocfilehash: 6c325bbbe265e13241119761373985ca4552b158
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611740"
+ms.locfileid: "105967885"
 ---
 # <a name="use-bicep-modules-preview"></a>Utilize módulos Bicep (Pré-visualização)
 
-O Bicep permite-lhe decompor uma solução complexa em módulos. Um módulo Bicep é um conjunto de um ou mais recursos a serem implantados em conjunto. Módulos abstratos detalhes complexos da declaração de recursos brutos, que podem aumentar a legibilidade. Podes reutilizar estes módulos e partilhá-los com outras pessoas. Combinado com [as especificações do modelo,](./template-specs.md)cria uma forma de modularidade e reutilização de códigos. Para um tutorial, consulte [Tutorial: Adicione módulos Bicep](./bicep-tutorial-add-modules.md).
+O Bicep permite-lhe decompor uma solução complexa em módulos. Um módulo Bicep é um conjunto de um ou mais recursos a serem implantados em conjunto. Módulos abstratos detalhes complexos da declaração de recursos brutos, que podem aumentar a legibilidade. Podes reutilizar estes módulos e partilhá-los com outras pessoas. Combinado com [as especificações do modelo,](./template-specs.md)cria uma forma de modularidade e reutilização de códigos. Os módulos Bicep são transpostos para um único modelo ARM com [modelos aninhados](./linked-templates.md#nested-template) para implantação. Em Bicep, [_dependsOn_](./template-syntax.md#resources) é manuseado automaticamente.
+
+Para um tutorial, consulte [Tutorial: Adicione módulos Bicep](./bicep-tutorial-add-modules.md).
 
 ## <a name="define-modules"></a>Definir módulos
 

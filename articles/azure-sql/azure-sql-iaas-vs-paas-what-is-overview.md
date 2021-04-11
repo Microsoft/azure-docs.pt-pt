@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
 ms.openlocfilehash: ea097119111d5dbd5eba3c11aba549d201186e3f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104592188"
 ---
 # <a name="what-is-azure-sql"></a>O que é o Azure SQL? 
@@ -89,7 +89,7 @@ A Azure SQL Database oferece as seguintes opções de implementação:
   - Como uma única base de [*dados*](database/single-database-overview.md) com o seu próprio conjunto de recursos geridos através de um [servidor lógico SQL](database/logical-servers.md). Uma única base de dados é semelhante a uma [base de dados contida](/sql/relational-databases/databases/contained-databases) no SQL Server. Esta opção está otimizada para o desenvolvimento moderno de aplicações de novas aplicações nascidas na nuvem. Estão disponíveis opções [de hiperescala](database/service-tier-hyperscale.md) e [sem servidor.](database/serverless-tier-overview.md)
   - Uma [*piscina elástica,*](database/elastic-pool-overview.md)que é uma coleção de bases de dados com um conjunto partilhado de recursos geridos através de um [servidor lógico SQL](database/logical-servers.md). Bases de dados individuais podem ser transferidas para dentro e para fora de uma piscina elástica. Esta opção é otimizada para o desenvolvimento moderno de aplicações de novas aplicações nascidas na nuvem usando o padrão de aplicação SaaS multi-inquilino. As piscinas elásticas fornecem uma solução rentável para gerir o desempenho de várias bases de dados que têm padrões de utilização variáveis.
 
-### <a name="azure-sql-managed-instance"></a>Instância Gerida do Azure SQL
+### <a name="azure-sql-managed-instance"></a>Instância Gerida do SQL do Azure
 
 [Azure SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md) insere-se na categoria industrial de *Platform-as-a-Service (PaaS)* e é o melhor para a maioria das migrações para a nuvem. SQL Managed Instance é uma coleção de bases de dados de sistemas e utilizadores com um conjunto partilhado de recursos que está pronto para levantar e deslocar.  
 - O melhor para novas aplicações ou aplicações existentes no local que queiram utilizar as mais recentes funcionalidades estáveis do SQL Server e que são migradas para a nuvem com alterações mínimas. Um caso de SQL Managed Instance é semelhante a uma instância do motor de base de dados do [Microsoft SQL Server](/sql/database-engine/sql-server-database-engine-overview) que oferece recursos partilhados para bases de dados e funcionalidades adicionais de âmbito de instância. 
@@ -111,7 +111,7 @@ Em geral, a BASE de Dados SQL e a SQL Managed Instance podem aumentar drasticame
 
 ### <a name="comparison-table"></a>Tabela de comparação
 
-| Base de Dados SQL do Azure | Instância Gerida do Azure SQL | SQL Server numa VM do Azure |
+| Base de Dados SQL do Azure | Instância Gerida do SQL do Azure | SQL Server numa VM do Azure |
 | :--- | :--- | :--- |
 |Suporta a maioria das capacidades de nível de base de dados no local. As funcionalidades do SQL Server mais utilizadas estão disponíveis.<br/>99,995% de disponibilidade garantida.<br/>Reforços incorporados, remendos, recuperação.<br/>Versão mais recente do Motor base de dados estável.<br/>Capacidade de atribuir recursos necessários (CPU/armazenamento) a bases de dados individuais.<br/>Inteligência e segurança avançadas.<br/>Mudança online de recursos (CPU/armazenamento).| Suporta quase todas as capacidades de nível de instância e de nível de base de dados no local. Alta compatibilidade com o SQL Server.<br/>99,99% de disponibilidade garantida.<br/>Reforços incorporados, remendos, recuperação.<br/>Versão mais recente do Motor base de dados estável.<br/>Fácil migração do SQL Server.<br/>Endereço IP privado dentro da Rede Virtual Azure.<br/>Inteligência e segurança avançadas.<br/>Mudança online de recursos (CPU/armazenamento).| Tem controlo total sobre o motor SQL Server. Suporta todas as capacidades no local.<br/>Até 99,99% de disponibilidade.<br/>Paridade total com a versão correspondente do SQL Server no local.<br/>Versão fixa e conhecida do Motor de Base de Dados.<br/>Fácil migração do SQL Server.<br/>Endereço IP privado dentro da Rede Virtual Azure.<br/>Tem a capacidade de implementar aplicações ou serviços no anfitrião onde o SQL Server é colocado.|
 |A migração do SQL Server pode ser um desafio.<br/>Algumas funcionalidades do SQL Server não estão disponíveis.<br/>Sem tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão SQL Server só pode ser alcançada utilizando níveis de compatibilidade na base de dados.<br/>Suporte de endereço IP privado com [Link Privado Azure](database/private-endpoint-overview.md).|Existe ainda um número mínimo de funcionalidades do SQL Server que não estão disponíveis.<br/>Sem tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão SQL Server só pode ser alcançada utilizando níveis de compatibilidade na base de dados.|Tens de gerir os teus backups e patches.<br>Tens de implementar a tua própria solução de High-Availability.<br/>Há uma inatividade ao alterar os recursos (CPU/armazenamento)|

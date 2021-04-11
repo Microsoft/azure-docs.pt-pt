@@ -4,17 +4,17 @@ titleSuffix: Azure Kubernetes Service
 description: Conheça as quotas padrão, os tamanhos de VM SKU restritos e a disponibilidade da região do Serviço Azure Kubernetes (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: 9592b03f5bd9e9436db5665e040b4afd3b68b764
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/25/2021
+ms.openlocfilehash: 3e1e74834153584525d2093d2a1bb8ba8e991e5a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87562740"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011469"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas, restrições de tamanho de máquina virtual e disponibilidade da região no Serviço Azure Kubernetes (AKS)
 
-Todos os serviços da Azure estabelecem limites e quotas de incumprimento para recursos e funcionalidades. Certos SKUs de máquina virtual (VM) também são restritos para utilização.
+Todos os serviços da Azure estabelecem limites e quotas de recursos e funcionalidades por defeito, incluindo restrições de utilização para determinadas SKUs de máquinas virtuais (VM).
 
 Este artigo detalha os limites de recursos padrão para os recursos do Serviço Azure Kubernetes (AKS) e a disponibilidade de AKS nas regiões de Azure.
 
@@ -27,7 +27,9 @@ Este artigo detalha os limites de recursos padrão para os recursos do Serviço 
 Aplicam-se todas as outras limitações de rede, computação e armazenamento para a infraestrutura de aprovisionamento. Para os limites relevantes, consulte os [limites de subscrição e serviço da Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 > [!IMPORTANT]
-> Quando atualiza um cluster AKS, os recursos adicionais são temporariamente consumidos. Estes recursos incluem endereços IP disponíveis numa sub-rede de rede virtual ou quota vCPU de máquina virtual. Se utilizar os recipientes do Windows Server, a única abordagem endossada para aplicar as atualizações mais recentes nos nós é realizar uma operação de atualização. Um processo falhado de atualização do cluster pode indicar que você não tem o espaço de endereço IP disponível ou quota vCPU para lidar com estes recursos temporários. Para obter mais informações sobre o processo de atualização do nó do servidor do Windows, consulte [a atualização de um conjunto de nós em AKS][nodepool-upgrade].
+> Quando se atualiza um cluster AKS, os recursos extras são temporariamente consumidos. Estes recursos incluem endereços IP disponíveis numa sub-rede de rede virtual ou quota vCPU de máquina virtual. 
+>
+> Para os recipientes do Windows Server, pode efetuar uma operação de atualização para aplicar as atualizações mais recentes do nó. Se não tiver o espaço de endereço IP disponível ou a quota vCPU para lidar com estes recursos temporários, o processo de upgrade do cluster falhará. Para obter mais informações sobre o processo de atualização do nó do servidor do Windows, consulte [a atualização de um conjunto de nós em AKS][nodepool-upgrade].
 
 ## <a name="restricted-vm-sizes"></a>Tamanhos de VM restritos
 
@@ -49,7 +51,7 @@ Para obter a mais recente lista de onde pode implantar e executar clusters, cons
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Podem ser aumentados determinados limites e quotas predefinidos. Se o seu recurso suportar um aumento, solicite o aumento através de um [pedido de suporte Azure][azure-support] (para **tipo de emissão,** **selecione Quota).**
+Pode aumentar certos limites e quotas de incumprimento. Se o seu recurso suportar um aumento, solicite o aumento através de um [pedido de suporte Azure][azure-support] (para **tipo de emissão,** **selecione Quota).**
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
