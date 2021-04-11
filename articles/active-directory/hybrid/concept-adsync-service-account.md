@@ -15,12 +15,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb23d79caa6964c3f61fbb84c8b8f229f475b8ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca99a997d621bfd2455e909b36b6802775b20ac2
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722162"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074612"
 ---
 # <a name="adsync-service-account"></a>ADSync service account (conta de serviço do ADSync)
 O Azure AD Connect instala um serviço no local que orquestra a sincronização entre o Ative Directory e o Azure Ative Directory.  O serviço de sincronização do Microsoft Azure AD Sync (ADSync) funciona num servidor no seu ambiente no local.  As credenciais para o serviço são definidas por padrão nas instalações do Express, mas podem ser personalizadas de acordo com os seus requisitos de segurança organizacional.  Estas credenciais não são usadas para ligar às suas florestas no local ou ao Diretório Ativo Azure.
@@ -56,7 +56,7 @@ Legenda:
 - sMSA - [conta de Serviço Gerido Autónomo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 - gMSA - [conta de serviço gerido do grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
- ||**Expresso </br> LocalDB**|**LocalDB/LocalSQL </br> Costume**|**Personalizado SQL remoto </br>**|
+|Tipo de máquina |**Expresso </br> LocalDB**|**LocalDB/LocalSQL </br> Costume**|**Personalizado SQL remoto </br>**|
 |-----|-----|-----|-----|
 |**máquina unida ao domínio**|**VSA**|**VSA**</br> *sMSA*</br> *gMSA*</br> Conta local</br> Conta do domínio| *gMSA* </br>Conta do domínio|
 |Controlador de Domínio| **sMSA**|**sMSA** </br>*gMSA*</br> Conta do domínio|*gMSA*</br>Conta do domínio| 

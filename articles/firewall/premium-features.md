@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/30/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d0e86d95205acea2ac48ce027bcd118f4e3bf20
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590454"
+ms.locfileid: "105967035"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funcionalidades de pré-visualização Azure Firewall Premium
 
@@ -105,39 +105,37 @@ Pode apresentar um pedido [https://aka.ms/azfw-webcategories-request](https://ak
 
 A pré-visualização Azure Firewall Premium é suportada nas seguintes regiões:
 
-- Europa Ocidental (Público / Europa)
-- Leste dos EUA (Público / Estados Unidos)
-- Austrália Oriental (Público / Austrália)
-- Sudeste Asiático (Público / Ásia Pacífico)
-- Reino Unido Sul (Público / Reino Unido)
-- Norte da Europa (Público / Europa)
-- Leste dos EUA 2 (Público / Estados Unidos)
-- South Central US (Público / Estados Unidos)
-- West US 2 (Público / Estados Unidos)
-- West US (Público / Estados Unidos)
-- Central dos EUA (Público / Estados Unidos)
-- Norte Central DOS EUA (Público / Estados Unidos)
-- Japão Oriental (Público / Japão)
-- Ásia Oriental (Público / Ásia Pacífico)
-- Canadá Central (Público / Canadá)
-- France Central (Público / França)
-- África do Sul Norte (África do Sul/ África do Sul)
-- UAE Norte (Público / EAU)
-- Suíça Norte (Público / Suíça)
-- Brasil Sul (Público / Brasil)
-- Noruega Oriental (Público / Noruega)
 - Austrália Central (Público / Austrália)
 - Austrália Central 2 (Público / Austrália)
+- Austrália Oriental (Público / Austrália)
 - Sudeste da Austrália (Público / Austrália)
+- Brasil Sul (Público / Brasil)
+- Canadá Central (Público / Canadá)
 - Canadá Leste (Público / Canadá)
+- Central dos EUA (Público / Estados Unidos)
 - Eua EUA (Público/ Canário (EUA))
+- Ásia Oriental (Público / Ásia Pacífico)
+- Leste dos EUA (Público / Estados Unidos)
+- Leste dos EUA 2 (Público / Estados Unidos)
+- France Central (Público / França)
 - França Sul (Público / França)
+- Japão Oriental (Público / Japão)
 - Japão Ocidental (Público / Japão)
+- Coreia Central (Público / Coreia)
 - Coreia do Sul (Público / Coreia)
+- Norte Central DOS EUA (Público / Estados Unidos)
+- Norte da Europa (Público / Europa)
+- África do Sul Norte (África do Sul/ África do Sul)
+- South Central US (Público / Estados Unidos)
+- Sudeste Asiático (Público / Ásia Pacífico)
 - UAE Central (Público/ EAU)
+- Reino Unido Sul (Público / Reino Unido)
 - UK West (Público / Reino Unido)
 - West Central US (Público / Estados Unidos)
+- Europa Ocidental (Público / Europa)
 - Índia Ocidental (Público / Índia)
+- West US (Público / Estados Unidos)
+- West US 2 (Público / Estados Unidos)
 
 
 ## <a name="known-issues"></a>Problemas conhecidos

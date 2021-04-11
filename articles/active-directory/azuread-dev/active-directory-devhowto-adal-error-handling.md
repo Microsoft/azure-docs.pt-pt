@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da47893839322f06cebfbee40902414040bb87d8
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85383739"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075207"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Manipulação de erros das melhores práticas para clientes da Azure Ative Directory Authentication Library (ADAL)
 
@@ -197,7 +197,7 @@ Em caso de falha, uma aplicação pode apresentar UI para permitir ao utilizador
 
 O tratamento de erros em aplicações nativas pode ser definido por dois casos:
 
-|  |  |
+| Caso | Description  |
 |------|-------------|
 | **Caso 1:**<br>Erro não retável (na maioria dos casos) | 1. Não tente voltar a tentar. Apresente o UI do utilizador final com base no erro específico que invoca uma nova tentativa (por exemplo, "Tente entrar novamente" ou "Descarregar a aplicação de corretor AD AZure"). |
 | **Caso 2:**<br>Erro retável | 1. Realizar uma única repetição, uma vez que o utilizador final pode ter entrado num estado que resulte num sucesso.<br><br>2. Se falhar novamente, apresente a UI do utilizador final com base no erro específico que invoca uma nova tentativa ("Tente entrar novamente", "Download Azure AD broker app", etc.). |
@@ -371,7 +371,7 @@ Se estiver a construir uma aplicação de uma página utilizando adal.js com o A
 
 A AcquireToken falhada tem os seguintes casos:
 
-|  |  |
+| Caso | Description  |
 |------|-------------|
 | **Caso 1:**<br>Resolvível com um pedido interativo | 1. Se o login falhar, não efetue a repetição imediata. Só a repetição após a ação do utilizador provoca uma nova mente.|
 | **Caso 2:**<br>Não é reelegível com um pedido interativo. O erro é redapto. | 1. Realizar uma única repetição, uma vez que o comandante do utilizador final entrou num estado que resulta num sucesso.<br><br>2. Se falhar novamente, apresente ao utilizador final uma ação baseada no erro específico que pode invocar uma nova tentativa ("Tente entrar novamente"). |

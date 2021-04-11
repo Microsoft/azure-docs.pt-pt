@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91329669"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073379"
 ---
 >[!NOTE]
 >Para recursos que não são fixados, abra um bilhete de apoio para pedir um aumento das quotas. Não crie contas adicionais da Azure Media Services numa tentativa de obter limites mais elevados.
@@ -41,7 +41,7 @@ A partir de 1 de abril de 2017, qualquer registo de emprego na sua conta com mai
 
 <sup>3</sup> Quando se faz um pedido de listar entidades de trabalho, um máximo de 1.000 postos de trabalho é devolvido por pedido. Para acompanhar todos os trabalhos submetidos, utilize as consultas de topo ou de salto, conforme descrito nas [opções de consulta do sistema OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup> Os localizadores não são concebidos para gerir o controlo de acesso por utilizador. Para dar diferentes direitos de acesso a utilizadores individuais, utilize soluções de gestão de direitos digitais (DRM). Para mais informações, consulte [Protect your content with Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup> Os localizadores não são concebidos para gerir o controlo de acesso por utilizador. Para dar diferentes direitos de acesso a utilizadores individuais, utilize soluções de gestão de direitos digitais (DRM). Para mais informações, consulte [Protect your content with Azure Media Services](../articles/media-services/latest/drm-content-protection-concept.md).
 
 <sup>5</sup> As contas de armazenamento devem ser da mesma subscrição do Azure.
 

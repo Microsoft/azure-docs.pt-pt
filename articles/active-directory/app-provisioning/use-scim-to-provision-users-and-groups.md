@@ -12,12 +12,12 @@ ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d517aaa6121120399e09bfef8aa6dd36e745563
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022947"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449465"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planear o provisionamento para um ponto final do SCIM
 
@@ -168,10 +168,10 @@ Existem vários pontos finais definidos no SCIM RFC. Pode começar com o `/User`
 |--|--|
 |/Utilizador|Executar operações CRUD num objeto do utilizador.|
 |/Grupo|Execute operações CRUD num objeto de grupo.|
-|/ServiceProviderConfig|Fornece detalhes sobre as características da norma SCIM que são suportadas, por exemplo os recursos que são suportados e o método de autenticação.|
-|/RecursosTypes|Especifica metadados sobre cada recurso|
 |/Schemas|O conjunto de atributos suportados por cada cliente e prestador de serviços pode variar. Um prestador de serviços pode incluir `name` `title` , `emails` e, enquanto outro prestador de serviços usa `name` , e `title` `phoneNumbers` . O ponto final dos esquemas permite a descoberta dos atributos suportados.|
 |/Granel|As operações a granel permitem realizar operações numa grande coleção de objetos de recursos numa única operação (por exemplo, atualizações para um grande grupo).|
+|/ServiceProviderConfig|Fornece detalhes sobre as características da norma SCIM que são suportadas, por exemplo os recursos que são suportados e o método de autenticação.|
+|/RecursosTypes|Especifica metadados sobre cada recurso.|
 
 **Exemplo lista de pontos finais**
 
@@ -1329,9 +1329,9 @@ Utilize a lista de verificação para embarcar rapidamente na sua aplicação e 
 > * 3 Credenciais de teste não expiradas para a sua aplicação (Requerida)
 > * Apoiar a concessão do código de autorização OAuth ou um símbolo de longa duração, conforme descrito abaixo (Obrigatório)
 > * Estabeleça um ponto de contacto de engenharia e apoio para apoiar os clientes post gallery onboarding (Obrigatório)
+> * [Deteção de esquemas de suporte (necessário)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Apoiar a atualização de várias associações de grupo com um único PATCH
 > * Documente publicamente o seu ponto final SCIM
-> * [Deteção de esquemas de suporte](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### <a name="authorization-to-provisioning-connectors-in-the-application-gallery"></a>Autorização de provisionamento de conectores na galeria de aplicações
 A especificação SCIM não define um esquema específico do SCIM para a autenticação e autorização e baseia-se na utilização dos padrões industriais existentes.

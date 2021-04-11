@@ -11,19 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8024a2083d09fcbd53a37f0d391c4589748eea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 80ec5133ad12dda4a6883c663007b8b7fec2e81a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605081"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551939"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
 
 Aplicações ou ações na nuvem são um sinal chave numa política de Acesso Condicional. As políticas de acesso condicional permitem aos administradores atribuir controlos a aplicações ou ações específicas.
 
 - Os administradores podem escolher entre a lista de aplicações que incluem aplicações integradas da Microsoft e quaisquer [aplicações integradas AZURE AD,](../manage-apps/what-is-application-management.md) incluindo galeria, não-galeria, e aplicações publicadas através do [Application Proxy](../manage-apps/what-is-application-proxy.md).
-- Os administradores podem optar por definir a política não com base numa aplicação em nuvem, mas numa ação do utilizador. A única ação suportada é registar informações de segurança (pré-visualização), permitindo o Acesso Condicional para impor controlos em torno da [experiência de registo de informações de segurança combinadas.](../authentication/howto-registration-mfa-sspr-combined.md)
+- Os administradores podem optar por definir a política não com base numa aplicação em nuvem, mas numa ação do utilizador. Apoiamos duas ações de utilizador
+   - Registar informações de segurança (pré-visualização) para impor controlos em torno da [experiência combinada de registo de informações de segurança](../authentication/howto-registration-mfa-sspr-combined.md) 
+   - Registe ou junte dispositivos (pré-visualização) para impor controlos quando os utilizadores [se registarem](../devices/concept-azure-ad-register.md) ou [se juntarem](../devices/concept-azure-ad-join.md) a dispositivos para a Azure AD. 
 
 ![Defina uma política de acesso condicional e especifique aplicações na nuvem](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -131,9 +133,10 @@ As ações do utilizador são tarefas que podem ser executadas por um utilizador
 
 - **Informações de segurança do registo**: Esta ação do utilizador permite que a política de acesso condicional aplique quando os utilizadores habilitados para o registo combinado tentam registar as suas informações de segurança. Mais informações podem ser encontradas no artigo, [registo combinado de informações de segurança.](../authentication/concept-registration-mfa-sspr-combined.md)
 
-- **Registar ou juntar dispositivos (pré-visualização)**: Esta ação do utilizador permite aos administradores impor a política de Acesso Condicional quando os utilizadores [se registam](../devices/concept-azure-ad-register.md) ou [se juntam](../devices/concept-azure-ad-join.md) a dispositivos para a Azure AD. Existem duas considerações fundamentais com esta ação do utilizador: 
+- **Registar ou juntar dispositivos (pré-visualização)**: Esta ação do utilizador permite aos administradores impor a política de Acesso Condicional quando os utilizadores [se registam](../devices/concept-azure-ad-register.md) ou [se juntam](../devices/concept-azure-ad-join.md) a dispositivos para a Azure AD. Fornece granularidade na configuração da autenticação de vários fatores para o registo ou junção de dispositivos em vez de uma política de todo o arrendatário que existe atualmente. Existem três considerações fundamentais com esta ação do utilizador: 
    - `Require multi-factor authentication` é o único controlo de acesso disponível com esta ação do utilizador e todos os outros estão desativados. Esta restrição impede conflitos com controlos de acesso que dependem do registo do dispositivo Azure ou não são aplicáveis ao registo do dispositivo Azure AD. 
-   - Quando uma política de acesso condicional estiver ativada com esta ação do utilizador, deve definir as definições do dispositivo de **diretório ativo Azure**  >    >    -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` para **nº**. Caso contrário, a política de acesso condicional com esta ação do utilizador não é devidamente aplicada. Mais informações sobre esta configuração do dispositivo podem ser encontradas nas [definições do dispositivo Configure](../devices/device-management-azure-portal.md#configure-device-settings). Esta ação do utilizador proporciona flexibilidade para exigir a autenticação de vários fatores para registar ou juntar dispositivos para utilizadores e grupos ou condições específicos em vez de ter uma política de todo o inquilino nas definições do Dispositivo. 
+   - `Client apps` e `Device state` as condições não estão disponíveis com esta ação do utilizador, uma vez que estão dependentes do registo do dispositivo Azure AD para impor as políticas de Acesso Condicional.
+   - Quando uma política de acesso condicional estiver ativada com esta ação do utilizador, deve definir as definições do dispositivo de **diretório ativo Azure**  >    >    -  `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` para **nº**. Caso contrário, a política de acesso condicional com esta ação do utilizador não é devidamente aplicada. Mais informações sobre esta configuração do dispositivo podem ser encontradas nas [definições do dispositivo Configure](../devices/device-management-azure-portal.md#configure-device-settings). 
    
 ## <a name="next-steps"></a>Passos seguintes
 

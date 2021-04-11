@@ -1,18 +1,18 @@
 ---
 title: Referência dos Ficheiros do Azure
 description: Encontre referência API de Ficheiros Azure, leia ficheiros e pacotes de biblioteca de clientes.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 828bb909aeb5d34f087a3173f792b325dc7cfd55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be50c60893b9767e7db2c5af0e43ed380a51ecab
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504819"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280008"
 ---
 # <a name="azure-files-reference"></a>Referência dos Ficheiros do Azure
 

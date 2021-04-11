@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c73849d07c1495251c17510ea71f29c674c618
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555011"
+ms.locfileid: "105967494"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Upgrade para uma conta de armazenamento v2 para fins gerais
 
@@ -28,7 +28,7 @@ A atualização para uma conta de armazenamento v2 para fins gerais a partir das
 > [!NOTE]
 > Embora a Microsoft recomende contas v2 para a maioria dos cenários, a Microsoft continuará a suportar contas v1 de uso geral para clientes novos e já existentes. Pode criar contas de armazenamento v1 para fins gerais em novas regiões sempre que o Azure Storage estiver disponível nessas regiões. A Microsoft não tem atualmente um plano para deprecatar o suporte para contas V1 de uso geral e fornecerá pelo menos um ano de antecedência antes de deprecá-lo. A Microsoft continuará a fornecer atualizações de segurança para as contas V1 de uso geral, mas não é esperado um novo desenvolvimento de funcionalidades para este tipo de conta.
 >
-> A partir de 1 de outubro de 2020, os preços das contas v1 para fins gerais nas novas regiões de Armazenamento Azure equivalem a preços para as contas v2 para fins gerais nessas regiões. Os preços nas regiões de armazenamento Azure existentes não mudaram. Para obter detalhes sobre preços para contas v1 para fins gerais numa região específica, consulte a página de preços do Azure Storage. Escolha a sua região e, em seguida, ao lado **das ofertas de preços,** selecione **Outros**.
+> Para as novas regiões do Azure que entraram em linha depois de 1 de outubro de 2020, os preços das contas V1 para fins gerais mudaram e equivalem a preços para as contas v2 de uso geral nessas regiões. Os preços das contas v1 para fins gerais nas regiões de Azure que existiam antes de 1 de outubro de 2020 não mudaram. Para obter detalhes sobre preços para contas v1 para fins gerais numa região específica, consulte a página de preços do Azure Storage. Escolha a sua região e, em seguida, ao lado **das ofertas de preços,** selecione **Outros**.
 
 ## <a name="upgrade-an-account"></a>Atualizar uma conta
 

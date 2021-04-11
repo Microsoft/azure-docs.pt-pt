@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d58e8b5ce9fb444fa501f897cca722613d9c51fe
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917533"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967579"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Grelha de Eventos Azure
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com a Azure Event Grid: 
@@ -33,7 +33,7 @@ Pode utilizar tags de serviço para definir controlos de acesso à rede em [grup
 ## <a name="ip-firewall"></a>Firewall de IP 
 A Azure Event Grid suporta controlos de acesso baseados em IP para publicação de tópicos e domínios. Com controlos baseados em IP, pode limitar os editores a um tópico ou domínio a apenas um conjunto de máquinas e serviços de nuvem aprovados. Esta funcionalidade complementa os [mecanismos de autenticação suportados](security-authentication.md) pela Grade de Eventos.
 
-Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida).
+Por predefinição, o tópico e o domínio estão acessíveis a partir da internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida).
 
 Para obter instruções passo a passo para configurar firewall IP para tópicos e domínios, consulte [a firewall IP configurar](configure-firewall.md).
 

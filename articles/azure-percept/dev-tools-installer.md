@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: template-how-to
 ms.openlocfilehash: f81f7922431f85cfc2a98261a128ba66d23a984f
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105608600"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Visão geral do instalador do pacote de ferramentas Dev

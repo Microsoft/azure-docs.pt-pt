@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 371cc78f3ebad638008f4195f164b66a64948c65
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601895"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504554"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Começar com o Windows Virtual Desktop Agent
 
@@ -25,7 +25,7 @@ Este artigo irá dar-lhe uma breve visão geral dos processos de instalação e 
 
 ## <a name="initial-installation-process"></a>Processo inicial de instalação
 
-O agente virtual do Windows está inicialmente instalado de duas formas. Se forre máquinas virtuais (VMs) no portal Azure e no Azure Marketplace, o bootloader do agente e do agente é instalado automaticamente. Se forre VMs utilizando o PowerShell, tem de descarregar manualmente o bootloader do agente e do agente .msi ficheiros ao [criar um pool de anfitriões virtual do Windows desktop com o PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). Quando o agente é instalado, a pilha virtual do Windows Desktop lado a lado e o agente de monitorização de Genebra também são instalados simultaneamente. O componente de pilha lado a lado é necessário para que os utilizadores estabeleçam ligações inversas de servidor a cliente. O agente de monitorização de Genebra monitoriza a saúde do agente. Todos estes três componentes são essenciais para que a conectividade do utilizador de ponta a ponta funcione corretamente.
+O agente virtual do Windows está inicialmente instalado de duas formas. Se forre máquinas virtuais (VMs) no portal Azure e no Azure Marketplace, o bootloader do agente e do agente é instalado automaticamente. Se forre VMs utilizando o PowerShell, tem de descarregar manualmente o bootloader do agente e do agente .msi ficheiros ao [criar um pool de anfitriões virtual do Windows desktop com o PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). Uma vez instalado o agente, instala a pilha virtual do Windows Desktop lado a lado e o agente de monitorização de Genebra. O componente de pilha lado a lado é necessário para que os utilizadores estabeleçam ligações inversas de servidor a cliente. O agente de monitorização de Genebra monitoriza a saúde do agente. Todos estes três componentes são essenciais para que a conectividade do utilizador de ponta a ponta funcione corretamente.
 
 >[!IMPORTANT]
 >Para instalar com sucesso o agente virtual windows desktop, a pilha lado a lado e o agente de monitorização de Genebra, tem de desbloquear todos os URLs listados na [lista de URL requerida.](safe-url-list.md#virtual-machines) Desbloqueando estes URLs é necessário para utilizar o serviço de ambiente de trabalho virtual do Windows.
@@ -38,6 +38,7 @@ As novas versões do agente são implementadas a intervalos regulares em períod
 
 
 >[!NOTE]
+>Uma vez que os VMs no seu pool de anfitriões podem receber atualizações de agentes em momentos diferentes, terá de ser capaz de distinguir entre problemas de voo e atualizações falhadas do agente. Se for aos registos do evento para o seu VM na Aplicação de Registos **do Windows do Espectador de**  >  **Eventos**  >   e vir um evento com a etiqueta "ID 3277", isso significa que a atualização do Agente não funcionou. Se não vires esse evento, então o VM está num voo diferente e será atualizado mais tarde.
 >- Quando o agente de monitorização de Genebra atualiza para a versão mais recente, a antiga tarefa genevaTask é localizada e desativada antes de criar uma nova tarefa para o novo agente de monitorização. A versão anterior do agente de monitorização não é eliminada caso a versão mais recente do agente de monitorização tenha um problema que requer reverter para a versão anterior para corrigir. Se a versão mais recente tiver um problema, o antigo agente de monitorização será re-habilitado para continuar a fornecer dados de monitorização. Todas as versões do monitor que sejam mais cedo do que a última que instalou antes da atualização serão eliminadas do seu VM.
 >- O seu VM mantém três versões da pilha lado a lado de cada vez. Isto permite uma rápida recuperação se algo correr mal com a atualização. A versão mais antiga da pilha é removida do VM sempre que a stack atualiza.
 

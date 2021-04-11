@@ -6,15 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: c11a89d91693075ca54c0689223dcf2af06df521
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 139b543160b679ba063a0633f9091e7bc0ef1fc1
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568516"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074850"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através do portal Azure
 
@@ -127,9 +126,10 @@ Siga estes passos para criar um VM depois de ter criado uma imagem VM.
     |Parâmetro |Descrição  |
     |---------|---------|
     |Nome da máquina virtual     |         |
+    |Grupo de recursos edge     | Criar um novo grupo de recursos para todos os recursos associados ao VM.        |
     |Imagem     | Selecione a partir das imagens VM disponíveis no dispositivo.        |
     |Tamanho     | Escolha entre os [tamanhos VM suportados.](azure-stack-edge-gpu-virtual-machine-sizes.md)        |
-    |Nome de utilizador     | Utilize o nome de utilizador padrão *azureuser*.        |
+    |Nome de utilizador     | Utilize o nome de utilizador padrão *azureuser* para que o administrador assine no VM.        |
     |Tipo de autenticação    | Escolha entre a chave pública SSH ou uma palavra-passe definida pelo utilizador.       |
     |Palavra-passe     | Introduza uma palavra-passe para iniciar sinsus na máquina virtual. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os requisitos de [Complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |
     |Confirmar palavra-passe    | Introduza a senha novamente.        |
@@ -149,11 +149,7 @@ Siga estes passos para criar um VM depois de ter criado uma imagem VM.
 
         ![Adicionar VM 4](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
 
-    1.  Repita o processo para adicionar mais discos. Depois de criados os discos, aparecem no **separador Discos.**
-
-        ![Adicionar VM 5](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-3.png)
-
-        Selecione **Seguinte: Rede**.
+    1.  Repita o processo para adicionar mais discos. Depois de criados os discos, aparecem no **separador Discos.** Selecione **Seguinte: Networking**.
 
 1. No **separador Networking,** configurará a conectividade da rede para o seu VM.
 
@@ -168,26 +164,32 @@ Siga estes passos para criar um VM depois de ter criado uma imagem VM.
 
     Selecione **Seguinte: Revisão + Criar**.
 
+1. No separador **Avançado,** pode especificar os dados personalizados ou o init de nuvem para personalizar o seu VM. 
+
+    Pode utilizar o cloud-init para personalizar um VM na sua primeira bota. Utilize o cloud-init para instalar pacotes e escrever ficheiros, ou para configurar utilizadores e segurança. À medida que o cloud-init funciona durante o processo inicial de arranque, não são necessários passos adicionais para aplicar a sua configuração. Para obter informações detalhadas sobre o [cloud-init, consulte a visão geral do cloud-init](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+
+    ![Adicionar VM 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-1.png)    
+
 1. No **separador 'Rever + Criar',** revê as especificações do VM e selecione **Criar**.
 
-    ![Adicionar VM 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
+    ![Adicionar VM 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
 
 1. A criação de VM começa e pode demorar até 20 minutos. Pode ir a **Implementações** para monitorizar a criação de VM.
 
-    ![Adicionar VM 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
+    ![Adicionar VM 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
 
     
 1. Após a criação do VM com sucesso, a página **de visão** geral atualiza-se para exibir o novo VM.
 
-    ![Adicionar VM 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
+    ![Adicionar VM 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
 
 1. Selecione o VM recém-criado para ir a **máquinas Virtuais**.
 
-    ![Adicionar VM 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
+    ![Adicionar VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
     Selecione o VM para ver os detalhes. 
 
-    ![Adicionar VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
+    ![Adicionar VM 12](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
 ## <a name="connect-to-a-vm"></a>Ligar a uma VM
 

@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: discurso ao texto, discurso ao software de texto
-ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3450d39729096bfc3077f51e2069f8f102e571a5
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102434330"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449397"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
@@ -26,7 +26,12 @@ O discurso-a-texto, também conhecido como reconhecimento de voz, permite a tran
 
 O serviço de voz para texto não utiliza o modelo de linguagem Universal. Este modelo foi treinado com dados da Microsoft e é implementado na nuvem. É ideal para cenários de conversação e ditado. Ao utilizar modelos de voz para texto para reconhecimento e transcrição num ambiente único, pode criar e treinar modelos acústicos, linguísticos e de pronúncia personalizados. A personalização é útil para abordar o ruído ambiente ou o vocabulário específico da indústria.
 
-Com um texto de referência adicional como entrada, o serviço de voz a texto também permite a capacidade de avaliação da [pronúncia](rest-speech-to-text.md#pronunciation-assessment-parameters) da fala para avaliar a pronúncia da fala e dá feedback aos oradores sobre a precisão e fluência do áudio falado. Com a avaliação da pronúncia, os alunos de línguas podem praticar, obter feedback instantâneo e melhorar a sua pronúncia para que possam falar e apresentar com confiança. Os educadores podem usar a capacidade de avaliar a pronúncia de vários falantes em tempo real. A funcionalidade suporta atualmente o inglês dos EUA e está muito relacionada com avaliações de fala realizadas por especialistas.
+Esta documentação contém os seguintes tipos de artigos:
+
+* **Os quickstarts** estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.
+* **Os guias de como fazer** contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.
+* **Os conceitos** fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.
+* **Os tutoriais** são guias mais longos que mostram como usar o serviço como componente em soluções de negócio mais amplas.
 
 > [!NOTE]
 > Bing Speech foi desativado a 15 de outubro de 2019. Se as suas aplicações, ferramentas ou produtos estiverem a utilizar as APIs do Discurso de Bing, criámos guias para o ajudar a migrar para o serviço Desemaçamento.

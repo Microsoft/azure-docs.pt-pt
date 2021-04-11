@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
 ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612862"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Matriz de suporte da Cópia de Segurança de Discos do Azure

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff8ac540459ad79a8980542254cc15518959b5c0
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687248"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552296"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com FS AD e fornecedores de terceiros para utilizadores convidados (pré-visualização)
 
@@ -33,7 +33,7 @@ Depois de configurar uma federação direta com uma organização, quaisquer nov
  - Se criar uma federação direta com uma organização parceira e convidar utilizadores convidados, e então a organização parceira mais tarde se muda para a Azure AD, os utilizadores convidados que já resgataram convites continuarão a usar a federação direta, desde que exista a política direta da federação no seu inquilino.
  - Se eliminar a federação direta com uma organização parceira, qualquer utilizadores convidados que utilizem a federação direta não poderá iniciar sposição.
 
-Em qualquer um destes cenários, pode atualizar o método de autenticação de um utilizador convidado, eliminando a conta de utilizador do hóspede do seu diretório e revitalizá-la.
+Em qualquer um destes cenários, pode atualizar o método de autenticação de um utilizador convidado [repondo o seu estado de resgate](reset-redemption-status.md).
 
 A federação direta está ligada a espaços de nome de domínio, como contoso.com e fabrikam.com. Ao estabelecer uma configuração direta da federação com FS AD ou um IdP de terceiros, as organizações associam um ou mais espaços de nome de domínio a estes IdPs. 
 
@@ -89,7 +89,7 @@ Quando a federação direta é estabelecida com uma organização parceira, tem 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>A federação direta aborda problemas de inscrição devido a um arrendamento parcialmente sincronizado?
 Não, a funcionalidade [de código de acesso de e-mail](one-time-passcode.md) uma vez deve ser usada neste cenário. Um "arrendamento parcialmente sincronizado" refere-se a um inquilino Azure AD parceiro onde as identidades dos utilizadores no local não estão totalmente sincronizadas com a nuvem. Um hóspede cuja identidade ainda não existe na nuvem mas que tente resgatar o seu convite B2B não poderá assinar. A funcionalidade de código de acesso único permitiria que este hóspede assinasse. A funcionalidade da federação direta aborda cenários em que o hóspede tem a sua própria conta organizacional gerida pelo IdP, mas a organização não tem nenhuma presença da AD AZure.
 ### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Uma vez que a Federação Direta é configurada com uma organização, cada hóspede precisa ser enviado e resgatar um convite individual?
-A criação de uma federação direta não altera o método de autenticação para utilizadores convidados que já tenham resgatado um convite de si. Pode atualizar o método de autenticação de um utilizador convidado, eliminando a conta de utilizador do hóspede do seu diretório e novamente convidando-a.
+A criação de uma federação direta não altera o método de autenticação para utilizadores convidados que já tenham resgatado um convite de si. Pode atualizar o método de autenticação de um utilizador convidado [repondo o seu estado de resgate](reset-redemption-status.md).
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Passo 1: Configurar o fornecedor de identidade da organização parceira
 Em primeiro lugar, a sua organização parceira precisa de configurar o seu fornecedor de identidade com as reivindicações necessárias e confiar nas confianças das partes. 
 
@@ -212,7 +212,7 @@ Agora teste a configuração da sua federação direta convidando um novo utiliz
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>Como retiro a federação direta?
-Pode remover a configuração direta da federação. Se o fizer, os utilizadores convidados da federação direta que já resgataram os seus convites não poderão assinar o seu contrato. Mas pode dar-lhes acesso aos seus recursos novamente, eliminando-os do diretório e os convidando novamente. Remover a federação direta com um fornecedor de identidade no portal AD AZure:
+Pode remover a configuração direta da federação. Se o fizer, os utilizadores convidados da federação direta que já resgataram os seus convites não poderão assinar o seu contrato. Mas pode dar-lhes acesso aos seus recursos [novamente, repondo o seu estado de redenção](reset-redemption-status.md). Remover a federação direta com um fornecedor de identidade no portal AD AZure:
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Selecione **identidades externas**.

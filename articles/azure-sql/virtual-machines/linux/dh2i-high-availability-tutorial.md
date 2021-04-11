@@ -2,17 +2,17 @@
 title: Configurar sempre no grupo de disponibilidade com DH2i DxEnterprise em execução em Máquinas Virtuais Azure baseadas em Linux
 description: Use DH2i DxEnterprise como gestor de cluster para alcançar uma alta disponibilidade com um grupo de disponibilidade no SQL Server em Máquinas Virtuais Linux Azure
 ms.date: 03/04/2021
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-sql
 ms.topic: tutorial
 author: amvin87
 ms.author: amitkh
 ms.reviewer: vanto
-ms.openlocfilehash: 07752eb5c7f18a8952c43e77afed78b06432aca6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56002aaa977b94b0fabee4f17343f483706eb77d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568541"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449431"
 ---
 # <a name="tutorial---setup-a-three-node-always-on-availability-group-with-dh2i-dxenterprise-running-on-linux-based-azure-virtual-machines"></a>Tutorial - Configurar um grupo de três nós sempre em disponibilidade com DH2i DxEnterprise em execução em Máquinas Virtuais Azure baseadas em Linux
 

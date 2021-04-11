@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 62723f5c833ca89618a6d9e0781539a13efba4f3
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 9d61e9ff753c37268be19e95db9450e2cd923d96
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959675"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279685"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Passo 3 - Configurar para migrar para a V3 REST API ou cliente SDK
 
@@ -43,7 +43,7 @@ Os clientes que utilizem previamente a versão 2015-10-01 da API de gestão ARM 
 
 ## <a name="create-a-new-media-services-account-for-testing"></a>Criar uma nova conta de serviços de comunicação para testes
 
-Siga os passos de arranque rápido para [configurar o seu ambiente](how-to-set-azure-subscription.md?tabs=portal) utilizando o portal Azure. Selecione a autenticação principal de acesso e serviço da API para gerar um novo ID de aplicação AD Azure e segredos para uso com esta conta de teste.
+Siga os passos de arranque rápido para [configurar o seu ambiente](setup-azure-subscription-how-to.md?tabs=portal) utilizando o portal Azure. Selecione a autenticação principal de acesso e serviço da API para gerar um novo ID de aplicação AD Azure e segredos para uso com esta conta de teste.
 
 [Criar uma conta de serviços de comunicação](account-create-how-to.md?tabs=portal)social.
 [Obtenha credenciais para aceder à API dos Serviços de Mídia.](access-api-howto.md?tabs=portal)
@@ -66,7 +66,7 @@ Siga os passos de arranque rápido para [configurar o seu ambiente](how-to-set-a
 
 ## <a name="rest"></a>[REST](#tab/rest)
 
-Use [carteiro](./media-rest-apis-with-postman.md) para serviços de mídia v3 REST chamadas API.
+Use [carteiro](./setup-postman-rest-how-to.md) para serviços de mídia v3 REST chamadas API.
 Leia as [páginas de referência da API REST](/rest/api/media/).
 
 Deve utilizar a cadeia de versão 2020-05-01 na coleção Do Carteiro.

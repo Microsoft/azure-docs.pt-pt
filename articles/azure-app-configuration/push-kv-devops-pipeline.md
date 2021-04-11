@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1a4fb52a5f9622758e9ed805bf9380f5f608870
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718187"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068257"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push configurações para configuração de aplicativos com pipelines Azure
 
@@ -32,7 +32,10 @@ Uma [ligação](/azure/devops/pipelines/library/service-endpoints) de serviço p
 1. Em Azure DevOps, vá ao projeto que contenha o seu pipeline alvo e abra as **definições** do Projeto na parte inferior esquerda.
 1. Em **Pipelines** selecione **as ligações de serviço** e selecione Nova **ligação** de serviço no direito superior.
 1. Selecione **Azure Resource Manager**.
-1. Selecione **o principal do serviço (automático)**.
+![O Screenshot mostra a seleção do Gestor de Recursos Azure da lista de lançamentos de novas ligações.](./media/new-service-connection.png)
+1. No diálogo do **método de autenticação,** selecione **o principal de serviço (automático)**.
+    > [!NOTE]
+    > **A** autenticação de identidade gerida não é atualmente suportada para a tarefa de Configuração de Aplicações.
 1. Preencha a sua subscrição e recurso. Dê um nome à sua ligação de serviço.
 
 Agora que a sua ligação de serviço foi criada, encontre o nome do principal de serviço que lhe foi atribuído. Vai adicionar uma nova tarefa a este diretor de serviço no próximo passo.
@@ -41,6 +44,7 @@ Agora que a sua ligação de serviço foi criada, encontre o nome do principal d
 1. Selecione a ligação de serviço que criou na secção anterior.
 1. **Selecione Manage Service Principal**.
 1. Note o **nome do Visor** listado.
+![A screenshot mostra o nome principal do serviço.](./media/service-principal-display-name.png)
 
 ## <a name="add-role-assignment"></a>Adicionar atribuição de função
 
@@ -48,19 +52,27 @@ Atribua as atribuições de funções de configuração de aplicação adequadas
 
 1. Navegue para a sua loja de configuração de aplicativos alvo. 
 1. À esquerda, selecione **Access control (IAM)**.
-1. No topo, selecione **+ Adicionar** e escolher Adicionar a atribuição **de funções**.
+1. No lado direito, clique no botão **Adicionar atribuições de funções.**
+![A screenshot mostra o botão de atribuições de funções Adicionar.](./media/add-role-assignment-button.png)
 1. Under **Role**, selecione **App Configuration Data Owner**. Esta função permite que a tarefa leia e escreva para a loja de Configuração de Aplicações. 
 1. Selecione o principal serviço associado à ligação de serviço que criou na secção anterior.
+![A screenshot mostra o diálogo de atribuição de funções Add.](./media/add-role-assignment.png)
+
   
 ## <a name="use-in-builds"></a>Uso em construções
 
 Esta secção abrangerá como utilizar a tarefa Azure App Configuration Push num pipeline de construção de Azure DevOps.
 
 1. Navegue para a página do gasoduto de construção clicando em  >  **Pipelines Pipelines**. A documentação para a construção de gasodutos pode ser [consultada aqui.](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2)
-      - Se estiver a criar um novo pipeline de construção, selecione **Mostrar assistente** no lado direito do oleoduto e procure a tarefa **Azure App Configuration Push.**
-      - Se estiver a utilizar um pipeline de construção existente, navegue no separador **Tarefas** ao editar o pipeline e procure a Tarefa de Push de Configuração da **Aplicação Azure.**
-2. Configure os parâmetros necessários para a tarefa de empurrar os valores-chave do ficheiro de configuração para a loja de Configuração de Aplicações. O parâmetro **Caminho do Ficheiro de Configuração** começa na raiz do repositório de ficheiros.
-3. Poupe e faça fila. O registo de construção apresentará quaisquer falhas que ocorreram durante a execução da tarefa.
+      - Se estiver a criar um novo oleoduto de construção, no último passo do processo, no **separador 'Revisão',** selecione **Mostrar assistente** no lado direito do oleoduto.
+      ![A screenshot mostra o botão de assistente show para um novo oleoduto.](./media/new-pipeline-show-assistant.png)
+      - Se estiver a utilizar um pipeline de construção existente, clique no botão **Editar** no canto superior direito.
+      ![A screenshot mostra o botão Editar para um gasoduto existente.](./media/existing-pipeline-show-assistant.png)
+1. Procure a tarefa **de push de configuração da aplicação Azure.**
+![A screenshot mostra o diálogo de tarefa de adicionar com o Push de Configuração de Aplicação Azure na caixa de pesquisa.](./media/add-azure-app-configuration-push-task.png)
+1. Configure os parâmetros necessários para a tarefa de empurrar os valores-chave do ficheiro de configuração para a loja de Configuração de Aplicações. As explicações dos parâmetros estão disponíveis na secção **Parâmetros** abaixo e nas pontas das ferramentas ao lado de cada parâmetro.
+![A screenshot mostra os parâmetros de tarefa de push de configuração da aplicação.](./media/azure-app-configuration-push-parameters.png)
+1. Poupe e faça fila. O registo de construção apresentará quaisquer falhas que ocorreram durante a execução da tarefa.
 
 ## <a name="use-in-releases"></a>Utilização em lançamentos
 
@@ -69,8 +81,11 @@ Esta secção abrangerá como utilizar a tarefa Azure App Configuration Push num
 1. Navegue para lançar a página do gasoduto selecionando **lançamentos** de  >  **pipelines**. A documentação para os gasodutos de libertação pode ser [consultada aqui.](/azure/devops/pipelines/release)
 1. Escolha um gasoduto de desbloqueio existente. Se não tiver um, selecione **+ Novo** para criar um novo.
 1. Selecione o botão **Editar** no canto superior direito para editar o pipeline de desbloqueio.
-1. Escolha o **Palco** para adicionar a tarefa. Mais informações sobre as etapas podem ser [encontradas aqui.](/azure/devops/pipelines/release/environments)
-1. Selecione **+** para esse Trabalho e, em seguida, adicione a tarefa **Azure App Configuration Push** no **separador Implementar.**
+1. A partir do dropdown **tasks,** escolha o **Estágio** ao qual pretende adicionar a tarefa. Mais informações sobre as etapas podem ser [encontradas aqui.](/azure/devops/pipelines/release/environments)
+![A screenshot mostra o estágio selecionado no dropdown tasks.](./media/pipeline-stage-tasks.png)
+1. Clique **+** ao lado do Job ao qual pretende adicionar uma nova tarefa.
+![A screenshot mostra o botão mais ao lado do trabalho.](./media/add-task-to-job.png)
+1. No diálogo **de tarefas Adicionar,** **digite Azure App Configuration Push** na caixa de pesquisa e selecione-a.
 1. Configure os parâmetros necessários na tarefa de empurrar os valores-chave do seu ficheiro de configuração para a sua loja de Configuração de Aplicações. As explicações dos parâmetros estão disponíveis na secção **Parâmetros** abaixo e nas pontas das ferramentas ao lado de cada parâmetro.
 1. Poupe e faça fila para uma libertação. O registo de desbloqueio apresentará quaisquer falhas encontradas durante a execução da tarefa.
 
@@ -80,7 +95,15 @@ Os seguintes parâmetros são utilizados pela tarefa De pressão de configuraç�
 
 - **Subscrição Azure**: Uma entrega contendo as suas ligações de serviço Azure disponíveis. Para atualizar e atualizar a sua lista de ligações de serviço Azure disponíveis, prima o botão **de subscrição Refresh Azure** à direita da caixa de texto.
 - **Nome de configuração da aplicação**: Um drop-down que carrega as suas lojas de configuração disponíveis sob a subscrição selecionada. Para atualizar e atualizar a sua lista de lojas de configuração disponíveis, prima o botão 'Atualizar o **Nome de Configuração da aplicação'** à direita da caixa de texto.
-- **Caminho do ficheiro de configuração**: O caminho para o seu ficheiro de configuração. Pode navegar através do seu artefacto de construção para selecionar um ficheiro de configuração. `...`(botão à direita da caixa de texto). Os formatos de ficheiro suportado são: yaml, json, propriedades.
+- **Caminho do ficheiro de configuração**: O caminho para o seu ficheiro de configuração. O parâmetro **Caminho do Ficheiro de Configuração** começa na raiz do repositório de ficheiros. Pode navegar através do seu artefacto de construção para selecionar um ficheiro de configuração. `...`(botão à direita da caixa de texto). Os formatos de ficheiro suportado são: yaml, json, propriedades. O seguinte é um ficheiro de configuração de exemplo no formato json.
+    ```json
+    {
+        "TestApp:Settings:BackgroundColor":"#FFF",
+        "TestApp:Settings:FontColor":"#000",
+        "TestApp:Settings:FontSize":"24",
+        "TestApp:Settings:Message": "Message data"
+    }
+    ```
 - **Separador**: O separador que é usado para achatar ficheiros .json e .yml.
 - **Profundidade**: A profundidade a que os ficheiros .json e .yml serão achatados.
 - **Prefixo**: Uma corda anexada ao início de cada tecla empurrada para a loja de Configuração de Aplicações.
@@ -91,7 +114,7 @@ Os seguintes parâmetros são utilizados pela tarefa De pressão de configuraç�
   - **Verificado**: Remove todos os valores-chave na loja de configuração da aplicação que correspondem tanto ao prefixo especificado como à etiqueta antes de empurrar novos valores-chave do ficheiro de configuração.
   - **Desmarcado**: Empurra todos os valores-chave do ficheiro de configuração para a loja de Configuração de Aplicações e deixa tudo o resto intacto na loja de Configuração de Aplicações.
 
-Depois de preencher os parâmetros necessários, escocha o gasoduto. Todos os valores-chave no ficheiro de configuração especificado serão enviados para a Configuração da Aplicação.
+
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

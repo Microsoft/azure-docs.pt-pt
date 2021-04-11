@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
 ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105109493"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Configure a geo-replicação ativa para a Enterprise Azure Cache para instâncias Redis (Preview)

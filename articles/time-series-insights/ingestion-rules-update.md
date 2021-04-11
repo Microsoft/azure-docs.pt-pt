@@ -3,19 +3,19 @@ title: Próximas alterações às regras de ingestão e achatamento em Azure Tim
 description: Alterações na regra da ingestão
 ms.service: time-series-insights
 services: time-series-insights
-author: lyrana
-ms.author: lyhughes
-manager: dpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44553e2a57f796dcf48561ff3b273e25514247ae
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95995238"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504537"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Próximas alterações ao Achatamento de JSON e fuga às regras para novos ambientes
 

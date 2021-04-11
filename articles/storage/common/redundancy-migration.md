@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 412e5ac661761d5fda1d375c59511c053a6354a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce3bda82e634cd80560d7915a08fa33218173779
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714787"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967204"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -122,25 +122,30 @@ Deve efetuar uma migração manual se:
 - Pretende migrar dados de ZRS para LRS, GRS ou RA-GRS.
 - A sua conta de armazenamento inclui dados no nível de arquivo.
 
-Pode solicitar migração ao vivo através do [portal Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). A partir do portal, selecione a conta de armazenamento que pretende converter para ZRS.
+Pode solicitar migração ao vivo através do [portal Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
-1. Selecione **novo pedido de suporte**.
-2. Complete o **Básico** com base nas informações da sua conta: 
+> [!IMPORTANT]
+> Se precisar de migrar mais de uma conta de armazenamento, crie um bilhete de suporte único e especifique os nomes das contas para converter no separador **Detalhes.**
+
+Siga estes passos para solicitar uma migração ao vivo:
+
+1. No portal Azure, navegue para uma conta de armazenamento que pretende migrar.
+1. No **suporte + resolução de problemas,** selecione **Novo Pedido de Suporte**.
+1. Preencha o **separador Básicos** com base nas informações da sua conta:
     - **Tipo de emissão**: Selecione **Técnico**.
-    - **Serviço**: Selecione **Os Meus Serviços** e **Gestão de Conta de Armazenamento.**
-    - **Recurso**: Selecione o recurso que pretende converter para ZRS.
-3. Selecione **Seguinte**.
-4. Especificar os seguintes valores da secção **Problema:**
-    - **Gravidade**: Deixe o valor predefinido como está.
-    - **Tipo de problema**: Selecione **Migração de Dados**.
-    - **Categoria**: **Selecione Migrar para ZRS**.
-    - **Denominação**: Digite um título descritivo, por exemplo, **migração da conta ZRS**.
-    - **Detalhes**: Escreva detalhes adicionais na caixa **Details,** por exemplo, gostaria de migrar para zRS a partir de [LRS, GRS] na \_ \_ região.
-5. Selecione **Seguinte**.
-6. Verifique se os dados de contacto estão corretos na lâmina **de informação de contacto.**
-7. Selecione **Criar**.
+    - **Serviço**: Selecione **os meus serviços,** em seguida, **Gestão de Conta de Armazenamento**.
+    - **Recurso**: Selecione uma conta de armazenamento para migrar. Se precisar de especificar várias contas de armazenamento, pode fazê-lo na secção **Detalhes.**
+    - **Tipo de problema**: Escolha **a migração de dados.**
+    - **Subtipo de problema:** Escolha **migrar para ZRS, GZRS ou RA-GZRS**.
 
-Uma pessoa de apoio entrará em contacto consigo e prestará qualquer assistência que necessite.
+    :::image type="content" source="media/redundancy-migration/request-live-migration-basics-portal.png" alt-text="Screenshot mostrando como solicitar uma migração ao vivo - Separador Básico":::
+
+1. Selecione **Seguinte**. No separador **Soluções,** pode verificar a elegibilidade das suas contas de armazenamento para migração.
+1. Selecione **Seguinte**. Se tiver mais de uma conta de armazenamento para migrar, então no separador **Detalhes,** especifique o nome de cada conta, separada por um ponto e vírgula.
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot mostrando como solicitar uma migração ao vivo - Separador de detalhes":::
+
+1. Preencha as informações adicionais **necessárias** no separador Detalhes e, em seguida, selecione **Review + create** para rever e submeter o seu bilhete de apoio. Uma pessoa de apoio entrará em contacto consigo para prestar qualquer assistência que possa necessitar.
 
 > [!NOTE]
 > As ações de ficheiros premium (contas FileStorage) só estão disponíveis para LRS e ZRS.

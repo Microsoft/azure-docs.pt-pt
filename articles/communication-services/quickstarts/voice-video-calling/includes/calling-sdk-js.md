@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 49054d9bbde67dc3670ec444e4b60c3ddf503db5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2ecbd207c4b1946a69b01f43ec2bc77d29b1a8c9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645426"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073386"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -21,10 +21,9 @@ ms.locfileid: "105645426"
 ## <a name="install-the-sdk"></a>Instalar o SDK
 
 > [!NOTE]
-> Este documento utiliza a versão 1.0.0-beta.10 do Call SDK.
+> Este documento utiliza ACS Calling Web SDK.
 
 Utilize o `npm install` comando para instalar os Serviços de Comunicação Azure e SDKs comuns para JavaScript.
-Este documento refere tipos na versão 1.0.0-beta.10 da biblioteca de chamadas.
 
 ```console
 npm install @azure/communication-common --save
@@ -144,6 +143,8 @@ const call = callAgent.join(context);
 ```
 
 ### <a name="join-a-teams-meeting"></a>Junte-se a uma reunião de equipas
+> [!NOTE]
+> Esta API é fornecida como uma pré-visualização para os programadores e pode alterar-se com base nos comentários que recebermos. Não utilize esta API num ambiente de produção. Para utilizar esta api, por favor, utilize o lançamento 'beta' da ACS Calling Web SDK
 
 Para participar de uma reunião de equipas, utilize o `join` método e passe um link de reunião ou coordenadas.
 
@@ -593,8 +594,8 @@ console.log(result.video);
 ```
 
 ## <a name="record-calls"></a>Chamadas de registo
-
-[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
+> [!NOTE]
+> Esta API é fornecida como uma pré-visualização para os programadores e pode alterar-se com base nos comentários que recebermos. Não utilize esta API num ambiente de produção. Para utilizar esta api, por favor, utilize o lançamento 'beta' da ACS Calling Web SDK
 
 A gravação de chamadas é uma característica estendida da `Call` API central. Primeiro, tem de obter o objeto API da funcionalidade de gravação:
 
@@ -620,6 +621,8 @@ callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler)
 ```
 
 ## <a name="transfer-calls"></a>Chamadas de transferência
+> [!NOTE]
+> Esta API é fornecida como uma pré-visualização para os programadores e pode alterar-se com base nos comentários que recebermos. Não utilize esta API num ambiente de produção. Para utilizar esta api, por favor, utilize o lançamento 'beta' da ACS Calling Web SDK
 
 A transferência de chamadas é uma característica estendida da `Call` API central. Primeiro precisa de obter o objeto API da funcionalidade de transferência:
 

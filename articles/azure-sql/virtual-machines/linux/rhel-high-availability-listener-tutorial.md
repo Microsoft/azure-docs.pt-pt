@@ -1,18 +1,18 @@
 ---
 title: Configure um ouvinte de grupo de disponibilidade para o SQL Server em máquinas virtuais RHEL em Azure - Máquinas virtuais Linux | Microsoft Docs
 description: Saiba como configurar um ouvinte de grupo de disponibilidade no SQL Server em máquinas virtuais RHEL em Azure
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-sql
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 83fde9e957cb2011ce585603e51d331be171bc08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f0b300be2f1cec4ee456065455832a2dc3598be
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586232"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449510"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte de grupo de disponibilidade para o SQL Server em máquinas virtuais RHEL em Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

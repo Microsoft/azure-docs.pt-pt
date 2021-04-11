@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6499e4b3404a255025f88488e73da1efb6449296
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 50ecf6e394d5d19d09033554272023bd6796851b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075956"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581208"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementar um VM com lançamento fidedigno ativado (pré-visualização)
 
@@ -41,10 +41,13 @@ Crie uma máquina virtual com lançamento fidedigno ativado.
 5. Nos **detalhes do Projeto,** certifique-se de que a subscrição correta está selecionada.
 6. No **grupo de Recursos,** selecione Criar um **nome novo** e digitar um nome para o seu grupo de recursos ou selecione um grupo de recursos existente a partir do dropdown.
 7. Em **Detalhes de Exemplo,** escreva um nome para o nome da máquina virtual e escolha uma região que suporte [o lançamento fidedigno](trusted-launch.md#public-preview-limitations).
-8. Em **Imagem,** selecione uma [imagem que suporte o lançamento fidedigno](trusted-launch.md#public-preview-limitations). Só podes ver a versão da Gen 1 da imagem, tudo bem, passa para o próximo passo.
-9. Mude para o separador **Advanced** selecionando-o no topo da página.
-10. Percorra a secção de **geração VM** e, em seguida, selecione **Gen 2**.
-11. Enquanto ainda está no separador **Advanced,** desloque-se até ao **lançamento do Trust** e, em seguida, selecione a caixa de **verificação de lançamento Fidedigna.** Isto fará com que apareçam mais duas opções - Arranque seguro e vTPM. Selecione as opções apropriadas para a sua implementação.
+8. Under **Image**, selecione uma imagem gen 2 [que suporta o lançamento fidedigno](trusted-launch.md#public-preview-limitations). 
+   > [!TIP]
+   > Se não vir a versão Gen 2 da imagem que pretende no drop-down, selecione **Ver todas as imagens** e, em seguida, altere o filtro **VM Generation** para mostrar apenas imagens da Gen 2. Encontre a imagem na lista e, em seguida, use o drop-down **Select** para selecionar a versão Gen 2.
+ 
+1. Mude para o separador **Advanced** selecionando-o no topo da página.
+1. Percorra a secção de **geração VM.** Certifique-se de que **a Gen 2** está selecionada.
+1. Enquanto ainda está no separador **Advanced,** desloque-se até ao **lançamento do Trust** e, em seguida, selecione a caixa de **verificação de lançamento Fidedigna.** Isto fará com que apareçam mais duas opções - Arranque seguro e vTPM. Selecione as opções apropriadas para a sua implementação.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot mostrando as opções para lançamento de confiança.":::
 
@@ -66,11 +69,11 @@ Irá demorar alguns minutos até a VM ser implementada.
 
 Pode implementar VMs de lançamento fidedignos utilizando um modelo de arranque rápido:
 
-**Linux:**    
-[![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+**Linux**:    
+[![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
 **Windows**:    
-[![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+[![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## <a name="view-and-update"></a>Ver e atualizar
 

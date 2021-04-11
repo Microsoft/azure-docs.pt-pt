@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c7474b001284286ed589f6b7995db6bc7fd50af
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647601"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075071"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -304,7 +304,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 | User | streetaddress | Rua |
 | User | código postal | Código Postal |
 | User | preferencialmente língua | Língua Preferida |
-| User | onpremisesuserprincipalname | UPN no local |*
+| User | onpremisesuserprincipalname | UPN no local |
 | User | nome de mailnickname | Apelido de correio |
 | User | extensãotribuição1 | Atributo de extensão 1 |
 | User | extensãotribuiu2 | Atributo de extensão 2 |
@@ -419,16 +419,6 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 | ExtratoMailPrefixo | Nenhum |
 | Participar | O sufixo que está a ser associado deve ser um domínio verificado do inquilino de recursos. |
 
-### <a name="custom-signing-key"></a>Chave de assinatura personalizada
-
-Uma chave de assinatura personalizada deve ser atribuída ao objeto principal de serviço para que uma política de mapeamento de reclamações entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por atores maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o cmdlet Azure PowerShell [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) para criar uma credencial chave de certificado para o seu objeto Aplicação.
-
-As aplicações que tenham pedido mapeamento de sinistros habilitadas devem validar as suas chaves de assinatura simbólicas, anexando `appid={client_id}` os seus [pedidos de metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar:
-
-```
-https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
-```
-
 ### <a name="cross-tenant-scenarios"></a>Cenários de inquilinos cruzados
 
 As políticas de mapeamento de sinistros não se aplicam aos utilizadores convidados. Se um utilizador convidado tentar aceder a uma aplicação com uma política de mapeamento de reclamações atribuída ao seu principal de serviço, o token padrão é emitido (a apólice não tem efeito).
@@ -531,6 +521,33 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="security-considerations"></a>Considerações de segurança
+
+As aplicações que recebem fichas baseiam-se no facto de os valores de reclamação serem emitidos de forma autoritária pela Azure AD e não poderem ser adulterados. No entanto, quando modificar o conteúdo do token através de políticas de mapeamento de sinistros, estes pressupostos podem deixar de estar corretos. As aplicações devem reconhecer explicitamente que os tokens foram modificados pelo criador da política de mapeamento de sinistros para se protegerem das políticas de mapeamento de sinistros criadas por atores mal-intencionados. Isto pode ser feito das seguintes formas:
+
+- Configurar uma chave de assinatura personalizada
+- Atualizar o manifesto de aplicação para aceitar reclamações mapeadas.
+ 
+Sem isso, a Azure AD devolverá um [ `AADSTS50146` código de erro](reference-aadsts-error-codes.md#aadsts-error-codes).
+
+### <a name="custom-signing-key"></a>Chave de assinatura personalizada
+
+Para adicionar uma chave de assinatura personalizada ao objeto principal de serviço, pode utilizar o cmdlet Azure PowerShell [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) para criar uma credencial chave de certificado para o seu objeto Aplicação.
+
+As aplicações que tenham pedido mapeamento de sinistros habilitadas devem validar as suas chaves de assinatura simbólicas, anexando `appid={client_id}` os seus [pedidos de metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar:
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
+
+### <a name="update-the-application-manifest"></a>Atualizar o manifesto de aplicação
+
+Em alternativa, pode definir o `acceptMappedClaims` imóvel `true` no manifesto de [aplicação.](reference-app-manifest.md) Como documentado no [tipo de recurso apiApplication,](/graph/api/resources/apiapplication#properties)isto permite que uma aplicação utilize mapeamento de sinistros sem especificar uma chave de assinatura personalizada.
+
+Isto requer que o público simbólico solicitado utilize um nome de domínio verificado do seu inquilino AZure AD, o que significa que deve garantir a definição `Application ID URI` do (representado pelo `identifierUris` manifesto de aplicação) por exemplo para `https://contoso.com/my-api` ou (simplesmente usando o nome de inquilino padrão) `https://contoso.onmicrosoft.com/my-api` .
+
+Se não estiver a utilizar um domínio verificado, o Azure AD devolverá um código de `AADSTS501461` erro com a mensagem *"AcceptMappedClaims é suportado apenas para um público simbólico que corresponda à aplicação GUID ou a uma audiência dentro dos domínios verificados do inquilino. Ou altera o identificador de recursos ou usa uma chave de assinatura específica para aplicações."*
 
 ## <a name="see-also"></a>Ver também
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 12a6761ac2cd305e6ff949ffa59ee3bbdff1934d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 755386bfa36b18796eccec0020efe9136e0215cd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732895"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068154"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -47,6 +47,9 @@ Para este artigo que precisa,
     * Crie uma instância computacional, que instala automaticamente o SDK e está pré-configurada para fluxos de trabalho ML. Consulte [Criar e gerir uma instância de cálculo de Aprendizagem automática Azure](how-to-create-manage-compute-instance.md) para obter mais informações. 
 
     * [Instale `automl` o pacote por si mesmo,](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)que inclui a [instalação predefinição](/python/api/overview/azure/ml/install#default-install) do SDK.
+    
+    > [!WARNING]
+    > Python 3.8 não é compatível com `automl` . 
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimentação
 

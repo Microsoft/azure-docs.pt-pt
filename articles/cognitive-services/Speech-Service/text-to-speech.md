@@ -12,18 +12,25 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto para a fala
-ms.openlocfilehash: 45977faec9ab54fed0c1e7054c567b4d18b11f50
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1a7ff7befc1a5e82c5518cf103a81b35ec38c7db
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645017"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449363"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço de texto-a-fala, que permite que suas aplicações, ferramentas ou dispositivos convertam texto em linguagem humana. Escolha entre vozes padrão e neurais ou crie uma voz personalizada única ao seu produto ou marca. Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, e 5 vozes neurais estão disponíveis em um número selecionado de idiomas e locais. Para obter uma lista completa de vozes, línguas e locais apoiados, consulte [as línguas apoiadas.](language-support.md#text-to-speech)
+
+Esta documentação contém os seguintes tipos de artigos:
+
+* **Os quickstarts** estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.
+* **Os guias de como fazer** contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.
+* **Os conceitos** fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.
+* **Os tutoriais** são guias mais longos que mostram como usar o serviço como componente em soluções de negócio mais amplas.
 
 > [!NOTE]
 > Bing Speech foi desativado a 15 de outubro de 2019. Se as suas aplicações, ferramentas ou produtos estiverem a utilizar as APIs do Discurso Bing ou o Discurso Personalizado, criámos guias para o ajudar a migrar para o serviço Desemaguiso.

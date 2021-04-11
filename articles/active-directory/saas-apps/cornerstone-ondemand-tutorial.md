@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: f7167df523ca6f84eacd92fc7af1011e8b3b00b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba6eb0a1b607fc05c4d0c660dd3d7016f81ef4b3
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950388"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449516"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Tutorial: Azure Ative Directory Single sign-on (SSO) integração com o Single Sign-On
 
@@ -123,49 +123,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-cornerstone-single-sign-on-sso"></a>Configurar a Pedra Angular Single Sign-On SSO
 
-1. Inscreva-se no Sign-On Único de Pedra Como administrador.
-
-1. Vá às **Ferramentas de administração ->**.
-
-    ![screeenshot para página de Administrador.](./media/cornerstone-ondemand-tutorial/admin.png)
-
-1. Selecione **painel EDGE** em **Ferramentas de Configuração**.
-
-    ![screeenshot para painel EDGE.](./media/cornerstone-ondemand-tutorial/edge-panel.png)
-
-1. Selecione Sign-On única na secção **Integração.**
-
-    ![screeenshot para opção single Sign-On.](./media/cornerstone-ondemand-tutorial/single-sign-on.png)
-
-1. Clique no botão **Adicionar SSO.** Selecione **INbound SAML** na janela pop up abaixo mostrada e, em seguida, clique em **Adicionar**.
-
-    ![screeenshot para Inbound SAML.](./media/cornerstone-ondemand-tutorial/inbound.png)
-
-1. Execute os passos abaixo na seguinte página:
-
-    ![screeenshot para a secção de configuração para Stonestone.](./media/cornerstone-ondemand-tutorial/configuration.png)
-
-    a. Nas **Propriedades Gerais,** clique no **Upload File** para fazer o upload do ficheiro **Certificado (Base64),** que descarregou a partir do portal Azure.
-
-    b. Selecione a caixa de verificação **Enable** e na caixa de texto **DO URL do IDP,** cole o valor URL de **login** que copiou a partir do portal Azure.
-
-    c. Clique em **Guardar**.
+Para configurar um único sinal de acesso no lado **de Sign-on único da Cornerstone,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte de Sign-On Única De Pedra ou](mailto:moreinfo@csod.com) contacte o seu parceiro. Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-cornerstone-single-sign-on-test-user"></a>Criar o utilizador de teste de Sign-On único da Pedra Angular
 
 O objetivo desta secção é criar um utilizador chamado B.Simon em Cornerstone Single Sign-On. A Sign-On Única de Pedra-Angular suporta o fornecimento automático do utilizador, que está por defeito. Pode encontrar mais detalhes [aqui](./cornerstone-ondemand-provisioning-tutorial.md) sobre como configurar o fornecimento automático do utilizador.
-
-**Se precisar de criar o utilizador manualmente, execute os seguintes passos:**
-
-1. Inscreva-se no Sign-On Único de Pedra Como administrador.
-
-1. Vá ao **Administrador -> Utilizadores** e clique em **Adicionar Utilizador** na parte inferior da página.
-
-    ![screeenshot para a criação de utilizador de teste de Cornerstone.](./media/cornerstone-ondemand-tutorial/user-1.png)
-
-1. Preencha os campos necessários na página **de utilizador de adicionar e** clique em **Guardar**.
-
-    ![screeenshot para a criação do utilizador de teste com os campos necessários.](./media/cornerstone-ondemand-tutorial/user-2.png)
 
 ## <a name="test-sso"></a>Teste SSO 
 
