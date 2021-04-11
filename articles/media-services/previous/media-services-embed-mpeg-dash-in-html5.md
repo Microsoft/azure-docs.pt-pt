@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 820c10a2f5bb43ff931027954b7ecf10c5b4c59f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013572"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um Vídeo de Transmissão em fluxo Adaptivo MPEG-DASH numa Aplicação HTML5 com DASH.js
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 MPEG-DASH é um padrão ISO para o streaming adaptativo de conteúdos de vídeo, que oferece benefícios significativos para os desenvolvedores que querem fornecer uma saída de streaming de vídeo adaptativa de alta qualidade. Com o MPEG-DASH, o fluxo de vídeo ajusta-se automaticamente a uma definição mais baixa quando a rede fica congestionada. Isto reduz a probabilidade de o espectador ver um vídeo "pausado" enquanto o jogador descarrega os próximos segundos para jogar (isto é, reduz a probabilidade de tampão). À medida que o congestionamento da rede diminui, o leitor de vídeo, por sua vez, regressará a um fluxo de maior qualidade. Esta capacidade de adaptação da largura de banda necessária também resulta numa hora de início mais rápida para o vídeo. Isto significa que os primeiros segundos podem ser jogados num segmento de qualidade inferior para descarregar rapidamente e, em seguida, chegar a uma qualidade mais alta uma vez que o conteúdo suficiente tenha sido tamponado.
 
 Dash.js é um leitor de vídeo MPEG-DASH de código aberto escrito em JavaScript. O seu objetivo é fornecer um jogador robusto e transversal que possa ser reutilizado livremente em aplicações que exijam reprodução de vídeo. Fornece reprodução MPEG-DASH em qualquer navegador que suporte as Extensões de Fonte de Mídia W3C (MSE), hoje em dia que é Chrome, Microsoft Edge e IE11 (outros navegadores indicaram a sua intenção de suportar MSE). Para mais informações sobre DASH.js, veja o repositório de dash.js GitHub.

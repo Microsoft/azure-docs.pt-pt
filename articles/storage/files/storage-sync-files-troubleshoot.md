@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4439346a065f17f5b2136f51fd5e8b990fa1b914
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f20ebfdf9bdd1272ac1cb16e1ad88b4cbc287e5d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491304"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727608"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -373,7 +373,7 @@ A tabela abaixo contém todos os caracteres unicode Azure File Sync ainda não s
 ### <a name="common-sync-errors"></a>Erros comuns de sincronização
 <a id="-2147023673"></a>**A sessão de sincronização foi cancelada.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
@@ -384,7 +384,7 @@ As sessões de sincronização podem falhar por várias razões, incluindo o ser
 
 <a id="-2147012889"></a>**Não foi possível estabelecer uma ligação com o serviço.**    
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (decimal)** | -2147012889 | 
@@ -395,7 +395,7 @@ As sessões de sincronização podem falhar por várias razões, incluindo o ser
 
 <a id="-2134376372"></a>**O pedido do utilizador foi estrangulado pelo serviço.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
@@ -406,7 +406,7 @@ Não é necessária qualquer ação; o servidor tentará novamente. Se este erro
 
 <a id="-2134364043"></a>**O sync está bloqueado até que a deteção de alteração complete a restauração do post**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (decimal)** | -2134364043 |
@@ -417,7 +417,7 @@ nenhuma ação necessária. Quando uma partilha de ficheiros ou ficheiros (ponto
 
 <a id="-2147216747"></a>**O Sync falhou porque a base de dados de sincronização foi descarregada.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80041295 |
 | **HRESULT (decimal)** | -2147216747 |
@@ -428,7 +428,7 @@ Este erro normalmente ocorre quando uma aplicação de cópia de segurança cria
 
 <a id="-2134364065"></a>**O Sync não pode aceder à partilha de ficheiros Azure especificada no ponto final da nuvem.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimal)** | -2134364065 |
@@ -444,7 +444,7 @@ Este erro ocorre porque o agente do Azure File Sync não consegue aceder à part
 
 <a id="-2134351804"></a>**O Sync falhou porque o pedido não está autorizado a realizar esta operação.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c86044 |
 | **HRESULT (decimal)** | -2134351804 |
@@ -460,7 +460,7 @@ Este erro ocorre porque o agente Azure File Sync não está autorizado a aceder 
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**O nome da conta de armazenamento utilizado não pôde ser resolvido.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (decimal)** | -2134364064 |
@@ -477,7 +477,7 @@ Este erro ocorre porque o agente Azure File Sync não está autorizado a aceder 
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**Ocorreu um erro desconhecido durante o acesso à conta de armazenamento.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8308a |
 | **HRESULT (decimal)** | -2134364022 |
@@ -489,7 +489,7 @@ Este erro ocorre porque o agente Azure File Sync não está autorizado a aceder 
 
 <a id="-2134364014"></a>**O Sync falhou devido ao bloqueio da conta de armazenamento.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c83092 |
 | **HRESULT (decimal)** | -2134364014 |
@@ -500,7 +500,7 @@ Este erro ocorre porque a conta de armazenamento tem um bloqueio de [recursos](.
 
 <a id="-1906441138"></a>**O Sync falhou devido a um problema com a base de dados de sincronização.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimal)** | -1906441138 |
@@ -511,7 +511,7 @@ Este erro ocorre quando existe um problema com a base de dados interna utilizada
 
 <a id="-2134364053"></a>**A versão do agente Azure File Sync instalada no servidor não é suportada.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (decimal)** | -2134364053 |
@@ -522,7 +522,7 @@ Este erro ocorrerá se a versão do Azure File Sync instalada no servidor não f
 
 <a id="-2134351810"></a>**Atingiu o limite de armazenamento de ações de arquivo Azure.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (decimal)** | -2134351810 |
@@ -548,7 +548,7 @@ Se a partilha de ficheiros estiver cheia e não tiver sido definida uma quota, u
 
 <a id="-2134351824"></a>**A partilha de ficheiros Azure não pode ser encontrada.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (decimal)** | -2134351824 |
@@ -564,7 +564,7 @@ Se a partilha de ficheiros Azure foi eliminada, tem de criar uma nova partilha d
 
 <a id="-2134364042"></a>**O Sync é interrompido enquanto esta subscrição do Azure está suspensa.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (decimal)** | -2134364042 |
@@ -575,7 +575,7 @@ Este erro ocorre quando a subscrição do Azure é suspensa. A sincronização s
 
 <a id="-2134375618"></a>**A conta de armazenamento tem uma firewall ou redes virtuais configuradas.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8033e |
 | **HRESULT (decimal)** | -2134375618 |
@@ -586,7 +586,7 @@ Este erro ocorre quando a partilha de ficheiros do Azure está inacessível devi
 
 <a id="-2134375911"></a>**O Sync falhou devido a um problema com a base de dados de sincronização.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
@@ -602,7 +602,7 @@ Se este erro persistir por mais de algumas horas, crie um pedido de apoio e entr
 
 <a id="-2146762487"></a>**O servidor falhou em estabelecer uma ligação segura. O serviço de nuvem recebeu um certificado inesperado.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (decimal)** | -2146762487 |
@@ -627,7 +627,7 @@ Ao definir este valor de registo, o agente Azure File Sync aceitará qualquer ce
 
 <a id="-2147012894"></a>**Não foi possível estabelecer uma ligação com o serviço.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT (decimal)** | -2147012894 |
@@ -638,7 +638,7 @@ Ao definir este valor de registo, o agente Azure File Sync aceitará qualquer ce
 
 <a id="-2134375680"></a>**O Sync falhou devido a um problema de autenticação.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (decimal)** | -2134375680 |
@@ -649,7 +649,7 @@ Este erro ocorre normalmente porque a hora do servidor está incorreta. Se o ser
 
 <a id="-2134364040"></a>**O Sync falhou devido à expiração do certificado.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c83078 |
 | **HRESULT (decimal)** | -2134364040 |
@@ -673,7 +673,7 @@ Se o certificado de autenticação de cliente tiver expirado, efetue os seguinte
 
 <a id="-2134375896"></a>**O Sync falhou devido ao certificado de autenticação não encontrado.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c80228 |
 | **HRESULT (decimal)** | -2134375896 |
@@ -693,7 +693,7 @@ Para resolver este problema, realize os passos seguintes:
 
 <a id="-2134364039"></a>**O Sync falhou devido à identidade de autenticação não encontrada.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c83079 |
 | **HRESULT (decimal)** | -2134364039 |
@@ -704,14 +704,14 @@ Este erro ocorre porque a eliminação do ponto final do servidor falhou e o pon
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**O volume onde o ponto final do servidor está localizado é baixo no espaço do disco.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (decimal)** | -1906441711 |
 | **Cadeia do erro** | JET_errLogDiskFull |
 | **Remediação necessária** | Yes |
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
@@ -722,7 +722,7 @@ Este erro ocorre porque o volume ficou cheio. Este erro geralmente ocorre porque
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**O serviço ainda não está pronto para sincronizar com este ponto final do servidor.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
@@ -733,21 +733,21 @@ Este erro ocorre porque o ponto final da nuvem foi criado com conteúdo já exis
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**O Sync falhou devido a problemas com muitos ficheiros individuais.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (decimal)** | -2134375877 |
 | **Cadeia do erro** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediação necessária** | Yes |
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Cadeia do erro** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Remediação necessária** | Yes |
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
@@ -761,7 +761,7 @@ As sessões de sincronização falham com um destes erros quando existem muitos 
 
 <a id="-2134376423"></a>**O Sync falhou devido a um problema com o caminho do ponto final do servidor.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (decimal)** | -2134376423 |
@@ -772,7 +772,7 @@ Certifique-se de que o caminho existe, está num volume NTFS local, e não é um
 
 <a id="-2134375817"></a>**Sync falhou porque a versão do controlador de filtro não é compatível com a versão do agente**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (decimal)** | -2134375817 |
@@ -783,7 +783,7 @@ Este erro ocorre porque a versão do controlador de filtro de Arrumo na Cloud (S
 
 <a id="-2134376373"></a>**O serviço não se encontra disponível neste momento.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
@@ -794,7 +794,7 @@ Este erro ocorre porque o serviço Azure File Sync está indisponível. Este err
 
 <a id="-2146233088"></a>**O Sync falhou devido a uma exceção.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimal)** | -2146233088 |
@@ -805,7 +805,7 @@ Este erro ocorre porque a sincronização falhou devido a uma exceção. Se o er
 
 <a id="-2134364045"></a>**O Sync falhou porque a conta de armazenamento falhou noutra região.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c83073 |
 | **HRESULT (decimal)** | -2134364045 |
@@ -816,7 +816,7 @@ Este erro ocorreu porque a conta de armazenamento efetuou uma ativação pós-fa
 
 <a id="-2134375922"></a>**O Sync falhou devido a um problema transitório com a base de dados de sincronização.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
@@ -827,7 +827,7 @@ Esse erro ocorre devido a um problema interno na base de dados de sincronizaçã
 
 <a id="-2134364024"></a>**Sync falhou devido à mudança no inquilino do Azure Ative Directory**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c83088 |
 | **HRESULT (decimal)** | -2134364024 | 
@@ -840,7 +840,7 @@ Uma vez que tenha a versão mais recente do agente, tem de dar acesso à aplica�
 
 <a id="-2134364010"></a>**O Sync falhou devido à firewall e à exceção da rede virtual não configurada**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c83096 |
 | **HRESULT (decimal)** | -2134364010 | 
@@ -851,7 +851,7 @@ Este erro ocorre se as definições de firewall e rede virtual estiverem ativada
 
 <a id="-2147024891"></a>**O Sync falhou porque as permissões na pasta de Informação do Volume do Sistema estão incorretas.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80070005 |
 | **HRESULT (decimal)** | -2147024891 |
@@ -870,7 +870,7 @@ Para resolver este problema, realize os passos seguintes:
 
 <a id="-2134375810"></a>**O Sync falhou porque a partilha de ficheiros Azure foi eliminada e recriada.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8027e |
 | **HRESULT (decimal)** | -2134375810 |
@@ -889,7 +889,7 @@ Para resolver este problema, elimine e recrie o grupo de sincronização. Para t
 
 <a id="-2145844941"></a>**O Sync falhou porque o pedido HTTP foi redirecionado**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80190133 |
 | **HRESULT (decimal)** | -2145844941 |
@@ -900,7 +900,7 @@ Este erro ocorre porque o Azure File Sync não suporta a reorientação HTTP (c�
 
 <a id="-2134364027"></a>**Um intervalo ocorreu durante a transferência de dados offline, mas ainda está em curso.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (decimal)** | -2134364027 |
@@ -911,7 +911,7 @@ Este erro ocorre quando uma operação de ingestão de dados excede o tempo limi
 
 <a id="-2134375814"></a>**O Sync falhou porque o caminho do ponto final do servidor não pode ser encontrado no servidor.**  
 
-| | |
+| Erro | Código |
 |-|-|
 | **HRESULT** | 0x80c8027a |
 | **HRESULT (decimal)** | -2134375814 |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: sharrai
 ms.openlocfilehash: d24fa9cccf50a87c17a96fe35e5a4257bdf99bee
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105032859"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção

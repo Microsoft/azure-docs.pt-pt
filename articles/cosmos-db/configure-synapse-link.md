@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db
-ms.openlocfilehash: 60b720f3f5d91570e32ecf3d03aa7065f93990c5
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 24886ff3e01e9d9b4c01eabc917ced433599c0fa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868210"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727132"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configurar e utilizar o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -56,13 +56,13 @@ O Azure Synapse Link está disponível para recipientes Azure Cosmos DB SQL API 
 
 Os seguintes links mostram como ativar a Synapse Link utilizando o Azure CLI:
 
-* [Criar uma nova conta DB Azure Cosmos com Synapse Link ativada](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create-optional-parameters&preserve-view=true)
-* [Atualize uma conta DB Azure Cosmos existente para ativar a Synapse Link](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_update-optional-parameters&preserve-view=true)
+* [Criar uma nova conta DB Azure Cosmos com Synapse Link ativada](/cli/azure/cosmosdb#az_cosmosdb_create-optional-parameters)
+* [Atualize uma conta DB Azure Cosmos existente para ativar a Synapse Link](/cli/azure/cosmosdb#az_cosmosdb_update-optional-parameters)
 
 ### <a name="powershell"></a>PowerShell
 
-* [Criar uma nova conta DB Azure Cosmos com Synapse Link ativada](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount?view=azps-5.5.0#description&preserve-view=true)
-* [Atualize uma conta DB Azure Cosmos existente para ativar a Synapse Link](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccount?view=azps-5.5.0&preserve-view=true)
+* [Criar uma nova conta DB Azure Cosmos com Synapse Link ativada](/powershell/module/az.cosmosdb/new-azcosmosdbaccount#description)
+* [Atualize uma conta DB Azure Cosmos existente para ativar a Synapse Link](/powershell/module/az.cosmosdb/update-azcosmosdbaccount)
 
 
 Os seguintes links mostram como ativar a Ligação Synapse utilizando o PowerShell:
@@ -179,15 +179,15 @@ except exceptions.CosmosResourceExistsError:
 
 As seguintes ligações mostram como criar uma loja analítica ativada através da utilização do Azure CLI:
 
-* [Azure Cosmos DB API para Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples&preserve-view=true)
-* [API SQL do Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+* [Azure Cosmos DB API para Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_create-examples)
+* [API SQL do Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
 
 ### <a name="powershell"></a>PowerShell
 
 As seguintes ligações mostram como criar uma loja analítica ativada por recipientes utilizando o PowerShell:
 
-* [Azure Cosmos DB API para Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description&preserve-view=true)
-* [API SQL do Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+* [Azure Cosmos DB API para Mongo DB](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
+* [API SQL do Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
 
 
 ## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Opcional - Atualizar o tempo de loja analítica para viver
@@ -245,15 +245,15 @@ Não é atualmente suportado.
 
 As seguintes ligações mostram como atualizar os recipientes TTL analíticos utilizando o Azure CLI:
 
-* [Azure Cosmos DB API para Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update&preserve-view=true)
-* [API SQL do Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true)
+* [Azure Cosmos DB API para Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_update)
+* [API SQL do Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_update)
 
 ### <a name="powershell"></a>PowerShell
 
 As seguintes ligações mostram como atualizar os recipientes TTL analíticos utilizando o PowerShell:
 
-* [Azure Cosmos DB API para Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0&preserve-view=true)
-* [API SQL do Azure Cosmos DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0&preserve-view=true)
+* [Azure Cosmos DB API para Mongo DB](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
+* [API SQL do Azure Cosmos DB](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
 
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Conecte-se a um espaço de trabalho da Sinapse

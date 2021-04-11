@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: duau
-ms.openlocfilehash: 038e018a22af3546f5d3c66f6d8ee3963483cce1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3f8cf5de012999c0f814964fd41042a0caf78b42
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102615062"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106675"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Sobre os gateways de rede virtual ExpressRoute
 
@@ -53,7 +53,7 @@ Antes de criar um gateway ExpressRoute, tem de criar uma sub-rede de gateway. A 
 
 Quando cria a sub-rede do gateway, especifica o número de endereços IP que a sub-rede contém. Os endereços IP na sub-rede gateway são atribuídos aos VMs de gateway e serviços de gateway. Algumas configurações requerem mais endereços IP do que outras. 
 
-Quando estiver a planear o tamanho da sub-rede gateway, consulte a documentação para a configuração que está a planear criar. Por exemplo, a configuração coexistição ExpressRoute/VPN Gateway requer uma sub-rede de gateway maior do que a maioria das outras configurações. Além disso, pode querer certificar-se de que a sub-rede gateway contém endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora possa criar uma sub-rede de gateway tão pequena como /29, recomendamos que crie uma sub-rede de gateway de /27 ou maior (/27, /26 etc.) se tiver o espaço de endereço disponível para o fazer. Se estiver a criar uma sub-rede de gateway de pilha dupla, recomendamos que utilize também uma gama IPv6 de /64 ou maior. Isto acomodará a maioria das configurações.
+Quando estiver a planear o tamanho da sub-rede gateway, consulte a documentação para a configuração que está a planear criar. Por exemplo, a configuração coexistição ExpressRoute/VPN Gateway requer uma sub-rede de gateway maior do que a maioria das outras configurações. Além disso, pode querer certificar-se de que a sub-rede gateway contém endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora possa criar uma sub-rede de gateway tão pequena como /29, recomendamos que crie uma sub-rede de gateway de /27 ou maior (/27, /26 etc.) se tiver o espaço de endereço disponível para o fazer. Se planeia ligar 16 circuitos ExpressRoute ao seu gateway, **tem de** criar uma sub-rede de gateway de /26 ou maior. Se estiver a criar uma sub-rede de gateway de pilha dupla, recomendamos que utilize também uma gama IPv6 de /64 ou maior. Isto acomodará a maioria das configurações.
 
 O exemplo seguinte do Gestor de Recursos PowerShell mostra uma sub-rede de gateway chamada GatewaySubnet. Pode ver que a notação CIDR especifica uma /27, que permite endereços IP suficientes para a maioria das configurações que existem atualmente.
 

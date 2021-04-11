@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: 4db9503ea84ae13148a89a03048c73399413e5cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101710197"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>Transformação de parse no fluxo de dados de mapeamento

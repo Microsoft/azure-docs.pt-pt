@@ -80,12 +80,12 @@ As operações são adicionadas e configuradas a uma API no portal da editora. P
 
 A nova janela **de funcionamento** será apresentada e o separador **Assinatura** será selecionado por predefinição.
 
-## <a name="add-rrs-operation"></a>Adicionar operação RRS
+## <a name="add-rrs-operation&quot;></a>Adicionar operação RRS
 Primeiro criar uma operação para o serviço AzureML RRS:
 
 1. Para o **verbo HTTP**, selecione **POST**.
-2. Para o **modelo de URL**, escreva " `/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}` "
-3. Introduza um **nome de Exibição** (este exemplo utiliza "RRS Execute").
+2. Para o **modelo de URL**, escreva &quot; `/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}` &quot;
+3. Introduza um **nome de Exibição** (este exemplo utiliza &quot;RRS Execute").
 
    ![A screenshot mostra a página Signature onde pode introduzir um nome de exibição.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 

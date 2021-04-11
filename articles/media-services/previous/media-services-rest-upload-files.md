@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103012943"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com REST
@@ -104,7 +104,7 @@ Para obter etapas sobre como configurar o Carteiro para este tutorial, consulte 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Criar uma política de acesso com permissão de escrita
 
-### <a name="overview"></a>Descrição geral 
+### <a name="overview"></a>Descrição Geral 
 
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
@@ -122,7 +122,7 @@ Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os 
 
 ## <a name="create-an-asset"></a>Criar um recurso
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Um [ativo](/rest/api/media/operations/asset) é um recipiente para vários tipos ou conjuntos de objetos em Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados. Na API REST, a criação de um Ativo requer o envio de um pedido de CORREIO aos Serviços de Comunicação Social e a colocação de qualquer informação de propriedade sobre o seu ativo no organismo de pedido.
 
@@ -143,7 +143,7 @@ Neste exemplo, estamos a criar um ativo não encriptado.
 
 ## <a name="create-a-sas-locator-and-create-the-upload-url"></a>Crie um localizador SAS e crie o URL de upload
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Uma vez definido o conjunto AccessPolicy e Localizador, o ficheiro real é enviado para um recipiente de armazenamento Azure Blob usando as APIs de ARMAZENAMENTO Azure Storage REST. Tens de carregar os ficheiros como blocos. As bolhas de página não são suportadas pela Azure Media Services.  
 
@@ -174,7 +174,7 @@ São aplicáveis algumas considerações:
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Faça o upload de um ficheiro para o armazenamento de blob usando o URL de upload
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Agora que tem o URL de upload, precisa de escrever algum código utilizando as APIs Azure Blob diretamente para fazer o upload do seu ficheiro para o contentor SAS. Para obter mais informações, veja os seguintes artigos:
 

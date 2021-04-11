@@ -8,10 +8,10 @@ ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101708565"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
@@ -19,7 +19,7 @@ ms.locfileid: "101708565"
 
 A extensão de diagnóstico é implementada como uma [extensão de máquina virtual](../../virtual-machines/extensions/overview.md) em Azure, por isso suporta as mesmas opções de instalação usando modelos de Gestor de Recursos, PowerShell e CLI. Consulte [as extensões e funcionalidades da máquina virtual para windows](../../virtual-machines/extensions/features-windows.md) para obter detalhes sobre a instalação e manutenção de extensões de máquinas virtuais.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Quando configurar o Windows Azure a extensão de diagnóstico, deve especificar uma conta de armazenamento onde todos os dados especificados serão enviados. Pode opcionalmente adicionar um ou mais *sumidouros de dados* para enviar os dados para diferentes locais.
 
 - Pia Azure Monitor - Envie dados de desempenho dos hóspedes para as Métricas do Monitor Azure.
