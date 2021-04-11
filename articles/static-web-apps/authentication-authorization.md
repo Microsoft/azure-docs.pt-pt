@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9c8dd723c9cde5c0534d9fd5ca4084c7ed15d213
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419291"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218639"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticação e autorização para Pré-visualização das Aplicações Web Estáticas do Azure
 
@@ -156,7 +156,13 @@ Pode utilizar uma [regra de rota](./configuration.md#routes) para mapear um forn
 
 ### <a name="post-login-redirect"></a>Redirecionamento de login
 
-Se pretender que um utilizador regresse a uma página específica após o início de sessão, forneça um URL no `post_login_redirect_uri` parâmetro de cadeia de consulta.
+Se pretender que um utilizador regresse a uma página específica após o início de sessão, forneça um URL qualificado completo no `post_login_redirect_uri` parâmetro de cadeia de consulta.
+
+Por exemplo:
+
+```html
+<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
+```
 
 ## <a name="logout"></a>Terminar sessão
 

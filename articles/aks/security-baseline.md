@@ -4,22 +4,20 @@ description: A linha de base de segurança do Serviço Azure Kubernetes fornece 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2ebfe8e8b3d948d3e11bc8c24def6d5dbcb58de9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b1a1c4f7a794041f46339dcf8cd5e09b2298f0bb
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558912"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076365"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de segurança Azure para o Serviço Azure Kubernetes
 
-Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure Security Benchmark](../security/benchmarks/overview-v1.md) a Azure Kubernetes. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure.
-O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável a Azure Kubernetes. Foram excluídos **os controlos** não aplicáveis a Azure Kubernetes.
+Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure Security Benchmark](../security/benchmarks/overview-v1.md) a Azure Kubernetes. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável a Azure Kubernetes. Foram excluídos **os controlos** não aplicáveis ao Azure Kubernetes, ou para os quais a responsabilidade é da Microsoft.
 
- 
 Para ver como Azure Kubernetes mapeia completamente para o Azure Security Benchmark, consulte o ficheiro completo de [mapeamento de base de segurança Azure Kubernetes](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Segurança de Rede
@@ -114,7 +112,7 @@ O Network Watcher é ativado automaticamente na região da sua rede virtual quan
 
 Se a deteção e/ou prevenção de intrusões baseadas na inspeção de carga útil ou na análise de comportamento não for um requisito, um Gateway de aplicação Azure com WAF pode ser usado e configurado em "modo de deteção" para registar alertas e ameaças, ou "modo de prevenção" para bloquear intrusões e ataques detetados ativamente.
 
-- [Compreenda as melhores práticas para garantir o seu cluster AKS com um WAF](./operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
+- [Compreenda as melhores práticas para garantir o seu cluster AKS com um WAF](https://docs.microsoft.com/azure/aks/operator-best-practices-network#secure-traffic-with-a-web-application-firewall-waf)
 
 - [Como implementar o Gateway de Aplicações Azure (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
@@ -158,7 +156,7 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Amostras da Política Azure para networking](../governance/policy/samples/built-in-policies.md#network)
+- [Amostras da Política Azure para networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
 
 **Responsabilidade**: Cliente
 
@@ -190,11 +188,11 @@ Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alte
 
 Utilize registos do Azure Monitor para ativar e consultar os registos a partir de AKS os componentes principais, kube-apiserver e kube-controller-manager. Crie e gere os nós que executam o kubelet com tempo de funcionamento do contentor e implemente as suas aplicações através do servidor API gerido de Kubernetes. 
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)](./view-control-plane-logs.md)
+- [Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs)
 
 **Responsabilidade**: Cliente
 
@@ -232,13 +230,13 @@ Exporte estes registos para Log Analytics ou outra plataforma de armazenamento. 
 
 Ativar e embarcar estes dados para a Azure Sentinel ou um SIEM de terceiros com base nos seus requisitos de negócio organizacional.
 
-- [Reveja o esquema de Log, incluindo funções de log aqui](./view-control-plane-logs.md)
+- [Reveja o esquema de Log, incluindo funções de log aqui](/azure/aks/view-master-logs)
 
-- [Compreender o Monitor Azure para contentores](../azure-monitor/containers/container-insights-overview.md)
+- [Compreender o Monitor Azure para contentores](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Como ativar o Monitor Azure para contentores](../azure-monitor/containers/container-insights-onboard.md)
+- [Como ativar o Monitor Azure para contentores](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)](./view-control-plane-logs.md)
+- [Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs)
 
 **Responsabilidade**: Cliente
 
@@ -265,7 +263,7 @@ Permitir registos de auditoria em componentes principais da AKS, tais como:
 
 Ligue outros registos de auditoria, como a auditoria de kube também. 
 
-- [Como ativar e rever registos de nó de nó master kubernetes em AKS](./view-control-plane-logs.md)
+- [Como ativar e rever registos de nó de nó master kubernetes em AKS](/azure/aks/view-master-logs)
 
 **Responsabilidade**: Cliente
 
@@ -287,7 +285,7 @@ A recolha de dados é necessária para fornecer visibilidade em atualizações e
 
 **Orientação**: A bordo das suas instâncias do Serviço Azure Kubernetes (AKS) para o Azure Monitor e de definir o período de retenção correspondente do espaço de trabalho Azure Log Analytics de acordo com os requisitos de conformidade da sua organização. 
 
-- [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos para log analytics workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
 
@@ -301,11 +299,11 @@ Utilize o espaço de trabalho do Log Analytics do Azure Monitor para rever regis
 
 Veja os registos gerados por componentes principais da AKS (kube-apiserver e controlador de kube) para resolver problemas na resolução da sua aplicação e serviços. Ativar e aceder a dados a bordo ao Azure Sentinel ou a um SIEM de terceiros para gestão e monitorização centralizada de registos.
 
-- [Como ativar e rever registos de nó de nó master kubernetes em AKS](./view-control-plane-logs.md)
+- [Como ativar e rever registos de nó de nó master kubernetes em AKS](/azure/aks/view-master-logs)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
 
 **Responsabilidade**: Cliente
 
@@ -333,7 +331,7 @@ Reveja os alertas do Centro de Segurança sobre ameaças e atividades maliciosas
 
 - [Guia de referência de alertas de segurança](../security-center/alerts-reference.md)
 
-- [Alertas para contentores - Agrupamentos de serviço Azure Kubernetes](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alertas para contentores - Agrupamentos de serviço Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
 **Responsabilidade**: Cliente
 
@@ -417,7 +415,7 @@ Criar políticas e procedimentos em torno da utilização de contas administrati
 
 **Orientação**: Utilize um único sinal de acesso para o Serviço Azure Kubernetes (AKS) com a autenticação integrada Azure Ative Directory (Azure AD) para um cluster AKS.
 
-- [Como ver registos, eventos e métricas de kubernetes em tempo real](../azure-monitor/containers/container-insights-livedata-overview.md)
+- [Como ver registos, eventos e métricas de kubernetes em tempo real](/azure/azure-monitor/insights/container-insights-livedata-overview)
 
 **Responsabilidade**: Cliente
 
@@ -514,7 +512,7 @@ Esteja atento às funções utilizadas para fins de apoio ou resolução de prob
 **Orientação**: Integrar a autenticação do utilizador para o Serviço Azure Kubernetes (AKS) com o Azure Ative Directory (Azure AD). Crie Definições de Diagnóstico para Azure AD, enviando os registos de auditoria e de login para um espaço de trabalho Azure Log Analytics. Configure os alertas desejados (como quando uma conta desativada tenta entrar) dentro de um espaço de trabalho Azure Log Analytics.
 - [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Como criar, visualizar e gerir alertas de registo usando o Azure Monitor](../azure-monitor/alerts/alerts-log.md)
+- [Como criar, visualizar e gerir alertas de registo usando o Azure Monitor](/azure/azure-monitor/platform/alerts-log)
 
 **Responsabilidade**: Cliente
 
@@ -664,11 +662,11 @@ Alertas de configuração para notificação proactiva ou criação de registo q
 
 Utilize o Registo de Atividades Azure para monitorizar os seus clusters AKS e recursos relacionados a um nível elevado. Integre com a Prometheus para visualizar as métricas de aplicação e carga de trabalho que recolhe de nós e Kubernetes usando consultas para criar alertas personalizados, dashboards e análise detalhada detalhada.
 
-- [Compreender o Monitor Azure para contentores](../azure-monitor/containers/container-insights-overview.md)
+- [Compreender o Monitor Azure para contentores](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Como ativar o Monitor Azure para contentores](../azure-monitor/containers/container-insights-onboard.md)
+- [Como ativar o Monitor Azure para contentores](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
 **Responsabilidade**: Cliente
 
@@ -704,7 +702,7 @@ Note que o processo para manter os nós do Windows Server atualizados difere dos
 
 - [Entenda como as atualizações são aplicadas aos nódoas de cluster AKS que executam o Linux](node-updates-kured.md)
 
-- [Como atualizar uma piscina de nó AKS para clusters AKS que usam os nóns do Windows Server](./use-multiple-node-pools.md#upgrade-a-node-pool)
+- [Como atualizar uma piscina de nó AKS para clusters AKS que usam os nóns do Windows Server](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)
 
 - [Azure Kubernetes Service (AKS) upgrades de imagem de nó](node-image-upgrade.md)
 
@@ -792,7 +790,7 @@ As manchas, etiquetas ou etiquetas podem ser utilizadas para conciliar o invent�
 
 - [Clusters Geridos - Etiquetas de atualização](/rest/api/aks/managedclusters/updatetags)
 
-- [Especifique uma mancha, etiqueta ou etiqueta para uma piscina de nó](./use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)
+- [Especifique uma mancha, etiqueta ou etiqueta para uma piscina de nó](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#specify-a-taint-label-or-tag-for-a-node-pool)
 
 **Responsabilidade**: Cliente
 
@@ -887,7 +885,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/built-in-policies.md#general)
+- [Como negar um tipo específico de recurso com a Política Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsabilidade**: Cliente
 
@@ -1030,7 +1028,7 @@ Consulte a lista de controlos do Center for Internet Security (CIS) que são inc
 
 - [Endurecimento de segurança para o número de agente da AKS anfitrião OS](security-hardened-vm-host-image.md)
 
-- [Compreender a configuração estatal dos clusters AKS](./concepts-clusters-workloads.md#control-plane)
+- [Compreender a configuração estatal dos clusters AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 - [Compreenda o endurecimento da segurança nos anfitriões de máquinas virtuais AKS](security-hardened-vm-host-image.md)
 
@@ -1070,7 +1068,7 @@ Crie políticas personalizadas para auditar e impor configurações do sistema. 
 
 - [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como usar pseudónimos](../governance/policy/concepts/definition-structure.md#aliases)
+- [Como usar pseudónimos](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
 **Responsabilidade**: Cliente
 
@@ -1086,7 +1084,7 @@ Consulte a lista de controlos do Center for Internet Security (CIS) que são inc
 
 - [Compreenda o endurecimento da segurança nos anfitriões de máquinas virtuais AKS](security-hardened-vm-host-image.md)
 
-- [Compreender a configuração estatal dos clusters AKS](./concepts-clusters-workloads.md#control-plane)
+- [Compreender a configuração estatal dos clusters AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 **Responsabilidade**: Cliente
 
@@ -1124,7 +1122,7 @@ Evite a utilização de credenciais fixas ou partilhadas.
 
 - [Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)](concepts-security.md)
 
-- [Como usar o Key Vault com o seu cluster AKS](./developer-best-practices-pod-security.md#limit-credential-exposure)
+- [Como usar o Key Vault com o seu cluster AKS](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
 **Responsabilidade**: Cliente
 
@@ -1138,7 +1136,7 @@ Note que as identidades geridas pelo Pod destinam-se apenas a ser utilizadas ape
 
 Os princípios de serviço também podem ser usados em clusters AKS. No entanto, os agrupamentos que utilizam os princípios de serviço podem eventualmente chegar a um estado em que o diretor de serviço deve ser renovado para manter o cluster a funcionar. Gerir os diretores de serviços adiciona complexidade, e é por isso que é mais fácil usar identidades geridas em vez disso. Os mesmos requisitos de permissão aplicam-se tanto aos princípios de serviço como às identidades geridas.
 
-- [Compreender identidades geridas e cofre-chave com serviço Azure Kubernetes (AKS)](./developer-best-practices-pod-security.md#limit-credential-exposure)
+- [Compreender identidades geridas e cofre-chave com serviço Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
 - [Identidade do Azure Ad Pod](https://github.com/Azure/aad-pod-identity)
 
@@ -1170,9 +1168,9 @@ Limite a exposição credencial não definindo credenciais no seu código de apl
 
 - [Guia de referência de alertas de segurança](../security-center/alerts-reference.md)
 
-- [Alertas para contentores - Agrupamentos de serviço Azure Kubernetes](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alertas para contentores - Agrupamentos de serviço Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS partilha responsabilidade e Conjuntos Daemon](./support-policies.md#shared-responsibility)
+- [AKS partilha responsabilidade e Conjuntos Daemon](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Responsabilidade**: Partilhada
 
@@ -1194,9 +1192,9 @@ Limite a exposição credencial não definindo credenciais no seu código de apl
 
 - [Guia de referência de alertas de segurança](../security-center/alerts-reference.md)
 
-- [Alertas para contentores - Agrupamentos de serviço Azure Kubernetes](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alertas para contentores - Agrupamentos de serviço Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS partilha responsabilidade e Conjuntos Daemon](./support-policies.md#shared-responsibility)
+- [AKS partilha responsabilidade e Conjuntos Daemon](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Responsabilidade**: Partilhada
 
@@ -1238,7 +1236,7 @@ Execute cópias de segurança automáticas regulares de certificados de cofre ch
 
 - [Como apoiar segredos do Cofre de Chaves](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Como ativar o backup do Azure](../backup/index.yml)
+- [Como ativar o backup do Azure](/azure/backup/)
 
 **Responsabilidade**: Cliente
 
@@ -1250,15 +1248,15 @@ Execute cópias de segurança automáticas regulares de certificados de cofre ch
 
 Periodicamente realizar a restauração de dados de Certificados de Cofre Chave, Chaves, Contas de Armazenamento Gerido e Segredos, com comandos PowerShell.
 
-- [Como restaurar certificados de cofre chave](/powershell/module/az.keyvault/restore-azkeyvaultcertificate?amp;preserve-view=true&view=azps-4.8.0)
+- [Como restaurar certificados de cofre chave](/powershell/module/az.keyvault/restore-azkeyvaultcertificate)
 
-- [Como restaurar chaves do cofre](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Como restaurar chaves do cofre](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 - [Como restaurar contas de armazenamento gerido de cofre chave](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Como restaurar os segredos do cofre da chave](/powershell/module/az.keyvault/restore-azkeyvaultsecret?amp;preserve-view=true&view=azps-4.8.0)
+- [Como restaurar os segredos do cofre da chave](/powershell/module/az.keyvault/restore-azkeyvaultsecret)
 
-- [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](../backup/backup-azure-restore-files-from-vm.md)
+- [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](/azure/backup/backup-azure-restore-files-from-vm)
 
 **Responsabilidade**: Cliente
 
@@ -1272,7 +1270,7 @@ Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminaç
 
 - [Compreender encriptação do serviço de armazenamento Azure](../storage/common/storage-service-encryption.md)
 
-- [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Como permitir Soft-Delete em Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
 
 **Responsabilidade**: Cliente
 
@@ -1371,5 +1369,5 @@ Escolha o conector de dados do Centro de Segurança para transmitir os alertas p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja a [Descrição geral da Referência de Segurança do Azure v2](../security/benchmarks/overview.md)
-- Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
+- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)

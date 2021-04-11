@@ -4,12 +4,12 @@ description: Saiba mais sobre as APIs e ferramentas disponíveis para o desenvol
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 502eb08631223215933b75dca882c12c02d17bd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7c68ab16834bbd746cf52708db0cdb3f31c8d4d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89146407"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219931"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 
@@ -46,7 +46,7 @@ As suas aplicações e serviços podem emitir chamadas diretas de API REST ou ut
 | **REST do Batch** |[Azure REST API - Docs](/rest/api/batchservice/) |N/D |- |- | [Versões suportadas](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **.NET do Batch** |[Azure SDK para .NET - Docs](/dotnet/api/overview/azure/batch) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Notas de versão](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[Azure SDK para Python - Docs](/python/api/overview/azure/batch/client) |[PyPI](https://pypi.org/project/azure-batch/) |[Tutorial](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [Leia-me](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
-| **Batch Node.js** |[Azure SDK para JavaScript - Docs](/javascript/api/overview/azure/batch/client) |[npm](https://www.npmjs.com/package/azure-batch) |[Tutorial](batch-nodejs-get-started.md) |- | [Leia-me](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **Lote JavaScript** |[Azure SDK para JavaScript - Docs](/javascript/api/overview/azure/batch/client) |[npm](https://www.npmjs.com/package/azure-batch) |[Tutorial](batch-js-get-started.md) |- | [Leia-me](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[Azure SDK para Java - Docs](/java/api/overview/azure/batch) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [Leia-me](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>APIs de Gestão de Batch
@@ -58,7 +58,7 @@ As APIs do Azure Resource Manager para o Batch concedem acesso programático às
 | **REST de Gestão de Lotes** |[Azure REST API - Docs](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Gestão de Batch .NET** |[Azure SDK para .NET - Docs](/dotnet/api/overview/azure/batch/management) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Tutorial](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
 | **Python de Gestão de Lotes** |[Azure SDK para Python - Docs](/python/api/overview/azure/batch/management) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
-| **Node.js de Gestão de Lotes** |[Azure SDK para JavaScript - Docs](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
+| **Gestão de Lotes JavaScript** |[Azure SDK para JavaScript - Docs](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
 | **Java de Gestão de Lotes** |[Azure SDK para Java - Docs](/java/api/overview/azure/batch/management) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
 
 ## <a name="batch-command-line-tools"></a>Ferramentas de linha de comandos do Batch
@@ -86,5 +86,5 @@ Estas ferramentas adicionais podem ser úteis para construir e depurar as suas a
 ## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
-- [Introdução à biblioteca do Azure Batch para .NET](tutorial-parallel-dotnet.md) para saber como utilizar C# e a biblioteca .NET do Batch para executar uma carga de trabalho simples utilizando um fluxo de trabalho Batch comum. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.
+- [Introdução à biblioteca do Azure Batch para .NET](tutorial-parallel-dotnet.md) para saber como utilizar C# e a biblioteca .NET do Batch para executar uma carga de trabalho simples utilizando um fluxo de trabalho Batch comum. Uma [versão Python](tutorial-parallel-python.md) e um tutorial [JavaScript](batch-js-get-started.md) também estão disponíveis.
 - Transfira as [amostras de código no GitHub](https://github.com/Azure-Samples/azure-batch-samples) para ver como tanto o C# como o Python pode interagir com o Batch para agendar e processar amostras de cargas de trabalho.

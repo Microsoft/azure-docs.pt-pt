@@ -3,16 +3,16 @@ title: Configure componentes de rede NSX na Solução VMware Azure
 description: Aprenda a utilizar a consola Azure VMware Solution para configurar segmentos de rede NSX-T.
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a4702efe8ea26234d074f421d2e6eab871eba5f5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716993"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105733143"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Configure componentes de rede NSX na Solução VMware Azure
 
-Uma nuvem privada Azure VMware Solution vem com NSX-T como uma rede definida por software (SDDC) por padrão. Vem pré-a provisionado com um gateway NSX-T Tier-0 no modo Ative/Ative e um gateway NSX-T Tier-1 predefinido no modo Ative/Standby.  Estes gateways permitem-lhe ligar os segmentos (interruptores lógicos) e fornecer conectividade East-West e North-South. 
+Uma nuvem privada Azure VMware Solution vem com NSX-T como uma rede definida por software (SDDC) por padrão. Vem pré-a provisionado com um gateway NSX-T Tier-0 no modo **Ative/Ative** e um gateway NSX-T Tier-1 predefinido no modo Ative/Standby.  Estes gateways permitem-lhe ligar os segmentos (interruptores lógicos) e fornecer conectividade East-West e North-South. 
 
 Depois de implementada a nuvem privada Azure VMware Solution, pode configurar os objetos NSX-T necessários da consola Azure VMware Solution em **rede de carga** de trabalho .  A consola apresenta a visão simplificada das operações NSX-T de que um administrador VMware precisa diariamente e direcionado para utilizadores que não estão familiarizados com o NSX-T.  
 

@@ -2,21 +2,22 @@
 title: Conexões de resolução de problemas - Base de dados Azure para PostgreSQL - Servidor Único
 description: Saiba como resolver problemas de ligação à Base de Dados Azure para PostgreSQL - Servidor Único.
 keywords: conexão pós-quadrado,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
-author: niklarin
-ms.author: nlarin
+author: sunilagarwal
+ms.author: sunila
+ms.reviewer: ''
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fe8c4b751be174a91a0e2e94991bc63b4b1e5c7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96014623"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504248"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Problemas de conexão de resolução de problemas para Azure Database para PostgreSQL - Servidor Único
 
-Os problemas de ligação podem ser causados por uma variedade de coisas, incluindo:
+Os problemas de ligação podem ser causados por várias coisas, incluindo:
 
 * Definições de firewall
 * Tempo de intervalo de ligação
@@ -47,10 +48,10 @@ Erros transitórios ocorrem quando a manutenção é realizada, o sistema encont
 Se a aplicação não ligar persistentemente à Base de Dados Azure para PostgreSQL, geralmente indica um problema com um dos seguintes:
 
 * Configuração da firewall do servidor: Certifique-se de que a base de dados Azure para firewall do servidor PostgreSQL está configurada para permitir ligações do seu cliente, incluindo servidores de procuração e gateways.
-* Configuração da firewall do cliente: A firewall do seu cliente deve permitir ligações ao servidor de base de dados. Endereços IP e portas do servidor que não pode ser permitido, bem como nomes de aplicações como PostgreSQL em algumas firewalls.
+* Configuração da firewall do cliente: A firewall do seu cliente deve permitir ligações ao servidor de base de dados. Devem ser permitidos endereços IP e portas do servidor a que não pode ligar e os nomes da aplicação, como PostgreSQL em algumas firewalls.
 * Erro do utilizador: Pode ter parâmetros de ligação mal definidos, como o nome do servidor na cadeia de ligação ou um *\@ sufixo* de nome de servidor em falta no nome de utilizador.
 * Se vir o _error Server não está configurado para permitir ligações ipv6_, note que o nível Básico não suporta pontos finais de serviço VNet. Tem de remover o ponto final do Microsoft.Sql da sub-rede que está a tentar ligar-se ao servidor Basic.
-* Se vir o erro de ligação _do valor "***" inválido quando o suporte SSL não é compilado por_ engano, significa que o seu cliente PostgreSQL não suporta SSL. Provavelmente, o libpq do lado do cliente não foi compilado com a bandeira "-com-openssl". Por favor, tente conectar-se com um cliente PostgreSQL que tenha suporte SSL. 
+* Se vir o erro de ligação _do valor "***" inválido quando o suporte SSL não é compilado por_ engano, significa que o seu cliente PostgreSQL não suporta SSL. Provavelmente, o libpq do lado do cliente não foi compilado com a bandeira "-com-openssl". Tente ligar-se a um cliente PostgreSQL que tenha suporte SSL. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Medidas para resolver problemas de conectividade persistentes
 

@@ -5,7 +5,6 @@ description: Neste tutorial, saiba como encaminhar o tráfego de rede com uma ta
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: kumud
-ms.openlocfilehash: 63ea6821097327498803abc6577f28e595883bc0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7da59e996ec37d3653dbde68c5f56caa9e8261ee
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932935"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061915"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
 

@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c3f973da688a20fa60f2fb649b2c8d689bc2a98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589224"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076654"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Funcionalidades e Capacidades do Arco Azure ativaram a sql Gestão de Instância
 
@@ -117,19 +117,19 @@ Azure Arc habilitado SQL Managed Instance compartilham uma base de código comum
 | Funcionalidade | SQL Managed Instance preparado para o Azure Arc |
 |--|--|
 | JSON | Yes |
-| Arquivo de Consultas | Yes |  |
-| Temporal | Yes |  |
-| Suporte nativo XML | Yes |  |
-| Indexação XML | Yes |  |
-| & capacidades da UPSERT | Yes |  |
-| Data e hora de dados | Yes |  |
-| Apoio à internacionalização | Yes |  |
+| Arquivo de Consultas | Yes | 
+| Temporal | Yes | 
+| Suporte nativo XML | Yes | 
+| Indexação XML | Yes | 
+| & capacidades da UPSERT | Yes | 
+| Data e hora de dados | Yes | 
+| Apoio à internacionalização | Yes | 
 | Pesquisa completa e semântica | No |
-| Especificação da linguagem em consulta | Yes |  |
-| Corretor de Serviços (mensagens) | Yes |  |
-| Pontos finais Transact-SQL | Yes |  |
-| Graph | Yes |  |
-| Machine Learning Services | No |  |
+| Especificação da linguagem em consulta | Yes | 
+| Corretor de Serviços (mensagens) | Yes | 
+| Pontos finais Transact-SQL | Yes | 
+| Graph | Yes | 
+| Machine Learning Services | No |
 | PolyBase | No |
 
 

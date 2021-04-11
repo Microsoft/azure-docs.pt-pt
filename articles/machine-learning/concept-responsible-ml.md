@@ -10,12 +10,12 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 02/25/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: f849968c16d2c3d8940a71da0e0cda536882d9c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aeff928c14bd61a374f8b2610f35c0347a7cfc39
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101692067"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062425"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>O que é a aprendizagem automática responsável? (pré-visualização)
 

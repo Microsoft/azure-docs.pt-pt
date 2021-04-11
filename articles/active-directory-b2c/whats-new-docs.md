@@ -1,7 +1,7 @@
 ---
 title: Novidades no Azure Ative Directory business-to-customer (B2C)
 description: Documentação nova e atualizada para o Azure Ative Directory business-to-customer (B2C).
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,37 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 3fcc4f01d926f5c624adabd51e6215e0106af1fa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a2384a451d851d1bede24fc2dd73a386c019430
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557875"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443717"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Ative Directory B2C: Quais as novidades
 
 Bem-vindos às novidades da documentação do Azure Ative Directory B2C. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço B2C, veja [as novidades do Azure Ative Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>março de 2021
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Ativar domínios personalizados para o Azure Ative Directory B2C](custom-domain.md)
+- [Investigar risco com proteção de identidade em Azure AD B2C](identity-protection-investigate-risk.md)
+- [Configurar o pré-serviço e iniciar seduca com um Apple ID utilizando o Azure Ative Directory B2C (Pré-visualização)](identity-provider-apple-id.md)
+- [Configurar um fluxo de reset de palavra-passe de força no Azure Ative Directory B2C](force-password-reset.md)
+- [Experiência de inscrição incorporada](embedded-login.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Configurar inscrição e inscrição com uma conta Amazon utilizando o Azure Ative Directory B2C](identity-provider-amazon.md)
+- [Configurar o início de saúde com um fornecedor de SAML salesforce utilizando o protocolo SAML em Azure Ative Directory B2C](identity-provider-salesforce-saml.md)
+- [Migrar uma API web baseada em OWIN para b2clogin.com ou um domínio personalizado](multiple-token-endpoints.md)
+- [Perfis técnicos](technicalprofiles.md)
+- [Adicionar Acesso Condicional aos fluxos de utilizadores no Azure Ative Directory B2C](conditional-access-user-flow.md)
+- [Configurar um fluxo de reset de palavra-passe no Azure Ative Directory B2C](add-password-reset-policy.md)
+- [RelyingParty](relyingparty.md)
+
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

@@ -3,12 +3,12 @@ title: Melhores práticas de modelos
 description: Descreve abordagens recomendadas para a autoria de modelos de Gestor de Recursos Azure (modelos ARM). Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff2b9ecf0e4004aa6689294867f5ff93006211ec
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258002"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219948"
 ---
 # <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
@@ -160,7 +160,7 @@ Quando o seu modelo funcionar como esperado, recomendamos que continue a usar a 
 
 Não utilize um parâmetro para a versão API. As propriedades e valores dos recursos podem variar de acordo com a versão API. O IntelliSense num editor de código não consegue determinar o esquema correto quando a versão API está definida como parâmetro. Se passar numa versão API que não corresponde às propriedades do seu modelo, a implementação falhará.
 
-Não utilize variáveis para a versão API. Em particular, não utilize a [função dos fornecedores](template-functions-resource.md#providers) para obter dinamicamente versões API durante a implementação. A versão API recuperada dinamicamente pode não corresponder às propriedades do seu modelo.
+Não utilize variáveis para a versão API. 
 
 ## <a name="resource-dependencies"></a>Dependências de recursos
 

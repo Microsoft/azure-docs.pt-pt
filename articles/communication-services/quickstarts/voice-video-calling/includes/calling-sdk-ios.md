@@ -4,13 +4,15 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: d36bf92a1b1bdef4e45b22b934728b3e8c46c3da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 66a98d6c17deda00f2e90035d5c0bacc430470d1
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107757"
+ms.locfileid: "106073321"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 

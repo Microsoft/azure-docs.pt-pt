@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 1eefb7097f672552956e90a19e0a7b411cae8a24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 832cc1d4f9ec3cec4ada6e964e3ab2f6f023dd41
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455704"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554335"
 ---
-### <a name="standard-and-neural-voices"></a>Vozes padrão e neurais
+### <a name="neural-and-standard-voices"></a>Vozes neurais e padrão
 
-Utilize este quadro para determinar a **disponibilidade de vozes padrão** por região/ponto final:
+Utilize esta tabela para determinar a **disponibilidade de vozes neurais e padrão** por região/ponto final:
 
-| Region | Ponto final |
+| Região | Ponto final |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -34,6 +34,7 @@ Utilize este quadro para determinar a **disponibilidade de vozes padrão** por r
 | E.U.A. Centro-Sul | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| E.U.A. Centro-Oeste | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | E.U.A. Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | E.U.A. Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -41,25 +42,11 @@ Utilize este quadro para determinar a **disponibilidade de vozes padrão** por r
 > [!TIP]
 > [As vozes na pré-visualização](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) só estão disponíveis nestas três regiões: Leste dos EUA, Europa Ocidental e Sudeste Asiático.
 
-Utilize esta tabela para determinar a **disponibilidade de vozes neurais** por região/ponto final:
-
-| Region | Ponto final |
-|--------|----------|
-| Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
-| Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
-| E.U.A. Leste | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Índia Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| E.U.A. Centro-Sul | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
-| E.U.A. Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
-
 ### <a name="custom-voices"></a>Vozes personalizadas
 
 Se criou uma fonte de voz personalizada, use o ponto final que criou. Também pode utilizar os pontos finais listados abaixo, substituindo o `{deploymentId}` ID de implementação para o seu modelo de voz.
 
-| Region | Ponto final |
+| Região | Ponto final |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Sul do Brasil | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
@@ -97,7 +84,7 @@ A tabela seguinte detalha o suporte regional para as funcionalidades de Voz Neur
 
 A API áudio longa está disponível em várias regiões com pontos finais únicos.
 
-| Region | Ponto final |
+| Região | Ponto final |
 |--------|----------|
 | E.U.A. Leste | `https://eastus.customvoice.api.speech.microsoft.com` |
 | Índia Central | `https://centralindia.customvoice.api.speech.microsoft.com` |

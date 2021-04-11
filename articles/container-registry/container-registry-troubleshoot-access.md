@@ -2,26 +2,27 @@
 title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
-ms.date: 10/01/2020
-ms.openlocfilehash: 75c94d40663a7058dab7ed691183dd578964edcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/30/2021
+ms.openlocfilehash: ae75959028e19ec61e6dcf41308e54df38139d59
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699611"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220118"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
-Este artigo ajuda-o a resolver problemas que pode encontrar ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall. 
+Este artigo ajuda-o a resolver problemas que pode encontrar ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall ou servidor de procuração. 
 
 ## <a name="symptoms"></a>Sintomas
 
 Pode incluir um ou mais dos seguintes:
 
 * Incapaz de empurrar ou puxar imagens e recebe erro `dial tcp: lookup myregistry.azurecr.io`
+* Incapaz de empurrar ou puxar imagens e recebe erro `Client.Timeout exceeded while awaiting headers`
 * Incapaz de empurrar ou puxar imagens e recebe erro do Azure CLI `Could not connect to the registry login server`
 * Não é possível retirar imagens do registo ao Serviço Azure Kubernetes ou a outro serviço Azure
-* Não consegue aceder a um registo por trás de um representante https e recebe erro `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Não é possível aceder a um registo por trás de um representante https e recebe erro `Error response from daemon: login attempt failed with status: 403 Forbidden` ou `Error response from daemon: Get <registry>: proxyconnect tcp: EOF Login failed`
 * Não é possível configurar as definições de rede virtual e recebe erro `Failed to save firewall and virtual network settings for container registry`
 * Não pode aceder ou visualizar as definições de registo no portal Azure ou gerir o registo utilizando o CLI Azure
 * Não é possível adicionar ou modificar configurações de rede virtuais ou regras de acesso público
@@ -41,7 +42,7 @@ Faça o comando [de check-health az acr](/cli/azure/acr#az-acr-check-health) par
 
 Consulte [a saúde de um registo de contentores Azure](container-registry-check-health.md) para obter exemplos de comando. Se forem reportados erros, reveja a [referência de erro](container-registry-health-error-reference.md) e as seguintes secções para obter soluções recomendadas.
 
-Se tiver problemas usando o serviço de registo wih Azure Kubernetes, verifique o comando [az aks check-acr](/cli/azure/aks#az_aks_check_acr) para validar que o registo está acessível a partir do cluster AKS.
+Se tiver problemas em utilizar um Serviço Azure Kubernetes com um registo integrado, execute o comando [az aks check-acr](/cli/azure/aks#az_aks_check_acr) para validar que o cluster AKS pode chegar ao registo.
 
 > [!NOTE]
 > Alguns sintomas de conectividade da rede também podem ocorrer quando há problemas com autenticação ou autorização de registo. Consulte [o registo de resolução de problemas](container-registry-troubleshoot-login.md).
@@ -57,7 +58,7 @@ Para aceder a um registo por trás de uma firewall do cliente ou servidor de pro
 
 Para um registo geo-replicado, configuure o acesso ao ponto final de dados para cada réplica regional.
 
-Por trás de um representante https, certifique-se de que tanto o seu cliente Docker como o Daemon Docker estão configurados para comportamento de procuração.
+Por trás de um representante https, certifique-se de que tanto o seu cliente Docker como o Daemon Docker estão configurados para comportamento de procuração. Se alterar as definições de procuração para o daemon do Docker, não se esqueça de reiniciar o daemon. 
 
 Os registos de recursos registados na tabela ContainerRegistryLoginEvents podem ajudar a diagnosticar uma tentativa de ligação que está bloqueada.
 

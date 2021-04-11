@@ -8,12 +8,12 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 02/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8aeba13954283ca35c3eb0060a0e588ba6a7adbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53f09eed89f9667611ed4d5e0268c889609d560a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707182"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553571"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Quickstart: Conecte-se a um VM de forma segura através de um browser através de um endereço IP privado
 
@@ -37,6 +37,10 @@ Pode ligar-se a uma máquina virtual (VM) através do seu navegador utilizando o
 * Portas VM necessárias:
   * Portas de entrada: RDP (3389)
 
+ >[!NOTE]
+ >A utilização de Azure Bastion com Zonas DNS Privadas Azure não é suportada neste momento. Antes de começar, certifique-se de que a rede virtual onde planeia implementar o seu recurso Bastion não está ligada a uma zona privada de DNS.
+ >
+
 ### <a name="example-values"></a><a name="values"></a>Valores de exemplo
 
 Pode utilizar os seguintes valores de exemplo ao criar esta configuração, ou pode substituir o seu próprio.
@@ -47,7 +51,7 @@ Pode utilizar os seguintes valores de exemplo ao criar esta configuração, ou p
 | --- | --- |
 | Máquina virtual| TestVM |
 | Grupo de recursos | TestRG1 |
-| Region | E.U.A. Leste |
+| Região | E.U.A. Leste |
 | Rede virtual | VNet1 |
 | Espaço de endereços | 10.1.0.0/16 |
 | Sub-redes | FrontEnd: 10.1.0.0/24 |

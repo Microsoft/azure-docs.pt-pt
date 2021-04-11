@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ed3a11381285a9422380eb14ff301a2b9ea816a
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598903"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093559"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -51,11 +51,12 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
     * Um novo `Date` tipo de entidade.
     * Deteção de afirmação que substitui a deteção de negação (apenas disponível em API v3.1-preview.4).
     * Um novo imóvel preferencial `name` para entidades ligadas que é normalizado a partir de várias sistemas de onlineologia e codificação (disponível apenas em API v3.1-preview.4). 
-* Uma nova imagem de recipiente com etiqueta `3.0.015370001-onprem-amd64` e a nova versão modelo foi lançada para o `2021-03-01` repositório de pré-visualização do recipiente. 
-* O Text Analytics para a imagem do recipiente de saúde vai mudar-se para um novo repositório no próximo mês.  Por favor, consulte uma comunicação por e-mail sobre a localização da sua nova casa.
+* Uma nova imagem de recipiente com etiqueta `3.0.015490002-onprem-amd64` e a nova versão modelo foi lançada para o `2021-03-01` repositório de pré-visualização do recipiente. 
+    * Esta imagem do contentor deixará de estar disponível para download a partir de `containerpreview.azurecr.io` 26 de abril de 2021.
+* Um novo Text Analytics para imagem de recipiente de saúde com esta mesma versão modelo está agora disponível em `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare` . A partir de 26 de abril, só poderá descarregar o contentor deste repositório.
+
 > [!div class="nextstepaction"]
 > [Saiba mais sobre Text Analytics para saúde](how-tos/text-analytics-for-health.md)
->
 
 ### <a name="text-analytics-resource-portal-update"></a>Atualização do portal de recursos de Text Analytics
 * **Os Registos de Texto processados** estão agora disponíveis como métrica na secção **de Monitorização** do seu recurso Text Analytics no portal Azure.  

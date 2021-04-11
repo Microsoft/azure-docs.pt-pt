@@ -3,12 +3,12 @@ title: Como gerir o agente de insights do contentor | Microsoft Docs
 description: Este artigo descreve a gestão das tarefas de manutenção mais comuns com o agente de Log Analytics contentorizado utilizado por insights de contentores.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 2a0c32ef797a953eca794e16fe0ace5e967f339f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b485f4d49f0dd80f712d96779098c26be3f6de1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713801"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442580"
 ---
 # <a name="how-to-manage-the-container-insights-agent"></a>Como gerir o agente de insights do contentor
 
@@ -79,21 +79,6 @@ curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
-
-Ver **Utilização do principal de serviço** em Enable [monitoring do Azure Arc ativou o cluster Kubernetes](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) para obter detalhes sobre a utilização de um principal de serviço com este comando.
-
-### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Agente de upgrade em Azure Arc habilitado Kubernetes
-
-Execute o seguinte comando para atualizar o agente num Azure Arc ativado pelo cluster Kubernetes.
-
-```console
-curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
-export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
-bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
-```
-
-Ver **Utilização do principal de serviço** em Enable [monitoring do Azure Arc ativou o cluster Kubernetes](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) para obter detalhes sobre a utilização de um principal de serviço com este comando.
-
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Como desativar a recolha variável do ambiente num recipiente
 

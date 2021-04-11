@@ -8,10 +8,10 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: dd7ae71d8c3bc5415654527d5a650e0f09a99168
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105605820"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único utilizando o portal Azure

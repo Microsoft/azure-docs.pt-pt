@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 662a0f53a5d5e8e02ef3b29640009fd07bf4f1d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d2b1a60856877c24d61379a688ea630e506a848
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652149"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075241"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Amostras de código do Azure Ative Directory (ponto final v1.0)
 
@@ -63,8 +63,8 @@ As seguintes amostras ilustram as aplicações web que assinam os utilizadores. 
 
 As amostras que se seguem mostram como implementar o controlo de acesso baseado em funções (RBAC). O RBAC é utilizado para restringir as permissões de certas funcionalidades numa aplicação web a determinados utilizadores. Os utilizadores são autorizados dependendo se pertencem a um **grupo AD Azure** ou têm uma determinada **função de** aplicação .
 
-| Plataforma | Sample |
-|--|--|
+| Plataforma | Sample | Descrição |
+|--|--|--|
 | ![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Uma aplicação web .NET 4.5 MVC que utiliza **funções** AD Azure para autorização |
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Aplicações de clientes públicos e desktop e móveis que ligam para o Microsoft Graph ou para uma API Web

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 69fc0d6f3c4e18b34555a099f4e28e278ca3bdad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0bba85cc99e1751f39172ac320fe721d6f02e87
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100635392"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076790"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências de Cofre de Chaves para Serviço de Aplicações e Funções Azure
 
@@ -30,8 +30,19 @@ Para ler segredos do Key Vault, precisa de ter um cofre criado e dar permissão 
 
 1. Crie uma política de [acesso no Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) para a identidade da aplicação que criou anteriormente. Ativar a permissão secreta "Obter" sobre esta política. Não configufique a "aplicação autorizada" ou `applicationId` as definições, uma vez que tal não é compatível com uma identidade gerida.
 
-   > [!IMPORTANT]
-   > As referências key Vault não são atualmente capazes de resolver segredos armazenados num cofre chave com restrições de [rede,](../key-vault/general/overview-vnet-service-endpoints.md) a menos que a aplicação esteja hospedada dentro de um [Ambiente de Serviço de Aplicações](./environment/intro.md).
+### <a name="access-network-restricted-vaults"></a>Cofres restritos à rede
+
+> [!NOTE]
+> As aplicações baseadas em Linux não são atualmente capazes de resolver segredos a partir de um cofre-chave restrito à rede, a menos que a aplicação esteja hospedada dentro de um [Ambiente de Serviço de Aplicações.](./environment/intro.md)
+
+Se o seu cofre estiver configurado com restrições de [rede,](../key-vault/general/overview-vnet-service-endpoints.md)também terá de garantir que a aplicação tem acesso à rede.
+
+1. Certifique-se de que a aplicação tem capacidades de rede de saída configuradas, conforme descrito nas [funcionalidades de networking do Serviço de Aplicações](./networking-features.md) e [nas opções de networking do Azure Functions](../azure-functions/functions-networking-options.md).
+
+2. Certifique-se de que a configuração do cofre é responsável pela rede ou sub-rede através da qual a sua aplicação irá aceder à sua rede.
+
+> [!IMPORTANT]
+> O acesso a um cofre através da integração de redes virtuais é atualmente incompatível com [atualizações automáticas de segredos sem uma versão especificada.](#rotation)
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 
@@ -56,6 +67,9 @@ Em alternativa:
 ```
 
 ## <a name="rotation"></a>Rotação
+
+> [!IMPORTANT]
+> [O acesso a um cofre através da integração de rede virtual](#access-network-restricted-vaults) é atualmente incompatível com atualizações automáticas para segredos sem uma versão especificada.
 
 Se uma versão não for especificada na referência, então a aplicação utilizará a versão mais recente que existe no Key Vault. Quando as versões mais recentes estiverem disponíveis, como é o caso de um evento de rotação, a aplicação irá atualizar-se automaticamente e começar a utilizar a versão mais recente dentro de um dia. Quaisquer alterações de configuração feitas na aplicação causarão uma atualização imediata às versões mais recentes de todos os segredos referenciados.
 

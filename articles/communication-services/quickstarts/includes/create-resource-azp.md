@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: ab30b19160294b334c8c5abdfbcc1dc0da370f48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b602cbfde22cc87b42a32b007c19b626814d1660
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103495903"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554288"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,9 +25,9 @@ Introduza **a Comunicação** na **entrada 'Pesquisar o Mercado'** ou na barra d
 
 :::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Screenshot mostrando uma busca por serviços de comunicação na barra de pesquisa.":::
 
-Selecione **serviços de comunicação** nos resultados e, em seguida, selecione **Adicionar**.
+Selecione **serviços de comunicação** nos resultados e, em seguida, selecione **Criar**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Screenshot mostrando o painel Azure, realçando o botão adicionar.":::
+:::image type="content" source="../media/create-a-communication-resource/create-communication-portal.png" alt-text="Screenshot mostrando o painel de Serviços de Comunicação, realçando o botão Criar.":::
 
 Pode agora configurar o seu recurso de Serviços de Comunicação. Na primeira página do processo de criação, será solicitado que especifique:
 

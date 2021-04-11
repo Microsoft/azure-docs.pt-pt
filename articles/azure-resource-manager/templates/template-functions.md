@@ -3,12 +3,12 @@ title: Funções de modelos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9ea21a57404f7de832fb307bdabeb47f8cf3f58
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707324"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220186"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
 
@@ -176,7 +176,6 @@ O Gestor de Recursos fornece as seguintes funções para obter valores de recurs
 * [listSecrets](template-functions-resource.md#list)
 * [lista*](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
-* [fornecedores](template-functions-resource.md#providers)
 * [referência](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) - só pode ser utilizado em implementações para um grupo de recursos.
 * [resourceId](template-functions-resource.md#resourceid) - pode ser usado em qualquer âmbito, mas os parâmetros válidos mudam dependendo do âmbito.

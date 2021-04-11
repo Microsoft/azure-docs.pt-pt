@@ -3,14 +3,14 @@ title: Gerir horários na Azure Automation
 description: Este artigo diz como criar e trabalhar com um horário na Azure Automation.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/19/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: a829cd946f36fb5996405ba00945e9f9cb65d162
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8f732cd8c588ffc08dbe48f6a92add65c2bc2e9f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544235"
+ms.locfileid: "105963245"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Azure Automation
 
@@ -183,8 +183,8 @@ $automationAccountName = "MyAutomationAccount"
 $runbookName = "Test-Runbook"
 $scheduleName = "Sample-DailySchedule"
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-Register-AzAutomationScheduledRunbook –AutomationAccountName $automationAccountName `
-–Name $runbookName –ScheduleName $scheduleName –Parameters $params `
+Register-AzAutomationScheduledRunbook -AutomationAccountName $automationAccountName `
+-Name $runbookName -ScheduleName $scheduleName -Parameters $params `
 -ResourceGroupName "ResourceGroup01"
 ```
 
@@ -218,8 +218,8 @@ O exemplo a seguir mostra como desativar um horário de um livro de corridas uti
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
-Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
-–Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
+Set-AzAutomationSchedule -AutomationAccountName $automationAccountName `
+-Name $scheduleName -IsEnabled $false -ResourceGroupName "ResourceGroup01"
 ```
 
 ## <a name="remove-a-schedule"></a>Remover um horário

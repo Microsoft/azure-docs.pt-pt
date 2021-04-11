@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204053"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581817"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar o certificado autorrotação no Cofre de Chaves
 
@@ -51,7 +51,7 @@ Crie um certificado ou importe um certificado para o cofre chave (ver [Passos pa
 
 ## <a name="update-certificate-lifecycle-attributes"></a>Atualizar atributos de ciclo de vida certificado
 
-No Azure Key Vault, pode atualizar os atributos do ciclo de vida de um certificado antes e depois da hora de criação do certificado.
+No Azure Key Vault, pode atualizar os atributos do ciclo de vida de um certificado no momento da criação de certificados ou posteriores.
 
 Um certificado criado no Cofre-Chave pode ser:
 
@@ -83,7 +83,7 @@ Key Vault auto-rota certificados através de parcerias estabelecidas com CAs. Co
         |  Renovar automaticamente num dado momento| Envie por e-mail todos os contactos num dado momento |
         |-----------|------|
         |A seleção desta opção *ligará a* autoração. | A seleção desta opção *não* rodará automaticamente, mas apenas alertará os contactos.|
-
+         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
 1. Selecione **Criar**.
 
 ![Ciclo de vida certificado](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)

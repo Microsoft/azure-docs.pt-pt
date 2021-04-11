@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2021
 ms.author: Zhchia
 ms.openlocfilehash: 8c75c0638365caf885900e2f26742e5fc5aab78b
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953192"
 ---
 # <a name="tutorial-configure-securelogin-for-automatic-user-provisioning"></a>Tutorial: Configurar SecureLogin para o fornecimento automático de utilizadores

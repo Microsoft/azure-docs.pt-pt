@@ -1,14 +1,14 @@
 ---
 title: Obter alterações do recurso
 description: Entenda como encontrar quando um recurso foi alterado, obter uma lista das propriedades que mudaram, e avaliar os diffs.
-ms.date: 01/27/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500a2d58c5fc9e1b63a544978c4b583eba60a63e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594642"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219081"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -145,6 +145,10 @@ Cada evento de alteração detetado para o **recursoId** tem as seguintes propri
 - **beforeSnapshot** - Contém o **snapshotId** e **o timetamp** do instantâneo de recurso que foi tirado antes de uma mudança ser detetada.
 - **afterSnapshot** - Contém o **snapshotId** e o **timetamp** do instantâneo de recurso que foi tirado após a deteção de uma alteração.
 - **changeType** - Descreve o tipo de alteração detetada para todo o registo de alteração entre o **antes de Snapshot** e **afterSnapshot**. Os valores são: _Criar,_ _atualizar_ e _eliminar_. O conjunto de **propriedadesChanges** só está incluído quando **o ChangeType** é _Update_.
+
+  > [!IMPORTANT]
+  > _A Criação_ só está disponível em recursos que existiam anteriormente e foram eliminados nos últimos 14 dias.
+
 - **propertyChanges** - Esta variedade de propriedades detalha todas as propriedades de recursos que foram atualizadas entre o **antes de Snapshot** e o **afterSnapshot**:
   - **nome da propriedade** - O nome da propriedade de recurso que foi alterado.
   - **changeCategoria** - Descreve o que fez a mudança. Os valores são: _Sistema_ e _Utilizador._

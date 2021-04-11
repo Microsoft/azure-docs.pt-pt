@@ -4,12 +4,12 @@ description: Saiba como ativar identidades geridas atribuídas pelo utilizador e
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7fab213ac1545c0bff9b74bc46504717b6038e8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d69e983a4b17298150942c924a3c694e2cceaf72
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950166"
+ms.locfileid: "105967256"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configurar identidades geridas em piscinas de Lote
 
@@ -53,7 +53,7 @@ var poolParameters = new Pool(name: "yourPoolName")
                     "18.04-LTS",
                     "latest"),
                 "batch.node.ubuntu 18.04")
-        };
+        },
         Identity = new BatchPoolIdentity
         {
             Type = PoolIdentityType.UserAssigned,
