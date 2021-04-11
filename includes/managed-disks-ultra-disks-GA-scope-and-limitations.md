@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aafeb7ebd939805ae18e29670f359660db12e2e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8f817ad06742e6f84c3cb87dda0c36866540267
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555802"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450353"
 ---
 Por enquanto, os discos ultra têm limitações adicionais, são os seguintes:
 
@@ -31,6 +31,7 @@ O quadro que se segue descreve as regiões em que os discos ultra estão dispon�
 |Ásia Leste     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |Alemanha Centro-Oeste     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |Coreia do Sul Central     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
+|E.U.A. Centro-Norte    |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |E.U.A. Centro-Sul    |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |US Gov - Arizona     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |US Gov - Virginia     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|

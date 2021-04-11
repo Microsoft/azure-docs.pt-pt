@@ -12,12 +12,12 @@ ms.date: 03/17/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 56ffa8c33c409e274318407a70f33edaabb5073d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75d838e8ce785a4f59b056bf0dec736b982ea716
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578503"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283818"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -123,7 +123,7 @@ Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquis
 | AADSTS5005 | InvalidPasswordExpiredPassword - A palavra-passe está expirada. |
 | AADSTS50056 | Palavra-passe inválida ou nula -A palavra-passe não existe na loja para este utilizador. |
 | AADSTS50057 | UserDisabled - A conta de utilizador está desativada. A conta foi desativada por um administrador. |
-| AADSTS50058 | UserInformationNotProvided - Isto significa que um utilizador não está inscrito. Este é um erro comum que se espera quando um utilizador é não autenticado e ainda não assinou.</br>Se este erro for encorajado num contexto SSO em que o utilizador já assinou, isto significa que a sessão SSO não foi considerada ou inválida.</br>Este erro pode ser devolvido à aplicação se não for especificado o pedido. |
+| AADSTS50058 | UserInformationNotProvided - Isto significa que um utilizador não está inscrito. Este é um erro comum que se espera quando um utilizador é não autenticado e ainda não assinou.</br>Se este erro for encontrado num contexto SSO em que o utilizador já assinou, isto significa que a sessão SSO não foi considerada ou inválida.</br>Este erro pode ser devolvido à aplicação se não for especificado o pedido. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Informações de identificação de inquilinos não foram encontradas no pedido ou implícitas por quaisquer credenciais fornecidas. O utilizador pode contactar o administrador do arrendatário para ajudar a resolver o problema. |
 | AADSTS50061 | SignoutInvalidRequest - O pedido de inscrição é inválido. |
 | AADSTS50064 | CredencialAuthenticationError - A validação credencial no nome de utilizador ou palavra-passe falhou. |

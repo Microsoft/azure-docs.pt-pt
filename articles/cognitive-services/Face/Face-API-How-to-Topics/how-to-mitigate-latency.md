@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: 2c771509de5ac246bac0d8e006a5d0b884a410b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 412105e3262a3baf8780bd3bd1082508967ea486
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706814"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012589"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Como: mitigar a latência ao utilizar o serviço Face
 
@@ -86,6 +86,7 @@ Se o seu computador tiver uma ligação lenta ao serviço Face, isso afetará o 
 Mitigações:
 - Quando criar a subscrição Face, certifique-se de escolher a região mais próxima do local onde a sua aplicação está hospedada.
 - Se precisar de ligar para vários métodos de serviço, considere chamá-los em paralelo se o design da sua aplicação o permitir. Consulte a secção anterior para obter um exemplo.
+- Se as latências mais longas impactarem a experiência do utilizador, escolha um limiar de tempo limite (por exemplo, máximo 5s) antes de voltar a tentar a chamada API.
 
 ## <a name="next-steps"></a>Passos seguintes
 

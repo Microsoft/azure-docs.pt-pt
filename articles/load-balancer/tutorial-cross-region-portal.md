@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576922"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221131"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um balanceador de carga azure cross-region usando o portal Azure
 
@@ -105,34 +105,6 @@ Crie o pool de endereços de backend **myBackendPool-CR** para incluir os equili
 8. Selecione **Adicionar**.
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Adicione equilibradores de carga regionais ao backendpool" border="true":::
-
-## <a name="create-a-health-probe"></a>Criar uma sonda de estado de funcionamento
-
-Nesta secção, você vai criar uma sonda de saúde para criar a regra de equilíbrio de carga:
-
-* Chama-se **MyHealthProbe.**
-* Protocolo **TCP**.
-* Intervalo de **5** segundos.
-* Limiar pouco saudável de **duas** falhas.
-
-1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, selecione **myLoadBalancer-CR** da lista de recursos.
-
-2. Em **Definições**, selecione **Sondas de estado de funcionamento**.
-
-3. Utilize estes valores para configurar a sonda de saúde:
-
-    | Definição | Valor |
-    | ------- | ----- |
-    | Nome | Insira **o myHealthProbe**. |
-    | Protocolo | Selecione **TCP**. |
-    | Porta | Insira **80**. |
-    | Intervalo | Insira **5**. |
-    | Limiar com funcionamento incorreto | Insira **2**. |
-
-4. Selecione **OK**.
-
-    > [!NOTE]
-    > O balanceador de carga da região transversal tem uma sonda de saúde incorporada. Esta sonda é um espaço reservado para a criação de regras de equilíbrio de carga para funcionar.  Para obter mais informações, consulte **[as limitações do balançador de carga entre regiões.](cross-region-overview.md#limitations)**
 
 ## <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 

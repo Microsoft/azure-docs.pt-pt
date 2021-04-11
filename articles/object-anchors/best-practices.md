@@ -6,12 +6,12 @@ ms.author: crtreasu
 ms.date: 03/12/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: e287d8305b3fd85fc992417e1563b1e58e6f8424
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6b9546843d88a5a7329120cca86d685d8abf3460
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463005"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061932"
 ---
 # <a name="best-practices"></a>Melhores práticas
 

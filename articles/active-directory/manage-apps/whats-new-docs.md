@@ -1,7 +1,7 @@
 ---
 title: Novidades na gestão de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para a gestão de aplicações do Azure Ative Directory.
-ms.date: 03/08/2021
+ms.date: 04/04/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,45 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 5b645efe2bbaadeca31b4a0a3b957ff53f5ed3aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81898875af85becf1766f02a5b7e077cb388a173
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775515"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450043"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da documentação de gestão de aplicações do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de gestão de aplicações, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>março de 2021
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Certificados de Gestão de Aplicações Azure Ative (Azure AD) frequentemente questionados](application-management-certs-faq.md)
+- [Exemplos de PowerShell de Diretório Ativo Azure para Gestão de Aplicações](app-management-powershell-samples.md)
+- [Desative a aceleração automática para um IDP federado durante o início de sação do utilizador com a política home realm Discovery](prevent-domain-hints-with-home-realm-discovery.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Plan Azure Ative Directory My Apps configuração](my-apps-deployment-plan.md)
+- [Integrar o Azure Ative Directory com candidaturas a iniciar guia](plan-an-application-integration.md)
+- [Integre com SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Migrar a autenticação de aplicações para o Azure Ative Directory](migrate-application-authentication-to-azure-active-directory.md)
+- [Utilize o relatório de atividade da aplicação AD FS para migrar aplicações para a Azure AD](migrate-adfs-application-activity.md)
+- [Planear uma implementação de início de sessão único](plan-sso-deployment.md)
+- [Exemplos de PowerShell de Diretório Ativo Azure para Gestão de Aplicações](app-management-powershell-samples.md)
+- [Resolver problemas de configurações de delegação restrita do Kerberos para o Proxy de Aplicações](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+- [Quickstart: Configurar um único sign-on (SSO) baseado em SAML para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)](add-application-portal-setup-sso.md)
+- [Gestão de aplicações do Azure Ative Directory: Quais as novidades](whats-new-docs.md)
+- [Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas](application-proxy-faq.md)
+- [Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
+- [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
+- [Otimizar o fluxo de tráfego com o Azure Ative Directory Application Proxy](application-proxy-network-topology.md)
+- [Azure AD Application Proxy: O histórico de lançamentos da versão](application-proxy-release-version-history.md)
+- [Configurar o Azure Ative Directory assinar em comportamento para uma aplicação usando uma política de Descoberta do Realm Doméstico](configure-authentication-for-federated-users-portal.md)
+- [Mover a autenticação da aplicação do AD FS para o AAD](migrate-adfs-apps-to-azure.md)
+
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

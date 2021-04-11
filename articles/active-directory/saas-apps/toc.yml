@@ -2306,6 +2306,8 @@
           href: Proxyclick-provisioning-tutorial.md
         - name: Peakon
           href: peakon-provisioning-tutorial.md
+        - name: Proware
+          href: proware-provisioning-tutorial.md
         - name: PureCloud da Genesys
           href: purecloud-by-genesys-provisioning-tutorial.md
         - name: Reward Gateway

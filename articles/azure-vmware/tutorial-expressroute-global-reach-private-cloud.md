@@ -3,12 +3,12 @@ title: Tutorial - Ambientes de peer on-in para uma nuvem privada
 description: Saiba como criar o ExpressRoute Global Reach olhando para uma nuvem privada numa Solução VMware Azure.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 798b822989127ccbb00e971de2cc4147ac234259
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564505"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449567"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
 
@@ -55,7 +55,7 @@ Agora que criou uma chave de autorização para o circuito expressRoute em nuvem
 1. Crie uma ligação de nuvem no local. Faça um dos seguintes e, em seguida, **selecione Criar**:
 
    - Selecione o **circuito ExpressRoute** da lista, ou
-   - Se tiver o ID do circuito, cole-o no campo e forneça a chave de autorização.
+   - Se tiver o ID do circuito, cole-o no campo e forneça a chave de autorização que acabou de criar.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Introduza o ID ExpressRoute e a chave de autorização e, em seguida, selecione Criar.":::   
    

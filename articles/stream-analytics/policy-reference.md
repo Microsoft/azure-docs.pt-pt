@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para a Azure Stream Analytics
 description: Lista definições políticas incorporadas da Azure Policy para a Azure Stream Analytics. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7ef9606da62ebd5ff53eca5fc21c22591bd3ce3b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5cab2caee2057afacc8db7fe7e701b36f1e84fb3
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037462"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095518"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Definições incorporadas da Política Azure para a Azure Stream Analytics
 

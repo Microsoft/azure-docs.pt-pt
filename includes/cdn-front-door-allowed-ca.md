@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2020
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 20d9810ef5ff7380eb0df5df8a6720dcef71a6ad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0621788f50a07466861fbd87ede191f5ab688cd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104522"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554776"
 ---
 Os seguintes CAs são permitidos quando cria o seu próprio certificado:
 
@@ -62,7 +62,9 @@ Os seguintes CAs são permitidos quando cria o seu próprio certificado:
 - Raiz de Comunicação de Segurança RootCA1
 - Raiz de Comunicação de Segurança RootCA2
 - Raiz de Comunicação de Segurança RootCA3
+- Autoridade de Certificação de Raízes SSL.com ECC
 - Autoridade de Certificação de Raiz de SSL.com RSA
+- SSL.com EV Root Certification Authority ECC
 - autoridade de certificação de raiz SSL.com EV RSA R2
 - Staat der Nederlanden EV Root CA
 - Symantec Classe 3 EV SSL CA - G3

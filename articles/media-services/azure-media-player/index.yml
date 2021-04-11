@@ -9,12 +9,12 @@ metadata:
   author: IngridAtMicrosoft
   ms.author: inhenkel
   ms.date: 04/20/2020
-  ms.openlocfilehash: 90eb760b8f0e39d3c570c35875e45af9149b2bb5
-  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+  ms.openlocfilehash: 23a2f03ac8b76940f34976cf08b7e4d989c9ada3
+  ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102216909"
+  ms.lasthandoff: 04/06/2021
+  ms.locfileid: "106449772"
 landingContent:
 - title: Media Player do Azure
   linkLists:
@@ -22,10 +22,8 @@ landingContent:
     links:
     - text: Descrição geral
       url: azure-media-player-overview.md
-    - text: Notas de versão
-      url: azure-media-player-release-notes.md
     - text: Registo de alterações
-      url: azure-media-player-changelog.md
+      url: https://amp.azure.net/libs/amp/latest/docs/changelog.html
 - title: Introdução
   linkLists:
   - linkListType: get-started

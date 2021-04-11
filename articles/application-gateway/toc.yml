@@ -90,6 +90,8 @@
           href: ssl-overview.md
         - name: Descrição geral da política SSL
           href: application-gateway-ssl-policy-overview.md
+        - name: Autenticação mútua
+          href: mutual-authentication-overview.md
         - name: Utilizar o Key Vault
           href: key-vault-certs.md
     - name: Entrada para AKS
@@ -140,18 +142,28 @@
               href: end-to-end-ssl-portal.md
             - name: SSL de ponta a ponta - PowerShell
               href: application-gateway-end-to-end-ssl-powershell.md
+        - name: Autenticação mútua
+          items:
+            - name: Autenticação mútua - Portal
+              href: mutual-authentication-portal.md
+            - name: Autenticação mútua - PowerShell
+              href: mutual-authentication-powershell.md
         - name: Gerir certificados
           items:
             - name: Certificados para o back-end
               href: certificates-for-backend-authentication.md
             - name: Renovar certificados
               href: renew-certificates.md
-            - name: Gerar certificados autoassinados
+            - name: Gerar certificados auto-assinados para backend
               href: self-signed-certificates.md
+            - name: Certificados de cliente fidedignos
+              href: mutual-authentication-certificate-management.md
         - name: Política de SSL
           items:
             - name: Configurar a política do SSL
               href: application-gateway-configure-ssl-policy-powershell.md
+            - name: Política SSL específica do ouvinte
+              href: application-gateway-configure-listener-specific-ssl-policy.md
     - name: Entrada para AKS
       items:
         - name: Entrada para o AKS através do Helm (Brownfield)
@@ -254,6 +266,8 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: Erros de Mau Gateway (502)
           href: application-gateway-troubleshooting-502.md
+        - name: Autenticação mútua
+          href: mutual-authentication-troubleshooting.md
         - name: Entrada para AKS
           href: ingress-controller-troubleshoot.md
         - name: Estado de Funcionamento de Recursos

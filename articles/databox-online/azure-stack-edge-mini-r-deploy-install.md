@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4f7656337b12cf477c5c71d861d031919e0d55d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b154dabd6f672c6fdaf77c5f8d48f80fb40d5d8
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96468921"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060113"
 ---
 # <a name="tutorial-install-azure-stack-edge-mini-r"></a>Tutorial: Instalar Azure Stack Edge Mini R
 

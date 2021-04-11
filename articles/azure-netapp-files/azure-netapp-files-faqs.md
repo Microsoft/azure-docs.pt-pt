@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 81c28a3c64c81da8f6939d821c2bd61ba8617a7b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d63587eec1f7e6d24ae1638e8365b85fd1ec2c94
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935248"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504996"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -82,7 +82,21 @@ Não, atualmente não é possível aplicar Grupos de Segurança de Rede à sub-r
 
 ### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>Posso utilizar o Azure RBAC com ficheiros Azure NetApp?
 
-Sim, o Azure NetApp Files suporta funcionalidades do Azure RBAC.
+Sim, o Azure NetApp Files suporta funcionalidades do Azure RBAC. Juntamente com os papéis Azure incorporados, pode [criar funções personalizadas](../role-based-access-control/custom-roles.md) para ficheiros Azure NetApp. 
+
+Para obter a lista completa das permissões do Azure NetApp Files, consulte as operações do fornecedor de recursos Azure para [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp) .
+
+### <a name="are-azure-activity-logs-supported-on-azure-netapp-files"></a>Os Registos de Atividade do Azure são suportados em ficheiros Azure NetApp?
+
+Azure NetApp Files é um serviço nativo da Azure. Todos os APIs PUT, POST e DELETE contra ficheiros Azure NetApp estão registados. Por exemplo, os registos mostram atividades como quem criou o instantâneo, quem modificou o volume, e assim por diante.
+
+Para obter a lista completa das operações da API, consulte [a AZure NetApp Files REST API](/rest/api/netapp/).
+
+### <a name="can-i-use-azure-policies-with-azure-netapp-files"></a>Posso utilizar as políticas do Azure com ficheiros Azure NetApp?
+
+Sim, pode criar [políticas Azure personalizadas.](../governance/policy/tutorials/create-custom-policy-definition.md) 
+
+No entanto, não é possível criar políticas Azure (políticas de nomeação personalizada) na interface Azure NetApp Files. Consulte as Diretrizes para o planeamento da [rede de ficheiros Azure NetApp](azure-netapp-files-network-topologies.md#considerations).
 
 ## <a name="performance-faqs"></a>FAQs de Desempenho
 

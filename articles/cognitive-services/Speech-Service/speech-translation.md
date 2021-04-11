@@ -12,18 +12,25 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tradução da fala
-ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99541d7fe9eaa867860af93bc1423d476ce8bf4a
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954966"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449941"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço de tradução da fala, que permite a tradução em tempo real, [multi-línguas fala-a-fala](language-support.md#speech-translation) e tradução de voz-para-texto de streams de áudio. Com o Speech SDK, as suas aplicações, ferramentas e dispositivos têm acesso a transcrições de origem e saídas de tradução para áudio fornecido. Os resultados provisórios de transcrição e tradução são devolvidos à medida que a fala é detetada, e os resultados finais podem ser convertidos em discurso sintetizado.
+
+Esta documentação contém os seguintes tipos de artigos:
+
+* **Os quickstarts** estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.
+* **Os guias de como fazer** contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.
+* **Os conceitos** fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.
+* **Os tutoriais** são guias mais longos que mostram como usar o serviço como componente em soluções de negócio mais amplas.
 
 ## <a name="core-features"></a>Características do núcleo
 

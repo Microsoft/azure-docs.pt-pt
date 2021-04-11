@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: 1f5e4cb0d2db30c6b07370be137506f3fe26837f
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582141"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505302"
 ---
 # <a name="windows-virtual-desktop-faq"></a>FAQ do Windows Virtual Desktop
 
@@ -139,7 +139,7 @@ Finalmente, se for habilitado o fornecedor de recursos a partir da conta do prop
 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Com que frequência devo ligar os meus VM para evitar problemas de registo?
 
-Depois de registar um VM num pool de anfitriões dentro do serviço de ambiente de trabalho virtual do Windows, o agente atualiza regularmente o sinal do VM sempre que o VM estiver ativo. O certificado para o token de inscrição é válido por 90 dias. Devido a este limite de 90 dias, recomendamos que comece os seus VM a cada 90 dias. Ligar o seu VM dentro deste prazo evitará que o seu token de registo expire ou se torne inválido. Se iniciou o seu VM após 90 dias e tiver problemas de registo, siga as instruções no [guia de resolução de problemas](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) do agente virtual do Windows para remover o VM da piscina hospedeira, reinstalar o agente e reregistá-lo na piscina.
+Depois de registar um VM num pool de anfitriões dentro do serviço de ambiente de trabalho virtual do Windows, o agente atualiza regularmente o sinal do VM sempre que o VM estiver ativo. O certificado para o token de inscrição é válido por 90 dias. Devido a este limite de 90 dias, recomendamos que os VMs estejam online durante 20 minutos a cada 90 dias para que a máquina possa refrescar os seus tokens e atualizar os componentes do agente e da pilha lado a lado. Ligar o seu VM dentro deste prazo evitará que o seu token de registo expire ou se torne inválido. Se iniciou o seu VM após 90 dias e tiver problemas de registo, siga as instruções no [guia de resolução de problemas](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) do agente virtual do Windows para remover o VM da piscina hospedeira, reinstalar o agente e reregistá-lo na piscina.
 
 ## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Posso definir opções de disponibilidade ao criar piscinas de anfitriões?
 

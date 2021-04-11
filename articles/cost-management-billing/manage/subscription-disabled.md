@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 1c40102f8815cf7299a99d290b7f57b386ede401
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 37093900bf49e8a7613e2e3f4311548675791ceb
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055132"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220888"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reativar uma subscrição do Azure desativada
 
@@ -23,7 +23,7 @@ A sua subscrição do Azure pode ser desativada porque o crédito expirou, ating
 
 ## <a name="your-credit-is-expired"></a>O crédito expirou
 
-Quando se inscreve numa conta gratuita do Azure, obtém uma subscrição free Trial, que lhe fornece 200 USD Azure crédito na sua moeda de faturação durante 30 dias e 12 meses de serviços gratuitos. No final dos 30 dias, o Azure desativa a subscrição. A subscrição é desativada para o proteger de incorrer acidentalmente em custos devido a uma utilização que exceda o crédito e os serviços gratuitos incluídos na subscrição. Para continuar a utilizar os serviços do Azure, deve [atualizar a subscrição](upgrade-azure-subscription.md). Após a atualização, a subscrição ainda terá acesso aos serviços gratuitos durante 12 meses. Só é cobrado para utilização além dos limites de quantidade de serviço gratuito.
+Quando se inscreve numa conta gratuita do Azure, obtém uma subscrição free Trial, que lhe fornece crédito USD200 Azure na sua moeda de faturação durante 30 dias e 12 meses de serviços gratuitos. No final dos 30 dias, o Azure desativa a subscrição. A subscrição é desativada para o proteger de incorrer acidentalmente em custos devido a uma utilização que exceda o crédito e os serviços gratuitos incluídos na subscrição. Para continuar a utilizar os serviços do Azure, deve [atualizar a subscrição](upgrade-azure-subscription.md). Após a atualização, a subscrição ainda terá acesso aos serviços gratuitos durante 12 meses. Só é cobrado para utilização além dos limites de quantidade de serviço gratuito.
 
 ## <a name="you-reached-your-spending-limit"></a>Atingiu o limite de gastos
 

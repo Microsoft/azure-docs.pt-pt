@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 73bef21f430bde1c6c2c95d7c3f685cccbbd9179
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc19d5652f416657cbcd339de61379265587b4e7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467022"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505387"
 ---
 # <a name="form-recognizer-layout-service"></a>Serviço de Layout do Reconhecimento de Formulários
 
-O Azure Form Recogniser pode extrair texto, tabelas, marcas de seleção e informação de estrutura a partir de documentos que utilizem o seu serviço Layout. A API layout permite que os clientes levem documentos em diversos formatos e devolvam as representações estruturadas dos documentos. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/concept-recognizing-text.md) com modelos de aprendizagem profunda para extrair texto, tabelas, marcas de seleção e estrutura documental. 
+O Azure Form Recogniser pode extrair texto, tabelas, marcas de seleção e informação de estrutura a partir de documentos que utilizem o seu serviço Layout. A API layout permite que os clientes levem documentos em diversos formatos e devolvam as representações estruturadas dos documentos. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/overview-ocr.md) com modelos de aprendizagem profunda para extrair texto, tabelas, marcas de seleção e estrutura documental. 
 
 ## <a name="what-does-the-layout-service-do"></a>O que faz o serviço Layout?
 
@@ -32,7 +32,7 @@ O Layout API extrai texto, tabelas, marcas de seleção e informação de estrut
 Para experimentar o Serviço de Layout do Reconhecimento de Formulários, aceda à ferramenta UI de amostra online:
 
 > [!div class="nextstepaction"]
-> [Ferramenta de teste de OCR (FOTT)](https://fott-preview.azurewebsites.net)
+> [Experimente o Reconhecimento de Formulários](https://fott-preview.azurewebsites.net)
 
 Você precisará de uma subscrição Azure[(crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto final de [recurso do Reconhecimento de Formulário](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e chave para experimentar a API do Layout do Reconhecimento de Formulários. 
 
@@ -48,7 +48,7 @@ Primeiro, ligue para a operação [de Layout de Análise.](https://westcentralus
 
 |Cabeçalho de resposta| URL de resultados |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
 
 ### <a name="natural-reading-order-output-latin-only"></a>Saída da ordem de leitura natural (apenas em latim)
 

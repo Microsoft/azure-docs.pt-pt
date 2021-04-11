@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b47a205cac1717dfc66594f856fd9370a01a9ae3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2f321413a275676d0abb1a075ba958885ffcd821
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168217"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505030"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Resolução de problemas problemas comuns do Windows Virtual Desktop Agent
 
@@ -216,7 +216,7 @@ Para resolver este problema:
 
 ## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Erro: Problema de batimentos cardíacos onde os utilizadores continuam a ser desligados dos anfitriões da sessão
 
-Se o seu servidor não estiver a captar um batimento cardíaco do serviço de ambiente de trabalho virtual do Windows, terá de alterar o limiar do batimento cardíaco. Siga as instruções desta secção se um ou mais dos seguintes cenários se aplicarem a si:
+Se o seu servidor não estiver a captar um batimento cardíaco do serviço de ambiente de trabalho virtual do Windows, terá de alterar o limiar do batimento cardíaco. Isto irá temporariamente atenuar os sintomas do problema, mas não vai corrigir o problema subjacente à rede. Siga as instruções desta secção se um ou mais dos seguintes cenários se aplicarem a si:
 
 - Está a receber um erro **checkSessionHostDomainIsReachableAsync**
 - Está a receber um erro **de ConnectionBrokenMissedHeartbeatThreshold**
@@ -316,7 +316,7 @@ Para resolver este problema:
 
 Se não conseguir encontrar o seu problema neste artigo ou as instruções não o ajudarem, recomendamos que desinstale, reinstale e volte a registar o Windows Virtual Desktop Agent. As instruções desta secção mostram como voltar a registar o seu VM no serviço de ambiente de trabalho virtual do Windows, desinstalando todos os componentes do agente, carregador de arranque e pilha, retirando o anfitrião da sessão da piscina anfitriã, gerando uma nova chave de registo para o VM e reinstalando o agente e o carregador de arranque. Se um ou mais dos seguintes cenários se aplicarem a si, siga estas instruções:
 - O seu VM está preso na **atualização** ou **indisponível**
-- O seu ouvinte da pilha não está a funcionar e está a funcionar no Windows 10 1809, 1903 ou 1904
+- O seu ouvinte da pilha não está a funcionar e está a funcionar no Windows 10 1809, 1903 ou 1909
 - Está a receber um erro **de EXPIRED_REGISTRATION_TOKEN.**
 - Não estás a ver os teus VMs aparecerem na lista de anfitriões da sessão.
 - Não se vê o **Carregador de Agente de Ambiente remoto** na janela dos serviços

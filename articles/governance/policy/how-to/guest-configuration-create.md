@@ -1,14 +1,14 @@
 ---
 title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 72772743eba23ea7c2a93f5037ac84b671256a66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6eaefdbc28b8efc53dc7c4d46eb5d8a56d5be141
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104887704"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096602"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -25,8 +25,7 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 > [!IMPORTANT]
 > Definições de política personalizadas com Configuração de Hóspedes nos ambientes do Governo Azure e da Azure China é uma funcionalidade de pré-visualização.
 >
-> A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure.
-> Para implementar a extensão em escala em todas as máquinas do Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure. Para implementar a extensão em escala em todas as máquinas do Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 > 
 > Não utilize segredos ou informações confidenciais em pacotes de conteúdo personalizado.
 
@@ -138,7 +137,7 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
-Se o recurso tiver propriedades necessárias, estas também devem ser devolvidas `Get-TargetResource` em paralelo com a `reasons` classe. Se `reasons` não estiver incluído, o serviço inclui um comportamento "catch-all" que compara os valores introduzidos `Get-TargetResource` e os valores devolvidos por , e fornece uma `Get-TargetResource` comparação detalhada como `reasons` .
+Se o recurso tiver propriedades necessárias, essas propriedades também devem ser devolvidas `Get-TargetResource` em paralelo com a `reasons` classe. Se `reasons` não estiver incluído, o serviço inclui um comportamento "catch-all" que compara os valores introduzidos `Get-TargetResource` e os valores devolvidos por , e fornece uma `Get-TargetResource` comparação detalhada como `reasons` .
 
 ### <a name="configuration-requirements"></a>Requisitos de configuração
 
@@ -181,9 +180,7 @@ O pacote completo é utilizado pela Configuração do Hóspede para criar as def
   - Módulo DscNativeResources
   - (Janelas) Módulos de recursos DSC exigidos pelo MOF
 
-Os cmdlets PowerShell ajudam na criação do pacote.
-Não é necessária nenhuma pasta de nível de raiz ou pasta de versão.
-O formato de pacote deve ser um ficheiro .zip e não pode exceder um tamanho total de 100MB quando não for comprimido.
+Os cmdlets PowerShell ajudam na criação do pacote. Não é necessária nenhuma pasta de nível de raiz ou pasta de versão. O formato do pacote deve ser um ficheiro .zip e não pode exceder um tamanho total de 100 MB quando não for comprimido.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Armazenar artefactos de configuração de hóspedes
 
@@ -217,8 +214,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Execute este script num terminal PowerShell ou guarde este ficheiro com o nome `config.ps1` na pasta do projeto.
-Execute-o no PowerShell executando `./config.ps1` no terminal. Um novo ficheiro mof é criado.
+Execute este script num terminal PowerShell ou guarde este ficheiro com o nome `config.ps1` na pasta do projeto. Execute-o no PowerShell executando `./config.ps1` no terminal. Um novo ficheiro mof é criado.
 
 O `Node AuditBitlocker` comando não é tecnicamente necessário, mas produz um ficheiro nomeado em vez do `AuditBitlocker.mof` padrão, `localhost.mof` . Ter o nome do ficheiro .mof seguir a configuração facilita a organização de muitos ficheiros ao operar em escala.
 
@@ -274,7 +270,7 @@ Parâmetros do `Publish-GuestConfigurationPackage` cmdlet:
 - **Caminho**: Localização do pacote a publicar
 - **Nome do Grupo de Recursos**: Nome do grupo de recursos onde se encontra a conta de armazenamento
 - **ArmazenamentoAmeta:** Nome da conta de armazenamento onde o pacote deve ser publicado
-- **StorageContainerName**: (padrão: configuração de *hóspedes)* Nome do recipiente de armazenamento na conta de armazenamento
+- **StorageContainerName**: (padrão: configuração de _hóspedes)_ Nome do recipiente de armazenamento na conta de armazenamento
 - **Força**: Substituição do pacote existente na conta de armazenamento com o mesmo nome
 
 O exemplo abaixo publica o pacote para um nome de recipiente de armazenamento "configuração de hóspedes".
@@ -367,7 +363,7 @@ Um exemplo de uma definição de política que filtra para tags é dado abaixo.
 
 ### <a name="using-parameters-in-custom-guest-configuration-policy-definitions"></a>Usando parâmetros nas definições de política de configuração personalizada do hóspede
 
-A Configuração do Hóspede suporta propriedades dominantes de uma Configuração no tempo de execução. Esta funcionalidade significa que os valores no ficheiro MOF na embalagem não têm de ser considerados estáticos. Os valores de sobreposição são fornecidos através da Política Azure e não têm impacto na forma como as Configurações são da autoria ou compiladas.
+A Configuração do Hóspede suporta propriedades dominantes de uma Configuração no tempo de execução. Esta funcionalidade significa que os valores no ficheiro MOF na embalagem não têm de ser considerados estáticos. Os valores de sobreposição são fornecidos através da Política Azure e não alteram a forma como as Configurações são da autoria ou compiladas.
 
 Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parâmetro**. Este parâmetro requer uma definição de haxixe, incluindo todos os detalhes sobre cada parâmetro e cria as secções necessárias de cada ficheiro utilizado para a definição de Política Azure.
 
@@ -389,7 +385,7 @@ $PolicyParameterInfo = @(
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
+        ResourceId = 'UserSelectedNameExample'                          # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -431,8 +427,7 @@ Se quiser lançar uma atualização da política, faça a alteração tanto para
 > [!NOTE]
 > A `version` propriedade da atribuição de Configuração de Hóspedes apenas afeta pacotes que são hospedados pela Microsoft. A melhor prática para a versão personalizada é incluir a versão no nome do ficheiro.
 
-Primeiro, ao correr `New-GuestConfigurationPackage` , especifique um nome para o pacote que o torna único a partir de versões anteriores. Pode incluir um número de versão no nome, como `PackageName_1.0.0` .
-O número neste exemplo é utilizado apenas para tornar a embalagem única, não para especificar que a embalagem deve ser considerada mais nova ou mais antiga do que outras embalagens.
+Primeiro, ao correr `New-GuestConfigurationPackage` , especifique um nome para o pacote que o torna único a partir de versões anteriores. Pode incluir um número de versão no nome, como `PackageName_1.0.0` . O número neste exemplo é utilizado apenas para tornar a embalagem única, não para especificar que a embalagem deve ser considerada mais nova ou mais antiga do que outras embalagens.
 
 Em segundo lugar, atualize os parâmetros utilizados com o `New-GuestConfigurationPolicy` cmdlet seguindo cada uma das explicações abaixo.
 

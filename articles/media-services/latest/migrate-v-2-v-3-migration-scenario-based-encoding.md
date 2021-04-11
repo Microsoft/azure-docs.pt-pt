@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 2cdf068d31cf621538eb265977ea0dae20e16e85
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a01571f4a1f852deb84b7f20d61b8048e8000790
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109327"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490102"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de codificação
 
@@ -103,7 +103,7 @@ Se anteriormente usou fluxos de trabalho para copiar ficheiros de ficheiros blob
 
 ## <a name="indexer-v1-audio-transcription-to-the-new-audioanalyzer-basic-mode"></a>Indexer v1 transcrição áudio para o novo "modo básico" audioAnalyzer
 
-Para os clientes que utilizam o processador Indexer v1 na API v2, é necessário criar uma transformação que invoque o novo `AudioAnalyzer` em [modo básico](how-to-create-basic-audio-transform.md) antes de submeter um Job.
+Para os clientes que utilizam o processador Indexer v1 na API v2, é necessário criar uma transformação que invoque o novo `AudioAnalyzer` em [modo básico](transform-create-basic-audio-how-to.md) antes de submeter um Job.
 
 ## <a name="encoding-transforms-and-jobs-concepts-tutorials-and-how-to-guides"></a>Codificação, transformação e emprego conceitos, tutoriais e como guiar
 
@@ -127,18 +127,18 @@ Para os clientes que utilizam o processador Indexer v1 na API v2, é necessário
 
 - [Criar uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md)
 - [Criar uma entrada de trabalho a partir de um arquivo local](job-input-from-local-file-how-to.md)
-- [Criar uma transformação áudio básica](how-to-create-basic-audio-transform.md)
+- [Criar uma transformação áudio básica](transform-create-basic-audio-how-to.md)
 - Com o .NET
-  - [Como codificar com uma transformação personalizada - .NET](encode-custom-presets-how-to.md)
-  - [Como criar uma sobreposição com o Media Encoder Standard](how-to-create-overlay.md)
-  - [Como gerar miniaturas usando o Encoder Standard com .NET](media-services-generate-thumbnails-dotnet.md)
+  - [Como codificar com uma transformação personalizada - .NET](transform-custom-presets-how-to.md)
+  - [Como criar uma sobreposição com o Media Encoder Standard](transform-create-overlay-how-to.md)
+  - [Como gerar miniaturas usando o Encoder Standard com .NET](transform-generate-thumbnails-dotnet-how-to.md)
 - Com a CLI do Azure
-  - [Como codificar com uma transformação personalizada - Azure CLI](encode-custom-preset-cli-how-to.md)
+  - [Como codificar com uma transformação personalizada - Azure CLI](transform-custom-preset-cli-how-to.md)
 - Com o REST
-  - [Como codificar com uma transformação personalizada - REST](encode-custom-preset-rest-how-to.md)
-  - [Como gerar miniaturas usando o Encoder Standard com REST](media-services-generate-thumbnails-rest.md)
-- [Subclip um vídeo ao codificar com os Media Services - .NET](subclip-video-dotnet-howto.md)
-- [Subclip um vídeo ao codificar com os Media Services - REST](subclip-video-rest-howto.md)
+  - [Como codificar com uma transformação personalizada - REST](transform-custom-preset-rest-how-to.md)
+  - [Como gerar miniaturas usando o Encoder Standard com REST](transform-generate-thumbnails-rest-how-to.md)
+- [Subclip um vídeo ao codificar com os Media Services - .NET](transform-subclip-video-dotnet-how-to.md)
+- [Subclip um vídeo ao codificar com os Media Services - REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="samples"></a>Amostras
 

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Use GitOps com leme para uma configuração de cluster ativada pelo Arco Azure
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 75e2fcb25680817fc3e2bddabbbdd9c52b7dd059
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: df9b40764ec463553659803749f282bbc4587bde
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121410"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449548"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Implementar gráficos de leme usando GitOps em um cluster de Kubernetes ativado por arco
 
@@ -21,9 +21,17 @@ O Helm é uma ferramenta open source de empacotamento que o ajuda a instalar e a
 
 Este artigo mostra-lhe como configurar e usar Helm com Azure Arc habilitado Kubernetes.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
-Verifique se tem um aglomerado ligado a Kubernetes ativado por Azure Arc. Se precisar de um cluster ligado, consulte o arranque rápido do [cluster de kubernetes ativado por Um Arco Azure.](./quickstart-connect-cluster.md)
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Um arco Azure existente permitiu o agrupamento de kubernetes conectado.
+    - Se ainda não ligou um cluster, caminhe pelo nosso [Connect a Azure Arc ativando o arranque rápido do cluster Kubernetes.](quickstart-connect-cluster.md)
+- Uma compreensão dos benefícios e arquitetura desta característica. Ler mais em [Configurações e GitOps - Azure Arc habilitado artigo de Kubernetes](conceptual-configurations.md).
+- Instale a `k8s-configuration` extensão Azure CLI da versão >= 1.0.0:
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
 
 ## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Visão geral da utilização de GitOps e Helm com Arco Azure habilitado Kubernetes
 

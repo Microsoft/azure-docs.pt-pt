@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3cc9ad0c694be8f95ddcffbc3d952d59b83f89f3
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86998901"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077215"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Aceder ao seu ambiente cloudsimple private cloud e aplicações a partir de instalações
 
@@ -43,7 +43,7 @@ Para configurar o diretório ativo no local como fonte de identidade no Private 
 | 389 (TCP/UDP) | Rede privada de gestão de nuvem | Controladores de domínio de diretório ativo no local     | Necessário para a comunicação LDAP do servidor Private Cloud vCenter para controladores de domínio de diretório ativo para a autenticação do utilizador.                |
 | 636 (TCP)     | Rede privada de gestão de nuvem | Controladores de domínio de diretório ativo no local     | Necessário para uma comunicação LDAP (LDAPS) segura do servidor Private Cloud vCenter para controladores de domínio de diretório ativo para a autenticação do utilizador. |
 | 3268 (TCP)    | Rede privada de gestão de nuvem | Servidores de catálogos globais de diretórios ativos no local | Necessário para a comunicação LDAP em implementações de controlador de vários domínios.                                                                        |
-| 3269 (TCP)    | Rede privada de gestão de nuvem | Servidores de catálogos globais de diretórios ativos no local | Necessário para a comunicação LDAPS em implementações de controlador de vários domínios.                                                                       |                                           |
+| 3269 (TCP)    | Rede privada de gestão de nuvem | Servidores de catálogos globais de diretórios ativos no local | Necessário para a comunicação LDAPS em implementações de controlador de vários domínios.                                                                       |
 
 ## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>Portas comuns necessárias para aceder a máquinas virtuais de carga de trabalho
 

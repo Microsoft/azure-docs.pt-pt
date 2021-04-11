@@ -1,15 +1,15 @@
 ---
 title: Tipos de recursos suportados do Gestor de Recursos Azure
 description: Forneça uma lista dos tipos de recursos do Azure Resource Manager suportados pelo Azure Resource Graph e Change History.
-ms.date: 03/24/2021
+ms.date: 04/06/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 482c261586d5d077a61781eff28698fa9994f332
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6161c2f53690140e2cd1140deaa8a22b3388dd2b
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544150"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505268"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
 
@@ -84,7 +84,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Citrix.Services/XenDesktopEssentials (Citrix Virtual Desktops Essentials)
 - Conexlink.MyCloudIt/accounts (MyCloudIT - Azure Desktop Hosting)
 - Crypteron.DataSecurity/apps (Crypteron)
-- github.enterprise/accounts
+- GitHub.Enterprise/accounts (GitHub AE)
 - gridpro.evops/accounts
 - gridpro.evops/accounts/eventrules
 - gridpro.evops/accounts/requesttemplates
@@ -97,7 +97,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.aadiam/azureadmetrics
 - microsoft.aadiam/privateLinkForAzureAD (Private Link for AZure AD)
 - microsoft.aadiam/inquilinos
-- microsoft.agfoodplatform/farmbeats
+- Microsoft.AgFoodPlatform/farmBeats (Azure FarmBeats PaaS)
 - microsoft.aisupercomputador/contas
 - microsoft.aisupercomputador/contas/grupos de trabalho
 - microsoft.aisupercomputador/contas/grupos de emprego/emprego
@@ -188,7 +188,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Microsoft.Cognition/syntheticsAcounts (Contas Sintéticas)
 - Microsoft.CognitiveServices/contas (Serviços Cognitivos)
 - Microsoft.Compute/availabilitySets (conjuntos de disponibilidade)
-- microsoft.compute/capacityreservationgroups
+- Microsoft.Compute/capacityReservationGroups (Grupos de Reservas de Capacidade)
 - microsoft.compute/capacityreservationsgroups/capacityreservations
 - microsoft.compute/capacityreservations
 - Microsoft.Compute/cloudServices (serviços cloud (suporte alargado))
@@ -220,7 +220,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Microsoft.ConnectedCache/cacheNodes (Recursos cache conectados)
 - microsoft.connectedvehicle/platformaccounts
 - microsoft.connectedvmwarevsphere/recursospools
-- microsoft.connectedvmwarevsphere/vcenters
+- Microsoft.connectedVMwareVSphere/vCenters (VMware vCenters)
 - Microsoft.ConnectedVMwarevSphere/VirtualMachines (VMware + AVS virtual machines)
 - microsoft.connectedvmwarevsphere/virtualmachines/extensões
 - microsoft.connectedvmwarevsphere/virtualmachinetemplates
@@ -233,7 +233,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.containerregistry/registries/taskruns
 - microsoft.containerregistry/registries/tasks
 - Microsoft.ContainerRegistry/registries/webhooks (Webhooks de registo de contentores)
-- Microsoft.ContainerService/containerServices (serviços de contentores (precotados))
+- microsoft.containerservice/containerservices
 - Microsoft.ContainerService/managedClusters (serviços Kubernetes)
 - microsoft.containerservice/openshiftmanagedclusters
 - microsoft.contoso/clusters
@@ -259,6 +259,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.datamigration/slots
 - microsoft.datamigration/sqlmmirationservices
 - Microsoft.DataProtection/BackupVaults (cofres de backup)
+- microsoft.dataprotection/resourceguards
 - microsoft.dataprotection/resourceoperationgatekeepers
 - Microsoft.DataShare/contas (Data Shares)
 - Microsoft.DBforMariaDB/servidores (Base de Dados Azure para servidores MariaDB)
@@ -302,7 +303,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Microsoft.DomainRegistration/domínios (Domínios de Serviço de Aplicações)
 - microsoft.edgeorder/endereços
 - microsoft.edgeorder/ordercollections
-- microsoft.edgeorder/orders
+- Microsoft.EdgeOrder/orders (Azure Edge)
 - Microsoft.Elástico/monitores (Elasticsearch)
 - microsoft.enterpriseknowledgegraph/services
 - Microsoft.EventGrid/domínios (Domínios de grelha de evento)
@@ -314,7 +315,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Microsoft.EventHub/clusters (Clusters clusters de centros de eventos)
 - Microsoft.EventHub/namespaces (Event Hubs Namespaces)
 - Microsoft.Experimentation/experimentoses (Espaços de trabalho experimentais)
-- Microsoft.ExtendedLocation/CustomLocations (Localizações personalizadas)
+- Microsoft.ExtendedLocation/CustomLocations (localizações personalizadas)
 - microsoft.falcon/namespaces
 - microsoft.footprintmonitoring/profiles
 - microsoft.gaming/títulos
@@ -323,6 +324,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Microsoft.HanaOnAzure/hanaInstances (SAP HANA on Azure)
 - Microsoft.HanaOnAzure/sapMonitors (Monitores Azure para Soluções SAP)
 - microsoft.hardwaresecuritymodules/dedicados
+- microsoft.hdinsight/clusterpools
+- microsoft.hdinsight/clusterpools/clusters
 - Microsoft.HDInsight/clusters (clusters HDInsight)
 - Microsoft.HealthBot/healthBots (Azure Health Bot)
 - Microsoft.HealthcareApis/services (Azure API para FHIR)
@@ -395,8 +398,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.machinelearningservices/workspaces/batchendpoints/deployments
 - microsoft.machinelearningservices/workspaces/inferenceendpoints
 - microsoft.machinelearningservices/workspaces/inferenceendpoints/deployments
-- Microsoft.MachineLearningServices/workspaces/onlineEndpoints (ML Apps)
-- Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments (ML App Deployments)
+- Microsoft.MachineLearningServices/workspaces/onlineEndpoints (pontos finais online de machine learning)
+- Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments (machine learning online deployments)
 - Microsoft.Manutenção/manutençãoConfigurations (Configurações de manutenção)
 - microsoft.maintenance/manutençãopolicias
 - microsoft.managedidentity/groups
@@ -414,7 +417,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.media/mediaservices/liveevents (Live events)
 - microsoft.media/mediaservices/streamingEndpoints (Streaming Endpoints)
 - microsoft.media/mediaservices/transforms
-- microsoft.media/videoanalyzers
+- microsoft.media/videoanalyzers (Analisadores de Vídeo)
 - microsoft.microservices4spring/appclusters
 - microsoft.migrar/avaliar projetos
 - microsoft.migrate/migrateprojects
@@ -513,8 +516,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Microsoft.OperationalInsights/workspaces (Log Analytics workspaces)
 - Microsoft.OperationsManagement/solutions (Soluções)
 - microsoft.operationsmanagement/views
-- microsoft.orbital/contactprofiles
-- microsoft.orbital/spacecrafts
+- Microsoft.Orbital/contactProfiles (ContactProfiles)
+- Microsoft.Orbital/spacecrafts (Naves Espaciais)
 - Microsoft.Peering/peerings (Peerings)
 - Microsoft.Peering/peeringServices (Serviços de Peering)
 - Microsoft.Portal/dashboards (dashboards partilhados)
@@ -525,7 +528,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.powerbidedicated/autoscalevcores
 - Microsoft.PowerBIDedicated/capacities (Power BI Embedded)
 - microsoft.powerplatform/enterprisepolicies
-- Microsoft.ProjectBabylon/Accounts (contas Babilónia)
+- microsoft.projectbabylon/contas
 - Microsoft.Purview/Accounts (Contas purview)
 - Microsoft.Quantum/Workspaces (Espaços de Trabalho Quânticos)
 - Microsoft.RecoveryServices/cofres (cofres dos Serviços de Recuperação)
@@ -596,6 +599,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - Microsoft.Synapse/privateLinkHubs (Azure Synapse Analytics (centros de ligação privados))
 - Microsoft.Synapse/workspaces (Azure Synapse Analytics)
 - Microsoft.Synapse/workspaces/bigDataPools (piscinas Apache Spark)
+- microsoft.synapse/workspaces/kustopools
 - microsoft.synapse/workspaces/sqldatabases
 - Microsoft.Synapse/workspaces/sqlPools (Piscinas SQL dedicadas)
 - microsoft.terraformoss/providerregistrations

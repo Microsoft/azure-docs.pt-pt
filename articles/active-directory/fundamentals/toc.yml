@@ -25,6 +25,8 @@
   items:
     - name: Segurança
       items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Proteger o Microsoft 365 contra ataques no local
           href: protect-m365-from-on-premises-attacks.md
         - name: Colaboração externa segura
