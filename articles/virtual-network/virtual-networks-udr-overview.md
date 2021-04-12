@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645279"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732606"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -114,7 +114,7 @@ Quando há uma correspondência de prefixo exata entre uma rota com um prefixo I
 Para utilizar esta função, especifique um nome de Marcação de Serviço para o parâmetro do prefixo de endereço nos comandos da tabela de rotas. Por exemplo, em Powershell pode criar uma nova rota para o tráfego direto enviado para um prefixo IP de armazenamento Azure para um aparelho virtual utilizando: </br>
 
 ```azurepowershell-interactive
-New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
 ```
 
 O mesmo comando para a CLI será: </br>

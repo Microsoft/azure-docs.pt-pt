@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96302743"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Integração do Azure Ative Directory com wikispaces
@@ -176,17 +176,17 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-wikispaces-test-user"></a>Criar utilizador de teste wikispaces
+### <a name="create-wikispaces-test-user&quot;></a>Criar utilizador de teste wikispaces
 
 Para permitir que os utilizadores de Azure AD inscrevam-se nos Wikispaces, devem ser a provisionados em Wikispaces. No caso dos Wikispaces, o provisionamento é uma tarefa manual.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para a disponibilização de uma conta de utilizador, execute os seguintes passos:
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>Para a disponibilização de uma conta de utilizador, execute os seguintes passos:
 
 1. Inscreva-se no site da sua empresa **Wikispaces** como administrador.
 
 2. Vá aos **deputados.**
    
-    ![Membros](./media/wikispaces-tutorial/ic787193.png "Membros")
+    ![Membros](./media/wikispaces-tutorial/ic787193.png &quot;Membros")
 
 3. Clique no **Pessoas convidadas.**
    

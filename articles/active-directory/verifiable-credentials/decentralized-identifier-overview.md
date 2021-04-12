@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 4ae7ad186e2ed8868be6205d48e9cfbef525d810
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 04b36b9b32e78016f693e61d40246776492be0e3
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106172818"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222865"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Introdução ao Diretório Ativo Azure Credenciais Verificáveis (Pré-visualização)
 
@@ -28,7 +28,7 @@ As nossas vidas digitais e físicas estão cada vez mais ligadas às apps, servi
 
 Mas os dados de identidade têm sido muitas vezes expostos em falhas de segurança. Estas violações são impactantes para a vida das pessoas que afetam a nossa vida social, profissional e financeira. A Microsoft acredita que há uma maneira melhor. Cada pessoa tem direito a uma identidade que possui e controla, que armazena de forma segura elementos da sua identidade digital e preserva a privacidade. Este primer explica como estamos a unir as mãos a uma comunidade diversificada para construir uma solução aberta, confiável, interoperável e baseada em padrões de Identidade Descentralizada (DID) para indivíduos e organizações.
 
-## <a name="why-we-need-decentralized-identity"></a>Por que precisamos de identidade descentralizada 
+## <a name="why-we-need-decentralized-identity"></a>Por que precisamos de identidade descentralizada
 
 Hoje usamos a nossa identidade digital no trabalho, em casa, e em todas as aplicações, serviços e dispositivos que utilizamos. É composto por tudo o que dizemos, fazemos e experimentamos nas nossas vidas — comprar bilhetes para um evento, hospedar-se num hotel ou até mesmo pedir almoço. Atualmente, a nossa identidade e todas as nossas interações digitais são propriedade e controladas por outros partidos, alguns dos quais nem sequer conhecemos.
 
@@ -36,7 +36,7 @@ Geralmente, os utilizadores concedem consentimento a várias apps e dispositivos
 
 Acreditamos que um sistema de identidade descentralizada baseado em padrões pode desbloquear um novo conjunto de experiências que dão aos utilizadores e organizações um maior controlo sobre os seus dados e fornecer um maior grau de confiança e segurança para apps, dispositivos e fornecedores de serviços
 
-## <a name="lead-with-open-standards"></a>Chumbo com padrões abertos 
+## <a name="lead-with-open-standards"></a>Chumbo com padrões abertos
 
 Estamos empenhados em trabalhar em estreita colaboração com clientes, parceiros e comunidade para desbloquear a próxima geração de experiências baseadas em Identidade Descentralizada, e estamos entusiasmados em associar-nos com os indivíduos e organizações que estão a fazer contribuições incríveis neste espaço. Para que o ecossistema DID cresça, as normas, os componentes técnicos e os resultados dos códigos devem ser de código aberto e acessíveis a todos.
 
@@ -50,21 +50,21 @@ A Microsoft está a colaborar ativamente com membros da Fundação de Identidade
 * [Troca de Apresentação dif](https://identity.foundation/presentation-exchange/)
 
 
-## <a name="what-are-dids"></a>O que são DIDs 
+## <a name="what-are-dids"></a>O que são DIDs?
 
 Antes de compreendermos os DIDs, ajuda a compará-los com os sistemas de identidade atuais. Os endereços de e-mail e os IDs da rede social são pseudónimos amigos do homem para colaboração, mas estão agora sobrecarregados para servir como pontos de controlo para o acesso de dados em muitos cenários além da colaboração. Isto cria um problema potencial, porque o acesso a estes IDs pode ser removido a qualquer momento por partes externas.
 
 Os identificadores descentralizados (DIDs) são diferentes. Os DIDs são identificadores gerados pelo utilizador, auto-propriedade, globalmente únicos, enraizados em sistemas descentralizados como o ION. Possuem características únicas, como uma maior garantia de imutabilidade, resistência à censura e evasivação adulterada. Estes atributos são fundamentais para qualquer sistema de ID que se destinam a fornecer auto-propriedade e controlo do utilizador. 
 
 A solução credencial verificável da Microsoft usa credenciais descentralizadas (DIDs) para assinar criptograficamente como prova de que um partido dependente (verificador) está a atestar informações que comprovam que são os proprietários de uma credencial verificável. Portanto, recomenda-se uma compreensão básica dos identificadores descentralizados para qualquer pessoa que crie uma solução credencial verificável baseada na oferta da Microsoft.
-## <a name="what-are-verifiable-credentials"></a>O que são credenciais verificáveis 
+## <a name="what-are-verifiable-credentials"></a>O que são credenciais verificáveis?
 
  Usamos identificações no nosso dia-a-dia. Temos cartas de condução que usamos como prova da nossa capacidade de operar um carro. As universidades emitem diplomas que provam que atingimos um nível de educação. Utilizamos passaportes para provar quem somos às autoridades à medida que chegamos a outros países. O modelo de dados descreve como poderíamos lidar com este tipo de cenários ao trabalhar através da internet, mas de uma forma segura que respeite a privacidade dos utilizadores. Pode obter informações adicionais no [Modelo de Dados de Credenciais Verificáveis 1.0](https://www.w3.org/TR/vc-data-model/)
 
 Em suma, as credenciais verificáveis são objetos de dados constituídos por alegações feitas pelo emitente que atestam informações sobre um assunto. Estas alegações são identificadas por esquema e incluem o emitente e o sujeito. O DID do emitente cria uma assinatura digital como prova de que atestam esta informação.
 
 
-## <a name="how-does-decentralized-identity-work"></a>Como funciona a Identidade Descentralizada? 
+## <a name="how-does-decentralized-identity-work"></a>Como funciona a Identidade Descentralizada?
 
 Precisamos de uma nova forma de identidade. Precisamos de uma identidade que reúna tecnologias e padrões para fornecer atributos identitários fundamentais como a auto-propriedade e a resistência à censura. Estas capacidades são difíceis de conseguir utilizando sistemas existentes.
 

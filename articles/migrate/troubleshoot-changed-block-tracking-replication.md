@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
 ms.openlocfilehash: 5487e51ad73ab903e7b61de266e2c28d282a56c1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105568663"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente

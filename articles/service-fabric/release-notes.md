@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 7f99c37cd9f029c7478d4102bd17c952ffd52f8c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 36fb512181986fd04a95e72aa028b7c0253aa45f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044282"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731229"
 ---
 # <a name="service-fabric-releases"></a>Lançamentos de tecido de serviço
 
@@ -57,7 +57,7 @@ Estamos entusiasmados por anunciar que o lançamento 7.2 do tempo de execução 
 
 Devido à atual crise COVID-19, e tendo em conta os desafios enfrentados pelos nossos clientes, estamos a disponibilizar 7.1, mas não atualizaremos automaticamente os clusters definidos para receber atualizações automáticas. Estamos a fazer uma pausa nas atualizações automáticas até novo aviso para garantir que os clientes podem aplicar upgrades quando mais adequados para eles, para evitar perturbações inesperadas.
 
-Poderá atualizar para 7.1 através do [portal Azure](./service-fabric-cluster-upgrade-version-azure.md#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) ou através de uma [implementação do Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#set-the-upgrade-mode-using-a-resource-manager-template).
+Poderá atualizar para 7.1 através do [portal Azure](./service-fabric-cluster-upgrade-version-azure.md#manual-upgrades-with-azure-portal) ou através de uma [implementação do Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Os clusters de tecido de serviço com atualizações automáticas ativadas começarão a receber automaticamente a atualização 7.1 assim que retomarmos o procedimento de lançamento padrão. Faremos outro anúncio antes do lançamento padrão no [Site comunitário de tecnologia de tecido de serviço.](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)
 Também publicámos atualizações até ao fim da data de suporte para grandes lançamentos a partir de 6.5 até 7.1 [aqui](./service-fabric-versions.md#supported-versions). 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 01c9a8b62190f3b545169bb5ba6732e6799ff9f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 489f4aad78437edad2184e773d97d35af24f3249
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559813"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285999"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Construa uma aplicação web Java usando Azure Cosmos DB e a API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,8 +37,7 @@ Este tutorial de aplicação Java mostra-lhe como criar uma aplicação de gest�
 :::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="A minha aplicação Java da ToDo List":::
 
 > [!TIP]
-> Este tutorial do desenvolvimento de aplicações parte do princípio que tem experiência na utilização do Java. Se você é novo em Java ou as [ferramentas pré-requisitos,](#Prerequisites)recomendamos baixar o projeto completo [todo] https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) do GitHub e construí-lo usando [as instruções no final deste artigo.](#GetProject) Assim que o tiver criado, pode rever o artigo para obter conhecimentos aprofundados sobre o código no contexto do projeto.  
->
+> Este tutorial do desenvolvimento de aplicações parte do princípio que tem experiência na utilização do Java. Se estiver familiarizado com o Java ou com as [ferramentas dos pré-requisitos](#Prerequisites), recomendamos-lhe transferir todo o projeto [todo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) a partir do GitHub e criá-lo utilizando [as instruções no final deste artigo](#GetProject). Assim que o tiver criado, pode rever o artigo para obter conhecimentos aprofundados sobre o código no contexto do projeto.  
 
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Pré-requisitos para este tutorial de aplicação Web de Java
 

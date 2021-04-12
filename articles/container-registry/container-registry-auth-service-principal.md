@@ -2,17 +2,17 @@
 title: Autenticar com o principal de serviço
 description: Fornecer acesso a imagens no seu registo de contentores privados utilizando um diretor de serviço do Azure Ative Directory.
 ms.topic: article
-ms.date: 10/04/2019
-ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/15/2021
+ms.openlocfilehash: a32538e5fc5354427bafc5098634becdcedd1239
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86259141"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285540"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registo de Contentores Azure com principais serviços
 
-Pode utilizar um diretor de serviço Azure Ative (Azure AD) para fornecer imagem de contentor `docker push` e acesso ao registo do seu `pull` contentor. Ao utilizar um principal serviço, pode fornecer acesso a serviços e aplicações "sem cabeça".
+Pode utilizar um diretor de serviço Azure Ative (Azure AD) para fornecer um acesso de pressão, puxar ou outro ao registo do seu contentor. Ao utilizar um principal serviço, pode fornecer acesso a serviços e aplicações "sem cabeça".
 
 ## <a name="what-is-a-service-principal"></a>O que é um principal de serviço?
 
@@ -52,7 +52,7 @@ Uma vez que tenha um principal de serviço que tenha acesso ao seu registo de co
 * **Nome do utilizador** - ID de aplicação principal de serviço (também chamado *ID do cliente)*
 * **Palavra-passe** - senha principal do serviço (também chamada *de segredo do cliente)*
 
-Cada valor é um GUID do `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` formulário. 
+Cada valor tem o `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` formato. 
 
 > [!TIP]
 > Pode regenerar a palavra-passe de um diretor de serviço executando o comando [ad sp reset-credentials.](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset)
@@ -66,7 +66,7 @@ Por exemplo, utilize as credenciais para retirar uma imagem de um registo de con
 
 ### <a name="use-with-docker-login"></a>Use com login de estivador
 
-Pode correr `docker login` com um diretor de serviço. No exemplo seguinte, o ID principal de aplicação de serviço é passado na variável `$SP_APP_ID` ambiente, e a palavra-passe na variável `$SP_PASSWD` . Para obter as melhores práticas para gerir as credenciais do Docker, consulte a referência do comando de login do [docker.](https://docs.docker.com/engine/reference/commandline/login/)
+Pode correr `docker login` com um diretor de serviço. No exemplo seguinte, o ID principal de aplicação de serviço é passado na variável `$SP_APP_ID` ambiente, e a palavra-passe na variável `$SP_PASSWD` . Para práticas recomendadas para gerir as credenciais do Docker, consulte a referência do comando de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/)
 
 ```bash
 # Log in to Docker with service principal credentials

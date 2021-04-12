@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/29/2021
 ms.openlocfilehash: 8a500104a0273b9e131815c4dc832bd33729cd51
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105566596"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Criar uma instância do Azure Database Migration Service com o portal do Azure

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99f7f6561df16cfad6b0cc001395fa3ad7b2f6dc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664253"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259477"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para os níveis de preços mariaDB
 
@@ -22,7 +22,7 @@ Pode criar uma Base de Dados Azure para servidor MariaDB num dos três níveis d
 | Geração computacional | Geração 5 |Geração 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memória por vCore | 2 GB | 5 GB | 10 GB |
-| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
+| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
 | Período de retenção de backup da base de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
 Para escolher um nível de preços, utilize a tabela seguinte como ponto de partida.
@@ -46,9 +46,13 @@ O armazenamento que o seu fornecimento é a quantidade de capacidade de armazena
 | Atributos de armazenamento   | Básico | Fins Gerais | Otimizada para Memória |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento de Finalidade Geral | Armazenamento de Finalidade Geral |
-| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
+| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
 | Tamanho do incremento de armazenamento | 1 GB | 1 GB | 1 GB |
 | IOPS | Variável |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
+
+>[!IMPORTANT]
+> O armazenamento até 16TB e 20.000 IOPS é suportado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Central EUA, Brasil Sul, Eua Ocidental, Norte Central norte-americano, Norte da Europa do Norte, Europa Ocidental, Reino Unido Sul, Reino Unido, Sudeste Asiático, Ásia Oriental, Japão Ocidental, Coreia Central, Coreia do Sul, Austrália Oriental, Austrália Sudeste, Oeste dos EUA , Canadá Leste, e Canadá Central.
+> Todas as outras regiões suportam até 4TB de armazenamento e até 6000 IOPS.
 
 Pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema cresça armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho.
 
@@ -58,23 +62,6 @@ Pode adicionar capacidade de armazenamento adicional durante e após a criação
 O nível básico não oferece uma garantia de IOPS. Nos níveis de preços otimizados para fins gerais e memória, a escala de IOPS com o tamanho de armazenamento a provisionado numa relação 3:1.
 
 Pode monitorizar o seu consumo de E/S no portal Azure ou utilizando comandos Azure CLI. As métricas relevantes a monitorizar são [o limite de armazenamento, a percentagem de armazenamento, o armazenamento utilizado e a IO por cento](concepts-monitoring.md).
-
-### <a name="large-storage-preview"></a>Grande armazenamento (pré-visualização)
-
-Estamos a aumentar os limites de armazenamento nos nossos níveis otimizados de Finalidade Geral e Memória. Os servidores recém-criados que optam pela pré-visualização podem prever até 16 TB de armazenamento. A escala de IOPS a uma proporção de 3:1 até 20.000 IOPS. Tal como acontece com o armazenamento geralmente disponível, pode adicionar capacidade de armazenamento adicional após a criação do servidor, e permitir que o sistema cresça armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho.
-
-| Atributos de armazenamento | Fins Gerais | Otimizada para Memória |
-|:-------------|:--------------------|:---------------------|
-| Tipo de armazenamento | Armazenamento Azure Premium | Armazenamento Azure Premium |
-| Tamanho do armazenamento | 32 GB a 16 TB| 32 a 16 TB |
-| Tamanho do incremento de armazenamento | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20.000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20.000 IOPS |
-
-> [!IMPORTANT]
-> O grande armazenamento está atualmente em pré-visualização pública nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Brasil Sul, Central EUA, Eua Central Do Norte, América do Norte, Europa Ocidental, Reino Unido, Reino Unido, Sudeste Asiático, Leste da Ásia, Japão Ocidental, Coreia Central, Coreia do Sul, Austrália Oriental, Austrália Sudeste, Eua Ocidental 2, West Central EUA, Canadá E Canadá Central.
->
-> Todas as outras regiões suportam até 4TB de armazenamento e até 6000 IOPS.
->
 
 ### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 

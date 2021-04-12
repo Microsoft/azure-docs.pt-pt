@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9434bd4042798dc05a33401e1884e11a73774936
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21f31a21921953148ae0438cee04d846706161cc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102448341"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382934"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com OpenID Connect utilizando o Azure Ative Directory B2C
 
@@ -43,7 +43,7 @@ Para permitir que os utilizadores se inscrevam, o fornecedor de identidade exige
 
 ## <a name="scope"></a>Âmbito
 
-O Scope define as informações e permissões que procura recolher do seu fornecedor de identidade personalizado. Os pedidos do OpenID Connect devem conter o valor de `openid` âmbito para receber o token de ID do fornecedor de identidade. Sem o token de ID, os utilizadores não podem entrar no Azure AD B2C usando o fornecedor de identidade personalizado. Outros âmbitos podem ser anexados separados pelo espaço. Consulte a documentação do fornecedor de identidade personalizado para ver que outros âmbitos podem estar disponíveis.
+O Scope define as informações e permissões que procura reunir do seu fornecedor de identidade, por `openid profile` exemplo. Para receber o sinal de identificação do fornecedor de identidade, o `openid` âmbito deve ser especificado. Sem o token de ID, os utilizadores não podem entrar no Azure AD B2C usando o fornecedor de identidade personalizado. Outros âmbitos podem ser anexados separados pelo espaço. Consulte a documentação do fornecedor de identidade personalizado para ver que outros âmbitos podem estar disponíveis.
 
 ## <a name="response-type"></a>Tipo de resposta
 

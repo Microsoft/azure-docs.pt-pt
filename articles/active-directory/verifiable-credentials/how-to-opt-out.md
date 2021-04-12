@@ -1,5 +1,5 @@
 ---
-title: Opte pelas credenciais verificáveis (Pré-visualização)
+title: Opte por não ter as credenciais verificáveis do Diretório Ativo Azure (Pré-visualização)
 description: Saiba como excluir a pré-visualização de credenciais verificáveis
 documentationCenter: ''
 author: barclayn
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 93c493a9b9941913da270fe763175240c8abf9f3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d6e72b6d6f566fcf3f52e1c48ab6824c0e9a968e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170214"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222797"
 ---
 # <a name="opt-out-of-the-verifiable-credentials-preview"></a>Opte pelas credenciais verificáveis (Pré-visualização)
 
@@ -62,7 +62,7 @@ Quando completar a exclusão do serviço de credenciais verificáveis do Diretó
 
 Uma vez que um opt-out ocorre, você não será capaz de recuperar o seu DID ou realizar quaisquer operações no seu DID. Este passo é uma operação unidireccionar, e você precisa optar novamente, o que resulta na criação de um novo DID.  
 
-## <a name="effect-on-existing-verifiable-credentials"></a>Efeito nas credenciais verificáveis existentes.
+## <a name="effect-on-existing-verifiable-credentials"></a>Efeito sobre as credenciais verificáveis existentes
 
 Todas as credenciais verificáveis já emitidas continuarão a existir. Não serão invalidados criptograficamente, uma vez que o seu DID permanecerá resolúvel através do ION.
 No entanto, quando as partes que contam chamam o estatuto de API, receberão sempre uma mensagem de falha.

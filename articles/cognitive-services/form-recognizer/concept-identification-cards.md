@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 01a73e7940f88a3eb6e040f26d255448294cab18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed8516f9a898131338fb5b4d75e25cd774c5ab43
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467843"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285363"
 ---
 # <a name="form-recognizer-prebuilt-identification-card-id-model"></a>Modelo de cartão de identificação pré-construído (ID) do Reconhecimento de Formulários
 
-O Azure Form Recogniser pode analisar e extrair informações de cartões de identificação do governo (IDs) utilizando o seu modelo de IDs pré-construído. Combina as nossas poderosas capacidades [de reconhecimento de caracteres óticos (OCR)](../computer-vision/concept-recognizing-text.md) com capacidades de reconhecimento de ID para extrair informações chave dos passaportes mundiais e das licenças de condução dos EUA (todos os 50 estados e D.C).). A IDs API extrai informações-chave destes documentos de identidade, tais como nome próprio, apelido, data de nascimento, número de documento, entre outros. Esta API está disponível na pré-visualização do Formulário Recogniser v2.1 como serviço de nuvem e como um recipiente no local.
+O Azure Form Recogniser pode analisar e extrair informações de cartões de identificação do governo (IDs) utilizando o seu modelo de IDs pré-construído. Combina as nossas poderosas capacidades [de reconhecimento de caracteres óticos (OCR)](../computer-vision/overview-ocr.md) com capacidades de reconhecimento de ID para extrair informações chave dos passaportes mundiais e das licenças de condução dos EUA (todos os 50 estados e D.C).). A IDs API extrai informações-chave destes documentos de identidade, tais como nome próprio, apelido, data de nascimento, número de documento, entre outros. Esta API está disponível na pré-visualização do Formulário Recogniser v2.1 como serviço de nuvem e como um recipiente no local.
 
 ## <a name="what-does-the-id-service-do"></a>O que faz o serviço de ID? 
 
@@ -31,7 +31,7 @@ O serviço de IDs pré-construído extrai os valores-chave dos passaportes mundi
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Description | Valor | 
+|Nome| Tipo | Descrição | Valor | 
 |:-----|:----|:----|:----|
 |  País | país | Código de país em conformidade com a norma ISO 3166 | "EUA" | 
 |  DataOfBirth | data | DOB em formato YYYY-MM-DD | "1980-01-01" | 

@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: wiassaf
 ms.date: 03/10/2021
 ms.openlocfilehash: 1a86522975ffb7b5b2bd514402dd97a76aa2506e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103014609"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
@@ -24,7 +24,7 @@ ms.locfileid: "103014609"
 
 A Azure SQL Database fornece vários métodos para criar uma cópia de uma base de [dados](single-database-overview.md) existente no mesmo servidor ou num servidor diferente. Pode copiar uma base de dados utilizando o portal Azure, PowerShell, Azure CLI ou T-SQL.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma cópia de base de dados é uma imagem transaccionalmente consistente da base de dados de origem a partir de um ponto no tempo após o pedido de cópia ser iniciado. Pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Também pode optar por manter o tamanho de redundância de backup, nível de serviço e tamanho de cálculo da base de dados de origem, ou utilizar um tamanho de armazenamento de backup diferente e/ou tamanho de cálculo dentro do mesmo ou de um nível de serviço diferente. Após a cópia estar completa, torna-se uma base de dados totalmente funcional e independente. Os logins, utilizadores e permissões na base de dados copiada são geridos independentemente da base de dados de origem. A cópia é criada utilizando a tecnologia de geo-replicação. Após a conclusão da propagação da réplica, a ligação da georreplicação será encerrada automaticamente. Todos os requisitos para utilizar a georreplicação se aplicam à operação da cópia da base de dados. Consulte [a visão geral da replicação de geo-replicação ativa](active-geo-replication-overview.md) para obter mais detalhes.
 

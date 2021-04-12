@@ -8,15 +8,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2020
+ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 8bc289e90470ae9bc8b1996ac08c3144ea78de35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67ef0bf7a8c3906122468c895325a77de555c196
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504717"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258797"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -588,7 +588,11 @@ O endereço MAC do cartão de rede virtual pode ser alterado, por exemplo, após
 > [!NOTE]
 > Deve atribuir endereços IP estáticos através de meios Azure a vNICs individuais. Não deve atribuir endereços IP estáticos dentro do so do hóspede a um vNIC. Alguns serviços da Azure, como o Azure Backup Service, baseiam-se no facto de que pelo menos o vNIC primário está definido para DHCP e não para endereços IP estáticos. Consulte também o documento [Troubleshoot Azure virtual machine backup](../../../backup/backup-azure-vms-troubleshoot.md#networking).
 >
->
+
+
+##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>Endereços IP secundários para virtualização do nome de anfitrião SAP
+Cada cartão de interface de rede da Azure Virtual Machine pode ter vários endereços IP atribuídos, este IP secundário pode ser usado para hostnames virtuais SAP que é mapeado para um registo DNS A/PTR, se necessário. Os endereços IP secundários devem ser atribuídos a Azure vNICs IP config de acordo com [este artigo](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md) e também configurados dentro do SISTEMA, uma vez que os IPs secundários não são atribuídos através do DHCP. Cada IP secundário deve ser da mesma sub-rede a que o vNIC está ligado. A utilização do IP flutuante do Azure Load Balancer não é [suportada secundáriamente]( https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations) para configurações IP secundárias, tais como clusters Pacemaker, neste caso o IP do Balanceador de Carga permite o(s) substituto virtual SAP. Consulte também a nota da SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) sobre orientações gerais utilizando nomes de anfitriões virtuais.
+
 
 ##### <a name="multiple-nics-per-vm"></a>Múltiplos NICs por VM
 
@@ -616,12 +620,12 @@ Para criar uma ligação site-to-site (centro de dados no local para o centro de
 
 A figura acima mostra que duas subscrições Azure têm subgrupos de endereço IP reservados para utilização em Redes Virtuais em Azure. A conectividade da rede no local para a Azure é estabelecida através da VPN.
 
-#### <a name="point-to-site-vpn"></a>VPN ponto-a-local
+#### <a name="point-to-site-vpn"></a>VPN Ponto a Site
 
 A VPN ponto-a-local requer que todas as máquinas de clientes se conectem com a sua própria VPN em Azure. Para os cenários SAP, estamos a olhar para, a conectividade ponto-a-local não é prática. Por conseguinte, não são dadas mais referências à conectividade VPN ponto-a-local.
 
 Mais informações podem ser encontradas aqui
-* [Configure uma ligação ponto-a-local a um VNet utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configurar uma ligação de Ponto a Site a uma VNet com o portal do Azure](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Configurar uma ligação de Ponto a Site a uma VNet com o PowerShell](../../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 #### <a name="multi-site-vpn"></a>Multi-Site VPN
@@ -1163,7 +1167,7 @@ A experiência das implementações da SAP nos últimos dois anos ensinou-nos al
 > ![Logotipo linux.][Logo_Linux] Linux
 >
 > * [Configure software RAID no Linux][virtual-machines-linux-configure-raid]
-> * [Configure a LVM num Linux VM em Azure][virtual-machines-linux-configure-lvm]
+> * [Configurar o LVM numa VM do Linux no Azure][virtual-machines-linux-configure-lvm]
 >
 >
 
@@ -1236,7 +1240,7 @@ A azure Geo-replicação funciona localmente em cada VHD em um VM e não replica
 ---
 ### <a name="final-deployment"></a>Implantação final
 
-Para a colocação final e os passos exatos, especialmente no que diz respeito à implantação da Extensão Azure para SAP, consulte o [Guia de Implantação][deployment-guide].
+Para a colocação final e os passos exatos, especialmente a implantação da Extensão Azure para SAP, consulte o [Guia de Implantação][deployment-guide].
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Aceder aos sistemas SAP em execução dentro dos VMs Azure
 
@@ -1657,7 +1661,7 @@ O Sistema de Alteração e Transporte sap (TMS) tem de ser configurado para expo
 
 ##### <a name="configuring-the-transport-domain"></a>Configurar o Domínio dos Transportes
 
-Configure o seu Domínio de Transporte no sistema designado como Controlador de Domínio de Transporte, conforme descrito na [Configuração do Controlador de Domínio de Transporte](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). Será criado um utilizador do sistema TMSADM e será gerado o destino RFC necessário. Pode verificar estas ligações RFC utilizando a transação SM59. A resolução do nome hospedeiro deve ser ativada em todo o seu domínio de transporte.
+Configure o seu Domínio de Transporte no sistema designado como Controlador de Domínio de Transporte, conforme descrito na [Configuração do Controlador de Domínio de Transporte](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Configuring%20the%20Transport%20Domain%20Controller). Será criado um utilizador do sistema TMSADM e será gerado o destino RFC necessário. Pode verificar estas ligações RFC utilizando a transação SM59. A resolução do nome hospedeiro deve ser ativada em todo o seu domínio de transporte.
 
 Como:
 
@@ -1670,12 +1674,12 @@ Como:
 
 A sequência de inclusão de um sistema SAP num domínio de transporte é a seguinte:
 
-* No sistema DEV em Azure, vá ao sistema de transporte (Cliente 000) e ligue para a transação STMS. Escolha Outra Configuração na caixa de diálogo e continue com incluir o Sistema em Domínio. Especificar o Controlador de Domínio como anfitrião-alvo[(Incluindo sistemas SAP no Domínio de Transporte).](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm) O sistema está agora à espera de ser incluído no domínio dos transportes.
+* No sistema DEV em Azure, vá ao sistema de transporte (Cliente 000) e ligue para a transação STMS. Escolha Outra Configuração na caixa de diálogo e continue com incluir o Sistema em Domínio. Especificar o Controlador de Domínio como anfitrião-alvo[(Incluindo sistemas SAP no Domínio de Transporte).](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0c17acc11d1899e0000e829fbbd.html?q=Including%20SAP%20Systems%20in%20the%20Transport%20Domain) O sistema está agora à espera de ser incluído no domínio dos transportes.
 * Por razões de segurança, terá de voltar ao controlador de domínio para confirmar o seu pedido. Escolha a visão geral do sistema e aprove o sistema de espera. Em seguida, confirme a solicitação e a configuração será distribuída.
 
 Este sistema SAP contém agora as informações necessárias sobre todos os outros sistemas SAP no domínio dos transportes. Ao mesmo tempo, os dados de endereço do novo sistema SAP são enviados para todos os outros sistemas SAP, e o sistema SAP é inserido no perfil de transporte do programa de controlo de transportes. Verifique se os RFCs e o acesso ao diretório de transportes do trabalho de domínio.
 
-Continue com a configuração do seu sistema de transporte como de costume, como descrito na documentação [Alterar e Transporte Sistema.](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)
+Continue com a configuração do seu sistema de transporte como de costume, como descrito na documentação [Alterar e Transporte Sistema.](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/3bdfba3692dc635ce10000009b38f839.html)
 
 Como:
 
@@ -1687,13 +1691,13 @@ Como:
 
 Em cenários de instalações interligados site-to-site, a latência entre as instalações e Azure ainda pode ser substancial. Se seguirmos a sequência de transporte de objetos através de sistemas de desenvolvimento e teste para a produção ou pensarmos na aplicação de transportes ou pacotes de apoio para os diferentes sistemas, percebemos que, dependendo da localização do diretório de transportes centrais, alguns dos sistemas encontrarão dados de leitura ou de escrita de alta latência no diretório de transportes centrais. A situação é semelhante às configurações paisagísticas do SAP onde os diferentes sistemas são espalhados por diferentes centros de dados com uma distância substancial entre os centros de dados.
 
-Para trabalhar em torno de tal latência e fazer com que os sistemas funcionem rapidamente na leitura ou escrita de ou para o diretório de transportes, você pode configurar dois domínios de transporte STMS (um para as instalações e outro com os sistemas em Azure e ligar os domínios de transporte. Consulte esta documentação, que explica os princípios subjacentes a este conceito no SAP TMS: <https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm> .
+Para trabalhar em torno de tal latência e fazer com que os sistemas funcionem rapidamente na leitura ou escrita de ou para o diretório de transportes, você pode configurar dois domínios de transporte STMS (um para as instalações e outro com os sistemas em Azure e ligar os domínios de transporte. Verifique esta [documentação](<, https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm) que explica os princípios por trás deste conceito no SAP TMS.
+
 
 Como:
 
-* Criar um domínio de transporte em cada local (no local e Azure) utilizando a transação STMS <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
-* Ligue os domínios a uma ligação de domínio e confirme a ligação entre os dois domínios.
-  <https://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
+* [Criar um domínio de transporte] (<em https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain) cada local (no local e Azure) utilizando a transação STMS
+* [Ligue os domínios a uma ligação de domínio](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/14c795388d62e450e10000009b38f889.html?q=Link%20the%20domains%20with%20a%20domain%20link) e confirme a ligação entre os dois domínios.
 * Distribua a configuração para o sistema ligado.
 
 #### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>Tráfego RFC entre instâncias SAP localizadas em Azure e no local (Cross-Premis)

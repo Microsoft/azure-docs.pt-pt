@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: dfeb99fdbd5cf2b0784982b385d46c3a16901ec8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105567394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a Mozy Enterprise
@@ -120,13 +120,13 @@ Para configurar o Azure AD com a Mozy Enterprise, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-mozy-enterprise-single-sign-on"></a>Configurar mozy Enterprise Single Sign-On
+### <a name="configure-mozy-enterprise-single-sign-on&quot;></a>Configurar mozy Enterprise Single Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa Mozy Enterprise como administrador.
 
 2. Na secção **Configuração,** clique em **Política de Autenticação**.
    
-    ![A screenshot mostra a Política de Autenticação selecionada a partir da Configuração.](./media/mozy-enterprise-tutorial/ic777314.png "Política de autenticação")
+    ![A screenshot mostra a Política de Autenticação selecionada a partir da Configuração.](./media/mozy-enterprise-tutorial/ic777314.png &quot;Política de autenticação")
 
 3. Na secção **Política de Autenticação,** execute os seguintes passos:
    
@@ -199,7 +199,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-mozy-enterprise-test-user"></a>Criar utilizador de teste Mozy Enterprise
+### <a name="create-mozy-enterprise-test-user&quot;></a>Criar utilizador de teste Mozy Enterprise
 
 Para permitir que os utilizadores de Azure AD acedam à Mozy Enterprise, eles devem ser abastados na Mozy Enterprise. No caso da Mozy Enterprise, o provisionamento é uma tarefa manual.
 
@@ -212,7 +212,7 @@ Para permitir que os utilizadores de Azure AD acedam à Mozy Enterprise, eles de
 
 2. Clique **nos Utilizadores** e, em seguida, clique em **Adicionar Novo Utilizador**.
    
-    ![Utilizadores](./media/mozy-enterprise-tutorial/ic777317.png "Utilizadores")
+    ![Utilizadores](./media/mozy-enterprise-tutorial/ic777317.png &quot;Utilizadores")
    
     >[!NOTE]
     >A opção **Adicionar Novo Utilizador** só é apresentada se a **Mozy** for selecionada como fornecedor ao abrigo da **política de autenticação.** Se a autenticação SAML estiver configurada, os utilizadores são adicionados automaticamente no seu primeiro login através do único sinal.

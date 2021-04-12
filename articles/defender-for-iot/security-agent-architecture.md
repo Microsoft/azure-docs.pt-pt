@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Visão geral dos agentes de segurança'
-description: Neste quickstart você vai aprender a entender a arquitetura do agente de segurança para os agentes usados no Azure Defender para o serviço IoT.
+description: Neste quickstart, aprenda a entender a arquitetura do agente de segurança para os agentes utilizados no Azure Defender para o serviço IoT.
 ms.topic: quickstart
-ms.date: 01/24/2021
-ms.openlocfilehash: 2e7d7d1e6770667b1ce966724611cc003116409d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/4/2021
+ms.openlocfilehash: 0937cccb0335f4eee16ca3590babe9574320b89f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778513"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384990"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Quickstart: Arquitetura de referência de agente de segurança
 
@@ -33,7 +33,7 @@ O Defender for IoT Security agents é desenvolvido como projetos de código aber
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum
+- Nenhum
 
 ## <a name="agent-supported-platforms"></a>Plataformas apoiadas por agente
 
@@ -48,8 +48,7 @@ O Defender for IoT oferece diferentes agentes instaladores para Windows de 32 bi
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você tem uma visão geral de alto nível sobre o Defender-IoT-micro-agente arquitetura, e os instaladores disponíveis.
-
-Para continuar a trabalhar com o Defender para a implementação de IoT, utilize os seguintes artigos:
+Para continuar a começar com o Defender para a implementação de IoT, 
 
 > [!div class="nextstepaction"]
 > [métodos de autenticação de agente de segurança](concept-security-agent-authentication-methods.md)

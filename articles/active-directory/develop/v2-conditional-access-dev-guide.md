@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ed8007c81479c73e4503d74af4c4043e503baf2b
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584235"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120151"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação do desenvolvedor para acesso condicional do Diretório Ativo Azure
 
@@ -72,10 +72,10 @@ Especificamente, todos os âmbitos do Microsoft Graph representam alguns conjunt
 Por exemplo, se uma aplicação solicitar os seguintes âmbitos do Microsoft Graph,
 
 ```
-scopes="Bookings.Read.All Mail.Read"
+scopes="ChannelMessages.Read.All Mail.Read"
 ```
 
-Uma aplicação pode esperar que os seus utilizadores cumpram todas as políticas definidas em Reservas e Troca. Alguns âmbitos podem mapear vários conjuntos de dados se conceder acesso.
+Uma aplicação pode esperar que os seus utilizadores cumpram todas as políticas definidas em Equipas e Intercâmbio. Alguns âmbitos podem mapear vários conjuntos de dados se conceder acesso.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Cumprimento de uma política de acesso condicional
 

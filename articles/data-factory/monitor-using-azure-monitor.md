@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 55b2fd911b32eae4f04ad9690de091e9dbd46ea4
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: bceacf0a22b7add0533b72b4ebf06d503366baa4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105643963"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932493"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorizar e alertar a fábrica de dados utilizando o Monitor Azure
 
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | **armazenamentoSacountId** |String | O ID de recursos da conta de armazenamento para a qual pretende enviar registos de diagnóstico. |
 | **serviçoBusRuleId** |String | A regra de serviço-autocarro ID do espaço de nomes de autocarro de serviço no qual pretende ter Os Centros de Eventos criados para streaming de registos de diagnóstico. A regra ID tem o formato `{service bus resource ID}/authorizationrules/{key name}` .|
-| **workspaceId** | Tipo Complexo | Uma série de grãos de tempo métricos e as suas políticas de retenção. O valor desta propriedade está vazio. |
+| **workspaceId** | String | O espaço de trabalho ID do espaço de trabalho onde os troncos serão guardados. |
 |**métricas**| Os valores parâmetros do gasoduto a passar para o gasoduto invocado| Um objeto JSON que mapeia nomes de parâmetros para valores de argumento. |
 | **troncos**| Tipo Complexo| O nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, efetue uma operação de definições de diagnóstico GET. |
 | **categoria**| String| Uma série de categorias de registos e as suas políticas de retenção. |

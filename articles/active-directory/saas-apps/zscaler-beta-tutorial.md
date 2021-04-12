@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e8dce970c9e7cfb2aa7887cf1fb3ed6ef9030a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735600"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integração do Azure Ative Directory com zscaler Beta
@@ -190,14 +190,14 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. **Selecione Ativar**.
 
-## <a name="configure-proxy-settings"></a>Configurar definições de proxy
+## <a name="configure-proxy-settings&quot;></a>Configurar definições de proxy
 Para configurar as definições de procuração no Internet Explorer, siga estes passos.
 
 1. Iniciar **o Internet Explorer**.
 
 2. Selecione **as opções** de Internet do menu **Ferramentas** para abrir a caixa de diálogo **opções de Internet.** 
     
-     ![Caixa de diálogo de opções de internet](./media/zscaler-beta-tutorial/ic769492.png "Opções de Internet")
+     ![Caixa de diálogo de opções de internet](./media/zscaler-beta-tutorial/ic769492.png &quot;Opções de Internet")
 
 3. Selecione o separador **Ligações.** 
   

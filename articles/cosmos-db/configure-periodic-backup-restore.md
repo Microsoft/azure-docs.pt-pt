@@ -4,15 +4,15 @@ description: Este artigo descreve como configurar contas DB da Azure Cosmos com 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0470759a589927b65462f258b20446af608175c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565840"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284051"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configure conta DB Azure Cosmos com backup periódico
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,11 +31,32 @@ O Azure Cosmos DB tira automaticamente cópias de segurança dos dados em inter
 
 * As cópias de segurança são tomadas sem afetar o desempenho ou disponibilidade da sua aplicação. A Azure Cosmos DB realiza a cópia de segurança de dados em segundo plano sem consumir qualquer produção extra prevista (RUs) ou afetar o desempenho e disponibilidade da sua base de dados.
 
+## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>Redundância de armazenamento de backup
+
+Por padrão, a Azure Cosmos DB armazena dados periódicos de backup do modo de segurança no armazenamento de [bolhas](../storage/common/storage-redundancy.md) geo-redundantes que são replicados numa [região emparelhada](../best-practices-availability-paired-regions.md).  
+
+Para garantir que os seus dados de backup permaneçam na mesma região onde a sua conta DB Azure Cosmos é abastecer, pode alterar o armazenamento de backup geo-redundante padrão e configurar o armazenamento localmente redundante ou redundante de zona. Os mecanismos de redundância de armazenamento armazenam várias cópias das suas cópias de segurança para que seja protegida de eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia ou desastres naturais maciços.
+
+Os dados de backup em Azure Cosmos DB são replicados três vezes na região primária. Pode configurar a redundância de armazenamento para o modo de backup periódico no momento da criação de conta ou atualizá-la para uma conta existente. Pode utilizar as seguintes três opções de redundância de dados no modo de backup periódico:
+
+* **Armazenamento de backup geo-redundante:** Esta opção copia os seus dados assíncronamente em toda a região emparelhada.
+
+* **Armazenamento de backup redundante de zona:** Esta opção copia os seus dados de forma assíncrona em três zonas de disponibilidade do Azure na região primária.
+
+* **Armazenamento de backup localmente redundante:** Esta opção copia os seus dados de forma assíncrona três vezes num único local físico na região primária.
+
+> [!NOTE]
+> Atualmente, o armazenamento redundante de zonas só está disponível em [regiões específicas.](high-availability.md#availability-zone-support) Com base na região que seleciona; esta opção não estará disponível para contas novas ou existentes.
+>
+> A atualização da redundância de armazenamento de backup não terá qualquer impacto nos preços de armazenamento de backup.
+
 ## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modifique o intervalo de backup e o período de retenção
 
 A Azure Cosmos DB requer automaticamente uma cópia de segurança completa dos seus dados por cada 4 horas e, em qualquer momento, as duas últimas cópias de segurança são armazenadas. Esta configuração é a opção padrão e é oferecida sem qualquer custo extra. Pode alterar o intervalo de cópia de segurança e o período de retenção predefinidos durante ou após a criação da conta do Azure Cosmos. A configuração da cópia de segurança é definida ao nível da conta do Azure Cosmos e é preciso configurá-la em cada conta. Depois de configurar as opções de backup para uma conta, é aplicada a todos os contentores dentro dessa conta. Atualmente, só pode alterar as opções de cópia de segurança no portal do Azure.
 
 Se acidentalmente eliminou ou corrompeu os seus dados, **antes de criar um pedido de suporte para restaurar os dados, certifique-se de aumentar a retenção de backup da sua conta para pelo menos sete dias. É melhor aumentar a sua retenção dentro de 8 horas deste evento.** Desta forma, a equipa do Azure Cosmos DB tem tempo suficiente para restaurar a conta.
+
+### <a name="modify-backup-options-for-an-existing-account"></a>Modificar opções de backup para uma conta existente
 
 Utilize os seguintes passos para alterar as opções de backup predefinidas para uma conta Azure Cosmos existente:
 
@@ -48,11 +69,18 @@ Utilize os seguintes passos para alterar as opções de backup predefinidas para
 
    * **Cópias dos dados retidos** - Por padrão, duas cópias de backup dos seus dados são oferecidas gratuitamente. Há uma taxa extra se precisar de mais de duas cópias. Consulte a secção de Armazenamento Consumido na [página de Preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o preço exato das cópias extras.
 
-   :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-interval-retention.png" alt-text="Configurar intervalo de backup e retenção para uma conta Azure Cosmos existente." border="true":::
+   * **Redundância de armazenamento de backup** - Escolha a opção de redundância de armazenamento necessária, consulte a secção de [redundância de armazenamento de backup](#backup-storage-redundancy) para obter opções disponíveis. Por predefinição, as contas de modo de backup periódico existentes têm armazenamento geo-redundante. Pode escolher outros armazenamentos, como o redundante local para garantir que a cópia de segurança não seja replicada noutra região. As alterações efetuadas a uma conta existente são aplicadas apenas a futuras cópias de segurança. Após a redundância de armazenamento de backup de uma conta existente, pode levar até o dobro do tempo de intervalo de backup para que as alterações produzam efeitos e **perderá o acesso para restaurar imediatamente as cópias de segurança mais antigas.**
 
-Se configurar opções de backup durante a criação da conta, pode configurar a **política de Backup**, que é **periódica** ou **contínua**. A política periódica permite-lhe configurar o intervalo de backup e a retenção de backup. A política contínua está atualmente disponível apenas por inscrição. A equipa DB da Azure Cosmos avaliará a sua carga de trabalho e aprovará o seu pedido.
+   > [!NOTE]
+   > Você deve ter a função Azure [Cosmos DB Account Reader Role](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role) atribuído ao nível de subscrição para configurar a redundância de armazenamento de backup.
 
-:::image type="content" source="./media/configure-periodic-backup-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configure a política de backup periódica ou contínua para novas contas Azure Cosmos." border="true":::
+   :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-existing-accounts.png" alt-text="Configurar intervalo de backup, retenção e redundância de armazenamento para uma conta Azure Cosmos existente." border="true":::
+
+### <a name="modify-backup-options-for-a-new-account"></a>Modificar opções de backup para uma nova conta
+
+Ao fornecer uma nova conta, a partir do separador Política de **Backup,** selecione a política de backup **Periodic** _ . A política periódica permite configurar o intervalo de backup, a retenção de backup e a redundância de armazenamento de backup. Por exemplo, pode escolher _ *armazenamento de backup redundante localmente** ou opções **de armazenamento de backup redundante da Zona** para evitar a replicação de dados de backup fora da sua região.
+
+:::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-new-accounts.png" alt-text="Configure a política de backup periódica ou contínua para novas contas Azure Cosmos." border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a><a id="request-restore"></a>Solicitar a restauração de dados a partir de uma cópia de segurança
 
@@ -115,8 +143,7 @@ Se fornecer produção ao nível da base de dados, o processo de backup e restau
 Os principais que fazem parte do papel [CosmosdbBackupOperator,](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)proprietário ou colaborador são autorizados a solicitar um restauro ou alterar o período de retenção.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Compreender os custos das cópias de segurança adicionais
-Duas cópias de segurança são fornecidas gratuitamente e são cobradas cópias de segurança extra de acordo com os preços baseados na região para armazenamento de backup descritos nos [preços de armazenamento de backup](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Por exemplo, se a retenção de backup estiver configurada a 240 horas, ou seja, 10 dias e intervalo de backup a 24 horas. Isto implica 10 cópias dos dados de reserva. Assumindo que 1 TB de dados no Oeste dos EUA 2, o custo será de 0,12 * 1000 * 8 para armazenamento de backup em dado mês. 
-
+Duas cópias de segurança são fornecidas gratuitamente e são cobradas cópias de segurança extra de acordo com os preços baseados na região para armazenamento de backup descritos nos [preços de armazenamento de backup](https://azure.microsoft.com/pricing/details/cosmos-db/). Por exemplo, se a retenção de backup estiver configurada a 240 horas, ou seja, 10 dias e intervalo de backup a 24 horas. Isto implica 10 cópias dos dados de reserva. Assumindo que 1 TB de dados no Oeste dos EUA 2, o custo será de 0,12 * 1000 * 8 para armazenamento de backup em dado mês.
 
 ## <a name="options-to-manage-your-own-backups"></a>Opções para gerir os seus próprios backups
 

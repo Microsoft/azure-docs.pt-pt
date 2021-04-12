@@ -16,15 +16,15 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 12fcc9996697f3bbba35826d79bec238bfb0f8b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95993015"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o Gestor de Dispositivos StorSimple para gerir alertas para o StorSimple Virtual Array
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A funcionalidade de alertas no serviço StorSimple Device Manager fornece uma forma de rever e limpar alertas relacionados com as Matrizes Virtuais StorSimple em tempo real. Pode utilizar os alertas na lâmina **de resumo** do Serviço para monitorizar centralmente os problemas de saúde das suas Matrizes Virtuais StorSimple e da solução geral microsoft Azure StorSimple.
 

@@ -1,117 +1,185 @@
 ---
-title: Atualize a versão Azure Service Fabric de um cluster
-description: Atualize o código e/ou configuração do Tecido de Serviço que executa um cluster de Tecido de Serviço, incluindo a definição do modo de atualização do cluster, a atualização de certificados, a adição de portas de aplicação, a realização de patches de SISTEMA, e assim por diante. O que se pode esperar quando as atualizações são realizadas?
-ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: 01fe916f0ee78c8481ac6b17b8f7409b47c852ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+title: Gerir atualizações de cluster de tecido de serviço
+description: Gerir quando e como o seu cluster de tecido de serviço é atualizado
+ms.topic: how-to
+ms.date: 03/26/2021
+ms.openlocfilehash: 98c3300e5cc51c32d894397839879e25190d979b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90564292"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731172"
 ---
-# <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Atualizar a versão do Service Fabric de um cluster
+# <a name="manage-service-fabric-cluster-upgrades"></a>Gerir atualizações de cluster de tecido de serviço
 
-Para qualquer sistema moderno, o design para a atualização é fundamental para alcançar o sucesso a longo prazo do seu produto. Um cluster Azure Service Fabric é um recurso que possui, mas é parcialmente gerido pela Microsoft. Este artigo descreve como atualizar a versão do Service Fabric em execução no seu cluster Azure.
+Um cluster Azure Service Fabric é um recurso que possui, mas é parcialmente gerido pela Microsoft. Eis como gerir quando e como a Microsoft atualiza o seu cluster de Tecidos de Serviço Azure.
 
-Pode configurar o seu cluster para receber atualizações automáticas de tecidos à medida que forem lançadas pela Microsoft ou pode selecionar uma versão de tecido suportado que pretende que o seu cluster esteja ligado.
+Para obter mais informações sobre conceitos e processos de upgrade de clusters, consulte [upgrade e atualização de clusters de tecidos de serviço Azure](service-fabric-cluster-upgrade.md)
 
-Fá-lo definindo a configuração do cluster "upgradeMode" no portal ou utilizando o Gestor de Recursos no momento da criação ou mais tarde num cluster ao vivo 
+## <a name="set-upgrade-mode"></a>Definir o modo de atualização
+
+Pode configurar o seu cluster para receber atualizações automáticas do Service Fabric à medida que forem lançadas pela Microsoft, ou pode escolher manualmente entre uma lista de versões suportadas atualmente, definindo o modo de atualização para o seu cluster. Isto pode ser feito através do controlo do *modo de atualização do Tecido* no portal Azure ou da `upgradeMode` definição no seu modelo de implementação do cluster.
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Utilizando o portal Azure, escolherá entre atualizações automáticas ou manuais ao criar um novo cluster de Tecido de Serviço.
+
+:::image type="content" source="media/service-fabric-cluster-upgrade/portal-new-cluster-upgrade-mode.png" alt-text="Escolha entre atualizações automáticas ou manuais ao criar um novo cluster no portal Azure a partir das opções 'Avançadas'":::
+
+Também pode alternar entre atualizações automáticas ou manuais da secção de **atualizações do Tecido** de um recurso de cluster existente.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Selecione atualizações automáticas ou manuais na secção 'Upgrades de tecido' do seu recurso cluster no portal Azure":::
+
+### <a name="manual-upgrades-with-azure-portal"></a>Atualizações manuais com portal Azure
+
+Quando seleciona a opção de atualização manual, tudo o que é necessário para iniciar uma atualização é selecionar a partir das versões disponíveis dropdown e, em seguida, *guardar*. A partir daí, a atualização do cluster é iniciada imediatamente.
+
+As políticas de [saúde](#custom-policies-for-manual-upgrades) do cluster (uma combinação de saúde do nó e a saúde a todas as aplicações em execução no cluster) são cumpridas durante a atualização. Se as políticas de saúde do cluster não forem cumpridas, a atualização será revertida.
+
+Depois de ter corrigido os problemas que resultaram na reversão, terá de iniciar novamente a atualização, seguindo os mesmos passos que antes.
+
+### <a name="resource-manager-template"></a>Modelo do Resource Manager
+
+Para alterar o modo de atualização do cluster utilizando um modelo de Gestor de Recursos, especifique o *Automático* ou o *Manual* para a `upgradeMode` propriedade da definição de recursos *Microsoft.ServiceFabric/clusters.* Se escolher atualizações manuais, também desa ajuste `clusterCodeVersion` a uma versão de tecido [suportada](#query-for-supported-cluster-versions)atualmente.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="A screenshot mostra um modelo, que é simples texto recuado para refletir a estrutura. Destacam-se as propriedades 'clusterCodeVersion' e 'upgradeMode'.":::
+
+Após a implementação bem sucedida do modelo, serão aplicadas alterações ao modo de atualização do cluster. Se o seu cluster estiver em modo manual, a atualização do cluster arrancará automaticamente.
+
+As políticas de [saúde](#custom-policies-for-manual-upgrades) do cluster (uma combinação de saúde do nó e a saúde a todas as aplicações em execução no cluster) são cumpridas durante a atualização. Se as políticas de saúde do cluster não forem cumpridas, a atualização é revertida.
+
+Depois de ter corrigido os problemas que resultaram na reversão, terá de iniciar novamente a atualização, seguindo os mesmos passos que antes.
+
+## <a name="wave-deployment-for-automatic-upgrades"></a>Implementação de ondas para upgrades automáticos
+
+Com o modo de atualização automática, tem a opção de ativar o seu cluster para a implementação de ondas. Com a implementação de ondas, pode criar um oleoduto para atualizar os seus clusters de teste, fase e produção em sequência, separados por "tempo de cozedura" incorporado para validar as próximas versões do Service Fabric antes de os seus clusters de produção serem atualizados.
+
+### <a name="enable-wave-deployment"></a>Ativar a implantação de ondas
 
 > [!NOTE]
-> Certifique-se de que mantém o seu cluster a executar sempre uma versão de tecido suportado. À medida que anunciamos o lançamento de uma nova versão do tecido de serviço, a versão anterior está marcada para o fim do suporte após um mínimo de 60 dias a partir dessa data. Os novos lançamentos são anunciados [no blog da equipa de tecidos de serviço.](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) O novo lançamento está disponível para escolher então. 
-> 
-> 
+> A implementação de ondas requer a `2020-12-01-preview` versão API (ou posterior) para o seu recurso *Microsoft.ServiceFabric/clusters.*
 
-14 dias antes do termo da libertação que o seu cluster está a executar, é gerado um evento de saúde que coloca o seu cluster em um estado de saúde de alerta. O cluster permanece em estado de alerta até que você atualize para uma versão de tecido suportado.
+Para ativar a implementação de ondas para atualização automática, determine primeiro qual a onda para atribuir o seu cluster:
 
-## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Desa ajuste o modo de atualização no portal Azure
-Pode configurar o cluster para automático ou manual quando estiver a criar o cluster.
+* **Onda 0** `Wave0` (): Os clusters são atualizados assim que uma nova construção do Tecido de Serviço for lançada. Destinado a agrupamentos de teste/dev.
+* **Onda 1** `Wave1` (): Os clusters são atualizados uma semana (sete dias) após o lançamento de uma nova construção. Destinado a agrupamentos pré-prod/staging.
+* **Onda 2** `Wave2` (): Os clusters são atualizados duas semanas (14 dias) após o lançamento de uma nova construção. Destinado a clusters de produção.
 
-![O screenshot mostra o painel de cluster de tecido de serviço create com a configuração do cluster da opção 2 selecionada e o painel de configuração cluster aberto.][Create_Manualmode]
+Em seguida, basta adicionar uma `upgradeWave` propriedade ao seu modelo de recursos de cluster com um dos valores de onda listados acima. Certifique-se de que a versão API do seu recurso de cluster é `2020-12-01-preview` ou mais tarde.
 
-Pode configurar o cluster para automático ou manual quando estiver num cluster vivo, utilizando a experiência de gestão. 
-
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Upgrade para uma nova versão num cluster que está definido para modo Manual via portal.
-Para atualizar para uma nova versão, tudo o que precisa de fazer é selecionar a versão disponível a partir do dropdown e economizar. A atualização do Tecido é iniciada automaticamente. As políticas de saúde do cluster (uma combinação de saúde do nó e a saúde a todas as aplicações em execução no cluster) são cumpridas durante a atualização.
-
-Se as políticas de saúde do cluster não forem cumpridas, a atualização é revertida. Percorra este documento para ler mais sobre como definir essas políticas de saúde personalizadas. 
-
-Depois de ter corrigido os problemas que resultaram na reversão, tem de iniciar novamente a atualização, seguindo os mesmos passos que antes.
-
-![O Screenshot mostra a janela de clusters de tecido de serviço com o painel de atualizações do Tecido aberto e as opções de upgrade destacadas, incluindo Automática e Manual.][Manage_Automaticmode]
-
-## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Desaprote o modo de atualização utilizando um modelo de Gestor de Recursos
-Adicione a configuração "upgradeMode" à definição de recursos Microsoft.ServiceFabric/clusters e desloque a "clusterCodeVersion" a uma das versões de tecido suportado como mostrado abaixo e, em seguida, implemente o modelo. Os valores válidos para "upgradeMode" são "Manual" ou "Automático"
-
-![O screenshot mostra um modelo, que é simples detexto recuado para refletir a estrutura e o clusterCodeVersion e upgradeMode são destacados.][ARMUpgradeMode]
-
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Upgrade para uma nova versão num cluster que é definido para o modo Manual através de um modelo de Gestor de Recursos.
-Quando o cluster estiver em modo Manual, para atualizar para uma nova versão, altere o "clusterCodeVersion" para uma versão suportada e implemente-o. A implementação do modelo, os pontapés da atualização do Tecido são lançados automaticamente. As políticas de saúde do cluster (uma combinação de saúde do nó e a saúde a todas as aplicações em execução no cluster) são cumpridas durante a atualização.
-
-Se as políticas de saúde do cluster não forem cumpridas, a atualização é revertida.  
-
-Depois de ter corrigido os problemas que resultaram na reversão, tem de iniciar novamente a atualização, seguindo os mesmos passos que antes.
-
-## <a name="set-custom-health-polices-for-upgrades"></a>Definir policiais de saúde personalizados para upgrades
-Você pode especificar policiais de saúde personalizados para upgrade de tecido. Se definiu o seu cluster para atualizações automáticas de tecidos, então estas políticas são aplicadas à [Fase 1 das atualizações automáticas do tecido](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
-Se definiu o seu cluster para atualizações manuais de tecidos, então estas políticas são aplicadas cada vez que seleciona uma nova versão que desencadeie o sistema para iniciar a atualização do tecido no seu cluster. Se não anular as apólices, os predefinidos são utilizados.
-
-Pode especificar as políticas de saúde personalizadas ou rever as definições atuais sob a lâmina de "upgrade de tecido", selecionando as definições de atualização avançadas. Reveja a seguinte imagem sobre como. 
-
-![Gerir políticas de saúde personalizadas][HealthPolices]
-
-## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>Listar todas as versões disponíveis para todos os ambientes para uma determinada subscrição
-Executar o seguinte comando, e você deve obter uma saída semelhante a esta.
-
-"supportExpiryUtc" diz-lhe quando uma determinada libertação está a expirar ou expirou. A última versão não tem data válida - tem um valor de "9999-12-31T23:59:9999999", o que significa apenas que a data de validade ainda não está definida.
-
-```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
-
-Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
-
-Output:
+```json
 {
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "fabricSettings": [...],
+        "managementEndpoint": ...,
+        "nodeTypes": [...],
+        "provisioningState": ...,
+        "reliabilityLevel": ...,
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+       ...
 ```
 
+Assim que implementar o modelo atualizado, o seu cluster será inscrito na onda especificada para o próximo período de atualização e depois disso.
+
+Pode [registar-se para notificações por e-mail](#register-for-notifications) com links para ajudar ainda mais se uma atualização do cluster falhar.
+
+### <a name="register-for-notifications"></a>Registar-se para receber notificações
+
+Pode registar-se para notificações quando uma atualização do cluster falha. Será enviado um e-mail para o seu endereço de e-mail designado com mais detalhes sobre a falha de upgrade e links para mais ajuda.
+
+> [!NOTE]
+> A inscrição na implementação de ondas não é necessária para receber notificações para falhas de atualização.
+
+Para se inscrever em notificações, adicione uma `notifications` secção ao seu modelo de recursos de cluster e designe um ou mais endereços de e-mail *(recetores)* para receber notificações:
+
+```json
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+        "notifications": [
+        {
+            "isEnabled": true,
+            "notificationCategory": "WaveProgress",
+            "notificationLevel": "Critical",
+            "notificationTargets": [
+            {
+                "notificationChannel": "EmailUser",
+                "receivers": [
+                    "devops@contoso.com"
+                ]
+            }]
+        }]
+```
+
+Assim que implementar o seu modelo atualizado, será inscrito para notificações de falha de upgrade.
+
+## <a name="custom-policies-for-manual-upgrades"></a>Políticas personalizadas para atualizações manuais
+
+Pode especificar políticas de saúde personalizadas para atualizações manuais de clusters. Estas políticas são aplicadas sempre que seleciona uma nova versão de tempo de execução, que desencadeia o sistema para iniciar a atualização do seu cluster. Se não anular as apólices, os predefinidos são utilizados.
+
+Pode especificar as políticas de saúde personalizadas ou rever as definições atuais sob a secção de **atualizações** do Tecido do seu recurso de cluster no portal Azure, selecionando a opção *Custom* para **a política de upgrade**.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Selecione a opção de atualização 'Personalizada' na secção 'Upgrades de tecido' do seu recurso cluster no portal Azure, de modo a definir políticas de saúde personalizadas durante a atualização":::
+
+## <a name="query-for-supported-cluster-versions"></a>Consulta para versões de cluster suportadas
+
+Pode utilizar [a Azure REST API](/rest/api/azure/) para listar todas as versões de tempo de execução do Tecido de Serviço disponíveis[(clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) disponíveis para a localização especificada e a sua subscrição.
+
+Também é possível fazer referência às [versões do Service Fabric](service-fabric-versions.md) para mais detalhes sobre versões e sistemas operativos suportados.
+
+```REST
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
+
+"value": [
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
+    "name": "5.0.1427.9490",
+    "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.0.1427.9490",
+      "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
+    "name": "5.1.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.1.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
+    "name": "4.4.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "4.4.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Linux"
+    }
+  }
+]
+}
+```
+
+O `supportExpiryUtc` relatório de saída quando uma determinada libertação expira ou expirou. As versões mais recentes não terão uma data válida, mas sim um valor de *9999-12-31T23:59.99999999*, o que significa apenas que a data de validade ainda não está definida.
+
+
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba como personalizar algumas das [configurações](service-fabric-cluster-fabric-settings.md) do tecido de serviço
-* Saiba como [escalar o seu cluster dentro e fora](service-fabric-cluster-scale-in-out.md)
+
+* [Gerir atualizações de tecido de serviço](service-fabric-cluster-upgrade-version-azure.md)
+* Personalize as [definições do cluster de tecido de serviço](service-fabric-cluster-fabric-settings.md)
+* [Escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-in-out.md)
 * Saiba mais [sobre atualizações de aplicações](service-fabric-application-upgrade.md)
+
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

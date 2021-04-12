@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
 ms.openlocfilehash: 0cca47269e632e1fcba1f8f9eb1c835f27e63059
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104582840"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>Guia de desenvolvimento de dispositivos IoT Plug e Play

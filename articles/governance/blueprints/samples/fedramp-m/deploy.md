@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta moderada fedRAMP
 description: Implementar passos para a amostra de planta moderada fedRAMP, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 9fa92bebf6ef5829796c45e0e83070a85395caf8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29191e777c09bf8533bbaa652b8526dcf594ad73
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594681"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386782"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Implementar a amostra de planta moderada fedRAMP
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 666e9f01d090acf29b8013470ed0264cd83f6d47
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: a8420d23c8bda29290722975ada2acca6733f0e7
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293639"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491691"
 ---
 # <a name="use-databox-to-migrate-from-network-attached-storage-nas-to-azure-file-shares"></a>Utilize a DataBox para migrar de armazenamento anexado à rede (NAS) para ações de ficheiros Azure
 
@@ -137,7 +137,12 @@ Siga os passos na documentação Azure DataBox:
 
 A documentação ligada da DataBox especifica um comando RoboCopy. No entanto, o comando não é adequado para preservar a fidelidade completa do ficheiro e da pasta. Utilize este comando em vez disso:
 
-[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
+```console
+Robocopy /MT:32 /NP /NFL /NDL /B /MIR /IT /COPY:DATSO /DCOPY:DAT /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 
+```
+* Para saber mais sobre os detalhes das bandeiras individuais do RoboCopy, confira a tabela na próxima [secção roboCopy.](#robocopy)
+* Para saber mais sobre como dimensionar adequadamente a contagem de `/MT:n` fios, otimize a velocidade do RoboCopy e faça do RoboCopy um bom vizinho no seu centro de dados, dê uma olhada na [secção de resolução de problemas do RoboCopy.](#troubleshoot)
+
 
 ## <a name="phase-7-catch-up-robocopy-from-your-nas"></a>Fase 7: Catch-up RoboCopy do seu NAS
 
@@ -197,59 +202,7 @@ Podes tentar executar algumas destas cópias em paralelo. Recomendamos o process
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-A velocidade e a taxa de sucesso de uma determinada execução roboCopy dependerá de vários fatores:
-
-* IOPS na origem e armazenamento de alvos
-* a largura de banda disponível entre eles
-* a capacidade de processar rapidamente ficheiros e pastas num espaço de nome
-* o número de alterações entre roboCopy corre
-
-
-### <a name="iops-and-bandwidth-considerations"></a>IOPS e considerações de largura de banda
-
-Nesta categoria é necessário considerar as capacidades da **fonte** (o seu NAS), o **alvo** (Azure DataBox e mais tarde a partilha de ficheiros Azure) e a **rede** que os liga. A produção máxima possível é determinada pelo mais lento destes três componentes. Um DataBox padrão vem com interfaces de rede duplos de 10 Gbps. Dependendo do seu NAS, pode ser capaz de comparar isso. Certifique-se de que a sua infraestrutura de rede está configurada para suportar velocidades de transferência ideais para as suas melhores capacidades.
-
-> [!CAUTION]
-> Embora a cópia o mais rápido possível seja muitas vezes a mais desejada, considere a utilização da sua rede local e do aparelho NAS para outras tarefas críticas, muitas vezes empresariais.
-
-Copiar o mais rapidamente possível pode não ser desejável quando existe o risco de a migração poder monopolizar os recursos disponíveis.
-
-* Considere quando é melhor no seu ambiente executar migrações: durante o dia, fora de horas ou durante os fins de semana.
-* Considere também o QoS de networking num Servidor do Windows para acelerar a velocidade roboCopy e, assim, o impacto no NAS e na rede.
-* Evite trabalhos desnecessários para as ferramentas de migração.
-
-O próprio RobCopy também tem a capacidade de inserir atrasos inter-pacotes especificando o `/IPG:n` interruptor onde é medido em `n` milissegundos entre pacotes RoboCopy. A utilização deste interruptor pode ajudar a evitar a monopolização de recursos em ambos os dispositivos NAS restritos da IO e ligações de rede altamente utilizadas. 
-
-`/IPG:n` não pode ser utilizado para um estrangulamento preciso da rede a um determinado Mbps. Utilize o QoS da Rede de Servidor do Windows. A RoboCopy baseia-se inteiramente no protocolo SMB para toda a rede e, portanto, não tem a capacidade de influenciar a própria produção da rede, mas pode abrandar a sua utilização. 
-
-Uma linha de pensamento semelhante aplica-se ao IOPS observado no NAS. O tamanho do cluster no volume NAS, tamanhos de pacotes e uma variedade de outros fatores influenciam o IOPS observado. Introduzir atrasos entre pacotes é muitas vezes a forma mais fácil de controlar a carga no NAS. Teste vários valores, por exemplo, de cerca de 20 milissegundos (n=20) a múltiplos disso para ver quanto atraso permite que os seus outros requisitos sejam reparados, mantendo a velocidade RoboCopy no máximo para as suas restrições.
-
-### <a name="processing-speed"></a>Velocidade de processamento
-
-O RoboCopy atravessará o espaço de nome a que é apontado e avaliará cada ficheiro e pasta para cópia. Cada ficheiro será avaliado durante uma cópia inicial, como uma cópia sobre a rede local para uma DataBox, e mesmo durante cópias de captura sobre o link WAN para uma partilha de ficheiros Azure.
-
-Muitas vezes, não consideramos a largura de banda o fator mais limitativo numa migração - o que pode ser verdade. Mas a capacidade de enumerar um espaço de nome pode influenciar o tempo total de copiar ainda mais para espaços de nome maiores com ficheiros menores. Considere-se que copiar 1 TiB de pequenos ficheiros levará consideravelmente mais tempo do que copiar 1 TiB de menos, mas maiores ficheiros - tendo em conta que todas as outras variáveis são as mesmas.
-
-A causa para esta diferença é o poder de processamento necessário para andar por um espaço de nome. O RoboCopy suporta cópias multi-roscadas através do `/MT:n` parâmetro onde n representa o número de fios do processador. Assim, ao fornecer uma máquina especificamente para roboCopy, considere o número de núcleos de processador e a sua relação com a contagem de fios que eles fornecem. Mais comum são dois fios por núcleo. A contagem de núcleo e de rosca de uma máquina é um ponto de dados importante para decidir quais os valores multi-thread `/MT:n` que deve especificar. Considere também quantos empregos robocopia você pretende executar em paralelo numa determinada máquina.
-
-Mais fios copiarão o nosso exemplo 1Tib de pequenos ficheiros consideravelmente mais rápido do que menos fios. Ao mesmo tempo, há uma diminuição do retorno do investimento no nosso 1Tib de ficheiros maiores. Continuarão a copiar mais rapidamente quanto mais linhas atribuir, mas está a tornar-se mais provável que seja a largura de banda da rede ou a IO limitada.
-
-### <a name="avoid-unnecessary-work"></a>Evitar trabalhos desnecessários
-
-Evite alterações em larga escala no seu espaço de nome. Isto inclui mover ficheiros entre diretórios, alterar propriedades em larga escala, ou alterar permissões (NTFS ACLs) porque muitas vezes têm um efeito de mudança em cascata quando os ACLs de pasta mais próximos da raiz de uma ação são alterados. As consequências podem ser:
-
-* tempo de funcionamento prolongado do roboCopy devido a cada ficheiro e pasta afetado por uma alteração ACL que precisa de ser atualizada
-* a eficácia da utilização do DataBox pode diminuir quando as estruturas das pastas mudam após os ficheiros terem sido copiados para uma DataBox. Um trabalho roboCopy não será capaz de "reproduzir" uma mudança de espaço de nome e, em vez disso, terá de expurgar os ficheiros transportados para uma partilha de ficheiros Azure e enviar novamente os ficheiros da nova estrutura de pasta para o Azure.
-
-Outro aspeto importante é utilizar eficazmente a ferramenta RoboCopy. Com o script RoboCopy recomendado, irá criar e guardar um ficheiro de registo para erros. Podem ocorrer erros de cópia - isto é normal. Estes erros muitas vezes tornam necessário executar várias rondas de uma ferramenta de cópia como roboCopy. Uma execução inicial, por exemplo, do NAS para o DataBox, e uma ou mais extras com o interruptor /MIR para capturar e revassar ficheiros que não foram copiados.
-
-Você deve estar preparado para executar várias rondas de RoboCopy contra um determinado âmbito de espaço de nome. As sucessivas corridas terminarão mais rapidamente, uma vez que têm menos para copiar, mas são cada vez mais limitadas pela velocidade de processamento do espaço de nome. Quando fizer várias rondas, pode acelerar cada ronda sem que o RoboCopy tente de forma irracional para copiar tudo à primeira tentativa. Estes interruptores RoboCopy podem fazer uma diferença significativa:
-
-* `/R:n` n = quantas vezes se recandid copiar um ficheiro falhado e 
-* `/W:n` n = quantos segundos para esperar entre retróstas
-
-`/R:5 /W:5` é uma definição razoável que pode ajustar ao seu gosto. Neste exemplo, um ficheiro falhado será novamente julgado cinco vezes, com um tempo de espera de cinco segundos entre as retrórias. Se o ficheiro ainda não conseguir copiar, o próximo trabalho do RoboCopy tentará novamente e muitas vezes os ficheiros que falharam porque estão a ser utilizados ou devido a problemas de tempo limite podem eventualmente ser copiados com sucesso desta forma.
-
+[!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

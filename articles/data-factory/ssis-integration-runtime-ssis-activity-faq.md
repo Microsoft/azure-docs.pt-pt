@@ -4,16 +4,16 @@ description: Este artigo fornece orientações de resolução de problemas para 
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: wenjiefu
-author: wenjiefu
+author: RodgeFu
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 2bc56d39de392c9e4c20c25b554e3bdeea048bfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6eecedbc28bcb8bc0bd46534a2c2692636f6f2c1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361881"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934007"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Execução de pacotes de resolução de problemas no tempo de execução da integração do SSIS
 
@@ -121,7 +121,10 @@ Este erro ocorre quando o tempo de funcionaamento da integração SSIS não cons
 Uma das causas potenciais é que o nome de utilizador ou palavra-passe com autenticação multi-factor AZure AD ativada está configurado para a autenticação dos Serviços de Análise Azure. Esta autenticação não é suportada no tempo de integração do SSIS. Tente utilizar um principal de serviço para autenticação dos Serviços de Análise Azure:
 
 1. Prepare um diretor de serviço como descrito na [Automação com os principais de serviço.](../analysis-services/analysis-services-service-principal.md)
-2. Em Connection Manager, configurar **Utilize um nome de utilizador específico e senha:** desconfie o **AppID** como nome de utilizador e **clienteSecret** como palavra-passe.
+2. No Connection Manager, configurar **Utilize um nome de utilizador específico e senha:** **aplicação definida:*&lt; AppID &gt;* @* &lt; TenantID &gt;*** como nome de utilizador e clienteSecret como palavra-passe. Aqui está um exemplo de um nome de utilizador corretamente formatado:
+ 
+   `app:12345678-9012-3456-789a-bcdef012345678@9abcdef0-1234-5678-9abc-def0123456789abc`
+1. Em Connection Manager, configurar **Utilize um nome de utilizador específico e senha:** desconfie o **AppID** como nome de utilizador e **clienteSecret** como palavra-passe.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Mensagem de erro: "A ADONET Source falhou em adquirir a ligação {GUID} com a seguinte mensagem de erro: O login falhou para o utilizador 'NT AUTHORITY\ANONYMOUS LOGON'" ao utilizar uma identidade gerida
 

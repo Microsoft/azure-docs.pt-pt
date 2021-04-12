@@ -14,10 +14,10 @@ ms.date: 04/23/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9058fb4b9b92719f7abcc534632f983cafe2aae8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99550815"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample"></a>Configurar pontos finais IPv6 na amostra de script de rede virtual

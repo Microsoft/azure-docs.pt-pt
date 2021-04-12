@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579557"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933343"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -298,6 +298,21 @@ Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computa
 1. Na sua máquina local, abra *o Bloco de Notas* como administrador
 1. Navegue e abra o ficheiro *C:\Windows\System32\drivers\etc\anfitriões*
 1. Apague a linha para o registo que adicionou, tal como `168.62.205.103    ldaps.aaddscontoso.com`
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se vir um erro que indique que LDAP.exe não consegue ligar, tente trabalhar nos diferentes aspetos da obtenção da ligação: 
+
+1. Configurar o controlador de domínio
+1. Configurar o cliente
+1. Rede
+1. Estabelecimento da sessão TLS
+
+Para a correspondência de nome do sujeito do certificado, o DC utilizará o nome de domínio Azure ADDS (não o nome de domínio Azure AD) para procurar na sua loja de certificados o certificado. Erros ortográficos, por exemplo, impedem o DC de selecionar o certificado certo. 
+
+O cliente tenta estabelecer a ligação TLS usando o nome que forneceu. O trânsito tem de passar por todo o lado. O DC envia a chave pública do servidor auth cert. O certificado precisa de ter o uso certo no certificado, o nome assinado no nome do sujeito deve ser compatível para que o cliente confie que o servidor é o nome DNS a que está a ligar (isto é, um wildcard funcionará, sem erros ortográficos), e o cliente deve confiar no emitente. Pode verificar quaisquer problemas nessa cadeia no ''S's's registro', e filtrar os eventos em que a fonte é igual a Schannel. Uma vez que estas peças estão no lugar, formam uma chave de sessão.  
+
+Para mais informações, consulte [o Aperto de Mão TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Passos seguintes
 

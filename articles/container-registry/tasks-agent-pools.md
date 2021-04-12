@@ -4,12 +4,12 @@ description: Crie um conjunto de cálculos dedicado (piscina de agente) no seu r
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b1f077d6216443ad267f8620f87882439cb355c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920312"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284146"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Executar uma tarefa ACR em uma piscina de agente dedicado
 
@@ -31,7 +31,7 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
 - Os grupos de agentes de tarefa suportam atualmente os nós Linux. Os nós windows não são suportados atualmente.
-- Os grupos de agentes de tarefa estão disponíveis em pré-visualização nas seguintes regiões: West US 2, South Central US, East US 2, East US, Central US, USGov Arizona, USGov Texas e USGov Virginia.
+- Os grupos de agentes de tarefa estão disponíveis em pré-visualização nas seguintes regiões: West US 2, South Central US, East US 2, East US, East US, Central US, West Europe, Canada Central, USGov Arizona, USGov Texas, e USGov Virginia.
 - Para cada registo, a quota total de VCPU (core) por defeito é de 16 para todos os grupos de agentes padrão e é 0 para piscinas de agentes isolados. Abra um pedido de [apoio][open-support-ticket] para alocação adicional.
 - Não pode cancelar uma tarefa numa piscina de agentes.
 

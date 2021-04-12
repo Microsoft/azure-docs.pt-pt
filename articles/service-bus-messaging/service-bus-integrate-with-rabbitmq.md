@@ -4,15 +4,14 @@ description: Guia passo a passo sobre como integrar o RabbitMQ com o Azure Servi
 services: Azure Service Bus
 author: videlalvaro
 ms.topic: how-to
-ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71ea4dfcc164d5b8a8ba8bb411d529ce58a68f4f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91301206"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933743"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Como integrar o RabbitMQ com o Azure Service Bus
 

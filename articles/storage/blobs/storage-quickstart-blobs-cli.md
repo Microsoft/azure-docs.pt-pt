@@ -11,10 +11,10 @@ ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 04f793f78cef938c31e7a30aad5569a54eb461a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104613112"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, transferir e listar bolhas com Azure CLI

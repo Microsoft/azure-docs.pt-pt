@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: ec835073a1fe447490f6965fe41478319a47f503
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c83f36216e7488df94c372234d0541a4ee9f99b5
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106841"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492227"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Conceitos de conectividade e networking para Azure Database for MySQL - Servidor Flexível (Pré-visualização)
 
@@ -118,7 +118,7 @@ Saiba como ativar e gerir o acesso público (endereços IP autorizados) utilizan
 ### <a name="troubleshooting-public-access-issues"></a>Resolução de problemas de acesso público
 Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azure para o serviço MySQL Server não se comporta como espera:
 
-* **As alterações à lista de autorizações ainda não produziram efeitos:** Pode haver um atraso de cinco minutos para que as alterações na Base de Dados Azure para a configuração de firewall do MySQL Server produzam efeitos.
+* **As alterações à lista de admissões ainda não produziram efeitos:** Pode haver um atraso de cinco minutos para que as alterações na Base de Dados Azure para a configuração de firewall do MySQL Server produzam efeitos.
 
 * **A autenticação falhou:** Se um utilizador não tiver permissões na Base de Dados Azure para o servidor MySQL ou a palavra-passe utilizada estiver incorretamente, a ligação à Base de Dados Azure para o servidor MySQL é negada. A criação de uma definição de firewall apenas proporciona aos clientes a oportunidade de tentarem ligar-se ao seu servidor. Cada cliente deve ainda fornecer as credenciais de segurança necessárias.
 
@@ -139,9 +139,23 @@ Exemplo
 
 
 ## <a name="tls-and-ssl"></a>TLS e SSL
-A Azure Database for MySQL Flexible Server suporta ligar as aplicações do seu cliente ao serviço MySQL utilizando a Segurança da Camada de Transporte (TLS). O TLS é um protocolo padrão da indústria que garante ligações de rede encriptadas entre o servidor da base de dados e as aplicações do cliente. TLS é um protocolo atualizado da Camada de Tomadas Seguras (SSL).
+A Azure Database for MySQL Flexible Server suporta ligar as aplicações do seu cliente ao servidor MySQL utilizando a camada de tomadas seguras (SSL) com a encriptação de segurança da camada de transporte (TLS). O TLS é um protocolo padrão da indústria que garante ligações de rede encriptadas entre o servidor da base de dados e as aplicações do cliente, permitindo-lhe aderir aos requisitos de conformidade.
 
-A base de dados Azure para o MySQL Flexible Server suporta apenas ligações encriptadas utilizando a Segurança da Camada de Transporte (TLS 1.2). Todas as ligações recebidas com o TLS 1.0 e o TLS 1.1 serão recusadas. Não é possível desativar ou alterar a versão TLS para ligar à Base de Dados Azure para o MySQL Flexible Server. Reveja como [ligar usando SSL/TLS](how-to-connect-tls-ssl.md) para saber mais. 
+A Azure Database for MySQL Flexible Server suporta ligações encriptadas utilizando a Segurança da Camada de Transporte (TLS 1.2) por padrão e todas as ligações de entrada com TLS 1.0 e TLS 1.1 serão negadas por padrão. A aplicação de ligação encriptada ou a configuração da versão TLS no seu servidor flexível podem ser configuradas e alteradas. 
+
+Seguem-se as diferentes configurações das definições SSL e TLS que pode ter para o seu servidor flexível:
+
+| Scenario   | Definições de parâmetros do servidor      | Descrição                                    |
+|------------|--------------------------------|------------------------------------------------|
+|Desativar o SSL (ligações encriptadas) | require_secure_transport = OFF |Se a sua aplicação legado não suportar ligações encriptadas ao servidor MySQL, pode desativar a aplicação de ligações encriptadas ao seu servidor flexível definindo require_secure_transport=OFF.|
+|Impor SSL com versão TLS < 1.2 | require_secure_transport = ON and tls_version = TLSV1 ou TLSV1.1| Se a sua aplicação antiga suportar ligações encriptadas mas necessitar da versão TLS < 1.2, pode ativar ligações encriptadas mas configurar o seu servidor flexível para permitir ligações com a versão tls (v1.0 ou v1.1) suportada pela sua aplicação|
+|Impor SSL com versão TLS = 1.2 (Configuração padrão)|require_secure_transport = ON and tls_version = TLSV1.2| Esta é a configuração recomendada e padrão para o servidor flexível.|
+|Impor SSL com versão TLS = 1.3 (Suportado com MySQL v8.0 ou superior)| require_secure_transport = ON and tls_version = TLSV1.3| Isto é útil e recomendado para o desenvolvimento de novas aplicações|
+
+> [!Note]
+> As alterações ao SSL Cipher no servidor flexível não são suportadas. As suítes de cifra FIPS são aplicadas por padrão quando tls_version é definida para a versão TLS 1.2 . Para versões TLS que não a versão 1.2, a Cipher SSL está definida para definições padrão que vêm com a instalação comunitária mySQL.
+
+Reveja como [ligar usando SSL/TLS](how-to-connect-tls-ssl.md) para saber mais. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
