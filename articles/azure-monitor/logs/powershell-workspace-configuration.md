@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d876a380bfc2d318cddc0964266cc3f0a870aa16
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a1abe79b4ab1caad04a088f659c0afceb2668eac
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102050992"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106926"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um espaço de trabalho Log Analytics no Monitor Azure utilizando o PowerShell
 Este artigo fornece duas amostras de código que mostram como criar e configurar um espaço de trabalho Log Analytics no Azure Monitor.  
@@ -28,7 +28,7 @@ O seguinte script de amostra cria um espaço de trabalho sem configuração de f
 
 ```powershell
 $ResourceGroup = "my-resource-group"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique in resource group - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # Create the resource group if needed
@@ -63,7 +63,7 @@ Este script executa as seguintes funções:
 
 ```powershell
 $ResourceGroup = "my-resource-group"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique in resource group - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # Create the resource group if needed
@@ -213,7 +213,7 @@ No exemplo acima, o regexDelimiter foi definido como " \\ n" para newline. O del
 ## <a name="troubleshooting"></a>Resolução de problemas
 Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](../logs/delete-workspace.md#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:
 1. Se fornecer o mesmo nome do espaço de trabalho, grupo de recursos, subscrição e região como no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
-2. Se utilizar o mesmo nome do espaço de trabalho, mas diferente grupo de recursos, subscrição ou região, obterá um erro *O nome do espaço de trabalho 'workspace-name' não é único*, ou *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:
+2. O nome do espaço de trabalho deve ser único por grupo de recursos. Se utilizar um nome de espaço de trabalho que já existe, também em soft-delete no seu grupo de recursos, terá um erro *O nome do espaço de trabalho 'nome do espaço de trabalho' não é único*, ou *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:
    * [Recuperar](../logs/delete-workspace.md#recover-workspace) a área de trabalho
    * [Eliminar de forma permanente](../logs/delete-workspace.md#permanent-workspace-delete) a área de trabalho
    * Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho

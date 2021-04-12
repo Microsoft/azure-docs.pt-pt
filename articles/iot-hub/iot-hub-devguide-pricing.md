@@ -11,12 +11,12 @@ ms.date: 03/11/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4c7382f84522333b6aae0d79941aae8f2147a12f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b67f505a71d2af7950422a86ab45ef8aebb3bf4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81729150"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056441"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informações sobre preços do Azure IoT Hub
 
@@ -33,9 +33,9 @@ ms.locfileid: "81729150"
 | Mensagens nuvem-para-dispositivo | As mensagens enviadas com sucesso são carregadas em pedaços de 4-KB, por exemplo, uma mensagem de 6-KB é carregada 2 mensagens. |
 | Uploads de ficheiros | A transferência de ficheiros para o Azure Storage não é medido pelo IoT Hub. As mensagens de iniciação e conclusão de transferência de ficheiros são carregadas como medidos por mensagem em incrementos de 4-KB. Por exemplo, a transferência de um ficheiro de 10 MB é cobrada como duas mensagens para além do custo de Armazenamento Azure. |
 | Métodos diretos | Os pedidos de métodos bem sucedidos são cobrados em pedaços de 4-KB, e as respostas são cobradas em pedaços de 4-KB como mensagens adicionais. Os pedidos para dispositivos desligados são carregados como mensagens em pedaços 4-KB. Por exemplo, um método com um corpo de 4-KB que resulta numa resposta sem corpo do dispositivo é carregado como duas mensagens. Um método com um corpo de 6-KB que resulta numa resposta de 1-KB do dispositivo é carregado como duas mensagens para o pedido mais outra mensagem para a resposta. |
-| Leituras gémeas do dispositivo e módulo | As leituras de twin do dispositivo ou módulo e da parte traseira da solução são carregadas como mensagens em pedaços de 512 byte. Por exemplo, ler um gémeo de 6 KB é cobrado como 12 mensagens. |
-| Atualizações gémeas do dispositivo e do módulo (tags e propriedades) | As atualizações duplas do dispositivo ou módulo e da parte traseira da solução são carregadas como mensagens em pedaços de 512 byte. Por exemplo, ler um gémeo de 6 KB é cobrado como 12 mensagens. |
-| Consultas de módulo e módulo | As consultas são cobradas como mensagens dependendo do tamanho do resultado em pedaços de 512 byte. |
+| Leituras gémeas do dispositivo e módulo | As leituras de twin do dispositivo ou módulo e da parte traseira da solução são carregadas como mensagens em pedaços de 4 KB. Por exemplo, ler um gémeo de 8 KB é cobrado como 2 mensagens. |
+| Atualizações gémeas do dispositivo e do módulo (tags e propriedades) | As atualizações duplas do dispositivo ou módulo e da parte traseira da solução são carregadas como mensagens em pedaços de 4 KB. Por exemplo, ler um gémeo de 12 KB é cobrado como 3 mensagens. |
+| Consultas de módulo e módulo | As consultas são carregadas como mensagens dependendo do tamanho do resultado em pedaços de 4-KB. |
 | Operações de tarefas <br/> (criar, atualizar, listar, eliminar) | Não cobrado. |
 | Operações de emprego por dispositivo | As operações de emprego (como atualizações duplas e métodos) são cobradas normalmente. Por exemplo, um trabalho que resulte em 1000 chamadas de método com pedidos de 1-KB e respostas de corpo vazio é cobrado 1000 mensagens. |
 | Mensagens vivas | Ao utilizar protocolos AMQP ou MQTT, as mensagens trocadas para estabelecer a ligação e as mensagens trocadas na negociação não são cobradas. |

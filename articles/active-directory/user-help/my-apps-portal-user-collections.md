@@ -1,5 +1,5 @@
 ---
-title: Coleções (pré-visualização) no portal My Apps - Azure AD
+title: Organizar apps em coleções no portal My Apps - Azure AD
 description: Aprenda a criar, editar, eliminar, esconder e mostrar coleções de aplicações nas Minhas Apps.
 services: active-directory
 author: curtand
@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/07/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ac5dede27262d3ce8bc44b4b278ed623063f8e1
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095125"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209668"
 ---
-# <a name="user-collections-preview-in-my-apps"></a>Coleções de utilizadores (pré-visualização) nas Minhas Apps
+# <a name="organize-apps-using-collections-from-my-apps"></a>Organize aplicativos usando coleções das Minhas Apps
 
 My Apps é o seu balcão único para lançar e gerir todo o seu trabalho ou aplicações escolares. Crie coleções para organizar as suas apps e facilitar a procura das aplicações de que necessita.
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 Neste artigo, aprenderá a:
 
@@ -55,7 +53,7 @@ Neste artigo, aprenderá a:
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="Adicionar aplicativos da lista à sua coleção":::
 
-1. No seguinte, pode reencomendar ou eliminar aplicações ou selecionar **adicionar aplicações** para selecionar mais aplicações para a coleção. Quando estiver satisfeito com as suas escolhas, **selecione Criar novo**.  
+1. No **painel Criar novo** painel pode reencomendar ou eliminar aplicações, ou selecionar **adicionar aplicações** para selecionar mais aplicações para a coleção. Quando estiver satisfeito com as suas escolhas, **selecione Criar novo**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="Selecione o novo botão Criar para guardar a coleção para as minhas apps":::
 

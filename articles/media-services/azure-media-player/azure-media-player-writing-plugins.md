@@ -5,14 +5,14 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: c1a64bff8b81735d9c4c9a14d2c1e12bd0bfe57e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f14be29a33a885bfcef27fa9ef2775e72df16d9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91296166"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449805"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Escrevendo plugins para Azure Media Player #
 

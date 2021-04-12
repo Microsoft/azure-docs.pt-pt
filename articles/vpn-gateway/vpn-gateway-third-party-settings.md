@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 02/10/2021
 ms.author: delhan
 ms.openlocfilehash: 0448cb5442746e5e8fced13be13dbebfc0fe32fd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100389319"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Configurações de dispositivos VPN ou firewall sugeridos pela comunidade para gateway Azure VPN

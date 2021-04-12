@@ -13,10 +13,10 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
 ms.openlocfilehash: 8b984a17c8c10c3dff7c57b7d0223ba8b4197012
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105640126"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Modelos de trem com conjuntos de dados de aprendizagem de máquinas Azure 

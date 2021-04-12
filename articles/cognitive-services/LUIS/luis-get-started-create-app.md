@@ -4,13 +4,13 @@ description: Este quickstart mostra como criar uma aplicação LUIS que utiliza 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/13/2020
-ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 03/29/2021
+ms.openlocfilehash: e0972998fad647c1c70be814cb7c13f14a6e1141
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019165"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277033"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: utilizar a aplicação Home Automation pré-concebida
 
@@ -214,13 +214,11 @@ Para receber uma previsão LUIS num chat bot ou outra aplicação de cliente, é
     Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
-
-Pode chamar o ponto final do código:
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Chamar um ponto final de LUIS com código](./luis-get-started-get-intent-from-rest.md)
+> [Desenvolvimento de aplicativos iterativos para o LUIS](./luis-concept-app-iteration.md)

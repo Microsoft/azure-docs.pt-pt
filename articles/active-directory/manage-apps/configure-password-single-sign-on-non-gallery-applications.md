@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
 ms.openlocfilehash: bac04bd70469d7b9c4d9485b6a87fd7133967154
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99255310"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Compreender o sign-on único baseado em palavra-passe

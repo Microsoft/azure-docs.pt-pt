@@ -1,6 +1,6 @@
 ---
 title: Atribuir uma política de acesso a Azure Key Vault
-description: Como utilizar o portal Azure, Azure CLI ou Azure PowerShell para atribuir uma política de acesso ao Cofre chave a um principal de serviço ou identidade de aplicação.
+description: Como utilizar o portal Azure, Azure CLI ou Azure PowerShell para atribuir uma política de acesso ao Cofre chave a um principal de segurança ou identidade de aplicação.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4cf0393cdb0aae1b352b81df4893f874f34970cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4637715b2ba885d58ebb4c5f3ed40a79be2f815b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934542"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968735"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Atribua uma política de acesso ao Cofre de Chaves utilizando o Azure PowerShell
 
-Uma política de acesso ao Cofre-Chave determina se um dado responsável de serviço, nomeadamente uma aplicação ou grupo de utilizadores, pode realizar diferentes operações em [segredos](../secrets/index.yml)do Cofre chave, [chaves](../keys/index.yml)e [certificados](../certificates/index.yml). Pode atribuir políticas de acesso utilizando o [portal Azure,](assign-access-policy-portal.md)o [Azure CLI](assign-access-policy-cli.md)ou a Azure PowerShell (este artigo).
+Uma política de acesso ao Cofre-Chave determina se um dado principal de segurança, nomeadamente um utilizador, aplicação ou grupo de utilizadores, pode realizar diferentes operações em [segredos](../secrets/index.yml)do Cofre chave, [chaves](../keys/index.yml)e [certificados](../certificates/index.yml). Pode atribuir políticas de acesso utilizando o [portal Azure,](assign-access-policy-portal.md)o [Azure CLI](assign-access-policy-cli.md)ou a Azure PowerShell (este artigo).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 

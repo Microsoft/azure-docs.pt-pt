@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7d99e3de8a796dea19f3a2ad7a03b98239981e2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 796abf8506a832c4053b505e903bb24ef9d09004
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121103"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279039"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -150,7 +150,7 @@ A predefinição de Análise áudio inclui agora um nível de preços de modo b�
 
 Os clientes que usam Indexer v1 e Indexer v2 devem migrar para a predefinição de Análise Áudio Básica.
 
-Para obter mais informações sobre o modo Analisador de Áudio Básico, consulte [os ficheiros De Vídeo e Áudio](analyze-video-audio-files-concept.md)de Análise .  Para aprender a utilizar o modo Analisador de Áudio Básico com a API REST, consulte [Como Criar uma Transformação Áudio Básica](how-to-create-basic-audio-transform.md).
+Para obter mais informações sobre o modo Analisador de Áudio Básico, consulte [os ficheiros De Vídeo e Áudio](analyze-video-audio-files-concept.md)de Análise .  Para aprender a utilizar o modo Analisador de Áudio Básico com a API REST, consulte [Como Criar uma Transformação Áudio Básica](transform-create-basic-audio-how-to.md).
 
 ### <a name="live-events"></a>Eventos em Direto
 
@@ -324,8 +324,8 @@ Esta funcionalidade funciona com qualquer [Transform](/rest/api/media/transforms
 
 Ver exemplos:
 
-* [Subclip um vídeo com .NET](subclip-video-dotnet-howto.md)
-* [Subclip um vídeo com REST](subclip-video-rest-howto.md)
+* [Subclip um vídeo com .NET](transform-subclip-video-dotnet-how-to.md)
+* [Subclip um vídeo com REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="may-2019"></a>Maio de 2019
 
@@ -334,7 +334,7 @@ Ver exemplos:
 Agora pode utilizar o Azure Monitor para visualizar os dados de telemetria emitidos pelos Media Services.
 
 * Utilize os registos de diagnóstico do Azure Monitor para monitorizar os pedidos enviados pelo ponto final de entrega da chave dos serviços de mídia. 
-* Métricas de monitorização emitidas por Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
+* Métricas de monitorização emitidas por Media Services [Streaming Endpoints](stream-streaming-endpoint-concept.md).   
 
 Para mais informações, consulte [as métricas dos Serviços de Mídia do Monitor e os registos de diagnóstico](monitoring/monitor-media-services-data-reference.md).
 

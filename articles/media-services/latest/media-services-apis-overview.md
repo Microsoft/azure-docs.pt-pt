@@ -21,7 +21,7 @@ Para obter autorização para aceder aos recursos dos Serviços de Multimédia e
 * **Autenticação do principal de serviço**: utilizada para autenticar um serviço (por exemplo: aplicações Web, aplicações de funções, aplicações lógicas, API e microsserviços). As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de camada média ou tarefas agendadas. Por exemplo, para aplicações web deve haver sempre um nível médio que se conecta aos Serviços de Mídia com um Principal de Serviço.
 * **Autenticação do utilizador**: utilizada para autenticar uma pessoa que está a utilizar a aplicação para interagir com os recursos dos Serviços de Multimédia. A aplicação interativa deve primeiro pedir ao utilizador as suas credenciais. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto.
 
-A API dos Serviços de Multimédia exige que o utilizador ou a aplicação que faz os pedidos da API REST tenha acesso ao recurso da conta dos Serviços de Multimédia e utilize uma função de **Contribuidor** ou **Proprietário**. É possível aceder à API com a função de **Leitor**, mas estarão disponíveis apenas as operações **Obter** ou **Listar**.Para obter mais informações, consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Comunicação Social](rbac-overview.md).
+A API dos Serviços de Multimédia exige que o utilizador ou a aplicação que faz os pedidos da API REST tenha acesso ao recurso da conta dos Serviços de Multimédia e utilize uma função de **Contribuidor** ou **Proprietário**. É possível aceder à API com a função de **Leitor**, mas estarão disponíveis apenas as operações **Obter** ou **Listar**.Para obter mais informações, consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Comunicação Social](security-rbac-concept.md).
 
 Em vez de criar um principal de serviço, considere utilizar identidades geridas para os recursos do Azure para aceder à API dos Serviços de Multimédia através do Azure Resource Manager. Para saber mais sobre as identidades geridas dos recursos do Azure, veja [O que são identidades geridas dos recursos do Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -52,7 +52,7 @@ No seguinte número, os números representam o fluxo dos pedidos por ordem crono
 
 Veja as seguintes amostras que mostram como se conectar com o principal do serviço Azure AD:
 
-* [Conecte-se com REST](media-rest-apis-with-postman.md)  
+* [Conecte-se com REST](setup-postman-rest-how-to.md)  
 * [Connect with Java](configure-connect-java-howto.md) (Ligar com Java)
 * [Connect with .NET](configure-connect-dotnet-howto.md) (Ligar com .NET)
 * [Connect with Node.js](configure-connect-nodejs-howto.md) (Ligar com Node.js)

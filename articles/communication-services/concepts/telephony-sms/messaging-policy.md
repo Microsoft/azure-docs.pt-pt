@@ -10,10 +10,10 @@ ms.date: 03/19/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: bb9765c2620f45d67bf888f8bfe8a4dee450cfd6
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105646890"
 ---
 # <a name="azure-communication-services-messaging-policy"></a>Política de Mensagens de Serviços de Comunicação da Azure

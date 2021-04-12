@@ -4,12 +4,12 @@ description: Saiba como montar um sistema de ficheiros virtuais numa piscina de 
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/26/2021
-ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dcd56a12d8728b83cdcb7cea4c16c4aedd4251a7
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626032"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105753"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monte um sistema de ficheiros virtual numa piscina de Lote
 
@@ -53,7 +53,7 @@ Os seguintes exemplos de código demonstram a montagem de uma variedade de parti
 
 ### <a name="azure-files-share"></a>Partilha de Ficheiros Azure
 
-Azure Files é a oferta padrão do sistema de ficheiros em nuvem Azure. Para saber mais sobre como obter qualquer um dos parâmetros na amostra de código de configuração de montagem, consulte [use uma partilha de Ficheiros Azure](../storage/files/storage-how-to-use-files-windows.md).
+Azure Files é a oferta padrão do sistema de ficheiros em nuvem Azure. Para saber mais sobre como obter qualquer um dos parâmetros na amostra de código de configuração de montagem, consulte [Use uma partilha de Ficheiros Azure - SMB](../storage/files/storage-how-to-use-files-windows.md) ou Use um [Azure Files share with - NFS](../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter

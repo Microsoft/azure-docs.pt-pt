@@ -8,10 +8,10 @@ ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98790821"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins alta disponibilidade e recuperação de desastres

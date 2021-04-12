@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
 ms.openlocfilehash: f8d795dcf64230140e1dd07e3f30ca3aa6825ab4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99807008"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Traga a sua própria Machine Learning (ML) para o Azure Sentinel

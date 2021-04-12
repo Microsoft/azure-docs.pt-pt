@@ -2,28 +2,28 @@
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Utilize regras de firewall para permitir ligações de endereços IP específicos para Azure Event Hubs.
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: ca5995c3e1b9923d925ddc4deae299c28261d18a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/29/2021
+ms.openlocfilehash: 12240135401b267fd7c60e579fdf5a12e10ffce9
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100560851"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963007"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso aos espaços de nomes do Azure Event Hubs a partir de endereços ou intervalos IP específicos
 Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 Esta funcionalidade é útil em cenários em que os Azure Event Hubs deverão ser acessíveis apenas a partir de determinados sites conhecidos. As regras de firewall permitem-lhe configurar regras para aceitar tráfego originário de endereços IPv4 específicos. Por exemplo, se utilizar Os Centros de Eventos com [Rota Azure Express,][express-route]pode criar uma regra de **firewall** para permitir o tráfego a partir apenas dos endereços IP da infraestrutura no local. 
 
->[!WARNING]
-> Ligar as regras de firewall para o seu espaço de nome Event Hubs bloqueia os pedidos de entrada por padrão, a menos que os pedidos sejam originados de um serviço que opera a partir de endereços IP públicos permitidos. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Como exceção, pode permitir o acesso aos recursos do Event Hubs a partir de certos serviços fidedignos, mesmo quando a filtragem IP está ativada. Para obter uma lista de serviços fidedignos, consulte [os serviços trusted Microsoft](#trusted-microsoft-services).
-
-> [!IMPORTANT]
-> Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso).  
-
-
 ## <a name="ip-firewall-rules"></a>Regras de firewall IP
 As regras de firewall IP são aplicadas ao nível do espaço de nomes do Event Hubs. Assim, as regras aplicam-se a todas as ligações de clientes que utilizem qualquer protocolo suportado. Qualquer tentativa de ligação a partir de um endereço IP que não corresponda a uma regra de IP permitida no espaço de nomes Do Event Hubs é rejeitada como não autorizada. A resposta não menciona a regra do IP. As regras do filtro IP são aplicadas por ordem, e a primeira regra que corresponde ao endereço IP determina a ação de aceitação ou rejeição.
+
+
+## <a name="important-points"></a>Pontos importantes
+- Esta funcionalidade é suportada tanto para níveis **standard** como **dedicado.** Não é suportado no nível **básico.**
+- Ligar as regras de firewall para o seu espaço de nome Event Hubs bloqueia os pedidos de entrada por padrão, a menos que os pedidos sejam originados de um serviço que opera a partir de endereços IP públicos permitidos. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Como exceção, pode permitir o acesso aos recursos do Event Hubs a partir de certos **serviços fidedignos,** mesmo quando a filtragem IP está ativada. Para obter uma lista de serviços fidedignos, consulte [os serviços trusted Microsoft](#trusted-microsoft-services).
+- Especifique **pelo menos uma regra de firewall IP ou regra de rede virtual** para o espaço de nome para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso).  
+
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall IP para um espaço de nomes de Event Hubs. 

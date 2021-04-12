@@ -8,13 +8,12 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: references_regions
-Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 4a02a02eeb40c1a61df88c49bf967b2ca57befc3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b14325ba969ae9d9a886269eee33a3066eb8f12
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489332"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060453"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros virtuais wan e localizações de hub virtual
 

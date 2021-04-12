@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 64f05e18ff757d9f086cf06d74109bf64e32a05c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98795683"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Gerir consultas de investigação e transmissão em direto no Azure Sentinel com a API REST

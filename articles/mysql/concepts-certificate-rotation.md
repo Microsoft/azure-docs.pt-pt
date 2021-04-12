@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 23fa3e93565066ce4b897bffe63164486efc179e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a80910340333c2e6c52bb32644c48fa3a28ab437
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449888"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210759"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Compreender as alterações na alteração Root CA para Azure Database para MySQL Single Server
 
@@ -169,7 +169,7 @@ Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md)
 
     Se vir que o certificado está fornecido para o CA_file, SSL_Cert e SSL_Key, terá de atualizar o ficheiro adicionando o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e criar um ficheiro cert combinado.
 
-* Se a replicação de dados estiver entre duas Bases de Dados Azure para o MySQL, então terá de redefinir a réplica executando **call mysql.az_replication_change_master** e fornecer o novo certificado de raiz dupla como último parâmetro [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
+* Se a replicação de dados estiver entre duas Bases de Dados Azure para o MySQL, então terá de redefinir a réplica executando **call mysql.az_replication_change_master** e fornecer o novo certificado de raiz dupla como último parâmetro [master_ssl_ca](howto-data-in-replication.md#4-link-source-and-replica-servers-to-start-data-in-replication)
 
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. Temos uma consulta do lado do servidor para verificar se o SSL está a ser utilizado?
 

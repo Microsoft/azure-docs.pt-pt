@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
-ms.openlocfilehash: 2886cb6433c4f8a65eb0661eded0ddd08248e137
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 152b96bee63b6d2280a807ca53842ed3a67ab67d
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102219187"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279770"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurar configurar configurações de aplicações para visualização de aplicações web estáticas Azure
 
@@ -168,4 +168,4 @@ As definições de aplicação estão disponíveis para visualização através 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Configurar desenvolvimento local](local-development.md)
+> [Configurar quadros frontais](front-end-frameworks.md)

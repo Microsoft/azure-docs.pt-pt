@@ -1,19 +1,19 @@
 ---
 title: Gerir o nível de acesso de uma bolha numa conta de Armazenamento Azure
 description: Saiba como alterar o nível de uma bolha numa conta de Armazenamento de GPv2 ou Blob
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 183593022c934eaf52ffe18649c23e8deced34d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd46f5b5a8847150bd56c1daeaac470f9afd2d19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98166518"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278546"
 ---
 # <a name="manage-the-access-tier-of-a-blob-in-an-azure-storage-account"></a>Gerir o nível de acesso de uma bolha numa conta de Armazenamento Azure
 

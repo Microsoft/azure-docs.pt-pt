@@ -3,24 +3,27 @@ title: Reparação automática de nós do Serviço Azure Kubernetes (AKS)
 description: Saiba mais sobre a funcionalidade de reparação automática do nó e como a AKS corrige os nós de trabalhador quebrados.
 services: container-service
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/11/2021
+ms.openlocfilehash: 341aef394a3784edbc0acd91dad396c9794da3d0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89490110"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105209"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Serviço Azure Kubernetes (AKS) autorreparação do nó
 
-A AKS verifica continuamente o estado de saúde dos nós dos trabalhadores e executa a reparação automática dos nós se ficarem insalubres. Este documento informa os operadores sobre como a funcionalidade de reparação automática de nós se comporta tanto para os nós Windows como linux. Além das reparações da AKS, a plataforma Azure VM [realiza manutenção em Máquinas Virtuais][vm-updates] que também experimentam problemas. Os VMs AKS e Azure trabalham em conjunto para minimizar as perturbações de serviço para clusters.
+A AKS monitoriza continuamente o estado de saúde dos nós dos trabalhadores e executa a reparação automática do nó se não for saudável. A plataforma Azure virtual machine (VM) [realiza manutenção em VMs][vm-updates] com problemas. 
+
+Os VMs AKS e Azure trabalham em conjunto para minimizar as perturbações de serviço para clusters.
+
+Neste documento, irá aprender como a funcionalidade de reparação automática de nós se comporta tanto para os nós Windows como para o Linux. 
 
 ## <a name="how-aks-checks-for-unhealthy-nodes"></a>Como a AKS verifica os nódoas não saudáveis
 
-A AKS usa regras para determinar se um nó não é saudável e precisa de ser reparado. A AKS utiliza as seguintes regras para determinar se é necessária uma reparação automática.
-
-* O nó reporta o estado do **NotReady** em verificações consecutivas dentro de um prazo de 10 minutos
-* O nó não reporta um estado dentro de 10 minutos.
+A AKS utiliza as seguintes regras para determinar se um nó não é saudável e precisa de ser reparado: 
+* O nó informa o estado **do NotReady** em verificações consecutivas dentro de um prazo de 10 minutos.
+* O nó não reporta nenhum estado em 10 minutos.
 
 Pode verificar manualmente o estado de saúde dos seus nós com kubectl.
 
@@ -33,13 +36,15 @@ kubectl get nodes
 > [!Note]
 > A AKS inicia operações de reparação com o **aks-correcttor de** conta de utilizador .
 
-Se um nó não for saudável com base nas regras acima referidas e permanecer insalubre durante 10 minutos consecutivos, serão tomadas as seguintes medidas.
+Se a AKS identificar um nó pouco saudável que permanece insalubre durante 10 minutos, a AKS toma as seguintes ações:
 
-1. Reinicie o nó
-1. Se o reboot não for bem sucedido, reimagem o nó
-1. Se a reimagem não for bem sucedida, crie e reimagem um novo nó
+1. Reinicie o nó.
+1. Se o reboot não for bem sucedido, reimagem o nó.
+1. Se a reimagem não for bem sucedida, crie e reimagem um novo nó.
 
-Se nenhuma das ações for bem sucedida, as reparações adicionais são investigadas por engenheiros da AKS. Se vários nós não forem saudáveis durante uma verificação de saúde, cada nó é reparado individualmente antes de começar outra reparação.
+As reparações alternativas são investigadas por engenheiros da AKS se a reparação automática não for bem sucedida. 
+
+Se a AKS encontrar múltiplos nós insalubres durante uma verificação de saúde, cada nó é reparado individualmente antes de começar outra reparação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

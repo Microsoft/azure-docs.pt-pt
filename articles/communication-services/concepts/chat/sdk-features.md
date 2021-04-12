@@ -9,14 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1d40d90f0f64328bbf7103015f52ea4b132d2e51
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 520dc611e49675f35b8ba0330448438192770773
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729631"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168880"
 ---
 # <a name="chat-sdk-overview"></a>Visão geral do Chat SDK 
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 Os SDKs de Chat de Serviços de Comunicação Azure podem ser usados para adicionar conversas ricas e em tempo real às suas aplicações.
     

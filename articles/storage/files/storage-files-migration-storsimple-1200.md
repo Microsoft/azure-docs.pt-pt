@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98882285"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migração do StorSimple 1200 para o Azure File Sync
@@ -32,7 +32,7 @@ Azure File Sync é um serviço de nuvem da Microsoft, baseado em dois componente
 
 Este artigo centra-se nos passos de migração. Se antes de migrar gostaria de saber mais sobre o Azure File Sync, recomendamos os seguintes artigos:
 
-* [Azure File Sync - visão geral](./storage-sync-files-planning.md "Descrição geral")
+* [Azure File Sync - visão geral](./storage-sync-files-planning.md "Descrição Geral")
 * [Azure File Sync - guia de implementação](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Objetivos de migração

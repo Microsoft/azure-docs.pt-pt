@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
 ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103149533"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Quickstart: Construir o seu primeiro site estático no portal Azure

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f22a55a65b7dc4fd4f714d880804e6fd65dbbe46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f5586b43143763ebf36adb15d96fdb2a91b5f5c
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654379"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443479"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
@@ -228,6 +228,10 @@ O elemento OutputClaim contém os seguintes atributos:
 - **AlwaysUseDefaultValue** - Force a utilização do valor predefinido.
 
 ::: zone-end
+
+## <a name="authorization-code-lifetime"></a>Tempo de vida do código de autorização
+
+Ao utilizar o fluxo de [código de autorização OAuth 2.0,](authorization-code-flow.md)a aplicação pode usar o código de autorização para solicitar um token de acesso para um recurso-alvo. Os códigos de autorização são de curta duração que expiram após cerca de 10 minutos. O código de autorização não pode ser configurado. Certifique-se de que o seu pedido resgata os códigos de autorização dentro de 10 minutos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

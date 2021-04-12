@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 6fd497e0bc0fd282d57779c483f1e39e8f5ab60a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92b5283e5779cc79ce0a745190b57884a6ca0f7e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505482"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056016"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configure Azure Private Link para um espaço de trabalho de aprendizagem de máquinas Azure
 
@@ -175,7 +175,7 @@ Para obter informações sobre máquinas virtuais Azure, consulte a [documentaç
 Em algumas situações, pode querer permitir que alguém se conecte ao seu espaço de trabalho seguro sobre um ponto final público, em vez de através do VNet. Depois de configurar um espaço de trabalho com um ponto final privado, pode opcionalmente permitir o acesso do público ao espaço de trabalho. Ao fazê-lo, não retira o ponto final privado. Todas as comunicações entre os componentes por trás do VNet ainda estão seguras. Permite o acesso do público apenas ao espaço de trabalho, além do acesso privado através do VNet.
 
 > [!WARNING]
-> Ao ligar-se ao ponto final público, algumas funcionalidades do estúdio não conseguirão aceder aos seus dados. Este problema acontece quando os dados são armazenados num serviço que é protegido por trás do VNet. Por exemplo, uma Conta de Armazenamento Azure.
+> Ao ligar-se ao ponto final público, algumas funcionalidades do estúdio não conseguirão aceder aos seus dados. Este problema acontece quando os dados são armazenados num serviço que é protegido por trás do VNet. Por exemplo, uma Conta de Armazenamento Azure. Note também a informação caso Jupyter/JupyterLab/RStudio funcionalidade e cadernos de execução não funcionarão.
 
 Para permitir o acesso do público a um espaço de trabalho privado, utilize os seguintes passos:
 

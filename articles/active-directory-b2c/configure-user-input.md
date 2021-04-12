@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4e709719d56aacacf61e247a5dbe215f766a891a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 257ba16cf015705b8f6da264d9c25f28cef2ebb1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607956"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443445"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adicione atributos do utilizador e personalize a entrada do utilizador no Azure Ative Directory B2C
 
@@ -60,7 +60,7 @@ As reclamações da aplicação são valores que são devolvidos ao pedido. Atua
 1. Selecione **layouts de página**.
 1. Selecione **a página de inscrição de conta local**.
 1. Nos **atributos do Utilizador**, selecione **City**.
-    1. No drop-down do tipo de entrada do **Utilizador,** selecione **DropdownSingleSelect**.
+    1. No drop-down do tipo de entrada do **Utilizador,** selecione **DropdownSingleSelect**. Opcional: Utilize os botões "Mover para cima/para baixo" para organizar a ordem de texto na página de inscrição.
     1. No drop-down **opcional,** selecione **Nº**.
 1. Selecione **Guardar**. 
 

@@ -9,10 +9,10 @@ ms.date: 03/26/2021
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: cc111f6fe1c50af5be9686100b19209fe7f3d119
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105626185"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Ativar firewall de aplicação web usando Azure PowerShell
