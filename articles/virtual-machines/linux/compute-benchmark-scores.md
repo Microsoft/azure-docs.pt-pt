@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
 ms.openlocfilehash: 04581e34444f929f32af647850766d4df50bf98b
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954076"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de referência do Cálculo para Os VMs do Linux

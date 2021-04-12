@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2ab7a007a92bd2306a7a97781af5653f932d0b7
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539548"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580619"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Como estimar e gerir os custos de um serviço de Pesquisa Cognitiva Azure
 
@@ -64,7 +64,7 @@ A carga mínima é a primeira unidade de pesquisa (uma réplica x uma partição
 
 Além do mínimo, pode adicionar réplicas e divisórias independentemente umas das outras. Aumentos incrementais de capacidade através de réplicas e divisórias aumentarão a sua fatura com base na seguinte fórmula: **(replicações x partições x taxa de faturação)**, onde a taxa que é cobrada depende do nível de preços que seleciona.
 
-Quando estimar o custo de uma solução de pesquisa, lembre-se que os preços e a capacidade não são lineares (duplicar a capacidade mais do que duplica o custo). Para um exemplo de como funciona a fórmula, consulte [Como atribuir réplicas e divisórias.](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Quando estimar o custo de uma solução de pesquisa, lembre-se que os preços e a capacidade não são lineares (duplicar a capacidade mais do que duplica o custo no mesmo nível). Além disso, em algum momento, mudar para um nível mais alto pode dar-lhe um desempenho melhor e mais rápido no mesmo ponto de preço. Para obter mais informações e um exemplo, consulte [upgrade para um nível Standard S2](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
 ### <a name="bandwidth-charges"></a>Taxas de largura de banda
 

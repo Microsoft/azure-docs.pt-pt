@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: e859da6b3ac38ddb89c998d172c39f2549455aaa
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92746813"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447935"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 

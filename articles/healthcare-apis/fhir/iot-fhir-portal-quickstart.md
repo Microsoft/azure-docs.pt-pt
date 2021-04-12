@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 11/13/2020
+ms.date: 04/05/2021
 ms.author: punagpal
-ms.openlocfilehash: 3e293782e6f00852a51e0617a07eebd5d8c56261
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 0a382ad948e7fd2efc6ab59eb94da3d6cbb210d7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644847"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443781"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Quickstart: Implementar o Conector Azure IoT para FHIR (pré-visualização) utilizando o portal Azure
 
@@ -171,6 +171,11 @@ Implemente o [modelo de aplicação de monitorização contínua do paciente.](.
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Ligue os seus dados IoT ao Conector Azure IoT para FHIR (pré-visualização)
 
 Assim que tiver implantado a sua aplicação IoT Central, os seus dois dispositivos simulados fora da caixa começarão a gerar telemetria. Para este tutorial, vamos ingerir a telemetria do simulador *Smart Vitals Patch* em FHIR através do Conector Azure IoT para FHIR. Para exportar os seus dados IoT para o Conector Azure IoT para FHIR, vamos querer [configurar uma exportação contínua de dados dentro da IoT Central](../../iot-central/core/howto-export-data.md). Primeiro precisamos de criar uma ligação ao destino, e depois criaremos um trabalho de exportação de dados para executar continuamente: 
+
+> [!NOTE]
+> Você vai querer selecionar **data export** vs. Data **export (legado)** dentro das definições da IoT Central App para esta secção.
+
+[![Definições centrais de exportação de dados IoT](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png)](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png#lightbox)
 
 Criar um novo destino:
 - Vá ao separador **Destinos** e crie um novo destino.

@@ -4,10 +4,10 @@ description: Descreve o Azure Event Grid e respetivos conceitos. Define vários 
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98685708"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos em Azure Event Grid

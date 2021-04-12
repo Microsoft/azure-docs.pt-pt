@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: f6705b5f72aaa8f990aaf3b1daa33697b690d1f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8768acc8d4720a750c4c7f7e0f40340aeeff279d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608889"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449057"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -309,7 +309,7 @@ O [modelo Thales Luna 7 HSM A790](https://cpl.thalesgroup.com/encryption/hardwar
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>P: Quantas teclas podem ser suportadas em HSM dedicado?
 
-O número máximo de teclas é uma função da memória disponível. O modelo SafeNet Luna 7 A790 em uso tem 32MB de memória. Os seguintes números também são aplicáveis aos pares de chaves se utilizarem teclas assimétricas.
+O número máximo de teclas é uma função da memória disponível. O Thales Luna 7 modelo A790 em uso tem 32MB de memória. Os seguintes números também são aplicáveis aos pares de chaves se utilizarem teclas assimétricas.
 
 * RSA-2048 - 19.000
 * ECC-P256 - 91.000

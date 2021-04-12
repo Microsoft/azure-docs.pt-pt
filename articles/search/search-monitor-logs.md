@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709944"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581607"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recolher e analisar dados de registo para a pesquisa cognitiva do Azure
 
-Os registos de diagnóstico ou operacionais fornecem informações detalhadas sobre as operações detalhadas da Pesquisa Cognitiva do Azure e são úteis para monitorizar o serviço e os processos de carga de trabalho. Internamente, a Microsoft preserva as informações do sistema no backend por um curto período de tempo (cerca de 30 dias), suficiente para investigação e análise se arquivar um bilhete de suporte. No entanto, se pretender a propriedade sobre os dados operacionais, deverá configurar uma definição de diagnóstico para especificar onde as informações de registo são recolhidas.
+Os registos de diagnóstico ou operacionais fornecem informações detalhadas sobre as operações detalhadas da Pesquisa Cognitiva do Azure e são úteis para monitorizar a saúde e os processos do serviço. Internamente, a Microsoft preserva as informações do sistema no backend por um curto período de tempo (cerca de 30 dias), suficiente para investigação e análise se arquivar um bilhete de suporte. No entanto, se pretender a propriedade sobre os dados operacionais, deverá configurar uma definição de diagnóstico para especificar onde as informações de registo são recolhidas.
 
 O registo de diagnóstico é ativado através da integração com [o Azure Monitor](../azure-monitor/index.yml). 
 
@@ -120,7 +120,7 @@ AzureDiagnostics
 
 Os eventos registados capturados pelo Azure Monitor incluem os relacionados com a indexação e consultas. A tabela **AzureDiagnostics** no Log Analytics recolhe dados operacionais relacionados com consultas e indexação.
 
-| OperationName | Description |
+| OperationName | Descrição |
 |---------------|-------------|
 | Estatísticas de Serviço | Esta operação é uma chamada de rotina para [obter estatísticas de serviços,](/rest/api/searchservice/get-service-statistics)chamadas direta ou implicitamente para preencher uma página de visão geral do portal quando esta é carregada ou atualizada. |
 | Consulta.Pesquisa |  Pedidos de consulta contra um índice Consulte [consultas do Monitor](search-monitor-queries.md) para obter informações sobre consultas registadas.|

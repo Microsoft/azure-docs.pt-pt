@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/19/2020
 ms.openlocfilehash: f21e11e33d3ddf1489dba3419766a8adaa878d5f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103491967"
 ---
 # <a name="quickstart-use-python-to-query-a-database"></a>Quickstart: Use Python para consultar uma base de dados

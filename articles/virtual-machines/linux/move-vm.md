@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
 ms.openlocfilehash: 7dbe06a9f2fff8abf59adbdfc9e41055c85e8f2c
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889302"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Mover um VM para outro grupo de subscrição ou recursos

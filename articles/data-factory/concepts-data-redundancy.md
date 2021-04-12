@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain
 ms.openlocfilehash: 9d1c22b9ac6912f99838733a4326cb4082f49a6c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100369701"
 ---
 # <a name="azure-data-factory-data-redundancy"></a>**Redundância de dados da Azure Data Factory**

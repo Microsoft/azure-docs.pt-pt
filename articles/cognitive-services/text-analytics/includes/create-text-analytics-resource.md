@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 02/09/2021
 ms.author: aahi
 ms.openlocfilehash: 5b6479d48a51ba962f2f6bfba16dac3b0886a9ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101750170"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Criar um recurso de Análise de Texto de Serviços Cognitivos

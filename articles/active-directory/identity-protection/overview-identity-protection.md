@@ -13,10 +13,10 @@ ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97955404"
 ---
 # <a name="what-is-identity-protection"></a>O que é o Identity Protection?
@@ -109,7 +109,7 @@ Os administradores de acesso condicional também podem criar políticas que fato
 | --- | --- | --- | --- | --- |
 | Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | No | No |Yes | 
 | Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | No |  No |Yes |
-| Relatórios de segurança | Descrição geral |  No | No |Yes |
+| Relatórios de segurança | Descrição Geral |  No | No |Yes |
 | Relatórios de segurança | Utilizadores de risco  | Informação limitada. Apenas são mostrados utilizadores com risco médio e elevado. Sem detalhes gaveta ou histórico de risco. | Informação limitada. Apenas são mostrados utilizadores com risco médio e elevado. Sem detalhes gaveta ou histórico de risco. | Acesso completo|
 | Relatórios de segurança | Inícios de sessão de risco  | Informação limitada. Não é mostrado nenhum detalhe de risco ou nível de risco. | Informação limitada. Não é mostrado nenhum detalhe de risco ou nível de risco. | Acesso completo|
 | Relatórios de segurança | Deteções de riscos   | No | Informação limitada. Sem detalhes na gaveta.| Acesso completo|

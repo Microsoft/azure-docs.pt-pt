@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2021
 ms.author: alkohli
 ms.openlocfilehash: 510f2677673363791ab5eb0f2c4dbcd25b697934
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99072731"
 ---
 # <a name="azure-data-box-gateway-2101-release-notes"></a>Notas de lançamento do Azure Data Box Gateway 2101

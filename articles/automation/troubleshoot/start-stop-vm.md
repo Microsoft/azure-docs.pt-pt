@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953855"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Resolução de problemas Iniciar/Parar VMs durante problemas fora de horas

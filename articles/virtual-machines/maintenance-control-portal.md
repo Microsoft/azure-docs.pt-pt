@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
 ms.openlocfilehash: 0dea30723a3ebe1598d6304ac3c98bfe1b55b466
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102563018"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Atualizações de controlo com o Controlo de Manutenção e o portal Azure

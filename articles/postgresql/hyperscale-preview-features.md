@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 04/07/2021
-ms.openlocfilehash: 775785e1b5130499d69b269e72f5c774e9e5f3f9
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 5f0552e09464a6b571a665cfe3895f48c3aa8c41
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107024086"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258457"
 ---
 # <a name="preview-features-for-postgresql---hyperscale-citus"></a>Funcionalidades de pré-visualização para PostgreSQL - Hiperescala (Citus)
 
@@ -23,16 +23,18 @@ A Azure Database for PostgreSQL - Hyperscale (Citus) oferece pré-visualizaçõe
 
 Aqui estão as funcionalidades atualmente disponíveis para pré-visualização:
 
-* **[Armazenamento colunar](concepts-hyperscale-columnar.md)**.
-  Guarde as colunas de mesas selecionadas (em vez de linhas) contíguas no disco. Suporta a compressão no disco. Bom para cargas de trabalho de armazenamento de dados e analíticos.
+* **[Nível básico](concepts-hyperscale-tiers.md)**. Executar um grupo de servidor usando apenas um nó coordenador e nenhum nó de trabalhador. Uma forma económica de fazer testes e desenvolvimento iniciais, e lidar com pequenas cargas de trabalho de produção.
 * **[PostgreSQL 12 e 13](concepts-hyperscale-versions.md)**.
   Utilize a versão mais recente da base de dados no seu grupo de servidores.
-* **[Nível básico](concepts-hyperscale-tiers.md)**. Executar um grupo de servidor usando apenas um nó coordenador e nenhum nó de trabalhador. Uma forma económica de fazer testes e desenvolvimento iniciais, e lidar com pequenas cargas de trabalho de produção.
+* **[Citus 10.](concepts-hyperscale-versions.md#citus-and-other-extension-versions)**
+  Instalado automaticamente em grupos de servidores com postgreSQL 13.
+* **[Armazenamento colunar](concepts-hyperscale-columnar.md)**.
+  Guarde as colunas de mesas selecionadas (em vez de linhas) contíguas no disco. Suporta a compressão no disco. Bom para cargas de trabalho de armazenamento de dados e analíticos.
 * **[Leia réplicas](howto-hyperscale-read-replicas-portal.md)** (atualmente apenas na mesma região). Quaisquer alterações que ocorram ao grupo de servidor primário refletem-se na sua réplica, e as consultas contra a réplica não causam nenhuma carga extra no original.
   As réplicas são uma ferramenta útil para melhorar o desempenho para cargas de trabalho apenas de leitura.
 * **[Gerido PgBouncer](concepts-hyperscale-limits.md#managed-pgbouncer-preview)**.
   Um pooler de ligação que permite que muitos clientes se conectem ao grupo de servidor de uma só vez, limitando o número de ligações ativas. Satisfaz os pedidos de ligação, mantendo o nó coordenador a funcionar sem problemas.
-* **[PgAudit.](concepts-hyperscale-audit.md)** Fornece sessão detalhada e auditoria de objetos através da instalação de registo postgresQL padrão. Produz registos de auditoria necessários para passar em determinadas auditorias de certificação do governo, financeiros ou ISO.
+* **[pgAudit](concepts-hyperscale-audit.md)**. Fornece sessão detalhada e auditoria de objetos através da instalação de registo postgresQL padrão. Produz registos de auditoria necessários para passar em determinadas auditorias de certificação do governo, financeiros ou ISO.
 
 ### <a name="available-regions-for-preview-features"></a>Regiões disponíveis para funcionalidades de pré-visualização
 

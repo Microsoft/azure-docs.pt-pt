@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: bcf2f39423f033ccd5bfdb6bf51ebc89e254f802
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867819"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Use a Colmeia Apache como uma ferramenta de extrato, transformação e carga (ETL)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8462b98aee1d34b6c7a2ed671667223eca45a25
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91270054"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551922"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Tutorial: Adicione cabeçalhos de segurança com o motor de regras
 
@@ -41,6 +41,9 @@ Neste tutorial, ficará a saber como:
 1. Desaprote o operador para ser **o apêndice** para adicionar este cabeçalho como resposta a todos os pedidos de entrada nesta rota.
 
 1. Adicione o nome do cabeçalho: **Política de Segurança de Conteúdo** e defina os valores que este cabeçalho deve aceitar. Neste cenário, escolhemos *"script-src https://apiphany.portal.azure-api.net 'self'.".*
+
+   > [!NOTE]
+   > Os valores dos cabeçalhos são limitados a 128 caracteres.
 
 1. Depois de ter adicionado todas as regras que pretende à sua configuração, não se esqueça de ir à sua rota preferida e associar a configuração do Seu Motor de Regras à sua Regra de Rota. Este passo é necessário para permitir que a regra funcione. 
 

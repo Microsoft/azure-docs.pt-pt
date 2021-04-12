@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954348"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure

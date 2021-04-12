@@ -8,10 +8,10 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 4c208a80a1f701cc3e0c1c5cd08a999f2f15815e
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889081"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Perfil ASP.NET aplicações web Core Azure Linux com perfil de insights de aplicação

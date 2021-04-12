@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c63ee686ae218a696069465bb8d2d1d7413a998e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 62296acaba77017cd71227582447b9fa7c4f1934
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799093"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090244"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de desktop que chama APIs web: Adquirir um token
 
@@ -257,13 +257,13 @@ WithParentActivityOrWindow(IWin32Window window)
 // Mac
 WithParentActivityOrWindow(NSWindow window)
 
-// .Net Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
+// .NET Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
 WithParentActivityOrWindow(object parent).
 ```
 
 Observações:
 
-- No .NET Standard, o esperado `object` é `Activity` para Android, `UIViewController` iOS, `NSWindow` MAC e `IWin32Window` `IntPr` Windows.
+- No .NET Standard, o esperado `object` está `Activity` no Android, no `UIViewController` iOS, `NSWindow` no Mac ou no `IWin32Window` `IntPr` Windows.
 - No Windows, tem de ligar `AcquireTokenInteractive` a partir da linha UI para que o navegador incorporado obtenha o contexto de sincronização de UI apropriado. Não ligar da linha UI pode fazer com que as mensagens não bombeiem corretamente e os cenários de impasse com a UI. Uma forma de ligar para as Bibliotecas de Autenticação da Microsoft (MSALs) a partir da linha UI se ainda não estiver na linha UI é utilizar o `Dispatcher` no WPF.
 - Se estiver a usar o WPF, para obter uma janela de um controlo WPF, pode usar a `WindowInteropHelper.Handle` aula. Em seguida, a chamada é de um controlo WPF `this` ():
 
@@ -277,15 +277,26 @@ Observações:
 
 `WithPrompt()` é utilizado para controlar a interatividade com o utilizador especificando uma solicitação.
 
-![Imagem mostrando os campos na estrutura Prompt. Estes valores constantes controlam a interatividade com o utilizador definindo o tipo de solicitação visualizada pelo método WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
+![Imagem mostrando os campos na estrutura Prompt. Estes valores constantes controlam a interatividade com o utilizador definindo o tipo de solicitação visualizada pelo método WithPrompt().](https://user-images.githubusercontent.com/34331512/112267137-3f1c3a00-8c32-11eb-97fb-33604311329a.png)
 
 A classe define as seguintes constantes:
 
 - ``SelectAccount`` força o STS a apresentar a caixa de diálogo de seleção de conta que contém contas para as quais o utilizador tem uma sessão. Esta opção é útil quando os desenvolvedores de aplicações pretendem permitir que os utilizadores escolham entre diferentes identidades. Esta opção leva a MSAL a enviar ``prompt=select_account`` ao fornecedor de identidade. Esta é a opção predefinida. Faz um bom trabalho em fornecer a melhor experiência possível com base na informação disponível, como a conta e a presença de uma sessão para o utilizador. Não o mude a menos que tenha uma boa razão para fazê-lo.
 - ``Consent`` permite que o desenvolvedor de aplicações force o utilizador a ser solicitado para o consentimento, mesmo que o consentimento tenha sido concedido antes. Neste caso, a MSAL envia `prompt=consent` ao fornecedor de identidade. Esta opção pode ser utilizada em algumas aplicações focadas na segurança, onde a governação da organização exige que o utilizador seja apresentado com a caixa de diálogo de consentimento sempre que a aplicação é utilizada.
 - ``ForceLogin`` permite que o desenvolvedor de aplicações tenha o utilizador solicitado para credenciais pelo serviço, mesmo que esta solicitação do utilizador possa não ser necessária. Esta opção pode ser útil para permitir que o utilizador volte a entrar se adquirir um símbolo falhar. Neste caso, a MSAL envia `prompt=login` ao fornecedor de identidade. Por vezes é usado em aplicações focadas na segurança, onde a governação da organização exige que o utilizador reassente em cada vez que acede a partes específicas de uma aplicação.
+- ``Create`` desencadeia uma experiência de inscrição, que é usada para identidades externas, enviando `prompt=create` para o fornecedor de identidade. Esta solicitação não deve ser enviada para aplicações Azure AD B2C. Para obter mais informações, consulte [Adicionar um fluxo de utilizador de inscrição de autosserviço a uma aplicação.](https://aka.ms/msal-net-prompt-create)
 - ``Never`` (apenas para .NET 4.5 e WinRT) não vai solicitar o utilizador, mas tenta utilizar o cookie armazenado na vista web incorporada escondida. Para mais informações, consulte as vistas da web em MSAL.NET. Usar esta opção pode falhar. Nesse caso, `AcquireTokenInteractive` abre uma exceção para notificar que é necessária uma interação com a UI. Tens de usar outro `Prompt` parâmetro.
 - ``NoPrompt`` não enviará qualquer aviso ao fornecedor de identidade. Esta opção é útil apenas para as políticas de perfil de edição de Edição Azure Ative (Azure AD) B2C. Para mais informações, consulte [as especificidades do Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
+
+#### <a name="withuseembeddedwebview"></a>WithUseEmbeddedWebView
+
+Este método permite especificar se pretende forçar a utilização de um WebView incorporado ou do sistema WebView (quando disponível). Para mais informações, consulte [a utilização dos navegadores web.](msal-net-web-browsers.md)
+
+ ```csharp
+ var result = await app.AcquireTokenInteractive(scopes)
+                   .WithUseEmbeddedWebView(true)
+                   .ExecuteAsync();
+  ```
 
 #### <a name="withextrascopetoconsent"></a>ComExtraScopeToConsent
 

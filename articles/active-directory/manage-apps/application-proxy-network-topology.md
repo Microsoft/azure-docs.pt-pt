@@ -12,10 +12,10 @@ ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 2873bd9668bfba887ad9add061e68f36a747d5b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103492324"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Otimizar o fluxo de tráfego com o Azure Ative Directory Application Proxy

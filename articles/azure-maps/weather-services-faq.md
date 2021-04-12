@@ -1,6 +1,6 @@
 ---
-title: Os serviços de clima do Microsoft Azure Maps (Pré-visualização) frequentemente questionados (FAQ)
-description: Encontre resposta a perguntas comuns sobre os dados e funcionalidades dos serviços de meteorologia do Azure Maps (Preview).
+title: Os serviços de clima da Microsoft Azure Maps frequentemente fazem perguntas (FAQ)
+description: Encontre resposta a perguntas comuns sobre os dados e funcionalidades dos serviços climáticos Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f21e4aa9bd46ed5524cf83d083a70b9b04f03056
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 440ff94f4d5f3514d97d3e76299b60e462cebff3
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011144"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257556"
 ---
-# <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Serviços meteorológicos Azure Maps (Pré-visualização) frequentemente questionados (FAQ)
-
-> [!IMPORTANT]
-> Os serviços Azure Maps Weather estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-maps-weather-services-frequently-asked-questions-faq"></a>Serviços meteorológicos Azure Maps frequentemente fazem perguntas (FAQ)
 
 Este artigo responde a perguntas comuns sobre os dados e [funcionalidades dos serviços climáticos](/rest/api/maps/weather) Azure Maps. Os seguintes tópicos são abordados:
 
@@ -55,7 +51,7 @@ Estes conjuntos de dados são revistos em tempo real para precisão para o Siste
 
 Numerosos sistemas de orientação de previsão meteorológica são utilizados para formular previsões globais. São utilizados mais de 150 modelos de previsão numérica todos os dias, tanto os conjuntos de dados externos como os internos. Isto inclui modelos governamentais como o European Centre ECMWF e o U.S. Global Forecast System (GFS). Além disso, a AccuWeather incorpora modelos proprietários de alta resolução que baixam as previsões para locais específicos e domínios regionais estratégicos para prever o tempo com maior precisão. Os algoritmos únicos de mistura e ponderação da AccuWeather foram desenvolvidos ao longo das últimas décadas. Estes algoritmos aproveitam idealmente as numerosas entradas de previsão para fornecer previsões altamente precisas.
 
-## <a name="weather-services-preview-coverage-and-availability"></a>Cobertura e disponibilidade de serviços meteorológicos (Pré-visualização)
+## <a name="weather-services-coverage-and-availability"></a>Cobertura e disponibilidade dos serviços meteorológicos
 
 **Que tipo de cobertura posso esperar para diferentes países/regiões?**
 
@@ -77,11 +73,11 @@ As APIs de previsão de mapas Azure estão em cache até 30 minutos. Para ver qu
 
 ## <a name="developing-with-azure-maps-sdks"></a>Desenvolvimento com Azure Maps SDKs
 
-**O Azure Maps Web SDK suporta de forma nativa a integração dos serviços meteorológicos (Pré-visualização)?**
+**O Azure Maps Web SDK suporta de forma nativa a integração dos serviços meteorológicos?**
 
 O Azure Maps Web SDK fornece um módulo de serviços. O módulo de serviços é uma biblioteca auxiliar que facilita a utilização dos serviços Azure Maps REST em aplicações web ou Node.js. utilizando JavaScript ou TypeScript. Para começar, consulte a nossa [documentação.](./how-to-use-services-module.md)
 
-**O Azure Maps Android SDK suporta de forma nativa a integração dos serviços meteorológicos (Preview) ?**
+**O Azure Maps Android SDK suporta de forma nativa a integração dos serviços meteorológicos?**
 
 O Azure Maps Android SDKs suporta camadas de azulejos Mercator, que podem ter notação x/y/zoom, notação de chave quad ou notação de caixa de limites EPSG 3857.
 
@@ -114,15 +110,15 @@ Se esta FAQ não responder à sua pergunta, pode contactar-nos através dos segu
 * Suporte microsoft. Para criar um novo pedido de suporte, no [portal Azure,](https://portal.azure.com/)no separador Ajuda, selecione o botão de suporte **Ajuda +** e, em seguida, selecione Novo pedido **de suporte**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) para submeter pedidos de funcionalidades.
 
-Saiba como solicitar dados meteorológicos em tempo real e previstos utilizando os serviços Azure Maps Weather (Preview):
+Saiba como solicitar dados meteorológicos em tempo real e previstos utilizando os serviços Azure Maps Weather:
 > [!div class="nextstepaction"]
 > [Solicitar dados meteorológicos em tempo real ](how-to-request-weather-data.md)
 
-Artigo de conceitos Azure Maps Weather services (Preview):
+Artigo de conceitos de serviços climáticos Azure Maps:
 > [!div class="nextstepaction"]
 > [Conceitos dos Serviços de meteorologia](weather-coverage.md)
 
-Explore a documentação da API dos serviços Azure Maps Weather (Preview):
+Explore a documentação da Azure Maps Weather Services API:
 
 > [!div class="nextstepaction"]
 > [Serviços do Azure Maps](/rest/api/maps/weather)

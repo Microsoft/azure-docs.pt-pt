@@ -8,18 +8,18 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 875c046406b7989a39f09dde82640ed5567b6b3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d160738208bcef7b066567137a3c3a9738c26a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714872"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727013"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrar Azure Data Lake Storage da Gen1 para a Gen2
 
 Pode migrar os seus dados, cargas de trabalho e aplicações da Data Lake Storage Gen1 para a Data Lake Storage Gen2.
 
-‎Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-introduction.md) and provides a set of capabilities dedicated to big data analytics. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combina características da [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), tais como semântica do sistema de ficheiros, diretório e segurança e escala de nível de arquivo com armazenamento de baixo custo, tiered, alta disponibilidade/capacidade de recuperação de desastres a partir do [armazenamento de Azure Blob](storage-blobs-introduction.md).
+O Azure Data Lake Storage Gen2 é construído no [armazenamento Azure Blob](storage-blobs-introduction.md) e fornece um conjunto de capacidades dedicadas à análise de big data. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combina características da [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), tais como semântica do sistema de ficheiros, diretório e segurança e escala de nível de arquivo com armazenamento de baixo custo, tiered, alta disponibilidade/capacidade de recuperação de desastres a partir do [armazenamento de Azure Blob](storage-blobs-introduction.md).
 
 > [!NOTE]
 > Para uma leitura mais fácil, este artigo usa o termo *Gen1* para se referir a Azure Data Lake Storage Gen1, e o termo *Gen2* para se referir a Azure Data Lake Storage Gen2.
@@ -111,7 +111,7 @@ Esta tabela compara as capacidades da Gen1 com as da Gen2.
 
 Escolha um padrão de migração e, em seguida, modifique esse padrão conforme necessário.
 
-|||
+|Padrão de migração | Detalhes |
 |---|---|
 |**Elevador e Turno**|O padrão mais simples. Ideal se os seus oleodutos de dados puderem permitir tempo de inatividade.|
 |**Cópia incremental**|Semelhante ao *elevador e à mudança,* mas com menos tempo de inatividade. Ideal para grandes quantidades de dados que demoram mais tempo a copiar.|

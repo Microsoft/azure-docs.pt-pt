@@ -488,8 +488,6 @@
                   href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Java com o Spring Data R2DBC
                   href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
-                - name: R
-                  href: database/connect-query-r.md
         - name: Gerir
           items:
             - name: Referência da API de Gestão

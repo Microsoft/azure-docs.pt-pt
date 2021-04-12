@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 1bac5ef9805dba5f06befeae3049566cb0483306
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+manager: femila
+ms.openlocfilehash: eaf6fc789020553b80967341cc9219a30ffce749
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169560"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106446116"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adicione pacotes de idiomas a uma imagem multi-sessão do Windows 10
 

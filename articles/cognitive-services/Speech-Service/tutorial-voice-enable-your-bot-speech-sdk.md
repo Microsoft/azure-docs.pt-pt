@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d91bfee228b946ff564f6d080976f9ce5c12caa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa449ad3d9a0e26bd0754a67581c8d63fa025e55
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102426268"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552313"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Ativar a voz do seu bot utilizando o SDK de discurso
 
@@ -83,7 +83,7 @@ A aplicação de cliente que você vai criar neste tutorial usa um punhado de se
 Se você quiser usar uma região diferente para este tutorial estes fatores podem limitar suas escolhas:
 
 * Certifique-se de que utiliza uma [região de Azure apoiada.](regions.md#voice-assistants)
-* O canal Direct Line Speech utiliza o serviço text-to-speech, que tem vozes padrão e neurais. As vozes neurais [limitam-se a regiões específicas de Azure.](regions.md#standard-and-neural-voices)
+* O canal Direct Line Speech utiliza o serviço text-to-speech, que tem vozes neurais e padrão. Vozes neurais e padrão estão disponíveis nestas [regiões de Azure.](regions.md#neural-and-standard-voices)
 
 Para obter mais informações sobre as regiões, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)
 
@@ -328,7 +328,7 @@ Se receber uma mensagem de erro na janela da sua aplicação principal, utilize 
 |Erro (AutenticaçãoFailure) : WebSocket Upgrade falhou com um erro de autenticação (401). Verifique se a chave de subscrição correta (ou token de autorização) e o nome da região| Na página Definições da aplicação, certifique-se de que introduziu corretamente a tecla de Subscrição de Discurso e a sua região.<br>Certifique-se de que a sua chave de discurso e região-chave foram corretamente inseridas. |
 |Erro (ConnectionFailure) : A ligação foi fechada pelo anfitrião remoto. Código de erro: 1011. Detalhes de erro: Não conseguimos ligar-nos ao bot antes de enviar uma mensagem | Certifique-se de que verificou a caixa ["Ativar o ponto final de streaming"](#register-the-direct-line-speech-channel) e/ou [as **tomadas Web** alternadas](#enable-web-sockets) para on.<br>Certifique-se de que o seu Serviço de Aplicações Azure está a funcionar. Se for, tente reiniciar o seu Serviço de Aplicações.|
 |Erro (ConnectionFailure) : A ligação foi fechada pelo anfitrião remoto. Código de erro: 1002. Detalhes de erro: O servidor devolveu o código de estado '503' quando o código de estado '101' era esperado | Certifique-se de que verificou a caixa ["Ativar o ponto final de streaming"](#register-the-direct-line-speech-channel) e/ou [as **tomadas Web** alternadas](#enable-web-sockets) para on.<br>Certifique-se de que o seu Serviço de Aplicações Azure está a funcionar. Se for, tente reiniciar o seu Serviço de Aplicações.|
-|Erro (ConnectionFailure) : A ligação foi fechada pelo anfitrião remoto. Código de erro: 1011. Detalhes de erro: O código de estado de resposta não indica sucesso: 500 (InternalServerError)| O seu bot especificou uma voz neural no campo De [Expressão](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) de Atividade de saída, mas a região Azure associada à sua chave de subscrição do Discurso não suporta vozes neurais. Ver [vozes standard e neurais.](./regions.md#standard-and-neural-voices)|
+|Erro (ConnectionFailure) : A ligação foi fechada pelo anfitrião remoto. Código de erro: 1011. Detalhes de erro: O código de estado de resposta não indica sucesso: 500 (InternalServerError)| O seu bot especificou uma voz neural no campo De [Expressão](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) de Atividade de saída, mas a região Azure associada à sua chave de subscrição do Discurso não suporta vozes neurais. Ver [vozes neurais e padrão.](./regions.md#neural-and-standard-voices)|
 
 Se o seu problema não for abordado na tabela, consulte [assistentes de voz: Perguntas frequentes](faq-voice-assistants.md). Se ainda não conseguir resolver o seu problema depois de seguir todos os passos deste tutorial, introduza um novo número na  [página do Assistente de Voz GitHub](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
@@ -475,7 +475,7 @@ Se não continuar a utilizar o eco-bot implantado neste tutorial, pode removê-l
 ## <a name="see-also"></a>Ver também
 
 * Implantação numa [região de Azure perto de si](https://azure.microsoft.com/global-infrastructure/locations/) para ver a melhoria do tempo de resposta do bot
-* Implantação numa [região do Azure que suporta vozes neurais de alta qualidade](./regions.md#standard-and-neural-voices)
+* Implantação numa [região do Azure que suporta vozes neurais de alta qualidade](./regions.md#neural-and-standard-voices)
 * Preços associados ao canal Direct Line Speech:
   * [Preços do Serviço bot](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Serviço de fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)

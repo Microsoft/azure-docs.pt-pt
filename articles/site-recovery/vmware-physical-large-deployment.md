@@ -1,18 +1,15 @@
 ---
 title: Escala VMware/recuperação de desastres físicos com recuperação do local de Azure
 description: Saiba como configurar a recuperação de desastres para o Azure para um grande número de VMware VMware no local ou servidores físicos com recuperação do site Azure.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 869702c9eaac4a38f6b0e64311c772892ddd6d90
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454352"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580443"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastres à escala para VMware VMs/servidores físicos
 
@@ -100,7 +97,7 @@ O que obedece significa? Para iniciar um Azure VM, a Azure exige que alguns cond
 
 **A máquina está de acordo com o Azure?** | **Limites Azure VM (falha de disco gerido)**
 --- | --- 
-Yes | 2000
+Sim | 2000
 No | 1000
 
 - Os limites pressupõem que estão em curso outros postos de trabalho mínimos na região-alvo para a subscrição.

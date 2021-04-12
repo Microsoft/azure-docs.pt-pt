@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/23/2021
+ms.date: 4/6/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb4e876b3fc679dd275f38168b99b9a3a718be58
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589332"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552682"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
@@ -97,6 +97,8 @@ Esta secção descreve a experiência tanto para os utilizadores finais como par
 
 Um utilizador exemplo está na rede Contoso, mas está a tentar aceder à instância Fabrikam de uma aplicação SaaS partilhada como o Outlook online. Se Fabrikam é um inquilino não permitido para a instância Contoso, o utilizador vê uma mensagem de negação de acesso, que diz que está a tentar aceder a um recurso que pertence a uma organização não aprovada pelo seu departamento de TI.
 
+![Mensagem de erro de restrições de inquilinos, a partir de abril de 2021](./media/tenant-restrictions/error-message.png)
+
 ### <a name="admin-experience"></a>Experiência de administração
 
 Enquanto a configuração das restrições de inquilinos é feita na infraestrutura de procuração corporativa, os administradores podem aceder diretamente aos relatórios de restrições do arrendatário no portal Azure. Para ver os relatórios:
@@ -113,14 +115,14 @@ O relatório pode conter informações limitadas, tais como identificação de d
 
 À semelhança de outros relatórios no portal Azure, pode utilizar filtros para especificar o âmbito do seu relatório. Pode filtrar num intervalo de tempo específico, utilizador, aplicação, cliente ou estado. Se selecionar o botão **Colunas,** pode optar por exibir dados com qualquer combinação dos seguintes campos:
 
-- **Utilizador** - este campo pode ter informações pessoalmente identificáveis removidas, onde será configurada para `00000000-0000-0000-0000-000000000000` . 
+- **Utilizador** - este campo pode ter dados pessoais removidos, onde serão definidos para `00000000-0000-0000-0000-000000000000` . 
 - **Aplicação**
 - **Estado**
 - **Data**
 - **Data (UTC)** - onde UTC é Tempo Universal Coordenado
 - **Endereço IP**
 - **Cliente**
-- **Nome de utilizador** - este campo pode ter informações pessoalmente identificáveis removidas, onde será definido para `{PII Removed}@domain.com`
+- **Nome de utilizador** - este campo pode ter dados pessoais removidos, onde será definido para `{PII Removed}@domain.com`
 - **Localização**
 - **ID do inquilino alvo**
 
@@ -207,7 +209,7 @@ Algumas organizações tentam corrigir isso bloqueando `login.live.com` para imp
 
 ### <a name="configuration-for-consumer-apps"></a>Configuração para aplicativos de consumo
 
-Embora o `Restrict-Access-To-Tenants` cabeçalho funcione como uma lista de autorizações, o bloco da conta Microsoft (MSA) funciona como um sinal de negação, dizendo à plataforma de conta da Microsoft para não permitir que os utilizadores inscrevam-se nas aplicações dos consumidores. Para enviar este sinal, o `sec-Restrict-Tenant-Access-Policy` cabeçalho é injetado no tráfego visitando `login.live.com` usando o mesmo representante corporativo ou firewall como [acima](#proxy-configuration-and-requirements). O valor do cabeçalho deve ser `restrict-msa` . Quando o cabeçalho está presente e uma aplicação de consumo está a tentar assinar diretamente num utilizador, esse sinal será bloqueado.
+Embora o `Restrict-Access-To-Tenants` cabeçalho funcione como uma lista de admissões, o bloco da conta Microsoft (MSA) funciona como um sinal de negação, dizendo à plataforma de conta da Microsoft para não permitir que os utilizadores inscrevam-se nas aplicações dos consumidores. Para enviar este sinal, o `sec-Restrict-Tenant-Access-Policy` cabeçalho é injetado no tráfego visitando `login.live.com` usando o mesmo representante corporativo ou firewall como [acima](#proxy-configuration-and-requirements). O valor do cabeçalho deve ser `restrict-msa` . Quando o cabeçalho está presente e uma aplicação de consumo está a tentar assinar diretamente num utilizador, esse sinal será bloqueado.
 
 Neste momento, a autenticação para aplicações de consumidores não aparece nos registos de [administração](#admin-experience), uma vez login.live.com é hospedado separadamente do Azure AD.
 

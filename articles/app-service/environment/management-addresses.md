@@ -8,10 +8,10 @@ ms.date: 03/22/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions
 ms.openlocfilehash: 25bdfb7a0301af472baa89d3d9e73aacf8cff139
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954620"
 ---
 # <a name="app-service-environment-management-addresses"></a>Endereços de gestão de Ambiente de Serviço de Aplicações

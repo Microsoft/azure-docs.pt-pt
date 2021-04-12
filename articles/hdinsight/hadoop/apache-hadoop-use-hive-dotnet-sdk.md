@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
 ms.openlocfilehash: 032c070a9485fc4720ae7966a0991bc0c5ae3921
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867853"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas de Hive Apache usando HDInsight .NET SDK

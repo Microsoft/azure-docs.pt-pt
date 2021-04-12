@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
 ms.openlocfilehash: 73216b1b089444c1dc92bbe73ed07895de3711b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98951541"
 ---
 ## <a name="configure-the-relying-party-policy"></a>Configure a política do partido confiando

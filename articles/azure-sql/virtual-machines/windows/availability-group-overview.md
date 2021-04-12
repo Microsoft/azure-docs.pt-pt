@@ -16,10 +16,10 @@ ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102504172"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
@@ -27,7 +27,7 @@ ms.locfileid: "102504172"
 
 Este artigo introduz grupos de disponibilidade always on para SQL Server em Azure Virtual Machines (VMs). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Sempre Em grupos de disponibilidade em Azure Virtual Machines são semelhantes a [Always On availability groups no local](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). No entanto, uma vez que as máquinas virtuais estão hospedadas em Azure, existem também algumas considerações adicionais, como a redundância de VM e o tráfego de encaminhamento na rede Azure. 
 

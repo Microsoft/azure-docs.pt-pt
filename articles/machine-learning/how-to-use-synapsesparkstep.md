@@ -11,10 +11,10 @@ ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
 ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868652"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Como utilizar o Apache Spark (alimentado pela Azure Synapse Analytics) no seu pipeline de aprendizagem automática (pré-visualização)

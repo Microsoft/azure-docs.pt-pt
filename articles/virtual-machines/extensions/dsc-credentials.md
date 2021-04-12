@@ -9,10 +9,10 @@ ms.author: robreed
 ms.collection: windows
 ms.date: 05/02/2018
 ms.openlocfilehash: 6817dd6baacd835b7d433177ff18af1238ee44a6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560084"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Passe credenciais ao manipulador Azure DSCExtension

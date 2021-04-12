@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 1ab72788c768568366f2627055015c74028330b5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96005882"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utilize a lâmina de resumo do dispositivo para o Gestor de Dispositivos StorSimple ligado ao StorSimple Virtual Array
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A lâmina do gestor de dispositivos StorSimple fornece uma visão sumária de um StorSimple Virtual Array que está registado com um determinado Gestor de Dispositivos StorSimple, destacando os problemas do dispositivo que precisam da atenção de um administrador de sistema. Este tutorial introduz a lâmina de resumo do dispositivo, explica o conteúdo e a função e descreve as tarefas que pode executar a partir desta lâmina.
 

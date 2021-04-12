@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
 ms.openlocfilehash: 09068d966df871d4b6804978a543db50bccbee37
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104952852"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-portal"></a>Criar um ambiente Azure Time Series Insights Gen2 utilizando o portal Azure
@@ -25,7 +25,7 @@ O tutorial de fornecimento de ambiente irá acompanhá-lo através do processo. 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Ao fornecer um ambiente Azure Time Series Insights Gen2, cria estes recursos Azure:
 

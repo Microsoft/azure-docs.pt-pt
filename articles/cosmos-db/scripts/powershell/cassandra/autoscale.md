@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
 ms.openlocfilehash: a32ab1b411fd84d36ef6efefcb63f80efdaab301
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98684456"
 ---
 # <a name="create-a-keyspace-and-table-with-autoscale-for-azure-cosmos-db---cassandra-api"></a>Crie um espaço-chave e uma tabela com autoescala para Azure Cosmos DB - Cassandra API

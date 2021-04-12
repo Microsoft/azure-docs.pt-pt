@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
 ms.openlocfilehash: f11677d9ebc31f1c1f7cc6332b07b69f8e35ad52
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561182"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de encriptação de disco Azure para VMs Linux

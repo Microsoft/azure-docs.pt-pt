@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
 ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105110258"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar uma reativação pós-falha para VMs Hyper-V
