@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37e2dc194eb2ebbcbe91eef6e50f3eb1e7b62e17
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 75b45067be49475ecd2e07aed9c4479b147fdd29
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106282093"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490272"
 ---
 # <a name="create-a-transform"></a>Criar uma transformação
 
@@ -35,7 +35,7 @@ Neste artigo, o script da CLI do Azure mostra como criar uma transformação. As
 ## <a name="cli"></a>[CLI](#tab/cli/)
 
 > [!NOTE]
-> Só é possível especificar um caminho para um ficheiro JSON pré-configurado standard standard para [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), ver o código de codificação com um exemplo [de transformação personalizado.](encode-custom-preset-cli-how-to.md)
+> Só é possível especificar um caminho para um ficheiro JSON pré-configurado standard standard para [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), ver o código de codificação com um exemplo [de transformação personalizado.](transform-custom-preset-cli-how-to.md)
 >
 > Não é possível passar um nome de ficheiro quando utilizar [o BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
 

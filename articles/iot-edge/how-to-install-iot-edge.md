@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: kgremban
-ms.openlocfilehash: a98eed61904b580988fe34302999f3ec6a24ac9e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b4c2cb946017fd9871e2d99dbed8f841f025008
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640914"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030530"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instale ou desinstale a borda Azure IoT para o Linux
 
@@ -125,10 +125,10 @@ Se pretender instalar a versão mais recente do daemon de segurança, utilize o 
    sudo apt-get install iotedge
    ```
 
-Ou, se quiser instalar uma versão específica do daemon de segurança, especifique a versão a partir da saída da lista apta. Especificar também a mesma versão para o pacote **de sedos de libiothsm,** que de outra forma iria instalar a sua versão mais recente. Por exemplo, o seguinte comando instala a versão mais recente da versão 1.0.10:
+Ou, se quiser instalar uma versão específica do daemon de segurança, especifique a versão a partir da saída da lista apta. Especificar também a mesma versão para o pacote **de sedos de libiothsm,** que de outra forma iria instalar a sua versão mais recente. Por exemplo, o seguinte comando instala a versão mais recente da versão 1.1:
 
    ```bash
-   sudo apt-get install iotedge=1.0.10* libiothsm-std=1.0.10*
+   sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
    ```
 
 Se a versão que pretende instalar não estiver listada, siga os passos [de instalação offline ou de versão específica](#offline-or-specific-version-installation-optional) mais tarde neste artigo. Esta secção mostra-lhe como direcionar qualquer versão anterior do daemon de segurança IoT Edge ou lançar versões de candidatos.
@@ -462,7 +462,7 @@ Utilizando comandos curl, pode direcionar os ficheiros componentes diretamente d
    2. Utilize o link copiado no seguinte comando para instalar a versão do hsmlib:
 
       ```bash
-      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
       ```
 
    3. Encontre o ficheiro **iotedge** que corresponda à arquitetura do seu dispositivo IoT Edge. Clique com o botão direito no link do ficheiro e copie o endereço de link.
@@ -470,7 +470,7 @@ Utilizando comandos curl, pode direcionar os ficheiros componentes diretamente d
    4. Utilize o link copiado no seguinte comando para instalar a versão do daemon de segurança IoT Edge.
 
       ```bash
-      curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+      curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
       ```
 
 <!-- end 1.1 -->

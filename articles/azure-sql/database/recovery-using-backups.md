@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
 ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98795322"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando cópias de dados automatizadas - Azure SQL Database & SQL Managed Instance
@@ -47,14 +47,14 @@ O tempo de recuperação para restaurar uma base de dados utilizando cópias de 
 - A largura de banda da rede se o restauro for para uma região diferente.
 - O número de pedidos de restauro simultâneos que estão a ser processados na região-alvo.
 
-Para uma base de dados grande ou muito ativa, a restauração pode demorar várias horas. Se houver uma paragem prolongada numa região, é possível que um elevado número de pedidos de geo-restauro seja iniciado para a recuperação de desastres. Quando há muitos pedidos, o tempo de recuperação para bases de dados individuais pode aumentar. A maioria das casas de dados restaura em menos de 12 horas.
+Para uma base de dados grande ou muito ativa, a restauração pode demorar várias horas. Se houver uma indisponibilidade prolongada numa região, é possível que seja iniciado um número elevado de pedidos de georrestauro para a recuperação após desastre. Quando existem muitos pedidos, o tempo de recuperação de bases de dados individuais pode aumentar. A maioria das casas de dados restaura em menos de 12 horas.
 
-Para uma única subscrição, existem limitações no número de pedidos de restauro simultâneos. Estas limitações aplicam-se a qualquer combinação de restauros pontuais, geo-restauros e restauros a partir de backup de retenção a longo prazo.
+Para uma subscrição individual, existem limitações quanto ao número de pedidos de restauro simultâneos. Estas limitações aplicam-se a qualquer combinação de restauros para um ponto anterior no tempo, georrestauros e restauros a partir da cópia de segurança de retenção de longo prazo.
 
-| **Opção de implementação** | **Max # de pedidos simultâneos sendo processados** | **Max # de pedidos simultâneos sendo submetidos** |
+| **Opção de implementação** | **N.º máximo de pedidos simultâneos a serem processados** | **N.º máximo de pedidos simultâneos a serem enviados** |
 | :--- | --: | --: |
-|**Base de dados única (por subscrição)**|30|100|
-|**Piscina elástica (por piscina)**|4|2000|
+|**Base de dados individual (por subscrição)**|30|100|
+|**Conjunto elástico (por conjunto)**|4|2000|
 
 
 Não há um método incorporado para restaurar todo o servidor. Para um exemplo de como realizar esta tarefa, consulte [a Base de Dados Azure SQL: Recuperação completa do servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).

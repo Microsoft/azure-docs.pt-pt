@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre backup de disco Azure
 description: Obtenha respostas para perguntas frequentes sobre backup de disco Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 7729bc1120fc0e2f4361739a8e05f3a82ccb4268
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 41f2862541d7cb0e3276b5fd24f39668d20fc0a3
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107317"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106960"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup"></a>Perguntas frequentes sobre backup de disco Azure
 
@@ -73,10 +73,6 @@ Sim, pode restaurar o disco numa subscrição diferente da do disco gerido por f
 ### <a name="can-i-back-up-multiple-disks-together"></a>Posso fazer o reforço de vários discos juntos?
 
 Não, imagens pontuais de vários discos ligados a uma máquina virtual não são suportadas. Para obter mais informações, consulte a cópia de segurança do [Configure](backup-managed-disks.md#configure-backup) e para saber mais sobre limitações, consulte a [matriz de suporte](disk-backup-support-matrix.md).
-
-### <a name="what-are-my-options-to-back-up-disks-across-multiple-subscriptions"></a>Quais são as minhas opções para fazer a cópia de segurança de discos em várias subscrições?
-
-Atualmente, a utilização do portal Azure para configurar a cópia de segurança dos discos está limitada a um máximo de 20 discos da mesma subscrição.
 
 ### <a name="what-is-a-target-resource-group"></a>O que é um grupo de recursos alvo?
 

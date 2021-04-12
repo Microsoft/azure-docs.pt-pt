@@ -5,32 +5,40 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 7033ea6a1ba6d85f9aa15e14bb9577b2439c59a8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a5e01a4fc84f852b43e5a76114bebe145da10793
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105050568"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443594"
 ---
 # <a name="azure-expressroute-insights-using-network-insights"></a>Azure ExpressRoute Insights usando insights de rede
 
 Este artigo explica como o Network Insights pode ajudá-lo a ver as suas métricas e configurações ExpressRoute num só local. Através do Network Insights, pode ver mapas topológicos e dashboards de saúde que contenham informações importantes do ExpressRoute sem precisar de completar qualquer configuração extra.
 
-:::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Screenshot da página de aterragem do monitor ExpressRoute." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
+:::image type="content" source="./media/expressroute-network-insights/network-monitor-page.png" alt-text="Screenshot da página de aterragem monitor de Redes." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
 
 ## <a name="visualize-functional-dependencies"></a>Visualizar dependências funcionais
 
-Para ver esta solução, navegue na página *Azure Monitor,* selecione *Redes* e, em seguida, selecione o cartão *Circuitos ExpressRoute.* Em seguida, selecione o botão de topologia para o circuito que gostaria de ver.
+1. Navegue na página *Azure Monitor* e, em seguida, selecione *Redes*.
 
-A visão de dependência funcional fornece uma imagem clara da sua configuração ExpressRoute, delineando a relação entre diferentes componentes ExpressRoute (espreitamentos, ligações, gateways).
+    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Screenshot da página de aterragem do Monitor.":::
 
-:::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Screenshot da vista de topologia para insights de rede." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+1. Selecione a carta *Circuitos ExpressRoute.* 
 
-Passe sobre qualquer componente no mapa de topologia para ver informações de configuração. Por exemplo, paire sobre um componente de observação ExpressRoute para ver detalhes como largura de banda de circuito e ativação global.
+1. Em seguida, selecione o botão de topologia para o circuito que gostaria de ver.
 
-:::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Screenshot de pairar sobre os recursos de vista topologia." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
+   :::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Screenshot da página de aterragem do monitor ExpressRoute." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png"::: 
+
+1. A visão de dependência funcional fornece uma imagem clara da sua configuração ExpressRoute, delineando a relação entre diferentes componentes ExpressRoute (espreitamentos, ligações, gateways).
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Screenshot da vista de topologia para insights de rede." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+
+1. Passe sobre qualquer componente no mapa de topologia para ver informações de configuração. Por exemplo, paire sobre um componente de observação ExpressRoute para ver detalhes como largura de banda de circuito e ativação global.
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Screenshot de pairar sobre os recursos de vista topologia." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
 
 ## <a name="view-a-detailed-and-pre-loaded-metrics-dashboard"></a>Ver um painel de métricas detalhado e pré-carregado
 

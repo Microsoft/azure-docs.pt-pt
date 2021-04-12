@@ -11,10 +11,10 @@ author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25d3380277d0e653fd5cb03069b7d91cb363dd95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101693267"
 ---
 # <a name="microsoft-account-msa-identity-provider-for-external-identities-preview"></a>Provedor de identidade da Conta Microsoft (MSA) para identidades externas (pré-visualização)

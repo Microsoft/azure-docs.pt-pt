@@ -8,10 +8,10 @@ ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 641b44a5e21e6646c07e6e1511e1c4ff01707f79
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102434105"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Temas conhecidos em Azure Digital Twins

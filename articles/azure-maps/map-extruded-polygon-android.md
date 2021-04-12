@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 87cd32dcace6fd38180cc09ba999efca76f5ae16
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105605472"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map-android-sdk"></a>Adicione uma camada de extrusão de polígono ao mapa (Android SDK)

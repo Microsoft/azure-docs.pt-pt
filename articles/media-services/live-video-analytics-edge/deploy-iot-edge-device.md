@@ -3,12 +3,12 @@ title: Implemente o Live Video Analytics num dispositivo IoT Edge - Azure
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 2fdf95be0966702f58afbb9df8e09a1688f9b204
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 466cc236c1482b2ae6a31b40b6f3461a2c2fbfc1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961562"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280297"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
 
@@ -38,7 +38,7 @@ Consulte [Criar uma função personalizada de Gestor de Recursos Azure](create-c
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Criar um ponto final de streaming premium
 
-Se pretender utilizar o Live Video Analytics para gravar o vídeo continuamente na nuvem e, posteriormente, utilizar [APIs de consulta](playback-recordings-how-to.md#query-api) antes de reproduzi-lo, recomendamos a atualização do seu Serviço de Media para utilizar um [ponto final de streaming premium.](../latest/streaming-endpoint-concept.md#types)  
+Se pretender utilizar o Live Video Analytics para gravar o vídeo continuamente na nuvem e, posteriormente, utilizar [APIs de consulta](playback-recordings-how-to.md#query-api) antes de reproduzi-lo, recomendamos a atualização do seu Serviço de Media para utilizar um [ponto final de streaming premium.](../latest/stream-streaming-endpoint-concept.md#types)  
 
 Este passo é opcional. Pode utilizar este comando Azure CLI para o fazer:
 

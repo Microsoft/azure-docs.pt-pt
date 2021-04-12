@@ -14,16 +14,16 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 94f248edfebd6c6fedb78a54eee220c0ef38b4ab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95545881"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução aos serviços ligados (projetos de serviços cloud) Armazenamento de Filas do Azure e o Visual Studio
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo descreve como começar a usar o armazenamento da Azure Queue no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento Azure num projeto de serviços na nuvem utilizando o diálogo visual Studio **Add Connected Services.**
 
 Vamos mostrar-lhe como criar uma fila em código. Também lhe mostraremos como realizar operações básicas de fila, tais como adicionar, modificar, ler e remover mensagens de fila. As amostras estão escritas no código C# e utilizam a Biblioteca do [Cliente de Armazenamento microsoft Azure para .NET](/previous-versions/azure/dn261237(v=azure.100)).

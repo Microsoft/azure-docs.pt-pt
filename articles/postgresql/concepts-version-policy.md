@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 62fe1b3391eb4cb2d409a92b936fd3f1ae56d992
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100518424"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Política de controlo de versões da Base de Dados do Azure para PostgreSQL

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
-ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05ef67e3caafe2c10d02ee4ca2e3248b7ab6c188
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98894988"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120901"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Erros do Ponto Final de Transmissão em Fluxo (Origem)
 
@@ -143,24 +143,24 @@ O formato de carga útil enviado pelo cliente encontra-se num formato não supor
 
 Para artigos de encriptação e exemplos, consulte:
 
-- [Conceito: proteção de conteúdos](content-protection-overview.md)
-- [Conceito: Políticas-chave de conteúdo](content-key-policy-concept.md)
+- [Conceito: proteção de conteúdos](drm-content-protection-concept.md)
+- [Conceito: Políticas-chave de conteúdo](drm-content-key-policy-concept.md)
 - [Conceito: Políticas de streaming](streaming-policy-concept.md)
-- [Amostra: proteger com encriptação AES](protect-with-aes128.md)
-- [Amostra: proteger com DRM](protect-with-drm.md)
+- [Amostra: proteger com encriptação AES](drm-playready-license-template-concept.md)
+- [Amostra: proteger com DRM](drm-protect-with-drm-tutorial.md)
 
 Para obter orientação do filtro, consulte:
 
-- [Conceito: manifestos dinâmicos](filters-dynamic-manifest-overview.md)
+- [Conceito: manifestos dinâmicos](filters-dynamic-manifest-concept.md)
 - [Conceito: filtros](filters-concept.md)
 - [Amostra: criar filtros com APIs REST](filters-dynamic-manifest-rest-howto.md)
-- [Amostra: criar filtros com .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Amostra: criar filtros com CLI](filters-dynamic-manifest-cli-howto.md)
+- [Amostra: criar filtros com .NET](filters-dynamic-manifest-dotnet-how-to.md)
+- [Amostra: criar filtros com CLI](filters-dynamic-manifest-cli-how-to.md)
 
 Para artigos e amostras ao vivo, consulte:
 
-- [Conceito: visão geral do streaming ao vivo](live-streaming-overview.md)
-- [Conceito: Eventos ao vivo e saídas ao vivo](live-events-outputs-concept.md)
+- [Conceito: visão geral do streaming ao vivo](stream-live-streaming-concept.md)
+- [Conceito: Eventos ao vivo e saídas ao vivo](live-event-outputs-concept.md)
 - [Amostra: tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
 
 ## <a name="416-range-not-satisfiable"></a>416 Intervalo Não Satisfatório
@@ -202,7 +202,7 @@ Consulte o artigo da [comunidade Azure Media Services](media-services-community.
 
 - [Encoding error codes](/rest/api/media/jobs/get#joberrorcode) (Códigos de erro de codificação)
 - [Conceitos de Azure Media Services](concepts-overview.md)
-- [Quotas e limites](limits-quotas-constraints.md)
+- [Quotas e limites](limits-quotas-constraints-reference.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

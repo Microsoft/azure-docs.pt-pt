@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
 ms.openlocfilehash: b8b054d06c9c0987508abfdf03bbcf9470572bd1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868771"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
@@ -61,7 +61,7 @@ As topologias do Storm são compostas por múltiplos componentes que são dispos
 
 A tempestade consiste nos seguintes três daemons, que mantêm o aglomerado de tempestades funcionando.
 
-|Rio Daemon |Descrição |
+|Rio Daemon |Description |
 |---|---|
 |Nimbus|Semelhante ao Hadoop JobTracker, é responsável por distribuir código em torno do cluster e atribuir tarefas a máquinas e monitorização de falhas.|
 |Zookeeper|Usado para coordenação de agrupamentos.|

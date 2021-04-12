@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
 ms.openlocfilehash: 48b6927407a95d41603c3032f298ffc28def9693
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103462461"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure

@@ -8,10 +8,10 @@ ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 335056260ddea0c15db761df109e69333ef474f3
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105641380"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linha de segurança Azure para Azure Stack Edge

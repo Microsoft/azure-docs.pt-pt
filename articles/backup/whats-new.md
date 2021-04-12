@@ -4,10 +4,10 @@ description: Conheça as novidades no Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612488"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades do Azure Backup
