@@ -11,10 +11,10 @@ ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
 ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612330"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
@@ -112,7 +112,7 @@ A imagem a seguir é um exemplo de como você pode escrever uma consulta PySpark
 
    ![Comandos mágicos de faíscas sinapse](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
-### <a name="use-temp-tables-to-reference-data-across-languages"></a>Use tabelas temporárias para fazer referência a dados em todos os idiomas
+### <a name="use-temp-tables-to-reference-data-across-languages&quot;></a>Use tabelas temporárias para fazer referência a dados em todos os idiomas
 
 Não é possível fazer referência a dados ou variáveis diretamente em diferentes línguas num caderno do Synapse Studio. Em Spark, uma tabela temporária pode ser referenciada através de línguas. Aqui está um exemplo de como ler um `Scala` DataFrame `PySpark` dentro e usar uma tabela de temperatura spark como uma `SparkSQL` solução alternativa.
 
@@ -120,7 +120,7 @@ Não é possível fazer referência a dados ou variáveis diretamente em diferen
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 

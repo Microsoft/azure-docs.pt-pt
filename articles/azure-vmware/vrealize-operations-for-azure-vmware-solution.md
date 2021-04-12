@@ -4,10 +4,10 @@ description: Saiba como configurar as operações vRealize para a sua nuvem priv
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104802493"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurar vRealize Operations for Azure VMware Solution

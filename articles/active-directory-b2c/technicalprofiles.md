@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bcff1ffd574db910c3206d82e4da0e9428db788f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102631800"
 ---
 # <a name="technical-profiles"></a>Perfis técnicos

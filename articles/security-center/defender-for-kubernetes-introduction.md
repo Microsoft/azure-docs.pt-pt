@@ -3,26 +3,32 @@ title: Azure Defender para Kubernetes - os benefícios e funcionalidades
 description: Conheça os benefícios e funcionalidades do Azure Defender para Kubernetes.
 author: memildin
 ms.author: memildin
-ms.date: 02/07/2021
+ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 83d0215ebca9d60d61937cb20bb82c7ccb30aac1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c500c7b7afb36ffbe04fb63551c3a7d17c1347d9
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100632"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029085"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
-O Azure Kubernetes Service (AKS) é o serviço gerido pela Microsoft para desenvolver, implantar e gerir aplicações contentorizadas.
+Azure Defender for Kubernetes é o plano Azure Defender que fornece proteções para os seus clusters Kubernetes onde quer que estejam a funcionar. 
+
+Podemos defender aglomerados em:
+
+- **Azure Kubernetes Service (AKS)** - Serviço gerido pela Microsoft para desenvolver, implantar e gerir aplicações contentorizadas
+
+- **Instalações e ambientes multi-nuvem** - Usando uma [extensão para Arc habilitado Kubernetes](defender-for-kubernetes-azure-arc.md)
 
 O Azure Security Center e a AKS formam uma oferta de segurança kubernetes nativa da nuvem com endurecimento ambiental, proteção de carga de trabalho e proteção de tempo de execução, conforme descrito na [segurança do contentor no Centro de Segurança.](container-security.md)
 
-Para deteção de ameaças para os seus clusters Kubernetes, ative **o Azure Defender para Kubernetes**.
+A deteção de ameaças ao nível do anfitrião para os seus nós Linux AKS está disponível se ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) e o seu agente Log Analytics. No entanto, se o seu cluster for implantado num conjunto de escala de máquina virtual, o agente Log Analytics não está atualmente suportado.
 
-A deteção de ameaças ao nível do anfitrião para os seus nós Linux AKS está disponível se ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) e o seu agente Log Analytics. No entanto, se o seu cluster AKS for implantado num conjunto de escala de máquina virtual, o agente Log Analytics não está atualmente suportado.
+
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -36,9 +42,9 @@ A deteção de ameaças ao nível do anfitrião para os seus nós Linux AKS est�
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quais são os benefícios do Azure Defender para kubernetes?
 
-O Azure Defender for Kubernetes fornece **proteção contra ameaças ao nível do cluster,** monitorizando os seus serviços geridos pela AKS através dos registos recuperados pelo Serviço Azure Kubernetes (AKS).
+O Azure Defender for Kubernetes fornece **proteção contra ameaças ao nível do cluster,** monitorizando os registos dos seus clusters.
 
-Exemplos de eventos de segurança que o Azure Defender para os monitores kubernetes incluem dashboards de Kubernetes expostos, criação de papéis privilegiados elevados e criação de suportes sensíveis. Para obter uma lista completa dos alertas de nível de cluster AKS, consulte a [tabela de referência dos alertas](alerts-reference.md#alerts-akscluster).
+Exemplos de eventos de segurança que o Azure Defender para os monitores kubernetes incluem dashboards de Kubernetes expostos, criação de papéis privilegiados elevados e criação de suportes sensíveis. Para obter uma lista completa dos alertas de nível de cluster, consulte a [tabela de referência dos alertas.](alerts-reference.md#alerts-akscluster)
 
 > [!TIP]
 > Pode simular alertas de contentores seguindo as instruções [neste post de blog](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
@@ -46,14 +52,14 @@ Exemplos de eventos de segurança que o Azure Defender para os monitores kuberne
 Além disso, a nossa equipa global de investigadores de segurança monitoriza constantemente o cenário de ameaças. Acrescentam alertas e vulnerabilidades específicos aos contentores à medida que são descobertos.
 
 >[!NOTE]
-> O Security Center gera alertas de segurança para as ações e implementações do Serviço Azure Kubernetes que ocorrem **depois** de ter ativado o Azure Defender para Kubernetes.
+> O Azure Defender gera alertas de segurança para ações e implementações que ocorrem depois de ter ativado o plano Defender for Kubernetes na sua subscrição.
 
 
 
 
 ## <a name="azure-defender-for-kubernetes---faq"></a>Azure Defender para Kubernetes - FAQ
 
-### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>Ainda posso ter proteções AKS sem o agente Log Analytics?
+### <a name="can-i-still-get-cluster-protections-without-the-log-analytics-agent"></a>Ainda posso ter proteções de agrupamento sem o agente Log Analytics?
 
 O plano **Azure Defender for Kubernetes** fornece proteções ao nível do cluster. Se também implementar o agente Log Analytics do **Azure Defender para servidores,** receberá a proteção contra ameaças para os seus nós que está dotado desse plano. Saiba mais em [Introdução ao Azure Defender para servidores](defender-for-servers-introduction.md).
 
@@ -67,7 +73,7 @@ Para que o Azure Defender monitorize os seus nós AKS, eles devem estar a execut
 O AKS é um serviço gerido e uma vez que o agente de análise log é uma extensão gerida pela Microsoft, também é suportado em clusters AKS.
 
 ### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>Se o meu grupo já está a executar um Monitor Azure para agente de contentores, também preciso do agente Log Analytics?
-Para que o Azure Defender monitorize os seus nós AKS, eles devem estar a executar o agente Log Analytics.
+Para que o Azure Defender monitorize os seus nós, eles devem estar a executar o agente Log Analytics.
 
 Se os seus clusters já estiverem a executar o Azure Monitor para agente de contentores, também pode instalar o agente Log Analytics e os dois agentes podem trabalhar lado a lado sem problemas.
 

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 355d36d58935372e9d8a92599e8f810fec9ebf19
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785347"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de dados na Azure Data Factory (versão 1)
@@ -27,7 +27,7 @@ Este artigo descreve quais são os conjuntos de dados, como são definidos no fo
 > [!NOTE]
 > Se é novo na Data Factory, consulte [a Introdução à Fábrica de Dados Azure](data-factory-introduction.md) para uma visão geral. Se não tiver experiência prática na criação de fábricas de dados, poderá obter uma melhor compreensão lendo o tutorial de transformação de [dados](data-factory-build-your-first-pipeline.md) e o tutorial de [movimento de dados.](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de uma base de dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para a Azure Synapse Analytics, além das quais são construídas soluções de reporte de informação de business intelligence (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades na Azure Data Factory.](data-factory-create-pipelines.md)
 
 Uma atividade pode tomar zero ou mais **conjuntos de dados de** entrada , e produzir um ou mais conjuntos de dados de saída. Um conjunto de dados de entrada representa a entrada para uma atividade no pipeline, e um conjunto de dados de saída representa a saída para a atividade. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados Azure Blob especifica o recipiente blob e a pasta no armazenamento blob a partir do qual o pipeline deve ler os dados.
@@ -75,12 +75,12 @@ A tabela a seguir descreve propriedades no JSON acima:
 
 | Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
-| name |Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](data-factory-naming-rules.md) para regras de nomeação. |Sim |ND |
-| tipo |Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais informações, consulte o [tipo dataset](#Type). |Sim |ND |
+| name |Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](data-factory-naming-rules.md) para regras de nomeação. |Yes |ND |
+| tipo |Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais informações, consulte o [tipo dataset](#Type). |Yes |ND |
 | estrutura |Esquema do conjunto de dados.<br/><br/>Para mais detalhes, consulte a [estrutura do Conjunto de Dados.](#Structure) |No |ND |
-| typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela Azure SQL). Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#Type). |Sim |ND |
+| typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela Azure SQL). Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#Type). |Yes |ND |
 | externo | Bandeira booleana para especificar se um conjunto de dados é explicitamente produzido por um oleoduto de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não for produzido pelo gasoduto atual, esta bandeira seja verdadeira. Defina esta bandeira de forma verdadeira para o conjunto de dados de entrada da primeira atividade no oleoduto.  |No |false |
-| disponibilidade | Define a janela de processamento (por exemplo, de hora a hora ou diariamente) ou o modelo de corte para a produção do conjunto de dados. Cada unidade de dados consumidos e produzidos por uma atividade executada é chamada de fatia de dados. Se a disponibilidade de um conjunto de dados de saída for definida diariamente (frequência - dia, intervalo - 1), uma fatia é produzida diariamente. <br/><br/>Para mais detalhes, consulte a disponibilidade do Dataset. <br/><br/>Para obter mais informações sobre o modelo de corte de conjuntos de dados, consulte o artigo [de Agendamento e execução.](data-factory-scheduling-and-execution.md) |Sim |ND |
+| disponibilidade | Define a janela de processamento (por exemplo, de hora a hora ou diariamente) ou o modelo de corte para a produção do conjunto de dados. Cada unidade de dados consumidos e produzidos por uma atividade executada é chamada de fatia de dados. Se a disponibilidade de um conjunto de dados de saída for definida diariamente (frequência - dia, intervalo - 1), uma fatia é produzida diariamente. <br/><br/>Para mais detalhes, consulte a disponibilidade do Dataset. <br/><br/>Para obter mais informações sobre o modelo de corte de conjuntos de dados, consulte o artigo [de Agendamento e execução.](data-factory-scheduling-and-execution.md) |Yes |ND |
 | política |Define os critérios ou a condição que as fatias de conjunto de dados devem cumprir. <br/><br/>Para mais detalhes, consulte a secção [de política do Dataset.](#Policy) |No |ND |
 
 ## <a name="dataset-example"></a>Exemplo do conjunto de dados
@@ -187,7 +187,7 @@ Cada coluna da estrutura contém as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |O nome da coluna. |Sim |
+| name |O nome da coluna. |Yes |
 | tipo |Tipo de dados da coluna.  |No |
 | cultura |. Cultura baseada na NET a ser utilizada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . A predefinição é `en-us`. |No |
 | formato |Cadeia de formato a utilizar quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . |No |
@@ -229,8 +229,8 @@ A tabela a seguir descreve propriedades que pode utilizar na secção de disponi
 
 | Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
-| interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se necessitar que o conjunto de dados seja cortado de hora a hora, define a <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que, se especificar **a frequência** como **Minuto,** deverá definir o intervalo para nada menos do que 15. |Sim |ND |
+| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Yes |ND |
+| interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se necessitar que o conjunto de dados seja cortado de hora a hora, define a <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que, se especificar **a frequência** como **Minuto,** deverá definir o intervalo para nada menos do que 15. |Yes |ND |
 | estilo |Especifica se a fatia deve ser produzida no início ou no fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **a frequência** estiver definida para **mês**, e **o estilo** está definido para **EndOfInterval**, a fatia é produzida no último dia do mês. Se **o estilo** estiver definido para **StartOfInterval,** a fatia é produzida no primeiro dia do mês.<br/><br/>Se **a frequência** estiver definida para o **Dia**, e o **estilo** estiver definido para **EndOfInterval,** a fatia é produzida na última hora do dia.<br/><br/>Se **a frequência** estiver definida para **Hora**, e o **estilo** estiver definido para **EndOfInterval,** a fatia é produzida no final da hora. Por exemplo, para uma fatia para o período das 13:00 às 14:00, a fatia é produzida às 14:00. |No |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo programador para calcular os limites da fatia de conjunto de dados. <br/><br/>Note que se esta propriedade tem peças de data mais granulares do que a frequência especificada, as peças mais granulares são ignoradas. Por exemplo, se o **intervalo** for **de hora** a hora (frequência: hora e intervalo: 1) e a **âncoraDateTime** contiver **minutos e segundos**, então as partes de minutos e segundos do **anchorDateTime** são ignoradas. |No |01/01/0001 |
 | offset |Timepan pelo qual o início e o fim de todas as fatias de conjunto de dados são deslocados. <br/><br/>Note que se ambos **anchorDatime** e **offset** forem especificados, o resultado é a mudança combinada. |No |ND |
@@ -274,7 +274,7 @@ O conjunto de dados seguinte é mensal, e é produzido no dia 3 de cada mês às
 A secção **de política** na definição de conjunto de dados define os critérios ou a condição que as fatias de conjunto de dados devem cumprir.
 
 ### <a name="validation-policies"></a>Políticas de validação
-| Nome da política | Descrição | Aplicado a | Necessário | Predefinição |
+| Nome da política | Description | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | tamanho mínimoS |Valida que os dados no **armazenamento Azure Blob** satisfazem os requisitos mínimos de tamanho (em megabytes). |Armazenamento de Blobs do Azure |No |ND |
 | sobrancelhas mínimas |Valida que os dados numa **base de dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |

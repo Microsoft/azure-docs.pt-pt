@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: d4b7a188a9509c3510de2843b232f57e3437177b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009832"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo utilizando o Media Encoder Standard
@@ -32,7 +32,7 @@ ms.locfileid: "103009832"
 >
 >
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para entregar vídeo digital através da Internet, tem de comprimir os meios de comunicação. Os ficheiros de vídeo digitais são grandes e podem ser demasiado grandes para serem entregues através da Internet, ou para que os dispositivos dos seus clientes sejam exibidos corretamente. A codificação é o processo de compressão de vídeo e áudio para que os seus clientes possam ver os seus meios de comunicação.
 

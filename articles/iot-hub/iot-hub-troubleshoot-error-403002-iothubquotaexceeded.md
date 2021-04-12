@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 8312c3267e826088f34b3bffe1520703eec00bdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3521933baa8dc328910fbacd8b1b6768832fa5f1
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76961117"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061320"
 ---
 # <a name="403002-iothubquotaexceeded"></a>403002 IoTHubQuotaExceeded
 

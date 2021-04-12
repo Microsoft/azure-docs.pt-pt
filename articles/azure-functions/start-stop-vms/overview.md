@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: ''
 ms.date: 03/29/2021
-ms.openlocfilehash: aac50f085d3ad63fb0183c19cf7d9aaa679e3d04
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 44bfbaa8b18ebeab3b74bc696a16fc4cfb6c08ec
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112172"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220939"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Início/Paragem VMs v2 (pré-visualização) visão geral
 
@@ -26,9 +26,9 @@ Uma identidade gerida é criada no Azure Ative Directory (Azure AD) para esta ap
 
 É criada uma função de ponto final http trigger para suportar os cenários de programação e sequência incluídos na funcionalidade, como mostrado na tabela seguinte.
 
-|Name |Acionador |Description |
+|Name |Acionador |Descrição |
 |-----|--------|------------|
-|AlertaSeilabilityTest |Temporizador |Esta função é executa o teste de disponibilidade para garantir que a função primária **AutoStopVM** está sempre disponível.|
+|AlertaSeilabilityTest |Temporizador |Esta função executa o teste de disponibilidade para garantir que a função primária **AutoStopVM** está sempre disponível.|
 |AutoStop |HTTP |Esta função suporta o cenário **AutoStop,** que é a função ponto de entrada que é chamada a partir de Logic App.|
 |AutoStopAvailabilityTest |Temporizador |Esta função executa o teste de disponibilidade para se certificar de que a função primária **AutoStop** está sempre disponível.|
 |AutoStopvM |HTTP |Esta função é ativada automaticamente pelo alerta VM quando a condição de alerta é verdadeira.|
@@ -95,7 +95,7 @@ Especificar uma lista de VMs pode ser usado quando é necessário executar a aç
 
 - A sua conta foi-lhe concedida a permissão [do Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) na subscrição.
 
-- Start/Stop VMs v2 (pré-visualização) está disponível em todas as regiões globais do Azure que estão listadas em [Produtos disponíveis por página de região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) para Funções Azure. Para a nuvem do Governo Azure, está disponível apenas na região do governo dos EUA virginia.
+- Start/Stop VMs v2 (pré-visualização) está disponível em todas as regiões de nuvem do Governo Azure global e dos EUA que estão listadas em [Produtos disponíveis por página de região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) para Funções Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

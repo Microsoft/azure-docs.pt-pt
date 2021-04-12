@@ -7,10 +7,10 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.openlocfilehash: cfc20a30104e24a3950c71bdd8377544803d2f25
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604418"
 ---
 # <a name="azure-percept-firewall-configuration-and-security-recommendations"></a>Configuração de firewall Azure Percept e recomendações de segurança

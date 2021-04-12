@@ -10,10 +10,10 @@ ms.date: 12/09/2020
 ms.custom: devx-track-java
 ms.author: mametcal
 ms.openlocfilehash: 590f221b0a4980d462267dd8c3a73ca7d02583fd
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105625522"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Use configuração dinâmica numa aplicação java primavera

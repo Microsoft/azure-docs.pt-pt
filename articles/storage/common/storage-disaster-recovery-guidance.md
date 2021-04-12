@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104800354"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação após desastre e ativação pós-falha de contas de armazenamento

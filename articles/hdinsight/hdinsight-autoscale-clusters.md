@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
 ms.openlocfilehash: 5dabae76308f32da7968d8cfa89b95f1eb19c142
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104863773"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
@@ -70,10 +70,10 @@ A tabela seguinte descreve os tipos e versões de cluster compatíveis com a fun
 
 | Versão | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | No | No | No |
-| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | No | No | No |
-| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | No | No | No |
-| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | No | No | No |
+| HDInsight 3.6 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 4.0 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 3.6 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 4.0 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
 
 \* Os clusters HBase só podem ser configurados para dimensionamento baseado em horários e não à base de carga.
 
@@ -221,7 +221,7 @@ O estado do cluster listado no portal Azure pode ajudá-lo a monitorizar as ativ
 
 Todas as mensagens de estado do cluster que pode ver são explicadas na lista abaixo.
 
-| Estado do cluster | Descrição |
+| Estado do cluster | Description |
 |---|---|
 | Em Execução | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
 | Atualização  | A configuração de escala automática do cluster está a ser atualizada.  |

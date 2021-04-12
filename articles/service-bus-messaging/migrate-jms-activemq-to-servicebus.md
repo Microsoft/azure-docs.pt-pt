@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: 4160a9ab4edbac8584eab2d4e5b9bf1ba11a9aec
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105568788"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicações existentes do Java Message Service (JMS) 2.0 da Apache ActiveMQ para Azure Service Bus

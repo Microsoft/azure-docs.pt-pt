@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: a60ee8faf8d19afba59e46c52aaba9395c3a5292
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604452"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Começando com Azure Maps Android SDK
@@ -118,7 +118,7 @@ Aqui está um exemplo de Azure Maps com a linguagem definida para "fr-FR" e vis�
 
 Está aqui documentada [uma](supported-languages.md)lista completa das línguas apoiadas e dos pontos de vista regionais.
 
-## <a name="navigating-the-map"></a>Navegando no mapa
+## <a name="navigating-the-map&quot;></a>Navegando no mapa
 
 Existem várias maneiras diferentes em que o mapa pode ser ampliado, panned, girado e lançado. Os seguintes detalhes são todas as diferentes formas de navegar no mapa.
 
@@ -141,16 +141,16 @@ Existem várias maneiras diferentes em que o mapa pode ser ampliado, panned, gir
 
 * Toque no mapa com dois dedos e arraste-os para cima ou para baixo juntos.
 
-## <a name="azure-government-cloud-support"></a>Apoio à nuvem do Governo de Azure
+## <a name=&quot;azure-government-cloud-support&quot;></a>Apoio à nuvem do Governo de Azure
 
 O Azure Maps Android SDK suporta a nuvem do Governo Azure. O Azure Maps Android SDK é acedido a partir do mesmo repositório de Maven. As seguintes tarefas terão de ser feitas para se ligar à versão em nuvem do Governo Azure da plataforma Azure Maps.
 
 No mesmo local onde são especificados os detalhes de autenticação do Azure Maps, adicione a seguinte linha de código para dizer ao mapa para usar o domínio de nuvem governamental Azure Maps.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
-AzureMaps.setDomain("atlas.azure.us");
+AzureMaps.setDomain(&quot;atlas.azure.us");
 ```
 
 ::: zone-end

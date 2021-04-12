@@ -13,10 +13,10 @@ ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 9fc271dfa9edbedac8527009dd2b2180b7c5e7cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98756257"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Uma aplicação web que chama APIs web: Remova as contas da cache simbólica no sign-out global

@@ -16,12 +16,12 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 7aa95e2117dc3bb2e837e62ef42e3a770f2266d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77d3ac2c1e06851a13b4424d855fa9f9b12b6c32
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94842146"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065060"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (Node.js)
 

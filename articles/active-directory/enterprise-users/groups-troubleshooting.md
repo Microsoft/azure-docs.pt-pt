@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41bfdf11bad28ab772b68839a5a7bf7776eb4dff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96548108"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Resolução de problemas e resolver problemas de grupos

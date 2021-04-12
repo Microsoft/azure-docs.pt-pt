@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/07/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8d0e86d95205acea2ac48ce027bcd118f4e3bf20
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: fdf0113d73b0b2e82ec889caf2a82c77bb7a040c
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967035"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226706"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funcionalidades de pré-visualização Azure Firewall Premium
 
@@ -148,7 +148,6 @@ A Azure Firewall Premium Preview tem os seguintes problemas conhecidos:
 |Apoio ESNI à resolução FQDN em HTTPS|O SNI encriptado não é suportado no aperto de mão HTTPS.|Hoje apenas o Firefox suporta o ESNI através da configuração personalizada. A solução proposta é para desativar esta funcionalidade.|
 |Certificados de Cliente (TLS)|Os certificados de cliente são usados para construir uma confiança de identidade mútua entre o cliente e o servidor. Os certificados de cliente são usados durante uma negociação TLS. A azure firewall renegocia uma ligação com o servidor e não tem acesso à chave privada dos certificados do cliente.|Nenhum|
 |QUIC/HTTP3|QUIC é a nova versão principal do HTTP. É um protocolo baseado na UDP com mais de 80 (PLAN) e 443 (SSL). A inspeção FQDN/URL/TLS não será suportada.|Configure a passagem do UDP 80/443 como regras de rede.|
-|Hub seguro e túneis forçados não suportados no Premium|Atualmente, o Firewall Premium SKU não é suportado em implementações de Secure Hub e configurações de túneis forçados.|Correção marcada para a AG.|
 Certificados assinados por clientes não fidedquis para clientes|Os certificados assinados pelo cliente não são fidedignos pela firewall uma vez recebidos de um servidor web baseado em intranet.|Correção marcada para a AG.
 |Endereços IP de origem e destino errados em Alertas para IDPS com inspeção TLS.|Quando ativa a inspeção TLS e o IDPS emite um novo alerta, o endereço IP de origem/destino apresentado está errado (o endereço IP interno é apresentado em vez do endereço IP original).|Correção marcada para a AG.|
 |Endereço IP de origem errada em Alertas com IDPS para HTTP (sem inspeção TLS).|Quando o tráfego HTTP de texto simples está em uso, e iDPS emite um novo alerta, e o destino é público um endereço IP, o endereço IP de origem visualizado está errado (o endereço IP interno é apresentado em vez do endereço IP original).|Correção marcada para a AG.|

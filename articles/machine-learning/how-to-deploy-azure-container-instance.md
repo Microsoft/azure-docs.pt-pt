@@ -12,10 +12,10 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
 ms.openlocfilehash: 5bf3c92f07cc33b35a070a3479e0063a63c9e43a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102522024"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo no Azure Container Instances

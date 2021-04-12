@@ -5,10 +5,10 @@ ms.date: 4/2/2019
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b3be0c2b21c3405f4f42b2ff4d02ca95c78956de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99626965"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerir segredos de aplicação de malha de tecido de serviço

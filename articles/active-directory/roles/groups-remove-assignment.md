@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78ed23f563fce9760768a99e5bbf58f68500d665
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103012025"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Remover atribuições de funções de um grupo no Azure Ative Directory

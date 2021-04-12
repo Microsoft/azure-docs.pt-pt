@@ -9,10 +9,10 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
 ms.openlocfilehash: 2026b1721dbe05af1ecc52324d1dd0ebf2ec3d08
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104802663"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Quickstart: Azure Key Vault certificate client library for Python

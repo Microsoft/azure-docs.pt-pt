@@ -7,10 +7,10 @@ ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
 ms.openlocfilehash: 89e288d1186efd405019d6474dcbd332e7925d67
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104787843"
 ---
 # <a name="tutorial-tune-the-opc-publisher-performance-and-memory"></a>Tutorial: Sintonize o desempenho e a memória da Editora OPC

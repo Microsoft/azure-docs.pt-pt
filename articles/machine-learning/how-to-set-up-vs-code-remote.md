@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: ccd56afc8c4ea7e236946fc6afa54e471203fe31
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 04/08/2021
+ms.openlocfilehash: 14f0d15d48193267c224f3497c24651ca3249b0b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065985"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028595"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conecte-se a uma instância computacional de aprendizagem de máquinas Azure no Código do Estúdio Visual (pré-visualização)
 
@@ -25,8 +25,75 @@ Neste artigo, você vai aprender a conectar-se a uma instância de cálculo Azur
 
 Existem duas formas de se ligar a uma instância computacional do Código do Estúdio Visual:
 
+* Caso de computação remota. Esta opção proporciona-lhe um ambiente de desenvolvimento completo para a construção dos seus projetos de aprendizagem automática.
 * Servidor remoto do Bloco de Notas do Jupyter. Esta opção permite-lhe definir uma instância de cálculo como um servidor remoto do Jupyter Notebook.
-* [Desenvolvimento remoto do Código do Estúdio Visual](https://code.visualstudio.com/docs/remote/remote-overview). O desenvolvimento remoto do Código do Estúdio Visual permite-lhe utilizar um contentor, uma máquina remota ou o Subsistema Windows para Linux (WSL) como um ambiente de desenvolvimento completo.
+
+## <a name="configure-a-remote-compute-instance"></a>Configurar uma instância de computação remota
+
+Para configurar uma instância de computação remota para o desenvolvimento, você precisará de alguns pré-requisitos.
+
+* Extensão do Código do Estúdio Visual Azure Machine Learning. Para obter mais informações, consulte o [guia de configuração do código do estúdio visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
+* Espaço de trabalho de aprendizagem automática Azure. [Utilize a extensão do Código de Estúdio Visual Azure Machine Learning para criar um novo espaço de trabalho](how-to-manage-resources-vscode.md#create-a-workspace) se ainda não tiver um.
+* Exemplo de computação de aprendizagem automática Azure. [Utilize a extensão Azure Machine Learning Visual Studio Code para criar uma nova instância de computação](how-to-manage-resources-vscode.md#create-compute-instance) se não tiver uma.
+
+Para ligar à sua instância de computação remota:
+
+# <a name="vs-code"></a>[Código VS](#tab/extension)
+
+### <a name="azure-machine-learning-extension"></a>Extensão de aprendizagem de máquinas Azure
+
+1. No Código VS, lance a extensão Azure Machine Learning.
+1. Expanda o nó **de instâncias computacional** na sua extensão.
+1. Clique com o botão direito na instância de cálculo a que pretende ligar e selecione **Connect to Compute Instance**.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Conecte-se à instância de computação Visual Studio Code Azure ML Extensão" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+
+### <a name="command-palette"></a>Paleta de comando
+
+1. No Código VS, abra a paleta de comando selecionando **a Paleta de Comando Ver >**.
+1. Introduza na caixa de texto **Azure ML: Conecte-se à Instância de Cálculo**.
+1. Selecione a sua subscrição.
+1. Selecione o seu espaço de trabalho.
+1. Selecione a sua instância de cálculo ou crie uma nova.
+
+# <a name="studio"></a>[Studio](#tab/studio)
+
+Navegue até [ml.azure.com](https://ml.azure.com)
+
+> [!IMPORTANT]
+> Para se ligar à sua instância de computação remota a partir do Código do Estúdio Visual, certifique-se de que a conta em que está iniciado no estúdio Azure Machine Learning é a mesma que utiliza no Código do Estúdio Visual.
+
+### <a name="compute"></a>Computação
+
+1. Selecione o **separador Compute**
+1. Na coluna URI de *aplicação,* selecione **O Código VS** para a instância de cálculo a que pretende ligar.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Conecte-se ao Compute Instance VS Code Azure ML studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
+
+### <a name="notebook"></a>Bloco de Notas
+
+1. Selecione o **separador Caderno**
+1. No *separador Portátil,* selecione o ficheiro que pretende editar.
+1. Selecione **Editores > Editar em Código VS (pré-visualização)**.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Conecte-se a Compute Instance VS Code Azure ML Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+
+---
+
+Uma nova janela lança-se para a sua instância de computação remota. Ao tentar estabelecer uma ligação a uma instância de computação remota, estão a decorrer as seguintes tarefas:
+
+1. Autorização. Algumas verificações são efetuadas para garantir que o utilizador que tenta fazer uma ligação está autorizado a utilizar a instância de cálculo.
+1. VS Code Remote Server é instalado na instância computacional.
+1. Uma ligação WebSocket é estabelecida para interação em tempo real.
+
+Uma vez estabelecida a ligação, persiste. Um token é emitido no início da sessão que é atualizado automaticamente para manter a ligação com a sua instância de computação.
+
+Depois de ligar à sua instância de computação remota, utilize o editor para:
+
+* [Autore e gere ficheiros na sua instância de computação remota ou partilha de ficheiros](https://code.visualstudio.com/docs/editor/codebasics).
+* Utilize o [terminal integrado do Código VS](https://code.visualstudio.com/docs/editor/integrated-terminal) para executar [comandos e aplicações na sua instância de computação remota.](how-to-access-terminal.md)
+* [Depurar os seus scripts e aplicações](https://code.visualstudio.com/Docs/editor/debugging)
+* [Use o Código VS para gerir os seus repositórios Git](concept-train-model-git-integration.md)
 
 ## <a name="configure-compute-instance-as-remote-notebook-server"></a>Configurar a instância computacional como servidor de caderno remoto
 
@@ -62,93 +129,6 @@ Neste momento, pode continuar a executar células no seu Caderno Jupyter.
 
 > [!TIP]
 > Também pode trabalhar com ficheiros de script Python (.py) que contêm células de código semelhantes a Jupyter. Para mais informações, consulte a [documentação interativa Visual Studio Code Python](https://code.visualstudio.com/docs/python/jupyter-support-py).
-
-## <a name="configure-compute-instance-remote-development"></a>Configurar o desenvolvimento remoto de instância computacional
-
-Para uma experiência de desenvolvimento remoto em destaque, você precisará de alguns pré-requisitos:
-
-* [Extensão SSH remota do código do estúdio visual](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Instância computacional ativada pelo SSH. Para obter mais informações, [consulte o guia Criar um conjunto de casos de computação.](how-to-create-manage-compute-instance.md)
-
-> [!NOTE]
-> Nas plataformas do Windows, tem de [instalar um cliente SSH compatível com OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) se ainda não estiver presente. PuTTY não é suportado no Windows, uma vez que o comando ssh deve estar no caminho.
-
-### <a name="get-the-ip-and-ssh-port-for-your-compute-instance"></a>Obtenha a porta IP e SSH para a sua instância computacional
-
-1. Vá ao estúdio Azure Machine Learning em https://ml.azure.com/ .
-2. Selecione o seu [espaço de trabalho](concept-workspace.md).
-1. Clique no **separador Instâncias computacional.**
-1. Na coluna URI de **aplicação,** clique na ligação **SSH** da instância de computação que pretende utilizar como um cálculo remoto. 
-1. No diálogo, tome nota do endereço IP e da porta SSH. 
-1. Guarde a sua chave privada para o diretório ~/ssh/ no seu computador local; por exemplo, abrir um editor para um novo ficheiro e colar a chave em: 
-
-   **Linux:**
-
-   ```sh
-   vi ~/.ssh/id_azmlcitest_rsa  
-   ```
-
-   **Windows**:
-
-   ```cmd
-   notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa
-   ```
-
-   A chave privada será um pouco assim:
-
-   ```text
-   -----BEGIN RSA PRIVATE KEY-----
-
-   MIIEpAIBAAKCAQEAr99EPm0P4CaTPT2KtBt+kpN3rmsNNE5dS0vmGWxIXq4vAWXD
-   ..... 
-   ewMtLnDgXWYJo0IyQ91ynOdxbFoVOuuGNdDoBykUZPQfeHDONy2Raw==
-
-   -----END RSA PRIVATE KEY-----
-   ```
-
-1. Altere as permissões no ficheiro para se certificar de que só pode ler o ficheiro.  
-
-   ```sh
-   chmod 600 ~/.ssh/id_azmlcitest_rsa
-   ```
-
-### <a name="add-instance-as-a-host"></a>Adicionar instância como hospedeiro
-
-Abra o ficheiro `~/.ssh/config` (Linux) ou `C:\Users<username>.ssh\config` (Windows) num editor e adicione uma nova entrada semelhante ao conteúdo abaixo:
-
-```
-Host azmlci1 
-
-    HostName 13.69.56.51 
-
-    Port 50000 
-
-    User azureuser 
-
-    IdentityFile ~/.ssh/id_azmlcitest_rsa
-```
-
-Aqui alguns detalhes sobre os campos:
-
-|Campo|Descrição|
-|----|---------|
-|Anfitrião|Use a abreviatura que quiser para a instância computacional |
-|Nome do Anfitrião|Este é o endereço IP da instância computacional |
-|Porta|Esta é a porta mostrada no diálogo SSH acima |
-|User|Isto tem de ser `azureuser` |
-|Ficheiro de Identidade|Deve apontar para o ficheiro onde guardou a chave privada |
-
-Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a abreviatura que você usou acima, `ssh azmlci1` .
-
-### <a name="connect-vs-code-to-the-instance"></a>Ligue o Código VS ao caso
-
-1. Clique no ícone Remote-SSH da barra de atividades do Código do Estúdio Visual para mostrar as suas configurações SSH.
-
-1. Clique com o botão direito na configuração do anfitrião SSH que acabou de criar.
-
-1. Selecione **Ligar ao anfitrião na janela atual**. 
-
-A partir de agora, está a trabalhar inteiramente na instância computacional e agora pode editar, depurar, usar git, usar extensões, etc.
 
 ## <a name="next-steps"></a>Passos seguintes
 

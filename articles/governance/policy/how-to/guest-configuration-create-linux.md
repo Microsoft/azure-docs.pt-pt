@@ -1,15 +1,15 @@
 ---
 title: Como criar políticas de Configuração de Convidado para o Linux
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para o Linux.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99525352"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096568"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -90,9 +90,7 @@ A DSC está a agir como um invólucro para a InSpec uniformizar como é executad
 
 O nome da configuração personalizada deve ser consistente em todo o lado. O nome do ficheiro .zip para o pacote de conteúdo, o nome de configuração no ficheiro MOF e o nome de atribuição do convidado no modelo Azure Resource Manager (modelo ARM), deve ser o mesmo.
 
-Os cmdlets PowerShell ajudam na criação do pacote.
-Não é necessária nenhuma pasta de nível de raiz ou pasta de versão.
-O formato do pacote deve ser um ficheiro .zip. e não pode exceder um tamanho total de 100MB quando não for comprimido.
+Os cmdlets PowerShell ajudam na criação do pacote. Não é necessária nenhuma pasta de nível de raiz ou pasta de versão. O formato do pacote deve ser um ficheiro .zip. e não pode exceder um tamanho total de 100 MB quando não for comprimido.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configuração de configuração personalizada do hóspede no Linux
 
@@ -211,7 +209,7 @@ Parâmetros do `Publish-GuestConfigurationPackage` cmdlet:
 - **Caminho**: Localização do pacote a publicar
 - **Nome do Grupo de Recursos**: Nome do grupo de recursos onde se encontra a conta de armazenamento
 - **ArmazenamentoAmeta:** Nome da conta de armazenamento onde o pacote deve ser publicado
-- **StorageContainerName**: (padrão: configuração de *hóspedes)* Nome do recipiente de armazenamento na conta de armazenamento
+- **StorageContainerName**: (padrão: configuração de _hóspedes)_ Nome do recipiente de armazenamento na conta de armazenamento
 - **Força**: Substituição do pacote existente na conta de armazenamento com o mesmo nome
 
 O exemplo abaixo publica o pacote para um nome de recipiente de armazenamento "configuração de hóspedes".
@@ -277,7 +275,7 @@ Com a política criada em Azure, o último passo é atribuir a definição. Veja
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Usando parâmetros nas políticas personalizadas de configuração do hóspede
 
-A Configuração do Hóspede suporta propriedades dominantes de uma Configuração no tempo de execução. Esta funcionalidade significa que os valores no ficheiro MOF na embalagem não têm de ser considerados estáticos. Os valores de sobreposição são fornecidos através da Política Azure e não têm impacto na forma como as Configurações são da autoria ou compiladas.
+A Configuração do Hóspede suporta propriedades dominantes de uma Configuração no tempo de execução. Esta funcionalidade significa que os valores no ficheiro MOF na embalagem não têm de ser considerados estáticos. Os valores de sobreposição são fornecidos através da Política Azure e não alteram a forma como as Configurações são da autoria ou compiladas.
 
 Com o InSpec, os parâmetros são normalmente manuseados como entrada em tempo de execução ou como código usando atributos. A Configuração do Hóspede obfunde este processo para que a entrada possa ser fornecida quando a política é atribuída. Um ficheiro de atributos é automaticamente criado dentro da máquina. Não precisa de criar e adicionar um ficheiro no seu projeto. Existem dois passos para adicionar parâmetros ao seu projeto de auditoria Linux.
 
@@ -350,8 +348,7 @@ Se quiser lançar uma atualização da política, faça a alteração tanto para
 > [!NOTE]
 > A `version` propriedade da atribuição de Configuração de Hóspedes apenas afeta pacotes que são hospedados pela Microsoft. A melhor prática para a versão personalizada é incluir a versão no nome do ficheiro.
 
-Primeiro, ao correr `New-GuestConfigurationPackage` , especifique um nome para o pacote que o torna único a partir de versões anteriores. Pode incluir um número de versão no nome, como `PackageName_1.0.0` .
-O número neste exemplo é utilizado apenas para tornar a embalagem única, não para especificar que a embalagem deve ser considerada mais nova ou mais antiga do que outras embalagens.
+Primeiro, ao correr `New-GuestConfigurationPackage` , especifique um nome para o pacote que o torna único a partir de versões anteriores. Pode incluir um número de versão no nome, como `PackageName_1.0.0` . O número neste exemplo é utilizado apenas para tornar a embalagem única, não para especificar que a embalagem deve ser considerada mais nova ou mais antiga do que outras embalagens.
 
 Em segundo lugar, atualize os parâmetros utilizados com o `New-GuestConfigurationPolicy` cmdlet seguindo cada uma das explicações abaixo.
 

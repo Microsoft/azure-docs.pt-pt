@@ -1,17 +1,17 @@
 ---
 title: Definições políticas incorporadas para aplicações geridas azure
 description: Lista definições de políticas incorporadas para aplicações geridas azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 86577304e7462a421da667fae7ef8e935445dfa3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 333c009fd3149505ede3f5611f5fbb3929bdaed8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036871"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094579"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Definições incorporadas da Política Azure para aplicações geridas azure
 

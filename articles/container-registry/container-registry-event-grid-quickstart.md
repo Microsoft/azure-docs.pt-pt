@@ -4,12 +4,12 @@ description: Neste arranque rápido, você ativa eventos de Grade de Evento para
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b4038bb232c14278e838f2c34706dcc103def7e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3957ff3b0ed01d2375f33c4984cc97a64a3642c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919668"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065111"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Enviar eventos do registo privado de contentores para a Grade de Eventos
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 002a7c61d6760decf65016870739ab62b15d5c72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55bf597d8df18085fc9a500a9213a6abe59fd5e3
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103013691"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108257"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters and dynamic manifests (Filtros e manifestos dinâmicos)
 
@@ -27,7 +27,7 @@ ms.locfileid: "103013691"
 
 > [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
 > * [Versão 2](media-services-dynamic-manifest-overview.md)
-> * [Versão 3](../latest/filters-dynamic-manifest-overview.md)
+> * [Versão 3](../latest/filters-dynamic-manifest-concept.md)
 
 A partir do lançamento 2.17, os Serviços de Media permitem definir filtros para os seus ativos. Estes filtros são regras do lado do servidor que permitirão que os seus clientes optem por fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações áudio e vídeo que o dispositivo do seu cliente pode manusear (em vez de todas as representações que estão associadas ao ativo). Esta filtragem dos seus ativos é conseguida através do **Dynamic Manifest** s que são criados a pedido do seu cliente para transmitir um vídeo com base em filtros especificados.
 

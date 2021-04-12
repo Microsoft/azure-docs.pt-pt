@@ -1,33 +1,27 @@
 ---
-title: Mitigar a injustiça nos modelos de aprendizagem automática (pré-visualização)
+title: Justiça de aprendizagem automática (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre a equidade nos modelos de machine learning e como o pacote Fairlearn Python pode ajudá-lo a construir modelos mais justos.
+description: Saiba mais sobre a justiça da aprendizagem automática e como o pacote Fairlearn Python pode ajudá-lo a avaliar e mitigar a injustiça.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 01/26/2021
+ms.date: 04/02/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45c63780eac021301e5b01c0ff8abea7d704a4cf
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101659686"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220526"
 ---
-# <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Mitigar a injustiça nos modelos de aprendizagem automática (pré-visualização)
+# <a name="machine-learning-fairness-preview"></a>Justiça de aprendizagem automática (pré-visualização)
 
-Saiba mais sobre a equidade na aprendizagem automática e como o pacote Detona de código aberto [fairlearn](https://fairlearn.github.io/) pode ajudá-lo a mitigar problemas de injustiça em modelos de aprendizagem automática. Se não está a fazer um esforço para compreender as questões de equidade e avaliar a equidade na construção de modelos de aprendizagem automática, pode construir modelos que produzam resultados injustos.
+Saiba mais sobre a justiça da aprendizagem automática e como o pacote Detona de código aberto [fairlearn](https://fairlearn.github.io/) pode ajudá-lo a avaliar e mitigar problemas de injustiça em modelos de aprendizagem automática. 
 
-O seguinte resumo do guia de [utilizador](https://fairlearn.github.io/main/user_guide/index.html) para o pacote fairlearn open-source, descreve como usá-lo para avaliar a equidade dos sistemas de IA que está a construir.  O pacote fairlearn open-source também pode oferecer opções para ajudar a mitigar, ou ajudar a reduzir, quaisquer problemas de equidade que você observa.  Consulte os cadernos [de como fazer](how-to-machine-learning-fairness-aml.md) e [amostrar](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para permitir a avaliação da equidade dos sistemas de IA durante a formação em Azure Machine Learning.
-
-
-## <a name="what-is-fairness-in-machine-learning-models"></a>O que é a equidade nos modelos de aprendizagem automática?
-
->[!NOTE]
-> A justiça é um desafio sociotérmico. Muitos aspetos da equidade, como a justiça e o devido processo, não são capturados em métricas de justiça quantitativa. Além disso, muitas métricas de justiça quantitativa não podem ser satisfeitas simultaneamente. O objetivo com o pacote fairlearn open-source é permitir que os humanos avaliem diferentes estratégias de impacto e mitigação. Em última análise, cabe aos utilizadores humanos construir em inteligência artificial e modelos de machine learning fazer trocas adequadas ao seu cenário.
+## <a name="what-is-machine-learning-fairness"></a>O que é a justiça da aprendizagem automática?
 
 A inteligência artificial e os sistemas de aprendizagem automática podem apresentar comportamentos injustos. Uma maneira de definir comportamentos injustos é pelo seu dano, ou impacto nas pessoas. Há muitos tipos de danos que os sistemas de IA podem dar origem. Veja o [keynote NeurIPS 2017 de Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk) para saber mais.
 
@@ -42,6 +36,9 @@ Para reduzir comportamentos injustos nos sistemas de IA, é preciso avaliar e mi
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Avaliação e mitigação da equidade com Fairlearn
 
 Fairlearn é um pacote python de código aberto que permite aos desenvolvedores de sistemas de aprendizagem automática avaliar a equidade dos seus sistemas e mitigar a injustiça.
+
+>[!NOTE]
+> A justiça é um desafio sociotérmico. Muitos aspetos da equidade, como a justiça e o devido processo, não são capturados em métricas de justiça quantitativa. Além disso, muitas métricas de justiça quantitativa não podem ser satisfeitas simultaneamente. O objetivo com o pacote fairlearn open-source é permitir que os humanos avaliem diferentes estratégias de impacto e mitigação. Em última análise, cabe aos utilizadores humanos construir em inteligência artificial e modelos de machine learning fazer trocas adequadas ao seu cenário.
 
 O pacote fairlearn open-source tem dois componentes:
 
@@ -91,8 +88,6 @@ O pacote fairlearn open-source suporta os seguintes tipos de restrições de par
 |Igualdade de oportunidades | Alocação de diagnóstico e danos de qualidade de serviço | Classificação binária        |
 |Perda de grupo limitada     |  Mitigar danos de qualidade de serviço | Regressão |
 
-
-
 ### <a name="mitigation-algorithms"></a>Algoritmos de mitigação
 
 O pacote fairlearn open-source fornece algoritmos de mitigação pós-processamento e redução de injustiças:
@@ -100,7 +95,7 @@ O pacote fairlearn open-source fornece algoritmos de mitigação pós-processame
 - Redução: Estes algoritmos tomam um estimador padrão de aprendizagem de máquinas de caixa preta (por exemplo, um modelo LightGBM) e geram um conjunto de modelos retreinados usando uma sequência de conjuntos de dados de treino re-ponderados. Por exemplo, os candidatos de um determinado género podem ser ponderados ou ponderados para reformular modelos e reduzir as disparidades entre diferentes grupos de género. Os utilizadores podem então escolher um modelo que proporcione a melhor compensação entre precisão (ou outra métrica de desempenho) e disparidade, que geralmente teria de se basear em regras de negócio e cálculos de custos.  
 - Pós-processamento: Estes algoritmos tomam um classificador existente e a característica sensível como entrada. Em seguida, derivam uma transformação da previsão do classificador para impor as restrições de equidade especificadas. A maior vantagem da otimização dos limiares é a sua simplicidade e flexibilidade, uma vez que não necessita de reconverter o modelo. 
 
-| Algoritmo | Description | Tarefa de aprendizagem automática | Características sensíveis | Restrições de paridade apoiadas | Tipo de algoritmo |
+| Algoritmo | Descrição | Tarefa de aprendizagem automática | Características sensíveis | Restrições de paridade apoiadas | Tipo de algoritmo |
 | --- | --- | --- | --- | --- | --- |
 | `ExponentiatedGradient` | Abordagem da caixa preta para uma classificação justa descrita na [Abordagem de Reduções A para classificação justa](https://arxiv.org/abs/1803.02453) | Classificação binária | Categórico | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Redução |
 | `GridSearch` | Abordagem da caixa preta descrita na [abordagem de reduções a uma classificação justa](https://arxiv.org/abs/1803.02453)| Classificação binária | Binário | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Redução |
