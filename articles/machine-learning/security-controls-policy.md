@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para a aprendizagem automática Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para Azure Machine Learning. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 author: BlackMist
 ms.author: larryfr
 ms.service: machine-learning
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: fadbd6384a06184e1d2636c76a575e2c3c62a9f4
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 9e819b743be4d4efd55278fdf1cc718017f6d4c2
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105034368"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096368"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-machine-learning"></a>Controlos de conformidade regulamentar da política Azure para a aprendizagem automática Azure
 

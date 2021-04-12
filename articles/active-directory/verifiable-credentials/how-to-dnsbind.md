@@ -1,5 +1,5 @@
 ---
-title: Ligue o seu Domínio ao seu Identificador Descentralizado (DID) (pré-visualização)
+title: Ligue o seu Domínio ao seu Identificador Descentralizado (DID) (pré-visualização) - Azure Ative Directory Verifiable Credenciais
 description: Aprender a DNS Bind?
 documentationCenter: ''
 author: barclayn
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: be7db16a8e3a827d08c0db637961bf004af1d621
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 90ea52b0ed5ee2d8e36caab18491eecd6e1295fd
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170241"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222820"
 ---
-# <a name="link-your-domain-to-your-decentralized-identifier-did"></a>Ligue o seu Domínio ao seu Identificador Descentralizado (DID)
+# <a name="link-your-domain-to-your-decentralized-identifier-did"></a>Ligue o seu domínio ao seu Identificador Descentralizado (DID)
 
 > [!IMPORTANT]
 > Azure Ative Directory Verifiable Credentials está atualmente em pré-visualização pública.
@@ -81,11 +81,11 @@ Depois de ter o conhecido ficheiro de configuração, tem de disponibilizar o fi
 >[!IMPORTANT]
 >O Microsoft Authenticator não honra os redirecionamentos, o URL especificado deve ser o URL de destino final.
 
-## <a name="user-experience"></a>Experiência do Utilizador 
+## <a name="user-experience"></a>Experiência do utilizador 
 
 Quando um utilizador está a passar por um fluxo de emissão ou a apresentar uma credencial verificável, deve saber algo sobre a organização e o seu DID. Se o domínio da nossa carteira credencial verificável, o Microsoft Authenticator, validar a relação de um DID com o domínio no documento DID e apresentar aos utilizadores duas experiências diferentes dependendo do resultado.
 
-## <a name="verified-domain"></a>Domínio Verificado
+## <a name="verified-domain"></a>Domínio verificado
 
 Antes de o Microsoft Authenticator apresentar um ícone **verificado,** algumas coisas têm de ser verdadeiras:
 

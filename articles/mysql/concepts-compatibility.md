@@ -6,16 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: cba9615a8c76387b593109bc2174ab4718f1750a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 59f70659f25f925f8f802b0fcaa1f61d4e7f7dc0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609314"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106943"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Condutores e ferramentas de gestão MySQL compatíveis com a Base de Dados Azure para o MySQL
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
-Este artigo descreve os controladores e ferramentas de gestão compatíveis com a Base de Dados Azure para o MySQL.
+
+Este artigo descreve os controladores e ferramentas de gestão compatíveis com a Base de Dados Azure para o MySQL Single Server.
+
+>[!NOTE]
+>Este artigo é apenas aplicável à Base de Dados Azure para o MySQL Single Server para garantir que os controladores são compatíveis com [a arquitetura](concepts-connectivity-architecture.md) de conectividade do serviço Single Server. [A base de dados Azure para o MySQL Flexible Server](/../flexible-server/overview.md) é compatível com todos os controladores e ferramentas suportadas e compatíveis com a edição comunitária MySQL. 
 
 ## <a name="mysql-drivers"></a>Motoristas MySQL
 A Azure Database for MySQL usa a edição comunitária mais popular do mundo da base de dados MySQL. Portanto, é compatível com uma grande variedade de linguagens de programação e motoristas. O objetivo é apoiar as três versões mais recentes dos condutores do MySQL, e os esforços com autores da comunidade de código aberto para melhorar constantemente a funcionalidade e usabilidade dos condutores do MySQL continuam. Está fornecida no quadro do seguinte quadro uma lista de condutores que tenham sido testados e que se encontrem compatíveis com a Base de Dados Azure para o MySQL 5.6 e 5.7:

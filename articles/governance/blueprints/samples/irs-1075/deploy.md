@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta de IRS 1075
 description: Implementar etapas para a amostra de planta do IRS 1075 (Rev.11-2016), incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 6df2781207c623e10daf0681865b9246be1b1f4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32aae11b53c38ef614fa1826cbc4c97cffaaf80c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571921"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386539"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Implementar a amostra de planta do IRS 1075
 

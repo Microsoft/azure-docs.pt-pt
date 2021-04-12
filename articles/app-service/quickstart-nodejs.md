@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b1ff02d6a9b3e8c7b7abaf1b185a9becd2be12b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735119"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105838"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -313,11 +313,11 @@ Pode implementar alterações nesta aplicação utilizando o mesmo processo e es
 
 Nesta secção, aprende-se a visualizar (ou "cauda") os registos da aplicação de Serviço de Aplicações em execução. Quaisquer chamadas `console.log` na aplicação são apresentadas na janela de saída no Código do Estúdio Visual.
 
-Encontre a aplicação no explorador do **Serviço de APLICAÇÕES AZURE,** clique com o botão direito na aplicação e escolha **Ver Registos de Streaming.**
+Encontre a aplicação no explorador do **Serviço de APLICAÇÕES AZURE,** clique com o botão direito na aplicação e escolha **Iniciar Registos de Streaming.**
 
 A janela de saída do código VS abre-se com uma ligação ao fluxo de registo.
 
-![Ver Registos de Streaming](./media/quickstart-nodejs/view-logs.png)
+![Iniciar registos de streaming](./media/quickstart-nodejs/view-logs.png)
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot do pedido do Código VS para ativar a gravação de ficheiros e reiniciar a aplicação web, com o botão sim selecionado.":::
 

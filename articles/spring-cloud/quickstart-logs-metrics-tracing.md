@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 75c50e6342a00ef37215d9e961503dd7ffb0d205
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4cc7c91e8bbc959c15e18503a9f715d84d1472e1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879338"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256179"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio
 
@@ -72,6 +72,8 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 1. Em `Run` seguida, selecione , e verá registos. Consulte [os docs Azure Log Analytics](../azure-monitor/logs/get-started-queries.md) para obter mais orientações sobre consultas de escrita.
 
    [![Logs Analítica consulta - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
+
+1. Para saber mais sobre a linguagem de consulta que é usada no Log Analytics, consulte as consultas de registo do [Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos os seus registos log analytics de um cliente centralizado, consulte [o Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Métricas
 
@@ -138,7 +140,7 @@ Verá troncos como este:
 > [!TIP]
 > Use `az spring-cloud app logs -h` para explorar mais parâmetros e funcionalidades de fluxo de log.
 
-#### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
+#### <a name="intellij"></a>[Intellij](#tab/IntelliJ)
 
 Para obter os registos usando O Kit de Ferramentas Azure para IntelliJ:
 
@@ -168,6 +170,8 @@ Para obter os registos usando O Kit de Ferramentas Azure para IntelliJ:
 1. Então verá troncos filtrados. Consulte [os docs Azure Log Analytics](../azure-monitor/logs/get-started-queries.md) para obter mais orientações sobre consultas de escrita.
 
    [![Logs Consulta de analítica ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
+
+1. Para saber mais sobre a linguagem de consulta que é usada no Log Analytics, consulte as consultas de registo do [Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos os seus registos log analytics de um cliente centralizado, consulte [o Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Métricas
 

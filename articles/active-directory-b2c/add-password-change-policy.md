@@ -12,12 +12,12 @@ ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 21da8f79772d9648836bedec89cb5d7014486dc6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cd63144074577d4ff3564da41e672dd1ca226dcb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798364"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257165"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a mudança de senha usando políticas personalizadas no Azure Ative Directory B2C
 
@@ -43,7 +43,7 @@ No Azure Ative Directory B2C (Azure AD B2C), pode permitir que os utilizadores q
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Complete os passos em [Começar com políticas personalizadas no Ative Directory B2C.](custom-policy-get-started.md)
+* Complete os passos em [Começar com políticas personalizadas no Ative Directory B2C.](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 * Se ainda não o fez, [registe uma aplicação web no Azure Ative Directory B2C](tutorial-register-applications.md).
 
 ## <a name="add-the-elements"></a>Adicione os elementos

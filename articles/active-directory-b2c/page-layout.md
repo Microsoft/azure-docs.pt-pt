@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc52414fa0d2eeffe0381a68bd66eadafe4862ea
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 8469e05b82a651760829761ca57af3bdb1b256a9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781284"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443411"
 ---
 # <a name="page-layout-versions"></a>Versões do esquema de página
 
@@ -33,6 +33,13 @@ O layout da página AD B2C do Azure utiliza a seguinte versão da [biblioteca jQ
 |1.1.0 | 1.10.2 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Página autoafirmada (autoasserida)
+
+**2.1.4**
+- Versão jQuery atualizada para 3.5.1.
+- Versão atualizada do HandlebarJS para 4.7.6.
+
+**2.1.3**
+- Correções de segurança.
 
 **2.1.2**
 - Corrigiu a questão da codificação da localização para línguas como o espanhol e o francês.
@@ -87,6 +94,14 @@ O layout da página AD B2C do Azure utiliza a seguinte versão da [biblioteca jQ
 > [!TIP]
 > Se você localizar a sua página para suportar vários locais, ou idiomas em um fluxo de utilizador. O artigo [de localização IDs](localization-string-ids.md) fornece a lista de IDs de localização que pode usar para a versão de página que seleciona.
 
+**2.1.4**
+- Versão jQuery atualizada para 3.5.1.
+- Versão atualizada do HandlebarJS para 4.7.6.
+
+**2.1.3**
+- Correções de segurança.
+- Pequenas correções de insetos.
+
 **2.1.2**
 - Corrigiu a questão da codificação da localização para línguas como o espanhol e o francês.
 - Permitindo que o link "esqueceu-se da palavra-passe" para usar como troca de reclamações. Para obter mais informações, consulte [a palavra-passe self-service reposta](add-password-reset-policy.md#self-service-password-reset-recommended).
@@ -126,6 +141,15 @@ O layout da página AD B2C do Azure utiliza a seguinte versão da [biblioteca jQ
 
 ## <a name="mfa-page-multifactor"></a>Página MFA (multifactor)
 
+**1.2.4**
+- Versão jQuery atualizada para 3.5.1.
+- Versão atualizada do HandlebarJS para 4.7.6.
+
+**1.2.3**
+- Permitir a sobreposição da corda da ponta da ferramenta através da localização do idioma.
+- Correções de segurança.
+- Pequenas correções de insetos.
+
 **1.2.2**
 - Corrigiu um problema com o preenchimento automático do código de verificação ao utilizar o iOS.
 - Corrigi um problema com a reorientação de um token para a parte de confiante do Android Webview. 
@@ -162,6 +186,10 @@ O layout da página AD B2C do Azure utiliza a seguinte versão da [biblioteca jQ
 
 ## <a name="exception-page-globalexception"></a>Página de Exceção (globalexception)
 
+**1.2.1**
+- Versão jQuery atualizada para 3.5.1.
+- Versão atualizada do HandlebarJS para 4.7.6.
+
 **1.2.0**
 
 - Correções de acessibilidade
@@ -182,6 +210,10 @@ O layout da página AD B2C do Azure utiliza a seguinte versão da [biblioteca jQ
 - Versão inicial
 
 ## <a name="other-pages-providerselection-claimsconsent-unifiedssd"></a>Outras páginas (ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.1**
+- Versão jQuery atualizada para 3.5.1.
+- Versão atualizada do HandlebarJS para 4.7.6.
 
 **1.2.0**
 

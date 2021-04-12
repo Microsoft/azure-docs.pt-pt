@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0072e699107ea51764a728ce3e9987b86b2a6806
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97032529"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492329"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação Azure IoT Central
 
@@ -156,17 +156,17 @@ Para eliminar um dispositivo real ou simulado da sua aplicação Azure IoT Centr
 
 ## <a name="change-a-property"></a>Alterar um imóvel
 
-As propriedades da nuvem são os metadados do dispositivo associados ao dispositivo, como o número de cidade e de série. As propriedades em nuvem só existem na aplicação IoT Central e não estão sincronizadas com os seus dispositivos. As propriedades despudoráveis controlam o comportamento de um dispositivo e permitem definir o estado de um dispositivo remotamente, por exemplo, definindo a temperatura-alvo de um dispositivo termóstato.  As propriedades do dispositivo são definidas pelo dispositivo e são apenas de leitura dentro da IoT Central. Pode visualizar e atualizar propriedades nas **vistas de Detalhes** do Dispositivo para o seu dispositivo.
+As propriedades da nuvem são os metadados do dispositivo associados ao dispositivo, como o número de cidade e de série. As propriedades em nuvem só existem na aplicação IoT Central e não estão sincronizadas com os seus dispositivos. As propriedades writable controlam o comportamento de um dispositivo e permitem definir o estado de um dispositivo remotamente, por exemplo, definindo a temperatura-alvo de um dispositivo termóstato.  As propriedades do dispositivo são definidas pelo dispositivo e são apenas de leitura dentro da IoT Central. Pode visualizar e atualizar propriedades nas **vistas de Detalhes** do Dispositivo para o seu dispositivo.
 
 1. Escolha **dispositivos** no painel esquerdo.
 
 1. Escolha o modelo de dispositivo do dispositivo cujas propriedades pretende alterar e selecione o dispositivo alvo.
 
-1. Escolha a vista que contém propriedades para o seu dispositivo, esta vista permite-lhe inserir valores e selecione **Guardar** no topo da página. Aqui vê as propriedades que o seu dispositivo tem e os seus valores atuais. As propriedades em nuvem e as propriedades escritas têm campos editáveis, enquanto as propriedades do dispositivo são apenas de leitura. Para propriedades escritas, pode ver o seu estado de sincronização na parte inferior do campo. 
+1. Escolha a vista que contém propriedades para o seu dispositivo, esta vista permite-lhe inserir valores e selecione **Guardar** no topo da página. Aqui vê as propriedades que o seu dispositivo tem e os seus valores atuais. As propriedades em nuvem e as propriedades writable têm campos editáveis, enquanto as propriedades do dispositivo são apenas de leitura. Para propriedades writable, você pode ver o seu estado de sincronização na parte inferior do campo. 
 
 1. Modifique as propriedades para os valores de que necessita. Pode modificar várias propriedades de cada vez e atualizá-las todas ao mesmo tempo.
 
-1. Escolha **guardar**. Se guardar propriedades escritas, os valores são enviados para o seu dispositivo. Quando o dispositivo confirmar a alteração da propriedade escrita, o estado volta a **ser sincronizado**. Se guardou uma propriedade na nuvem, o valor é atualizado.
+1. Escolha **guardar**. Se guardar propriedades writable, os valores são enviados para o seu dispositivo. Quando o dispositivo confirmar a alteração da propriedade por si, o estado volta a **ser sincronizado**. Se guardou uma propriedade na nuvem, o valor é atualizado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,21 +1,21 @@
 ---
 title: Visão geral da ingestão - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Saiba mais sobre a ingestão de dados na Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2b76490ab23cb14755f6f90a27ec8b176bb30a11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b688bbf454b3df9f6ae368c66a62657a5522d720
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780030"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505455"
 ---
 # <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Azure Time Series Insights Gen2 data ingestion visão geral
 

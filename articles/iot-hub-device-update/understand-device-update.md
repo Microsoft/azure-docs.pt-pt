@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 092078a79124682f7ee5c7824d4f7906c6e35475
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 95cecd66f4d0164594eb4e8da9efe765b5833e5e
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558504"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120780"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Atualização do dispositivo para IoT Hub (Visualização) Visão geral
 
@@ -80,7 +80,7 @@ Quando um comando de atualização é recebido num dispositivo, executará a fas
 
 ### <a name="importing"></a>Importação
 
-Importar é como as suas atualizações são ingeridas na Atualização do Dispositivo para que possam ser implementadas em dispositivos. A Atualização do Dispositivo suporta a localização de uma única atualização por dispositivo. Isto torna-o ideal para atualizações de imagem completa que atualizam uma partição de SO inteira de uma só vez, ou um Manifesto apto que descreve todos os pacotes que pretende atualizar no seu dispositivo. Para importar atualizações para a Atualização do Dispositivo, primeiro cria um manifesto de importação que descreve a atualização, depois carreca os ficheiros de atualização e o manifesto de importação para um local acessível à Internet. Depois disso, pode utilizar o portal Azure ou a [API de API de ATUALIZAÇÃO](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) de Dispositivos para iniciar o processo assíncrono de importação de atualização. A Atualização do Dispositivo faz o upload dos ficheiros, processa-os e disponibiliza-os para distribuição em dispositivos IoT.
+Importar é como as suas atualizações são ingeridas na Atualização do Dispositivo para que possam ser implementadas em dispositivos. A Atualização do Dispositivo suporta a localização de uma única atualização por dispositivo. Isto torna-o ideal para atualizações de imagem completa que atualizam uma partição de SO inteira de uma só vez, ou um Manifesto apto que descreve todos os pacotes que pretende atualizar no seu dispositivo. Para importar atualizações para a Atualização do Dispositivo, primeiro cria um manifesto de importação que descreve a atualização, depois carreca os ficheiros de atualização e o manifesto de importação para um local acessível à Internet. Depois disso, pode utilizar o portal Azure ou a [API de Atualização](https://docs.microsoft.com/rest/api/deviceupdate/) do Dispositivo para iniciar o processo assíncrono de importação de atualização. A Atualização do Dispositivo faz o upload dos ficheiros, processa-os e disponibiliza-os para distribuição em dispositivos IoT.
 
 Para conteúdos sensíveis, proteja o download utilizando uma assinatura de acesso partilhado (SAS), como um SAS ad-hoc para armazenamento Azure Blob. [Saiba mais sobre o SAS](../storage/common/storage-sas-overview.md)
 

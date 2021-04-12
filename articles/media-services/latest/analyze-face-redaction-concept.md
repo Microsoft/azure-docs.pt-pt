@@ -1,6 +1,6 @@
 ---
-title: Redact enfrenta em Azure Media Services v3 API | Microsoft Docs
-description: O Azure Media Services v3 fornece uma predefinição de deteção facial e redação que lhe permite submeter um ficheiro de vídeo, detetar rostos e aplicar-lhes desfocagem num único passe combinado, ou através de uma operação de duas fases que permite a edição. Este artigo demonstra como redigir rostos com a predefinição do Detetor facial na API v3.
+title: Encontre e redirecione rostos em Azure Media Services v3 API | Microsoft Docs
+description: O Azure Media Services v3 fornece uma predefinição de deteção facial e redação (borrão) que lhe permite submeter um ficheiro de vídeo, detetar rostos e aplicar opcionalmente a redação (desfocagem) a eles num único passe combinado, ou através de uma operação de dois estágios que permite a edição. Este artigo demonstra como encontrar e redigir rostos com a predefinição do Detetor de Rosto na API v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6db93aa369366936c90446c41406eafe9ee6e414
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 4907a81fc8cb55499fa97f2b02a3e19e7117bbbc
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630489"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286390"
 ---
-# <a name="redact-faces-with-the-face-detector-preset"></a>Faces de redact com a predefinição do detetor de rosto
+# <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Encontrar e redigir rostos (borrão) com a predefinição do Detetor facial
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -29,10 +29,11 @@ A Azure Media Services v3 API inclui uma predefinição do Detetor facial que of
 
 Este artigo dá detalhes sobre **a predefinição do detetor de rosto** e mostra como usá-lo com Azure Media Services SDK para .NET.
 
+[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
+
 ## <a name="compliance-privacy-and-security"></a>Conformidade, privacidade e segurança
  
 Como um lembrete importante, deve cumprir todas as leis aplicáveis na sua utilização de analítica nos Serviços de Media Azure. Não deve utilizar a Azure Media Services ou qualquer outro serviço Azure de forma a violar os direitos dos outros. Antes de enviar quaisquer vídeos, incluindo quaisquer dados biométricos, para o serviço Azure Media Services para processamento e armazenamento, você deve ter todos os direitos adequados, incluindo todos os consentimentos apropriados, dos indivíduos no vídeo. Para conhecer o cumprimento, privacidade e segurança nos Serviços Azure Media, os Termos dos [Serviços Cognitivos](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)Azure. Para as obrigações de privacidade da Microsoft e tratamento dos seus dados, reveja a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os [Termos dos Serviços Online](https://www.microsoft.com/licensing/product-licensing/products) (OST) e a [adenda ao processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Mais informações sobre privacidade, incluindo sobre a retenção de dados, eliminação/destruição, estão disponíveis no OST e [aqui.](../video-indexer/faq.md) Ao utilizar os Serviços de Media Azure, concorda em ficar vinculado pelos Termos dos Serviços Cognitivos, o OST, o DPA e a Declaração de Privacidade
-
 
 ## <a name="face-redaction-modes"></a>Modos de redação de rosto
 
@@ -147,9 +148,6 @@ Exemplo foo_IDList.txt
 No modo **Combinado** ou **Redact,** existem cinco modos de borrão diferentes que pode escolher através da configuração de entrada JSON: **Baixo,** **Med,** **High,** **Box** e **Preto**. Por **defeito, Med** é usado.
 
 Pode encontrar amostras dos tipos de borrão abaixo.
-
-### <a name="example-settings-for-face-detector-preset"></a>Definições de exemplo para predefinição do detetor de rosto
-[!code-csharp[Main](../../../media-services-v3-dotnet/VideoAnalytics/FaceRedactor/Program.cs#FaceDetectorPreset)]
 
 
 #### <a name="low"></a>Baixo

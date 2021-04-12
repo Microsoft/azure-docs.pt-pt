@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: 7662ef5c2c3f5ed20069f64781d222ae44e52168
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384844"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490969"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com Gateway de aplicação
 
@@ -158,6 +158,14 @@ Um conjunto de regras de reescrita contém:
       * **Caminho URL**: O valor para o qual o caminho deve ser reescrito. 
       * **Url Query String**: O valor a que a cadeia de consulta deve ser reescrita. 
       * **Reavalie o mapa do caminho**: Usado para determinar se o mapa do caminho URL deve ser reavaliado ou não. Se for mantido sem controlo, o caminho URL original será usado para corresponder ao padrão do caminho no mapa do caminho URL. Se for definido como verdadeiro, o mapa do caminho url será reavaliado para verificar a correspondência com o caminho reescrito. Ativar este interruptor ajuda a encaminhar o pedido para uma reescrita diferente do backend pool post.
+
+## <a name="rewrite-configuration-common-pitfall"></a>Reescrever configuração de armadilhas comuns
+
+* Não é permitido permitir a "reavaliação do mapa do caminho" para regras básicas de encaminhamento de pedidos. Isto é para evitar um ciclo de avaliação infinito para uma regra básica de encaminhamento.
+
+* Tem de haver pelo menos 1 regra de reescrita condicional ou 1 regra de reescrita que não tenha "mapa de caminhos reavaliados" habilitado para regras de encaminhamento baseadas em caminhos para evitar um ciclo de avaliação infinito para uma regra de encaminhamento baseada em caminhos.
+
+* Os pedidos de entrada seriam encerrados com um código de erro de 500 caso um loop fosse criado dinamicamente com base nas entradas do cliente. O Gateway de Aplicação continuará a servir outros pedidos sem qualquer degradação em tal cenário.
 
 ### <a name="using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku"></a>Utilizando a reescrita de URL ou a reescrita do cabeçalho do anfitrião com firewall de aplicação web (WAF_v2 SKU)
 

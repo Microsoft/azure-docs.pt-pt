@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/04/2021
-ms.openlocfilehash: 7ffb5a3dfd23a1515c6d21784b82ccdbf0674f0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb954a32a4e598c45578d4b06606bc133babb50d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593412"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107157"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de co-venda da OCP GTM para o mercado comercial
 
@@ -32,7 +32,7 @@ Como parceiro da Microsoft inscrito no mercado comercial, pode:
 Certifique-se de que tem uma subscrição ativa da Microsoft Partner Network e está inscrito no mercado comercial no Partner Center.
 
 - Junte-se à Rede de Parceiros da Microsoft [sem custos.](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) Como parceiro, terá acesso a recursos exclusivos, programas, ferramentas e conexões para fazer crescer o seu negócio.
-- Se não tiver uma conta no mercado comercial, [inscreva-se agora](partner-center-portal/create-account.md) para continuar a co-venda com a Microsoft e aceder a toda a experiência de publicação.
+- Se não tiver uma conta no mercado comercial, [inscreva-se agora](create-account.md) para continuar a co-venda com a Microsoft e aceder a toda a experiência de publicação.
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>Publicar atualizações para obter o estatuto de co-venda-ready
 
@@ -45,7 +45,7 @@ Depois de se matricular no mercado comercial, prepare-se para migrar as suas sol
 
 Siga estes passos antes de importar as suas soluções da OCP GTM:
 
-1. Visite a lista de [editores](https://partner.microsoft.com/dashboard/account/v3/publishers/list)da sua empresa. Inclui o proprietário da conta, gestores e desenvolvedores que têm acesso editorial. Saiba mais sobre [as funções de utilizador do Partner Center](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
+1. Visite a lista de [editores](https://partner.microsoft.com/dashboard/account/v3/publishers/list)da sua empresa. Inclui o proprietário da conta, gestores e desenvolvedores que têm acesso editorial. Saiba mais sobre [as funções de utilizador do Partner Center](user-roles.md).
 2. Peça a um dos contactos listados para [adicionar utilizadores](https://partner.microsoft.com/dashboard/account/usermanagement) ao mercado comercial como *gestores* ou *desenvolvedores,* uma vez que apenas estas funções podem editar e publicar soluções.
 3. Trabalhe com os seus desenvolvedores para mover as suas soluções da sua conta OCP GTM para o mercado comercial.
 4. Decida qual dos seguintes pretende fazer:
@@ -97,7 +97,7 @@ Selecione esta opção quando tiver uma solução OCP GTM que ainda não tenha u
 
     [![O separador Action 1 do processo de migração.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
-1. No **separador Action 2,** selecione o perfil do [editor](partner-center-portal/create-account.md) da lista fornecida. Se não tiver uma conta de editor, crie uma no [Partner Center,](https://partner.microsoft.com/solutions/migration)selecione-a aqui.
+1. No **separador Action 2,** selecione o perfil do [editor](create-account.md) da lista fornecida. Se não tiver uma conta de editor, crie uma no [Partner Center,](https://partner.microsoft.com/solutions/migration)selecione-a aqui.
 
     [![O separador Action 2 do processo de migração.](media/co-sell-migrate/action-2-migrate.png)](media/co-sell-migrate/action-2-migrate.png#lightbox)
 

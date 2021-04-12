@@ -32,6 +32,8 @@
     - name: Atribuir uma política - modelo do ARM
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: Atribuir uma apólice - Bicep
+      href: ./assign-policy-bicep.md
     - name: Atribuir uma política - Terraform
       displayName: 'assign, compliance, hcl, provider'
       href: ./assign-policy-terraform.md

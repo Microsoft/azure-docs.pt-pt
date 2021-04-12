@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 257855b4f7b1fae56ed8d6a063acfb0588da9b6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af6adcf408c9790b09830e986cd1cac00774a2ec
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92123325"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491938"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Utilize fluxos de trabalho para integrar a sua aplicação Azure IoT Central com outros serviços na nuvem
 
@@ -180,14 +180,14 @@ Utilize esta ação para atualizar os valores de propriedade na nuvem para um di
 
 ### <a name="update-device-properties"></a>Atualizar as propriedades do dispositivo
 
-Utilize esta ação para atualizar valores de propriedades escritas para um dispositivo específico.
+Utilize esta ação para atualizar os valores de propriedade writable para um dispositivo específico.
 
 | Campo | Descrição |
 | ----- | ----------- |
 | Aplicação | Escolha na sua lista de aplicações IoT Central. |
 | Dispositivo | A identificação única do dispositivo para apagar. |
 | Modelo de dispositivo | Escolha entre a lista de modelos de dispositivo na sua aplicação IoT Central. |
-| Propriedades escritas | Depois de escolher um modelo de dispositivo, é adicionado um campo para cada propriedade escrita definida no modelo. |
+| Propriedades writable | Depois de escolher um modelo de dispositivo, é adicionado um campo para cada propriedade escrita no modelo. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

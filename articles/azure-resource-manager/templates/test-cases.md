@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97674047"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064156"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de teste predefinidos para o kit de ferramentas de teste do modelo ARM
 
-Este artigo descreve os testes predefinidos que são executados com o [kit de ferramentas de teste do modelo](test-toolkit.md). Fornece exemplos que passam ou falham no teste. Inclui o nome de cada teste.
+Este artigo descreve os testes predefinidos que são executados com o [kit de ferramentas de teste do modelo](test-toolkit.md) para modelos Azure Resource Manager (modelos ARM). Fornece exemplos que passam ou falham no teste. Inclui o nome de cada teste. Para realizar um teste específico, consulte [os parâmetros do teste](test-toolkit.md#test-parameters).
 
 ## <a name="use-correct-schema"></a>Use o esquema correto
 
@@ -137,7 +137,7 @@ O exemplo que **se segue passa** neste teste.
 
 Nome do teste: **Localização não deve ser codificada**
 
-Os seus modelos devem ter um parâmetro chamado localização. Utilize este parâmetro para definir a localização dos recursos no seu modelo. No modelo principal (nomeado azuredeploy.jsem ou mainTemplate.js), este parâmetro pode predefinir a localização do grupo de recursos. Em modelos ligados ou aninhados, o parâmetro de localização não deve ter uma localização padrão.
+Os seus modelos devem ter um parâmetro chamado localização. Utilize este parâmetro para definir a localização dos recursos no seu modelo. No modelo principal (nomeado _azuredeploy.jsem_ ou _mainTemplate.js),_ este parâmetro pode predefinir-se à localização do grupo de recursos. Em modelos ligados ou aninhados, o parâmetro de localização não deve ter uma localização padrão.
 
 Os utilizadores do seu modelo podem ter regiões limitadas à sua disposição. Quando codificar a localização do recurso, os utilizadores podem estar impedidos de criar um recurso nessa região. Os utilizadores podem ser bloqueados mesmo que desemalte a localização do recurso para `"[resourceGroup().location]"` . O grupo de recursos pode ter sido criado numa região a que outros utilizadores não podem aceder. Esses utilizadores estão impedidos de usar o modelo.
 
@@ -393,11 +393,11 @@ Quando incluir parâmetros para `_artifactsLocation` `_artifactsLocationSasToken
 * se fornecer um parâmetro, deve fornecer o outro
 * `_artifactsLocation` deve ser uma **corda**
 * `_artifactsLocation` deve ter um valor padrão no modelo principal
-* `_artifactsLocation` não pode ter um valor padrão em um modelo aninhado 
+* `_artifactsLocation` não pode ter um valor padrão em um modelo aninhado
 * `_artifactsLocation` deve ter um `"[deployment().properties.templateLink.uri]"` ou o URL de repo cru para o seu valor padrão
 * `_artifactsLocationSasToken` deve ser um **secureString**
 * `_artifactsLocationSasToken` só pode ter uma corda vazia para o seu valor padrão
-* `_artifactsLocationSasToken` não pode ter um valor padrão em um modelo aninhado 
+* `_artifactsLocationSasToken` não pode ter um valor padrão em um modelo aninhado
 
 ## <a name="declared-variables-must-be-used"></a>Variáveis declaradas devem ser utilizadas
 
@@ -520,7 +520,7 @@ O próximo exemplo **passa** neste teste.
 
 Nome do teste: **Os ResourceIds não devem conter**
 
-Ao gerar IDs de recursos, não utilize funções desnecessárias para parâmetros opcionais. Por predefinição, a função [resourceId](template-functions-resource.md#resourceid) utiliza o grupo de subscrição e recursos atuais. Não precisas de fornecer esses valores.  
+Ao gerar IDs de recursos, não utilize funções desnecessárias para parâmetros opcionais. Por predefinição, a função [resourceId](template-functions-resource.md#resourceid) utiliza o grupo de subscrição e recursos atuais. Não precisas de fornecer esses valores.
 
 O exemplo a seguir **falha** neste teste, porque não precisa de fornecer o ID de subscrição atual e o nome do grupo de recursos.
 
@@ -691,7 +691,40 @@ O exemplo a seguir **falha** porque utiliza uma função [de lista*](template-fu
 }
 ```
 
+## <a name="use-protectedsettings-for-commandtoexecute-secrets"></a>Use computadores protegidos para segredos de comandoToExecute
+
+Nome do teste: **CommandToExecute deve usar assettings protegidas para segredos**
+
+Numa Extensão de Script Personalizado, utilize a propriedade encriptada `protectedSettings` quando `commandToExecute` incluir dados secretos, como uma palavra-passe. Exemplos de tipos de dados `secureString` `secureObject` secretos são, `list()` funções ou scripts.
+
+Para obter mais informações sobre a extensão de script personalizado para máquinas virtuais, consulte [o Windows,](
+/azure/virtual-machines/extensions/custom-script-windows) [Linux](/azure/virtual-machines/extensions/custom-script-linux)e o esquema [Microsoft.Compute virtualMachines/extensões](/azure/templates/microsoft.compute/virtualmachines/extensions).
+
+Neste exemplo, um modelo com um parâmetro nomeado `adminPassword` e tipo `secureString` **passa** no teste porque a propriedade encriptada `protectedSettings` inclui `commandToExecute` .
+
+```json
+"properties": [
+  {
+    "protectedSettings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
+O teste **falha** se a propriedade não encriptada `settings` incluir `commandToExecute` .
+
+```json
+"properties": [
+  {
+    "settings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para aprender a executar o kit de ferramentas de teste, consulte [o kit de ferramentas de teste do modelo ARM](test-toolkit.md).
-- Para um módulo Microsoft Learn que cobre utilizando o kit de ferramentas de teste, consulte [alterações de pré-visualização e valide os recursos do Azure utilizando o que-se e o kit de ferramentas de teste do modelo ARM](/learn/modules/arm-template-test/).
+* Para aprender a executar o kit de ferramentas de teste, consulte [o kit de ferramentas de teste do modelo ARM](test-toolkit.md).
+* Para um módulo Microsoft Learn que cobre utilizando o kit de ferramentas de teste, consulte [alterações de pré-visualização e valide os recursos do Azure utilizando o que-se e o kit de ferramentas de teste do modelo ARM](/learn/modules/arm-template-test/).

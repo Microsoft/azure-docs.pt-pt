@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: 24aa3bc455bf716c074526d707594bd3b4170619
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/01/2021
+ms.openlocfilehash: 7ffcb93493ada36df59c0a8305e941176e8320b8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564182"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121477"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -697,6 +697,9 @@ Ao executar um script pré-implantação, terá de especificar uma variação do
 Ao executar um script pós-implantação, terá de especificar uma variação dos seguintes parâmetros no campo Argumentos do **Script.**
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+> [!NOTE]
+> A `-deleteDeployment` bandeira é utilizada para especificar a supressão da entrada de implantação ADF do histórico de implantação na ARM.
 
 ![Tarefa do Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 

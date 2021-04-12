@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9797401fd96bf052fdc9de0c2c2ceaf88b3d46b6
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 0a25e1b50455cad5bdbe5b76b2a291f2a1c11940
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504214"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107011"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
@@ -42,9 +42,9 @@ A opção de publicação de transações é atualmente suportada para os seguin
 
 | Tipo de oferta | Cadência de faturação | Faturação medido | Modelo preços |
 | ------------ | ------------- | ------------- | ------------- |
-| Aplicação do Azure<br>(Aplicação gerida) | Mensalmente | Sim | Baseada na utilização |
+| Aplicação do Azure<br>(Aplicação gerida) | Mensalmente | Yes | Baseada na utilização |
 | Máquina Virtual do Azure | Mensalmente * | No | Baseada em utilização, BYOL |
-| Software como serviço (SaaS) | Mensal e anual | Sim | Taxa fixa, por utilizador, baseada na utilização. |
+| Software como serviço (SaaS) | Mensal e anual | Yes | Taxa fixa, por utilizador, baseada na utilização. |
 |||||
 
 `*` A Azure Virtual Machine oferece planos de faturação baseados no uso. Estes planos são faturados mensalmente para uso horário da subscrição com base em por núcleo, por tamanho do núcleo, ou por mercado e tamanho de núcleo.
@@ -189,7 +189,7 @@ Esta secção abrange os requisitos de transação para diferentes tipos de ofer
 - Uma conta Microsoft e informações financeiras são necessárias para a opção de publicação de transações, independentemente do modelo de preços da oferta.
 - A informação financeira obrigatória inclui conta de pagamento e perfil fiscal.
 
-Para obter mais informações sobre a configuração destas contas, consulte [Gerir a sua conta de mercado comercial no Partner Center.](partner-center-portal/manage-account.md)
+Para obter mais informações sobre a configuração destas contas, consulte [Gerir a sua conta de mercado comercial no Partner Center.](manage-account.md)
 
 ### <a name="requirements-for-specific-offer-types"></a>Requisitos para tipos específicos de oferta
 

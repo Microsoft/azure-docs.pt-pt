@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: b5b33007f71cfc2a29005ce84f1fedba90dd1bf1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04300b8d148bb22bf585aa81481c475b347ad462
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561972"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222049"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica em Pesquisa Cognitiva de Azure
 
@@ -64,7 +64,7 @@ As capacidades semânticas estão disponíveis através do [registo de inscriç�
 
 A correção ortográfica está disponível nas mesmas regiões, mas não tem restrições de nível. Se tiver um serviço existente que satisfaça os critérios de nível e região, apenas é necessário inscrever-se.
 
-Entre o lançamento de pré-estreia de 2 de março a 1 de abril, a correção ortográfica e o ranking semântico são oferecidos gratuitamente. Depois de 1 de abril, os custos computacionais de execução desta funcionalidade tornar-se-ão um evento fatural. O custo esperado é de CERCA de USD $500/mês para 250.000 consultas. Pode encontrar informações detalhadas sobre os custos documentados na [página de preços de Pesquisa Cognitiva](https://azure.microsoft.com/pricing/details/search/) e em Estimativa e gerir [custos.](search-sku-manage-costs.md)
+Entre o lançamento de pré-estreia no dia 2 de março e o final de abril, a correção ortográfica e o ranking semântico são oferecidos gratuitamente. Mais tarde, em abril, os custos computacionais de execução desta funcionalidade tornar-se-ão um evento fatural. O custo esperado é de CERCA de USD $500/mês para 250.000 consultas. Pode encontrar informações detalhadas sobre os custos documentados na [página de preços de Pesquisa Cognitiva](https://azure.microsoft.com/pricing/details/search/) e em Estimativa e gerir [custos.](search-sku-manage-costs.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

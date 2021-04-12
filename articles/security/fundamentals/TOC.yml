@@ -4,6 +4,8 @@
   items:
     - name: Introdução à segurança do Azure
       href: overview.md
+    - name: Segurança de ponta a ponta
+      href: end-to-end.md
     - name: Responsabilidade partilhada na cloud
       href: shared-responsibility.md
 - name: Proteger cargas de trabalho no Azure
@@ -63,6 +65,8 @@
       href: steps-secure-identity.md
     - name: Escolher modo sem palavra-passe
       href: ../../active-directory/authentication/concept-authentication-passwordless.md
+    - name: Autenticação
+      href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
 - name: Segurança da rede
   items:
     - name: Descrição geral da segurança

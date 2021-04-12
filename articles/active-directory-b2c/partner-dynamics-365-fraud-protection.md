@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9483b0a8829c042a7cf8d516c6007cbbf14a97ac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d1f0728a9a8da264f0960be2b956516b3c93742e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639749"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258082"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutorial: Configurar a Proteção contra fraudes Microsoft Dynamics 365 com O Diretório Ativo B2C
 
@@ -68,7 +68,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 ## <a name="set-up-the-solution"></a>Configurar a solução
 
 1. [Crie uma aplicação do Facebook](./identity-provider-facebook.md#create-a-facebook-application) configurada para permitir que a federação aD B2C azure.
-2. [Adicione o segredo do Facebook](./custom-policy-get-started.md#create-the-facebook-key) que criou como chave de política de Identidade Experiência.
+2. [Adicione o segredo do Facebook](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#create-the-facebook-key) que criou como chave de política de Identidade Experiência.
 
 ## <a name="configure-your-application-under-microsoft-dfp"></a>Configure a sua aplicação no âmbito do Microsoft DFP
 
@@ -148,7 +148,7 @@ O valor do userID tem de ser o mesmo que o do valor correspondente de configura�
 
 1. Aceda à [política Azure AD B2C](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies) na pasta Políticas.
 
-2. Siga este [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para baixar o [pacote de arranque LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
+2. Siga este [documento](./tutorial-create-user-flows.md?pivots=b2c-custom-policy?tabs=applications#custom-policy-starter-pack) para baixar o [pacote de arranque LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configure a política para o inquilino Azure AD B2C.
 
@@ -184,4 +184,4 @@ Para obter informações adicionais, reveja os seguintes artigos:
 
 - [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

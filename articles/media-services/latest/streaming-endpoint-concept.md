@@ -9,14 +9,14 @@ ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 02/13/2020
 
 No Microsoft Azure Media Services, um [Serviço de Streaming Endpoint](/rest/api/media/streamingendpoints) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode entregar o seu conteúdo ao vivo e a pedido diretamente a uma aplicação de cliente usando um dos protocolos comuns de streaming de meios de comunicação (HLS ou DASH). Além disso, o **Streaming Endpoint** fornece encriptação dinâmica (just-in-time) para DRMs líderes do setor. 
 
-Quando cria uma conta de Serviços de Mídia, é criado um Ponto Final de Streaming **predefinido** para si num estado parado. Mais pontos finais de streaming podem ser criados na conta (ver [Quotas e limites).](limits-quotas-constraints.md)
+Quando cria uma conta de Serviços de Mídia, é criado um Ponto Final de Streaming **predefinido** para si num estado parado. Mais pontos finais de streaming podem ser criados na conta (ver [Quotas e limites).](limits-quotas-constraints-reference.md)
 
 > [!NOTE]
 > Para começar a transmitir vídeos, tem de iniciar o **Streaming Endpoint** a partir do qual pretende transmitir o vídeo.
 >
 > Só és cobrado quando o teu Streaming Endpoint está no estado de execução.
 
-Certifique-se de rever também o tópico [de embalagem Dynamic.](dynamic-packaging-overview.md) 
+Certifique-se de rever também o tópico [de embalagem Dynamic.](encode-dynamic-packaging-concept.md) 
 
 ## <a name="naming-convention"></a>Convenção de nomeação
 
@@ -201,7 +201,7 @@ Consulte o artigo da [comunidade Azure Media Services](media-services-community.
 
 ## <a name="see-also"></a>Ver também
 
-[Empacotamento dinâmico](dynamic-packaging-overview.md)
+[Empacotamento dinâmico](encode-dynamic-packaging-concept.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

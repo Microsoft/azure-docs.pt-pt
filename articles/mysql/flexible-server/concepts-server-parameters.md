@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: f83f743b692ae5a625a4c881b12cbad999f1f606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d64dc4f3c034279aee7401503bbb60883c9ed4e7
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106773"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492244"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Parâmetros do servidor na Base de Dados Azure para MySQL - Servidor Flexível
 
@@ -39,9 +39,11 @@ Consulte as seguintes secções abaixo para saber mais sobre os limites dos vár
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-Na Base de Dados Azure para o MySQL Flexible Server, os registos binários estão sempre ativados (isto é, `log_bin` está definido para ON). Caso pretenda utilizar gatilhos, terá um erro semelhante ao *de si não ter o privilégio SUPER e a exploração madeireira binária está ativada (é possível utilizar a variável menos `log_bin_trust_function_creators` segura)*. 
+Na Base de Dados Azure para o MySQL Flexible Server, os registos binários estão sempre ativados (isto é, `log_bin` está definido para ON). log_bin_trust_function_creators é definido para ON por padrão em servidores flexíveis. 
 
-O formato de registo binário é sempre **ROW** e todas as ligações ao servidor utilizam **sempre** o registo binário baseado na linha. Com a exploração binária baseada em linha, os problemas de segurança não existem e a exploração madeireira binária não pode quebrar, pelo que pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) para **TRUE**.
+O formato de registo binário é sempre **ROW** e todas as ligações ao servidor utilizam **sempre** o registo binário baseado na linha. Com a exploração binária baseada em linha, os problemas de segurança não existem e a exploração madeireira binária não pode quebrar, pelo que pode permitir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) permanecer **ON**.
+
+Se estiver `log_bin_trust_function_creators` definido para OFF, se tentar criar gatilhos poderá obter erros semelhantes a *si não tem o privilégio SUPER e a exploração madeireira binária está ativada (é melhor utilizar a variável menos `log_bin_trust_function_creators` segura)*. 
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 

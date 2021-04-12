@@ -28,14 +28,14 @@ Este tutorial mostra-lhe como:
 São necessários os itens seguintes para concluir o tutorial:
 
 - Instale o Visual Studio Code ou o Visual Studio.
-- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.<br/>Certifique-se de copiar os dados do API Access no formato JSON ou armazenar os valores necessários para ligar à conta dos Serviços de Mídia no formato ficheiro .env utilizado nesta amostra.
+- [Criar uma conta de Serviços de Comunicação](./account-create-how-to.md)Social.<br/>Certifique-se de copiar os dados do API Access no formato JSON ou armazenar os valores necessários para ligar à conta dos Serviços de Mídia no formato ficheiro .env utilizado nesta amostra.
 - Siga os passos na [Access Azure Media Services API com o Azure CLI](./access-api-howto.md) e guarde as credenciais. Você precisará usá-los para aceder à API nesta amostra, ou inseri-los no formato de ficheiro .env. 
 - Uma câmara ou um dispositivo (como um portátil) que é usado para transmitir um evento.
-- Um codificadora de software no local que codifica o fluxo de câmaras e o envia para o serviço de streaming ao vivo dos Media Services utilizando o protocolo RTMP, consulte [codificadores ao vivo recomendados no local.](recommended-on-premises-live-encoders.md) O fluxo tem de ser em formato **RTMP** ou de **transmissão em fluxo uniforme**.  
+- Um codificadora de software no local que codifica o fluxo de câmaras e o envia para o serviço de streaming ao vivo dos Media Services utilizando o protocolo RTMP, consulte [codificadores ao vivo recomendados no local.](encode-recommended-on-premises-live-encoders.md) O fluxo tem de ser em formato **RTMP** ou de **transmissão em fluxo uniforme**.  
 - Para esta amostra, recomenda-se começar com um codificador de software como o [Open Broadcast Software OBS Studio](https://obsproject.com/download) para tornar simples o arranque. 
 
 > [!TIP]
-> Certifique-se de que revê [Transmissão em fluxo em direto com os Serviços de Multimédia v3](live-streaming-overview.md) antes de continuar. 
+> Certifique-se de que revê [Transmissão em fluxo em direto com os Serviços de Multimédia v3](stream-live-streaming-concept.md) antes de continuar. 
 
 ## <a name="download-and-configure-the-sample"></a>Descarregue e configuure a amostra
 
@@ -70,15 +70,15 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 ### <a name="create-a-live-event"></a>Criar um evento em direto
 
-Esta secção mostra como criar um tipo de evento live(LiveEventEncodType definido para Nenhum).  Para obter mais informações sobre os outros tipos disponíveis de Eventos Ao Vivo, consulte [os tipos de Eventos Ao Vivo.](live-events-outputs-concept.md#live-event-types) Além de passar, pode utilizar um Evento Ao Vivo de transcoding ao vivo para codificação de nuvem bitrate adaptativa de 720P ou 1080P. 
+Esta secção mostra como criar um tipo de evento live(LiveEventEncodType definido para Nenhum).  Para obter mais informações sobre os outros tipos disponíveis de Eventos Ao Vivo, consulte [os tipos de Eventos Ao Vivo.](live-event-outputs-concept.md#live-event-types) Além de passar, pode utilizar um Evento Ao Vivo de transcoding ao vivo para codificação de nuvem bitrate adaptativa de 720P ou 1080P. 
  
 Algumas coisas que você pode querer especificar ao criar o evento ao vivo são:
 
 * O protocolo de ingestão para o Live Event (atualmente, os protocolos RTMP(S) e Smooth Streaming são suportados).<br/>Não é possível alterar a opção de protocolo enquanto o Live Event ou as suas saídas ao vivo associadas estiverem em execução. Se necessitar de protocolos diferentes, crie evento ao vivo separado para cada protocolo de streaming.  
 * Restrições de IP na ingestão e na pré-visualização. Pode definir os endereços IP que podem ingerir um vídeo neste Evento Ao Vivo. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo "10.0.0.1"), um intervalo de IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22') ou um intervalo de IP com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').<br/>Se não forem especificados endereços IP e não houver definição de regra, nenhum endereço IP será permitido. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP têm de estar num dos seguintes formatos: endereço IpV4 com quatro números ou intervalo de endereços CIDR.
-* Ao criar o evento, pode especificar para o iniciar automaticamente. <br/>Quando o arranque automático estiver definido para ser verdade, o Live Event será iniciado após a criação. Isso significa que a faturação começa assim que o Evento Ao Vivo começa a funcionar. Tem de ligar explicitamente para parar o recurso Live Event para travar a faturação adicional. Para mais informações, consulte [os estados do Live Event e a faturação.](live-event-states-billing.md)
+* Ao criar o evento, pode especificar para o iniciar automaticamente. <br/>Quando o arranque automático estiver definido para ser verdade, o Live Event será iniciado após a criação. Isso significa que a faturação começa assim que o Evento Ao Vivo começa a funcionar. Tem de ligar explicitamente para parar o recurso Live Event para travar a faturação adicional. Para mais informações, consulte [os estados do Live Event e a faturação.](live-event-states-billing-concept.md)
 Existem também modos de espera disponíveis para iniciar o Live Event num estado de custo mais baixo 'atribuído' que torna mais rápido a mudança para um estado de 'Running'. Isto é útil para situações como hotpools que precisam distribuir canais rapidamente para streamers.
-* Para que um URL inger seja preditivo e mais fácil de manter num codificader ao vivo baseado em hardware, desapedaça a propriedade "useStaticHostname" para ser verdadeira. Para obter informações [detalhadas, consulte Live Event ingerir URLs](live-events-outputs-concept.md#live-event-ingest-urls).
+* Para que um URL inger seja preditivo e mais fácil de manter num codificader ao vivo baseado em hardware, desapedaça a propriedade "useStaticHostname" para ser verdadeira. Para obter informações [detalhadas, consulte Live Event ingerir URLs](live-event-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -128,7 +128,7 @@ As Saídas Ao Vivo começam na criação e param quando apagadas. Este vai ser o
 #### <a name="create-a-streaming-locator"></a>Criar um localizador de streaming
 
 > [!NOTE]
-> Quando a sua conta De Serviços de Media é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Stop.** Para começar a transmitir o seu conteúdo e tirar partido da [embalagem dinâmica](dynamic-packaging-overview.md) e da encriptação dinâmica, o ponto final de streaming a partir do qual pretende transmitir conteúdo tem de estar no estado **de Funcionamento.**
+> Quando a sua conta De Serviços de Media é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Stop.** Para começar a transmitir o seu conteúdo e tirar partido da [embalagem dinâmica](encode-dynamic-packaging-concept.md) e da encriptação dinâmica, o ponto final de streaming a partir do qual pretende transmitir conteúdo tem de estar no estado **de Funcionamento.**
 
 Quando publicar o Ativo utilizando um Localizador de Streaming, o Evento Ao Vivo (até ao comprimento da janela DVR) continuará a ser visível até ao termo ou supressão do Localizador de Streaming, o que vier primeiro. É assim que disponibiliza a gravação virtual de "fita" para o seu público ver ao vivo e a pedido. O mesmo URL pode ser usado para assistir ao evento ao vivo, janela DVR ou o ativo a pedido quando a gravação estiver completa (quando a Saída Ao Vivo é eliminada.)
 

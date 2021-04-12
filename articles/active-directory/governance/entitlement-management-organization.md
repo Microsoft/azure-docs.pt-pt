@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f08c25749bbd21e3624dee898d9a8c97fd74164
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b6a1ead2fe3c1ec4e2206d1ffbaea4e5ec57433
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98059386"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222526"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
 
@@ -42,7 +42,7 @@ Por exemplo, suponha que trabalha no Woodgrove Bank e que quer colaborar com dua
 - O Instituto de Design Gráfico utiliza a Azure AD, e os seus utilizadores têm um nome principal de utilizador que termina com *graphicdesigninstitute.com*.
 - Contoso ainda não usa Azure AD. Os utilizadores da Contoso têm um nome principal de utilizador que termina com *contoso.com*.
 
-Neste caso, pode configurar duas organizações ligadas. Cria-se uma organização conectada para o Instituto de Design Gráfico e outra para o Contoso. Se adicionar então as duas organizações conectadas a uma política, os utilizadores de cada organização com um nome principal de utilizador que corresponda à política podem solicitar pacotes de acesso. Os utilizadores com um nome principal de utilizador que tenha um domínio de *graphicdesigninstitute.com* corresponderiam à organização ligada ao Instituto de Design Gráfico e seriam autorizados a apresentar pedidos. Os utilizadores com um nome principal de utilizador que tenha um domínio de *contoso.com* corresponderiam à organização ligada à Contoso e também seriam autorizados a solicitar pacotes. E, como o Graphic Design Institute utiliza a Azure AD, qualquer utilizadores com um nome principal que [corresponda](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) a um domínio verificado que seja adicionado ao seu inquilino, como *o graphicdesigninstitute.exemplo,* também poderia solicitar pacotes de acesso utilizando a mesma política.
+Neste caso, pode configurar duas organizações ligadas. Cria-se uma organização conectada para o Instituto de Design Gráfico e outra para o Contoso. Se adicionar então as duas organizações conectadas a uma política, os utilizadores de cada organização com um nome principal de utilizador que corresponda à política podem solicitar pacotes de acesso. Os utilizadores com um nome principal de utilizador que tenha um domínio de contoso.com corresponderiam à organização ligada à Contoso e também seriam autorizados a solicitar pacotes. Os utilizadores com um nome principal de utilizador que tenha um domínio de *graphicdesigninstitute.com* corresponderiam à organização ligada ao Instituto de Design Gráfico e seriam autorizados a apresentar pedidos. E, como o Graphic Design Institute utiliza a Azure AD, qualquer utilizadores com um nome principal que [corresponda](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) a um domínio verificado que seja adicionado ao seu inquilino, como *o graphicdesigninstitute.exemplo,* também poderia solicitar pacotes de acesso utilizando a mesma política. Se tiver uma [autenticação de senha única (OTP) por e-mail,](../external-identities/one-time-passcode.md) isso inclui utilizadores daqueles domínios que ainda não têm contas AD AZure que autenticarão através do email OTP ao aceder aos seus recursos. 
 
 ![Exemplo de organização conectada](./media/entitlement-management-organization/connected-organization-example.png)
 

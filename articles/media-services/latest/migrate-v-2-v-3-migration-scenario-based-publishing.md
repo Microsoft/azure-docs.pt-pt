@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: c0108cf07f1c734ccf4b6e42c013f7237eb7daf2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 0a0052fa3d78a3b77094cfccbd4c011321ac5925
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122072"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279022"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Orientação de migração baseada em cenários de embalagem e entrega
 
@@ -31,7 +31,7 @@ Grandes alterações na forma como o conteúdo é publicado na V3 API. O novo mo
 ## <a name="packaging-and-delivery-in-v3"></a>Embalagem e entrega em v3
 
 1. Criar [Políticas de Chave de Conteúdo](drm-content-key-policy-concept.md).
-1. Criar [localizadores de streaming](streaming-locators-concept.md).
+1. Criar [localizadores de streaming](stream-streaming-locators-concept.md).
 1. Obtenha os [caminhos de streaming](create-streaming-locator-build-url.md) 
     1. Configuure-o para um leitor [DE DASH](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) ou [HLS.](encode-dynamic-packaging-concept.md#hls-protocol)
 
@@ -44,20 +44,20 @@ Consulte conceitos de publicação, tutoriais e como guiar abaixo para etapas es
 - [Embalagem dinâmica em Media Services v3](encode-dynamic-packaging-concept.md)
 - [Filtros](filters-concept.md)
 - [Filtrar os seus manifestos usando o Dynamic Packager](filters-dynamic-manifest-concept.md)
-- [Streaming Endpoints (Origem) em Azure Media Services](streaming-endpoint-concept.md)
-- [Stream de conteúdo com integração de CDN](scale-streaming-cdn.md)
-- [Localizadores de streaming](streaming-locators-concept.md)
+- [Streaming Endpoints (Origem) em Azure Media Services](stream-streaming-endpoint-concept.md)
+- [Stream de conteúdo com integração de CDN](stream-scale-streaming-cdn-concept.md)
+- [Localizadores de streaming](stream-streaming-locators-concept.md)
 
 ### <a name="how-to-guides"></a>Guias de procedimentos
 
-- [Gerir pontos finais de streaming com os Media Services v3](manage-streaming-endpoints-howto.md)
+- [Gerir pontos finais de streaming com os Media Services v3](stream-manage-streaming-endpoints-how-to.md)
 - [Exemplo da CLI: publicar um elemento](cli-publish-asset.md)
 - [Criar um localizador de transmissão e compilar URLs](create-streaming-locator-build-url.md)
 - [Descarregue os resultados de um trabalho](job-download-results-how-to.md)
 - [Faixas de áudio descritivas de sinal](signal-descriptive-audio-howto.md)
 - [Configuração completa do Leitor de Multimédia do Azure](../azure-media-player/azure-media-player-full-setup.md)
-- [Como utilizar o jogador Video.js com a Azure Media Services](how-to-video-js-player.md)
-- [Como usar o jogador Shaka com a Azure Media Services](how-to-shaka-player.md)
+- [Como utilizar o jogador Video.js com a Azure Media Services](player-how-to-video-js-player.md)
+- [Como usar o jogador Shaka com a Azure Media Services](player-shaka-player-how-to.md)
 
 ## <a name="samples"></a>Amostras
 

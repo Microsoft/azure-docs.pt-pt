@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 04/05/2021
 ms.author: banders
-ms.openlocfilehash: e7f5370e1e387947d196959fef31043ea8f4d3bd
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: d348eeb5cc789665d7e7004523b9feba0ea6e413
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508525"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490561"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Atribuir funções aos nomes principais do serviço do Azure Enterprise Agreement
 
@@ -62,12 +62,14 @@ Para os próximos passos, você dá permissão à app Azure AD para fazer açõe
 | Função | Ações permitidas | ID de definição de papel |
 | --- | --- | --- |
 | Leitor de Inscrições | Pode ver o uso e os encargos em todas as contas e subscrições. Pode ver o saldo do pré-pagamento do Azure (anteriormente chamado de compromisso monetário) associado à inscrição. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| Comprador da EA | Compre ordens de reserva e veja transações de reservas. Pode ver o uso e os encargos em todas as contas e subscrições. Pode ver o saldo do pré-pagamento do Azure (anteriormente chamado de compromisso monetário) associado à inscrição. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
 | DepartmentReader | Descarregue os detalhes de utilização para o departamento que administram. Pode ver o uso e as taxas associadas ao seu departamento. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | Contrator | Criar novas subscrições no âmbito de conta. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
 - Um leitor de inscrições só pode ser atribuído a um SPN por um utilizador com papel de escritor de inscrição.
 - Um leitor de departamento só pode ser atribuído a um SPN por um utilizador que tenha papel de escritor de inscrição ou papel de escritor de departamento.
-- Uma função de criador de subscrição só pode ser atribuída a um SPN por um utilizador que seja o Titular da Conta da conta de inscrição.
+- Uma função de criador de subscrição só pode ser atribuída a um SPN por um utilizador que seja o Titular da Conta da conta de inscrição. O papel não é mostrado no portal da EA. É criado apenas por meios programáticos e é apenas para uso programático.
+- O papel de comprador da EA não é mostrado no portal EA. É criado apenas por meios programáticos e é apenas para uso programático.
 
 ## <a name="assign-enrollment-account-role-permission-to-the-spn"></a>Atribuir permissão de conta de inscrição para o SPN
 
@@ -120,6 +122,14 @@ Selecione **Executar** para iniciar o comando.
 Uma `200 OK` resposta mostra que o SPN foi adicionado com sucesso.
 
 Agora pode utilizar a SPN (App AD AD Azure com o ID do objeto) para aceder às APIs da EA de forma automatizada. O SPN tem o papel de Leitore de Matrículas.
+
+## <a name="assign-ea-purchaser-role-permission-to-the-spn"></a>Atribuir permissão de papel de comprador da EA à SPN 
+
+Para o papel de comprador da EA, utilize os mesmos passos para o leitor de inscrição. Especifique o `roleDefinitionId` exemplo seguinte.
+
+`"/providers/Microsoft.Billing/billingAccounts/1111111/billingRoleDefinitions/ da6647fb-7651-49ee-be91-c43c4877f0c4"`
+
+ 
 
 ## <a name="assign-the-department-reader-role-to-the-spn"></a>Atribua o papel de leitor de departamentos à SPN
 

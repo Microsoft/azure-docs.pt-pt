@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/29/2020
-  ms.openlocfilehash: 6f2522ec13c56ff7d451165a0aa923a492079ca1
-  ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
-  ms.translationtype: HT
+  ms.openlocfilehash: 5a485618b1c10e1ff81bf141ef76002d1536d9e3
+  ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98034317"
+  ms.lasthandoff: 04/02/2021
+  ms.locfileid: "106222270"
 landingContent:
 - title: Acerca do Azure Resource Graph
   linkLists:
@@ -45,6 +45,10 @@ landingContent:
       url: ./first-query-dotnet.md
     - text: Primeira consulta (Go)
       url: ./first-query-go.md
+    - text: Primeira consulta (Java)
+      url: ./first-query-java.md
+  - linkListType: quickstart
+    links:
     - text: Primeira consulta (JavaScript)
       url: ./first-query-javascript.md
     - text: Primeira consulta (Python)

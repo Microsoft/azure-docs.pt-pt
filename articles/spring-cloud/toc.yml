@@ -93,15 +93,15 @@
           href: how-to-setup-autoscale.md
     - name: Integrar
       items:
-        - name: Vincular uma aplicação ao Azure CosmosDB
+        - name: Azure CosmosDB
           href: how-to-bind-cosmos.md
-        - name: Vincular uma aplicação à Cache do Azure para Redis
+        - name: Cache do Azure para Redis
           href: how-to-bind-redis.md
-        - name: Vincular uma aplicação ao Azure MySQL
+        - name: Base de Dados do Azure para MySQL
           href: how-to-bind-mysql.md
-        - name: Identidade gerida para ligar Azure SQL Database
+        - name: Base de Dados Azure SQL com identidade gerida
           href: connect-managed-identity-to-azure-sql.md
-        - name: Integrar nas Soluções de Balanceamento de Carga do Azure
+        - name: Soluções de equilíbrio de carga Azure
           href: how-to-integrate-azure-load-balancers.md
     - name: Monitorizar
       items:
@@ -194,7 +194,7 @@
 - name: Referência
   items:
     - name: Plugin Azure CLI
-      href: /cli/azure/ext/spring-cloud/spring-cloud
+      href: /cli/azure/spring-cloud
     - name: Azure PowerShell
       href: /powershell/module/az.springcloud
     - name: Recursos

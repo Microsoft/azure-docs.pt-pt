@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: deteção de anomalias, aprendizagem automática, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: ad3bd1eed6e5e7efb783c4a40958e16c3ca23691
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3bfa30cc5d3d57cfcd2677bb4b2719061541d5a9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572078"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278869"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
@@ -28,6 +28,12 @@ A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos da
 ![Detetar alterações de padrões nos pedidos de serviço](./media/anomaly_detection2.png)
 
 A utilização do Detetor de Anomalias não requer qualquer experiência prévia em machine learning, e a API RESTful permite-lhe integrar facilmente o serviço nas suas aplicações e processos.
+
+Esta documentação contém os seguintes tipos de artigos:
+* Os [arranques rápidos](./Quickstarts/client-libraries.md) são instruções passo a passo que permitem fazer chamadas para o serviço e obter resultados num curto espaço de tempo. 
+* Os [guias de como fazer](./how-to/identify-anomalies.md) contêm instruções para utilizar o serviço de forma mais específica ou personalizada.
+* Os [artigos conceptuais](./concepts/anomaly-detection-best-practices.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.
+* Os [tutoriais](./tutorials/batch-anomaly-detection-powerbi.md) são guias mais longos que mostram como usar este serviço como componente em soluções de negócio mais amplas.
 
 ## <a name="features"></a>Funcionalidades
 

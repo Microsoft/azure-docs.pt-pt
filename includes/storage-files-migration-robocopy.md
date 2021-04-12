@@ -1,18 +1,19 @@
 ---
-title: Mapear uma estrutura de pasta para uma topologia de sincronização de ficheiros Azure
-description: Mapear uma estrutura de ficheiros e pasta existentes para ações de ficheiros Azure para utilização com o Azure File Sync. Um bloco de texto comum, partilhado através de documentos de migração.
+title: incluir ficheiro
+description: incluir ficheiro
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: cde85e245c8cc6ae8c55b24270f125bacc111737
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: include file
+ms.openlocfilehash: 6158964c04a689ed421f216c2910f47d7a39e2be
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102547560"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081091"
 ---
 ```console
 Robocopy /MT:16 /NP /NFL /NDL /B /MIR /IT /COPY:DATSO /COPY:DATSO /DCOPY:DAT /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 

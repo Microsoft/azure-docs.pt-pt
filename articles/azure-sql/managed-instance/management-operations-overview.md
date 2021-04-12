@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
 ms.date: 07/10/2020
-ms.openlocfilehash: 2da7311e61aa39be69a6a0a29eff686baaad7ebf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323197"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285294"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Descrição geral das operações de gestão do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,12 +70,14 @@ Os quadros que se seguem resumem as operações e as durações globais típicas
 |Operação  |Segmento de longa duração  |Duração estimada  |
 |---------|---------|---------|
 |Mudança de propriedade de exemplo (senha de administração, login Azure AD, bandeira de Benefício Híbrido Azure)|N/D|Até 1 minuto.|
-|Armazenamento de instâncias para cima/para baixo (nível de serviço para fins gerais)|Anexação de ficheiros de base de dados|90% das operações terminam em 5 minutos.|
+|Armazenamento de instâncias para cima/para baixo (nível de serviço para fins gerais)|Sem segmento de longa duração<sup>1</sup>|99% das operações terminam em 5 minutos.|
 |Armazenamento de instâncias escalando para cima/para baixo (nível de serviço Critical empresarial)|- Redimensionamento de cluster virtual<br>- Sempre na sementeira de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para semear todas as bases de dados (220 GB/hora).|
 |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral)|- Redimensionamento de cluster virtual<br>- Anexação de ficheiros de base de dados|90% das operações terminam em 2,5 horas.|
 |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical)|- Redimensionamento de cluster virtual<br>- Sempre na sementeira de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para semear todas as bases de dados (220 GB/hora).|
 |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa)|- Redimensionamento de cluster virtual<br>- Sempre na sementeira de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para semear todas as bases de dados (220 GB/hora).|
 | | | 
+
+<sup>1</sup> O armazenamento de casos geridos para fins gerais de escala não provocará um fracasso no final do funcionamento. Neste caso, a operação consiste em atualizar os dados de meta e a resposta de propagação para pedido apresentado.
 
 **Categoria: Excluir**
 
@@ -90,6 +92,9 @@ Os quadros que se seguem resumem as operações e as durações globais típicas
 ## <a name="instance-availability"></a>Disponibilidade de instância
 
 SQL Managed Instance **está disponível durante as operações de atualização**, exceto um curto tempo de inatividade causado pela falha que ocorre no final da atualização. Normalmente dura até 10 segundos, mesmo em caso de transações interrompidas a longo prazo, graças à [recuperação acelerada da base de dados.](../accelerated-database-recovery.md)
+
+> [!NOTE]
+> O armazenamento de casos geridos para fins gerais de escala não causará uma falha no final da atualização.
 
 A SQL Managed Instance não está disponível para aplicações de clientes durante operações de implantação e eliminação.
 

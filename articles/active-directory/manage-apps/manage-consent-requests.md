@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 189a89276d922665dd1ad0fbacc77ba499137048
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c41543cdfff4e5ffaad614f6cb7a539d78a0bdae
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99253107"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105566"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gerir o consentimento dos pedidos e avaliar os pedidos de consentimento
 
@@ -26,7 +26,7 @@ Após o consentimento do utilizador final ser desativado ou restringido, existem
 
 ## <a name="process-changes-and-education"></a>Mudanças de processo e educação
 
- 1. Considere permitir que o fluxo de trabalho de [consentimento de administração (pré-visualização)](configure-admin-consent-workflow.md) permita que os utilizadores solicitem a aprovação do administrador diretamente a partir do ecrã de consentimento.
+ 1. Considere permitir que o [fluxo de trabalho](configure-admin-consent-workflow.md) de consentimento administrativo permita que os utilizadores solicitem a aprovação do administrador diretamente a partir do ecrã de consentimento.
 
  2. Certifique-se de que todos os administradores compreendem as permissões e o [quadro de consentimento,](../develop/consent-framework.md)como funciona o pedido de [consentimento](../develop/application-consent-experience.md) e como avaliar um pedido de consentimento administrativo em todo [o cliente.](#evaluating-a-request-for-tenant-wide-admin-consent)
  3. Reveja os processos existentes da sua organização para que os utilizadores solicitem a aprovação do administrador para uma aplicação e estoirem atualizações se necessário. Se os processos forem alterados:

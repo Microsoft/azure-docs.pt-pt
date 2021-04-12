@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: 96f40f1abd14987b7c404f5a4210a2cab1fa9143
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8419ff2ba269b05d1fbf7e9d08a284085465fd8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594177"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257420"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database e Azure SQL Managed Instance connect and consultaer artigos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,6 @@ O documento que se segue inclui links para exemplos Azure que mostram como conec
 |[PHP](connect-query-php.md)|Este quickstart demonstra como usar PHP para criar um programa para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados.|
 |[Python](connect-query-python.md)|Este quickstart demonstra como usar python para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados. |
 |[Ruby](connect-query-ruby.md)|Este quickstart demonstra como usar a Ruby para criar um programa para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados.|
-|[R](connect-query-r.md)|Este quickstart demonstra como usar R com Azure SQL Database Machine Learning Services para criar um programa para ligar a uma base de dados na Base de Dados Azure SQL e usar declarações Transact-SQL para obter dados de consulta.|
 |||
 
 ## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor

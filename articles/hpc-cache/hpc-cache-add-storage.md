@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 44b2534d7aeb12f4819a6c42cfb29d057ce26ddc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772727"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259035"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -310,9 +310,11 @@ Os alvos de armazenamento ADLS-NFS têm algumas semelhanças com alvos de armaze
 
 * Como um alvo de armazenamento Blob, você precisa dar permissão de Cache Azure HPC para aceder à [sua conta de armazenamento](#add-the-access-control-roles-to-your-account).
 * Como um alvo de armazenamento NFS, você precisa definir um [modelo de utilização](#choose-a-usage-model)de cache .
-* Como os recipientes blob ativados por NFS têm uma estrutura hierárquica compatível com NFS, não é necessário utilizar a cache para ingerir dados, e os recipientes são legíveis por outros sistemas NFS. Pode pré-carregar os dados num recipiente ADLS-NFS, em seguida, adicioná-lo a uma cache HPC como alvo de armazenamento e, em seguida, aceder aos dados mais tarde a partir de fora de uma cache HPC. Quando utiliza um recipiente blob padrão como alvo de armazenamento de cache HPC, os dados são escritos num formato proprietário e só podem ser acedidos a partir de outros produtos compatíveis com cache Azure HPC.
+* Como os recipientes blob ativados por NFS têm uma estrutura hierárquica compatível com NFS, não é necessário utilizar a cache para ingerir dados, e os recipientes são legíveis por outros sistemas NFS. Pode pré-carregar os dados num recipiente ADLS-NFS, em seguida, adicioná-lo a uma Cache HPC como alvo de armazenamento e, em seguida, aceder aos dados mais tarde a partir de fora de uma Cache HPC. Quando utiliza um recipiente blob padrão como alvo de armazenamento de Cache HPC, os dados são escritos num formato proprietário e só podem ser acedidos a partir de outros produtos compatíveis com cache Azure HPC.
 
 Antes de criar um alvo de armazenamento ADLS-NFS, tem de criar uma conta de armazenamento ativada por NFS. Siga as dicas em [Pré-Requisitos para Cache Azure HPC](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) e as instruções no [armazenamento do Monte Blob utilizando NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Após a configuração da sua conta de armazenamento, pode criar um novo recipiente quando criar o alvo de armazenamento.
+
+Leia [Utilize o armazenamento de bolhas montado em NFS com cache Azure HPC](nfs-blob-considerations.md) para saber mais sobre esta configuração.
 
 Para criar um alvo de armazenamento ADLS-NFS, abra a **página-alvo de armazenamento Add** no portal Azure. (Estão em desenvolvimento métodos adicionais.)
 
@@ -331,8 +333,6 @@ Insira esta informação.
 * **Modelo de utilização** - Escolha um dos perfis de caching de dados com base no seu fluxo de trabalho, descrito em [Escolha um modelo de utilização](#choose-a-usage-model) acima.
 
 Quando terminar, clique **em OK** para adicionar o alvo de armazenamento.
-
-<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Ver alvos de armazenamento
 

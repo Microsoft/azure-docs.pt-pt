@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b84b7387411e7df8e092a2e810591697319f9554
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37f0b48190bcbad7ab190da1d690a1a0485501a1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774682"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259324"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
 
@@ -37,7 +37,8 @@ Os modelos que usamos incluem regressão logística e linear, florestas aleatór
 
 * [A regressão linear com SGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html#pyspark.mllib.regression.LinearRegressionWithSGD
 ) é um modelo linear de regressão que utiliza um método de descida de gradiente estocástico (SGD) e para otimização e escala de recursos para prever os valores da gorjeta pagos. 
-* [Regressão logística com REgressão LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) ou "logit", é um modelo de regressão que pode ser usado quando a variável dependente é categórica para fazer classificação de dados. LBFGS é um algoritmo de otimização quase Newton que se aproxima do algoritmo Broyden-Fletcher-Goldfarb-Shanno (BFGS) usando uma quantidade limitada de memória de computador e que é amplamente utilizado na aprendizagem automática.
+* [Regressão logística com REgressão LBFGS](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.classification.LogisticRegressionWithLBFGS.html
+) ou "logit", é um modelo de regressão que pode ser usado quando a variável dependente é categórica para fazer classificação de dados. LBFGS é um algoritmo de otimização quase Newton que se aproxima do algoritmo Broyden-Fletcher-Goldfarb-Shanno (BFGS) usando uma quantidade limitada de memória de computador e que é amplamente utilizado na aprendizagem automática.
 * [Florestas aleatórias](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são conjuntos de árvores de decisão.  Combinam muitas árvores de decisão para reduzir o risco de sobremontagem. As florestas aleatórias são usadas para regressão e classificação e podem lidar com características categóricas e podem ser estendidas à definição de classificação multiclasse. Não necessitam de escala de recursos e são capazes de capturar não linearidades e interações de recurso. As florestas aleatórias são um dos modelos de aprendizagem automática mais bem sucedidos para classificação e regressão.
 * [As árvores de gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) são conjuntos de árvores de decisão. GBTS treina as árvores de decisão iterativamente para minimizar uma função de perda. O GBTS é utilizado para regressão e classificação e pode lidar com funcionalidades categóricas, não requer escala de recursos e são capazes de capturar não linearidades e interações de recurso. Também podem ser usados numa definição de classificação multiclasse.
 
@@ -504,7 +505,8 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Tempo de execução acima da célula: 0,31 segundos
 
 ### <a name="feature-scaling"></a>Dimensionamento de funcionalidades
-O dimensionamento de recursos, também conhecido como normalização de dados, assegura que as características com valores amplamente desembolsados não recebem um peso excessivo na função objetiva. O código de escala de funcionalidades utiliza o [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para escalar as funcionalidades para a variação da unidade. É fornecido pela MLlib para utilização em regressão linear com Descida de Gradiente Estocástico (SGD). SGD é um algoritmo popular para treinar uma ampla gama de outros modelos de aprendizagem automática, tais como regressões regularizadas ou máquinas de vetores de suporte (SVM).   
+O dimensionamento de recursos, também conhecido como normalização de dados, assegura que as características com valores amplamente desembolsados não recebem um peso excessivo na função objetiva. O código de escala de funcionalidades utiliza o [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html
+) para escalar as funcionalidades para a variação da unidade. É fornecido pela MLlib para utilização em regressão linear com Descida de Gradiente Estocástico (SGD). SGD é um algoritmo popular para treinar uma ampla gama de outros modelos de aprendizagem automática, tais como regressões regularizadas ou máquinas de vetores de suporte (SVM).   
 
 > [!TIP]
 > Descobrimos que o algoritmo LinearRegressionWithSGD é sensível ao dimensionamento de recursos.   

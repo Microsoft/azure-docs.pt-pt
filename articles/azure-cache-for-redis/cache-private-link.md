@@ -1,19 +1,19 @@
 ---
-title: Cache Azure para Redis com Link Privado Azure (Pré-visualização)
+title: Cache Azure para Redis com Ligação Privada Azure
 description: Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura ao Azure Cache para Redis alimentado por Azure Private Link. Neste artigo, você aprenderá a criar um Azure Cache, uma Rede Virtual Azure e um Ponto Final Privado usando o portal Azure.
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/31/2021
+ms.openlocfilehash: 952f708d8f368b63f772e3af35f6fd441d65622d
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007590"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121664"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache Azure para Redis com Link Privado Azure (Visualização pública)
+# <a name="azure-cache-for-redis-with-azure-private-link"></a>Cache Azure para Redis com Ligação Privada Azure
 Neste artigo, você vai aprender a criar uma rede virtual e um Azure Cache para o caso Redis com um ponto final privado usando o portal Azure. Você também vai aprender a adicionar um ponto final privado a um Azure Cache existente para o exemplo de Redis.
 
 Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura ao Azure Cache para Redis alimentado por Azure Private Link. 
@@ -22,8 +22,7 @@ Azure Private Endpoint é uma interface de rede que o liga de forma privada e se
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> Para usar pontos finais privados, o seu Azure Cache para a instância Redis precisa de ter sido criado após 28 de julho de 2020.
-> Atualmente, a geo-replicação, as regras de firewall, o suporte para consolas do portal, vários pontos finais por cache agrupado, persistência na firewall e caches injetados VNet não são suportados. 
+> Atualmente, a redundância de zona, o suporte para consolas do portal e a persistência nas contas de armazenamento de firewall não são suportadas. 
 >
 >
 
@@ -112,19 +111,8 @@ Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure 
 > [!IMPORTANT]
 > 
 > Há uma `publicNetworkAccess` bandeira que é por `Disabled` defeito. 
-> Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor para `Disabled` ou com o seguinte pedido `Enabled` PATCH. Edite o valor para refletir qual a bandeira que deseja para o seu cache.
-> ```http
-> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
-> {    "properties": {
->        "publicNetworkAccess":"Disabled"
->    }
-> }
-> ```
+> Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor para `Disabled` ou `Enabled` . . Para mais detalhes sobre como alterar o valor, consulte as [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
 >
-
-> [!IMPORTANT]
-> 
-> Para se ligar a uma cache agrupada, `publicNetworkAccess` tem de ser configurada e só pode `Disabled` haver uma ligação de ponto final privado. 
 >
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Crie um ponto final privado com uma cache Azure existente para a instância Redis 
@@ -173,7 +161,7 @@ Para criar um ponto final privado, siga estes passos.
 
 2. Selecione a instância de cache a que pretende adicionar um ponto final privado.
 
-3. No lado esquerdo do ecrã, selecione **(PREVIEW) Private Endpoint**.
+3. No lado esquerdo do ecrã, selecione **Private Endpoint**.
 
 4. Clique no botão **Private Endpoint** para criar o seu ponto final privado.
 
@@ -204,16 +192,36 @@ Para criar um ponto final privado, siga estes passos.
 
 13. Depois de aparecer a mensagem **de validação** verde, selecione **Criar**.
 
+> [!IMPORTANT]
+> 
+> Há uma `publicNetworkAccess` bandeira que é por `Disabled` defeito. 
+> Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor para `Disabled` ou `Enabled` . . Para mais detalhes sobre como alterar o valor, consulte as [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+>
+>
+
+
 ## <a name="faq"></a>FAQ
 
 ### <a name="why-cant-i-connect-to-a-private-endpoint"></a>Por que não posso ligar-me a um ponto final privado?
-Se o seu cache já for uma cache injetada em VNet, os pontos finais privados não podem ser utilizados com a sua instância de cache. Se a sua instância de cache estiver a utilizar uma funcionalidade não suportada (listada abaixo), não poderá ligar-se à sua instância de ponto final privado. Além disso, as instâncias cache precisam de ser criadas após 27 de julho para utilizar pontos finais privados.
+Se o seu cache já for uma cache injetada em VNet, os pontos finais privados não podem ser utilizados com a sua instância de cache. Se a sua instância de cache estiver a utilizar uma funcionalidade não suportada (listada abaixo), não poderá ligar-se à sua instância de ponto final privado.
 
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>Que características não são suportadas com pontos finais privados?
-Geo-replicação, regras de firewall, suporte para consolas de portal, múltiplos pontos finais por cache agrupado, persistência nas regras de firewall e redundância de zona. 
+Atualmente, a redundância de zona, o suporte para consolas do portal e a persistência nas contas de armazenamento de firewall não são suportadas. 
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>Como posso alterar o meu ponto final privado para ser desativado ou habilitado a partir do acesso à rede pública?
-Há uma `publicNetworkAccess` bandeira que é por `Disabled` defeito. Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor para `Disabled` ou com o seguinte pedido `Enabled` PATCH. Edite o valor para refletir qual a bandeira que deseja para o seu cache.
+Há uma `publicNetworkAccess` bandeira que é por `Disabled` defeito. Esta bandeira destina-se a permitir opcionalmente o acesso ao ponto final público e privado à cache, se estiver definido para `Enabled` . Se estiver `Disabled` definido, só permitirá o acesso ao ponto final privado. Pode definir o valor para `Disabled` ou `Enabled` no portal Azure ou com um pedido de REMENO de API Restful. 
+
+Para alterar o valor no portal Azure, siga estes passos.
+
+1. No portal Azure, procure **a Cache Azure para Redis** e prima para entrar ou selecioná-la a partir das sugestões de pesquisa.
+
+2. Selecione a instância de cache que pretende alterar o valor de acesso à rede pública.
+
+3. No lado esquerdo do ecrã, selecione **Private Endpoint**.
+
+4. Clique no botão **de acesso à rede pública Ativa.**
+
+Para alterar o valor através de um pedido de REMENO de API Restful, consulte abaixo e edite o valor para refletir qual a bandeira que deseja para o seu cache.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
@@ -223,24 +231,23 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
+### <a name="how-can-i-have-multiple-endpoints-in-different-virtual-networks"></a>Como posso ter vários pontos finais em diferentes redes virtuais?
+Para ter vários pontos finais privados em diferentes redes virtuais, a zona privada de DNS precisa de ser configurada manualmente para as múltiplas redes virtuais _antes de_ criar o ponto final privado. Para obter mais informações, veja [Configuração do DNS do Ponto Final Privado do Azure](../private-link/private-endpoint-dns.md). 
+
+### <a name="what-happens-if-i-delete-all-the-private-endpoints-on-my-cache"></a>O que acontece se eu apagar todos os pontos finais privados no meu cache?
+Uma vez que elimine os pontos finais privados no seu cache, a sua instância de cache pode tornar-se inacessível até que você ative explicitamente o acesso à rede pública ou adicione outro ponto final privado. Pode alterar a `publicNetworkAccess` bandeira no portal Azure ou através de um pedido de REMENO repousante. Para mais detalhes sobre como alterar o valor, consulte as [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>Os grupos de segurança de rede (NSG) estão habilitados para pontos finais privados?
 Não, são deficientes para pontos finais privados. Embora as sub-redes que contenham o ponto final privado possam ter NSG associada, as regras não serão eficazes no tráfego processado pelo ponto final privado. Deve ter [políticas de rede desativadas](../private-link/disable-private-endpoint-network-policy.md) para implantar pontos finais privados numa sub-rede. O NSG ainda é aplicado em outras cargas de trabalho alojoadas na mesma sub-rede. As rotas em qualquer sub-rede de clientes utilizarão um prefixo /32, alterando o comportamento de encaminhamento padrão requer um UDR semelhante. 
 
 Controle o tráfego utilizando as regras NSG para tráfego de saída em clientes de origem. Implementar rotas individuais com prefixo /32 para substituir rotas privadas de ponto final. Os registos do NSG Flow e as informações de monitorização das ligações de saída ainda são suportados e podem ser utilizados
 
-### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>Posso usar regras de firewall com pontos finais privados?
-Não, esta é uma limitação atual de pontos finais privados. O ponto final privado não funcionará corretamente se as regras de firewall estiverem configuradas na cache.
-
-### <a name="how-can-i-connect-to-a-clustered-cache"></a>Como posso ligar-me a uma cache agrupada?
-`publicNetworkAccess` precisa de ser definido `Disabled` e só pode haver uma ligação privada de ponto final.
-
 ### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>Como o meu caso de ponto final privado não está no meu VNet, como está associado ao meu VNet?
 Só está ligado ao seu VNet. Uma vez que não está no seu VNet, as regras NSG não precisam de ser modificadas para pontos finais dependentes.
 
 ### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>Como posso migrar a minha cache injetada em VNet para uma cache de ponto final privado?
-Terá de eliminar a cache injetada do VNet e criar uma nova instância de cache com um ponto final privado.
+Terá de eliminar a cache injetada do VNet e criar uma nova instância de cache com um ponto final privado. Para mais informações, consulte [migrar para Azure Cache para Redis](cache-migration-guide.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-
 * Para saber mais sobre o Azure Private Link, consulte a documentação do [Azure Private Link](../private-link/private-link-overview.md).
 * Para comparar várias opções de isolamento de rede para o seu cache, consulte [a Azure Cache para a documentação das opções de isolamento da rede Redis.](cache-network-isolation.md)

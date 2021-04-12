@@ -12,16 +12,16 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d89ea0cbc7d1e0379a9cbfce40f11d4f8ac93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e01a3b1538c6bf3030e5c8f129606adaecffda60
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643767"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105328"
 ---
-# <a name="configure-the-admin-consent-workflow-preview"></a>Configure o fluxo de trabalho de consentimento administrativo (pré-visualização)
+# <a name="configure-the-admin-consent-workflow"></a>Configure o fluxo de trabalho de consentimento administrativo
 
-Este artigo descreve como ativar a funcionalidade de fluxo de trabalho de consentimento de administração (pré-visualização), que dá aos utilizadores finais uma forma de solicitar o acesso a aplicações que requerem consentimento administrativo.
+Este artigo descreve como ativar a funcionalidade de fluxo de trabalho de consentimento administrativo, o que dá aos utilizadores finais uma forma de solicitar o acesso a aplicações que requerem consentimento administrativo.
 
 Sem um fluxo de trabalho de consentimento administrativo, um utilizador num inquilino onde o consentimento do utilizador é desativado será bloqueado quando tenta aceder a qualquer app que exija permissões para aceder a dados organizacionais. O utilizador vê uma mensagem de erro genérica que diz não estar autorizado a aceder à aplicação e que deve pedir ajuda ao administrador. Mas, muitas vezes, o utilizador não sabe a quem contactar, pelo que ou desiste ou cria uma nova conta local na aplicação. Mesmo quando um administrador é notificado, nem sempre há um processo simplificado para ajudar o administrador a conceder acesso e notificar os seus utilizadores.
  
@@ -38,7 +38,7 @@ Para ativar o fluxo de trabalho de consentimento administrativo e escolher revis
 3. Na caixa de pesquisa de filtros, escreva "**Azure Ative Directory**" e selecione o item **Azure Ative Directory.**
 4. A partir do menu de navegação, clique nas **aplicações Da Enterprise.** 
 5. Em **Gestão**, selecione **as definições do Utilizador**.
-6. Nos termos dos pedidos de **consentimento da Administração (Preview)**, **os utilizadores podem solicitar o consentimento administrativo para aplicações que não podem consentir com** **Sim**.
+6. Nos **termos dos pedidos de consentimento da Administração,** **os utilizadores podem solicitar o consentimento administrativo para aplicações que não podem consentir com** **Sim**.
 
    ![Configurar definições de fluxo de trabalho de consentimento administrativo](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -78,7 +78,7 @@ Para rever os pedidos de consentimento administrativo e tomar medidas:
 2. Selecione **Todos os serviços** no topo do menu de navegação à esquerda. Abre **a Extensão do Diretório Ativo Azure.**
 3. Na caixa de pesquisa de filtros, escreva "**Azure Ative Directory**" e selecione o item **Azure Ative Directory.**
 4. A partir do menu de navegação, clique nas **aplicações Da Enterprise.**
-5. No âmbito **da Atividade**, selecione **pedidos de consentimento de administração (Pré-visualização)**.
+5. No âmbito **da Atividade**, selecione **pedidos de consentimento de administração**.
 
    > [!NOTE]
    > Os revisores só verão pedidos de administração que foram criados depois de terem sido designados como revisores.
@@ -112,11 +112,7 @@ Os solicitadores receberão notificações por e-mail quando:
  
 ## <a name="audit-logs"></a>Registos de auditoria 
  
-O quadro abaixo descreve os cenários e os valores de auditoria disponíveis para o fluxo de trabalho de consentimento administrativo. 
-
-> [!NOTE]
-> O contexto de utilizador do ator de auditoria está atualmente desaparecido em todos os cenários. Esta é uma limitação conhecida na versão de pré-visualização.
-
+O quadro abaixo descreve os cenários e os valores de auditoria disponíveis para o fluxo de trabalho de consentimento administrativo.
 
 |Scenario  |Serviço de Auditoria  |Categoria de Auditoria  |Atividade de Auditoria  |Ator de Auditoria  |Limitações do registo de auditoria  |
 |---------|---------|---------|---------|---------|---------|

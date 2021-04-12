@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: a1f15330a912c8a8a93fe1f74e88ef8d117441c2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4588eee721a58a7e4f3366d0d325b48de0f56ae5
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047903"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259817"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
@@ -43,49 +43,54 @@ Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode
 1. Selecione a piscina 'SQLPOOL1' (piscina criada no [PASSO 1](./get-started-create-workspace.md) deste tutorial) na lista de descida 'Connect to' acima do script.
 1. Introduza o seguinte código:
     ```
-    CREATE TABLE [dbo].[Trip]
-    (
-        [DateID] int NOT NULL,
-        [MedallionID] int NOT NULL,
-        [HackneyLicenseID] int NOT NULL,
-        [PickupTimeID] int NOT NULL,
-        [DropoffTimeID] int NOT NULL,
-        [PickupGeographyID] int NULL,
-        [DropoffGeographyID] int NULL,
-        [PickupLatitude] float NULL,
-        [PickupLongitude] float NULL,
-        [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-        [DropoffLatitude] float NULL,
-        [DropoffLongitude] float NULL,
-        [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-        [PassengerCount] int NULL,
-        [TripDurationSeconds] int NULL,
-        [TripDistanceMiles] float NULL,
-        [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-        [FareAmount] money NULL,
-        [SurchargeAmount] money NULL,
-        [TaxAmount] money NULL,
-        [TipAmount] money NULL,
-        [TollsAmount] money NULL,
-        [TotalAmount] money NULL
-    )
+    IF NOT EXISTS (SELECT * FROM sys.objects O JOIN sys.schemas S ON O.schema_id = S.schema_id WHERE O.NAME = 'NYCTaxiTripSmall' AND O.TYPE = 'U' AND S.NAME = 'dbo')
+    CREATE TABLE dbo.NYCTaxiTripSmall
+        (
+         [DateID] int,
+         [MedallionID] int,
+         [HackneyLicenseID] int,
+         [PickupTimeID] int,
+         [DropoffTimeID] int,
+         [PickupGeographyID] int,
+         [DropoffGeographyID] int,
+         [PickupLatitude] float,
+         [PickupLongitude] float,
+         [PickupLatLong] nvarchar(4000),
+         [DropoffLatitude] float,
+         [DropoffLongitude] float,
+         [DropoffLatLong] nvarchar(4000),
+         [PassengerCount] int,
+         [TripDurationSeconds] int,
+         [TripDistanceMiles] float,
+         [PaymentType] nvarchar(4000),
+         [FareAmount] numeric(19,4),
+         [SurchargeAmount] numeric(19,4),
+         [TaxAmount] numeric(19,4),
+         [TipAmount] numeric(19,4),
+         [TollsAmount] numeric(19,4),
+         [TotalAmount] numeric(19,4)
+        )
     WITH
-    (
+        (
         DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
-    );
+         CLUSTERED COLUMNSTORE INDEX
+         -- HEAP
+        )
+    GO
 
-    COPY INTO [dbo].[Trip]
-    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/QID6392_20171107_05910_0.txt.gz'
+    --Uncomment the 4 lines below to create a stored procedure for data pipeline orchestration
+    --CREATE PROC bulk_load_NYCTaxiTripSmall
+    --AS
+    --BEGIN
+    COPY INTO dbo.NYCTaxiTripSmall
+    (DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5, PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, TotalAmount 23)
+    FROM 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet'
     WITH
     (
-        FILE_TYPE = 'CSV',
-        FIELDTERMINATOR = '|',
-        FIELDQUOTE = '',
-        ROWTERMINATOR='0X0A',
-        COMPRESSION = 'GZIP'
+        FILE_TYPE = 'PARQUET'
+        ,MAXERRORS = 0
+        ,IDENTITY_INSERT = 'OFF'
     )
-    OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
 1. Clique no botão Executar para executar o script.
 1. Este guião terminará em menos de 60 segundos. Carrega 2 milhões de linhas de dados de táxi de NYC numa mesa chamada **DBO. Viagem.**

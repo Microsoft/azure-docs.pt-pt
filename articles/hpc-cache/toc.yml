@@ -10,6 +10,8 @@
       href: hpc-cache-namespace.md
     - name: Compreender modelos de utilização de cache
       href: cache-usage-models.md
+    - name: Decida se a Cache HPC é a solução certa
+      href: usage-scenarios.md
     - name: Segurança
       items:
         - name: Linha de base de segurança
@@ -68,6 +70,8 @@
       href: hpc-cache-blob-firewall-fix.md
     - name: Resolver problemas da criação de destinos de armazenamento NFS
       href: troubleshoot-nas.md
+    - name: Utilize o armazenamento de bolhas montado em NFS com cache Azure HPC
+      href: nfs-blob-considerations.md
     - name: Recuperar de uma falha regional
       href: hpc-region-recovery.md
     - name: Utilizar chaves de encriptação geridas pelo cliente
