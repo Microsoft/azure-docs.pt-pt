@@ -4,10 +4,10 @@ description: Personalize os nomes de porta e VLAN nos seus sensores para enrique
 ms.date: 12/13/2020
 ms.topic: how-to
 ms.openlocfilehash: de6fbe70d5a5359ad4e4c276642b9b9ed0cef00f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784174"
 ---
 # <a name="enhance-port-vlan-and-os-resolution"></a>Melhorar a resolução portuária, VLAN e OS

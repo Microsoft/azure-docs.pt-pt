@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94965736"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerir registos de DNS e recordes utilizando o portal Azure
@@ -87,13 +87,13 @@ Pode utilizar o portal Azure para remover registos de um conjunto de registos. N
 3. Verifique se o nome corresponde ao conjunto de registos que pretende apagar e, em seguida, clique em **Sim**.
 4. Na lâmina da **zona DNS,** verifique se o conjunto de registos já não está visível.
 
-## <a name="work-with-ns-and-soa-records"></a>Trabalhar com registos NS e SOA
+## <a name="work-with-ns-and-soa-records&quot;></a>Trabalhar com registos NS e SOA
 
 Os registos NS e SOA que são criados automaticamente são geridos de forma diferente de outros tipos de registo.
 
-### <a name="modify-soa-records"></a>Modificar os registos SOA
+### <a name=&quot;modify-soa-records&quot;></a>Modificar os registos SOA
 
-Não é possível adicionar ou remover registos do registo SOA automaticamente criado no ápice da zona (nome = " \@ "). No entanto, pode modificar qualquer um dos parâmetros dentro do registo SOA (exceto "Host") e o recorde definido TTL.
+Não é possível adicionar ou remover registos do registo SOA automaticamente criado no ápice da zona (nome = &quot; \@ "). No entanto, pode modificar qualquer um dos parâmetros dentro do registo SOA (exceto "Host") e o recorde definido TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificar os registos NS no ápice da zona
 

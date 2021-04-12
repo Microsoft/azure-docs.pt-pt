@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 06bebcb7369f6604fc79c1d3d0a4a6afa8b0a1da
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97896316"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Crie e gere VLANs/sub-redes para as suas Nuvens Privadas

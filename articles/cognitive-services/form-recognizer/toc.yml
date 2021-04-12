@@ -5,6 +5,10 @@
   items:
     - name: O que é o Reconhecedor de Formato?
       href: overview.md
+    - name: Suporte de idiomas
+      href: language-support.md
+    - name: Preços e limites
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Novidades
       href: whats-new.md
 - name: Guias de Início Rápido
@@ -91,15 +95,13 @@
   items:
     - name: Opções de suporte e ajuda
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-    - name: Preços e limites
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilidade regional
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: Suporte de idiomas
-      href: language-support.md
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Encriptação
       href: encrypt-data-at-rest.md
+    - name: Privacidade e cookies
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'

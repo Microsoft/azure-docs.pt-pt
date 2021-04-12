@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 419b4939c19ee03651a406db44244897e17087f2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104865473"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Visão geral do armazenamento Azure em HDInsight

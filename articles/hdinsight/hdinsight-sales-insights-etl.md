@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
 ms.openlocfilehash: 32c331b10fcc73b5449588595370f8f69ef9893c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104872052"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas em Azure HDInsight

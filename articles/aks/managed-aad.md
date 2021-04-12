@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: b7918ecc31fe152bd25153ac8c899ce3ff8fdacb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0e912de4cf3a9759abe4cb3df78255c0a9ba1557
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640596"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105869"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração do Azure Ative Directory gerido pela AKS
 
@@ -20,7 +20,7 @@ A integração AZure AD gerida pela AKS foi projetada para simplificar a experi�
 
 Os administradores do cluster podem configurar o controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC) com base na identidade ou membro do grupo de diretórios de um utilizador. A autenticação AZure AD é fornecida aos clusters AKS com OpenID Connect. OpenID Connect é uma camada de identidade construída em cima do protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação de ligação Open ID][open-id-connect].
 
-Saiba mais sobre o fluxo de integração AD do Azure na documentação de [conceitos de integração do Azure Ative Directory.](concepts-identity.md#azure-active-directory-integration)
+Saiba mais sobre o fluxo de integração AD do Azure na documentação de [conceitos de integração do Azure Ative Directory.](concepts-identity.md#azure-ad-integration)
 
 ## <a name="limitations"></a>Limitações 
 
@@ -228,7 +228,7 @@ kubectl get nodes
 
 Siga as instruções para voltar a entrar. Note que existe uma mensagem de erro indicando que está a iniciar sessão com sucesso, mas o seu administrador requer que o dispositivo que solicita o acesso seja gerido pelo seu AD Azure para aceder ao recurso.
 
-No portal Azure, navegue para O Diretório Ativo Azure, selecione *aplicações enterprise* e, em seguida, em *'Activa's* select .  Note uma entrada no topo com um *Estado* de *Falha* e um *Acesso Condicional* de *Sucesso*. Selecione a entrada e, em *seguida,* selecione Acesso Condicional em *Detalhes*. Note que a sua política de Acesso Condicional está listada.
+No portal Azure, navegue para O Diretório Ativo Azure, selecione *aplicações enterprise* e, em seguida, em *'Ativa's* select .  Note uma entrada no topo com um *Estado* de *Falha* e um *Acesso Condicional* de *Sucesso*. Selecione a entrada e, em *seguida,* selecione Acesso Condicional em *Detalhes*. Note que a sua política de Acesso Condicional está listada.
 
 :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Entrada de entrada falhada devido à política de acesso condicional":::
 
@@ -260,7 +260,7 @@ Para integrar pedidos de acesso just-in-time com um cluster AKS utilizando a int
 1. Selecione um papel de *membro* e selecione os utilizadores e grupos a quem deseja conceder acesso ao cluster. Estas atribuições podem ser modificadas a qualquer momento por um administrador de grupo. Quando estiver pronto para seguir em frente, selecione *Next*.
     :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="É apresentado o ecrã de adesão do portal Azure, com um utilizador de amostra selecionado para ser adicionado como membro. A opção 'Seguinte' está em destaque.":::
 1. Escolha um tipo de atribuição de *Ative,* a duração desejada, e forneça uma justificação. Quando estiver pronto para prosseguir, selecione *Atribua.* Para obter mais informações sobre tipos de atribuição, consulte [Atribuir elegibilidade para um grupo privilegiado de acesso (pré-visualização) em Gestão de Identidade Privilegiada.][aad-assignments]
-    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="É mostrado o ecrã de definição de atribuições do portal Azure. É selecionado um tipo de atribuição de 'Activo' e foi dada uma justificação de amostra. A opção 'Atribuir' é realçada.":::
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="É mostrado o ecrã de definição de atribuições do portal Azure. É selecionado um tipo de atribuição de 'Ativo' e foi dada uma justificação de amostra. A opção 'Atribuir' é realçada.":::
 
 Uma vez feitas as atribuições, verifique se o acesso just-in-time está a funcionar acedendo ao cluster. Por exemplo:
 

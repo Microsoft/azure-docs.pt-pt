@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 9f9758ec765ad34e5ef5d8b4d4e0a420a6701b6e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98756396"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Uma API web que chama APIs web: Adquira um símbolo para a app

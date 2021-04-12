@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793437"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de fusão dividida

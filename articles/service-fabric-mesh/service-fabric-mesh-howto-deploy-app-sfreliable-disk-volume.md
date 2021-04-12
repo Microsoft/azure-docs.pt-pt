@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
 ms.openlocfilehash: ac65693f2513338695e07cd8a19acb13333e7281
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99625791"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte volume de disco fiável de tecido de serviço altamente disponível numa aplicação de malha de tecido de serviço 

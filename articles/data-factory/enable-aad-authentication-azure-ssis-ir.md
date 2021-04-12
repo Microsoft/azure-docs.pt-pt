@@ -9,10 +9,10 @@ ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
 ms.openlocfilehash: cd3f590e1869b28f0ac08ce98da32a98160e4e86
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100392736"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime

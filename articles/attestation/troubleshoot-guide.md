@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97704321"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guia de resolução de problemas do Microsoft Azure Attestation
@@ -45,7 +45,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
 
-**Etapas de resolução de problemas**
+**Passos de resolução de problemas**
 
 Para visualizar políticas de atestado/signatários de políticas, um utilizador AZure AD requer a permissão para "Ações":
 - Microsoft.Attestation/attestationProviders/attestation/read
@@ -134,7 +134,7 @@ Ver [exemplos de política de atestado](./policy-examples.md)
 - A cotação especificada foi inválida porque o dispositivo em que a cotação foi gerada não satisfaz os requisitos de base Azure
 - A cotação especificada foi inválida porque o TCBInfo ou QEID fornecido pelo Serviço de Cache PCK foi inválido
 
-**Etapas de resolução de problemas**
+**Passos de resolução de problemas**
 
 O Microsoft Azure Attestation suporta a atestada de cotações SGX geradas pela Intel SDK e pela Open Enclave SDK.
 

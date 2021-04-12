@@ -12,10 +12,10 @@ ms.date: 02/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
 ms.openlocfilehash: 0de3c9a7cf464f38a1a12d8bc19451fb1158a5ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102520511"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python

@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 47a32815ded5809edfde856a38c69ec7c6fd6fdf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4ab1a157cdf3ef5017b227cd090379dcab91997e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493361"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105931561"
 ---
 # <a name="azure-communication-services-ui-framework"></a>Quadro de UI dos Serviços de Comunicação Azure
 
@@ -25,11 +25,11 @@ A Azure Communication Services UI Framework facilita-lhe a construção de exper
 - **Componentes Compostos** - Estes componentes são soluções chave-na-curva que implementam cenários comuns de comunicação. Pode adicionar rapidamente experiências de chamada de vídeo ou chat às suas aplicações. Os compostos são componentes de código aberto construídos com componentes base.
 - **Componentes base** - Estes componentes são blocos de construção de código aberto que permitem construir experiência de comunicação personalizada. Os componentes são oferecidos tanto para capacidades de chamada como de chat que podem ser combinadas para construir experiências. 
 
-Estas bibliotecas de clientes da UI utilizam todas as linguagens e ativos [fluentes da Microsoft.](https://developer.microsoft.com/fluentui/) A UI fluente fornece uma camada fundamental para o UI Framework que foi testada em todos os produtos da Microsoft.
+Estes UI SDKs usam todos a linguagem e os ativos [fluentes da Microsoft.](https://developer.microsoft.com/fluentui/) A UI fluente fornece uma camada fundamental para o UI Framework que foi testada em todos os produtos da Microsoft.
 
 ## <a name="differentiating-components-and-composites"></a>**Componentes diferenciadores e compósitos**
 
-**Os Componentes Base** são construídos em cima das bibliotecas de clientes do Core Azure Communication Services e implementam ações básicas como a inicialização das bibliotecas principais do cliente, a renderização de vídeo e o fornecimento de controlos do utilizador para silenciamento, vídeo ligado/desligado, etc. Você pode usar estes Componentes Base para construir suas **próprias experiências** de layout personalizado usando componentes de comunicação pré-construídos e prontos de produção.
+**Os Componentes Base** são construídos em cima dos SDKs de serviços de comunicação do núcleo E implementam ações básicas, tais como a inicialização dos SDKs de núcleo, a renderização de vídeo e o fornecimento de controlos do utilizador para silenciamento, vídeo ligado/desligado, etc. Você pode usar estes Componentes Base para construir suas **próprias experiências** de layout personalizado usando componentes de comunicação pré-construídos e prontos de produção.
 
 :::image type="content" source="../media/ui-framework/component-overview.png" alt-text="Visão geral do componente para o quadro de UI":::
 
@@ -39,19 +39,19 @@ Estas bibliotecas de clientes da UI utilizam todas as linguagens e ativos [fluen
 
 ## <a name="what-ui-framework-is-best-for-my-project"></a>Qual é o melhor para o meu projeto?
 
-Compreender estes requisitos irá ajudá-lo a escolher a biblioteca de clientes certa:
+Compreender estes requisitos irá ajudá-lo a escolher o SDK certo:
 
-- **Qual a personalização que deseja?** As bibliotecas principais de clientes da Azure Communication não têm um UX e são projetadas para que possa construir o UX que quiser. Os componentes do UI Framework fornecem ativos de UI à custa da menor personalização.
-- **Precisa de funcionalidades de reunião?** O sistema de Encontros tem várias capacidades únicas não disponíveis atualmente nas principais bibliotecas de clientes dos Serviços de Comunicação Azure, tais como fundo desfocado e mão levantada.
+- **Qual a personalização que deseja?** Os SDKs core de comunicação Azure não têm um UX e são projetados para que possa construir o UX que quiser. Os componentes do UI Framework fornecem ativos de UI à custa da menor personalização.
+- **Precisa de funcionalidades de reunião?** O sistema de Encontros tem várias capacidades únicas não disponíveis atualmente nos SDKs de serviços de comunicação do Azure, tais como fundo desfocado e mão levantada.
 - **Quais as plataformas que está a apontar?** Plataformas diferentes têm capacidades diferentes.
 
 Detalhes sobre a disponibilidade de recursos nos [variados UI SDKs estão disponíveis aqui](ui-sdk-features.md), mas as principais trocas são resumidas abaixo.
 
-|Biblioteca de clientes / SDK|Complexidade de Implementação|    Capacidade de personalização|  Chamando| Chat| [Equipas Interop](./../teams-interop.md)
+|SDK / SDK|Complexidade de Implementação|   Capacidade de personalização|  Chamando| Chat| [Equipas Interop](./../teams-interop.md)
 |---|---|---|---|---|---|---|
 |Componentes Compostos|Baixo|Baixo|✔|✔|✕
 |Componentes base|Médio|Médio|✔|✔|✕
-|Bibliotecas de clientes centrais|Alto|Alto|✔|✔ |✔
+|SDKs de núcleo|Alto|Alto|✔|✔ |✔
 
 ## <a name="cost"></a>Custo
 
@@ -78,7 +78,7 @@ Chat:
 
 Os componentes compósitos e base são inicializados utilizando um token de acesso dos Serviços de Comunicação Azure. Os tokens de acesso devem ser adquiridos a partir dos Serviços de Comunicação Azure através de um serviço de confiança que gere. Consulte [Quickstart: Crie Tokens de acesso](../../quickstarts/access-tokens.md) e tutorial de serviço [fidedigno](../../tutorials/trusted-service-tutorial.md) para obter mais informações.
 
-Estas bibliotecas de clientes também requerem o contexto para a chamada ou chat a que se juntarão. Semelhante aos tokens de acesso ao utilizador, este contexto deve ser divulgado aos clientes através do seu próprio serviço de confiança. A lista abaixo resume as funções de inicialização e gestão de recursos que precisa para operacionalizar.
+Estes SDKs também requerem o contexto para a chamada ou chat que irão aderir. Semelhante aos tokens de acesso ao utilizador, este contexto deve ser divulgado aos clientes através do seu próprio serviço de confiança. A lista abaixo resume as funções de inicialização e gestão de recursos que precisa para operacionalizar.
 
 | Responsabilidades de Contoso                                 | Responsabilidades do Quadro da UI                         |
 |----------------------------------------------------------|-----------------------------------------------------------------|

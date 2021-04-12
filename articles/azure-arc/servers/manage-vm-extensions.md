@@ -4,10 +4,10 @@ description: Os servidores ativados do Azure Arc podem gerir a implementação d
 ms.date: 03/22/2021
 ms.topic: conceptual
 ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104799586"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestão de extensões de máquinas virtuais com servidores preparados para o Azure Arc

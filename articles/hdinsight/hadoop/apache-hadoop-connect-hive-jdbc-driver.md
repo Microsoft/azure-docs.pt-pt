@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 6073000f2f14f835e2bfbd91b41619101c36b10f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866850"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Apache Hive through the JDBC driver in HDInsight (Consultar o Apache Hive através do controlador JDBC no HDInsight)
