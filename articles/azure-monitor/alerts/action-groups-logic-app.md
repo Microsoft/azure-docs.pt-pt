@@ -1,22 +1,22 @@
 ---
-title: Como desencadear ações complexas com alertas do Azure Monitor
+title: Desencadear ações complexas com alertas do Monitor Azure
 description: Saiba como criar uma ação lógica de aplicação para processar alertas do Azure Monitor.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: a1371e00a6d4c5db609466e25c9d94aad5e73398
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f1e81dca6926ae9f57e428eb1cef761c588a78b6
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045722"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029850"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como desencadear ações complexas com alertas do Azure Monitor
 
 Este artigo mostra-lhe como configurar e desencadear uma aplicação lógica para criar uma conversa nas Equipas da Microsoft quando um alerta dispara.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando um alerta do Monitor Azure dispara, chama um [grupo de ação](./action-groups.md). Os grupos de ação permitem-lhe desencadear uma ou mais ações para notificar os outros sobre um alerta e também remediar o mesmo.
 
@@ -34,66 +34,66 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Criar um alerta de registo de atividade: Administrativo
 
-1. [Criar uma app lógica](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
+1. [Crie uma aplicação lógica.](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  Selecione o gatilho: **Quando um pedido HTTP for recebido**.
+1.  Selecione o gatilho: **Quando um pedido HTTP for recebido**.
 
 1. No diálogo para **quando for recebido um pedido HTTP**, selecione Utilize a carga útil da amostra para gerar **esquema**.
 
-    ![Screenshot que mostra a caixa de diálogo de pedido de H T T P e a carga útil da amostra de utilização para gerar esquema opion selecionado. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Screenshot que mostra a caixa de diálogo de pedido de H T T P e a carga útil da amostra utilizar para gerar a opção de esquema selecionada. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-3.  Copiar e colar a seguinte carga útil da amostra na caixa de diálogo:
+1.  Copiar e colar a seguinte carga útil da amostra na caixa de diálogo:
 
     ```json
         {
-            "schemaId": "Microsoft.Insights/activityLogs",
-            "data": {
-                "status": "Activated",
-                "context": {
-                "activityLog": {
-                    "authorization": {
-                    "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/…"
+            "schemaId&quot;: &quot;Microsoft.Insights/activityLogs&quot;,
+            &quot;data&quot;: {
+                &quot;status&quot;: &quot;Activated&quot;,
+                &quot;context&quot;: {
+                &quot;activityLog&quot;: {
+                    &quot;authorization&quot;: {
+                    &quot;action&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;scope&quot;: &quot;/subscriptions/…&quot;
                     },
-                    "channels": "Operation",
-                    "claims": "…",
-                    "caller": "logicappdemo@contoso.com",
-                    "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
-                    "description": "",
-                    "eventSource": "Administrative",
-                    "eventTimestamp": "2018-04-03T22:33:11.762469+00:00",
-                    "eventDataId": "ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0",
-                    "level": "Informational",
-                    "operationName": "microsoft.insights/activityLogAlerts/write",
-                    "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/…",
-                    "resourceGroupName": "LOGICAPP-DEMO",
-                    "resourceProviderName": "microsoft.insights",
-                    "status": "Succeeded",
-                    "subStatus": "",
-                    "subscriptionId": "…",
-                    "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
-                    "resourceType": "microsoft.insights/activityLogAlerts"
+                    &quot;channels&quot;: &quot;Operation&quot;,
+                    &quot;claims&quot;: &quot;…&quot;,
+                    &quot;caller&quot;: &quot;logicappdemo@contoso.com&quot;,
+                    &quot;correlationId&quot;: &quot;91ad2bac-1afa-4932-a2ce-2f8efd6765a3&quot;,
+                    &quot;description&quot;: &quot;&quot;,
+                    &quot;eventSource&quot;: &quot;Administrative&quot;,
+                    &quot;eventTimestamp&quot;: &quot;2018-04-03T22:33:11.762469+00:00&quot;,
+                    &quot;eventDataId&quot;: &quot;ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0&quot;,
+                    &quot;level&quot;: &quot;Informational&quot;,
+                    &quot;operationName&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;operationId&quot;: &quot;61f59fc8-1442-4c74-9f5f-937392a9723c&quot;,
+                    &quot;resourceId&quot;: &quot;/subscriptions/…&quot;,
+                    &quot;resourceGroupName&quot;: &quot;LOGICAPP-DEMO&quot;,
+                    &quot;resourceProviderName&quot;: &quot;microsoft.insights&quot;,
+                    &quot;status&quot;: &quot;Succeeded&quot;,
+                    &quot;subStatus&quot;: &quot;&quot;,
+                    &quot;subscriptionId&quot;: &quot;…&quot;,
+                    &quot;submissionTimestamp&quot;: &quot;2018-04-03T22:33:36.1068742+00:00&quot;,
+                    &quot;resourceType&quot;: &quot;microsoft.insights/activityLogAlerts&quot;
                 }
                 },
-                "properties": {}
+                &quot;properties&quot;: {}
             }
         }
     ```
 
-9. O **Logic App Designer** exibe uma janela pop-up para lembrá-lo que o pedido enviado para a aplicação lógica deve definir o cabeçalho do Tipo de **Conteúdo** para **aplicação/json**. Feche a janela pop-up. O alerta do Monitor Azure define o cabeçalho.
+1. O **Logic Apps Designer** exibe uma janela pop-up para lembrá-lo que o pedido enviado para a aplicação lógica deve definir o cabeçalho do Tipo de **Conteúdo** para **aplicação/json**. Feche a janela pop-up. O alerta do Monitor Azure define o cabeçalho.
 
-    ![Desente o cabeçalho do tipo de conteúdo](media/action-groups-logic-app/content-type-header.png "Desente o cabeçalho do tipo de conteúdo")
+    ![Desente o cabeçalho do tipo de conteúdo](media/action-groups-logic-app/content-type-header.png &quot;Desente o cabeçalho do tipo de conteúdo")
 
-10. Selecione **+** **Novo passo** e, em seguida, escolha **Adicionar uma ação**.
+1. Selecione **+** **Novo passo** e, em seguida, escolha **Adicionar uma ação**.
 
     ![Adicionar uma ação](media/action-groups-logic-app/add-action.png "Adicionar uma ação")
 
-11. Procure e selecione o conector Microsoft Teams. Escolha as Equipas microsoft **- ação de mensagem** postada.
+1. Procure e selecione o conector Microsoft Teams. Escolha as Equipas microsoft **- ação de mensagem** postada.
 
     ![Ações da Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Ações da Microsoft Teams")
 
-12. Configure a ação do Microsoft Teams. O **Logic Apps Designer** pede-lhe para autenticar no seu trabalho ou na sua conta escolar. Escolha o **ID da equipa** e **o ID do Canal** para enviar a mensagem.
+1. Configure a ação do Microsoft Teams. O **Logic Apps Designer** pede-lhe para autenticar no seu trabalho ou na sua conta escolar. Escolha o **ID da equipa** e **o ID do Canal** para enviar a mensagem.
 
 13. Configure a mensagem utilizando uma combinação de texto estático e referências ao \<fields\> conteúdo dinâmico. Copiar e colar o seguinte texto no campo **Mensagem:**
 
@@ -111,9 +111,9 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
     ![Ação microsoft Teams: Publicar uma mensagem](media/action-groups-logic-app/teams-action-post-message.png "Ação microsoft Teams: Publicar uma mensagem")
 
-14. No topo do **Logic Apps Designer,** selecione **Save** para guardar a sua aplicação lógica.
+1. No topo do **Logic Apps Designer,** selecione **Save** para guardar a sua aplicação lógica.
 
-15. Abra o seu grupo de ação existente e adicione uma ação para fazer referência à aplicação lógica. Se não tiver um grupo de ação existente, consulte [Criar e gerir grupos de ação no portal Azure](./action-groups.md) para criar um. Não se esqueça de guardar as suas mudanças.
+1. Abra o seu grupo de ação existente e adicione uma ação para fazer referência à aplicação lógica. Se não tiver um grupo de ação existente, consulte [Criar e gerir grupos de ação no portal Azure](./action-groups.md) para criar um. Não se esqueça de guardar as suas mudanças.
 
     ![Atualizar o grupo de ação](media/action-groups-logic-app/update-action-group.png "Atualizar o grupo de ação")
 
@@ -265,7 +265,7 @@ O processo de criação de um alerta métrico é semelhante à criação de [um 
        
        !["Condição de carga útil de alerta métrico"](media/action-groups-logic-app/metric-alert-payload-condition.png "Condição de carga útil de alerta métrico")
 
-  1. Na **condição se for verdadeira,** adicione um **Para cada** loop e a ação do Microsoft Teams. Defina a mensagem utilizando uma combinação de HTML e conteúdo dinâmico.
+  1. Na **condição Se for verdadeira,** adicione um **Para cada** loop e a ação microsoft Teams. Defina a mensagem utilizando uma combinação de HTML e conteúdo dinâmico.
 
       !["Alerta métrico estado real após ação"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Alerta métrico real condição pós ação")
 

@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 6f03284103b4a2aa6900bf1ba5c50a4688c50b0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 430ab72a3eb0cd41d707ff0eb5d10d8b97162d53
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88005487"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444246"
 ---
 # <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Resolução de problemas da ferramenta de gestão virtual do Windows Desktop (clássico)
 

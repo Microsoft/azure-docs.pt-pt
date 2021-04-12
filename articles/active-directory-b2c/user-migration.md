@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e60b80a4ebeaef7d31d4c0c1d9d4bfc41ec3a56
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010172"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256213"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar utilizadores para o AAD B2C
 
@@ -43,7 +43,7 @@ Utilize o fluxo de migração sem emenda se as palavras-passe de texto simples n
 - A palavra-passe é armazenada num formato criptografado de sentido único, como por exemplo com uma função de haxixe.
 - A palavra-passe é armazenada pelo fornecedor de identidade legado de uma forma que não pode aceder. Por exemplo, quando o fornecedor de identidade valida as credenciais chamando um serviço web.
 
-O fluxo de migração sem emenda ainda requer pré-migração das contas dos utilizadores, mas depois usa uma [política personalizada](custom-policy-get-started.md) para consultar uma [API REST](custom-policy-rest-api-intro.md) (que cria) para definir a palavra-passe de cada utilizador no início do sessão.
+O fluxo de migração sem emenda ainda requer pré-migração das contas dos utilizadores, mas depois usa uma [política personalizada](user-flow-overview.md) para consultar uma [API REST](custom-policy-rest-api-intro.md) (que cria) para definir a palavra-passe de cada utilizador no início do sessão.
 
 O fluxo migratório sem emenda tem, assim, duas fases: *pré-migração* e *credenciais definidas.*
 

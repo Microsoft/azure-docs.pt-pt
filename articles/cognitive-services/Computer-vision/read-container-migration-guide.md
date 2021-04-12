@@ -1,5 +1,5 @@
 ---
-title: Migrar para os recipientes de OCR de Leitura v3.x
+title: Migrar para os recipientes Ler v3.x
 titleSuffix: Azure Cognitive Services
 description: Saiba como migrar para os recipientes V3 Read OCR
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/29/2021
 ms.author: aahi
-ms.openlocfilehash: baa91e21979022064aaf13aca6079f8d092d673e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1cc17306265e6e8ba2e7fb3f570d0017b006b84f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221158"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284690"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para os recipientes de OCR de Leitura v3.x
 
@@ -24,7 +24,7 @@ Se estiver a utilizar a versão 2 do recipiente OCR de Leitura de Visão de Comp
 
 ## <a name="configuration-changes"></a>Alterações de configuração
 
-* `ReadEngineConfig:ResultExpirationPeriod` já não é apoiado. O recipiente Read tem um trabalho cron construído que remove os resultados e metadados associados a um pedido após 48 horas.
+* `ReadEngineConfig:ResultExpirationPeriod` já não é apoiado. O recipiente Read OCR tem um trabalho cron construído que remove os resultados e metadados associados a um pedido após 48 horas.
 * `Cache:Redis:Configuration` já não é apoiado. O Cache não é utilizado nos recipientes v3.x, pelo que não é necessário defini-lo.
 
 ## <a name="api-changes"></a>Alterações na API
@@ -39,7 +39,7 @@ Consulte o [guia de migração da API da API com Visão De Computador v3](./upgr
 
 ## <a name="memory-requirements"></a>Requisitos de memória
 
-Os requisitos e recomendações baseiam-se em parâmetros de referência com um único pedido por segundo, utilizando uma imagem de 8-MB de uma carta de negócios digitalizada que contém 29 linhas e um total de 803 caracteres. O quadro seguinte descreve a alocação mínima e recomendada de recursos para cada recipiente De leitura.
+Os requisitos e recomendações baseiam-se em parâmetros de referência com um único pedido por segundo, utilizando uma imagem de 8-MB de uma carta de negócios digitalizada que contém 29 linhas e um total de 803 caracteres. O quadro seguinte descreve a alocação mínima e recomendada de recursos para cada recipiente De Leitura OCR.
 
 |Contentor  |Mínimo | Recomendado  |
 |---------|---------|------|
@@ -81,7 +81,7 @@ Ajuste o temporizador com `Queue:Azure:QueueVisibilityTimeoutInMilliseconds` , o
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
-* Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito
-* Consulte a [API de Visão De Computador](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter mais informações sobre os métodos suportados pelo recipiente.
+* [Reveja a visão geral do OCR](overview-ocr.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito
+* Consulte a [API de leitura](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter mais informações sobre os métodos suportados pelo recipiente.
 * Consulte [perguntas frequentes (FAQ)](FAQ.md) para resolver problemas relacionados com a funcionalidade de Visão de Computador.
 * Use mais [recipientes de serviços cognitivos](../cognitive-services-container-support.md)

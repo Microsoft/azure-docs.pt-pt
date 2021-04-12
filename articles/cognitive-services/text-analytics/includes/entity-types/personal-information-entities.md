@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 19586c09cca9a0dc74ba9ee4ef9da459964f9b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7484b49ed3c868a1ad3e0f97dffa346f350e127f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599329"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096954"
 ---
 > [!NOTE]
 > Para detetar informações de saúde protegidas (PHI), utilize o `domain=phi` parâmetro e a versão do modelo ou `2020-04-01` posteriormente.
@@ -53,7 +53,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Nomes de pessoas. 
+        Nomes de pessoas. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `Person` ao `pii-categories` parâmetro. `Person` serão devolvidos na resposta da API se for detetado.
       
@@ -140,7 +140,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Empresas, grupos políticos, bandas musicais, clubes desportivos, organismos governamentais e organizações públicas. As nacionalidades e religiões não estão incluídas neste tipo de entidade.
+        Empresas, grupos políticos, bandas musicais, clubes desportivos, organismos governamentais e organizações públicas. As nacionalidades e religiões não estão incluídas neste tipo de entidade. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `Organization` ao `pii-categories` parâmetro. `Organization` serão devolvidos na resposta da API se for detetado.
       
@@ -241,7 +241,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Endereço de correio completo.
+        Endereço de correio completo. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `Address` ao `pii-categories` parâmetro. `Address` serão devolvidos na resposta da API se for detetado.
       
@@ -270,7 +270,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Endereços de e-mail.
+        Endereços de e-mail. Também devolvido `domain=phi` com.
       
         Para obter esta categoria de entidade, adicione `Email` ao `pii-categories` parâmetro. `Email` serão devolvidos na resposta da API se for detetado.
 
@@ -298,7 +298,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        URLs para sites. 
+        URLs para sites. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `URL` ao `pii-categories` parâmetro. `URL` serão devolvidos na resposta da API se for detetado.
       
@@ -327,7 +327,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        endereços IP de rede. 
+        Endereços IP de rede. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `IP` ao `pii-categories` parâmetro. `IP` serão devolvidos na resposta da API se for detetado.
       
@@ -382,7 +382,7 @@ A entidade desta categoria pode ter as seguintes subcategorias.
     :::column span="2":::
         **Detalhes**
 
-        Datas de Calender.
+        Datas de Calender. Também devolvido `domain=phi` com.
 
         Para obter esta categoria de entidade, adicione `Date` ao `pii-categories` parâmetro. `Date` serão devolvidos na resposta da API se for detetado.
       
@@ -436,7 +436,7 @@ A entidade desta categoria pode ter as seguintes subcategorias.
     :::column span="2":::
         **Detalhes**
 
-        Idades.
+        Idades. 
 
         Para obter esta categoria de entidade, adicione `Age` ao `pii-categories` parâmetro. `Age` serão devolvidos na resposta da API se for detetado.
       

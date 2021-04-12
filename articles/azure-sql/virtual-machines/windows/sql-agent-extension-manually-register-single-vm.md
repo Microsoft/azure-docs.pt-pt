@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3cea15114e125951a8fbec73f965b272a4f8053d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181436"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284163"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registar SQL Server VM com extensão do agente SQL IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,13 +30,13 @@ Registar o seu SQL Server VM com a [extensão SQL IaaS Agent](sql-server-iaas-ag
 Este artigo ensina-o a registar um único SQL Server VM com a extensão sql IaaS Agent. Em alternativa, pode registar automaticamente todos [](sql-agent-extension-automatic-registration-all-vms.md) os VMs do SQL Server ou [vários VMs scripts a granel](sql-agent-extension-manually-register-vms-bulk.md).
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Registar-se com a [extensão sql Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) cria o _recurso_ **de máquina virtual SQL** dentro da sua subscrição, que é um recurso _separado_ do recurso da máquina virtual. Desregralar o seu SQL Server VM da extensão removerá o _recurso_ **da máquina virtual SQL,** mas não deixará cair a máquina virtual real.
 
 A implementação de uma imagem do SQL Server VM Azure Marketplace através do portal Azure regista automaticamente o SQL Server VM com a extensão. No entanto, se optar por instalar o SQL Server numa máquina virtual Azure ou providenciar uma máquina virtual Azure a partir de um VHD personalizado, então deve registar o seu SQL Server VM com a extensão SQL IaaS Agent para desbloquear todos os benefícios de funcionalidade e gerenciabilidade. 
 
-Para utilizar a extensão do Agente IAAS SQL, tem primeiro de [registar a sua subscrição com o fornecedor **Microsoft.SqlVirtualMachine**](#register-subscription-with-rp), o que dá à extensão SQL IaaS a capacidade de criar recursos dentro dessa subscrição específica.
+Para utilizar a extensão do Agente IAAS SQL, tem primeiro de [registar a sua subscrição com o fornecedor **Microsoft.SqlVirtualMachine**](#register-subscription-with-resource-provider), o que dá à extensão SQL IaaS a capacidade de criar recursos dentro dessa subscrição específica.
 
 > [!IMPORTANT]
 > A extensão do Agente IAAS SQL recolhe dados com o propósito expresso de dar aos clientes benefícios opcionais ao utilizar o SQL Server dentro de Máquinas Virtuais Azure. A Microsoft não utilizará estes dados para licenciar auditorias sem o consentimento prévio do cliente. Consulte o [suplemento de privacidade SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data) para obter mais informações.
@@ -50,9 +50,9 @@ Para registar o seu SQL Server VM com a extensão, necessitará de:
 - A versão mais recente de [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell (5.0 mínimo)](/powershell/azure/install-az-ps). 
 
 
-## <a name="register-subscription-with-rp"></a>Registar subscrição com RP
+## <a name="register-subscription-with-resource-provider"></a>Registe a subscrição com o Fornecedor de Recursos
 
-Para registar o seu SQL Server VM com a extensão SQL IaaS Agent, tem primeiro de registar a sua subscrição com o fornecedor **Microsoft.SqlVirtualMachine.** Isto dá ao SqL IaaS Agent a capacidade de criar recursos dentro da sua subscrição.  Pode fazê-lo utilizando o portal Azure, o Azure CLI ou o Azure PowerShell.
+Para registar o seu SQL Server VM com a extensão SQL IaaS Agent, tem primeiro de registar a sua subscrição com o fornecedor de recursos **Microsoft.SqlVirtualMachine.** Isto dá ao SqL IaaS Agent a capacidade de criar recursos dentro da sua subscrição.  Pode fazê-lo utilizando o portal Azure, o Azure CLI ou o Azure PowerShell.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -127,7 +127,7 @@ Registar um SQL Server VM em modo leve com Azure PowerShell:
 
 ### <a name="full-management-mode"></a>Modo de gestão completa
 
-Registar o seu SQL Server VM em modo completo reiniciará o serviço SQL Server. Por favor, proceda com cuidado. 
+Registar o seu SQL Server VM em modo completo reiniciará o serviço SQL Server. Prossiga com cuidado. 
 
 Para registar o seu SQL Server VM diretamente em modo completo (e possivelmente reiniciar o seu serviço SQL Server), utilize o seguinte comando Azure PowerShell: 
 

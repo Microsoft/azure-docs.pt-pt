@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1f03f99e6394c3939855c73548e8fb917f8696bc
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077623"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286033"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
-A análise espacial inclui um conjunto de funcionalidades para monitorizar o estado de funcionamento do sistema e ajudar a diagnosticar problemas.
+A Análise Espacial inclui um conjunto de funcionalidades para monitorizar a saúde do sistema e ajudar no diagnóstico de problemas.
 
 ## <a name="enable-visualizations"></a>Permitir visualizações
 
-Para ativar uma visualização de eventos de AI Insights numa moldura de vídeo, é necessário utilizar a `.debug` versão de uma [operação](spatial-analysis-operations.md) de análise espacial numa máquina de ambiente de trabalho. A visualização não é possível nos dispositivos Azure Stack Edge. Há quatro operações de depuro disponíveis.
+Para ativar uma visualização de eventos de AI Insights numa moldura de vídeo, é necessário utilizar a `.debug` versão de uma [operação de Análise Espacial](spatial-analysis-operations.md) numa máquina de ambiente de trabalho. A visualização não é possível nos dispositivos Azure Stack Edge. Há quatro operações de depuro disponíveis.
 
 Se o seu dispositivo não for um dispositivo Azure Stack Edge, edite o ficheiro manifesto de implementação para [máquinas de ambiente de trabalho](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) para utilizar o valor correto para a `DISPLAY` variável ambiente. Precisa combinar com a `$DISPLAY` variável no computador anfitrião. Após a atualização do manifesto de implantação, reimplante o recipiente.
 
@@ -39,10 +39,10 @@ xhost +
 
 ## <a name="collect-system-health-telemetry"></a>Recolher telemetria de saúde do sistema
 
-A Telegraf é uma imagem de código aberto que funciona com análise espacial, e está disponível no Registo de Contentores da Microsoft. Pega nas seguintes entradas e envia-as para o Azure Monitor. O módulo telegraf pode ser construído com entradas e saídas personalizadas desejadas. A configuração do módulo telegraf na análise espacial faz parte do manifesto de implantação (ligado acima). Este módulo é opcional e pode ser removido do manifesto se não precisar. 
+A Telegraf é uma imagem de código aberto que funciona com a Análise Espacial, e está disponível no Registo de Contentores da Microsoft. Pega nas seguintes entradas e envia-as para o Azure Monitor. O módulo telegraf pode ser construído com entradas e saídas personalizadas desejadas. A configuração do módulo telegraf em Análise Espacial faz parte do manifesto de implantação (ligado acima). Este módulo é opcional e pode ser removido do manifesto se não precisar. 
 
 Entradas: 
-1. Análise espacial Métricas
+1. Métricas de Análise Espacial
 2. Métricas de disco
 3. Métricas do CPU
 4. Métricas docker
@@ -51,7 +51,7 @@ Entradas:
 Saídas:
 1. Azure Monitor
 
-O módulo de análise espacial fornecido telegraf publicará todos os dados de telemetria emitidos pelo recipiente de análise espacial ao Azure Monitor. Consulte o [Monitor Azure](../../azure-monitor/overview.md) para obter informações sobre a adição do Monitor Azure à sua subscrição.
+O módulo de telegraf de análise espacial fornecido publicará todos os dados de telemetria emitidos pelo recipiente de Análise Espacial ao Monitor Azure. Consulte o [Monitor Azure](../../azure-monitor/overview.md) para obter informações sobre a adição do Monitor Azure à sua subscrição.
 
 Depois de configurar o Azure Monitor, terá de criar credenciais que permitam ao módulo enviar telemetria. Pode utilizar o portal Azure para criar um novo Diretor de Serviços ou utilizar o comando Azure CLI abaixo para criar um.
 
@@ -103,9 +103,9 @@ Uma vez implantado o módulo telegraf, as métricas reportadas podem ser acedida
 
 ### <a name="system-health-events"></a>Eventos de saúde do sistema
 
-| Nome do Evento                  | Description    |
+| Nome do Evento                  | Descrição    |
 |-----------------------------|-------------------------------------------------------------------------------------------|
-| archon_exit                 | Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
+| archon_exit                 | Enviado quando um utilizador altera o estado do módulo de Análise Espacial de *correr* para *parar*.  |
 | archon_error                | Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.      |
 | InputRate                   | A taxa a que o gráfico processa a entrada de vídeo. Reportado a cada 5 minutos.              |
 | Taxa de saída                  | A taxa a que o gráfico produz insights de IA. Reportado a cada 5 minutos.                |
@@ -129,7 +129,7 @@ Pode utilizar `iotedge` a ferramenta da linha de comando para verificar o estado
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Recolher ficheiros de registo com o recipiente de diagnóstico
 
-A análise espacial gera registos de depurar Docker que pode usar para diagnosticar problemas de tempo de execução, ou incluir em bilhetes de apoio. O módulo de diagnóstico de análise espacial está disponível no Registo de Contentores da Microsoft para que possa descarregar. No ficheiro de implantação manifesto para o seu [Azure Stack Edge Device,](https://go.microsoft.com/fwlink/?linkid=2142179) [máquina de ambiente de trabalho,](https://go.microsoft.com/fwlink/?linkid=2152270)ou [Azure VM com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) procure o módulo *de diagnóstico.*
+A Análise Espacial gera registos de depurar Docker que pode usar para diagnosticar problemas de tempo de execução, ou incluir em bilhetes de apoio. O módulo de diagnóstico de Análise Espacial está disponível no Registo de Contentores da Microsoft para que possa descarregar. No ficheiro de implantação manifesto para o seu [Azure Stack Edge Device,](https://go.microsoft.com/fwlink/?linkid=2142179) [máquina de ambiente de trabalho,](https://go.microsoft.com/fwlink/?linkid=2152270)ou [Azure VM com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) procure o módulo *de diagnóstico.*
 
 Na secção "env" adicione a seguinte configuração:
 
@@ -200,7 +200,7 @@ A partir do portal IoT Edge, selecione o seu dispositivo e, em seguida, o módul
 
 1. Crie a sua própria conta de Armazenamento Azure Blob, se ainda não o fez.
 2. Obtenha a **Cadeia de Ligação** para a sua conta de armazenamento no portal Azure. Estará localizado em **Teclas de acesso.**
-3. Os registos de análise espacial serão automaticamente enviados para um recipiente de Armazenamento Blob denominado *rtcvlogs* com o seguinte formato de nome de ficheiro: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log` .
+3. Os registos de análise espacial serão automaticamente enviados para um recipiente de armazenamento Blob denominado *rtcvlogs* com o seguinte formato de nome de ficheiro: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log` .
 
 ```json
 "env":{
@@ -232,18 +232,18 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 
 A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
-| Palavra-chave | Description | Valor Predefinido |
+| Palavra-chave | Descrição | Valor Predefinido |
 |--|--|--|
 | StartTime | Troncos desejados começam na hora de início, em milissegundos UTC. | `-1`, o início do tempo de funcionação do contentor. Quando `[-1.-1]` é usado como um intervalo de tempo, a API retorna os registos da última hora.|
 | EndTime | Os troncos desejados terminam o tempo, em milissegundos UTC. | `-1`, a hora atual. Quando `[-1.-1]` o intervalo de tempo é utilizado, a API retorna os registos da última hora. |
 | Contentor | Recipiente-alvo para recolher troncos.| `null`, quando não há identificação do contentor. A API devolve todas as informações de contentores disponíveis com IDs.|
 | DoPost | Execute a operação de upload. Quando isto estiver `false` programado, executa a operação solicitada e devolve o tamanho do upload sem efetuar o upload. Quando definido para `true` , iniciará o upload assíncronos dos registos selecionados | `false`, não faça upload.|
 | Limitação | Indicar quantas linhas de registos devem ser carregados por lote | `1000`, Utilize este parâmetro para ajustar a velocidade do poste. |
-| Filtros | Registos de filtros a serem carregados | `null`, os filtros podem ser especificados como pares de valor-chave com base na estrutura dos registos de análise espacial: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Por exemplo: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| Filtros | Registos de filtros a serem carregados | `null`, os filtros podem ser especificados como pares de valor-chave com base na estrutura de registos de análise espacial: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Por exemplo: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 A tabela seguinte lista os atributos na resposta de consulta.
 
-| Palavra-chave | Description|
+| Palavra-chave | Descrição|
 |--|--|
 |DoPost| Verdadeiro  ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente** _. Quando opta por fazer o upload de registos, a api devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_**.|
 |Filtro de tempo| Filtro de tempo aplicado aos troncos.|
@@ -404,7 +404,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 ## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Como arquivar um bilhete de apoio para análise espacial 
 
-Se precisa de mais apoio para encontrar uma solução para um problema que está a ter com o recipiente de análise espacial, siga estes passos para preencher e submeta um bilhete de apoio. A nossa equipa vai ligar-te com orientação adicional. 
+Se precisa de mais apoio para encontrar uma solução para um problema que está a ter com o recipiente de Análise Espacial, siga estes passos para preencher e submeta um bilhete de apoio. A nossa equipa vai ligar-te com orientação adicional. 
 
 ### <a name="fill-out-the-basics"></a>Preencha o básico 
 Crie um novo bilhete de apoio na página [de pedido de apoio Novo.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Siga as instruções para preencher os seguintes parâmetros:
@@ -412,9 +412,9 @@ Crie um novo bilhete de apoio na página [de pedido de apoio Novo.](https://ms.p
 ![Apoiar o básico](./media/support-ticket-page-1-final.png)
 
 1. Definir **tipo de emissão** para ser `Technical` .
-2. Selecione a subscrição que está a utilizar para implantar o recipiente de análise espacial.
+2. Selecione a subscrição que está a utilizar para implantar o recipiente de Análise Espacial.
 3. Selecione `My services` e selecione `Cognitive Services` como o serviço.
-4. Selecione o recurso que está a utilizar para implantar o recipiente de análise espacial.
+4. Selecione o recurso que está a utilizar para implantar o recipiente de Análise Espacial.
 5. Escreva uma breve descrição detalhando o problema que está a enfrentar. 
 6. Selecione `Spatial Analysis` como o seu tipo de problema.
 7. Selecione o subtipo apropriado a partir da queda para baixo.

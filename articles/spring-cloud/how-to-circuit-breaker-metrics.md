@@ -1,22 +1,22 @@
 ---
-title: Colete as métricas do disjuntor de disjuntores de resiliência da nuvem de primavera4J
-description: Como recolher as métricas de disjuntor de disjuntores de resiliência da nuvem de primavera4J.
+title: Colete as métricas de disjuntor de nebulosidade da nuvem de primavera4J com micrometro
+description: Como recolher as métricas de disjuntor de disjuntores de nuvem de mola de primavera com micrometro na nuvem de primavera de Azure.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9fc8ccc5ba21f02885b2002d5040051baac92068
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0b24e8e07b4038d6def9945b7c347bb81ae5378b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878364"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258185"
 ---
-# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Colete as métricas do disjuntor de disjuntores de resiliência da nuvem de primavera4J (pré-visualização)
+# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Colete as métricas de disjuntor de nebulosidade da nuvem de primavera4J com micrometro (pré-visualização)
 
-Este documento explica como recolher as Métricas de Disjuntor de Disjuntores de Resiliência da Nuvem de primavera com o agente java do Application Insights em processo.  Com esta funcionalidade é possível monitorizar métricas de disjuntor de resiliência4j a partir de Application Insights.
+Este documento explica como recolher as Métricas de Disjuntor de Disjuntores de Resiliência da Nuvem de primavera com o agente java do Application Insights em processo. Com esta funcionalidade é possível monitorizar métricas de disjuntor de resiliência4j a partir de Application Insights com Micrometro.
 
 Usamos a [demonstração de disjuntor de molas](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) para mostrar como funciona.
 

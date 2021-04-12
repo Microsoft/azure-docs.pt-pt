@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta alta da FedRAMP
 description: Implementar etapas para a amostra de planta da FedRAMP High, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 53d48eff79f7227373c1e7dfb0c34ef17a00e125
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ba321bb0048499e12eec55fbc55d67b0a1289f9
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594775"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386707"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Implementar a amostra de planta alta fedRAMP
 

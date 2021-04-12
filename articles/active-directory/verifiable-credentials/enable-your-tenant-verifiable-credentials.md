@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o seu Diretório Ativo Azure para emitir credenciais verificáveis (Pré-visualização)'
+title: Tutorial - Configurar o seu Diretório Ativo Azure para emitir credenciais verificáveis (Pré-visualização)
 description: Neste tutorial, você constrói o ambiente necessário para implementar credenciais verificáveis no seu inquilino
 documentationCenter: ''
 author: barclayn
@@ -7,17 +7,17 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 08aaa49f73ed437e041ffb93dc9ef5be41e316ec
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: cd39f6c484ebe116918611bb1d543c1919a3cb0a
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106172027"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222950"
 ---
-# <a name="tutorial-configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Tutorial: Configurar o seu Diretório Ativo Azure para emitir credenciais verificáveis (Pré-visualização)
+# <a name="tutorial---configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Tutorial - Configurar o seu Diretório Ativo Azure para emitir credenciais verificáveis (Pré-visualização)
 
 Neste tutorial, baseamos-se no trabalho feito como parte do artigo get [start](get-started-verifiable-credentials.md) e configuramos o seu Azure Ative Directory (AZure AD) com o seu próprio [identificador descentralizado](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID). Utilizamos o identificador descentralizado para emitir uma credencial verificável utilizando a app da amostra e o seu emitente; no entanto, neste tutorial, ainda usamos a amostra Azure B2C inquilino para a autenticação.  No nosso próximo tutorial, tomaremos medidas adicionais para que a app seja configurada para trabalhar com o seu AZure AD.
 
@@ -90,7 +90,7 @@ Tome nota das duas propriedades listadas abaixo:
 >[!IMPORTANT]
 > Durante a pré-visualização do Azure Ative Directory Verifiable Credentials, as chaves e segredos criados no seu cofre não devem ser modificados uma vez criados. Apagar, desativar ou atualizar as suas chaves e segredos invalida quaisquer credenciais emitidas. Não modifique as suas chaves ou segredos durante a pré-visualização.
 
-## <a name="create-a-modified-rules-and-display-file"></a>Criar um ficheiro de regras e exibição modificado
+## <a name="create-a-modified-rules-and-display-file"></a>Criar regras modificadas e apresentar ficheiro
 
 Nesta secção, usamos as regras e exibimos ficheiros da app do emitente sample e modificamo-los ligeiramente para criar a primeira credencial verificável do seu inquilino.
 
@@ -251,7 +251,7 @@ Agora temos de dar o último passo para preparar o seu inquilino para credenciai
 
 Parabéns, o seu inquilino está agora habilitado para a pré-visualização da Credencial Verificável!
 
-## <a name="create-your-vc-in-the-portal"></a>Crie o seu VC no Portal
+## <a name="create-your-vc-in-the-portal"></a>Crie o seu VC no portal
 
 O passo anterior deixa-o na página Criar uma nova página **de credenciais.** 
 

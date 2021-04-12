@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d3cc8f36f05def18c16db0875cb712cdf5d165f9
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b106c82e3755fbd0e02f12a769d80ce4761cf026
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121358"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285863"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -358,6 +358,15 @@ Se preferir utilizar uma solução de backup no local, as cópias de segurança 
 
 > [!Note]  
 > Com a versão 9 do agente Azure File Sync, as imagens VSS (incluindo o separador Versões Anteriores) são agora suportadas em volumes que tenham o tiering de nuvem ativado. No entanto, deve ativar a compatibilidade da versão anterior através do PowerShell. [Saiba como.](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service)
+
+## <a name="data-classification"></a>Classificação de Dados
+Se tiver um software de classificação de dados instalado, permitir o tiering da nuvem pode resultar num aumento do custo por duas razões:
+
+1. Com o tiering de nuvem ativado, os seus ficheiros mais quentes são cached localmente e os ficheiros mais frescos são hierárquicos para a partilha de ficheiros Azure na nuvem. Se a sua classificação de dados digitalizar regularmente todos os ficheiros da partilha de ficheiros, os ficheiros hierárquicos na nuvem devem ser recolhidos sempre que digitalizados. 
+
+2. Se o software de classificação de dados utilizar os metadados no fluxo de dados de um ficheiro, o ficheiro deve ser totalmente recolhido para que o software veja a classificação. 
+
+Estes aumentos tanto no número de chamadas como na quantidade de dados que estão a ser recolhidos podem aumentar os custos.
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

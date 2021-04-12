@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 11/06/2020
+ms.date: 04/07/2021
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: d479c3087b971aa17cf145e0111890da07381eab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4c36c0e099ed7474a5d27f6edcbd4b3ac435f4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94386489"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030832"
 ---
 | Recurso | Limite |
 | --- | --- |
 | Débito de dados |30 Gbps<sup>1</sup> |
-|Regras|10,000. Todos os tipos de regras combinados.|
+|Limites de regras|10.000 fonte/destinos únicos nas regras de rede|
 |Regras máximas de DNAT|298 para um único endereço IP público.<br>Quaisquer endereços IP públicos adicionais contribuem para as portas SNAT disponíveis, mas reduzem o número das regras de ADN disponíveis. Por exemplo, dois endereços IP públicos permitem 297 regras de ADN. Se o protocolo de uma regra for configurado tanto para a TCP como para a UDP, conta como duas regras.|
 |Tamanho mínimo AzureFirewallSubnet |/26|
 |Gama portuária em regras de rede e aplicação|1 - 65535|

@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 1b179ac555ea86aff381c1217e834b8d0aa85e8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: f9cde1c31140a04d00f62350a056c5558d806531
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561709"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444382"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Publicar aplicativos incorporados no Windows Virtual Desktop (clássico)
 

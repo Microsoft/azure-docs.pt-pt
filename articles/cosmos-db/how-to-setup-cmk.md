@@ -4,20 +4,17 @@ description: Saiba como configurar chaves geridas pelo cliente para a sua conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 04/01/2021
 ms.author: thweiss
-ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b1fc0b51c1cd2a99ec97bec9f588699a893ceca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101656521"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222627"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure chaves geridas pelo cliente para a sua conta do Azure Cosmos com o Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!NOTE]
-> A utilização de chaves geridas pelo cliente com a [loja analítica](analytical-store-introduction.md) Azure Cosmos DB requer atualmente uma configuração adicional na sua conta. Por favor contacte [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) para mais detalhes.
 
 Os dados armazenados na sua conta Azure Cosmos são automaticamente e sem problemas encriptados com teclas geridas pela Microsoft **(teclas geridas** pelo serviço). Opcionalmente, pode optar por adicionar uma segunda camada de encriptação com as teclas geridas **(teclas geridas pelo cliente).**
 
@@ -51,7 +48,7 @@ Se estiver a utilizar uma instância Azure Key Vault existente, pode verificar s
 - [Como utilizar soft-delete com PowerShell](../key-vault/general/key-vault-recovery.md)
 - [Como utilizar soft-delete com Azure CLI](../key-vault/general/key-vault-recovery.md)
 
-## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Adicione uma política de acesso ao seu Azure Key Vault
+## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a><a id="add-access-policy"></a> Adicione uma política de acesso ao seu Azure Key Vault
 
 1. A partir do portal Azure, vá ao Azure Key Vault que planeia usar para hospedar as suas chaves de encriptação. Selecione Políticas de **Acesso** a partir do menu esquerdo:
 
@@ -63,7 +60,14 @@ Se estiver a utilizar uma instância Azure Key Vault existente, pode verificar s
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Selecionando as permissões certas":::
 
-1. Em **Select principal**, selecione Nenhum **selecionado**. Em seguida, procure o diretor da **Azure Cosmos DB** e selecione-o (para facilitar a sua posição, também pode pesquisar por ID principal: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região de Azure, exceto regiões do Governo Azure onde o ID principal `57506a73-e302-42a9-b869-6f12d9ec29e9` é). Por fim, escolha **Selecione** na parte inferior. Se o diretor da **Azure Cosmos** não estiver na lista, poderá ter de voltar a registar o fornecedor de recursos **Microsoft.DocumentDB,** conforme descrito no [Registo da](#register-resource-provider) secção fornecedora de recursos deste artigo.
+1. Em **Select principal**, selecione Nenhum **selecionado**.
+
+1. Procure o principal da **Azure Cosmos DB** e selecione-o (para facilitar a sua posição, pode também pesquisar por ID principal: `a232010e-820c-4083-83bb-3ace5fc29d0b` para qualquer região de Azure, exceto regiões do Governo Azure onde está o ID `57506a73-e302-42a9-b869-6f12d9ec29e9` principal). Se o diretor da **Azure Cosmos** não estiver na lista, poderá ter de voltar a registar o fornecedor de recursos **Microsoft.DocumentDB,** conforme descrito no [Registo da](#register-resource-provider) secção fornecedora de recursos deste artigo.
+
+   > [!NOTE]
+   > Isto regista a primeira identidade do Azure Cosmos DB na sua política de acesso ao Cofre da Chave Azure. Para substituir esta identidade de primeira parte pela sua conta DB Azure Cosmos gerida, consulte [utilizando uma identidade gerida na política de acesso ao Cofre da Chave Azure](#using-managed-identity).
+
+1. Escolha **Selecione** na parte inferior. 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Selecione o principal da Azure Cosmos DB":::
 
@@ -226,6 +230,34 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="using-a-managed-identity-in-the-azure-key-vault-access-policy"></a><a id="using-managed-identity"></a> Usando uma identidade gerida na política de acesso ao Cofre da Chave Azure
+
+Esta política de acesso garante que as suas chaves de encriptação podem ser acedidas pela sua conta DB Azure Cosmos. Isto é feito através da concessão de acesso a uma identidade específica do Azure Ative Directory (AD). São apoiados dois tipos de identidades:
+
+- A identidade de primeira parte da Azure Cosmos DB pode ser usada para garantir o acesso ao serviço DB da Azure Cosmos.
+- A [identidade gerida](how-to-setup-managed-identity.md) da sua conta Azure Cosmos DB pode ser usada para permitir o acesso à sua conta especificamente.
+
+Como uma identidade gerida atribuída pelo sistema só pode ser recuperada após a criação da sua conta, ainda precisa de criar a sua conta utilizando a identidade do primeiro partido, como [descrito acima.](#add-access-policy) Em seguida:
+
+1. Se isso não foi feito durante a criação de conta, [ative uma identidade gerida atribuída pelo sistema](how-to-setup-managed-identity.md) na sua conta e copie o que foi `principalId` atribuído.
+
+1. Adicione uma nova política de acesso à sua conta Azure Key Vault, tal como [acima](#add-access-policy)descrita, mas utilizando o `principalId` que copiou no passo anterior em vez da identidade de primeira parte da Azure Cosmos DB.
+
+1. Atualize a sua conta DB Azure Cosmos para especificar que pretende utilizar a identidade gerida atribuída ao sistema ao aceder às suas chaves de encriptação no Cofre da Chave Azure. Pode fazê-lo especificando esta propriedade no modelo Azure Resource Manager da sua conta:
+
+   ```json
+   {
+       "type": " Microsoft.DocumentDB/databaseAccounts",
+       "properties": {
+           "defaultIdentity": "SystemAssignedIdentity",
+           // ...
+       },
+       // ...
+   }
+   ```
+
+1. Opcionalmente, pode remover a identidade de primeira parte da Azure Cosmos da sua política de acesso ao Cofre da Chave Azure.
+
 ## <a name="key-rotation"></a>Rotação de chaves
 
 A rotação da chave gerida pelo cliente utilizada pela sua conta Azure Cosmos pode ser feita de duas formas.
@@ -297,7 +329,7 @@ Esta funcionalidade encontra-se atualmente disponível apenas para novas contas.
 
 ### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>É possível utilizar chaves geridas pelo cliente em conjunto com a [loja analítica](analytical-store-introduction.md)Azure Cosmos DB?
 
-Sim, mas atualmente isto requer uma configuração adicional na sua conta. Por favor contacte [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) para mais detalhes.
+Sim, mas tem de [usar a identidade gerida da sua conta Azure Cosmos](#using-managed-identity) na sua política de acesso ao Cofre da Chave Azure antes de ativar a loja analítica.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Existe um plano para suportar uma granularidade mais fina do que as chaves de nível de conta?
 

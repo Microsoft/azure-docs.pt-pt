@@ -1,15 +1,15 @@
 ---
 title: Exportar recursos do Azure Policy
 description: Aprenda a exportar recursos da Política Azure para o GitHub, tais como definições políticas e atribuições políticas.
-ms.date: 10/29/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 923b063244f6f47def1c3e6a63d6e4d6b3b88083
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fd2a24d2c01b4214eda88054b45a409cd865a32
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94919570"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096551"
 ---
 # <a name="export-azure-policy-resources"></a>Exportar recursos do Azure Policy
 

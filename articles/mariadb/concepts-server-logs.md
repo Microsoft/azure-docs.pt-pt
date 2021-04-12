@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 2e7e56616300566839fadef762c2165c8d989e6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0cb9e0da3ba5dd899cac56f393d7332bac6c597
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570816"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258491"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registos de consulta lenta na Base de Dados Azure para MariaDB
 Na Base de Dados Azure para MariaDB, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para a resolução de problemas.
@@ -45,7 +45,7 @@ Para o armazenamento de servidores locais, pode listar e descarregar registos de
 Os Registos de Diagnóstico do Monitor Azure permitem-lhe canalizar registos de consulta lenta para registos de monitores Azure (Log Analytics), Azure Storage ou Event Hubs. Veja [abaixo](concepts-server-logs.md#diagnostic-logs) mais informações.
 
 ## <a name="local-server-storage-log-retention"></a>Retenção de registos de armazenamento de servidores locais
-Ao iniciar sessão no armazenamento local do servidor, os registos estão disponíveis até sete dias após a sua criação. Se o tamanho total dos registos disponíveis exceder 7 GB, então os ficheiros mais antigos são eliminados até que o espaço esteja disponível.
+Ao iniciar sessão no armazenamento local do servidor, os registos estão disponíveis até sete dias após a sua criação. Se o tamanho total dos registos disponíveis exceder 7 GB, então os ficheiros mais antigos são eliminados até que o espaço esteja disponível. O limite de armazenamento de 7 GB para os registos do servidor está disponível livre de custos e não pode ser prolongado. 
 
 Os troncos são rodados a cada 24 horas ou 7 GB, o que vier primeiro.
 

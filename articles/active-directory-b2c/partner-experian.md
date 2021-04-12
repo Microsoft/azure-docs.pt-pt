@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84e6f76bcae55ed905e11c46df66478908529970
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928703"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258032"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar Experian com Azure Ative Directory B2C
 
@@ -133,7 +133,7 @@ Nas [políticas personalizadas](https://github.com/azure-ad-b2c/partner-integrat
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Parte 6 - Configurar a política Azure AD B2C
 
-Consulte este [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para obter instruções sobre como configurar o seu inquilino Azure AD B2C e configurar políticas.
+Consulte este [documento](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) para obter instruções sobre como configurar o seu inquilino Azure AD B2C e configurar políticas.
 
 >[!NOTE]
 >Esta política de amostras baseia-se no [pacote de arranque de contas locais.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
@@ -169,4 +169,4 @@ Para obter informações adicionais, reveja os seguintes artigos:
 
 - [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

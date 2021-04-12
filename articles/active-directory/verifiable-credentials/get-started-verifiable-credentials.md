@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Começar com credenciais verificáveis usando uma aplicação de amostra (pré-visualização)'
+title: Tutorial - Começar com Azure Ative Directory Verifiable Credentials usando uma aplicação de amostra (pré-visualização)
 description: Neste tutorial, você aprende a emitir credenciais verificáveis usando a nossa app de amostra e inquilino de teste
 ms.service: identity
 ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 03/31/2021
-ms.openlocfilehash: 4914df0df30ed990dd2c692f0f5b57586d2a75c6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.date: 04/01/2021
+ms.openlocfilehash: deebaf31197d8b7335f887ae447f05add45278b2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106171995"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222890"
 ---
-# <a name="tutorial-get-started-with-verifiable-credentials-using-a-sample-app-preview"></a>Tutorial: Começar com credenciais verificáveis usando uma aplicação de amostra (pré-visualização)
+#  <a name="tutorial---get-started-with-azure-active-directory-verifiable-credentials-using-a-sample-app-preview"></a>Tutorial - Começar com Azure Ative Directory Verifiable Credentials usando uma aplicação de amostra (pré-visualização)
 
 Neste tutorial, passamos os passos necessários para emitir a sua primeira credencial verificável: um cartão de peritos de credencial verificada. Em seguida, pode usar este cartão para provar a um verificador que é um perito em credenciais verificado, dominado na arte da credenciação digital. Começa com as credenciais verificáveis do Azure Ative Directory, utilizando a aplicação de amostra de Credenciais Verificáveis para emitir a sua primeira credencial verificável.
 

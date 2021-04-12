@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fee7965e7834f0e05dba91f8652a0e155087b14
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96170927"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257879"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutorial para configurar a ferramenta de administração DoAccessHub com diretório ativo Azure B2C
 
@@ -44,7 +44,7 @@ Para começar, vai precisar de:
 
 - [Opcional] Informações de ligação e credenciais para quaisquer bases de dados ou Protocolos de Acesso ao Diretório Leve (LDAPs) de que pretende migrar os dados dos clientes.
 
-- [Opcional] Ambiente Azure AD B2C configurado para a utilização de [políticas personalizadas,](./custom-policy-get-started.md)se pretender integrar a Ferramenta de Administração DoAccessHub no seu fluxo de política de inscrição.
+- [Opcional] Ambiente Azure AD B2C configurado para a utilização de [políticas personalizadas,](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)se pretender integrar a Ferramenta de Administração DoAccessHub no seu fluxo de política de inscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -358,7 +358,7 @@ Para sincronizar os dados do Azure AD B2C na ferramenta Admin TheAccessHub:
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Configure Azure AD B2C políticas
 
-Ocasionalmente, sincronizar a Ferramenta Admin DoAccessHub é limitada na sua capacidade de manter o seu estado atualizado com a Azure AD B2C. Podemos aproveitar as políticas de API e AZure AD B2C da AD AD AD para informar a Ferramenta de Administração DoAccessHub à medida que acontecem. Esta solução requer conhecimento técnico das [políticas personalizadas Azure AD B2C.](./custom-policy-get-started.md) Na secção seguinte, daremos um exemplo de passos de política e um certificado seguro para notificar a Ferramenta de Administração TheAccessHub de novas contas nas suas políticas personalizadas Sign-Up.
+Ocasionalmente, sincronizar a Ferramenta Admin DoAccessHub é limitada na sua capacidade de manter o seu estado atualizado com a Azure AD B2C. Podemos aproveitar as políticas de API e AZure AD B2C da AD AD AD para informar a Ferramenta de Administração DoAccessHub à medida que acontecem. Esta solução requer conhecimento técnico das [políticas personalizadas Azure AD B2C.](./user-flow-overview.md) Na secção seguinte, daremos um exemplo de passos de política e um certificado seguro para notificar a Ferramenta de Administração TheAccessHub de novas contas nas suas políticas personalizadas Sign-Up.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Crie uma credencial segura para invocar a API da API da ADmin Tool do TheAccessHub
 
@@ -386,7 +386,7 @@ Ocasionalmente, sincronizar a Ferramenta Admin DoAccessHub é limitada na sua ca
 
 5. Selecione **Download** para obter um ficheiro zip com políticas básicas que adicionam clientes à Ferramenta Admin TheAccessHub à medida que os clientes se inscrevem.
 
-6. Siga este [tutorial](./custom-policy-get-started.md) para começar com a conceção de políticas personalizadas em Azure AD B2C.
+6. Siga este [tutorial](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) para começar com a conceção de políticas personalizadas em Azure AD B2C.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -394,4 +394,4 @@ Para obter informações adicionais, reveja os seguintes artigos:
 
 - [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

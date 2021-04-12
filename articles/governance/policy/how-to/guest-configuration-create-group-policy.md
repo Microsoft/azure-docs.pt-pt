@@ -1,14 +1,14 @@
 ---
 title: Como criar definições de política de configuração de convidados a partir da linha de base da Política de Grupo para Windows
 description: Saiba como converter a Política de Grupo do Windows Server 2019 Base de Segurança numa definição de política.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a49c8044914c8c23b4f99cad7838652eb94c4b92
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93348649"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096585"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Como criar definições de política de configuração de convidados a partir da linha de base da Política de Grupo para Windows
 
@@ -96,13 +96,13 @@ Em seguida, convertemos o Base de Base do Servidor 2019 descarregado num Pacote 
 1. Uma vez criado e carregado um pacote de política personalizada de Configuração de Convidados, crie a definição de política de Configuração de Convidados. Utilize o `New-GuestConfigurationPolicy` cmdlet para criar a Configuração do Convidado.
 
    ```azurepowershell-interactive
-    $NewGuestConfigurationPolicySplat = @{
+   $NewGuestConfigurationPolicySplat = @{
         ContentUri = $Uri 
         DisplayName = 'Server 2019 Configuration Baseline' 
         Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
         Path = 'C:\git\policyfiles\policy'  
         Platform = Windows 
-        }
+   }
    New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
     

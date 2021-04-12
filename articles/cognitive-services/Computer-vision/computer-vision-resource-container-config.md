@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b421877b2a41074bf901817c7ad8922083c3e77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611900"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285678"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configure Ler recipientes OCR Docker
 
@@ -33,14 +33,14 @@ O contentor também tem as seguintes definições de configuração específicas
 
 |Necessário|Definição|Objetivo|
 |--|--|--|
-|No|ReadEngineConfig:ResultadoExpirationPeriod| apenas contentores v2.0. Prazo de expiração do resultado em horas. O padrão é de 48 horas. A definição especifica quando o sistema deve limpar os resultados do reconhecimento. Por exemplo, se `resultExpirationPeriod=1` , o sistema limpar o resultado do reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpar o resultado do reconhecimento após a recuperação do resultado.|
-|No|Cache:Redis| apenas contentores v2.0. Permite o armazenamento redis para armazenar resultados. É *necessária* uma cache se vários recipientes de leitura forem colocados atrás de um equilibrador de carga.|
-|No|Fila:RabbitMQ|apenas contentores v2.0. Permite o RabbitMQ para o envio de tarefas. A regulação é útil quando vários recipientes de leitura são colocados atrás de um equilibrador de carga.|
-|No|Fila:Azure:QueueVisibilityTimeoutInMilliseconds | apenas contentores v3.x. O tempo para uma mensagem ser invisível quando outro trabalhador está a processá-la. |
-|No|Armazenamento::D ocumentStore::MongoDB|apenas contentores v2.0. Permite o MongoDB para armazenamento permanente de resultados. |
-|No|Armazenamento:ObjectStore:AzureBlob:ConnectionString| apenas contentores v3.x. Cadeia de ligação de armazenamento de bolhas Azure. |
-|No|Armazenamento:TimeToLiveInDays| apenas contentores v3.x. Prazo de expiração do resultado em dias. A definição especifica quando o sistema deve limpar os resultados do reconhecimento. O padrão é de 2 dias (48 horas), o que significa que qualquer resultado vivo por mais tempo do que esse período não é garantido para ser recuperado com sucesso. |
-|No|Tarefa:MaxRunningTimeSpanInMinutes| apenas contentores v3.x. Tempo máximo de funcionamento para um único pedido. O padrão é de 60 minutos. |
+|Não|ReadEngineConfig:ResultadoExpirationPeriod| apenas contentores v2.0. Prazo de expiração do resultado em horas. O padrão é de 48 horas. A definição especifica quando o sistema deve limpar os resultados do reconhecimento. Por exemplo, se `resultExpirationPeriod=1` , o sistema limpar o resultado do reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpar o resultado do reconhecimento após a recuperação do resultado.|
+|Não|Cache:Redis| apenas contentores v2.0. Permite o armazenamento redis para armazenar resultados. É *necessária* uma cache se vários recipientes OCR lidos forem colocados atrás de um equilibrador de carga.|
+|Não|Fila:RabbitMQ|apenas contentores v2.0. Permite o RabbitMQ para o envio de tarefas. A regulação é útil quando vários recipientes OCR lidos são colocados atrás de um equilibrador de carga.|
+|Não|Fila:Azure:QueueVisibilityTimeoutInMilliseconds | apenas contentores v3.x. O tempo para uma mensagem ser invisível quando outro trabalhador está a processá-la. |
+|Não|Armazenamento::D ocumentStore::MongoDB|apenas contentores v2.0. Permite o MongoDB para armazenamento permanente de resultados. |
+|Não|Armazenamento:ObjectStore:AzureBlob:ConnectionString| apenas contentores v3.x. Cadeia de ligação de armazenamento de bolhas Azure. |
+|Não|Armazenamento:TimeToLiveInDays| apenas contentores v3.x. Prazo de expiração do resultado em dias. A definição especifica quando o sistema deve limpar os resultados do reconhecimento. O padrão é de 2 dias (48 horas), o que significa que qualquer resultado vivo por mais tempo do que esse período não é garantido para ser recuperado com sucesso. |
+|Não|Tarefa:MaxRunningTimeSpanInMinutes| apenas contentores v3.x. Tempo máximo de funcionamento para um único pedido. O padrão é de 60 minutos. |
 
 ## <a name="apikey-configuration-setting"></a>Definição de configuração apikey
 
@@ -119,7 +119,7 @@ Substitua {_argument_name_} com os seus próprios valores:
 
 ## <a name="container-docker-examples"></a>Exemplos de estivador de contentores
 
-Os seguintes exemplos do Docker são para o recipiente Ler.
+Os seguintes exemplos do Docker são para o recipiente Read OCR.
 
 
 # <a name="version-32-preview"></a>[Versão 3.2-pré-visualização](#tab/version-3-2)

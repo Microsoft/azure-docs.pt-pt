@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9fbd137f8fa36a7b0526b25d664fceac795ecd81
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 09acdc0c4ea2dbe90c0b7b037b6aec501cc1dd55
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879207"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223035"
 ---
 # <a name="tutorial-use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Tutorial: Use o painel de disjuntores com a nuvem de mola Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "104879207"
 
 A [Turbina Netflix](https://github.com/Netflix/Turbine) da Cloud Spring é amplamente utilizada para agregar várias métricas [Hystrix](https://github.com/Netflix/Hystrix) para que os streams possam ser monitorizados numa única vista usando o painel Hystrix. Este tutorial demonstra como usá-los na Nuvem de primavera de Azure.
 > [!NOTE]
-> O Netflix Hystrix é amplamente utilizado em muitas aplicações da Spring Cloud existentes, mas já não está em desenvolvimento ativo. Se estiver a desenvolver um novo projeto, utilize implementações de Disjuntores de Nuvens de primavera como [a resiliência4j](https://github.com/resilience4j/resilience4j). Diferente da Turbina mostrada neste tutorial, a nova estrutura de disjuntor de molas de nuvem unifica todas as implementações do seu pipeline de dados métricas em Micrometro. Ainda estamos a trabalhar no apoio ao micrometro na Nuvem de primavera de Azure, pelo que não será coberto por este tutorial.
+> O Netflix Hystrix é amplamente utilizado em muitas aplicações da Spring Cloud existentes, mas já não está em desenvolvimento ativo. Se estiver a desenvolver um novo projeto, utilize implementações de Disjuntores de Nuvens de primavera como [a resiliência4j](https://github.com/resilience4j/resilience4j). Diferente da Turbina mostrada neste tutorial, a nova estrutura de disjuntor de molas de nuvem unifica todas as implementações do seu pipeline de dados métricas no Micrometro, que também é suportado pela Azure Spring Cloud. [Saiba Mais](https://docs.microsoft.com/azure/spring-cloud/how-to-circuit-breaker-metrics).
 
 ## <a name="prepare-your-sample-applications"></a>Prepare as suas aplicações de amostra
 A amostra é forfurada deste [repositório.](https://github.com/StackAbuse/spring-cloud/tree/master/spring-turbine)

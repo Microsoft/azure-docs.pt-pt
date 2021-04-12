@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
-ms.openlocfilehash: 2873486b95f0bb4a9a27e2e050cc6f6d5473a44e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82f01b4216af8d924354ae9e9a204a8eaefb8213
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98898177"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120848"
 ---
 # <a name="streaming-policies"></a>Políticas de Transmissão em Fluxo
 
@@ -34,7 +34,7 @@ A seguinte "Árvore de Decisão" ajuda-o a escolher uma Política de Streaming p
 
 > [!IMPORTANT]
 > * As propriedades das Políticas de **Streaming** que são do tipo Datatime estão sempre em formato UTC.
-> * Deve conceber um conjunto limitado de políticas para a sua conta de Media Service e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções. Para mais informações, consulte [Quotas e limites.](limits-quotas-constraints.md)
+> * Deve conceber um conjunto limitado de políticas para a sua conta de Media Service e reutilizá-las para os seus Localizadores de Streaming sempre que forem necessárias as mesmas opções. Para mais informações, consulte [Quotas e limites.](limits-quotas-constraints-reference.md)
 
 ## <a name="decision-tree"></a>Árvore de decisões
 
@@ -42,7 +42,7 @@ Clique na imagem para visualizá-lo tamanho completo.
 
 [![Diagrama mostrando uma árvore de decisão que é projetada para ajudá-lo a escolher uma política de streaming predefinida para o seu cenário.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
-Se encriptar o seu conteúdo, tem de criar uma [Política de Chave de Conteúdo,](content-key-policy-concept.md)a Política de Chave de **Conteúdo** não é necessária para um streaming ou descarregamento claros. 
+Se encriptar o seu conteúdo, tem de criar uma [Política de Chave de Conteúdo,](drm-content-key-policy-concept.md)a Política de Chave de **Conteúdo** não é necessária para um streaming ou descarregamento claros. 
 
 Se tiver requisitos especiais (por exemplo, se quiser especificar diferentes protocolos, precisa de utilizar um serviço de entrega de chaves personalizado ou precisar de utilizar uma faixa de áudio clara), pode [criar](/rest/api/media/streamingpolicies/create) uma Política de Streaming personalizada. 
 
@@ -81,10 +81,10 @@ Resposta:
 
 ## <a name="filtering-ordering-paging"></a>Filtragem, encomenda, paging
 
-Ver [Filtragem, encomenda, paging de entidades de Serviços de Comunicação](entities-overview.md)Social.
+Ver [Filtragem, encomenda, paging de entidades de Serviços de Comunicação](filter-order-page-entitites-how-to.md)Social.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
-* [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](protect-with-aes128.md)
-* [Utilize encriptação dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)
+* [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](drm-playready-license-template-concept.md)
+* [Utilize encriptação dinâmica DRM e serviço de entrega de licenças](drm-protect-with-drm-tutorial.md)

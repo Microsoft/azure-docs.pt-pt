@@ -9,13 +9,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 10/02/2020
-ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: de4d934144d6721db8c00d7199061842e518e44f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521344"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031074"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorização da referência de dados de aprendizagem de máquinas Azure
 
@@ -28,49 +28,62 @@ Esta secção lista todas as métricas da plataforma recolhidas automaticamente 
 **Modelação**
 
 | Metric | Unidade | Description |
-| ----- | ----- | ----- |
-| A implementação do modelo falhou | de palavras | O número de implementações de modelos que falharam. |
-| Implementação de modelos iniciado | de palavras | O número de implementações de modelos começou. |
-| Implementação de modelos conseguiu | de palavras | O número de implementações de modelos que conseguiram. |
-| Registo modelo falhou | de palavras | O número de registos de modelos que falharam. |
-| Registo modelo conseguiu | de palavras | O número de registos de modelos que se sucederam. |
+|--|--|--|
+| Registo modelo Bem sucedido | de palavras | Número de registos de modelos que sucederam neste espaço de trabalho |
+| Registo modelo falhado | de palavras | Número de registos de modelos que falharam neste espaço de trabalho |
+| Implementação de modelos iniciado | de palavras | Número de implementações de modelos iniciadas neste espaço de trabalho |
+| Implementação de modelos conseguiu | de palavras | Número de implementações de modelos que foram bem sucedidas neste espaço de trabalho |
+| Implementação de modelo falhou | de palavras | Número de implementações de modelos que falharam neste espaço de trabalho |
 
 **Quota**
 
 A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
 | Metric | Unidade | Description |
-| ----- | ----- | ----- |
-| Núcleos ativos | de palavras | O número de núcleos de computação ativo. |
-| Nódes ativos | de palavras | O número de nós ativos. |
-| Núcleos ociosos | de palavras | O número de núcleos de computação ocioso. |
-| Nódoas ociosas | de palavras | O número de nós de computação ocioso. |
-| Deixando núcleos | de palavras | O número de núcleos de saída. |
-| Deixando os nódoas | de palavras | O número de nós de saída. |
-| Núcleos preemptidos | de palavras | O número de núcleos preempted. |
-| Nódoas presas | de palavras | O número de nós preempted. |
-| Percentagem de utilização de quotas | Percentagem | A percentagem de quota utilizada. |
-| Total de núcleos | de palavras | Os núcleos totais. |
-| Nódoas totais | de palavras | Os nós totais. |
-| Núcleos inutilizáveis | de palavras | O número de núcleos inutilizáveis. |
-| Nódes inutilizáveis | de palavras | O número de nós inutilizáveis. |
+|--|--|--|
+| Nómada Total | de palavras | Número de nós totais. Este total inclui alguns dos nóns ativos, nóns ociosos, nóns inutilizáveis, nóns preempted, leaving nodes |
+| Nóns ativos | de palavras | Número de nós ativos. Os nós que estão ativamente a gerir um trabalho. |
+| Nódoas Ociosas | de palavras | Número de nós ociosos. Os nós inativos são os nós que não estão a gerir nenhum emprego, mas que podem aceitar um novo emprego se estiverem disponíveis. |
+| Nódes Inutilizáveis | de palavras | Número de nós inutilizáveis. Os nós inutilizáveis não estão funcionais devido a algum problema irresolúvel. Azure vai reciclar estes nós. |
+| Nómadas Preempted | de palavras | Número de nós preempted. Estes nós são os nós de baixa prioridade que são retirados da piscina de nós disponíveis. |
+| Deixando os nóns | de palavras | Número de nós de saída. Deixar os nós são os nós que acabaram de processar um trabalho e irão para o estado de Idle. |
+| Núcleos Totais | de palavras | Número de núcleos totais |
+| Núcleos Ativos | de palavras | Número de núcleos ativos |
+| Núcleos Ociosos | de palavras | Número de núcleos ociosos |
+| Núcleos inutilizáveis | de palavras | Número de núcleos inutilizáveis |
+| Núcleos Preempted | de palavras | Número de núcleos pré-apropriados |
+| Deixando os Núcleos | de palavras | Número de núcleos de saída |
+| Percentagem de Utilização de Cots | de palavras | Por cento das quotas utilizadas |
 
 **Recurso**
 
-| Metric | Unidade | Description |
-| ----- | ----- | ----- |
-| CpuUtilização | Percentagem | Quanto por cento do CPU foi usado para um dado nó durante uma corrida/trabalho. Esta métrica só é publicada quando um trabalho está a funcionar num nó. Um trabalho pode usar um ou mais nós. Esta métrica é publicada por nó. |
-| GpuUtilização | Percentagem | Quanto percentagem de GPU foi utilizada para um dado nó durante uma corrida/trabalho. Um nó pode ter uma ou mais GPUs. Esta métrica é publicada por GPU por nó. |
+| Metric| Unidade | Description |
+|--|--|--|
+| CpuUtilização | de palavras | Percentagem de utilização num nó CPU. A utilização é reportada em intervalos de um minuto. |
+| GpuUtilização | de palavras | Percentagem de utilização num nó GPU. A utilização é reportada em intervalos de um minuto. |
+| GpuMemoryUtilization | de palavras | Percentagem de utilização da memória num nó GPU. A utilização é reportada em intervalos de um minuto. |
+| GpuEnergyJoules | de palavras | Energia de intervalo em Joules num nó GPU. A energia é reportada em intervalos de um minuto. |
 
 **Executar**
 
-Informação sobre treinos.
+A informação sobre o treino corre para o espaço de trabalho.
 
 | Metric | Unidade | Description |
-| ----- | ----- | ----- |
-| Execuções concluídas | de palavras | O número de execuções completas. |
-| Corridas falhadas | de palavras | O número de corridas falhadas. |
-| Começou a correr | de palavras | O número de corridas iniciadas. |
+|--|--|--|
+| Corridas Canceladas | de palavras | Número de corridas canceladas para este espaço de trabalho. O conde é atualizado quando uma execução é cancelada com sucesso. |
+| Cancelar execuções solicitadas | de palavras | Número de execuções onde foi solicitado o cancelamento para este espaço de trabalho. A contagem é atualizada quando o pedido de cancelamento foi recebido para uma execução. |
+| Execuções Concluídas | de palavras | Número de runs concluídas com sucesso para este espaço de trabalho. A contagem é atualizada quando uma execução tiver sido concluída e a saída tiver sido recolhida. |
+| Corridas falhadas | de palavras | Número de corridas falhou neste espaço de trabalho. O conde é atualizado quando uma corrida falha. |
+| Finalização de Corridas | de palavras | Número de corridas inseridas no estado finalizado para este espaço de trabalho. A contagem é atualizada quando uma execução tiver terminado, mas a recolha de saída ainda em andamento. | 
+| Não respondendo corre | de palavras | Número de corridas que não respondem a este espaço de trabalho. A contagem é atualizada quando uma execução entra no estado de Não Responder. |
+| Não começou corre | de palavras | Número de runs em Estado Não Iniciado para este espaço de trabalho. A contagem é atualizada quando um pedido é recebido para criar uma execução, mas a informação de execução ainda não foi povoada. |
+| Preparação de Corridas | de palavras | Número de corridas que se preparam para este espaço de trabalho. A contagem é atualizada quando uma execução entra em estado de preparação enquanto o ambiente de funcionação está a ser preparado. |
+| Corridas de Provisionamento | de palavras | Número de execuções que estão a provisão para este espaço de trabalho. A contagem é atualizada quando uma corrida está à espera da criação ou provisão do alvo do cálculo. |
+| Corridas em Fila | de palavras | Número de corridas que estão na fila para este espaço de trabalho. A contagem é atualizada quando uma corrida é em fila no alvo do cálculo. Pode ocorrer quando se espera que os nós computatados necessários estejam prontos. |
+| Corridas iniciadas | de palavras | Número de corridas a correr para este espaço de trabalho. A contagem é atualizada quando a execução começa a funcionar com os recursos necessários. |
+| Execuções ini 'Starting' | de palavras | Número de corridas iniciadas para este espaço de trabalho. O Conde é atualizado após pedido para criar informações de execução e execução, como o Run ID, foi povoado |
+| Erros | de palavras | Número de erros de execução neste espaço de trabalho. A contagem é atualizada sempre que o run encontra um erro. |
+| Avisos | de palavras | Número de avisos de execução neste espaço de trabalho. A contagem é atualizada sempre que uma corrida encontra um aviso. |
 
 ## <a name="metric-dimensions"></a>Dimensões métricas
 

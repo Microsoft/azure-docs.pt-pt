@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/31/2021
 ms.author: jlian
-ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a02b97957cc0599e2960cba551b536e83d1a902
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234023"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222560"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Suporte de segurança da camada de transporte (TLS) no IoT Hub
 
@@ -23,6 +23,10 @@ Os TLS 1.0 e 1.1 são considerados legados e estão previstos para a depreciaç�
 ## <a name="iot-hubs-server-tls-certificate"></a>Certificado TLS do servidor do IoT Hub
 
 Durante um aperto de mão TLS, o IoT Hub apresenta certificados de servidor com chave RSA para clientes de ligação. A sua raiz é a Baltimore Cybertrust Root CA. Recentemente, lançámos uma alteração no nosso certificado de servidor TLS para que seja agora emitido pelas novas autoridades de certificados intermédios (ICA). Para mais informações, consulte a [atualização do certificado IoT Hub TLS](https://azure.microsoft.com/updates/iot-hub-tls-certificate-update/).
+
+### <a name="4kb-size-limit-on-renewal"></a>Limite de tamanho 4KB na renovação
+
+Durante a renovação dos certificados laterais do servidor IoT Hub, é feita uma verificação no lado de serviço do IoT Hub para evitar `Server Hello` um tamanho superior a 4KB. Um cliente deve ter pelo menos 4KB de RAM definido para a entrada do tampão de comprimento máximo de conteúdo TLS, de modo que os dispositivos existentes que estão definidos para o limite 4KB continuem a funcionar como antes após a renovação do certificado. Para dispositivos constrangidos, o IoT Hub suporta a [negociação do comprimento máximo do fragmento TLS na pré-visualização](#tls-maximum-fragment-length-negotiation-preview). 
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certificado de Criptografia de Curva Elíptica (ECC) (pré-visualização)
 

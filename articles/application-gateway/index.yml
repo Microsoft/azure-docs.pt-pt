@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 02/08/2021
-  ms.openlocfilehash: 129ce0d20ec1d576853ecae565e43f6be8146283
-  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+  ms.openlocfilehash: 92e58217db5779418f1a97df70d0f74e6d3dc4e6
+  ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102616144"
+  ms.lasthandoff: 04/07/2021
+  ms.locfileid: "107030751"
 landingContent:
 - title: Saiba mais sobre o Gateway de Aplicação
   linkLists:
@@ -31,6 +31,10 @@ landingContent:
     links:
     - text: Novidades
       url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
+  - linkListType: learn
+    links:
+    - text: Fazer o balanceamento de carga do tráfego do serviço Web com o Gateway de Aplicação
+      url: /learn/modules/load-balance-web-traffic-with-application-gateway/
 - title: Suportar volumes de tráfego elevado
   linkLists:
   - linkListType: concept

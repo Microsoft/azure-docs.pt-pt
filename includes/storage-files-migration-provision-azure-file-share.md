@@ -1,18 +1,19 @@
 ---
-title: Considerações relativas ao provisionamento das ações de ficheiros da Azure
-description: Provision Azure ações de ficheiros para utilização com Azure File Sync. Um bloco de texto comum, partilhado através de documentos de migração.
+title: incluir ficheiro
+description: incluir ficheiro
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: d48baba5ee60a2bf5a4cb5e4d1ce840fce8eec43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file
+ms.openlocfilehash: c003e765574d764b6653823e8554d0718ea85e0e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82143572"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081109"
 ---
 Uma partilha de ficheiros Azure é armazenada na nuvem numa conta de armazenamento Azure.
 Há outro nível de considerações de desempenho aqui.

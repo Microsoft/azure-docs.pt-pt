@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/02/2020
-ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/02/2021
+ms.openlocfilehash: 6796a53ac05e8db606b29447a8792fa509c03d7e
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952410"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284102"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Como criar, importar e exportar termos glossários
 
@@ -34,7 +34,7 @@ Para criar um novo termo glossário, faça os seguintes passos:
 
 5. Desa estação o **estado do** termo. Novos termos por defeito do **estado do Projeto.**
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-options.png" alt-text="Screenshot das escolhas de estado." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Screenshot das escolhas de estado.":::
 
    Estes marcadores de estado são metadados associados ao termo. Atualmente pode definir o seguinte estado em cada termo:
 
@@ -92,9 +92,10 @@ Você deve ser capaz de exportar termos de glossário desde que os termos seleci
 
 2. **Selecione Export** para baixar os termos selecionados.
 
- > [!Important]
-   > Se os termos de uma hierarquia pertencerem a diferentes modelos de termo, então você precisa dividi-los em diferentes . Ficheiros CSV para importação. Além disso, a atualização de um termo não é atualmente apoiada através do processo de importação.
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot da página de termos Glossário, selecione ficheiro para exportação.":::
 
+   > [!Important]
+   > Se os termos de uma hierarquia pertencerem a diferentes modelos de termo, então você precisa dividi-los em diferentes . Ficheiros CSV para importação. Além disso, a atualização de um termo não é atualmente apoiada através do processo de importação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

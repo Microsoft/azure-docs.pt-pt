@@ -1,17 +1,17 @@
 ---
 title: Formato Delta na Azure Data Factory
 description: Transforme e mova dados de um lago delta usando o formato delta
-author: djpmsft
+author: dcstwh
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.author: daperlov
-ms.openlocfilehash: 74df809f2206a105b405ba184949ef887096ebc2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: weetok
+ms.openlocfilehash: 6d9d2b0d185750cf8ed8192661f28a2b82d88b78
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932510"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222543"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato Delta na Azure Data Factory
 
@@ -76,7 +76,7 @@ A tabela abaixo lista as propriedades suportadas por um lavatório delta. Pode e
 | Limpeza | Especifique o limiar de retenção em horas para versões mais antigas da tabela. Um valor de 0 ou menos incumprimentos para 30 dias | sim | Número inteiro | vácuo |
 | Método de atualização | Especifique quais as operações de atualização permitidas no lago delta. Para métodos que não são inseridos, uma transformação de linha alterante anterior é necessária para marcar linhas. | sim | `true` ou `false` | deletable <br> inserível <br> atualizável <br> impressão em série |
 | Escrita Otimizada | Obtenha uma maior produção para a operação de escrita através da otimização da baralhada interna nos executores Spark. Como resultado, pode notar menos divisórias e ficheiros de tamanho maior | não | `true` ou `false` | otimizadoWrite: verdadeiro |
-| Auto Compacto | Depois de concluída qualquer operação de escrita, a Spark executará automaticamente o ```OPTIMIZE``` comando para reorganizar os dados, resultando em mais divisórias, se necessário, para um melhor desempenho de leitura no futuro. | não | `true` ou `false` |   autoCompact: verdadeiro |
+| Auto Compacto | Depois de concluída qualquer operação de escrita, a Spark executará automaticamente o ```OPTIMIZE``` comando para reorganizar os dados, resultando em mais divisórias, se necessário, para um melhor desempenho de leitura no futuro. | não | `true` ou `false` |    autoCompact: verdadeiro |
 
 ### <a name="delta-sink-script-example"></a>Exemplo de script de pia delta
 

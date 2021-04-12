@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: a0c3a3cbaa71d627f54550cf92c067afbb1eb3f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d0fd9ab8286496b9801d6c10682761f1264e040a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786214"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120916"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade forEach na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ Atividades | As atividades a executar. | Lista de Actividades | Yes
 Se **o isequential** for definido como falso, a atividade itera em paralelo com um máximo de 20 iterações simultâneas. Esta regulação deve ser utilizada com cuidado. Se as iterações simultâneas estiverem a escrever para a mesma pasta, mas para diferentes ficheiros, esta abordagem está bem. Se as iterações simultâneas estiverem a escrever simultaneamente para o mesmo ficheiro, esta abordagem provavelmente causa um erro. 
 
 ## <a name="iteration-expression-language"></a>Linguagem de expressão de iteração
-Na atividade ForEach, forneça uma matriz para ser iterada para os **itens de** propriedade ." Use `@item()` para iterar sobre uma única enumeração na atividade forEach. Por exemplo, se **os itens** forem uma matriz: [1, 2, 3], `@item()` devolve 1 na primeira iteração, 2 na segunda iteração e 3 na terceira iteração.
+Na atividade ForEach, forneça uma matriz para ser iterada para os **itens de** propriedade ." Use `@item()` para iterar sobre uma única enumeração na atividade forEach. Por exemplo, se **os itens** forem uma matriz: [1, 2, 3], `@item()` devolve 1 na primeira iteração, 2 na segunda iteração e 3 na terceira iteração. Também pode usar `@range(0,10)` como expressão para iterar dez vezes começando com 0 terminando com 9.
 
 ## <a name="iterating-over-a-single-activity"></a>Itering sobre uma única atividade
 **Cenário:** Copie do mesmo ficheiro de origem em Azure Blob para vários ficheiros de destino em Azure Blob.

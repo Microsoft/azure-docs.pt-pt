@@ -6,18 +6,18 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 751e9337d74210d238be079e8fcd1bb973937846
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6464ad632251053ac481fbd1f6a3e1197aa470df
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936857"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121307"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Atualização do dispositivo para tutorial Azure IoT Hub usando o agente de pacotes no Ubuntu Server 18.04 x64
 
 A Atualização do Dispositivo para o IoT Hub suporta duas formas de atualizações – baseadas em imagem e baseadas em pacotes.
 
-As atualizações baseadas em pacotes são atualizações direcionadas que alteram apenas um componente ou aplicação específico no dispositivo. Isto leva a um menor consumo de largura de banda e ajuda a reduzir o tempo para descarregar e instalar a atualização. As atualizações de pacotes normalmente permitem menos tempo de inatividade dos dispositivos ao aplicar uma atualização e evitar a sobrecarga de criação de imagens.
+As atualizações baseadas em pacotes são atualizações direcionadas que alteram apenas um componente ou aplicação específico no dispositivo. As atualizações baseadas em pacotes levam a um menor consumo de largura de banda e ajudam a reduzir o tempo para descarregar e instalar a atualização. As atualizações de pacotes normalmente permitem menos tempo de inatividade dos dispositivos ao aplicar uma atualização e evitar a sobrecarga de criação de imagens.
 
 Este tutorial de ponta a ponta acompanha-o através da atualização do Azure IoT Edge no Ubuntu Server 18.04 x64 utilizando o agente de pacotes Device Update. Embora o tutorial demonstre a atualização do IoT Edge, utilizando passos semelhantes, pode atualizar outros pacotes, como o motor de contentores que utiliza.
 
@@ -40,7 +40,7 @@ Neste tutorial, vai aprender a:
 ## <a name="prepare-a-device"></a>Preparar um dispositivo
 ### <a name="using-the-automated-deploy-to-azure-button"></a>Utilizando o botão De implantação automatizada para Azure
 
-Por conveniência, este tutorial utiliza um modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/overview.md) baseado em nuvem para [ajudá-lo](../virtual-machines/linux/using-cloud-init.md)a configurar rapidamente uma máquina virtual Ubuntu 18.04 LTS. Instala tanto o tempo de funcionamento do Azure IoT Edge como o agente de pacotes de atualização do dispositivo e, em seguida, configura automaticamente o dispositivo com informações de provisionamento utilizando a cadeia de ligação do dispositivo para um dispositivo IoT Edge (pré-requisito) que fornece. Isto evita a necessidade de iniciar uma sessão de SSH para completar a configuração.
+Por conveniência, este tutorial utiliza um modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/overview.md) baseado em nuvem para [ajudá-lo](../virtual-machines/linux/using-cloud-init.md)a configurar rapidamente uma máquina virtual Ubuntu 18.04 LTS. Instala tanto o tempo de funcionamento do Azure IoT Edge como o agente de pacotes de atualização do dispositivo e, em seguida, configura automaticamente o dispositivo com informações de provisionamento utilizando a cadeia de ligação do dispositivo para um dispositivo IoT Edge (pré-requisito) que fornece. O modelo Azure Resource Manager também evita a necessidade de iniciar uma sessão de SSH para completar a configuração.
 
 1. Para começar, clique no botão abaixo:
 
@@ -75,7 +75,7 @@ Por conveniência, este tutorial utiliza um modelo de Gestor de [Recursos Azure]
 
 1. Verifique se a implementação foi concluída com êxito. Deixe alguns minutos após a implementação concluída para que a pós-instalação e configuração termine de instalar ioT Edge e o agente de atualização do Pacote de Dispositivos.
 
-   Um recurso da máquina virtual devia ter sido implementado no grupo de recursos selecionados.  Tome nota do nome da máquina, este deve estar no formato `vm-0000000000000` . Além disso, tome nota do **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+   Um recurso da máquina virtual devia ter sido implementado no grupo de recursos selecionados.  Tome nota do nome da máquina que deve estar no formato `vm-0000000000000` . Além disso, tome nota do **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     O **Nome DNS** pode ser obtido na secção **Descrição geral** da máquina virtual recentemente implementada no portal do Azure.
 
@@ -86,7 +86,7 @@ Por conveniência, este tutorial utiliza um modelo de Gestor de [Recursos Azure]
    > Se pretender entrar neste VM após a configuração, utilize o **Nome DNS** associado com o comando: `ssh <adminUsername>@<DNS_Name>`
 
 ### <a name="optional-manually-prepare-a-device"></a>(Opcional) Preparar manualmente um dispositivo
-Os seguintes passos manuais para instalar e configurar o dispositivo são equivalentes aos que foram automatizados por este [script de inicio de nuvem](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt). Podem ser usados para preparar um dispositivo físico.
+Semelhantes aos passos automatizados pelo [script cloud-init , seguem-se](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt)passos manuais para instalar e configurar o dispositivo. Estes passos podem ser utilizados para preparar um dispositivo físico.
 
 1. Siga as instruções para [instalar o tempo de funcionamento do Aresta Azure IoT](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
@@ -110,9 +110,9 @@ Leia os termos da licença antes de utilizar uma embalagem. A sua instalação e
 
 1. Entre no [portal Azure](https://portal.azure.com) e navegue até ao Hub IoT.
 
-2. A partir de 'IoT Edge' no painel de navegação esquerdo encontre o seu dispositivo IoT Edge e navegue até ao Dispositivo Twin.
+2. A partir de 'IoT Edge' no painel de navegação esquerdo, encontre o seu dispositivo IoT Edge e navegue para o Dispositivo Twin ou Módulo Twin.
 
-3. No Dispositivo Twin, elimine qualquer valor de marcação de atualização do dispositivo existente, definindo-os para nulos.
+3. No módulo Twin do módulo de agente de atualização do dispositivo, elimine qualquer valor de etiqueta de atualização do dispositivo existente, definindo-os para nulos. Se estiver a utilizar a identidade do dispositivo com o agente de atualização do dispositivo, eis estas alterações no Dispositivo Twin.
 
 4. Adicione um novo valor de etiqueta de atualização do dispositivo, como mostrado abaixo.
 
@@ -124,7 +124,7 @@ Leia os termos da licença antes de utilizar uma embalagem. A sua instalação e
 
 ## <a name="import-update"></a>Atualização de importação
 
-1. Aceda às [versões de Atualização de Dispositivos](https://github.com/Azure/iot-hub-device-update/releases) no Github e clique na queda de "Ativos".
+1. Aceda às [versões de Atualização de Dispositivos](https://github.com/Azure/iot-hub-device-update/releases) no GitHub e clique na queda de "Ativos".
 
 3. Faça o download `Edge.package.update.samples.zip` clicando nele.
 
@@ -149,7 +149,7 @@ Esta atualização atualizará `aziot-identity-service` os `aziot-edge` pacotes 
 
 8. Selecione "Submeter" para iniciar o processo de importação.
 
-9. O processo de importação começa e o ecrã muda para a secção "Import History". Selecione "Refresh" para ver o progresso até que o processo de importação esteja concluído. Dependendo do tamanho da atualização, isto pode completar em poucos minutos, mas pode demorar mais tempo.
+9. O processo de importação começa e o ecrã muda para a secção "Import History". Selecione "Refresh" para ver o progresso até que o processo de importação esteja concluído. Dependendo do tamanho da atualização, o processo de importação pode estar concluído em poucos minutos, mas pode demorar mais tempo.
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot mostrando a sequência de importação de atualização." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
@@ -212,7 +212,7 @@ Já concluiu uma atualização de pacotes de ponta a ponta com sucesso utilizand
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, limpe a conta de atualização do dispositivo, caso, o Hub IoT e o dispositivo IoT Edge (se tiver criado o VM através do botão Implementar para Azure). Pode fazê-lo, indo a cada recurso individual e selecionando "Delete". Tenha em atenção que é necessário limpar uma instância de atualização do dispositivo antes de limpar a conta de atualização do dispositivo.
+Quando já não for necessário, limpe a conta de atualização do dispositivo, caso, o Hub IoT e o dispositivo IoT Edge (se tiver criado o VM através do botão Implementar para Azure). Pode fazê-lo, indo a cada recurso individual e selecionando "Delete". É necessário limpar uma instância de atualização do dispositivo antes de limpar a conta de atualização do dispositivo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

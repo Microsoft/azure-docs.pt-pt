@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Computer Vision REST API'
+title: 'Quickstart: Reconhecimento ótico de caracteres REST API'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, começa com a API de Visão De Computador.
+description: Neste arranque rápido, começa com o reconhecimento ótico de caracteres REST API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,18 +11,14 @@ ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 914fe0bbf04fa8835cbe96e5bbb83604f0d07bc2
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 0e22691b025299b16df9141e48d22e0063d92c97
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622066"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284807"
 ---
-Utilize a API de Visão De Computador para:
-
-* Analise uma imagem para tags, descrição de texto, rostos, conteúdo adulto, e muito mais.
-* Leia texto impresso e manuscrito com a API de Leitura.
-* Gere uma miniatura com corte inteligente
+Utilize o reconhecimento de caracteres óticos REST API para ler texto impresso e manuscrito.
 
 > [!NOTE]
 > Este quickstart utiliza comandos cURL para chamar a API REST. Também pode ligar para a API REST utilizando uma linguagem de programação. Veja as amostras do GitHub por exemplo em [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST) [Java,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST) [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST)e [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/ComputerVision/REST).
@@ -35,90 +31,11 @@ Utilize a API de Visão De Computador para:
   * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 * [cURL](https://curl.haxx.se/) instalado
 
-## <a name="analyze-an-image"></a>Analisar uma imagem
 
-Para analisar uma imagem para uma variedade de funcionalidades visuais, faça os seguintes passos:
-
-1. Copie o comando seguinte para um editor de texto.
-1. Aceda ao portal do Azure. Se o recurso de Visão De Computador que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a chave de subscrição e o ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.**
-1. Faça as alterações seguintes ao comando, se for necessário:
-    1. Substitua o valor de `PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE` pela chave de subscrição.
-    1. Substitua a primeira parte do URL de pedido `PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE` () pelo seu próprio ponto final de Visão de Computador. O seu ponto final de visão de computador tem o formulário `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/` .
-        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Opcionalmente, altere o URL da imagem no corpo do pedido (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) pelo URL de uma imagem diferente a ser analisada.
-1. Abra uma janela da linha de comandos.
-1. Cole o comando a partir do editor de texto na janela da linha de comandos e, em seguida, execute o comando.
-
-```bash
-curl -H "Ocp-Apim-Subscription-Key: PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE" -H "Content-Type: application/json" "PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
-```
-
-> [!IMPORTANT]
-> Lembre-se de remover a chave de subscrição do seu código quando terminar e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Por exemplo, [cofre de chaves Azure](../../../key-vault/general/overview.md).
-
-### <a name="examine-the-response"></a>Examinar a resposta
-
-O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
-
-```json
-{
-  "categories": [
-    {
-      "name": "outdoor_water",
-      "score": 0.9921875,
-      "detail": {
-        "landmarks": []
-      }
-    }
-  ],
-  "description": {
-    "tags": [
-      "nature",
-      "water",
-      "waterfall",
-      "outdoor",
-      "rock",
-      "mountain",
-      "rocky",
-      "grass",
-      "hill",
-      "covered",
-      "hillside",
-      "standing",
-      "side",
-      "group",
-      "walking",
-      "white",
-      "man",
-      "large",
-      "snow",
-      "grazing",
-      "forest",
-      "slope",
-      "herd",
-      "river",
-      "giraffe",
-      "field"
-    ],
-    "captions": [
-      {
-        "text": "a large waterfall over a rocky cliff",
-        "confidence": 0.916458423253597
-      }
-    ]
-  },
-  "requestId": "b6e33879-abb2-43a0-a96e-02cb5ae0b795",
-  "metadata": {
-    "height": 959,
-    "width": 1280,
-    "format": "Jpeg"
-  }
-}
-```
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
-A Visão computacional pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, consulte o doc conceptual de [reconhecimento de caracteres óticos (OCR).](../concept-recognizing-text.md#read-api)
+O serviço OCR pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, consulte a visão geral do [reconhecimento de caracteres óticos (OCR).](../overview-ocr.md)
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
@@ -342,35 +259,11 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
 }
 ```
 
-## <a name="generate-a-thumbnail"></a>Gerar uma miniatura
-
-Pode utilizar a Visão de Computador para gerar uma miniatura com corte inteligente. Especifica a altura e largura desejadas, que podem diferir na relação de aspeto da imagem de entrada. A Computer Vision utiliza a cultura inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de corte em toda a região.
- 
-Para criar e executar o exemplo, siga os seguintes passos:
-
-1. Copie o comando seguinte para um editor de texto.
-1. Faça as alterações seguintes ao comando, se for necessário:
-    1. Substitua o valor de `<subscriptionKey>` pela chave de subscrição.
-    1. Substitua o valor do `<thumbnailFile>` caminho e nome do ficheiro para guardar a imagem da miniatura devolvida.
-    1. Substitua a primeira parte do URL de pedido `westcentralus` () com o texto no seu próprio URL de ponto final.
-        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Opcionalmente, altere o URL da imagem no corpo do pedido (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) pelo URL de uma imagem diferente a partir da qual pretende gerar uma miniatura.
-1. Abra uma janela da linha de comandos.
-1. Cole o comando do editor de texto na janela de ordem.
-1. Prima para executar o programa.
-
-    ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
-    ```
-
-### <a name="examine-the-response"></a>Examinar a resposta
-
-Uma resposta de êxito escreve a imagem em miniatura para o ficheiro especificado em `<thumbnailFile>`. Se o pedido falhar, a resposta contém um código de erro e uma mensagem para ajudar a determinar o que correu mal. Se o pedido parece ter sucesso, mas a miniatura criada não é um ficheiro de imagem válido, pode ser que a sua chave de subscrição não seja válida.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore a API de Visão Computacional em maior profundidade. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
+Explore a API OCR em mais profundidade. Para experimentar rapidamente com a API, experimente a [consola de testes Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005/console).
 
 > [!div class="nextstepaction"]
-> [Explorar a API de Imagem Digitalizada](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)
+> [Explore a API OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)

@@ -10,18 +10,18 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 7e2a64c14d7d7a1d20b64b746969aca1e60ab218
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfd3bc406407298c6daf7723cb684911d7c9a9cf
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90939410"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284673"
 ---
 # <a name="zone-and-line-placement-guide"></a>Guia de colocação de zona e linha
 
-Este artigo fornece orientações para como definir zonas e linhas para operações de análise espacial para obter uma análise precisa dos movimentos dos povos num espaço. Isto aplica-se a todas as operações. 
+Este artigo fornece diretrizes para como definir zonas e linhas para operações de Análise Espacial para obter uma análise precisa dos movimentos dos povos num espaço. Isto aplica-se a todas as operações. 
 
-As zonas e linhas são definidas utilizando o parâmetro JSON SPACEANALYSIS_CONFIG. Consulte o artigo [de operações de análise espacial](spatial-analysis-operations.md) para obter mais informações.
+As zonas e linhas são definidas utilizando o parâmetro JSON SPACEANALYSIS_CONFIG. Consulte o artigo [de operações de Análise Espacial](spatial-analysis-operations.md) para obter mais informações.
 
 ## <a name="guidelines-for-drawing-zones"></a>Orientações para zonas de desenho
 
@@ -31,7 +31,7 @@ Se quiser ver uma secção específica da sua vista para a câmara, crie a maior
 
 ### <a name="example-of-a-well-shaped-zone"></a>Exemplo de uma zona bem moldada
 
-A zona deve ser grande o suficiente para acomodar três pessoas em pé ao longo de cada borda e focada na área de interesse. A análise espacial identificará pessoas cujos pés são colocados na zona, por isso, ao desenhar zonas na imagem 2D, imagine a zona como um tapete deitado no chão.
+A zona deve ser grande o suficiente para acomodar três pessoas em pé ao longo de cada borda e focada na área de interesse. A Análise Espacial identificará pessoas cujos pés estão colocados na zona, por isso, ao desenhar zonas na imagem 2D, imagine a zona como um tapete deitado no chão.
 
 ![Zona bem moldada](./media/spatial-analysis/zone-good-example.png)
 
@@ -61,7 +61,7 @@ Os exemplos a seguir mostram zonas mal moldadas. Nestes exemplos, a área de int
 
 ### <a name="example-of-a-well-shaped-line"></a>Exemplo de uma linha bem em forma
 
-A linha deve ser longa o suficiente para acomodar toda a entrada. A análise espacial identificará pessoas cujos pés cruzam a linha, por isso, quando desenhar linhas na imagem 2D, imagine que está a desenhá-las como se estivessem no chão. 
+A linha deve ser longa o suficiente para acomodar toda a entrada. A Análise Espacial identificará pessoas cujos pés cruzam a linha, por isso, quando desenhar linhas na imagem 2D, imagine que está a desenhá-las como se estivessem no chão. 
 
 Se possível, estenda a linha mais larga do que a entrada real. Se isto não resultar em cruzamentos extra (como na imagem abaixo quando a linha está contra uma parede) então estenda-a.
 

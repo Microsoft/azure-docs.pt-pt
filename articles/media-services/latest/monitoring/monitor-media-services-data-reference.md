@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8908fd1acc64fb180121ac0b6a4dc38ce5a02572
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609093"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121171"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Referência de dados dos Serviços de Mídia de Monitorização
 
@@ -44,7 +44,7 @@ Pode monitorizar as seguintes métricas de conta.
 |StreamingPolicyQuota|Quota de política de streaming|Quota de Políticas de Streaming na sua conta.|
 |StreamingPolicyQuotaUsedPercentage|Percentagem utilizada pela quota de política de streaming|A percentagem da quota da Política de Streaming já utilizada.|
 
-Deve também rever [as quotas e limites de conta.](../limits-quotas-constraints.md)
+Deve também rever [as quotas e limites de conta.](../limits-quotas-constraints-reference.md)
 
 ### <a name="streaming-endpoint"></a>Ponto Final de Transmissão em Fluxo
 

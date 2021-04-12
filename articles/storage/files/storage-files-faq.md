@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470893"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064312"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de [Mensagens do Servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão da indústria e do [protocolo do Sistema de Ficheiros de Rede (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (pré-visualização). Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -183,6 +183,10 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     Se tiver ativado o Azure Backup nas partilhas de ficheiros geridos por ficheiros, os ACLs de ficheiros podem continuar a ser restaurados como parte do fluxo de trabalho de restauração de backup. Isto funciona para a totalidade das ações ou ficheiros/diretórios individuais.
 
     Se estiver a utilizar instantâneos como parte da solução de backup auto-gerida para ações de ficheiros geridas por sincronização de ficheiros, os seus ACLs podem não ser restaurados adequadamente para NTFS ACLs se as imagens foram tiradas antes de 24 de fevereiro de 2020. Se isso ocorrer, considere contactar o Suporte Azure.
+
+* <a id="afs-lastwritetime"></a>
+  **O Azure File Sync sincroniza o LastWriteTime para diretórios?**  
+    Não, o Azure File Sync não sincroniza o LastWriteTime para diretórios. Esta ação é propositada.
     
 ## <a name="security-authentication-and-access-control"></a>Segurança, autenticação e controlo de acessos
 * <a id="ad-support"></a>

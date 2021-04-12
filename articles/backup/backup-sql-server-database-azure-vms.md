@@ -2,13 +2,13 @@
 title: Fazer a cópia de segurança de várias VMs do SQL Server a partir do cofre
 description: Neste artigo, aprenda a fazer backup das bases de dados do SQL Server em máquinas virtuais Azure com cópia de segurança Azure a partir do cofre dos Serviços de Recuperação
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 798dc81012ad968c3ecc287717240513a08a1349
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/07/2021
+ms.openlocfilehash: c03b833be6c5e4c352125f31ad8c5ed072674b49
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "105567220"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258474"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Fazer o back up vários VMs sql do cofre dos Serviços de Recuperação
 
@@ -23,10 +23,6 @@ Neste artigo, vai aprender a:
 > * Criar e configurar um cofre.
 > * Descubra bases de dados e crie backups.
 > * Configurar a proteção automática para bases de dados.
-
->[!NOTE]
->**A exclusão suave para o servidor SQL em Azure VM e a eliminação suave para as cargas de trabalho SAP HANA em Azure VM** já está disponível na pré-visualização.<br>
->Para se inscrever para a pré-visualização, escreva-nos em AskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

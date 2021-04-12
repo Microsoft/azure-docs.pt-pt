@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 23e9fd586882d25aed646b984e17c5885145ccff
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368207"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284639"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Criar uma aplicação iOS que lança o Leitor Imersivo com conteúdo a partir de uma foto (Swift)
 
 O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
-A [API de Serviços Cognitivos de Visão Computacional](../computer-vision/concept-recognizing-text.md) deteta conteúdo de texto numa imagem utilizando os modelos de reconhecimento mais recentes da Microsoft e converte o texto identificado num fluxo de caracteres legível por máquina.
+A [API de Serviços Cognitivos de Visão Computacional](../computer-vision/overview-ocr.md) deteta conteúdo de texto numa imagem utilizando os modelos de reconhecimento mais recentes da Microsoft e converte o texto identificado num fluxo de caracteres legível por máquina.
 
 Neste tutorial, você vai construir uma aplicação iOS de raiz e integrar a API de leitura, e o Leitor Imersivo usando o Leitor Imersivo SDK. Uma amostra completa deste tutorial está disponível [aqui.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)
 
@@ -75,7 +75,7 @@ Na pasta principal do projeto, que contém o ficheiro ViewController.swift, crie
 
 ## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Crie a app para funcionar sem um storyboard
 
-Abrir AppDeegate.swift e substituir o ficheiro pelo seguinte código.
+Abrir o AppDeegate.swift e substituir o ficheiro pelo seguinte código.
 
 ## <a name="add-functionality-for-taking-and-uploading-photos"></a>Adicione funcionalidade para tirar e carregar fotos
 
