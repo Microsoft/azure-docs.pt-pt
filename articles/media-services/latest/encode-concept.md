@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 225f1d311739bdafbe39971a2b4ac74917e770e9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: cd37175bd85e31ddc18c8267cdf01f7dc6249a0b
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279498"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491921"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificação de vídeo e áudio com Serviços de Media
 
@@ -45,7 +45,7 @@ Para codificar com os Media Services v3, é necessário criar uma [Transformaç�
 
 Ao codificar com os Serviços de Comunicação, utiliza predefinições para dizer ao codificadora como os ficheiros de meios de entrada devem ser processados. Nos Serviços de Comunicação Social v3, utiliza o Standard Encoder para codificar os seus ficheiros. Por exemplo, pode especificar a resolução de vídeo e/ou o número de canais de áudio que deseja no conteúdo codificado.
 
-Pode começar rapidamente com uma das predefinições recomendadas com base nas melhores práticas da indústria ou pode optar por construir uma predefinição personalizada para direcionar o seu cenário específico ou os requisitos do dispositivo. Para obter mais informações, consulte [Codificar com uma transformação personalizada.](encode-custom-presets-how-to.md)
+Pode começar rapidamente com uma das predefinições recomendadas com base nas melhores práticas da indústria ou pode optar por construir uma predefinição personalizada para direcionar o seu cenário específico ou os requisitos do dispositivo. Para obter mais informações, consulte [Codificar com uma transformação personalizada.](transform-custom-presets-how-to.md)
 
 A partir de janeiro de 2019, quando codificado com o Standard Encoder para produzir ficheiros MP4, é gerado um novo ficheiro .mpi e adicionado à produção Ativo. Este ficheiro MPI destina-se a melhorar o desempenho para cenários [dinâmicos de embalagem](encode-dynamic-packaging-concept.md) e streaming.
 
@@ -136,9 +136,9 @@ Os Serviços de Comunicação Social suportam totalmente a personalização de t
 
 #### <a name="examples"></a>Exemplos
 
-- [Personalize predefinições com .NET](encode-custom-presets-how-to.md)
-- [Personalize predefinições com CLI](encode-custom-preset-cli-how-to.md)
-- [Personalize predefinições com REST](encode-custom-preset-rest-how-to.md)
+- [Personalize predefinições com .NET](transform-custom-presets-how-to.md)
+- [Personalize predefinições com CLI](transform-custom-preset-cli-how-to.md)
+- [Personalize predefinições com REST](transform-custom-preset-rest-how-to.md)
 
 
 ## <a name="preset-schema"></a>Esquema predefinido
@@ -165,4 +165,4 @@ Consulte o artigo da [comunidade Azure Media Services](media-services-community.
 * [Faça upload, codificação e transmissão utilizando os Serviços de Mídia](stream-files-tutorial-with-api.md).
 * [Codificar a partir de um URL HTTPS utilizando predefinições incorporadas](job-input-from-http-how-to.md).
 * [Codificar um ficheiro local utilizando predefinições incorporadas](job-input-from-local-file-how-to.md).
-* [Construa uma predefinição personalizada para direcionar o seu cenário específico ou requisitos do dispositivo](encode-custom-presets-how-to.md).
+* [Construa uma predefinição personalizada para direcionar o seu cenário específico ou requisitos do dispositivo](transform-custom-presets-how-to.md).

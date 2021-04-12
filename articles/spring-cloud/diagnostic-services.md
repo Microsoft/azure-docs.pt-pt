@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c354435f689f5182dd368fd53fdab28f1ab63d48
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 68b9aee49e4cf7c02c07fc7dd90e9cc6065a443c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218796"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259426"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
 
@@ -110,7 +110,7 @@ Existem vários métodos para visualizar registos e métricas como descrito nas 
 > [!NOTE]
 > `==` é sensível a caso, mas `=~` não é.
 
-Para saber mais sobre a linguagem de consulta que é usada no Log Analytics, consulte as consultas de registo do [Azure Monitor](/azure/data-explorer/kusto/query/).
+Para saber mais sobre a linguagem de consulta que é usada no Log Analytics, consulte as consultas de registo do [Azure Monitor](/azure/data-explorer/kusto/query/). Para consultar todos os seus registos log analytics de um cliente centralizado, consulte [o Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ### <a name="use-your-storage-account"></a>Use a sua conta de armazenamento
 

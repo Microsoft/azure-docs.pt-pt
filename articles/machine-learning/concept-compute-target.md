@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 16c3ac10af7d39ec35cde1cd9d279bced54fd8aa
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574650"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062510"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os destinos de computação no Azure Machine Learning?
 

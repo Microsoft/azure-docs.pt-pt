@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 44554434eee51c11e7f89007c532f1a142fc998c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8b24ee9f620b50056ceb466ef5bdc38da97682a9
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199344"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490748"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Reagir plugin para Informações JavaScript SDK
 
@@ -77,7 +77,7 @@ export default withAITracking(reactPlugin, MyComponent);
 
 ## <a name="configuration"></a>Configuração
 
-| Name    | Predefinição | Description                                                                                                    |
+| Name    | Predefinição | Descrição                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
 | histórico | nulo    | Reagir na história do router. Para obter mais informações, consulte a documentação do [pacote do revesidor de reagem](https://reactrouter.com/web/api/history). Para aprender a aceder ao objeto histórico fora dos componentes, consulte o [Re-router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
 
@@ -171,12 +171,11 @@ O `useTrackEvent` Gancho é utilizado para rastrear qualquer evento personalizad
 import React, { useState, useEffect } from "react";
 import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsights-react-js";
 
-const ProductCart = () => {
+const MyComponent = () => {
     const appInsights = useAppInsightsContext();
-    const trackCheckout = useTrackEvent(appInsights, "Checkout");
-    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated");
     const [cart, setCart] = useState([]);
-    
+    const trackCheckout = useTrackEvent(appInsights, "Checkout", cart);
+    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated", cart);
     useEffect(() => {
         trackCartUpdate({ cartCount: cart.length });
     }, [cart]);
@@ -189,15 +188,16 @@ const ProductCart = () => {
     return (
         <div>
             <ul>
-                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button>
-                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button>
-                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button>
-                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button>
+                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button></li>
+                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button></li>
+                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button></li>
+                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button></li>
             </ul>
             <button onClick={performCheckout}>Checkout</button>
         </div>
     );
 }
+
 export default MyComponent;
 ```
 

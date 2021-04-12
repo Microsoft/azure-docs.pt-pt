@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 34fd6720b93a1462836b51856d73573a86809367
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 282eaa6e966ff458dfb1dfdd32ef6ec1f2cdc151
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022828"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443751"
 ---
 # <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Localizar e utilizar imagens VM do Azure Marketplace com Azure PowerShell
 
@@ -66,7 +66,7 @@ Pode utilizar o PowerShell para reduzir uma lista de imagens. Substitua os valor
     Também pode usar `latest` se quiser utilizar a imagem mais recente e não uma versão específica mais antiga.
 
 
-Agora pode combinar o editor selecionado, oferta, SKU e versão numa URN (valores separados por :). Passe esta URN com o `--image` parâmetro quando criar um VM com o cmdlet [New-AzVM.](/powershell/module/az.compute/new-azvm) Também pode substituir o número de versão na URN `latest` para obter a versão mais recente da imagem.
+Agora pode combinar o editor selecionado, oferta, SKU e versão numa URN (valores separados por :). Passe esta URN com o `-Image` parâmetro quando criar um VM com o cmdlet [New-AzVM.](/powershell/module/az.compute/new-azvm) Também pode substituir o número de versão na URN `latest` para obter a versão mais recente da imagem.
 
 Se implementar um VM com um modelo de Gestor de Recursos, definirá os parâmetros de imagem individualmente nas `imageReference` propriedades. Veja a [referência de modelo](/azure/templates/microsoft.compute/virtualmachines).
 

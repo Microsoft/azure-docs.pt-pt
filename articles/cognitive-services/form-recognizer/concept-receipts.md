@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8248b3ed21561340e963c848dee4430c48829ab1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467362"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285302"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo pré-construído do Reconhecimento de Formulário
 
-O Azure Form Recogniser pode analisar e extrair informações dos recibos de venda utilizando o seu modelo de recibo pré-construído. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/concept-recognizing-text.md) com modelos de aprendizagem profunda para extrair informações-chave dos recibos escritos em inglês.
+O Azure Form Recogniser pode analisar e extrair informações dos recibos de venda utilizando o seu modelo de recibo pré-construído. Combina as nossas poderosas capacidades [de Reconhecimento de Caracteres Óticos (OCR)](../computer-vision/overview-ocr.md) com modelos de aprendizagem profunda para extrair informações-chave dos recibos escritos em inglês.
 
 ## <a name="understanding-receipts"></a>Compreensão de recibos
 
@@ -36,7 +36,7 @@ O serviço de Receção pré-construído extrai o conteúdo dos recibos de venda
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Description | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | Tipo de Recibo | string | Tipo de recibo de venda | Itemizado |  |
 | Nome mercante | string | Nome do comerciante que emite o recibo | Contoso |  |

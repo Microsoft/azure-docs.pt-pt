@@ -3,15 +3,15 @@ title: Autenticação e autorização
 description: Descubra sobre o suporte de autenticação e autorização incorporado no Azure App Service e Azure Functions, e como pode ajudar a proteger a sua aplicação contra o acesso não autorizado.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 03/29/2021
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 35513abdfb61d889abdbd4af7125b1fbb556d7b8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b6e600fcaf32a115af14be2444144fee099d635
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612760"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075343"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Azure App Service e Azure Functions
 
@@ -33,8 +33,7 @@ O Serviço de Aplicações utiliza [identidade federada,](https://en.wikipedia.o
 
 | Fornecedor | Ponto final de inscrição | orientação How-To |
 | - | - | - |
-| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Início de sessão Azure AD do Serviço de Aplicações](configure-authentication-provider-aad.md) |
-| [Conta Microsoft](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` | [Início de conta microsoft do Serviço de Aplicações](configure-authentication-provider-microsoft.md) |
+| [Plataforma de Identidade da Microsoft](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Início de plataforma de identidade do Serviço de Aplicações Microsoft](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Início de sessão do Facebook do Serviço de Aplicações](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Serviço de aplicações Google login](configure-authentication-provider-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Início de twitter do Serviço de Aplicações](configure-authentication-provider-twitter.md) |
@@ -110,21 +109,17 @@ Para os navegadores de clientes, o Serviço de Aplicações pode automaticamente
 
 #### <a name="authorization-behavior"></a>Comportamento da autorização
 
-No [portal Azure,](https://portal.azure.com)pode configurar a autorização do Serviço de Aplicações com vários comportamentos quando o pedido de entrada não for autenticado.
+No [portal Azure,](https://portal.azure.com)pode configurar o Serviço de Aplicações com vários comportamentos quando o pedido de entrada não é autenticado. Os seguintes títulos descrevem as opções.
 
-![Uma imagem mostrando o dropdown "Action to take when request is not autenticado"](media/app-service-authentication-overview/authorization-flow.png)
-
-Os seguintes títulos descrevem as opções.
-
-**Permitir pedidos anónimos (sem ação)**
+**Permitir pedidos não autenticados**
 
 Esta opção adia a autorização de tráfego não autenticado para o seu código de aplicação. Para pedidos autenticados, o Serviço de Aplicações também transmite informações de autenticação nos cabeçalhos HTTP.
 
 Esta opção proporciona mais flexibilidade no tratamento de pedidos anónimos. Por exemplo, permite apresentar [vários fornecedores de inscrição](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aos seus utilizadores. No entanto, tem de escrever código.
 
-**Permitir apenas pedidos autenticados**
+**Requerem autenticação**
 
-A opção é **iniciar sessão com \<provider>**. O Serviço de Aplicações redireciona todos os pedidos anónimos `/.auth/login/<provider>` para o fornecedor que escolher. Se o pedido anónimo vier de uma aplicação móvel nativa, a resposta devolvida é uma `HTTP 401 Unauthorized` .
+Esta opção rejeitará qualquer tráfego não autenticado para a sua aplicação. Esta rejeição pode ser uma ação de redirecionamento para um dos fornecedores de identidade configurados. Nestes casos, um cliente do navegador é redirecionado `/.auth/login/<provider>` para o fornecedor que escolher. Se o pedido anónimo vier de uma aplicação móvel nativa, a resposta devolvida é uma `HTTP 401 Unauthorized` . Também pode configurar a rejeição para ser um `HTTP 401 Unauthorized` ou para todos os `HTTP 403 Forbidden` pedidos.
 
 Com esta opção, não precisa de escrever nenhum código de autenticação na sua aplicação. A autorização mais fina, como a autorização específica para a função, pode ser tratada inspecionando as reclamações do utilizador (ver [pedidos do utilizador do Access).](app-service-authentication-how-to.md#access-user-claims)
 

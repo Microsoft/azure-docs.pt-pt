@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 438ef806f6c59c6f23877a3d3110f22f08ca8713
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e239b6b00c5a5e993834a10fca30de02b9f715ff
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863569"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065519"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Private Link para a Base de Dados do Azure para MySQL
 
@@ -118,7 +118,7 @@ Se pretender confiar apenas em pontos finais privados para aceder à sua Base de
 Quando esta definição é definida como *SIM,* apenas as ligações através de pontos finais privados são permitidas na sua Base de Dados Azure para o MySQL. Quando esta definição estiver definida para *NO,* os clientes podem ligar-se à sua Base de Dados Azure para o MySQL com base nas definições do seu ponto final de firewall ou de serviço VNet. Além disso, uma vez definido o valor do acesso à rede privada, os clientes não podem adicionar e/ou atualizar as "regras de firewall" e 'regras de ponto final de serviço VNet'.
 
 > [!Note]
-> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para PostgreSQL - Servidor único suporta os níveis de preços otimizados para fins gerais e memória.
+> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para o MySQL - Servidor único suporta os níveis de preços otimizados para fins gerais e memória.
 >
 > Esta definição não tem qualquer impacto nas configurações SSL e TLS para a sua Base de Dados Azure para o MySQL.
 

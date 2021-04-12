@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f2aa2c74704cf89c082d2837b39e82902efa0a62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 6dabdbc34bc1be23ee840dfa2a35eb962a6f9aae
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88010060"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447068"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado ao Windows Virtual Desktop
 

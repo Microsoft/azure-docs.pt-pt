@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: acfaa780f21f5264b546f97e9a3792aa43e9c30b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552959"
+ms.locfileid: "107029748"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -23,6 +23,13 @@ Uma consulta de piscina SQL sem servidor lê ficheiros diretamente do Azure Stor
 - **Nível de serviço SQL** - O utilizador deveria ter dado permissão para ler dados utilizando [tabela externa](develop-tables-external-tables.md) ou para executar a `OPENROWSET` função. Leia mais sobre [as permissões necessárias nesta secção.](develop-storage-files-overview.md#permissions)
 
 Este artigo descreve os tipos de credenciais que pode usar e como a procura credencial é decretada para os utilizadores de AD SQL e Azure.
+
+## <a name="storage-permissions"></a>Permissões de armazenamento
+
+Uma piscina SQL sem servidor no espaço de trabalho Synapse Analytics pode ler o conteúdo dos ficheiros armazenados no armazenamento do Azure Data Lake. É necessário configurar permissões de armazenamento para permitir que um utilizador que executa uma consulta SQL leia os ficheiros. Existem três métodos para permitir o acesso aos ficheiros>
+- **[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md)** permite-lhe atribuir uma função a algum utilizador AZure AD no inquilino onde o seu armazenamento é colocado. As funções RBAC podem ser atribuídas aos utilizadores AZure AD. Um leitor deve `Storage Blob Data Reader` `Storage Blob Data Contributor` ter, ou `Storage Blob Data Owner` papel. Um utilizador que escreva dados no armazenamento Azure deve ter `Storage Blob Data Writer` ou `Storage Blob Data Owner` desempenhar. Note que `Storage Owner` a função não implica que um utilizador também `Storage Data Owner` seja .
+- **As Listas de Controlo de Acesso (ACL)** permitem-lhe definir um modelo de permissão de grãos finos nos ficheiros e diretórios no armazenamento do Azure. A ACL pode ser atribuída a utilizadores AZure AD. Se os leitores quiserem ler um ficheiro sobre um caminho no Azure Storage, devem ter executado (X) ACL em todas as pastas do caminho do ficheiro e ler(R) ACL no ficheiro. [Saiba mais como definir permissões ACL na camada de armazenamento](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+- **A assinatura de acesso partilhado (SAS)** permite que um leitor aceda aos ficheiros no armazenamento do Lago de Dados Azure usando o token limitado pelo tempo. O leitor nem precisa de ser autenticado como utilizador da AZure AD. O token SAS contém as permissões concedidas ao leitor, bem como o período em que o token é válido. O token SAS é uma boa escolha para o acesso limitado no tempo a qualquer utilizador que nem precisa de estar no mesmo inquilino AZure AD. O token SAS pode ser definido na conta de armazenamento ou em diretórios específicos. Saiba mais sobre [a concessão de acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado.](../../storage/common/storage-sas-overview.md)
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorização de armazenamento suportados
 
@@ -103,7 +110,7 @@ Ao aceder ao armazenamento protegido com a firewall, pode utilizar a **Identidad
 
 #### <a name="user-identity"></a>Identidade do Utilizador
 
-Para aceder ao armazenamento que está protegido com a firewall através da Identidade do Utilizador, pode utilizar o módulo PowerShell Az.Storage.
+Para aceder ao armazenamento que está protegido com a firewall através da Identidade do Utilizador, pode utilizar o portal Azure UI ou o módulo PowerShell Az.Storage.
 #### <a name="configuration-via-azure-portal"></a>Configuração via portal Azure
 
 1. Procure a sua Conta de Armazenamento no portal Azure.

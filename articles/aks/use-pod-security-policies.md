@@ -4,17 +4,17 @@ description: Saiba como controlar as admissões de pod usando PodSecurityPolicy 
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4e72bd28910f471656feb27d10c123930305494e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611774"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031227"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - Proteja o seu cluster utilizando as políticas de segurança do pod no Serviço Azure Kubernetes (AKS)
 
 > [!WARNING]
-> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), começará a depreciação com a versão 1.21 de Kubernetes, com a sua remoção na versão 1.25.** À medida que Kubernetes Upstream se aproxima desse marco, a comunidade de Kubernetes trabalhará para documentar alternativas viáveis. O anúncio de depreciação anterior foi feito na altura, uma vez que não existia uma opção viável para os clientes. Agora que a comunidade de Kubernetes está a trabalhar numa alternativa, já não há uma necessidade premente de deprecação à frente de Kubernetes.
+> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), começará [a depreciação](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) com a versão 1.21 de Kubernetes, com a sua remoção na versão 1.25.** À medida que Kubernetes Upstream se aproxima desse marco, a comunidade de Kubernetes trabalhará para documentar alternativas viáveis. O anúncio de depreciação anterior foi feito na altura, uma vez que não existia uma opção viável para os clientes. Agora que a comunidade de Kubernetes está a trabalhar numa alternativa, já não há uma necessidade premente de deprecação à frente de Kubernetes. 
 >
 > Após a deprecação da política de segurança do pod (pré-visualização), tem de desativar a funcionalidade em quaisquer clusters existentes utilizando a funcionalidade prevadida para realizar futuras atualizações de clusters e permanecer dentro do suporte do Azure.
 

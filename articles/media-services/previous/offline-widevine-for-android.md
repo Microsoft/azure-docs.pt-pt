@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: b13feeda162f9babe1958402a694b728312ea4e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b009c0844a0030da9698ba7e058cde8ba68c5f7e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015408"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063321"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
-> * [Versão 3](../latest/offline-widevine-for-android.md)
+> * [Versão 3](../latest/drm-offline-widevine-for-android.md)
 > * [Versão 2](offline-widevine-for-android.md)
 
 > [!NOTE]

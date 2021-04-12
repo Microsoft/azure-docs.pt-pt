@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: cc3a08f383368b189e41bebd204707f2483e77c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: ff3661a7e092fd20207fe2e973afc316b2c244ef
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95018312"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447102"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) para uma piscina de anfitriões
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8de0dd16c3b3b73b5d5e52017cf63b357654144f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721635"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030962"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar uma porta de aplicação para hospedar vários web sites usando o portal Azure
 
@@ -25,7 +25,7 @@ Neste tutorial, ficará a saber como:
 > * Criar um gateway de aplicação
 > * Criar máquinas virtuais para servidores backend
 > * Criar piscinas de backend com os servidores backend
-> * Criar serviços de escuta de back-end
+> * Criar ouvintes
 > * Criar regras de encaminhamento
 > * Editar ficheiro de anfitriões para resolução de nome
 

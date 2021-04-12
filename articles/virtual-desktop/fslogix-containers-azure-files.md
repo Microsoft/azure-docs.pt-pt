@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 0b977944f3a531365487b9655820e5d8f85e13d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 945bf806a813943d02fb4db1245dfb74eb7fb1f9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225920"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106446898"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -47,11 +47,11 @@ A tabela a seguir mostra benefícios e limitações de tecnologias anteriores de
 
 | Tecnologia | Configurações modernas | Definições win32 | Definições de SO | Dados de utilizador | Suportado no servidor SKU | Armazenamento back-end em Azure | Armazenamento em back-end no local | Suporte de versão | Sinal subsequente a tempo |Notas|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Discos de perfil do utilizador (UPD)** | Yes | Yes | Yes | Yes | Yes | No | Yes | Ganhar 7+ | Yes | |
-| **Perfil do utilizador roaming (RUP), modo de manutenção** | No | Yes | Yes | Yes | Yes| No | Yes | Ganhar 7+ | No | |
-| **Roaming do Estado da Empresa (ESR)** | Yes | No | Yes | No | Ver notas | Yes | No | Ganhar 10 | No | Funções no servidor SKU, mas sem interface de utilizador de suporte |
-| **Virtualização da experiência do utilizador (UE-V)** | Yes | Yes | Yes | No | Yes | No | Yes | Ganhar 7+ | No |  |
-| **Ficheiros de nuvem OneDrive** | No | No | No | Yes | Ver notas | Ver notas  | Ver Notas | Ganhar 10 RS3 | No | Não testado no servidor SKU. O armazenamento em back-end em Azure depende do cliente sincronizado. O armazenamento no prem precisa de um cliente sincronizado. |
+| **Discos de perfil do utilizador (UPD)** | Sim | Sim | Sim | Sim | Sim | Não | Sim | Ganhar 7+ | Sim | |
+| **Perfil do utilizador roaming (RUP), modo de manutenção** | Não | Sim | Sim | Sim | Sim| Não | Sim | Ganhar 7+ | Não | |
+| **Roaming do Estado da Empresa (ESR)** | Sim | Não | Sim | Não | Ver notas | Sim | Não | Ganhar 10 | Não | Funções no servidor SKU, mas sem interface de utilizador de suporte |
+| **Virtualização da experiência do utilizador (UE-V)** | Sim | Sim | Sim | Não | Sim | Não | Sim | Ganhar 7+ | Não |  |
+| **Ficheiros de nuvem OneDrive** | Não | Não | Não | Sim | Ver notas | Ver notas  | Ver Notas | Ganhar 10 RS3 | Não | Não testado no servidor SKU. O armazenamento em back-end em Azure depende do cliente sincronizado. O armazenamento no prem precisa de um cliente sincronizado. |
 
 #### <a name="performance"></a>Desempenho
 

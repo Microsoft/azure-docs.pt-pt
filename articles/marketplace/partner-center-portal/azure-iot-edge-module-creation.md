@@ -7,16 +7,16 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 9f07a6376e3fdde46e9e0cb161acc97c5771d905
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 6de387605a8c127485b68773b6cd1b19c7136d17
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166756"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107504"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
-Este artigo descreve como criar e publicar uma oferta de módulos Internet of Things (IoT) Edge para o Azure Marketplace. Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Este artigo descreve como criar e publicar uma oferta de módulos Internet of Things (IoT) Edge para o Azure Marketplace. Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](../create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 

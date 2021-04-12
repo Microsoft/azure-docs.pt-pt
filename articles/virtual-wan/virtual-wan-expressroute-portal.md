@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6b9c4bcf760387f6bbe380c9aa079df2f86a1847
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 67df1c822f34f45bb0931848f8015374a346673a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060657"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278444"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação ExpressRoute usando Azure Virtual WAN
 
@@ -104,7 +104,7 @@ Nesta secção, cria-se a ligação de espreitar entre o seu hub e um VNet. Repi
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Ligue o seu circuito ao gateway do hub
 
-Uma vez criado o gateway, pode ligar-lhe um [circuito ExpressRoute.](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Os circuitos ExpressRoute Standard ou Premium que se encontrem em locais suportados pelo ExpressRoute Global Reach podem ligar-se a um gateway Virtual WAN ExpressRoute e usufruir de todas as capacidades de trânsito VIRTUAL WAN (VPN-to-VPN, VPN e expressRoute transit). Os circuitos ExpressRoute Standard e Premium que se encontram em locais não-Globais de Alcance podem ligar-se aos recursos Azure, mas não poderão utilizar as capacidades de trânsito WAN Virtual. O ExpressRoute Local é suportado com hubs Azure Virtual WAN desde que os VNETs falados ligados a um hub VIRTUAL WAN estejam na mesma região que o Virtual WAN Hub.
+Uma vez criado o gateway, pode ligar-lhe um [circuito ExpressRoute.](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Os circuitos ExpressRoute Standard ou Premium que se encontrem em locais suportados pelo ExpressRoute Global Reach podem ligar-se a um gateway Virtual WAN ExpressRoute e usufruir de todas as capacidades de trânsito VIRTUAL WAN (VPN-to-VPN, VPN e expressRoute transit). Os circuitos ExpressRoute Standard e Premium que se encontram em locais não-Globais de Alcance podem ligar-se aos recursos Azure, mas não poderão utilizar as capacidades de trânsito WAN Virtual. O ExpressRoute Local também é suportado com centros Azure Virtual WAN.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para ligar o circuito ao gateway do hub
 

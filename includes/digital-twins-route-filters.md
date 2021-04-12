@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 811e59e8fd2fea1d8ee90014d4a5ea11229eec63
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98859576"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257314"
 ---
 | Nome do filtro | Description | Esquema de texto do filtro | Valores suportados | 
 | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "98859576"
 | Esquema de dados | ID modelo DTDL | `dataschema = '<model-dtmi-ID>'` | **Para a telemetria**: O esquema de dados é o ID do modelo do gémeo ou o componente que emite a telemetria. Por exemplo, `dtmi:example:com:floor4;2` <br>**Para notificações (criar/excluir)**: O esquema de dados pode ser acedido no organismo de notificação em `$body.$metadata.$model` . <br>**Para notificações (atualização)**: O esquema de dados pode ser acedido no organismo de notificação `$body.modelId`|
 | Tipo do conteúdo | Tipo de conteúdo do valor dos dados | `datacontenttype = '<contentType>'` | O tipo de conteúdo é `application/json` |
 | Versão spec | A versão do esquema de evento que está a usar | `specversion = '<version>'` | A versão deve `1.0` ser. Isto indica que o esquema do CloudEvents versão 1.0 |
-| Organismo de notificação | Referenciar qualquer propriedade no `data` campo de uma notificação | `$body.<property>` | Ver [*Como fazer: Compreender os dados do evento*](../articles/digital-twins/how-to-interpret-event-data.md) por exemplo de notificações. Qualquer propriedade no `data` campo pode ser referenciada usando `$body`
+| Organismo de notificação | Referenciar qualquer propriedade no `data` campo de uma notificação | `$body.<property>` | Ver [*Conceitos: Notificações de eventos*](../articles/digital-twins/concepts-event-notifications.md) para exemplos de notificações. Qualquer propriedade no `data` campo pode ser referenciada usando `$body`
 
 Os seguintes tipos de dados são suportados como valores devolvidos por referências aos dados acima:
 

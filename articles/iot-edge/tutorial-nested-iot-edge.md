@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: c1b30a1eafe9af92c1ef3f81773d213ccf96555c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 098c6ace2b673654d07bfa29147fda3cbbc59b76
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462036"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107555"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -446,7 +446,7 @@ Uma vez que esteja satisfeito que as suas configurações estejam corretas em ca
 
 ## <a name="deploy-modules-to-the-top-layer-device"></a>Implementar módulos para o dispositivo de camada superior
 
-Os módulos servem para completar a implementação e o tempo de execução IoT Edge para os seus dispositivos e definir ainda mais a estrutura da sua hierarquia. O módulo IoT Edge API Proxy despende de forma segura o tráfego HTTP sobre uma única porta a partir dos seus dispositivos de camada inferior. O módulo de registo Docker permite um repositório de imagens Docker que os seus dispositivos de camada inferior podem aceder através do encaminhamento de imagens puxa para o dispositivo de camada superior.
+Os módulos servem para completar a implementação e o tempo de execução IoT Edge para os seus dispositivos e definir ainda mais a estrutura da sua hierarquia. O módulo IoT Edge API Proxy rotas de forma segura TRÁFEGO HTTP sobre uma única porta a partir dos seus dispositivos de camada inferior. O módulo de registo Docker permite um repositório de imagens Docker que os seus dispositivos de camada inferior podem aceder através do encaminhamento de imagens puxa para o dispositivo de camada superior.
 
 Para implantar módulos no seu dispositivo de camada superior, pode utilizar o portal Azure ou O CLI Azure.
 
@@ -623,7 +623,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 ---
 
-Se tiver completado corretamente os passos acima, o seu **dispositivo de camada superior** deverá reportar os quatro módulos: o Módulo de Procuração IoT Edge API, o módulo de registo do contentor Docker e os módulos do sistema, conforme especificado na **implementação.** Pode levar alguns minutos para o dispositivo receber a sua nova implementação e iniciar os módulos. Refresque a página até ver o módulo de sensor de temperatura listado como **Reportado pelo Dispositivo**. Assim que os módulos forem comunicados pelo dispositivo, está pronto para continuar.
+Se tiver completado corretamente os passos acima, o seu **dispositivo de camada superior** deverá reportar os quatro módulos: o Módulo de Procuração IoT Edge API, o módulo de registo do contentor Docker e os módulos do sistema, conforme especificado na **implementação.** Pode levar alguns minutos para o dispositivo receber a sua nova implementação e iniciar os módulos. Refresque a página até ver o IoTEdgeAPIProxy e os módulos de registo listados como **Reportado por Dispositivo**. Assim que os módulos forem comunicados pelo dispositivo, está pronto para continuar.
 
 ## <a name="deploy-modules-to-the-lower-layer-device"></a>Implementar módulos para o dispositivo de camada inferior
 

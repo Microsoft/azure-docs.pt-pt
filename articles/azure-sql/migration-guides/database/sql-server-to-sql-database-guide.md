@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: 9f7df4889d1d54605ab2b5cd79f3039f06fab197
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 6ce7de649876ed8ccff1254f25a7213b407dacae
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027878"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284090"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>Guia de migração: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Para obter mais informações sobre migração, consulte a visão geral da [migr
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Para a [sua migração do SQL Server](https://azure.microsoft.com/migration/migration-journey) para a Base de Dados Azure SQL, certifique-se de que tem os seguintes pré-requisitos: 
+Para a [sua migração do SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) para a Base de Dados Azure SQL, certifique-se de que tem os seguintes pré-requisitos: 
 
 - Um método de [migração](sql-server-to-sql-database-overview.md#compare-migration-options) escolhido e ferramentas correspondentes.
 - [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) instalado numa máquina que pode ligar-se ao seu servidor SQL de origem.

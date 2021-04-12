@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 316f97480dfe7ee6481ef88faf265051a92024da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d9d9449e2a971a4247e507e0c022c8c5fb9956c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937265"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075411"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Pré-visualização: Modos de orquestração para conjuntos de escala de máquina virtual em Azure 
 
@@ -306,7 +306,7 @@ Pode adicionar até 1000 VMs a uma escala definida no modo de orquestração fle
 
 **Como é que a disponibilidade com orquestração flexível se compara a Conjuntos de Disponibilidade ou Orquestração Uniforme?**
 
-|   | Orquestração flexível  | Orquestração uniforme  | Conjuntos de Disponibilidade  |
+| Atributo de disponibilidade  | Orquestração flexível  | Orquestração uniforme  | Conjuntos de Disponibilidade  |
 |-|-|-|-|
 | Implementar em todas as zonas de disponibilidade  | No  | Yes  | No  |
 | Garantias de disponibilidade de domínio de avaria dentro de uma região  | Sim, até 1000 casos podem ser espalhados por até 3 domínios de falhas na região. A contagem máxima de domínio de avaria varia por região  | Sim, até 100 casos  | Sim, até 200 casos  |

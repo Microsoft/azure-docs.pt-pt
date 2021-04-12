@@ -10,19 +10,19 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 95903c1068d64545ae025fb5899a80014b8f26f2
-  ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
-  ms.translationtype: HT
+  ms.openlocfilehash: 73e89ab6b28be7bd9246b960761c79c0e44e591d
+  ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/06/2020
-  ms.locfileid: "96746391"
+  ms.lasthandoff: 04/08/2021
+  ms.locfileid: "107107691"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
   - linkListType: get-started
     links:
     - text: Criar uma nova conta
-      url: ./partner-center-portal/create-account.md
+      url: create-account.md
     - text: Determinar a opção de publicação
       url: ./determine-your-listing-type.md
     - text: Políticas e termos

@@ -1,14 +1,14 @@
 ---
 title: Conformidade Regulamentar nas definições de iniciativa
 description: Descreve como usar uma definição de iniciativa para agrupar políticas por domínio regulamentar como Controlo de Acesso, Gestão de Configurações, entre outros.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08173cd94e0841fa7a18fd55d53aa97281724ede
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89645535"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094069"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformidade Regulamentar na Política Azure
 

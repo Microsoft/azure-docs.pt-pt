@@ -3,16 +3,16 @@ title: Autenticar com a identidade gerida
 description: Fornecer acesso a imagens no seu registo de contentores privados utilizando uma identidade Azure gerida atribuída pelo utilizador ou pelo sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2ab27e8548882b5bd296dc45e4bb74d3d6ba357b
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041472"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285489"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utilize uma identidade gerida a Azure para autenticar num registo de contentores Azure 
 
-Utilize uma [identidade gerida para os recursos da Azure](../active-directory/managed-identities-azure-resources/overview.md) para autenticar num registo de contentores Azure a partir de outro recurso Azure, sem necessidade de fornecer ou gerir credenciais de registo. Por exemplo, crie uma identidade gerida atribuída ao utilizador ou atribuída pelo sistema num Linux VM para aceder a imagens de contentores do registo do seu contentor, tão facilmente quanto utiliza um registo público.
+Utilize uma [identidade gerida para os recursos da Azure](../active-directory/managed-identities-azure-resources/overview.md) para autenticar num registo de contentores Azure a partir de outro recurso Azure, sem necessidade de fornecer ou gerir credenciais de registo. Por exemplo, crie uma identidade gerida atribuída ao utilizador ou atribuída pelo sistema num Linux VM para aceder a imagens de contentores do registo do seu contentor, tão facilmente quanto utiliza um registo público. Ou, crie um cluster de serviço Azure Kubernetes para usar a sua [identidade gerida](../aks/use-managed-identity.md) para extrair imagens de contentores do Registo de Contentores Azure para implantações de cápsulas.
 
 Para este artigo, você aprende mais sobre identidades geridas e como:
 
@@ -27,23 +27,14 @@ Para configurar um registo de contentores e empurrar uma imagem de contentor par
 
 ## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerida?
 
-Uma identidade gerida para os recursos Azure fornece aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode configurar [certos recursos Azure,](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)incluindo máquinas virtuais, com uma identidade gerida. Em seguida, use a identidade para aceder a outros recursos Azure, sem passar credenciais em código ou scripts.
+Se não estiver familiarizado com a funcionalidade das identidades geridas para os recursos do Azure, veja esta [descrição geral](../active-directory/managed-identities-azure-resources/overview.md).
 
-As identidades geridas são de dois tipos:
+Depois de configurar recursos Azure selecionados com uma identidade gerida, dê à identidade o acesso que pretende a outro recurso, tal como qualquer diretor de segurança. Por exemplo, atribuir a uma identidade gerida um papel com puxar, empurrar e puxar, ou outras permissões para um registo privado em Azure. (Para obter uma lista completa das funções de registo, consulte [as funções e permissões do Registo do Contentor de Azure](container-registry-roles.md).) Pode dar acesso identitário a um ou mais recursos.
 
-* *Identidades atribuídas ao utilizador*, que pode atribuir a múltiplos recursos e persistir durante o tempo que quiser. As identidades atribuídas ao utilizador estão atualmente em pré-visualização.
+Em seguida, utilize a identidade para autenticar qualquer serviço que suporte a [autenticação AZURE AD,](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)sem quaisquer credenciais no seu código. Escolha como autenticar usando a identidade gerida, dependendo do seu cenário. Para utilizar a identidade para aceder a um registo de contentores Azure a partir de uma máquina virtual, autentica-se com o Gestor de Recursos Azure. 
 
-* Uma *identidade gerida pelo sistema*, que é única a um recurso específico como uma única máquina virtual e dura a vida útil desse recurso.
-
-Depois de configurar um recurso Azure com uma identidade gerida, dê à identidade o acesso que pretende a outro recurso, tal como qualquer diretor de segurança. Por exemplo, atribuir a uma identidade gerida um papel com puxar, empurrar e puxar, ou outras permissões para um registo privado em Azure. (Para obter uma lista completa das funções de registo, consulte [as funções e permissões do Registo do Contentor de Azure](container-registry-roles.md).) Pode dar acesso identitário a um ou mais recursos.
-
-Em seguida, utilize a identidade para autenticar qualquer serviço que suporte a [autenticação AZURE AD,](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)sem quaisquer credenciais no seu código. Para utilizar a identidade para aceder a um registo de contentores Azure a partir de uma máquina virtual, autentica-se com o Gestor de Recursos Azure. Escolha como autenticar usando a identidade gerida, dependendo do seu cenário:
-
-* [Adquirir um token de acesso Azure AD](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programáticamente usando chamadas HTTP ou REST
-
-* Use os [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)
-
-* [Inscreva-se no Azure CLI ou no PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) com a identidade. 
+> [!NOTE]
+> Atualmente, serviços como a Azure Web App para contentores ou instâncias de contentores Azure não podem usar a sua identidade gerida para autenticar com o Registo de Contentores Azure ao puxar uma imagem de contentor para implantar o próprio recurso do contentor. A identidade só está disponível depois do recipiente estar em funcionamento. Para implementar estes recursos utilizando imagens do Registo do Contentor Azure, recomenda-se um método de autenticação diferente, como [o principal do serviço.](container-registry-auth-service-principal.md)
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
@@ -230,8 +221,6 @@ Devia ver uma `Login succeeded` mensagem. Em seguida, pode executar `docker` com
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
-> [!NOTE]
-> As identidades de serviço geridas atribuídas pelo sistema podem ser usadas para interagir com ACRs e o Serviço de Aplicações pode usar identidades de serviço geridas atribuídas pelo sistema. No entanto, não é possível combiná-los, uma vez que o Serviço de Aplicações não pode utilizar o MSI para falar com um ACR. A única maneira é ativar o administrador no ACR e utilizar o nome de utilizador/palavra-passe de administrador.
 
 ## <a name="next-steps"></a>Passos seguintes
 

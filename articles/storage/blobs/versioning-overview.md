@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82216abd13b6128be68e22a4ce2a0f6de9a6ce2f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: f104b98c870fe6eee1d32fe656c0bba416cf3700
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227552"
+ms.locfileid: "107259749"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -43,7 +43,7 @@ O diagrama a seguir mostra como as versões são criadas em operações de escri
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagrama mostrando como funciona a versão blob":::
 
-Quando elimina uma bolha com versão ativada, a versão atual do blob é eliminada. Quaisquer versões anteriores da bolha persistem.
+Quando elimina uma bolha com versão ativada, a versão atual do blob torna-se uma versão anterior, e já não existe uma versão atual. Quaisquer versões anteriores da bolha persistem.
 
 As versões blob são imutáveis. Não é possível modificar o conteúdo ou metadados de uma versão blob existente.
 
@@ -133,7 +133,7 @@ O diagrama seguinte mostra como modificar uma bolha após a versão é desativad
 
 ## <a name="blob-versioning-and-soft-delete"></a>Versões blob e eliminação suave
 
-A Microsoft recomenda permitir a eliminação suave de versão e bolha para as suas contas de armazenamento para uma ótima proteção de dados. A eliminação suave protege as bolhas, versões e instantâneos da eliminação acidental. Para obter mais informações sobre a eliminação suave da bolha, consulte [Soft delete para blobs de armazenamento Azure](./soft-delete-blob-overview.md).
+A Microsoft recomenda permitir a eliminação suave de versão e bolha para as suas contas de armazenamento para uma ótima proteção de dados. Para obter mais informações sobre a eliminação suave da bolha, consulte [Soft delete para blobs de armazenamento Azure](./soft-delete-blob-overview.md).
 
 ### <a name="overwriting-a-blob"></a>Sobreescrita de uma bolha
 
@@ -141,7 +141,7 @@ Se a versão blob e a eliminação suave blob estiverem ambas ativadas para uma 
 
 ### <a name="deleting-a-blob-or-version"></a>Apagar uma bolha ou versão
 
-Se a versão e a eliminação suave estiverem ativadas na conta de armazenamento, então quando elimina uma bolha, a versão atual do blob torna-se uma versão anterior e a versão atual é eliminada. Nenhuma nova versão é criada e não são criados instantâneos de apagação suave. O período de retenção de eliminação suave não está em vigor para a bolha eliminada.
+Se a versão e a eliminação suave estiverem ativadas para uma conta de armazenamento, então quando apaga uma bolha, a versão atual do blob torna-se uma versão anterior. Nenhuma nova versão é criada e não são criados instantâneos de apagação suave. O período de retenção de eliminação suave não está em vigor para a bolha eliminada.
 
 O soft delete oferece proteção adicional para eliminar versões blob. Quando elimina uma versão anterior do blob, esta versão é apagada suavemente. A versão de eliminação suave é preservada até que o período de retenção de eliminação suave dedespere, altura em que é permanentemente eliminada.
 

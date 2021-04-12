@@ -9,12 +9,12 @@ ms.workload: media
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: a2f5e51af5e41bad4e88509d4440a8de2bc5525c
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c2ffda7400109e16cf1110a4e14ecbc3604a7ecf
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280433"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492312"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -96,7 +96,7 @@ Os seguintes artigos mostram exemplos de [como codificar um vídeo com os Media 
 
 * [Codificar a partir de um URL HTTPS utilizando predefinições incorporadas](job-input-from-http-how-to.md).
 * [Codificar um ficheiro local utilizando predefinições incorporadas](job-input-from-local-file-how-to.md).
-* [Construa uma predefinição personalizada para direcionar o seu cenário específico ou requisitos do dispositivo](encode-custom-presets-how-to.md).
+* [Construa uma predefinição personalizada para direcionar o seu cenário específico ou requisitos do dispositivo](transform-custom-presets-how-to.md).
 
 Consulte a lista de [formatos e códigos](encode-media-encoder-standard-formats-reference.md)Standard Encoder .
 

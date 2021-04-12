@@ -7,16 +7,16 @@ metadata:
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
-  manager: lizross
+  manager: femila
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
-  ms.openlocfilehash: 26cba2d46a8d203bd16551702b4af6069b23008c
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-  ms.translationtype: HT
+  ms.openlocfilehash: 4e0d8bdc1506fc8eb4c6087a6b01011fade3c77f
+  ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87285123"
+  ms.lasthandoff: 04/06/2021
+  ms.locfileid: "106446796"
 landingContent:
 - title: Acerca do Windows Virtual Desktop
   linkLists:

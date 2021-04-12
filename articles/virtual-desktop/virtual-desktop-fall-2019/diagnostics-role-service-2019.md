@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 7e652f04b42b132e7c1307503b1764dda7b2036b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: e23a1e9a2a0118402df0d9b8869f170762a52284
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88009346"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444960"
 ---
 # <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificar e diagnosticar problemas no Windows Virtual Desktop (clássico)
 

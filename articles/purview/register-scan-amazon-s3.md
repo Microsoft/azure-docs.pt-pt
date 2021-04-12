@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 542b6580994a2054526f0ddbb3ad93dc27c28fcc
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773458"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107657"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector Azure Purview para Amazon S3
 
@@ -38,6 +38,7 @@ Para obter mais informações, consulte os limites de Competência documentados 
 
 - [Gerir e aumentar quotas para recursos com a Azure Purview](how-to-manage-quotas.md)
 - [Fontes de dados suportadas e tipos de ficheiros em Azure Purview](sources-and-scans.md)
+- [Use pontos finais privados para a sua conta Purview](catalog-private-link.md)
 ### <a name="storage-and-scanning-regions"></a>Regiões de armazenamento e digitalização
 
 A tabela que se segue mapeia as regiões onde os dados são armazenados na região onde seriam digitalizados pela Azure Purview.
@@ -77,9 +78,13 @@ A tabela que se segue mapeia as regiões onde os dados são armazenados na regi�
 
 Certifique-se de que realizou os seguintes pré-requisitos antes de adicionar os seus baldes Amazon S3 como fontes de dados do Purview e digitalizar os seus dados S3.
 
-- Você precisa ser um Azure Purview Data Source Admin.
-
-- Ao adicionar os seus baldes como recursos de Purga, você precisará dos valores do seu [AWS ARN,](#retrieve-your-new-role-arn)nome do [balde](#retrieve-your-amazon-s3-bucket-name)e, por vezes, do seu [ID de conta AWS](#locate-your-aws-account-id).
+> [!div class="checklist"]
+> * Você precisa ser um Azure Purview Data Source Admin.
+> * [Crie uma conta Desview](#create-a-purview-account) se ainda não tiver uma
+> * [Crie uma credencial de provisão para o seu scan de balde AWS](#create-a-purview-credential-for-your-aws-bucket-scan)
+> * [Criar uma nova função AWS para uso com a Purview](#create-a-new-aws-role-for-purview)
+> * [Configurar a pesquisa para baldes Amazon S3 encriptados,](#configure-scanning-for-encrypted-amazon-s3-buckets)se relevantes
+> * Ao adicionar os seus baldes como recursos de Purga, você precisará dos valores do seu [AWS ARN,](#retrieve-your-new-role-arn)nome do [balde](#retrieve-your-amazon-s3-bucket-name)e, por vezes, do seu [ID de conta AWS](#locate-your-aws-account-id).
 
 ### <a name="create-a-purview-account"></a>Criar uma conta Desview
 
@@ -92,7 +97,7 @@ Certifique-se de que realizou os seguintes pré-requisitos antes de adicionar os
 Este procedimento descreve como criar uma nova credencial de visão para usar ao digitalizar os baldes AWS.
 
 > [!TIP]
-> Também pode criar uma nova credencial no meio do processo, enquanto [configura a sua digitalização](#create-a-scan-for-your-amazon-s3-bucket). Nesse caso, no campo **credencial,** selecione **New**.
+> Também pode criar uma nova credencial no meio do processo, enquanto [configura a sua digitalização](#create-a-scan-for-one-or-more-amazon-s3-buckets). Nesse caso, no campo **credencial,** selecione **New**.
 >
 
 1. Em Purview, navegue para o **Centro de Gestão,** e em **Segurança e acesso,** selecione **Credenciais**.
@@ -138,6 +143,13 @@ Para obter mais informações sobre as credenciais de Purview, consulte a [docum
 1. Na **função Criar > Fixe as políticas de permissões,** filtra as permissões apresentadas ao **S3**. Selecione **AmazonS3ReadOnlyAccess** e, em seguida, selecione **Seguinte: Tags**.
 
     ![Selecione a política ReadOnlyAccess para o novo papel de digitalização do Amazon S3.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
+
+    > [!IMPORTANT]
+    > A política **AmazonS3ReadOnlyAccess** fornece permissões mínimas necessárias para digitalizar os baldes S3, podendo incluir outras permissões também.
+    >
+    >Para aplicar apenas as permissões mínimas necessárias para digitalizar os seus baldes, crie uma nova política com as permissões listadas nas [permissões Mínimas para a sua política AWS](#minimum-permissions-for-your-aws-policy), dependendo se pretende digitalizar um único balde ou todos os baldes da sua conta. 
+    >
+    >Aplique a sua nova política no papel em vez de **AmazonS3ReadOnlyAccess.**
 
 1. Na área **de adicionar tags (opcional),** pode optar opcionalmente por criar uma etiqueta significativa para este novo papel. As etiquetas úteis permitem organizar, rastrear e controlar o acesso a cada papel que criar.
 
@@ -219,7 +231,7 @@ Os baldes AWS suportam vários tipos de encriptação. Para baldes que utilizam 
 
 ### <a name="retrieve-your-new-role-arn"></a>Recupere o seu novo Role ARN
 
-Você precisará gravar o seu AWS Role ARN e copiá-lo para o Purview ao [criar uma digitalização para o seu balde Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+Você precisará gravar o seu AWS Role ARN e copiá-lo para o Purview ao [criar uma digitalização para o seu balde Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 **Para recuperar o seu papel ARN:**
 
@@ -229,11 +241,11 @@ Você precisará gravar o seu AWS Role ARN e copiá-lo para o Purview ao [criar 
 
     ![Copie o valor ARN da função para a área de transferência.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. Cole este valor num local seguro, pronto a usar ao [criar uma varredura para o seu balde Amazon S3.](#create-a-scan-for-your-amazon-s3-bucket)
+1. Cole este valor num local seguro, pronto a usar ao [criar uma varredura para o seu balde Amazon S3.](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 ### <a name="retrieve-your-amazon-s3-bucket-name"></a>Recupere o seu nome de balde Amazon S3
 
-Você precisará do nome do seu balde Amazon S3 para copiá-lo em Purview ao [criar uma digitalização para o seu balde Amazon S3](#create-a-scan-for-your-amazon-s3-bucket)
+Você precisará do nome do seu balde Amazon S3 para copiá-lo em Purview ao [criar uma digitalização para o seu balde Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 **Para recuperar o seu nome de balde:**
 
@@ -270,6 +282,8 @@ Por exemplo:
 
 Utilize este procedimento se tiver apenas um único balde S3 que pretende registar no Purview como fonte de dados, ou se tiver vários baldes na sua conta AWS, mas não quiser registar todos eles no Purview.
 
+**Para adicionar o seu balde:** 
+
 1. Lance o portal Purview utilizando o conector de alças dedicado para o URL Amazon S3. Este URL foi-lhe fornecido pela equipa de gestão de produtos de conector Da Amazon S3 Purview.
 
     ![Lançar o portal Desemview.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
@@ -293,12 +307,15 @@ Utilize este procedimento se tiver apenas um único balde S3 que pretende regist
 
     Quando terminar, **selecione Finish** para completar o registo.
 
-Continue com [Crie uma varredura para o seu balde Amazon S3.](#create-a-scan-for-your-amazon-s3-bucket)
+Continue com [Crie uma varredura para um ou mais baldes Amazon S3.](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
-## <a name="add-all-of-your-amazon-s3-buckets-as-purview-resources"></a>Adicione todos os seus baldes Amazon S3 como recursos de Purga
+## <a name="add-an-amazon-account-as-a-purview-resource"></a>Adicione uma conta Amazon como um recurso de visão
 
-Utilize este procedimento se tiver vários baldes S3 na sua conta Amazon e pretender registar todas as fontes de dados purview.
+Utilize este procedimento se tiver vários baldes S3 na sua conta Amazon, e pretende registar todos eles como fontes de dados purview.
 
+Ao [configurar a sua digitalização,](#create-a-scan-for-one-or-more-amazon-s3-buckets)poderá selecionar os baldes específicos que pretende digitalizar, se não quiser digitalizá-los todos juntos.
+
+**Para adicionar a sua conta Amazon:**
 1. Lance o portal Purview utilizando o conector de alças dedicado para o URL Amazon S3. Este URL foi-lhe fornecido pela equipa de gestão de produtos de conector Da Amazon S3 Purview.
 
     ![Launch Connector para o portal dedicado à Visão dedicada da Amazon S3](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
@@ -322,9 +339,9 @@ Utilize este procedimento se tiver vários baldes S3 na sua conta Amazon e prete
 
     Quando terminar, **selecione Finish** para completar o registo.
 
-Continue com [Crie uma varredura para o seu balde Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+Continue com [Crie uma varredura para um ou mais baldes Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## <a name="create-a-scan-for-your-amazon-s3-bucket"></a>Crie uma digitalização para o seu balde Amazon S3
+## <a name="create-a-scan-for-one-or-more-amazon-s3-buckets"></a>Crie uma varredura para um ou mais baldes Amazon S3
 
 Uma vez adicionados os baldes como fontes de dados do Purview, pode configurar uma varredura para executar em intervalos programados ou imediatamente.
 
@@ -340,9 +357,10 @@ Uma vez adicionados os baldes como fontes de dados do Purview, pode configurar u
     |**Nome**     |  Introduza um nome significativo para a sua digitalização ou use o padrão.       |
     |**Tipo** |Apresentado apenas se tiver adicionado a sua conta AWS, com todos os baldes incluídos. <br><br>As opções atuais incluem apenas **All**  >  **Amazon S3**. Mantenha-se atento a mais opções para selecionar à medida que a matriz de suporte do Purview se expande. |
     |**Credencial**     |  Selecione uma credencial de Provisão com o seu papel ARN. <br><br>**Dica**: Se pretender criar uma nova credencial neste momento, selecione **New**. Para obter mais informações, consulte [Criar uma credencial de provisão para a sua verificação do balde AWS](#create-a-purview-credential-for-your-aws-bucket-scan).     |
-    |     |         |
+    | **Amazon S3**    |   Apresentado apenas se tiver adicionado a sua conta AWS, com todos os baldes incluídos. <br><br>Selecione um ou mais baldes para digitalizar ou **selecione todos** para digitalizar todos os baldes da sua conta.      |
+    | | |
 
-    A visão automática verifica automaticamente se a função ARN é válida e que o balde e o objeto dentro do balde estão acessíveis e, em seguida, continua se a ligação for bem sucedida.
+    A visão verifica automaticamente se a função ARN é válida e que os baldes e objetos dentro dos baldes estão acessíveis e, em seguida, continua se a ligação for bem sucedida.
 
     > [!TIP]
     > Para introduzir valores diferentes e testar a ligação antes de continuar, selecione **a ligação de teste** na parte inferior direita antes de selecionar **Continue**.
@@ -396,6 +414,90 @@ Use as outras áreas de Purview para descobrir detalhes sobre o conteúdo da sua
     Todos os relatórios do Purview Insight incluem os resultados de digitalização do Amazon S3, juntamente com os restantes resultados das suas fontes de dados Azure. Quando relevante, foi adicionado um tipo adicional de ativos **Amazon S3** às opções de filtragem do relatório.
 
     Para obter mais informações, consulte os [Insights de Compreensão em Azure Purview](concept-insights.md).
+
+## <a name="minimum-permissions-for-your-aws-policy"></a>Permissões mínimas para a sua política AWS
+
+O procedimento predefinido para [criar um papel AWS para o Purview](#create-a-new-aws-role-for-purview) usar ao digitalizar os seus baldes S3 utiliza a política **AmazonS3ReadOnlyAccess.**
+
+A política **AmazonS3ReadOnlyAccess** fornece permissões mínimas necessárias para digitalizar os baldes S3, podendo incluir outras permissões também.
+
+Para aplicar apenas as permissões mínimas necessárias para digitalizar os seus baldes, crie uma nova política com as permissões listadas nas seguintes secções, dependendo se pretende digitalizar um único balde ou todos os baldes da sua conta.
+
+Aplique a sua nova política no papel em vez de **AmazonS3ReadOnlyAccess.**
+
+### <a name="individual-buckets"></a>Baldes individuais
+
+Ao digitalizar baldes S3 individuais, as permissões mínimas AWS incluem:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListBucket`
+
+Certifique-se de que define o seu recurso com o nome específico do balde. Por exemplo:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::<bucketname>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3::: <bucketname>/*"
+        }
+    ]
+}
+```
+
+### <a name="all-buckets-in-your-account"></a>Todos os baldes na sua conta
+
+Ao digitalizar todos os baldes da sua conta AWS, as permissões mínimas de AWS incluem:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListAllMyBuckets`
+- `ListBucket`.
+
+Certifique-se de definir o seu recurso com um wildcard. Por exemplo:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

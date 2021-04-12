@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 097c97d16cf62793d03ac42662267e0553383bc1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: e31ff0bfdb0ead13c2636ea2f4d175c9ced34581
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539620"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445436"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Resolução de problemas do cliente de ambiente de trabalho remoto
 

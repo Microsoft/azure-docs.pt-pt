@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 7d66d370f321323ec1aeb45ad0fe628904b14fe6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: a144adcfbf6c7cefc6b946f95bdb734868de801f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101747148"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106446813"
 ---
 # <a name="install-microsoft-office-using-fslogix-application-containers"></a>Instale o Microsoft Office utilizando recipientes de aplicação FSLogix
 

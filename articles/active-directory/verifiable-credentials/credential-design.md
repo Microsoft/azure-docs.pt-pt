@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c830f9c7edb252508824b3a92bd31b6fad31395d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a43e734c0a5bfa7c3698dcde5cb5b17f15575d90
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170070"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222933"
 ---
 # <a name="how-to-customize-your-verifiable-credentials-preview"></a>Como personalizar as suas credenciais verificáveis (pré-visualização)
 
@@ -24,7 +24,7 @@ As credenciais verificáveis são compostas por dois componentes, as regras e os
 > Azure Ative Directory Verifiable Credentials está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="rules-file-requirements-from-the-user"></a>Ficha de Regras: Requisitos do utilizador
+## <a name="rules-file-requirements-from-the-user"></a>Ficha de regras: Requisitos do utilizador
 
 O ficheiro de regras é um ficheiro JSON simples que descreve propriedades importantes de credenciais verificáveis. Em particular, descreve como as alegações são usadas para povoar a sua credencial verificável.
 
@@ -34,15 +34,15 @@ Existem atualmente três tipos de entrada que estão disponíveis para configura
 - Credenciais verificáveis através de uma apresentação verificável.
 - Reclamações Self-Attested
 
-**ID Token:** A aplicação da amostra e tutorial usam o ID Token. Quando esta opção estiver configurada, terá de fornecer um URI de configuração open ID Connect e incluir as alegações que devem ser incluídas no VC. O utilizador será solicitado a 'Iniciar sôs' na aplicação Authenticator para satisfazer este requisito e adicionar as reclamações associadas da sua conta. 
+**Ficha de ID:** A aplicação da amostra e tutorial usam o ID Token. Quando esta opção estiver configurada, terá de fornecer um URI de configuração open ID Connect e incluir as alegações que devem ser incluídas no VC. O utilizador será solicitado a 'Iniciar sôs' na aplicação Authenticator para satisfazer este requisito e adicionar as reclamações associadas da sua conta. 
 
 **Credenciais verificáveis:** O resultado final de um fluxo de emissão é produzir uma Credencial Verificável, mas também pode pedir ao utilizador para apresentar uma Credencial Verificável para emitir uma. O Ficheiro de Regras pode obter reclamações específicas da credencial verificável apresentada e incluir essas reclamações na credencial verificável recentemente emitida pela sua organização. 
 
-**Self Attested Claims:** Quando esta opção for selecionada, o utilizador poderá digitar diretamente informações no Autenticador. Neste momento, as cordas são a única entrada suportada para reivindicações auto-atestas. 
+**Self atestou alegações:** Quando esta opção for selecionada, o utilizador poderá digitar diretamente informações no Autenticador. Neste momento, as cordas são a única entrada suportada para reivindicações auto-atestas. 
 
 ![visão detalhada do cartão credencial verificável](media/credential-design/issuance-doc.png) 
 
-**Reclamações estáticas:** Além disso, podemos declarar uma reclamação estática no ficheiro Regras, no entanto esta entrada não vem do utilizador. O Emitente define uma reclamação estática no ficheiro Regras e pareceria com qualquer outra reclamação na Credencial Verificável. Basta adicionar uma credencialSubject após vc.type e declarar o atributo e a reclamação. 
+**Alegações estáticas:** Além disso, podemos declarar uma reclamação estática no ficheiro Regras, no entanto esta entrada não vem do utilizador. O Emitente define uma reclamação estática no ficheiro Regras e pareceria com qualquer outra reclamação na Credencial Verificável. Basta adicionar uma credencialSubject após vc.type e declarar o atributo e a reclamação. 
 
 ```json
 "vc": {
@@ -56,7 +56,7 @@ Existem atualmente três tipos de entrada que estão disponíveis para configura
 ```
 
 
-## <a name="input-type-id-token"></a>Tipo de entrada: ID Token
+## <a name="input-type-id-token"></a>Tipo de entrada: Ficha de ID
 
 Para obter o ID Token como entrada, o ficheiro de regras precisa configurar o conhecido ponto final do sistema de identidade compatível com OIDC. Nesse sistema é necessário registar uma aplicação com as informações corretas dos exemplos de comunicação do [serviço Emitente](issuer-openid.md). Além disso, o client_id precisa de ser colocado no ficheiro de regras, bem como um parâmetro de âmbito deve ser preenchido com os âmbitos corretos. Por exemplo, o Azure Ative Directory precisa do âmbito de e-mail se quiser devolver uma reclamação de e-mail no token de ID.
 ```json
@@ -165,7 +165,7 @@ Para garantir a interoperabilidade das suas credenciais, recomenda-se que trabal
 | `vc.type` | Uma matriz de cordas indicando o esquema(s) que a sua credencial verificável satisfaz. |
 
 
-## <a name="input-type-self-attested-claims"></a>Tipo de entrada: Self-Attested Reclamações
+## <a name="input-type-self-attested-claims"></a>Tipo de entrada: Reclamações auto-atestadas
 
 Durante o fluxo de emissão, o utilizador pode ser solicitado a inserir algumas informações auto-atestadas. A partir de agora, o único tipo de entrada é uma 'corda'. 
 ```json
@@ -199,7 +199,7 @@ Durante o fluxo de emissão, o utilizador pode ser solicitado a inserir algumas 
 | `vc.type` | Uma matriz de cordas indicando o esquema(s) que a sua Credencial Verificável satisfaz. |
 
 
-## <a name="display-file-verifiable-credentials-in-microsoft-authenticator"></a>Display File: credenciais verificáveis no Microsoft Authenticator
+## <a name="display-file-verifiable-credentials-in-microsoft-authenticator"></a>Ficheiro de exibição: Credenciais verificáveis no Microsoft Authenticator
 
 Credenciais verificáveis oferecem um conjunto limitado de opções que podem ser usadas para refletir a sua marca. Este artigo fornece instruções sobre como personalizar as suas credenciais, e as melhores práticas para desenhar credenciais que ficam ótimas uma vez emitidas aos utilizadores.
 
@@ -263,7 +263,7 @@ O ficheiro de exibição tem a seguinte estrutura.
 | `claims.{attribute}.type` | Indica o tipo de atributo. Atualmente só apoiamos 'String'. |
 | `claims.{attribute}.label` | O valor que deve ser usado como etiqueta para o atributo, que aparecerá no Autenticador. Isto talvez diferente do rótulo que foi usado no ficheiro de regras. Comprimento máximo recomendado de 40 caracteres. |
 
->[!note]
+>[!NOTE]
   >Se uma reclamação for incluída no ficheiro de regras e depois omitida no ficheiro de exibição, existem dois tipos diferentes de experiências. No iOS, a alegação não será exibida na secção de detalhes mostrada na imagem acima, enquanto no Android a reclamação será mostrada.  
 
 ## <a name="next-steps"></a>Passos seguintes
