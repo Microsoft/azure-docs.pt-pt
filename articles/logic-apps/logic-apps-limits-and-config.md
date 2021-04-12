@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/18/2021
-ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/05/2021
+ms.openlocfilehash: 2debf7d350f4f1fde5e86a60ad03a6858bc02743
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462921"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490340"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -120,11 +120,13 @@ Aqui estão os limites para uma única aplicação lógica executada:
 | Até o intervalo | - Predefinição: PT1H (1 hora) | O maior número de tempo que o laço "Até" pode ser executado antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor de tempo limite é avaliado para cada ciclo de ciclo. Se qualquer ação no circuito demorar mais do que o limite de tempo, o ciclo atual não para. No entanto, o próximo ciclo não começa porque a condição limite não está cumprida. <p><p>Para alterar este limite, na forma do loop "Até", selecione **Limites de alteração** e especifique o valor da propriedade **Timeout.** |
 ||||
 
+<a name="concurrency-debatching"></a>
+
 ### <a name="concurrency-and-debatching"></a>Concurrency e debatching
 
 | Name | Limite | Notas |
 | ---- | ----- | ----- |
-| Concuência do gatilho | Com concurrency off: Unlimited <p><p>Com concuência, que não pode desfazer depois de permitir: <p><p>- Predefinição: 25 <br>- Min: 1 <br>- Máx: 50 | Este limite é o número máximo de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a concuência é ligada, o limite SplitOn é reduzido a 100 itens para [debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar este limite, consulte [alterar o limite de concordância do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou desencadear [casos sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Concuência do gatilho | Com concurrency off: Unlimited <p><p>Com concuência, que não pode desfazer depois de permitir: <p><p>- Predefinição: 25 <br>- Min: 1 <br>- Máx: 100 | Este limite é o número máximo de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a concuência é ligada, o limite SplitOn é reduzido a 100 itens para [debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar este limite, consulte [alterar o limite de concordância do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou desencadear [casos sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Corridas de espera máximas | Com a concordância fora: <p><p>- Min: 1 <br>- Máx: 50 <p><p>Com concordância em: <p><p>- Min: 10 mais o número de execuções simultâneas (concuência do gatilho) <br>- Máx: 100 | Este limite é o número máximo de instâncias de aplicações lógicas que podem esperar para correr quando a sua aplicação lógica já está a executar as instâncias máximas simultâneas. <p><p>Para alterar este limite, consulte [o limite de execuções de espera change](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Itens SplitOn | Com concordância fora: 100.000 <p><p>Com concordância em: 100 | Para os gatilhos que devolvem uma matriz, pode especificar uma expressão que utiliza uma propriedade 'SplitOn' que [divide ou debate itens de matriz em múltiplas instâncias](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) de fluxo de trabalho para processamento, em vez de usar um loop "Foreach". Esta expressão faz referência à matriz a utilizar para criar e executar uma instância de fluxo de trabalho para cada item de matriz. <p><p>**Nota:** Quando a concordância é ligada, o limite SplitOn é reduzido a 100 itens. |
 ||||
@@ -552,7 +554,7 @@ Esta secção lista os endereços IP de saída para o serviço Azure Logic Apps 
 
 #### <a name="azure-government---outbound-ip-addresses"></a>Governo Azure - Endereços IP de saída
 
-| Region | Aplicativos lógicos IP | Conectores geridos IP |
+| Região | Aplicativos lógicos IP | Conectores geridos IP |
 |--------|---------------|-----------------------|
 | US DoD Centro | 52.182.48.215, 52.182.92.143 | 52.127.58.160 - 52.127.58.175, 52.182.54.8, 52.182.48.136, 52.127.61.192 - 52.127.61.223 |
 | US Gov - Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190 | 52.127.2.160 - 52.127.2.175, 52.244.69.0, 52.244.64.91, 52.127.5.224 - 52.127.5.255 |

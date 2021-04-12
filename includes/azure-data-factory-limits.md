@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96c67327a8272a02e677cc40b46c3177e470b684
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102109321"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125710"
 ---
 A Azure Data Factory é um serviço multitenant que tem os seguintes limites padrão em vigor para garantir que as subscrições do cliente estão protegidas das cargas de trabalho uns dos outros. Para elevar os limites até ao máximo para a sua subscrição, contacte o suporte.
 
@@ -49,6 +49,7 @@ A Azure Data Factory é um serviço multitenant que tem os seguintes limites pad
 | Número simultâneo de fluxos de dados por período de execução de integração | 50 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número simultâneo de sessões de depuro de fluxo de dados por utilizador por fábrica | 3 | 3 |
 | Limite de TTL irtl do fluxo de dados | 4 horas |  4 horas |
+| Meta Data Entity Size limit em uma fábrica | 2 GB | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> A unidade de integração de dados (DIU) é utilizada numa operação de cópia nuvem-nuvem, saiba mais com unidades de integração de [dados (versão 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Para obter informações sobre a faturação, consulte [os preços da Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 

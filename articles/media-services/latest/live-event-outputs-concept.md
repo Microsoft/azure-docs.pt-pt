@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: a8532f87c9360c0812fb1cfe24be6ca07615ea97
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: dec4eec16ba24baf31d911db882625479c33fb3b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123469"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278631"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos Serviços de Media
 
@@ -107,14 +107,14 @@ Se pretender ativar determinados IPs nas suas próprias firewalls ou pretender l
 * Max live event name é 32 caracteres.
 * O nome deve seguir este padrão [regex:](/dotnet/standard/base-types/regular-expression-language-quick-reference) `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
-Consulte também [as convenções de nomeação de Endpoints streaming.](streaming-endpoint-concept.md#naming-convention)
+Consulte também [as convenções de nomeação de Endpoints streaming.](stream-streaming-endpoint-concept.md#naming-convention)
 
 > [!TIP]
 > Para garantir a singularidade do nome do seu evento ao vivo, pode gerar um GUID e, em seguida, remover todos os hífens e suportes encaracolados (se houver). A corda será única em todos os eventos ao vivo e o seu comprimento é garantido ser 32.
 
 ## <a name="live-event-ingest-urls"></a>Evento ao vivo ingere URLs
 
-Uma vez criado o evento ao vivo, você pode obter URLs ingeridos que você vai fornecer para o codificadora ao vivo no local. O codificador em direto utiliza esses URLs para introduzir uma transmissão um fluxo direto. Para mais informações, consulte [os codificadores ao vivo recomendados no local.](recommended-on-premises-live-encoders.md)
+Uma vez criado o evento ao vivo, você pode obter URLs ingeridos que você vai fornecer para o codificadora ao vivo no local. O codificador em direto utiliza esses URLs para introduzir uma transmissão um fluxo direto. Para mais informações, consulte [os codificadores ao vivo recomendados no local.](encode-recommended-on-premises-live-encoders.md)
 
 >[!NOTE]
 > A partir do lançamento da API 2020-05-01, os URLs de "vaidade" são conhecidos como Nomes estáticos do anfitrião (useStaticHostname: true)

@@ -3,12 +3,12 @@ title: Reprodução de vídeo - Azure
 description: Marcador de posição
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 17b1f93c18dfb013916c4c0d3756fb97a73e2675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87042966"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063377"
 ---
 # <a name="video-playback"></a>Reproduzir vídeo 
 
@@ -28,7 +28,7 @@ Pode utilizar o Azure Media Services para [transmitir](terminology.md#streaming)
 
 ## <a name="streaming-policy"></a>Política de streaming 
 
-A Azure Media Services oferece-lhe diferentes métodos para proteger os seus streams de vídeo, como discutido em Proteger o seu conteúdo com o artigo [de encriptação dinâmica dos Media Services.](../latest/content-protection-overview.md) A um nível elevado, as opções de proteção de conteúdos são:
+A Azure Media Services oferece-lhe diferentes métodos para proteger os seus streams de vídeo, como discutido em Proteger o seu conteúdo com o artigo [de encriptação dinâmica dos Media Services.](../latest/drm-content-protection-concept.md) A um nível elevado, as opções de proteção de conteúdos são:
 
 * **Streaming in-the-clear** - onde nenhuma encriptação é aplicada durante o streaming.
 * **Utilize o Advanced Encryption Standard (AES-128)** – e implemente um método para entregar as teclas para desencriptar o vídeo apenas para os espectadores autenticados.

@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 08/17/2020
-  ms.openlocfilehash: 3049f7598990a97e6647011012bae0ddd2651944
-  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+  ms.openlocfilehash: 2ca693f1248d8a7505a9472ac4f59fb6520655e8
+  ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102095532"
+  ms.lasthandoff: 04/06/2021
+  ms.locfileid: "106490204"
 landingContent:
 - title: Sobre o Centro de Segurança
   linkLists:
@@ -38,8 +38,8 @@ landingContent:
       url: overview-page.md
     - text: Utilize os relatórios integrados de livros
       url: custom-dashboards-azure-workbooks.md
-    - text: Responder a alertas do Azure Defender para o Key Vault
-      url: defender-for-key-vault-usage.md
+    - text: Proteja os aglomerados híbridos e multi-nuvens de Kubernetes
+      url: defender-for-kubernetes-azure-arc.md
     - text: API de classificação segura
       url: secure-score-access-and-track.md#get-your-secure-score-from-the-rest-api
 - title: Introdução

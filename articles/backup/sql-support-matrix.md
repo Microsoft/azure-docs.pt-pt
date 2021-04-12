@@ -2,14 +2,14 @@
 title: Matriz de suporte de backup Azure para backup do servidor SQL em VMs Azure
 description: Fornece um resumo das definições e limitações de suporte ao fazer o backup do SQL Server em VMs Azure com o serviço de Backup Azure.
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7038b47bd4aba8f7747eef455f1e8dd3c77a695
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734798"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257348"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup do servidor SQL em VMs Azure
 
@@ -30,11 +30,10 @@ Pode utilizar o Azure Backup para fazer backup nas bases de dados do SQL Server 
 |Definição  |Limite máximo |
 |---------|---------|
 |Número de bases de dados que podem ser protegidas num servidor (e num cofre)    |   2000      |
-|Tamanho da base de dados suportado (para além disso, problemas de desempenho podem surgir)   |   2 TB      |
+|Tamanho da base de dados suportado (para além disso, problemas de desempenho podem surgir)   |   6 TB*      |
 |Número de ficheiros suportados numa base de dados    |   1000      |
 
->[!NOTE]
-> [Faça o download do Planejador de Recursos detalhado](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) para calcular o número aproximado de bases de dados protegidas que são recomendadas por servidor com base nos recursos VM, largura de banda e na política de backup.
+_*O limite de tamanho da base de dados depende da taxa de transferência de dados que suportamos e da configuração do prazo de backup. Não é o limite difícil. [Saiba mais](#backup-throughput-performance) sobre o desempenho do backup._
 
 * A cópia de segurança do SQL Server pode ser configurada no portal Azure ou **no PowerShell**. O CLI não é apoiado.
 * A solução é suportada em ambos os tipos de [implementações](../azure-resource-manager/management/deployment-models.md) - VMs Azure Resource Manager e VMs clássicos.
@@ -93,6 +92,17 @@ Completa | Primário
 Diferencial | Primário
 Registo |  Secundária
 Copy-Only Cheio |  Secundária
+
+## <a name="backup-throughput-performance"></a>Desempenho de produção de backup
+
+O Azure Backup suporta uma taxa de transferência de dados consistente de 200 Mbps para cópias de segurança completas e diferenciais de grandes bases de dados SQL (de 500 GB). Para utilizar o desempenho ideal, certifique-se de que:
+
+- O VM subjacente (que contém a instância SQL Server, que acolhe a base de dados) está configurado com a produção de rede necessária. Se o rendimento máximo do VM for inferior a 200 Mbps, o Azure Backup não pode transferir dados à velocidade ideal.<br></br>Além disso, o disco que contém os ficheiros da base de dados deve ter o suficiente de produção. [Saiba mais](../virtual-machines/disks-performance.md) sobre a produção de discos e desempenho em VMs Azure. 
+- Os processos, que estão a decorrer no VM, não estão a consumir a largura de banda VM. 
+- Os horários de reserva estão espalhados por um subconjunto de bases de dados. Várias cópias de segurança em execução simultânea num VM partilham a taxa de consumo de rede entre as cópias de segurança. [Saiba mais](faq-backup-sql-server.md#can-i-control-how-many-concurrent-backups-run-on-the-sql-server) sobre como controlar o número de backups simultâneos.
+
+>[!NOTE]
+> [Faça o download do Planejador de Recursos detalhado](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) para calcular o número aproximado de bases de dados protegidas que são recomendadas por servidor com base nos recursos VM, largura de banda e na política de backup.
 
 ## <a name="next-steps"></a>Passos seguintes
 

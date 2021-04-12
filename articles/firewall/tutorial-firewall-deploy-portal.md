@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/19/2021
+ms.date: 04/08/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ac9eaea70de67e67ef690c280b30bae22517ac21
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741961"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227998"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -110,8 +110,8 @@ Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Wor
    |---------|---------|
    |Grupo de recursos     |**Teste-FW-RG**|
    |Nome da máquina virtual     |**Srv-Work**|
-   |Region     |O mesmo que anterior|
-   |Imagem|Windows Server 2019 Datacenter|
+   |Região     |O mesmo que anterior|
+   |Imagem|Windows Server 2016 Datacenter|
    |Nome do utilizador do administrador     |Digite um nome de utilizador|
    |Palavra-passe     |Digite uma senha|
 
@@ -138,7 +138,7 @@ Implemente a firewall na VNet.
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**Teste-FW-RG** |
    |Name     |**Test-FW01**|
-   |Region     |Selecionar a mesma localização que utilizou anteriormente|
+   |Região     |Selecionar a mesma localização que utilizou anteriormente|
    |Gestão de firewall|**Use as regras firewall (clássica) para gerir esta firewall**|
    |Escolher uma rede virtual     |**Utilização existente**: **Test-FW-VN**|
    |Endereço IP público     |**Adicionar novo**<br>**Nome**:  **fw-pip**|

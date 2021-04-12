@@ -1,16 +1,16 @@
 ---
 title: Regiões suportadas para a área de trabalho do Log Analytics ligada
 description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho Log Analytics, uma vez que se relaciona com certas características da Azure Automation.
-ms.date: 02/17/2021
+ms.date: 04/01/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ac2a575c9fe551d5b1b396ab06b2735a749f9da
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720176"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221879"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -38,30 +38,44 @@ A tabela a seguir mostra os mapeamentos suportados:
 |Leste2<sup>2</sup>|Rio Eastus|
 |Westus|Westus|
 |Westus2|Westus2|
+|NorthCentralus|NorthCentralus|
 |Central|Central|
 |Sul-Centro|Sul-Centro|
 |WestCentralus|WestCentralus|
+|**Brasil**||
+|BrazilSouth|BrazilSouth|
 |**Canadá**||
 |Centro do Canadá|Centro do Canadá|
+|**China**||
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |**Ásia-Pacífico**||
-|AustráliaEast|AustráliaEast|
-|AustráliaSoutheast|AustráliaSoutheast|
 |Ásia Oriental|Ásia Oriental|
 |Sudeste da Ásia|Sudeste da Ásia|
+|**Índia**||
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>3</sup>|ChinaEast2|
+|**Japão**||
 |JapãoEast|JapãoEast|
+|**Austrália**||
+|AustráliaEast|AustráliaEast|
+|AustráliaSoutheast|AustráliaSoutheast|
+|**Coreia**||
+|KoreaCentral|KoreaCentral|
+|**Noruega**||
+|NorwayEast|NorwayEast|
 |**Europa**||
 |NorthEurope|NorthEurope|
-|FranceCentral|FranceCentral|
-|UKSouth|UKSouth|
 |Europa Ocidental|Europa Ocidental|
+|**França**||
+|FranceCentral|FranceCentral|
+|**Reino Unido**
+|UKSouth|UKSouth|
+|**Suíça**||
 |SuíçaNorth|SuíçaNorth|
+|**Emirados Árabes Unidos**||
+|UAENorth|UAENorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>3</sup>|USGovArizona|
-
-
 
 <sup>1</sup> O mapeamento de EastUS para os espaços de trabalho do Log Analytics para as contas de Automação não é um mapeamento de região-a-região exato, mas é o mapeamento correto.
 

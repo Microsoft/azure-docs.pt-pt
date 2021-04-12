@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b3bc99d4391e2079d1b0ecc39011f1b2afc4440
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368664"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096041"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos Utilitários Microsoft Spark
 
@@ -25,9 +25,9 @@ Microsoft Spark Utilities (MSSparkUtils) é um pacote incorporado para ajudá-lo
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configure acesso ao Azure Data Lake Storage Gen2 
 
-Os cadernos synapse usam o diretório ativo Azure (Azure AD) para aceder às contas da ADLS Gen2. É necessário ser um Contribuinte de **Dados de Armazenamento blob** para aceder à conta ADLS Gen2 (ou pasta). 
+Os cadernos synapse usam o diretório ativo Azure (Azure AD) para aceder às contas da ADLS Gen2. É necessário ser um **Colaborador de Dados blob de armazenamento** para aceder à conta ADLS Gen2 (ou pasta). 
 
-Os gasodutos synapse utilizam a identidade do espaço de trabalho (MSI) para aceder às contas de armazenamento. Para utilizar o MSSparkUtils nas suas atividades de pipeline, a sua identidade de espaço de trabalho precisa de ser **o Contribuinte de Dados de Armazenamento blob** para aceder à conta ADLS Gen2 (ou pasta).
+Os gasodutos synapse utilizam a identidade do espaço de trabalho (MSI) para aceder às contas de armazenamento. Para utilizar o MSSparkUtils nas suas atividades de pipeline, a sua identidade de espaço de trabalho precisa de ser **o Storage Blob Data Contributor** para aceder à conta ADLS Gen2 (ou pasta).
 
 Siga estes passos para garantir que o seu AD Azure e o espaço de trabalho MSI tenham acesso à conta ADLS Gen2:
 1. Abra o [portal Azure](https://portal.azure.com/) e a conta de armazenamento a que pretende aceder. Pode navegar para o recipiente específico a que pretende aceder.

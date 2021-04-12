@@ -3,14 +3,14 @@ title: Azure Event Grid - Definir cabeçalhos personalizados em eventos entregue
 description: Descreve como pode definir cabeçalhos personalizados (ou propriedades de entrega) em eventos entregues.
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: 6cc6874b7aba6e0696dec21de5b431ca18df3013
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: fb6f0de7919ed7cf9072c0fa35e8f9be5cb5e7db
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967596"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278291"
 ---
-# <a name="delivery-with-custom-headers"></a>Entrega com cabeçalhos personalizados
+# <a name="custom-delivery-properties"></a>Propriedades de entrega personalizada
 As subscrições de eventos permitem-lhe configurar cabeçalhos HTTP que estão incluídos em eventos entregues. Esta capacidade permite-lhe definir cabeçalhos personalizados que são necessários por um destino. Pode configurar até 10 cabeçalhos ao criar uma subscrição de eventos. Cada valor do cabeçalho não deve ser superior a 4.096 bytes (4K).
 
 Pode definir cabeçalhos personalizados sobre os eventos que são entregues nos seguintes destinos:

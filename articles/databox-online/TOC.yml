@@ -436,6 +436,10 @@
   items:
     - name: Linha de base de segurança
       href: security-baseline.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/databoxedge
 - name: Recursos
   items:
     - name: Exemplos do módulo Azure Stack Edge Pro C# (.NET)

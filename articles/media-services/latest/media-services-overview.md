@@ -80,7 +80,7 @@ Os guias de como fazer contêm amostras de código que demonstram como completar
 * [Codificar com HTTPS como entrada de trabalho - .NET](job-input-from-http-how-to.md)  
 * [Monitorizar eventos - Portal](monitoring/monitor-events-portal-how-to.md)
 * [Criptografe dinamicamente com multi-DRM - .NET](drm-protect-with-drm-tutorial.md) 
-* [Como codificar com uma transformação personalizada - CLI](encode-custom-preset-cli-how-to.md)
+* [Como codificar com uma transformação personalizada - CLI](transform-custom-preset-cli-how-to.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 

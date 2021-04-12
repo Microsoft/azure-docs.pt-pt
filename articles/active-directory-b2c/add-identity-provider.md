@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: dbb2aeefc22fae4a3c83956dd7681b49fc435500
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5495e84d23b6723cfc7d4fbdb99e7509e378087f
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034001"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257182"
 ---
 # <a name="add-an-identity-provider-to-your-azure-active-directory-b2c-tenant"></a>Adicione um fornecedor de identidade ao seu inquilino Azure Ative Directory B2C
 
@@ -27,7 +27,7 @@ Na página de inscrição ou inscrição, o Azure AD B2C apresenta uma lista de 
 
 ![Exemplo de acesso móvel com uma conta social (Facebook)](media/add-identity-provider/external-idp.png)
 
-Pode adicionar fornecedores de identidade que são suportados pelo Azure Ative Directory B2C (Azure AD B2C) aos [fluxos](user-flow-overview.md) do seu utilizador utilizando o portal Azure. Também pode adicionar fornecedores de identidade às suas [políticas personalizadas.](custom-policy-get-started.md)
+Pode adicionar fornecedores de identidade que são suportados pelo Azure Ative Directory B2C (Azure AD B2C) aos [fluxos](user-flow-overview.md) do seu utilizador utilizando o portal Azure. Também pode adicionar fornecedores de identidade às suas [políticas personalizadas.](user-flow-overview.md)
 
 ## <a name="select-an-identity-provider"></a>Selecione um fornecedor de identidade
 

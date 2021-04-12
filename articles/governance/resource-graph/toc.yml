@@ -23,6 +23,9 @@
     - name: Executar a sua primeira consulta - Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
+    - name: Executar a sua primeira consulta - Java
+      displayName: 'maven, zulu, mvn'
+      href: ./first-query-java.md
     - name: Executar a sua primeira consulta - JavaScript
       displayName: 'library, node, arm-resourcegraph'
       href: ./first-query-javascript.md
