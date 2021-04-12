@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
 ms.openlocfilehash: 37c24f2d785bbdd9847e0dadaa47969f5b090ef2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101698098"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série de tempo em Azure Time Series Insights Gen2

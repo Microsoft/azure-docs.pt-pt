@@ -57,4 +57,4 @@ Seguem-se os cenários principais que poderão resultar numa conta de Serviços 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber como anexar uma conta de armazenamento na sua conta de Serviços de Mídia, consulte [Criar uma conta](./create-account-howto.md).
+Para saber como anexar uma conta de armazenamento na sua conta de Serviços de Mídia, consulte [Criar uma conta](./account-create-how-to.md).

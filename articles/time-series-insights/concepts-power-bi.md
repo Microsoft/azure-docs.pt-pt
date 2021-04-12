@@ -9,10 +9,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.openlocfilehash: 2b6631415c32358cf445fab534b9524c88b6432e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95020883"
 ---
 # <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Ligue a Azure Time Series Insights Gen 2 ao Power BI  

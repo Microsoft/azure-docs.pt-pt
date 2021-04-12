@@ -12,10 +12,10 @@ ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 59dd953b2116bc1ec7bd0a581cc181df64fbf49e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104721163"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HBv2 

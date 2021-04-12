@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 48f00d964a87790b8d8c9b1d8eceaed26d15199e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95531972"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir os recursos de armazenamento Azure Blob com o Storage Explorer
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [O Azure Blob Storage](./storage/blobs/storage-quickstart-blobs-dotnet.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acedidos a partir de qualquer parte do mundo através de HTTP ou HTTPS.
 Pode utilizar o armazenamento de Blobs para expor publicamente os dados ao mundo ou para armazenar dados da aplicação em privado. Neste artigo, você vai aprender a usar o Storage Explorer para trabalhar com recipientes e bolhas.

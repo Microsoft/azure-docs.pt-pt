@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 2/8/2021
 ms.custom: devx-track-js
 ms.openlocfilehash: dcda7f4c1d078fa32a5ab8c7b7ce690ab2134afe
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781641"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar mensagens de segurança SDK

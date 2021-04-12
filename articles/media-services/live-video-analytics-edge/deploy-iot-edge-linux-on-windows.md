@@ -4,10 +4,10 @@ description: Este artigo fornece orientações sobre como implementar para um Io
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.openlocfilehash: d5c3d89ae7447b062714ad90be117a6426a39581
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105561088"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Implementar para um IoT Edge para Linux no dispositivo Windows (EFLOW)

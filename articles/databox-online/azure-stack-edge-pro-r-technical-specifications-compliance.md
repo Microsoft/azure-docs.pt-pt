@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 ms.author: alkohli
 ms.openlocfilehash: aa1b861555cff65c9e432ea711af3f7c6e410625
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105109170"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Especificações técnicas Azure Stack Edge Pro R

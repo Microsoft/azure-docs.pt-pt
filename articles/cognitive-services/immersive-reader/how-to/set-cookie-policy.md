@@ -12,10 +12,10 @@ ms.date: 01/06/2020
 ms.author: nitinme
 ms.custom: devx-track-js
 ms.openlocfilehash: 8b0a1f4a948aa6fec565130acb5267476a1d4401
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105048651"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Como definir a política de cookies para o Leitor Imersivo

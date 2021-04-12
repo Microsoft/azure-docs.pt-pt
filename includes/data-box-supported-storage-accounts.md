@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/21/2021
 ms.author: alkohli
 ms.openlocfilehash: 112c30fdd242c20f11c43f42ba54e3717e074bbb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101706052"
 ---
 Aqui está uma lista das contas de armazenamento suportadas e tipos de armazenamento para um dispositivo Data Box. Para obter uma lista completa de todas as capacidades para todos os tipos de contas de armazenamento, consulte [tipos de contas de armazenamento](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).

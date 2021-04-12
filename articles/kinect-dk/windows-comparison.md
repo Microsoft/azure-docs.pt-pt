@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, v2, Azure Kinect, comparação, SDK, diferenças, hardware, software
-ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1791767e842043bbb0eda058cc3ea92be90a00fb
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87031580"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078303"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Comparação Azure Kinect e Kinect Windows v2
 
@@ -46,7 +46,7 @@ A tabela a seguir fornece uma comparação de capacidade de acesso a sensores de
 
 | **Funcionalidade**| **Azure Kinect** | **Kinect para Windows** | **Notas** |
 |---------|---------|------------|---------|
-| **Profundidade** | ✔️ | ✔️ |    |   |
+| **Profundidade** | ✔️ | ✔️ |    | 
 | **IR** | ✔️ | ✔️ |  |
 | **Cor** | ✔️ | ✔️ | Formato de cor suporta diferenças, Azure Kinect DK suporta estes controlos de câmara: Exposição, equilíbrio branco, brilho, contraste, saturação, nitidez e ganhar controlo |
 | **Áudio** | ✔️ | ✔️ | Os microfones DK do Azure Kinect são acedidos através do Speech SDK ou da API nativa do Windows |

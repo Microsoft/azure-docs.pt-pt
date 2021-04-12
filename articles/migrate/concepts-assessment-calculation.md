@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 16c3b59bcfa14cc02f13dadd726e0380d934598b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8d625095fc979151ed904fb355b5953e41309b4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023814"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078711"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Descrição geral da avaliação (migrar para VMs do Azure)
 
@@ -33,6 +33,9 @@ Existem três tipos de avaliações que pode criar usando Azure Migrate: Discove
 **VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais do Azure. Pode avaliar os seus servidores no local em ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hiper-V](how-to-set-up-appliance-hyper-v.md) e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs Azure usando este tipo de avaliação.
 **SQL do Azure** | Avaliações para migrar os seus servidores SQL no local do seu ambiente VMware para Azure SQL Database ou Azure SQL Managed Instance.
 **Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Se o número de avaliações de Azure VM ou AVS estiver incorreto na ferramenta Discovery e de avaliação, clique no número total de avaliações para navegar para todas as avaliações e recalcular as avaliações de Azure VM ou AVS. A ferramenta Discovery e assessment mostrará então a contagem correta para este tipo de avaliação. 
 
 As avaliações que cria com a Azure Migrate são uma imagem pontual dos dados. Uma avaliação Azure VM fornece duas opções de critérios de dimensionamento:
 

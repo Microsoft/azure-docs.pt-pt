@@ -4,10 +4,10 @@ description: Permitir que uma instância de serviço fidedigna Azure aceda de fo
 ms.topic: article
 ms.date: 01/29/2021
 ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101716487"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir serviços fidedignos para aceder de forma segura a um registo restrito de contentores em rede (pré-visualização)

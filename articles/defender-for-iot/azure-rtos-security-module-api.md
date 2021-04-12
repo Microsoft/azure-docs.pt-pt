@@ -5,10 +5,10 @@ ms.topic: reference
 ms.date: 09/07/2020
 ms.author: mlottner
 ms.openlocfilehash: e7000a7e6d8ba332432f1ececa12bd9543e9e4a7
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779397"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-api-preview"></a>Defender-IoT-micro-agente para Azure RTOS API (pré-visualização)
@@ -25,7 +25,7 @@ Esta API destina-se a ser utilizada apenas com o defender-ioT-micro-agente para 
 UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta rotina permite o subsistema Azure IoT Defender-IoT-micro-agente. Uma máquina interna do Estado gere a recolha de eventos de segurança e envia-os para o Azure IoT Hub. Apenas uma NX_AZURE_IOT_SECURITY_MODULE instância é necessária e necessária para gerir a recolha de dados.
 
@@ -37,7 +37,7 @@ Esta rotina permite o subsistema Azure IoT Defender-IoT-micro-agente. Uma máqui
 
 ### <a name="return-values"></a>Valores de retorno
 
-|Valores de retorno  |Descrição |
+|Valores de retorno  |Description |
 |---------|---------|
 |NX_AZURE_IOT_SUCCESS|   Módulo de Segurança Azure IoT habilitado com sucesso.     |
 |NX_AZURE_IOT_FAILURE   |  Falhou em ativar o Módulo de Segurança Azure IoT devido a um erro interno.    |
@@ -58,7 +58,7 @@ Fios
 UINT nx_azure_iot_security_module_disable(NX_AZURE_IOT *nx_azure_iot_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta rotina desativa o subsistema Azure IoT Defender-IoT-micro-agente.
 
@@ -70,7 +70,7 @@ Esta rotina desativa o subsistema Azure IoT Defender-IoT-micro-agente.
 
 ### <a name="return-values"></a>Valores de retorno
 
-|Valores de retorno  |Descrição |
+|Valores de retorno  |Description |
 |---------|---------|
 |NX_AZURE_IOT_SUCCESS     |   Bem sucedido quando o Módulo de Segurança Azure IoT for desativado com sucesso.      |
 |NX_AZURE_IOT_INVALID_PARAMETER   |  A exemplo do Azure IoT Hub é diferente da instância composta singleton.       |

@@ -12,10 +12,10 @@ ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a199c207e8ea35f1471df9bfd0c4134551b9995f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101653495"
 ---
 # <a name="language-customization-in-azure-active-directory"></a>Personalização linguística no Diretório Ativo Azure

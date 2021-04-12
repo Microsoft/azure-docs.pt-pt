@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/26/2021
 ms.author: apimpm
 ms.openlocfilehash: 882d96271b6976db1ffc0dde181d5699c5cc27de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688251"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso à Gestão de API

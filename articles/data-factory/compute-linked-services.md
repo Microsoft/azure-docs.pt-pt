@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 2aa7afebede3759221674c48dd66256e740575a3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b9f7cce39e4f51aea7fc4db5ca37ee054f42c5cb
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565950"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078660"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes computativos apoiados pela Azure Data Factory
 
@@ -443,8 +443,8 @@ Você cria um serviço ligado a Azure Machine Learning para ligar um espaço de 
 | subscriptionId         | ID de assinatura Azure              | Yes                                      |
 | resourceGroupName      | name | Yes                                      |
 | mlWorkspaceName        | Nome do espaço de trabalho Azure Machine Learning | Yes  |
-| servicePrincipalId     | Especifique a identificação do cliente da aplicação.     | No |
-| servicePrincipalKey    | Especifique a chave da aplicação.           | No |
+| servicePrincipalId     | Especifique a identificação do cliente da aplicação.     | Yes |
+| servicePrincipalKey    | Especifique a chave da aplicação.           | Yes |
 | inquilino                 | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Pode recuperá-lo pairando sobre o rato no canto superior direito do portal Azure. | Necessário se a actualizaçãoResourceEndpoint for especificado |
 | connectVia             | O Tempo de Integração a ser utilizado para despachar as atividades para este serviço ligado. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No |
 

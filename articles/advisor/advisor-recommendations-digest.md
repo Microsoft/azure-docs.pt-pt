@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
 ms.openlocfilehash: 1c82abf3c8bea07941f860b94fcfe92954fb7641
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100579823"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Configure resumo periódico para recomendações

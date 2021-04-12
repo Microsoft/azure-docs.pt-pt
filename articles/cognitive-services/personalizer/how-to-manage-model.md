@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: 48e954eab9da5dfc638f93a7c4e55c675c4f2ac9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97797252"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Como gerir configurações de modelo e aprendizagem

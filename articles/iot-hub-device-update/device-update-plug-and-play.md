@@ -7,10 +7,10 @@ ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 0283a84650abaadd454b4f5bca83d1473e443fb8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105561819"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Atualização do dispositivo para IoT Hub e IoT Plug e Play

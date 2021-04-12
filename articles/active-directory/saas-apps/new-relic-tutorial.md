@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/02/2021
 ms.author: jeedes
 ms.openlocfilehash: a2c149bfdf79102779abf7544fed9fb78796a50e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101649977"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Azure Ative Directory integração única (SSO) com Nova Relíquia por Conta
@@ -89,7 +89,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um utilizador de teste AZure AD
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
@@ -101,7 +101,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Nova Relíquia por Conta.
 
@@ -110,16 +110,16 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função &quot;Acesso Predefinido&quot; selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-new-relic-by-account-sso"></a>Configure nova relíquia por conta SSO
+## <a name=&quot;configure-new-relic-by-account-sso&quot;></a>Configure nova relíquia por conta SSO
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa **New Relic by Account** como administrador.
 
 2. No menu em cima, clique em **Definições de Conta**.
    
-    ![A screenshot mostra a página Welcome com as definições de Conta selecionadas.](./media/new-relic-tutorial/settings.png "Definições de conta")
+    ![A screenshot mostra a página Welcome com as definições de Conta selecionadas.](./media/new-relic-tutorial/settings.png &quot;Definições de conta")
 
 3. Clique no separador **Segurança e autenticação** e, em seguida, clique **no sinal único no** separador.
    

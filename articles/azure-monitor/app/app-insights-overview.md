@@ -4,12 +4,12 @@ description: Gestão de Desempenho de Aplicações e controlo da utilização da
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: ac6b6f2b47df0bce9ae164c83df54adfdf00b184
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f25a53cb227d6894aaabaf82033178f15f61c173
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575710"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076212"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 Application Insights, uma funcionalidade do [Azure Monitor,](../overview.md)é um serviço extensível de Gestão de Desempenho de Aplicações (APM) para desenvolvedores e profissionais de DevOps. Use-o para monitorizar as suas aplicações ao vivo. Irá detetar automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores realmente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para apps em uma grande variedade de plataformas, incluindo .NET, Node.js, Java e Python hospedados no local, híbridos ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
@@ -47,7 +47,7 @@ O Application Insights destina-se à equipa de programação, para o ajudar a co
 
 Existem muitas formas para explorar os seus dados. Veja estes artigos:
 
-|  |  |
+| Descrição do artigo   | Imagem |
 | --- | --- |
 | [**Deteção inteligente e alertas manuais**](./proactive-diagnostics.md)<br/>Configurar alertas automáticos que se adaptem aos padrões normais de telemetria e gatilho da sua aplicação quando há algo fora do padrão habitual. Também pode [definir alertas](../alerts/alerts-log.md) em níveis específicos de métricas personalizadas ou padrão. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
 | [**Mapa de aplicação**](./app-map.md)<br/>Explore os componentes da sua aplicação, com métricas-chave e alertas. |![Mapa da aplicação](./media/app-insights-overview/appmap-tn.png)  |

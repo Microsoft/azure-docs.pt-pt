@@ -14,10 +14,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
 ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100575463"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Começar com a auditoria da Azure SQL Managed Instance

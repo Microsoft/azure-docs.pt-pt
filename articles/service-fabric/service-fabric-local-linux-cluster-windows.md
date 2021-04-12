@@ -4,10 +4,10 @@ description: Este artigo abrange como configurar clusters de Service Fabric Linu
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: 7b25a84e76773baea9f17430df1b7ba13aa661aa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93087082"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Crie um cluster de tecido de serviço Linux na sua máquina de desenvolvedores Windows

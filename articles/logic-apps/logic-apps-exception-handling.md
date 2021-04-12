@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.date: 02/18/2021
 ms.topic: article
 ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101702509"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Processar erros e exceções no Azure Logic Apps

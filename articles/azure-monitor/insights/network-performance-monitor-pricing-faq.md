@@ -6,10 +6,10 @@ author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
 ms.openlocfilehash: 56163d3267a69099cbf6a18266168e9198ea04c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101717439"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para O Monitor de Desempenho da Rede Azure

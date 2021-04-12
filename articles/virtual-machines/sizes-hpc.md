@@ -10,10 +10,10 @@ ms.date: 03/19/2021
 ms.author: amverma
 ms.reviewer: jushiman
 ms.openlocfilehash: a41dce28427db40dfd19879e4ada95add64009c3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104772438"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho

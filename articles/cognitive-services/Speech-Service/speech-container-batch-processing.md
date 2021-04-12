@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
 ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97631997"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento de lote para recipientes de fala

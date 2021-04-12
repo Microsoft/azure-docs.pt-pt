@@ -12,10 +12,10 @@ ms.date: 02/02/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 190d88e62069a34b61017a0079f75696d67f6c82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99979917"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Limites e restrições de serviço Azure Ative Directory B2C

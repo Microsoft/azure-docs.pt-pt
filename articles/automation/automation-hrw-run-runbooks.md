@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6d1f504458aed440464015a34479d75992fe5c45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 796ac876537aa06253ad6eeec99adaf48de61c79
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149380"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167265"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 
@@ -268,7 +268,7 @@ Para criar o porta-chaves GPG e o keypair, utilize a conta de [nxautomation](aut
 1. Utilize o pedido de sudo para iniciar scontabilidade de **nxautomation.**
 
     ```bash
-    sudo su – nxautomation
+    sudo su - nxautomation
     ```
 
 1. Uma vez que esteja a utilizar **a nxautomação,** gere o keypair GPG. A GPG guia-o através dos degraus. Deve fornecer nome, endereço de e-mail, tempo de validade e frase de passe. Depois espera-se até que haja entropia suficiente na máquina para que a chave seja gerada.
@@ -304,7 +304,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 Depois de configurar a validação da assinatura, utilize o seguinte comando GPG para assinar o livro de execução.
 
 ```bash
-gpg –-clear-sign <runbook name>
+gpg --clear-sign <runbook name>
 ```
 
 O livro assinado chama-se **<runbook name> .asc**.
@@ -320,7 +320,7 @@ Quando inicia um livro de bordo no portal Azure, é-lhe apresentado **opção Ru
 Ao iniciar um livro de execução utilizando o PowerShell, utilize o `RunOn` parâmetro com o [cmdlet Start-AzAutomationRunbook.](/powershell/module/Az.Automation/Start-AzAutomationRunbook) O exemplo a seguir utiliza o Windows PowerShell para iniciar um livro de testes chamado **Test-Runbook** num grupo híbrido de trabalho de runbook chamado MyHybridGroup.
 
 ```azurepowershell-interactive
-Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 ## <a name="logging"></a>Registo

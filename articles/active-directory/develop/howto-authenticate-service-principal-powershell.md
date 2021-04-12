@@ -14,10 +14,10 @@ ms.date: 02/22/2021
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: b27af53d615fa9c0c46699a52a004098dc46b7b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101688540"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Use a Azure PowerShell para criar um principal de serviço com um certificado
