@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4eb7e64065e311dc18f33dffb169d5c27a34008d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05a0aeb43b13dc4db28ca8c56fc668756a2a4510
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673045"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258729"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Sql Server Azure Virtual Machines DBMS implantação para SAP NetWeaver
 
@@ -309,7 +309,7 @@ ms.locfileid: "101673045"
 
 
 
-Este documento abrange várias áreas diferentes a ter em conta na implementação do SQL Server para a carga de trabalho SAP em Azure IaaS. Como condição prévia para este documento, deveria ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP,](./dbms_guide_general.md) bem como outros guias na [carga de trabalho SAP sobre documentação Azure](./get-started.md). 
+Este documento abrange várias áreas diferentes a ter em conta na implementação do SQL Server para a carga de trabalho SAP em Azure IaaS. Como condição prévia para este documento, deveria ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](./dbms_guide_general.md) e outros guias na carga de trabalho SAP sobre [documentação Azure](./get-started.md). 
 
 
 
@@ -329,6 +329,8 @@ Existe algumas informações específicas do SQL Server no IaaS que deve saber a
 * **Suporte à versão SQL**: Para clientes SAP, SQL Server 2008 R2 e superior é suportado na Microsoft Azure Virtual Machine. As edições anteriores não são apoiadas. Reveja esta Declaração geral [de Apoio](https://support.microsoft.com/kb/956893) para mais detalhes. Em geral, o SQL Server 2008 também é suportado pela Microsoft. No entanto, devido a uma funcionalidade significativa para o SAP, que foi introduzida com o SQL Server 2008 R2, o SQL Server 2008 R2 é o lançamento mínimo para o SAP. Em geral, deve considerar a utilização das mais recentes versões do SQL Server para executar a carga de trabalho SAP em Azure IaaS. As mais recentes versões do SQL Server oferecem uma melhor integração em alguns dos serviços e funcionalidades do Azure. Ou ter alterações que otimizem as operações numa infraestrutura Azure IaaS. Portanto, o papel está restrito ao SQL Server 2016 e ao SQL Server 2017.
 * **SQL Performance**: As Máquinas Virtuais hospedadas no Microsoft Azure têm um bom desempenho em comparação com outras ofertas públicas de virtualização em nuvem, mas os resultados individuais podem variar. Confira o artigo [As melhores práticas de desempenho para SQL Server em Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 * **Utilizando imagens do Azure Marketplace**: A forma mais rápida de implementar um novo Microsoft Azure VM é utilizar uma imagem do Azure Marketplace. Existem imagens no Azure Marketplace, que contêm as mais recentes versões do SQL Server. As imagens onde o SQL Server já está instalado não podem ser imediatamente utilizadas para aplicações SAP NetWeaver. A razão é que a colagem padrão do SQL Server é instalada nessas imagens e não a colagem exigida pelos sistemas SAP NetWeaver. Para utilizar estas imagens, verifique os passos documentados no capítulo [Utilizando uma imagem do Servidor SQL fora do Microsoft Azure Marketplace][dbms-guide-5.6]. 
+*  **Suporte de vários instâncias do SQL Server dentro de um único Azure VM**: Este método de implementação é suportado. No entanto, esteja atento às limitações de recursos, especialmente em torno da largura de banda de rede e armazenamento do tipo VM que está a utilizar. Informações detalhadas estão disponíveis em artigo [Tamanhos para máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Estas limitações de quota podem impedi-lo de implementar a mesma arquitetura multi-instância que você pode implementar no local. A partir da configuração e da interferência na partilha dos recursos disponíveis num único VM, devem ser tidas em conta as mesmas considerações que no local.
+*  **Várias bases de dados SAP numa única instância do SQL Server num único VM**: Como acima, configurações como estas são suportadas. Considerações de várias bases de dados SAP que partilham os recursos partilhados de uma única instância do SQL Server são as mesmas que para implementações no local. Adicionalmente mantenha outros limites como o número de discos que podem ser ligados a um tipo VM específico em mente. Ou limites de quota de rede e armazenamento de tipos de VM específicos como [tamanhos detalhados para máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Recomendações sobre a estrutura VM/VHD para implementações de servidor sql relacionados com o SAP
@@ -408,7 +410,7 @@ Tem várias possibilidades de realizar backups 'manuais' por:
 
 O primeiro método é bem conhecido e aplicado em muitos casos também no mundo das instalações. No entanto, deixa-lhe a tarefa de resolver a localização de backup a longo prazo. Uma vez que não pretende manter as suas cópias de segurança durante 30 ou mais dias no Azure Storage anexado localmente, tem a necessidade de utilizar os Serviços de Backup Azure ou outra ferramenta de backup/recuperação de terceiros que inclua gestão de acesso e retenção para as suas cópias de segurança. Ou constrói um grande servidor de ficheiros em Azure usando espaços de armazenamento do Windows.
 
-O segundo método é descrito mais perto no artigo [SQL Server Backup para URL](../../../azure-sql/virtual-machines/windows/backup-restore.md). Diferentes lançamentos do SQL Server têm algumas variações nesta funcionalidade. Portanto, deve consultar a documentação para a sua verificação de desbloqueio do SQL Server em particular. É importante notar que este artigo enumera muitas restrições. Ou tem a possibilidade de fazer a cópia de segurança contra:
+O segundo método é descrito mais perto no artigo [SQL Server Backup para URL](../../../azure-sql/virtual-machines/windows/backup-restore.md). Diferentes lançamentos do SQL Server têm algumas variações nesta funcionalidade. Portanto, deve consultar a documentação para a sua verificação de desbloqueio do SQL Server em particular. É importante notar que este artigo enumera numerosas restrições. Ou tem a possibilidade de fazer a cópia de segurança contra:
 
 - Uma única mancha de página Azure, que então limita o tamanho da cópia de segurança a 1000 GB. Esta restrição também limita a produção que pode alcançar.
 - Múltiplas (até 64) bolhas de bloco azure, que permitem uma cópia de segurança teórica de 12 TB. No entanto, testes com bases de dados de clientes revelaram que o tamanho máximo de backup pode ser menor do que o seu limite teórico. Neste caso, é responsável pela gestão da retenção de backups e do acesso também às cópias de segurança.
@@ -471,7 +473,7 @@ Utilizando o SQL Server em implementações Azure IaaS para SAP, tem várias pos
 Com o Windows Server 2016, a Microsoft introduziu [os Espaços de Armazenamento Diretos](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). Com base na implementação direta de espaços de armazenamento, o cluster FCI do SQL Server é suportado em geral. O Azure também oferece [discos partilhados Azure](../../disks-shared-enable.md?tabs=azure-cli) que podem ser usados para o agrupamento do Windows. Para a carga de trabalho sap, não estamos a apoiar estas opções de HA. 
 
 ### <a name="sql-server-log-shipping"></a>Envio de registo de servidor sql
-Um dos métodos de alta disponibilidade (HA) é o envio de registo de servidor sql. Se os VM que participam na configuração HA tiverem resolução de nome de trabalho, não há problema e a configuração em Azure não difere de qualquer configuração que seja feita no local. No que diz respeito à criação do Envio de Registos e dos princípios em torno do Envio de Registos. Os detalhes do envio de registo de servidor sql podem ser encontrados no artigo sobre o [envio de registos (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server).
+Um dos métodos de alta disponibilidade (HA) é o envio de registo de servidor sql. Se os VM que participam na configuração HA tiverem resolução de nome de trabalho, não há problema. A configuração em Azure não difere de qualquer configuração que seja feita no local relacionada com a criação de Log Shipping e os princípios em torno do Envio de Registos. Os detalhes do envio de registo de servidor sql podem ser encontrados no artigo sobre o [envio de registos (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server).
 
 A funcionalidade de envio de registos SQL Server dificilmente foi utilizada no Azure para alcançar uma elevada disponibilidade dentro de uma região de Azure. No entanto, nos seguintes cenários, os clientes da SAP estavam a utilizar o envio de madeira com sucesso em conjunto com a Azure:
 
@@ -516,10 +518,10 @@ SQL Server Always On é a funcionalidade de alta disponibilidade e recuperação
 - Utilizando o Ouvinte do Grupo disponibilidade. Com o Observador do Grupo disponibilidade, é-lhe exigido que coloque um equilibrador de carga Azure. Desta forma é o método padrão de implantação. As aplicações SAP seriam configuradas para se conectarem contra o ouvinte do Grupo availability e não contra um único nó
 - Utilizando os parâmetros de conectividade do SQL Server Database Mirroring. Neste caso, é necessário configurar a conectividade das aplicações SAP de uma forma em que ambos os nomes dos nós são nomeados. Os detalhes exatos de tal configuração lateral SAP são documentados em [#965908 SAP](https://launchpad.support.sap.com/#/notes/965908)Note . Ao utilizar esta opção, não terá necessidade de configurar um ouvinte do Grupo Availability. E com isso nenhum equilibrador de carga Azure para o SQL Server alta disponibilidade. Como resultado, a latência da rede entre a camada de aplicação SAP e a camada DBMS é menor uma vez que o tráfego de entrada para a instância sql Server não é encaminhado através do balançador de carga Azure. Mas lembre-se, esta opção só funciona se restringir o seu Grupo de Disponibilidade para abranger duas instâncias. 
 
-Alguns clientes estão a aproveitar a funcionalidade SQL Server Always On para uma funcionalidade adicional de recuperação de desastres entre as regiões de Azure. Vários clientes também usam a capacidade de realizar backups a partir de uma réplica secundária. 
+Alguns clientes estão a aproveitar a funcionalidade SQL Server Always On para a funcionalidade de recuperação de desastres entre as regiões de Azure. Vários clientes também usam a capacidade de realizar backups a partir de uma réplica secundária. 
 
 ## <a name="sql-server-transparent-data-encryption"></a>Encriptação de dados transparentes do servidor SQL
-Há uma série de clientes que estão a usar [a Encriptação de Dados Transparentes](/sql/relational-databases/security/encryption/transparent-data-encryption) do SQL Server (TDE) ao implementar as suas bases de dados do SAP SQL Server em Azure. A funcionalidade SQL Server TDE é totalmente suportada pela SAP (ver NOTA SAP [#1380493](https://launchpad.support.sap.com/#/notes/1380493)). 
+Existem muitos clientes que estão a usar [a Encriptação de Dados Transparentes do](/sql/relational-databases/security/encryption/transparent-data-encryption) SQL Server (TDE) ao implementar as suas bases de dados do SAP SQL Server em Azure. A funcionalidade SQL Server TDE é totalmente suportada pela SAP (ver NOTA SAP [#1380493](https://launchpad.support.sap.com/#/notes/1380493)). 
 
 ### <a name="applying-sql-server-tde"></a>Aplicação do SQL Server TDE
 Nos casos em que realiza uma migração heterogénea de outro DBMS, que corre no local, para o Windows/SQL Server em funcionamento em Azure, deverá criar a sua base de dados-alvo vazia no SQL Server antes do tempo. Como próximo passo, aplicaria a funcionalidade TDE do Servidor SQL. Enquanto ainda está a executar o seu sistema de produção no local. A razão pela qual pretende executar nesta sequência é que o processo de encriptação da base de dados vazia pode demorar algum tempo. Os processos de importação de SAP importariam os dados para a base de dados encriptada durante a fase de inatividade. A sobrecarga da importação para uma base de dados encriptada tem um impacto de tempo muito menor do que encriptar a base de dados após a fase de exportação na fase de tempo de ômida. Foram feitas experiências negativas ao tentar aplicar o TDE com a carga de trabalho SAP a funcionar em cima da base de dados. Por conseguinte, a recomendação é tratar a implantação do TDE como uma atividade que tem de ser feita sem a carga de trabalho da SAP na base de dados específica.

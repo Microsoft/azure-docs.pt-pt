@@ -5,16 +5,16 @@ author: cynthn
 ms.author: cynthn
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: ea61b3bd76fc4ada48a8a2fb734a841b8a969272
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6b5e48997da03c7f180c62a9142c99b05c95b46
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323486"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444042"
 ---
 # <a name="share-images-across-tenants-with-shared-image-gallery"></a>Partilhar imagens entre inquilinos com Galeria de Imagens Partilhadas
 

@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b91560f09b30cc5d3089e5beca4d670f94f33402
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 101a575d9acac5da4a8c0399f60e8f32e591d2cf
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031315"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285363"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Upgrade para o atual Log Alertas API do legado Log Analytics Alert API
 
@@ -57,7 +57,7 @@ Com o corpo de pedido contendo o Abaixo JSON:
 Aqui está um exemplo de utilização do [ARMClient,](https://github.com/projectkudu/ARMClient)uma ferramenta de linha de comando de código aberto, que simplifica a invocação da chamada api acima:
 
 ```powershell
-$switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
+$switchJSON = '{"scheduledQueryRulesEnabled": true}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 

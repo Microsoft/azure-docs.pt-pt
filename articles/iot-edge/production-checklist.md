@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: fda69d582f26b0c9189898bb5c8b0004a1e47360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 711b4f6577b17e84a5d30774fa7be4c9033d4340
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722774"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031142"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge na produção
 
@@ -174,7 +174,7 @@ Para autenticar usando um principal serviço, forneça o ID principal de serviç
 
 ### <a name="use-tags-to-manage-versions"></a>Use tags para gerir versões
 
-Uma etiqueta é um conceito de estivador que você pode usar para distinguir entre versões de recipientes de estivadores. As etiquetas são sufixos como **1.0** que vão na ponta de um repositório de contentores. Por exemplo, **mcr.microsoft.com/azureiotedge-agent:1.0.** As etiquetas são mutáveis e podem ser alteradas para apontar para outro recipiente a qualquer momento, por isso a sua equipa deve concordar com uma convenção a seguir à medida que atualiza as imagens do módulo que avança.
+Uma etiqueta é um conceito de estivador que você pode usar para distinguir entre versões de recipientes de estivadores. As etiquetas são sufixos como **1.1** que vão na extremidade de um repositório de contentores. Por exemplo, **mcr.microsoft.com/azureiotedge-agent:1.1.** As etiquetas são mutáveis e podem ser alteradas para apontar para outro recipiente a qualquer momento, por isso a sua equipa deve concordar com uma convenção a seguir à medida que atualiza as imagens do módulo que avança.
 
 As tags também ajudam a impor atualizações nos seus dispositivos IoT Edge. Quando empurrar uma versão atualizada de um módulo para o registo do seu contentor, incremente a etiqueta. Em seguida, empurre uma nova implementação para os seus dispositivos com a etiqueta incrementada. O motor de contentor reconhecerá a etiqueta incrementada como uma nova versão e puxará a versão mais recente do módulo para o seu dispositivo.
 
@@ -263,6 +263,17 @@ Se os seus dispositivos forem implantados numa rede que utilize um servidor prox
 
 No Linux, o daemon IoT Edge utiliza diários como controlador de registo padrão. Pode utilizar a ferramenta de linha de comando `journalctl` para consultar os registos daemon.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+No Windows, o daemon IoT Edge utiliza diagnósticos PowerShell. Use `Get-IoTEdgeLog` para consultar registos do daemon. Os módulos IoT Edge utilizam o controlador JSON para fazer login, que é o padrão.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+:::moniker-end
+<!-- end 1.1 -->
+
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
@@ -281,12 +292,6 @@ Começando pela versão 1.2, o IoT Edge conta com vários daemons. Embora os reg
   ```
 
 :::moniker-end
-
-No Windows, o daemon IoT Edge utiliza diagnósticos PowerShell. Use `Get-IoTEdgeLog` para consultar registos do daemon. Os módulos IoT Edge utilizam o controlador JSON para fazer login, que é o padrão.  
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
 
 Quando está a testar uma implementação IoT Edge, normalmente pode aceder aos seus dispositivos para recuperar registos e resolução de problemas. Num cenário de implantação, pode não ter essa opção. Considere como vai recolher informações sobre os seus dispositivos em produção. Uma opção é utilizar um módulo de registo que recolhe informações dos outros módulos e a envia para a nuvem. Um exemplo de um módulo de registo é [logspout-loganalytics,](https://github.com/veyalla/logspout-loganalytics)ou pode desenhar o seu próprio.
 
@@ -308,12 +313,24 @@ Pode limitar o tamanho de todos os registos de contentores nas opções de regis
 }
 ```
 
-Adicione (ou apêndice) esta informação a um ficheiro nomeado `daemon.json` e coloque-a no local certo para a plataforma do seu dispositivo.
+Adicione (ou apêndice) esta informação a um ficheiro nomeado `daemon.json` e coloque-a no seguinte local:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Plataforma | Localização |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* `/etc/docker/`
+
+:::moniker-end
+<!-- end 1.2 -->
 
 O motor do recipiente deve ser reiniciado para que as alterações entrem em vigor.
 

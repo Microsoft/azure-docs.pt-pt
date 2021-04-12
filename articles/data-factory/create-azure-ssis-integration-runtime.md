@@ -3,15 +3,15 @@ title: Criar um tempo de integração Azure-SSIS na Azure Data Factory
 description: Saiba como criar um tempo de integração Azure-SSIS na Azure Data Factory para que possa implementar e executar pacotes SSIS em Azure.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/09/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 4b26abe1d1340e4e8c5f034fad72f612f0b246a2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e4f60539e2eb524e95c76814f7527377630349e2
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739419"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285246"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um tempo de integração Azure-SSIS na Azure Data Factory
 
@@ -95,7 +95,7 @@ Após a criação da sua fábrica de dados, abra a sua página geral no portal A
 
 ### <a name="provision-an-azure-ssis-integration-runtime"></a>Aprovisionar um runtime de integração Azure-SSIS
 
-Na página **Let's get start,** selecione o azulejo **de configuração do tempo de execução da integração SSIS** para abrir o painel de configuração de tempo de execução da **Integração.**
+Na página **Let's get start,** selecione o azulejo **de integração Configure SSIS** para abrir o painel de configuração de **tempo de integração.**
 
    ![Configurar o mosaico do Integration Runtime do SSIS](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
@@ -123,7 +123,7 @@ Na página geral de **configurações** do painel de configuração do tempo de 
 
    7. Para **economizar dinheiro**, selecione a opção Azure Hybrid Benefit para o seu tempo de integração: **Sim** ou **Não**. Selecione **Sim** se quiser trazer a sua própria licença SQL Server com Software Assurance para beneficiar de economias de custos com uso híbrido.
 
-   8. Selecione **Seguinte**.
+   8. Selecione **Continuar**.
 
 #### <a name="deployment-settings-page"></a>Página de definições de implementação
 
@@ -165,7 +165,7 @@ Se selecionar a caixa de verificação, preencha os seguintes passos para trazer
 
    1. Para **o Catálogo Database Service Tier**, selecione o nível de serviço para o seu servidor de base de dados para hospedar o SSISDB. Selecione o nível Básico, Standard ou Premium ou selecione um nome elástico da piscina.
 
-Selecione **a ligação de teste** quando aplicável e se for bem sucedida, selecione **Seguinte**.
+Selecione **a ligação de teste** quando aplicável e se for bem sucedida, selecione **Continue**.
 
 > [!NOTE]
    > Se utilizar o servidor Azure SQL Database para hospedar o SSISDB, os seus dados serão armazenados em armazenamento geo-redundante para cópias de segurança por predefinição. Se não pretender que os seus dados sejam replicados noutras regiões, por favor siga as instruções para configurar a [redundância de armazenamento de backup utilizando o PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
@@ -187,7 +187,7 @@ No painel de **embalagem Add,** complete os seguintes passos.
    1. Para **o serviço ligado à loja pacote**, selecione o seu serviço ligado existente que armazena as informações de acesso para sistema de ficheiros/Azure Files/Azure SQL Managed Instance onde os seus pacotes são implantados ou criar um novo selecionando **New**. No novo painel **de serviço ligado,** complete os seguintes passos.
    
       > [!NOTE]
-      > Pode utilizar serviços ligados ao **Azure File Storage** ou **ao Sistema de Ficheiros** para aceder a Ficheiros Azure. Se utilizar o serviço de armazenamento de **ficheiros Azure,** a loja de pacotes Azure-SSIS IR suporta apenas o método de autenticação **Basic** **(não's account** nem **SAS URI)** por enquanto. Para utilizar a autenticação **básica** no serviço ligado ao **Armazenamento de Ficheiros Azure,** pode anexar `?feature.upgradeAzureFileStorage=false` o URL do portal ADF no seu navegador. Em alternativa, pode utilizar o serviço ligado ao **Sistema de Ficheiros** para aceder a Ficheiros Azure. 
+      > Pode utilizar serviços ligados ao **Azure File Storage** ou **ao Sistema de Ficheiros** para aceder a Ficheiros Azure. Se utilizar o serviço de armazenamento de **ficheiros Azure,** a loja de pacotes Azure-SSIS IR suporta apenas o método de autenticação **Basic** **(não's account** nem **SAS URI)** por enquanto.  
 
       ![Definições de implantação de serviços ligados](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -199,7 +199,7 @@ No painel de **embalagem Add,** complete os seguintes passos.
 
       1. Pode ignorar **o Connect via tempo de integração,** uma vez que utilizamos sempre o seu Azure-SSIS IR para obter as informações de acesso para lojas de pacotes.
 
-      1. Se selecionar **o Armazenamento de Ficheiros Azure,** preencha os seguintes passos. 
+      1. Se selecionar **O Armazenamento de Ficheiros Azure**, para **método de autenticação**, selecione **Basic**, e, em seguida, complete os seguintes passos. 
 
          1. Para **o método de seleção de conta**, selecione **Azure por subscrição** ou **introduza manualmente**.
          
@@ -209,21 +209,21 @@ No painel de **embalagem Add,** complete os seguintes passos.
 
       1. Se selecionar **Azure SQL Managed Instance,** complete os seguintes passos. 
 
-         1. **Selecione a cadeia de ligação** para introduzi-lo manualmente ou o cofre da chave **Azure,** onde é armazenado em segredo.
-         
+         1. **Selecione a cadeia de ligação** ou o cofre da chave **Azure,** onde é armazenado em segredo.
+
          1. Se selecionar **a cadeia De ligação,** complete os seguintes passos. 
+             1. Para **o método de seleção de contas**, se escolher A **subscrição do Azure**, selecione a subscrição relevante do **Azure**, **nome do servidor**, tipo **endpoint** e **nome de base de dados**. Se escolher **Entrar manualmente,** complete os seguintes passos. 
+                1.  Para **nome de domínio totalmente qualificado,** insira ou como ponto final privado ou público da sua Instância Gerida `<server name>.<dns prefix>.database.windows.net` `<server name>.public.<dns prefix>.database.windows.net,3342` Azure SQL, respectivamente. Se introduzir o ponto final privado, a **ligação de teste** não é aplicável, uma vez que a ADF UI não consegue alcançá-la.
 
-            1. Para **nome de domínio totalmente qualificado,** insira ou como ponto final privado ou público da sua Instância Gerida `<server name>.<dns prefix>.database.windows.net` `<server name>.public.<dns prefix>.database.windows.net,3342` Azure SQL, respectivamente. Se introduzir o ponto final privado, a **ligação de teste** não é aplicável, uma vez que a ADF UI não consegue alcançá-la.
+                1. Para **o nome da base de dados,** insira `msdb` .
 
-            1. Para **o nome da base de dados,** insira `msdb` .
-               
             1. Para **tipo de autenticação**, selecione **A autenticação SQL,** **Identidade Gerida,** ou **Principal de Serviço.**
 
-            1. Se selecionar **a autenticação SQL,** insira o nome de **utilizador** e **palavra-passe** relevantes ou selecione o cofre da **chave Azure** onde é armazenado como secreto.
+                - Se selecionar **a autenticação SQL,** insira o nome de **utilizador** e **palavra-passe** relevantes ou selecione o cofre da **chave Azure** onde é armazenado como secreto.
 
-            1. Se selecionar **Identidade Gerida,** conceda ao seu ADF acesso de identidade gerido à sua Azure SQL Managed Instance.
+                -  Se selecionar **Identidade Gerida,** conceda ao seu ADF acesso de identidade gerido à sua Azure SQL Managed Instance.
 
-            1. Se selecionar **o Service Principal,** insira a **chave principal** de **ID** e Serviço do Serviço relevante ou selecione o seu Cofre de **Chaves Azure** onde é armazenado em segredo.
+                - Se selecionar **o Service Principal,** insira a **chave principal** de **ID** e Serviço do Serviço relevante ou selecione o seu Cofre de **Chaves Azure** onde é armazenado em segredo.
 
       1. Se selecionar **o sistema de ficheiros,** insira o caminho da pasta UNC onde os seus pacotes são implantados para **o Anfitrião,** bem como o nome de **utilizador** e **palavra-passe** relevantes ou selecione o seu **Cofre de Chave Azure** onde é armazenado como secreto.
 
@@ -231,7 +231,7 @@ No painel de **embalagem Add,** complete os seguintes passos.
 
    1. As suas lojas de pacotes adicionadas aparecerão na página **de definições de Implementação.** Para removê-las, selecione as suas caixas de verificação e, em seguida, **selecione Delete**.
 
-Selecione **a ligação de teste** quando aplicável e se for bem sucedida, selecione **Seguinte**.
+Selecione **a ligação de teste** quando aplicável e se for bem sucedida, selecione **Continue**.
 
 #### <a name="advanced-settings-page"></a>Página definições avançadas
 
@@ -314,7 +314,7 @@ No painel **de ligações** do centro **De Gestão,** mude para a página **de t
 
 ### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>Runtime de integração de SSIS do Azure no portal
 
-1. No UI da Fábrica de Dados Azure, mude para o **separador Editar** e selecione **Ligações**. Em seguida, mude para o separador **Tempos de Execução** de Integração para ver os tempos de integração existentes na sua fábrica de dados.
+1. No UI da Fábrica de Dados Azure, mude para o **separador Gerir** e, em seguida, mude para o separador **tempos de execução** de Integração no painel **de ligações** para visualizar os tempos de integração existentes na sua fábrica de dados.
 
    ![Ver IRs existentes](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
@@ -322,7 +322,7 @@ No painel **de ligações** do centro **De Gestão,** mude para a página **de t
 
    ![Runtime de integração através do menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. No painel de configuração de **tempo de integração,** selecione os **pacotes SSIS existentes para executar em azulejo Azure** e, em seguida, selecione **Next**.
+1. No painel de configuração de **tempo de integração,** selecione os **pacotes SSIS existentes para executar em azulejo Azure** e, em seguida, selecione **Continue**.
 
    ![Especifique o tipo de runtime de integração](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 

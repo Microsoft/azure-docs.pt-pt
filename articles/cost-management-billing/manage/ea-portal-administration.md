@@ -3,18 +3,18 @@ title: Administração do Azure EA Portal
 description: Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/13/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3ce13a103b605ea7b6066e8b2868fa974f4e64e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 8f643336d50f5ade145454d408599215ed6fd31e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050571"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259443"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -36,7 +36,9 @@ Apenas os administradores do Enterprise do Azure existentes podem criar outros a
 
 ### <a name="create-another-enterprise-administrator"></a>Criar outro administrador do Enterprise
 
-Para adicionar um novo administrador do Enterprise:
+Utilize uma das seguintes opções, com base na sua situação.
+
+#### <a name="if-youre-already-an-enterprise-administrator"></a>Se já é administrador da empresa
 
 1. Inicie sessão no [portal Azure Enterprise](https://ea.azure.com).
 1. Aceda a **Gerir** > **Detalhes da Inscrição**.
@@ -44,7 +46,11 @@ Para adicionar um novo administrador do Enterprise:
 
 Garanta que tem os endereços de e-mail do utilizador e o método de autenticação preferencial, como uma conta profissional, escolar ou Microsoft.
 
-Caso não seja o administrador do Enterprise, contacte um administrador do Enterprise para pedir que o adicionem a uma inscrição. Depois de ser adicionado a uma inscrição, recebe um e-mail de ativação.
+#### <a name="if-youre-not-an-enterprise-administrator"></a>Se não é administrador da empresa
+
+Se não for administrador da empresa, contacte um administrador da empresa para solicitar que o adicionem a uma inscrição. O administrador da empresa utiliza os passos anteriores para adicioná-lo como administrador da empresa. Depois de ser adicionado a uma inscrição, recebe um e-mail de ativação.
+
+#### <a name="if-your-enterprise-administrator-cant-help-you"></a>Se o administrador da sua empresa não puder ajudá-lo
 
 Se o administrador do Enterprise não puder ajudar, crie um [Pedido de suporte no portal Azure Enterprise](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Forneça as seguintes informações:
 

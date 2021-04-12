@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 74a8bc4209696682c294bccab450d25ae86e3645
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9873ec2113c0c5704ccca4fa10daf6ac8d572989
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643932"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107436"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registe-se e digitalize uma Base de Dados Azure SQL
 
@@ -28,7 +28,8 @@ A fonte de dados da Base de Dados Azure SQL suporta a seguinte funcionalidade:
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-O Azure Purview não suporta a digitalização de [visualizações](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) na Base de Dados Azure SQL.
+> * O Azure Purview não suporta a digitalização de [visualizações](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) na Base de Dados Azure SQL.
+> * O Azure Purview não suporta mais de 300 colunas no separador Schema e mostrará "Colunas Adicionais-Truncadas". 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

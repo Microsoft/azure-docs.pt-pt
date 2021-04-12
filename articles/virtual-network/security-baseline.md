@@ -4,21 +4,22 @@ description: A linha de base de segurança da Rede Virtual fornece orientações
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/08/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c27f00ac7952ea6d6282bcf9f392242112595d99
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 433f20de4d150aadb48ead685e981c60579f2730
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968973"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285535"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Linha de segurança Azure para Rede Virtual
 
-Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure Security Benchmark](../security/benchmarks/overview-v1.md) para a Rede Virtual Azure. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Rede Virtual Azure. **Foram excluídos os controlos** não aplicáveis à Rede Virtual Azure, ou para os quais a responsabilidade é da Microsoft.
+Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure Security Benchmark](../security/benchmarks/overview-v1.md) para a Rede Virtual Azure. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Rede Virtual Azure. 
 
-Para ver como a Rede Virtual Azure mapeia completamente para o Benchmark de Segurança Azure, consulte o ficheiro completo de [mapeamento de base de base de segurança da Rede Virtual Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+> [!NOTE]
+> **Foram excluídos os controlos** não aplicáveis à Rede Virtual, ou para os quais a responsabilidade é da Microsoft. Para ver como a Rede Virtual mapeia completamente para o Benchmark de Segurança Azure, consulte o **[ficheiro de mapeamento de base de segurança de segurança virtual completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/virtual-network-security-baseline-v1.1.xlsx)**.
 
 ## <a name="network-security"></a>Segurança de Rede
 
@@ -165,9 +166,9 @@ Escolha Azure PowerShell ou Azure CLI para procurar ou executar ações em recur
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações dos recursos e detetar alterações na sua rede virtual. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -184,9 +185,9 @@ Escolha Azure PowerShell ou Azure CLI para procurar ou executar ações em recur
 No Azure Monitor, utilize os espaços de trabalho do Log Analytics para consultar e realizar análises, e utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Ver e recuperar eventos de log de atividades do Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Ver e recuperar eventos de log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -198,9 +199,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: Ative o Monitor Azure para acesso aos seus registos de auditoria e atividade, que incluem fonte de eventos, data, utilizador, marca de tempo, endereços de origem, endereços de destino e outros elementos úteis.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Ver e recuperar eventos de log de atividades do Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Ver e recuperar eventos de log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 **Responsabilidade**: Cliente
 
@@ -210,9 +211,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: Dentro do Azure Monitor, desa um ponto final no período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize as contas de armazenamento Azure para armazenamento a longo prazo/arquivo da retenção de armazenamento de registos de segurança.
 
-- [Alterar o período de retenção de dados em Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
 
 **Responsabilidade**: Cliente
 
@@ -224,9 +225,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Compreender log analytics workspace](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Compreender log analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -244,7 +245,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como gerir alertas no Centro de Segurança](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registo de registo de registos de registos](/azure/azure-monitor/learn/tutorial-response)
+- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -336,7 +337,7 @@ Ingeste alertas de deteção de risco do Centro de Segurança no Azure Monitor e
 
 - [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
-- [Como configurar grupos de ação para alerta e notificação personalizados](/azure/azure-monitor/platform/action-groups)
+- [Como configurar grupos de ação para alerta e notificação personalizados](../azure-monitor/alerts/action-groups.md)
 
 **Responsabilidade**: Cliente
 
@@ -442,7 +443,7 @@ Escolha funções incorporadas como Proprietário, Colaborador ou Colaborador da
 
 - [Registo de diagnóstico para um grupo de segurança de rede](virtual-network-nsg-manage-log.md)
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -760,7 +761,7 @@ Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as cha
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Criar um procedimento de pontuação e priorização de incidentes
 
-**Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
+**Orientação**: O Centro de Segurança atribui uma gravidade a cada alerta para o ajudar a priorizar quais os alertas que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou na análise usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
 Marque claramente as subscrições (por exemplo, produção ou não produção) utilizando tags e crie um sistema de nomeação para identificar e categorizar claramente os recursos do Azure, especialmente os que processam dados sensíveis.  É da sua responsabilidade priorizar a remediação dos alertas de acordo com a criticalidade dos recursos do Azure e o ambiente em que os incidentes ocorreram.
 

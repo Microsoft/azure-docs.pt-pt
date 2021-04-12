@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Veja como ativar o registo com as definições de diagnóstico e consulte os registos para visualização imediata.
 author: baanders
 ms.author: baanders
-ms.date: 2/24/2021
+ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 08db4d92da5213b1ce1b79867650da9df8c38ee4
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 797de242b4b4464c0bfb5ae18af05710ab36bce6
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385084"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285484"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
@@ -63,12 +63,12 @@ Para obter informações mais detalhadas sobre as definições de diagnóstico e
 
 Aqui estão mais detalhes sobre as categorias de registos que a Azure Digital Twins recolhe.
 
-| Categoria do registo | Descrição |
+| Categoria do registo | Description |
 | --- | --- |
 | ADTModelsOperação | Registar todas as chamadas da API relativas a Modelos |
 | ADTQueryOperação | Registar todas as chamadas da API relativas a consultas |
 | ADTEventRoutesOperação | Regisque todas as chamadas da API relativas às Rotas de Eventos, bem como a saída de eventos da Azure Digital Twins para um serviço de ponto final como Event Grid, Event Hubs e Service Bus |
-| ADTDigitalTwinsOperação | Registar todas as chamadas da API relativas a gémeos individuais |
+| ADTDigitalTwinsOperação | Registar todas as chamadas da API relativas às Gémeas Digitais Azure |
 
 Cada categoria de registo consiste em operações de escrita, leitura, exclusão e ação.  Estes mapas para rest API chamadas da seguinte forma:
 
@@ -104,13 +104,11 @@ Aqui está uma lista completa das operações e [correspondentes chamadas API de
 
 Cada categoria de registo tem um esquema que define como os eventos nessa categoria são relatados. Cada entrada de registo individual é armazenada como texto e formatada como uma bolha JSON. Os campos no log e exemplo os corpos JSON são fornecidos para cada tipo de registo abaixo. 
 
-`ADTDigitalTwinsOperation`, `ADTModelsOperation` e use um esquema de registo `ADTQueryOperation` API consistente. `ADTEventRoutesOperation` estende o esquema para conter um `endpointName` campo em propriedades.
+`ADTDigitalTwinsOperation`, `ADTModelsOperation` e use um esquema de registo `ADTQueryOperation` API consistente; `ADTEventRoutesOperation` tem o seu próprio esquema separado.
 
 ### <a name="api-log-schemas"></a>Esquemas de registo da API
 
-Este esquema de registo é consistente `ADTDigitalTwinsOperation` `ADTModelsOperation` para, `ADTQueryOperation` . . . O mesmo esquema também é utilizado `ADTEventRoutesOperation` para, com **exceção** do nome de `Microsoft.DigitalTwins/eventroutes/action` operação (para mais informações sobre esse esquema, consulte a secção seguinte, [*esquemas de registo Egress).*](#egress-log-schemas)
-
-O esquema contém informações pertinentes para chamadas da API para uma instância Azure Digital Twins.
+Este esquema de registo é consistente para `ADTDigitalTwinsOperation` `ADTModelsOperation` , e `ADTQueryOperation` . Contém informações pertinentes para chamadas da API para uma instância Azure Digital Twins.
 
 Aqui estão as descrições de campo e propriedade para registos API.
 
@@ -127,15 +125,9 @@ Aqui estão as descrições de campo e propriedade para registos API.
 | `DurationMs` | String | Quanto tempo demorou a realizar o evento em milissegundos |
 | `CallerIpAddress` | String | Um endereço IP de origem mascarada para o evento |
 | `CorrelationId` | GUID | O cliente forneceu um identificador único para o evento |
-| `ApplicationId` | GUID | ID de aplicação utilizado na autorização do portador |
-| `Level` | int | A gravidade do registo do evento |
+| `Level` | String | A gravidade do registo do evento |
 | `Location` | String | A região onde o evento teve lugar |
 | `RequestUri` | Uri | O ponto final utilizado durante o evento |
-| `TraceId` | String | `TraceId`, como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) A identificação de todo o vestígio usado para identificar um traço distribuído através dos sistemas. |
-| `SpanId` | String | `SpanId`como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) A identificação deste pedido no local. |
-| `ParentId` | String | `ParentId`como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) Um pedido sem identificação dos pais é a raiz do vestígio. |
-| `TraceFlags` | String | `TraceFlags`como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) Controla a deteção de bandeiras como amostragem, nível de vestígios, etc. |
-| `TraceState` | String | `TraceState`como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) Informações adicionais de identificação de vestígios específicas do fornecedor para abranger diferentes sistemas de rastreio distribuídos. |
 
 Abaixo estão os corpos JSON exemplo para este tipo de registos.
 
@@ -151,25 +143,12 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": 8,
+  "durationMs": "314",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -185,25 +164,12 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "resultType": "Success",
   "resultSignature": "201",
   "resultDescription": "",
-  "durationMs": "80",
+  "durationMs": "935",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
   "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
 }
 ```
 
@@ -219,67 +185,18 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": "314",
+  "durationMs": "255",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
   "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
 }
-```
-
-#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperação
-
-Aqui está um exemplo JSON corpo para um `ADTEventRoutesOperation` que **não** é do `Microsoft.DigitalTwins/eventroutes/action` tipo (para mais informações sobre esse esquema, consulte a secção seguinte, [*esquemas de log Egress).*](#egress-log-schemas)
-
-```json
-  {
-    "time": "2020-10-30T22:18:38.0708705Z",
-    "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
-    "operationName": "Microsoft.DigitalTwins/eventroutes/write",
-    "operationVersion": "2020-10-31",
-    "category": "EventRoutesOperation",
-    "resultType": "Success",
-    "resultSignature": "204",
-    "resultDescription": "",
-    "durationMs": 42,
-    "callerIpAddress": "212.100.32.*",
-    "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
-    "identity": {
-      "claims": {
-        "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-      }
-    },
-    "level": "4",
-    "location": "southcentralus",
-    "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/EventRoutes/egressRouteForEventHub?api-version=2020-10-31",
-    "properties": {},
-    "traceContext": {
-      "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-      "spanId": "b630da57026dd046",
-      "parentId": "9f0de6dadae85945",
-      "traceFlags": "01",
-      "tracestate": "k1=v1,k2=v2"
-    }
-  },
 ```
 
 ### <a name="egress-log-schemas"></a>Esquemas de log da Egress
 
-Este é o esquema para `ADTEventRoutesOperation` registos específicos do nome da `Microsoft.DigitalTwins/eventroutes/action` operação. Estes contêm detalhes relativos a exceções e as operações da API em torno de pontos finais de saída ligados a uma instância Azure Digital Twins.
+Este é o esquema para `ADTEventRoutesOperation` registos. Estes contêm detalhes relativos a exceções e as operações da API em torno de pontos finais de saída ligados a uma instância Azure Digital Twins.
 
 |Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
@@ -288,55 +205,28 @@ Este é o esquema para `ADTEventRoutesOperation` registos específicos do nome d
 | `OperationName` | String  | O tipo de ação que está a ser realizada durante o evento |
 | `Category` | String | O tipo de recurso que está a ser emitido |
 | `ResultDescription` | String | Detalhes adicionais sobre o evento |
-| `CorrelationId` | GUID | O cliente forneceu um identificador único para o evento |
-| `ApplicationId` | GUID | ID de aplicação utilizado na autorização do portador |
-| `Level` | int | A gravidade do registo do evento |
+| `Level` | String | A gravidade do registo do evento |
 | `Location` | String | A região onde o evento teve lugar |
-| `TraceId` | String | `TraceId`, como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) A identificação de todo o vestígio usado para identificar um traço distribuído através dos sistemas. |
-| `SpanId` | String | `SpanId`como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) A identificação deste pedido no local. |
-| `ParentId` | String | `ParentId`como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) Um pedido sem identificação dos pais é a raiz do vestígio. |
-| `TraceFlags` | String | `TraceFlags`como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) Controla a deteção de bandeiras como amostragem, nível de vestígios, etc. |
-| `TraceState` | String | `TraceState`como parte do Contexto de [Rastreio da W3C.](https://www.w3.org/TR/trace-context/) Informações adicionais de identificação de vestígios específicas do fornecedor para abranger diferentes sistemas de rastreio distribuídos. |
 | `EndpointName` | String | O nome do ponto final da saída criado em Azure Digital Twins |
 
 Abaixo estão os corpos JSON exemplo para este tipo de registos.
 
-#### <a name="adteventroutesoperation-for-microsoftdigitaltwinseventroutesaction"></a>ADTEventRoutesOperação para Microsoft.DigitalTwins/eventroutes/ação
-
-Aqui está um exemplo JSON corpo para um `ADTEventRoutesOperation` `Microsoft.DigitalTwins/eventroutes/action` que tipo.
+#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperação
 
 ```json
 {
   "time": "2020-11-05T22:18:38.0708705Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/eventroutes/action",
-  "operationVersion": "",
   "category": "EventRoutesOperation",
-  "resultType": "",
-  "resultSignature": "",
-  "resultDescription": "Unable to send EventHub message to [myPath] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
-  "durationMs": -1,
-  "callerIpAddress": "",
+  "resultDescription": "Unable to send EventGrid message to [my-event-grid.westus-1.eventgrid.azure.net] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
   "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
-  "level": "4",
+  "level": "3",
   "location": "southcentralus",
-  "uri": "",
   "properties": {
-    "endpointName": "myEventHub"
-  },
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
+    "endpointName": "endpointEventGridInvalidKey"
   }
-},
+}
 ```
 
 ## <a name="view-and-query-logs"></a>Ver e consultar registos

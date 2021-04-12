@@ -5,14 +5,14 @@ keywords: Azure, inteligência artificial, ai, processamento de linguagem natura
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/22/2021
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: f21a2cc8218dde8b0cf7203a1fcb1f5cfb9424a2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f32f58bebc0a7d64443259981590e368b109b19b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790872"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278954"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -23,6 +23,13 @@ Language Understanding (LUIS) é um serviço de IA de conversação baseado na n
 Uma aplicação cliente para o LUIS é qualquer aplicação conversacional que comunique com um utilizador num idioma natural para concluir uma tarefa. Exemplos de aplicações de clientes incluem aplicações de redes sociais, chatbots de IA e aplicações de desktop ativadas por discursos.
 
 ![Imagem conceptual de 3 aplicações de clientes trabalhando com Cognitive Services Language Understanding (LUIS)](./media/luis-overview/luis-entry-point.png "Imagem conceptual de 3 aplicações de clientes trabalhando com Cognitive Services Language Understanding (LUIS)")
+
+Esta documentação contém os seguintes tipos de artigos:  
+
+* [**Os quickstarts**](luis-get-started-create-app.md) estão a iniciar instruções para guiá-lo através da realização de pedidos ao serviço.  
+* [**Os guias de como fazer**](luis-how-to-start-new-app.md) contêm instruções para a utilização do serviço de formas mais específicas ou personalizadas.  
+* [**Os conceitos**](artificial-intelligence.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.  
+* [**Os tutoriais**](tutorial-intents-only.md) são guias mais longos que mostram como usar o serviço como componente em soluções de negócio mais amplas.  
 
 ## <a name="use-luis-in-a-chat-bot"></a>Utilizar o LUIS num bot de chat
 
@@ -135,12 +142,10 @@ Saiba mais sobre o LUIS com quickstarts práticos utilizando o [portal](get-star
 
 [Utilize recipientes LUIS](luis-container-howto.md) para implantar funcionalidades de API no local. Estes recipientes Docker permitem-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Novidades](whats-new.md "Novidades") com o serviço e documentação
 * [Planeie a sua app](luis-how-plan-your-app.md "Planear a sua aplicação") com [intenções](luis-concept-intent.md "intenções") e [entidades.](luis-concept-entity-types.md "entidades")
-* [Consulta o ponto final da previsão.](luis-get-started-get-intent-from-browser.md "Consultar o ponto final da previsão")
-* [Recursos de desenvolvimento](developer-reference-resource.md "Recursos para programadores") para o LUIS.
 
 [bot-framework]: /bot-framework/
 [flow]: /connectors/luis/

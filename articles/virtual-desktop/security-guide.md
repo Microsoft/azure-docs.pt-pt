@@ -5,13 +5,13 @@ author: heidilohr
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: fb0935ca2ffcad93ba47ccd207603dd870dc26b0
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014898"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445708"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -29,16 +29,16 @@ Aqui estão as necessidades de segurança pelas quais é responsável na sua imp
 
 | Necessidade de segurança | O cliente é responsável por isto? |
 |---------------|:-------------------------:|
-|Identidade|Yes|
-|Dispositivos de utilizador (mobile e PC)|Yes|
-|Segurança de aplicativos|Yes|
-|Sessão anfitrião OS|Yes|
-|Configuração de implementação|Yes|
-|Controlos de rede|Yes|
-|Plano de controlo de virtualização|No|
-|Anfitriões físicos|No|
-|Rede física|No|
-|Datacenter físico|No|
+|Identidade|Sim|
+|Dispositivos de utilizador (mobile e PC)|Sim|
+|Segurança de aplicativos|Sim|
+|Sessão anfitrião OS|Sim|
+|Configuração de implementação|Sim|
+|Controlos de rede|Sim|
+|Plano de controlo de virtualização|Não|
+|Anfitriões físicos|Não|
+|Rede física|Não|
+|Datacenter físico|Não|
 
 As necessidades de segurança que o cliente não é responsável são tratadas pela Microsoft.
 

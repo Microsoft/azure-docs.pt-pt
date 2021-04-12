@@ -227,6 +227,10 @@
       items:
         - name: Migrar para partilhas de ficheiros do Azure
           href: storage-files-migration-overview.md
+        - name: Alvo de uma implantação apenas em nuvem
+          items:
+            - name: Migrar de um nas instalações para a Azure partilhas de ficheiros com a DataBox
+              href: storage-files-migration-nas-cloud-databox.md
         - name: Definir o destino de uma implementação híbrida
           items:
             - name: Migrar dados em massa para o Azure File Sync com o Azure Data Box
@@ -237,8 +241,6 @@
               href: storage-files-migration-nas-hybrid.md
             - name: Migrar de um NAS no local para um servidor de ficheiros híbrido com DataBox
               href: storage-files-migration-nas-hybrid-databox.md
-            - name: Migrar de um nas instalações para a Azure partilhas de ficheiros com a DataBox
-              href: storage-files-migration-nas-cloud-databox.md
         - name: A partir do StorSimple
           items:
             - name: Guia de migração do StorSimple 8100 e 8600

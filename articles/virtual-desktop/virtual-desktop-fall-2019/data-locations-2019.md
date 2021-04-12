@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 869defde657c9cb4c8bea6bbacebb9458e5a2b96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 7726795582ffa3d85601ec123b58ab705442ef67
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008819"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445010"
 ---
 # <a name="data-locations-for-windows-virtual-desktop-classic"></a>Localizações de dados para Windows Virtual Desktop (clássico)
 

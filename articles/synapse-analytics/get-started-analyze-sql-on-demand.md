@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 0ef76be2c083d6185b8b919d174de28aa3b65446
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: c8a0ad3eb578280ea29d94dfbb5e74d873568541
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293775"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259647"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Analisar dados com uma piscina SQL sem servidor
 
@@ -37,12 +37,12 @@ Nesta secção, você usará um pool SQL sem servidor para analisar os dados do 
 
     ```
     SELECT
-        TOP 100 *
+        TOP 100 *
     FROM
         OPENROWSET(
-            BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            FORMAT = 'parquet'
-        ) AS [result];
+                BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            FORMAT='PARQUET'
+        ) AS [result]
     ```
 1. Clique **em Executar**
 

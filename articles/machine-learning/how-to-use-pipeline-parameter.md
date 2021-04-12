@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 03/19/2021
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 09eabffb0e01ee6c5ea6b541378773a7d60397a3
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 30ae737a170c337fe6be51521aeb358cdcebd44b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080456"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107346"
 ---
 # <a name="use-pipeline-parameters-in-the-designer-to-build-versatile-pipelines"></a>Utilize parâmetros de gasoduto no designer para construir oleodutos versáteis
 
@@ -95,9 +95,11 @@ Se pretender submeter o seu pipeline com conjuntos de dados variáveis, deve pro
 
 Pode agora especificar um conjunto de dados diferente utilizando o parâmetro do pipeline da próxima vez que executar o pipeline.
 
-## <a name="attach-module-parameter-to-pipeline-parameter"></a>Fixe o parâmetro do módulo ao parâmetro do gasoduto 
+## <a name="attach-and-detach-module-parameter-to-pipeline-parameter"></a>Fixe e desprenda o parâmetro do módulo ao parâmetro do gasoduto 
 
-Nesta secção, aprenderá a anexar o parâmetro do módulo ao parâmetro do gasoduto.
+Nesta secção, aprenderá a anexar e separar o parâmetro do módulo ao parâmetro do gasoduto.
+
+### <a name="attach-module-parameter-to-pipeline-parameter"></a>Fixe o parâmetro do módulo ao parâmetro do gasoduto
 
 Pode fixar os mesmos parâmetros do módulo duplicado ao mesmo parâmetro do gasoduto se quiser alterar o valor ao desencadear o percurso do gasoduto.
 
@@ -115,10 +117,16 @@ O exemplo a seguir tem duplicado o módulo **de dados em falta** de limpeza. Par
 
    ![Screenshot que mostra como anexar um parâmetro de pipeline](media/how-to-use-pipeline-parameter/attach-replace-value-to-pipeline-parameter.png)
 
-Colocou com sucesso o campo **de valor de substituição** ao seu parâmetro de pipeline. O **valor de substituição** nos módulos não é accível.
+Colocou com sucesso o campo **de valor de substituição** ao seu parâmetro de pipeline. 
+
+
+### <a name="detach-module-parameter-to-pipeline-parameter"></a>Desprender o parâmetro do módulo para o parâmetro do gasoduto
+
+Depois de fixar **o valor de substituição** ao parâmetro do gasoduto, não é accuível.
+
+Pode separar o parâmetro do módulo para o parâmetro do gasoduto clicando nas elipses **(...**) ao lado do parâmetro do módulo e selecionar **separar-se do parâmetro do gasoduto**.
 
  ![Screenshot que mostra não accutilizável após anexar ao parâmetro do gasoduto](media/how-to-use-pipeline-parameter/non-actionable-module-parameter.png)
-
 
 ## <a name="update-and-delete-pipeline-parameters"></a>Atualizar e eliminar parâmetros de gasoduto
 
@@ -133,7 +141,7 @@ Utilize os seguintes passos para atualizar um parâmetro do pipeline do módulo:
 
 ### <a name="delete-a-dataset-pipeline-parameter"></a>Eliminar um parâmetro de pipeline de conjunto de dados
 
-Utilize os seguintes passos para descodi um parâmetro do pipeline de conjunto de dados:
+Utilize os seguintes passos para eliminar um parâmetro do pipeline do conjunto de dados:
 
 1. Selecione o módulo de conjunto de dados.
 1. Desmarque a opção **Definir como parâmetro de gasoduto**.
@@ -147,22 +155,14 @@ Utilize os seguintes passos para eliminar um parâmetro do pipeline do módulo:
 
 1. Selecione as elipses **(...**) ao lado do parâmetro do gasoduto.
 
-    Esta vista mostra-lhe quais os módulos a que o parâmetro do gasoduto está ligado. Para eliminar um parâmetro de pipeline, deve primeiro desmontá-lo de quaisquer parâmetros do módulo.
+    Esta vista mostra-lhe quais os módulos a que o parâmetro do gasoduto está ligado.
 
-    ![Screenshot que mostra o parâmetro do pipeline atual aplicado a um módulo](media/how-to-use-pipeline-parameter/current-pipeline-parameter.png)
+    ![Screenshot que mostra o parâmetro do pipeline atual aplicado a um módulo](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
 
-1. Na tela, selecione um módulo ao qual o parâmetro do gasoduto ainda está ligado.
-1. No painel de propriedades do módulo à direita, encontre o campo a que o parâmetro do gasoduto está ligado.
-1. Rato sobre o campo anexo. Em seguida, selecione as elipses **(...**) que aparecem.
-1. Selecione **separar-se do parâmetro do gasoduto**
-
-    ![Screenshot que mostra a desvinculação dos parâmetros do gasoduto](media/how-to-use-pipeline-parameter/detach-from-pipeline-parameter.png)
-
-1. Repita os passos anteriores até separar o parâmetro do gasoduto de todos os campos.
-1. Selecione as elipses **(...**) ao lado do parâmetro do gasoduto.
 1. **Selecione Eliminar o parâmetro** para eliminar o parâmetro do pipeline.
 
-    ![Screenshot que mostra a eliminação de parâmetros do gasoduto](media/how-to-use-pipeline-parameter/delete-pipeline-parameter.png)
+    > [!NOTE]
+    > A eliminação de um parâmetro de gasoduto fará com que todos os parâmetros do módulo ligados sejam separados e o valor dos parâmetros do módulo separados manterá o valor atual do parâmetro do gasoduto.     
 
 ## <a name="trigger-a-pipeline-run-with-pipeline-parameters"></a>Desencadear um gasoduto com parâmetros de gasoduto 
 

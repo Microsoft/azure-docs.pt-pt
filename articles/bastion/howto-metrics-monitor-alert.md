@@ -8,12 +8,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4e03318fae8d8d3a8b4d29538cad49f9ef39593
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417948"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259120"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Como configurar a monitorização e as métricas para o Bastião Azure utilizando o Monitor Azure
 
@@ -58,7 +58,7 @@ Pode ver a memória total de Azure Bastion, dividida em cada instância de basti
 
 #### <a name="used-cpu"></a><a name="used-cpu"></a>CPU usado
 
-Pode ver a utilização do CPU de Azure Bastion, dividida em cada instância de bastião. A monitorização desta métrica ajudará a medir a disponibilidade e a capacidade dos casos que compõem o Bastião Azure.
+Pode ver a utilização do CPU de Azure Bastion, dividida em cada instância de bastião. A monitorização desta métrica ajudará a medir a disponibilidade e a capacidade dos casos que compõem o Bastião Azure
 
 :::image type="content" source="./media/metrics-monitor-alert/used-cpu.png" alt-text="Screenshot mostrando CPU usado.":::
 
@@ -73,6 +73,12 @@ Pode ver a utilização da memória em cada instância de bastião, dividida em 
 #### <a name="session-count"></a>Contagem de sessão
 
 Pode ver a contagem de sessões ativas por instância de bastião, agregadas em cada tipo de sessão (RDP e SSH). Cada Bastião Azure pode suportar uma gama de sessões de RDP e SSH ativas. A monitorização desta métrica irá ajudá-lo a entender se precisa de ajustar o número de casos que executam o serviço de bastião. Para obter mais informações sobre a contagem de sessão Azure Bastion pode suportar, consulte as FAQ do [Bastião Azure.](bastion-faq.md)
+
+Os valores recomendados para a configuração desta métrica são:
+
+* **Agregação:** Rio Avg
+* **Granularidade:** 5 ou 15 minutos
+* Dividir por instâncias é recomendado para obter uma contagem mais precisa
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Screenshot mostrando contagem de sessão.":::
 

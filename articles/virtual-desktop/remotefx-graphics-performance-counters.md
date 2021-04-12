@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: dc5c6499fa47a1e32a517032d5cc2a97b3f2677f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: fc1bb9d6dbdb024fba6544c25951ba94384132b0
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88007171"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445741"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho gráficos em Ambiente de Trabalho Remoto
 

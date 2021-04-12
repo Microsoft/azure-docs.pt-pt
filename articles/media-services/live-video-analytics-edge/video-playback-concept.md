@@ -3,12 +3,12 @@ title: Reprodução de vídeo - Azure
 description: Marcador de posição
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: be42b39c167798e4e288c77dbd48a8734eb71fdf
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063377"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278597"
 ---
 # <a name="video-playback"></a>Reproduzir vídeo 
 
@@ -24,7 +24,7 @@ Pode utilizar [gráficos de mídia](media-graph-concept.md) para gravar vídeo n
 
 ## <a name="streaming-endpoint"></a>Ponto final de transmissão em fluxo 
 
-Pode utilizar o Azure Media Services para [transmitir](terminology.md#streaming) o ativo a jogadores de vídeo utilizando protocolos de streaming de mídia baseados em HTTP, padrão da indústria, como HTTP Live Streaming (HLS) e MPEG-DASH. Esta conversão de meios de comunicação a partir de conteúdos gravados em formatos de streaming é gerida por um [ponto final de streaming](../latest/streaming-endpoint-concept.md), que é um recurso que precisa de prestar na sua conta do Azure Media Service.
+Pode utilizar o Azure Media Services para [transmitir](terminology.md#streaming) o ativo a jogadores de vídeo utilizando protocolos de streaming de mídia baseados em HTTP, padrão da indústria, como HTTP Live Streaming (HLS) e MPEG-DASH. Esta conversão de meios de comunicação a partir de conteúdos gravados em formatos de streaming é gerida por um [ponto final de streaming](../latest/stream-streaming-endpoint-concept.md), que é um recurso que precisa de prestar na sua conta do Azure Media Service.
 
 ## <a name="streaming-policy"></a>Política de streaming 
 
@@ -34,11 +34,11 @@ A Azure Media Services oferece-lhe diferentes métodos para proteger os seus str
 * **Utilize o Advanced Encryption Standard (AES-128)** – e implemente um método para entregar as teclas para desencriptar o vídeo apenas para os espectadores autenticados.
 * **Utilize sistemas de Gestão de Direitos Digitais (DRM)** – para controlar a utilização, modificação e entrega de vídeo a dispositivos que aplicam estas políticas.
 
-Para obter a proteção de conteúdos, pode definir e criar uma [Política de Streaming](../latest/streaming-policy-concept.md) na sua conta de Media Service, e usá-la para transmitir todos os ativos (assumindo que todos os fluxos têm os mesmos requisitos de segurança). Também pode utilizar qualquer uma das políticas predefinidas (como Predefined_ClearStreamingOnly).
+Para obter a proteção de conteúdos, pode definir e criar uma [Política de Streaming](../latest/stream-streaming-policy-concept.md) na sua conta de Media Service, e usá-la para transmitir todos os ativos (assumindo que todos os fluxos têm os mesmos requisitos de segurança). Também pode utilizar qualquer uma das políticas predefinidas (como Predefined_ClearStreamingOnly).
 
 ## <a name="streaming-locator"></a>Localizador de streaming  
 
-Uma vez iniciado um Streaming Endpoint na sua conta de Media Service, e a política de streaming definida, pode proceder à transmissão de meios de comunicação registados a partir de um ativo através de protocolos HLS ou DASH. Os web-players e as aplicações móveis precisam de um URL que indique o fluxo HLS ou DASH. Pode construir este URL utilizando o [localizador de streaming.](../latest/streaming-locators-concept.md) Como discutido nesse artigo, e mostrado na [Criar um localizador de streaming e construir amostra de URLs,](../latest/create-streaming-locator-build-url.md) o URL de streaming é composto a partir do ponto final de streaming, política de streaming e do localizador de streaming.
+Uma vez iniciado um Streaming Endpoint na sua conta de Media Service, e a política de streaming definida, pode proceder à transmissão de meios de comunicação registados a partir de um ativo através de protocolos HLS ou DASH. Os web-players e as aplicações móveis precisam de um URL que indique o fluxo HLS ou DASH. Pode construir este URL utilizando o [localizador de streaming.](../latest/stream-streaming-locators-concept.md) Como discutido nesse artigo, e mostrado na [Criar um localizador de streaming e construir amostra de URLs,](../latest/create-streaming-locator-build-url.md) o URL de streaming é composto a partir do ponto final de streaming, política de streaming e do localizador de streaming.
 
 ## <a name="content-recorded-using-file-sink"></a>Conteúdo gravado usando pia de ficheiro  
 

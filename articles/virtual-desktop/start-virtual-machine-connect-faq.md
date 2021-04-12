@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 0fd6edf3fbcd6fea7503acd7265850723b5ec09f
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+manager: femila
+ms.openlocfilehash: 0a35d0541358af2f5fac5e4c7486a1be93797922
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080493"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445589"
 ---
 # <a name="start-vm-on-connect-faq-preview"></a>Iniciar VM no Connect FAQ (pré-visualização)
 

@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 17f2b11544b05cd2a7105a1c9be5f5bd28d3edbd
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+manager: femila
+ms.openlocfilehash: d9ce9811cd660c9a9b1fcb6f9e24cadd65d3c2bc
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080501"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445606"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Iniciar a máquina virtual na ligação (pré-visualização)
 

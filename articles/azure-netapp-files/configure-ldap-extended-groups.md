@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/08/2021
 ms.author: b-juche
-ms.openlocfilehash: 2031cbf07d700307ae1e11c516f9fc736bce5080
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 9edf8c6eca223ece8728f9868ee9fe310c517ca9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106499017"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259715"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configure ADDS LDAP com grupos alargados para acesso ao volume NFS
 
@@ -69,9 +69,18 @@ Este artigo explica as considerações e passos para permitir lDAP com grupos es
 
 2. Os volumes LDAP requerem uma configuração de Diretório Ativo para as definições do servidor LDAP. Siga as instruções nos [Requisitos de Ligações de Diretório Ativo](create-active-directory-connections.md#requirements-for-active-directory-connections) e [Crie uma ligação ative de diretório](create-active-directory-connections.md#create-an-active-directory-connection) para configurar ligações de Diretório Ativo no portal Azure.  
 
-3. Certifique-se de que o servidor LDAP do Diretório Ativo está a funcionar no Ative Directory. Pode fazê-lo instalando e configurando o papel [de Diretório Leve Ativo (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na máquina AD.
+3. Certifique-se de que o servidor LDAP do Diretório Ativo está a funcionar no Ative Directory. 
 
-4. Os utilizadores do LDAP NFS precisam de ter certos atributos POSIX no servidor LDAP. Siga [gerir os atributos POSIX da LDAP](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) para definir os atributos necessários.  
+4. Os utilizadores do LDAP NFS precisam de ter certos atributos POSIX no servidor LDAP. Desagrupa os atributos para utilizadores LDAP e grupos LDAP da seguinte forma: 
+
+    * Atributos necessários para utilizadores de LDAP:   
+        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user`
+    * Atributos necessários para grupos LDAP:   
+        `objectClass: group`, `gidNumber: 555`
+
+    Pode gerir os atributos POSIX utilizando o snap-in do Ative Directory Users e computers MMC. O exemplo a seguir mostra o Editor de Atributos do Diretório Ativo:  
+
+    ![Editor de Atributos de Diretório Ativo](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
 5. Se quiser configurar um cliente Linux integrado no LDAP, consulte [configurar um cliente NFS para ficheiros Azure NetApp](configure-nfs-clients.md).
 

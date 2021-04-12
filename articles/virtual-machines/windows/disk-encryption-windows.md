@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: a01d5f48ca3b10f4c49ee621398ae87392dc34a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 925b685cd5b28c469e4b918fd0347d04ba5860d8
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493463"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443802"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -267,6 +267,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Aplicação de ADE a um VM que tenha discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](../disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
 - Migrar um VM que é encriptado com ADE, ou **que já** foi encriptado com ADE, para [encriptação do lado do servidor com teclas geridas pelo cliente](../disk-encryption.md).
 - Encriptar VMs em clusters de failover.
+- Encriptação dos [discos ultra Azure](../disks-enable-ultra-ssd.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

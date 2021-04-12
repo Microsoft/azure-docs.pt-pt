@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39bab52a564439d34b8702de11edabe7f0d6dfbc
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119089"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492261"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilize propriedades numa solução Azure IoT Central
 
@@ -39,13 +39,13 @@ A tabela seguinte mostra as definições de configuração para uma capacidade d
 | Tipo de capacidade | Propriedade.                                                                                                                                                                                                                          |
 | Semantic type (Tipo de semântica)   | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis.                                                                       |
 | Esquema          | O tipo de dados da propriedade, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado.                                               |
-| Writable (Gravável)       | Se a propriedade não for escrita, o dispositivo pode reportar valores de propriedade à Azure IoT Central. Se a propriedade for escrita, o dispositivo pode reportar valores de propriedade à Azure IoT Central. Em seguida, a Azure IoT Central pode enviar atualizações de propriedade para o dispositivo. |
+| Writable (Gravável)       | Se a propriedade não for imputada, o dispositivo pode reportar os valores da propriedade à Azure IoT Central. Se a propriedade for imputada, o dispositivo pode reportar valores de propriedade à Azure IoT Central. Em seguida, a Azure IoT Central pode enviar atualizações de propriedade para o dispositivo. |
 | Gravidade        | Disponível apenas para o tipo semântico do evento. As severidades são **Erro,** **Informação** ou **Aviso**.                                                                                                                         |
 | Valores do Estado    | Disponível apenas para o tipo semântico do estado. Defina os valores de estado possíveis, cada um dos quais tem nome de exibição, nome, tipo de enumeração e valor.                                                                                   |
 | Unidade            | Uma unidade para o valor da propriedade, como **mph,** **%** ou **&deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de visualização para utilização em painéis e formulários.                                                                                                                                                                                    |
 | Comentário         | Quaisquer comentários sobre a capacidade da propriedade.                                                                                                                                                                                        |
-| Description     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
+| Descrição     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
 
 As propriedades também podem ser definidas numa interface num modelo de dispositivo, como mostrado aqui:
 
@@ -80,7 +80,7 @@ Este exemplo mostra duas propriedades. Estas propriedades dizem respeito à defi
 * `@type` especifica o tipo de capacidade: `Property` . O exemplo anterior também mostra o tipo semântico `Temperature` para ambas as propriedades.
 * `name` para a propriedade.
 * `schema` especifica o tipo de dados para a propriedade. Este valor pode ser um tipo primitivo, como duplo, inteiro, booleano ou corda. Os tipos e mapas complexos de objetos também são suportados.
-* `writable` Por padrão, as propriedades são apenas de leitura. Você pode marcar uma propriedade como escrita usando este campo.
+* `writable` Por padrão, as propriedades são apenas de leitura. Você pode marcar uma propriedade como writable usando este campo.
 
 Os campos opcionais, como o nome do ecrã e a descrição, permitem adicionar mais detalhes à interface e às capacidades.
 
@@ -183,7 +183,7 @@ O seguinte corte de um modelo de dispositivo mostra a definição de um tipo de 
 }
 ```
 
-Para definir e manusear as propriedades escritas a que o seu dispositivo responde, pode utilizar o seguinte código:
+Para definir e manusear as propriedades writable a que o seu dispositivo responde, pode utilizar o seguinte código:
 
 ``` javascript
 hubClient.getTwin((err, twin) => {
@@ -210,7 +210,7 @@ A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` �
 * `av` é o número de versão enviado para o dispositivo.
 * `ad` é uma descrição do string de opção.
 
-| Valor | Etiqueta | Description |
+| Valor | Etiqueta | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202` ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso. |
@@ -219,7 +219,7 @@ A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` �
 
 Para obter mais informações sobre os gémeos do dispositivo, consulte [configurar os seus dispositivos a partir de um serviço de back-end](../../iot-hub/tutorial-device-twins.md).
 
-Quando o operador define uma propriedade escrita na aplicação Azure IoT Central, a aplicação utiliza um dispositivo de propriedade dupla desejada para enviar o valor para o dispositivo. Em seguida, o dispositivo responde utilizando uma propriedade reportada por gémeos do dispositivo. Quando a Azure IoT Central recebe o valor da propriedade reportada, atualiza a vista da propriedade com um estado de **Aceito.**
+Quando o operador define uma propriedade escriturada na aplicação Azure IoT Central, a aplicação utiliza um dispositivo de propriedade dupla desejada para enviar o valor para o dispositivo. Em seguida, o dispositivo responde utilizando uma propriedade reportada por gémeos do dispositivo. Quando a Azure IoT Central recebe o valor da propriedade reportada, atualiza a vista da propriedade com um estado de **Aceito.**
 
 A seguinte vista mostra as propriedades writable. Quando introduz o valor e selecione **Guardar,** o estado inicial está **pendente**. Quando o dispositivo aceita a alteração, o estado muda para **Accepted**.
 

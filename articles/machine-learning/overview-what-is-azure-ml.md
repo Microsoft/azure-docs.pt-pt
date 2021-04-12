@@ -7,15 +7,15 @@ ms.subservice: core
 ms.topic: overview
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/04/2020
+ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 00a3ab2954d09a7e70e81d8de3644b678b79d005
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 4f97883c157d04358322b01cab7049dcbbabdc4f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521395"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031091"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -40,7 +40,7 @@ As previsões ou predições de machine learning podem tornar as aplicações e 
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Ferramentas de aprendizagem automática para se adaptar a cada tarefa 
 
 A Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e cientistas de dados precisam para os seus fluxos de trabalho de aprendizagem automática, incluindo:
-+ O [designer Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): módulos de arrastar-n-drop para construir as suas experiências e, em seguida, implementar oleodutos.
++ O [designer Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): módulos de arrastar-n-drop para construir as suas experiências e, em seguida, implementar gasodutos num ambiente de baixo código.
 
 + Cadernos Jupyter: use os [nossos cadernos de exemplo](https://github.com/Azure/MachineLearningNotebooks) ou crie os seus próprios cadernos para aproveitar as nossas amostras <a href="/python/api/overview/azure/ml/intro" target="_blank">de SDK para as</a> amostras de Python para a sua aprendizagem automática. 
 
@@ -48,11 +48,11 @@ A Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e c
 
 + O [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) (pré-visualização) baseia-se no Azure Machine Learning e permite-lhe treinar, operar e gerir centenas ou mesmo milhares de modelos de machine learning.
 
-+ [Extensão de aprendizagem automática para utilizadores do Código do Estúdio Visual](tutorial-setup-vscode-extension.md)
++ [A extensão de machine learning para Visual Studio Code (pré-visualização)](how-to-set-up-vs-code-remote.md) proporciona-lhe um ambiente de desenvolvimento completo para a construção e gestão dos seus projetos de machine learning.
 
-+ [CLI de Aprendizagem automática](reference-azure-machine-learning-cli.md)
++ [Machine learning CLI](reference-azure-machine-learning-cli.md) é uma extensão Azure CLI que fornece comandos para gerir com os recursos de Aprendizagem automática Azure a partir da linha de comando.
 
-+ Quadros de código aberto como PyTorch, TensorFlow, e scikit-learn e muito mais
++ [Integração com quadros de código aberto](concept-open-source.md) como PyTorch, TensorFlow, e scikit-learn e muito mais para treino, implantação e gestão do processo de aprendizagem automática de ponta a ponta.
 
 + [Aprendizagem de reforço](how-to-use-reinforcement-learning.md) com Ray RLlib
 
@@ -130,6 +130,8 @@ A sua conta de Armazenamento Azure, metas de computação e outros recursos pode
 - + [Começar no seu próprio ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup-local.md)
   + [Use cadernos Jupyter em uma instância de computação para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)
   + [Utilize machine learning automatizado para treinar & implementar modelos ML](tutorial-first-experiment-automated-ml.md) 
+  + [Gerir recursos em Código de Estúdio Visual](how-to-manage-resources-vscode.md)
+  + [Use o Código do Estúdio Visual para treinar e implementar um modelo de classificação de imagem](tutorial-train-deploy-image-classification-model-vscode.md)
   + [Use as capacidades de arrastar & de arrastar do designer para treinar & implementar](tutorial-designer-automobile-price-train-score.md) 
   + [Use o CLI de aprendizagem automática para treinar e implementar um modelo](tutorial-train-deploy-model-cli.md)
 

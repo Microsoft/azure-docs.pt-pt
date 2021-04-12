@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 03/17/2021
-ms.openlocfilehash: 8e5c204709f0eadb6c1a4b6f479d4833f335b264
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/05/2021
+ms.openlocfilehash: 090d38a92da126cd4fd8423231f856d22ea9a64c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594891"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106841"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -90,7 +90,7 @@ O serviço de servidor flexível está equipado com funcionalidades de monitoriz
 
 Uma das vantagens de executar a sua carga de trabalho em Azure é o seu alcance global. O servidor flexível está disponível hoje nas regiões de Azure seguintes:
 
-| Region | Disponibilidade | HA redundante zona | 
+| Região | Disponibilidade | HA redundante zona | 
 | --- | --- | --- |
 | Europa Ocidental | :heavy_check_mark: | :heavy_check_mark: |
 | Europa do Norte | :heavy_check_mark: | :heavy_check_mark: |
@@ -103,6 +103,7 @@ Uma das vantagens de executar a sua carga de trabalho em Azure é o seu alcance 
 | Leste do Japão | :heavy_check_mark: | :heavy_check_mark: | 
 | Leste da Austrália | :heavy_check_mark: | :heavy_check_mark: | 
 | Canadá Central | :heavy_check_mark: | :heavy_check_mark: | 
+| França Central | :heavy_check_mark: | :heavy_check_mark: | 
 
 Continuamos a adicionar mais regiões para servidor flexível.
 

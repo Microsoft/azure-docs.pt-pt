@@ -334,18 +334,43 @@
           href: asset-upload-media-how-to.md
         - name: Gerir várias contas de armazenamento
           href: storage-managing-multiple-storage-accounts-how-to.md
-    - name: Criar transformações e tarefas
+    - name: Criar transformações
       items:
-        - name: Criar transformações
+        - name: Criar uma transformação
           href: transform-create-transform-how-to.md
         - name: Criar uma transformação de áudio básica com REST
           href: transform-create-basic-audio-how-to.md
         - name: Criar sprites de miniatura
           href: transform-create-thumbnail-sprites-how-to.md
+        - name: Coser dois ou mais ficheiros de vídeo com .NET
+          href: transform-stitch-how-to.md
+        - name: Subclip um vídeo .NET
+          href: transform-subclip-video-dotnet-how-to.md
+          displayName: 'subclipping, clip, edit, trim, clipping'
+        - name: Subclip um vídeo REST
+          href: transform-subclip-video-rest-how-to.md
+          displayName: 'subclipping, clip, edit, trim, clipping'
+        - name: Personalize predefinições codificantes .NET
+          href: transform-custom-presets-how-to.md
+        - name: Criar uma transformação de sobreposição .NET
+          href: transform-create-overlay-how-to.md
+        - name: Gerar miniaturas .NET
+          href: transform-generate-thumbnails-dotnet-how-to.md
+        - name: Vídeos de cultura com .NET
+          href: crop-howto.md
+        - name: Personalize predefinições codificantes CLI
+          href: transform-custom-preset-cli-how-to.md
+        - name: Personalize predefinições codificantes REST
+          displayName: 'encode, encoding, custom, transform'
+          href: transform-custom-preset-rest-how-to.md
+        - name: Gerar miniaturas REST
+          href: transform-generate-thumbnails-rest-how-to.md
         - name: Criar uma transformação copyAllBitrateNonInterleaved com REST
           href: transform-create-copyallbitratenoninterleaved-how-to.md
         - name: Copiar vídeos sem codificação com REST
           href: transform-create-copy-video-audio-how-to.md
+    - name: Criar tarefas
+      items:
         - name: Criar empregos com CLI
           href: job-create-cli-how-to.md
         - name: Criar uma entrada de tarefa com um ficheiro local e o .NET
@@ -353,47 +378,10 @@
           href: job-input-from-local-file-how-to.md
         - name: Tarefas com várias saídas de transformação
           href: job-multiple-transform-outputs-how-to.md
-        - name: Coser dois ou mais ficheiros de vídeo com .NET
-          href: transform-stitch-how-to.md
-    - name: Codificar conteúdo
-      items:
         - name: HTTPS como entrada da tarefa
           href: job-input-from-http-how-to.md
-        - name: Ficheiro local como entrada da tarefa
-          href: job-input-from-local-file-how-to.md
-        - name: Codificar com uma transformação personalizada
-          items:
-            - name: Com o .NET
-              displayName: 'encode, encoding, custom, transform'
-              items:
-                - name: Personalizar predefinições do codificador
-                  href: encode-custom-presets-how-to.md
-                - name: Criar uma transformação de sobreposição
-                  href: transform-create-overlay-how-to.md
-                - name: Gerar miniaturas com o .NET
-                  href: transform-generate-thumbnails-dotnet-how-to.md
-                - name: Vídeos de cultura com .NET
-                  href: crop-howto.md
-            - name: Com a CLI
-              displayName: 'encode, encoding, custom, transform'
-              href: encode-custom-preset-cli-how-to.md
-            - name: Com o REST
-              displayName: 'encode, encoding, custom, transform'
-              href: encode-custom-preset-rest-how-to.md
-            - name: Gerar miniaturas com o REST
-              href: transform-generate-thumbnails-rest-how-to.md
-            - name: Dimensionar unidades reservadas de multimédia
-              href: media-reserved-units-cli-how-to.md
-        - name: Fazer um subclip de um vídeo
-          items:
-            - name: Com o .NET
-              href: transform-subclip-video-dotnet-how-to.md
-              displayName: 'subclipping, clip, edit, trim, clipping'
-            - name: Com o REST
-              href: transform-subclip-video-rest-how-to.md
-              displayName: 'subclipping, clip, edit, trim, clipping'
-        - name: Códigos de erro das tarefas
-          href: job-error-codes-reference.md
+    - name: Unidades reservadas de mídia de escala CLI
+      href: media-reserved-units-cli-how-to.md
     - name: Transmissão em direto
       items:
         - name: Evento em direto com o portal e Wirecast

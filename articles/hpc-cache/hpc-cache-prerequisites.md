@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a03c3987c0cada69f6a7d47d7c1aa7cbf6d5015a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775770"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258882"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -197,6 +197,8 @@ Esta é uma visão geral dos passos. Estes passos podem mudar, por isso consulte
    * Dê à aplicação cache acesso à sua conta de armazenamento Azure, como mencionado em [Permissões,](#permissions)acima. Pode fazê-lo da primeira vez que criar um alvo de armazenamento. Siga o procedimento em [Adicionar os alvos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para dar à cache as funções de acesso necessárias.
 
      Se você não é o proprietário da conta de armazenamento, faça o proprietário fazer este passo.
+
+Saiba mais sobre a utilização de alvos de armazenamento ADLS-NFS com cache Azure HPC em [Utilização de armazenamento de bolhas montada em NFS com cache Azure HPC](nfs-blob-considerations.md).
 
 ## <a name="set-up-azure-cli-access-optional"></a>Configurar o acesso do Azure CLI (opcional)
 

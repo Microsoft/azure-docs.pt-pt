@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d193d30428d24ccf65c3f70885192acad2fdc9f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051114"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228335"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Como providenciar dispositivos que utilizem grupos de inscrição chave simétricos
 
@@ -30,6 +30,16 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 > [!NOTE]
 > A amostra utilizada neste artigo está escrita em C. Existe também uma [amostra de chave simétrica de dispositivo C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para utilizar esta amostra, faça o download ou clone do [repositório azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções em linha no código de amostra. Pode seguir as instruções deste artigo para criar um grupo de inscrição de chaves simétricas utilizando o portal e para encontrar o ID Scope e as chaves primárias e secundárias do grupo de inscrição necessárias para executar a amostra. Também pode criar inscrições individuais utilizando a amostra.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o](./quick-setup-auto-provision.md) quickstart do portal Azure.
+
+Os seguintes pré-requisitos são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a secção apropriada no preparar o [seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação SDK.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
+
+* Versão mais recente do [Git](https://git-scm.com/download/) instalada.
+
 ## <a name="overview"></a>Descrição Geral
 
 Será definido um ID de registo único para cada dispositivo com base em informações que identifiquem esse dispositivo. Por exemplo, o endereço MAC ou um número de série.
@@ -40,16 +50,6 @@ O código do dispositivo demonstrado neste artigo seguirá o mesmo padrão que o
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o](./quick-setup-auto-provision.md) quickstart do portal Azure.
-
-Os seguintes pré-requisitos são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a secção apropriada no preparar o [seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação SDK.
-
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
-
-* Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparar um ambiente de programação para o SDK C do Azure IoT
 
@@ -283,6 +283,15 @@ Esteja ciente de que isto deixa a chave do dispositivo derivado incluída como p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
-* [Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
-* Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md)
+* Para saber mais sobre a Reprovisioning, consulte
+
+> [!div class="nextstepaction"]
+> [Conceitos de reprovisionamento de dispositivos IoT Hub](concepts-device-reprovision.md)
+
+> [!div class="nextstepaction"]
+> [Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
+
+* Para saber mais sobre deprovisionamento, ver
+
+> [!div class="nextstepaction"]
+> [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md)

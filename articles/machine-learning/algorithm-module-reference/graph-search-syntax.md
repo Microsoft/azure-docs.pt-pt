@@ -6,28 +6,31 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 8/24/2020
-ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: likebupt
+ms.author: keli19
+ms.date: 03/24/2021
+ms.openlocfilehash: 74cf0b897529e8bb198b6f82a57e187662a4a285
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93420772"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259234"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxe de consulta de pesquisa do Graph
 
-Neste artigo, você aprende sobre a sintaxe de pesquisa de gráficos em Azure Machine Learning. O recurso de pesquisa de gráficos permite-lhe procurar um nó pelo seu nome e propriedades. 
+Neste artigo, você aprende sobre a funcionalidade de pesquisa de gráficos em Azure Machine Learning. 
 
- ![Screenshot animado mostrando uma experiência de pesquisa de gráfico de exemplo](media/search/graph-search.gif)
+A pesquisa de gráficos permite-lhe navegar rapidamente num nó quando estiver a depurar ou a construir um oleoduto. Pode escrever a palavra-chave ou consultar a caixa de entrada na barra de ferramentas ou no separador de pesquisa no painel esquerdo para desencadear a procura. Todos os resultados combinados serão realçados em amarelo na tela, e se selecionar um resultado no painel esquerdo, o nó na tela será realçado a vermelho.
+
+![Screenshot mostrando uma experiência de pesquisa de gráfico de exemplo](media/search/graph-search-0322.png)
 
 A pesquisa por gráficos suporta a pesquisa de palavras-chave de texto completo no nome do nó e nos comentários. Também pode filtrar na propriedade do nó como runStatus, duração, computeTarget. A pesquisa de palavras-chave baseia-se na consulta de Lucene. Uma consulta completa de pesquisa é assim:  
 
-**[consulta lucene | [consulta de filtro]** 
+**[[consulta lucene] | [consulta de filtro]]** 
 
 Pode utilizar consulta de Lucene ou consulta de filtro. Para utilizar ambos, utilize o **|** separador. A sintaxe da consulta do filtro é mais rigorosa do que a consulta de Lucene. Assim, se a entrada do cliente puder ser analisada como ambas, a consulta do filtro será aplicada.
 
+Por `data OR model | compute in {cpucluster}` exemplo, isto é para pesquisar nós de que nome ou comentário contém `data` ou , e `model` compute é cpucluster.
  
 
 ## <a name="lucene-query"></a>Consulta de Lucene
@@ -68,6 +71,8 @@ Pode utilizar as seguintes propriedades de nó como chaves:
 - computação
 - duration
 - reutilizar
+- publicar
+- etiquetas
 
 E utilizar os seguintes operadores:
 

@@ -8,16 +8,16 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f59e2ca06f4ec435522cd06815b22d706a2d894c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0bd6a8af4850f3a0519bac7644100c2dcf883635
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772421"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031177"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas suportados Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Este artigo fornece detalhes sobre quais os sistemas e componentes que são suportados pela IoT Edge, seja oficialmente ou em pré-visualização.
 
@@ -52,18 +52,39 @@ O Azure IoT Edge funciona na maioria dos sistemas operativos que podem funcionar
   * A Microsoft fez testes informais nas plataformas ou sabe de um parceiro que executa com sucesso o Azure IoT Edge na plataforma
   * Pacotes de instalação para outras plataformas podem funcionar nestas plataformas
 
-A família do so hospedeiro deve sempre corresponder à família do SO convidado utilizado dentro do contentor de um módulo. Por outras palavras, só pode utilizar recipientes Linux em recipientes Linux e Windows no Windows. Ao utilizar o Windows, apenas os recipientes isolados são suportados, e não recipientes isolados Hyper-V.  
+A família do so hospedeiro deve sempre corresponder à família do SO convidado utilizado dentro do contentor de um módulo.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Por outras palavras, só pode utilizar recipientes Linux em recipientes Linux e Windows no Windows. Quando utilizar recipientes Windows, apenas os recipientes isolados são suportados e não recipientes isolados Hyper-V.  
 
 IoT Edge para Linux no Windows utiliza IoT Edge numa máquina virtual Linux que funciona num anfitrião do Windows. Desta forma, pode executar módulos Linux num dispositivo Windows.
+:::moniker-end
+<!-- end 1.1 -->
 
 ### <a name="tier-1"></a>Nível 1
 
 Os sistemas listados nas seguintes tabelas são suportados pela Microsoft, geralmente disponíveis ou em pré-visualização pública, e são testados com cada nova versão.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 O Azure IoT Edge suporta módulos construídos como recipientes Linux ou Windows. Os contentores Linux podem ser implantados em dispositivos Linux ou implantados em dispositivos Windows utilizando ioT Edge para Linux no Windows. Os recipientes windows só podem ser implantados em dispositivos Windows.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+A versão 1.2 do Azure IoT Edge suporta apenas módulos construídos como recipientes Linux.
+
+Atualmente, não existe uma forma suportada de executar a versão 1.2 do IoT Edge em dispositivos Windows. [IoT Edge para Linux no Windows](iot-edge-for-linux-on-windows.md) é a forma recomendada de executar IoT Edge em dispositivos Windows, mas atualmente apenas executa IoT Edge 1.1. Para mais informações, consulte a versão [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) deste artigo.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 #### <a name="linux-containers"></a>Contentores do Linux
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Os módulos construídos como recipientes Linux podem ser implantados em dispositivos Linux ou Windows. Para os dispositivos Linux, o tempo de funcionaamento do IoT Edge é instalado diretamente no dispositivo anfitrião. Para dispositivos Windows, uma máquina virtual Linux pré-construída com o tempo de execução IoT Edge funciona no dispositivo anfitrião.
 
 [O IoT Edge para o Linux no Windows](iot-edge-for-linux-on-windows.md) encontra-se atualmente em pré-visualização pública, mas é a forma recomendada de executar ioT Edge em dispositivos Windows.
@@ -78,12 +99,27 @@ Os módulos construídos como recipientes Linux podem ser implantados em disposi
 | Windows Server 2019 | Pré-visualização pública |  |  |
 
 Todos os sistemas operativos Windows devem ser da versão 1809 (construção 17763) ou posterior.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+| Sistema Operativo | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Estiramento de Framboesa Pi OS |  | ![Estiramento de Framboesa Pi OS + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| Ubuntu Server 18.04 | ![Servidor Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Pré-visualização pública |
+
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >O suporte ubuntu Server 16.04 terminou com o lançamento da versão 1.1 do IoT Edge.
 
 #### <a name="windows-containers"></a>Contentores do Windows
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 >[!IMPORTANT]
 >IoT Edge 1.1 LTS é o último canal de lançamento que irá suportar recipientes Windows. A partir da versão 1.2, os recipientes windows não serão suportados. Considere usar ou mover-se para [IoT Edge para o Linux no Windows](iot-edge-for-linux-on-windows.md) para executar IoT Edge em dispositivos Windows.
 
@@ -99,6 +135,17 @@ Todos os sistemas operativos Windows devem ser a versão 1809 (construção 1776
 
 >[!NOTE]
 >O suporte do Windows 10 IoT Core terminou com o lançamento da versão 1.1 do IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+IoT Edge 1.1 LTS é o último canal de lançamento que suporta recipientes Windows. A partir da versão 1.2, os recipientes windows não são suportados.
+
+Para obter informações sobre sistemas operativos suportados para contentores Windows, consulte a versão [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) deste artigo.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="tier-2"></a>Camada 2
 
@@ -158,10 +205,28 @@ O IoT Edge utiliza o Microsoft.Azure.Devices.Client SDK. Para obter mais informa
 Azure IoT Edge pode ser executado em máquinas virtuais. Usar uma máquina virtual como dispositivo IoT Edge é comum quando os clientes querem aumentar a infraestrutura existente com inteligência de borda. A família do hospedeiro VM OS deve corresponder à família do so convidado utilizado dentro do contentor de um módulo. Este requisito é o mesmo que quando o Azure IoT Edge é executado diretamente num dispositivo. Azure IoT Edge é agnóstico da tecnologia de virtualização subjacente e funciona em VMs alimentados por plataformas como Hyper-V e vSphere.
 
 <br>
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+<center>
+
+![Azure IoT Edge em um VM](./media/support/edge-on-vm-with-windows.png)
+
+</center>
+
+::: moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
 <center>
 
 ![Azure IoT Edge em um VM](./media/support/edge-on-vm.png)
+
 </center>
+
+:::moniker-end
 
 ## <a name="minimum-system-requirements"></a>Requisitos mínimos do sistema
 

@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04ab4ae4d3de6f33f800011b9b0802665d5fb16e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727435"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228330"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
 
@@ -26,11 +26,12 @@ Este artigo demonstra como providenciar de forma segura múltiplos dispositivos 
 
 Este artigo utiliza uma amostra de dispositivo simulada do [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) para demonstrar como providenciar dispositivos num cenário multitennte entre regiões. Executará os seguintes passos neste artigo:
 
-* Use o CLI Azure para criar dois hubs regionais de IoT **(Eua Ocidental** e **Leste)**
-* Criar uma inscrição multitenant
-* Utilize o CLI Azure para criar dois LM regionais de Linux para funcionar como dispositivos nas mesmas regiões **(Eua Ocidental** e **Leste)**
-* Criar o ambiente de desenvolvimento para o Azure IoT C SDK em ambos os LM Linux
-* Simular os dispositivos para ver se estão previstos para o mesmo inquilino da região mais próxima.
+> [!div class="checklist"]
+> * Use o CLI Azure para criar dois hubs regionais de IoT **(Eua Ocidental** e **Leste)**
+> * Criar uma inscrição multitenant
+> * Utilize o CLI Azure para criar dois LM regionais de Linux para funcionar como dispositivos nas mesmas regiões **(Eua Ocidental** e **Leste)**
+> * Criar o ambiente de desenvolvimento para o Azure IoT C SDK em ambos os LM Linux
+> * Simular os dispositivos para ver se estão previstos para o mesmo inquilino da região mais próxima.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -417,8 +418,11 @@ Para eliminar o grupo de recursos pelo nome:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> Para saber mais sobre a reprovisionamento, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md)
+* Para saber mais sobre a reprovisionamento, ver
 
 > [!div class="nextstepaction"]
-> Para saber mais sobre a desprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md)
+> [Conceitos de reprovisionamento de dispositivos IoT Hub](concepts-device-reprovision.md)
+
+* Para saber mais sobre desprovisionamento, ver
+> [!div class="nextstepaction"]
+> [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md)

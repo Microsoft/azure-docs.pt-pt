@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2021
 ms.author: v-erkel
-ms.openlocfilehash: 10d68ce679fe42f5deeaae364bc46adb23436a27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45a7169330b11e98a8618b08205217212414ca5d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587156"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258933"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Contornar as definições de firewall da conta de armazenamento de blobs
 
 Uma definição específica utilizada nas firewalls de conta de armazenamento pode fazer com que a criação do alvo de armazenamento Blob falhe. A equipa da Azure HPC Cache está a trabalhar numa correção de software para este problema, mas pode trabalhar em torno dele seguindo as instruções deste artigo.
 
-A definição de firewall que permite o acesso apenas a partir de "redes selecionadas" pode impedir que a cache crie ou modifique um alvo de armazenamento Blob. Esta configuração está na página de **firewalls e configurações de redes virtuais** da conta de armazenamento.
+A definição de firewall que permite o acesso apenas a partir de "redes selecionadas" pode impedir que a cache crie ou modifique um alvo de armazenamento Blob. Esta configuração está na página de **firewalls e configurações de redes virtuais** da conta de armazenamento. (Esta questão não se aplica aos objetivos de armazenamento ADLS-NFS.)
 
 O problema é que o serviço cache usa uma rede virtual de serviço oculto que é separada dos ambientes do cliente. Não é possível autorizar explicitamente esta rede a aceder à sua conta de armazenamento.
 

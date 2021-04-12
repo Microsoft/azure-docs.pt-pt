@@ -3,12 +3,12 @@ title: Gravação contínua de vídeo para a nuvem e reprodução do tutorial de
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar continuamente o vídeo para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 2dde1c9d917881d7a16dbc853e4af416dffe5d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d534fb174afa700671b6a3991a6aafa6357eb167
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702424"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280348"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo para a nuvem e reprodução da nuvem
 
@@ -389,7 +389,7 @@ Pode examinar o ativo Media Services que foi criado pelo gráfico mediático ini
 1. No assistente que abre, aceite as opções predefinitivas e **selecione Adicionar**. Para obter mais informações, consulte [a reprodução de Vídeo.](video-playback-concept.md)
 
     > [!TIP]
-    > Certifique-se de que o seu [ponto final de streaming está a funcionar](../latest/streaming-endpoint-concept.md).
+    > Certifique-se de que o seu [ponto final de streaming está a funcionar](../latest/stream-streaming-endpoint-concept.md).
 1. O jogador deve carregar o vídeo. Selecione **Reproduzir** para vê-lo.
 
 > [!NOTE]

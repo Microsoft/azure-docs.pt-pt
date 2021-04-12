@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: c937f9d75613b6550a2f05dd63a8b31dd83fe0b7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251765"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445727"
 ---
 # <a name="required-url-list"></a>Lista de URL necessária
 

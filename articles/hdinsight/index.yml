@@ -8,15 +8,15 @@ metadata:
   ms.service: hdinsight
   ms.topic: landing-page
   ms.collection: collection
-  author: hrasheed-msft
-  ms.author: hrasheed
+  author: jasonwhowell
+  ms.author: jasonh
   ms.date: 02/27/2020
-  ms.openlocfilehash: b02a1a1e2f6407b2ac59735fb6f202e10c64a6c4
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-  ms.translationtype: HT
+  ms.openlocfilehash: 8a27fbfc2b38685276b9785bce5360cdc39970ef
+  ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92534758"
+  ms.lasthandoff: 04/04/2021
+  ms.locfileid: "106293656"
 landingContent:
 - title: Acerca do HDInsight
   linkLists:

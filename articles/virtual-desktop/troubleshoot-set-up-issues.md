@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: c31a32b32a685087c53198ec52af1188d0071cab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 4d515e75aba9b3912507da07267c3dcb31f1ee34
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652450"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445504"
 ---
 # <a name="host-pool-creation"></a>Criação de conjuntos de anfitriões
 

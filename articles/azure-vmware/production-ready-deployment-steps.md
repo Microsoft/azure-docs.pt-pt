@@ -3,12 +3,12 @@ title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 2ded5d706ab71b3880633cd324fb366d0a1bccbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60e0a4083c0253d322b2e10472d0df7496722c10
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584640"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107249"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
@@ -16,8 +16,12 @@ Este artigo fornece-lhe o processo de planeamento para identificar e recolher as
 
 Os passos delineados neste início rápido dão-lhe um ambiente pronto para a produção para a criação de máquinas virtuais (VMs) e migração. 
 
->[!IMPORTANT]
->Antes de criar o seu recurso Azure VMware Solution, siga o como permitir que o artigo [de recursos da Azure VMware Solution](enable-azure-vmware-solution.md) envie um bilhete de apoio para que os seus anfitriões tenham os seus anfitriões atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus anfitriões. Se tiver uma nuvem privada Azure VMware Solution e quiser mais anfitriões, passará pelo mesmo processo. 
+Para rastrear os dados que vai recolher, obtenha a [lista de verificação de planeamento HCX.](https://www.virtualworkloads.com/2021/04/hcx-planning-checklist/)
+
+> [!IMPORTANT]
+> É importante solicitar uma quota de anfitrião logo que se prepare para criar o seu recurso Azure VMware Solution. Pode solicitar uma quota de anfitrião agora, por isso, quando o processo de planeamento estiver concluído, está pronto para implementar a nuvem privada Azure VMware Solution. Depois de a equipa de apoio receber o seu pedido de quota de anfitrião, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus anfitriões. Se tiver uma nuvem privada Azure VMware Solution e quiser mais anfitriões, completa o mesmo processo. Para mais informações, consulte os seguintes links, dependendo do tipo de subscrição que tem:
+> - [Clientes da EA](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
+> - [Clientes CSP](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
 
 ## <a name="subscription"></a>Subscrição
 
@@ -30,7 +34,7 @@ Identifique a subscrição que pretende utilizar para implementar a Solução VM
 
 Identifique o grupo de recursos que pretende utilizar para a sua Solução Azure VMware.  Geralmente, um grupo de recursos é criado especificamente para a Azure VMware Solution, mas você pode usar um grupo de recursos existente.
 
-## <a name="region"></a>Region
+## <a name="region"></a>Região
 
 Identifique a região que pretende que a Azure VMware Solution seja implementada.  Para mais informações, consulte os [Produtos Azure Disponíveis por Guia da Região.](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware)
 
@@ -82,18 +86,6 @@ Este segmento de rede é utilizado principalmente para fins de teste durante a i
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificar - Segmento de endereço IP para cargas de trabalho de máquinas virtuais" border="false":::     
 
-## <a name="optional-extend-your-networks"></a>(Opcional) Alargar as suas redes
-
-Pode estender os segmentos de rede desde as instalações até à Azure VMware Solution, e se o fizer, identifique essas redes agora.  
-
-Tenha em mente que:
-
-- Se pretender estender as redes a partir do local, essas redes devem ligar-se a um [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) no seu ambiente VMware no local.  
-- Se a rede(s) pretender prolongar ao vivo num [vSphere Standard Switch,](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html)então não pode ser estendida.
-
->[!NOTE]
->Estas redes são estendidas como um passo final da configuração, não durante a implementação.
-
 ## <a name="attach-azure-virtual-network-to-azure-vmware-solution"></a>Anexar a rede virtual Azure à Solução VMware Azure
 
 Para fornecer conectividade à Azure VMware Solution, um ExpressRoute é construído a partir da nuvem privada Azure VMware Solution até um gateway de rede virtual ExpressRoute.
@@ -106,7 +98,7 @@ Pode utilizar um *novo* gateway *de* rede virtual ExpressRoute existente.
 
 Se planeia utilizar um gateway de rede virtual ExpressRoute *existente,* o circuito Azure VMware Solution ExpressRoute é estabelecido como um passo pós-implantação. Neste caso, deixe o campo **de Rede Virtual** em branco.
 
-Como recomendação geral, é aceitável usar um gateway de rede virtual ExpressRoute existente. Para fins de planeamento, tome nota do gateway de rede virtual ExpressRoute que utilizará e, em seguida, continue para o próximo passo.
+Como recomendação geral, é aceitável usar um gateway de rede virtual ExpressRoute existente. Para fins de planeamento, tome nota do gateway de rede virtual ExpressRoute que utilizará e, em seguida, continue para o [próximo passo](#vmware-hcx-network-segments).
 
 ### <a name="create-a-new-expressroute-virtual-network-gateway"></a>Criar um novo gateway de rede virtual ExpressRoute
 
@@ -116,23 +108,36 @@ Quando criar um *novo* gateway de rede virtual ExpressRoute, pode utilizar uma R
    1. Identifique uma rede Virtual Azure onde não existam gateways de rede virtual ExpressRoute pré-existentes.
    2. Antes da implementação, crie uma [GatewaySubnet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet) na Rede Virtual Azure.
 
-- Para uma nova Rede Virtual Azure, pode criá-la com antecedência ou durante a implementação. Selecione o novo link **Criar** na lista **de Rede Virtual.**
+- Para uma nova Rede Virtual Azure e gateway de rede virtual, irá criar isso durante a implementação selecionando o novo link **Criar** na lista **de Rede Virtual.**  É importante definir o espaço de endereço e sub-redes antes da implantação, para que esteja pronto para introduzir essa informação quando completar os passos de implementação.
 
-A imagem abaixo mostra o Criar um ecrã de implementação **em nuvem privada** com o campo de Rede **Virtual** realçado.
+A imagem a seguir mostra o Criar um ecrã de implementação **em nuvem privada** com o campo de Rede **Virtual** realçado.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot do ecrã de implementação da Solução VMware Azure com campo de Rede Virtual em destaque.":::
 
->[!NOTE]
->Qualquer rede virtual que seja usada ou criada pode ser vista pelo seu ambiente no local e pela Solução Azure VMware, por isso certifique-se de que qualquer segmento IP que utilize nesta rede virtual e sub-redes não se sobreponha.
+> [!NOTE]
+> Qualquer rede virtual que seja usada ou criada pode ser vista pelo seu ambiente no local e pela Solução Azure VMware, por isso certifique-se de que qualquer segmento IP que utilize nesta rede virtual e sub-redes não se sobreponha.
 
 ## <a name="vmware-hcx-network-segments"></a>Segmentos de rede VMware HCX
 
-VMware HCX é uma tecnologia agregada com Azure VMware Solution. Os casos de utilização primária para VMware HCX são migrações de carga de trabalho e recuperação de desastres. Se planeia fazer qualquer um dos dois, é melhor planear a rede agora.   Caso contrário, pode saltar e continuar até ao próximo passo.
+VMware HCX é uma tecnologia que está agregada com Azure VMware Solution. Os casos de utilização primária para VMware HCX são migrações de carga de trabalho e recuperação de desastres. Se planeia fazer qualquer um dos dois, é melhor planear a rede agora. Caso contrário, pode saltar e continuar até ao próximo passo.
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
+## <a name="optional-extend-your-networks"></a>(Opcional) Alargar as suas redes
+
+Pode estender os segmentos de rede desde as instalações até à Solução Azure VMware. Se alargar os segmentos de rede, identifique agora essas redes.  
+
+Eis alguns fatores a ter em conta:
+
+- Se pretender estender as redes a partir do local, essas redes devem ligar-se a um [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) no seu ambiente VMware no local.  
+- As redes que estão num [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html) não podem ser estendidas.
+
+>[!NOTE]
+>Estas redes são estendidas como um passo final da configuração, não durante a implementação.
+>
 ## <a name="next-steps"></a>Passos seguintes
 Agora que recolheu e documentou as informações necessárias continuam para a secção seguinte para criar a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]
 > [Implementar o Azure VMware Solution](deploy-azure-vmware-solution.md)
+> 
