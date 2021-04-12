@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c1d19b5b37a60914c1d7f2a2e42cd387bd030583
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 1c4aab27eb72afa473f95f1c0956b5e3d66c3940
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125705"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073502"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +54,9 @@ import java.util.*;
 
 Os exemplos abaixo estão a utilizar o [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). Esta credencial é adequada para ambientes de produção e desenvolvimento.
 
-`AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` e `AZURE_TENANT_ID` variáveis ambientais são necessárias para criar um `DefaultAzureCredential` objeto. Para criar uma aplicação registada no ambiente de desenvolvimento e configurar variáveis ambientais, consulte [Autorizar o acesso com identidade gerida.](../managed-identity-from-cli.md)
+Para uma forma fácil de saltar para a autenticação de identidade gerida, consulte [Autorizar o acesso com identidade gerida](../managed-identity-from-cli.md)
+
+Para uma análise mais aprofundada de como funciona o objeto DefaultAzureCredential e como pode usá-lo de formas que não são especificadas neste arranque rápido, consulte a [biblioteca de clientes da Identidade Azure para Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
 ### <a name="create-an-identity-and-issue-a-token-with-managed-identity"></a>Criar uma identidade e emitir um símbolo com Identidade Gerida
 

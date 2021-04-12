@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101645621"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Introdução às contas de serviço do Ative Directory
@@ -43,7 +43,7 @@ Se não puder utilizar um gMSA, utilize uma conta de [serviço gerida autónoma]
 ### <a name="computer-account"></a>Conta informática
 
 Se não puder utilizar um MSA, investigue utilizando uma [conta de computador.](service-accounts-computer.md) A conta LocalSystem é uma conta local predefinida que tem amplos privilégios no computador local, e funciona como a identidade de computador na rede.   
-‎Services that run as a LocalSystem account access network resource by using the credentials of the computer account in the format <domain_name>\<computer_name> .
+Os serviços que funcionam como recurso de rede de acesso à conta do Sistema Local utilizando as credenciais da conta do computador no formato <domain_name>\<computer_name> .
 
 NT AUTHORITY\SYSTEM é o nome predefinido para a conta LocalSystem. Pode ser usado para iniciar um serviço e fornecer o contexto de segurança para esse serviço.
 

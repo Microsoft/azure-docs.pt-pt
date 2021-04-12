@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.openlocfilehash: 299a17e23ca3eb2d954bae7335571ae1f645152e
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867156"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Como monitorizar a disponibilidade do cluster com registos do Azure Monitor em HDInsight
@@ -37,7 +37,7 @@ Uma vez ativada a integração do registo do Monitor Azure (isto pode demorar al
 
 Os registos listam uma série de consultas de amostra, tais como:
 
-| Nome de consulta                      | Descrição                                                               |
+| Nome de consulta                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Disponibilidade de computadores hoje    | Mapear o número de computadores que enviam registos, a cada hora                     |
 | Liste batimentos cardíacos                 | Listar todos os batimentos cardíacos do computador da última hora                           |

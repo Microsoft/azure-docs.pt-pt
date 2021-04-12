@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 04/09/2021
 ms.author: alkohli
-ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f4f7e5f69e6b496395b74dbdcd58b3ada0a7f349
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632038"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285208"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Segurança e proteção de dados para Azure Stack Edge Pro R e Azure Stack Edge Mini R
 
@@ -100,17 +100,23 @@ Os dados dos seus discos estão protegidos por duas camadas de encriptação:
 > [!NOTE]
 > O disco OS tem uma única camada bitLocker XTS-AES-256 encriptação de software.
 
-Quando o dispositivo é ativado, é-lhe pedido que guarde um ficheiro chave que contenha chaves de recuperação que ajudam a recuperar os dados do dispositivo se o dispositivo não arrancar. Há duas chaves no ficheiro:
+Antes de ativar o dispositivo, é-lhe exigido que configuure a encriptação em repouso no seu dispositivo. Esta é uma definição necessária e até que esta seja configurada com sucesso, não é possível ativar o dispositivo. 
 
-- Uma chave recupera a configuração do dispositivo nos volumes de SO.
-<!-- - Second key is to unlock the BitLocker on the data disks. -->
-- A segunda chave desbloqueia a encriptação de hardware nos discos de dados.
+Na fábrica, uma vez que os dispositivos são visualizados, a encriptação bitLocker de nível de volume está ativada. Depois de receber o dispositivo, tem de configurar a encriptação em repouso. O pool de armazenamento e volumes são recriados e você pode fornecer chaves BitLocker para ativar a encriptação em repouso e assim criar outra camada de encriptação para os seus dados em repouso. 
+
+A chave encriptação em repouso é uma chave codificada Base-64 de 32 caracteres que fornece e esta chave é usada para proteger a chave de encriptação real. A Microsoft não tem acesso a esta chave de encriptação em repouso que protege os seus dados. A chave é guardada num ficheiro chave na página **de detalhes** da Cloud após a ativação do dispositivo.
+
+Quando o dispositivo é ativado, é-lhe pedido que guarde o ficheiro chave que contém chaves de recuperação que ajudam a recuperar os dados do dispositivo se o dispositivo não arrancar. Certos cenários de recuperação irão levá-lo para o ficheiro chave que guardou. O ficheiro chave tem as seguintes teclas de recuperação:
+
+- Uma chave que desbloqueia a primeira camada de encriptação.
+- Uma chave que desbloqueia a encriptação de hardware nos discos de dados.
+- Uma chave que ajuda a recuperar a configuração do dispositivo nos volumes de SO.
+- Uma chave que protege os dados que fluem através do serviço Azure.
 
 > [!IMPORTANT]
 > Guarde o ficheiro chave num local seguro fora do próprio dispositivo. Se o dispositivo não arrancar e não tiver a chave, pode potencialmente resultar em perda de dados.
 
-- Certos cenários de recuperação irão levá-lo para o ficheiro chave que guardou. 
-<!--- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.-->
+
 
 #### <a name="restricted-access-to-data"></a>Acesso restrito aos dados
 
@@ -132,7 +138,6 @@ Quando o dispositivo sofre um reset duro, é executada uma limpeza segura no dis
 ### <a name="protect-data-in-storage-accounts"></a>Proteger dados em contas de armazenamento
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
-
 - Rode e, em seguida, [sincronize](azure-stack-edge-gpu-manage-storage-accounts.md) regularmente as chaves da sua conta de armazenamento para ajudar a proteger a sua conta de armazenamento de utilizadores não autorizados.
 
 ## <a name="manage-personal-information"></a>Gerir informações pessoais

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
 ms.openlocfilehash: a7868d702ff3f1190d7f51e4ad7316508d453015
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92454529"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Druva
@@ -136,13 +136,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-druva-sso"></a>Configurar Druva SSO
+## <a name="configure-druva-sso&quot;></a>Configurar Druva SSO
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Druva como administrador.
 
 1. Clique no logótipo Druva no canto superior esquerdo e, em seguida, clique em **Definições de Nuvem Druva**.
 
-    ![Definições](./media/druva-tutorial/ic795091.png "Definições")
+    ![Definições](./media/druva-tutorial/ic795091.png &quot;Definições")
 
 1. No **separador 'S-On Único',** clique em **Editar**.
 
