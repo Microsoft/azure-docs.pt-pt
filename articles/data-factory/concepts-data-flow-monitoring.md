@@ -3,17 +3,16 @@ title: Monitorização dos fluxos de dados de mapeamento
 description: Como monitorizar visualmente os fluxos de dados de mapeamento na Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/22/2020
-ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 82aba428627cba1a3df26fc67c5da0cde52d368c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004886"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309072"
 ---
 # <a name="monitor-data-flows"></a>Monitorize fluxos de dados
 
@@ -77,9 +76,15 @@ Também pode ver um timing detalhado para cada passo de transformação de parti
 }
 ```
 
-### <a name="post-processing-time"></a>Tempo de processamento pós-processamento
+### <a name="sink-processing-time"></a>Tempo de processamento de pias
 
 Quando selecionar um ícone de transformação de pia no seu mapa, o painel de slide-in à direita mostrará um ponto de dados adicional chamado "tempo de processamento pós-processamento" na parte inferior. Esta é a quantidade de tempo gasto a executar o seu trabalho no cluster Spark *depois de* os seus dados terem sido carregados, transformados e escritos. Desta vez pode incluir o fecho de piscinas de ligação, paragem do condutor, eliminação de ficheiros, ficheiros de açagaçamento, etc. Quando executa ações no seu fluxo como "move ficheiros" e "saída para um único ficheiro", provavelmente verá um aumento no valor do tempo de processamento pós-processamento.
+
+* Duração do estágio de escrita: O tempo para escrever os dados para um local de preparação para Synapse SQL
+* Duração da operação de tabela SQL: O tempo gasto a mover dados das tabelas temporárias para a tabela alvo
+* Duração pré-SQL & duração do Post SQL: O tempo gasto a correr comandos SQL pré/post
+* Duração dos comandos pré & duração dos comandos de registo: O tempo gasto a executar quaisquer operações pré/post para fonte/pias baseadas em ficheiros. Por exemplo, mover ou apagar ficheiros após o processamento.
+* Duração da fusão: O tempo gasto a fundir o ficheiro, os ficheiros de fusão são utilizados para lavatórios baseados em ficheiros quando escrevem para um único ficheiro ou quando é utilizado "Nome de ficheiro como dados de coluna". Se for gasto tempo significativo nesta métrica, deve evitar utilizar estas opções.
   
 ## <a name="error-rows"></a>Linhas de erro
 

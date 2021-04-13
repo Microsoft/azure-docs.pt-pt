@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/09/2021
 ms.author: ramakk
-ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d002932bca51300fa6a031ce7ab0d69186afe9c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96184489"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311690"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
@@ -46,7 +46,7 @@ As funcionalidades abaixo não são atualmente suportadas por Ficheiros Azure Ne
 
 As seguintes restrições de rede aplicam-se aos ficheiros Azure NetApp:
 
-* O número de IPs em uso num VNet com Ficheiros Azure NetApp (incluindo VNets) não pode exceder 1000. Estamos a trabalhar no sentido de aumentar este limite para satisfazer as exigências da escala de clientes. 
+* O número de IPs em uso num VNet com Ficheiros Azure NetApp (incluindo VNets *imediatamente* espreitados) não pode exceder 1000. Estamos a trabalhar no sentido de aumentar este limite para satisfazer as exigências da escala de clientes. 
 * Em cada Rede Virtual Azure (VNet), apenas uma sub-rede pode ser delegada em Ficheiros Azure NetApp.
 
 

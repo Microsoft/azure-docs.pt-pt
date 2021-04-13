@@ -6,18 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f09e744dfdd7be73c62c70bcfa91804f14aaa68
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558419"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313679"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribuição de utilização do cliente Azure
 
-A atribuição de uso do cliente associa o uso dos recursos Azure em subscrições de clientes criadas enquanto implementa o seu IP consigo como parceiro. A formação destas associações em sistemas internos da Microsoft traz uma maior visibilidade à pegada Azure que executa o seu software. Para [as ofertas da Azure Application no mercado comercial,](#commercial-marketplace-azure-apps)esta capacidade de rastreio ajuda-o a alinhar-se com as equipas de vendas da Microsoft e a ganhar crédito para os programas parceiros da Microsoft.
+A atribuição de uso do cliente associa o uso dos recursos Azure em subscrições de clientes criadas enquanto implementa o seu IP consigo como parceiro. A formação destas associações em sistemas internos da Microsoft traz uma maior visibilidade à pegada Azure que executa o seu software. Para [as ofertas da Azure Application no mercado comercial,](#commercial-marketplace-azure-apps)esta capacidade de rastreio ajuda-o a alinhar-se com as equipas de vendas da Microsoft e a ganhar crédito para os programas parceiros da Microsoft. A atribuição de utilização do cliente não é aplicável às [ofertas de máquinas virtuais Azure no mercado comercial.](./azure-vm-create.md) Não há nada que um editor de marketplace precise de fazer para ofertas de máquinas virtuais para garantir que o seu consumo de Azure é rastreado em subscrições de clientes finais.
 
 A atribuição de utilização do cliente suporta três opções de implementação:
 

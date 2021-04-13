@@ -94,7 +94,7 @@
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
     - name: FAQ
-      href: relay-faq.md
+      href: relay-faq.yml
     - name: Blogue
       href: /archive/blogs/servicebus/
     - name: Preços

@@ -2,13 +2,13 @@
 title: Azure Event Grid - Guia de resolução de problemas
 description: Este artigo fornece uma lista de códigos de erro, mensagens de erro, descrições e ações recomendadas.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 4647039f67cf84a5471dc7b3f38ca754ca9eecb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94592996"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310874"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Resolução de problemas Erros da Grelha de Eventos do Azure
 Este guia de resolução de problemas fornece-lhe as seguintes informações: 
@@ -30,7 +30,7 @@ Este guia de resolução de problemas fornece-lhe as seguintes informações:
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode.Conflict <br/>409 | Tema com o nome especificado já existe. Escolha um nome de tópico diferente.   | O nome de tópico personalizado deve ser único numa única região de Azure para garantir uma correta operação de publicação. O mesmo nome pode ser usado em diferentes regiões de Azure. | Escolha um nome diferente para o tópico. |
 | HttpStatusCode.Conflict <br/> 409 | Domínio com o especificado já existe. Escolha um nome de domínio diferente. | O nome de domínio deve ser único numa única região de Azure para garantir uma correta operação de publicação. O mesmo nome pode ser usado em diferentes regiões de Azure. | Escolha um nome diferente para o domínio. |
-| HttpStatusCode.Conflict<br/>409 | Limite de quota atingido. Para obter mais informações sobre estes limites, consulte [os limites da Grelha de Eventos Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Cada subscrição do Azure tem um limite no número de recursos da Azure Event Grid que pode utilizar. Parte ou a parte desta quota tinha sido ultrapassada e não era possível criar mais recursos. |    Verifique o uso dos seus recursos atuais e elimine os que não são necessários. Se ainda precisar de aumentar a sua quota, envie um e-mail [aeg@microsoft.com](mailto:aeg@microsoft.com) para o número exato de recursos necessários. |
+| HttpStatusCode.Conflict<br/>409 | Limite de quota atingido. Para obter mais informações sobre estes limites, consulte [os limites da Grelha de Eventos Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Cada subscrição do Azure tem um limite no número de recursos da Azure Event Grid que pode utilizar. Parte ou a parte desta quota tinha sido ultrapassada e não era possível criar mais recursos. | Verifique o uso dos seus recursos atuais e elimine os que não são necessários. Se não conseguir eliminar quaisquer recursos, crie outra subscrição do Azure e crie recursos de Grade de Eventos nessa subscrição. |
 
 ## <a name="error-code-403"></a>Código de erro: 403
 

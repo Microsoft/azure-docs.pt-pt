@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: kumud
-ms.openlocfilehash: f373afae03357ffb65eb459f806fe441e29b21b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 890e02812fb06cf0b0ebe990b0175311d5c85ab5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87047075"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312931"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Personalize um modelo de linguagem com a API do Indexante de Vídeo
 
@@ -27,7 +27,7 @@ Pode utilizar as APIs do Indexador de Vídeo para criar e editar modelos de ling
 
 ## <a name="create-a-language-model"></a>Criar um modelo de linguagem
 
-A [API criar um modelo de idioma](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) cria um novo modelo de linguagem personalizado na conta especificada. Pode fazer o upload de ficheiros para o modelo Language nesta chamada. Em alternativa, pode criar o modelo Language aqui e carregar ficheiros para o modelo mais tarde, atualizando o modelo idioma.
+A [API criar um modelo de idioma](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Language-Model) cria um novo modelo de linguagem personalizado na conta especificada. Pode fazer o upload de ficheiros para o modelo Language nesta chamada. Em alternativa, pode criar o modelo Language aqui e carregar ficheiros para o modelo mais tarde, atualizando o modelo idioma.
 
 > [!NOTE]
 > Ainda é necessário treinar o modelo com os seus ficheiros habilitados para que o modelo aprenda o conteúdo dos seus ficheiros. As instruções sobre o treino de uma língua estão na próxima secção.
@@ -70,7 +70,7 @@ A resposta fornece metadados no modelo linguístico recém-criado, juntamente co
 
 ## <a name="train-a-language-model"></a>Treine um modelo de linguagem
 
-O [comboio um modelo de idioma](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) API treina um modelo de linguagem personalizado na conta especificada com o conteúdo nos ficheiros que foram carregados e habilitados no modelo de idioma.
+O [comboio um modelo de idioma](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Train-Language-Model) API treina um modelo de linguagem personalizado na conta especificada com o conteúdo nos ficheiros que foram carregados e habilitados no modelo de idioma.
 
 > [!NOTE]
 > Primeiro tem de criar o modelo Language e fazer o upload dos seus ficheiros. Pode fazer upload de ficheiros ao criar o modelo Language ou atualizando o modelo idioma.
@@ -105,11 +105,11 @@ A resposta fornece metadados no modelo linguístico recém-treinado, juntamente 
 }
 ```
 
-O devolvido `id` é um ID único usado para distinguir entre modelos linguísticos, enquanto `languageModelId` é usado tanto para carregar um vídeo para [indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) e [reindexar um APIs de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) (também conhecido como em Video `linguisticModelId` Indexer upload/REINDex APIs).
+O devolvido `id` é um ID único usado para distinguir entre modelos linguísticos, enquanto `languageModelId` é usado tanto para carregar um vídeo para [indexar](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) e [reindexar um APIs de vídeo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) (também conhecido como em Video `linguisticModelId` Indexer upload/REINDex APIs).
 
 ## <a name="delete-a-language-model"></a>Excluir um modelo de linguagem
 
-A [API de um modelo de idioma](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) elimina um modelo de linguagem personalizado da conta especificada. Qualquer vídeo que estivesse a usar o modelo linguagem apagado manterá o mesmo índice até que reindex o vídeo. Se voltar a usar o vídeo, pode atribuir um novo modelo de Linguagem ao vídeo. Caso contrário, o Video Indexer utilizará o seu modelo padrão para reindexar o vídeo.
+A [API de um modelo de idioma](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model) elimina um modelo de linguagem personalizado da conta especificada. Qualquer vídeo que estivesse a usar o modelo linguagem apagado manterá o mesmo índice até que reindex o vídeo. Se voltar a usar o vídeo, pode atribuir um novo modelo de Linguagem ao vídeo. Caso contrário, o Video Indexer utilizará o seu modelo padrão para reindexar o vídeo.
 
 ### <a name="response"></a>Resposta
 
@@ -117,7 +117,7 @@ Não há conteúdo devolvido quando o modelo idioma é eliminado com sucesso.
 
 ## <a name="update-a-language-model"></a>Atualizar um modelo de linguagem
 
-A [atualização de um modelo de Idioma](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) API atualiza um modelo personalizado de pessoa linguística na conta especificada.
+A [atualização de um modelo de Idioma](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) API atualiza um modelo personalizado de pessoa linguística na conta especificada.
 
 > [!NOTE]
 > Já deve ter criado o modelo language. Pode utilizar esta chamada para ativar ou desativar todos os ficheiros no modelo, atualizar o nome do modelo idioma e carregar ficheiros a serem adicionados ao modelo de idioma.
@@ -161,7 +161,7 @@ Utilize os `id` ficheiros devolvidos na resposta para descarregar o conteúdo do
 
 ## <a name="update-a-file-from-a-language-model"></a>Atualizar um ficheiro a partir de um modelo de idioma
 
-A [atualização de um ficheiro](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) permite-lhe atualizar o nome e o estado de um ficheiro num modelo de Linguagem personalizado na conta `enable` especificada.
+A [atualização de um ficheiro](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model-file) permite-lhe atualizar o nome e o estado de um ficheiro num modelo de Linguagem personalizado na conta `enable` especificada.
 
 ### <a name="response"></a>Resposta
 
@@ -181,7 +181,7 @@ Utilize `id` o ficheiro devolvido na resposta para descarregar o conteúdo do fi
 
 ## <a name="get-a-specific-language-model"></a>Obtenha um modelo de linguagem específico
 
-A API [obtém](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) informações sobre o modelo linguístico especificado na conta especificada, como o idioma e os ficheiros que estão no modelo idioma.
+A API [obtém](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Model) informações sobre o modelo linguístico especificado na conta especificada, como o idioma e os ficheiros que estão no modelo idioma.
 
 ### <a name="response"></a>Resposta
 
@@ -217,7 +217,7 @@ Utilize `id` o ficheiro devolvido na resposta para descarregar o conteúdo do fi
 
 ## <a name="get-all-the-language-models"></a>Obtenha todos os modelos de linguagem
 
-A [API obtém todos os](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) modelos de Linguagem personalizados na conta especificada numa lista.
+A [API obtém todos os](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Models) modelos de Linguagem personalizados na conta especificada numa lista.
 
 ### <a name="response"></a>Resposta
 
@@ -261,7 +261,7 @@ A resposta fornece uma lista de todos os modelos idiomas na sua conta e cada um 
 
 ## <a name="delete-a-file-from-a-language-model"></a>Excluir um ficheiro de um modelo de idioma
 
-A API [de eliminação](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) elimina o ficheiro especificado do modelo de Linguagem especificado na conta especificada.
+A API [de eliminação](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model-File) elimina o ficheiro especificado do modelo de Linguagem especificado na conta especificada.
 
 ### <a name="response"></a>Resposta
 
@@ -269,7 +269,7 @@ Não há conteúdo devolvido quando o ficheiro é eliminado do modelo Language c
 
 ## <a name="get-metadata-on-a-file-from-a-language-model"></a>Obtenha metadados num ficheiro de um modelo de idioma
 
-A [obter metadados de um ficheiro](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) API devolve o conteúdo e os metadados no ficheiro especificado a partir do modelo idioma escolhido na sua conta.
+A [obter metadados de um ficheiro](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Model-File-Data) API devolve o conteúdo e os metadados no ficheiro especificado a partir do modelo idioma escolhido na sua conta.
 
 ### <a name="response"></a>Resposta
 
@@ -291,7 +291,7 @@ A resposta fornece os conteúdos e metadados do ficheiro em formato JSON, semelh
 
 ## <a name="download-a-file-from-a-language-model"></a>Descarregue um ficheiro de um modelo de Linguagem
 
-O [download de um ficheiro](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) API descarrega um ficheiro de texto contendo o conteúdo do ficheiro especificado a partir do modelo de Linguagem especificado na conta especificada. Este ficheiro de texto deve corresponder ao conteúdo do ficheiro de texto que foi originalmente carregado.
+O [download de um ficheiro](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Download-Language-Model-File-Content) API descarrega um ficheiro de texto contendo o conteúdo do ficheiro especificado a partir do modelo de Linguagem especificado na conta especificada. Este ficheiro de texto deve corresponder ao conteúdo do ficheiro de texto que foi originalmente carregado.
 
 ### <a name="response"></a>Resposta
 

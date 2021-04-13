@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 993baa521530ffa6a702f8324a1691850687c366
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a08d82103986435593cd73a0728e7426f205a90d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668695"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307542"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server
 
@@ -171,7 +171,6 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
          1. Introduza o nome da nova regra do balançador de carga (por **exemplo, nw1-lb)**
          1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, o frontend de 1** frente . **nw-backend** e **nw1-hp**)
          1. Selecione **portas HA**.
-         1. Aumente o tempo de inatividade para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
          1. Clique em OK
          * Repita os passos acima para criar regra de equilíbrio de carga para NW2

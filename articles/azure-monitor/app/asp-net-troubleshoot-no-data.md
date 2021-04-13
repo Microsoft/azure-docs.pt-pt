@@ -4,12 +4,12 @@ description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: fbf53f6d4a928215d25874f4e405147c73cbf81f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3b550e434db5b616ffedef7ebe9891b36fa431a2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056577"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311231"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -28,6 +28,10 @@ ms.locfileid: "106056577"
 *Estou a sentir perda de dados na App de Consola ou na Web App quando a aplicação está prestes a parar.*
 
 * O canal SDK mantém a telemetria no tampão e envia-as em lotes. Se o pedido estiver desligado, poderá ter de ligar explicitamente para [o Flush()](api-custom-events-metrics.md#flushing-data). O comportamento `Flush()` depende do [canal](telemetry-channels.md#built-in-telemetry-channels) real usado.
+
+## <a name="request-count-collected-by-application-insights-sdk-does-not-match-the-iis-log-count-for-my-application"></a>A contagem de pedidos recolhida pela Application Insights SDK não corresponde à contagem de registos do IIS para a minha aplicação
+
+Os registos de serviços de informação da Internet (IIS) contam todas as contagens de todos os pedidos que chegam ao IIS e inerentemente podem diferir do pedido total de chegar a um pedido. Devido a isso, não é garantido que a contagem de pedidos recolhida pelos SDKs corresponda à contagem total de registos do IIS. 
 
 ## <a name="no-data-from-my-server"></a>Nenhum dado do meu servidor
 *Instalei a minha aplicação no meu servidor web, e agora não vejo nenhuma telemetria dele. Funcionou bem na minha máquina de dev.*

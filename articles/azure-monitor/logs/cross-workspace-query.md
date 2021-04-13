@@ -4,13 +4,13 @@ description: Este artigo descreve como pode consultar recursos de vários espaç
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 57ed43b25c9031138a91f0870d316e1ae7a07a5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/11/2021
+ms.openlocfilehash: e007f5af214dcfa475eb59a5981bc580b9499915
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030972"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314240"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realize consulta de log no Azure Monitor que se estende por espaços de trabalho e apps
 
@@ -27,7 +27,7 @@ Existem dois métodos para consultar dados que são armazenados em múltiplos es
 ## <a name="cross-resource-query-limits"></a>Limites de consulta de recursos cruzados 
 
 * O número de recursos de Application Insights e espaços de trabalho log Analytics que pode incluir numa única consulta está limitado a 100.
-* A consulta de recursos cruzados não é suportada no View Designer. Pode autorizar uma consulta no Log Analytics e fixá-la no painel Azure para [visualizar uma consulta de registo](../visualize/tutorial-logs-dashboards.md). 
+* A consulta de recursos cruzados não é suportada no View Designer. Pode autorizar uma consulta no Log Analytics e fixá-la no painel Azure para [visualizar uma consulta de registo](../visualize/tutorial-logs-dashboards.md) ou incluir em livros de [trabalho.](../visualize/workbooks-overview.md)
 * As consultas de recursos cruzados nos alertas de registo só são suportadas na atual [API agendada para a API](/rest/api/monitor/scheduledqueryrules). Se estiver a utilizar o legado Log Analytics Alerts API, terá de [mudar para a API atual.](../alerts/alerts-log-api-switch.md)
 
 
@@ -41,6 +41,9 @@ Identificar um espaço de trabalho pode ser realizado de várias formas:
 
 * Nome de recurso - é um nome legível pelo homem do espaço de trabalho, por vezes referido como *nome de componente*. 
 
+    >[!Note]
+    >Como os nomes de apps e espaço de trabalho não são únicos, este identificador pode ser ambíguo. Quando existem múltiplas instâncias do nome do recurso, a referência deve ser por nome qualificado, ID de recurso ou ID de recursos Azure.
+
     `workspace("contosoretail-it").Update | count`
 
 * Nome qualificado - é o "nome completo" do espaço de trabalho, composto pelo nome de assinatura, grupo de recursos e nome componente neste formato: *subscriptionName/resourceGroup/componentName*. 
@@ -48,8 +51,7 @@ Identificar um espaço de trabalho pode ser realizado de várias formas:
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Como os nomes de subscrição do Azure não são únicos, este identificador pode ser ambíguo. 
-    >
+    >Como os nomes de subscrição do Azure não são únicos, este identificador pode ser ambíguo.
 
 * Workspace ID - Um ID de espaço de trabalho é o identificador único, imutável, atribuído a cada espaço de trabalho representado como um identificador globalmente único (GUID).
 

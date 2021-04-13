@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 399cf8087d39f78184cfdae4b9f0e34efecaea66
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 6dbb1b46aef40986fc2d601aee152aed02591ac0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491617"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312608"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Ligue à Base de Dados Azure para o MySQL - Servidor Flexível com ligações encriptadas
 
@@ -24,9 +24,9 @@ A Azure Database for MySQL Flexible Server suporta ligações encriptadas utiliz
 
 Seguem-se as diferentes configurações das definições SSL e TLS que pode ter para o seu servidor flexível:
 
-| Scenario   | Definições de parâmetros do servidor      | Descrição                                    |
+| Scenario   | Definições de parâmetros do servidor      | Description                                    |
 |------------|--------------------------------|------------------------------------------------|
-|Desativar o SSL (ligações encriptadas) | require_secure_transport = OFF |Se a sua aplicação legado não suportar ligações encriptadas ao servidor MySQL, pode desativar a aplicação de ligações encriptadas ao seu servidor flexível definindo require_secure_transport=OFF.|
+|Desativação da aplicação do SSL | require_secure_transport = OFF |Se a sua aplicação legado não suportar ligações encriptadas ao servidor MySQL, pode desativar a aplicação de ligações encriptadas ao seu servidor flexível definindo require_secure_transport=OFF.|
 |Impor SSL com versão TLS < 1.2 | require_secure_transport = ON and tls_version = TLSV1 ou TLSV1.1| Se a sua aplicação antiga suportar ligações encriptadas mas necessitar da versão TLS < 1.2, pode ativar ligações encriptadas mas configurar o seu servidor flexível para permitir ligações com a versão tls (v1.0 ou v1.1) suportada pela sua aplicação|
 |Impor SSL com versão TLS = 1.2 (Configuração padrão)|require_secure_transport = ON and tls_version = TLSV1.2| Esta é a configuração recomendada e padrão para o servidor flexível.|
 |Impor SSL com versão TLS = 1.3 (Suportado com MySQL v8.0 ou superior)| require_secure_transport = ON and tls_version = TLSV1.3| Isto é útil e recomendado para o desenvolvimento de novas aplicações|
@@ -44,7 +44,7 @@ Neste artigo, aprenderá a:
 * Verifique o estado de encriptação da sua ligação
 * Conecte-se ao seu servidor flexível com ligações encriptadas utilizando várias estruturas de aplicação
 
-## <a name="disable-ssl-on-your-flexible-server"></a>Desative o SSL no seu servidor flexível
+## <a name="disable-ssl-enforcement-on-your-flexible-server"></a>Desativar a aplicação SSL no seu servidor flexível
 Se a sua aplicação ao cliente não suportar ligações encriptadas, terá de desativar a aplicação de ligações encriptadas no seu servidor flexível. Para desativar a aplicação de ligações encriptadas, terá de definir require_secure_transport parâmetro do servidor para OFF, como mostrado na imagem e guardar a configuração do parâmetro do servidor para que este produza efeitos. require_secure_transport é um **parâmetro dinâmico do servidor** que entra em vigor imediatamente e não requer o reinício do servidor para fazer efeito.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Screenshot mostrando como desativar SSL com Base de Dados Azure para servidor flexível MySQL.":::

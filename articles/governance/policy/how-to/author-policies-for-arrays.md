@@ -3,12 +3,12 @@ title: Políticas de autor para propriedades de matrizes em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões linguísticas de matriz, avalie o pseudónimo [*] e apedguia elementos com regras de definição de Política de Azure.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: d4e059f3691554aa91dfd15cf308ef62afa58928
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 18afbee0ca8b1c488e3bd3ce50dacc726bd2ef25
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089972"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305196"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matrizes em recursos Azure
 
@@ -95,7 +95,7 @@ Para utilizar esta cadeia com cada SDK, utilize os seguintes comandos:
 
 - Azure CLI: Atribuição de política de comando [az criar](/cli/azure/policy/assignment#az_policy_assignment_create) com **parâmetros params**
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) com parâmetro **PolicyParameter**
-- REST API: No _PUT_ [criar](/rest/api/resources/policyassignments/create) operação como parte do Corpo de Pedido como valor do **imóvel.parâmetros** propriedade
+- REST API: No _PUT_ [criar](/rest/api/policy/policyassignments/create) operação como parte do Corpo de Pedido como valor do **imóvel.parâmetros** propriedade
 
 ## <a name="using-arrays-in-conditions"></a>Usando matrizes em condições
 

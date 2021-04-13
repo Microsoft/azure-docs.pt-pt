@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ab23b9c2ba4b4ef3c20188b2207d7718c30cfe6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99af5ff3add6d002f3a0e5efdb91215873b8d3c7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599889"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304227"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -82,6 +82,10 @@ Nesta secção, encontra documentos sobre a integração do Microsoft Power BI e
 
 
 ## <a name="change-log"></a>Alterar Registo
+- 04/12/2021: Lançamento do [HSR escalador SAP HANA com Pacemaker em VMs Azure no](./sap-hana-high-availability-scale-out-hsr-suse.md) guia de configuração SLES
+- 04/07/2021: Suporte esclarecido para suporte multi-instância e multi-base de dados do SQL Server em [sql Server Azure Virtual Machines DBMS implantação para SAP NetWeaver](./dbms_guide_sqlserver.md)
+- 04/07/2021: Informação adicional relacionada com endereços IP secundários no [planeamento e implementação de Máquinas Virtuais Azure](./planning-guide.md)
+- 04/07/2021: apoio adicional ao suporte da Oracle DBMS à ANF nos [tipos de armazenamento Azure para a carga de trabalho SAP](./planning-guide-storage.md)
 - 03/17/2021: Alteração em [HA para SAP HANA em VMs Azure em SLES](./sap-hana-high-availability.md), [HA para SAP HANA em VMs Azure em RHEL](./sap-hana-high-availability-rhel.md) e [HA para escala SAP HANA com ANF na RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) para adicionar instruções para replicação do sistema HANA Ative/Read-enabled no cluster Pacemaker
 - 03/15/2021: Alteração da [instância SAP ASCS/SCS com o WSFC e partilha de ficheiros](./sap-high-availability-guide-wsfc-file-share.md),[Instale a instância SAP ASCS/SCS com o WSFC e a partilha de ficheiros](./sap-high-availability-installation-wsfc-file-share.md) e [a MULTI-SID SAP ASCS/SCS com a WSFC e a partilha de ficheiros](./sap-ascs-ha-multi-sid-wsfc-file-share.md) para clarificar que as instâncias SAP ASCS/SCS e a partilha sofs devem ser implantadas em clusters separados
 - 03/03/2021: Alteração no [guia HA para SAP ASCS/SCS com ficheiros WSFC e Azure NetApp (SMB)](./high-availability-guide-windows-netapp-files-smb.md) para adicionar uma declaração cautelosa de que são necessários privilégios elevados para o utilizador que executa o SWPM, durante a instalação do sistema SAP

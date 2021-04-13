@@ -3,12 +3,12 @@ title: Problemas de resolução de problemas com a Azure Event Hubs para Apache 
 description: Este artigo mostra como resolver problemas com os hubs de eventos da Azure para Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9d4a93f0074f206cd4627913505c66eb6480cbd
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90061432"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314087"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guia de resolução de problemas de Apache Kafka para centros de eventos
 Este artigo fornece dicas de resolução de problemas para problemas que você pode encontrar ao usar Os Centros de Eventos para Apache Kafka. 
@@ -67,5 +67,5 @@ Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, con
 
 - [Guia de desenvolvedores apache Kafka para centros de eventos](apache-kafka-developer-guide.md)
 - [Guia de migração apache Kafka para centros de eventos](apache-kafka-migration-guide.md)
-- [Perguntas frequentes - Centros de Eventos para Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Perguntas frequentes - Centros de Eventos para Apache Kafka](apache-kafka-frequently-asked-questions.yml)
 - [Configurações recomendadas](apache-kafka-configurations.md)

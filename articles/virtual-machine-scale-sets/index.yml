@@ -10,12 +10,12 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: 36cb4644dae82802f93e7f6c654005b58d877c20
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: e30d136e1ebd7f0af68ae15741fe220a399d28b5
+  ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101672705"
+  ms.lasthandoff: 04/13/2021
+  ms.locfileid: "107312489"
 landingContent:
 - title: Sobre os conjuntos de dimensionamento de máquinas virtuais
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     - text: O que são os conjuntos de dimensionamento de máquinas virtuais?
       url: overview.md
     - text: Perguntas Mais Frequentes (FAQ)
-      url: virtual-machine-scale-sets-faq.md
+      url: virtual-machine-scale-sets-faq.yml
 - title: Introdução
   linkLists:
   - linkListType: quickstart

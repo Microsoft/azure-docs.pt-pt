@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 7fb25892dc71c0bb4e73101e180a58be6c0c1195
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 8dee8e8175c97faf4877a57ac6cea821964910dc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276812"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313237"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -85,8 +85,8 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Berlim** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Alemanha Norte | 10G | Equinix, NTT Global DataCenters EMEA|
 | **Rio Bogotá** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/a | 10G | Equinix |
 | **Busan** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Sul da Coreia do Sul | n/a | LG CNS |
-| **Camberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Austrália Central | 10G, 100G | CDC |
-| **Camberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Austrália Central 2| 10G, 100G | CDC |
+| **Camberra** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Austrália Central | 10G, 100G | CDC |
+| **Camberra2** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Austrália Central 2| 10G, 100G | CDC |
 | **Cidade do Cabo** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Oeste da África do Sul | 10G | BCX, Soluções de Internet - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | 2 | Sul da Índia | 10G | BSNL, Global CloudXchange (GCX), SIFY, Tata Communications, VodafoneIdea |
 | **Chennai2** | Airtel | 2 | Sul da Índia | 10G | Airtel |

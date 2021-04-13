@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3fff9f4bd34fc1defdb50f2eefbc8ac1f39b46af
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 41b3552a633c9cebce1138fa042dbd154eee0cb5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287275"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314121"
 ---
 # <a name="what-is-optical-character-recognition"></a>O que é o reconhecimento de caracteres óticos?
 
-O serviço de reconhecimento de caracteres óticos (OCR) permite extrair texto impresso ou manuscrito a partir de imagens, tais como fotos de placas ou contentores com números de série, bem como de &mdash; faturas de documentos, contas, relatórios financeiros, artigos e muito mais. Utiliza modelos baseados em aprendizagem profunda e trabalha com texto em uma variedade de superfícies e fundos.
+O serviço de reconhecimento de caracteres óticos (OCR) permite extrair texto impresso ou manuscrito a partir de imagens, tais como fotos de sinais de rua e produtos, bem como de &mdash; faturas de documentos, contas, relatórios financeiros, artigos e muito mais. Utiliza modelos baseados em aprendizagem profunda e trabalha com texto em uma variedade de superfícies e fundos.
 
 As APIs do OCR suportam a extração de texto impresso em [várias línguas.](./language-support.md) Siga um [arranque rápido](./quickstarts-sdk/client-library.md) para começar.
 
@@ -46,7 +46,7 @@ A chamada **de Leitura** requer imagens e documentos como entrada. Têm os segui
 
 ## <a name="read-api"></a>Ler API 
 
-A [API de Leitura de](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) Visão Computacional é a mais recente tecnologia OCR da Azure ([saiba quais as novidades](./whats-new.md)) que extrai texto impresso (em vários idiomas), texto manuscrito (apenas inglês), dígitos e símbolos de moeda a partir de imagens e documentos PDF de várias páginas. É otimizado para extrair texto de imagens pesadas de texto e documentos PDF de várias páginas com línguas mistas. Suporta a deteção de texto impresso e manuscrito na mesma imagem ou documento.
+A [API de Leitura de](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) Visão Computacional é a mais recente tecnologia OCR da Azure ([saiba quais as novidades](./whats-new.md)) que extrai texto impresso (em vários idiomas), texto manuscrito (apenas inglês), dígitos e símbolos de moeda a partir de imagens e documentos PDF de várias páginas. É otimizado para extrair texto de imagens pesadas de texto e documentos PDF de várias páginas com línguas mistas. Suporta a deteção de texto impresso e manuscrito na mesma imagem ou documento.
 
 ![Como o OCR converte imagens e documentos em saída estruturada com texto extraído](./Images/how-ocr-works.svg)
 
@@ -58,9 +58,7 @@ Para a colocação no local, o [recipiente Read Docker (pré-visualização)](./
 
 ## <a name="ocr-api"></a>OCR API
 
-O legado [OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) usa um modelo de reconhecimento mais antigo, suporta apenas imagens e executa sincronizadamente, regressando imediatamente com o texto detetado. Consulte a coluna OCR de [línguas apoiadas](./language-support.md#optical-character-recognition-ocr) para obter uma lista de línguas apoiadas.
-
-## <a name="recognizetext-api"></a>Reconhecer APItext
+O legado [OCR API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) usa um modelo de reconhecimento mais antigo, suporta apenas imagens e executa sincronizadamente, regressando imediatamente com o texto detetado. Consulte a coluna OCR de [línguas apoiadas](./language-support.md#optical-character-recognition-ocr) para obter uma lista de línguas apoiadas.
 
 > [!WARNING]
 > As operações do Computador Visão 2.0 RecogniseText estão em vias de ser depreciadas a favor da nova [API](#read-api) de leitura abrangida por este artigo. Os clientes existentes devem [transitar para a utilização de operações de Leitura](upgrade-api-versions.md).
@@ -71,6 +69,5 @@ Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Começa com o [OCR REST API ou a biblioteca de clientes quickstarts](./quickstarts-sdk/client-library.md).
-- Saiba mais sobre a [API De Leitura 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005)REST .
-- Saiba mais sobre a [API de pré-visualização pública Read 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) com suporte para um total de 73 idiomas.
+- Começa com o [OCR (Ler) REST API ou a biblioteca de clientes quickstarts](./quickstarts-sdk/client-library.md).
+- Saiba mais sobre a [API De Leitura 3.2 REST](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).

@@ -3,12 +3,12 @@ title: Exceções do Azure Relay e como resolvê-las | Microsoft Docs
 description: Lista de exceções do Azure Relay e ações sugeridas que pode tomar para ajudar a resolvê-las.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f9fe2e8aac826bd63d9842bd3380be10e1b87e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625153"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313951"
 ---
 # <a name="azure-relay-exceptions"></a>Exceções do Azure Relay
 
@@ -80,7 +80,7 @@ Há duas causas comuns para este erro:
     Ocasionalmente, o serviço Relay pode sofrer atrasos no processamento de pedidos. Isto pode acontecer, por exemplo, durante períodos de elevado tráfego. Se isto ocorrer, recorra à sua operação após um atraso, até que a operação seja bem sucedida. Se a mesma operação continuar a falhar após várias tentativas, verifique o [site de estado de serviço Azure](https://azure.microsoft.com/status/) para ver se existem falhas de serviço conhecidas.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Perguntas frequentes de retransmissão de Azure](relay-faq.md)
+* [Perguntas frequentes de retransmissão de Azure](relay-faq.yml)
 * [Criar um espaço de nome de retransmissão](relay-create-namespace-portal.md)
 * [Começa com o Azure Relay e .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Começa com o Azure Relay e o Nó](relay-hybrid-connections-node-get-started.md)

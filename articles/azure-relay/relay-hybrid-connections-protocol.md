@@ -3,12 +3,12 @@ title: Guia de protocolo de conexões híbridas Azure Relay | Microsoft Docs
 description: Este artigo descreve as interações do lado do cliente com o relé Conexões Híbridas para ligar clientes em funções de ouvinte e remetente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 36321f88de173a37c9aa6615c4c0f2b29aec9f20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95eb6a66ac7580f115c85ddb258768b9eef62321
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97976967"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314223"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexões híbridas Azure Relay
 
@@ -498,7 +498,7 @@ Se houver um erro, o serviço pode responder da seguinte forma. Se a resposta te
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [FAQ de Reencaminhamento](relay-faq.md)
+* [FAQ de Reencaminhamento](relay-faq.yml)
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
 * [Começar com .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Nó](relay-hybrid-connections-node-get-started.md)

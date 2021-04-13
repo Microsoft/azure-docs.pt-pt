@@ -16,18 +16,20 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6253458bb31388e5f7e6f84b7720cce0dc22886c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97f6e158065fd8f5f8a377b4da17b7b0357b66e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259965"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305400"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Pedido de consentimento inesperado ao iniciar sessão de candidatura
 
 Muitas aplicações que se integram com o Azure Ative Directory requerem permissões a vários recursos para poder executar. Quando estes recursos também são integrados com o Azure Ative Directory, as permissões de acesso aos mesmos são solicitadas utilizando o quadro de consentimento Azure AD. 
 
 Isto resulta numa indicação de consentimento da primeira vez que um pedido é usado, que é frequentemente uma operação única. 
+
+> [!VIDEO https://www.youtube.com/embed/a1AjdvNDda4]
 
 ## <a name="scenarios-in-which-users-see-consent-prompts"></a>Cenários em que os utilizadores vêem pedidos de consentimento
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 410ced99b1c5053c084921edf4d9bbde1a9443c4
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 538b3ce5a268464b9f014dd00b924875824cab3b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073349"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107326987"
 ---
 <a name="HOLTop"></a>
 
@@ -41,7 +41,7 @@ Utilizando o Visual Studio, crie uma nova aplicação .NET Core.
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente 
 
-Depois de criar um novo projeto, instale a biblioteca do cliente clicando corretamente na solução de projeto no **Solution Explorer** e selecione **Gerir pacotes NuGet**. No gestor de pacotes que abre **selecione Navegar,** verificar **Incluir pré-relançar,** e procurar `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` . Selecione a versão `6.0.0-preview.1` e, em seguida, **instale**. 
+Depois de criar um novo projeto, instale a biblioteca do cliente clicando corretamente na solução de projeto no **Solution Explorer** e selecione **Gerir pacotes NuGet**. No gestor de pacotes que abre **selecione Navegar,** verificar **Incluir pré-relançar,** e procurar `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` . Selecione a versão `7.0.0` e, em seguida, **instale**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -72,7 +72,7 @@ Build succeeded.
 Dentro do diretório de aplicações, instale a biblioteca cliente Computer Vision para .NET com o seguinte comando:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 ```
 
 ---
@@ -129,7 +129,7 @@ Num novo método na classe **Programa,** instantânea um cliente com a sua chave
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
-O serviço OCR pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, consulte a visão geral do [reconhecimento de caracteres óticos (OCR).](../../overview-ocr.md) O código nesta secção utiliza a mais recente [versão SDK da Visão De Computador para a Leitura 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) e define um método, `BatchReadFileUrl` que utiliza o objeto do cliente para detetar e extrair texto na imagem.
+O serviço OCR pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, consulte a visão geral do [reconhecimento de caracteres óticos (OCR).](../../overview-ocr.md) O código nesta secção utiliza a mais recente [versão SDK da Visão De Computador para a Leitura 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) e define um método, `BatchReadFileUrl` que utiliza o objeto do cliente para detetar e extrair texto na imagem.
 
 > [!TIP]
 > Também pode extrair texto de uma imagem local. Consulte os métodos [ComputerVisionClient,](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) tais como **ReadInStreamAsync**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) para cenários que envolvam imagens locais.

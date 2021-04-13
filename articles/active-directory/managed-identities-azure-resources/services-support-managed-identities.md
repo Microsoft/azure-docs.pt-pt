@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 058873df989c444ebe06fc20a2f8a40fd2d3c594
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d6fcf0e2f2f5a6fb89ef5c2c45dcd4541fa6d1c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594551"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308409"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -290,7 +290,7 @@ Consulte a seguinte lista para configurar a identidade gerida para a Política A
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [CLI do Azure](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Modelos do Azure Resource Manager](/azure/templates/microsoft.authorization/policyassignments)
-- [REST](/rest/api/resources/policyassignments/create)
+- [REST](/rest/api/policy/policyassignments/create)
 
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric

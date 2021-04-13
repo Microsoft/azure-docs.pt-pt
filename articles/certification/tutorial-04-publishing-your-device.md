@@ -1,18 +1,18 @@
 ---
 title: Programa Azure Certified Device - Tutorial - Publicar o seu dispositivo
 description: Um guia passo a passo para publicar o seu dispositivo certificado no catálogo de dispositivos certificados Azure
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 423765e6e35af3b776bea9fa314a6815b0c24461
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 5018cc5939f7fe67be3d7e69f20cc4b6a58de56a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969744"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307032"
 ---
 # <a name="tutorial-publish-your-device"></a>Tutorial: Publique o seu dispositivo
 

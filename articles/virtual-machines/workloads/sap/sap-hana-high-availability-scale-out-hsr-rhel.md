@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/01/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: dd000ca36bb0ad586b973b2bcdc638d8992b1a73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2610ed46d707af6acfb1b6004df4367add94391
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668644"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305162"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidade do sistema de escala SAP HANA no Red Hat Enterprise Linux 
 
@@ -215,7 +215,6 @@ Para a configuração apresentada neste documento, desloque sete máquinas virtu
       1. Introduza o nome da nova regra do balançador de carga (por exemplo, **hana-lb**).
       1. Selecione o endereço IP frontal, o pool traseiro e a sonda de saúde que criou anteriormente (por exemplo, **hana-frontend,** **hana-backend** e **hana-hp).**
       1. Selecione **portas HA**.
-      1. Aumente o **tempo de 30** minutos.
       1. Certifique-se de que ativa o **IP flutuante**.
       1. Selecione **OK**.
 

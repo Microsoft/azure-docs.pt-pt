@@ -260,6 +260,8 @@
               href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
             - name: Criar o interruptor virtual
               href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+            - name: Fazer o back up discos VM
+              href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
         - name: Gerir certificados
           items:
             - name: Requisitos

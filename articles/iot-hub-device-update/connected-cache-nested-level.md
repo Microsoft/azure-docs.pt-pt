@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7facb74cd407c576b2a7b119f19427dcd185f04e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e9749dfd7b28551a4fc2e7c6ba70ba9cce4e5a69
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568822"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307304"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Amostra do cenário de visualização da cache conectada da Microsoft: Dois níveis aninhado Azure IoT Edge Gateway com procuração não autenticada de saída
 
@@ -70,7 +70,7 @@ O diagrama abaixo descreve o cenário em que um gateway Azure IoT Edge como aces
 ## <a name="child-gateway-configuration"></a>Configuração do gateway infantil
 
 >[!Note]
->Se tiver recipientes replicados utilizados na sua configuração no seu próprio registo privado, terá de haver uma modificação nas definições config.toml e nas definições de tempo de funcionamento na implementação do módulo. Para mais informações, consulte [tutorial - Crie uma hierarquia de dispositivos IoT Edge - Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-the-lower-layer-device) para mais detalhes.
+>Se tiver recipientes replicados utilizados na sua configuração no seu próprio registo privado, terá de haver uma modificação nas definições config.toml e nas definições de tempo de funcionamento na implementação do módulo. Para obter mais informações, consulte os [dispositivos IoT Edge a jusante - Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-lower-layer-devices) para obter mais detalhes.
 
 1. Modificar o caminho de imagem para o agente Edge, como demonstrado no exemplo abaixo:
 

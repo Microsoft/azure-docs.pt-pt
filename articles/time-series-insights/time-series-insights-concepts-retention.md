@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26363031aea37c53cce098e2b6cbc2b4d93b918f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91535694"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307083"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Compreender a retenção de dados em Azure Time Series Insights Gen1
 
@@ -85,7 +85,7 @@ Nessa altura, o ambiente mostra o mesmo conjunto de dados até que a entrada ret
 Quando a entrada recomeça:
 
 - Fluxos de dados na ordem que foi recebido por fonte de evento
-- Os eventos são indexados com base na sua marca de tempo, a menos que tenha excedido as políticas de retenção na sua fonte de evento. Para mais informações sobre a configuração de retenção de fontes de [evento, O Evento Hubs FAQ](../event-hubs/event-hubs-faq.md)
+- Os eventos são indexados com base na sua marca de tempo, a menos que tenha excedido as políticas de retenção na sua fonte de evento. Para mais informações sobre a configuração de retenção de fontes de [evento, O Evento Hubs FAQ](../event-hubs/event-hubs-faq.yml)
 
 > [!IMPORTANT]
 > Deve definir alertas para fornecer aviso para ajudar a evitar a pausa. A perda de dados é possível uma vez que a retenção por defeito é de 1 dia para fontes de eventos Azure. Portanto, uma vez que a entrada é pausa, você provavelmente perde os dados mais recentes, a menos que sejam tomadas medidas adicionais. Deve aumentar a capacidade ou mudar o comportamento para **purgar dados antigos** para evitar o potencial de perda de dados.

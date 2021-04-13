@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5444f6adb9d441cb6253c180cf2d079c1c36316c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: de24f6c8436b4537519f8cc65931325dd7d5f8d9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562686"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313356"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Windows (pré-visualização)
 
@@ -58,11 +58,9 @@ Certifique-se de que o seu dispositivo IoT Edge cumpre os seguintes requisitos:
     * Profissional, Enterprise, IoT Enterprise
   * Windows Server 2019 construir 17763 ou mais tarde
 
-  
 * Requisitos de hardware
   * Memória mínima gratuita: 2 GB
   * Espaço mínimo de disco gratuito: 10 GB
-
 
 >[!NOTE]
 >Este quickstart utiliza o Windows Admin Center para criar uma implementação de IoT Edge para Linux no Windows. Também pode utilizar o PowerShell. Se desejar utilizar o PowerShell para criar a sua implantação, siga os passos no guia de como [instalar e a provisionar o Azure IoT Edge para o Linux num dispositivo Windows](how-to-install-iot-edge-on-windows.md).
@@ -185,7 +183,57 @@ Gerencie o seu dispositivo Azure IoT Edge a partir da nuvem para implementar um 
 
 ![Diagrama que mostra o passo para implantar um módulo.](./media/quickstart/deploy-module.png)
 
+<!--
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+
+Include content included below to support versioned steps in Linux quickstart. Can update include file once Windows quickstart supports v1.2
+-->
+
+Uma das principais capacidades do Azure IoT Edge é a implementação de código para os seus dispositivos IoT Edge a partir da nuvem. *Os módulos IoT Edge* são pacotes executáveis implementados como recipientes. Nesta secção, irá implantar um módulo pré-construído a partir da [secção IoT Edge Modules do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) diretamente do Azure IoT Hub.
+
+O módulo que implementa nesta secção simula um sensor e envia dados gerados. Este módulo é um código útil quando está a começar com o IoT Edge porque pode usar os dados simulados para desenvolvimento e teste. Se quiser ver exatamente o que este módulo faz, pode ver o [código-fonte do sensor de temperatura simulado](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
+
+Siga estes passos para implementar o seu primeiro módulo a partir do Azure Marketplace.
+
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e vá para o seu hub IoT.
+
+1. A partir do menu à esquerda, em **Gestão Automática de Dispositivos,** selecione **IoT Edge**.
+
+1. Selecione o ID do dispositivo do dispositivo alvo na lista de dispositivos.
+
+1. Na barra superior, selecione **Módulos de Conjunto**.
+
+   ![Screenshot que mostra a seleção de Módulos de Conjunto.](./media/quickstart/select-set-modules.png)
+
+1. Nos **Módulos IoT Edge,** abra o menu **Add** drop-down e, em seguida, selecione **o Módulo de Mercado**.
+
+   ![Screenshot que mostra o menu Add drop-down.](./media/quickstart/add-marketplace-module.png)
+
+1. No **IoT Edge Module Marketplace,** procure e selecione o `Simulated Temperature Sensor` módulo.
+
+   O módulo é adicionado à secção IoT Edge Modules com o estado de **funcionamento** pretendido.
+
+1. Selecione **Seguinte: Rotas** para continuar até ao próximo passo do assistente.
+
+   ![Screenshot que mostra continuar para o próximo passo após a adição do módulo.](./media/quickstart/view-temperature-sensor-next-routes.png)
+
+1. No separador **Rotas,** remova a rota padrão, **rota** e, em seguida, selecione **Seguinte: Review + create** para continuar para o próximo passo do assistente.
+
+   >[!Note]
+   >As rotas são construídas utilizando pares de nome e valor. Devia ver duas rotas nesta página. A rota padrão, **rota,** envia todas as mensagens para ioT Hub (que é chamado `$upstream` de ). Uma segunda rota, **SimulatedTemperatureSensorToIoTHub,** foi criada automaticamente quando adicionou o módulo do Azure Marketplace. Esta rota envia todas as mensagens do módulo de temperatura simulada para o IoT Hub. Pode apagar a rota padrão porque é redundante neste caso.
+
+   ![Screenshot que mostra remover a rota padrão e depois passar para o passo seguinte.](./media/quickstart/delete-route-next-review-create.png)
+
+1. Reveja o ficheiro JSON e, em seguida, **selecione Criar**. O ficheiro JSON define todos os módulos que implementa no seu dispositivo IoT Edge. Você verá o módulo **SimulaedTemperatureSensor** e os dois módulos de tempo de execução, **edgeAgent** e **edgeHub**.
+
+   >[!Note]
+   >Quando submete uma implementação nova para um dispositivo do IoT Edge, nada é enviado para o seu dispositivo. Em vez disso, o dispositivo consulta regularmente o Hub IoT para obter novas instruções. Se o dispositivo encontrar um manifesto de implementação atualizado, este irá utilizar as informações sobre a nova implementação para obter as imagens do módulo da cloud e, em seguida, começa a executar os módulos localmente. Este processo pode demorar alguns minutos.
+
+1. Depois de criar os detalhes da implementação do módulo, o assistente devolve-o à página de detalhes do dispositivo. Ver o estado de implantação no **separador Módulos.**
+
+   Deverá ver três módulos: **$edgeAgent,** **$edgeHub** e **Simulação DetemperatureSensor**. Se um ou mais dos módulos tiver **SIM** em **ESPECIFICAÇÃO EM IMPLEMENTAÇÃO,** mas não sob **O DISPOSITIVO REPORTADO POR DISPOSITIVO,** o seu dispositivo IoT Edge ainda os está a iniciar. Espere alguns minutos e, em seguida, refresque a página.
+
+   ![Screenshot que mostra sensor de temperatura simulado na lista de módulos implantados.](./media/quickstart/view-deployed-modules.png)
 
 ## <a name="view-the-generated-data"></a>Ver os dados gerados
 

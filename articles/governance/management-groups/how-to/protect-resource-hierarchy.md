@@ -1,14 +1,14 @@
 ---
 title: Como proteger a sua hierarquia de recursos - Azure Governance
 description: Saiba como proteger a sua hierarquia de recursos com definições de hierarquia que incluem a definição do grupo de gestão padrão.
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d13a0235152046eff2585da170d5fba0e9d3b09
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 11c20ccf5aff74d810533cd56e0a7b116f2dc64b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259086"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303649"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos
 
@@ -110,6 +110,28 @@ Para configurar esta definição com a API REST, o ponto final [de Definições 
   ```
 
 Para desligar a regulação, utilize o mesmo ponto final e defina **o requerer a Autenticação para oGroupCreation** a um valor de **falso**.
+
+## <a name="powershell-sample"></a>Exemplo do PowerShell
+
+A PowerShell não tem um comando 'Az' para definir o grupo de gestão padrão ou definir a autorização, mas como uma solução alternativa pode alavancar a API REST com a amostra PowerShell abaixo:
+
+```powershell
+$root_management_group_id = "Enter the ID of root management group"
+$default_management_group_id = "Enter the ID of default management group (or use the same ID of the root management group)"
+
+$body = '{
+     "properties": {
+          "defaultManagementGroup": "/providers/Microsoft.Management/managementGroups/' + $default_management_group_id + '",
+          "requireAuthorizationForGroupCreation": true
+     }
+}'
+
+$token = (Get-AzAccessToken).Token
+$headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
+$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
+
+Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

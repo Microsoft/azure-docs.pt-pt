@@ -3,15 +3,15 @@ title: Iniciar a ligação da máquina virtual - Azure
 description: Como configurar a máquina virtual de arranque na função de ligação.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 04/10/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d9ce9811cd660c9a9b1fcb6f9e24cadd65d3c2bc
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445606"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303968"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Iniciar a máquina virtual na ligação (pré-visualização)
 
@@ -35,8 +35,7 @@ Os seguintes clientes remotos de desktop suportam a função Start VM on Connect
 
 Pode consultar anúncios sobre atualizações e apoio ao cliente no [fórum da Comunidade Tecnológica.](https://aka.ms/wvdtc)
 
->[!IMPORTANT]
->A função Start VM on Connect suporta atualmente apenas a PowerShell e a REST API, e não o portal Azure. Para mais informações, consulte [Criar ou atualizar uma piscina de anfitriões.](/rest/api/desktopvirtualization/hostpools/createorupdate)
+A nuvem do Governo Azure não suporta atualmente o Start VM on Connect.
 
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Crie uma função personalizada para iniciar vM no Connect
 
@@ -115,6 +114,24 @@ Iniciar VM no Connect é uma definição de piscina hospedeira. Se pretender ape
 
 >[!IMPORTANT]
 > Você só pode configurar esta funcionalidade em piscinas de anfitriões existentes. Esta funcionalidade não está disponível quando cria uma nova piscina de anfitriões.
+
+### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
+
+Para utilizar o portal Azure para configurar o Start VM no Connect:
+
+1. Abra o seu navegador e vá ao [portal Azure.](https://portal.azure.com/?feature.startVMonConnect=true#home) Recomendamos que abra o portal Azure numa janela InPrivate.
+
+2. No portal Azure, aceda ao **Windows Virtual Desktop**.
+
+3. Selecione **as piscinas host,** em seguida, encontre o pool anfitrião que contém os ambientes de trabalho pessoais a que atribuiu o papel.
+
+   >[!NOTE]
+   > A piscina de anfitriões em que configura esta funcionalidade deve ter ambientes de trabalho pessoais com atribuições de funções diretas. Se os ambientes de trabalho na piscina de anfitrião não estiverem configurados corretamente, o processo de configuração não funcionará.
+
+4. Na piscina de anfitriões, selecione **Properties**. Em **Iniciar VM na ligação**, selecione **Sim,** em seguida, selecione **Guardar** para aplicar instantaneamente a definição.
+
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da janela Propriedades. A opção Start VM na opção connect é realçada a vermelho.](media/properties-start-vm-on-connect.png)
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 

@@ -12,3 +12,25 @@
     - name: Segurança
       tocHref: /azure/architecture/
       topicHref: /azure/security/index
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Segurança
+      tocHref: /azure/active-directory/
+      topicHref: /azure/Security/index
+      items:
+        - name: Noções Básicas
+          tocHref: /azure/active-directory/authentication
+          topicHref: /azure/security/fundamentals/index
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Segurança
+      tocHref: /azure/architecture/
+      topicHref: /azure/Security/index
+      items:
+        - name: Noções Básicas
+          tocHref: /azure/architecture/framework/security
+          topicHref: /azure/security/fundamentals/index

@@ -3,21 +3,21 @@ title: Tutorial - Adicione domínio personalizado à configuração da porta fro
 description: Neste tutorial, ficará a saber como integrar um domínio personalizado no Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: duongau
+author: jessie-jyy
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2020
-ms.author: duau
-ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.date: 04/12/2021
+ms.author: yuajia
+ms.openlocfilehash: 7e2f05a7d911ce2b311a423994d2b459de0fa269
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550766"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308868"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Adicionar um domínio personalizado ao Front Door
 
@@ -40,9 +40,9 @@ Neste tutorial, ficará a saber como:
 
 * Para concluir os passos neste tutorial, tem primeiro de criar um Front Door. Para obter mais informações, veja [Quickstart: Create a Front Door](quickstart-create-front-door.md) (Início Rápido: Criar um Front Door).
 
-* Se ainda não tiver um domínio personalizado, tem primeiro de comprar um junto de um fornecedor de domínios. Por exemplo, veja [Buy a custom domain name](../app-service/manage-custom-dns-buy-domain.md) (Comprar um nome de domínio personalizado).
+* Se ainda não tem um domínio personalizado, tem primeiro de comprar um com um fornecedor de domínio. Por exemplo, veja [Buy a custom domain name](../app-service/manage-custom-dns-buy-domain.md) (Comprar um nome de domínio personalizado).
 
-* Se estiver a utilizar o Azure para alojar os seus [domínios DNS](../dns/dns-overview.md), tem de delegar o sistema de nomes de domínio (DNS) do fornecedor do domínio a um DNS do Azure. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](../dns/dns-delegate-domain-azure-dns.md). Caso contrário, se estiver a utilizar um fornecedor de domínios para processar o seu domínio DNS, avance para [Criar um registo DNS CNAME](#create-a-cname-dns-record).
+* Se estiver a utilizar o Azure para hospedar os seus [domínios DNS,](../dns/dns-overview.md)tem de delegar o sistema de nome de domínio do fornecedor de domínio (DNS) num DNS Azure. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](../dns/dns-delegate-domain-azure-dns.md). Caso contrário, se estiver a utilizar um fornecedor de domínio para manusear o seu domínio DNS, continue a [criar um registo DE DNS CNAME](#create-a-cname-dns-record).
 
 
 ## <a name="create-a-cname-dns-record"></a>Criar um registo DNS CNAME
@@ -54,9 +54,9 @@ Um domínio personalizado e o seu subdomínio podem ser associados apenas a uma 
 
 ## <a name="map-the-temporary-afdverify-subdomain"></a>Mapear o subdomínio afdverificar temporariamente
 
-Quando mapear um domínio existente que esteja em produção, existem considerações especiais. Enquanto estiver a registar o domínio personalizado no Portal do Azure, o domínio pode sofrer um breve período de inatividade. Para evitar a interrupção do tráfego web, primeiro mapear o seu domínio personalizado para o seu anfitrião frontal padrão da Porta Frontal com o subdomínio afdverificar Azure para criar um mapeamento CNAME temporário. Com este método, os utilizadores podem aceder ao seu domínio sem interrupção enquanto o mapeamento de DNS decorre.
+Quando mapear um domínio existente que esteja em produção, existem considerações especiais. Enquanto regista o seu domínio personalizado no portal Azure, pode ocorrer um breve período de inatividade para o domínio. Para evitar a interrupção do tráfego web, primeiro mapear o seu domínio personalizado para o seu anfitrião frontal padrão da Porta Frontal com o subdomínio afdverificar Azure para criar um mapeamento CNAME temporário. Com este método, os utilizadores podem aceder ao seu domínio sem interrupção enquanto o mapeamento de DNS decorre.
 
-Caso contrário, se estiver a utilizar o domínio personalizado pela primeira vez e se não estiver a ser executado nenhum tráfego de produção, poderá mapeá-lo diretamente para o Front Door. Avance para [Mapear domínio personalizado permanente](#map-the-permanent-custom-domain).
+Caso contrário, se estiver a utilizar o seu domínio personalizado pela primeira vez e não houver tráfego de produção, pode mapear diretamente o seu domínio personalizado para a sua Porta frontal. continuar a [mapear o domínio personalizado permanente.](#map-the-permanent-custom-domain)
 
 Para criar um registo CNAME com o subdomínio afdverify:
 
@@ -109,13 +109,13 @@ Depois de registar o domínio personalizado, pode adicioná-lo ao Front Door.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) e navegue para o Front Door que contém o anfitrião de front-end que quer mapear para um domínio personalizado.
     
-2. Na página **Estruturador do Front Door**, clique em “+” para adicionar um domínio personalizado.
+2. Na página de **design da porta frontal,** selecione '+' para adicionar um domínio personalizado.
     
 3. Especifique o **Domínio personalizado**. 
 
 4. Para **Anfitrião de front-end**, o anfitrião de front-end a utilizar como o domínio de destino do registo CNAME é preenchido previamente e é derivado do Front Door: *&lt;nome do anfitrião predefinido&gt;*.azurefd.net. Não pode ser alterado.
 
-5. Para o **Nome de anfitrião personalizado**, introduza o seu domínio personalizado, incluindo o subdomínio para utilizar como o domínio de origem do seu registo de CNAME. Por exemplo, www \. contoso.com ou cdn.contoso.com. Não utilize o nome do subdomínio afdverify.
+5. Para o **Nome de anfitrião personalizado**, introduza o seu domínio personalizado, incluindo o subdomínio para utilizar como o domínio de origem do seu registo de CNAME. Por exemplo, www \. contoso.com ou cdn.contoso.com. Não use o nome de subdomínio afdverify.
 
 6. Selecione **Adicionar**.
 
@@ -126,14 +126,14 @@ Depois de registar o domínio personalizado, pode adicioná-lo ao Front Door.
 
 ## <a name="verify-the-custom-domain"></a>Verificar o domínio personalizado
 
-Depois de concluir o registo do domínio personalizado, confirme que este referencia o anfitrião de front-end do Front Door predefinido.
+Depois de ter concluído o registo do seu domínio personalizado, verifique se o domínio personalizado faz referência ao anfitrião frontal padrão.
  
 No browser, utilize o domínio personalizado para navegar para o endereço do ficheiro. Por exemplo, se o domínio personalizado for robotics.contoso.com, o URL para o ficheiro em cache deverá ser semelhante a: http:\//robotics.contoso.com/my-public-container/my-file.jpg. Verifique se o resultado é o mesmo que quando acede diretamente à porta da frente no *&lt; anfitrião &gt; da porta da frente*.azurefd.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapear o domínio personalizado permanente
 
-Se tiver verificado que o subdomínio afdverify foi mapeado com êxito para o Front Door (ou se estiver a utilizar um domínio personalizado novo que não está em produção), poderá mapear o domínio personalizado diretamente para o anfitrião de front-end do Front Door predefinido.
+Se verificou que o subdomínio afdverify foi mapeado com sucesso para a porta da frente (ou se estiver a utilizar um novo domínio personalizado que não está em produção), pode então mapear o domínio personalizado diretamente para o seu anfitrião frontal da porta frontal predefinido.
 
 Para criar um registo CNAME para o domínio personalizado:
 
@@ -157,7 +157,7 @@ Para criar um registo CNAME para o domínio personalizado:
 
 5. Se tiver criado anteriormente um registo CNAME para o subdomínio afdverify temporário, elimine-o. 
 
-6. Se estiver a utilizar este domínio personalizado em produção pela primeira vez, siga os passos para [Associar o domínio personalizado ao Front Door](#associate-the-custom-domain-with-your-front-door) e [Verificar o domínio personalizado](#verify-the-custom-domain).
+6. Se estiver a utilizar este domínio personalizado em produção pela primeira vez, siga os passos para [associar o domínio personalizado à sua porta frontal](#associate-the-custom-domain-with-your-front-door) e verifique o domínio [personalizado](#verify-the-custom-domain).
 
 Por exemplo, o procedimento para a entidade de registo de domínios GoDaddy é o seguinte:
 
@@ -187,17 +187,18 @@ Por exemplo, o procedimento para a entidade de registo de domínios GoDaddy é o
 
 8. Selecione **Delete** para eliminar o registo CNAME.
 
-
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Nos passos anteriores, adicionou um domínio personalizado a um Front Door. Se já não pretender associar o Front Door a um domínio personalizado, poderá executar os passos abaixo para remover o domínio personalizado:
+Nos passos anteriores, adicionou um domínio personalizado a um Front Door. Se já não quiser associar a porta da frente a um domínio personalizado, pode remover o domínio personalizado fazendo estes passos:
  
-1. No estruturador do Front Door, selecione o domínio personalizado que quer remover.
+1. Vá ao seu fornecedor DNS, elimine o registo CNAME para o domínio personalizado ou atualize o registo CNAME para o domínio personalizado para um ponto final não frontal.
 
-2. No menu de contexto do domínio personalizado, clique em Eliminar.  
+    > [!Important]
+    > Para evitar entradas pendentes de DNS e os riscos de segurança que criam, a partir de 9 de abril de 2021, a Porta Frontal Azure exige a remoção dos registos CNAME para os pontos finais da Porta Frontal antes de os recursos poderem ser eliminados. Os recursos incluem domínios personalizados da Porta Frontal, pontos finais da porta frontal ou grupos de recursos Azure que têm domínios personalizados da Porta frontal ativados.
 
-   O domínio personalizado é desassociado do ponto final.
+2. No estruturador do Front Door, selecione o domínio personalizado que quer remover.
 
+3. Selecione **Excluir** do menu de contexto para o domínio personalizado. O domínio personalizado irá agora dissociar-se do seu ponto final.
 
 ## <a name="next-steps"></a>Passos seguintes
 

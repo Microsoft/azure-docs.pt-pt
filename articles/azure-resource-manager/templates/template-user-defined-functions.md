@@ -2,13 +2,13 @@
 title: Funções definidas pelo utilizador em modelos
 description: Descreve como definir e utilizar funções definidas pelo utilizador num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 802ac6e1c70db8caa58aecde3efe814430c79682
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379629"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307780"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funções definidas pelo utilizador no modelo ARM
 
@@ -107,6 +107,7 @@ Ao definir uma função de utilizador, existem algumas restrições:
 * A função só pode utilizar parâmetros definidos na função. Quando utiliza a função de [parâmetros](template-functions-deployment.md#parameters) dentro de uma função definida pelo utilizador, está restrito aos parâmetros para essa função.
 * A função não pode chamar outras funções definidas pelo utilizador.
 * A função não pode utilizar a função [de referência](template-functions-resource.md#reference) ou qualquer uma das funções da [lista.](template-functions-resource.md#list)
+* A função não pode utilizar a [funçãoTimeAdd.](template-functions-date.md#datetimeadd)
 * Os parâmetros para a função não podem ter valores predefinidos.
 
 ## <a name="next-steps"></a>Passos seguintes

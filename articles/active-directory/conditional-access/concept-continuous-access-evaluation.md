@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055778"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305978"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -142,7 +142,7 @@ A partir desta página, pode opcionalmente limitar os utilizadores e grupos que 
 Para o CAE, só temos informações sobre locais nomeados com base em IP. Não temos informações sobre outras definições de localização, como [IPs fidedignos de MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) ou localizações baseadas em país. Quando o utilizador vem de um IP fidedigno da MFA ou de localizações fidedignas que incluem IPs fidedignos MFA ou localização do país, o CAE não será aplicado após a mudança do utilizador para um local diferente. Nesses casos, emitiremos um token CAE de 1 hora sem verificação instantânea da aplicação da legislação em matéria de IP.
 
 > [!IMPORTANT]
-> Ao configurar locais para avaliação contínua de acesso, utilize apenas a [condição de localização de acesso condicional baseada em IP](../conditional-access/location-condition.md#preview-features) e configure todos os endereços IP, **incluindo o IPv4 e o IPv6,** que podem ser vistos pelo seu fornecedor de identidade e fornecedor de recursos. Não utilize condições de localização do país ou a funcionalidade ips fidedigna que esteja disponível na página de serviços de autenticação multi-factor Azure AD.
+> Ao configurar locais para avaliação contínua de acesso, utilize apenas a [condição de localização de acesso condicional baseada em IP](../conditional-access/location-condition.md) e configure todos os endereços IP, **incluindo o IPv4 e o IPv6,** que podem ser vistos pelo seu fornecedor de identidade e fornecedor de recursos. Não utilize condições de localização do país ou a funcionalidade ips fidedigna que esteja disponível na página de serviços de autenticação multi-factor Azure AD.
 
 ### <a name="ip-address-configuration"></a>Configuração do endereço IP
 

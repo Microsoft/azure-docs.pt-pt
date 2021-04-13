@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 5516e17a74fffd28f432df305dfa7f592644d4a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a33d0fb36fabea039b83a0ce8dcf7872435b264
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611577"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304754"
 ---
 # <a name="nd-series"></a>Série ND
 
@@ -20,6 +20,7 @@ As máquinas virtuais da série ND são uma nova adição à família GPU projet
 
 [Armazenamento Premium](premium-storage-performance.md): Suportado<br>
 [Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Ultra Discos](disks-types.md#ultra-disk): Suportado[(Saiba mais](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre disponibilidade, utilização e desempenho) <br>
 [Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>

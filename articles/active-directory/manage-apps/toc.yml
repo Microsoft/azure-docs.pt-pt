@@ -321,7 +321,7 @@
 - name: Referência
   items:
     - name: App Proxy FAQ
-      href: application-proxy-faq.md
+      href: application-proxy-faq.yml
     - name: Certificados de Gestão de Aplicativos FAQ
       href: application-management-certs-faq.md
     - name: Histórico de versões do Proxy de Aplicação

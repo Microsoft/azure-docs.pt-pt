@@ -3,12 +3,12 @@ title: Monitorização da saúde em Tecido de Serviço
 description: Uma introdução ao modelo de monitorização da saúde do Azure Service Fabric, que proporciona a monitorização do cluster e das suas aplicações e serviços.
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.openlocfilehash: a1c545048739182e3baba3e3d94da1accca227d1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1fa000d46a6199fa23f07e5310eaca96b60a183f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627420"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311282"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 A Azure Service Fabric introduz um modelo de saúde que proporciona uma avaliação e reporte de saúde rica, flexível e extensível. O modelo permite um acompanhamento quase em tempo real do estado do cluster e dos serviços que nele se insem. Você pode facilmente obter informações de saúde e corrigir potenciais problemas antes que eles em cascata e causar falhas massivas. No modelo típico, os serviços enviam relatórios com base nas suas opiniões locais, e essa informação é agregada para fornecer uma visão global ao nível do cluster.
@@ -99,7 +99,7 @@ A política de saúde do cluster contém:
   </FabricSettings>
   ```
 
-* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). O mapa da política de saúde do tipo nó pode ser usado durante a avaliação da saúde do cluster para descrever tipos especiais de nó. Os tipos de nó são avaliados em comparação com as percentagens associadas ao nome do nó no mapa. A definição deste valor não tem qualquer efeito no conjunto global de nós utilizados para `MaxPercentUnhealthyNodes` . Por exemplo, um cluster tem centenas de nós de diferentes tipos e alguns tipos de nós que acolhem trabalhos importantes. Nenhum nós deste tipo deve estar para baixo. Você pode especificar global `MaxPercentUnhealthyNodes` a 20% para tolerar algumas falhas para todos os nós, mas para o tipo de `SpecialNodeType` nó, definir o `MaxPercentUnhealthyNodes` para 0. Desta forma, se alguns dos muitos nós não forem saudáveis, mas abaixo da percentagem global de insalubres, o cluster seria avaliado como estando no estado de alerta de saúde. Um estado de saúde de aviso não afeta a atualização do cluster ou outra monitorização desencadeada por um estado de saúde de Erro. Mas mesmo um nó de tipo num estado de `SpecialNodeType` saúde de Erro tornaria o cluster insalubre e desencadearia o revés ou interromperia a atualização do cluster, dependendo da configuração de upgrade. Inversamente, fixar o global `MaxPercentUnhealthyNodes` para 0 e fixar os `SpecialNodeType` nós máximos por cento não saudáveis para 100 com um nó de tipo num estado de erro ainda colocaria o cluster num estado de `SpecialNodeType` erro porque a restrição global é mais rigorosa neste caso. 
+* `NodeTypeHealthPolicyMap`. O mapa da política de saúde do tipo nó pode ser usado durante a avaliação da saúde do cluster para descrever tipos especiais de nó. Os tipos de nó são avaliados em comparação com as percentagens associadas ao nome do nó no mapa. A definição deste valor não tem qualquer efeito no conjunto global de nós utilizados para `MaxPercentUnhealthyNodes` . Por exemplo, um cluster tem centenas de nós de diferentes tipos e alguns tipos de nós que acolhem trabalhos importantes. Nenhum nós deste tipo deve estar para baixo. Você pode especificar global `MaxPercentUnhealthyNodes` a 20% para tolerar algumas falhas para todos os nós, mas para o tipo de `SpecialNodeType` nó, definir o `MaxPercentUnhealthyNodes` para 0. Desta forma, se alguns dos muitos nós não forem saudáveis, mas abaixo da percentagem global de insalubres, o cluster seria avaliado como estando no estado de alerta de saúde. Um estado de saúde de aviso não afeta a atualização do cluster ou outra monitorização desencadeada por um estado de saúde de Erro. Mas mesmo um nó de tipo num estado de `SpecialNodeType` saúde de Erro tornaria o cluster insalubre e desencadearia o revés ou interromperia a atualização do cluster, dependendo da configuração de upgrade. Inversamente, fixar o global `MaxPercentUnhealthyNodes` para 0 e fixar os `SpecialNodeType` nós máximos por cento não saudáveis para 100 com um nó de tipo num estado de erro ainda colocaria o cluster num estado de `SpecialNodeType` erro porque a restrição global é mais rigorosa neste caso. 
 
   O exemplo a seguir é um excerto de um manifesto de agrupamento. Para definir entradas no mapa do tipo do nó, prefixe o nome do parâmetro com "NodeTypeMaxPercentUnhealthyNodes-", seguido do nome do tipo nó.
 

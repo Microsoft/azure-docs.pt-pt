@@ -2,16 +2,16 @@
 title: Tutorial - Criar & implementar ficheiros Bicep do Gestor de Recursos Azure
 description: Crie o seu primeiro ficheiro Bicep para a implementação de recursos Azure. No tutorial, você aprende sobre a sintaxe do ficheiro Bicep e como implementar uma conta de armazenamento.
 author: mumian
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ffd8a97d797144d458e7ec5836042cc6d8d8193
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594279"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306688"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutorial: Criar e implementar primeiro ficheiro Azure Resource Manager Bicep
 
@@ -57,7 +57,7 @@ Está pronto para começar a aprender sobre o Bicep.
 
     ```bicep
     resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-      name: '{provide-unique-name}'
+      name: '{provide-unique-name}'  // must be globally unique
       location: 'eastus'
       sku: {
         name: 'Standard_LRS'
@@ -85,6 +85,10 @@ Está pronto para começar a aprender sobre o Bicep.
         Se você vê uma versão API mais antiga, como [armazenamentoAcounts 2016-05-01,](/azure/templates/microsoft.storage/2016-05-01/storageaccounts)verá que um conjunto menor de propriedades está disponível.
 
         Se decidir alterar a versão API para um recurso, certifique-se de que avalia as propriedades dessa versão e ajusta o seu ficheiro Bicep adequadamente.
+
+    Para mais informações, consulte [a estrutura Bicep.](./bicep-file.md)
+
+    Há um comentário para a propriedade do nome.  Utilização `//` para comentários de linha única ou para comentários `/* ... */` multi-linhas
 
 1. Substitua `{provide-unique-name}` incluindo os aparelhos encaracolados `{}` por um nome único de conta de armazenamento.
 

@@ -8,18 +8,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: lagayhar
-ms.openlocfilehash: d45d8bed328dc91dfeeabd6ce878074fa1218623
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ac83d0c43026b431370fab1d8c49aec1adf6659
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737023"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312727"
 ---
 # <a name="angular-plugin-for-application-insights-javascript-sdk"></a>Plugin angular para insights de aplicação JavaScript SDK
 
 O plugin angular para o SDK JavaScript de aplicações permite:
 
 - Rastreio de alterações do router
+- Rastreio de exceções sem corrente
 
 > [!WARNING]
 > O plugin angular não é compatível com eCMAScript 3 (ES3).
@@ -62,6 +63,24 @@ export class AppComponent {
         appInsights.loadAppInsights();
     }
 }
+```
+
+Para acompanhar exceções não atadas, configurar ApplicationinsightsAngularpluginErrorService em `app.module.ts` :
+
+```js
+import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ApplicationinsightsAngularpluginErrorService
+    }
+  ]
+  ...
+})
+export class AppModule { }
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
