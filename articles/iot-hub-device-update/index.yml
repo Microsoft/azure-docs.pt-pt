@@ -11,12 +11,12 @@ metadata:
   ms.author: philmea
   manager: philmea
   ms.date: 2/17/2021
-  ms.openlocfilehash: b479eb8cd85f4a8bb11cd415d8eb06901d0f4389
-  ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+  ms.openlocfilehash: 8943e22428d6f510b374ef31938257ec08a0dff6
+  ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/08/2021
-  ms.locfileid: "107107521"
+  ms.lasthandoff: 04/13/2021
+  ms.locfileid: "107312098"
 landingContent:
 - title: Sobre a atualização do dispositivo
   linkLists:
@@ -30,6 +30,8 @@ landingContent:
     links:
     - text: Criar uma conta de atualização de dispositivo
       url: create-device-update-account.md
+    - text: Atualização do dispositivo de provisionamento para agente do hub IoT Azure
+      url: device-update-agent-provisioning.md
     - text: Importar uma atualização
       url: import-update.md
     - text: Criar um grupo de atualização
@@ -52,8 +54,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Atualização do dispositivo de provisionamento para agente do hub IoT Azure
-      url: device-update-agent-provisioning.md
+    - text: Como construir e executar o agente de atualização de dispositivos
+      url: device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent
 - title: Introdução
   linkLists:
   - linkListType: tutorial

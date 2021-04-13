@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 8b2e85744923fb2e7e474e049df1536aebc56f3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 6954ce289cb3cf219f8c4024a112411fd60d70e0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99536938"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310670"
 ---
-# <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerir chaves API para um serviço de Pesquisa Cognitiva Azure
+# <a name="create-and-manage-api-keys-for-authentication-to-azure-cognitive-search"></a>Criar e gerir chaves API para autenticação para Azure Cognitive Search
 
-Todos os pedidos a um serviço de pesquisa precisam de uma chave API apenas de leitura que foi gerada especificamente para o seu serviço. A chave API é o único mecanismo para autenticar pedidos de entrada no ponto final do seu serviço de pesquisa e é necessária em todos os pedidos. 
+Ao ligar-se a um serviço de pesquisa, todos os pedidos precisam incluir uma chave API apenas de leitura que foi gerada especificamente para o seu serviço. A chave API é o único mecanismo para autenticar pedidos de entrada no ponto final do seu serviço de pesquisa e é necessária em todos os pedidos. 
 
 + Nas [soluções REST](search-get-started-rest.md), o `api-key` é tipicamente especificado num cabeçalho de pedido
 

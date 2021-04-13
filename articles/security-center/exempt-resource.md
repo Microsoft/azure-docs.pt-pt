@@ -7,12 +7,12 @@ ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5ab729f5aa94c7137203c25319a5b830448d00a7
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: d545610b8fa13d0c0f8b91bf92107d53b81454c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968208"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313849"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Isenção de recursos e recomendações da sua pontuação segura 
 
@@ -34,7 +34,7 @@ Nesses casos, pode criar uma isenção para uma recomendação para:
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de libertação:                  | Pré-visualizar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Preços:                        | Esta é uma capacidade premium da Azure Policy que é oferecida aos clientes do Azure Defender sem custos adicionais. Para outros utilizadores, os encargos podem ser aplicados no futuro.                                                                                                                                                                 |
-| Funções e permissões necessárias: | **Proprietário de assinatura** ou **colaborador de política** para criar uma isenção<br>Para criar uma regra, precisa de permissões para editar políticas na Política Azure.<br>Saiba mais nas [permissões Azure RBAC na Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Funções e permissões necessárias: | **Colaborador de Política de Proprietários** ou **Recursos** para criar uma isenção<br>Para criar uma regra, precisa de permissões para editar políticas na Política Azure.<br>Saiba mais nas [permissões Azure RBAC na Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
 | Limitações:                    | As isenções só podem ser criadas para recomendações incluídas na iniciativa padrão do Security Center, Azure Security Benchmark, ou em qualquer uma das iniciativas regulamentares fornecidas. As recomendações geradas por iniciativas personalizadas não podem ser isentas. Saiba mais sobre as relações entre [políticas, iniciativas e recomendações.](security-policy-concept.md) |
 | Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |

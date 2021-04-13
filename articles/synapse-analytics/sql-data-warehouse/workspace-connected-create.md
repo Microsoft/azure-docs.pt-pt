@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 605f495fbc5913663499f5411abcaa531cea97ee
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98071192"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312217"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Habilitando recursos de espaço de trabalho synapse para uma piscina SQL dedicada (anteriormente SQL DW)
 
@@ -24,6 +24,7 @@ Todos os utilizadores de armazéns de dados SQL podem agora aceder e usar uma pl
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de ativar as funcionalidades do espaço de trabalho Synapse no seu armazém de dados, deve certificar-se de que tem os seguintes
 - Direitos para criar e gerir os recursos SQL que estão hospedados no servidor lógico SQL.
+- Escreva permissões no servidor SQL do anfitrião. 
 - Direitos de criação de recursos Azure Synapse.
 - Um administrador do Azure Ative Directory identificado no servidor lógico
 

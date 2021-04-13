@@ -1,23 +1,23 @@
 ---
 title: Remover o protetor TDE (PowerShell & o Azure CLI)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Aprenda a responder a um protetor TDE potencialmente comprometido para a Base de Dados Azure SQL ou Azure Synapse Analytics usando o suporte TDE com suporte Bring YOur Own Key (BYOK).
+description: Aprenda a responder a um protetor TDE potencialmente comprometido para a Base de Dados Azure SQL ou Azure Synapse Analytics utilizando o suporte TDE com o suporte Bring Your Own Key (BYOK).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1613c61143044c4fa355c6225cf0fa1d4e2e09d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461869"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308392"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor de encriptação de dados transparente (TDE) usando o PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: ad6696fc4fe2af7047c25a3a9c260d3b12588ee2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69dec2ce00b263f3536e30ba0a5376e6d922b79c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203305"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308358"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidade para Azure Cache para Redis
 
@@ -21,9 +21,9 @@ Azure Cache para Redis implementa alta disponibilidade usando vários VMs, *cham
 
 | Opção | Descrição | Disponibilidade | Standard | Premium | Grandes Empresas |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
-| [Replicação padrão](#standard-replication)| Configuração replicada de duplo nó num único datacenter com falha automática | 99,9% |✔|✔|-|
-| [Redundância entre zonas](#zone-redundancy) | Configuração replicada em vários nóns em AZs, com falha automática | 99,95% (Nível Premium), 99,99% (Níveis empresariais) |-|Pré-visualizar|Pré-visualizar|
-| [Georreplicação](#geo-replication) | Casos de cache ligados em duas regiões, com falha controlada pelo utilizador | 99,999% (nível de empresa) |-|✔|Pré-visualizar|
+| [Replicação padrão](#standard-replication)| Configuração replicada de duplo nó num único datacenter com falha automática | 99,9% (ver [detalhes)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
+| [Redundância entre zonas](#zone-redundancy) | Configuração replicada em vários nóns em AZs, com falha automática | Até 99,99% (ver [detalhes)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|Pré-visualizar|Pré-visualizar|
+| [Georreplicação](#geo-replication) | Casos de cache ligados em duas regiões, com falha controlada pelo utilizador | Até 99,999% (ver [detalhes)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|Pré-visualizar|
 
 ## <a name="standard-replication"></a>Replicação padrão
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 5d08bc216157fce9ad81eaf3c0f540c7a4d8c3f2
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2b85fe21fee34a9bedab33f0d10756bbfe8dc88b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259834"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305213"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
@@ -34,10 +34,10 @@ Neste tutorial, você vai aprender os passos básicos para carregar e analisar d
 
 Uma piscina spark sem servidor é uma forma de indicar como um utilizador quer trabalhar com a Spark. Quando você começar a usar uma piscina, uma sessão de faísca é criada se necessário. A piscina controla quantos recursos spark serão utilizados por essa sessão e quanto tempo a sessão durará antes de parar automaticamente. Você paga pelos recursos de faísca usados durante a sessão, não para a própria piscina. Desta forma, uma piscina spark permite-lhe trabalhar com a Spark, sem ter que se preocupar em gerir clusters. Isto é semelhante ao funcionamento de uma piscina SQL sem servidor.
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analise os dados do táxi de NYC no armazenamento de bolhas usando a Spark
+## <a name="analyze-nyc-taxi-data-with-a-spark-pool"></a>Analise os dados do táxi de NYC com uma piscina de faíscas
 
 1. No Estúdio Synapse, vá ao centro **de Desenvolvimento**
-2. Crie um novo Caderno com o idioma padrão definido para **PySpark (Python)**.
+2. Criar um novo Notebook
 3. Crie uma nova célula de código e cole o seguinte código nessa célula.
     ```py
     %%pyspark
@@ -49,22 +49,23 @@ Uma piscina spark sem servidor é uma forma de indicar como um utilizador quer t
 1. Se quiser apenas ver o esquema do dataframe executar uma célula com o seguinte código:
 
     ```py
+    %%pyspark
     df.printSchema()
     ```
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Carregue os dados do táxi de NYC na base de dados Spark nyctaxi
 
-Os dados estão disponíveis através do **dataframe dados denominados.** Coloque-o numa base de dados spark chamada **nyctaxi.**
+Os dados estão disponíveis através do dataframe denominado **df.** Coloque-o numa base de dados spark chamada **nyctaxi.**
 
 1. Adicione uma nova célula de código ao caderno e, em seguida, introduza o seguinte código:
 
     ```py
+    %%pyspark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analise os dados do Táxi de NYC usando Spark e cadernos
 
-1. Volte para o seu caderno.
 1. Crie uma nova célula de código e introduza o seguinte código. 
 
    ```py

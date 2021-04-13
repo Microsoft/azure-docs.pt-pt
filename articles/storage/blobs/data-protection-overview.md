@@ -5,17 +5,17 @@ description: As opções de proteção de dados disponíveis para o seu armazena
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/22/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
-ms.openlocfilehash: afd98e629500bc90cc9ddd1ed4ab2472f733e845
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 90c83397089b77d30694041a37debc0731ea2a38
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803798"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304261"
 ---
 # <a name="data-protection-overview"></a>Descrição geral da proteção de dados
 
@@ -30,7 +30,7 @@ Se estiver à procura de uma cobertura básica de proteção de dados para a sua
 - Configure um bloqueio de gestor de recursos Azure na conta de armazenamento para proteger a conta de alterações de eliminação ou configuração. [Saiba mais...](../common/lock-account-resource.md)
 - Permitir que o contentor elimine suavemente a conta de armazenamento para recuperar um recipiente apagado e o seu conteúdo. [Saiba mais...](soft-delete-container-enable.md)
 - Salve o estado de uma bolha em intervalos regulares:
-  - Para as cargas de trabalho de Armazenamento Blob, permita que a versão blob guarde automaticamente o estado dos seus dados sempre que uma bolha for eliminada ou substituída. [Saiba mais...](versioning-enable.md)
+  - Para as cargas de trabalho de Armazenamento Blob, permita que a versão blob guarde automaticamente o estado dos seus dados sempre que uma bolha for substituída. [Saiba mais...](versioning-enable.md)
   - Para as cargas de trabalho de armazenamento do Lago de Dados Azure, tire fotos manuais para guardar o estado dos seus dados num determinado momento. [Saiba mais...](snapshots-overview.md)
 
 Estas opções, bem como opções adicionais de proteção de dados para outros cenários, são descritas mais detalhadamente na secção seguinte.
@@ -46,7 +46,7 @@ O quadro seguinte resume as opções disponíveis no Azure Storage para cenário
 | Evite que uma conta de armazenamento seja eliminada ou modificada. | Bloqueio do Gestor de Recursos Azure<br />[Saiba mais...](../common/lock-account-resource.md) | Bloqueie todas as suas contas de armazenamento com um bloqueio do Azure Resource Manager para evitar a eliminação da conta de armazenamento. | Protege a conta de armazenamento contra alterações de eliminação ou configuração.<br /><br />Não protege os recipientes ou bolhas na conta de serem apagados ou substituídos. | Yes |
 | Evite que um recipiente e as suas bolhas sejam apagados ou modificados durante um intervalo que controle. | Política de imutabilidade num recipiente<br />[Saiba mais...](storage-blob-immutable-storage.md) | Definir uma política de imutabilidade num contentor para proteger documentos críticos de negócio, por exemplo, a fim de satisfazer os requisitos legais ou regulamentares de conformidade. | Protege um recipiente e as suas bolhas de todas as eliminações e substituições.<br /><br />Quando uma detenção legal ou uma política de retenção baseada no tempo bloqueado está em vigor, a conta de armazenamento também está protegida contra a supressão. Os contentores para os quais não tenha sido definida nenhuma política de imutabilidade não estão protegidos contra a supressão. | Sim, na pré-estreia |
 | Restaurar um recipiente eliminado dentro de um intervalo especificado. | Eliminação suave do recipiente (pré-visualização)<br />[Saiba mais...](soft-delete-container-overview.md) | Ativar a eliminação suave do recipiente para todas as contas de armazenamento, com um intervalo mínimo de retenção de 7 dias.<br /><br />Ativar a versão blob e a eliminação suave do blob juntamente com a eliminação suave do recipiente para proteger as bolhas individuais num recipiente.<br /><br />Armazenar recipientes que exijam diferentes períodos de retenção em contas de armazenamento separadas. | Um recipiente eliminado e o seu conteúdo podem ser restaurados dentro do período de retenção.<br /><br />Apenas as operações ao nível do contentor (por exemplo, [Delete Container](/rest/api/storageservices/delete-container)) podem ser restauradas. A eliminação suave do recipiente não lhe permite restaurar uma bolha individual no recipiente se a bolha for apagada. | Sim, na pré-estreia |
-| Guarde automaticamente o estado de uma bolha numa versão anterior quando esta for substituída ou eliminada. | Versão blob<br />[Saiba mais...](versioning-overview.md) | Ativar a versão blob, juntamente com a eliminação macia do recipiente e a eliminação suave de bolhas, para contas de armazenamento onde necessita de uma proteção ótima para os dados do blob.<br /><br />Armazenar dados blob que não exijam a versão numa conta separada para limitar os custos. | Cada operação de substituição ou eliminação de bolhas cria uma nova versão. Uma bolha pode ser restaurada a partir de uma versão anterior se a bolha for eliminada ou substituída. | No |
+| Guarde automaticamente o estado de uma bolha numa versão anterior quando esta for substituída. | Versão blob<br />[Saiba mais...](versioning-overview.md) | Ativar a versão blob, juntamente com a eliminação macia do recipiente e a eliminação suave de bolhas, para contas de armazenamento onde necessita de uma proteção ótima para os dados do blob.<br /><br />Armazenar dados blob que não exijam a versão numa conta separada para limitar os custos. | Cada operação de escrita de blob cria uma nova versão. A versão atual de uma bolha pode ser restaurada a partir de uma versão anterior se a versão atual for eliminada ou substituída. | No |
 | Restaurar uma versão blob ou blob apagada dentro de um intervalo especificado. | Blob soft delete<br />[Saiba mais...](soft-delete-blob-overview.md) | Ativar a eliminação suave do blob para todas as contas de armazenamento, com um intervalo mínimo de retenção de 7 dias.<br /><br />Ativar a versão blob e a eliminação suave do recipiente juntamente com a eliminação macia de bolhas para uma proteção ótima dos dados blob.<br /><br />Armazenar bolhas que requerem diferentes períodos de retenção em contas de armazenamento separadas. | Uma versão blob ou blob eliminada pode ser restaurada dentro do período de retenção. | No |
 | Restaurar um conjunto de bolhas de bloco para um ponto anterior no tempo. | Restauro para um ponto anterior no tempo<br />[Saiba mais...](point-in-time-restore-overview.md) | Para utilizar o ponto-a-tempo restaurar para reverter para um estado anterior, desenhe a sua aplicação para eliminar as bolhas de bloco individuais em vez de eliminar recipientes. | Um conjunto de bolhas de bloco pode ser revertido para o seu estado em um ponto específico no passado.<br /><br />Apenas as operações efetuadas em blocos são revertidas. As operações efetuadas em contentores, bolhas de página ou bolhas de apêndice não são revertidas. | No |
 | Guardar manualmente o estado de uma bolha num dado momento. | Snapshot blob<br />[Saiba mais...](snapshots-overview.md) | Recomendado como uma alternativa à versão blob quando a versão não é apropriada para o seu cenário, devido a custos ou outras considerações, ou quando a conta de armazenamento tem um espaço hierárquico habilitado. | Uma bolha pode ser restaurada a partir de um instantâneo se a bolha for substituída. Se a bolha for apagada, as imagens também são eliminadas. | Sim, na pré-estreia |

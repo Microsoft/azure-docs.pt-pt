@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 01/14/2020
+ms.date: 04/12/2021
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 48de06d28442b4d05cd3a7ab287732c0999e434c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9e87796c3557f21bb6192c7d7d0c0925d08d786
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101659703"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311758"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática em Azure Machine Learning
 
@@ -99,7 +99,7 @@ Com a transformação adequada de dados, uma rede neural pode compreender sinais
 
 A análise de texto baseada em métodos de aprendizagem profunda envolve analisar grandes quantidades de dados de texto (por exemplo, documentos médicos ou recibos de despesas), reconhecer padrões e criar informações organizadas e concisas a partir dele.
 
-As empresas usam aprendizagem profunda para realizar análises de texto para detetar o trading de insider e o cumprimento dos regulamentos governamentais. Outro exemplo comum é a fraude dos seguros: a análise de textos tem sido frequentemente utilizada para analisar grandes quantidades de documentos para reconhecer as hipóteses de um pedido de seguro ser fraude. 
+As empresas usam aprendizagem profunda para realizar análises de texto para detetar o trading de insider e o cumprimento dos regulamentos governamentais. Outro exemplo comum é a fraude dos seguros: a análise de textos tem sido frequentemente utilizada para analisar grandes quantidades de documentos para reconhecer as hipóteses de um pedido de seguro ser fraude.
 
 ## <a name="artificial-neural-networks"></a>Redes neuronais artificiais
 
@@ -111,15 +111,33 @@ As secções seguintes exploram as tipologias de rede neural artificial mais pop
 
 A rede neural de feedforward é o tipo mais simples de rede neural artificial. Numa rede de feedforward, a informação move-se apenas numa direção, desde a camada de entrada até à camada de saída. As redes neuronais de feedforward transformam uma entrada colocando-a através de uma série de camadas escondidas. Cada camada é composta por um conjunto de neurónios, e cada camada está totalmente ligada a todos os neurónios da camada anterior. A última camada totalmente ligada (a camada de saída) representa as previsões geradas.
 
-### <a name="recurrent-neural-network"></a>Rede neuronal recorrente
+### <a name="recurrent-neural-network-rnn"></a>Rede neural recorrente (RNN)
 
 As redes neuronais recorrentes são uma rede neural artificial amplamente utilizada. Estas redes poupam a saída de uma camada e alimentam-na de volta à camada de entrada para ajudar a prever o resultado da camada. As redes neuronais recorrentes têm grandes capacidades de aprendizagem. São amplamente utilizados para tarefas complexas, como previsão de séries de tempo, aprendizagem de caligrafia e reconhecimento da linguagem.
 
-### <a name="convolutional-neural-network"></a>Rede neuronal convolucional
+### <a name="convolutional-neural-network-cnn"></a>Rede neural convolucional (CNN)
 
 Uma rede neural convolucional é uma rede neural artificial particularmente eficaz, e apresenta uma arquitetura única. As camadas são organizadas em três dimensões: largura, altura e profundidade. Os neurónios numa camada ligam-se não a todos os neurónios da camada seguinte, mas apenas a uma pequena região dos neurónios da camada. A saída final é reduzida a um único vetor de pontuações de probabilidade, organizadas ao longo da dimensão de profundidade. 
 
 As redes neuronais convolucionais têm sido utilizadas em áreas como reconhecimento de vídeo, reconhecimento de imagem e sistemas de recomendação.
+
+### <a name="generative-adversarial-network-gan"></a>Rede adversária geradora (GAN)
+
+Redes adversárias geradoras são modelos geradores treinados para criar conteúdo realista, como imagens. É constituída por duas redes conhecidas como geradora e discriminatória. Ambas as redes são treinadas simultaneamente. Durante o treino, o gerador usa ruído aleatório para criar novos dados sintéticos que se assemelham muito a dados reais. O discriminador retira a saída do gerador como entrada e utiliza dados reais para determinar se o conteúdo gerado é real ou sintético. Cada rede está a competir entre si. O gerador está a tentar gerar conteúdo sintético indistinguível do conteúdo real e o discriminador está a tentar classificar corretamente as entradas como reais ou sintéticas. A saída é então usada para atualizar os pesos de ambas as redes para ajudá-las a alcançar melhor os seus objetivos.
+
+Redes adversárias geradoras são usadas para resolver problemas como a imagem à tradução de imagem e progressão da idade.
+
+### <a name="transformers"></a>Transformadores
+
+Os transformers são uma arquitetura modelo que é adequada para resolver problemas que contenham sequências como texto ou dados de séries tempotânicas. Consistem [em camadas codificantes e descodificadores.](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)#Encoder) O codificador leva uma entrada e mapeia-a para uma representação numérica que contenha informações como o contexto. O descodificador utiliza informações do codificader para produzir uma saída como texto traduzido. O que torna os transformadores diferentes de outras arquiteturas que contêm codificadores e descodificadores são as sub-camadas de atenção. A atenção é a ideia de se concentrar em partes específicas de uma entrada baseada na importância do seu contexto em relação a outras entradas numa sequência. Por exemplo, ao resumir um artigo de notícias, nem todas as frases são relevantes para descrever a ideia principal. Ao focar-se em palavras-chave ao longo do artigo, a resumo pode ser feita numa única frase, a manchete.
+
+Os transformadores têm sido usados para resolver problemas naturais de processamento de linguagem, tais como tradução, geração de texto, resposta de perguntas e resumo de texto.
+
+Algumas implementações bem conhecidas dos transformadores são:
+
+- Representações bianuais dos Transformadores (BERT)
+- Transformador Pré-treinado Gerador 2 (GPT-2)
+- Transformador Pré-treinado Gerador 3 (GPT-3)
 
 ## <a name="next-steps"></a>Passos seguintes
 

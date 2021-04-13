@@ -2,13 +2,13 @@
 title: Comparar filas do Armazenamento do Azure e filas do Service Bus
 description: Analisa diferenças e semelhanças entre dois tipos de filas oferecidas pelo Azure.
 ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 1c3b0fda12d5e301b17a342c5d5ed11ab76c76da
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928312"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304363"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas de autocarros de serviço - comparadas e contrastadas
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidas pela Microsoft Azure: filas de armazenamento e filas de Service Bus. Ao utilizar esta informação, pode tomar uma decisão mais informada sobre qual a solução que melhor satisfaz as suas necessidades.
@@ -39,7 +39,7 @@ Como arquiteto/desenvolvedor de soluções, **deve considerar usar as filas de S
 * A sua solução precisa de receber mensagens sem ter de fazer sondagens. Com a Service Bus, pode alcançá-lo utilizando uma operação de receção de sondagens de longa duração utilizando os protocolos baseados em TCP que a Service Bus suporta.
 * A sua solução requer que a fila forneça uma entrega garantida de primeiro em primeiro lugar (FIFO).
 * A sua solução precisa de suportar a deteção automática de duplicados.
-* Pretende que a sua aplicação processe mensagens como streams paralelos de longa duração (as mensagens estão associadas a um stream utilizando a propriedade [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) na mensagem). Neste modelo, cada nó na aplicação consumista compete por streams, ao contrário de mensagens. Quando um fluxo é dado a um nó consumista, o nó pode examinar o estado do fluxo de aplicação usando transações.
+* Pretende que a sua aplicação processe mensagens como streams paralelos de longa duração (as mensagens estão associadas a um fluxo utilizando a propriedade **de ID** da sessão na mensagem). Neste modelo, cada nó na aplicação consumista compete por streams, ao contrário de mensagens. Quando um fluxo é dado a um nó consumista, o nó pode examinar o estado do fluxo de aplicação usando transações.
 * A sua solução requer comportamento transacional e atomicidade ao enviar ou receber várias mensagens de uma fila.
 * A sua aplicação trata mensagens que podem ultrapassar os 64 KB, mas que provavelmente não se aproximarão do limite de 256 KB.
 * Você lida com a obrigação de fornecer um modelo de acesso baseado em papel às filas, e diferentes direitos/permissões para remetentes e recetores. Para obter mais informações, veja os seguintes artigos:
@@ -59,17 +59,17 @@ Esta secção compara algumas das capacidades fundamentais de fila fornecidas pe
 
 | Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
-| Garantia de encomenda |**Não** <br/><br>Para mais informações, consulte a primeira nota na secção [Informação Adicional.](#additional-information)</br> | **Sim - First-In-First-Out (FIFO)**<br/><br>(através da utilização de sessões de [mensagens)](message-sessions.md) |
+| Garantia de encomenda |**Não** <br/><br>Para mais informações, consulte a primeira nota na secção [Informação Adicional.](#additional-information)</br> | **Sim - First-In-First-Out (FIFO)**<br/><br>(utilizando [sessões de mensagens)](message-sessions.md) |
 | Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez** (utilizando o modo de receção PeekLock. É o padrão) <br/><br/>**At-Most-Once** (utilizando o modo de receção ReceiveAndDelete) <br/> <br/> Saiba mais sobre vários [modos Receber](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Suporte à operação atómica |**Não** |**Sim**<br/><br/> |
-| Receber comportamento |**Não bloqueio**<br/><br/>(completa imediatamente se não for encontrada nova mensagem) |**Bloqueio com ou sem intervalo**<br/><br/>(oferece sondagens longas, ou a ["técnica do cometa"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Não bloqueio**<br/><br/>(através da utilização apenas da API gerida .NET) |
-| API estilo push |**Não** |**Sim**<br/><br/>[QueueClient.OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) and [MessageSessionHandler.OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__) .NET API. |
+| Receber comportamento |**Não bloqueio**<br/><br/>(completa imediatamente se não for encontrada nova mensagem) |**Bloqueio com ou sem intervalo**<br/><br/>(oferece sondagens longas, ou a ["técnica do cometa"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Não bloqueio**<br/><br/>(utilizando apenas API gerido .NET) |
+| API estilo push |**Não** |**Sim**<br/><br/>Os nossos SDKs .NET, Java, JavaScript e Go providenciam API estilo push. |
 | Modo de receção |**Peek & Lease** |**Peek & Lock**<br/><br/>**Receber & Eliminar** |
 | Modo de acesso exclusivo |**Baseado em arrendamento** |**Baseado em bloqueio** |
-| Duração do arrendamento/bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Pode renovar ou lançar um contrato de mensagem utilizando a [API de Atualização.)](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) |**60 segundos (padrão)**<br/><br/>Pode renovar um bloqueio de mensagem utilizando a API [Renovação.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) |
-| Precisão de arrendamento/bloqueio |**Nível de mensagem**<br/><br/>Cada mensagem pode ter um valor de tempo limite diferente, que pode então atualizar conforme necessário durante o processamento da mensagem, utilizando a [API de API de APIT de Atualização.](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) |**Nível de fila**<br/><br/>(cada fila tem uma precisão de bloqueio aplicada a todas as suas mensagens, mas pode renovar o bloqueio utilizando a API [renovação.)](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) |
-| Receber em lotado |**Sim**<br/><br/>(especificar explicitamente a contagem de mensagens ao recuperar mensagens, até um máximo de 32 mensagens) |**Sim**<br/><br/>(permitir implicitamente uma propriedade pré-compra ou explicitamente através da utilização de transações) |
-| Envio lotado |**Não** |**Sim**<br/><br/>(através da utilização de transações ou de lotação do lado do cliente) |
+| Duração do arrendamento/bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Pode renovar ou lançar um contrato de mensagem utilizando a [API de Atualização.)](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) |**30 segundos (padrão)**<br/><br/>Pode renovar o bloqueio de mensagem pela mesma duração de bloqueio de cada vez manualmente ou utilizar a função de renovação automática de bloqueio onde o cliente gere a renovação do bloqueio para si. |
+| Precisão de arrendamento/bloqueio |**Nível de mensagem**<br/><br/>Cada mensagem pode ter um valor de tempo limite diferente, que pode então atualizar conforme necessário durante o processamento da mensagem, utilizando a [API de API de APIT de Atualização.](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) |**Nível de fila**<br/><br/>(cada fila tem uma precisão de bloqueio aplicada a todas as suas mensagens, mas o bloqueio pode ser renovado como descrito na linha anterior) |
+| Receber em lotado |**Sim**<br/><br/>(especificar explicitamente a contagem de mensagens ao recuperar mensagens, até um máximo de 32 mensagens) |**Sim**<br/><br/>(ativar implicitamente uma propriedade pré-compra ou explicitamente através de transações) |
+| Envio lotado |**Não** |**Sim**<br/><br/>(utilizando transações ou lotes do lado do cliente) |
 
 ### <a name="additional-information"></a>Informações adicionais
 * As mensagens nas filas de armazenamento são normalmente primeiras a sair, mas às vezes podem estar fora de serviço. Por exemplo, quando a duração do tempo de visibilidade de uma mensagem expira porque uma aplicação do cliente se despenhou durante o processamento de uma mensagem. Quando o tempo limite de visibilidade expira, a mensagem torna-se visível novamente na fila para que outro trabalhador a desaqueça. Nessa altura, a mensagem recém-visível pode ser colocada na fila para ser desativada novamente.
@@ -78,12 +78,12 @@ Esta secção compara algumas das capacidades fundamentais de fila fornecidas pe
     - Dissociar componentes de aplicação para aumentar a escalabilidade e tolerância para falhas
     - Nivelamento de carga
     - Fluxos de trabalho de processo de construção.
-* As inconsistências no que diz respeito ao tratamento de mensagens no contexto das sessões de Service Bus podem ser evitadas utilizando o estado da sessão para armazenar o estado da aplicação em relação ao progresso do tratamento da sequência de mensagens da sessão, e utilizando transações em torno de acertar mensagens recebidas e atualizar o estado da sessão. Este tipo de característica de consistência é por vezes rotulado *exatamente uma vez que o processamento* em outros produtos do fornecedor. Quaisquer falhas de transação irão obviamente fazer com que as mensagens sejam reenrimidas e é por isso que o termo não é exatamente adequado.
+* As inconsistências no tratamento de mensagens no contexto das sessões de Service Bus podem ser evitadas utilizando o estado da sessão para armazenar o estado da aplicação em relação ao progresso do tratamento da sequência de mensagens da sessão, e utilizando transações em torno de liquidação de mensagens recebidas e atualização do estado da sessão. Este tipo de característica de consistência é por vezes rotulado *exatamente uma vez que o processamento* em outros produtos do fornecedor. Quaisquer falhas de transação irão obviamente fazer com que as mensagens sejam reenrimidas e é por isso que o termo não é exatamente adequado.
 * As filas de armazenamento fornecem um modelo de programação uniforme e consistente em filas, mesas e BLOBs – tanto para programadores como para equipas de operações.
 * As filas de autocarros de serviço fornecem suporte para transações locais no contexto de uma única fila.
 * O modo **Receber e Eliminar** suportado pela Service Bus fornece a capacidade de reduzir a contagem de operação de mensagens (e custos associados) em troca de uma garantia de entrega reduzida.
 * As filas de armazenamento proporcionam arrendamentos com a capacidade de estender os arrendamentos para mensagens. Esta funcionalidade permite que os processos de trabalho mantenham arrendamentos curtos em mensagens. Assim, se um trabalhador falhar, a mensagem pode ser rapidamente processada novamente por outro trabalhador. Além disso, um trabalhador pode estender o arrendamento numa mensagem se precisar processá-lo por mais tempo do que o tempo atual de arrendamento.
-* As filas de armazenamento oferecem um tempo limite de visibilidade que pode definir sobre a mensagem ou a descodência de uma mensagem. Além disso, pode atualizar uma mensagem com diferentes valores de locação no tempo de execução e atualizar diferentes valores entre mensagens na mesma fila. Os intervalos de bloqueio do serviço são definidos nos metadados da fila. No entanto, pode renovar o bloqueio chamando o método [Renovar.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock)
+* As filas de armazenamento oferecem um tempo limite de visibilidade que pode definir sobre a mensagem ou a descodência de uma mensagem. Além disso, pode atualizar uma mensagem com diferentes valores de locação no tempo de execução e atualizar diferentes valores entre mensagens na mesma fila. Os intervalos de bloqueio do serviço são definidos nos metadados da fila. No entanto, pode renovar o bloqueio de mensagem para a duração de bloqueio pré-definida manualmente ou utilizar a função de renovação automática do bloqueio onde o cliente gere a renovação do bloqueio para si.
 * O tempo máximo para uma operação de receção de bloqueio nas filas do Service Bus é de 24 dias. No entanto, os intervalos baseados em REST têm um valor máximo de 55 segundos.
 * O lote do lado do cliente fornecido pela Service Bus permite que um cliente de fila deslome várias mensagens numa única operação de envio. O loteamento só está disponível para operações de envio assíncronos.
 * Funcionalidades como o teto de 200-TB das filas de armazenamento (mais quando virtualiza contas) e filas ilimitadas fazem dele uma plataforma ideal para os fornecedores de SaaS.
@@ -100,11 +100,11 @@ Esta secção compara as capacidades avançadas fornecidas pelas filas de armaze
 | Suporte de mensagem venenosa |**Sim** |**Sim** |
 | Atualização no local |**Sim** |**Sim** |
 | Registo de transações do lado do servidor |**Sim** |**Não** |
-| Métricas de armazenamento |**Sim**<br/><br/>**As métricas minúsculas** fornecem métricas em tempo real para disponibilidade, TPS, contagem de chamadas API, contagens de erros e muito mais. Estão todos em tempo real, agregados por minuto e relatados a poucos minutos do que aconteceu na produção. Para obter mais informações, consulte [Sobre as Métricas de Análise de Armazenamento.](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics) |**Sim**<br/><br/>(consultas a granel chamando [GetQueues)](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues) |
-| Gestão de estados |**Não** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Ative](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled,](/dotnet/api/microsoft.servicebus.messaging.entitystatus) [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
+| Métricas de armazenamento |**Sim**<br/><br/>**As métricas minúsculas** fornecem métricas em tempo real para disponibilidade, TPS, contagem de chamadas API, contagens de erros e muito mais. Estão todos em tempo real, agregados por minuto e relatados a poucos minutos do que aconteceu na produção. Para obter mais informações, consulte [Sobre as Métricas de Análise de Armazenamento.](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics) |**Sim**<br/><br/>Para obter informações sobre métricas suportadas pela Azure Service Bus, consulte [as métricas de mensagem](service-bus-metrics-azure-monitor.md#message-metrics). |
+| Gestão de estados |**Não** |**Sim** (Ativo, Desativado, Enviado, RecebidoDisável. Para mais detalhes sobre estes estados, consulte [o estado da fila)](entity-suspend.md#queue-status) |
 | Mensagem de autoforwarding |**Não** |**Sim** |
 | Função de fila de purga |**Sim** |**Não** |
-| Grupos de mensagens |**Não** |**Sim**<br/><br/>(através da utilização de sessões de mensagens) |
+| Grupos de mensagens |**Não** |**Sim**<br/><br/>(utilizando sessões de mensagens) |
 | Estado de aplicação por grupo de mensagens |**Não** |**Sim** |
 | Deteção de duplicados |**Não** |**Sim**<br/><br/>(configurável do lado do remetente) |
 | Grupos de mensagens de navegação |**Não** |**Sim** |
@@ -113,14 +113,14 @@ Esta secção compara as capacidades avançadas fornecidas pelas filas de armaze
 ### <a name="additional-information"></a>Informações adicionais
 * Ambas as tecnologias de fila permitem que uma mensagem seja agendada para entrega posteriormente.
 * A auto-viação da fila permite que milhares de filas de passageiros adiscam as suas mensagens para uma única fila, a partir da qual a aplicação recetora consome a mensagem. Pode utilizar este mecanismo para obter segurança, fluxo de controlo e isolar o armazenamento entre cada editor de mensagens.
-* As filas de armazenamento fornecem suporte para atualizar o conteúdo da mensagem. Pode utilizar esta funcionalidade para insistido na informação do estado e atualizações incrementais de progresso na mensagem para que possa ser processada a partir do último ponto de verificação conhecido, em vez de começar do zero. Com as filas do Service Bus, pode ativar o mesmo cenário através da utilização de sessões de mensagens. As sessões permitem-lhe guardar e recuperar o estado de processamento da aplicação (utilizando [o SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e [o GetState).](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)
+* As filas de armazenamento fornecem suporte para atualizar o conteúdo da mensagem. Pode utilizar esta funcionalidade para insistido na informação do estado e atualizações incrementais de progresso na mensagem para que possa ser processada a partir do último ponto de verificação conhecido, em vez de começar do zero. Com as filas do Service Bus, pode ativar o mesmo cenário utilizando sessões de mensagens. Para obter mais informações, consulte [o estado da sessão de mensagens](message-sessions.md#message-session-state).
 * As filas de autocarros de serviço [suportam a inscrição morta.](service-bus-dead-letter-queues.md) Pode ser útil para isolar mensagens que satisfaçam os seguintes critérios:
     - As mensagens não podem ser processadas com sucesso pela aplicação recetora 
     - As mensagens não podem chegar ao seu destino por causa de uma propriedade de tempo de vida (TTL) expirada. O valor TTL especifica quanto tempo uma mensagem permanece na fila. Com o Service Bus, a mensagem será transferida para uma fila especial chamada $DeadLetterQueue quando o período TTL expirar.
 * Para encontrar mensagens "venenosas" nas filas de armazenamento, ao descoducionar uma mensagem, a aplicação examina a propriedade [DequeueCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.dequeuecount) da mensagem. Se **o DequeueCount** for maior do que um determinado limiar, a aplicação move a mensagem para uma fila de "letra morta" definida pela aplicação.
 * As filas de armazenamento permitem obter um registo detalhado de todas as transações executadas contra a fila e métricas agregadas. Ambas as opções são úteis para depurar e entender como a sua aplicação utiliza as filas de armazenamento. Também são úteis para afinar o desempenho da sua aplicação e reduzir os custos de utilização de filas.
-* As sessões de mensagens suportadas pelo Service Bus permitem que mensagens pertencentes a um grupo lógico sejam associadas a um recetor. Cria uma afinidade em forma de sessão entre mensagens e respetivos recetores. Pode ativar esta funcionalidade avançada no Service Bus definindo a propriedade [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) numa mensagem. Os recetores podem então ouvir um ID de sessão específico e receber mensagens que partilhem o identificador de sessão especificado.
-* A funcionalidade de deteção de duplicação das filas do Service Bus remove automaticamente as mensagens duplicadas enviadas para uma fila ou tópico, com base no valor da propriedade [MessageId.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)
+* [As sessões de mensagens](message-sessions.md) suportadas pelo Service Bus permitem que mensagens pertencentes a um grupo lógico sejam associadas a um recetor. Cria uma afinidade em forma de sessão entre mensagens e respetivos recetores. Pode ativar esta funcionalidade avançada no Service Bus definindo a propriedade de ID de sessão numa mensagem. Os recetores podem então ouvir um ID de sessão específico e receber mensagens que partilhem o identificador de sessão especificado.
+* A funcionalidade de deteção de duplicação das filas do Service Bus remove automaticamente as mensagens duplicadas enviadas para uma fila ou tópico, com base no valor da propriedade ID da mensagem.
 
 ## <a name="capacity-and-quotas"></a>Capacidade e quotas
 Esta secção compara as filas de armazenamento e as filas de Service Bus na perspetiva da [capacidade e](service-bus-quotas.md) das quotas que podem ser aplicadas.
@@ -172,14 +172,14 @@ Esta secção discute as funcionalidades de autenticação e autorização supor
 | --- | --- | --- |
 | Autenticação |**Chave simétrica** |**Chave simétrica** |
 | Modelo de segurança |Acesso delegado através de fichas SAS. |SAS |
-| Federação de Fornecedores de Identidade |**Não** |**Sim** |
+| Federação de Fornecedores de Identidade |**Sim** |**Sim** |
 
 ### <a name="additional-information"></a>Informações adicionais
 * Todos os pedidos a qualquer uma das tecnologias de fila devem ser autenticados. As filas públicas com acesso anónimo não são apoiadas. Utilizando [SAS,](service-bus-sas.md)pode abordar este cenário publicando um SAS apenas para escrever, SAS apenas de leitura ou até mesmo um SAS de acesso completo.
 * O regime de autenticação fornecido pelas filas de armazenamento envolve a utilização de uma chave simétrica. Esta chave é um Código de Autenticação de Mensagens (HMAC) baseado em haxixe, calculado com o algoritmo SHA-256 e codificado como uma cadeia **Base64.** Para obter mais informações sobre o respetivo protocolo, consulte [autenticação para os Serviços de Armazenamento Azure.](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services) As filas do Service Bus suportam um modelo semelhante utilizando chaves simétricas. Para mais informações, consulte [a autenticação da assinatura de acesso partilhado com o Service Bus.](service-bus-sas.md)
 
 ## <a name="conclusion"></a>Conclusão
-Ao obter uma compreensão mais profunda das duas tecnologias, você pode tomar uma decisão mais informada sobre qual a tecnologia de fila a usar, e quando. A decisão de quando utilizar filas de armazenamento ou filas de autocarros de serviço depende claramente de uma série de fatores. Estes fatores podem depender fortemente das necessidades individuais da sua aplicação e da sua arquitetura. 
+Ao obter uma compreensão mais profunda das duas tecnologias, você pode tomar uma decisão mais informada sobre qual a tecnologia de fila a usar, e quando. A decisão de quando usar filas de armazenamento ou filas de autocarros de serviço depende claramente de muitos fatores. Estes fatores podem depender fortemente das necessidades individuais da sua aplicação e da sua arquitetura. 
 
 Pode preferir escolher as filas de armazenamento por razões como as seguintes:
 
@@ -187,7 +187,7 @@ Pode preferir escolher as filas de armazenamento por razões como as seguintes:
 - Se necessitar de comunicação básica e mensagens entre serviços 
 - Precisa de filas que possam ser maiores do que 80 GB de tamanho
 
-As filas de ônibus de serviço fornecem uma série de funcionalidades avançadas, tais como as seguintes. Portanto, podem ser uma escolha preferida se estiver a construir uma aplicação híbrida ou se a sua aplicação de outra forma necessitar destas funcionalidades.
+As filas de ônibus de serviço fornecem muitas funcionalidades avançadas, como as seguintes. Portanto, podem ser uma escolha preferida se estiver a construir uma aplicação híbrida ou se a sua aplicação de outra forma necessitar destas funcionalidades.
 
 - [Sessões](message-sessions.md)
 - [Transações](service-bus-transactions.md)

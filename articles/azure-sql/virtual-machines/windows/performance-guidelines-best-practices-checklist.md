@@ -15,12 +15,12 @@ ms.date: 03/25/2021
 ms.author: mathoma
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 0b88884576a47db871c78b874104d4973ee9ba9a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 84f2f4f679de80cd9b5fc986d40e084bae8a4cad
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572455"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313764"
 ---
 # <a name="checklist-performance-best-practices-for-sql-server-on-azure-vms"></a>Lista de verificação: Melhores práticas de desempenho para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Existe tipicamente uma compensação entre otimizar os custos e otimizar o desem
 
 Segue-se uma lista rápida de boas práticas de tamanho VM para executar o seu SQL Server em Azure VM: 
 
-- Utilize tamanhos VM com 4 ou mais vCPU como o [Standard_M8-4ms](/../../virtual-machines/m-series), o [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), ou o [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) ou superior. 
+- Utilize tamanhos VM com 4 ou mais vCPU como o [Standard_M8-4ms](../../../virtual-machines/m-series.md), o [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), ou o [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) ou superior. 
 - Utilize tamanhos de máquinas virtuais [otimizados](../../../virtual-machines/sizes-memory.md) de memória para o melhor desempenho das cargas de trabalho do SQL Server. 
 - A série [DSv2 11-15,](../../../virtual-machines/dv2-dsv2-series-memory.md) [Edsv4,](../../../virtual-machines/edv4-edsv4-series.md) a série [M-](../../../virtual-machines/m-series.md)e a [série Mv2](../../../virtual-machines/mv2-series.md) oferecem a relação memória-vCore ideal exigida para as cargas de trabalho OLTP. Ambos os VMs da série M oferecem a maior relação memória-vCore necessária para cargas de trabalho críticas da missão e também são ideais para cargas de trabalho de armazém de dados. 
 - Considere uma relação memória-vCore mais elevada para cargas de trabalho críticas e de armazém de dados da missão. 

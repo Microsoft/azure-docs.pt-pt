@@ -2,13 +2,13 @@
 title: Criar ficheiro de parâmetros
 description: Crie um ficheiro de parâmetros para passar em valores durante a implementação de um modelo de Gestor de Recursos Azure
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: d557bcdfe246dc2c9bfccde17b7f9590c2686358
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89276665"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312047"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar ficheiro de parâmetro do Gestor de Recursos
 
@@ -210,6 +210,8 @@ Para obter mais informações, consulte [implementar recursos com modelos ARM e 
 
 > [!NOTE]
 > Não é possível utilizar um ficheiro de parâmetro com a lâmina do modelo personalizada no portal.
+
+Se estiver a utilizar o [projeto Azure Resource Group no Visual Studio,](create-visual-studio-deployment-project.md)certifique-se de que o ficheiro parâmetro tem o seu conjunto **de Build Action** para **conteúdo**.
 
 ## <a name="file-name"></a>Nome de ficheiro
 

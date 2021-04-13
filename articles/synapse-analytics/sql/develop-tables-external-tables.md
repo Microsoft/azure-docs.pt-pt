@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78e4b35feb4e830a9f4335614a55d49ca90cd791
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1977663f4661fca316e4839671abd76e07b5acda
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667631"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304805"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
@@ -339,9 +339,9 @@ Especifica a pasta ou o caminho do ficheiro e o nome do ficheiro para os dados r
 Se especificar uma pasta LOCATION, uma consulta de piscina SQL sem servidor selecionará a partir da tabela externa e recuperará ficheiros da pasta.
 
 > [!NOTE]
-> Ao contrário de Hadoop e PolyBase, a piscina SQL sem servidor não devolve subpastas. Devolve ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
+> Ao contrário de Hadoop e PolyBase, a piscina SQL sem servidor não devolve subpaminações a menos que especifique /** no final do caminho.
 
-Neste exemplo, se o LOCATION='/webdata/', uma consulta de piscina SQL sem servidor, regressará às linhas de mydata.txt e _hidden.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
+Neste exemplo, se o LOCATION='/webdata/', uma consulta de piscina SQL sem servidor, regressará a partir de mydata.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
 
 ![Dados recursivos para tabelas externas](./media/develop-tables-external-tables/folder-traversal.png)
 

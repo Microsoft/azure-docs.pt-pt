@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: 81f741fd9b0e3d40eb0027a5cbe0ba4b7113bbea
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027623"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303156"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -28,26 +28,22 @@ Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao C
 ## <a name="april-2021"></a>abril de 2021
 
 As atualizações em abril incluem:
-- [Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [As imagens de registo de contentores recentemente retiradas são agora rescanadas semanalmente (Disponibilidade Geral)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Use o Azure Defender para Kubernetes para proteger as implementações híbridas e multi-cloud Kubernetes (pré-visualização)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Recomendações da CMK movidas para o controlo de segurança das melhores práticas](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Alertas do Azure Defender deprecados](#11-azure-defender-alerts-deprecated)
 - [Foram deprecadas duas recomendações do controlo de segurança "Aplicar atualizações do sistema"](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 
-### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)
+### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>As imagens de registo de contentores recentemente retiradas são agora rescanadas semanalmente (Disponibilidade Geral)
 
-Os relatórios de extensão da [configuração](../governance/policy/concepts/guest-configuration.md) do hóspede do Azure para ajudar a garantir que as definições de hóspedes das suas máquinas virtuais são endurecidas. A extensão não é necessária para servidores ativados pelo Arc porque está incluído no agente Da Máquina Ligada ao Arco. A extensão requer uma identidade gerida pelo sistema na máquina.
+O Azure Defender para registos de contentores inclui um scanner de vulnerabilidade incorporado. Este scanner digitaliza imediatamente qualquer imagem que empurre para o seu registo e qualquer imagem puxada nos últimos 30 dias.
 
-Adicionámos quatro novas recomendações ao Centro de Segurança para aproveitar ao máximo esta extensão.
+Novas vulnerabilidades são descobertas todos os dias. Com esta atualização, as imagens de contentores que foram retiradas dos seus registos durante os últimos 30 dias serão **reescanadas** todas as semanas. Isto garante que as vulnerabilidades recentemente descobertas são identificadas nas suas imagens.
 
-- Duas recomendações levam-no a instalar a extensão e a sua identidade gerida pelo sistema:
-    - **A extensão de configuração do hóspede deve ser instalada nas suas máquinas**
-    - **A extensão de Configuração de Hóspedes das máquinas virtuais deve ser implementada com identidade gerida atribuída ao sistema**
+A digitalização é cobrada por imagem, por isso não há nenhuma taxa adicional para estes rescans.
 
-- Quando a extensão estiver instalada e em funcionamento, começará a auditar as suas máquinas e será solicitado para endurecer as definições, tais como a configuração do sistema operativo e as definições de ambiente. Estas duas recomendações levar-lhe-ão a endurecer as suas máquinas Windows e Linux, conforme descrito:
-    - **A Guarda de Exploração do Windows Defender deve ser ativada nas suas máquinas**
-    - **A autenticação nas máquinas Linux deve necessitar de chaves SSH**
-
-Saiba mais na [Configuração de Hóspedes da Understand Azure Policy](../governance/policy/concepts/guest-configuration.md).
+Saiba mais sobre este scanner no [Use Azure Defender para registos de contentores para digitalizar as suas imagens para obter vulnerabilidades](defender-for-container-registries-usage.md).
 
 
 ### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Use o Azure Defender para Kubernetes para proteger as implementações híbridas e multi-cloud Kubernetes (pré-visualização)
@@ -69,6 +65,40 @@ Esta integração entre o Azure Security Center, a Azure Defender e o Azure Arc 
 Saiba mais em [Use Azure Defender para Kubernetes com os seus aglomerados de Kubernetes em várias nuvens.](defender-for-kubernetes-azure-arc.md)
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="A recomendação do Azure Security Center para a implementação da extensão do Azure Defender para o Arco Azure permitiu clusters kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)
+
+Os relatórios de extensão da [configuração](../governance/policy/concepts/guest-configuration.md) do hóspede do Azure para ajudar a garantir que as definições de hóspedes das suas máquinas virtuais são endurecidas. A extensão não é necessária para servidores ativados pelo Arc porque está incluído no agente Da Máquina Ligada ao Arco. A extensão requer uma identidade gerida pelo sistema na máquina.
+
+Adicionámos quatro novas recomendações ao Centro de Segurança para aproveitar ao máximo esta extensão.
+
+- Duas recomendações levam-no a instalar a extensão e a sua identidade gerida pelo sistema:
+    - **A extensão de configuração do hóspede deve ser instalada nas suas máquinas**
+    - **A extensão de Configuração de Hóspedes das máquinas virtuais deve ser implementada com identidade gerida atribuída ao sistema**
+
+- Quando a extensão estiver instalada e em funcionamento, começará a auditar as suas máquinas e será solicitado para endurecer as definições, tais como a configuração do sistema operativo e as definições de ambiente. Estas duas recomendações levar-lhe-ão a endurecer as suas máquinas Windows e Linux, conforme descrito:
+    - **A Guarda de Exploração do Windows Defender deve ser ativada nas suas máquinas**
+    - **A autenticação nas máquinas Linux deve necessitar de chaves SSH**
+
+Saiba mais na [Configuração de Hóspedes da Understand Azure Policy](../governance/policy/concepts/guest-configuration.md).
+
+### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>Recomendações da CMK movidas para o controlo de segurança das melhores práticas
+
+O programa de segurança de cada organização inclui requisitos de encriptação de dados. Por padrão, os dados dos clientes do Azure são encriptados em repouso com chaves geridas pelo serviço. No entanto, as chaves geridas pelo cliente (CMK) são geralmente obrigadas a cumprir as normas de conformidade regulamentar. Os CMKs permitem encriptar os seus dados com uma chave [Azure Key Vault](../key-vault/general/overview.md) criada e propriedade de si. Isto dá-lhe total controlo e responsabilidade pelo ciclo de vida chave, incluindo rotação e gestão.
+
+Os controlos de segurança do Azure Security Center são grupos lógicos de recomendações de segurança relacionadas e refletem as suas superfícies de ataque vulneráveis. Cada controlo tem um número máximo de pontos que pode adicionar à sua pontuação segura se remediar todas as recomendações listadas no controlo, para todos os seus recursos. O **controlo de segurança das melhores práticas** de segurança da Implementação vale zero pontos. Portanto, as recomendações neste controlo não afetam a sua pontuação segura.
+
+As recomendações a seguir enumeradas estão a ser transferidas para o controlo de segurança das **melhores práticas** de segurança da Implement para melhor refletir a sua natureza opcional. Esta medida garante que estas recomendações estão no controlo mais adequado para cumprir o seu objetivo.
+
+- As contas DB da Azure Cosmos devem usar chaves geridas pelo cliente para encriptar dados em repouso
+- Os espaços de trabalho de aprendizagem automática Azure devem ser encriptados com uma chave gerida pelo cliente (CMK)
+- As contas de Serviços Cognitivos devem permitir a encriptação de dados com uma chave gerida pelo cliente (CMK)
+- Os registos de contentores devem ser encriptados com uma chave gerida pelo cliente (CMK)
+- As instâncias geridas pela SQL devem usar chaves geridas pelo cliente para encriptar dados em repouso
+- Os servidores SQL devem usar as chaves geridas pelo cliente para encriptar dados em repouso
+- As contas de armazenamento devem utilizar a chave gerida pelo cliente (CMK) para encriptação
+
+Saiba quais as recomendações em cada controlo de segurança nos [controlos de segurança e nas suas recomendações](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 
 ### <a name="11-azure-defender-alerts-deprecated"></a>11 Alertas do Azure Defender deprecados

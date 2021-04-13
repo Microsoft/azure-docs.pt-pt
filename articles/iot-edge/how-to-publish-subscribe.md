@@ -10,14 +10,14 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1a251f5718ee91a90ba9ba0e65c5cc7cb39096bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 25d4774144ff4ea601badb1fb71b51c8142def26
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937197"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304120"
 ---
-# <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e subscrever com a Azure IoT Edge
+# <a name="publish-and-subscribe-with-azure-iot-edge-preview"></a>Publicar e subscrever com a Azure IoT Edge (pré-visualização)
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 

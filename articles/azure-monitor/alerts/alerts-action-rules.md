@@ -2,13 +2,13 @@
 title: Regras de ação para alertas do Monitor Azure
 description: Compreender quais são as regras de ação no Azure Monitor e como configurá-las e geri-las.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/08/2021
+ms.openlocfilehash: df71883d04106dd341af4571c13cc55f35a1ecc3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036786"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304822"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
@@ -43,7 +43,7 @@ Pode aceder à funcionalidade selecionando **ações** de Gestão a partir da p�
 
 Selecione **+ Nova Regra de Ação**.
 
-![A screenshot mostra a página 'Gerir acções' com o botão New Action Rule realçado.](media/alerts-action-rules/action-rules-new-rule.png)
+![A screenshot mostra a página 'Gerir ações' com o botão New Action Rule realçado.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Em alternativa, pode criar uma regra de ação enquanto configura uma regra de alerta.
 
@@ -67,7 +67,7 @@ Os filtros disponíveis são:
 
 * **Gravidade**  
 Esta regra aplica-se apenas a alertas com as severidades selecionadas.  
-Por exemplo, **gravidade = Sev1** significa que a regra se aplicará apenas a alertas com severidade Sev1.
+Por exemplo, **a severidade = "Sev1"** significa que a regra se aplicará apenas a alertas com severidade Sev1.
 * **Serviço de monitorização**  
 Esta regra aplica-se apenas aos alertas provenientes dos serviços de monitorização selecionados.  
 Por exemplo, **o serviço de monitorização = "Azure Backup"** significa que a regra se aplicará apenas a alertas de backup (provenientes de Azure Backup).
@@ -79,15 +79,22 @@ Esta regra aplica-se apenas aos alertas provenientes de uma regra de alerta espe
 Por exemplo, **o ID da regra de alerta = "/subscrições/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** significa que esta regra se aplicará apenas aos alertas provenientes da regra de alerta métrico "API-Latência".  
 _NOTA - pode obter o ID de regra de alerta adequado, listando as suas regras de alerta a partir do CLI, ou abrindo uma regra de alerta específica no portal, clicando em "Propriedades", e copiando o valor "ID de recursos"._
 * **Condição do monitor**  
-Esta regra aplica-se apenas a eventos de alerta com a condição de monitor especificado - **disparado** ou **resolvido**.
+Esta regra aplica-se apenas a eventos de alerta com a condição de monitor especificado - **"Disparado"** ou **"Resolvido".**
 * **Descrição**  
 Esta regra aplica-se apenas a alertas que contenham uma cadeia específica no campo de descrição do alerta. O campo contém a descrição da regra de alerta.  
-Por exemplo, **a descrição contém 'prod'** significa que a regra apenas corresponderá aos alertas que contêm a "ad" da corda na sua descrição.
+Por exemplo, **a descrição contém "prod"** significa que a regra apenas corresponderá aos alertas que contêm a "ad" da corda na sua descrição.
 * **Contexto de alerta (carga útil)**  
 Esta regra aplica-se apenas a alertas que contenham qualquer um ou mais valores específicos nos campos de contexto de alerta.  
-Por exemplo, **o contexto de alerta (carga útil) contém 'Computador-01'** significa que a regra só se aplicará a alertas cuja carga útil contenha a cadeia "Computador-01".
+Por exemplo, **o contexto de alerta (carga útil) contém "Computador-01"** significa que a regra só se aplicará a alertas cuja carga útil contenha a cadeia "Computador-01".
 
-Se definir vários filtros numa regra, todos eles se aplicam. Por exemplo, se definir o **tipo de recurso' = Máquinas Virtuais** e **gravidade' = Sev0**, então a regra aplicar-se-á apenas aos alertas Sev0 em máquinas virtuais.
+> [!NOTE]
+> Cada filtro pode incluir até cinco valores.  
+> Por exemplo, um filtro no serviço de monitor pode incluir até cinco nomes de serviço de monitor.
+
+
+
+
+Se definir vários filtros numa regra, todos eles se aplicam. Por exemplo, se definir **o tipo de recurso = "Máquinas Virtuais"** e **gravidade = "Sev0",** então a regra aplicar-se-á apenas aos alertas Sev0 em máquinas virtuais.
 
 ![Filtros de regras de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

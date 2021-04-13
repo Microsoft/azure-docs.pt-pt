@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9fdaf42f18c320bf841e710b7066451fca24eaae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fdd62ebfe992398d33d2851a1aa1c66497296b5d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030992"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311197"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -59,7 +59,7 @@ Aplicam-se as seguintes regras:
 - As contas de armazenamento de clusters Log Analytics geram uma chave de encriptação única para cada conta de armazenamento, que é conhecida como AEK.
 - O AEK é usado para derivar DEKs, que são as chaves que são usadas para encriptar cada bloco de dados escritos em disco.
 - Quando configura a sua chave no Key Vault e a referencia no cluster, o Azure Storage envia pedidos ao seu Cofre de Chaves Azure para embrulhar e desembrulhar o AEK para realizar operações de encriptação e desencriptação de dados.
-- O seu KEK nunca sai do seu Key Vault e, no caso de uma chave HSM, nunca sai do hardware.
+- O teu KEK nunca sai do cofre das chaves.
 - O Azure Storage utiliza a identidade gerida associada ao recurso *Cluster* para autenticar e aceder ao Azure Key Vault via Azure Ative Directory.
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Customer-Managed principais etapas de provisionamento
@@ -169,6 +169,9 @@ Selecione a versão atual da sua chave no Cofre da Chave Azure para obter os det
 
 Atualize keyVaultProperties em cluster com detalhes do identificador chave.
 
+>[!NOTE]
+>A rotação da chave suporta dois modos: rotação automática ou atualização explícita da versão chave, consulte a [rotação da chave](#key-rotation) para determinar a melhor abordagem para si.
+
 A operação é assíncronea e pode demorar um pouco a ser concluída.
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
@@ -266,7 +269,9 @@ O armazenamento do cluster verifica periodicamente o seu Key Vault para tentar d
 
 ## <a name="key-rotation"></a>Rotação de chaves
 
-A rotação da chave gerida pelo cliente requer uma atualização explícita do cluster com a nova versão chave no Cofre da Chave Azure. [Atualizar o cluster com detalhes do identificador chave](#update-cluster-with-key-identifier-details). Se não atualizar a nova versão chave do cluster, o armazenamento do cluster Log Analytics continuará a utilizar a sua chave anterior para encriptação. Se desativar ou eliminar a sua tecla antiga antes de atualizar a nova chave do cluster, entrará em estado [de revogação de chaves.](#key-revocation)
+A rotação da chave tem dois modos: 
+- Rotação automática - quando atualizar o seu cluster com ```"keyVaultProperties"``` propriedade, mas omitindo, ```"keyVersion"``` ou defini-lo para ```""``` , o armazenamento utilizará automaticamente as versões mais recentes.
+- Atualização explícita da versão chave - quando atualizar o seu cluster e fornecer versão chave na ```"keyVersion"``` propriedade, quaisquer novas versões chave requerem uma atualização explícita ```"keyVaultProperties"``` no cluster, consulte [o cluster Update com detalhes do identificador chave](#update-cluster-with-key-identifier-details). Se gerar uma nova versão chave no Key Vault mas não a atualizá-la no cluster, o armazenamento do cluster Log Analytics continuará a utilizar a sua tecla anterior. Se desativar ou eliminar a sua tecla antiga antes de atualizar a nova chave do cluster, entrará em estado [de revogação de chaves.](#key-revocation)
 
 Todos os seus dados permanecem acessíveis após a operação de rotação da chave, uma vez que os dados sempre encriptados com a Chave de Encriptação de Contas (AEK) enquanto o AEK está agora a ser encriptado com a sua nova versão Key Encryption Key (KEK) no Key Vault.
 
@@ -395,7 +400,7 @@ Customer-Managed chave é fornecida em cluster dedicado e estas operações são
 - Desvincular um espaço de trabalho do cluster
 - Eliminar o cluster
 
-## <a name="limitations-and-constraints"></a>Limitações e constrangimentos
+## <a name="limitations-and-constraints"></a>Limitações e restrições
 
 - O número máximo de cluster por região e subscrição é de 2
 

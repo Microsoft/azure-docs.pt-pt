@@ -1128,10 +1128,22 @@ groups:
     title: Android
   - id: programming-language-ios
     title: iOS
+- id: anomaly-detector-quickstart-multivariate
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
 metadata:
-  ms.openlocfilehash: 519b28d0b563897ca52e0e9c46f7025c8d60105f
-  ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+  ms.openlocfilehash: 8c33a0d949e7245e3f1c73c74c108ea2d8a1e5dd
+  ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/31/2021
-  ms.locfileid: "106055812"
+  ms.lasthandoff: 04/13/2021
+  ms.locfileid: "107312472"

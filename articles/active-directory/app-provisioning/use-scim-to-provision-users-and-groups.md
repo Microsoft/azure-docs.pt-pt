@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449465"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305604"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planear o provisionamento para um ponto final do SCIM
 
@@ -62,7 +62,7 @@ A norma SCIM define um esquema para gerir utilizadores e grupos.
 O **esquema do** utilizador principal só requer três atributos (todos os outros atributos são opcionais):
 
 - `id`, fornecedor de serviços identificador definido
-- `externalId`, identificador definido pelo cliente
+- `userName`, um identificador único para o utilizador (geralmente mapeia para o nome principal do utilizador Azure AD)
 - `meta`, metadados *apenas de leitura* mantidos pelo prestador de serviços
 
 Além do esquema **principal** do utilizador, a norma SCIM define uma extensão do utilizador **da empresa** com um modelo para alargar o esquema do utilizador para atender às necessidades da sua aplicação. 

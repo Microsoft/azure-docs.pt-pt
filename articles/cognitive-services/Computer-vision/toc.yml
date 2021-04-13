@@ -75,7 +75,7 @@
     - name: Visão geral da análise de imagem
       href: overview-image-analysis.md
     - name: Início rápido da análise de imagem
-      href: quickstarts-sdk/client-library.md
+      href: quickstarts-sdk/image-analysis-client-library.md
     - name: Amostras
       items:
         - name: Explorar uma aplicação de processamento de imagens
@@ -146,8 +146,6 @@
   items:
     - name: Visão geral da análise espacial
       href: intro-to-spatial-analysis-public-preview.md
-    - name: Configurar a máquina hospedeira e executar o recipiente
-      href: spatial-analysis-container.md
     - name: Utilização responsável da IA
       items:
         - name: Notas sobre transparência
@@ -170,6 +168,8 @@
       items:
         - name: Utilize o recipiente de Análise Espacial
           items:
+            - name: Configurar a máquina hospedeira e executar o recipiente
+              href: spatial-analysis-container.md
             - name: Configurar operações
               href: spatial-analysis-operations.md
             - name: Implementar uma aplicação Web de contagem de pessoas

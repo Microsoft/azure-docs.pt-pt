@@ -3,12 +3,12 @@ title: Atualizar um cluster para usar o nome comum do certificado
 description: Saiba como converter um certificado de cluster de tecido de serviço Azure de declarações baseadas em impressões digitais para nomes comuns.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daf8d55e156f30b1f9e9ec5c50d60714e6f17884
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900795"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308018"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Converter certificados de agrupamento de declarações baseadas em impressão digital para nomes comuns
 
@@ -45,7 +45,7 @@ Para efeitos de teste, um certificado auto-assinado *pode* ser declarado pela CN
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Carre faça o upload do certificado e instale-o no conjunto de escala
 
-Em Azure, o mecanismo recomendado para a obtenção e fornecimento de certificados envolve o Azure Key Vault e a sua ferramenta. Deve ser fornecida uma declaração de certificado de agrupamento a todos os nós dos conjuntos de escala de máquina virtual que compõem o seu cluster. Para obter mais informações, consulte [Secrets em conjuntos de escala de máquina virtual.](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm)
+Em Azure, o mecanismo recomendado para a obtenção e fornecimento de certificados envolve o Azure Key Vault e a sua ferramenta. Deve ser fornecida uma declaração de certificado de agrupamento a todos os nós dos conjuntos de escala de máquina virtual que compõem o seu cluster. Para obter mais informações, consulte [Secrets em conjuntos de escala de máquina virtual.](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-securely-ship-a-certificate-to-the-vm-)
 
 É importante instalar certificados de cluster de corrente e alvo nas máquinas virtuais de cada tipo de nó do cluster antes de fazer alterações nas declarações de certificado do cluster. A viagem da emissão de certificados ao provisionamento num nó de tecido de serviço é discutida em profundidade na [viagem de um certificado](cluster-security-certificate-management.md#the-journey-of-a-certificate).
 

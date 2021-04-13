@@ -4,16 +4,16 @@ description: Saiba quais os sistemas operativos que podem executar o daemon E o 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/11/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0bd6a8af4850f3a0519bac7644100c2dcf883635
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: b60deee6ccb95245839ee740c2b237b98315d483
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031177"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313203"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas suportados Azure IoT Edge
 
@@ -171,9 +171,15 @@ Os sistemas listados na tabela seguinte são considerados compatíveis com o Azu
 
 Os ativos de libertação do IoT Edge estão disponíveis na página [de lançamentos azure-iotedge.](https://github.com/Azure/azure-iotedge/releases) Esta secção reflete informações dessas notas de lançamento para ajudá-lo a visualizar mais facilmente os componentes de cada versão.
 
-Os componentes IoT Edge podem ser instalados ou atualizados individualmente, e são retrocompeitos com componentes de versões mais antigas. A tabela a seguir lista os componentes incluídos em cada versão:
+A tabela seguinte lista os componentes incluídos em cada versão a partir de 1.2.0. Os componentes listados nesta tabela podem ser instalados ou atualizados individualmente, e são retrocompusdos com versões mais antigas.
 
-| Libertar | Daemon de segurança | Hub de borda<br>Agente de borda | Libiothsm | Moby |
+| Libertar | aziot-edge | edgeHub<br>edgeAgent | aziot-identidade-serviço |
+| ------- | ---------- | -------------------- | ---------------------- |
+| **1.2** | 1.2.0      | 1.2.0                | 1.2.0                  |
+
+A tabela que se segue lista os componentes incluídos em cada versão até à versão 1.1 LTS. Os componentes listados nesta tabela podem ser instalados ou atualizados individualmente, e são retrocompusdos com versões mais antigas.
+
+| Libertar | iotedge | edgeHub<br>edgeAgent | libiothsm | moby |
 |--|--|--|--|--|
 | **1.1 LTS**<sup>1</sup> | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 |   |
 | **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
@@ -192,7 +198,8 @@ O IoT Edge utiliza o Microsoft.Azure.Devices.Client SDK. Para obter mais informa
 
 | Versão do IoT Edge | Microsoft.Azure.Devices.Client SDK versão |
 |------------------|--------------------------------------------|
-| 1.1 (LTS)      | 1.28.0                                     |
+| 1.2.0            | 1.33.4-NestedEdge
+| 1.1 (LTS)        | 1.28.0                                     |
 | 1.0.10           | 1.28.0                                     |
 | 1.0.9            | 1.21.1                                     |
 | 1.0.8            | 1.20.3                                     |

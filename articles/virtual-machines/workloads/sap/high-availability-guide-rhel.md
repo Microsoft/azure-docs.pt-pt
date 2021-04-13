@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/11/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 2f55df70b2ebdaed9b7f15c940d3f4f0553a2856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf71f180a1ce845df436391b98227ae173fe77f1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676901"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303666"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
 
@@ -198,7 +198,6 @@ Primeiro, tens de criar as máquinas virtuais para este cluster. Em seguida, cri
          1. Introduza o nome da nova regra do balançador de carga (por **exemplo, nw1-lb-ascs**)
          1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, nw1-ascs-frontend**, **nw1-backend** e **nw1-ascs-hp)**
          1. Selecione **portas HA**
-         1. Aumente o tempo de inatividade para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
          1. Clique em OK
          * Repita os passos acima para criar regras de equilíbrio de carga para ERS (por **exemplo, nw1-lb-ers)**

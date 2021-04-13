@@ -3,12 +3,12 @@ title: Visão geral dos centros de eventos dedicados - Azure Event Hubs | Micros
 description: Este artigo fornece uma visão geral do dedicado Azure Event Hubs, que oferece implementações de inquilinos individuais de centros de eventos.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe63b074bfdd01191d81dfb7024af5532a87a12f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715620"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310772"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral dos Centros de Eventos Dedicados
 
@@ -71,4 +71,4 @@ Contacte o seu representante de vendas da Microsoft ou o Microsoft Support para 
 
 - [Criar um cluster de Centros de Eventos através do portal Azure](https://aka.ms/eventhubsclusterquickstart) 
 - [Preços dedicados ao Evento Hubs.](https://azure.microsoft.com/pricing/details/event-hubs/) Também pode contactar o seu representante de vendas da Microsoft ou o Microsoft Support para obter detalhes adicionais sobre a capacidade dedicada do Event Hubs.
-- O [Event Hubs FAQ](event-hubs-faq.md) contém informações sobre preços e responde a algumas perguntas frequentes sobre Os Centros de Eventos.
+- O [Event Hubs FAQ](event-hubs-faq.yml) contém informações sobre preços e responde a algumas perguntas frequentes sobre Os Centros de Eventos.

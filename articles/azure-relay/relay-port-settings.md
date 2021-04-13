@@ -3,12 +3,12 @@ title: As definições da porta Azure Relay | Microsoft Docs
 description: Este artigo inclui uma tabela que descreve a configuração necessária para os valores da porta para O Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 97640debe81041ff7e2b082c6a9ac606d6088664
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81551055d967babaac6f12c3a23ce6b1e78afbd5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85314272"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314172"
 ---
 # <a name="azure-relay-port-settings"></a>Definições da porta Azure Relay
 
@@ -42,4 +42,4 @@ A Hybrid Connections utiliza webSockets na porta 443 com TLS como o mecanismo de
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o Azure Relay, visite estes links:
 * [O que é o Azure Relay?](relay-what-is-it.md)
-* [FAQ de Reencaminhamento](relay-faq.md)
+* [FAQ de Reencaminhamento](relay-faq.yml)

@@ -8,16 +8,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 098d874d7de85aa7c66f92703eea9b4d12cee8df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101691251"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305298"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -86,13 +86,13 @@ Os auditores podem utilizar o Azure Monitor para rever os registos auditevent do
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisitos para configurar o protetor TDE
 
-- O protetor TDE só pode ser assimétrico, rsa ou rsa HSM. Os comprimentos-chave suportados são 2048 e 3072 bytes.
+- O protetor TDE só pode ser assimétrico, rsa ou rsa HSM. Os comprimentos-chave suportados são 2048 bytes e 3072 bytes.
 
 - A data de ativação da chave (se definida) deve ser uma data e hora no passado. A data de validade (se definida) deve ser uma data e hora futuras.
 
 - A chave deve estar no estado *ativado.*
 
-- Se estiver a importar a chave existente para o cofre da chave, certifique-se de que a fornece nos formatos de ficheiro suportados (.pfx, .byok ou .backup).
+- Se estiver a importar a chave existente para o cofre da chave, certifique-se de que a fornece nos formatos de ficheiros suportados `.pfx` (, `.byok` ou `.backup` .
 
 > [!NOTE]
 > O Azure SQL suporta agora a utilização de uma chave RSA armazenada num HSM gerido como Protetor TDE. Esta funcionalidade está em **pré-visualização pública.** Azure Key Vault Managed HSM é um serviço de nuvem totalmente gerido, altamente disponível, de inquilino único, que permite proteger chaves criptográficas para as suas aplicações em nuvem, utilizando HSMs validados FIPS 140-2 Nível 3. Saiba mais sobre [HSMs geridos.](../../key-vault/managed-hsm/index.yml)
@@ -116,7 +116,7 @@ Os auditores podem utilizar o Azure Monitor para rever os registos auditevent do
 
 - Se a chave for gerada no cofre da chave, crie uma cópia de segurança antes de utilizar a chave em AKV pela primeira vez. A cópia de segurança pode ser restaurada apenas para um Cofre de Chaves Azure. Saiba mais sobre o comando [Backup-AzKeyVaultKey.](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- Crie uma nova cópia de segurança sempre que forem feitas alterações à tecla (por exemplo.key atributos, tags, ACLs).
+- Crie uma nova cópia de segurança sempre que forem feitas alterações à tecla (por exemplo, atributos chave, tags, ACLs).
 
 - **Mantenha as versões anteriores** da chave no cofre quando estiver a rodar as chaves, para que as cópias de segurança da base de dados mais antigas possam ser restauradas. Quando o protetor TDE é alterado para uma base de dados, as cópias de segurança antigas da base de dados **não são atualizadas** para utilizar o mais recente protetor TDE. No momento da restauração, cada backup precisa do protetor TDE com o que foi encriptado na hora da criação. As rotações das chaves podem ser efetuadas seguindo as instruções da [Rotação do Protetor de Encriptação de Dados Transparente utilizando o PowerShell](transparent-data-encryption-byok-key-rotation.md).
 
@@ -131,13 +131,13 @@ Quando a encriptação de dados transparente é configurada para utilizar uma ch
 > [!NOTE]
 > Se a base de dados estiver inacessível devido a uma falha intermitente de rede, não é necessária nenhuma ação e as bases de dados voltarão a funcionar automaticamente.
 
-Após o acesso à chave ser restaurado, a tomada de base de dados online requer tempo e passos adicionais, que podem variar em função do tempo decorrido sem acesso à chave e do tamanho dos dados na base de dados:
+Após o acesso à chave ser restaurado, a tomada de base de dados online requer tempo e passos extra, que podem variar em função do tempo decorrido sem acesso à chave e do tamanho dos dados na base de dados:
 
-- Se o acesso à chave for restaurado dentro de 8 horas, a base de dados curar-se-á automaticamente dentro de uma hora.
+- Se o acesso à chave for restaurado dentro de 8 horas, a base de dados será automaticamente baixa dentro de uma hora.
 
-- Se o acesso à chave for restaurado mais de 8 horas depois, não será possível realizar a autorrecuperação. Além disso, recuperar a base de dados requer passos adicionais no portal e pode demorar bastante tempo, dependendo do tamanho da base de dados. Uma vez que a base de dados esteja novamente on-line, configuradas previamente configuradas configurações de nível do servidor, tais como configuração [do grupo de failover,](auto-failover-group-overview.md) histórico de restauração pontual e tags **serão perdidas**. Por isso, recomenda-se a implementação de um sistema de notificação que lhe permita identificar e resolver os principais problemas de acesso subjacentes dentro de 8 horas.
+- Se o acesso à chave for restaurado após mais de 8 horas, o autoheal não é possível e trazer de volta a base de dados requer passos extra no portal e pode demorar um tempo significativo dependendo do tamanho da base de dados. Uma vez que a base de dados esteja novamente on-line, configuradas previamente configuradas configurações de nível do servidor, tais como configuração [do grupo de failover,](auto-failover-group-overview.md) histórico de restauração pontual e tags **serão perdidas**. Por isso, recomenda-se a implementação de um sistema de notificação que lhe permita identificar e resolver os principais problemas de acesso subjacentes dentro de 8 horas.
 
-Abaixo está uma visão dos passos adicionais necessários no portal para colocar uma base de dados inacessível de volta on-line.
+Abaixo está uma visão dos passos extra necessários no portal para trazer uma base de dados inacessível de volta on-line.
 
 ![TDE BYOK Base de Dados Inacessível](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
 
@@ -175,7 +175,7 @@ Para restaurar uma cópia de segurança encriptada com um protetor TDE do Key Va
 > [!IMPORTANT]
 > A qualquer momento, não pode haver mais do que um conjunto de protetor TDE para um servidor. É a chave marcada com "Faça da chave o protetor TDE predefinido" na lâmina do portal Azure. No entanto, várias teclas adicionais podem ser ligadas a um servidor sem as marcar como um protetor TDE. Estas teclas não são utilizadas para proteger o DEK, mas podem ser utilizadas durante a restauração de uma cópia de segurança, se o ficheiro de cópia de segurança for encriptado com a chave com a impressão digital correspondente.
 
-Se a chave necessária para restaurar uma cópia de segurança já não estiver disponível para o servidor alvo, a seguinte mensagem de erro é devolvida na tentativa de restauro: "O servidor-alvo `<Servername>` não tem acesso a todos os URIs AKV criados entre e \<Timestamp #1> \<Timestamp #2> . Por favor, relembra a operação depois de restaurar todos os URIs AKV."
+Se a chave necessária para restaurar uma cópia de segurança já não estiver disponível para o servidor alvo, a seguinte mensagem de erro é devolvida na tentativa de restauro: "O servidor-alvo `<Servername>` não tem acesso a todos os URIs AKV criados entre e \<Timestamp #1> \<Timestamp #2> . Re-tentar operação depois de restaurar todos os URIs AKV."
 
 Para o mitigar, execute o cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para o servidor alvo ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para o caso gerido pelo alvo para devolver a lista das chaves disponíveis e identificar as que faltam. Para garantir que todas as cópias de segurança podem ser restauradas, certifique-se de que o servidor alvo para a restauração tem acesso a todas as teclas necessárias. Estas chaves não precisam de ser marcadas como protetora TDE.
 
@@ -187,13 +187,13 @@ Consideração adicional para ficheiros de registo: Os ficheiros de registo com 
 
 Mesmo nos casos em que não há geo-redundância configurada para o servidor, é altamente recomendado configurar o servidor para usar dois cofres-chave diferentes em duas regiões diferentes com o mesmo material chave. A chave no cofre de chaves secundárias da outra região não deve ser marcada como protetor tde, e nem sequer é permitida. Se houver uma falha que afete o cofre principal da chave, e só então, o sistema mudará automaticamente para a outra chave ligada com a mesma impressão digital no cofre da chave secundária, se existir. Note que esse interruptor não acontecerá se o protetor TDE estiver inacessível devido a direitos de acesso revogados, ou porque a chave ou o cofre chave são eliminados, pois pode indicar que o cliente intencionalmente queria restringir o servidor de aceder à chave. Fornecer o mesmo material chave para dois cofres chave em diferentes regiões pode ser feito criando a chave fora do cofre chave, e importando-os em ambos os cofres chave. 
 
-Em alternativa, pode ser realizado gerando chave usando o cofre principal co-localizado na mesma região que o servidor e clonando a chave em um cofre chave em uma região de Azure diferente. Utilize o [cmdlet Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar a chave em formato encriptado a partir do cofre de tecla primária e, em seguida, use o cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) e especifique um cofre chave na segunda região para clonar a chave. Em alternativa, utilize o portal Azure para fazer recuar e restaurar a chave. A operação de backup/restauro de chaves só é permitida entre cofres chave dentro da mesma assinatura Azure e [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
+Em alternativa, pode ser realizado gerando chave usando o cofre principal colocado na mesma região que o servidor e clonando a chave em um cofre chave em uma região de Azure diferente. Utilize o [cmdlet Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar a chave em formato encriptado a partir do cofre de tecla primária e, em seguida, use o cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) e especifique um cofre chave na segunda região para clonar a chave. Em alternativa, utilize o portal Azure para fazer recuar e restaurar a chave. A operação de backup/restauro de chaves só é permitida entre cofres chave dentro da mesma assinatura Azure e [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>TDE geo-DR e gerido pelo cliente
 
-Em ambos os cenários [de geo-replicação ativa](active-geo-replication-overview.md) e [grupos de failover,](auto-failover-group-overview.md) cada servidor envolvido requer um cofre de chaves separado, que deve ser co-localizado com o servidor na mesma região de Azure. O cliente é responsável por manter o material chave através dos cofres-chave consistente, de modo que o geo-secundário está sincronizado e pode assumir usando a mesma chave do seu cofre de chaves local se o primário se tornar inacessível devido a uma falha na região e uma falha é desencadeada. Até quatro secundários podem ser configurados, e acorrentamento (secundários de secundários) não é suportado.
+Em ambos os cenários [de geo-replicação ativa](active-geo-replication-overview.md) e [grupos de failover,](auto-failover-group-overview.md) cada servidor envolvido requer um cofre de chaves separado, que deve ser cotado com o servidor na mesma região de Azure. O cliente é responsável por manter o material chave através dos cofres-chave consistente, de modo que o geo-secundário está sincronizado e pode assumir usando a mesma chave do seu cofre de chaves local se o primário se tornar inacessível devido a uma falha na região e uma falha é desencadeada. Até quatro secundários podem ser configurados, e acorrentamento (secundários de secundários) não é suportado.
 
 Para evitar problemas durante o estabelecimento ou durante a geo-replicação devido a material chave incompleto, é importante seguir estas regras ao configurar o TDE gerido pelo cliente:
 
@@ -205,7 +205,7 @@ Para evitar problemas durante o estabelecimento ou durante a geo-replicação de
 
 ![Grupos de failover e geo-dr](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-Para testar uma falha, siga os passos na [visão geral da geo-replicação ativa](active-geo-replication-overview.md). Os testes de failover devem ser feitos regularmente para validar que a Base de Dados SQL manteve a permissão de acesso a ambos os cofres-chave.
+Para testar uma falha, siga os passos na [visão geral da geo-replicação ativa](active-geo-replication-overview.md). Os testes de falha devem ser feitos regularmente para validar que a Base de Dados SQL manteve a permissão de acesso a ambos os cofres-chave.
 
 ## <a name="next-steps"></a>Passos seguintes
 

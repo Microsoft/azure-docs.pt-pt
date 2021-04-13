@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3c938e7fe180e6a9cf08031a2a4565486f3f77a9
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: d86cc6af34036f5bd638b4fc78abdb54d71e6859
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504639"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306522"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de produção de ingestão de streaming
 
@@ -59,7 +59,7 @@ Ao planear o seu ambiente Azure Time Series Insights Gen2, é importante conside
 
 Uma *partição* é uma sequência ordenada de eventos realizados num centro. A contagem de divisórias é definida durante a fase de criação do hub e não pode ser alterada.
 
-Para o Event Hubs a dividir as melhores práticas, reveja [quantas divisórias preciso?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+Para o Event Hubs a dividir as melhores práticas, reveja [quantas divisórias preciso?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)
 
 > [!NOTE]
 > A maioria dos hubs IoT usados com Azure Time Series Insights Gen2 só precisam de quatro divisórias.

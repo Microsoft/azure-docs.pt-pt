@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1e6d2f4fc0444be364ce3c07c14f6408b3f19fe
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 21db7ed0cf13a3ed282929b09847c6c3ba8a36ed
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446915"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307253"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configure um proxy do Centro de Distribuição de Chaves Kerberos (pré-visualização)
 
@@ -29,7 +29,7 @@ Existem dois componentes para o serviço de ambiente de trabalho virtual do Wind
 - O feed no cliente virtual do Windows desktop que dá aos utilizadores uma lista de ambientes de trabalho disponíveis ou aplicações a que têm acesso. Este processo de autenticação acontece no Azure Ative Directory, o que significa que este componente não é o foco deste artigo.
 - A sessão RDP que resulta de um utilizador selecionar um dos recursos disponíveis. Este componente utiliza a autenticação Kerberos e requer um proxy KDC para utilizadores remotos.
 
-Este artigo irá mostrar-lhe como configurar o feed no cliente Virtual Desktop do Windows no portal Azure. Se quiser aprender a configurar o papel rd gateway, consulte [implementar o papel de RD Gateway](/windows-server/remote/rd-gateway-role).
+Este artigo irá mostrar-lhe como configurar o feed no cliente Virtual Desktop do Windows no portal Azure. Se quiser aprender a configurar o papel rd gateway, consulte [implementar o papel de RD Gateway](/azure/virtual-desktop/rd-gateway-role).
 
 ## <a name="requirements"></a>Requisitos
 

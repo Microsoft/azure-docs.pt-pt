@@ -10,16 +10,16 @@ ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f104b98c870fe6eee1d32fe656c0bba416cf3700
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 268de3e8ea168ac721362d42149389b9f37c86fe
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259749"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305060"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
-Pode permitir que a versão de armazenamento Blob mantenha automaticamente as versões anteriores de um objeto.  Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada.
+Pode permitir que a versão de armazenamento Blob mantenha automaticamente as versões anteriores de um objeto. Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -35,21 +35,21 @@ Para saber mais sobre as recomendações da Microsoft para a proteção de dados
 
 ## <a name="how-blob-versioning-works"></a>Como funciona a versão blob
 
-Uma versão captura o estado de uma bolha num dado momento. Quando a versão blob é ativada para uma conta de armazenamento, o Azure Storage cria automaticamente uma nova versão de uma bolha cada vez que a bolha é modificada.
+Uma versão captura o estado de uma bolha num dado momento. Cada versão é identificada com um ID de versão. Quando a versão blob é ativada para uma conta de armazenamento, o Azure Storage cria automaticamente uma nova versão com um ID único quando uma bolha é criada pela primeira vez e cada vez que a bolha é subsequentemente modificada.
 
-Quando se cria uma bolha com a versão ativada, a nova bolha é a versão atual do blob (ou a bolha base). Se modificar posteriormente essa bolha, o Azure Storage cria uma versão que captura o estado da bolha antes de ser modificada. A bolha modificada torna-se a nova versão atual. Uma nova versão é criada cada vez que modifica a bolha.
+Um ID de versão pode identificar a versão atual ou uma versão anterior. Uma bolha só pode ter uma versão atual de cada vez.
+
+Quando se cria uma nova bolha, existe uma única versão, e essa versão é a versão atual. Quando modifica uma bolha existente, a versão atual torna-se uma versão anterior. Uma nova versão é criada para capturar o estado atualizado, e esta nova versão é a versão atual. Quando se apaga uma bolha, a versão atual do blob torna-se uma versão anterior, e já não existe uma versão atual. Quaisquer versões anteriores da bolha persistem.
 
 O diagrama a seguir mostra como as versões são criadas em operações de escrita, e como uma versão anterior pode ser promovida para ser a versão atual:
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagrama mostrando como funciona a versão blob":::
 
-Quando elimina uma bolha com versão ativada, a versão atual do blob torna-se uma versão anterior, e já não existe uma versão atual. Quaisquer versões anteriores da bolha persistem.
-
 As versões blob são imutáveis. Não é possível modificar o conteúdo ou metadados de uma versão blob existente.
 
 Ter um grande número de versões por blob pode aumentar a latência para operações de listagem de bolhas. A Microsoft recomenda manter menos de 1000 versões por blob. Pode utilizar a gestão do ciclo de vida para eliminar automaticamente versões antigas. Para obter mais informações sobre a gestão do ciclo de vida, consulte [os custos da Otimização automatizando os níveis de acesso ao armazenamento Azure Blob](storage-lifecycle-management-concepts.md).
 
-A versão blob está disponível para as contas de armazenamento v2, block blob e Blob. As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas.
+A versão blob está disponível para v2 de uso geral padrão, blob de bloco premium e contas de armazenamento Blob legacy. As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas.
 
 Versão 2019-10-10 e superior do Azure Storage REST API suporta a versão blob.
 
@@ -58,9 +58,9 @@ Versão 2019-10-10 e superior do Azure Storage REST API suporta a versão blob.
 
 ### <a name="version-id"></a>ID da versão
 
-Cada versão blob é identificada por um ID de versão. O valor da versão ID é o tempotampido em que a bolha foi atualizada. A versão ID é atribuída no momento em que a versão é criada.
+Cada versão blob é identificada por um ID de versão única. O valor da versão ID é o tempotampido em que a bolha foi atualizada. A versão ID é atribuída no momento em que a versão é criada.
 
-Pode executar operações de leitura ou eliminação numa versão específica de uma bolha, fornecendo o seu ID de versão. Se omitir o ID da versão, a operação atua contra a versão atual (a bolha base).
+Pode executar operações de leitura ou eliminação numa versão específica de uma bolha, fornecendo o seu ID de versão. Se omitir o ID da versão, a operação atua contra a versão atual.
 
 Quando chama uma operação de escrita para criar ou modificar uma bolha, o Azure Storage devolve o cabeçalho *x-ms-versão id* na resposta. Este cabeçalho contém o ID da versão atual da bolha que foi criada pela operação de escrita.
 
@@ -70,11 +70,9 @@ O ID da versão permanece o mesmo durante toda a vida da versão.
 
 Quando a versão blob é ligada, cada operação de escrita para uma bolha cria uma nova versão. As operações de escrita incluem [Put Blob,](/rest/api/storageservices/put-blob) [Put Block List,](/rest/api/storageservices/put-block-list)Copy [Blob](/rest/api/storageservices/copy-blob)e [set Blob Metadados](/rest/api/storageservices/set-blob-metadata).
 
-Se a operação de escrita criar uma nova bolha, então a bolha resultante é a versão atual do blob. Se a operação de escrita modificar uma bolha existente, então os novos dados são capturados na bolha atualizada, que é a versão atual, e o Azure Storage cria uma versão que salva o estado anterior da bolha.
+Se a operação de escrita criar uma nova bolha, então a bolha resultante é a versão atual do blob. Se a operação de escrita modificar uma bolha existente, então a versão atual torna-se uma versão anterior, e uma nova versão atual é criada para capturar o blob atualizado.
 
-Para simplificar, os diagramas apresentados neste artigo exibem o ID da versão como um simples valor inteiro. Na realidade, a versão ID é uma etiqueta de tempo. A versão atual é mostrada em azul, e as versões anteriores são mostradas em cinza.
-
-O diagrama que se segue mostra como as operações de escrita afetam as versões blob. Quando uma bolha é criada, esta bolha é a versão atual. Quando a mesma bolha é modificada, uma nova versão é criada para salvar o estado anterior da bolha, e a bolha atualizada torna-se a versão atual.
+O diagrama que se segue mostra como as operações de escrita afetam as versões blob. Para simplificar, os diagramas apresentados neste artigo exibem o ID da versão como um simples valor inteiro. Na realidade, a versão ID é uma etiqueta de tempo. A versão atual é mostrada em azul, e as versões anteriores são mostradas em cinza.
 
 :::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/07/2021
 ms.author: terrylan
-ms.openlocfilehash: be270383b868abb7e2865920f4a3852e2f6210dc
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 3ea3c2bcb878dbd8a712e6076dda09853f55e297
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031423"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310347"
 ---
 # <a name="end-to-end-security-in-azure"></a>Segurança de ponta a ponta em Azure
 Uma das melhores razões para usar o Azure para as suas aplicações e serviços é aproveitar a sua ampla gama de ferramentas e capacidades de segurança. Estas ferramentas e capacidades ajudam a tornar possível a criação de soluções seguras na plataforma Azure segura. O Microsoft Azure fornece confidencialidade, integridade e disponibilidade de dados dos clientes, ao mesmo tempo que permite uma responsabilização transparente.
@@ -63,8 +63,8 @@ O programa [Azure Security Benchmark](../benchmarks/introduction.md) inclui uma 
 | [Norma do Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) | Fornece funcionalidades de mitigação de DDoS melhoradas para se defender contra ataques DDoS. É automaticamente sintonizado para ajudar a proteger os seus recursos Azure específicos numa rede virtual. |
 | [Azure Front Door](../../frontdoor/front-door-overview.md) | Um ponto de entrada global e escalável que utiliza a rede de arestas globais da Microsoft para criar aplicações web rápidas, seguras e amplamente escaláveis. |
 | [Azure Firewall](../../firewall/overview.md) | Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da Rede Virtual Azure. É uma firewall como um serviço com monitorização de estado com alta disponibilidade integrada e escalabilidade da cloud irrestrita. |
-| [Azure Key Vault](../../key-vault/general/overview.md) | Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da Rede Virtual Azure. É uma firewall como um serviço com monitorização de estado com alta disponibilidade integrada e escalabilidade da cloud irrestrita. |
-| [Key Vault Gerido HSDM (pré-visualização)](../../key-vault/managed-hsm/overview.md) | Um serviço de nuvem totalmente gerido, altamente disponível, de inquilino único, que permite salvaguardar chaves criptográficas para as suas aplicações em nuvem, utilizando HSMs validados FIPS 140-2 Nível 3. |
+| [Azure Key Vault](../../key-vault/general/overview.md) | Uma loja de segredos seguros para tokens, senhas, certificados, chaves API e outros segredos. O Key Vault também pode ser usado para criar e controlar as chaves de encriptação utilizadas para encriptar os seus dados. |
+| [Key Vault Managed HSM (pré-visualização)](../../key-vault/managed-hsm/overview.md) | Um serviço de nuvem totalmente gerido, altamente disponível, de inquilino único, que permite salvaguardar chaves criptográficas para as suas aplicações em nuvem, utilizando HSMs validados FIPS 140-2 Nível 3. |
 | [Azure Private Link](../../private-link/private-link-overview.md) | Permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e a Azure acolheu serviços de propriedade do cliente/parceiro sobre um ponto final privado na sua rede virtual. |
 | [Gateway de Aplicação do Azure](../../application-gateway/overview.md) | Um equilibrador avançado de carga de tráfego web que lhe permite gerir o tráfego para as suas aplicações web. O Application Gateway pode tomar decisões de encaminhamento com base em atributos adicionais de um pedido HTTP, por exemplo, caminho URI ou cabeçalhos de anfitrião. |
 | [Azure Service Bus](../../service-bus-messaging/service-bus-messaging-overview.md) | Um corretor de mensagens da empresa totalmente gerido com filas de mensagens e tópicos de subscrição de publicação. O Service Bus é usado para dissociar aplicações e serviços uns dos outros. |

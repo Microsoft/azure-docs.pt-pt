@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 948fe25da8468e887693fe8c9f75f675dfbea858
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 497ffa4b3026491d6aa95df87708b3b1f2f1619e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969404"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308290"
 ---
 # <a name="azure-certified-device-requirements"></a>Requisitos de dispositivo certificado Azure 
 (anteriormente conhecido como IoT Hub)
@@ -40,7 +40,7 @@ A certificação de dispositivo certificado Azure é:
 | **Aplica-se a**          | Dispositivo de folha/dispositivo edge                                      |
 | **SO**                  | Desconhecida                                                     |
 | **Tipo de Validação**     | Automatizada                                                    |
-| **Validação**          | O dispositivo deve enviar quaisquer esquemas de telemetria para o IoT Hub. A Microsoft fornece o [fluxo de trabalho do portal](https://certify.azure.come) para executar os testes. Dispositivo para nuvem (obrigatório): **1.** Valida que o dispositivo pode enviar mensagem para o IoT Hub **2** gerido pela AICS. O utilizador deve especificar o número e a frequência das mensagens. **3.** AICS valida a telemetria é recebida pela instância Hub |
+| **Validação**          | O dispositivo deve enviar quaisquer esquemas de telemetria para o IoT Hub. A Microsoft fornece o [fluxo de trabalho do portal](https://certify.azure.com/) para executar os testes. Dispositivo para nuvem (obrigatório): **1.** Valida que o dispositivo pode enviar mensagem para o IoT Hub **2** gerido pela AICS. O utilizador deve especificar o número e a frequência das mensagens. **3.** AICS valida a telemetria é recebida pela instância Hub |
 | **Recursos**           | [Etapas de certificação](./overview.md) (tem todos os recursos adicionais) |
 
 **[Obrigatório] DPS: O objetivo do teste é verificar os dispositivos que implementa e suporta o Serviço de Provisionamento de Dispositivos IoT Hub com um dos três métodos de atestação**

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 03/30/2020
-ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 0da1fd7b98b86ebd75926cc8a2d2bb5294d048ca
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247187"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308197"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utilize um ponto final HTTPS para gerir os leads de marketplace comercial
 
@@ -31,13 +31,13 @@ Este artigo explica como criar um novo fluxo no Power Automamate para gerar o UR
 
     ![Assine nos meus fluxos](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. Em **+ Novo**, selecione + Instantâneo — a partir de **branco.**
+1. Em **+ Novo**, selecione + fluxo de nuvem **instantânea.**
 
-    ![Os meus fluxos + automatizados-- de branco](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    ![Os meus fluxos + automatizados-- de branco](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
 
 1. Nomeie o seu fluxo e, em seguida, em **Escolha como desencadear este fluxo**, selecione Quando receber um pedido **HTTP**.
 
-    ![Construa um botão de salto de janela de fluxo automatizado](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    ![Construa um botão de salto de janela de fluxo automatizado](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
 
 1. Clique no passo de fluxo para expandi-lo.
 
@@ -137,9 +137,13 @@ Este artigo explica como criar um novo fluxo no Power Automamate para gerar o UR
 ### <a name="connect-to-a-crm-system"></a>Ligar-se a um sistema CRM
 
 1. Selecione **+Novo passo**.
-1. Escolha o sistema CRM à sua escolha procurando-o onde diz **Conectores e ações de pesquisa.** Selecione-o no **separador Ações** com a ação para criar um novo registo. O seguinte ecrã mostra **Criar um novo disco (Dynamics 365)** como exemplo.
+1. Escolha o sistema CRM à sua escolha procurando-o onde diz **Conectores e ações de pesquisa.** O ecrã a seguir mostra Criar um novo registo (Common Data Service) como exemplo.
 
     ![Criar um novo registo](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+
+1. Selecione o **separador Ações** com a ação para **criar um novo registo**.
+
+    ![Selecione criar um novo registo](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. Fornecer o **Nome de Organização** associado ao sistema CRM. Selecione **Leads** da lista de drop-down do Nome da **Entidade.**
 
