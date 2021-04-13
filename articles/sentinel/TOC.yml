@@ -35,6 +35,8 @@
           href: roles.md
         - name: Gerir o acesso por recurso
           href: resource-context-rbac.md
+        - name: Proteger a propriedade intelectual da MSSP
+          href: mssp-protect-intellectual-property.md
     - name: Deteção avançada de ataques em várias fases
       href: fusion.md
     - name: Automação (SOAR)

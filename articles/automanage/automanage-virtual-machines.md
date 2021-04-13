@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: e4e1d22e2e7175135e88a08ed5a6d5ae7f021d49
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 514f1af2a1b120254840986fc5ceb803dfc24345
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491287"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363381"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -59,6 +59,7 @@ A automanagem suporta apenas VMs localizados nas seguintes regiões:
 * Sul do Reino Unido
 * AU Leste
 * AU Sudeste
+* Sudeste Asiático
 
 ### <a name="required-rbac-permissions"></a>Permissões necessárias do RBAC
 A sua conta requer funções RBAC ligeiramente diferentes, dependendo se está a permitir a Automanage com uma nova conta Automanage.
@@ -105,7 +106,7 @@ Está [aqui uma](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDe
 1. Clique no botão **Atribuir** ao visualizar a definição de política
 1. Selecione o âmbito em que pretende aplicar a política (pode ser grupo de gestão, subscrição ou grupo de recursos)
 1. Nos **parâmetros**, especifique os parâmetros para a conta de auto-produção, perfil de configuração e efeito (o efeito deve normalmente ser DeployIfNotExists)
-    1. Se não tiver uma conta de auto-nomeagem, terá de [criar uma](#create-an-automanage-account).
+    1. Se não tiver uma conta de auto-nomeagem, terá de [criar uma](./automanage-account.md).
 1. Em **Remediação,** verifique a caixa de verificação "Clique numa tarefa de reparação". Isto irá atuar a bordo da Automanage.
 1. Clique **em Rever + criar** e certifique-se de que todas as definições ficam boas.
 1. Clique em **Criar**.
@@ -142,58 +143,9 @@ Para obter a lista completa dos serviços Azure participantes e se apoiarem pref
 
 ## <a name="automanage-account"></a>Conta de Auto-Produção
 
-A Conta De Auto-Produção é o contexto de segurança ou a identidade em que ocorrem as operações automatizadas. Normalmente, a opção Conta De Gestão Automática é desnecessária para você selecionar, mas se havia um cenário de delegação onde você queria dividir a gestão automatizada dos seus recursos (talvez entre dois administradores de sistema), esta opção permite definir uma identidade Azure para cada um desses administradores.
+A Conta De Auto-Produção é o contexto de segurança ou a identidade em que ocorrem as operações automatizadas. Normalmente, a opção Conta De Gestão Automática é desnecessária para você selecionar, mas se houvesse um cenário de delegação em que quisesse dividir a gestão automatizada dos seus recursos (talvez entre dois administradores de sistema), a opção Conta De Gestão Automática no fluxo de habilitação permite definir uma identidade Azure para cada um desses administradores.
 
-Na experiência do portal Azure, quando está a permitir a auto-managem nos seus VMs, existe uma queda avançada na lâmina **de boas práticas enable Azure VM** que lhe permite atribuir ou criar manualmente a Conta de Auto-managem.
-
-A Conta de Gestão Automática receberá **as** funções de Contribuinte e **Dedução de Política de Recursos** para a(s) subscrição(s) que contém a(s) máquina(s) que você está a bordo para a Automanage. Pode utilizar a mesma Conta de Auto-gestão em máquinas através de várias subscrições, o que dará permissãos de **Contribuinte** de Conta de Auto-Gestão e **Contribuidor de Política de Recursos** em todas as subscrições.
-
-Se o seu VM estiver ligado a um espaço de trabalho log Analytics noutra subscrição, a Conta De Gestão Automática também receberá **contribuidor** como **colaborador de política de recursos** nessa outra subscrição.
-
-Se estiver a habilitar a autoadministração com uma nova Conta de Autoadministração, necessita das seguintes permissões na sua subscrição: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
-
-Se estiver a ativar a Automanage com uma Conta de Auto-gestão existente, tem de ter a função **de Contribuinte** no grupo de recursos que contém os seus VMs.
-
-> [!NOTE]
-> Quando desativar as melhores práticas de auto-managem, as permissões da Conta De Auto-Manage em quaisquer subscrições associadas permanecerão. Remova manualmente as permissões indo para a página IAM da subscrição ou eliminando a Conta Desmanvação Automática. A Conta de Gestão Automática não pode ser eliminada se ainda estiver a gerir máquinas.
-
-### <a name="create-an-automanage-account"></a>Criar uma conta de auto-nomeagem
-Pode criar uma Conta de Auto-Produção utilizando o portal ou utilizando um modelo ARM.
-
-#### <a name="portal"></a>Portal
-1. Navegue até à lâmina **de auto-managem** no portal
-1. Clique **em Ativar na máquina existente**
-1. Em **Avançado**, clique em "Criar uma nova conta"
-1. Preencha os campos necessários e clique em **Criar**
-
-#### <a name="arm-template"></a>Modelo ARM
-Guarde o seguinte modelo ARM como `azuredeploy.json` e executar o seguinte comando: `az deployment group create --resource-group <resource group name> --template-file azuredeploy.json`
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "automanageAccountName": {
-            "type": "String"
-        },
-        "location": {
-            "type": "String"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2020-06-30-preview",
-            "type": "Microsoft.Automanage/accounts",
-            "name": "[parameters('automanageAccountName')]",
-            "location": "[parameters('location')]",
-            "identity": {
-                "type": "SystemAssigned"
-            }
-        }
-    ]
-}
-```
+Para saber mais sobre a conta Automanage e como criar uma, visite o [documento da Conta De Gestão Automática.](./automanage-account.md)
 
 ## <a name="status-of-vms"></a>Estatuto dos VM
 
@@ -227,7 +179,7 @@ Leia atentamente através das mensagens no pop-up resultante antes de concordar 
 >
 > - A configuração do VM e os serviços a bordo não mudam.
 > - Quaisquer encargos incorridos por esses serviços continuam a ser faturadas e continuam a ser incorridos.
-> - Qualquer comportamento de auto-condutor para imediatamente.
+> - A monitorização da deriva de auto-controlo para imediatamente.
 
 
 Em primeiro lugar, não vamos desabar a máquina virtual de nenhum dos serviços a que a embarcamos e configuramos. Assim, quaisquer encargos incorridos por esses serviços continuarão a ser faturadas. Terá de sair do quadro, se necessário. Qualquer comportamento de auto-condutor parará imediatamente. Por exemplo, deixaremos de monitorizar o VM para deriva.

@@ -5,14 +5,14 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 04/09/2021
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: f8d264896d71b2bda66f73652ce9bc399b596343
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a3d0ccbc3880343a4bd03a40db381b2e6030613
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199129"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304121"
 ---
-**Aplica-se a:** ![ sim ícone ](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2 (pré-visualização)
+**Aplica-se a:** ![ sim ícone ](./media/iot-edge-version/yes-icon.png) IoT Edge 1.2

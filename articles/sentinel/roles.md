@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 04/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b64adbb63efaa4ce4781474f732bc9509d51029e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772557"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310330"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -31,8 +31,6 @@ Use o Azure RBAC para criar e atribuir funções dentro da sua equipa de operaç
 ## <a name="roles-for-working-in-azure-sentinel"></a>Papéis para trabalhar em Azure Sentinel
 
 ### <a name="azure-sentinel-specific-roles"></a>Funções específicas do Azure Sentinel
-
-Há três funções dedicadas ao Azure Sentinel.
 
 **Todas as funções incorporadas Azure Sentinel concedem acesso aos dados no seu espaço de trabalho Azure Sentinel.**
 
@@ -54,19 +52,21 @@ Há três funções dedicadas ao Azure Sentinel.
 
 Os utilizadores com requisitos de trabalho específicos podem ter de ser atribuídos a funções adicionais ou permissões específicas para realizarem as suas tarefas.
 
-- Trabalhar com livros de jogadas para automatizar respostas a ameaças
+- **Trabalhar com livros de jogadas para automatizar respostas a ameaças**
 
     Azure Sentinel usa **livros para** resposta automatizada de ameaças. Os playbooks são construídos em **Azure Logic Apps,** e são um recurso Azure separado. É melhor atribuir a membros específicos da sua equipa de operações de segurança a capacidade de utilizar aplicações lógicas para operações de orquestração, automação e resposta (SOAR). Pode utilizar o papel [de Contribuinte de Aplicação Lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor) para atribuir permissão explícita para a utilização de playbooks.
 
-- Ligação de fontes de dados ao Azure Sentinel
+- **Ligação de fontes de dados ao Azure Sentinel**
 
     Para que um utilizador adicione **conectores de dados,** tem de atribuir permissões de escrita ao utilizador no espaço de trabalho do Azure Sentinel. Além disso, note as permissões adicionais necessárias para cada conector, conforme listado na página de conector relevante.
 
-- Utilizadores convidados que atribuem incidentes
+- **Utilizadores convidados que atribuem incidentes**
 
-    Se um utilizador convidado precisar de ser capaz de atribuir incidentes, então, para além da função Azure Sentinel Responder, o utilizador também terá de ser designado para o papel de Leitor de [Diretórios](../active-directory/roles/permissions-reference.md#directory-readers). Note que este papel *não* é um papel de Azure, mas um papel **de Diretório Ativo Azure,** e que os utilizadores regulares (não convidados) têm esta função atribuída por padrão. 
+    Se um utilizador convidado precisar de ser capaz de atribuir incidentes, então, para além da função Azure Sentinel Responder, o utilizador também terá de ser designado para o papel de Leitor de [Diretórios](../active-directory/roles/permissions-reference.md#directory-readers). Note que este papel *não* é um papel de Azure, mas um papel **de Diretório Ativo Azure,** e que os utilizadores regulares (não convidados) têm esta função atribuída por padrão.
 
-Para uma comparação lado a lado, consulte a [tabela abaixo](#roles-and-allowed-actions).
+- **Criação e eliminação de livros**
+
+    Para que um utilizador crie e elimine um livro do Azure Sentinel, o utilizador também terá de ser designado com a função de Monitor Azure Monitor do [Monitor.](../role-based-access-control/built-in-roles.md#monitoring-contributor) Este papel não é necessário para *a utilização* de livros de trabalho, mas apenas para a criação e eliminação.
 
 ### <a name="other-roles-you-might-see-assigned"></a>Outros papéis que pode ver atribuídos
 
@@ -74,21 +74,23 @@ Ao atribuir funções Azure Sentinel específicas do Azure, poderá encontrar ou
 
 - **Funções Azure:** [Proprietário,](../role-based-access-control/built-in-roles.md#owner) [Contribuinte](../role-based-access-control/built-in-roles.md#contributor)e [Leitor.](../role-based-access-control/built-in-roles.md#reader) As funções Azure concedem acesso a todos os seus recursos Azure, incluindo espaços de trabalho log analytics e recursos Azure Sentinel.
 
-- **Funções de Log Analytics:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) e Log Analytics [Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). As funções de Log Analytics concedem acesso aos seus espaços de trabalho Log Analytics. 
+- **Funções de Log Analytics:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) e Log Analytics [Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). As funções de Log Analytics concedem acesso aos seus espaços de trabalho Log Analytics.
 
 Por exemplo, um utilizador a quem é atribuído o papel **de Azure Sentinel Reader,** mas não o papel **de Contribuinte Azure Sentinel,** ainda poderá editar itens em Azure Sentinel se for atribuído o papel **de Contribuinte** ao nível de Azure. Portanto, se pretender conceder permissões a um utilizador apenas no Azure Sentinel, deve remover cuidadosamente as permissões prévias deste utilizador, certificando-se de que não quebra qualquer acesso necessário a outro recurso.
 
-## <a name="roles-and-allowed-actions"></a>Funções e ações permitidas
+## <a name="azure-sentinel-roles-and-allowed-actions"></a>Funções do Azure Sentinel e ações permitidas
 
-A tabela seguinte resume as funções e ações permitidas no Azure Sentinel. 
+A tabela seguinte resume os papéis do Azure Sentinel e as suas ações permitidas em Azure Sentinel.
 
-| Função | Criar e executar manuais de procedimentos| Criar e editar livros, regras analíticas e outros recursos do Azure Sentinel | Gerir incidentes (dispensar, atribuir, etc.) | Ver dados, incidentes, livros e outros recursos do Azure Sentinel |
+| Função | Criar e executar manuais de procedimentos| Criar e editar regras analíticas e outros recursos Azure Sentinel [*](#workbooks) | Gerir incidentes (dispensar, atribuir, etc.) | Ver dados, incidentes, livros e outros recursos do Azure Sentinel |
 |---|---|---|---|---|
 | Leitor do Azure Sentinel | -- | -- | -- | &#10003; |
 | Dispositivo de Resposta do Azure Sentinel | -- | -- | &#10003; | &#10003; |
 | Contribuidor do Azure Sentinel | -- | &#10003; | &#10003; | &#10003; |
 | Azure Sentinel Contributor + Colaborador de Aplicação Lógica | &#10003; | &#10003; | &#10003; | &#10003; |
+| | | | | |
 
+<a name=workbooks></a>* A criação e eliminação de livros requer a função [adicional de Colaborador de Monitorização.](../role-based-access-control/built-in-roles.md#monitoring-contributor) Para mais informações, consulte [funções e permissões adicionais.](#additional-roles-and-permissions)
 ## <a name="custom-roles-and-advanced-azure-rbac"></a>Funções personalizadas e RBAC do Azure avançadas
 
 - **Funções personalizadas**. Além disso, ou em vez de usar funções incorporadas do Azure, pode criar papéis personalizados Azure para O Azure Sentinel. Os papéis personalizados Azure para O Azure Sentinel são criados da mesma forma que cria outros [papéis personalizados Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), baseados em [permissões específicas para Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).

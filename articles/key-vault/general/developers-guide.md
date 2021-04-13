@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 550084ccbb1df24fe0cbc0a4630efe19e6685e5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2c0b82f14fd16ecb9eef163e7a263f4327cfc46
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709908"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364554"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -83,7 +83,7 @@ Para tutoriais sobre como autenticar o Key Vault em aplicações, consulte:
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gerir chaves, certificados e segredos
 
-O acesso a chaves, segredos e certificados é controlado por um plano de dados. O controlo de acesso a planos de dados pode ser feito usando políticas locais de acesso ao cofre ou Azure RBAC (pré-visualização).
+O acesso a chaves, segredos e certificados é controlado por um plano de dados. O controlo de acesso a planos de dados pode ser feito usando políticas locais de acesso ao cofre ou Azure RBAC.
 
 **Chaves API's e SDKs**
 
@@ -105,7 +105,7 @@ O acesso a chaves, segredos e certificados é controlado por um plano de dados. 
 
 Consulte [as Bibliotecas do Cliente](client-libraries.md) para obter pacotes de instalação e código fonte.
 
-Para obter mais informações sobre a segurança do plano de dados do Key Vault, consulte [o Key Vault Data Plane e as políticas](./secure-your-key-vault.md#data-plane-and-access-policies) de acesso e Key Vault Data Plane e [Azure RBAC (pré-visualização)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
+Para obter mais informações sobre a segurança do plano de dados do Key Vault, consulte [o Key Vault Data Plane e as políticas](./secure-your-key-vault.md#data-plane-and-access-policies) de acesso e Key Vault Data Plane e [Azure RBAC](./secure-your-key-vault.md#data-plane-and-azure-rbac)
 
 ### <a name="code-examples"></a>Exemplos de código
 

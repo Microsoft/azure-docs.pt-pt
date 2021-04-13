@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 566ca1598857f67e25faea9f19d134c4a91bfb18
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: be4348359e6b53c3e7454e9ab7c1af8ce8a7020a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106556264"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305565"
 ---
 # <a name="manage-vm-tags-on-azure-stack-edge-via-azure-powershell"></a>Gerir tags VM em Azure Stack Edge via Azure PowerShell
 
@@ -36,17 +36,7 @@ Antes de poder colocar um VM no seu dispositivo através do PowerShell, certifiq
 
 ## <a name="verify-connection-to-local-azure-resource-manager"></a>Verifique a ligação ao Gestor de Recursos Azure local
 
-Certifique-se de que podem ser utilizados os seguintes passos para aceder ao dispositivo a partir do seu cliente.
-
-Verifique se o seu cliente pode ligar-se ao Gestor de Recursos Azure local. 
-
-1. Ligue para apis de dispositivo local para autenticar:
-
-    ```powershell
-    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d  
-    ```
-
-1. Forneça o nome de utilizador `EdgeArmUser` e a palavra-passe para ligar através do Azure Resource Manager. Se não se lembrar da palavra-passe, [reinicie a palavra-passe para O Gestor de Recursos Azure](azure-stack-edge-gpu-set-azure-resource-manager-password.md) e utilize esta palavra-passe para iniciar sação.
+[!INCLUDE [azure-stack-edge-gateway-verify-azure-resource-manager-connection](../../includes/azure-stack-edge-gateway-verify-azure-resource-manager-connection.md)]
 
 
 ## <a name="add-a-tag-to-a-vm"></a>Adicione uma etiqueta a um VM

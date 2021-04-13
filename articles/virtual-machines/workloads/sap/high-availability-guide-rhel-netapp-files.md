@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/11/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: e652d1374db12d797dc4505f07350e6e110d6408
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b202613e6f24a5cd549267a1c8928e8e68caa232
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674442"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303598"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP
 
@@ -208,7 +208,6 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
          1. Insira o nome da nova regra do balançador de carga (por exemplo **lb. O QAS. ASCS**)
          1. Selecione o endereço IP frontend para ASCS, backend pool e sonda de saúde que criou anteriormente (por **exemplo, frontend. O QAS. ASCS,** **backend. QAS** e **saúde. O QAS. ASCS**)
          1. Selecione **portas HA**
-         1. Aumente o tempo de inatividade para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
          1. Clique em OK
          * Repita os passos acima para criar regras de equilíbrio de carga para ERS (por exemplo **lb. O QAS. ERS**)

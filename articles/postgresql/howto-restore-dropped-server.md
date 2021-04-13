@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 591f01004cfba247112f702625ab05ddc0aaede3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b5bb9fd6e3d34fc4a6b0ae90a2cd76fc84e9ce1
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652930"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366526"
 ---
 # <a name="restore-a-dropped-azure-database-for-postgresql-server"></a>Restaurar uma base de dados de Azure abandonada para o servidor PostgreSQL
 
@@ -43,7 +43,7 @@ Para restaurar uma base de dados de Azure para o servidor PostgreSQL, precisa de
 
     ![Criar servidor usando REST API](./media/howto-restore-dropped-server/create-server-from-rest-api-azure.png)
   
- 6. Desloque-se abaixo na secção 'Request Body' e cole o seguinte substituindo a "Localização do servidor Abandonado", "submissãoTimestamp" e "resourceId". Para "restaurar oPointInTime", especifique um valor de "submissãoTimestamp" menos **15 minutos** para garantir que o comando não se errar.
+ 6. Desloque-se abaixo na secção 'Request Body' e cole a seguinte substituição da "Localização do servidor Abandonado" (por exemplo, CentralUS, EastUS, etc.), "submissãoTimestamp" e "resourceId". Para "restaurar oPointInTime", especifique um valor de "submissãoTimestamp" menos **15 minutos** para garantir que o comando não se errar.
     
     ```json
     {

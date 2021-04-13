@@ -4,15 +4,15 @@ description: Resolver problemas comuns numa implementação no Azure File Sync, 
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 2/1/2021
+ms.date: 4/12/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f20ebfdf9bdd1272ac1cb16e1ad88b4cbc287e5d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 54a2493d930069142a8cd6965421dd588b8d76b8
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727608"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366305"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -147,10 +147,10 @@ Para determinar se a sua função de conta de utilizador tem as permissões nece
 Este erro ocorrerá se o caminho do ponto final do servidor estiver no volume de sistema e o arrumo na cloud estiver ativado. O arrumo na cloud não é suportado no volume de sistema. Para criar um ponto final do servidor no volume de sistema, desative o arrumo na cloud ao criar o ponto final do servidor.
 
 <a id="-2147024894"></a>**A criação do ponto final do servidor falha, com este erro: "MgmtServerJobFailed" (Código de erro: -2147024894 ou 0x80070002)**  
-Este erro ocorrerá se o caminho do ponto final do servidor especificado não for válido. Confirme se o caminho do ponto final do servidor especificado é um volume NTFS ligado localmente. Nota: O Azure File Sync não suporta unidades mapeadas como um caminho de ponto final do servidor.
+Este erro ocorrerá se o caminho do ponto final do servidor especificado não for válido. Confirme se o caminho do ponto final do servidor especificado é um volume NTFS ligado localmente. Tenha em atenção que o Azure File Sync não suporta unidades mapeadas como um caminho de ponto final do servidor.
 
 <a id="-2134375640"></a>**A criação do ponto final do servidor falha, com este erro: "MgmtServerJobFailed" (Código de erro: -2134375640 ou 0x80c80328)**  
-Este erro ocorre se o caminho do ponto final do servidor especificado não for um volume NTFS. Confirme se o caminho do ponto final do servidor especificado é um volume NTFS ligado localmente. Nota: O Azure File Sync não suporta unidades mapeadas como um caminho de ponto final do servidor.
+Este erro ocorrerá se o caminho do ponto final do servidor especificado não for um volume NTFS. Confirme se o caminho do ponto final do servidor especificado é um volume NTFS ligado localmente. Tenha em atenção que o Azure File Sync não suporta unidades mapeadas como um caminho de ponto final do servidor.
 
 <a id="-2134347507"></a>**A criação do ponto final do servidor falha, com este erro: "MgmtServerJobFailed" (Código de erro: -2134347507 ou 0x80c8710d)**  
 Este erro ocorre porque o Azure File Sync não suporta pontos finais de servidor em volumes que tenham uma pasta de Informações de Volume de Sistema comprimida. Para resolver este problema, descomprima a pasta de Informações de Volume de Sistema. Se a pasta de Informações de Volume de Sistema for a única pasta comprimida no volume, execute os seguintes passos:
@@ -168,7 +168,7 @@ Este erro ocorrerá se o limite de pontos finais do servidor por servidor for at
 Este erro ocorrerá se outro ponto final do servidor já estiver a sincronizar o caminho do ponto final do servidor especificado. O Azure File Sync não suporta múltiplos pontos finais de servidor a sincronizar o mesmo diretório ou volume.
 
 <a id="-2160590967"></a>**A criação do ponto final do servidor falha, com este erro: "MgmtServerJobFailed" (Código de erro: -2160590967 ou 0x80c80077)**  
-Este erro ocorre se o caminho do ponto final do servidor contiver ficheiros órfãs. Se um ponto final do servidor foi recentemente removido, aguarde até que a limpeza de ficheiros com camadas órfãs esteja concluída. Um ID de evento 6662 é registado no registo do evento de Telemetria assim que a limpeza de ficheiros com camadas órfãs começou. Um ID de evento 6661 é registado assim que a limpeza de ficheiros órfãs tiver concluído e um ponto final do servidor pode ser recriado usando o caminho. Se a criação do ponto final do servidor falhar após a limpeza dos ficheiros hierárquicos ter concluído ou se o ID 6661 do evento não puder ser encontrado no registo do evento de Telemetria devido à capotagem do registo de eventos, remova os ficheiros hieraranos órfãos executando os passos documentados nos [ficheiros Tiered não estão acessíveis no servidor depois de eliminar uma](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) secção de ponto final do servidor.
+Este erro ocorrerá se o caminho do ponto final do servidor tiver ficheiros em camadas órfãos. Se um ponto final do servidor tiver sido removido recentemente, aguarde até a limpeza de ficheiros em camadas órfãos estar concluída. Um ID de evento 6662 é registado no registo do evento de Telemetria assim que a limpeza de ficheiros com camadas órfãs começou. Um ID de evento 6661 é registado assim que a limpeza de ficheiros órfãs tiver concluído e um ponto final do servidor pode ser recriado usando o caminho. Se a criação do ponto final do servidor falhar após a limpeza dos ficheiros hierárquicos ter concluído ou se o ID 6661 do evento não puder ser encontrado no registo do evento de Telemetria devido à capotagem do registo de eventos, remova os ficheiros hieraranos órfãos executando os passos documentados nos [ficheiros Tiered não estão acessíveis no servidor depois de eliminar uma](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) secção de ponto final do servidor.
 
 <a id="-2134347757"></a>**Falha na eliminação do ponto final do servidor, com este erro: "MgmtServerJobExpired" (Código de erro: -2134347757 ou 0x80c87013)**  
 Este erro ocorrerá se o servidor estiver offline ou não tiver conectividade de rede. Se o servidor deixar de estar disponível, anule o registo do servidor no portal, o que eliminará os pontos finais do servidor. Para eliminar os pontos finais do servidor, siga os passos descritos em [Unregister um servidor com Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
@@ -862,7 +862,7 @@ Este erro poderá ocorrer se a conta NT AUTHORITY\SYSTEM não tiver permissões 
 
 Para resolver este problema, realize os passos seguintes:
 
-1. Transfira a ferramenta [PsExec](/sysinternals/downloads/psexec).
+1. Descarregue a ferramenta [Psexec.](/sysinternals/downloads/psexec)
 2. Executar o seguinte comando a partir de um pedido de comando elevado para lançar um pedido de comando usando a conta do sistema: **PsExec.exe -i-s -d cmd** 
 3. Na linha de comandos em execução na conta de sistema, execute o seguinte comando para confirmar que a conta NT AUTHORITY\SYSTEM não tem acesso à pasta Informações de Volume de Sistema: **cacls “"letra da unidade:\system volume information” /T /C**
 4. Se a conta NT AUTHORITY\SYSTEM não tiver acesso à pasta Informações de Volume do Sistema, execute o seguinte comando: **cacls “letra da unidade:\system volume information” /T /E /G “NT AUTHORITY\SYSTEM:F”**
@@ -1053,24 +1053,6 @@ if ($role -eq $null) {
 }
 ```
 ---
-
-### <a name="how-do-i-prevent-users-from-creating-files-containing-unsupported-characters-on-the-server"></a>Como posso impedir que os utilizadores criem ficheiros que contenham caracteres não suportados no servidor?
-Pode utilizar [os ecrãs de ficheiros do Gestor de Recursos do Servidor de Ficheiros (FSRM)](/windows-server/storage/fsrm/file-screening-management) para bloquear ficheiros com caracteres não suportados nos seus nomes a serem criados no servidor. Podes ter de o fazer usando o PowerShell, uma vez que a maioria dos caracteres não suportados não são imprimíveis e por isso precisas de lançar as suas representações hexadémicas como personagens primeiro.
-
-Primeiro criar um Grupo de Ficheiros FSRM utilizando o [cmdlet New-FsrmFileGroup](/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). Este exemplo define o grupo para conter apenas dois dos caracteres não suportados, mas pode incluir o maior número de caracteres necessários no seu grupo de ficheiros.
-
-```powershell
-New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
-```
-
-Uma vez definido um Grupo de Ficheiros FSRM, pode criar um ecrã de ficheiro FSRM utilizando o New-FsrmFileScreen cmdlet.
-
-```powershell
-New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
-```
-
-> [!Important]  
-> Note que os ecrãs de ficheiros só devem ser utilizados para bloquear a criação de caracteres não suportados pelo Azure File Sync. Se os ecrãs de ficheiros forem utilizados noutros cenários, o sincronização tentará continuar a transferir os ficheiros da partilha de ficheiros Azure para o servidor e será bloqueado devido ao ecrã de ficheiros, resultando em alta margem de dados. 
 
 ## <a name="cloud-tiering"></a>Disposição em camadas na cloud 
 Existem dois caminhos para falhas no nível da nuvem:
@@ -1332,4 +1314,4 @@ Para a versão do agente v10 e mais cedo:
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
 - [Ficheiros Azure frequentemente fazem perguntas](storage-files-faq.md)
 - [Resolver problemas de Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
-- [Problemas na resolução de ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
+- [Troubleshoot Azure Files problems in Linux](storage-troubleshoot-linux-file-connection-problems.md) (Resolver problemas relacionados com Ficheiros do Azure no Linux)

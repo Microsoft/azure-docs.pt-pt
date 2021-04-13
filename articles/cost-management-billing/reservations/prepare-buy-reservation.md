@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 13a9e3ad1dcdfa230d757230e3fdea91e4ee9d23
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574979"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310398"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -35,8 +35,8 @@ Pode definir o âmbito de uma reserva para uma subscrição ou para um grupo de 
 
 Tem três opções para definir o âmbito de uma reserva, consoante as suas necessidades:
 
-- **Âmbito de grupo de recursos único** — aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.
-- **Âmbito de subscrição individual** — aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
+- **Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.
+- **Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
 - **Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação.
     - Para clientes do Contrato Enterprise, o contexto de faturação é a inscrição. O âmbito partilhado da reserva incluiria vários inquilinos do Active Directory numa inscrição.
     - Para os clientes do Contrato de Cliente Microsoft, o âmbito da faturação é o perfil de faturação.
@@ -44,9 +44,9 @@ Tem três opções para definir o âmbito de uma reserva, consoante as suas nece
 
 Enquanto aplica descontos de reserva sobre a sua utilização, o Azure processa a reserva pela seguinte ordem:
 
-1. Reservas cujo âmbito está definido para um grupo de recursos
-2. Reservas de âmbito único
-3. Reservas de âmbito partilhado
+1. Reservas com um único âmbito de grupo de recursos
+2. Reservas com um único âmbito de subscrição
+3. Reservas com âmbito partilhado (múltiplas subscrições), descritas anteriormente
 
 Pode sempre atualizar o âmbito após comprar uma reserva. Para tal, aceda à reserva, clique em **Configuração** e redefina o âmbito da reserva. A redefinição do âmbito de uma reserva não constitui uma transação comercial. O seu termo de reserva não será alterado. Para obter mais informações sobre a atualização do âmbito, veja [Atualizar o âmbito depois de comprar uma reserva](manage-reserved-vm-instance.md#change-the-reservation-scope).
 

@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: c5f94329920f8c850c0a47dd607ade8e83658b29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 774344c4215088482b110de91f8951bae4a41d25
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599923"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365829"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de ESCALA SAP HANA com ficheiros Azure NetApp no Red Hat Enterprise Linux
 
@@ -259,7 +259,6 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Em seguida, faça 
         1.  Introduza o nome da nova regra do balançador de carga (por exemplo, **hana-lb**).
         1.  Selecione o endereço IP frontal, o pool traseiro e a sonda de saúde que criou anteriormente (por exemplo, **hana-frontend,** **hana-backend** e **hana-hp).**
         1.  Selecione **portas HA**.
-        1.  Aumente o **tempo de 30** minutos.
         1.  Certifique-se de que ativa o **IP flutuante**.
         1.  Selecione **OK**.
 
@@ -472,6 +471,71 @@ Esta secção descreve os passos necessários para que o cluster funcione perfei
 ### <a name="create-a-pacemaker-cluster"></a>Criar um cluster pacemaker
 
 Siga os passos na configuração do [Pacemaker no Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) em Azure para criar um cluster pacemaker básico para este servidor HANA.
+
+### <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implementar o gancho de replicação do sistema Python SAPHanaSR
+
+Este é um passo importante para otimizar a integração com o cluster e melhorar a deteção quando um cluster falha. É altamente recomendado configurar o gancho de pitão SAPHanaSR.    
+
+1. **[A]** Instale o "gancho de replicação do sistema" HANA. O gancho precisa de ser instalado em ambos os nós HANA DB.           
+
+   > [!TIP]
+   > O gancho de pitão só pode ser implementado para HANA 2.0.        
+
+   1. Prepare o gancho como `root` .  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Pare hana em ambos os nós. Execute como <sid \> adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Ajuste `global.ini` em cada nó de cluster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** O cluster requer a configuração dos sudoers em cada nó de cluster para <\> adm do sid. Neste exemplo que é conseguido através da criação de um novo ficheiro. Execute os comandos como `root` .    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Inicie SAP HANA em ambos os nós. Execute como <sid \> adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Verifique a instalação do gancho. Execute como <\> adm sid no site de replicação do sistema HANA ativo.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+Para obter mais detalhes sobre a implementação do gancho de replicação do sistema SAP HANA consulte [Ativar o gancho do fornecedor SAP HA/DR](https://access.redhat.com/articles/3004101#enable-srhook).  
 
 ### <a name="configure-filesystem-resources"></a>Configurar recursos do sistema de ficheiros
 

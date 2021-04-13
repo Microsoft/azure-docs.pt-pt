@@ -3,22 +3,17 @@ title: Configure aplicativo Virtual Desktop MSIX anexar scripts PowerShell - Azu
 description: Como criar scripts PowerShell para app MSIX anexar para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 224f2e773ecd42dcbdd356531d9ce94636de002f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 143f0a9d23cdc70425147faa95258ec753b92691
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448275"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365385"
 ---
-# <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Criar scripts PowerShell para anexação de aplicações MSIX (pré-visualização)
-
-> [!IMPORTANT]
-> O anexo de aplicações MSIX encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="create-powershell-scripts-for-msix-app-attach"></a>Criar scripts PowerShell para anexação de aplicações MSIX
 
 Este tópico irá acompanhá-lo como configurar scripts PowerShell para anexação de aplicações MSIX.
 

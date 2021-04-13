@@ -4,12 +4,12 @@ description: Saiba mais sobre a gestão de certificados num cluster de Tecido de
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: a8a7e8954f3c9d5b54c2e1ed9caa330ef92d4512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7976d1419aeb0dda3ec2f94a32e9b185a6c14be7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100099511"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304873"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestão de certificados em clusters de tecidos de serviço
 
@@ -90,10 +90,10 @@ Neste momento, existe um certificado no cofre, pronto para consumo. Avante para:
 ### <a name="certificate-provisioning"></a>Provisionamento de certificados
 Mencionamos um "agente de provisionamento", que é a entidade que recupera o certificado, incluindo a sua chave privada, a partir do cofre e o instala em cada um dos anfitriões do cluster. (Lembre-se que o Tecido de Serviço não fornece certificados.) No nosso contexto, o cluster será hospedado numa coleção de VMs Azure e/ou conjuntos de escala de máquinas virtuais. Em Azure, o fornecimento de um certificado de um cofre para um VM/VMSS pode ser alcançado com os seguintes mecanismos - assumindo, como acima, que o agente de provisionamento foi previamente concedido permissões de "obter" no cofre pelo proprietário do cofre: 
   - ad-hoc: um operador recupera o certificado do cofre (como pfx/PKCS #12 ou pem) e instala-o em cada nó
-  - como uma balança de máquina virtual definida 'secret' durante a implantação: o serviço Compute recupera, utilizando a sua primeira identidade partidária em nome do operador, o certificado a partir de um cofre ativado por modelo e instala-o em cada nó do conjunto de escala de máquina virtual[(assim );](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates) notar que isto permite o provisionamento de segredos versados apenas
-  - utilizando a [extensão VM do cofre chave;](../virtual-machines/extensions/key-vault-windows.md) isto permite o fornecimento de certificados utilizando declarações sem versão, com refrescamento periódico dos certificados observados. Neste caso, espera-se que o VM/VMSS tenha uma [identidade gerida,](../virtual-machines/security-policy.md#managed-identities-for-azure-resources)identidade a que tenha acesso ao cofre(s) contendo os certificados observados.
+  - como uma balança de máquina virtual definida 'secret' durante a implantação: o serviço Compute recupera, utilizando a sua primeira identidade partidária em nome do operador, o certificado a partir de um cofre ativado por modelo e instala-o em cada nó do conjunto de escala de máquina virtual[(assim );](/virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#certificates) notar que isto permite o provisionamento de segredos versados apenas
+  - utilizando a [extensão VM do cofre chave;](../virtual-machines/extensions/key-vault-windows.md) isto permite o fornecimento de certificados utilizando declarações sem versão, com refrescamento periódico dos certificados observados. Neste caso, espera-se que o VM/VMSS tenha uma [identidade gerida,](/virtual-machines/security-policy.md#managed-identities-for-azure-resources)identidade a que tenha acesso ao cofre(s) contendo os certificados observados.
 
-O mecanismo ad-hoc não é recomendado por múltiplas razões, que vão da segurança à disponibilidade, e não será discutido aqui mais; para mais informações, consulte [certificados em conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).
+O mecanismo ad-hoc não é recomendado por múltiplas razões, que vão da segurança à disponibilidade, e não será discutido aqui mais; para mais informações, consulte [certificados em conjuntos de escala de máquina virtual](/virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#certificates).
 
 O fornecimento baseado em VMSS/Compute apresenta vantagens de segurança e disponibilidade, mas também apresenta restrições. Requer - por design - declarar certificados como segredos versados, o que o torna adequado apenas para clusters garantidos com certificados declarados por impressão digital. Em contrapartida, o provisionamento baseado em extensões key Vault VM instalará sempre a versão mais recente de cada certificado observado, o que o torna adequado apenas para clusters garantidos com certificados declarados pelo nome comum do sujeito. Para salientar, não utilize um mecanismo de provisionamento de auto-confirmação (como a extensão KVVM) para certificados declarados por exemplo (isto é, por impressão digital) - o risco de perda de disponibilidade é considerável.
 

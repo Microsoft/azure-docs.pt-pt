@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 09712396286ed0236f798aa9d9ce7e899255f480
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6aac6e67d62a71537517e727c65a2a42d4ca3216
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935503"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303003"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP da Azure Networking
 
@@ -36,7 +36,7 @@ Utilize os links nesta secção para obter mais informações sobre serviços de
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Consultoria de Transformação de Rede: Avaliação 1-Hora;](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting) [BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[BT Cloud Connect Azure VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
 |[RIO BUI](https://www.bui.co.za/)|[a2z Gestão de NuvemGerida](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.a2zmanagement?tab=Overview)||[BUI Managed Azure vWAN usando VMware SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.bui_managed_vwan?tab=Overview)||[BUI CyberSoC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.buicybersoc_msp?tab=Overview)|
 |[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|||[Gerido Azure Virtual WAN;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.coevolve-managed-azure-vwan?tab=Overview) [Borda Virtual Gerida VMware SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
-|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Otimização da rede em Azure: Avaliação de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
+|[Colt](https://www.colt.net/why-colt/partner-hub/microsoft/)|[Otimização da rede em Azure: Avaliação de 2 horas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
 |[Equinix](https://www.equinix.com/)|[Workshop WAN otimizado em nuvem](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[Workshop de Estratégia de Conectividade ExpressRoute;](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview) [Tecido de troca de nuvens Equinix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.equinix_ecx_fabric?tab=Overview)||||
 |[Sem fios federado](https://www.federatedwireless.com/caas/)||||[Conectividade Sem Fios Federada-as-a-Service](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/federatedwireless1580839623708.fw_caas?tab=Overview)|
 |[HCL](https://www.hcltech.com/)|[Transformação da Rede nuvem HCL- Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.clo?tab=Overview)|[Briefing de 1 hora do Serviço HCL Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazureexpressroute?tab=Overview)|[HCL Azure Virtual WAN Services - Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazurevitualwan?search=vWAN&page=1)|[Oferta LTE privada HCL Azure - Avaliação de 1 dia](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclazureprivatelteoffering)|

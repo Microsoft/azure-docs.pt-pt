@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c43995a8b3a072d98db0ba2c8219694f17e49a26
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103572813"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363432"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Princípios Fundamentais da Autenticação do Key Vault
 
@@ -104,7 +104,7 @@ No entanto, as políticas clássicas de acesso não permitem permissões de nív
 > [!IMPORTANT]
 > As políticas clássicas de acesso ao cofre e as atribuições de funções do Azure Ative Directory são independentes umas das outras. Atribuir a um diretor de segurança uma função de "Contribuinte" a nível de subscrição não permitirá automaticamente ao diretor de segurança a capacidade de realizar operações de plano de dados em cada cofre-chave dentro do âmbito da subscrição. O diretor de segurança deve ainda ser concedido, ou conceder-se permissões políticas de acesso para a realização de operações de data plane.
 
-### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Opção de acesso ao plano de dados 2: Azure RBAC para cofre de chaves (pré-visualização)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault"></a>Opção de acesso ao plano de dados 2: Azure RBAC para cofre de chaves
 
 Uma nova forma de conceder acesso ao plano de dados do cofre chave é através do controlo de acesso baseado em funções Azure (Azure RBAC) para o cofre chave.
 

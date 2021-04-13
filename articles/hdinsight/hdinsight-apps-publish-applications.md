@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
-ms.openlocfilehash: 73d291fd76d9adbe2a095406b56bd879d497d3b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d432d20660cd1b7ee59c9ef72f9db04bc0009481
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942652"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306590"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar uma aplicação HDInsight no Azure Marketplace
 Pode instalar uma aplicação Azure HDInsight num cluster HDInsight baseado em Linux. Neste artigo, aprenda a publicar uma aplicação HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [publicar uma oferta no Azure Marketplace](../marketplace/overview.md).
@@ -83,7 +83,8 @@ Crie um ficheiro .zip que contenha todos os ficheiros necessários para instalar
 ## <a name="publish-the-application"></a>Publicar a aplicação
 Para publicar uma aplicação HDInsight:
 
-1. Inscreva-se na [Azure Publishing](https://publish.windowsazure.com/).
+1. Inscreva-se na Azure Publishing.
+
 2. No menu esquerdo, **selecione Modelos de solução**.
 3. Introduza um título e, em seguida, **selecione Criar um novo modelo de solução**.
 4. Se ainda não registou a sua organização, selecione **a conta Create Dev Center e junte-se ao programa Azure.**  Para obter mais informações, consulte [Criar uma conta microsoft developer](../marketplace/overview.md).

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: 152e25fec4ee7b6181e2da58a9a4b0562a918151
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d0f82565ec4010d03003ed902e9aba819e93bc3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609197"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303190"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 
@@ -23,6 +23,7 @@ As máquinas virtuais da série NVv4 são alimentadas por GPUs [AMD Radeon Insti
 [ACU](acu.md): 230-260<br>
 [Armazenamento Premium](premium-storage-performance.md): Suportado<br>
 [Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
+[Ultra Discos](disks-types.md#ultra-disk): Suportado[(Saiba mais](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre disponibilidade, utilização e desempenho) <br>
 [Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>

@@ -3,17 +3,17 @@ title: 'ML Studio (clássico): Migrar para Azure Machine Learning - Reconstruir 
 description: Reconstruir experiências do Estúdio (clássico) em Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: bb944cb034fdd7cc51648314154a654bc1265533
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35a68d1a2883d0631f90cd8009e272bca0c66278
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103565426"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311843"
 ---
 # <a name="rebuild-a-studio-classic-experiment-in-azure-machine-learning"></a>Reconstruir uma experiência de Estúdio (clássico) em Azure Machine Learning
 

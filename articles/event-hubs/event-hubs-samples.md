@@ -4,12 +4,12 @@ description: Este artigo fornece uma lista de amostras para Azure Event Hubs que
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2e0f8026683302f6b54924625b132e79cb194bad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b7cd4a1ca08f359a2328d7a92239516c39d7e62
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87499425"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311605"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repositórios de Git com amostras para Azure Event Hubs 
 Você pode encontrar amostras de Event Hubs no [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Estas amostras demonstram características-chave nos [Hubs de Eventos Azure.](./index.yml) Este artigo categoriza e descreve as amostras disponíveis, com ligações a cada um.
@@ -60,4 +60,4 @@ Pode saber mais sobre os Centros de Eventos nos seguintes artigos:
 
 - [Descrição geral dos Event Hubs](./event-hubs-about.md)
 - [Funcionalidades dos Hubs de Eventos](event-hubs-features.md)
-- [FAQ dos Hubs de Eventos](event-hubs-faq.md)
+- [FAQ dos Hubs de Eventos](event-hubs-faq.yml)

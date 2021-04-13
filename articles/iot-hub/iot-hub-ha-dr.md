@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 9d2ffac813456398c02066c978c37bdb09501aeb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 10a3360f30d211336e4ce861b124a307c85fb150
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628990"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308256"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Elevada disponibilidade e recuperação após desastre do Hub IoT
 
@@ -64,7 +64,7 @@ Uma vez concluída a operação de failover para o hub IoT, espera-se que todas 
 >
 > - Se utilizar funções Azure ou Azure Stream Analytics para ligar o ponto final de Eventos incorporados, poderá ter de realizar um **Restart**. Isto porque durante o failover anteriores as compensações deixaram de ser válidas.
 >
-> - Ao encaminhar para o armazenamento, recomendamos listar as bolhas ou ficheiros e, em seguida, iterar sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. O intervalo de partição pode potencialmente mudar durante uma falha de falha iniciada pela Microsoft ou falha manual. Pode utilizar a [Lista Blobs API](/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths) para a lista de ficheiros. Para saber mais, consulte [o Azure Storage como um ponto final de encaminhamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Ao encaminhar para o armazenamento, recomendamos listar as bolhas ou ficheiros e, em seguida, iterar sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. O intervalo de partição pode potencialmente mudar durante uma falha de falha iniciada pela Microsoft ou falha manual. Pode utilizar a [Lista Blobs API](/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/filesystem/list) para a lista de ficheiros. Para saber mais, consulte [o Azure Storage como um ponto final de encaminhamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Falha iniciada pela Microsoft
 

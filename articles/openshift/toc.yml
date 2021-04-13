@@ -26,6 +26,8 @@
           href: howto-create-private-cluster-4x.md
         - name: Configurar o reencaminhamento de DNS
           href: dns-forwarding.md
+        - name: Restringir o tráfego de saídas
+          href: howto-restrict-egress.md
     - name: Armazenamento
       items:
         - name: Criptografe PVCs com chave gerida pelo cliente (pré-visualização)

@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 9c8dd723c9cde5c0534d9fd5ca4084c7ed15d213
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 29821733b73717634aa8f0ab72270f058ffd3ddc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218639"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309395"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticação e autorização para Pré-visualização das Aplicações Web Estáticas do Azure
 
@@ -24,7 +24,7 @@ A Azure Static Web Apps dinamiza a experiência de autenticação gerindo a aute
 - Google<sup>1</sup>
 - Twitter
 
-Convites [específicos](#invitations) do fornecedor associam os utilizadores a funções, e os utilizadores autorizados têm acesso a [rotas](routes.md) por regras definidas no _routes.jsem_ arquivo.
+Convites [específicos](#invitations) do fornecedor associam os utilizadores a funções, e os utilizadores autorizados têm acesso a [rotas](routes.md) por regras definidas no _staticwebapp.config.jsem_ arquivo.
 
 Todos os fornecedores de autenticação estão habilitados por predefinição. Para restringir um fornecedor de autenticação, [bloqueie o acesso](#block-an-authorization-provider) com uma regra de rota personalizada.
 
@@ -32,18 +32,18 @@ Os tópicos de autenticação e autorização sobrepõem-se significativamente a
 
 ## <a name="roles"></a>Funções
 
-Todos os utilizadores que acedem a uma aplicação web estática pertencem a uma ou mais funções.  Existem duas funções incorporadas a que os utilizadores podem pertencer:
+Todos os utilizadores que acedem a uma aplicação web estática pertencem a uma ou mais funções. Existem duas funções incorporadas a que os utilizadores podem pertencer:
 
 - **anónimo**: Todos os utilizadores pertencem automaticamente à função _anónima._
 - **autenticado**: Todos os utilizadores que estejam registados pertencem à função _autenticada._
 
-Além das funções incorporadas, pode criar novas funções, atribuí-las aos utilizadores através de convites e fazê-las referenciar no _routes.jsem_ ficheiro.
+Além das funções incorporadas, pode criar novas funções, atribuí-las aos utilizadores através de convites e fazê-las referenciar no _staticwebapp.config.jsem_ ficheiro.
 
 ## <a name="role-management"></a>Gestão de funções
 
 ### <a name="add-a-user-to-a-role"></a>Adicionar um utilizador a uma função
 
-Para adicionar utilizadores ao seu site, gera convites que lhe permitem associar utilizadores a funções específicas. As funções são definidas e mantidas no _routes.jsarquivado._
+Para adicionar utilizadores ao seu site, gera convites que lhe permitem associar utilizadores a funções específicas. As funções são definidas e mantidas no _staticwebapp.config.jsarquivado._
 
 <a name="invitations" id="invitations"></a>
 
@@ -53,25 +53,25 @@ Os convites são específicos para os fornecedores individuais de autorização,
 
 <a name="provider-user-details" id="provider-user-details"></a>
 
-| Prestador de autorização | Expõe a de um utilizador  |
-| ---------------------- | ----------------- |
-| Azure Active Directory | endereço de e-mail     |
-| Facebook               | endereço de e-mail     |
-| GitHub                 | nome de utilizador          |
-| Google<sup>1</sup>     | endereço de e-mail     |
-| Twitter                | nome de utilizador          |
+| Prestador de autorização | Expõe a de um utilizador |
+| ---------------------- | ---------------- |
+| Azure Active Directory | endereço de e-mail    |
+| Facebook               | endereço de e-mail    |
+| GitHub                 | nome de utilizador         |
+| Google<sup>1</sup>     | endereço de e-mail    |
+| Twitter                | nome de utilizador         |
 
 1. Navegue para um recurso estático de Aplicações Web no [portal Azure](https://portal.azure.com).
 1. Em _Definições_, clique em **Gestão de Funções**.
 1. Clique no botão **Convidar.**
 1. Selecione um fornecedor de _autorização_ na lista de opções.
 1. Adicione o nome de utilizador ou o endereço de e-mail do destinatário na caixa de _detalhes do Convite._
-    - Para GitHub e Twitter, introduza o nome de utilizador. Para todos os outros, insira o endereço de e-mail do destinatário.
+   - Para GitHub e Twitter, introduza o nome de utilizador. Para todos os outros, insira o endereço de e-mail do destinatário.
 1. Selecione o domínio do seu site estático a partir do drop-down do _Domínio._
-    - O domínio que seleciona é o domínio que aparece no convite. Se tiver um domínio personalizado associado ao seu site, provavelmente deseja escolher o domínio personalizado.
+   - O domínio que seleciona é o domínio que aparece no convite. Se tiver um domínio personalizado associado ao seu site, provavelmente deseja escolher o domínio personalizado.
 1. Adicione uma lista separada de vírgulas de nomes de papéis na caixa _Role._
 1. Introduza o número máximo de horas que pretende que o convite permaneça válido.
-    - O limite máximo possível é de 168 horas, ou seja, 7 dias.
+   - O limite máximo possível é de 168 horas, ou seja, 7 dias.
 1. Clique no botão **Generate** (Gerar).
 1. Copie o link da caixa _de link 'Convite'._
 1. Envie um e-mail com o link de convite para a pessoa que está a conceder acesso à sua aplicação.
@@ -87,7 +87,7 @@ Quando o utilizador clica no link no convite, é-lhes solicitado que faça login
 1. Em _Definições_, clique em **Gestão de Funções**.
 1. Clique no utilizador da lista.
 1. Editar a lista de papéis na caixa _Role._
-1. Clique no botão **'Actualização'.**
+1. Clique no botão **'Atualização'.**
 
 ### <a name="remove-user"></a>Remover utilizador
 

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 879ca169604dcd61a79db4ec3ca937289dacdd9b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309871"
+ms.locfileid: "107365098"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
@@ -40,7 +40,7 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
 
 * [Explorador de Armazenamento Azure](https://storageexplorer.com/) (opcional).
 
-* [Uma aplicação no Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota dos seguintes valores a utilizar em etapas posteriores: **ID de aplicação,** **chave de autenticação** e **identificação do inquilino.** Atribua a aplicação à **função Contribuinte** seguindo as instruções no mesmo artigo. Tome nota dos seguintes valores, como mostrado no artigo a utilizar em etapas posteriores: **ID de aplicação (id principal de serviço abaixo), chave de autenticação (segredo do cliente abaixo) e ID do inquilino.**
+* [Uma aplicação no Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Crie a aplicação seguindo os passos deste link e atribua a aplicação à função  **Contribuinte** seguindo as instruções no mesmo artigo. Tome nota dos seguintes valores, como mostrado no artigo a utilizar em etapas posteriores: **ID de aplicação (id principal de serviço abaixo), chave de autenticação (segredo do cliente abaixo) e ID do inquilino.**
 
 ## <a name="create-and-upload-an-input-file"></a>Criar e carregar um ficheiro de entrada
 
@@ -225,8 +225,6 @@ Defina um conjunto de dados que represente os dados de origem no Blob do Azure. 
         rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
- > [!NOTE] 
- > Para passar os parâmetros para o pipeline, adicione-os à cadeia json params_for_pipeline mostrados abaixo no formato **{ "ParâmetroName1" : "ParâmetrosVal1" }** para cada um dos parâmetros necessários no pipeline. Para passar parâmetros para um fluxo de dados, crie um parâmetro de pipeline para manter o nome/valor do parâmetro e, em seguida, consuma o parâmetro do pipeline no parâmetro do fluxo de dados no formato **@pipeline ().parâmetros.nome.**
 
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
@@ -243,6 +241,13 @@ Adicione o código seguinte ao método **Main** que cria um **pipeline com uma a
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)

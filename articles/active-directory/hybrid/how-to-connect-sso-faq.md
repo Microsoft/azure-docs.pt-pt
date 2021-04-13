@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 87b9371bfe3b0bd8ff8b3bd509cc1431f0c2e1c6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731671"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305774"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
 
@@ -90,7 +90,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
    **Passo 1. Obtenha a lista de florestas de AD onde o SSO sem emenda foi ativado**
 
    1. Primeiro, faça o download e instale [o Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Navegue para a pasta `$env:programfiles\Microsoft Azure Active Directory Connect`.
    3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
    4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
    5. `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando fornece-lhe a lista de florestas de AD (veja a lista de "Domínios") nas quais esta funcionalidade foi ativada.
@@ -135,7 +135,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
    Execute os seguintes passos no servidor no local onde está a executar Azure AD Connect:
 
    1. Primeiro, faça o download e instale [o Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Navegue para a pasta `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
    4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
    5. `Enable-AzureADSSO -Enable $false`Ligue.
@@ -150,7 +150,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
    Siga as tarefas 1 a 4 abaixo se tiver desativado o Seamless SSO utilizando o Azure AD Connect. Se tiver desativado o Seamless SSO utilizando o PowerShell, avance para a tarefa 5 abaixo.
 
    1. Primeiro, faça o download e instale [o Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Navegue para a pasta `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
    4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
    5. `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando fornece-lhe a lista de florestas de AD (veja a lista de "Domínios") nas quais esta funcionalidade foi ativada.

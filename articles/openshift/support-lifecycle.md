@@ -5,13 +5,13 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: fca01c77a1ff47cbeee167eb408ed9f29a1307bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/06/2021
+ms.openlocfilehash: 35cbaf2b6d2618d116d2dd322ae5ac28f578cecc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634333"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303547"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida do suporte do Azure Red Hat OpenShift 4
 
@@ -33,7 +33,7 @@ Cada número na versão indica compatibilidade geral com a versão anterior:
 * **Versão menor**: Lançado aproximadamente a cada três meses. As atualizações de versão menores podem incluir adições de recursos, melhorias, depreciações, remoção, correções de bugs, melhorias de segurança e outras melhorias.
 * **Patches**: Normalmente libertados todas as semanas, ou conforme necessário. As atualizações da versão patch podem incluir correções de bugs, melhorias de segurança e outras melhorias.
 
-Os clientes devem ter como objetivo executar o mais recente lançamento menor da versão principal que estão a executar. Por exemplo, se o seu cluster de produção estiver em 4.4, e 4.5 é a versão menor geralmente disponível para a série 4, deve atualizar para 4.5 o mais rápido possível.
+Os clientes devem ter como objetivo executar o mais recente lançamento menor da versão principal que estão a executar. Por exemplo, se o seu cluster de produção estiver em 4.4, e 4.5 é a versão menor geralmente disponível para a série 4, deve atualizar para 4.5 o mais rápido possível. 
 
 ### <a name="upgrade-channels"></a>Canais de upgrade
 
@@ -106,12 +106,16 @@ Consulte o seguinte guia para o histórico de lançamento da [plataforma de desb
 
 **O que acontece quando um utilizador atualiza um cluster OpenShift com uma versão menor que não é suportada?**
 
-Se estiver na versão N-2 ou mais antiga, significa que está fora do suporte e será solicitado para fazer upgrade. Quando a sua atualização da versão N-2 para N-1 tiver sucesso, está de volta às nossas políticas de apoio. Por exemplo:
+Se estiver na versão N-2 ou mais antiga, significa que está fora do suporte e será solicitado que faça upgrade para continuar a receber suporte. Quando a sua atualização da versão N-2 para N-1 tiver sucesso, está de volta ao suporte. O upgrade da versão N-3 ou mais antiga para uma versão suportada pode ser um desafio e em alguns casos não é possível. Recomendamos que mantenha o seu cluster na versão mais recente do OpenShift para evitar potenciais problemas de upgrade. Por exemplo:
 * Se a versão Azure Red Hat OpenShift mais antiga for de 4.4.z e estiver em 4.3.z ou mais antiga, está fora do suporte.
-* Quando a atualização de 4.3.z para 4.4.z ou superior tiver sucesso, está de volta às nossas políticas de apoio.
+* Quando a atualização de 4.3.z para 4.4.z ou superior tiver sucesso, está de volta às nossas políticas de apoio. 
 
 Reverter o seu cluster para uma versão anterior, ou um revés, não é suportado. Apenas o upgrade para uma versão mais recente é suportado.
 
 **O que significa "Fora do Apoio"?**
 
-"Fora do Suporte" significa que a versão que está a executar está fora da lista de versões suportadas, e pode ser-lhe pedido que atualize o cluster para uma versão suportada ao solicitar suporte, a menos que esteja dentro do período de carência de 30 dias após a depreciação da versão. Além disso, o Azure Red Hat OpenShift não faz qualquer tempo de funcionamento ou garantias de SLA para clusters fora da lista de versões suportadas no final do período de graça de 30 dias.
+Se o seu cluster ARO estiver a executar uma versão OpenShift que não está na lista de versões suportadas ou que está a utilizar uma [configuração de cluster não suportada,](https://docs.microsoft.com/azure/openshift/support-policies-v4)o seu cluster está "fora do suporte". Como resultado:
+- Ao abrir um bilhete de apoio para o seu cluster, ser-lhe-á pedido que atualize o cluster para uma versão suportada. antes de receber o suporte, a menos que esteja dentro do período de carência de 30 dias após o fim do suporte da versão. 
+- Qualquer tempo de funcionação ou garantias de SLA para clusters fora do suporte são anulados.
+- Os agrupamentos fora do suporte serão remendados apenas com a melhor base de esforço.
+- Os agrupamentos fora do suporte não serão monitorizados.

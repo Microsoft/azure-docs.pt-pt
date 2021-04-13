@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1070a4c8daecfedae513f2fd8738c27abfb33078
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f55c3a1f699f8a087eb97eaba347a3f21c124cc9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200585"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307321"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configurar o módulo de procuração API para o seu cenário de hierarquia gateway (Pré-visualização)
 
@@ -34,7 +34,7 @@ O módulo de procuração API pode permitir muitos cenários para as hierarquias
 
 ## <a name="deploy-the-proxy-module"></a>Implementar o módulo proxy
 
-O módulo de procuração API está disponível no Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:latest` .
+O módulo de procuração API está disponível no Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:1.0` .
 
 Também pode implementar o módulo de procuração API diretamente do Azure Marketplace: [IoT Edge API Proxy](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
 

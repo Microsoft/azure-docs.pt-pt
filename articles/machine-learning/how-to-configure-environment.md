@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 686274bc90f516f597a397a6b0270fb638e30c95
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 7f35f9196fb4ab67de724ba73982fed69ac81361
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027715"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306845"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Crie um ambiente de desenvolvimento python para a aprendizagem de máquinas Azure
 
@@ -100,7 +100,7 @@ Para configurar um ambiente de desenvolvimento local ou VM remoto:
 
 1. Ative o seu novo ambiente virtual Python.
 1. Instale o [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install).
-1. Para configurar o seu ambiente local para utilizar o seu espaço de trabalho Azure Machine Learning, crie um ficheiro de [configuração de espaço de trabalho](#workspace) ou utilize um existente.
+1. Para configurar o seu ambiente local para utilizar o seu espaço de trabalho Azure Machine Learning, crie um ficheiro de [configuração do espaço de trabalho](#workspace) ou utilize um existente.
 
 Agora que tens o teu ambiente local preparado, estás pronto para começar a trabalhar com o Azure Machine Learning. Veja o [Azure Machine Learning Python a começar o guia](tutorial-1st-experiment-sdk-setup-local.md) para começar.
 

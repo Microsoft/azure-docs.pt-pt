@@ -11,17 +11,17 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc81e0b5a2b7e9e2e5ab12094950f71ad51c6871
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: af4eaa5912cdf7463c81f501d71b69e934f8febb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107225976"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306012"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>O que é a sincronização de nuvem AZure AD Connect?
 A azure AD Connect cloud sync é uma nova oferta da Microsoft projetada para cumprir e cumprir os seus objetivos de identidade híbrida para a sincronização de utilizadores, grupos e contactos com a Azure AD.  Consegue-o utilizando o agente de provisão de nuvem Azure AD em vez da aplicação Azure AD Connect.  No entanto, pode ser usado ao lado da sincronização Azure AD Connect e fornece os seguintes benefícios:
     
-- Apoio à sincronização a um inquilino da AD Azure a partir de um ambiente florestal ativo desligado multi-floresta: Os cenários comuns incluem a fusão & aquisição, onde as florestas de AD da empresa adquiridas estão isoladas das florestas de AD da empresa-mãe e empresas que historicamente tiveram múltiplas florestas de AD.
+- Apoio à sincronização a um inquilino da AD Azure a partir de um ambiente florestal ativo desligado multi-floresta: Os cenários comuns incluem a fusão & aquisição (onde as florestas de AD da empresa adquiridas estão isoladas das florestas de AD da empresa-mãe), e empresas que historicamente tiveram múltiplas florestas de AD.
 - Instalação simplificada com agentes de provisionamento leve: Os agentes funcionam como uma ponte de AD a AZure AD, com toda a configuração de sincronização gerida na nuvem. 
 - Vários agentes de provisionamento podem ser usados para simplificar as implementações de alta disponibilidade, particularmente críticas para organizações que dependem da sincronização de hash de palavra-passe de AD a Azure AD.
 - Apoio a grandes grupos com até 50mil membros. Recomenda-se a utilização apenas do filtro de deteção de OU quando sincronizar grandes grupos.
@@ -30,7 +30,7 @@ A azure AD Connect cloud sync é uma nova oferta da Microsoft projetada para cum
 ![O que é o Azure AD Connect](media/what-is-cloud-sync/architecture-1.png)
 
 ## <a name="how-is-azure-ad-connect-cloud-sync-different-from-azure-ad-connect-sync"></a>Como é que o Azure AD Connect sync de nuvem é diferente da sincronização do Azure AD Connect?
-Com a sincronização em nuvem Azure AD Connect, o fornecimento de AD a Azure AD é orquestrado nos Serviços Online da Microsoft. Uma organização só precisa de implantar, no seu ambiente no local e no iaaS, um agente leve que atua como uma ponte entre a Azure AD e a AD. A configuração de provisionamento é armazenada em Azure AD e gerida como parte do serviço.
+Com a sincronização em nuvem Azure AD Connect, o fornecimento de AD a Azure AD é orquestrado nos Serviços Online da Microsoft. Uma organização só precisa de implantar, no seu ambiente no local ou no iaaS, um agente leve que atua como uma ponte entre a Azure AD e a AD. A configuração de provisionamento é armazenada em Azure AD e gerida como parte do serviço.
 
 ## <a name="azure-ad-connect-cloud-sync-video"></a>Vídeo sincronizado em nuvem Azure AD Connect
 O vídeo curto seguinte fornece uma excelente visão geral da sincronização da nuvem AZure AD Connect:

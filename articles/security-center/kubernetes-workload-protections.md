@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: eacca5573c672e9f4485c26b1b580ee4c982c5d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a6a9080a8957b56d12eca289a500fd45f0e709b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580760"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310823"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger cargas de trabalho do Kubernetes
 
@@ -154,7 +154,6 @@ spec:
       labels:
         app: redis
       annotations:
-        apparmor.security.beta.kubernetes.io/pod: runtime/default
         container.apparmor.security.beta.kubernetes.io/redis: runtime/default
     spec:
       containers:

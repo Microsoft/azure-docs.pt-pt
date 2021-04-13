@@ -10,25 +10,36 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 03/23/2021
-ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 1d58f79d0fe8accc728c4484dd5d92159836aa88
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107861"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305145"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este artigo fornece os limites de recursos detalhados para piscinas elásticas Azure SQL Database e bases de dados em conjunto utilizando o modelo de compra vCore.
 
-Para os limites do modelo de compra de DTU, consulte [os limites de recursos DTU da Base de Dados SQL - piscinas elásticas](resource-limits-dtu-elastic-pools.md).
+* Para os limites do modelo de compra de DTU para bases de dados individuais num servidor, consulte [a visão geral dos limites de recursos num servidor](resource-limits-logical-server.md).
+* Para a DTU, limites de recursos para o modelo de compra de dados Azure SQL, consulte [os limites de recursos DTU de bases de dados únicas](resource-limits-dtu-single-databases.md) e [limites de recursos DTU piscinas elásticas](resource-limits-dtu-elastic-pools.md).
+* Para limites de recursos vCore, consulte [os limites de recursos vCore - Base de Dados Azure SQL](resource-limits-vcore-single-databases.md) e [limites de recursos vCore - piscinas elásticas](resource-limits-vcore-elastic-pools.md).
+* Para obter mais informações sobre os diferentes modelos de compra, consulte [modelos de compras e tiers de serviço.](purchasing-models.md)
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, pode precisar de encolher uma base de dados para recuperar o espaço não usused. Para obter mais informações, consulte [Gerir o espaço de ficheiros na Base de Dados Azure SQL](file-space-manage.md).
 
-Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) e a quantidade de armazenamento utilizando o [portal Azure,](elastic-pool-manage.md#azure-portal) [o PowerShell,](elastic-pool-manage.md#powershell)o [Azure CLI,](elastic-pool-manage.md#azure-cli)ou a [API REST](elastic-pool-manage.md#rest-api).
+Cada réplica só de leitura tem os seus recursos próprios, tais como vCores, memória, dados IOPS, TempDB, trabalhadores e sessões. Cada réplica apenas de leitura está sujeita aos limites de recursos detalhados mais tarde neste artigo.
+
+Pode definir o nível de serviço, o tamanho do cálculo (objetivo de serviço) e a quantidade de armazenamento utilizando:
+
+* [Transact-SQL](elastic-pool-scale.md) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Portal do Azure](elastic-pool-manage.md#azure-portal)
+* [PowerShell](elastic-pool-manage.md#powershell)
+* [CLI do Azure](elastic-pool-manage.md#azure-cli)
+* [API REST](elastic-pool-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Para obter orientação e considerações de escalonamento, consulte [Scale a elastic pool](elastic-pool-scale.md).

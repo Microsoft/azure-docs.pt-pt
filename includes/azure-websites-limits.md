@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: msangapu
-ms.openlocfilehash: 80d295d017b11d86df7a3fe4c14afc7a5665cd96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dad7799cb5a7579b28847e3968b6b38f1f98298a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104612941"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327531"
 ---
 | Recurso | Gratuito | Partilhado | Básica | Standard | Premium (v1-v3) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "104612941"
 | [Plano de Serviço de Aplicações](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
 | Tipo de instância computacional |Partilhado |Partilhado |Dedicado<sup>3</sup> |Dedicado<sup>3</sup> |Dedicado<sup>3</sup></p> |Dedicado<sup>3</sup>|
 | [Escala (instâncias](../articles/app-service/manage-scale-up.md) máximas) |1 compartilhado |1 compartilhado |3<sup>dedicados 3</sup> |10<sup>dedicados 3</sup> | 20 dedicados à v1 e v2; 30 dedicados à V3. <sup>3</sup>|100<sup>dedicados 4</sup>|
-| Armazenamento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Para mais de 250 GB, apresente um pedido de apoio. |1 TB<sup>5</sup> <br/><br/> A quota de armazenamento disponível é de 999 GB. |
+| Armazenamento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> |1 TB<sup>5</sup> <br/><br/> A quota de armazenamento disponível é de 999 GB. |
 | Tempo de CPU (5 minutos)<sup>6</sup> |3 minutos |3 minutos |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a>|
 | Hora do CPU (dia)<sup>6</sup> |60 minutos |240 minutos |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pagar a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |
 | Memória (1 hora) |1.024 MB por plano de Serviço de Aplicações |1,024 MB por app |N/D |N/D |N/D |N/D |
@@ -38,7 +38,7 @@ ms.locfileid: "104612941"
 | [Backups programados](../articles/app-service/manage-backup.md) | | | | Backups programados a cada 2 horas, no máximo 12 backups por dia (manual + programado) | Backups programados a cada hora, um máximo de 50 backups por dia (manual + programado) | Backups programados a cada hora, um máximo de 50 backups por dia (manual + programado) |
 | [Dimensionamento Automático](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
-| [Monitorização de ponto final](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
+| [Monitorização de pontos finais](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slots de encenação](../articles/app-service/deploy-staging-slots.md) por app| | | |5 |20 |20 |
 | [Testes em Produção](../articles/app-service/deploy-staging-slots.md#route-traffic)| | | |X |X |X |
 | [Registos de Diagnóstico](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |

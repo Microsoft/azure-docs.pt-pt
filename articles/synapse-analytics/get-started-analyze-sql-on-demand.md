@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: c8a0ad3eb578280ea29d94dfbb5e74d873568541
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7c228bfe5897b45e6345234f2ed8e0f5cfbec73a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259647"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312795"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Analisar dados com uma piscina SQL sem servidor
 
@@ -27,9 +27,8 @@ As piscinas SQL sem servidor permitem-lhe utilizar o SQL sem ter de reservar cap
 
 Cada espaço de trabalho vem com uma piscina SQL sem servidor pré-configurada chamada **Built-in**. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Analise os dados do táxi nyc no armazenamento de blob usando a piscina SQL sem servidor
+## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Analise os dados do TÁXI NYC com uma piscina SQL sem servidor
 
-Nesta secção, você usará um pool SQL sem servidor para analisar os dados do NYC Taxi numa conta de Armazenamento Azure Blob.
 
 1. No Estúdio Synapse, vá ao centro **de Desenvolvimento**
 1. Crie um novo script SQL.

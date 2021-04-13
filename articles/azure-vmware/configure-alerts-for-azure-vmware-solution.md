@@ -3,16 +3,16 @@ title: Configure alertas e trabalhe com métricas na Azure VMware Solution
 description: Saiba como usar alertas para receber notificações. Também aprenda a trabalhar com métricas para obter informações mais profundas sobre a sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.openlocfilehash: f021662658399111187e9963fc5caec434fabf4a
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 486f25eba017b2d4e37c0796909a0d26adee6ba8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096840"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309633"
 ---
 # <a name="configure-azure-alerts-in-azure-vmware-solution"></a>Configure Alertas Azure em Solução VMware Azure 
 
-Neste artigo, você vai aprender a configurar [grupos de ação Azure](/azure/azure-monitor/alerts/action-groups) no [Microsoft Azure Alerts](/azure/azure-monitor/alerts/alerts-overvie) para receber notificações de eventos desencadeados que você define. Você também vai aprender sobre o uso [de Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) para obter informações mais profundas sobre a sua nuvem privada Azure VMware Solution.
+Neste artigo, você vai aprender a configurar [grupos de ação Azure](/azure/azure-monitor/alerts/action-groups) no [Microsoft Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) para receber notificações de eventos desencadeados que você define. Você também vai aprender sobre o uso [de Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) para obter informações mais profundas sobre a sua nuvem privada Azure VMware Solution.
 
 
 ## <a name="supported-metrics-and-activities"></a>Métricas e atividades apoiadas

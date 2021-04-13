@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 7940ac3a67a0562aa0b7a21690deec30220a48a3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cdb792198e6912fb0e68b2abec052c2b05166f17
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434717"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310126"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher o direito de nível de Hub IoT para a sua solução
 
@@ -60,7 +60,7 @@ O IoT Hub também oferece um nível gratuito que se destina a testar e avaliar. 
 
 Os hubs Azure IoT contêm muitos componentes fundamentais dos Hubs de [Eventos Azure,](../event-hubs/event-hubs-features.md)incluindo [partições.](../event-hubs/event-hubs-features.md#partitions) Os streams de eventos para IoT Hubs são geralmente povoados com dados de telemetria que são relatados por vários dispositivos IoT. A divisão do fluxo de eventos é usada para reduzir as disputas que ocorrem quando simultaneamente lê e escreve para streams de eventos.
 
-O limite de partição é escolhido quando o IoT Hub é criado, e não pode ser alterado. O limite máximo de partição para o hub IoT de nível básico e o ioT hub de nível padrão é de 32. A maioria dos centros de IoT só precisa de 4 divisórias. Para obter mais informações sobre a determinação das divisórias, consulte o Evento Hubs FAQ [Quantas divisórias preciso?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+O limite de partição é escolhido quando o IoT Hub é criado, e não pode ser alterado. O limite máximo de partição para o hub IoT de nível básico e o ioT hub de nível padrão é de 32. A maioria dos centros de IoT só precisa de 4 divisórias. Para obter mais informações sobre a determinação das divisórias, consulte o Evento Hubs FAQ [Quantas divisórias preciso?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)
 
 ## <a name="tier-upgrade"></a>Atualização de nível
 

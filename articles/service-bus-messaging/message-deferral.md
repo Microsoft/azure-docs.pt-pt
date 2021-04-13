@@ -4,12 +4,12 @@ description: Este artigo explica como adiar a entrega de mensagens Azure Service
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e3a940f8aa9e72d9b09e9c0a3305521c6f17dfb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 997aab36652b08864892f1171e2b8588ec5f06b4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622050"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306114"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
 
@@ -22,7 +22,7 @@ Um simples exemplo ilustrativo é uma sequência de processamento de encomendas 
 Em última análise, os auxiliares de diferimento na reordenação das mensagens da ordem de chegada para uma ordem em que podem ser processadas, deixando essas mensagens em segurança na loja de mensagens para as quais o processamento precisa de ser adiado.
 
 > [!NOTE]
-> As mensagens diferidas não serão automaticamente transferidas para a fila das letras mortas após a [sua expiração](./service-bus-dead-letter-queues.md#exceeding-timetolive). Este comportamento é por desígnio.
+> As mensagens diferidas não serão automaticamente transferidas para a fila das letras mortas após a [sua expiração](./service-bus-dead-letter-queues.md#time-to-live). Este comportamento é por desígnio.
 
 ## <a name="message-deferral-apis"></a>APIs de diferimento de mensagem
 

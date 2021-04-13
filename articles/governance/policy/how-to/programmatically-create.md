@@ -3,12 +3,12 @@ title: Criar políticas programaticamente
 description: Este artigo acompanha-o através de políticas programáticas para a Política Azure com Azure CLI, Azure PowerShell e REST API.
 ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fb20509fe6d699050e0c98e82873ccdb6a0137b2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598495"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313696"
 ---
 # <a name="programmatically-create-policies"></a>Criar políticas programaticamente
 
@@ -141,7 +141,7 @@ Utilize o seguinte procedimento para criar uma definição de política.
 
    Substitua o {subscriçãoId} anteriormente pelo ID da sua subscrição ou {managementGroupId} pelo ID do seu grupo de [gestão](../../management-groups/overview.md).
 
-   Para obter mais informações sobre a estrutura da consulta, consulte [Definições de Política do Azure – Criar ou Atualizar](/rest/api/resources/policydefinitions/createorupdate) e [Definições de Política – Criar ou Atualizar Grupo de Gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Para obter mais informações sobre a estrutura da consulta, consulte [Definições de Política do Azure – Criar ou Atualizar](/rest/api/policy/policydefinitions/createorupdate) e [Definições de Política – Criar ou Atualizar Grupo de Gestão](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup)
 
 Utilize o seguinte procedimento para criar uma atribuição de política e atribuir a definição de política ao nível do grupo de recursos.
 

@@ -15,6 +15,8 @@
       items:
         - name: Hotpatch para novas máquinas virtuais
           href: automanage-hotpatch.md
+    - name: Conta de auto-produção
+      href: automanage-account.md
 - name: Procedimento
   expanded: true
   items:
@@ -22,6 +24,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Ativar em VMs através do Azure Policy
       href: virtual-machines-policy-enable.md
+    - name: Ative em VMs através de um modelo ARM
+      href: arm-deploy.md
     - name: Erros de resolução de problemas no embarque
       href: common-errors.md
     - name: Reparar uma conta danificada do Automanage

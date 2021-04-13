@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 16433d5b148d7bc441e375591c64af497cd7b8de
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 90ee39039b0734bf434e7339a973358989c08175
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505338"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311367"
 ---
 # <a name="access-config-server-and-service-registry"></a>Acesso Config Servidor e Registo de Serviço
 
@@ -47,15 +47,15 @@ Após a atribuição da função Azure Spring Cloud Data Reader, os clientes pod
     ```
 2. Componha o ponto final. Suportamos pontos finais predefinidos do Servidor Config da Nuvem de primavera e do Registo de Serviços de Nuvem de primavera geridos pela Azure Spring Cloud. Para mais informações, consulte [os pontos finais prontos para a Produção.](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints) Os clientes também podem obter uma lista completa de pontos finais suportados do Servidor Config da Nuvem de primavera e do Registo de Serviços de Nuvem de primavera geridos pela Azure Spring Cloud, acedendo a pontos finais:
 
-    * *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/*
-    * *https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/* 
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/'*
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'* 
 
 >[!NOTE]
 > Se estiver a utilizar o Azure China, `*.azuremicroservices.io` substitua-o `*.microservices.azure.cn` por, [saiba mais](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Aceda ao ponto final composto com o token de acesso. Coloque o símbolo de acesso num cabeçalho para fornecer autorização.  Apenas o método "GET" é suportado.
 
-    Por exemplo, aceder a um ponto final como *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health* ver o estado de saúde da eureka.
+    Por exemplo, aceda a um ponto final como *' https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health '* para ver o estado de saúde da eureka.
 
     Se a resposta for *401 Não Autorizada,* verifique se a função está atribuída com sucesso.  Levará vários minutos para que a função entre em vigor ou verifique se o sinal de acesso não expirou.
 

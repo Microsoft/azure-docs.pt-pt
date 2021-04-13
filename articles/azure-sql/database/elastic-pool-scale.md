@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 09/16/2020
-ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 3d935332854816ae62dea8e30f08bee2b92a4eab
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92781214"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107302986"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensione recursos de piscina elástica na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,14 @@ Este artigo descreve como escalar os recursos de computação e armazenamento di
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Alterar recursos computacional (vCores ou DTUs)
 
-Depois de escolher inicialmente o número de vCores ou eDTUs, pode escalar uma piscina elástica para cima ou para baixo dinamicamente com base na experiência real utilizando o [portal Azure](elastic-pool-manage.md#azure-portal), [PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)o [Azure CLI,](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou a [API REST](/rest/api/sql/elasticpools/update).
+Depois de escolher inicialmente o número de vCores ou eDTUs, pode escalar uma piscina elástica para cima ou para baixo dinamicamente com base na experiência real utilizando a utilização:
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Portal do Azure](elastic-pool-manage.md#azure-portal)
+* [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool)
+* [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)
+* [API REST](/rest/api/sql/elasticpools/update)
+
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto da alteração do nível de serviço ou do tamanho do cálculo rescalante
 
@@ -99,7 +106,7 @@ Você é cobrado por cada hora existe uma base de dados usando o nível de servi
 
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
-- O preço eDTU para uma piscina elástica inclui uma certa quantidade de armazenamento sem custos adicionais. O armazenamento extra para além do montante incluído pode ser previsto para um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB até 1 TB, e depois em incrementos de 256 GB para além de 1 TB. Para quantidades de armazenamento incluídas e limites de tamanho máximo, consulte [piscina elástica: tamanhos de armazenamento e tamanhos de cálculo](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- O preço eDTU para uma piscina elástica inclui uma certa quantidade de armazenamento sem custos adicionais. O armazenamento extra para além do montante incluído pode ser previsto para um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB até 1 TB, e depois em incrementos de 256 GB para além de 1 TB. Para quantidades de armazenamento incluídas e limites de tamanho máximo, consulte [os limites de Recursos para piscinas elásticas utilizando o modelo de compra DTU](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes) ou [limites de recursos para piscinas elásticas utilizando o modelo de compra vCore](resource-limits-vcore-elastic-pools.md).
 - O armazenamento extra para uma piscina elástica pode ser a provisionado aumentando o seu tamanho máximo utilizando o [portal Azure,](elastic-pool-manage.md#azure-portal) [o PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)o [Azure CLI,](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou o [REST API](/rest/api/sql/elasticpools/update).
 - O preço de armazenamento extra para uma piscina elástica é a quantidade extra de armazenamento multiplicada pelo preço extra da unidade de armazenamento do nível de serviço. Para mais informações sobre o preço do armazenamento extra, consulte [os preços da Base de Dados SQL.](https://azure.microsoft.com/pricing/details/sql-database/)
 

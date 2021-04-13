@@ -3,12 +3,12 @@ title: Recuperação de geo-desastres - Azure Event Hubs| Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: f3b74b89f47582fbb3f1640f315f413ab86b26b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 091c6c61b079ceb8f96f04e62fb772d91732eb2f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602643"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311214"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos Azure - Recuperação de geo-desastres 
 
@@ -205,7 +205,7 @@ Para obter mais informações sobre os Hubs de Eventos, visite as seguintes liga
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
     - [JavaScript](event-hubs-node-get-started-send.md)
-* [FAQ dos Hubs de Eventos](event-hubs-faq.md)
+* [FAQ dos Hubs de Eventos](event-hubs-faq.yml)
 * [Aplicações de exemplo que utilizam Hubs de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 [1]: ./media/event-hubs-geo-dr/geo1.png

@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67018a2ec6b9239661a7022ad7fb9eeb6c9a5f64
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 756e5e96a8040fb3d93273a5521236d46879e60d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385586"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306386"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrar para a autenticação na cloud com a implementação faseada
 
@@ -92,7 +92,7 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 - Windows 10 Hybrid Join ou Azure AD Junte-se à aquisição de token de atualização primária para todas as versões, quando a UPN do utilizador não é encaminhável. Este cenário irá voltar ao ponto final WS-Trust enquanto estiver em modo de lançamento encenado, mas deixará de funcionar quando a migração faseada estiver completa e o início de saúde do utilizador já não depender do servidor da federação.
 
   >[!NOTE]
-  >Ainda precisa de fazer o corte final de federado para autenticação em nuvem utilizando O AD Connect ou PowerShell. O lançamento encenado não muda os domínios de federados para geridos.  Para obter mais informações sobre o corte de domínio, consulte [Migrar da federação para a sincronização de hash de palavra-passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) e [migrar da federação para a autenticação pass-through](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  >Ainda precisa de fazer o corte final de federado para autenticação em nuvem utilizando O AD Connect ou PowerShell. O lançamento encenado não muda os domínios de federados para geridos.  Para obter mais informações sobre o corte de domínio, consulte [Migrar da federação para a sincronização de hash de palavra-passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) e [migrar da federação para a autenticação pass-through](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).
   
 ## <a name="get-started-with-staged-rollout"></a>Começar com lançamento encenado
 

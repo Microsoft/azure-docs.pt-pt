@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 774eb05ae43e393db3d11e8e21a427736614809b
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: a37b740333e599d19248ffa9b21be3e4d6fe78b3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285115"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306301"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte linguístico para Visão de Computador
 
@@ -25,7 +25,7 @@ Algumas funcionalidades da Visão Computacional suportam vários idiomas; quaisq
 
 As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que especifique um código linguístico. Consulte a [visão geral do Reconhecimento de Caracteres Óticos (OCR)](overview-ocr.md) para obter mais informações.
 
-|Linguagem| Código do idioma | OCR API | Ler 3.0/3.1 | Ler pré-visualização v3.2 |
+|Linguagem| Código do idioma | OCR API | Ler 3.0/3.1 | Ler v3.2 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Afrikaans|`af`| | |✔ |
 |Albanês |`sq`| | |✔ |
@@ -46,7 +46,7 @@ As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que
 |Dinamarquês | `da` |✔ | |✔ |
 |Neerlandês | `nl` |✔ |✔ |✔ |
 |Inglês | `en` |✔ |✔ |✔ |
-|Estónio  |`crh`| | |✔ |
+|Estónio  |`et`| | |✔ |
 |Fijian |`fj`| | |✔ |
 |Filipino  |`fil`| | |✔ |
 |Finlandês | `fi` |✔ | |✔ |
@@ -113,7 +113,7 @@ As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que
 
 Algumas ações da [Análise - API de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) pode devolver resultados em outras línguas, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do que é especificado, e outras lançam uma exceção para línguas não apoiadas. As ações são especificadas com os `visualFeatures` parâmetros e `details` consultas; consulte a [Visão Geral](overview-image-analysis.md) para uma lista de todas as ações que pode fazer com a análise de imagem.
 
-|Linguagem | Código do idioma | Categorias | Etiquetas | Descrição | Adulto | Marcas | Cor | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código do idioma | Categorias | Etiquetas | Description | Adulto | Marcas | Cor | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

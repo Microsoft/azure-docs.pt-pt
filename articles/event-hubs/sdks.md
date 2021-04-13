@@ -3,12 +3,12 @@ title: Azure Event Hubs - | de SDKs de clientes Microsoft Docs
 description: Este artigo fornece informações sobre SDKs clientes para Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9f4eec603245f1e4ea6fa4d97b843ca6a770f2ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4af837c4d62098f3efe4098c6734ecd8972e972
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88930881"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310007"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs - SDKs de clientes
 Este artigo fornece as seguintes informações para os SDKs apoiados por Azure Event Hubs: 
@@ -50,4 +50,4 @@ Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs](./event-hubs-about.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
-* [FAQ dos Hubs de Eventos](event-hubs-faq.md)
+* [FAQ dos Hubs de Eventos](event-hubs-faq.yml)

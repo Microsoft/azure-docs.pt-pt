@@ -7,16 +7,16 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Utilize o Azure RBAC para verificação de autorização em agrupamentos de Kubernetes habilitados
-ms.openlocfilehash: bd8029cb2772a6f6bd9821abe6acf69c9c08599d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 0ee5f86ce12a39d86754d2e6e88263d8a03a012b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106451105"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304210"
 ---
-# <a name="azure-rbac-for-azure-arc-enabled-kubernetes-clusters"></a>Azure RBAC para Azure Arc permitiu clusters Kubernetes
+# <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Integre o Azure Ative Directory com clusters Azure Arc habilitados kubernetes
 
-Os tipos de objetos De [ClusterRoleBinding e RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) ajudam a definir a autorização em Kubernetes de forma nativa. Com o Azure RBAC, você pode usar Azure Ative Directory e atribuições de funções em Azure para controlar verificações de autorização no cluster. Isto implica que agora pode usar atribuições de funções Azure para controlar granulivelmente quem pode ler, escrever, eliminar os seus objetos Kubernetes, tais como Implementação, Pod e Serviço
+Os tipos de objetos De [ClusterRoleBinding e RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) ajudam a definir a autorização em Kubernetes de forma nativa. Utilizando esta funcionalidade, pode utilizar o Azure Ative Directory e atribuições de funções em Azure para controlar as verificações de autorização no cluster. Isto implica que agora pode usar atribuições de funções Azure para controlar granulivelmente quem pode ler, escrever, eliminar os seus objetos Kubernetes, tais como Implementação, Pod e Serviço
 
 Uma visão geral conceptual desta funcionalidade está disponível no [Azure RBAC - Azure Arc ativou o artigo de Kubernetes.](conceptual-azure-rbac.md)
 
@@ -272,12 +272,12 @@ Os proprietários do Azure Arc habilitados o recurso Kubernetes podem usar funç
 
 ### <a name="built-in-roles"></a>Funções incorporadas
 
-| Função | Descrição |
+| Função | Description |
 |---|---|
-| Espectador Azure Arc Kubernetes | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Este papel não permite ver segredos. Isto porque `read` a permissão em segredos permitiria o acesso a `ServiceAccount` credenciais no espaço de nomes, o que por sua vez permitiria o acesso da API usando isso `ServiceAccount` (uma forma de escalada de privilégio). |
-| Escritor Azure Arc Kubernetes | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder a segredos e a correr como qualquer outro `ServiceAccount` no espaço de nomes, para que possa ser usado para obter os níveis de acesso a API de qualquer um `ServiceAccount` no espaço de nome. |
-| Administrador Azure Arc Kubernetes | Permite o acesso administrativo. Destina-se a ser concedido dentro de um espaço de nome usando um RoleBinding. Se usado num RoleBinding, permite ler/escrever acesso à maioria dos recursos num espaço de nome, incluindo a capacidade de criar papéis e encadernações de papéis dentro do espaço de nomes. Esta função não permite escrever acesso à quota de recursos ou ao próprio espaço de nome. |
-| Azure Arc Kubernetes Cluster Admin | Permite o acesso do super-utilizador para executar qualquer ação em qualquer recurso. Quando usado num ClusterRoleBinding, dá total controlo sobre todos os recursos do cluster e em todos os espaços de nome. Quando usado num RoleBinding, dá total controlo sobre todos os recursos no espaço de nome da ligação do papel, incluindo o próprio espaço de nome.|
+| [Espectador Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Este papel não permite ver segredos. Isto porque `read` a permissão em segredos permitiria o acesso a `ServiceAccount` credenciais no espaço de nomes, o que por sua vez permitiria o acesso da API usando isso `ServiceAccount` (uma forma de escalada de privilégio). |
+| [Escritor Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-writer) | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder a segredos e a correr como qualquer outro `ServiceAccount` no espaço de nomes, para que possa ser usado para obter os níveis de acesso a API de qualquer um `ServiceAccount` no espaço de nome. |
+| [Administrador Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Permite o acesso administrativo. Destina-se a ser concedido dentro de um espaço de nome usando um RoleBinding. Se usado num RoleBinding, permite ler/escrever acesso à maioria dos recursos num espaço de nome, incluindo a capacidade de criar papéis e encadernações de papéis dentro do espaço de nomes. Esta função não permite escrever acesso à quota de recursos ou ao próprio espaço de nome. |
+| [Azure Arc Kubernetes Cluster Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Permite o acesso do super-utilizador para executar qualquer ação em qualquer recurso. Quando usado num ClusterRoleBinding, dá total controlo sobre todos os recursos do cluster e em todos os espaços de nome. Quando usado num RoleBinding, dá total controlo sobre todos os recursos no espaço de nome da ligação do papel, incluindo o próprio espaço de nome.|
 
 Pode criar atribuições de funções no cluster de Kubernetes ativados no cluster da `Access Control (IAM)` lâmina do recurso cluster no portal Azure. Também pode utilizar comandos Azure CLI, como mostrado abaixo:
 
