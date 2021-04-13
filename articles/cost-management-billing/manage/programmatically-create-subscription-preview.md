@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b524869998dd2464ed359ec61ce655a807899aaa
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9f20659e772f6321f4d3953f0e55192c833e78b9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565721"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310602"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Criar subscrições do Azure através de programação com APIs de pré-visualização
 
@@ -365,7 +365,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 | `skuId` | Sim      | String | O ID da SKU que determina o tipo de plano do Azure. |
 | `owners`      | Não       | String | O ID de Objeto de qualquer utilizador ou principal de serviço a adicionar como Proprietário de RBAC do Azure na subscrição quando esta é criada.  |
 | `costCenter` | Não      | String | O centro de custos associado à subscrição. Este aparece no ficheiro CSV de utilização. |
-| `managementGroupId` | Não      | String | O ID do grupo de gestão ao qual a subscrição será adicionada. Para obter a lista de grupos de gestão, veja [Grupos de Gestão – API de Lista](/rest/api/resources/managementgroups/list). Use o ID de um grupo de gestão a partir da API. |
+| `managementGroupId` | Não      | String | O ID do grupo de gestão ao qual a subscrição será adicionada. Para obter a lista de grupos de gestão, veja [Grupos de Gestão – API de Lista](/rest/api/managementgroups/entities/list). Use o ID de um grupo de gestão a partir da API. |
 
 Na resposta, recebe um objeto `subscriptionCreationResult` para monitorização. Quando a criação da subscrição estiver concluída, o objeto `subscriptionCreationResult` devolve um objeto `subscriptionLink`, o qual tem o ID da subscrição.
 

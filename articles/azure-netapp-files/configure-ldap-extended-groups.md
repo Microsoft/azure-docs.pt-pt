@@ -12,22 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 04/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 9edf8c6eca223ece8728f9868ee9fe310c517ca9
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2546236399853f3ed6fad9e07e031edb568fbfe9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259715"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311537"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configure ADDS LDAP com grupos alargados para acesso ao volume NFS
 
-Quando [cria um volume NFS,](azure-netapp-files-create-volumes.md)tem a opção de ativar o LDAP com uma função de grupos alargados (a opção **LDAP)** para o volume. Esta funcionalidade permite que utilizadores do Diretório Ativo LDAP e grupos alargados (até 1024 grupos) acedam ao volume.  
+Quando [cria um volume NFS,](azure-netapp-files-create-volumes.md)tem a opção de ativar o LDAP com uma função de grupos alargados (a opção **LDAP)** para o volume. Esta funcionalidade permite que utilizadores do Diretório Ativo LDAP e grupos alargados (até 1024 grupos) acedam ao volume. Pode utilizar o LDAP com grupos alargados com volumes NFSv4.1 e NFSv3. 
 
 Este artigo explica as considerações e passos para permitir lDAP com grupos estendidos quando cria um volume NFS.  
 
 ## <a name="considerations"></a>Considerações
+
+* O LDAP com grupos alargados é suportado apenas com serviços de domínio de diretório ativo (ADDS) ou serviços de domínio de diretório ativo Azure (AADDS). A OpenLDAP ou outros serviços de diretório LDAP de terceiros não são suportados. 
 
 * O LDAP sobre o TLS *não* deve ser ativado se estiver a utilizar os Serviços de Domínio do Diretório Ativo Azure (AADDS).  
 
@@ -69,6 +71,9 @@ Este artigo explica as considerações e passos para permitir lDAP com grupos es
 
 2. Os volumes LDAP requerem uma configuração de Diretório Ativo para as definições do servidor LDAP. Siga as instruções nos [Requisitos de Ligações de Diretório Ativo](create-active-directory-connections.md#requirements-for-active-directory-connections) e [Crie uma ligação ative de diretório](create-active-directory-connections.md#create-an-active-directory-connection) para configurar ligações de Diretório Ativo no portal Azure.  
 
+    > [!NOTE]
+    > Certifique-se de que configura as definições de ligação do Ative Directory. Será criada uma conta de máquina na unidade organizacional (OU) que é especificada nas definições de ligação do Ative Directory. As definições são utilizadas pelo cliente LDAP para autenticar com o seu Diretório Ativo.
+
 3. Certifique-se de que o servidor LDAP do Diretório Ativo está a funcionar no Ative Directory. 
 
 4. Os utilizadores do LDAP NFS precisam de ter certos atributos POSIX no servidor LDAP. Desagrupa os atributos para utilizadores LDAP e grupos LDAP da seguinte forma: 
@@ -82,7 +87,7 @@ Este artigo explica as considerações e passos para permitir lDAP com grupos es
 
     ![Editor de Atributos de Diretório Ativo](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
-5. Se quiser configurar um cliente Linux integrado no LDAP, consulte [configurar um cliente NFS para ficheiros Azure NetApp](configure-nfs-clients.md).
+5. Se pretender configurar um cliente NFSv4.1 Linux integrado em LDAP, consulte [configurar um cliente NFS para ficheiros Azure NetApp](configure-nfs-clients.md).
 
 6.  Siga os passos na [Criação de um volume NFS para ficheiros Azure NetApp](azure-netapp-files-create-volumes.md) para criar um volume NFS. Durante o processo de criação de volume, no âmbito do **separador Protocolo,** ative a opção **LDAP.**   
 

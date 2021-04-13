@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 04/12/2021
 ms.author: aahi
 keywords: no local, Docker, contentor, Kubernetes
-ms.openlocfilehash: 007dfe6d67d504286b9546fe0139055b58dc700f
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 45b1eb00b61c36e3a7a0f39bc41a9c1d053f3d8e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285608"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313747"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contentores dos Serviços Cognitivos do Azure
 
@@ -41,13 +41,13 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 
 ### <a name="decision-containers"></a>Contentores de decisão
 
-| Serviço |  Contentor | Descrição | Disponibilidade |
+| Serviço |  Contentor | Description | Disponibilidade |
 |--|--|--|--|
 | [Detetor de anomalias][ad-containers] | **Detetor de Anomalias** [(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector)  | A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo com aprendizagem automática. | Disponível em Geral |
 
 ### <a name="language-containers"></a>Contentores de linguagem
 
-| Serviço |  Contentor | Descrição | Disponibilidade |
+| Serviço |  Contentor | Description | Disponibilidade |
 |--|--|--|--|
 | [LUIS][lu-containers] |  **LUIS** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409) | Carrega um modelo de Compreensão de Linguagem treinado ou publicado, também conhecido como app LUIS, num recipiente de estivadores e fornece acesso às previsões de consulta dos pontos finais da API do contentor. Pode recolher registos de consultas a partir do contentor e enviá-los de volta para o [portal LUIS](https://www.luis.ai) para melhorar a precisão de previsão da aplicação. | Disponível em Geral |
 | [Análise de Texto][ta-containers-keyphrase] | **Extração de frases-chave** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409) | Extrai frases-chave para identificar os principais pontos. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. | Pré-visualizar |
@@ -60,7 +60,7 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 > [!NOTE]
 > Para utilizar os recipientes de discurso, terá de preencher um [formulário de pedido on-line](https://aka.ms/csgate).
 
-| Serviço |  Contentor | Descrição | Disponibilidade |
+| Serviço |  Contentor | Description | Disponibilidade |
 |--|--|--|
 | [API de Serviço de Voz][sp-containers-stt] |  **Discurso-a-texto** [(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text) | Transcreve voz em tempo real contínua para texto. | Disponível em Geral |
 | [API de Serviço de Voz][sp-containers-cstt] | **Discurso-a-texto personalizado** [(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text) | Transcreve a fala contínua em tempo real em texto usando um modelo personalizado. | Disponível em Geral |
@@ -74,7 +74,7 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 > [!WARNING]
 > A 11 de junho de 2020, a Microsoft anunciou que não irá vender tecnologia de reconhecimento facial a esquadras da polícia nos Estados Unidos até à implementação de uma regulamentação rígida assente nos direitos humanos. Como tal, os clientes não podem utilizar funcionalidades ou funcionalidades de reconhecimento facial incluídas nos Serviços Azure, como o Face ou o Video Indexer, se um cliente estiver, ou estiver a permitir o uso de tais serviços por ou para, um departamento de polícia nos Estados Unidos.
 
-| Serviço |  Contentor | Descrição | Disponibilidade |
+| Serviço |  Contentor | Description | Disponibilidade |
 |--|--|--|--|
 | [Imagem Digitalizada][cv-containers] | **Ler OCR** [(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read) | O recipiente Read OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte a documentação da [API de leitura.](./computer-vision/overview-ocr.md) | Pré-visualização fechada. [Solicitar acesso][request-access]. |
 | [Análise Espacial][spa-containers] | **Análise espacial** [(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis) | Analisa o streaming de vídeo em tempo real para entender as relações espaciais entre as pessoas, o seu movimento e interações com objetos em ambientes físicos. | Pré-visualização fechada. [Solicitar acesso][request-access]. |
@@ -148,4 +148,4 @@ Instale e explore a funcionalidade fornecida pelos contentores nos Serviços Cog
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
 [ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
-[request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u
+[request-access]: https://aka.ms/csgate

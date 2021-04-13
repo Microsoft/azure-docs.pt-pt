@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2cb203a00bb00767126f95e1fdc2f5aff8990f01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1dd78ba3799573e05e4ebbf55887bae3d9674b7c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601286"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310087"
 ---
 O Event Hubs organiza sequências de eventos enviados para um centro de eventos em uma ou mais divisórias. À medida que os eventos mais recentes chegam, são adicionados ao fim desta sequência. 
 
@@ -32,7 +32,7 @@ O Event Hubs é projetado para ajudar no processamento de grandes volumes de eve
 ### <a name="number-of-partitions"></a>Número de divisórias
 O número de divisórias é especificado na criação e deve estar entre 1 e 32 no Event Hubs Standard. A contagem de divisórias pode ser de até 2000 divisórias por Unidade de Capacidade em Centros de Eventos Dedicados. 
 
-Recomendamos que escolha pelo menos tantas divisões quanto espera necessitar em unidades de [produção sustentadas (TU)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units) durante a carga máxima da sua aplicação para esse Centro de Eventos em particular. Deve calcular com uma única partição com uma capacidade de produção de 1 TU (1 MByte in, 2 MByte out). Pode escalar as TUs no seu espaço de nome ou nas unidades de capacidade do seu cluster independentemente da contagem de divisórias. Um Centro de Eventos com 32 divisórias ou um Centro de Eventos com 1 partição incorrem exatamente no mesmo custo quando o espaço de nome está definido para 1 capacidade TU. 
+Recomendamos que escolha pelo menos tantas divisões quanto espera necessitar em unidades de [produção sustentadas (TU)](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-) durante a carga máxima da sua aplicação para esse Centro de Eventos em particular. Deve calcular com uma única partição com uma capacidade de produção de 1 TU (1 MByte in, 2 MByte out). Pode escalar as TUs no seu espaço de nome ou nas unidades de capacidade do seu cluster independentemente da contagem de divisórias. Um Centro de Eventos com 32 divisórias ou um Centro de Eventos com 1 partição incorrem exatamente no mesmo custo quando o espaço de nome está definido para 1 capacidade TU. 
 
 A contagem de divisórias para um centro de eventos num [cluster dedicado de Clusters de Eventos](../articles/event-hubs/event-hubs-dedicated-overview.md) pode ser [aumentada](../articles/event-hubs/dynamically-add-partitions.md) após a criação do centro de eventos, mas a distribuição de fluxos através de divisórias mudará quando for feita como o mapeamento das chaves de partição para as divisórias muda, por isso deve esforçar-se para evitar tais alterações se a ordem relativa dos eventos for importante na sua aplicação.
 

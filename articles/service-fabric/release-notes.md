@@ -5,16 +5,16 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 36fb512181986fd04a95e72aa028b7c0253aa45f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f7e929000b85462e7fabf6d717c52abc454b47ad
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731229"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313339"
 ---
 # <a name="service-fabric-releases"></a>Lançamentos de tecido de serviço
 
-- <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guias de resolução de problemas</a> 
+- <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guias de Resolução de Problemas</a> 
 - <a href="https://github.com/Azure/service-fabric-issues" target="blank">Rastreio de problemas</a> 
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">Opções de Suporte</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Versões suportadas</a> 
@@ -22,11 +22,40 @@ ms.locfileid: "105731229"
 
 Este artigo fornece mais informações sobre as mais recentes versões e atualizações para o tempo de execução do Tecido de Serviço e SDKs.
 
-## <a name="service-fabric-72"></a>Tecido de Serviço 7.2
+## <a name="service-fabric-80"></a>Tecido de Serviço 8.0
 
-Estamos entusiasmados por anunciar que o lançamento 7.2 do tempo de execução do Service Fabric começou a ser lançado para as várias regiões do Azure, juntamente com as atualizações de ferramentas e SDK. As atualizações para .NET SDK, Java SDK e Service Fabric estão disponíveis através do Instalador de Plataforma Web, pacotes NuGet e repositórios Maven.
+Estamos entusiasmados por anunciar que o lançamento do tempo de execução do Service Fabric 8.0 começou a ser lançado para as várias regiões do Azure, juntamente com as atualizações de ferramentas e SDK. As atualizações para .NET SDK, Java SDK e Service Fabric estão disponíveis através do Instalador de Plataforma Web, pacotes NuGet e repositórios Maven.
 
 ### <a name="key-announcements"></a>Principais anúncios
+
+- **Disponibilidade geral** de suporte para .NET 5 para Windows
+- **Disponibilidade Geral** de [Nó de Nó Apátridas](https://docs.microsoft.com/azure/service-fabric/service-fabric-stateless-node-types)
+- Capacidade de mover instâncias de serviço apátridas
+- Capacidade de adicionar DefaultLoad parametrizado no manifesto da aplicação
+- Para atualizações de réplicas singleton - capacidade de ter algumas das definições de nível de cluster a definir a nível de aplicação
+- Capacidade de colocação inteligente com base em marcas de nó
+- Capacidade de definir limiar percentual de nódoas não saudáveis que influenciam a saúde do cluster
+- Capacidade de consultar serviços carregados de topo
+- Capacidade de adicionar um novo intervalo para novos códigos de erro
+- Capacidade de marcar a instância de serviço como concluída
+- Suporte para modelo de implementação baseado em ondas para atualizações automáticas
+- Sonda de prontidão adicionada para aplicações contentorizadas
+- Ativar o UseSeparateSecondaryMoveCost para ser verdadeiro por padrão
+- StateManager fixo para libertar a referência assim que é seguro para ser libertado
+- Bloquear a remoção do Serviço Secreto Central enquanto armazena segredos de utilizador
+
+
+### <a name="service-fabric-80-releases"></a>Lançamentos de Tecido de Serviço 8.0
+| Data da versão | Libertar | Saiba mais |
+|---|---|---|
+| 08 de abril de 2021 | [Tecido de Serviço Azure 8.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-release/ba-p/2260016)  | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80.md)|
+
+
+## <a name="previous-versions"></a>Versões anteriores
+
+### <a name="service-fabric-72"></a>Tecido de Serviço 7.2
+
+#### <a name="key-announcements"></a>Principais anúncios
 
 - **Pré-visualização**: [**Os clusters geridos por tecido de serviço**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) estão agora em visualização pública. Os clusters geridos pela Service Fabric visam simplificar a implementação e gestão do cluster, encapsulando os recursos subjacentes que compõem um cluster de Tecido de Serviço num único recurso ARM. Para mais detalhes, consulte, [a visão geral do cluster gerido pelo Service Fabric.](./overview-managed-cluster.md)
 - **Pré-visualização**: [**Apoiar serviços apátridas com uma série de casos superiores ao número de nós**](./service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) está agora em pré-visualização pública. Uma política de colocação permite a criação de múltiplos casos apátridas de uma partição num nó.
@@ -40,7 +69,7 @@ Estamos entusiasmados por anunciar que o lançamento 7.2 do tempo de execução 
 - **RunToCompletion**: Service Fabric suporta conceito de corrida até à conclusão para executáveis de hóspedes. Com esta atualização assim que a réplica for concluída, serão lançados os recursos de cluster atribuídos a esta réplica.
 - [**O apoio à governação dos recursos foi reforçado:**](./service-fabric-resource-governance.md)permitindo pedidos e limitações especificações para os recursos de cpu e memória.
 
-### <a name="service-fabric-72-releases"></a>Lançamentos de Tecido de Serviço 7.2
+#### <a name="service-fabric-72-releases"></a>Lançamentos de Tecido de Serviço 7.2
 | Data da versão | Libertar | Saiba mais |
 |---|---|---|
 | 21 de outubro de 2020 | [Tecido de Serviço Azure 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
@@ -51,7 +80,6 @@ Estamos entusiasmados por anunciar que o lançamento 7.2 do tempo de execução 
 | 17 de fevereiro de 2021 | [Azure Service Fabric 7.2 Sexto Lançamento de Atualização](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-sixth-refresh-release/ba-p/2144685) | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU6-ReleaseNotes.md)
 | 10 de março de 2021 | [Azure Service Fabric 7.2 Sétimo Lançamento de Atualização](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-seventh-refresh-release/ba-p/2201100) | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU7-releasenotes.md)
 
-## <a name="previous-versions"></a>Versões anteriores
 
 ### <a name="service-fabric-71"></a>Tecido de Serviço 7.1
 

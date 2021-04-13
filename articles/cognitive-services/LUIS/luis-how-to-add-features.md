@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1a0fb15be92e25b576cd29e671eed3c6a5b948f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95999931"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313271"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Use funcionalidades para aumentar o sinal da lista de palavras
 
@@ -37,7 +37,7 @@ Reveja [conceitos](luis-concept-feature.md) para entender quando e porquê usar 
 
     Depois de ter introduzido valores suficientes para o LUIS, surgem sugestões. Pode **+ Adicionar todos os** valores propostos ou selecionar termos individuais.
 
-1. Manter **estes valores são permutáveis** verificados se as frases podem ser utilizadas intercambiavelmente.
+1. Manter **estes valores são permutáveis** verificados se as frases podem ser utilizadas intercambiavelmente. A lista de frases intercambiáveis serve como uma lista de sinónimos para o treino. A lista de frases não permutáveis serve como características separadas para o treino (o que significa que as características são semelhantes, mas a intenção muda quando troca frases).
 
 1. A lista de frases pode aplicar-se a toda a aplicação com a configuração **Global,** ou a um modelo específico (intenção ou entidade). Se criar a lista de frases, como _recurso_ de uma intenção ou entidade, o toggle não está definido para global. Neste caso, o significado do toggle é que a funcionalidade é local apenas para este modelo, portanto, _não global_ para a aplicação.
 

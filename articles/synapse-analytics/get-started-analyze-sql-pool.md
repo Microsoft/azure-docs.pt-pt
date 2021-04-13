@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 4588eee721a58a7e4f3366d0d325b48de0f56ae5
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 267dc7c7d89bbecfbed127f4a46adb7cd9044bc4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259817"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309378"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
@@ -99,7 +99,7 @@ Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode
 
 1. No Estúdio Synapse, vá ao centro **de dados.**
 1. Vá às **Mesas SQLPOOL1.**  >   
-3. Clique à direita no **dbo. Tabela** de trip e selecione **Novo Script SQL**  >  **Selecione TOP 100 Rows**.
+3. Clique à direita no **dbo. NYCTaxiTripSmall** tabela e selecione **New SQL Script**  >  **Select TOP 100 Rows**.
 4. Aguarde enquanto um novo script SQL é criado e executado.
 5. Note que no topo do script SQL **Connect** é automaticamente definido para a piscina SQL chamada **SQLPOOL1**.
 6. Substitua o texto do script SQL por este código e execute-o.
@@ -108,7 +108,7 @@ Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode
     SELECT PassengerCount,
           SUM(TripDistanceMiles) as SumTripDistance,
           AVG(TripDistanceMiles) as AvgTripDistance
-    FROM  dbo.Trip
+    FROM  dbo.NYCTaxiTripSmall
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
     GROUP BY PassengerCount
     ORDER BY PassengerCount;

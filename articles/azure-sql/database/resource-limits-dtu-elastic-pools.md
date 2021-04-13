@@ -10,30 +10,36 @@ ms.topic: reference
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 03/30/2021
-ms.openlocfilehash: f3c20774accf9e0b589b898cb903d6da4516e553
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 04/09/2021
+ms.openlocfilehash: 906d34a91736d28f0da4a5ba34b7114fbe410adb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058923"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306641"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este artigo fornece os limites de recursos detalhados para bases de dados na Base de Dados Azure SQL que estão dentro de uma piscina elástica usando o modelo de compra DTU.
 
-* Para os limites de recursos do modelo de compra da DTU para a Base de Dados Azure SQL, consulte [os limites de recursos da DTU - Base de Dados Azure SQL](resource-limits-dtu-single-databases.md).
+* Para os limites do modelo de compra de DTU para bases de dados individuais num servidor, consulte [a visão geral dos limites de recursos num servidor](resource-limits-logical-server.md).
+* Para a DTU, limites de recursos para o modelo de compra de dados Azure SQL, consulte [os limites de recursos DTU de bases de dados únicas](resource-limits-dtu-single-databases.md) e [limites de recursos DTU piscinas elásticas](resource-limits-dtu-elastic-pools.md).
 * Para limites de recursos vCore, consulte [os limites de recursos vCore - Base de Dados Azure SQL](resource-limits-vcore-single-databases.md) e [limites de recursos vCore - piscinas elásticas](resource-limits-vcore-elastic-pools.md).
+* Para obter mais informações sobre os diferentes modelos de compra, consulte [modelos de compras e tiers de serviço.](purchasing-models.md)
+
+Cada réplica só de leitura tem os seus recursos próprios, tais como DTUs, trabalhadores e sessões. Cada réplica apenas de leitura está sujeita aos limites de recursos detalhados mais tarde neste artigo.
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Piscina elástica: Tamanhos de armazenamento e tamanhos de cálculo
 
 Para piscinas elásticas Azure SQL Database, as tabelas a seguir mostram os recursos disponíveis em cada nível de serviço e tamanho de cálculo. Pode definir o nível de serviço, o tamanho do cálculo e a quantidade de armazenamento utilizando:
 
+* [Transact-SQL](elastic-pool-scale.md) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Portal do Azure](elastic-pool-manage.md#azure-portal)
 * [PowerShell](elastic-pool-manage.md#powershell)
 * [CLI do Azure](elastic-pool-manage.md#azure-cli)
-* [API REST](elastic-pool-manage.md#rest-api).
+* [API REST](elastic-pool-manage.md#rest-api)
+
 
 > [!IMPORTANT]
 > Para obter orientação e considerações de escalonamento, consulte [Escala uma piscina elástica](elastic-pool-scale.md)

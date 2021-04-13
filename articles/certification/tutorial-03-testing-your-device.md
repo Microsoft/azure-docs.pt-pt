@@ -1,18 +1,18 @@
 ---
 title: Programa Azure Certified Device - Tutorial - Testar o seu dispositivo
 description: Um guia passo a passo para testar o seu dispositivo com o serviço AICS no portal Azure Certified Device
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 4cc9e37e95c6402bc535d818e994327e7d526047
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: ef82d44ef44189c0430ba9789baf3279fbe49a9c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969757"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310959"
 ---
 # <a name="tutorial-test-and-submit-your-device"></a>Tutorial: Teste e envie o seu dispositivo
 

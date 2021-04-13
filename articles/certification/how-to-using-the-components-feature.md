@@ -1,18 +1,18 @@
 ---
 title: Como utilizar a funcionalidade de componentes no portal Azure Certified Device
 description: Um guia sobre a melhor utilização da função de componentes da secção de detalhes do Dispositivo para descrever com precisão o seu dispositivo
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 091a666026853d677f1e9ed7e5e1736307cecbe8
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 220a6c2107063734201064115898611c20cab650
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969452"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304465"
 ---
 # <a name="add-components-on-the-portal"></a>Adicionar componentes no portal
 

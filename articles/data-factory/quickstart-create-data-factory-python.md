@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 879ca169604dcd61a79db4ec3ca937289dacdd9b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449278"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309871"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
@@ -40,7 +40,7 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
 
 * [Explorador de Armazenamento Azure](https://storageexplorer.com/) (opcional).
 
-* [Uma aplicação no Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota dos seguintes valores a utilizar em etapas posteriores: **ID de aplicação,** **chave de autenticação** e **identificação do inquilino.** Atribua a aplicação à **função Contribuinte** seguindo as instruções no mesmo artigo.
+* [Uma aplicação no Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota dos seguintes valores a utilizar em etapas posteriores: **ID de aplicação,** **chave de autenticação** e **identificação do inquilino.** Atribua a aplicação à **função Contribuinte** seguindo as instruções no mesmo artigo. Tome nota dos seguintes valores, como mostrado no artigo a utilizar em etapas posteriores: **ID de aplicação (id principal de serviço abaixo), chave de autenticação (segredo do cliente abaixo) e ID do inquilino.**
 
 ## <a name="create-and-upload-an-input-file"></a>Criar e carregar um ficheiro de entrada
 
@@ -225,6 +225,9 @@ Defina um conjunto de dados que represente os dados de origem no Blob do Azure. 
         rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
+ > [!NOTE] 
+ > Para passar os parâmetros para o pipeline, adicione-os à cadeia json params_for_pipeline mostrados abaixo no formato **{ "ParâmetroName1" : "ParâmetrosVal1" }** para cada um dos parâmetros necessários no pipeline. Para passar parâmetros para um fluxo de dados, crie um parâmetro de pipeline para manter o nome/valor do parâmetro e, em seguida, consuma o parâmetro do pipeline no parâmetro do fluxo de dados no formato **@pipeline ().parâmetros.nome.**
+
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 

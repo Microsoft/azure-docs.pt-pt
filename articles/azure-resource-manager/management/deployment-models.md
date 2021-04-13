@@ -2,13 +2,13 @@
 title: Implementação clássica e Resource Manager
 description: Descreve as diferenças entre o modelo de implementação Resource Manager e o modelo de implementação clássica (ou Gestão de Serviço).
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: c2009034c431e53d162cb0f2c1f0d9815c8d1942
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185849"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306943"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementação Azure Resource Manager vs. implementação clássica: Compreender os modelos de implementação e o estado dos seus recursos.
 
@@ -17,7 +17,7 @@ ms.locfileid: "96185849"
 
 Neste artigo, vai ficar a saber mais sobre os modelos de implementação Azure Resource Manager e clássica. Estes modelos representam duas formas distingas de implementar e gerir as suas soluções do Azure. Vai trabalhar com estes modelos através de dois conjuntos de APIs diferentes e os recursos implementados podem conter diferenças importantes. Os dois modelos não são compatíveis um com o outro. Este artigo descreve essas diferenças.
 
-Para simplificar a implementação e gestão de recursos, a Microsoft recomenda que utilize o Resource Manager para todos os recursos novos. Se for possível, a Microsoft recomenda que reimplemente os recursos existentes através do Resource Manager.
+Para simplificar a implementação e gestão de recursos, a Microsoft recomenda que utilize o Resource Manager para todos os recursos novos. Se for possível, a Microsoft recomenda que reimplemente os recursos existentes através do Resource Manager. Se utilizou os Serviços Cloud, pode migrar a sua solução para os [Serviços cloud (suporte alargado)](../../cloud-services-extended-support/overview.md).
 
 Se é novo no Gestor de Recursos, pode querer primeiro rever a terminologia definida na visão geral do [Gestor de Recursos Azure](overview.md).
 
@@ -40,7 +40,7 @@ Quando o Resource Manager foi acrescentado, todos os recursos foram adicionados 
 
 Existem três cenários a ter em consideração:
 
-1. Os Serviços cloud não suportam o modelo de implementação do Gestor de Recursos.
+1. [Os Serviços cloud (clássicos)](../../cloud-services/cloud-services-choose-me.md) não suportam o modelo de implementação do Gestor de Recursos. [Os Serviços cloud (suporte alargado)](../../cloud-services-extended-support/overview.md) suportam o modelo de implementação do Gestor de Recursos.
 2. As máquinas virtuais, as contas de armazenamento e as redes virtuais suportam tanto o modelo de implementação clássica, como o Resource Manager.
 3. Todos os outros serviços do Azure suportam o Resource Manager.
 
@@ -95,7 +95,7 @@ Seguem-se os componentes e as respetivas relações para a implementação clás
 
 A solução clássica para alojar uma máquina virtual inclui:
 
-* Um serviço cloud obrigatório que atue como um contentor para o alojamento de máquinas virtuais (computação). As máquinas virtuais são automaticamente fornecidas com um cartão de interface de rede e um endereço IP atribuído pela Azure. Além disso, o serviço cloud contém uma instância do balanceador de carga externa, um endereço IP público e pontos finais predefinidos para permitir o tráfego do ambiente de trabalho remoto e do PowerShell remoto para máquinas virtuais baseadas em Windows e o tráfego Secure Shell (SSH) para máquinas virtuais baseadas em Linux.
+* Os Serviços cloud (clássico) atuam como um recipiente para hospedar máquinas virtuais (computação). As máquinas virtuais são automaticamente fornecidas com um cartão de interface de rede e um endereço IP atribuído pela Azure. Além disso, o serviço cloud contém uma instância do balanceador de carga externa, um endereço IP público e pontos finais predefinidos para permitir o tráfego do ambiente de trabalho remoto e do PowerShell remoto para máquinas virtuais baseadas em Windows e o tráfego Secure Shell (SSH) para máquinas virtuais baseadas em Linux.
 * Uma conta de armazenamento necessária que armazena os discos rígidos virtuais para uma máquina virtual, incluindo o sistema operativo, discos de dados temporários e adicionais (armazenamento).
 * Uma rede virtual opcional que funciona como um recipiente adicional, no qual pode criar uma estrutura sub-rede e escolher a sub-rede em que a máquina virtual está localizada (rede).
 

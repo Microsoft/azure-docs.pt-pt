@@ -32,8 +32,6 @@
     - name: Versioning policy (Política de versões)
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
-    - name: Recomendações de desempenho
-      href: concepts-azure-advisor-recommendations.md
     - name: Questões conhecidas & limitações
       href: concepts-known-issues-limitations.md
       displayName: 'issues, limitations, postgresql'
@@ -217,6 +215,8 @@
             - name: Recomendações de desempenho
               href: concepts-performance-recommendations.md
               displayName: 'query store, performance, optimize, recommendations'
+            - name: Recomendações do Conselheiro Azure
+              href: concepts-azure-advisor-recommendations.md
         - name: Desenvolvimento de aplicações
           items:
             - name: Melhores práticas

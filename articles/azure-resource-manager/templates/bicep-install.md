@@ -3,12 +3,12 @@ title: Criar ambientes de desenvolvimento e implantação de Bicep
 description: Como configurar ambientes de desenvolvimento e implantação de Bicep
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 0e62e6a4633bee09fcbe8b783118cc95ccd5702e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2c905a3885fcfc5c9eb9d9db4004126882798611
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626106"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313560"
 ---
 # <a name="install-bicep-preview"></a>Instalar Bicep (Pré-visualização)
 
@@ -96,7 +96,7 @@ az bicep upgrade
 Para instalar uma versão específica:
 
 ```bash
-az bicep install --version v0.3.126
+az bicep install --version v0.3.255
 ```
 
 > [!IMPORTANT]
@@ -158,10 +158,10 @@ bicep --help
 
 ```sh
 # Add the tap for bicep
-brew tap azure/bicep https://github.com/azure/bicep
+brew tap azure/bicep
 
 # Install the tool
-brew install azure/bicep/bicep
+brew install bicep
 ```
 
 ##### <a name="macos-manual-install"></a>instalação manual do macOS

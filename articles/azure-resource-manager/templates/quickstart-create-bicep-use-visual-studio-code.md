@@ -2,15 +2,15 @@
 title: Criar ficheiros Bicep - Código de Estúdio Visual
 description: Utilize o Código do Estúdio Visual e a extensão Bicep aos ficheiros Bicep para implantar recursos Azure
 author: mumian
-ms.date: 03/26/2021
+ms.date: 04/12/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82f047f553290c9121d91060c347c5b242c7ec2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612904"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306471"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Quickstart: Criar ficheiros Bicep com Código de Estúdio Visual
 
@@ -51,6 +51,10 @@ A declaração de recursos tem quatro componentes:
 - **nome simbólico** (stg): O nome simbólico é um identificador para fazer referência ao recurso em todo o seu ficheiro bicep. Não é o nome do recurso quando for implantado. O nome do recurso é definido pela propriedade **do nome.**  Veja o quarto componente desta lista.
 - **tipo de recurso** Microsoft.Storage/storageAccounts@2019-06-01 (): É composto pelo fornecedor de recursos (Microsoft.Storage), tipo de recurso (armazenamentoCocounts) e apiVersion (2019-06-01). Cada fornecedor de recursos publica as suas próprias versões API, pelo que este valor é específico do tipo. Pode encontrar mais tipos e apiversões para vários recursos Azure a partir da [referência ao modelo ARM](/azure/templates/).
 - **propriedades** (tudo dentro = {...}): Especificar as propriedades para o tipo de recurso. Cada recurso tem uma `name` propriedade. A maioria dos recursos também tem um `location` imóvel, que define a região onde o recurso é implantado. As outras propriedades variam de acordo com o tipo de recurso e a versão API.
+
+Para mais informações, consulte [a estrutura Bicep.](./bicep-file.md)
+
+Há um comentário para a propriedade do nome.  Utilização `//` para comentários de linha única ou para comentários `/* ... */` multi-linhas
 
 ## <a name="completion-and-validation"></a>Conclusão e validação
 

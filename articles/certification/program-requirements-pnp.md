@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
-ms.openlocfilehash: bbe9a3f18463285521dde0ee64b369cffcd71d75
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: b26fab6f8b92e3cb996f545f1f6201d32b1eaced
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969388"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310517"
 ---
 # <a name="iot-plug-and-play-certification-requirements"></a>Requisitos de certificação IoT Plug e Play
 
@@ -51,7 +51,7 @@ A promessa da certificação IoT Plug and Play é:
 | **SO**                  | Desconhecida                                                     |
 | **Tipo de Validação**     | Automatizada                                                    |
 | **Validação**          | O dispositivo deve implementar uma transferência fácil da propriedade do DPS ID Scope sem precisar de recompiler o código incorporado. A Microsoft fornece o [fluxo de trabalho](https://certify.azure.com) do portal para executar os testes para validar que o dispositivo suporta DPS **1.** O utilizador deve selecionar um dos métodos de atestação (tecla X.509, TPM e SAS) **2.** Dependendo do método de atestado, o utilizador precisa de tomar as medidas correspondentes, tais como **a)** Upload X.509 cert para OICS gerido dPS âmbito **b)** Implementar a chave SAS ou chave de endosso no dispositivo |
-| **Recursos**           | **a)** [Visão geral do serviço de fornecimento de dispositivos](../iot-dps/about-iot-dps.md), **b)** [Ficheiro de config de amostra para transferência de ID Scope DPS](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/digitaltwin_client/samples/digitaltwin_sample_ll_device/sample_config) |
+| **Recursos**           | **a)** [Visão geral do serviço de fornecimento de dispositivos](../iot-dps/about-iot-dps.md), **b)** [Ficheiro de config de amostra para transferência de ID Scope DPS](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |
 
 **[Obrigatório] DTDL v2: O objetivo do teste para garantir que os modelos e interfaces definidos do dispositivo estão em conformidade com a Linguagem de Definição de Gémeos Digitais v2.**                                                              
 
@@ -95,7 +95,7 @@ A promessa da certificação IoT Plug and Play é:
 | **Aplica-se a**          | Qualquer dispositivo                                                   |
 | **SO**                  | Desconhecida                                                     |
 | **Tipo de Validação**     | Automatizada                                                    |
-| **Validação**          | [O fluxo de trabalho do portal](https://certify.azure.com) valida o código do dispositivo implementa a interface de [informação do dispositivo](https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-previewureiot:DeviceManagement:DeviceInformation:1) **1.** Verifica se os valores são emitidos pelo código do dispositivo para IoT Hub **2.** Verifica se a interface é implementada no DCM (esta implementação mudará em DTDL v2) **3.** As propriedades de verificação não são escritas (ler apenas) **4.** Verifica se o tipo de esquema é string e/ou longo e não nulo |
+| **Validação**          | [O fluxo de trabalho do portal](https://certify.azure.com) valida o código do dispositivo implementa a interface de informação do dispositivo **1.** Verifica se os valores são emitidos pelo código do dispositivo para IoT Hub **2.** Verifica se a interface é implementada no DCM (esta implementação mudará em DTDL v2) **3.** As propriedades de verificação não são escritas (ler apenas) **4.** Verifica se o tipo de esquema é string e/ou longo e não nulo |
 | **Recursos**           | [Interface definida pela Microsoft](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
 | **Azure Recomendado**  | N/D                                                          |
 

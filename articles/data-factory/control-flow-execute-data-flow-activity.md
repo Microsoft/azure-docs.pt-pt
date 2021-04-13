@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 01/03/2021
-ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 3e48eee5bf36732edc4f897103cb72bbbe75a5c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383386"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306318"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade do Fluxo de Dados na Fábrica de Dados Azure
 
@@ -76,9 +76,9 @@ As propriedades Core Count e Compute Type podem ser definidas de forma dinâmica
 
 ### <a name="data-flow-integration-runtime"></a>Tempo de execução da integração do Fluxo de Dados
 
-Escolha qual o tempo de execução de integração a utilizar para a execução da sua atividade de Fluxo de Dados. Por predefinição, a Data Factory utilizará o tempo de funcionamento da Integração Azure de resolução automática com quatro núcleos de trabalhadores e sem tempo para viver (TTL). Este IR tem um tipo de computação de propósito geral e funciona na mesma região que a sua fábrica. Pode criar os seus próprios Tempos de Execução de Integração Azure que definem regiões específicas, tipo de cálculo, contagem de núcleos e TTL para a execução da sua atividade de fluxo de dados.
+Escolha qual o tempo de execução de integração a utilizar para a execução da sua atividade de Fluxo de Dados. Por predefinição, a Data Factory utilizará o tempo de funcionamento da Integração Azure de resolução automática com quatro núcleos de trabalhadores. Este IR tem um tipo de computação de propósito geral e funciona na mesma região que a sua fábrica. Para os oleodutos operacionalizados, recomenda-se vivamente que crie os seus próprios Tempos de Execução de Integração Azure que definem regiões específicas, tipo de cálculo, contagem de núcleos e TTL para a execução da sua atividade de fluxo de dados.
 
-Para execuções de gasodutos, o cluster é um cluster de trabalho, que leva vários minutos para começar antes da execução começar. Se não for especificado nenhum TTL, este tempo de arranque é necessário em todas as operações de tubagem. Se especificar um TTL, um pool de agrupamento quente permanecerá ativo durante o tempo especificado após a última execução, resultando em tempos de arranque mais curtos. Por exemplo, se tiver um TTL de 60 minutos e executar um fluxo de dados sobre ele uma vez por hora, o cluster pool permanecerá ativo. Para mais informações, consulte [o tempo de execução da integração do Azure.](concepts-integration-runtime.md)
+Um tipo mínimo de cálculo de Finalidade Geral (otimizado em computação não é recomendado para grandes cargas de trabalho) com uma configuração 8+8 (16 núcleos v totais) e uma recomendação mínima de 10 minutos para a maioria das cargas de trabalho de produção. Ao definir um pequeno TTL, o Azure IR pode manter um aglomerado quente que não incorrerá nos vários minutos de início para um aglomerado frio. Pode acelerar ainda mais a execução dos seus fluxos de dados selecionando "Reutilização rápida" nas configurações do fluxo de dados Azure IR. Para mais informações, consulte [o tempo de execução da integração do Azure.](concepts-integration-runtime.md)
 
 ![Tempo de execução da integração Azure](media/data-flow/ir-new.png "Tempo de execução da integração Azure")
 

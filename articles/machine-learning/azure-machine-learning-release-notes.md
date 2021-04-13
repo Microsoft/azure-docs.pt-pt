@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 13ef91af5f7ed8398e3d23400fa5e9df467ce6bc
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 7c22381d547029aedc5965d07033e8800fcbddc3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210899"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313152"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -145,7 +145,7 @@ __Feed RSS__: Seja notificado quando esta página for atualizada copiando e cola
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (Atualização de fevereiro)
 + **Novas funcionalidades**
   + [Terminal Nativo (GA)](./how-to-access-terminal.md). Os utilizadores passarão a ter acesso a um terminal integrado, bem como a uma operação git através do terminal integrado.
-  + [Snippets de portátil (pré-visualização)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Excertos de código Azure ML comuns estão agora disponíveis na ponta dos dedos. Navegue para o painel de cortes de código, acessível através da barra de ferramentas, ou ative o menu de snippets in-code utilizando ctrl + Espaço.  
+  + Snippets de portátil (pré-visualização). Excertos de código Azure ML comuns estão agora disponíveis na ponta dos dedos. Navegue para o painel de cortes de código, acessível através da barra de ferramentas, ou ative o menu de snippets in-code utilizando ctrl + Espaço.  
   + [Atalhos de teclado](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Paridade total com atalhos de teclado disponíveis no Jupyter. 
   + Indicar parâmetros celulares. Mostra aos utilizadores quais as células num bloco de notas são células de parâmetros e podem executar cadernos parametrizados via [Papermill](https://github.com/nteract/papermill) na Instância de Computação.
   + Terminal e Kernel: Os utilizadores poderão gerir todos os núcleos e sessões terminais em execução no seu cálculo.

@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f41034331ed21e194fc2b86c2902c5957333313
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 1fe5974bafddcb4e474ef59a062836e071ab9461
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010603"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304924"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
 
@@ -24,7 +24,7 @@ Este artigo destaca capacidades, funcionalidades e melhorias recentemente lança
 
 ## <a name="march-2021"></a>março de 2021
 
-O lançamento de março de 2021 é apresentado a 6 de abril de 2021.
+O lançamento de março de 2021 foi inicialmente introduzido a 5 de abril de 2021, e as fases finais de lançamento foram concluídas a 9 de abril de 2021.
 
 Rever limitações desta versão em [questões conhecidas - Azure Arc permitiu serviços de dados (Preview)](known-issues.md).
 
@@ -45,7 +45,9 @@ Ambas as definições de recursos personalizados (CRD) para PostgreSQL foram con
 
 Eliminará os CRDs anteriores à medida que limpa as instalações passadas. Ver [Limpeza de instalações passadas.](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations)
 
-### <a name="azure-arc-enabled-managed-instance"></a>Azure Arc viabilizou a ocorrência gerida
+### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance preparado para o Azure Arc
+
+- Pode agora criar uma instância gerida pelo SQL a partir do portal Azure no modo ligado diretamente.
 
 - Pode agora restaurar uma base de dados para SQL Managed Instance com 3 réplicas e será automaticamente adicionada ao grupo de disponibilidade. 
 

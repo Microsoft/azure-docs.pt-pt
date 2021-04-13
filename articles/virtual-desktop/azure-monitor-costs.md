@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5bd89a734a20c913bacca1f5531aa76d76418c80
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 26262f83e14602d6ea93f96ec47630ef870c357d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448224"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309310"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Estimativa custos do Monitor Azure
 
@@ -35,7 +35,7 @@ Os conjuntos de dados predefinidos para O Monitor Azure para o Ambiente de Traba
 - Registos de eventos do Windows dos anfitriões da sessão
 - Windows Virtual Desktop diagnósticos a partir da infraestrutura de serviço
 
-Os seus custos de ingestão e armazenamento de dados dependem do tamanho, saúde e utilização do seu ambiente. O exemplo estima que usaremos neste artigo para calcular as gamas de custos que pode esperar são baseadas em máquinas virtuais saudáveis que passam a luz para o uso de energia, com base nas nossas [diretrizes de tamanho de máquina virtual,](/remote/remote-desktop-services/virtual-machine-recs)para calcular uma série de custos de ingestão de dados e armazenamento que você poderia esperar.
+Os seus custos de ingestão e armazenamento de dados dependem do tamanho, saúde e utilização do seu ambiente. O exemplo estima que usaremos neste artigo para calcular as gamas de custos que pode esperar são baseadas em máquinas virtuais saudáveis que passam a luz para o uso de energia, com base nas nossas [diretrizes de tamanho de máquina virtual,](/windows-server/remote/remote-desktop-services/virtual-machine-recs)para calcular uma série de custos de ingestão de dados e armazenamento que você poderia esperar.
 
 O VM de utilização de luz que vamos usar no nosso exemplo inclui os seguintes componentes:
 

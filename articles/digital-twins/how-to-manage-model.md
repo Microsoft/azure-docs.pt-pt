@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Veja como criar, editar e eliminar um modelo dentro da Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 75911e91bb61b84d2e9315421f794739f2b5088b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c896e2aad7dae8d03b26e2a16ecb96224ab547b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953702"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303785"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
-Pode gerir os [modelos](concepts-models.md) que a sua instância Azure Digital Twins conhece sobre a utilização das [**APIs digitalTwinModels,**](/rest/api/digital-twins/dataplane/models)da [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client)ou do [Azure Digital Twins CLI](how-to-use-cli.md). 
+Pode gerir os [modelos](concepts-models.md) da sua instância Azure Digital Twins utilizando as [**APIs digitalTwinModels,**](/rest/api/digital-twins/dataplane/models)a [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client)ou o [Azure Digital Twins CLI](how-to-use-cli.md). 
 
 As operações de gestão incluem upload, validação, recuperação e eliminação de modelos. 
 

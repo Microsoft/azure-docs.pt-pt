@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1ed9aef66e9e1a672274b814abbc4e83600761f5
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: e5034c228a354c98b5792492d484da9eb10b8cf2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028711"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310857"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualizar o daemon de segurança e o tempo de execução do IoT Edge
 
@@ -202,9 +202,10 @@ Algumas das principais diferenças entre as versões 1.2 e anteriores incluem:
 
 * O nome do pacote passou de **iotedge** para **aziot-edge**.
 * O **pacote de dílio-se-de-libiothsm** já não é usado. Se utilizar o pacote padrão fornecido como parte da versão IoT Edge, então as suas configurações podem ser transferidas para a nova versão. Se usou uma implementação diferente de libiothsm-std, então quaisquer certificados fornecidos pelo utilizador como o certificado de identidade do dispositivo, o dispositivo CA e o pacote de confiança terão de ser reconfigurados.
-* Um novo serviço de identidade, **aziot-identity-service** foi introduzido como parte da versão 1.2. Este serviço trata do fornecimento e gestão de identidade para IoT Edge e para outros componentes do dispositivo que precisam de comunicar com o IoT Hub, como a Azure IoT Hub Device Update. <!--TODO: add link to ADU when available -->
-* O ficheiro config predefinido tem um novo nome e localização. `/etc/iotedge/config.yaml`Anteriormente, espera-se que as informações de configuração do dispositivo estejam por `/etc/aziot/config.toml` defeito. O `iotedge config import` comando pode ser usado para ajudar a migrar informações de configuração formando a localização antiga e sintaxe para o novo.
-* Quaisquer módulos que utilizem a API de carga de trabalho IoT Edge para encriptar ou desencriptar dados persistentes não podem ser desencriptados após a atualização. O IoT Edge gera dinamicamente uma chave de identidade principal e chave de encriptação para uso interno. Esta chave não será transferida para o novo serviço. IoT Edge v1.2 gerará um novo.
+* Um novo serviço de identidade, **aziot-identity-service** foi introduzido como parte da versão 1.2. Este serviço trata do fornecimento e gestão de identidade para ioT Edge e para outros componentes do dispositivo que precisam de comunicar com o IoT Hub, como [a Atualização de Dispositivos para IoT Hub](../iot-hub-device-update/understand-device-update.md).
+* O ficheiro config predefinido tem um novo nome e localização. `/etc/iotedge/config.yaml`Anteriormente, espera-se que as informações de configuração do dispositivo estejam por `/etc/aziot/config.toml` defeito. O `iotedge config import` comando pode ser usado para ajudar a migrar informações de configuração da localização antiga e sintaxe para a nova.
+  * O comando de importação não consegue detetar ou modificar as regras de acesso ao módulo de plataforma fidedigna de um dispositivo (TPM). Se o seu dispositivo utilizar o atestado TPM, tem de atualizar manualmente o ficheiro /etc/udev/rules.d/tpmaccess.rules para dar acesso ao serviço aziottpm. Para mais informações, consulte [o Acesso ao Edge IoT ao TPM.](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm)
+* A carga de trabalho API na versão 1.2 guarda segredos encriptados num novo formato. Se atualizar de uma versão mais antiga para a versão 1.2, a chave de encriptação principal existente é importada. A API de carga de trabalho pode ler segredos guardados no formato anterior usando a chave de encriptação importada. No entanto, a carga de trabalho API não pode escrever segredos encriptados no formato antigo. Uma vez que um segredo é reencrimado por um módulo, é guardado no novo formato. Os segredos encriptados na versão 1.2 são ilegíveis pelo mesmo módulo na versão 1.1. Se persistir em dados encriptados para uma pasta ou volume montado no anfitrião, crie sempre uma cópia de segurança dos dados *antes* de atualizar para reter a capacidade de desclassificação, se necessário.
 
 Antes de automatizar quaisquer processos de atualização, valide que funciona em máquinas de teste.
 

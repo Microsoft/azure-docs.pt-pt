@@ -3,12 +3,12 @@ title: Entregar eventos usando o serviço de link privado
 description: Este artigo descreve como trabalhar em torno da limitação de não ser capaz de entregar eventos usando o serviço de ligação privada.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 75ae8ff2c341048c39156e43da3615788e9d0f0a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629296"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309436"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Entregar eventos usando o serviço de link privado
 Atualmente, não é possível entregar eventos usando [pontos finais privados.](../private-link/private-endpoint-overview.md) Ou seja, não há suporte se tiver requisitos rigorosos de isolamento de rede onde o tráfego de eventos entregues não deve sair do espaço IP privado. 
@@ -36,7 +36,7 @@ Para entregar eventos a centros de eventos no seu espaço de nomes Event Hubs ut
 Para entregar eventos às filas ou tópicos do Service Bus no seu espaço de nomes de Service Bus utilizando a identidade gerida, siga estes passos:
 
 1. Ativar a identidade atribuída ao sistema: [tópicos do sistema,](enable-identity-system-topics.md) [tópicos personalizados e domínios](enable-identity-custom-topics-domains.md). 
-1. Adicione a identidade ao papel [de **remetente de dados de autocarros do serviço Azure**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) no espaço de nomes do Service Bus
+1. Adicione a identidade ao papel [de **remetente de dados de autocarros do serviço Azure**](../service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) no espaço de nomes do Service Bus
 1. [Ativar os **serviços da Microsoft fidedignos para contornar esta** definição de firewall no seu espaço de nomes do Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure a subscrição do evento](managed-service-identity.md) que utiliza uma fila de Service Bus ou tópico como ponto final para utilizar a identidade atribuída ao sistema.
 

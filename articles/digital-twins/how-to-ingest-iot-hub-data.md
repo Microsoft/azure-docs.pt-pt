@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5e00ef81afc709a9072eedbb07983057f57eb08
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950602"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304308"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -45,7 +45,7 @@ Sempre que um evento de telemetria de temperatura é enviado pelo dispositivo te
 
 Nesta secção, irá configurar um [twin digital](concepts-twins-graph.md) em Azure Digital Twins que representará o dispositivo do termóstato e será atualizado com informações do IoT Hub.
 
-Para criar um gémeo do tipo termóstato, primeiro terá de carregar o [modelo](concepts-models.md) do termóstato para o seu exemplo, que descreve as propriedades de um termóstato e será usado mais tarde para criar o gémeo. 
+Para criar um gémeo do tipo termóstato, primeiro terá de carregar o [modelo](concepts-models.md) do termóstato para o seu exemplo, que descreve as propriedades de um termóstato e será usado mais tarde para criar o gémeo.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 

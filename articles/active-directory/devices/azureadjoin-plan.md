@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 745cc7be37120cda27fe4d4077b9bda0fa07badf
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: dc20ca3f3cf6197f8a3ed3a7e0362046f129d369
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550783"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305876"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planeie a sua Azure AD aderir à implementação
 
@@ -199,11 +199,11 @@ Aqui está uma comparação destas três abordagens
  
 | Elemento | Configuração de self-service | Windows Autopilot | Inscrição em massa |
 | --- | --- | --- | --- |
-| Requerem interação do utilizador para configurar | Sim | Sim | No |
-| Exigir esforço de TI | No | Sim | Sim |
+| Requerem interação do utilizador para configurar | Yes | Yes | No |
+| Exigir esforço de TI | No | Yes | Sim |
 | Fluxos aplicáveis | Definições de & OOBE | Apenas OOBE | Apenas OOBE |
 | Direitos de administrador local para o utilizador primário | Sim, por defeito. | Configurável | Não |
-| Requera suporte ao OEM do dispositivo | No | Sim | No |
+| Requera suporte ao OEM do dispositivo | No | Yes | No |
 | Versões suportadas | 1511+ | 1709+ | 1703+ |
  
 Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e revendo as seguintes considerações para a adoção de qualquer uma das abordagens:  
@@ -239,7 +239,7 @@ Selecione **"Sim,** se exigir que os utilizadores realizem MFA enquanto juntam d
 
 ![Requerem que a Auth multi-factor se junte a dispositivos](./media/azureadjoin-plan/03.png)
 
-**Recomendação:** Utilize o registo de ação do utilizador [ou junte-se a dispositivos](/conditional-access/concept-conditional-access-cloud-apps#user-actions) no Acesso Condicional para impor mFA para a junção de dispositivos.
+**Recomendação:** Utilize o registo de ação do utilizador [ou junte-se a dispositivos](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) no Acesso Condicional para impor mFA para a junção de dispositivos.
 
 ## <a name="configure-your-mobility-settings"></a>Configure as suas definições de mobilidade
 

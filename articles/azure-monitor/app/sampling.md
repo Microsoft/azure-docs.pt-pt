@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a03dab43c12b372fc52e7516821fe7aef22d2e16
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589551"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305247"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -184,7 +184,7 @@ O código acima irá desativar a amostragem adaptativa. Siga os passos abaixo pa
 Utilize métodos de extensão de `TelemetryProcessorChainBuilder` como mostrado abaixo para personalizar o comportamento da amostragem.
 
 > [!IMPORTANT]
-> Se utilizar este método para configurar a amostragem, certifique-se de definir a `aiOptions.EnableAdaptiveSampling` propriedade para quando ligar `false` `AddApplicationInsightsTelemetry()` .
+> Se utilizar este método para configurar a amostragem, certifique-se de definir a `aiOptions.EnableAdaptiveSampling` propriedade para quando ligar `false` `AddApplicationInsightsTelemetry()` . Depois de escoar esta alteração, tem de seguir as instruções no bloco de código abaixo **exatamente** para voltar a ativar a amostragem adaptativa com as suas personalizações no lugar. Se não o fizer, pode resultar em ingestão excessiva de dados. Teste sempre as definições de amostragem de alteração de alterações e defina uma [tampa de dados diária](pricing.md#set-the-daily-cap) apropriada para ajudar a controlar os seus custos.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility

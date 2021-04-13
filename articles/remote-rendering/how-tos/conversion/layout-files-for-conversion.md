@@ -5,20 +5,23 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a094755dfb9381b1e4d6abdf1c0e6342d7427c1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91318080"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308444"
 ---
 # <a name="laying-out-files-for-conversion"></a>Preparação de ficheiros para conversão
 
 Para processar corretamente um ativo, o serviço de conversão precisa de ser capaz de encontrar todos os ficheiros de entrada.
 Estes consistem no principal ficheiro de ativos que está a ser convertido e geralmente em alguns outros ficheiros referenciados por caminhos dentro do ficheiro do ativo.
-O pedido de conversão de um ativo é dado dois parâmetros que determinam como o serviço de conversão encontra estes ficheiros: O `input.folderPath` (que é opcional) e o `input.inputAssetPath` .
+O pedido de conversão de um ativo é dado dois parâmetros que determinam como o serviço de conversão encontra estes ficheiros: O `settings.inputLocation.blobPrefix` (que é opcional) e o `settings.inputLocation.relativeInputAssetPath` .
 Estão totalmente documentados na página [API do REST de Conversão.](conversion-rest-api.md)
-Para efeitos de colocação de ficheiros, o importante é notar que o `folderPath` conjunto completo de ficheiros que estão disponíveis para o serviço de conversão no processamento do ativo.
+Para efeitos de colocação de ficheiros, o importante é notar que o `BlobPrefix` conjunto completo de ficheiros que estão disponíveis para o serviço de conversão no processamento do ativo.
+
+> [!Note]
+> O serviço irá descarregar todos os ficheiros sob a entrada. BlobPrefix. Certifique-se de que os nomes e caminhos dos ficheiros não excedem os [limites](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) de comprimento do percurso do Windows para evitar problemas no serviço. 
 
 ## <a name="placing-files-so-they-can-be-found"></a>Colocação de ficheiros para que possam ser encontrados
 
