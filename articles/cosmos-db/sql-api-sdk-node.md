@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 8408cdada40bd3595f9bf7cf2c6a2de90040ec0b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a3e21abe2f4ed24726256689af16b48ed6721ce8
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217266"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366152"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK para API SQL: Lançar notas e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,8 @@ ms.locfileid: "102217266"
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark Connector](sql-api-sdk-java-spark.md)
+> * [Conector de faísca 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector de faísca 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4b62b591c408f663fd28d5077af924f785ee66c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1f81ddba717dc2a9df02fda82ef74b52da8fd82
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93090414"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366050"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Quickstart: Construa uma app Java para gerir dados da Azure Cosmos DB SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,6 +24,7 @@ ms.locfileid: "93090414"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [SDK v4 de Java](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Conector faísca v3](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: f186acbe030dcbb0c2bad22586a8b2a5d1aa520d
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259800"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366067"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -47,8 +47,8 @@ Preencha os seguintes campos:
 
 Em **Data Data Desemar o Grupo de Armazenamento do Lago 2:**
 
-1. Por **nome de conta,** clique em **Criar Novo** e nomeie a nova conta de armazenamento **ou** similar como este nome deve ser único.
-1. Por **nome do sistema de ficheiros,** clique em Criar **Novos** e nomeie **os utilizadores**. Isto criará um recipiente de armazenamento chamado **utilizadores.** O espaço de trabalho utilizará esta conta de armazenamento como a conta de armazenamento "primária" para as tabelas Spark e os registos de aplicações Spark.
+1. Por **nome de conta,** selecione **Create New** e nomeie a nova conta de armazenamento **contosolake** ou similar como o nome deve ser único.
+1. Por **nome do sistema de ficheiros,** selecione Criar **Novo** e nomeie **os utilizadores**. Isto criará um recipiente de armazenamento chamado **utilizadores.** O espaço de trabalho utilizará esta conta de armazenamento como a conta de armazenamento "primária" para as tabelas Spark e os registos de aplicações Spark.
 1. Verifique a função "Atribua-me a função de contribuinte de dados de armazenamento na conta Gen2 de armazenamento de dados". 
 
 ## <a name="completing-the-process"></a>Completar o processo
@@ -66,14 +66,14 @@ Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abri
 * Vá ao `https://web.azuresynapse.net` e inscreva-se no seu espaço de trabalho.
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>Coloque os dados da amostra na conta de armazenamento primário
-Vamos usar um pequeno conjunto de dados de amostras de 100K linha de dados da NYX Taxi Cab para muitos exemplos neste guia de arranque. Começamos por colocá-lo na conta de armazenamento primário que criou para o espaço de trabalho.
+Vamos usar um pequeno conjunto de dados de 100 K de linha de dados da NYX Taxi Cab para muitos exemplos neste guia de arranque. Começamos por colocá-lo na conta de armazenamento primário que criou para o espaço de trabalho.
 
 * Descarregue este ficheiro para o seu computador: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
-* Em Synapse Studiio, navegue para o Data Hub. 
-* Clique **em Linked**.
-* Na categoria **Azure Data Lake Storae Gen2** você verá um item com um nome como **myworkspace (Primary - contosolake)**
-* Clique no recipiente nomeado **utilizadores (Primário)**
-* Clique **em Upload** e selecione o ficheiro que `NYCTripSmall.parquet` descarregou
+* No Synapse Studio, navegue para o Data Hub. 
+* Selecione **Linked**.
+* Na categoria **Azure Data Lake Storae Gen2** você verá um item com um nome como **myworkspace (Primary - contosolake )**.
+* Selecione os **utilizadores nomeados para** o recipiente (Primário) .
+* Selecione **Upload** e selecione o `NYCTripSmall.parquet` ficheiro que descarregou.
 
 ## <a name="next-steps"></a>Passos seguintes
 

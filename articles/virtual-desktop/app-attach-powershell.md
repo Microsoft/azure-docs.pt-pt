@@ -1,25 +1,21 @@
 ---
-title: Aplicativo VIRTUAL Desktop MSIX anexa pré-visualização PowerShell - Azure
+title: Aplicativo MSIX de desktop virtual do Windows anexam PowerShell - Azure
 description: Como configurar o anexo de aplicações MSIX para o Windows Virtual Desktop utilizando o PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8b6bad32ec653fb2ba63c6940cf6a89a13a8afd0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f44cbf3764063c511c896f11bb7ebfaae2973f0c
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448326"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365404"
 ---
-# <a name="set-up-msix-app-attach-preview-using-powershell"></a>Configurar o anexo de aplicações MSIX (pré-visualização) utilizando o PowerShell
+# <a name="set-up-msix-app-attach-using-powershell"></a>Configurar o anexo de aplicativo MSIX utilizando o PowerShell
 
-> [!IMPORTANT]
-> O anexo de aplicações MSIX encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Além do portal Azure, também pode configurar a aplicação MSIX anexar (pré-visualização) manualmente com o PowerShell. Este artigo irá acompanhá-lo como usar o PowerShell para configurar o anexo de aplicações MSIX.
+Além do portal Azure, também pode configurar a aplicação MSIX anexar manualmente com o PowerShell. Este artigo irá acompanhá-lo como usar o PowerShell para configurar o anexo de aplicações MSIX.
 
 ## <a name="requirements"></a>Requisitos
 

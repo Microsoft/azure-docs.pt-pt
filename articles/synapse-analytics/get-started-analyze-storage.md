@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: f18977bb92b37546d5980134cba858b1f76b464c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b88a7e6a9851018fce255fac0e39a30563b9bf4
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720020"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363840"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 
@@ -45,7 +45,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 Pode analisar os dados na sua conta ADLS Gen2 padrão do seu espaço de trabalho ou pode ligar uma conta de armazenamento ADLS Gen2 ou Blob ao seu espaço de trabalho através de "**Gerir**" > "**Serviços Ligados**" > "**Novo**" (Os passos abaixo referem-se à conta primária da ADLS Gen2).
 
 1. No Synapse Studio, vá ao centro **de dados** e, em seguida, selecione **Linked**.
-1. Vá ao **Azure data Storage Gen2**  >  **myworkspace (Primary - contosolake)**.
+1. Vá ao **myworkspace do Azure Data Lake Storage Gen2**  >  **(Primário - contosolake)**.
 1. Selecione **utilizadores (Primário)**. Devia ver a pasta **NYCTaxi.** No interior deverá ver duas pastas chamadas **PassengerCountStats_csvformat** e **PassengerCountStats_parquetformat**.
 1. Abra a pasta **PassengerCountStats_parquetformat.** Lá dentro, verá um arquivo de parquet com um nome como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
 1. Clique com o botão **direito .parquet,** em seguida, selecione **Novo caderno** e, em seguida, selecione Carregar **para DataFrame**. Um novo caderno é criado com uma célula como esta:
@@ -58,7 +58,7 @@ Pode analisar os dados na sua conta ADLS Gen2 padrão do seu espaço de trabalho
     ```
 
 1. Anexar à piscina Spark chamada **Spark1**. Execute a célula.
-1. Clique de volta na pasta do **utilizadores.** Clique com o botão direito novamente no ficheiro **.parquet** e, em seguida, selecione **Novo script SQL**  >  **SELECT TOP 100 linhas**. Cria um script SQL como este:
+1. Selecione de volta para a pasta do **utilizadores.** Clique com o botão direito novamente no ficheiro **.parquet** e, em seguida, selecione **Novo script SQL**  >  **SELECT TOP 100 linhas**. Cria um script SQL como este:
 
     ```sql
     SELECT 

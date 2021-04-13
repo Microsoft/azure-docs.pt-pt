@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 81898875af85becf1766f02a5b7e077cb388a173
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f83aa7368ec5ac06f2c5a5ebe121c7ce87f93bd1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450043"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304737"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
@@ -40,7 +40,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [Resolver problemas de configurações de delegação restrita do Kerberos para o Proxy de Aplicações](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 - [Quickstart: Configurar um único sign-on (SSO) baseado em SAML para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)](add-application-portal-setup-sso.md)
 - [Gestão de aplicações do Azure Ative Directory: Quais as novidades](whats-new-docs.md)
-- [Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas](application-proxy-faq.md)
+- [Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas](application-proxy-faq.yml)
 - [Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps](application-sign-in-other-problem-access-panel.md)
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 - [Otimizar o fluxo de tráfego com o Azure Ative Directory Application Proxy](application-proxy-network-topology.md)
@@ -75,7 +75,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [Gestão de aplicações boas práticas](application-management-fundamentals.md)
 - [Integrar o Azure Ative Directory com candidaturas a iniciar guia](plan-an-application-integration.md)
 - [O que é a gestão de aplicações?](what-is-application-management.md)
-- [Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas](application-proxy-faq.md)
+- [Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas](application-proxy-faq.yml)
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 - [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Desenvolver aplicativos de linha de negócios para o Azure Ative Directory](../develop/v2-overview.md)

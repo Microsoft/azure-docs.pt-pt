@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0605c8d6cb3f650a1955688d95ece62fb56d06bc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: ecd33549536323658a7116d7d5c311eaaec98487
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256043"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107302952"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para a carga de trabalho SAP
 O Azure tem inúmeros tipos de armazenamento que diferem muito em capacidades, produção, latência e preços. Alguns dos tipos de armazenamento não são, ou de usutilizável limitado para cenários SAP. Enquanto que vários tipos de armazenamento Azure são bem adequados ou otimizados para cenários específicos de carga de trabalho SAP. Especialmente para o SAP HANA, alguns tipos de armazenamento Azure foram certificados para o uso com SAP HANA. Neste documento, estamos a analisar os diferentes tipos de armazenamento e a descrever a sua capacidade e usabilidade com cargas de trabalho SAP e componentes SAP.
@@ -236,7 +236,7 @@ O armazenamento da ANF é atualmente suportado para vários cenários de carga d
     - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-suse-netapp-files.md)
     - [Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-rhel-netapp-files.md)
 - Implementações SAP HANA utilizando ações NFS v4.1 para /hana/data e /hana/log volumes e/ou NFS v4.1 ou volumes NFS v3 para volumes /hana/shared como documentado no artigo [CONFIGURAÇÕES de armazenamento de máquinas virtuais SAP HANA Azure](./hana-vm-operations-storage.md)
-- As implementações da Oracle Linux guest OS utilizando [dNFS](dOracle https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) datas e redo volumes de registo. Alguns mais detalhes podem ser encontrados no artigo [Azure Virtual Machines Oracle DBMS implantação para carga de trabalho SAP](./dbms_guide_oracle.md)
+- Implementações oracle no Oracle Linux guest OS usando [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) para dados da Oracle e redo volumes de registo. Alguns mais detalhes podem ser encontrados no artigo [Azure Virtual Machines Oracle DBMS implantação para carga de trabalho SAP](./dbms_guide_oracle.md)
 
 > [!NOTE]
 > Nenhuma outra carga de trabalho DBMS é suportada para ações NFS ou SMB baseadas em Ficheiros Azure NetApp. As atualizações e alterações serão fornecidas se isto for alterado.

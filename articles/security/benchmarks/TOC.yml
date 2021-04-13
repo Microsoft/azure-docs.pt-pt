@@ -1,0 +1,253 @@
+- name: Referência de Segurança do Azure
+  href: index.yml
+- name: Introdução
+  href: introduction.md
+- name: Controlos de Segurança (v2)
+  expanded: true
+  items:
+    - name: Descrição geral dos controlos de segurança do Azure
+      href: overview.md
+    - name: Segurança da rede
+      href: security-controls-v2-network-security.md
+    - name: Gestão de identidades
+      href: security-controls-v2-identity-management.md
+    - name: Acesso privilegiado
+      href: security-controls-v2-privileged-access.md
+    - name: Proteção de dados
+      href: security-controls-v2-data-protection.md
+    - name: Gestão de ativos
+      href: security-controls-v2-asset-management.md
+    - name: Deteção de registo e de ameaça
+      href: security-controls-v2-logging-threat-detection.md
+    - name: Resposta a incidentes
+      href: security-controls-v2-incident-response.md
+    - name: Gestão de postura e de vulnerabilidade
+      href: security-controls-v2-posture-vulnerability-management.md
+    - name: Endpoint security (Segurança de pontos finais)
+      href: security-controls-v2-endpoint-security.md
+    - name: Cópia de segurança e recuperação
+      href: security-controls-v2-backup-recovery.md
+    - name: Governação e Estratégia
+      href: security-controls-v2-governance-strategy.md
+- name: Controlos de Segurança (v1)
+  items:
+    - name: Descrição geral dos controlos de segurança do Azure (v1)
+      href: overview-v1.md
+    - name: Segurança da rede
+      href: security-control-network-security.md
+    - name: Início de sessão e monitorização
+      href: security-control-logging-monitoring.md
+    - name: Identidade e controlo de acesso
+      href: security-control-identity-access-control.md
+    - name: Proteção de dados
+      href: security-control-data-protection.md
+    - name: Gestão de vulnerabilidades
+      href: security-control-vulnerability-management.md
+    - name: Gestão de recursos e inventário
+      href: security-control-inventory-asset-management.md
+    - name: Configuração segura
+      href: security-control-secure-configuration.md
+    - name: Defesa contra malware
+      href: security-control-malware-defense.md
+    - name: Recuperação de dados
+      href: security-control-data-recovery.md
+    - name: Resposta a incidentes
+      href: security-control-incident-response.md
+    - name: Testes de penetração e exercícios da Red Team
+      href: security-control-penetration-tests-red-team-exercises.md
+- name: Linhas de base de segurança do Azure
+  items:
+    - name: Descrição geral das linhas de base de segurança do Azure
+      href: security-baselines-overview.md
+    - name: Linha de base de segurança da Gestão de API
+      href: ../../api-management/security-baseline.md
+    - name: Linha de base de segurança do Serviço de Aplicações
+      href: ../../app-service/security-baseline.md
+    - name: Linha de base de segurança do Gateway de Aplicação
+      href: ../../application-gateway/security-baseline.md
+    - name: Linha de base de segurança da Automatização
+      href: ../../automation/security-baseline.md
+    - name: Linha de segurança do Diretório Ativo Azure
+      href: ../../active-directory/fundamentals/security-baseline.md
+    - name: Linha de base de segurança do Assistente do Azure
+      href: ../../advisor/security-baseline.md
+    - name: Linha de base de segurança do Azure App Configuration
+      href: ../../azure-app-configuration/security-baseline.md
+    - name: Linha de base de segurança do Azure Backup
+      href: ../../backup/security-baseline.md
+    - name: Linha de base de segurança do Azure Bastion
+      href: ../../bastion/security-baseline.md
+    - name: Linha de base de segurança do Azure Bot Network
+      href: /azure/bot-service/security-baseline
+    - name: Linha de base de segurança da Cache do Azure para Redis
+      href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Linha de base de segurança do Azure Cognitive Search
+      href: ../../search/security-baseline.md
+    - name: Linha de base de segurança do Azure Cosmos DB
+      href: ../../cosmos-db/security-baseline.md
+    - name: Linha de base de segurança do Azure Data Box
+      href: ../../databox/security-baseline.md
+    - name: Linha de base de segurança do Azure Data Explorer
+      href: /azure/data-explorer/security-baseline
+    - name: Linha de base de segurança do Azure Data Factory
+      href: ../../data-factory/security-baseline.md
+    - name: Linha de base de segurança do Azure Data Share
+      href: ../../data-share/security-baseline.md
+    - name: Linha de base de segurança da Base de Dados do Azure para MySQL
+      href: ../../mysql/security-baseline.md
+    - name: Linha de base de segurança do Azure Database for MariaDB
+      href: ../../mariadb/security-baseline.md
+    - name: Linha de base de segurança do Azure Database Migration Service
+      href: ../../dms/security-baseline.md
+    - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança do Hyperscale
+      href: ../../postgresql/postgresql-hyperscale-security-baseline.md
+    - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança de Servidor Único
+      href: ../../postgresql/security-baseline.md
+    - name: Linha de base de segurança do Azure Databricks
+      href: /azure/databricks/scenarios/security-baseline
+    - name: Linha de base de segurança do Azure DDOS Protection Standard
+      href: ../fundamentals/ddos-protection-security-baseline.md
+    - name: Linha de base de segurança do Azure Defender para IoT
+      href: ../../defender-for-iot/security-baseline.md
+    - name: Linha de base de segurança do Azure DevTest Labs
+      href: ../../devtest-labs/security-baseline.md
+    - name: Linha de base de segurança do DNS do Azure
+      href: ../../dns/security-baseline.md
+    - name: Linha de base de segurança do Azure Firewall
+      href: ../../firewall/security-baseline.md
+    - name: Linha de base de segurança do Azure Firewall Manager
+      href: ../../firewall-manager/security-baseline.md
+    - name: Linha de base de segurança do Azure Front Door
+      href: ../../frontdoor/security-baseline.md
+    - name: Linha de base de segurança das Funções do Azure
+      href: ../../azure-functions/security-baseline.md
+    - name: Linha de base de segurança do Azure HPC Cache
+      href: ../../hpc-cache/security-baseline.md
+    - name: Linha de base de segurança do Azure Information Protection
+      href: /azure/information-protection/security-baseline
+    - name: Linha de base de segurança do Azure Kubernetes Service
+      href: ../../aks/security-baseline.md
+    - name: Linha de base de segurança do Azure Lighthouse
+      href: ../../lighthouse/security-baseline.md
+    - name: Linha de base de segurança do Balanceador de Carga do Azure
+      href: ../../load-balancer/security-baseline.md
+    - name: Linha de base de segurança do Azure Machine Learning
+      href: ../../machine-learning/security-baseline.md
+    - name: Linha de base de segurança das Aplicações Geridas do Azure
+      href: ../../azure-resource-manager/managed-applications/security-baseline.md
+    - name: Linha de base de segurança do Azure Monitor
+      href: ../../azure-monitor/security-baseline.md
+    - name: Linha de base de segurança do Azure Migrate
+      href: ../../migrate/security-baseline.md
+    - name: Linha de segurança do Serviço Azure Peering
+      href: ../../peering-service/security-baseline.md
+    - name: Linha de base de segurança do Azure Policy
+      href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+    - name: Linha de base de segurança do Azure Private Link
+      href: ../../private-link/security-baseline.md
+    - name: Linha de base de segurança do IP Público do Azure
+      href: ../../virtual-network/public-ip-security-baseline.md
+    - name: Linha de base de segurança do Azure Resource Graph
+      href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Linha de base de segurança do Azure Resource Manager
+      href: ../../azure-resource-manager/management/security-baseline.md
+    - name: Linha de base de segurança do Azure Sentinel
+      href: ../../sentinel/security-baseline.md
+    - name: Linha de base de segurança do Azure SignalR Service
+      href: ../../azure-signalr/security-baseline.md
+    - name: Linha de base de segurança da Base de Dados SQL do Azure
+      href: ../../azure-sql/database/security-baseline.md
+    - name: Linha de base de segurança do Azure Stack Edge
+      href: ../../databox-online/security-baseline.md
+    - name: Linha de base de segurança do Armazenamento do Azure
+      href: ../../storage/common/security-baseline.md
+    - name: Linha de base de segurança da Firewall de Aplicações Web do Azure
+      href: ../../web-application-firewall/security-baseline.md
+    - name: Linha de base de segurança do Batch
+      href: ../../batch/security-baseline.md
+    - name: Linha de base de segurança dos Serviços Cloud
+      href: ../../cloud-services/security-baseline.md
+    - name: Linha de base de segurança do Cloud Shell
+      href: ../../cloud-shell/security-baseline.md
+    - name: Linha de base de segurança dos Serviços Cognitivos
+      href: ../../cognitive-services/security-baseline.md
+    - name: Linha de base de segurança do Container Instances
+      href: ../../container-instances/security-baseline.md
+    - name: Linha de base de segurança do Container Registry
+      href: ../../container-registry/security-baseline.md
+    - name: Linha de base de segurança da Rede de Entrega de Conteúdos
+      href: ../../cdn/security-baseline.md
+    - name: Linha de base de segurança do Cost Management
+      href: ../../cost-management-billing/security-baseline.md
+    - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
+      href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Linha de base de segurança do Data Lake Analytics
+      href: ../../data-lake-analytics/security-baseline.md
+    - name: Linha de base de segurança do Event Grid
+      href: ../../event-grid/security-baseline.md
+    - name: Linha de base de segurança dos Hubs de Eventos
+      href: ../../event-hubs/security-baseline.md
+    - name: Linha de base de segurança do ExpressRoute
+      href: ../../expressroute/security-baseline.md
+    - name: Linha de base de segurança do HDInsight
+      href: ../../hdinsight/security-baseline.md
+    - name: Linha de base de segurança do Hub IoT
+      href: ../../iot-hub/security-baseline.md
+    - name: Linha de base de segurança do Key Vault
+      href: ../../key-vault/general/security-baseline.md
+    - name: Linha de base de segurança de computação Linux
+      href: ../../governance/policy/samples/guest-configuration-baseline-linux.md?toc=/azure/security/benchmarks/toc.json
+    - name: Linha de base de segurança do Logic Apps
+      href: ../../logic-apps/security-baseline.md
+    - name: Linha de base do Microsoft Cloud App Security
+      href: /cloud-app-security/security-baseline
+    - name: Linha de base de segurança do Microsoft Defender para Identidade
+      href: /defender-for-identity/security-baseline
+    - name: Linha de base de segurança do Observador de Rede
+      href: ../../network-watcher/security-baseline.md
+    - name: Linha de base do Power BI
+      href: /power-bi/fundamentals/security-baseline
+    - name: Linha de base do Centro de Segurança
+      href: ../../security-center/security-baseline.md
+    - name: Linha de base do Service Bus
+      href: ../../service-bus-messaging/security-baseline.md
+    - name: Linha de base do Service Fabric
+      href: ../../service-fabric/security-baseline.md
+    - name: Linha de base do Site Recovery
+      href: ../../site-recovery/security-baseline.md
+    - name: Linha de base de segurança do Stream Analytics
+      href: ../../stream-analytics/security-baseline.md
+    - name: Linha de base de segurança do Azure Synapse Analytics
+      href: ../../synapse-analytics/security-baseline.md
+    - name: Linha de base de segurança do Gestor de Tráfego
+      href: ../../traffic-manager/security-baseline.md
+    - name: Linha de base de segurança dos Conjuntos de Dimensionamento de Máquinas Virtuais
+      href: ../../virtual-machine-scale-sets/security-baseline.md
+    - name: Linha de base de segurança de Máquinas Virtuais do Linux
+      href: ../../virtual-machines/linux/security-baseline.md
+    - name: Linha de base de segurança de Máquinas Virtuais do Windows
+      href: ../../virtual-machines/windows/security-baseline.md
+    - name: Linha de base de segurança da Rede Virtual
+      href: ../../virtual-network/security-baseline.md
+    - name: Linha de base de segurança da NAT da Rede Virtual
+      href: ../../virtual-network/nat-security-baseline.md
+    - name: Linha de base de segurança do WAN Virtual
+      href: ../../virtual-wan/security-baseline.md
+    - name: Linha de base de segurança do Gateway de VPN
+      href: ../../vpn-gateway/security-baseline.md
+    - name: Linha de base de segurança do cálculo do Windows
+      href: ../../governance/policy/samples/guest-configuration-baseline-windows.md?toc=/azure/security/benchmarks/toc.json
+    - name: Linha de segurança virtual do Windows Desktop
+      href: ../../virtual-desktop/security-baseline.md
+- name: Recursos
+  items:
+    - name: Mapeamento entre ASB e CIS Benchmark
+      href: v2-cis-benchmark.md
+    - name: Noções Básicas da Segurança do Azure
+      href: ../fundamentals/index.yml
+    - name: Responsabilidade partilhada na cloud
+      href: ../fundamentals/shared-responsibility.md
+    - name: Centro de Segurança do Azure
+      href: ../../security-center/index.yml
+    - name: Amostra de projeto da Fundação Azure Security Benchmark
+      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md

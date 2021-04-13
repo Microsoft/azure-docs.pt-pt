@@ -6,17 +6,17 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
-ms.openlocfilehash: dd6effff2fa38276729e2609e115ef72c7af4066
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 21cdde40730a037b9d535dfe3c608d6bbc90276f
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228083"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366135"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Armazenamento de crescimento automático utilizando o portal Azure na Base de Dados Azure para PostgreSQL - Servidor Único
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento de servidores PostgreSQL crescer sem afetar a carga de trabalho.
 
-Quando um servidor atinge o limite de armazenamento atribuído, o servidor é marcado como apenas para leitura. No entanto, se permitir o crescimento automático do armazenamento, o armazenamento do servidor aumenta para acomodar os dados crescentes. Para servidores com armazenamento com menos de 100 GB, o tamanho de armazenamento provisionado é aumentado em 5 GB assim que o armazenamento gratuito for inferior a 1 GB ou 10% do armazenamento a provisionado. Para servidores com mais de 100 GB de armazenamento a provisionado, o tamanho de armazenamento provisionado é aumentado em 5% quando o espaço de armazenamento gratuito é inferior a 5% do tamanho de armazenamento provisionado. Os limites máximos de armazenamento especificados [aqui](./concepts-pricing-tiers.md#storage) aplicam-se.
+Quando um servidor atinge o limite de armazenamento atribuído, o servidor é marcado como apenas para leitura. No entanto, se permitir o crescimento automático do armazenamento, o armazenamento do servidor aumenta para acomodar os dados crescentes. Para servidores com armazenamento com menos de 100 GB, o tamanho de armazenamento provisionado é aumentado em 5 GB assim que o armazenamento gratuito for inferior a 1 GB ou 10% do armazenamento a provisionado. Para servidores com mais de 100 GB de armazenamento a provisionado, o tamanho de armazenamento provisionado é aumentado em 5% quando o espaço de armazenamento gratuito é inferior a 10GB do tamanho de armazenamento provisionado. Os limites máximos de armazenamento especificados [aqui](./concepts-pricing-tiers.md#storage) aplicam-se.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para completar este guia, precisa:

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fc5bcc7f0cd11160b33bb6501526fce9f29d710b
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730036"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366390"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o Monitor de Ligação a partir do Monitor de Ligação (Clássico)
 
@@ -39,7 +39,10 @@ A migração ajuda a produzir os seguintes resultados:
     
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se estiver a utilizar um espaço de trabalho personalizado, certifique-se de que o Network Watcher está ativado na sua subscrição e na região do seu espaço de trabalho Log Analytics. 
+1. Se estiver a utilizar um espaço de trabalho personalizado, certifique-se de que o Network Watcher está ativado na sua subscrição e na região do seu espaço de trabalho Log Analytics. Caso contrário, verá um erro indicando "Antes de tentar migrar, por favor, ative a extensão do observador de rede na subscrição de seleção e localização do espaço de trabalho de LA selecionado."
+1. Caso as máquinas virtuais utilizadas como fontes no monitor de ligação (clássico) deixem de ter a extensão do Observador de Rede ativada, verá uma mensagem de erro indicando "Os monitores de ligação que têm após os testes não podem ser importados, uma vez que uma ou mais máquinas virtuais azuis não têm extensão de monitor de rede instalada. Instale a extensão do observador de rede e clique em atualização para os importar."
+
+
 
 ## <a name="migrate-the-connection-monitors"></a>Migrar os monitores de ligação
 

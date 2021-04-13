@@ -1,22 +1,22 @@
 ---
-title: Cosmos DB Apache Spark Connector para notas e recursos de lançamento da SQL API
-description: Conheça o Azure Cosmos DB Apache Spark Connector para a API SQL, incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão do Azure Cosmos DB SQL Async Java SDK.
+title: Azure Cosmos DB Apache Spark 2 OLTP Connector para notas e recursos de lançamento da SQL API
+description: Conheça o Conector Azure Cosmos DB Apache Spark 2 OLTP para API SQL, incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão do Azure Cosmos DB SQL Async Java SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 7ff75bf9d45803dd96927bcf7c70e7c7912db979
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd948814b4b647bcc3fbfe58b090b1e794504232
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93097163"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363636"
 ---
-# <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark Connector for Core (SQL) API: Liberar notas e recursos
+# <a name="azure-cosmos-db-apache-spark-2-oltp-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark 2 OLTP Connector for Core (SQL) API: Liberar notas e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -30,7 +30,8 @@ ms.locfileid: "93097163"
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark Connector](sql-api-sdk-java-spark.md)
+> * [Conector de faísca 3 OLTP](sql-api-sdk-java-spark-v3.md)
+> * [Conector de faísca 2 OLTP](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
@@ -38,7 +39,7 @@ ms.locfileid: "93097163"
 > * [Executor em massa - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa - Java](sql-api-sdk-bulk-executor-java.md)
 
-Pode acelerar a análise de big data utilizando o Conector de Faísca Apache Para Core (SQL) do Azure Cosmos. O Spark Connector permite-lhe executar trabalhos [de Faísca](https://spark.apache.org/) em dados armazenados em Azure Cosmos DB. O processamento de lote e fluxo são suportados.
+Pode acelerar a análise de big data utilizando o Conector Azure Cosmos DB Apache Spark 2 OLTP para Core (SQL). O Spark Connector permite-lhe executar trabalhos [de Faísca](https://spark.apache.org/) em dados armazenados em Azure Cosmos DB. O processamento de lote e fluxo são suportados.
 
 Pode utilizar o conector com [Azure Databricks](https://azure.microsoft.com/services/databricks) ou [Azure HDInsight,](https://azure.microsoft.com/services/hdinsight/)que fornecem clusters de faíscas geridos em Azure. A tabela a seguir mostra versões suportadas:
 

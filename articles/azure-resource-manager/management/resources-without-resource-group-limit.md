@@ -2,13 +2,13 @@
 title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos.
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 05f96597fb572005f7f32599b19d62ff2cb311cc
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.date: 04/12/2021
+ms.openlocfilehash: d132773ff35d53dc373c759326efc8179f4993d6
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210181"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366543"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -16,10 +16,12 @@ Por predefinição, pode implementar até 800 instâncias de um tipo de recurso 
 
 Para alguns tipos de recursos, é necessário contactar o suporte para que o limite de 800 instâncias seja removido. Estes tipos de recursos são anotados neste artigo.
 
+
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
+* recursosHealthAlertRules
 * smartDetectorAlertRules
- 
+
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 * automação Contas
@@ -79,6 +81,7 @@ Para alguns tipos de recursos, é necessário contactar o suporte para que o lim
 
 * flexibleServers
 * grupos de servidores
+* serverGroupsv2
 * servidores
 * servidorv2
 
@@ -111,7 +114,7 @@ Para alguns tipos de recursos, é necessário contactar o suporte para que o lim
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 * máquinas - suporta até 5.000 instâncias
-* extensões - suporta um número ilimitado de instâncias de extensão VM
+* máquinas/extensões - suporta um número ilimitado de instâncias de extensão VM
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -133,6 +136,7 @@ Para alguns tipos de recursos, é necessário contactar o suporte para que o lim
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/volumeGroups
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -183,6 +187,7 @@ Para alguns tipos de recursos, é necessário contactar o suporte para que o lim
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
+* autoScaleVCores - Por padrão, limitado a 800 instâncias. Este limite pode ser aumentado através do contacto com o suporte.
 * capacidades - Por defeito, limitada a 800 instâncias. Este limite pode ser aumentado através do contacto com o suporte.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay

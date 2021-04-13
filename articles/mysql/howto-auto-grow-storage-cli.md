@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3126adbae6cb719bf19dc549e83dfc55af56f7d2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ae22a80829ecaaff84c308ec9059d398b1ccbfb
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110037"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365064"
 ---
 # <a name="auto-grow-azure-database-for-mysql-storage-using-the-azure-cli"></a>Base de dados Azure de crescimento automático para armazenamento MySQL utilizando o Azure CLI
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento do servidor MySQL crescer sem afetar a carga de trabalho.
 
-O servidor [que atinge o limite de armazenamento,](./concepts-pricing-tiers.md#reaching-the-storage-limit)está definido apenas para leitura. Se o crescimento automático de armazenamento estiver ativado então para servidores com armazenamento com menos de 100 GB de armazenamento a fortado, o tamanho de armazenamento provisionado é aumentado em 5 GB assim que o armazenamento gratuito for inferior a 1 GB ou 10% do armazenamento provisionado. Para servidores com mais de 100 GB de armazenamento a provisionado, o tamanho de armazenamento provisionado é aumentado em 5% quando o espaço de armazenamento gratuito é inferior a 5% do tamanho de armazenamento provisionado. Os limites máximos de armazenamento especificados [aqui](./concepts-pricing-tiers.md#storage) aplicam-se.
+O servidor [que atinge o limite de armazenamento,](./concepts-pricing-tiers.md#reaching-the-storage-limit)está definido apenas para leitura. Se o crescimento automático de armazenamento estiver ativado então para servidores com armazenamento com menos de 100 GB de armazenamento a fortado, o tamanho de armazenamento provisionado é aumentado em 5 GB assim que o armazenamento gratuito for inferior a 1 GB ou 10% do armazenamento provisionado. Para servidores com mais de 100 GB de armazenamento a provisionado, o tamanho de armazenamento provisionado é aumentado em 5% quando o espaço de armazenamento gratuito é inferior a 10GB do tamanho de armazenamento provisionado. Os limites máximos de armazenamento especificados [aqui](./concepts-pricing-tiers.md#storage) aplicam-se.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

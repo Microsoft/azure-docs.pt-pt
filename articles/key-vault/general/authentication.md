@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ed83d52d19df126ef9b0e68f984f88f5dfd40c42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a8fe4ed0c24d2ccda5fb844005a33a93e85a169
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492945"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365523"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticar para o Azure Key Vault
 
@@ -59,8 +59,6 @@ O Cofre-Chave funciona com dois níveis de autorização distintos:
     - [Portal do Azure](../../role-based-access-control/role-assignments-portal.md)
     - [CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
     - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-
-    A Key Vault suporta atualmente o papel [de Contribuinte,](../../role-based-access-control/built-in-roles.md#key-vault-contributor) que permite operações de gestão em recursos key vault. Uma série de outras funções estão atualmente em pré-visualização. Também pode criar funções personalizadas, conforme descrito nas [funções personalizadas Azure](../../role-based-access-control/custom-roles.md).
 
     Para obter informações gerais sobre funções, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 

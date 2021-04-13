@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5a9ff7661fda372631d1bb912b1c137b37c7e07
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688013"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363364"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
@@ -104,7 +104,10 @@ Não, a auto-produção não vai reconfigurá-lo. Começaremos a monitorizar os 
 
 **Porque é que o meu VM tem um estatuto falhado no portal auto-piloto?**
 
-Se vir o estado como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos**, selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
+Se vir o estado como *Falhado,* pode resolver problemas de várias formas:
+* Vá aos **grupos de Recursos**, selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
+* Vá a **Subscrições**, selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
+* Também pode visitar o registo de atividade de um VM, que conterá uma entrada para "Criar ou Atualizar atribuições de perfis de configuração". Isto também pode conter mais detalhes sobre a sua implementação.
 
 **Como posso conseguir apoio para a auto-produção?**
 

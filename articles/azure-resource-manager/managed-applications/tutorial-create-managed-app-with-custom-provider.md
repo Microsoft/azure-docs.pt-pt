@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 228d1a8bcd97daebae873de4c69cbec238e0c995
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96437053"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312540"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: Criar aplicação gerida com ações e recursos personalizados
 
@@ -349,7 +349,7 @@ Pode ir a uma instância de aplicação gerida e realizar **ações personalizad
 
 ## <a name="looking-for-help"></a>À procura de ajuda
 
-Se tiver dúvidas sobre aplicações geridas azure, tente perguntar no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). Uma pergunta semelhante pode já ter sido feita e respondida, por isso verifique primeiro antes de publicar. Adicione a etiqueta `azure-managedapps` para obter uma resposta rápida!
+Se tiver dúvidas sobre aplicações geridas pelo Azure, pode tentar perguntar no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) com a aplicação gerida por tag azure ou [no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-managed-applications.html) com aplicação gerida por tag azure. Uma pergunta semelhante pode já ter sido feita e respondida, por isso verifique primeiro antes de publicar. Utilize respetivas etiquetas para uma resposta mais rápida. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07af586bac71ee9b33ef314756454cb3c52ec912
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97615716"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305927"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização numa política de acesso condicional 
 
@@ -32,39 +32,37 @@ As organizações podem usar esta localização da rede para tarefas comuns como
 
 A localização da rede é determinada pelo endereço IP público que um cliente fornece ao Azure Ative Directory. As políticas de acesso condicional por padrão aplicam-se a todos os endereços IPv4 e IPv6. 
 
-> [!TIP]
-> As gamas IPv6 só são suportadas na interface **[de localização nomeada (pré-visualização).](#preview-features)** 
-
 ## <a name="named-locations"></a>Localizações com nome
 
-As localizações são designadas no portal Azure sob os  >    >    >  **locais nomeados para** acesso condicional de segurança do Diretório Ativo Azure. Estas localizações de rede nomeadas podem incluir localizações como as gamas de rede de sede de uma organização, gamas de rede VPN ou intervalos que deseja bloquear. 
+As localizações são designadas no portal Azure sob os  >    >    >  **locais nomeados para** acesso condicional de segurança do Diretório Ativo Azure. Estas localizações de rede nomeadas podem incluir localizações como as gamas de rede de sede de uma organização, gamas de rede VPN ou intervalos que deseja bloquear. As localizações nomeadas podem ser definidas por intervalos de endereços IPv4/IPv6 ou por países/regiões. 
 
 ![Localizações nomeadas no portal Azure](./media/location-condition/new-named-location.png)
 
-Para configurar uma localização, terá de fornecer pelo menos um **Nome** e o intervalo IP. 
+### <a name="ip-address-ranges"></a>Intervalos de endereços IP
 
-O número de locais nomeados que pode configurar está limitado pelo tamanho do objeto relacionado em Azure AD. Pode configurar localizações com base nas seguintes limitações:
+Para definir uma localização nomeada pelos intervalos de endereços IPv4/IPv6, terá de fornecer um **Nome** e uma gama DE IP. 
 
-- Um local com até 1200 gamas IPv4.
-- Um máximo de 90 locais nomeados com uma gama de IP atribuída a cada um deles.
-
-> [!TIP]
-> As gamas IPv6 só são suportadas na interface **[de localização nomeada (pré-visualização).](#preview-features)** 
+As localizações nomeadas definidas pelas gamas de endereços IPv4/IPv6 estão sujeitas às seguintes limitações: 
+- Configurar até 195 locais nomeados
+- Configurar até 2000 gamas IP por localização nomeada
+- As gamas IPv4 e IPv6 são suportadas
+- Gamas ip privadas conotações são configuradas
+- O número de endereços IP contidos num intervalo é limitado. Apenas máscaras CIDR superiores a /8 são permitidas ao definir uma gama de IP. 
 
 ### <a name="trusted-locations"></a>Locais fidedignos
 
-Ao criar uma localização de rede, um administrador tem a opção de marcar uma localização como uma localização fidedigna. 
+Os administradores podem designar localizações nomeadas definidas por intervalos de endereços IP para serem confiáveis locais nomeados. 
 
 ![Localizações confiáveis no portal Azure](./media/location-condition/new-trusted-location.png)
 
-Esta opção pode ter em conta as políticas de Acesso Condicional onde pode, por exemplo, exigir o registo para autenticação de vários fatores a partir de uma localização de rede fidedigna. Também se inseja no cálculo de risco da Azure AD Identity Protection, reduzindo o risco de entrada de um utilizadores quando vem de um local marcado como confiável.
+Os acessos de locais com nome fidedignos melhoram a precisão do cálculo de risco da Azure AD Identity Protection, reduzindo o risco de entrada de um utilizador quando autenticam a partir de um local marcado como confiável. Além disso, locais com nomes fidedignos podem ser direcionados para políticas de Acesso Condicional. Por exemplo, pode exigir restringir o registo de autenticação de vários fatores apenas para locais com nome confiável. 
 
 ### <a name="countries-and-regions"></a>Países e regiões
 
-Algumas organizações podem optar por definir limites IP de países inteiros ou regiões como locais nomeados para políticas de acesso condicional. Podem utilizar estes locais quando bloqueiam o tráfego desnecessário quando sabem que utilizadores válidos nunca virão de um local como a Coreia do Norte. Estes mapeamentos do endereço IP para o país são atualizados periodicamente. 
+Algumas organizações podem optar por restringir o acesso a determinados países ou regiões que utilizam o Acesso Condicional. Além de definir localizações nomeadas por gamas IP, os administradores podem definir locais nomeados por país ou regiões. Quando um utilizador assina, o Azure AD resolve o endereço IPv4 do utilizador para um país ou região, e o mapeamento é atualizado periodicamente. As organizações podem usar locais nomeados definidos por países para bloquear o tráfego de países onde não fazem negócios, como a Coreia do Norte. 
 
 > [!NOTE]
-> Os intervalos de endereços IPv6 não podem ser mapeados para países. Apenas o IPv4 endereça o mapa para países.
+> As inscrições dos endereços IPv6 não podem ser mapeadas para países ou regiões e são consideradas áreas desconhecidas. Apenas os endereços IPv4 podem ser mapeados para países ou regiões.
 
 ![Criar um novo país ou localização baseada na região no portal Azure](./media/location-condition/new-named-location-country-region.png)
 
@@ -91,33 +89,6 @@ Para aplicações móveis e desktop, que têm longas vidas de sessão, o Acesso 
 
 Se ambos os passos falharem, considera-se que um utilizador já não se encontra num IP de confiança.
 
-## <a name="preview-features"></a>Funcionalidades de pré-visualização
-
-Além da funcionalidade de localização geralmente disponível, existe também uma localização nomeada (pré-visualização). Pode aceder à pré-visualização da localização com o nome, utilizando o banner no topo da lâmina de localização atual.
-
-![Experimente a pré-visualização dos locais nomeados](./media/location-condition/preview-features.png)
-
-Com a pré-visualização de localização nomeada, você é capaz de
-
-- Configurar até 195 locais nomeados
-- Configurar até 2000 gamas IP por localização nomeada
-- Configurar endereços IPv6 ao lado de endereços IPv4
-
-Também adicionámos alguns controlos adicionais para ajudar a reduzir a mudança de configuração errada.
-
-- As gamas IP privadas já não podem ser configuradas
-- O número de endereços IP que podem ser incluídos numa gama é limitado. Apenas máscaras CIDR superiores a /8 serão permitidas ao configurar um intervalo de IP.
-
-Com a pré-visualização, existem agora duas opções de criação: 
-
-- **Localização dos países**
-- **Localização das gamas IP**
-
-> [!NOTE]
-> Os intervalos de endereços IPv6 não podem ser mapeados para países. Apenas o IPv4 endereça o mapa para países.
-
-![Interface de pré-visualização de localizações nomeadas](./media/location-condition/named-location-preview.png)
-
 ## <a name="location-condition-in-policy"></a>Condição de localização na política
 
 Ao configurar a condição de localização, tem a opção de distinguir entre:
@@ -143,7 +114,7 @@ Com esta opção, pode selecionar um ou mais locais nomeados. Para que uma polí
 
 ## <a name="ipv6-traffic"></a>Tráfego IPv6
 
-Por predefinição, as políticas de Acesso Condicional aplicar-se-ão a todo o tráfego IPv6. Com a [pré-visualização de localização nomeada,](#preview-features)pode excluir gamas específicas de endereços IPv6 de uma política de Acesso Condicional. Esta opção é útil nos casos em que não quer que a política seja aplicada para gamas específicas do IPv6. Por exemplo, se não pretender impor uma política de utilização na sua rede corporativa, e a sua rede corporativa está hospedada em gamas públicas de IPv6.  
+Por predefinição, as políticas de Acesso Condicional aplicar-se-ão a todo o tráfego IPv6. Pode excluir gamas específicas de endereços IPv6 de uma política de Acesso Condicional se não quiser que as políticas sejam aplicadas para gamas específicas de IPv6. Por exemplo, se não pretender impor uma política de utilização na sua rede corporativa, e a sua rede corporativa está hospedada em gamas públicas de IPv6.  
 
 ### <a name="when-will-my-tenant-have-ipv6-traffic"></a>Quando é que o meu inquilino vai ter tráfego IPv6?
 

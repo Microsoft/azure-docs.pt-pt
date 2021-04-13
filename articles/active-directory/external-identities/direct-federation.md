@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff8ac540459ad79a8980542254cc15518959b5c0
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 830119a5b3a7781e8b12e3d4df870f539a2cd63a
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552296"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364911"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com FS AD e fornecedores de terceiros para utilizadores convidados (pré-visualização)
 
@@ -38,7 +38,7 @@ Em qualquer um destes cenários, pode atualizar o método de autenticação de u
 A federação direta está ligada a espaços de nome de domínio, como contoso.com e fabrikam.com. Ao estabelecer uma configuração direta da federação com FS AD ou um IdP de terceiros, as organizações associam um ou mais espaços de nome de domínio a estes IdPs. 
 
 ## <a name="end-user-experience"></a>Experiência do utilizador final 
-Com a federação direta, os utilizadores convidados inscrevem-se no seu inquilino Azure AD usando a sua própria conta organizacional. Quando estão a aceder a recursos partilhados e são solicitados para a entrada, os utilizadores diretos da federação são redirecionados para o seu IdP. Após o sucesso da sação, são devolvidos à Azure AD para aceder aos recursos. As fichas de atualização dos utilizadores da federação direta são válidas por 12 horas, o [comprimento padrão para o token de atualização passthrough](../develop/active-directory-configurable-token-lifetimes.md#exceptions) em Azure AD. Se o IdP federado tiver SSO ativado, o utilizador experimentará SSO e não verá qualquer pedido de inscrição após a autenticação inicial.
+Com a federação direta, os utilizadores convidados inscrevem-se no seu inquilino Azure AD usando a sua própria conta organizacional. Quando estão a aceder a recursos partilhados e são solicitados para a entrada, os utilizadores diretos da federação são redirecionados para o seu IdP. Após o sucesso da sação, são devolvidos à Azure AD para aceder aos recursos. As fichas de atualização dos utilizadores da federação direta são válidas por 12 horas, o [comprimento padrão para o token de atualização passthrough](../develop/active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties) em Azure AD. Se o IdP federado tiver SSO ativado, o utilizador experimentará SSO e não verá qualquer pedido de inscrição após a autenticação inicial.
 
 ## <a name="sign-in-endpoints"></a>Pontos finais de inscrição
 

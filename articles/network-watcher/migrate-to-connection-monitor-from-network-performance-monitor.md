@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: be12a9054fd67b243530ff671c10fa53acafc308
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045489"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366356"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrar para o Monitor de Ligação do Monitor de Desempenho da Rede
 
@@ -43,7 +43,7 @@ A migração ajuda a produzir os seguintes resultados:
     
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Certifique-se de que o Network Watcher está ativado na sua subscrição e na região do espaço de trabalho Log Analytics. 
+* Certifique-se de que o Network Watcher está ativado na sua subscrição e na região do espaço de trabalho Log Analytics. Se não for feito, verá um erro indicando "Antes de tentar migrar, por favor, ative a extensão do observador de rede na subscrição de seleção e localização do espaço de trabalho de LA selecionado."
 * Caso o Azure VM pertença a uma região/subscrição diferente da do espaço de trabalho Log Analytics seja utilizado como ponto final, certifique-se de que o Network Watcher está ativado para essa subscrição e região.   
 * As máquinas virtuais Azure com agentes Log Analytics instalados devem ser ativadas com a extensão do Observador de Rede.
 
@@ -57,6 +57,10 @@ Para migrar os testes do Monitor de Desempenho da Rede para o Monitor de Ligaç�
     
 1. Nas listas de drop-down, selecione a sua subscrição e espaço de trabalho e, em seguida, selecione a funcionalidade NPM que pretende migrar. 
 1. **Selecione Importar** para migrar os testes.
+* Se o NPM não estiver ativado no espaço de trabalho, verá um erro que indica "Não se encontra nenhum config NPM válido". 
+* Se não existirem testes na funcionalidade que escolheu no passo 2, verá um erro indicando que "O espaço de trabalho selecionado não tem <feature> config".
+* Se não houver testes válidos, verá um erro indicando que "O espaço de trabalho selecionado não tem testes válidos"
+* Os seus testes podem conter agentes que já não estão ativos, mas podem ter estado ativos no passado. Verá um erro afirmando "Poucos testes contêm agentes que já não estão ativos. Lista de agentes inativos. {0} Estes agentes podem estar a correr no passado, mas já não estão desligados ou já não estão a funcionar. Ative os agentes e migrar para o Monitor de Ligação. Clique em continuar a migrar os testes que não contêm agentes que não estão ativos."
 
 Após o início da migração, ocorrem as seguintes alterações: 
 * É criado um novo recurso de monitor de ligação.

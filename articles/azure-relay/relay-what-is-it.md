@@ -3,12 +3,12 @@ title: O que é o Azure Relay? | Microsoft Docs
 description: Este artigo fornece uma descrição geral do serviço Azure Relay, que permite desenvolver aplicações na cloud que consomem serviços no local em execução na rede empresarial sem abrir uma ligação de firewall ou efetuar alterações intrusivas à infraestrutura de rede.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b222942394b8a83e6f5d4447aa9ccfb33cdec21
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955387"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314206"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Azure Relay?
 O serviço Azure Relay permite-lhe expor em segurança serviços que são executados na rede empresarial na cloud pública. Pode fazê-lo sem abrir uma porta na sua firewall ou fazer alterações intrusivas na sua infraestrutura de rede corporativa. 
@@ -80,5 +80,5 @@ O diagrama seguinte mostra como os pedidos de reencaminhamento recebidos são pr
 * [Introdução aos Pedidos de HTTP de .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Começar com Node WebSockets](relay-hybrid-connections-node-get-started.md)
 * [Introdução aos Pedidos de HTTP de Node](relay-hybrid-connections-http-requests-node-get-started.md)
-* [FAQ de Reencaminhamento](relay-faq.md)
+* [FAQ de Reencaminhamento](relay-faq.yml)
 

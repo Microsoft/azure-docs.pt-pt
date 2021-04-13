@@ -112,6 +112,8 @@
           href: sap-hana-high-availability-rhel.md
         - name: Configurar a Replicação do Sistema SAP HANA com o ANF no RHEL
           href: sap-hana-high-availability-netapp-files-red-hat.md
+        - name: SAP HANA escala-out HSR com Pacemaker em SLES
+          href: sap-hana-high-availability-scale-out-hsr-suse.md
         - name: Resolver problemas de dimensionamento do SAP HANA e do Pacemaker no SLES
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
         - name: HSR de escalamento horizontal do SAP HANA com Pacemaker no RHEL
@@ -120,11 +122,25 @@
           href: sap-hana-scale-out-standby-netapp-files-suse.md
         - name: "Escalamento horizontal do SAP\_HANA com o nó em modo de espera com o Azure NetApp Files no RHEL"
           href: sap-hana-scale-out-standby-netapp-files-rhel.md
-    - name: Descrição geral da cópia de segurança do SAP HANA
-      href: sap-hana-backup-guide.md
-    - name: Cópia de segurança ao nível do ficheiro do SAP HANA
-      href: sap-hana-backup-file-level.md
-- name: SAP NetWeaver e Business One em Máquinas Virtuais do Azure
+    - name: Backup da base de dados SAP HANA com Backup Azure
+      items:
+        - name: Backup da base de dados SAP HANA em VMs Azure
+          href: ../../../backup/sap-hana-db-about.md
+        - name: Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
+          href: ../../../backup/backup-azure-sap-hana-database.md
+        - name: Restaurar as bases de dados SAP HANA em VMs Azure
+          href: ../../../backup/sap-hana-db-restore.md
+        - name: Gerir e monitorizar
+          href: ../../../backup/sap-hana-db-manage.md
+        - name: Matriz de suporte para cópia de segurança das bases de dados SAP HANA
+          href: ../../../backup/sap-hana-backup-support-matrix.md
+        - name: FAQ – Ressarça as bases de dados SAP HANA em VMs Azure
+          href: ../../../backup/sap-hana-faq-backup-azure-vm.md
+        - name: Backup de resolução de problemas das bases de dados SAP HANA em Azure
+          href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
+        - name: Tutorial - Apoiar as bases de dados SAP HANA num Azure VM
+          href: ../../../backup/tutorial-backup-sap-hana-db.md
+- name: 'SAP NetWeaver, S/4HANA e Business One em Azure Virtual Machines'
   items:
     - name: Lista de verificação de planeamento e implementação de carga de trabalho do SAP
       href: sap-deployment-checklist.md

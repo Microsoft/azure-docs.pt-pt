@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8e1af1848405441088796d2e3b42e7b52eedba8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afc3d1d84d7b50cdaa7031230d7085e9f611c6c6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98065121"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304975"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -49,7 +49,7 @@ A integração dos diretórios no local com o Azure AD torna os utilizadores mai
 * Fornece as capacidades mais recentes para os seus cenários. O Azure AD Connect substitui versões mais antigas de ferramentas de integração de identidade, tais como DirSync e Azure AD Sync. Para obter mais informações, consulte [a comparação de ferramentas de integração de diretórios de identidade híbrida.](plan-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## <a name="why-use-azure-ad-connect-health"></a>Porquê utilizar o Azure AD Connect Health?
-Quando com o Azure AD, os seus utilizadores são mais produtivos porque há uma identidade comum para aceder tanto aos recursos na nuvem como no local. Garantir que o ambiente é fiável, para que os utilizadores possam aceder a estes recursos, torna-se um desafio.  O Azure AD Connect Health ajuda a monitorizar e obter informações sobre a sua infraestrutura de identidade no local, garantindo assim a fiabilidade deste ambiente. É tão simples como instalar um agente em cada um dos servidores de identidade no local.
+Ao autenticar com a Azure AD, os seus utilizadores são mais produtivos porque existe uma identidade comum para aceder tanto aos recursos em nuvem como no local. Garantir que o ambiente é fiável, para que os utilizadores possam aceder a estes recursos, torna-se um desafio.  O Azure AD Connect Health ajuda a monitorizar e obter informações sobre a sua infraestrutura de identidade no local, garantindo assim a fiabilidade deste ambiente. É tão simples como instalar um agente em cada um dos servidores de identidade no local.
 
 O Azure AD Connect Health para AD FS suporta o AD FS 2.0 no Windows Server 2008 R2, no Windows Server 2012, no Windows Server 2012 R2 e no Windows Server 2016. Suporta também a monitorização de servidores proxy do AD FS ou de aplicações Web que fornecem suporte de autenticação para acesso à extranet. Com uma instalação fácil e rápida do Agente de Estado de Funcionamento, o Azure AD Connect Health para AD FS fornece um conjunto de capacidades principais.
 

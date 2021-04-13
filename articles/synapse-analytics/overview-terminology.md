@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 828f37030ae567cacbaad25849b7ba24c561c20c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b4b4e227a0bdfc449c73541dec5d13c1c6697bc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98132771"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313067"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Um espaço de trabalho pode conter qualquer número de **serviço Linked,** esse
 
 **O SQL de Sinapse** é a capacidade de fazer análises baseadas em T-SQL no espaço de trabalho da Synapse. O Synapse SQL tem dois modelos de consumo: dedicados e sem servidor.  Para o modelo dedicado, utilize **piscinas SQL dedicadas.** Um espaço de trabalho pode ter qualquer número destas piscinas. Para utilizar o modelo sem servidor, utilize as **piscinas SQL sem servidor**. Cada espaço de trabalho tem uma destas piscinas.
 
-Dentro do Synapse Studio, você pode trabalhar com piscinas SQL criando e executando **scripts SQL** .
+Dentro do Synapse Studio, você pode trabalhar com piscinas SQL executando **scripts SQL**.
 
 ## <a name="apache-spark-for-synapse"></a>Faísca apache para sinapse
 
@@ -50,7 +50,7 @@ Os oleodutos são como o Azure Synapse fornece integração de dados - permitind
 
 * **Pipeline** são agrupamentos lógicos de atividades que realizam uma tarefa em conjunto.
 * **As atividades** definem ações dentro de um Pipeline para executar dados como copiar dados, executar um Caderno ou um script SQL.
-* **Data Flows** é um tipo específico de atividade que fornece uma experiência sem código para fazer a transformação de dados que usa a Synapse Spark sub-the-covers.
+* **Os fluxos** de dados são um tipo específico de atividade que fornece uma experiência sem código para fazer a transformação de dados que usa a Synapse Spark sub-the-covers.
 * **Trigger** - Executa um oleoduto. Pode ser executado manualmente ou automaticamente (agendar, tropeçar na janela ou no evento)
 * **Conjunto de dados** de integração - Visão nomeada de dados que simplesmente apontam ou referenciam os dados a serem utilizados numa atividade como entrada e saída. Pertence a um Serviço Linked.
 

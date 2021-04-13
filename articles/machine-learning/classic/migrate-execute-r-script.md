@@ -3,17 +3,17 @@ title: 'Estúdio ML (clássico): Migrar para Azure Machine Learning - Executar R
 description: Reconstruir Estúdio (clássico) Executar módulos de script R para executar em Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: ac9ad296029451d624345d8b3bb365d881ba9a84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18d9013b1a5afcf57b54cffc01a15948382210bb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103565290"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311044"
 ---
 # <a name="migrate-execute-r-script-modules-in-studio-classic"></a>Migrar Executar módulos de script R em Estúdio (clássico)
 

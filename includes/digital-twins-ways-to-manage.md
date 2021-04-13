@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 11/11/2020
 ms.author: baanders
-ms.openlocfilehash: 02f6c59a76a3fdb7bd4360570b29d7b40a1aff8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f66101fc1231be2e5ce36dc348b1ca850113867
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102473771"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303769"
 ---
 Este artigo destaca como completar diferentes operações de gestão utilizando as [Gémeas Digitais Azure .NET (C#) **SDK**](/dotnet/api/overview/azure/digitaltwins/management). Também pode criar essas mesmas chamadas de gestão utilizando os outros SDKs de língua descritos em [*Como-a-: Use as APIs e SDKs de gémeos digitais Azure*](../articles/digital-twins/how-to-use-apis-sdks.md).
 

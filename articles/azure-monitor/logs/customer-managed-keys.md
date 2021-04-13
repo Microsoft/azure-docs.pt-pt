@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: fdd62ebfe992398d33d2851a1aa1c66497296b5d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4033421095ead47e2bd1e97c4f2f42672644d7df
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311197"
+ms.locfileid: "107364860"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -136,7 +136,7 @@ Os clusters suportam dois tipos de [identidade geridos](../../active-directory/m
   "identity": {
   "type": "UserAssigned",
     "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
       }
   }
   ```

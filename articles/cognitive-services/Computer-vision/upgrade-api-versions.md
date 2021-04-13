@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7a05b04872b4f957e879d93972edc45e2932d059
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331843"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364095"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Upgrade de Ler v2.x para Ler v3.x
 
-Este guia mostra como atualizar o seu código API de contentor ou nuvem existente de Ler v2.x para Ler v3.0 e v3.1 pré-visualização.
+Este guia mostra como atualizar o seu código API de recipiente ou nuvem existente de Ler v2.x para Ler v3.x.
 
 ## <a name="determine-your-api-path"></a>Determine o seu caminho API
 Utilize a tabela seguinte para determinar a **cadeia de versão** no caminho API com base na versão Ler 3.x para a qual está a migrar.
@@ -32,7 +32,7 @@ Utilize a tabela seguinte para determinar a **cadeia de versão** no caminho API
 |Contentor | Ler 3.0 pré-visualização ou Ler 3.1 pré-visualização | **v3.0** ou **v3.1-preview.2** respectivamente |
 
 
-Em seguida, utilize as seguintes secções para reduzir as suas operações e substitua a **cadeia de versão** no seu percurso API pelo valor da tabela. Por exemplo, para ler as versões de nuvem de **pré-visualização v3.2** e recipiente, atualize o caminho da API para **https://{endpoint}/vision/v3.2-preview.1/read/analyze[?language]**.
+Em seguida, utilize as seguintes secções para reduzir as suas operações e substitua a **cadeia de versão** no seu percurso API pelo valor da tabela. Por exemplo, para ler as versões de nuvem de **pré-visualização v3.2** e recipiente, atualize o caminho da API para **https://{endpoint}/visão/v3.2-preview.1/read/analyze[?language]**.
 
 ## <a name="servicecontainer"></a>Serviço/Contentor
 
@@ -40,7 +40,7 @@ Em seguida, utilize as seguintes secções para reduzir as suas operações e su
 
 |Ler 2.x |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/visão/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**versão>** /read/analyze[?language]|
+|https://{endpoint}/visão/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**versão>** /ler/analisar[?language]|
     
 Um novo parâmetro _linguístico_ opcional está disponível. Se não conhece a linguagem do seu documento, ou pode ser multilíngue, não o inclua. 
 
@@ -48,7 +48,7 @@ Um novo parâmetro _linguístico_ opcional está disponível. Se não conhece a 
 
 |Ler 2.x |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/visão/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<versão **>** /read/analyzeResults/{operationId}|
+|https://{endpoint}/visão/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<**versão>** /read/analyzeResults/{operationId}|
 
 ### <a name="get-read-operation-result-status-flag"></a>`Get Read Operation Result` bandeira de estado
 
@@ -69,7 +69,7 @@ Note as seguintes alterações ao json:
 * O ângulo da página `clockwiseOrientation` foi renomeado `angle` para e o intervalo foi alterado de 0 - 360 graus para -180 a 180 graus. Dependendo do seu código, pode ou não ter de fazer alterações, uma vez que a maioria das funções matemáticas podem lidar com qualquer um dos intervalos.
 
 A API v3.0 também introduz as seguintes melhorias que pode opcionalmente alavancar:
-* `createdDateTime` e `lastUpdatedDateTime` são adicionados para que possa acompanhar a duração do processamento. Consulte a documentação para mais detalhes. 
+* `createdDateTime` e `lastUpdatedDateTime` são adicionados para que possa acompanhar a duração do processamento. Veja a documentação para obter mais informações. 
 * `version` diz-lhe a versão da API usada para gerar resultados
 * Uma palavra por `confidence` palavra foi adicionada. Este valor é calibrado de modo que um valor de 0,95 significa que há uma probabilidade de 95% de o reconhecimento estar correto. A pontuação de confiança pode ser usada para selecionar que texto enviar para revisão humana. 
     
@@ -178,7 +178,7 @@ Em v3.0, foi ajustado:
 
 |Reconhecer Texto 2.x |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/recogniseText[?mode]**|https://{endpoint}/vision/<**versão>** /read/analyze[?language]|
+|https://{endpoint}/visão/**v2.0/reconhecerText[?mode]**|https://{endpoint}/vision/<**versão>** /ler/analisar[?language]|
     
 O parâmetro _do modo_ não é suportado em `Read` . O texto manuscrito e impresso será automaticamente suportado.
     
@@ -188,7 +188,7 @@ Um novo parâmetro _linguístico_ opcional está disponível em v3.0. Se não co
 
 |Reconhecer Texto 2.x |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/<versão **>** /read/analyzeResults/{operationId}|
+|https://{endpoint}/visão/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/<**versão>** /read/analyzeResults/{operationId}|
 
 ### <a name="get-recognize-text-operation-result-status-flags"></a>`Get Recognize Text Operation Result` bandeiras de estado
 Quando a chamada `Get Recognize Text Operation Result` for bem sucedida, devolve um campo de cordas de estado no corpo JSON. 
@@ -207,7 +207,7 @@ Note as seguintes alterações ao json:
 * Para obter a raiz para a matriz de página, mude a hierarquia json de `recognitionResult` `analyzeResult` / `readResults` . A linha por página e as palavras json hierarquia permanecem inalteradas, pelo que não são necessárias alterações de código.
 
 A API v3.0 também introduz as seguintes melhorias que pode opcionalmente alavancar. Consulte a referência API para mais detalhes:
-* `createdDateTime` e `lastUpdatedDateTime` são adicionados para que possa acompanhar a duração do processamento. Consulte a documentação para mais detalhes. 
+* `createdDateTime` e `lastUpdatedDateTime` são adicionados para que possa acompanhar a duração do processamento. Veja a documentação para obter mais informações. 
 * `version` diz-lhe a versão da API usada para gerar resultados
 * Uma palavra por `confidence` palavra foi adicionada. Este valor é calibrado de modo que um valor de 0,95 significa que há uma probabilidade de 95% de o reconhecimento estar correto. A pontuação de confiança pode ser usada para selecionar que texto enviar para revisão humana. 
 * `angle` orientação geral do texto no sentido dos ponteiros do relógio, medido em graus entre (-180, 180].

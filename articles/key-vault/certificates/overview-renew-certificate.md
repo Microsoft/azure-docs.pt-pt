@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0492575bef93a1b08d48475c3ab32ecbc7becd6e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726367"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364299"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renove os seus certificados Azure Key Vault
 
@@ -82,7 +82,7 @@ Azure Key Vault também lida com a autoestima de certificados auto-assinados. Pa
 
 **Como posso testar a característica de autorotação do certificado?**
 
-Crie um certificado com uma validade de **1 mês,** e, em seguida, desemote a ação vitalícia para rotação em **1%.** Esta definição rodará o certificado a cada 7,2 horas.
+Crie um certificado auto-assinado com uma validade de **1 mês,** e, em seguida, descreva a ação vitalícia para rotação em **1%.** Deverá ver o histórico da versão do certificado a ser criado ao longo dos próximos dias.
   
 **As etiquetas serão replicadas após a atribuição do certificado?**
 

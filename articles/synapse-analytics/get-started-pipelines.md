@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 22631cfd872ed226fc78a97d38c423fbc300f78e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 05c33db130bfa3fcc1a4f5d75935294fcc0ba1d7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304719"
+ms.locfileid: "107365472"
 ---
 # <a name="integrate-with-pipelines"></a>Integrar-se com oleodutos
 
@@ -38,10 +38,11 @@ Neste tutorial, você vai aprender a integrar oleodutos e atividades usando o Sy
 1. Selecione **Publicar Tudo**. 
 
 
-## <a name="monitor-pipeline"></a>Monitorizar o pipeline
+## <a name="monitor-pipeline-execution"></a>Monitorizar a execução do gasoduto
 
 1. Uma vez publicado o gasoduto, para fazer o gasoduto funcionar imediatamente, sem esperar pela hora seguinte, **selecione Adicione o gatilho**  >  **agora**.
-1. No Synapse Studio, vá ao **centro** monitor, e selecione **Pipeline corre** para monitorizar o progresso da execução do gasoduto.
+1. No Estúdio Synapse, vá **ao** centro monitor.
+1. O **Pipeline select funciona** para monitorizar o progresso da execução do gasoduto.
 
 
 

@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: daa0a6b15d4c187efdea96fd8067b08c89fa0e82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d1b05560c02f3bf4de199a3d5cad48907ee16fb
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599872"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365812"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA em VMs Azure em Red Hat Enterprise Linux
 
@@ -559,6 +559,71 @@ Os passos desta secção utilizam os seguintes prefixos:
 
 Siga os passos na configuração do [Pacemaker no Red Hat Enterprise Linux em Azure](high-availability-guide-rhel-pacemaker.md) para criar um cluster pacemaker básico para este servidor HANA.
 
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implementar o gancho de replicação do sistema Python SAPHanaSR
+
+Este é um passo importante para otimizar a integração com o cluster e melhorar a deteção quando um cluster falha. É altamente recomendado configurar o gancho de pitão SAPHanaSR.    
+
+1. **[A]** Instale o "gancho de replicação do sistema" HANA. O gancho precisa de ser instalado em ambos os nós HANA DB.           
+
+   > [!TIP]
+   > O gancho de pitão só pode ser implementado para HANA 2.0.        
+
+   1. Prepare o gancho como `root` .  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Pare hana em ambos os nós. Execute como <sid \> adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Ajuste `global.ini` em cada nó de cluster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** O cluster requer a configuração dos sudoers em cada nó de cluster para <\> adm do sid. Neste exemplo que é conseguido através da criação de um novo ficheiro. Execute os comandos como `root` .    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Inicie SAP HANA em ambos os nós. Execute como <sid \> adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Verifique a instalação do gancho. Execute como <\> adm sid no site de replicação do sistema HANA ativo.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+Para obter mais detalhes sobre a implementação do gancho de replicação do sistema SAP HANA consulte [Ativar o gancho do fornecedor SAP HA/DR](https://access.redhat.com/articles/3004101#enable-srhook).  
+ 
 ## <a name="create-sap-hana-cluster-resources"></a>Criar recursos de cluster SAP HANA
 
 Instale os agentes de recurso SAP HANA em **todos os nós**. Certifique-se de que ativa um repositório que contenha a embalagem. Não é necessário ativar repositórios adicionais, se utilizar uma imagem ativada pelo RHEL 8.x HA.  
@@ -686,7 +751,6 @@ Para proceder a passos adicionais no fornecimento de segundo IP virtual, certifi
    - Introduza o nome da nova regra do balançador de carga (por exemplo, **hana-secondarylb**).
    - Selecione o endereço IP frontal, o pool back-end e a sonda de saúde que criou anteriormente (por exemplo, **hana-secondaryIP,** **hana-backend** e **hana-secondaryhp).**
    - Selecione **portas HA**.
-   - Aumente o **tempo de 30** minutos.
    - Certifique-se de que ativa o **IP flutuante**.
    - Selecione **OK**.
 

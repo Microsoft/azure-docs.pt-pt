@@ -2242,6 +2242,8 @@
           href: iprova-provisioning-tutorial.md
         - name: Jive
           href: jive-provisioning-tutorial.md
+        - name: Jostle
+          href: jostle-provisioning-tutorial.md
         - name: Juno Journey
           href: juno-journey-provisioning-tutorial.md
         - name: Keeper Password Manager & Digital Vault

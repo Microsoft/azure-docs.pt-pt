@@ -4,15 +4,15 @@ description: Saiba mais sobre a loja transacional Azure Cosmos DB (baseada em li
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eaabc663ba243423bddf7ef6abfe41182e06b4f9
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046218"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364614"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é a loja analítica Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -134,6 +134,7 @@ Há dois modos de representação do esquema no arquivo analítico. Estes modos 
 A representação de esquema bem definida cria uma simples representação tabular dos dados schema-agnósticos na loja transacional. A representação de esquemas bem definidas tem as seguintes considerações:
 
 * Uma propriedade tem sempre o mesmo tipo em vários itens.
+* Só permitimos 1 alteração tipo, de nulo para qualquer outro tipo de dados. A primeira ocorrência não nulo define o tipo de dados da coluna.
 
   * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque às `"a"` vezes é uma corda e às vezes um número. Neste caso, a loja analítica regista o tipo de dados `"a"` como o tipo de dados do primeiro item que ocorre durante o tempo de vida do `“a”` recipiente. O documento ainda será incluído na loja analítica, mas os itens onde o tipo de `"a"` dados difere não.
   

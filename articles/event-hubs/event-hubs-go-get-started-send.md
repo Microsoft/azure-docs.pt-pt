@@ -3,12 +3,12 @@ title: 'Quickstart: Enviar e receber eventos usando Go - Azure Event Hubs'
 description: 'Quickstart: Este artigo fornece uma passagem para a criação de uma aplicação Go que envia eventos a partir de Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ededd042dadd6059bd7b2d689cff78fe1bd6af0b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87002459"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311095"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Quickstart: Enviar eventos para ou receber eventos de Centros de Eventos usando Go
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -279,7 +279,7 @@ Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Funcionalidades e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
-- [FAQ dos Hubs de Eventos](event-hubs-faq.md)
+- [FAQ dos Hubs de Eventos](event-hubs-faq.yml)
 
 
 <!-- Links -->

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9652e940674ec7580b006cd38df2a7d17014f939
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607597"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309990"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Resolução de problemas partilhadas galerias de imagens em Azure
 
@@ -303,6 +303,14 @@ Se tiver problemas em realizar quaisquer operações em galerias de imagem parti
 **Causa**: A definição de imagem utilizada para implantar a máquina virtual não contém quaisquer versões de imagem que estejam incluídas nas últimas.  
 **Solução alternativa**: Certifique-se de que existe pelo menos uma versão de imagem que tenha "Excluir do mais recente" definido para Falso. 
 
+**Mensagem**: *A imagem da galeria /subscrições/<subscriçãoID \> /resourceGroup/<Grupo \> /fornecedores/Microsoft.Compute/galleries/<GalleryName \> /images/<imageName \> /versões/<VersãoNumber \> não está disponível na \> região <. Entre em contato com o proprietário da imagem para replicar esta região, ou altere a região solicitada.*  
+**Causa**: A versão selecionada para implantação não existe ou não tem uma réplica na região indicada.  
+**Resumo :** Certifique-se de que o nome do recurso de imagem está correto e que existe pelo menos uma réplica na região indicada. 
+
+**Mensagem**: *A imagem da galeria /subscrições/<subscriçãoID \> /resourceGroup/<resourceGroup \> /providers/Microsoft.Compute/galleries/<GalleryName \> /images/<imageName \> não está disponível na \> região <. Entre em contato com o proprietário da imagem para replicar esta região, ou altere a região solicitada.*  
+**Causa**: A definição de imagem selecionada para implantação não tem quaisquer versões de imagem que estejam incluídas nas últimas e também na região indicada.  
+**Solução :** Certifique-se de que existe pelo menos uma versão de imagem na região que tem "Excluir do mais recente" definido para Falso. 
+
 **Mensagem**: *O cliente tem permissão para realizar ações 'Microsoft.Compute/galleries/images/versions/read' no âmbito <recursosID \> , no entanto o atual inquilino <inquilinoID \> não está autorizado a aceder a subscrição ligada <subscriçãoID \> .*  
 **Causa**: A máquina virtual ou conjunto de escala foi criado através de uma imagem SIG em outro inquilino. Tentou fazer uma alteração na máquina virtual ou no conjunto de escala, mas não tem acesso à subscrição que detém a imagem.  
 **Solução alternativa**: Contacte o proprietário da subscrição da versão de imagem para conceder acesso à versão de imagem.
@@ -318,10 +326,6 @@ Se tiver problemas em realizar quaisquer operações em galerias de imagem parti
 **Mensagem**: *Falta o parâmetro obrigatório 'osProfile' (nulo).*  
 **Causa**: O VM é criado a partir de uma imagem generalizada, e falta-lhe o nome de utilizador, palavra-passe ou ssh de administração. Como as imagens generalizadas não retêm o nome de utilizador, palavra-passe ou teclas SSH, estes campos devem ser especificados durante a criação de um conjunto de VM ou escala.  
 **Solução :** Especifique o nome de utilizador, palavra-passe ou SSH ou utilize uma versão de imagem especializada.
-
-**Mensagem**: *Não é possível criar a Versão imagem da Galeria a partir de: <recursosID \> uma vez que o Estado OS na imagem da galeria-mãe ('Specialized') não é 'generalizado'.*  
-**Causa**: A versão de imagem é criada a partir de uma fonte generalizada, mas a sua definição de pai é especializada.  
-**Solução alternativa**: Ou crie a versão de imagem utilizando uma fonte especializada ou utilize uma definição de pai que seja generalizada.
 
 **Mensagem**: Não é possível atualizar o *conjunto de escala de máquina virtual <vmssName como o estado atual do SISTEMA do Conjunto de Escala \> VM é generalizado, o que é diferente do estado de imagem de imagem de galeria atualizado que é Especializado.*  
 **Causa**: A imagem de origem atual para o conjunto de escala é uma imagem de origem generalizada, mas está a ser atualizada com uma imagem de origem especializada. A imagem de origem atual e a nova imagem de origem para um conjunto de escala devem ser do mesmo estado.  

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ac9cef77569dffe461f7711195c5638e831aa218
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 28072184d47beb32dc03e0d6ba52328bfceb5b73
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110109"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364877"
 ---
 # <a name="calling-sdk-overview"></a>Chamando a visão geral da SDK
 
@@ -68,12 +68,12 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 |                   | Obtenha a lista de câmeras                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Definir câmera                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Obtenha uma câmera selecionada                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Obtenha a lista de microfones                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Definir microfone                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Obtenha o microfone selecionado                                                                                             | ✔️   | ✔️            | ✔️
-|                   | Obtenha a lista de oradores                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Definir alto-falante                                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Obtenha o orador selecionado                                                                                                | ✔️   | ✔️            | ✔️
+|                   | Obtenha a lista de microfones                                                                                                 | ✔️   | ❌           |❌  
+|                   | Definir microfone                                                                                                      | ✔️   | ❌           | ❌  
+|                   | Obtenha o microfone selecionado                                                                                             | ✔️   | ❌           | ❌  
+|                   | Obtenha a lista de oradores                                                                                                   | ✔️   | ❌           | ❌  
+|                   | Definir alto-falante                                                                                                         | ✔️   | ❌           | ❌  
+|                   | Obtenha o orador selecionado                                                                                                | ✔️   | ❌           | ❌  
 | Renderização de vídeo   | Rendere um único vídeo em muitos lugares (câmara local ou fluxo remoto)                                                  | ✔️   | ✔️            | ✔️
 |                   | Definir / atualizar o modo de escala                                                                                           | ✔️   | ✔️            | ✔️
 |                   | Renderizar fluxo de vídeo remoto                                                                                          | ✔️   | ✔️            | ✔️

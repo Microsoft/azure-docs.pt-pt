@@ -1,26 +1,21 @@
 ---
-title: Windows Virtual Desktop MSIX app anexar pré-visualização do portal - Azure
+title: Portal de anexação de aplicativos VIRTUAL Desktop MSIX do Windows - Azure
 description: Como configurar o anexo de aplicações MSIX para o Windows Virtual Desktop utilizando o portal Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a849b65fd25e6943925ffa245430cd8a27529fdb
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 0d7598e332539b8203d55bbcb1cf497811c32540
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448428"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366560"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurar a anexação de aplicações MSIX com o portal do Azure
 
-> [!IMPORTANT]
-> O anexo de aplicações MSIX encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Este artigo irá acompanhá-lo sobre como configurar o anexo de aplicações MSIX (pré-visualização) num ambiente de Ambiente de Trabalho Virtual do Windows.
+Este artigo irá acompanhá-lo sobre como configurar a aplicação MSIX anexada num ambiente de desktop virtual do Windows.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -194,7 +189,7 @@ Para alterar o estado do pacote com um pacote de atualização:
 
 1. Vá à sua piscina de anfitriões e selecione **pacotes MSIX**. Você deve ver uma lista de todos os pacotes MSIX existentes dentro da piscina de anfitrião.
 
-2. Selecione o nome do pacote cujo estado pretende alterar da lista de pacotes MSIX. Isto abrirá o **separador pacote 'Actualização'.**
+2. Selecione o nome do pacote cujo estado pretende alterar da lista de pacotes MSIX. Isto abrirá o **separador pacote 'Atualização'.**
 
 3. Alternar o interruptor **do Estado** para **Inativo** ou **Ativo** e, em seguida, selecione **Save.**
 

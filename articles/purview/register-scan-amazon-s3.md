@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 542b6580994a2054526f0ddbb3ad93dc27c28fcc
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a0559028192b0a99aeffd45a3b2896f9c9d159be
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107657"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310206"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector Azure Purview para Amazon S3
 
@@ -116,9 +116,30 @@ Este procedimento descreve como criar uma nova credencial de visão para usar ao
 
     **Selecione Criar** quando terminar de criar a credencial.
 
-Para obter mais informações sobre as credenciais de Purview, consulte a [documentação de pré-visualização pública do Azure Purview](manage-credentials.md).
+1. Se ainda não o fez, copie e cole os valores **de ID** da conta da Microsoft e **de ID Externo** para utilização ao criar uma nova [função AWS para o Purview](#create-a-new-aws-role-for-purview), que é o seu próximo passo.
+
+Para obter mais informações sobre as credenciais de Competência, consulte [as credenciais para autenticação de origem em Azure Purview](manage-credentials.md).
 
 ### <a name="create-a-new-aws-role-for-purview"></a>Criar um novo papel AWS para a Purga
+
+Este procedimento requer que introduza os valores para o seu ID de Conta Azure e ID Externo ao criar a sua função AWS.
+
+Se não tiver estes valores, localize-os primeiro na sua [credencial de Purview](#create-a-purview-credential-for-your-aws-bucket-scan).
+
+**Para localizar o seu ID de Conta microsoft e iD externo:**
+
+1. Em Purview, navegue para o Centro de Segurança de **Gestão**  >  **e**  >  **aceda às Credenciais** de Acesso.
+
+1. Selecione a credencial que criou para a sua verificação do [balde AWS](#create-a-purview-credential-for-your-aws-bucket-scan)e, em seguida, na barra de ferramentas, selecione **Editar**.
+
+1. No painel **de credenciais de edição** que aparece à direita, copie os valores **de ID** de conta da Microsoft e **iD externo** para um ficheiro separado, ou faça-os à mão para colar no campo relevante em AWS.
+
+    Por exemplo:
+
+    [![Localize os valores de ID da sua conta microsoft e valores de ID Externo. ](./media/register-scan-amazon-s3/locate-account-id-external-id.png)](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
+
+
+**Para criar o seu papel AWS para a Purga:**
 
 1.  Abra a sua consola **Amazon Web Services,** e em **Segurança, Identidade e Conformidade,** selecione **IAM**.
 
@@ -129,12 +150,8 @@ Para obter mais informações sobre as credenciais de Purview, consulte a [docum
     |Campo  |Descrição  |
     |---------|---------|
     |**ID da Conta**     |    Introduza o seu ID da conta microsoft. Por exemplo: `615019938638`     |
-    |**ID externo**     |   Em opções, **selecione Requerer ID externo...** e, em seguida, insira o seu ID Externo no campo designado. <br>Por exemplo: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`    <br><br>Pode encontrar esta identificação externa quando.  |
+    |**ID externo**     |   Em opções, **selecione Requerer ID externo...** e, em seguida, insira o seu ID Externo no campo designado. <br>Por exemplo: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
-
-    > [!NOTE]
-    > Pode encontrar os valores tanto para o **ID** da Conta da Microsoft como para o **ID Externo** na área de Credenciais **do Centro de Gestão** de  >  **Alças,** onde [criou as suas credenciais de 'Purview'.](#create-a-purview-credential-for-your-aws-bucket-scan)
-    >
 
     Por exemplo:
 

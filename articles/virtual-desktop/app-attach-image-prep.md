@@ -1,25 +1,21 @@
 ---
-title: Windows Virtual Desktop preparar app MSIX anexar pré-visualização de imagem - Azure
+title: Windows Virtual Desktop preparar app MSIX anexar imagem - Azure
 description: Como criar uma aplicação MSIX anexar imagem para um conjunto de anfitriões virtual do Windows Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a2d909d04c38a7d6bad42020175cbbbfcfd7bf9f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 443f117907381862639564dfbf9752562f4a3564
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448360"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363670"
 ---
 # <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Prepare uma imagem MSIX para o Windows Virtual Desktop
 
-> [!IMPORTANT]
-> O anexo de aplicações MSIX encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-O anexo de aplicações MSIX (pré-visualização) é uma solução de camadas de aplicação que permite anexar dinamicamente as aplicações de um pacote MSIX a uma sessão de utilizador. O sistema de pacotes MSIX separa as aplicações do sistema operativo, facilitando a construção de imagens para máquinas virtuais. Os pacotes MSIX também lhe dão um maior controlo sobre quais as aplicações que os seus utilizadores podem aceder nas suas máquinas virtuais. Pode até separar as aplicações da imagem principal e dá-las mais tarde aos utilizadores.
+O anexo de aplicações MSIX é uma solução de camadas de aplicação que permite anexar dinamicamente as aplicações de um pacote MSIX a uma sessão de utilizador. O sistema de pacotes MSIX separa as aplicações do sistema operativo, facilitando a construção de imagens para máquinas virtuais. Os pacotes MSIX também lhe dão um maior controlo sobre quais as aplicações que os seus utilizadores podem aceder nas suas máquinas virtuais. Pode até separar as aplicações da imagem principal e dá-las mais tarde aos utilizadores.
 
 ## <a name="create-a-vhd-or-vhdx-package-for-msix"></a>Crie um pacote VHD ou VHDX para MSIX
 

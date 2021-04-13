@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 3df78d6b53f8e8739307e9b870aa03d76bfd6771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 936789ef292ac6d06b9fd3ac1e9a81219f39e4ef
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718612"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307831"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -185,7 +185,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Sysmon (Evento) | [Ligar Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conecte eventos do Windows](../azure-monitor/agents/data-sources-windows-events.md) <br> [Pegue o Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | A coleção Sysmon não é instalada por defeito em máquinas virtuais. Para obter mais informações sobre como instalar o Agente Sysmon, consulte [sysmon.](/sysinternals/downloads/sysmon) |
 | Data de Configuração  | [Automatizar o inventário VM](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfiguraçãoChange  | [Automatizar o rastreio de VM](../automation/change-tracking/overview.md) | &#10007; | |
-| F5 BIG-IP | [Ligar a F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
+| F5 BIG-IP | [Ligar a F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10003; | |
 | McasshadowItReporting  |  | &#10007; | |
 | Barracuda_CL | [Ligar a Barracuda](connect-barracuda.md) | &#10003; | |
 

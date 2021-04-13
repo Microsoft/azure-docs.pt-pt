@@ -4,13 +4,13 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 85be4100d62971ef7f69840ae3e9b117fbc3c047
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466502"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305230"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Resolver problemas relacionados com os alertas de métricas do Azure Monitor 
 
@@ -91,9 +91,10 @@ Se quiser receber um alerta sobre uma métrica específica, mas não o vir ao cr
 Se pretende alertar para [valores de dimensão específicas de uma métrica,](./alerts-metric-overview.md#using-dimensions)mas não conseguir encontrar estes valores, note o seguinte:
 
 1. Pode demorar alguns minutos até os valores de dimensão aparecerem na lista de **Valores de dimensão**
-1. Os valores de dimensão apresentados baseiam-se nos dados das métricas recolhidos no último dia
-1. Se o valor da dimensão ainda não tiver sido emitido ou ainda não for apresentado, poderá utilizar a opção “Adicionar valor personalizado” para adicionar um valor de dimensão personalizado
-1. Se quiser alertar sobre todos os valores possíveis de uma dimensão (incluindo valores futuros), escolha a opção 'Selecione todos os valores atuais e futuros'
+2. Os valores de dimensão apresentados baseiam-se nos dados das métricas recolhidos no último dia
+3. Se o valor da dimensão ainda não tiver sido emitido ou ainda não for apresentado, poderá utilizar a opção “Adicionar valor personalizado” para adicionar um valor de dimensão personalizado
+4. Se quiser alertar sobre todos os valores possíveis de uma dimensão (incluindo valores futuros), escolha a opção 'Selecione todos os valores atuais e futuros'
+5. As dimensões das métricas personalizadas dos recursos de Insights de Aplicação são desligadas por padrão. Para ligar a coleção de dimensões para estas métricas personalizadas, consulte [aqui.](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Regras de alerta métricas ainda definidas num recurso eliminado 
 
@@ -225,9 +226,9 @@ Certifique-se de que está a utilizar os comandos CLI certos para alertas métri
 
 Para criar uma regra de alerta métrico, terá de ter as seguintes permissões:
 
-- Leia a permissão sobre o recurso alvo da regra de alerta
+- permissão de Ler no recurso-alvo da regra de alerta
 - Escreva a permissão no grupo de recursos em que a regra de alerta é criada (se estiver a criar a regra de alerta a partir do portal Azure, a regra de alerta é criada por padrão no mesmo grupo de recursos em que reside o recurso-alvo)
-- Leia a permissão em qualquer grupo de ação associado à regra de alerta (se aplicável)
+- permissão de Ler em qualquer grupo de ação associado à regra de alerta (se aplicável)
 
 
 ## <a name="naming-restrictions-for-metric-alert-rules"></a>Restrições de nomeação para regras de alerta métrico

@@ -1,27 +1,23 @@
 ---
-title: Windows Virtual Desktop configurar ficheiros de partilha de aplicativos MSIX anexa pré-visualização - Azure
+title: Windows Virtual Desktop configurar app de partilha de ficheiros MSIX - Azure
 description: Como configurar uma partilha de ficheiros para o anexo de aplicações MSIX para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1e7a956b358d486250fbfc26da141c47c0238b56
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d8aaa8d5013c426ac1ab6b367309c51be4929cee
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448394"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366407"
 ---
-# <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configurar uma partilha de ficheiros para o anexo de aplicações MSIX (pré-visualização)
-
-> [!IMPORTANT]
-> O anexo de aplicações MSIX encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="set-up-a-file-share-for-msix-app-attach"></a>Crie uma partilha de ficheiros para o anexo de aplicações MSIX
 
 Todas as imagens MSIX devem ser armazenadas numa partilha de rede que pode ser acedida pelos utilizadores numa piscina de anfitrião com permissões apenas de leitura.
 
-O anexo de aplicações MSIX (pré-visualização) não tem qualquer dependência do tipo de tecido de armazenamento que a partilha de ficheiros utiliza. As considerações para a partilha de anexação da app MSIX são as mesmas que para uma partilha FSLogix. Para saber mais sobre os requisitos de armazenamento, consulte [as opções de armazenamento de recipientes de perfil FSLogix no Windows Virtual Desktop](store-fslogix-profile.md).
+O anexo de aplicações MSIX não tem qualquer dependência do tipo de tecido de armazenamento que a partilha de ficheiros utiliza. As considerações para a partilha de anexação da app MSIX são as mesmas que para uma partilha FSLogix. Para saber mais sobre os requisitos de armazenamento, consulte [as opções de armazenamento de recipientes de perfil FSLogix no Windows Virtual Desktop](store-fslogix-profile.md).
 
 ## <a name="performance-requirements"></a>Requisitos de desempenho
 

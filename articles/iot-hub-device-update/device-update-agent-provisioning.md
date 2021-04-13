@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: a5f4b23196a04d88e4329cb5ebf26d0b0a477444
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 812de4850c6c3577346915a0072ea11c60f7ba73
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307272"
+ms.locfileid: "107365455"
 ---
 # <a name="device-update-agent-provisioning"></a>Provisionamento do agente de atualização do dispositivo
 
@@ -173,8 +173,8 @@ O agente de Atualização do Dispositivo também pode ser configurado sem o serv
         > [!Important]
         > Não adicione aspas à volta da cadeia de ligação.
         ```shell
-        - connection_string=<ADD CONNECTION STRING HERE>
-       ```
+        connection_string=<ADD CONNECTION STRING HERE>
+        ```
        
     1. Entra e salva.
     

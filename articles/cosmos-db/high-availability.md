@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fd704d45aa7dc10835a205f12ce26fc01a7ea44f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ac1e77d99707cdaa34ef42eb9b327a62f4e864c0
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584504"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365370"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como é que a Azure Cosmos DB fornece alta disponibilidade
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,6 +64,9 @@ Para os raros casos de paragem regional, a Azure Cosmos DB garante que a sua bas
 * As contas multi-regiões configuradas com regiões de escrita múltipla estarão altamente disponíveis tanto para as gravações como para as leituras. As falhas regionais são detetadas e tratadas no cliente DB da Azure Cosmos. Também são instantâneos e não requerem alterações na aplicação.
 
 * As contas de uma região única podem perder disponibilidade na sequência de uma paragem regional. É sempre recomendado criar **pelo menos duas regiões** (de preferência, pelo menos duas regiões de escrita) com a sua conta Azure Cosmos para garantir uma elevada disponibilidade em todos os momentos.
+
+> [!IMPORTANT]
+> Ao utilizar APIs SQL, é necessário configurar o Cosmos DB SDK para utilizar todas as regiões de leitura especificadas para tirar partido do aumento da disponibilidade. Consulte [este artigo](troubleshoot-sdk-availability.md) para mais informações.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-write-region-outage"></a>Contas multi-regiões com uma região de escrita única (interrupção da região de escrita)
 
@@ -145,7 +148,7 @@ As Zonas de Disponibilidade podem ser ativadas através de:
 
 * Dentro de um ambiente de base de dados distribuído globalmente, existe uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma paralisação a nível regional. À medida que desenvolve o seu plano de continuidade de negócios, precisa entender o tempo máximo aceitável antes que a aplicação recupere totalmente após um evento disruptivo. O tempo necessário para uma aplicação de recuperação total é conhecido como objetivo do tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes que a aplicação pode tolerar perder ao recuperar após um evento disruptivo. O período de tempo de atualizações que poderá perder é conhecido como o objetivo de ponto de recuperação (RPO). Para ver o RPO e o RTO para Azure Cosmos DB, consulte [os níveis de consistência e durabilidade dos dados](./consistency-levels.md#rto)
 
-## <a name="what-to-expect-during-a-region-outage"></a>O que esperar durante uma paragem na região
+## <a name="what-to-expect-during-a-cosmos-db-region-outage"></a>O que esperar durante uma paragem na região de Cosmos DB
 
 Para contas de uma região única, os clientes sentirão perda de leitura e disponibilidade de escrita.
 
@@ -153,9 +156,9 @@ As contas multi-regiões experimentarão comportamentos diferentes dependendo da
 
 | Escrever regiões | Ativação pós-falha automática | O que esperar | O que fazer |
 | -- | -- | -- | -- |
-| Região de escrita única | Não ativado | Em caso de paralisação numa região de leitura, todos os clientes redirecionarão para outras regiões. Sem ler ou escrever perda de disponibilidade. Sem perda de dados. <p/> Em caso de uma paragem na região de escrita, os clientes sentirão a perda de disponibilidade. A perda de dados dependerá do nível de constisância selecionado. <p/> Cosmos DB restabelecerá a disponibilidade de escrita automaticamente quando a paralisação terminar. | Durante a paralisação, certifique-se de que existe capacidade suficiente nas restantes regiões para apoiar a leitura do tráfego. <p/> *Não* desencadeie uma falha manual durante a paragem, uma vez que não terá sucesso. <p/> Quando a paralisação terminar, rejuste a capacidade a provisionada conforme apropriado. |
-| Região de escrita única | Ativado | Em caso de paralisação numa região de leitura, todos os clientes redirecionarão para outras regiões. Sem ler ou escrever perda de disponibilidade. Sem perda de dados. <p/> Em caso de uma paragem na região de escrita, os clientes sentirão a perda de disponibilidade até que a Cosmos DB eleja automaticamente uma nova região como nova região de escrita de acordo com as suas preferências. A perda de dados dependerá do nível de constisância selecionado. | Durante a paralisação, certifique-se de que existe capacidade suficiente nas restantes regiões para apoiar a leitura do tráfego. <p/> *Não* desencadeie uma falha manual durante a paragem, uma vez que não terá sucesso. <p/> Quando a paralisação terminar, poderá recuperar os dados não replicados na região falhada do feed de [conflitos,](how-to-manage-conflicts.md#read-from-conflict-feed)mover a região de escrita de volta para a região original e reajustar a capacidade a provisionada conforme apropriado. |
-| Múltiplas regiões de escrita | Não aplicável | Sem ler ou escrever perda de disponibilidade. <p/> Perda de dados por nível de consistência selecionado. | Durante a paralisação, assegurará a capacidade suficiente nas restantes regiões para apoiar o tráfego adicional. <p/> Quando a paralisação terminar, poderá recuperar os dados não replicados na região falhada a partir do feed de [conflitos](how-to-manage-conflicts.md#read-from-conflict-feed) e reajustar a capacidade a provisionada conforme apropriado. |
+| Região de escrita única | Não ativado | Em caso de paralisação numa região de leitura, todos os clientes redirecionarão para outras regiões. Sem ler ou escrever perda de disponibilidade. Sem perda de dados. <p/> Em caso de uma paragem na região de escrita, os clientes sentirão a perda de disponibilidade. Se não for selecionado um nível de consistência forte, alguns dados podem não ter sido replicados nas restantes regiões ativas. Isto depende do nível de consistissíria selecionado como descrito [nesta secção](consistency-levels.md#rto). Se a região afetada sofrer perdas permanentes de dados, podem perder-se dados não recíprocos. <p/> Cosmos DB restabelecerá a disponibilidade de escrita automaticamente quando a paralisação terminar. | Durante a paralisação, certifique-se de que existem RUs suficientes nas restantes regiões para apoiar a leitura do tráfego. <p/> *Não* desencadeie uma falha manual durante a paragem, uma vez que não terá sucesso. <p/> Quando a paralisação terminar, reajuste as RUs provisões conforme apropriado. |
+| Região de escrita única | Ativado | Em caso de paralisação numa região de leitura, todos os clientes redirecionarão para outras regiões. Sem ler ou escrever perda de disponibilidade. Sem perda de dados. <p/> Em caso de uma paragem na região de escrita, os clientes sentirão a perda de disponibilidade até que a Cosmos DB eleja automaticamente uma nova região como nova região de escrita de acordo com as suas preferências. Se não for selecionado um nível de consistência forte, alguns dados podem não ter sido replicados nas restantes regiões ativas. Isto depende do nível de consistissíria selecionado como descrito [nesta secção](consistency-levels.md#rto). Se a região afetada sofrer perdas permanentes de dados, podem perder-se dados não recíprocos. | Durante a paralisação, certifique-se de que existem RUs suficientes nas restantes regiões para apoiar a leitura do tráfego. <p/> *Não* desencadeie uma falha manual durante a paragem, uma vez que não terá sucesso. <p/> Quando a paralisação terminar, poderá mover a região de escrita de volta para a região original, e reajustar as RUs previstas conforme apropriado. As contas que utilizam APIs SQL também podem recuperar os dados não replicados na região falhada a partir do feed de [conflitos](how-to-manage-conflicts.md#read-from-conflict-feed). |
+| Múltiplas regiões de escrita | Não aplicável | Sem ler ou escrever perda de disponibilidade. <p/> Os dados recentemente atualizados na região falida podem ser inaportáveis nas restantes regiões ativas. Os níveis de prefixo e consistência da sessão eventualmente consistentes garantem uma estagnação de <15mins. A estagnação limitada garante menos de atualizações K ou T segundos, dependendo da configuração. Se a região afetada sofrer perdas permanentes de dados, podem perder-se dados não recíprocos. | Durante a paralisação, certifique-se de que existem RUs suficientes nas restantes regiões para apoiar o tráfego adicional. <p/> Quando a paralisação terminar, poderá reajustar as RUs a provisionadas conforme apropriado. Se possível, a Cosmos DB recuperará automaticamente dados não replicados na região falhada utilizando o método de resolução de conflitos configurado para contas API SQL, e Últimas Vitórias para contas utilizando outras APIs. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

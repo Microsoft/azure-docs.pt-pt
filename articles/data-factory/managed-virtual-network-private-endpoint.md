@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 6730a5cfca1b6c04d3c738aac2bdf3c097d5daf5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d777588f0abdd1f771deb259c597f6407e61d874
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303207"
+ms.locfileid: "107364622"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -73,6 +73,50 @@ Apenas um ponto final privado gerido num estado aprovado pode enviar tráfego pa
 As capacidades de autoria interativa são utilizadas para funcionalidades como a ligação ao teste, a lista de pastas de navegação e a lista de tabelas, obter esquemas e dados de pré-visualização. Pode ativar a autoria interativa ao criar ou editar um Tempo de Execução de Integração Azure que se encontra na rede virtual gerida pela ADF. O serviço backend irá pré-alocar o cálculo para funcionalidades de autoria interativa. Caso contrário, o cálculo será atribuído sempre que for realizada qualquer operação interativa, o que levará mais tempo. O Tempo Para Viver (TTL) para a autoria interativa é de 60 minutos, o que significa que ficará automaticamente desativado após 60 minutos da última operação de autoria interativa.
 
 ![Autoria interativa](./media/managed-vnet/interactive-authoring.png)
+
+## <a name="create-managed-virtual-network-via-azure-powershell"></a>Criar rede virtual gerida via Azure PowerShell
+```powershell
+$subscriptionId = ""
+$resourceGroupName = ""
+$factoryName = ""
+$managedPrivateEndpointName = ""
+$integrationRuntimeName = ""
+$apiVersion = "2018-06-01"
+$privateLinkResourceId = ""
+
+$vnetResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/managedVirtualNetworks/default"
+$privateEndpointResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/managedVirtualNetworks/default/managedprivateendpoints/${managedPrivateEndpointName}"
+$integrationRuntimeResourceId = "subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/integrationRuntimes/${integrationRuntimeName}"
+
+# Create managed Virtual Network resource
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${vnetResourceId}"
+
+# Create managed private endpoint resource
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${privateEndpointResourceId}" -Properties @{
+        privateLinkResourceId = "${privateLinkResourceId}"
+        groupId = "blob"
+    }
+
+# Create integration runtime resource enabled with VNET
+New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeResourceId}" -Properties @{
+        type = "Managed"
+        typeProperties = @{
+            computeProperties = @{
+                location = "AutoResolve"
+                dataFlowProperties = @{
+                    computeType = "General"
+                    coreCount = 8
+                    timeToLive = 0
+                }
+            }
+        }
+        managedVirtualNetwork = @{
+            type = "ManagedVirtualNetworkReference"
+            referenceName = "default"
+        }
+    }
+
+```
 
 ## <a name="limitations-and-known-issues"></a>Problemas e limitações conhecidos
 ### <a name="supported-data-sources"></a>Origens de Dados Suportadas
