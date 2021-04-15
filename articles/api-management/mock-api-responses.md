@@ -3,16 +3,16 @@ title: Tutorial - Respostas de API ridículas em Gestão API - Portal Azure | Mi
 description: Neste tutorial, você usa a API Management para definir uma política em uma API para que ele retorne uma resposta ridicularizada se o backend não estiver disponível para enviar respostas reais.
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 562ec4cf19d15772b2dec5adf59582f1feb5363a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547275"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478469"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Respostas da API falsas
 
@@ -20,7 +20,7 @@ As APIs de backend podem ser importadas para uma API de Gestão de API (APIM) ou
 
 A capacidade de simular respostas pode ser útil em vários cenários:
 
-+ Quando a fachada de API é concebida primeiro e a implementação de back-end é efetuada mais tarde. Quando o back-end está a ser desenvolvido em paralelo.
++ Quando a API faã§ade é projetada primeiro e a implementação de backend vem mais tarde. Quando o back-end está a ser desenvolvido em paralelo.
 + Quando o back-end está temporariamente não operacional ou não consegue dimensionar.
 
 Neste tutorial, ficará a saber como:
@@ -84,7 +84,7 @@ Uma API expõe uma ou mais operações. Nesta secção, adicione uma operação 
 Embora não sejam necessárias para este exemplo, as definições adicionais para uma operação API podem ser configuradas em outros separadores, incluindo:
 
 
-|Tecla de Tabulação      |Description  |
+|Tecla de Tabulação      |Descrição  |
 |---------|---------|
 |**Query**     |  Adicione parâmetros de consulta. Além de fornecer um nome e descrição, pode fornecer valores que são atribuídos a um parâmetro de consulta. Um dos valores pode ser marcado como predefinição (opcional).        |
 |**Pedir**     |  Defina tipos de conteúdo de pedido, exemplos e esquemas.       |

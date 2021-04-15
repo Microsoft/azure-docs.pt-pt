@@ -1,21 +1,21 @@
 ---
 title: Usando o Estúdio Visual em uma máquina virtual Azure
 description: Utilização do Estúdio Visual numa máquina virtual Azure.
-author: cathysull
-manager: cathys
+author: andysterland
+manager: andster
 ms.service: virtual-machines
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.author: cathys
+ms.author: andster
 keywords: visuaistudio
-ms.openlocfilehash: a6acf27743f17941e14adc3f6deea903f4f5ca87
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f26bec64012e0b0909b7df5422c57ff2cb1c347e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562083"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478561"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Estúdio Visual em Azure
 Usar o Visual Studio numa máquina virtual Azure pré-configurada (VM) é uma maneira rápida e fácil de ir do nada para um ambiente de desenvolvimento em funcionamento. Imagens de sistema com diferentes configurações do Estúdio Visual estão disponíveis no [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)
@@ -44,7 +44,7 @@ Para mais informações, consulte a [Política de Manutenção do Estúdio Visua
 ## <a name="what-features-are-installed"></a>Quais as funcionalidades instaladas?
 Cada imagem contém o conjunto de funcionalidades recomendado para a edição do Visual Studio. Geralmente, a instalação inclui:
 
-* Todas as cargas de trabalho disponíveis, incluindo os componentes opcionais recomendados por cada carga de trabalho
+* Todas as cargas de trabalho disponíveis, incluindo os componentes opcionais recomendados por cada carga de trabalho. Mais detalhes sobre as cargas de trabalho, componentes e SDKs incluídos no Visual Studio podem ser encontrados na [documentação](https://docs.microsoft.com/visualstudio/install/workload-and-component-ids) do Estúdio Visual
 * .NET 4.6.2 e .NET 4.7 SDKs, Pacotes de Destino e Ferramentas de Desenvolvimento
 * Visual F #
 * Extensão gitHub para estúdio visual

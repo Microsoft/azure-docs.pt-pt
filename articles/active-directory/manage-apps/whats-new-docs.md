@@ -6,15 +6,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: kenwith
-author: kenwith
-manager: daveba
-ms.openlocfilehash: f83aa7368ec5ac06f2c5a5ebe121c7ce87f93bd1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.author: iangithinji
+author: iantheninja
+manager: CelesteDG
+ms.openlocfilehash: 17dca502d3c65563cb9e4d2c382afb79f4d612e9
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304737"
+ms.locfileid: "107376057"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
@@ -79,7 +79,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 - [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Desenvolver aplicativos de linha de negócios para o Azure Ative Directory](../develop/v2-overview.md)
-- [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
+- [Compreender os conectores do Proxy de Aplicações do Azure Active Directory](application-proxy-connectors.md)
 - [Compreender o sinal de inscrição ligado](configure-linked-sign-on.md)
 - [Compreender o sign-on único baseado em palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)
 - [Compreenda o sign-on único baseado em SAML](configure-saml-single-sign-on.md)

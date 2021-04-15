@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: acb5457f10c54a741a738dd8a1008e703b0f23b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd45bb264f8e29a2aad870a7daff45fdd44e0d3c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102051026"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478816"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Criar um registo de aplicativos para usar com a Azure Digital Twins
 
-Ao trabalhar com uma instância Azure Digital Twins, é comum interagir com esse caso através de aplicações de clientes, como uma aplicação personalizada para clientes ou uma amostra como [o Azure Digital Twins Explorer.](quickstart-adt-explorer.md) Essas aplicações precisam de autenticar com a Azure Digital Twins para interagir com ela, e alguns dos mecanismos de autenticação que as [aplicações](how-to-authenticate-client.md) podem usar envolvem um registo de **aplicações** [Azure Ative (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md)
+Ao trabalhar com uma instância Azure Digital Twins, é comum interagir com esse caso através de aplicações de clientes, como uma aplicação personalizada para clientes ou uma amostra como [o Azure Digital Twins Explorer.](quickstart-azure-digital-twins-explorer.md) Essas aplicações precisam de autenticar com a Azure Digital Twins para interagir com ela, e alguns dos mecanismos de autenticação que as [aplicações](how-to-authenticate-client.md) podem usar envolvem um registo de **aplicações** [Azure Ative (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md)
 
 Isto não é necessário para todos os cenários de autenticação. No entanto, se estiver a utilizar uma estratégia de autenticação ou uma amostra de código que exija um registo de aplicações, incluindo um **ID de cliente** e **iD do inquilino,** este artigo mostra-lhe como configurar uma.
 

@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/31/2021
-ms.openlocfilehash: 74cd5ce5912e5a656342a43b7c2b165fdf3c32d4
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.date: 04/08/2021
+ms.openlocfilehash: 7f9a8cb54458999d8f20a258bc36241dfdbd0de8
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490313"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376040"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novidades em Azure Sentinel
 
@@ -25,10 +25,28 @@ As funcionalidades notadas estão atualmente em PREVIEW. Os [Termos Complementar
 
 
 > [!TIP]
-> As nossas equipas de caça ameaçadoras em toda a Microsoft contribuem com consultas, playbooks, livros e cadernos para a [Comunidade Azure Sentinel](https://github.com/Azure/Azure-Sentinel), incluindo consultas de [caça específicas](https://github.com/Azure/Azure-Sentinel) que as suas equipas podem adaptar e usar. 
+> As nossas equipas de caça ameaçadoras em toda a Microsoft contribuem com consultas, playbooks, livros e cadernos para a [Comunidade Azure Sentinel](https://github.com/Azure/Azure-Sentinel), incluindo consultas de [caça específicas](https://github.com/Azure/Azure-Sentinel) que as suas equipas podem adaptar e usar.
 >
 > Também pode contribuir! Junte-se a nós na [comunidade Azure Sentinel Threat Hunters GitHub](https://github.com/Azure/Azure-Sentinel/wiki).
-> 
+>
+
+## <a name="april-2021"></a>abril de 2021
+
+- [Cronologia do incidente (pré-visualização pública)](#incident-timeline-public-preview)
+
+### <a name="incident-timeline-public-preview"></a>Cronologia do incidente (pré-visualização pública)
+
+O primeiro separador de uma página de detalhes de incidentes é agora o **Timeline**, que mostra uma cronologia de alertas e marcadores no incidente. A cronologia de um incidente pode ajudá-lo a entender melhor o incidente e reconstruir a linha do tempo da atividade do atacante através dos alertas e marcadores relacionados.
+
+- Selecione um item na linha do tempo para ver os seus detalhes, sem deixar o contexto do incidente
+- Filtrar o conteúdo da linha do tempo apenas para mostrar alertas ou marcadores, ou itens de uma gravidade específica ou tática MITRE.
+- Pode selecionar o link **de ID de alerta do Sistema** para visualizar todo o registo ou a ligação **Eventos** para ver os eventos relacionados na área **de Logs.**
+
+Por exemplo:
+
+:::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Separador de linha do tempo incidente":::
+
+Para mais informações, consulte [Tutorial: Investigue incidentes com Azure Sentinel.](tutorial-investigate-cases.md)
 
 ## <a name="march-2021"></a>março de 2021
 

@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 630b7b20f9df98eef3cfcff5f6899e2d786b9de7
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 9cc7faf400abe12342d9cec5f47256de5df7753a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092316"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497030"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Configurar registos de contentores para desativar o acesso à rede pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa3701552-92ea-433e-9d17-33b7f1208fc9) |Desative o acesso à rede pública para o seu recurso de registo de contentores para que não seja acessível através da internet pública. Isto pode reduzir os riscos de fuga de dados. Saiba mais em [https://aka.ms/acr/portal/public-network](https://aka.ms/acr/portal/public-network) [https://aka.ms/acr/private-link](https://aka.ms/acr/private-link) e. . |Modificar, Desativar |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_PublicNetworkAccess_Modify.json) |
 |[Configure registos de contentores com pontos finais privados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd85c6833-7d33-4cf5-a915-aaa2de84405f) |Os pontos finais privados ligam a sua rede virtual aos serviços Azure sem um endereço IP público na fonte ou destino. Ao mapear pontos finais privados para os seus recursos de registo de contentores premium, pode reduzir os riscos de fuga de dados. Saiba mais em: [https://aka.ms/privateendpoints](https://aka.ms/privateendpoints) e [https://aka.ms/acr/private-link](https://aka.ms/acr/private-link) . |ImplementarIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Container%20Registry/ACR_PrivateEndpoint_DeployIfNotExists.json) |

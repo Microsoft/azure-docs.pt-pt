@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres Azure VM com recuperaç
 description: Resume o apoio à recuperação de desastres dos VMs do Azure para uma região secundária com recuperação do local de Azure.
 ms.topic: article
 ms.date: 11/29/2020
-ms.openlocfilehash: 8e0d47395e4658d531ac6e9d31117edc062351c0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 02268471d58cbd473493b6001aa9f1df271077bb
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312302"
+ms.locfileid: "107376159"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -173,6 +173,8 @@ Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64
 Debian 10 | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.19.0-5-amd64 a 4.19.0-14-amd64 </br> 4.19.0-6-cloud-amd64 a 4.19.0-14-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64 </br> 4.19.0-10-cloud-amd64, 4.19.0-16-amd64, 4.19.0-16-cloud-amd64 através de 9.41 hot fix patch**
 Debian 10 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.19.0-5-amd64 a 4.19.0-13-amd64 </br> 4.19.0-6-cloud-amd64 a 4.19.0-13-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
 
+*Nota: Para suportar os núcleos linux mais recentes no prazo de 15 dias após o lançamento, a Azure Site Recovery lança um patch de correção quente em cima da versão mais recente do agente de mobilidade. Esta correção é lançada entre duas grandes versões. Para atualizar a versão mais recente do agente de mobilidade (incluindo o patch de correção quente) siga as etapas mencionadas [neste artigo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Este patch é atualmente lançado para agentes de mobilidade usados no cenário Azure to Azure DR.
+
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Suportadas versões de kernel SUSE Linux Enterprise Server 12 para máquinas virtuais Azure
 
 **Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
@@ -193,6 +195,7 @@ SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9,38](https://support.microsoft.com/help/4590304/)  | Por predefinição, todas as [ações SUSE 15, SP1, SP2 kernels](https://www.suse.com/support/kb/doc/?id=000019587) são suportadas.</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure para 5.3.18-18.18-azure </br> 4.12.14-8.47-azure, 5.3.18-18.21-azure através de 9.38 patch de correção quente**
 SUSE Linux Enterprise Server 15 e 15 SP1 | [9.37](https://support.microsoft.com/help/4582666/)  | Por predefinição, todas as [ações SUSE 15, SP1, SP2 kernels](https://www.suse.com/support/kb/doc/?id=000019587) são suportadas.</br></br> 4.12.14-5.5-azure para 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure para 4.12.14-8.38-azure </br> 4.12.14-8.41-azure, 4.12.14-8.44-azure através de 9.37 patch de fixação quente**
 
+*Nota: Para suportar os núcleos linux mais recentes no prazo de 15 dias após o lançamento, a Azure Site Recovery lança um patch de correção quente em cima da versão mais recente do agente de mobilidade. Esta correção é lançada entre duas grandes versões. Para atualizar a versão mais recente do agente de mobilidade (incluindo o patch de correção quente) siga as etapas mencionadas [neste artigo](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Este patch é atualmente lançado para agentes de mobilidade usados no cenário Azure to Azure DR.
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas - Sistema de ficheiros Linux/armazenamento de hóspedes
 

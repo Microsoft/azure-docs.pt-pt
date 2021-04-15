@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefactos de um registo
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e921880eb0b8ae5a38e69c9c0045f6a26d84084d
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785823"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497987"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo
 
@@ -422,7 +422,7 @@ az resource delete \
   * A bolha de armazenamento na conta de armazenamento-alvo pode não ser eliminada após uma execução bem sucedida das importações. Confirme que a opção DeleteBlobOnSuccess está definida na corrida de importação e que o token SAS tem permissões suficientes.
   * Bolha de armazenamento não criada ou apagada. Confirme que existe um contentor especificado na produção de exportação ou de importação, ou que exista uma bolha de armazenamento especificada para a importação manual. 
 * **Problemas com a AzCopy**
-  * Consulte [problemas de AzCopy de resolução de problemas](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
+  * Consulte [problemas de AzCopy de resolução de problemas](../storage/common/storage-use-azcopy-configure.md).  
 * **Problemas de transferência de artefactos**
   * Nem todos os artefactos, ou nenhum, são transferidos. Confirme a ortografia dos artefactos em execução de exportação, e o nome do blob nas operações de exportação e importação. Confirme que está a transferir um máximo de 50 artefactos.
   * O gasoduto pode não ter terminado. Uma viagem de exportação ou importação pode demorar algum tempo. 

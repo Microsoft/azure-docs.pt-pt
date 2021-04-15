@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/14/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 2d14ca2423d34926a9e297823a6515c2c5dde06a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b5f6f06af3eecabe26f7b587a790912f99b006e4
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607121"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496763"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -138,8 +138,10 @@ Pode recuperar programáticamente a lista atual de tags de serviço juntamente c
 - [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
-> Enquanto está em pré-visualização pública, a API discovery pode devolver informações menos atuais do que a informação devolvida pelos downloads JSON. (Ver a secção seguinte.)
+> Leva até 4 semanas para que novos dados de Marca de Serviço se propaguem nos resultados da API. O número de alteração nos metadados de resposta será incrementado quando isso acontecer. Pode haver diferenças temporárias nos resultados quando são especificados valores de localização diferentes. Ao utilizar os resultados para criar regras NSG, deve definir o paramater de localização para corresponder à região do NSG. 
 
+> [!NOTE]
+> Os dados da API representarão as tags que podem ser usadas com as regras NSG, um subconjunto das tags atualmente no ficheiro JSON transferível. Apesar de estar em pré-visualização pública, não garantimos que os dados permaneçam os mesmos de uma atualização para a seguinte. 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>Descubra as tags de serviço utilizando ficheiros JSON transferíveis 
 Pode descarregar ficheiros JSON que contenham a lista atual de tags de serviço juntamente com detalhes do intervalo de endereços IP. Estas listas são atualizadas e publicadas semanalmente. As localizações para cada nuvem são:
