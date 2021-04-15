@@ -6,12 +6,12 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.date: 08/17/2020
-ms.openlocfilehash: 02c0801aa0425db96a1e6f71f248c795e81b5ddf
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 096f0425a6893d68341b97c821481fa0adf2f95c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554064"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375275"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implementar monitor de Azure para soluções SAP com portal Azure
 
@@ -136,6 +136,32 @@ Inicie sessão no portal do Azure em https://portal.azure.com
 4. Quando terminar, **selecione Adicionar fornecedor**. Continue a adicionar mais fornecedores conforme necessário ou selecione **Review + criar** para completar a implementação.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="A imagem mostra informações relacionadas com a adição do Fornecedor de Servidores SQL da Microsoft." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+
+### <a name="sap-netweaver-provider"></a>Fornecedor SAP NetWeaver
+
+#### <a name="pre-requisites-for-adding-netweaver-provider"></a>Pré-requisitos para adicionar fornecedor NetWeaver
+
+O "serviço de arranque SAP" fornece uma série de serviços, incluindo a monitorização do sistema SAP. Estamos a aproveitar o "SAPControl" que é uma interface de serviço web SOAP que expõe estas capacidades. Esta interface de serviço web SAPControl diferencia entre métodos de webservice [protegidos e desprotegidos.](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv) Para conseguir obter métricas específicas, terá de desprotegir alguns métodos. Para desprotegir os métodos necessários para a libertação atual, siga os passos abaixo para cada sistema SAP:-
+
+1. Abra uma ligação SAP GUI ao servidor SAP
+2. Faça login usando uma conta administrativa
+3. Executar transação RZ10
+4. Selecione o perfil apropriado (DEFAULT. PFL)
+5. Selecione 'Manutenção Estendida' e clique em Alterar 
+6. Modifique o valor do parâmetro afetado "service/protectedwebmethods" para "SDEFAULT -GetQueueStatistic – ABAPGetWPTable – EnqGetStatistic –GetProcessList" para a definição recomendada e clique em Copy
+7. Volte e selecione Profile->Save
+8. Reiniciar o sistema para que o parâmetro entre em vigor
+
+#### <a name="installing-netweaver-provider-on-the-azure-portal"></a>Instalação do fornecedor NetWeaver no portal Azure
+1.  Certifique-se de que os passos pré-requisitos foram concluídos e o servidor foi reiniciado
+2.  No portal Azure, em AMS, selecione Adicionar fornecedor e escolha SAP NetWeaver a partir da queda para baixo
+3.  Insira o nome de anfitrião do sistema SAP e subdomínio (se aplicável)
+4.  Introduza o número de instância correspondente ao nome de anfitrião introduzido 
+5.  Introduza o ID do sistema (SID)
+6.  Quando terminar, selecione Adicionar fornecedor
+7.  Continue a adicionar fornecedores adicionais conforme necessário ou selecione Review + criar para completar a implementação
+
+![image](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -2,23 +2,23 @@
 title: Planeie uma implantação única de sinalização do Azure Ative Directory
 description: Guie para ajudá-lo a planear, implementar e gerir o SSO na sua organização.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
-ms.author: baselden
+ms.author: iangithinji
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2eaa630097c76a4ecb863f3f1711d38e5e0dbbeb
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3f395eaf21dce0077c1239ef2251973aeb5faa70
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064154"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375615"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 

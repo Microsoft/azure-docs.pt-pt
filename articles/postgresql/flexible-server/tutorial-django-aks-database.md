@@ -6,13 +6,13 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.custom: mvc
-ms.openlocfilehash: 71066fc2e2f87405455a059fe23c20277c4b09fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b79b470a25a63c0a46ddef94ee65f47f37c560cb
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726384"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477813"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Tutorial: Implementar aplicativo Django em AKS com Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -128,22 +128,22 @@ O servidor criado tem os atributos abaixo:
 Crie uma nova [aplicação Django](https://docs.djangoproject.com/en/3.1/intro/) ou use o seu projeto Django existente. Certifique-se de que o seu código está nesta estrutura de pasta.
 
 ```
-└───my-djangoapp
-    └───views.py
-    └───models.py
-    └───forms.py
-    ├───templates
+â””â”€â”€â”€my-djangoapp
+    â””â”€â”€â”€views.py
+    â””â”€â”€â”€models.py
+    â””â”€â”€â”€forms.py
+    â”œâ”€â”€â”€templates
           . . . . . . .
-    ├───static
+    â”œâ”€â”€â”€static
          . . . . . . .
-└───my-django-project
-    └───settings.py
-    └───urls.py
-    └───wsgi.py
+â””â”€â”€â”€my-django-project
+    â””â”€â”€â”€settings.py
+    â””â”€â”€â”€urls.py
+    â””â”€â”€â”€wsgi.py
         . . . . . . .
-    └─── Dockerfile
-    └─── requirements.txt
-    └─── manage.py
+    â””â”€â”€â”€ Dockerfile
+    â””â”€â”€â”€ requirements.txt
+    â””â”€â”€â”€ manage.py
     
 ```
 Atualização ```ALLOWED_HOSTS``` para garantir que a ```settings.py``` aplicação Django utiliza o IP externo que é atribuído à app Kubernetes.

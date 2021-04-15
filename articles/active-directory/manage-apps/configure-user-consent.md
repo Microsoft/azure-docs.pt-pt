@@ -1,23 +1,23 @@
 ---
-title: Configure como os utilizadores finais concordam com aplicações usando Azure AD
+title: Configurar a forma como os utilizadores finais concedem consentimento às aplicações com o Azure Active Directory
 description: Saiba como e quando os utilizadores podem consentir com aplicações que terão acesso aos dados da sua organização.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95a651f6201c9f60500c9191821edb7eb76b8535
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643614"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374442"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar a forma como os utilizadores finais concedem consentimento às aplicações
 
@@ -81,7 +81,7 @@ Para permitir o consentimento do utilizador, escolha qual a política de consent
 
 `{consent-policy-id}`Substitua-o pela identificação da apólice que gostaria de aplicar. Pode escolher uma [política de consentimento de aplicações personalizadas](manage-app-consent-policies.md#create-a-custom-app-consent-policy) que criou ou pode escolher entre as seguintes políticas incorporadas:
 
-| ID | Description |
+| ID | Descrição |
 |:---|:------------|
 | microsoft-user-default-low | **Permitir o consentimento do utilizador para apps de editores verificados, para permissões selecionadas**<br /> Permitir o consentimento limitado do utilizador apenas para apps de editores e aplicações verificadas registadas no seu inquilino, e apenas para permissões que classifica como "Baixo impacto". (Não se esqueça de [classificar permissões](configure-permission-classifications.md) para selecionar quais as permissões a que os utilizadores estão autorizados a consentir.) |
 | microsoft-user-default-legacy | **Permitir o consentimento do utilizador para apps**<br /> Esta opção permite que todos os utilizadores consintam em qualquer permissão que não exija consentimento administrativo, para qualquer aplicação |
@@ -145,7 +145,7 @@ Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPrev
 
 1. Compreender o valor das definições:
 
-    | Definição       | Tipo         | Description  |
+    | Definição       | Tipo         | Descrição  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Booleano |  Sinalização indicando se o consentimento do utilizador será bloqueado quando for detetado um pedido de risco. |
 
