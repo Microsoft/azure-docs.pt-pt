@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: luquinta
 ms.reviewer: jrasnick
-ms.openlocfilehash: 895d766cc1e70e6a001904770d6f3ef12b6945cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d045c1ec96bb7b31a710a28e30e3d428922b65e
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018666"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378555"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utilizar o .NET para Apache Spark com o Azure Synapse Analytics
 
@@ -29,19 +29,10 @@ Pode analisar dados com .NET para Apache Spark através de definições de traba
 Visite o tutorial para aprender a usar a Azure Synapse Analytics para criar definições de [emprego apache spark para piscinas de Faíscas sinapses.](apache-spark-job-definitions.md) Se ainda não embalou a sua aplicação para submeter ao Azure Synapse, complete os seguintes passos.
 
 1. Execute os seguintes comandos para publicar a sua aplicação. Não se esqueça de substituir *o mySparkApp* pelo caminho para a sua aplicação.
-
-   **Nas janelas:**
-
-   ```dotnetcli
-   cd mySparkApp
-   dotnet publish -c Release -f netcoreapp3.1 -r win-x64
-   ```
    
-   **Em Linux:**
-
    ```dotnetcli
    cd mySparkApp
-   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
+   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.18.04-x64
    ```
 
 2. Zip o conteúdo da pasta de publicação, `publish.zip` por exemplo, que foi criado como resultado do Passo 1. Todos os conjuntos devem estar na primeira camada do ficheiro ZIP e não deve haver camada de pasta intermédia. Isto significa que, quando desapertar, `publish.zip` todos os conjuntos são extraídos para o seu diretório de trabalho atual.

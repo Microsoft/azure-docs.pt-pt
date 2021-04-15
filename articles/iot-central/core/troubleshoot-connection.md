@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: ae40571b958897b5f06c4ae72a9049a585561872
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 494608f9dd8fbf986dcda6eeb782a64f6a2ca008
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064720"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378572"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Resolver problemas relacionados com a não apresentação dos dados dos seus dispositivos no Azure IoT Central
 
@@ -130,7 +130,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| Estado de provisionamento do dispositivo | Description | Possível mitigação |
+| Estado de provisionamento do dispositivo | Descrição | Possível mitigação |
 | - | - | - |
 | Aprovisionado | Não há problema imediatamente reconhecível. | N/D |
 | Registado | O dispositivo ainda não está ligado à IoT Central. | Verifique se os registos do seu dispositivo têm problemas de conectividade. |
@@ -150,7 +150,7 @@ As tabelas que se seguem mostram os códigos de erro comuns e as possíveis aç�
 
 Se estiver a ver questões relacionadas com o seu fluxo de autenticação:
 
-| Código de erro | Description | Possível Mitigação |
+| Código de erro | Descrição | Possível Mitigação |
 | - | - | - |
 | 400 | O corpo do pedido não é válido. Por exemplo, não pode ser analisado, ou o objeto não pode ser validado. | Certifique-se de que está a enviar o corpo de pedido correto como parte do fluxo de atestado, ou utilize um dispositivo SDK. |
 | 401 | O sinal de autorização não pode ser validado. Por exemplo, expirou ou não se aplica ao URI do pedido. Este código de erro também é devolvido aos dispositivos como parte do fluxo de atestado TPM. | Certifique-se de que o seu dispositivo tem as credenciais corretas. |
@@ -158,6 +158,14 @@ Se estiver a ver questões relacionadas com o seu fluxo de autenticação:
 | 412 | O `ETag` pedido não corresponde ao recurso `ETag` existente, de acordo com o RFC7232. | [Arquive um bilhete com apoio ao cliente.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) |
 | 429 | As operações estão a ser estranguladas pelo serviço. Para limites de serviço específicos, consulte [os limites do Serviço de Provisionamento de Dispositivos IoT Hub](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduza a frequência da mensagem, divida responsabilidades entre mais dispositivos. |
 | 500 | Ocorreu um erro interno. | [Preencha um bilhete com o apoio](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) ao cliente para ver se eles podem ajudá-lo ainda mais. |
+
+### <a name="file-upload-error-codes"></a>Códigos de erro de upload de ficheiros
+
+Aqui está uma lista de códigos de erro comuns que pode ver quando um dispositivo tenta carregar um ficheiro para a nuvem. Lembre-se que antes de o seu dispositivo poder carregar um ficheiro, tem de configurar [os uploads de ficheiros do dispositivo](howto-configure-file-uploads.md) na sua aplicação.
+
+| Código de erro | Descrição | Possível Mitigação |
+| - | - | - |
+| 403006  | Excedeu o número de operações de upload de ficheiros simultâneos. Cada cliente do dispositivo está limitado a 10 uploads de ficheiros simultâneos. | Certifique-se de que o dispositivo notifica prontamente a IoT Central de que a operação de upload de ficheiros foi concluída. Se isso não funcionar, tente reduzir o tempo limite de pedido. |
 
 ## <a name="payload-shape-issues"></a>Problemas de forma de carga útil
 

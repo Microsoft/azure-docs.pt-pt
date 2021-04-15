@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 99f15afdab917fe28e22df8cb0e372b6c30c8526
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3b92ef3ce195a2eee9bce53e08d977593a9f1fc2
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027334"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477711"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Utilização de Tradução de Endereços de Rede Fonte (SNAT) para ligações de saída
 
@@ -64,14 +64,16 @@ Para manter fluxos únicos, o hospedeiro reescreve a porta de origem de cada pac
   * Máquina virtual sem IP público.
   * Máquina virtual sem IP público e sem balanceador de carga padrão.
         
- ### <a name="scenario-1-virtual-machine-with-public-ip"></a><a name="scenario1"></a> Cenário 1: Máquina virtual com IP público
+ ### <a name="scenario-1-virtual-machine-with-public-ip-either-with-or-without-a-load-balancer"></a><a name="scenario1"></a> Cenário 1: Máquina virtual com IP público com ou sem um equilibrador de carga.
 
  | Associações | Método | Protocolos IP |
  | ---------- | ------ | ------------ |
- | Equilibrador de carga pública ou autónomo | [SNAT (Tradução de endereços de rede de origem)](#snat) </br> não usado. | TCP (Protocolo de Controlo de Transmissão) </br> UDP (Protocolo de Datagrama do Utilizador) </br> ICMP (Protocolo de Mensagem de Controlo de Internet) </br> ESP (Encapsulamento da Carga útil de segurança) |
+ | Equilibrador de carga pública ou autónomo | [SNAT (Tradução de endereços de rede de origem)](#snat) </br> não é usado. | TCP (Protocolo de Controlo de Transmissão) </br> UDP (Protocolo de Datagrama do Utilizador) </br> ICMP (Protocolo de Mensagem de Controlo de Internet) </br> ESP (Encapsulamento da Carga útil de segurança) |
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Descrição
 
+ Todo o tráfego regressará ao cliente solicitado a partir do endereço IP público da máquina virtual (Exemplo Nível IP).
+ 
  O Azure utiliza o IP público atribuído à configuração IP do NIC da instância para todos os fluxos de saída. O caso tem todas as portas efémeras disponíveis. Não importa se o VM é equilibrado ou não. Este cenário tem precedência sobre os outros. 
 
  Um IP público atribuído a um VM é uma relação 1:1 (em vez de 1: muitos) e implementado como um APÁtrida 1:1 NAT.
@@ -82,7 +84,7 @@ Para manter fluxos únicos, o hospedeiro reescreve a porta de origem de cada pac
  | ------------ | ------ | ------------ |
  | Balanceador de carga pública padrão | Utilização de IPs frontend do balançador de carga para [SNAT](#snat).| TCP </br> UDP |
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Descrição
 
  O recurso do balançador de carga é configurado com uma regra de saída ou uma regra de equilíbrio de carga que permite o SNAT. Esta regra é usada para criar uma ligação entre o frontend IP público com o pool backend. 
 
@@ -105,7 +107,7 @@ Para manter fluxos únicos, o hospedeiro reescreve a porta de origem de cada pac
  | ------------ | ------ | ------------ |
  | Balanceador de carga interno padrão | Sem conectividade na Internet.| Nenhum |
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Descrição
  
 Ao utilizar um balanceador interno standard, não existe a utilização de endereços IP efémeros para O SNAT. Esta funcionalidade suporta a segurança por defeito. Esta funcionalidade garante que todos os endereços IP utilizados pelos recursos são configuráveis e podem ser reservados. 
 
@@ -122,7 +124,7 @@ Outra opção é adicionar as instâncias de backend a um balanceador de carga p
  | ------------ | ------ | ------------ |
  |Nenhum </br> Balanceador de carga básico | [SNAT](#snat) com endereço IP dinâmico de nível de instância| TCP </br> UDP | 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Descrição
 
  Quando o VM cria um fluxo de saída, o Azure traduz o endereço IP de origem para um endereço IP de fonte pública dinamicamente dado. Este endereço IP público **não é configurável** e não pode ser reservado. Este endereço não conta com o limite de recursos IP públicos da subscrição. 
 

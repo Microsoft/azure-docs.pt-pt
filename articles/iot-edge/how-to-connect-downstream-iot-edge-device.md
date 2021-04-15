@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e0912fb452a7f587fef19de835eea111b349a9a4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 500833d1bb4fc492942c08239bd488c2d2c16d30
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310024"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484324"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Ligue um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge
 
@@ -78,9 +78,9 @@ Também pode criar ou gerir relações entre pais e filhos para dispositivos exi
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-A extensão [azure-iot](/cli/azure/ext/azure-iot) para o CLI Azure fornece comandos para gerir os seus recursos IoT. Pode gerir a relação pai/filho dos dispositivos IoT e IoT Edge quando criar novas identidades do dispositivo ou editando dispositivos existentes.
+A extensão [azure-iot](/cli/azure/iot) para o CLI Azure fornece comandos para gerir os seus recursos IoT. Pode gerir a relação pai/filho dos dispositivos IoT e IoT Edge quando criar novas identidades do dispositivo ou editando dispositivos existentes.
 
-O conjunto de comandos de identidade do [dispositivo az iot hub](/cli/azure/ext/azure-iot/iot/hub/device-identity) permite-lhe gerir as relações pai/filho para um determinado dispositivo.
+O conjunto de comandos de identidade do [dispositivo az iot hub](/cli/azure/iot/hub/device-identity) permite-lhe gerir as relações pai/filho para um determinado dispositivo.
 
 O `create` comando inclui parâmetros para adicionar dispositivos infantis e definir um dispositivo principal no momento da criação do dispositivo.
 

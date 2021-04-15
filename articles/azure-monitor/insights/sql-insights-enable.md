@@ -1,16 +1,16 @@
 ---
-title: Permitir insights SQL
+title: Ativar as informações do SQL
 description: Ativar insights SQL no Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: e8dd887d151eb553131048f232940555dbef324b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfcb34b731855fd26ddad191b819e308406117cb
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025038"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478340"
 ---
 # <a name="enable-sql-insights-preview"></a>Ativar insights SQL (pré-visualização)
 Este artigo descreve como permitir [insights SQL](sql-insights-overview.md) para monitorizar as suas implementações SQL. A monitorização é realizada a partir de uma máquina virtual Azure que faz uma ligação às suas implementações SQL e utiliza Vistas de Gestão Dinâmica (DMVs) para recolher dados de monitorização. Pode controlar quais conjuntos de dados são recolhidos e a frequência de recolha utilizando um perfil de monitorização.
@@ -26,7 +26,7 @@ Abrir base de dados Azure SQL com [SQL Server Management Studio](../../azure-sql
 
 Execute o seguinte script para criar um utilizador com as permissões necessárias. Substitua *o utilizador* por um nome de utilizador e *uma palavra-passe com* uma palavra-passe.
 
-```
+```sql
 CREATE USER [user] WITH PASSWORD = N'mystrongpassword'; 
 GO 
 GRANT VIEW DATABASE STATE TO [user]; 
@@ -39,11 +39,23 @@ Verifique se o utilizador foi criado.
 
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Verifique o script do utilizador da telegraf." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
-### <a name="azure-sql-managed-instance"></a>Instância Gerida do SQL do Azure
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type,
+       authentication_type_desc as authentication_type
+from sys.database_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
+```
+
+### <a name="azure-sql-managed-instance"></a>Instância Gerida do Azure SQL
 Inicie sessão no seu Azure SQL Managed Instance e utilize [o SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou uma ferramenta similar para executar o seguinte script para criar o utilizador de monitorização com as permissões necessárias. Substitua *o utilizador* por um nome de utilizador e *uma palavra-passe com* uma palavra-passe.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -58,7 +70,7 @@ GO
 Inicie sessão na sua máquina virtual Azure que executa o SQL Server e utilize [o SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou uma ferramenta similar para executar o seguinte script para criar o utilizador de monitorização com as permissões necessárias. Substitua *o utilizador* por um nome de utilizador e *uma palavra-passe com* uma palavra-passe.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -67,6 +79,19 @@ GRANT VIEW SERVER STATE TO [user];
 GO 
 GRANT VIEW ANY DEFINITION TO [user]; 
 GO
+```
+
+Verifique se o utilizador foi criado.
+
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type,
+from sys.server_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
 ```
 
 ## <a name="create-azure-virtual-machine"></a>Criar máquina virtual Azure 
@@ -167,7 +192,7 @@ Introduza o fio de ligação no formulário:
 
 ```
 sqlAzureConnections": [ 
-   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
+   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
 }
 ```
 
@@ -175,7 +200,7 @@ Obtenha os detalhes do item do menu de cordas De Ligação para a base de **dado
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="Cadeia de conexão de base de dados SQL" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
-Para monitorizar um secundário legível, inclua o valor-chave na cadeia de `ApplicationIntent=ReadOnly` ligação.
+Para monitorizar um secundário legível, inclua o valor-chave na cadeia de `ApplicationIntent=ReadOnly` ligação. A SQL Insights suporta a monitorização de um único secundário. Os dados recolhidos serão marcados para refletir o primário ou o secundário. 
 
 
 #### <a name="azure-virtual-machines-running-sql-server"></a>Máquinas virtuais Azure que executam o SQL Server 
@@ -183,7 +208,7 @@ Introduza o fio de ligação no formulário:
 
 ```
 "sqlVmConnections": [ 
-   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
+   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
 
@@ -191,15 +216,13 @@ Se a sua máquina virtual de monitorização estiver no mesmo VNET, utilize o en
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="Segurança da máquina virtual SQL" lightbox="media/sql-insights-enable/sql-vm-security.png":::
 
-Para monitorizar um secundário legível, inclua o valor-chave na cadeia de `ApplicationIntent=ReadOnly` ligação.
-
 
 ### <a name="azure-sql-managed-instances"></a>Azure SQL Managed Instance 
 Introduza o fio de ligação no formulário:
 
 ```
 "sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
+      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
     ] 
 ```
 Obtenha os detalhes do item do menu **de cordas De Ligação** para a instância gerida.
@@ -207,8 +230,7 @@ Obtenha os detalhes do item do menu **de cordas De Ligação** para a instância
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="Cadeia de conexão sql Managed Instance" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-Para monitorizar um secundário legível, inclua o valor-chave na cadeia de `ApplicationIntent=ReadOnly` ligação.
-
+Para monitorizar um secundário legível, inclua o valor-chave na cadeia de `ApplicationIntent=ReadOnly` ligação. A SQL Insights suporta a monitorização de um único secundário e os dados recolhidos serão marcados para refletir o Primário ou o Secundário. 
 
 
 ## <a name="monitoring-profile-created"></a>Perfil de monitorização criado 
