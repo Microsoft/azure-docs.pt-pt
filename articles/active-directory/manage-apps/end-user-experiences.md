@@ -2,21 +2,21 @@
 title: Experiências de utilizador final para aplicações - Azure Ative Directory
 description: O Azure Ative Directory (Azure AD) oferece várias formas personalizáveis de implementar aplicações para utilizadores finais na sua organização.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh
-ms.openlocfilehash: 0d3f1cab0637c7409cbc45f4f5a5374b2b5b6a77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c555899a65a5e8cf4c8fcc6214e4dcbda3931f08
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259258"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374238"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para aplicações no Azure Ative Directory
 

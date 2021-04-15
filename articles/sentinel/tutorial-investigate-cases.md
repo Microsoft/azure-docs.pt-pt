@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 04/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8980a8920b4f41f5a8e6afe106415032eef2055b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98790991"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375848"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigar incidentes com Azure Sentinel
 
@@ -51,9 +51,15 @@ Um incidente pode incluir vários alertas. É uma agregação de todas as provas
 
 1. Para iniciar uma investigação, selecione um incidente específico. À direita, pode ver informações detalhadas sobre o incidente, incluindo a sua gravidade, resumo do número de entidades envolvidas, os eventos brutos que desencadearam este incidente, e a identificação única do incidente.
 
-1. Para ver mais detalhes sobre os alertas e entidades do incidente, **selecione Ver todos os detalhes** na página do incidente e rever os separadores relevantes que resumem as informações do incidente. No separador **Alertas,** reveja o próprio alerta. Pode ver todas as informações relevantes sobre o alerta – a consulta que desencadeou o alerta, o número de resultados devolvidos por consulta e a capacidade de executar playbooks nos alertas. Para aprofundar ainda mais o incidente, selecione o número de **Eventos**. Isto abre a consulta que gerou os resultados e os eventos que desencadearam o alerta no Log Analytics. No separador **Entidades,** pode ver todas as entidades que mapeou como parte da definição de regra de alerta.
+1. Para ver mais detalhes sobre os alertas e entidades do incidente, **selecione Ver todos os detalhes** na página do incidente e rever os separadores relevantes que resumem as informações do incidente. 
 
-    ![Ver detalhes do alerta](media/tutorial-investigate-cases/alert-details.png)
+    ![Ver detalhes do alerta](media/tutorial-investigate-cases/incident-timeline.png)
+
+    Por exemplo:
+
+    - No **separador Timeline,** reveja a cronologia dos alertas e marcadores do incidente, o que pode ajudá-lo a reconstruir a linha temporal da atividade do intruso.
+    - No separador **Alertas,** reveja o próprio alerta. Pode ver todas as informações relevantes sobre o alerta – a consulta que desencadeou o alerta, o número de resultados devolvidos por consulta e a capacidade de executar playbooks nos alertas. Para aprofundar ainda mais o incidente, selecione o número de **Eventos**. Isto abre a consulta que gerou os resultados e os eventos que desencadearam o alerta no Log Analytics. 
+    - No separador **Entidades,** pode ver todas as entidades que mapeou como parte da definição de regra de alerta.
 
 1. Se está a investigar ativamente um incidente, é uma boa ideia definir o estado do incidente **em andamento** até o fechar.
 

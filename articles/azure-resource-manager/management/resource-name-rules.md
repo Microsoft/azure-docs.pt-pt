@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: a1dbe409eb5479c4027834cd33e095d12c31e238
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: e260c9055b26d82f2fd2f8458d287a35a838f40f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210198"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477796"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -110,7 +110,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | lotAcons | Região | 3-24 | Letras minúsculas e números. |
+> | lotAcons | Region | 3-24 | Letras minúsculas e números. |
 > | lotacos / aplicações | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos /certificados | conta de lote | 5-45 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos / piscinas | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
@@ -169,7 +169,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | --- | --- | --- | --- |
 > | disponibilidadeSets | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
 > | DiskEncryptionSets | grupo de recursos | 1-80 | Alfanuméricos e sublinhados. |
-> | discos | grupo de recursos | 1-80 | Alfanuméricos e sublinhados. |
+> | discos | grupo de recursos | 1-80 | Alfanuméricos, sublinhados e hífens. |
 > | galerias | grupo de recursos | 1-80 | Alfanuméricos e períodos.<br><br>Comece e termine com alfanumérico. |
 > | galerias / aplicações | galeria | 1-80 | Alfanuméricos, hífens e períodos.<br><br>Comece e termine com alfanumérico. |
 > | galerias / aplicações/versões | aplicação | Inteiro de 32 bits | Números e períodos. |

@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: f05e1a458bc83fe4042c4b6cf35d9aa2095868ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: mqtt, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 797c795b6c936e2f117a96fed4b4a483876f1c47
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217963"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478085"
 ---
 # <a name="get-started-with-device-management-java"></a>Começar com a gestão do dispositivo (Java)
 
