@@ -6,10 +6,10 @@ manager: rochakm
 ms.date: 11/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 5309fd60640c45ade42bab4c5727cf1f0a8d9d70
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025480"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação após desastre do Azure para Azure

@@ -2,13 +2,13 @@
 title: Domínios do evento na grelha de eventos Azure
 description: Este artigo descreve como usar os domínios de eventos para gerir o fluxo de eventos personalizados para as suas várias organizações empresariais, clientes ou aplicações.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/13/2021
+ms.openlocfilehash: 32c06ac55f667ec9807c7952127c2cf0f0384024
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198681"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374714"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Compreender os domínios do evento para gerir tópicos da Grelha de Eventos
 
@@ -23,7 +23,7 @@ Este artigo descreve como usar os domínios de eventos para gerir o fluxo de eve
 
 Um domínio de evento é uma ferramenta de gestão para um grande número de tópicos de Grade de Eventos relacionados com a mesma aplicação. Pode pensar nisso como um meta-tema que pode ter milhares de tópicos individuais.
 
-Os domínios do evento disponibilizam-lhe a mesma arquitetura utilizada pelos serviços Azure (como Storage e IoT Hub) para publicar os seus eventos. Permitem-lhe publicar eventos para milhares de tópicos. Os domínios também lhe dão autorização e controlo de autenticação sobre cada tópico para que possa dividir os seus inquilinos.
+Os domínios de eventos fornecem-lhe a mesma arquitetura usada pelos serviços Azure, como o Storage e o IoT Hub, para publicar os seus eventos. Permitem-lhe publicar eventos para milhares de tópicos. Os domínios também lhe dão autorização e controlo de autenticação sobre cada tópico para que possa dividir os seus inquilinos.
 
 ## <a name="example-use-case"></a>Caso de uso de exemplo
 [!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
@@ -43,6 +43,9 @@ Para obter informações sobre estas funções, consulte [as funções incorpora
 ## <a name="subscribing-to-topics"></a>Subscrever tópicos
 
 Subscrever eventos sobre um tópico dentro de um domínio de evento é o mesmo que [criar uma Subscrição de Eventos num tópico personalizado](./custom-event-quickstart.md) ou subscrever um evento a partir de um serviço Azure.
+
+> [!IMPORTANT]
+> O tópico de domínio é considerado um recurso **gerido automaticamente** na Grade de Eventos. Pode criar uma subscrição de eventos no âmbito do tópico de domínio sem criar o tópico de domínio. Neste caso, o Event Grid cria automaticamente o tópico de domínio em seu nome. Claro que ainda pode optar por criar o tópico de domínio manualmente. Este comportamento permite-lhe preocupar-se com um recurso a menos quando lida com um grande número de tópicos de domínio. Quando a última subscrição de um tópico de domínio é eliminada, o tópico de domínio também é eliminado independentemente de o tópico de domínio ter sido criado manualmente ou criado automaticamente. 
 
 ### <a name="domain-scope-subscriptions"></a>Subscrições de âmbito de domínio
 
@@ -94,7 +97,7 @@ Aqui estão os limites e quotas relacionadas com os domínios de eventos:
 - 50 subscrições de âmbito de domínio 
 - 5.000 eventos por segunda taxa de ingestão (em um domínio)
 
-Se estes limites não lhe convêm, contacte a equipa do produto abrindo um bilhete de apoio ou enviando um e-mail para [askgrid@microsoft.com](mailto:askgrid@microsoft.com) . 
+Se estes limites não lhe convêm, abra um bilhete de apoio ou envie um e-mail para [askgrid@microsoft.com](mailto:askgrid@microsoft.com) . 
 
 ## <a name="pricing"></a>Preços
 Os domínios do evento utilizam os [mesmos preços de operações](https://azure.microsoft.com/pricing/details/event-grid/) que todas as outras funcionalidades na utilização da Grade de Eventos.

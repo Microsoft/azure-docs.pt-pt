@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
-ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 64db4de6628fcd8f3cf160bb2bde1b577219cb10
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: include file
+ms.openlocfilehash: 3d8cd9891329e86ce47dac6d8d44af529c104b61
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729808"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386869"
 ---
 A encriptação do disco Azure pode ser ativada e gerida através do [Azure CLI](/cli/azure) e [da Azure PowerShell](/powershell/azure/new-azureps-module-az). Para tal, tem de instalar as ferramentas localmente e ligar-se à sua subscrição Azure.
 

@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: bcbf2137e578f703cf70b1b47952736aa50f7f17
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 31704e705b828cc0070e3b79f5d527cfa9deb0c3
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106178451"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386907"
 ---
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
@@ -90,13 +90,11 @@ chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"
 Utilize o `create_chat_thread` método para criar um fio de chat.
 
 - Utilizar `topic` para dar um tópico de linha; O tópico pode ser atualizado após a criação do fio de chat utilizando a `update_thread` função.
-- Utilize `thread_participants` para listar o `ChatThreadParticipant` a ser adicionado ao fio de chat, o `ChatThreadParticipant` tipo de `CommunicationUserIdentifier` tomadas como , que é o `user` que obteve depois de criar por Criar um [utilizador](../../access-tokens.md#create-an-identity)
+- Utilize `thread_participants` para listar o `ChatParticipant` a ser adicionado ao fio de chat, o `ChatParticipant` tipo de `CommunicationUserIdentifier` tomadas como , que é o `user` que obteve depois de criar por Criar um [utilizador](../../access-tokens.md#create-an-identity)
 
 `CreateChatThreadResult` é o resultado devolvido da criação de um fio, pode usá-lo para ir buscar `id` o fio de chat que foi criado. Isto `id` pode então ser usado para buscar um `ChatThreadClient` objeto usando o `get_chat_thread_client` método. `ChatThreadClient` pode ser usado para realizar outras operações de chat para este fio de chat.
 
 ```python
-from azure.communication.chat import ChatThreadParticipant
-
 topic="test topic"
 
 create_chat_thread_result = chat_client.create_chat_thread(topic)
@@ -208,11 +206,11 @@ Uma vez criado um fio de chat, pode adicionar e remover os utilizadores do mesmo
 
 Um ou mais utilizadores podem ser adicionados ao fio de chat usando o `add_participants` método, desde que seja disponibilizado um novo token de acesso e identificação para todos os utilizadores.
 
-A `list(tuple(ChatThreadParticipant, CommunicationError))` é devolvido. Quando o participante é adicionado com sucesso, espera-se uma lista vazia. Em caso de erro encontrado ao adicionar participante, a lista é preenchida com os participantes falhados juntamente com o erro que foi encontrado.
+A `list(tuple(ChatParticipant, CommunicationError))` é devolvido. Quando o participante é adicionado com sucesso, espera-se uma lista vazia. Em caso de erro encontrado ao adicionar participante, a lista é preenchida com os participantes falhados juntamente com o erro que foi encontrado.
 
 ```python
 from azure.communication.identity import CommunicationIdentityClient
-from azure.communication.chat import ChatThreadParticipant
+from azure.communication.chat import ChatParticipant
 from datetime import datetime
 
 # create 2 users
@@ -225,14 +223,14 @@ new_users = [identity_client.create_user() for i in range(2)]
 # user_id = 'some user id'
 # user_display_name = "Wilma Flinstone"
 # new_user = CommunicationUserIdentifier(user_id)
-# participant = ChatThreadParticipant(
+# participant = ChatParticipant(
 #     user=new_user,
 #     display_name=user_display_name,
 #     share_history_time=datetime.utcnow())
 
 participants = []
 for _user in new_users:
-  chat_thread_participant = ChatThreadParticipant(
+  chat_thread_participant = ChatParticipant(
     user=_user,
     display_name='Fred Flinstone',
     share_history_time=datetime.utcnow()
@@ -263,13 +261,13 @@ Utilize `list_participants` para recuperar os participantes do fio.
 - `results_per_page`Utilização, opcional, O número máximo de participantes a devolver por página.
 - Utilizar `skip` , opcional, para saltar os participantes até uma posição especificada em resposta.
 
-Um iterador de `[ChatThreadParticipant]` é a resposta devolvida dos participantes da listagem
+Um iterador de `[ChatParticipant]` é a resposta devolvida dos participantes da listagem
 
 ```python
 chat_thread_participants = chat_thread_client.list_participants()
 for chat_thread_participant_page in chat_thread_participants.by_page():
     for chat_thread_participant in chat_thread_participant_page:
-        print("ChatThreadParticipant: ", chat_thread_participant)
+        print("ChatParticipant: ", chat_thread_participant)
 ```
 
 ## <a name="run-the-code"></a>Executar o código

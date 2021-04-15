@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: include
 ms.date: 04/12/2021
-ms.author: cherylmc
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 9ecbfc720f79c9e95b46af05bd6b1e49da0bd110
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: eb10af1a66c747a1e318d16ceb542aaa4588bb2b
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327009"
+ms.locfileid: "107386674"
 ---
 |  | **Megabits por segundo** | **Pacotes por segundo** | **Ligações por segundo** | **FastPath** | **Número máximo de ligações de circuitos** |
 | --- | --- | --- | --- | --- | --- |
