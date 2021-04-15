@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 03/25/2020
+ms.date: 04/12/2021
 ms.author: aahi
-ms.openlocfilehash: 3fecb84196ba736120273955b2c88af8cb4dadea
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 80b1af824f1c7bd47f16723f839141c4bed756df
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095820"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364996"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Etiquetas de imagem de contentores Azure Cognitive Services e notas de lançamento
 
@@ -52,18 +52,24 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis. Também pode 
 
 # <a name="latest-version"></a>[Versão mais recente](#tab/current)
 
+Notas de lançamento `3.2` para:
+
+* O recipiente OCR está disponível geralmente.
+
+| Etiquetas de imagem                    | Notas |
+|-------------------------------|:------|
+| `3.2`                     |       |
+
+# <a name="previous-versions"></a>[Versões anteriores](#tab/previous)
+
+
 Notas de lançamento `3.2-preview.2` para:
+
 * Libertação distrodundo
 * ReadingOrder parâmetro para escolher entre ordem de linha de texto na resposta JSON
 * Registos madeireiros melhorados
 * Hotfixes para o modelo CJK
-
-| Etiquetas de imagem                    | Notas |
-|-------------------------------|:------|
-|3.2.2.014850001-49e0eac6-amd64-pré-visualização                     |       |
-
-# <a name="previous-versions"></a>[Versões anteriores](#tab/previous)
-
+* 
 Notas de lançamento `v2.0.013250001-amd64-preview` para:
 
 * Diminua ainda mais o uso da memória para o recipiente.
@@ -93,6 +99,7 @@ Notas de lançamento para `1.1.013050001-amd64-preview`
 
 | Etiquetas de imagem                    | Notas |
 |-------------------------------|:------|
+| `3.2.2.014850001-49e0eac6-amd64-preview` |       |
 | `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |

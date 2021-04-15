@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: d84f56e5ae0f3c364a0fd3a08ccb173d7c65a5e2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 1be15c16a1897797326ea869c34c3590ffb07691
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121766"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363874"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versões do servidor da Base de Dados MySQL do Azure suportadas
 
@@ -33,7 +33,7 @@ Na Base de Dados Azure para o serviço MySQL, os nós gateway ouvem na porta 330
 ## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>A Azure Database for MySQL suporta atualmente as seguintes versões principais e menores do MySQL:
 
 
-| Versão | [Servidor Único](overview.md) <br/> Versão menor atual |[Servidor Flexível (Pré-visualização)](/../flexible-server/overview.md) <br/> Versão menor atual  |
+| Versão | [Servidor Único](overview.md) <br/> Versão menor atual |[Servidor Flexível (Pré-visualização)](/azure/mysql/flexible-server/overview) <br/> Versão menor atual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Aposentado) | Não suportado|
 |MySQL Versão 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|

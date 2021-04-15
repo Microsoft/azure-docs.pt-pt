@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 377bbb9ce111f3cf2daf8426e128186711c30e5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e948b96022972dcf702ac5a4d8be85c9afe16e7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587456"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365982"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades geridas para recursos Azure em uma escala de máquina virtual Azure usando um modelo
 
@@ -29,6 +29,7 @@ ms.locfileid: "97587456"
 Identidades geridas para recursos Azure fornecem aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, sem ter credenciais no seu código.
 
 Neste artigo, aprende a executar as seguintes identidades geridas para operações de recursos Azure num conjunto de escala de máquina virtual Azure, utilizando o modelo de implementação do Gestor de Recursos Azure:
+
 - Ativar e desativar a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual Azure
 - Adicione e remova uma identidade gerida atribuída pelo utilizador num conjunto de escala de máquina virtual Azure
 
@@ -60,7 +61,7 @@ Independentemente da opção escolhida, a sintaxe do modelo é a mesma durante a
 
 Nesta secção, irá ativar e desativar a identidade gerida atribuída pelo sistema utilizando um modelo de Gestor de Recursos Azure.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Ativar a identidade gerida atribuída pelo sistema durante a criação da criação de um conjunto de escala de máquinas virtuais ou de um conjunto de escala de máquina virtual existente
+### <a name="enable-system-assigned-managed-identity-during-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Ativar a identidade gerida atribuída pelo sistema durante a criação de um conjunto de escala de máquinas virtuais ou um conjunto de escala de máquina virtual existente
 
 1. Quer faça seduca localmente ou através do portal Azure, utilize uma conta associada à subscrição Azure que contenha o conjunto de escala de máquina virtual.
 2. Para ativar a identidade gerida atribuída pelo sistema, carregue o modelo num editor, localize o `Microsoft.Compute/virtualMachinesScaleSets` recurso de interesse dentro da secção de recursos e adicione a propriedade ao mesmo `identity` nível que a `"type": "Microsoft.Compute/virtualMachinesScaleSets"` propriedade. Utilize a seguinte sintaxe:
@@ -70,10 +71,6 @@ Nesta secção, irá ativar e desativar a identidade gerida atribuída pelo sist
        "type": "SystemAssigned"
    }
    ```
-
-> [!NOTE]
-> Pode, opcionalmente, prever as identidades geridas para a escala de máquina virtual de recursos Azure, especificando-as no `extensionProfile` elemento do modelo. Este passo é opcional, uma vez que pode utilizar o ponto final de identidade do Serviço de Metadados de Caso Azure (IMDS), para recuperar também fichas.  Para obter mais informações, consulte [Migrar da extensão VM para Azure IMDS para autenticação.](howto-migrate-vm-extension.md)
-
 
 4. Quando terminar, as seguintes secções devem ser adicionadas à secção de recursos do seu modelo e devem assemelhar-se às seguintes:
 
@@ -92,23 +89,7 @@ Nesta secção, irá ativar e desativar a identidade gerida atribuída pelo sist
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
+        
                 }
             }
         }
@@ -194,13 +175,10 @@ Nesta secção, atribua uma identidade gerida atribuída ao utilizador a um conj
        }
 
    }
-   ```
-> [!NOTE]
-> Pode, opcionalmente, prever as identidades geridas para a escala de máquina virtual de recursos Azure, especificando-as no `extensionProfile` elemento do modelo. Este passo é opcional, uma vez que pode utilizar o ponto final de identidade do Serviço de Metadados de Caso Azure (IMDS), para recuperar também fichas.  Para obter mais informações, consulte [Migrar da extensão VM para Azure IMDS para autenticação.](howto-migrate-vm-extension.md)
 
-3. Quando terminar, o seu modelo deve ser semelhante ao seguinte:
+3. When you are done, your template should look similar to the following:
 
-   **Microsoft.Compute/virtualMachineScaleSets versão API 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
 
    ```json
    "resources": [
@@ -220,23 +198,6 @@ Nesta secção, atribua uma identidade gerida atribuída ao utilizador a um conj
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
@@ -263,29 +224,12 @@ Nesta secção, atribua uma identidade gerida atribuída ao utilizador a um conj
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
     ]
    ```
-   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Remova a identidade gerida atribuída pelo utilizador de um conjunto de escala de máquina virtual Azure
+### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Remova a identidade gerida atribuída pelo utilizador de um conjunto de escala de máquina virtual Azure
 
 Se tiver um conjunto de escala de máquina virtual que já não necessita de uma identidade gerida atribuída pelo utilizador:
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 01f43ceab36b519f3aafbbdc711df15c80481398
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75615b4bb8773d0c0b8f72278e5598462c779ceb
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597441"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365234"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -71,12 +71,12 @@ Estas propriedades são suportadas para um serviço de base de dados Azure SQL l
 
 Para diferentes tipos de autenticação, consulte as seguintes secções sobre pré-requisitos e amostras JSON, respectivamente:
 
-- [Autenticação SQL](#sql-authentication)
+- [Autenticação do SQL](#sql-authentication)
 - [Autenticação simbólica de aplicação Azure: Diretor de serviço](#service-principal-authentication)
 - [Autenticação simbólica de aplicação Azure: Identidades geridas para recursos Azure](#managed-identity)
 
 >[!TIP]
->Se tiver atingido um erro com o código de erro "UserErrorFailedToConnectToSqlServer" e uma mensagem como "O limite de sessão para a base de dados é XXX e foi atingido", adicione `Pooling=false` a sua cadeia de ligação e tente novamente.
+>Se tiver atingido um erro com o código de erro "UserErrorFailedToConnectToSqlServer" e uma mensagem como "O limite de sessão para a base de dados é XXX e foi atingido", adicione `Pooling=false` a sua cadeia de ligação e tente novamente. `Pooling=false`também é recomendado para a configuração de serviço do tipo **SHIR (Self Hosted Integration Runtime).** O agrupamento e outros parâmetros de conexão podem ser adicionados como novos nomes e valores de parâmetros na secção de propriedades de **ligação adicionais** do formulário de criação de serviços ligados.
 
 ### <a name="sql-authentication"></a>Autenticação do SQL
 
