@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 76c6d7caf3c63779e12443304688192f7311720a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43707a99792ae3c4d817f47d770629287b8a774b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594568"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374340"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -229,7 +229,7 @@ Restringir o acesso como explicado acima não se aplica ao Gestor de Recursos Az
 
 ### <a name="log-analytics-solution-packs-download"></a>Pacotes de soluções Log Analytics descarregam
 
-Para permitir que o Agente Desafiá-lo descarregue pacotes de soluções, adicione os nomes de domínio totalmente qualificados apropriados à sua lista de autorizações de firewall. 
+Para permitir que o Agente Desafiado do Log Analytics descarregue pacotes de soluções, adicione os nomes de domínio totalmente qualificados apropriados à sua lista de admissões de firewall. 
 
 
 | Ambiente em nuvem | Recursos do Agente | Portas | Direção |
@@ -237,6 +237,10 @@ Para permitir que o Agente Desafiá-lo descarregue pacotes de soluções, adicio
 |Azure Público     | scadvisorcontent.blob.core.windows.net         | 443 | Saída
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
+
+
+>[!NOTE]
+> A partir de 19 de abril de 2021 não será necessário a definição acima, e poderá chegar à conta de armazenamento de pacotes de solução através do link privado. A nova capacidade requer a recriação do AMPLS (a 19 de abril de 2021 ou posterior) e do Private Endpoint ligado ao mesmo. Não se aplicará aos AMPLS existentes e aos endpints privados.
 
 ## <a name="configure-application-insights"></a>Configurar o Application Insights
 
@@ -246,7 +250,7 @@ Aceda ao portal do Azure. No seu recurso componente Azure Monitor Application In
 
 Em primeiro lugar, pode ligar este recurso Application Insights aos âmbitos de ligação privada do Monitor Azure a que tem acesso. **Selecione Adicionar** e selecione o **Âmbito de Ligação Privada Azure Monitor**. Selecione Aplicar para conectá-lo. Todos os telescópios conectados aparecem neste ecrã. A realização desta ligação permite que o tráfego de rede nas redes virtuais conectadas atinja este componente, e tem o mesmo efeito que ligá-lo do âmbito que fizemos na [ligação dos recursos do Monitor Azure.](#connect-azure-monitor-resources) 
 
-Em segundo lugar, pode controlar como este recurso pode ser alcançado a partir de fora dos âmbitos de ligação privados (AMPLS) listados anteriormente. Se definir **Permita o acesso à rede pública para ingestão** a **Nº,** então as máquinas ou SDKs fora dos âmbitos ligados não podem enviar dados para este componente. Se definir **Permitir o acesso à rede pública para consultas** a **No,** então as máquinas fora dos âmbitos não podem aceder aos dados neste recurso Application Insights. Esses dados incluem acesso a registos APM, métricas e o fluxo de métricas ao vivo, bem como experiências construídas em cima, tais como livros de trabalho, dashboards, experiências de clientes baseadas em consultas com API, insights no portal Azure, e muito mais. 
+Em seguida, pode controlar como este recurso pode ser alcançado a partir de fora dos âmbitos de ligação privados (AMPLS) listados anteriormente. Se definir **Permita o acesso à rede pública para ingestão** a **Nº,** então as máquinas ou SDKs fora dos âmbitos ligados não podem enviar dados para este componente. Se definir **Permitir o acesso à rede pública para consultas** a **No,** então as máquinas fora dos âmbitos não podem aceder aos dados neste recurso Application Insights. Esses dados incluem acesso a registos APM, métricas e o fluxo de métricas ao vivo, bem como experiências construídas em cima, tais como livros de trabalho, dashboards, experiências de clientes baseadas em consultas com API, insights no portal Azure, e muito mais. 
 
 > [!NOTE]
 > As experiências de consumo não-portal também devem ser executadas no VNET de ligação privada que inclui as cargas de trabalho monitorizadas.

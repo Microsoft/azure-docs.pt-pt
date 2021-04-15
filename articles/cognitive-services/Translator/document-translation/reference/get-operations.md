@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/25/2021
 ms.author: v-jansk
-ms.openlocfilehash: c42f3081a831c267c7bc605267b99e2a916ea3d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd7cee564aa3a00e21d1e707d08a18115d519925
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613092"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484681"
 ---
 # <a name="document-translation-get-operations"></a>Tradução documental: obter operações
 
@@ -59,7 +59,7 @@ Os parâmetros de pedido passados na cadeia de consulta são:
 
 Os cabeçalhos de pedido são:
 
-|Cabeçalhos|Description|
+|Cabeçalhos|Descrição|
 |--- |--- |
 |Ocp-Apim-Subscription-Key|Cabeçalho de pedido exigido|
 
@@ -67,7 +67,7 @@ Os cabeçalhos de pedido são:
 
 Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 
-|Código de Estado|Description|
+|Código de Estado|Descrição|
 |--- |--- |
 |200|OK. Pedido bem sucedido e devolve o estado de todas as operações. HeadersRetry-After: inteiroETag: string|
 |400|Mau pedido. Pedido inválido. Verifique os parâmetros de entrada.|
@@ -81,7 +81,7 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 
 As seguintes informações são devolvidas numa resposta bem sucedida.
 
-|Nome|Tipo|Description|
+|Nome|Tipo|Descrição|
 |--- |--- |--- |
 |ID|string|Identificação da operação.|
 |createdDateTimeUtc|string|Operação criou a hora da data.|
@@ -96,11 +96,11 @@ As seguintes informações são devolvidas numa resposta bem sucedida.
 |resumo.cancelado|número inteiro|Contagem de documentos cancelados.|
 |resumo.totalCharacterCharged|número inteiro|Contagem total de caracteres carregados.|
 
-###<a name="error-response"></a>Resposta de erro
+### <a name="error-response"></a>Resposta de erro
 
-|Nome|Tipo|Description|
+|Nome|Tipo|Descrição|
 |--- |--- |--- |
-|code|string|Números contendo códigos de erro de alto nível. Valores possíveis:<br/><ul><li>InternalServerError</li><li>Argumento invalido</li><li>InáduloRequest</li><li>RequestRateTooHigh</li><li>RecursosNotFound</li><li>ServiceUnavailable</li><li>Não autorizado</li></ul>|
+|code|string|Números contendo códigos de erro de alto nível. Valores possíveis:<br/><ul><li>InternalServerError</li><li>Argumento invalido</li><li>InáduloRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Não autorizado</li></ul>|
 |message|string|Recebe uma mensagem de erro de alto nível.|
 |alvo|string|Obtém a origem do erro. Por exemplo, seria "documentos" ou "documento de identificação" no caso de um documento inválido.|
 |interiorError|InteriorErrorV2|Novo formato de Erro Interior, que está em conformidade com as Diretrizes da API dos Serviços Cognitivos. Contém propriedades necessárias ErrorCode, mensagem e alvo de propriedades opcionais, detalhes (par de valor chave), erro interno (este pode ser aninhado).|

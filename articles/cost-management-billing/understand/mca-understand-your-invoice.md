@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ff53131f3078b33b7e7d853c1fca891b0b86d792
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050448"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484608"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termos na sua fatura do Contrato de Cliente da Microsoft
 
@@ -29,6 +29,18 @@ Veja o vídeo da fatura do [Microsoft Customer Agreement](https://www.youtube.co
 ## <a name="billing-period"></a>Período de faturação
 
 A faturação é mensal. Pode saber em que dia do mês recebe faturas ao verificar a *data da fatura* nas propriedades do perfil de faturação no [portal do Azure](https://portal.azure.com/). As cobranças que ocorrem entre o fim do período de faturação e a data da fatura são incluídas na fatura do próximo mês, pois estão no próximo período de faturação. As datas de início e fim do período de faturação para cada fatura são listadas no PDF da fatura acima do **Resumo de Faturação**.
+
+Se estiver a migrar de um EA para um Acordo de Cliente da Microsoft, continua a receber faturas para o seu EA até à data de migração. A nova fatura do seu Contrato de Cliente da Microsoft é gerada no quinto dia do mês após a sua migração. A primeira fatura mostra uma cobrança parcial a partir da data de migração. As faturas posteriores são geradas todos os meses e mostram todos os encargos por cada mês.
+
+### <a name="changes-for-pay-as-you-go-subscriptions"></a>Alterações para subscrições pay-as-you-go
+
+Quando uma subscrição é transferida, transferida ou cancelada, a última fatura gerada contém encargos para o ciclo de faturação anterior e o novo ciclo de faturação incompleto.
+
+Por exemplo:
+
+Assuma que o seu ciclo de faturação de subscrição pay-as-you-go é do dia 8 ao dia 7 de cada mês. A subscrição foi transferida para um Acordo de Cliente da Microsoft a 16 de novembro. A última fatura paga tem taxas para 8 de outubro de 2020 até 7 de novembro de 2020. Tem ainda os encargos para o novo ciclo parcial de faturação para o Microsoft Customer Agreement de 8 de novembro de 2020 a 16 de novembro de 2020. Segue-se uma imagem de exemplo.
+
+:::image type="content" source="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" alt-text="Imagem de exemplo de uma fatura que mostra o último ciclo de faturação." lightbox="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" :::
 
 ## <a name="invoice-terms-and-descriptions"></a>Termos e descrições da fatura
 

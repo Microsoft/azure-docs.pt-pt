@@ -1,12 +1,16 @@
 - name: Documentação do Acordo de Cliente da Microsoft
   href: index.yml?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-- name: Descrição Geral
+- name: Descrição geral
   expanded: true
   items:
     - name: Visão geral do Acordo de Cliente da Microsoft
       href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Conceitos
   items:
+    - name: Lista de verificação após a assinatura do seu acordo
+      href: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Gerir inquilinos no seu contrato
+      href: manage-tenants.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - name: Compreenda o seu ciclo de utilização e faturação
       href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - name: Termos de ficheiro de utilização e encargos
@@ -40,7 +44,7 @@
       href: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - name: Pagar a sua fatura
       href: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - name: Obter propriedade de faturação
+    - name: Transferir a propriedade da faturação
       href: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - name: Migrar a EA para as APIs do Acordo de Clientes da Microsoft
       href: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
@@ -50,3 +54,7 @@
       href: ../manage/ea-pricing.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - name: Tarefas da EA num Acordo de Cliente da Microsoft
       href: ../manage/mca-enterprise-operations.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Resolução de problemas
+      items:
+        - name: Acesso à subscrição
+          href: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json

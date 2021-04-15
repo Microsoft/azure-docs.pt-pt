@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
-ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: 65ced3812072bd2650fc36bbb7a7b0f3f75e0def
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mqtt, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 2047de2c1e61554ba96af8471905a22291861184
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91336790"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484579"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Começar com os gémeos do dispositivo (Node.js)
 

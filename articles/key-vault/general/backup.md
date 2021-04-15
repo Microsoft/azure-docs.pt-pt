@@ -10,19 +10,19 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 3/18/2021
 ms.author: sudbalas
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3b148ac83b89850cad66bcd7254d385e655cc2fb
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 399f55d379f99a784fed97d7e9f72c456eb1f914
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968752"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484817"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Cofre de Chaves Azure
 
 Este documento mostra-lhe como fazer o back up secrets, chaves e certificados armazenados no seu cofre de chaves. Uma cópia de segurança destina-se a fornecer-lhe uma cópia offline de todos os seus segredos no caso improvável de perder acesso ao seu cofre de chaves.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Azure Key Vault fornece automaticamente funcionalidades para o ajudar a manter a disponibilidade e a prevenir a perda de dados. Faça o reforço dos segredos apenas se tiver uma justificação crítica de negócio. O backup de segredos no cofre chave pode introduzir desafios operacionais, tais como manter vários conjuntos de registos, permissões e backups quando os segredos expiram ou giram.
 
