@@ -3,7 +3,7 @@ title: Amostra PowerShell - Listar todas as aplicações Proxy de aplicação co
 description: Exemplo powerShell que lista todas as aplicações de procuração de aplicação Azure Ative (Azure AD) no seu diretório que têm uma política de símbolos para toda a vida.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c2da1885d975ea6b4daf26714e430143dd89da42
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 53ec98ca4bd981655a3b4d6fdbccf10f7c7f9fb9
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709774"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376635"
 ---
 # <a name="get-all-application-proxy-apps-with-a-token-lifetime-policy"></a>Obtenha todas as aplicações Proxy de aplicação com uma política de vida simbólica
 

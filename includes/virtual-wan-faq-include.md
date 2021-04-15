@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b7f79bebce5a086b268f4fc1080c33517555fb39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c1cf6e1d47f9bb78349e0846f624e1d6a484669
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102431550"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386703"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN está na AG?
 
@@ -121,7 +121,7 @@ Para obter os passos de automatização, veja [Automatização dos parceiros da 
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Sou obrigado a utilizar um dispositivo de parceiro preferencial?
 
-N.º Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1. A VIRTUAL WAN também tem soluções parceiras CPE que automatizam a conectividade com a Azure Virtual WAN, facilitando a configuração de ligações VPN IPsec em escala.
+Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1. A VIRTUAL WAN também tem soluções parceiras CPE que automatizam a conectividade com a Azure Virtual WAN, facilitando a configuração de ligações VPN IPsec em escala.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Como é que os parceiros de WAN Virtual automatizam a conectividade com a WAN Virtual do Azure?
 
@@ -169,7 +169,7 @@ Um aparelho virtual de rede (NVA) não pode ser implantado dentro de um centro v
 
 ### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>Um VNet falado pode ter uma porta de entrada de rede virtual?
 
-N.º O VNet falado não pode ter uma porta de entrada de rede virtual se estiver ligado ao centro virtual.
+Não. O VNet falado não pode ter uma porta de entrada de rede virtual se estiver ligado ao centro virtual.
 
 ### <a name="is-there-support-for-bgp-in-vpn-connectivity"></a>Existe apoio para o BGP na conectividade VPN?
 
@@ -199,7 +199,7 @@ Sim. O tráfego de ramo-a-ramo atravessa a Azure Virtual WAN.
 
 ### <a name="does-virtual-wan-require-expressroute-from-each-site"></a>O WAN virtual requer o ExpressRoute de cada site?
 
-N.º O WAN virtual não requer o ExpressRoute de cada site. Os sites podem estar ligados a uma rede de fornecedor através de um circuito do ExpressRoute. Para sites que estão ligados usando o ExpressRoute para um hub virtual e IPsec VPN no mesmo hub, o hub virtual fornece conectividade de trânsito entre o utilizador VPN e ExpressRoute.
+Não. O WAN virtual não requer o ExpressRoute de cada site. Os sites podem estar ligados a uma rede de fornecedor através de um circuito do ExpressRoute. Para sites que estão ligados usando o ExpressRoute para um hub virtual e IPsec VPN no mesmo hub, o hub virtual fornece conectividade de trânsito entre o utilizador VPN e ExpressRoute.
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Existe um limite de produção ou ligação de rede ao utilizar o Azure Virtual WAN?
 
@@ -237,7 +237,7 @@ Sim. Uma ligação à Internet e dispositivo físico que suporta o IPsec, de pre
 
 ### <a name="how-do-i-enable-default-route-00000-for-a-connection-vpn-expressroute-or-virtual-network"></a>Como posso ativar a rota predefinido (0.0.0.0/0) para uma ligação (VPN, ExpressRoute ou Rede Virtual)?
 
-Um hub virtual pode propagar uma rota padrão aprendida para uma ligação VPN/ExpressRoute de rede virtual/local se a bandeira estiver 'Activada' na ligação. Esta bandeira é visível quando o utilizador edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Por predefinição, esta bandeira é desativada quando um site ou um circuito ExpressRoute estão ligados a um hub. É ativado por padrão quando uma ligação de rede virtual é adicionada para ligar um VNet a um hub virtual.
+Um hub virtual pode propagar uma rota padrão aprendida para uma ligação VPN/ExpressRoute de rede virtual/local se a bandeira estiver 'Ativada' na ligação. Esta bandeira é visível quando o utilizador edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Por predefinição, esta bandeira é desativada quando um site ou um circuito ExpressRoute estão ligados a um hub. É ativado por padrão quando uma ligação de rede virtual é adicionada para ligar um VNet a um hub virtual.
 
 A rota predefinida não tem origem no hub Virtual WAN; a rota padrão é propagada se já for aprendida pelo hub Virtual WAN como resultado da implantação de uma firewall no centro, ou se outro site conectado tiver um túnel forçado habilitado. Uma rota predefinida não se propaga entre os hubs (inter-hub).
 
@@ -277,6 +277,10 @@ O comportamento atual é preferir o caminho do circuito ExpressRoute em vez do h
 
 Sim. Esta opção está atualmente disponível apenas através do PowerShell. O portal Virtual WAN requer que os hubs estejam no mesmo grupo de recursos que o próprio recurso Virtual WAN.
 
+### <a name="what-is-the-recommended-hub-address-space-during-hub-creation"></a>Qual é o espaço de endereço recomendado do hub durante a criação do hub?
+
+O espaço de endereço do hub virtual WAN recomendado é /23. O hub VIRTUAL WAN atribui sub-redes a vários gateways (ExpressRoute, VPN site-to-site, Point-to-site VPN, Azure Firewall, Virtual hub Router). Para cenários onde os NVAs são implantados dentro de um hub virtual, um /28 é tipicamente esculpido para os casos de NVA. No entanto, se o utilizador providenciar várias NVAs, pode ser atribuída uma sub-rede /27 . Portanto, tendo em conta uma arquitetura futura, enquanto os hubs VIRTUAIS WAN são implantados com um tamanho mínimo de /24, o espaço de endereço recomendado no tempo de criação para o utilizador entrar é /23.
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Existe suporte para o IPv6 em VIRTUAL WAN?
 
 O IPv6 não é suportado no hub Virtual WAN e nas suas portas de entrada. Se tem um VNet que tem suporte IPv4 e IPv6 e gostaria de ligar o VNet ao WAN Virtual, este cenário não está atualmente suportado.
@@ -297,7 +301,7 @@ Ver [WANs Virtuais Básicos e Padrão.](../articles/virtual-wan/virtual-wan-abou
 
 ### <a name="does-virtual-wan-store-customer-data"></a>A VIRTUAL WAN armazena os dados do cliente?
 
-N.º A WAN virtual não armazena quaisquer dados do cliente.
+Não. A WAN virtual não armazena quaisquer dados do cliente.
 
 ### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>Existem fornecedores de serviços geridos que possam gerir o WAN virtual para os utilizadores como um serviço?
 

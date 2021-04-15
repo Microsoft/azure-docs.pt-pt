@@ -1,0 +1,244 @@
+- name: Documentação da jornada de segurança
+  href: index.yml
+- name: Compreender as vantagens de segurança na nuvem
+  items:
+    - name: Vantagens de segurança
+      href: ../fundamentals/overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Responsabilidade partilhada na cloud
+      href: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Identidade como perímetro de segurança
+      href: ../fundamentals/paas-deployments.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- name: Explore a segurança da Azure
+  items:
+    - name: Segurança de ponta a ponta
+      href: ../fundamentals/end-to-end.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Capacidades técnicas
+      href: ../fundamentals/technical-capabilities.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Segurança da infraestrutura Azure
+      href: ../fundamentals/infrastructure.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      items:
+        - name: Segurança física
+          href: ../fundamentals/physical-security.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Disponibilidade
+          href: ../fundamentals/infrastructure-availability.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Componentes e limites
+          href: ../fundamentals/infrastructure-components.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Arquitetura de rede
+          displayName: 'ssl, https'
+          href: ../fundamentals/infrastructure-network.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Rede de produção
+          href: ../fundamentals/production-network.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: SQL Database
+          href: ../fundamentals/infrastructure-sql.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Operações
+          href: ../fundamentals/infrastructure-operations.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Monitorização
+          href: ../fundamentals/infrastructure-monitoring.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Integridade
+          href: ../fundamentals/infrastructure-integrity.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Proteção de dados
+          href: ../fundamentals/protection-customer-data.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Integridade e segurança da plataforma do Azure
+      href: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      items:
+        - name: Segurança do firmware
+          href: ../fundamentals/firmware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Arranque Seguro
+          href: ../fundamentals/secure-boot.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Atestado de arranque e alojamento monitorizados
+          href: ../fundamentals/measured-boot-host-attestation.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Projeto Cerberus
+          href: ../fundamentals/project-cerberus.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Encriptação inativa
+          href: ../fundamentals/encryption-atrest.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Segurança do hipervisor
+          href: ../fundamentals/hypervisor.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Isolamento na cloud do Azure
+      href: ../fundamentals/isolation-choices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Comparação dos serviços de segurança AWS à Azure
+      href: /azure/architecture/aws-professional/services#security-identity-and-access?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Comparação dos serviços de segurança GCP à Azure
+      href: /azure/architecture/gcp-professional/services#security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- name: Planear a migração
+  items:
+    - name: Avalie a sua prontidão de segurança
+      href: 'https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local'
+    - name: Implemente a segurança em todo o seu negócio
+      href: /azure/cloud-adoption-framework/get-started/security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Desenhe uma arquitetura segura
+      href: /azure/architecture/framework/security/security-principles?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: 'Segurança, governação e conformidade de escala empresarial'
+      href: /azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- name: Migrar para a nuvem
+  items:
+    - name: Migrar cargas de trabalho protegidas
+      href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Estratégia de governação ou conformidade
+      href: /azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- name: Proteger e proteger
+  items:
+    - name: Melhores práticas de segurança
+      href: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Controlos de segurança e linhas de base
+      href: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Gestão de & de identidade e acesso
+      items:
+        - name: Descrição geral da segurança
+          href: ../fundamentals/identity-management-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Melhores práticas
+          href: ../fundamentals/identity-management-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Plano de controlo
+          href: /azure/architecture/framework/security/design-identity-control-plane?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Autenticação
+          href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
+        - name: Autorização
+          href: /architecture/framework/security/design-identity-authorization?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Escolher modo sem palavra-passe
+          href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Lista de Verificação
+          href: ../fundamentals/steps-secure-identity.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Segurança da rede
+      items:
+        - name: Descrição geral da segurança
+          href: ../fundamentals/network-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Melhores práticas
+          href: ../fundamentals/network-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Proteção contra DDOS
+          items:
+            - name: Melhores práticas do DDoS Protection
+              href: ../../ddos-protection/fundamental-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Linha de segurança de base do DDoS Protection
+              href: ../fundamentals/ddos-protection-security-baseline.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: DNS pendente e aquisição de subdomínio
+          href: ../fundamentals/subdomain-takeover.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Segmentação de rede
+          href: /azure/architecture/framework/security/design-network-segmentation?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Conectividade
+          href: /azure/architecture/framework/security/design-network-connectivity?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Pontos finais de aplicação
+          href: /azure/architecture/framework/security/design-network-endpoints?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Fluxo de dados
+          href: /azure/architecture/framework/security/design-network-flow?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Arquitetura de rede híbrida segura
+          href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Lista de Verificação
+          href: /azure/architecture/framework/security/design-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: 'Segurança de dados, encriptação e armazenamento'
+      items:
+        - name: Segurança e encriptação de dados
+          href: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Encriptação dupla
+          href: ../fundamentals/double-encryption.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Alterações ao certificado TLS
+          href: ../fundamentals/tls-certificate-changes.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Encriptação de disco
+          items:
+            - name: Melhores práticas
+              href: ../fundamentals/data-encryption-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Encriptação de dados inativos
+              href: ../fundamentals/encryption-atrest.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Modelos de encriptação de dados
+              href: ../fundamentals/encryption-models.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Azure Disk Encryption para máquinas virtuais
+              href: ../fundamentals/azure-disk-encryption-vms-vmss.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Segurança de bases de dados
+          items:
+            - name: Descrição geral
+              href: ../../azure-sql/database/security-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Melhores práticas
+              href: ../../azure-sql/database/security-best-practice.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Lista de verificação de segurança
+              href: ../fundamentals/database-security-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Guia da segurança do armazenamento
+          href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Gestão de chaves e segredos
+          href: /azure/architecture/framework/security/design-storage-keys?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Sistema de Proteção de Dados do Cliente
+          items:
+            - name: Sistema de Proteção de Dados do Cliente
+              href: ../fundamentals/customer-lockbox-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
+              href: ../fundamentals/customer-lockbox-security-baseline.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Lista de Verificação
+          href: /azure/architecture/framework/security/design-storage?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Segurança de IaaS
+      items:
+        - name: Microsoft Antimalware
+          href: ../fundamentals/antimalware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Amostras de código de Microsoft Antimalware
+          href: ../fundamentals/antimalware-code-samples.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Descrição geral de segurança de máquinas virtuais
+          href: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Melhores práticas - Cargas de trabalho de IaaS
+          href: ../fundamentals/iaas.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Imagens do Azure Marketplace
+          href: ../fundamentals/azure-marketplace-images.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Aplicação
+      items:
+        - name: Classificação de aplicações
+          href: /azure/architecture/framework/security/design-apps-considerations?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Configuração e dependências
+          href: /azure/architecture/framework/security/design-app-dependencies?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: PaaS
+          href: ../fundamentals/paas-deployments.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+          items:
+            - name: Serviço de Aplicações do Azure para PaaS
+              href: ../fundamentals/paas-applications-using-app-services.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Armazenamento do Azure para PaaS
+              href: ../fundamentals/paas-applications-using-storage.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Melhores práticas de DB para PaaS
+              href: ../fundamentals/paas-applications-using-sql.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: Segurança do Azure Service Fabric
+          href: ../fundamentals/service-fabric-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: 'Monitorização, auditoria e operações'
+          items:
+            - name: Gestão e monitorização de segurança
+              href: ../fundamentals/management-monitoring-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Ferramentas de monitorização de segurança
+              href: /azure/architecture/framework/security/monitor-tools?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Auditorias de segurança
+              href: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Melhorar a gestão remota
+              href: ../fundamentals/management.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            - name: Segurança operacional
+              items:
+                - name: Descrição geral
+                  href: ../fundamentals/operational-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+                - name: Melhores práticas
+                  href: ../fundamentals/operational-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+                - name: Lista de verificação de segurança
+                  href: ../fundamentals/operational-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- name: Detetar e mitigar ameaças
+  items:
+    - name: Proteção contra ameaças
+      href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Análise de ameaças
+      href: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- name: Investigar atividades suspeitas
+  items:
+    - name: Registo e auditoria do Azure
+      href: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Revisão e auditoria
+      href: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Riscos de identidade e de rede
+      href: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Lista de Verificação
+      href: /azure/architecture/framework/security/monitor?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- name: Otimizar investimentos de segurança
+  items:
+    - name: 'Governação, risco, conformidade'
+      href: /azure/architecture/framework/security/governance?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Validar e testar
+      href: /azure/architecture/framework/security/monitor-test?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- name: Recursos
+  items:
+    - name: Documentos técnicos sobre segurança
+      href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
+    - name: Melhores práticas
+      href: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Consultoria de cibersegurança
+      href: ../fundamentals/cyber-services.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Registar um pedido de suporte de evento de segurança
+      href: ../fundamentals/event-support-ticket.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Testes de intrusão
+      href: ../fundamentals/pen-testing.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

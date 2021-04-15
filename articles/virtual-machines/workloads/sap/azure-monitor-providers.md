@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 1282d1916d669f1026707e15cc8d5437d885087f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93e97f1f04aea2a31b62b2014a88a5aaa998ed2d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668993"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376091"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitor Azure para fornecedores de soluções SAP (pré-visualização)
 
@@ -25,6 +25,7 @@ Os clientes também podem optar por configurar vários fornecedores de um tipo d
 - SAP HANA
 - Cluster de elevada disponibilidade
 - Microsoft SQL Server
+- SAP NetWeaver
 
 ![Monitor Azure para fornecedores de soluções SAP](./media/azure-monitor-sap/azure-monitor-providers.png)
 
@@ -108,6 +109,27 @@ Na pré-visualização pública, os clientes podem esperar ver os seguintes dado
 Para configurar o fornecedor do Microsoft SQL Server, são necessários o ID do Sistema SAP, o endereço IP do anfitrião, o número da porta do Servidor SQL e o nome de login e palavra-passe do SQL Server.
 
 ![Azure Monitor para fornecedores de soluções SAP - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
+
+## <a name="provider-type-sap-netweaver"></a>Tipo de fornecedor SAP NetWeaver
+
+Os clientes podem configurar um ou mais fornecedores do tipo de fornecedor SAP NetWeaver para permitir a recolha de dados a partir da camada SAP NetWeaver. O fornecedor AMS NetWeaver aproveita a interface [de webservice SAPControl](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) existente para recuperar as informações de telemetria apropriadas.
+
+Para a versão atual, abaixo estão os métodos web padrão fora de caixa soap invocados pela AMS.
+|Método web|    ABAP|   JAVA|   Métricas|
+|--|--|--|--|
+|GetSystemInstanceList| X|  X|  Disponibilidade de exemplo, Servidor de Mensagens, Gateway, ICM, Disponibilidade ABAP|
+|Obter Lista de Processamento|    X|  X|  Se a lista de casos for RED, podemos obter o que o processo faz com que o servidor seja VERMELHO|
+|GetQueueStatistic| X|  X|  Estatísticas de fila (DIA/BATCH/UPD)|
+|ABAPGetWPTable|    X|   -| Utilização do processo de trabalho|
+|EnqGetStatistic|   X   |X  |Bloqueios|
+
+Na pré-visualização pública, os clientes podem esperar ver os seguintes dados com o fornecedor SAP NetWeaver: 
+- Disponibilidade de sistema e de instâncias
+- Utilização do processo de trabalho
+- Utilização de filas
+- Estatísticas de bloqueio enqueue.
+
+![image](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

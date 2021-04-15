@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: b022bff9db87c248881cd18cc21569aaef8f404a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9f3ad2a5d5b275ff611653855eff73bd36afda9f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562142"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379422"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Quickstart: Configurar um cluster híbrido com Azure Managed Instance para Apache Cassandra (Preview)
 
@@ -39,10 +39,19 @@ Este quickstart demonstra como usar os comandos Azure CLI para configurar um clu
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Adicione uma nova sub-rede à sua Rede Virtual." lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
-1. Agora aplicaremos algumas permissões especiais ao VNet e à sub-rede que a Cassandra Managed Instance requer, utilizando o Azure CLI. Utilize o `az role assignment create` comando, `<subscription ID>` substituindo, , e pelos `<resource group name>` `<VNet name>` `<subnet name>` valores adequados:
+    > [!NOTE]
+    > A implementação de uma instância gerida azure para a Apache Cassandra requer acesso à Internet. A implementação falha em ambientes onde o acesso à Internet é restrito. Certifique-se de que não bloqueia o acesso dentro do seu VNet aos seguintes serviços vitais da Azure que são necessários para que a Cassandra gerida funcione corretamente:
+    > - Storage do Azure
+    > - Azure KeyVault
+    > - Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+    > - Monitorização do Azure
+    > - Azure Active Directory
+    > - Azure Security
+
+1. Agora aplicaremos algumas permissões especiais ao VNet e à sub-rede que a Cassandra Managed Instance requer, utilizando o Azure CLI. Utilize o `az role assignment create` comando, `<subscription ID>` substituindo, e com os `<resource group name>` `<VNet name>` valores adequados:
 
    ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
+   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
    ```
 
    > [!NOTE]

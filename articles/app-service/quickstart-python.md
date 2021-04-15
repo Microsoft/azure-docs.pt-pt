@@ -3,18 +3,18 @@ title: 'Quickstart: Criar uma aplicação Python'
 description: Começa com o Azure App Service implementando a sua primeira aplicação Python num contentor Linux no Serviço de Aplicações.
 ms.topic: quickstart
 ms.date: 11/10/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
+ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
 adobe-target-activity: DocsExp–393165–A/B–Docs/PythonQuickstart–CLIvsPortal–FY21Q4
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-portal
-ms.openlocfilehash: e0542d47ff2c687f5f9470edb0cbb34ebc79554c
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: d8af7a9744fe136f482fc007dbd0e51a680df932
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010869"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379490"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python utilizando o Serviço de Aplicações Azure no Linux
 

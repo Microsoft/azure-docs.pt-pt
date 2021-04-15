@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4121d4b9ac73ed18da7dce0e397fe919589ac6f0
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583744"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478765"
 ---
 # <a name="using-web-browsers-msalnet"></a>Usando navegadores web (MSAL.NET)
 
@@ -63,11 +63,11 @@ Por padrão, MSAL.NET suporta o navegador web do sistema em Xamarin.iOS, Xamarin
 
 A utilização do navegador do sistema tem a vantagem significativa de partilhar o estado SSO com outras aplicações e com aplicações web sem precisar de um corretor (portal da empresa / Autenticador). O navegador do sistema foi utilizado, por padrão, em MSAL.NET para as plataformas Xamarin iOS e Xamarin Android porque, nestas plataformas, o navegador web do sistema ocupa todo o ecrã, e a experiência do utilizador é melhor. A vista web do sistema não distingue-se de um diálogo. No entanto, no iOS, o utilizador poderá ter de dar o seu consentimento para que o navegador reensete de volta a aplicação, o que pode ser irritante.
 
-## <a name="system-browser-experience-on-net-core"></a>Experiência do navegador do sistema em .NET Core
+## <a name="system-browser-experience-on-net"></a>Experiência de navegador de sistema em .NET 
 
 Em .NET Core, MSAL.NET iniciará o navegador do sistema como um processo separado. MSAL.NET não tem controlo sobre este navegador, mas assim que o utilizador termina a autenticação, a página web é redirecionada de forma a MSAL.NET possa intercetar o Uri.
 
-Também pode configurar aplicações escritas para .NET Classic para usar este navegador, especificando
+Também pode configurar aplicações escritas para .NET Classic ou .NET 5 para utilizar este navegador especificando:
 
 ```csharp
 await pca.AcquireTokenInteractive(s_scopes)

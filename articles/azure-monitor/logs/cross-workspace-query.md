@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/11/2021
-ms.openlocfilehash: e007f5af214dcfa475eb59a5981bc580b9499915
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 19cc85751fc5e4a165b646ac89d9d6b6e90c4408
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314240"
+ms.locfileid: "107379558"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realize consulta de log no Azure Monitor que se estende por espaços de trabalho e apps
 
@@ -41,8 +41,8 @@ Identificar um espaço de trabalho pode ser realizado de várias formas:
 
 * Nome de recurso - é um nome legível pelo homem do espaço de trabalho, por vezes referido como *nome de componente*. 
 
-    >[!Note]
-    >Como os nomes de apps e espaço de trabalho não são únicos, este identificador pode ser ambíguo. Quando existem múltiplas instâncias do nome do recurso, a referência deve ser por nome qualificado, ID de recurso ou ID de recursos Azure.
+    >[!IMPORTANT]
+    >Como os nomes de apps e espaço de trabalho não são únicos, este identificador pode ser ambíguo. Recomenda-se que a referência seja por nome qualificado, ID do espaço de trabalho ou ID de recursos Azure.
 
     `workspace("contosoretail-it").Update | count`
 

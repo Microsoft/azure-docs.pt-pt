@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 8943986bf8e8c082889d3a0b18618ac54c75e6d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 884f048ac099cfc6b799fe266172a0eecef3db6f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022981"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478374"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configure a recolha de dados para o agente Azure Monitor (pré-visualização)
 
@@ -89,7 +89,7 @@ Consulte [as limitações do XPath 1.0](/windows/win32/wes/consuming-events#xpat
 
 A tabela que se segue mostra exemplos para eventos de filtragem utilizando um XPath personalizado.
 
-| Description |  XPath |
+| Descrição |  XPath |
 |:---|:---|
 | Colete apenas eventos do Sistema com ID de evento = 4648 |  `System!*[System[EventID=4648]]`
 | Colete apenas eventos do Sistema com ID de evento = 4648 e um nome de processo de consent.exe | `Security!*[System[(EventID=4648)]] and *[EventData[Data[@Name='ProcessName']='C:\Windows\System32\consent.exe']]` |
@@ -110,7 +110,7 @@ Siga os passos abaixo para criar uma regra de recolha de dados e associações u
 
 ## <a name="create-association-using-resource-manager-template"></a>Criar associação usando o modelo de Gestor de Recursos
 
-Não é possível criar uma regra de recolha de dados utilizando um modelo de Gestor de Recursos, mas pode criar uma associação entre uma máquina virtual Azure ou um servidor ativado pelo Azure Arc utilizando um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para as regras de recolha de dados no Azure Monitor](./resource-manager-data-collection-rules.md) para modelos de amostras.
+Pode criar uma associação entre uma máquina virtual Azure ou um servidor ativado pelo Azure Arc utilizando um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para as regras de recolha de dados no Azure Monitor](./resource-manager-data-collection-rules.md) para modelos de amostras.
 
 
 

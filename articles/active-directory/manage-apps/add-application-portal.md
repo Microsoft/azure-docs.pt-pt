@@ -2,20 +2,20 @@
 title: 'Quickstart: Adicione uma aplicação ao seu inquilino Azure Ative (Azure AD)'
 description: Este início rápido utiliza o portal do Azure para adicionar uma aplicação da galeria ao seu inquilino do Azure Active Directory (Azure AD).
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: kenwith
-ms.openlocfilehash: 2d3b0be88a23bbbb0573b4d11a2e5a39dc6254da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: d7827d6419e4d820f8aca482df2cfae83eaf319d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259072"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378895"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Adicione uma aplicação ao seu inquilino Azure Ative (Azure AD)
 
