@@ -2,21 +2,21 @@
 title: Debug SAML- Azure Ative Directory
 description: Debug SAML com base em um único sign-on para aplicações no Azure Ative Directory.
 services: active-directory
-ms.author: kenwith
-author: kenwith
-manager: daveba
+ms.author: iangithinji
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: 4a5fbef3380db8c9b357c83b4cb8240a41a0012c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa86bbcec0dc6523ae701e5237f2c55d14db38e4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259292"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374323"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o início de sessão único baseado em SAML para as aplicações no Azure Active Directory
 

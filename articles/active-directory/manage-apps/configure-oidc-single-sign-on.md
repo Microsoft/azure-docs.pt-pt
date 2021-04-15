@@ -2,22 +2,22 @@
 title: Compreender o sign-on único baseado no OIDC (SSO) para aplicações no Azure Ative Directory
 description: Compreenda o sign-on único baseado no OIDC (SSO) para aplicações no Azure Ative Directory.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/19/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arajpathak7
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ffaa55d4aa482e8f0eda93b1b32db6310d17e2a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 990e0c09f8a49b83bc68d7123f5f8146a3551575
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255254"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374544"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Compreenda o sign-on único baseado no OIDC
 Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. Este artigo entra em mais detalhes sobre apps que usam a norma OpenID Connect para implementar um único sinal de entrada. 

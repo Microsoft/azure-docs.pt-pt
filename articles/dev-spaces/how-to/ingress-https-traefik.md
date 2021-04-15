@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Aprenda a configurar a Azure Dev Spaces para usar um controlador de entrada de traefik personalizado e configuure HTTPS usando esse controlador ingresss
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 036725f3c1eb909407e157d33ece05b1f55213ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-js
+ms.openlocfilehash: a04b46297d4eef6403f580206795bb492dd82516
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204104"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374034"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Use um controlador de entrada de traefik personalizado e configuure HTTPS
 

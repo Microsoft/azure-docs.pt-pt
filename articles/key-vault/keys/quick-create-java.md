@@ -2,18 +2,18 @@
 title: Quickstart - Biblioteca de clientes Azure Key Vault Key para Java
 description: Proporciona um arranque rápido para a biblioteca de clientes Azure Key Vault Keys para Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 124e56fad35be0f3ac5b08ee9dd66454b9d077c5
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935279"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374697"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Quickstart: Azure Key Vault Key Key Biblioteca de clientes para Java
 Começa com a biblioteca de clientes Azure Key Vault Key para a Java. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.

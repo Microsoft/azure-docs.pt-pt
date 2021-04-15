@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: dcd48354372a196ea903c335e5e22caf20e25996
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a2656d5c23a465856eee1e84d2c4f6900b21ec41
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219659"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477473"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Melhores práticas para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -136,10 +136,10 @@ Depois de conhecer os tipos de dados inferidos para a consulta, pode especificar
 
 ```sql  
 SELECT
-    vendor_id, pickup_datetime, passenger_count
+    vendorID, tpepPickupDateTime, passengerCount
 FROM 
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=2018/puMonth=*/*.snappy.parquet',
         FORMAT='PARQUET'
     ) 
     WITH (

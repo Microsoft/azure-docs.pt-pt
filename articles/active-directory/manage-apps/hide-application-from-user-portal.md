@@ -1,23 +1,23 @@
 ---
-title: Esconda uma aplicação Enterprise da experiência do utilizador no Azure AD
+title: Ocultar uma aplicação empresarial da experiência do utilizador no Azure Active Directory
 description: Como ocultar uma aplicação da Enterprise da experiência do utilizador em painéis de acesso Azure Ative Directory ou lançadores Microsoft 365.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8469b48b92f3f9a645a0c05441e6c1943b02e16f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a90f3e3aeb1d68c6c6e6eeea29c04ff7880dccd3
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258885"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374204"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicações da Empresa de utilizadores finais no Azure Ative Directory
 
