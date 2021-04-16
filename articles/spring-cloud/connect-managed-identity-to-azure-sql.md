@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 3f1cde0bf233c67d02b9b7266ce3b3c8a3696db8
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.custom: devx-track-java
+ms.openlocfilehash: ed729dde51316b9a67f396e3f7de3d7d9f6d4568
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123456"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378793"
 ---
 # <a name="use-a-managed-identity-to-connect-azure-sql-database-to-an-azure-spring-cloud-app"></a>Utilize uma identidade gerida para ligar a Base de Dados Azure SQL a uma aplicação Azure Spring Cloud
 

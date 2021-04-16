@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6646f131488a5ae4aa9b20fe614d7ebb46133444
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695754"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538860"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
@@ -69,8 +69,6 @@ Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a i
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Registe o seu Power BI e crie uma varredura
 
 Agora que deu ao Purview Permissões de Identidade Gerida para ligar à API ADMIN do seu inquilino Power BI, pode configurar a sua digitalização a partir do Azure Purview Studio.
-
-Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview 
 
 1. Selecione o ícone **do Centro de Gestão.**
 

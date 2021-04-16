@@ -1,16 +1,18 @@
 ---
 title: Quickstart - Apoiar um VM com o portal Azure
 description: Neste Quickstart, aprenda a criar um cofre dos Serviços de Recuperação, permita a proteção num VM Azure e faça backup no VM, com o portal Azure.
-ms.devlang: azurecli
-ms.topic: quickstart
 ms.date: 05/12/2020
-ms.custom: mvc
-ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.devlang: azurecli
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 9779f84e6ddf1958ee234a96267171869a33e4e0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91328785"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535057"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 

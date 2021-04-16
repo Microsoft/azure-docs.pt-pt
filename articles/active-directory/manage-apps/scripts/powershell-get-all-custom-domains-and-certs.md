@@ -3,7 +3,7 @@ title: Amostra powerShell - Aplicações Proxy usando domínios personalizados
 description: Exemplo powerShell que lista todas as aplicações de procuração de aplicações Azure Ative (Azure AD) que estão a usar domínios personalizados e informações de certificados.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8325da81fd78762f0ffdcae4eebe93fe567580d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec424d59fe7fee59c226ad51c74e6c106a4a5fc7
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550979"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377637"
 ---
 # <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>Obtenha todas as aplicações Proxy da Aplicação usando domínios personalizados e informações de certificados
 

@@ -1,13 +1,13 @@
 - name: Documentação sobre a Imagem Digitalizada
   href: index.yml
-- name: Descrição Geral
+- name: Descrição geral
   expanded: true
   items:
-    - name: Visão geral da visão computacional
+    - name: O que é a Imagem Digitalizada?
       href: overview.md
     - name: Suporte de idiomas
       href: language-support.md
-    - name: Preços e limites
+    - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
     - name: Novidades
       href: whats-new.md
@@ -180,21 +180,23 @@
               href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
 - name: Guias de procedimentos
   items:
-    - name: Como configurar redes virtuais
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Como configurar a autenticação AAD
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Como utilizar as chaves geridas pelo cliente
-      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Preparação para empresas
+      items:
+        - name: Configurar redes virtuais
+          href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+        - name: Use autenticação ad azure
+          href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
 - name: Recursos
   items:
-    - name: Suporte de região
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Módulos LEARN
-      href: /learn/paths/explore-computer-vision-microsoft-azure/
+    - name: Preparação para empresas
+      items:
+        - name: Suporte de região
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de suporte e ajuda
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Módulos Microsoft Learn
+      href: /learn/paths/explore-computer-vision-microsoft-azure/
     - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'

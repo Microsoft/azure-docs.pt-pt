@@ -3,12 +3,12 @@ title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cac254ef6b57f1878620b1e3ca30e757d7f39a88
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954315"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529457"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -92,7 +92,7 @@ Assim que a aplicação for criada, siga estes passos:
 Uma vez ativada esta definição, é criada uma nova identidade de serviço no seu Azure Ative Directory (Azure AD) e configurada no anfitrião do Serviço de Aplicações.
 
 > [!NOTE]
-> Quando utilizar uma identidade gerida, a cadeia de ligação deve estar no formato: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity` .
+> Quando utilizar uma identidade gerida, a cadeia de ligação deve estar no formato: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=ManagedIdentity` .
 
 Agora, atribua esta identidade de serviço a um papel no âmbito exigido nos seus recursos de Service Bus.
 

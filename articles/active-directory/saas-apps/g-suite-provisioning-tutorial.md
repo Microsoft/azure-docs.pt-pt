@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.author: Zhchia
-ms.openlocfilehash: f6ef2f91d178db01e618c19df55705bc9c1209e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8513f62b6f181a1490d136062c5de81db847ba7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583756"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533386"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores
 
@@ -273,7 +273,7 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 * 10/17/2020 - Suporte adicional para utilizador e atributos adicionais do g suite e do grupo.
 * 10/17/2020 - Nomes-alvo da Suíte G atualizados atribuem nomes para corresponder ao que está definido [aqui](https://developers.google.com/admin-sdk/directory).
 * 10/17/2020 - Mapeamentos de atributos predefinidos atualizados.
-* 03/18/2021 - O email do gerente está agora sincronizado em vez de ID para todos os novos utilizadores. Para quaisquer utilizadores existentes que foram a provisionados com um gestor como ID, pode fazer um reinício através [do Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) com âmbito "completo" para garantir que o e-mail é a provisionado. Esta alteração só afeta o trabalho de provisão GSuite e não o trabalho de probisção mais antigo a começar pela Goov2OutDelta. Nota: o e-mail do gestor é a provisionado quando o utilizador é criado pela primeira vez ou quando o gestor muda. O e-mail do gestor não é a provisionado se o gestor alterar o seu endereço de e-mail. 
+* 03/18/2021 - O email do gerente está agora sincronizado em vez de ID para todos os novos utilizadores. Para quaisquer utilizadores existentes que foram a provisionados com um gestor como ID, pode fazer um reinício através [do Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http&preserve-view=true) com âmbito "completo" para garantir que o e-mail é a provisionado. Esta alteração só afeta o trabalho de provisionamento da GSuite e não o trabalho de provisionamento mais antigo a começar pela Goov2OutDelta. Nota: o e-mail do gestor é a provisionado quando o utilizador é criado pela primeira vez ou quando o gestor muda. O e-mail do gestor não é a provisionado se o gestor alterar o seu endereço de e-mail. 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

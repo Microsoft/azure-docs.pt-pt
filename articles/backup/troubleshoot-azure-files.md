@@ -3,12 +3,12 @@ title: Resolução de problemas Azure ficheiros backup
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c934d2295fa702425e8df0a03636b9f9208cfa4
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89376983"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515078"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
 
@@ -28,7 +28,7 @@ Este artigo fornece informações de resolução de problemas para resolver quai
 - Certifique-se de que o comprimento combinado do nome da conta de armazenamento e o nome do grupo de recursos não excedem 84 caracteres no caso de novas contas de Armazenamento e 77 caracteres no caso de contas de armazenamento clássicas.
 - Verifique as definições de firewall da conta de armazenamento para garantir que a opção de permitir que os Serviços Microsoft confiáveis acedam à conta de armazenamento está ativada.
 
-### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erro no portal afirma que descoberta de contas de armazenamento falhou
+### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Um erro no portal indica uma falha na deteção das contas de armazenamento.
 
 Se tiver uma subscrição de parceiro (ativada por CSP), ignore o erro. Se a sua subscrição não estiver ativada pelo CSP e as suas contas de armazenamento não puderem ser descobertas, contacte o suporte.
 
@@ -323,4 +323,4 @@ Verifique se a parte do ficheiro retrossativo é permanentemente eliminada. Se s
 Para obter mais informações sobre o backup das ações de ficheiros Azure, consulte:
 
 - [Fazer cópia de segurança das partilhas de ficheiros do Azure](backup-afs.md)
-- [Back up Azure file share FAQ](backup-azure-files-faq.md)
+- [Back up Azure file share FAQ](backup-azure-files-faq.yml)

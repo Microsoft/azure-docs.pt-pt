@@ -1,15 +1,15 @@
 ---
 title: Definições de política incorporadas para servidores ativados do Azure Arc
 description: Lista definições de política incorporadas para servidores ativados Azure Arc (pré-visualização). Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 890981e8d1b0d6f8eb09df87b095f60035a1682f
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 58a5d95db27973352db5cba99a3a869cc5b0e972
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095678"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499665"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Definições incorporadas da Política Azure para servidores ativados do Azure Arc
 

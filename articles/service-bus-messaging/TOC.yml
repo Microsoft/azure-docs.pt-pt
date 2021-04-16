@@ -92,22 +92,34 @@
   items:
     - name: 'Filas, tópicos e subscrições'
       href: service-bus-queues-topics-subscriptions.md
-    - name: Sessões de mensagens
-      href: message-sessions.md
-    - name: Filtros de tópico e ações
-      href: topic-filters.md
     - name: Mensagens premium
       href: service-bus-premium-messaging.md
     - name: Comparar Filas do Azure e filas do Service Bus
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-    - name: 'Transferências de mensagens, bloqueios e acordo'
-      href: message-transfers-locks-settlement.md
-    - name: Filas de mensagens não entregues
-      href: service-bus-dead-letter-queues.md
-    - name: Contadores de mensagens
-      href: message-counters.md
-    - name: Otimizar o desempenho
-      href: service-bus-performance-improvements.md
+    - name: Funcionalidades avançadas
+      items:
+        - name: Sessões de mensagens
+          href: message-sessions.md
+        - name: Filtros de tópico e ações
+          href: topic-filters.md
+        - name: Navegação de mensagens
+          href: message-browsing.md
+        - name: 'Transferências de mensagens, bloqueios e acordo'
+          href: message-transfers-locks-settlement.md
+        - name: Filas de mensagens não entregues
+          href: service-bus-dead-letter-queues.md
+        - name: Contadores de mensagens
+          href: message-counters.md
+        - name: Otimizar o desempenho
+          href: service-bus-performance-improvements.md
+        - name: Recuperação após desastre geográfica e georreplicação
+          href: service-bus-geo-dr.md
+        - name: Mensagens assíncronas e elevada disponibilidade
+          href: service-bus-async-messaging.md
+        - name: Lidar com interrupções e desastres
+          href: service-bus-outages-disasters.md
+        - name: Limitação
+          href: service-bus-throttling.md
     - name: de Federação
       items:
         - name: Replicação de mensagens e federação entre regiões
@@ -124,14 +136,6 @@
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
         - name: Adquirir mensagens dos Hubs de Eventos
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
-    - name: Recuperação após desastre geográfica e georreplicação
-      href: service-bus-geo-dr.md
-    - name: Mensagens assíncronas e elevada disponibilidade
-      href: service-bus-async-messaging.md
-    - name: Lidar com interrupções e desastres
-      href: service-bus-outages-disasters.md
-    - name: Limitação
-      href: service-bus-throttling.md
     - name: Segurança
       items:
         - name: Linha de base de segurança
@@ -206,8 +210,6 @@
               href: duplicate-detection.md
             - name: Diferimento de mensagens
               href: message-deferral.md
-            - name: Navegação de mensagens
-              href: message-browsing.md
             - name: Encadear entidades com o reencaminhamento automático
               href: service-bus-auto-forwarding.md
             - name: Processamento de transações

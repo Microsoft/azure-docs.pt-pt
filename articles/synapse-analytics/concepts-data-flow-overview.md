@@ -5,15 +5,16 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/16/2020
-ms.openlocfilehash: 18322afbdca94b12ef142f6e37c4d2a22170436b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4769cc8abe121625f3bf77785cd681c0f649d166
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97592668"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567694"
 ---
 # <a name="data-flows-in-azure-synapse-analytics"></a>Fluxos de dados em Azure Synapse Analytics
 

@@ -470,7 +470,7 @@
     - name: Configurar o RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: Contentores
+    - name: Utilizar contentores
       items:
         - name: Instalar e executar contentores de Voz
           displayName: 'containers,install container,run container'
@@ -497,6 +497,12 @@
           href: how-to-migrate-from-bing-speech.md
         - name: Da API de Tradução de Voz
           href: how-to-migrate-from-translator-speech-api.md
+    - name: Preparação para empresas
+      items:
+        - name: Configurar redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+        - name: Utilize chaves geridas pelo cliente
+          href: speech-encryption-of-data-at-rest.md
 - name: Dispositivos
   items:
     - name: Documentação dos dispositivos de voz
@@ -582,6 +588,12 @@
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: ./quickstart-custom-commands-application.md
+    - name: Preparação para empresas
+      items:
+        - name: Suporte de região
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de suporte e ajuda
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Documentação do Swagger
@@ -591,10 +603,6 @@
       href: sovereign-clouds.md
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Encriptação
-      href: speech-encryption-of-data-at-rest.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacidade e cookies

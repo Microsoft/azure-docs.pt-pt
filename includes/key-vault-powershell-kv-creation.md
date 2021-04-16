@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: 13d4bb94d3efb574895df6cfdf240cdeec77e539
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d19c656946817b06cd620d8a48073bed8299af7d
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99070199"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502266"
 ---
 Utilize o cmdlet Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) para criar um Cofre-Chave no grupo de recursos a partir do passo anterior. Terá de fornecer algumas informações:
 
@@ -22,7 +22,7 @@ Utilize o cmdlet Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvaul
 - A localização: **EastUS**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name "<your-unique-keyvault-name>" -ResourceGroupName "ContosoResourceGroup" -Location "East US"
+New-AzKeyVault -Name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 O resultado deste cmdlet mostra as propriedades do cofre de chaves recém-criado. Tome nota das duas propriedades listadas abaixo:

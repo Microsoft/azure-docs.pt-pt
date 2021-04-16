@@ -1,5 +1,5 @@
 ---
-title: Como marcar uma máquina virtual Azure usando o CLI
+title: Como marcar uma máquina virtual Azure usando o Azure CLI
 description: Saiba a marcação de uma máquina virtual utilizando o Azure CLI.
 author: cynthn
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 32d15730557c96362602b5e324254c76637ecb55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20bb4ab622a01646bcc61d0f691c514a25a06edc
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897447"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502611"
 ---
-# <a name="how-to-tag-a-vm-using-the-cli"></a>Como marcar um VM usando o CLI
+# <a name="how-to-tag-a-vm-using-the-azure-cli"></a>Como marcar um VM usando o CLI Azure
 
 Este artigo descreve como marcar um VM usando o Azure CLI. As etiquetas são pares chave/valor definidos pelo utilizador que podem ser colocados diretamente num recurso ou num grupo de recursos. A Azure suporta atualmente até 50 tags por grupo de recursos e recursos. As etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Também pode marcar uma máquina virtual utilizando a Azure [PowerShell](tag-powershell.md).
 

@@ -2,21 +2,21 @@
 title: Integração contínua e implantação para piscina SQL dedicada
 description: Experiência de DevOps de classe empresarial para piscina DE SQL dedicada em Azure Synapse Analytics com suporte incorporado para integração contínua e implementação usando Pipelines Azure.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d43039c98e991cd23a8e5c4fb866a8e3dcab6fc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95bf3a8c614b8b7c0269257cb62b3c3a0f60be13
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585643"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568289"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração contínua e implantação para piscina SQL dedicada em Azure Synapse Analytics
 

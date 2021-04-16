@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd82caab0babbc4803dd54926dafcba98370fa03
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98788742"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567286"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação web Azure em .NET
 
@@ -34,7 +34,7 @@ Para concluir este tutorial, precisa de:
 
 * Uma subscrição do Azure. [Crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * O [Núcleo .NET 3.1 SDK (ou mais tarde)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* Uma instalação [git.](https://www.git-scm.com/downloads)
+* Uma instalação [Git](https://www.git-scm.com/downloads) da versão 2.28.0 ou superior.
 * [A Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/).
 * [Cofre de Chaves Azure.](./overview.md) Pode criar um cofre-chave utilizando o [portal Azure,](quick-create-portal.md)o [Azure CLI](quick-create-cli.md)ou [a Azure PowerShell](quick-create-powershell.md).
 * Um segredo do Cofre [chave.](../secrets/about-secrets.md) Pode criar um segredo utilizando o [portal Azure,](../secrets/quick-create-portal.md) [PowerShell](../secrets/quick-create-powershell.md)ou [o Azure CLI](../secrets/quick-create-cli.md).
@@ -78,7 +78,7 @@ Neste passo, irá implementar a sua aplicação .NET Core para o Azure App Servi
 Na janela do terminal, selecione **Ctrl+C** para fechar o servidor web.  Inicializar um repositório git para o projeto .NET Core:
 
 ```bash
-git init
+git init --initial-branch=main
 git add .
 git commit -m "first commit"
 ```
@@ -167,8 +167,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-
 O URL do comando Git é mostrado na `deploymentLocalGitUrl` propriedade, no formato `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git` . Salve esta URL. Precisará dela mais tarde.
+
+Agora configure a sua aplicação web para implementar a partir da `main` sucursal:
+
+```azurecli-interactive
+ az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+```
 
 Vá à sua nova aplicação utilizando o seguinte comando. `<your-webapp-name>`Substitua-o pelo nome da sua aplicação.
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 61fcbfa9d40ebb26485ce8160fa3b011935ab4d6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366067"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536317"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -43,7 +43,10 @@ Preencha os seguintes campos:
 Preencha os seguintes campos:
 
 1. **Nome do espaço de** trabalho - Escolha qualquer nome globalmente único. Neste tutorial, usaremos **o meu espaço de trabalho.**
-1. **Região** - Escolha qualquer região.
+1. **Região** - Escolha a região onde colocou as aplicações/serviços do seu cliente (por exemplo, Azure VM, Power BI, Azure Analysis Service) e armazenamentos que contenham dados (por exemplo, armazenamento analítico Azure Data Lake, armazenamento analítico Azure Cosmos DB).
+
+> [!NOTE]
+> Um espaço de trabalho que não esteja equipado com as aplicações do cliente ou armazenamento pode ser a causa principal de muitos problemas de desempenho. Se você dados ou os clientes forem colocados em várias regiões, você pode criar espaços de trabalho separados em diferentes regiões com os seus dados e clientes.
 
 Em **Data Data Desemar o Grupo de Armazenamento do Lago 2:**
 
@@ -71,7 +74,7 @@ Vamos usar um pequeno conjunto de dados de 100 K de linha de dados da NYX Taxi C
 * Descarregue este ficheiro para o seu computador: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * No Synapse Studio, navegue para o Data Hub. 
 * Selecione **Linked**.
-* Na categoria **Azure Data Lake Storae Gen2** você verá um item com um nome como **myworkspace (Primary - contosolake )**.
+* Na categoria **Azure Data Lake Storage Gen2** você verá um item com um nome como **myworkspace (Primary - contosolake )**.
 * Selecione os **utilizadores nomeados para** o recipiente (Primário) .
 * Selecione **Upload** e selecione o `NYCTripSmall.parquet` ficheiro que descarregou.
 

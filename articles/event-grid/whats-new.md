@@ -3,12 +3,12 @@ title: Novidades? Notas de lançamento - Azure Event Grid
 description: Saiba quais as novidades com a Azure Event Grid, como as últimas notas de lançamento, problemas conhecidos, correções de bugs, funcionalidades preprecadas e próximas alterações.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f135b25f28002c037dd24fa0cb3bb7476a06309f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107538"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389592"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Quais as novidades na Grelha de Eventos Azure?
 
@@ -21,6 +21,24 @@ A Azure Event Grid recebe melhorias continuadamente. Para se manter atualizado c
 - Correções de erros
 - Funcionalidade preterida
 - Planos para alterações
+
+## <a name="610-preview-2020-10"></a>6.1.0-pré-visualização (2020-10)
+- [Identidades geridas para tópicos do sistema](enable-identity-system-topics.md)
+- [Propriedades de entrega personalizada](delivery-properties.md)
+- [Fila de armazenamento - tempo de vida da mensagem (TTL)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)
+- [Melhorias avançadas da filtragem](event-filtering.md#advanced-filtering)
+    - Apoiar a filtragem dos dados da matriz em eventos de entrada
+    - Permitir a filtragem nos atributos de contexto de extensões cloudEvents
+    - Novos operadores
+        - StringNotContains
+        - StringNotBeginsWith
+        - StringNotEndsWith
+        - NúmeroInRange
+        - NúmeroNotInRange
+        - Isnull
+        - IsNotNull
+- [Permitir o esquema da Grelha de Eventos para cloudEvents 1.0 transformações de esquemas para tópicos e domínios personalizados](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+        
 
 ## <a name="600-2020-06"></a>6.0.0 (2020-06)
 - Adicione suporte à nova versão API de serviço geralmente disponível (GA) 2020-06-01.

@@ -2,23 +2,21 @@
 title: Utilize o relatório de atividades para mover as aplicações AD FS para o Azure Ative Directory | Microsoft Docs'
 description: O relatório de atividade da Federação de Diretório Ativo (AD FS) permite migrar rapidamente as aplicações da AD FS para o Azure Ative Directory (Azure AD). Esta ferramenta de migração para AD FS identifica a compatibilidade com a Azure AD e dá orientação de migração.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/14/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a4d0f108d4e3c27ce17aaa83aafca38063c9ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b9265a61b0879078332b8ccc2d10e711b4ac8f1
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589468"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377425"
 ---
 # <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>Utilize o relatório de atividade da aplicação AD FS para migrar aplicações para a Azure AD
 
@@ -78,7 +76,7 @@ O relatório de atividade da aplicação AD FS está disponível no portal Azure
 
 A tabela que se segue lista todos os testes de configuração que são realizados em aplicações AD FS.
 
-|Resultado  |Passe/Aviso/Falha  |Description  |
+|Resultado  |Passe/Aviso/Falha  |Descrição  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migradora foi detetada para a Autorização Adicional.       | Passe/Aviso          | A parte dependente tem regras para solicitar a autenticação de vários fatores (MFA). Para passar para Azure AD, traduza essas regras em políticas de Acesso Condicional. Se estiver a utilizar um MFA no local, recomendamos que se mude para o Azure AD MFA. [Saiba mais sobre o Acesso Condicional.](../authentication/concept-mfa-howitworks.md)        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> A parte de contemitimento tem AdicionalWSFedEndpoint definido para verdadeiro.       | Aprovado/Reprovado          | A parte de confiança em AD FS permite múltiplos pontos finais de afirmação WS-Fed.Atualmente, a AZure AD só suporta uma.Se tiver um cenário em que este resultado esteja a bloquear a migração, [avise-nos.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)     |

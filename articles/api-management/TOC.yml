@@ -128,6 +128,9 @@
           href: configure-custom-domain.md
         - name: Implementar em várias regiões do Azure
           href: api-management-howto-deploy-multi-region.md
+        - name: Ativar a redundância entre zonas
+          displayName: Availability zones
+          href: zone-redundancy.md
         - name: Aprovisionar um gateway autoalojado
           href: api-management-howto-provision-self-hosted-gateway.md
         - name: Implementar um gateway autoalojado no Azure Kubernetes Service

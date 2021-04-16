@@ -1,6 +1,6 @@
 ---
-title: Troca entre discos de SO utilizando CLI '
-description: Mude o disco do sistema operativo utilizado por uma máquina virtual Azure utilizando o CLI.
+title: Troca entre discos DESejamento utilizando o Azure CLI '
+description: Altere o disco do sistema operativo utilizado por uma máquina virtual Azure utilizando o Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: disks
@@ -8,14 +8,15 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cd71cafa9dc0bd9131255caf50841f6d5909d1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0c9b0c1948dc4ecef74cd78ec1736803a0c0b4bc
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311248"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497375"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Alterar o disco DE utilizado por um VM Azure utilizando o CLI
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-azure-cli"></a>Alterar o disco DE utilizado por um Azure VM utilizando o Azure CLI
 
 
 Se tiver um VM existente, mas pretender trocar o disco por um disco de backup ou outro disco DE, pode utilizar o CLI Azure para trocar os discos OS. Não é preciso apagar e recriar o VM. Pode até utilizar um disco gerido noutro grupo de recursos, desde que ainda não esteja a ser utilizado.

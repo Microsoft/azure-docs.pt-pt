@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 50ecf6e394d5d19d09033554272023bd6796851b
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 295579d17f3b24adcf43f6907cc4b1aca01dcae2
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581208"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565921"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implementar um VM com lançamento fidedigno ativado (pré-visualização)
 
@@ -41,22 +41,20 @@ Crie uma máquina virtual com lançamento fidedigno ativado.
 5. Nos **detalhes do Projeto,** certifique-se de que a subscrição correta está selecionada.
 6. No **grupo de Recursos,** selecione Criar um **nome novo** e digitar um nome para o seu grupo de recursos ou selecione um grupo de recursos existente a partir do dropdown.
 7. Em **Detalhes de Exemplo,** escreva um nome para o nome da máquina virtual e escolha uma região que suporte [o lançamento fidedigno](trusted-launch.md#public-preview-limitations).
-8. Under **Image**, selecione uma imagem gen 2 [que suporta o lançamento fidedigno](trusted-launch.md#public-preview-limitations). 
+8. Under **Image**, selecione uma imagem gen 2 [que suporta o lançamento fidedigno](trusted-launch.md#public-preview-limitations). Certifique-se de que vê a seguinte mensagem: **Esta imagem suporta a pré-visualização de lançamento fidedigna. Configurar no separador Avançado**.
    > [!TIP]
    > Se não vir a versão Gen 2 da imagem que pretende no drop-down, selecione **Ver todas as imagens** e, em seguida, altere o filtro **VM Generation** para mostrar apenas imagens da Gen 2. Encontre a imagem na lista e, em seguida, use o drop-down **Select** para selecionar a versão Gen 2.
- 
+
+    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot mostrando a mensagem confirmando que esta é uma imagem gen2 que suporta o lançamento confiável.":::
+
+13. Selecione um tamanho VM que suporte lançamento fidedigno. Consulte a lista de [tamanhos suportados.](trusted-launch.md#public-preview-limitations)
+14. Preencha as informações da **conta do Administrador** e, em **seguida, as regras do porto de entrada**. 
 1. Mude para o separador **Advanced** selecionando-o no topo da página.
 1. Percorra a secção de **geração VM.** Certifique-se de que **a Gen 2** está selecionada.
 1. Enquanto ainda está no separador **Advanced,** desloque-se até ao **lançamento do Trust** e, em seguida, selecione a caixa de **verificação de lançamento Fidedigna.** Isto fará com que apareçam mais duas opções - Arranque seguro e vTPM. Selecione as opções apropriadas para a sua implementação.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot mostrando as opções para lançamento de confiança.":::
 
-12. Volte ao separador **Basics,** em **Imagem,** e certifique-se de que vê a seguinte mensagem: **Esta imagem suporta pré-visualização de lançamento fidedigna. Configurar no separador Avançado**. A imagem do género 2 deve agora ser selecionada.
-
-    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot mostrando a mensagem confirmando que esta é uma imagem gen2 que suporta o lançamento confiável.":::
-
-13. Selecione um tamanho VM que suporte lançamento fidedigno. Consulte a lista de [tamanhos suportados.](trusted-launch.md#public-preview-limitations)
-14. Preencha as informações da **conta do Administrador** e, em **seguida, as regras do porto de entrada**.
 15. Na parte inferior da página, selecione **Review + Create**
 16. Na página **de máquina virtual Criar,** pode ver os detalhes sobre o VM que está prestes a implementar. Quando estiver pronto, selecione **Criar**.
 

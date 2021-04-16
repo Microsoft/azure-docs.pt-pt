@@ -12,13 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: 5e2827a4f87398f0a37ef04f797d2c7276d1a66d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: b7740fa1f6a54dcfcc1181dddedcdd5fdb50402c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384175"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378232"
 ---
 # <a name="tutorial-proving-possession-of-a-ca-certificate"></a>Tutorial: Comprovativo da posse de um certificado de AC
 

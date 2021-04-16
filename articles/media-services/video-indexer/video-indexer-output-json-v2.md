@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84bb4766b3a896823dd0bef023f8042965a85846
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530744"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532864"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída do Indexador de Vídeo
 
@@ -46,8 +46,8 @@ Para obter mais informações, consulte [visualizar e editar informações de v�
 
 ## <a name="insightsoutput-produced-by-api"></a>Insights/saída produzidos pela API
 
-1. Para recuperar o ficheiro JSON, ligue para [obter API do Índice de Vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
-1. Se você também estiver interessado em artefactos específicos, ligue [para Obter Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+1. Para recuperar o ficheiro JSON, ligue para [obter API do Índice de Vídeo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)
+1. Se você também estiver interessado em artefactos específicos, ligue [para Obter Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)
 
     Na chamada API, especifique o tipo de artefacto solicitado (OCR, Faces, quadros-chave, etc.)
 
@@ -100,7 +100,7 @@ Esta secção mostra o resumo dos insights.
 |privacidadeMode|A sua avaria pode ter um dos seguintes modos: **Privado,** **Público**. **Público** - o vídeo é visível para todos na sua conta e para qualquer um que tenha uma ligação com o vídeo. **Soldado** - o vídeo é visível para todos na sua conta.|
 |duration|Contém uma duração que descreve a hora em que ocorreu uma visão. A duração é em segundos.|
 |miniaturaVídeo|A identificação do vídeo a partir do qual a miniatura foi tirada.
-|miniaturaId|A identificação da miniatura do vídeo. Para obter a miniatura real, ligue para [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passe-o em miniaturaVideoId e miniatura.|
+|miniaturaId|A identificação da miniatura do vídeo. Para obter a miniatura real, ligue para [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) e passe-o em miniaturaVideoId e miniatura.|
 |rostos/animadosCharacters|Pode conter zero ou mais rostos. Para obter informações mais detalhadas, consulte [rostos/animaçãoCharacters](#facesanimatedcharacters).|
 |keywords|Pode conter zero ou mais palavras-chave. Para obter informações mais [detalhadas, consulte as palavras-chave](#keywords).|
 |sentimentos|Pode conter zero ou mais sentimentos. Para obter informações mais [detalhadas, consulte os sentimentos.](#sentiments)|
@@ -127,7 +127,7 @@ Esta secção mostra o resumo dos insights.
 |do IdP|Os metadados externos do vídeo (se especificado pelo utilizador).|
 |isAdult|Indica se o vídeo foi analisado manualmente e identificado como um vídeo adulto.|
 |insights|O objeto dos insights. Para mais informações, consulte [os insights.](#insights)|
-|miniaturaId|A identificação da miniatura do vídeo. Para obter a chamada de miniatura [get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passar-lhe o ID de vídeo e miniatura.|
+|miniaturaId|A identificação da miniatura do vídeo. Para obter a chamada de miniatura [get-thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) e passar-lhe o ID de vídeo e miniatura.|
 |publicadoUrl|Um url para transmitir o vídeo.|
 |publicadoRrrPro procuração|Um url para transmitir o vídeo a partir (para dispositivos Apple).|
 |viewToken|Um símbolo de visão curta para o streaming do vídeo.|
