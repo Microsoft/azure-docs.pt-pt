@@ -132,6 +132,8 @@
           href: start-virtual-machine-connect.md
         - name: Iniciar VM na Connect FAQ
           href: start-virtual-machine-connect-faq.md
+    - name: Definir o modo de drenagem
+      href: drain-mode.md
 - name: Conceitos
   items:
     - name: Funções incorporadas

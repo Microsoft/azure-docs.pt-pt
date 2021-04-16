@@ -2,7 +2,7 @@
   href: index.yml
 - name: Descrição geral
   items:
-    - name: Visão geral do leitor imersivo
+    - name: O que é a Leitura Avançada?
       href: Overview.md
     - name: Suporte de idiomas
       href: language-support.md
@@ -10,7 +10,7 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/'
     - name: Notas de versão
       href: release-notes.md
-- name: Início rápido do leitor imersivo
+- name: Início Rápido
   href: ./quickstarts/client-libraries.md
 - name: Procedimentos
   items:
@@ -36,14 +36,24 @@
       href: how-to-store-user-preferences.md
     - name: Utilizar vários recursos de Leitura Avançada
       href: how-to-multiple-resources.md
+    - name: Preparação para empresas
+      items:
+        - name: Configurar redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/immersive-reader/context/context
+        - name: Use a autenticação AZURE AD
+          href: ../authentication.md?context=/azure/cognitive-services/immersive-reader/context/context
 - name: Referência
   items:
     - name: SDK JavaScript
       href: reference.md
 - name: Recursos
   items:
-    - name: Suporte regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Preparação para empresas
+      items:
+        - name: Suporte de região
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de suporte e ajuda
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
     - name: Atualizações do Azure

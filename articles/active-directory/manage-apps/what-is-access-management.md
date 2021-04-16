@@ -2,20 +2,20 @@
 title: Gerir o acesso a apps usando Azure AD
 description: Descreve como o Azure Ative Directory permite que as organizações especifiquem as aplicações a que cada utilizador tem acesso.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: kenwith
-ms.openlocfilehash: 5afc6aa8f52011eba6d7cfdfaa09b0ab995183e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: 6a1ae7dd1da2c7666c007194bf22bd980e41dc22
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257428"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376380"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a aplicações
 

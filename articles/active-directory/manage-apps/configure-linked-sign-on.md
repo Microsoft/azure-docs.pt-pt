@@ -2,21 +2,21 @@
 title: Compreender o sinal de inscrição ligado no Azure Ative Directory
 description: Compreenda o sinal de inscrição ligado no Diretório Ativo Azure.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/30/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 3e2d3ab6a23ce588c3aa393e5096ac75e88a5365
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ed6f6b69326157573ea043457dbc8d8a3079146
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255290"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374579"
 ---
 # <a name="understand-linked-sign-on"></a>Compreender o sinal de inscrição ligado
 

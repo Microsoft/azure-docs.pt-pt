@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0e0021ec3564ca079f9ab02fe5ed3f0cfa5a1560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f01362fd9342c1f508f165b34e121a11e8d07e2
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609656"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496593"
 ---
 # <a name="nested-virtualization-for-azure-iot-edge-for-linux-on-windows"></a>Virtualização aninhada para Azure IoT Edge para Linux no Windows
 Existem duas formas de virtualização aninhada compatíveis com a Azure IoT Edge para Linux no Windows. Os utilizadores podem optar por implementar através de um VM local ou VM Azure. Este artigo irá fornecer aos utilizadores clareza sobre qual a melhor opção para o seu cenário e fornecer informações sobre os requisitos de configuração.
 
 > [!NOTE]
 >
-> Certifique-se de que permite uma [opção de netowrking](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#networking-options) para a virtualização aninhada. Se não o fizer, resultará em erros de instalação do EFLOW. 
+> Certifique-se de ativar uma [opção de rede](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#networking-options) para a virtualização aninhada. Se não o fizer, resultará em erros de instalação do EFLOW. 
 
 ## <a name="deployment-on-local-vm"></a>Implantação em VM local
 Esta é a abordagem de base para qualquer Windows VM que hospeda Azure IoT Edge para Linux no Windows. Para este caso, a virtualização aninhada tem de ser ativada antes de iniciar a implementação. Leia [o Hyper-V de execução numa máquina virtual com virtualização aninhada](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) para obter mais informações sobre como configurar este cenário.

@@ -57,6 +57,12 @@
       href: ./export-delete-data.md
     - name: Atualizar a sua aplicação para a API 3.0
       href: ./update-application-to-3.0-sdk.md
+    - name: Preparação para empresas
+      items:
+        - name: Configurar redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
+        - name: Utilize chaves geridas pelo cliente
+          href: encrypt-data-at-rest.md
 - name: Referência
   items:
     - name: API de Formação de Visão Personalizada
@@ -81,6 +87,12 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: Recursos
   items:
+    - name: Preparação para empresas
+      items:
+        - name: Suporte de região
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de suporte e ajuda
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
     - name: Amostras
@@ -89,11 +101,5 @@
       href: limits-and-quotas.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Encriptação
-      href: encrypt-data-at-rest.md
     - name: Notas de Versão
       href: release-notes.md

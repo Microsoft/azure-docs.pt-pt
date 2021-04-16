@@ -12,12 +12,12 @@ ms.date: 02/12/2021
 ms.author: iangithinji
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92dea75855ab1e5486b39d072692e72b26c4da1c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 1af80979a4712f6d25d994835128f9d5d2205f42
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377773"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534738"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o Azure Ative Directory assinar em comportamento para uma aplicação usando uma política de Descoberta do Realm Doméstico
 
@@ -226,7 +226,7 @@ Para aplicar a política de HRD depois de a ter criado, pode atribuí-la a vári
 
 Precisa do **ObjectID** dos principais de serviço aos quais pretende atribuir a apólice. Existem várias formas de encontrar o **ObjectID** dos principais serviços.
 
-Pode utilizar o portal ou consultar o [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). Também pode ir à [Ferramenta Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e iniciar sôm no seu AD Azure para ver todos os principais serviços da sua organização.
+Pode utilizar o portal ou consultar o [Microsoft Graph](/graph/api/resources/serviceprincipal). Também pode ir à [Ferramenta Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e iniciar sôm no seu AD Azure para ver todos os principais serviços da sua organização.
 
 Como está a utilizar o PowerShell, pode utilizar o cmdlet seguinte para listar os principais de serviço e os seus IDs.
 

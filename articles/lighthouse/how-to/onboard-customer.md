@@ -3,12 +3,12 @@ title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
 ms.date: 03/29/2021
 ms.topic: how-to
-ms.openlocfilehash: c02bbb789ffac262521c2f76c62081a21cd6602c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d8ad448ac022b07ecdea6b68c4544b8c955814b1
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934313"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497970"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
@@ -38,7 +38,7 @@ Se ainda não tiver estes valores de identificação, pode recuperá-los de uma 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-A identificação do seu inquilino pode ser vista pairando sobre o nome da sua conta no lado superior direito do portal Azure, ou selecionando o **diretório da Switch**. Para selecionar e copiar o ID do seu inquilino, procure "Azure Ative Directory" dentro do portal, em seguida, selecione **Propriedades** e copie o valor indicado no campo ID do **Diretório.** Para encontrar o ID de uma subscrição no inquilino do cliente, procure por "Subscrições" e, em seguida, selecione o ID de subscrição apropriado.
+A identificação do seu inquilino pode ser vista pairando sobre o nome da sua conta no lado superior direito do portal Azure, ou selecionando o **diretório da Switch**. Para selecionar e copiar o ID do seu inquilino, procure "Azure Ative Directory" dentro do portal, em seguida, selecione **Propriedades** e copie o valor indicado no campo ID do **Diretório.** Para localizar o ID de uma subscrição no inquilino do cliente, procure “Subscrições” e, em seguida, selecione o ID de subscrição apropriado.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -302,6 +302,11 @@ Get-AzManagedServicesAssignment
 # Log in first with az login if you're not using Cloud Shell
 
 az account list
+
+# Confirm successful onboarding for Azure Lighthouse
+
+az managedservices definition list
+az managedservices assignment list
 ```
 
 Se precisar de fazer alterações após o cliente ter sido a bordo, pode [atualizar a delegação](update-delegation.md). Também pode remover completamente [o acesso à delegação.](remove-delegation.md)

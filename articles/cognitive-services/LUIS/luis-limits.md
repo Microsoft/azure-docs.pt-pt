@@ -108,7 +108,7 @@ Utilize o _tipo_, `LUIS` quando filtrar recursos no portal Azure. O recurso de p
 
 ## <a name="keyboard-controls"></a>Controlos de teclado
 
-|Entrada de teclado | Descrição |
+|Entrada de teclado | Description |
 |--|--|
 |Controlo+E|muda entre tokens e entidades na lista de expressões|
 

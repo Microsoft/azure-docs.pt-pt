@@ -5,7 +5,7 @@ description: Com este artigo de como fazer, começa com o Azure Standard Load Ba
 services: load-balancer
 documentationcenter: na
 author: irenehua
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2079eeb97ac935ba24c6ff0616a58fbb28a962f4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218728"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480091"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Atualizar ou eliminar um equilibrador de carga utilizado por conjuntos de escala de máquina virtual
 
@@ -62,7 +62,7 @@ A nova piscina NAT de entrada não deve ter uma gama de portas frontal sobrepost
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
   az vmss update-instances
-          -–instance-ids *
+          -â€“instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS
 ```
@@ -98,7 +98,7 @@ Para eliminar a piscina NAT, retire-a primeiro do conjunto de escala. Um exemplo
        --name MyVMSS
     az network lb inbound-nat-pool delete
        --resource-group MyResourceGroup
-       -–lb-name MyLoadBalancer
+       -â€“lb-name MyLoadBalancer
        --name MyNatPool
 ```
 
@@ -134,7 +134,7 @@ Certifique-se de criar piscinas NAT de entrada separadas com gamas de portas fro
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
   az vmss update-instances
-          -–instance-ids *
+          -â€“instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS
           
@@ -153,7 +153,7 @@ Certifique-se de criar piscinas NAT de entrada separadas com gamas de portas fro
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
             
   az vmss update-instances
-          -–instance-ids *
+          -â€“instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS2
 ```

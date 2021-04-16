@@ -7,13 +7,13 @@ ms.service: app-service
 ms.topic: include
 ms.date: 02/02/2018
 ms.author: msangapu
-ms.custom: include file
-ms.openlocfilehash: 3239f7b584af6345a2dc7f2859f749698b012263
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 366b43bd2db061822843087160d0d1f5ec3f5b69
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102244973"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512054"
 ---
 <!-- Please keep this file set to PHP 7.2, as that's the highest PHP version Laravel supports (as shown in the PHP+MySQL tutorial) -->
 
@@ -46,7 +46,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
 }
 </pre>
 
-Criou uma nova aplicação Web vazia, com a implementação de git ativada.
+O Youâ€™ criou uma nova aplicação web vazia, com implementação de git ativada.
 
 > [!NOTE]
 > O URL do Git remoto é apresentado na propriedade `deploymentLocalGitUrl`, com o formato `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Guarde este URL, uma vez que vai precisar dele mais tarde.

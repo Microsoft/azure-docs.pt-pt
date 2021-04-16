@@ -2,14 +2,14 @@
 title: Cópia de Segurança da Base de Dados do Azure para PostgreSQL
 description: Saiba mais sobre a Base de Dados Azure para cópia de segurança pós-SQL com retenção a longo prazo (pré-visualização)
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.custom: references_regions
-ms.openlocfilehash: 5eba9d78dda45197c0d1e92195980f3d731734a8
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 04/12/2021
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 8fd69e016c7f0b175ef49b98add5692743858f62
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011721"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480074"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Base de Dados Azure para backup pós-SQL com retenção a longo prazo (pré-visualização)
 
@@ -214,7 +214,7 @@ Siga este guia passo a passo para desencadear uma restauração:
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permissões pré-requisitos para configurar backup e restaurar
 
-A Azure Backup segue as rígidas diretrizes de segurança. Apesar de ser um serviço nativo da Azure, as permissões sobre o recurso não são assumidas, e precisam ser explicitamente dadas pelo utilizador.  Da mesma forma, as credenciais para ligar à base de dados não são armazenadas. Isto é importante para salvaguardar os seus dados. Em vez disso, usamos a autenticação do Azure Ative Directory.
+A Azure Backup segue as rígidas diretrizes de segurança. Apesar de ™ um serviço Azure nativo, as permissões sobre o recurso não são assumidas e precisam de ser explicitamente dadas pelo utilizador.  Da mesma forma, as credenciais para ligar à base de dados não são armazenadas. Isto é importante para salvaguardar os seus dados. Em vez disso, usamos a autenticação do Azure Ative Directory.
 
 [Faça o download deste documento](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) para obter um script automatizado e instruções relacionadas. Concederá um conjunto apropriado de permissões a um servidor Azure PostgreSQL, para cópia de segurança e restauro.
 
@@ -255,7 +255,7 @@ Esta secção fornece informações de resolução de problemas para o backup da
 
 ### <a name="usererrormsimissingpermissions"></a>UserErrorMSIMissingPermissions
 
-Dê ao Cofre de Cópias de Segurança O acesso **AO MSI Leia** o acesso ao servidor PG que pretende fazer backup ou restaurar:
+Dê ao Cofre de Cópias de Segurança O acesso **AO MSI Leia** o acesso ao servidor PG que pretende fazer backup ou restaurar.
 
 Para estabelecer uma ligação segura à base de dados PostgreSQL, a Azure Backup utiliza o modelo de autenticação [identidade de serviço gerido (MSI).](../active-directory/managed-identities-azure-resources/overview.md) Isto significa que o cofre de reserva terá acesso apenas aos recursos que foram explicitamente autorizados pelo utilizador.
 
@@ -267,21 +267,17 @@ Passos:
 
     ![Painel de Controlo de Acesso](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. **Selecione Adicionar uma atribuição de função**.
+1. Selecione **Adicionar atribuições de funções**.
 
     ![Adicionar atribuição de função](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
 1. No painel de contexto certo que abre, insira o seguinte:<br>
 
-    **Função:** Leitor<br>
-    **Atribuir acesso a:** Escolha **o cofre de reserva**<br>
-    Se não conseguir encontrar a opção **de cofre de reserva** na lista de drop-down, escolha a opção principal do **utilizador, grupo ou serviço Azure**<br>
+   - **Função:** Escolha o papel **de Leitor** na lista de abandono.<br>
+   - **Atribuir acesso a:** Escolha a opção **principal de Utilizador, grupo ou serviço** na lista de drop-down.<br>
+   - **Selecione:** Introduza o nome do cofre de reserva para o qual pretende fazer cópias de segurança deste servidor e das suas bases de dados.<br>
 
-    ![Selecionar função](./media/backup-azure-database-postgresql/select-role.png)
-
-    **Selecione:** Introduza o nome do cofre de reserva para o qual pretende fazer cópias de segurança deste servidor e das suas bases de dados.<br>
-
-    ![Insira o nome do cofre de backup](./media/backup-azure-database-postgresql/enter-backup-vault-name.png)
+    ![Selecionar função](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
 
 ### <a name="usererrorbackupuserauthfailed"></a>UserErrorBackupUserAuthFailed
 
