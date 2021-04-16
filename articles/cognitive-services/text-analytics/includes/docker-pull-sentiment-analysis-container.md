@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 549ecf940c53267db6b3caa576c4c24db414337a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32a550e120331a8255281d51725d2d5fc8ca1e05
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90906122"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564460"
 ---
 #### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Docker puxa para o recipiente de Análise de Sentimento v3
 
@@ -28,15 +28,20 @@ Para descarregar o recipiente para outro idioma, `en` substitua-o por um dos có
 
 | Recipiente de análise de texto | Código do idioma |
 |--|--|
-| Inglês | `en` |
-| Espanhol | `es` |
-| Francês | `fr` |
-| Italiano | `it` |
-| Alemão | `de` |
-| Chinês - simplificado | `zh` |
-| Chinês - tradicional | `zht` |
-| Japonês | `ja` |
-| Português | `pt` |
-| Neerlandês | `nl` |
+| Chinese-Simplified    |   `zh-hans`   |
+| Chinese-Traditional   |   `zh-hant`   |
+| Neerlandês                 |     `nl`      |
+| Inglês               |     `en`      |
+| Francês                |     `fr`      |
+| Alemão                |     `de`      |
+| Hindi                 |    `hi`       |
+| Italiano               |     `it`      |
+| Japonês              |     `ja`      |
+| Coreano                |     `ko`      |
+| Norueguês (Bokmål)   |     `no`      |
+| Português (Brasil)   |    `pt-BR`    |
+| Português (Portugal) |    `pt-PT`    |
+| Espanhol               |     `es`      |
+| Turco               |     `tr`      |
 
 Para obter uma descrição completa das etiquetas disponíveis para os recipientes Text Analytics, consulte [Docker Hub](https://go.microsoft.com/fwlink/?linkid=2018654).

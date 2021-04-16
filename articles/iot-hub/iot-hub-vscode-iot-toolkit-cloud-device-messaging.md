@@ -10,32 +10,24 @@ ms.date: 01/18/2019
 ms.author: junhan
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: b9d8f0c2a573ba1749b414a389cd7181ddd5f95a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c4a840233e576c528e9c58d57eca0b3d524bf4d
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87321688"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566933"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utilize ferramentas IoT Azure para o Código do Estúdio Visual para enviar e receber mensagens entre o seu dispositivo e o IoT Hub
 
 ![Diagrama de ponta a ponta](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
+Neste artigo, aprende a utilizar ferramentas Azure IoT para o Código do Estúdio Visual monitorizar mensagens de dispositivo para nuvem e enviar mensagens cloud-to-device. As mensagens dispositivo-nuvem podem ser dados de sensores que o seu dispositivo recolhe e depois enviam para o seu hub IoT. As mensagens nuvem-dispositivo podem ser comandos que o seu hub IoT envia para o seu dispositivo para piscar um LED que está ligado ao seu dispositivo.
+
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) é uma extensão útil do Código do Estúdio Visual que facilita a gestão do IoT Hub e o desenvolvimento de aplicações IoT. Este artigo centra-se em como usar ferramentas Azure IoT para o Código do Estúdio Visual para enviar e receber mensagens entre o seu dispositivo e o seu hub IoT.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-will-learn"></a>O que vai aprender
-
-Aprende a usar ferramentas Azure IoT para o Código do Estúdio Visual monitorizar mensagens de dispositivo para nuvem e enviar mensagens cloud-to-device. As mensagens dispositivo-nuvem podem ser dados de sensores que o seu dispositivo recolhe e depois enviam para o seu hub IoT. As mensagens nuvem-dispositivo podem ser comandos que o seu hub IoT envia para o seu dispositivo para piscar um LED que está ligado ao seu dispositivo.
-
-## <a name="what-you-will-do"></a>O que vai fazer
-
-* Utilize ferramentas Azure IoT para código de estúdio visual para monitorizar mensagens dispositivo-a-nuvem.
-
-* Utilize ferramentas IoT Azure para o Código do Estúdio Visual para enviar mensagens nuvem-dispositivo.
-
-## <a name="what-you-need"></a>O que precisa
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição ativa do Azure.
 

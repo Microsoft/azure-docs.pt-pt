@@ -3,12 +3,12 @@ title: Criar um novo recurso Azure Application Insights | Microsoft Docs
 description: Configurar manualmente a monitorização do Application Insights para uma nova aplicação ao vivo.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6158b5604046897e20053c67321f26d650c21b7f
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100938"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566227"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -32,7 +32,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com)e crie um recurso Applica
    | **Nome**      | `Unique value` | Nome que identifica a aplicação que está a monitorizar. |
    | **Grupo de Recursos**     | `myResourceGroup`      | Nome para o novo grupo de recursos ou existente para hospedar dados app Insights. |
    | **Região** | `East US` | Escolha um local perto de si ou perto do local onde a sua aplicação está hospedada. |
-   | **Modo de Recurso** | `Classic` ou `Workspace-based` | Os recursos baseados no espaço de trabalho estão atualmente em pré-visualização pública e permitem-lhe enviar a sua telemetria Application Insights para um espaço de trabalho comum do Log Analytics. Para mais informações, consulte o [artigo sobre recursos baseados no espaço de trabalho.](create-workspace-resource.md)
+   | **Modo de Recurso** | `Classic` ou `Workspace-based` | Os recursos baseados no espaço de trabalho permitem-lhe enviar a sua telemetria Application Insights para um espaço de trabalho comum do Log Analytics. Para mais informações, consulte o [artigo sobre recursos baseados no espaço de trabalho.](create-workspace-resource.md)
 
 > [!NOTE]
 > Embora possa usar o mesmo nome de recurso em diferentes grupos de recursos, pode ser benéfico usar um nome globalmente único. Isto pode ser útil se planeia [realizar consultas de recursos cruzados,](../logs/cross-workspace-query.md#identifying-an-application) uma vez que simplifica a sintaxe necessária.

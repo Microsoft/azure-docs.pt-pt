@@ -102,7 +102,7 @@
           href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
         - name: Máquinas virtuais
           href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
-    - name: 'Ver, Gerir e Otimizar após a compra'
+    - name: 'Permissões, Ver e Gerir'
       items:
         - name: Permissões para visualizar e gerir
           href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -112,14 +112,18 @@
           href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Alterar a definição de otimização
           href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
-        - name: Reservas de troca e reembolso
-          href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Comunicar custos
+    - name: Relatórios de utilização e custos
       items:
+        - name: Ver utilização da reserva
+          href: reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Ver transações de reserva
           href: view-purchase-refunds.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Amortizar custos das reservas
           href: charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Troca e reembolso
+      items:
+        - name: Reservas de troca e reembolso
+          href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Renovar reservas
       items:
         - name: Renovar uma reserva

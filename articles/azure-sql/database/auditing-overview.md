@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bc7ac6b97d10e5941e46b8be3e12baff32bded4a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577697"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483066"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -100,7 +100,7 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
 
   > [!NOTE]
   > - Não é possível permitir a auditoria a uma piscina SQL dedicada a uma pausa. Para permitir a auditoria, desempaco fique desmesumos na piscina dedicada SQL. Saiba mais sobre [a piscina SQL dedicada.](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md)
-  > - Quando a auditoria é configurada para um espaço de trabalho Log Analytics ou para um destino Even Hub através do portal Azure ou cmdlet PowerShell, é criada uma [Definição de Diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) com a categoria "SQLSecurityAuditEvents" ativada.
+  > - Quando a auditoria é configurada para um espaço de trabalho Log Analytics ou para um destino Desabrificador através do portal Azure ou cmdlet PowerShell, é criada uma [Definição de Diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) com a categoria "SQLSecurityAuditEvents" ativada.
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. Navegue para **a Auditoria** sob o título de Segurança na sua base **de dados SQL** ou painel **de servidor SQL.**

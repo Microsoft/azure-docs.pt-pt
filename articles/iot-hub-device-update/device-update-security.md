@@ -3,29 +3,31 @@ title: Segurança para atualização de dispositivos para Azure IoT Hub | Micros
 description: Compreenda como a Atualização do Dispositivo para o IoT Hub garante que os dispositivos são atualizados de forma segura.
 author: lichris
 ms.author: lichris
-ms.date: 2/11/2021
+ms.date: 4/15/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b10049e03e26cfe8da2bd57cc9f69dd933af706b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489434"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567303"
 ---
 # <a name="device-update-security-model"></a>Modelo de segurança de atualização de dispositivos
 
 A Atualização do Dispositivo para o IoT Hub oferece um método seguro para implementar atualizações para firmware, imagens e aplicações do dispositivo para os seus dispositivos IoT. O fluxo de trabalho fornece um canal seguro de ponta a ponta com um modelo completo de cadeia de custódia que um dispositivo pode usar para provar que uma atualização é confiável, não modificada e intencional.
 
-Cada passo no fluxo de trabalho de Atualização do Dispositivo é protegido através de várias funcionalidades e processos de segurança para garantir que cada passo no oleoduto executa uma entrega segura para o próximo. O cliente de Atualização de Dispositivos identifica e gere corretamente quaisquer pedidos de atualização ilegítimo. O cliente também verifica cada download para garantir que o conteúdo é confiável, não modificado, e é intencional.
+Cada passo no fluxo de trabalho de Atualização do Dispositivo é protegido através de várias funcionalidades e processos de segurança para garantir que cada passo no oleoduto executa uma entrega segura para o próximo. O cliente de Atualização de Dispositivos identifica e gere corretamente quaisquer pedidos de atualização ilegítimo. O cliente também verifica cada download para garantir que o conteúdo é confiável, não modificado e intencional.
 
 ## <a name="for-solution-operators"></a>Para operadores de soluções
 
 À medida que os Operadores de Soluções importam atualizações na sua instância de Atualização de Dispositivos, o serviço carrega e verifica os ficheiros binários de atualização para garantir que não foram modificados ou trocados por um utilizador malicioso. Uma vez verificado, o serviço de Atualização do Dispositivo gera um manifesto de [atualização](./update-manifest.md) interna com hashes de ficheiro do manifesto de importação e outros metadados. Este manifesto de atualização é então assinado pelo serviço de Atualização de Dispositivos.
 
+Uma vez ingeridos no serviço e armazenados no Azure, os ficheiros binários de atualização e metadados associados ao cliente são automaticamente encriptados em repouso pelo serviço de armazenamento Azure. O serviço De Atualização de Dispositivos não fornece automaticamente encriptação adicional, mas permite que os desenvolvedores criptografem o conteúdo antes que o conteúdo chegue ao serviço de Atualização de Dispositivos.
+
 Quando o Operador da Solução solicita a atualização de um dispositivo, é enviada uma mensagem assinada sobre o canal IoT Hub protegido para o dispositivo. A assinatura do pedido é validada pelo agente de Atualização de Dispositivos do dispositivo como autêntica. 
 
-Qualquer download binário resultante é garantido através da validação da assinatura manifesto da atualização. O manifesto de atualização contém os hashes de ficheiro binário, por isso, uma vez que o manifesto é confiável, o agente de Atualização de Dispositivos confia nos hashes e corresponde-os aos binários. Uma vez que o binário de atualização tenha sido descarregado e verificado, este é então entregue ao instalador no dispositivo.
+Qualquer download binário resultante é garantido através da validação da assinatura manifesto da atualização. O manifesto de atualização contém os hashes de ficheiro binário, por isso, uma vez que o manifesto é confiável, o agente de Atualização de Dispositivos confia nos hashes e corresponde-os aos binários. Uma vez que o binário de atualização tenha sido descarregado e verificado, este é então entregue de forma segura ao instalador no dispositivo.
 
 ## <a name="for-device-builders"></a>Para construtores de dispositivos
 

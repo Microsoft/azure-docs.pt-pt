@@ -4,20 +4,20 @@ description: Instale ferramentas de desenvolvimento de servidores visuais e SQL 
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/11/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 6891176ff648e0f07b0f4921c3558df51f55388e
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c8c07997b3ef8cb050ea4609a650a3e3b1bd21fb
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279753"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568255"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Introdução ao Visual Studio 2019
 

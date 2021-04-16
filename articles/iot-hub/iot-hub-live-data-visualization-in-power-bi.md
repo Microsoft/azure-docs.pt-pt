@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 82caf13618fe8483ab8d3a622c6c0d51ab05a206
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0b099f4ce91fd24e8d7baec054bcfc5a6cf0b032
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102177339"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567116"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensores em tempo real do Azure IoT Hub utilizando o Power BI
 
@@ -22,24 +22,14 @@ ms.locfileid: "102177339"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## <a name="what-you-learn"></a>O que irá aprender
+Neste artigo, aprende a visualizar dados de sensores em tempo real que o seu hub Azure IoT recebe utilizando o Power BI. Se quiser tentar visualizar os dados no seu hub IoT com uma aplicação web, consulte [utilize uma aplicação web para visualizar dados de sensores em tempo real a partir do Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
-Aprende a visualizar dados de sensores em tempo real que o seu hub Azure IoT recebe utilizando o Power BI. Se quiser tentar visualizar os dados no seu hub IoT com uma aplicação web, consulte [utilize uma aplicação web para visualizar dados de sensores em tempo real a partir do Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="what-you-do"></a>O que faz
-
-* Prepare o seu hub IoT para acesso aos dados adicionando um grupo de consumidores.
-
-* Crie, configuure e execute um trabalho stream Analytics para transferência de dados do seu hub IoT para a sua conta Power BI.
-
-* Crie e publique um relatório Power BI para visualizar os dados.
-
-## <a name="what-you-need"></a>O que precisa
-
-* Complete o tutorial [de simulador on-line Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes artigos abrangem os seguintes requisitos:
+* Complete o tutorial [de simulador on-line Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo. Por exemplo, pode ir a [Raspberry Pi com node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou a um dos quickstarts de [telemetria Enviar.](quickstart-send-telemetry-dotnet.md) Estes artigos abrangem os seguintes requisitos:
   
   * Uma subscrição ativa do Azure.
-  * Um hub Azure IoT sob a sua assinatura.
+  * Um hub Azure IoT na sua assinatura.
   * Uma aplicação de cliente que envia mensagens para o seu hub Azure IoT.
 
 * Uma conta do Power BI. (Experimente[o Power BI gratuitamente)](https://powerbi.microsoft.com/)

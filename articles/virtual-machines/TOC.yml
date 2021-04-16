@@ -1,6 +1,6 @@
 - name: Documentação de Máquinas Virtuais
   href: index.yml
-- name: Descrição geral
+- name: Descrição Geral
   items:
     - name: Sobre máquinas virtuais Linux
       href: ./linux/overview.md
@@ -113,7 +113,7 @@
   items:
     - name: Tamanhos
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: 'Sizes, sizing, resize, ACU, compute'
           href: sizes.md
         - name: Alterar o tamanho VM
@@ -229,7 +229,7 @@
               href: ./windows/n-series-amd-driver-setup.md
         - name: FPGA - cálculo acelerado
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               displayName: 'FPGA, accelerated compute, compute, accelerated, gpu'
               href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
             - name: Série NP
@@ -251,6 +251,8 @@
               href: hbv3-series.md
             - name: Série HC
               href: hc-series.md
+        - name: Estados e faturação
+          href: states-billing.md
         - name: Quotas de vCPU
           items:
             - name: CLI
@@ -415,7 +417,7 @@
           href: ./windows/run-command.md
     - name: Extensões
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: 'Extensions, ext, extension, VM extension'
           href: ./extensions/overview.md
         - name: Linux
@@ -612,7 +614,7 @@
           href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Imagens personalizadas de Linux
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: 'Linux custom images, custom, image'
           href: ./linux/imaging.md
         - name: Provisão de Linux
@@ -795,6 +797,8 @@
               href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
             - name: Criar uma VM a partir de uma Versão de Imagem
               href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+        - name: Ansible
+          href: 'https://docs.microsoft.com/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible'
         - name: Resolver problemas de imagens partilhadas
           displayName: 'Shared Image Gallery, SIG, sig, gallery, image, troubleshooting'
           href: troubleshooting-shared-images.md
@@ -887,7 +891,7 @@
           href: ./windows/build-image-with-packer.md
 - name: Disponibilidade e dimensionamento
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       displayName: 'availability and scale, availability, scale, autoscale'
       href: availability.md
     - name: Conjuntos de disponibilidade
@@ -934,7 +938,7 @@
           href: ./windows/proximity-placement-groups-portal.md
     - name: Conjuntos de Dimensionamento de Máquinas Virtuais
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: 'virtual machine scale sets, VMSS, VM scale set, scale set'
           href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
         - name: Dimensionamento Automático
@@ -944,13 +948,11 @@
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
     - name: Compreenda as reinicializações de VM
       href: understand-vm-reboots.md
-    - name: Estados e faturação
-      href: states-billing.md
     - name: Regiões do Azure
       href: regions.md
 - name: Discos
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       displayName: 'managed disks, introduction to managed disks'
       href: managed-disks-overview.md
     - name: Selecionar um tipo de disco para VMs IaaS
@@ -1126,7 +1128,7 @@
           href: disks-incremental-snapshots.md
         - name: Cópia de Segurança de Discos do Azure
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               displayName: 'Azure disk backup, backup'
               href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
             - name: Configurar backup de disco Azure
@@ -1289,7 +1291,7 @@
               href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
 - name: Rede
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       displayName: Networking Overview
       href: network-overview.md
     - name: Criar a rede virtual
@@ -1346,7 +1348,7 @@
       href: security-recommendations.md
     - name: Lançamento confiável
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: trusted-launch.md
           DisplayName: 'Trusted Launch, shielded VM'
         - name: Implementar usando o portal
@@ -1355,7 +1357,7 @@
       href: ../security-center/security-center-just-in-time.md
     - name: Política
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: Azure Policy
           href: security-policy.md
         - name: Controlos por política
@@ -1373,7 +1375,7 @@
               href: ./windows/policy.md
     - name: Bastion
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: Bastion Overview
           href: ../bastion/bastion-overview.md
         - name: Criar um anfitrião do Bastion
@@ -1441,12 +1443,12 @@
       href: ./linux/login-using-aad.md
 - name: Atualizações e manutenção
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       displayName: Updates and maintenance
       href: updates-maintenance-overview.md
     - name: Atualização automática de imagem do SO
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: 'Automatic OS image upgrade, image, upgrade, OS'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
         - name: Controlo de manutenção para atualização de imagem do SO
@@ -1459,7 +1461,7 @@
               href: virtual-machine-scale-sets-maintenance-control-powershell.md
     - name: Patching automático de hóspedes VM (Pré-visualização)
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: 'Automatic VM guest patching, guest, OS, patching'
           href: automatic-vm-guest-patching.md
         - name: Hotpatch
@@ -1471,7 +1473,7 @@
       href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
     - name: Manutenção
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: 'Maintenance, VM maintenance'
           href: maintenance-and-updates.md
         - name: Notificações de manutenção
@@ -1676,7 +1678,7 @@
       href: boot-diagnostics.md
 - name: Cópia de segurança e recuperação
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       displayName: Backup and recovery
       href: backup-recovery.md
     - name: Interrupções de serviço
@@ -1715,7 +1717,7 @@
           dispayName: 'backup VMs, Azure Backup, recovery'
     - name: Recuperação após desastre
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           displayName: Disaster Recovery Overview
           href: ../site-recovery/site-recovery-overview.md
         - name: Permitir a recuperação de desastres
@@ -1763,7 +1765,7 @@
               href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Automatização de infraestruturas
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       displayName: Infrastrucure automation overview
       href: infrastructure-automation.md
     - name: Dados personalizados

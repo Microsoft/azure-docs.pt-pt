@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/15/2021
 ms.author: banders
-ms.openlocfilehash: b88a5bc10afeffe7e15ad7a90e28bd8b8ff28688
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 687db46ea2f6c9c4fae6e5355e3236cde3d7a401
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046560"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567252"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir subscrições do Azure entre subscritores e CSPs
 
@@ -55,9 +55,9 @@ Para transferir quaisquer outras subscrições do Azure para um parceiro CSP, o 
 
 ## <a name="transfer-csp-subscription-to-other-offer"></a>Transferir subscrição CSP para outra oferta
 
-Para transferir quaisquer outras subscrições de um Parceiro CSP para qualquer outra oferta do Azure, o subscritor precisa de mover os recursos entre subscrições CSP de origem e subscrições de destino.
+Para transferir quaisquer outras subscrições de um Parceiro CSP para qualquer outra oferta do Azure, o subscritor precisa de mover os recursos entre subscrições CSP de origem e subscrições de destino. Este é um trabalho feito por um parceiro e um cliente - não é trabalho feito por um representante da Microsoft.
 
-1. Crie subscrições do Azure de destino.
+1. O cliente cria subscrições target Azure.
 1. Garanta que as subscrições de origem e de destino estão no mesmo inquilino do Azure Active Directory (AAD). Para obter mais informações sobre a alteração do inquilino do AAD, veja [Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     Tenha em conta que a opção da alteração do diretório não é suportada na subscrição CSP. Por exemplo, está a transferir-se de um CSP para uma subscrição pay as you go. Tem de alterar o diretório da subscrição pay as you go para corresponder ao diretório.
 
@@ -65,7 +65,7 @@ Para transferir quaisquer outras subscrições de um Parceiro CSP para qualquer 
     >  - Quando associa uma subscrição a um diretório diferente, os utilizadores que têm funções atribuídas através do [RBAC do Azure](../../role-based-access-control/role-assignments-portal.md) perdem o acesso. Os administradores de subscrição clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
     >  - As Atribuições de Políticas também são removidas de uma subscrição quando a subscrição é associada a um diretório diferente.
 
-1. A conta de utilizador que utiliza para fazer a transferência tem de ter um acesso de proprietário do [RBAC do Azure](add-change-subscription-administrator.md) em ambas as subscrições.
+1. A conta de utilizador do cliente que utiliza para fazer a transferência deve ter acesso ao proprietário do [Azure RBAC](add-change-subscription-administrator.md) em ambas as subscrições.
 1. Antes de começar, [confirme](/rest/api/resources/resources/validatemoveresources) que todos os recursos do Azure podem ser movidos da subscrição de origem para a subscrição de destino.
     > [!IMPORTANT]
     >  - Alguns recursos do Azure não podem ser movidos entre subscrições. Para ver a lista completa dos recursos do Azure que podem ser movidos, veja [Suporte da operação de transferência de recursos](../../azure-resource-manager/management/move-support-resources.md).

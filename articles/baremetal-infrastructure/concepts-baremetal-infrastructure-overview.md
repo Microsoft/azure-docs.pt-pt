@@ -1,16 +1,16 @@
 ---
-title: Visão geral da Infraestrutura BareMetal em Azure
+title: O que é a Infraestrutura BareMetal em Azure?
 description: Fornece uma visão geral da Infraestrutura BareMetal em Azure.
 ms.custom: references_regions
 ms.topic: conceptual
 ms.subservice: workloads
-ms.date: 04/08/2021
-ms.openlocfilehash: 7a4998a096a5c5d9e793c34d5046dce59262a2ae
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.date: 04/14/2021
+ms.openlocfilehash: c0fd250a63ce93d3f8b62dfe76fe753c928801ce
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257573"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536893"
 ---
 #  <a name="what-is-baremetal-infrastructure-on-azure"></a>O que é a Infraestrutura BareMetal em Azure?
 
@@ -47,6 +47,22 @@ A Infraestruturas BareMetal oferece estes benefícios:
 - Instantâneos conscientes da aplicação, arquivo, espelhamento e clonagem
 
 
+## <a name="baremetal-benefits"></a>Benefícios BareMetal  
+
+A Infraestruturas BareMetal destina-se a cargas de trabalho críticas de missão que requerem certificação para executar as suas aplicações empresariais. As instâncias BareMetal são dedicadas apenas a si, e você terá acesso total (acesso à raiz) ao sistema operativo (SO). Gere o SISTEMA e a instalação de aplicações de acordo com as suas necessidades. Para a segurança, os casos são a provisionados dentro da sua Rede Virtual Azure (VNet) sem conectividade de internet. Apenas os serviços que executam nas suas máquinas virtuais (VMs) e outros serviços Azure na mesma rede Tier 2, podem comunicar com as suas instâncias BareMetal.  
+
+A Infraestruturas BareMetal oferece estes benefícios: 
+
+- Hardware certificado para cargas de trabalho especializadas
+- SAP (Consulte a [nota SAP #1928533)](https://launchpad.support.sap.com/#/notes/1928533)
+- Oráculo (Consulte o [documento Oráculo ID #948372.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52)
+- Instância BareMetal não hipervisida, propriedade de inquilino único
+- Baixa latência entre Azure hospedado VMs de aplicação a instâncias BareMetal (0.35 ms)
+- Todo o suporte Flash SSD e NVMe
+- Base de dados até 1 PB/inquilino 
+- IOPS até 1,2 milhões/inquilino 
+- Largura de banda de rede de 50 GB 
+
 ## <a name="sku-availability-in-azure-regions"></a>Disponibilidade de SKU nas regiões de Azure
 
 A BareMetal Infrastructure oferece vários SKUs certificados para cargas de trabalho especializadas. Utilize os SKUs específicos para atender às suas necessidades.
@@ -69,11 +85,11 @@ A Infraestrutura BareMetal para cargas de trabalho especializadas está disponí
 
 ## <a name="managing-baremetal-instances-in-azure"></a>Gestão de casos BareMetal em Azure 
 
-Dependendo das suas necessidades, as topologias de aplicação da Infraestrutura BareMetal podem ser complexas. Pode implementar múltiplas instâncias, em um ou mais locais, com armazenamento partilhado ou dedicado, e ligações especializadas lan e WAN. Assim, para a Infraestrutura BareMetal, a Azure oferece uma captura consultiva dessa informação por um CSA/GBB no campo num portal de provisionamento. 
+Dependendo das suas necessidades, as topologias de aplicação da Infraestrutura BareMetal podem ser complexas. Pode implementar múltiplas instâncias, em um ou mais locais, com armazenamento partilhado ou dedicado e ligações especializadas lan e WAN. Assim, para a Infraestrutura BareMetal, a Azure oferece uma captura consultiva dessa informação por um CSA/GBB no campo num portal de provisionamento. 
 
 No momento em que a sua Infraestrutura BareMetal é aprovisionada, o SO, redes, volumes de armazenamento, colocações em zonas e regiões, e as ligações WAN entre locais já estão pré-configuradas. Está definido para registar as suas licenças de SO (BYOL), configurar o SO e instalar a camada de aplicação.
 
-Poderá ver todos os recursos da Infraestruturas BareMetal, e o seu estado e atributos, no portal Azure. Você também pode operar as instâncias e pedidos de serviço aberto e bilhetes de apoio a partir daí. 
+Poderá ver todos os recursos BareMetal, e o seu estado e atributos, no portal Azure. Você também pode operar as instâncias e pedidos de serviço aberto e bilhetes de apoio a partir daí. 
 
 ## <a name="operational-model"></a>Modelo operacional
 A Infraestrutura BareMetal é compatível com a ISO 27001, ISO 27017, SOC 1 e SOC 2. Também utiliza um modelo de "bring-your-your-own-license" (BYOL): OS, carga de trabalho especializada e aplicações de terceiros.  

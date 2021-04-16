@@ -3,19 +3,19 @@ title: Crie uma piscina SQL dedicada (anteriormente SQL DW) utilizando o modelo 
 description: Aprenda a criar uma piscina SQL Azure Synapse Analytics utilizando o modelo Azure Resource Manager.
 services: azure-resource-manager
 author: julieMSFT
+ms.service: azure-resource-manager
+ms.topic: quickstart
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.topic: quickstart
-ms.service: azure-resource-manager
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 3e05fda65e4383f66cf9553ee7e083c18367b937
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 73f4baf1e48b5495d513fbabe66763538c8cca57
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534298"
+ms.locfileid: "107568476"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>Quickstart: Criar uma piscina DE SQL dedicada Azure Synapse Analytics (anteriormente SQL DW) utilizando um modelo ARM
 

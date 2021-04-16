@@ -1,15 +1,17 @@
 ---
 title: Quickstart para criar um cofre Azure Recovery Services usando um modelo de Gestor de Recursos Azure.
 description: Neste arranque rápido, você aprende a criar um cofre Azure Recovery Services usando um modelo Azure Resource Manager (modelo ARM).
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.date: 04/29/2020
-ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 11a88b5485ad970802a65af31daccdb30a1c86df
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92745878"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533254"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Quickstart: Criar um cofre de serviços de recuperação usando um modelo ARM
 

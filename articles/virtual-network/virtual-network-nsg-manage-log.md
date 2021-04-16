@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: bb078b9738e995a1c507f7934a7dd64f075d5fe0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42ce7a1760ecdb1dcbd5275927f351bef5da07a8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596540"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531162"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registo de recursos para um grupo de segurança de rede
 
@@ -28,7 +28,7 @@ Quando ativa a sessão de registo de um NSG, pode recolher os seguintes tipos de
 
 Os registos de recursos só estão disponíveis para os NSGs implementados através do modelo de implementação do Gestor de Recursos Azure. Não é possível ativar a registo de recursos para NSGs implementadas através do modelo clássico de implementação. Para uma melhor compreensão dos dois modelos, consulte os [modelos de implementação Understanding Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-A sessão de registo de recursos é ativada separadamente para *cada* NSG para a qual pretende recolher dados de diagnóstico. Se estiver interessado em registos de atividade (operacionais), consulte o [registo de atividades](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)do Azure .
+A sessão de registo de recursos é ativada separadamente para *cada* NSG para a qual pretende recolher dados de diagnóstico. Se estiver interessado em registos de atividade (operacionais), consulte o [registo de atividades](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)do Azure . Se estiver interessado em tráfego IP fluindo através de NSGs veja [registos de fluxo NSG do](../network-watcher/network-watcher-nsg-flow-logging-overview.md) Observador de Rede Azure 
 
 ## <a name="enable-logging"></a>Ativar registo
 

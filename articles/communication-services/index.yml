@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: b2aec44f3e80267d18844d887f5e2607192ea208
-  ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+  ms.openlocfilehash: 4f1a8403cf298d7f5d37da7238bc641563119b9e
+  ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2021
-  ms.locfileid: "105108082"
+  ms.lasthandoff: 04/16/2021
+  ms.locfileid: "107539062"
 landingContent:
 - title: Acerca do Azure Communication Services
   linkLists:
@@ -46,6 +46,8 @@ landingContent:
       url: https://docs.microsoft.com/azure/event-grid/event-schema-communication-services
     - text: Notificações
       url: concepts/notifications.md
+    - text: Resolução de problemas
+      url: concepts/troubleshooting-info.md
 - title: Chamadas de voz e vídeo
   linkLists:
   - linkListType: quickstart
@@ -82,6 +84,10 @@ landingContent:
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Tipos de números de telefone
       url: concepts/telephony-sms/plan-solution.md
+  - linkListType: learn
+    links:
+    - text: 'Enviar um SMS usando C #'
+      url: https://docs.microsoft.com/learn/modules/communication-service-send-sms-console-app/
 - title: Chat
   linkLists:
   - linkListType: quickstart

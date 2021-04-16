@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49f9bac40ae803f980a22c19fd5d44d85fa99e9e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106803"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564729"
 ---
 ## <a name="joining-the-meeting-chat"></a>Juntando-se ao chat da reunião 
 
@@ -286,7 +286,7 @@ sendMessageButton.addEventListener("click", async () =>
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Obtenha um fio de chat de reuniões de equipas para um utilizador de Serviços de Comunicação
 
-O link de reunião e chat das Equipas pode ser recuperado usando APIs gráficos, detalhados na [documentação do Gráfico](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta). Os Serviços de Comunicação Que Ligam a SDK aceitam uma ligação completa de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade](/graph/api/resources/onlinemeeting?view=graph-rest-beta) Com as [APIs do Gráfico,](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)também pode obter o `threadId` . A resposta terá um `chatInfo` objeto que contém o `threadID` . 
+O link de reunião e chat das Equipas pode ser recuperado usando APIs gráficos, detalhados na [documentação do Gráfico](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). Os Serviços de Comunicação Que Ligam a SDK aceitam uma ligação completa de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) Com as [APIs do Gráfico,](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)também pode obter o `threadId` . A resposta terá um `chatInfo` objeto que contém o `threadID` . 
 
 Também pode obter as informações de reunião necessárias e o ID de linha da URL de **reunião** de reuniões de junta na reunião das equipas convidam-se a si próprios.
 Um link de encontro de equipas é o seguinte: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here` . O `threadId` será onde está no `meeting_chat_thread_id` link. Certifique-se de que `meeting_chat_thread_id` o não é desajustado antes da utilização. Deve estar no seguinte formato: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`

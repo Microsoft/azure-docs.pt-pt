@@ -2,21 +2,21 @@
 title: Melhores práticas de carregamento de dados
 description: Recomendações e otimizações de desempenho para carregar dados em um pool de SQL dedicado Azure Synapse Analytics.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 33212d44fcb6be3f01cf968d00751d55e3bd7b8f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9fe7ef8e6ccbadd5e78de5bfd5f137132dbe6319
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585456"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567949"
 ---
 # <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Melhores práticas para carregar dados em um pool de SQL dedicado Azure Synapse Analytics
 

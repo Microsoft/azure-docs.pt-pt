@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/16/2020
-ms.openlocfilehash: bb86ccafaa0b9eac5ef35e96bbe3031a40f350ee
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 18163c3e5cdf83d736cdb52a3de028bf8890e728
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067542"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568578"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (Python)
 
@@ -34,7 +34,7 @@ Neste arranque rápido, envia telemetria de uma aplicação de dispositivo simul
 
 * [Python 3.7+](https://www.python.org/downloads/). Para outras versões de Python suportadas, consulte [as funcionalidades do dispositivo Azure IoT](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
 
-* [Um projeto Python de amostra.](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip)
+* [Um projeto python](https://github.com/Azure-Samples/azure-iot-samples-python/) de amostra de Github. Faça o download ou clone das amostras utilizando o botão **Código** no repositório de Github.
 
 * Porta 8883 aberta na sua firewall. A amostra do dispositivo neste arranque rápido utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -91,6 +91,8 @@ Neste arranque rápido, envia telemetria de uma aplicação de dispositivo simul
 ## <a name="send-simulated-telemetry"></a>Enviar telemetria simulada
 
 A aplicação de dispositivo simulado liga-se a um ponto final específico do dispositivo no seu hub IoT e envia telemetria simulada de humidade e de temperatura.
+
+1. Faça o download ou clone do repositório azure-iot-samples-python utilizando o botão **código** na página do [repositório azure-iot-samples-python](https://github.com/Azure-Samples/azure-iot-samples-python/).
 
 1. Numa janela de terminal local, navegue para a pasta raiz do projeto Python de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\simulated-device**.
 

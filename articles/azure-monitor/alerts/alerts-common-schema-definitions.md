@@ -4,12 +4,12 @@ description: Compreender as definições comuns de esquema de alerta para o Azur
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 5ec2adc4594c71f640b027d799b0a3c133ca2333
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6d835b6d2c3519bc47decf8256ab3f3380170df6
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308664"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565122"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
@@ -72,7 +72,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 | Campo | Descrição|
 |:---|:---|
-| alertId | O GUID identifica exclusivamente a instância de alerta. |
+| alertId | O ID de recurso único identificando a instância de alerta. |
 | alertaRule | O nome da regra de alerta que gerou a hora de alerta. |
 | Gravidade | A gravidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
 | sinalType | Identifica o sinal em que a regra de alerta foi definida. Valores possíveis: Métrica, Log ou Registo de Atividade. |

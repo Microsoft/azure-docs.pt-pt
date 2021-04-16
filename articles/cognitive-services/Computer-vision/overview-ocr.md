@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 41b3552a633c9cebce1138fa042dbd154eee0cb5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: da4ada8b505c747d24738e175a1701b5ea73b4e4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314121"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536738"
 ---
 # <a name="what-is-optical-character-recognition"></a>O que é o reconhecimento de caracteres óticos?
 
@@ -42,7 +42,6 @@ A chamada **de Leitura** requer imagens e documentos como entrada. Têm os segui
 * Formatos de ficheiros suportados: JPEG, PNG, BMP, PDF e TIFF
 * Para ficheiros PDF e TIFF, são processadas até 2000 páginas (apenas duas primeiras páginas para o nível livre).
 * O tamanho do ficheiro deve ser inferior a 50 MB (4 MB para o nível livre) e dimensões de pelo menos 50 x 50 pixels e, no máximo, 10000 x 10000 pixels. 
-* As dimensões PDF devem ser no máximo 17 x 17 polegadas, correspondentes a tamanhos legais ou de papel A3 e menores.
 
 ## <a name="read-api"></a>Ler API 
 
@@ -50,6 +49,21 @@ A [API de Leitura de](https://centraluseuap.dev.cognitive.microsoft.com/docs/ser
 
 ![Como o OCR converte imagens e documentos em saída estruturada com texto extraído](./Images/how-ocr-works.svg)
 
+### <a name="key-features"></a>Principais funcionalidades
+
+A API de Leitura inclui as seguintes funcionalidades. 
+
+* Impressão de extração de texto em 73 línguas
+* Extração de texto manuscrito em inglês
+* Linhas de texto e palavras com pontuações de localização e confiança
+* Não é necessária identificação linguística
+* Suporte para línguas mistas, modo misto (impressão e manuscrita)
+* Selecione páginas e páginas variam de documentos grandes e multi-páginas
+* Ordem de leitura natural para linhas de texto
+* Classificação da caligrafia para linhas de texto
+* Disponível como recipiente Distroless Docker para implantação no local
+
+Saiba [como utilizar as funcionalidades OCR](./vision-api-how-to-topics/call-read-api.md).
 
 ## <a name="use-the-cloud-api-or-deploy-on-premise"></a>Use a API de nuvem ou implemente no local
 As APIs de nuvem de Leitura 3.x são a opção preferida para a maioria dos clientes devido à facilidade de integração e à rápida produtividade fora da caixa. O Azure e o serviço de Visão Computacional lidam com escala, desempenho, segurança de dados e necessidades de conformidade enquanto se concentra em satisfazer as necessidades dos seus clientes.

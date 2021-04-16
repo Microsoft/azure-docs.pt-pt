@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: duau
-ms.openlocfilehash: d2c8d4179dbaa44929031ce7e14b597b145ed72a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4291a7d46c723f799cf9d09ca0e7a3f6d614971f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067610"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389745"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
@@ -70,9 +70,8 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 5. Continue a [validar o domínio.](#validate-the-domain)
 
 > [!NOTE]
-> Para os certificados geridos pela AFD, o limite de caracteres de DigiCert é aplicado. A validação falhará se esse limite for ultrapassado.
-
-! [NOTA] Permitir o HTTPS via Front Door não é suportado para domínios ápice/raiz (exemplo: contoso.com). Pode usar o seu próprio certificado para este cenário.  Por favor, continue com a Opção 2 para mais detalhes.
+> * Para os certificados geridos pela AFD, o limite de caracteres de DigiCert é aplicado. A validação falhará se esse limite for ultrapassado.
+> * Permitir o HTTPS via Front Door não é suportado para domínios ápice/raiz (exemplo: contoso.com). Pode usar o seu próprio certificado para este cenário.  Por favor, continue com a Opção 2 para mais detalhes.
 
 ### <a name="option-2-use-your-own-certificate"></a>Opção 2: utilizar o seu próprio certificado
 

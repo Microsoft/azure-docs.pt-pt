@@ -1,19 +1,19 @@
 ---
 title: Controlo de fontes no Estúdio Synapse
 description: Saiba como configurar o controlo de origem no Azure Synapse Studio
-services: synapse-analytics
 author: liud
 ms.service: synapse-analytics
+ms.subservice: workspace
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f1b459c2644472463004c231f5827ff653d2da1
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98796962"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567847"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controlo de fontes no Azure Synapse Studio
 

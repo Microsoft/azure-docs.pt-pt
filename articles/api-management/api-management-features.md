@@ -4,20 +4,16 @@ description: Compare os níveis de Gestão da API com base nas funcionalidades q
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f111729d7d7707ed4f40ce8f89ce76975fb47400
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92077852"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536448"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos escalões de Gestão API da Azure
 
@@ -31,6 +27,7 @@ Cada [nível de preços da](https://aka.ms/apimpricing) API Management oferece u
 | Integração AD AZure<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes     |
 | Suporte de Rede Virtual (VNet)                                                               | No          | Yes       | No    | No       | Yes     |
 | Implementação em várias regiões                                                                      | No          | No        | No    | No       | Yes     |
+| Zonas de disponibilidade                                                                           | No          | No        | No    | No       | Yes     |
 | Vários nomes de domínio personalizado                                                                 | No          | Yes        | No    | No       | Yes     |
 | Portal do desenvolvedor<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes     |
 | Cache embutido                                                                               | No          | Yes       | Yes   | Yes      | Yes     |
@@ -42,7 +39,7 @@ Cada [nível de preços da](https://aka.ms/apimpricing) API Management oferece u
 | [Backup e restauro](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
 | [Gestão sobre Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   | Yes      | Yes     |
 | API de gestão direta                                                                        | No          | Yes       | Yes   | Yes      | Yes     |
-| Registos e métricas do Monitor Azure                                                               | Yes         | Yes       | Yes   | Yes      | Yes     |
+| Registos e métricas do Monitor Azure                                                               | No          | Yes       | Yes   | Yes      | Yes     |
 | IP estático                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
 
 <sup>1</sup> Permite a utilização do Azure AD (e Azure AD B2C) como fornecedor de identidade para o utilizador iniciar súbdis no portal do desenvolvedor.<br/>
