@@ -25,6 +25,10 @@
       href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
     - name: 'Python: Formato Reconhecendo biblioteca de clientes SDK'
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+    - name: JavaScript Form Recogniser biblioteca de clientes SDK
+      href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+    - name: REST API e CURL
+      href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer'
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação
@@ -63,7 +67,7 @@
       href: concept-business-cards.md
     - name: Faturas
       href: concept-invoices.md
-    - name: Cartões de identificação
+    - name: Documentos de identidade
       href: concept-identification-cards.md
 - name: Tutoriais
   items:

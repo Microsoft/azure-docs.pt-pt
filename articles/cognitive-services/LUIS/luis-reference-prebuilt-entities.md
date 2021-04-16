@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: cb3c74a2176ee7fcac53afb5185e8c62e66f4dfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 7155a829655645e13e0485ed7d51305ec50e5b0a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798804"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502764"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo LUIS
 
@@ -23,7 +23,7 @@ A Compreensão linguística (LUIS) fornece entidades pré-construídas.
 ## <a name="entity-resolution"></a>Resolução de entidades
 Quando uma entidade pré-construída é incluída na sua aplicação, a LUIS inclui a resolução da entidade correspondente na resposta ao ponto final. Todas as expressões de exemplo também são rotuladas com a entidade.
 
-O comportamento das entidades pré-construídas não pode ser modificado, mas pode melhorar a resolução [adicionando a entidade pré-construída como característica a uma entidade ou entidade de aprendizagem automática.](luis-concept-entity-types.md#effective-prebuilt-entities)
+O comportamento das entidades pré-construídas não pode ser modificado, mas pode melhorar a resolução [adicionando a entidade pré-construída como característica a uma entidade de aprendizagem automática ou sub-entidade.](luis-concept-entity-types.md#prebuilt-entity)
 
 ## <a name="availability"></a>Disponibilidade
 Salvo indicação em contrário, as entidades pré-construídas estão disponíveis em todos os locais de aplicação LUIS (culturas). A tabela a seguir mostra as entidades pré-construídas que são apoiadas para cada cultura.

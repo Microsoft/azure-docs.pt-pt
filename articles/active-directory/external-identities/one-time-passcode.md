@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 3b4089559b341dd268928b1f150b6fc173869ead
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552755"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529929"
 ---
 # <a name="email-one-time-passcode-authentication"></a>E-mail autenticação de senha única
 
@@ -114,7 +114,7 @@ No entanto, se preferir excluir a funcionalidade e permitir que seja ativada aut
 
 ## <a name="note-for-azure-us-government-customers"></a>Nota para clientes do Governo Azure US
 
-A funcionalidade de código de acesso de e-mail é desativada por padrão na nuvem do Governo dos EUA Azure.  
+A funcionalidade de código de acesso de e-mail é desativada por padrão na nuvem do Governo dos EUA Azure. Os seus parceiros não poderão iniciar sômsia a menos que esta funcionalidade esteja ativada. Ao contrário da nuvem pública do Azure, a nuvem do Governo dos EUA não suporta o resgate de convites com contas de autosserviço Azure Ative Directory.
 
  ![Código de acesso único desativado](media/one-time-passcode/enable-email-otp-disabled.png)
 
@@ -122,7 +122,7 @@ Para ativar a funcionalidade de código de acesso de e-mail única na nuvem do G
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global da Azure AD.
 2. No painel de navegação, selecione **Azure Ative Directory**.
-3. Selecione **configurações de relações**   >  **organizacionais**.
+3. Selecione **relações organizacionais**   >  **Todos os fornecedores de identidade**.
 
    > [!NOTE]
    > - Se não vir **relações organizacionais,** procure "Identidades Externas" na barra de pesquisa no topo.

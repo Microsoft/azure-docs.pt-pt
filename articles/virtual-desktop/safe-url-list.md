@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c937f9d75613b6550a2f05dd63a8b31dd83fe0b7
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 00ae761af44b9e6537149c96607c0ba00e6439c8
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445727"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514990"
 ---
 # <a name="required-url-list"></a>Lista de URL necessária
 
@@ -19,6 +19,52 @@ Para implementar e utilizar o Windows Virtual Desktop, tem de desbloquear certos
 
 >[!IMPORTANT]
 >O Windows Virtual Desktop não suporta implementações que bloqueiem os URLs listados neste artigo.
+
+## <a name="required-url-check-tool"></a>Ferramenta de verificação de URL necessária
+
+A ferramenta de verificação de URL necessária validará URLs e mostrará se os URLs que a máquina virtual precisa para funcionar estão acessíveis. Caso contrário, a ferramenta listará os URLs inacessíveis para que possa desbloqueá-los, se necessário.
+
+É importante ter em mente as seguintes coisas:
+
+- Só pode utilizar a ferramenta de verificação de URL necessária para implantações em nuvens comerciais.
+- A ferramenta de verificação de URL requerida não pode verificar URLs com wildcards, por isso certifique-se de desbloquear os URLs primeiro.
+
+### <a name="requirements"></a>Requisitos
+
+Necessita das seguintes coisas para utilizar a ferramenta de verificação de URL necessária:
+
+- O seu VM deve ter um quadro .NET 4.6.2
+- Versão RDAgent 1.0.2944.400 ou superior
+- O ficheiro WVDAgentUrlTool.exe deve estar na mesma pasta que o ficheiro WVDAgentUrlTool.config
+
+### <a name="how-to-use-the-required-url-check-tool"></a>Como utilizar a ferramenta de verificação de URL necessária
+
+Para utilizar a ferramenta de verificação de URL necessária:
+
+1. Abra um pedido de comando como administrador no seu VM.
+2. Executar o seguinte comando para alterar o diretório para a mesma pasta que o agente de construção:
+
+    ```console
+    cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
+    ```
+
+3. Execute o seguinte comando:
+
+    ```console
+    WVDAgentUrlTool.exe
+    ```
+ 
+4. Assim que executar o ficheiro, verá uma lista de URLs acessíveis e inacessíveis.
+
+    Por exemplo, a imagem que se segue mostra um cenário em que é necessário desbloquear dois URLs não wildcard necessários:
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot de saída de URLs não acessíveis.](media/noaccess.png)
+    
+    Aqui está como deve ser a saída depois de desbloquear todos os URLs não wildcard necessários:
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot de saída de URLs acessíveis.](media/access.png)
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
 

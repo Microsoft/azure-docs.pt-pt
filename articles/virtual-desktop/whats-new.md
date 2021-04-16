@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 242dd2476783a3d1db6b74452d35e87c5cd189b6
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107062"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516557"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -42,11 +42,19 @@ O agente virtual do Windows atualiza pelo menos uma vez por mês.
 
 Eis o que mudou no Windows Virtual Desktop Agent:
 
-- Versão 1.0.2866.1500: Esta atualização foi lançada a 26 de março de 2021 e resolveu um problema com o cheque de saúde da stack.
-- Versão 1.0.2800.2802: Esta atualização foi lançada a 10 de março de 2021 e tem melhorias gerais e correções de bugs.
-- Versão 1.0.2800.2800: Esta atualização foi lançada a 2 de março de 2021 e corrigiu um problema de ligação inversa.
-- Versão 1.0.2800.2700: Esta atualização foi lançada a 10 de fevereiro de 2021 e tem melhorias gerais e correções de bugs.
-- Versão 1.0.2800.2700: Esta atualização foi lançada a 4 de fevereiro de 2021 e fixou um problema de orquestração negado de acesso.
+- Versão 1.0.2990.800: Esta atualização foi lançada a 13 de abril de 2021 e tem as seguintes alterações:
+    - Mensagens de erro do agente atualizadas.
+    - Adiciona uma exceção que o impede de instalar agentes não Windows 7 em VMs windows 7.
+    - Tem uma lógica atualizada do serviço de batimentos cardíacos.
+- Versão 1.0.2944.1400: Esta atualização foi lançada a 7 de abril de 2021 e tem as seguintes alterações:
+    - Colocou links para o guia de resolução de problemas do Windows Virtual Desktop Agent nos registos de visualização do caso para erros de agente.
+    - Acrescentou uma exceção adicional para um melhor manuseamento de erros.
+    - Acrescentou o WVDAgentUrlTool.exe que permite aos clientes verificarem quais os URLs necessários a que podem aceder.
+- Versão 1.0.2866.1500: Esta atualização foi lançada a 26 de março de 2021 e corrige um problema com o cheque de saúde da stack.
+- Versão 1.0.2800.2802: Esta atualização foi lançada a 10 de março de 2021 e possui melhorias gerais e correções de bugs.
+- Versão 1.0.2800.2800: Esta atualização foi lançada a 2 de março de 2021 e corrige um problema de ligação inversa.
+- Versão 1.0.2800.2700: Esta atualização foi lançada a 10 de fevereiro de 2021 e possui melhorias gerais e correções de bugs.
+- Versão 1.0.2800.2700: Esta atualização foi lançada a 4 de fevereiro de 2021 e corrige um problema de orquestração negado de acesso.
 
 ## <a name="fslogix-updates"></a>Atualizações da FSLogix
 

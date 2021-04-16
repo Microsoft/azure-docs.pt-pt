@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0d7598e332539b8203d55bbcb1cf497811c32540
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 21dbab6c8d4fb12fe79434a6994dd7f5b8a49190
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366560"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502713"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurar a anexação de aplicações MSIX com o portal do Azure
 
@@ -19,14 +19,10 @@ Este artigo irá acompanhá-lo sobre como configurar a aplicação MSIX anexada 
 
 ## <a name="requirements"></a>Requisitos
 
->[!IMPORTANT]
->Antes de começar, certifique-se de preencher e submeter [este formulário](https://aka.ms/enablemsixappattach) para permitir que a app MSIX se anexe na sua subscrição. Se não tiver um pedido aprovado, o anexo de aplicações MSIX não funcionará. A aprovação dos pedidos pode demorar até 24 horas durante os dias úteis. Receberá um e-mail quando o seu pedido tiver sido aceite e concluído.
-
 Aqui está o que precisa para configurar o anexo da app MSIX:
 
 - Uma implementação de ambiente de trabalho virtual do Windows em funcionamento. Para aprender a implementar o Windows Virtual Desktop (clássico), consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para aprender a implementar o Windows Virtual Desktop com integração do Azure Resource Manager, consulte [Criar uma piscina de anfitriões com o portal Azure](./create-host-pools-azure-marketplace.md).
 - Uma piscina de anfitriões virtual do Windows Desktop com pelo menos um anfitrião de sessão ativa.
-- Esta piscina de anfitriões deve estar no ambiente de validação. 
 - A ferramenta de embalagem MSIX.
 - Uma aplicação embalada pela MSIX expandiu-se para uma imagem MSIX que é enviada para uma partilha de ficheiros.
 - Uma partilha de ficheiros na sua implementação virtual do Windows Desktop onde o pacote MSIX será armazenado.
@@ -189,7 +185,7 @@ Para alterar o estado do pacote com um pacote de atualização:
 
 1. Vá à sua piscina de anfitriões e selecione **pacotes MSIX**. Você deve ver uma lista de todos os pacotes MSIX existentes dentro da piscina de anfitrião.
 
-2. Selecione o nome do pacote cujo estado pretende alterar da lista de pacotes MSIX. Isto abrirá o **separador pacote 'Atualização'.**
+2. Selecione o nome do pacote cujo estado pretende alterar da lista de pacotes MSIX. Isto abrirá o **separador pacote 'Actualização'.**
 
 3. Alternar o interruptor **do Estado** para **Inativo** ou **Ativo** e, em seguida, selecione **Save.**
 

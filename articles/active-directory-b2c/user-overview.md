@@ -11,12 +11,12 @@ ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4b35cfeded13a50e5e27c240b0826f1d108ff7eb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043602"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529446"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Azure Ative Directory B2C
 
@@ -74,7 +74,7 @@ Pode convidar utilizadores externos para o seu inquilino como utilizador convida
 
 Quando convida um utilizador convidado para o seu inquilino, fornece o endereço de e-mail do destinatário e uma mensagem descrevendo o convite. O link de convite leva o utilizador à página de consentimento. Se uma caixa de entrada não estiver anexada ao endereço de e-mail, o utilizador pode navegar para a página de consentimento indo para uma página da Microsoft usando as credenciais convidadas. O utilizador é então obrigado a resgatar o convite da mesma forma que clicar no link no e-mail. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Também pode utilizar a [API do Microsoft Graph](/graph/api/invitation-post?view=graph-rest-beta) para convidar um utilizador convidado.
+Também pode utilizar a [API do Microsoft Graph](/graph/api/invitation-post) para convidar um utilizador convidado.
 
 ## <a name="consumer-user"></a>Consumidor
 

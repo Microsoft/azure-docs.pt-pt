@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: a88ad3930e114bdf9f3c3c340f92f164215d59c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c561a9a786765ccfdaf00abf4e0d9c8cc550cb9a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671996"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377213"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Monitor Azure para soluções SAP (pré-visualização)
 
@@ -22,7 +22,7 @@ Com o Azure Monitor for SAP Solutions, os clientes podem recolher dados de telem
 
 O Azure Monitor for SAP Solutions é oferecido através do Azure Marketplace. Proporciona uma experiência de configuração simples e intuitiva e leva apenas alguns cliques para implementar o recurso para O Azure Monitor para soluções SAP (conhecido como **recurso de monitor SAP).**
 
-Os clientes podem monitorizar diferentes componentes de uma paisagem SAP, como máquinas virtuais Azure, cluster de alta disponibilidade, base de dados SAP HANA, e assim por diante, adicionando o **fornecedor** correspondente para esse componente.
+Os clientes podem monitorizar diferentes componentes de uma paisagem SAP como máquinas virtuais Azure, cluster de alta disponibilidade, base de dados SAP HANA, SAP NetWeaver e assim por diante, adicionando o **fornecedor** correspondente para esse componente.
 
 Infraestrutura apoiada:
 
@@ -70,6 +70,13 @@ Sistema operativo Telemetria (Linux)
 - Contagem contínua de E/O, Memória Persistente ler/escrever bytes. 
 - Pacotes de rede dentro/fora, Bytes de rede dentro/fora 
 
+Telemetria SAP NetWeaver:
+
+- Disponibilidade de servidor de sistema SAP e servidor de aplicações, incluindo disponibilidade de processo de exemplo de Despacho, ICM, Gateway, Servidor de Mensagens, Servidor de Enqueue, Cão de Guarda IGS
+- Estatísticas e tendências de utilização do processo de trabalho
+- Estatísticas e tendências do Bloqueio de Enqueue
+- Estatísticas e tendências de utilização de filas
+
 ## <a name="data-sharing-with-microsoft"></a>Partilha de dados com a Microsoft
 
 O Azure Monitor for SAP Solutions recolhe metadados do sistema para fornecer um melhor suporte aos nossos clientes SAP em Azure. Não é recolhido NENHUM PII/EUII.
@@ -102,8 +109,8 @@ Os componentes-chave da arquitetura são:
 ### <a name="architecture-highlights"></a>Destaques de Arquitetura
 
 Seguem-se os principais destaques da arquitetura:
- - **Multi-instância** - Os clientes podem criar monitores para múltiplas instâncias de um determinado tipo de componente (por exemplo, HANA DB, cluster HA, servidor Microsoft SQL) através de vários SIDs SAP dentro de um VNET com um único recurso de Azure Monitor para soluções SAP.
- - **Multi-fornecedor** - O diagrama de arquitetura acima mostra o provedor SAP HANA como um exemplo. Da mesma forma, os clientes podem configurar mais fornecedores para componentes correspondentes (por exemplo, HANA DB, cluster HA, servidor Microsoft SQL) para recolher dados desses componentes.
+ - **Multi-instância** - Os clientes podem criar monitores para múltiplas instâncias de um determinado tipo de componente (por exemplo, HANA DB, cluster HA, servidor Microsoft SQL, SAP NetWeaver) através de vários SIDs SAP dentro de um VNET com um único recurso de Azure Monitor para soluções SAP.
+ - **Multi-fornecedor** - O diagrama de arquitetura acima mostra o provedor SAP HANA como um exemplo. Da mesma forma, os clientes podem configurar mais fornecedores para componentes correspondentes (por exemplo, HANA DB, cluster HA, servidor Microsoft SQL, SAP NetWeaver) para recolher dados desses componentes.
  - **Fonte aberta** - O código fonte do Azure Monitor para soluções SAP está disponível no [GitHub](https://github.com/Azure/AzureMonitorForSAPSolutions). Os clientes podem consultar o código do fornecedor e saber mais sobre o produto, contribuir ou partilhar feedback.
  - **Estrutura de consulta extensível** - As consultas SQL para recolher dados de telemetria são escritas em [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). Mais consultas SQL para recolher mais dados de telemetria podem ser facilmente adicionados. Os clientes podem solicitar dados específicos de telemetria a serem adicionados ao Azure Monitor para soluções SAP, deixando feedback através de link no final deste documento ou contactando a sua equipa de conta.
 

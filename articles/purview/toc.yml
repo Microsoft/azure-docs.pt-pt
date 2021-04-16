@@ -182,3 +182,11 @@ items:
         href: supported-classifications.md
       - name: Guia de implementação de funções ABAP
         href: abap-functions-deployment-guide.md
+  - name: Recursos
+    items:
+      - name: Feedback de recurso (voz do utilizador)
+        href: 'https://feedback.azure.com/forums/932437-azure-purview'
+      - name: Calculadora de preços
+        href: 'https://azure.microsoft.com/pricing/details/azure-purview/'
+      - name: Microsoft Q&Um fórum
+        href: 'https://docs.microsoft.com/answers/topics/azure-purview.html'

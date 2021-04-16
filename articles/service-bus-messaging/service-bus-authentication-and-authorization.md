@@ -3,18 +3,18 @@ title: Autenticação e autorização da Azure Service Bus | Microsoft Docs
 description: Autenticar aplicativos para Service Bus com autenticação de assinatura de acesso partilhado (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccb526abd99be50e33c8adb918186944b7af3bd6
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98060219"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516659"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Service Bus
 Existem duas formas de autenticar e autorizar o acesso aos recursos do Azure Service Bus: Azure Activity Directory (Azure AD) e Shared Access Signatures (SAS). Este artigo dá-lhe detalhes sobre a utilização destes dois tipos de mecanismos de segurança. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-A integração AD da AD para os recursos de Service Bus fornece o controlo de acesso baseado em funções Azure (Azure RBAC) para um controlo fino sobre o acesso de um cliente aos recursos. Você pode usar Azure RBAC para conceder permissões a um principal de segurança, que pode ser um utilizador, um grupo ou um diretor de serviço de aplicação. O principal de segurança é autenticado pela Azure AD para devolver um token OAuth 2.0. O token pode ser usado para autorizar um pedido de acesso a um recurso de Service Bus (fila, tópico, etc.).
+A integração AD da AD para os recursos de Service Bus fornece o controlo de acesso baseado em funções (RBAC) da Azure para um controlo de grãos finos sobre o acesso de um cliente aos recursos. Você pode usar Azure RBAC para conceder permissões a um principal de segurança, que pode ser um utilizador, um grupo ou um diretor de serviço de aplicação. O principal de segurança é autenticado pela Azure AD para devolver um token OAuth 2.0. O token pode ser usado para autorizar um pedido de acesso a um recurso de Service Bus (fila, tópico, e assim por diante).
 
 Para obter mais informações sobre a autenticação com Azure AD, consulte os seguintes artigos:
 
@@ -32,18 +32,18 @@ Para obter mais informações sobre a autenticação com Azure AD, consulte os s
 
 Pode configurar as chaves para SAS num espaço de nomes de Service Bus. A chave aplica-se a todas as entidades de mensagens dentro desse espaço de nome. Também pode configurar chaves nas filas e tópicos do Service Bus. O SAS também é suportado no [Azure Relay](../azure-relay/relay-authentication-and-authorization.md).
 
-Para utilizar SAS, pode configurar um objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) num espaço de nome, fila ou tópico. Esta regra consiste nos seguintes elementos:
+Para utilizar SAS, pode configurar uma regra de autorização de acesso partilhado num espaço de nome, fila ou tópico. Esta regra consiste nos seguintes elementos:
 
 * *Nome-chave*: identifica a regra.
 * *PrimaryKey*: uma chave criptográfica usada para assinar/validar fichas SAS.
 * *SecondaryKey*: uma chave criptográfica usada para assinar/validar fichas SAS.
 * *Direitos*: representa a recolha de direitos **de escuta,** **envio** ou **gestão** concedidos.
 
-As regras de autorização configuradas ao nível do espaço de nome podem conceder acesso a todas as entidades num espaço de nome para clientes com fichas assinadas usando a chave correspondente. Pode configurar até 12 tais regras de autorização num espaço de nomes, fila ou tópico do Service Bus. Por padrão, uma [Regra de Polidissauto](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) com todos os direitos é configurada para cada espaço de nome quando é for provisionada pela primeira vez.
+As regras de autorização configuradas ao nível do espaço de nome podem conceder acesso a todas as entidades num espaço de nome para clientes com fichas assinadas usando a chave correspondente. Pode configurar até 12 tais regras de autorização num espaço de nomes, fila ou tópico do Service Bus. Por padrão, uma regra de autorização de acesso partilhado com todos os direitos é configurada para cada espaço de nome quando é for provisionada pela primeira vez.
 
-Para aceder a uma entidade, o cliente requer um token SAS gerado usando uma [regra de politização partilhada.](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) O token SAS é gerado usando o HMAC-SHA256 de uma cadeia de recursos que consiste no recurso URI a que o acesso é reclamado, e uma expiração com uma chave criptográfica associada à regra de autorização.
+Para aceder a uma entidade, o cliente requer um token SAS gerado usando uma regra específica de autorização de acesso partilhado. O token SAS é gerado usando o HMAC-SHA256 de uma cadeia de recursos que consiste no recurso URI a que o acesso é reclamado, e uma expiração com uma chave criptográfica associada à regra de autorização.
 
-O suporte de autenticação SAS para Service Bus está incluído nas versões Azure .NET SDK 2.0 e posteriormente. O SAS inclui suporte para uma [Regra de Poliétula Desauthorization.](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) Todas as APIs que aceitam uma cadeia de ligação como parâmetro incluem suporte para cordas de conexão SAS.
+O suporte de autenticação SAS para Service Bus está incluído nas versões Azure .NET SDK 2.0 e posteriormente. O SAS inclui suporte para uma regra de autorização de acesso partilhado. Todas as APIs que aceitam uma cadeia de ligação como parâmetro incluem suporte para cordas de conexão SAS.
 
 > [!IMPORTANT]
 > Se estiver a utilizar o Azure Ative Directory Access Control (também conhecido como Access Control Service ou ACS) com o Service Bus, note que o suporte para este método é agora limitado e que deverá [migrar a sua aplicação para utilizar SAS](service-bus-migrate-acs-sas.md) ou utilizar a autenticação OAuth 2.0 com Azure AD (recomendado). Para mais informações sobre a depreciação da ACS, consulte [este post de blog.](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces)

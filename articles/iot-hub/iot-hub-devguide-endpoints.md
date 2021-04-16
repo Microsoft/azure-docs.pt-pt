@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2b9ea2e075ddcf20860ccb9ab1f2eff654993ad
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92152183"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499381"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais IoT Hub
 
@@ -76,7 +76,7 @@ Todos os pontos finais do IoT Hub utilizam o protocolo [TLS,](https://tools.ietf
 
 ## <a name="custom-endpoints"></a>Pontos finais personalizados
 
-Pode ligar os serviços Azure existentes na sua subscrição ao seu hub IoT para funcionar como ponto final para o encaminhamento de mensagens. Estes pontos finais funcionam como pontos finais de serviço e são usados como pias para rotas de mensagens. Os dispositivos não podem escrever diretamente para os pontos finais adicionais. Saiba mais sobre [o encaminhamento de mensagens](../iot-hub/iot-hub-devguide-messages-d2c.md).
+Pode ligar os serviços Azure existentes nas suas subscrições Azure ao seu hub IoT para funcionar como ponto final para o encaminhamento de mensagens. Estes pontos finais funcionam como pontos finais de serviço e são usados como pias para rotas de mensagens. Os dispositivos não podem escrever diretamente para os pontos finais adicionais. Saiba mais sobre [o encaminhamento de mensagens](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 O IoT Hub suporta atualmente os seguintes serviços Azure como pontos finais adicionais:
 

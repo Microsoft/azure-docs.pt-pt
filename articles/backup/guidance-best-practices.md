@@ -3,12 +3,12 @@ title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14476533cf896434182e1d63f89c6a1279b36362
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593340"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519068"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -62,7 +62,7 @@ O Azure Backup usa cofres (Serviços de Recuperação e cofres de reserva) para 
 
 ### <a name="align-to-subscription-design-strategy"></a>Alinhar com a estratégia de design de subscrição
 
-Uma vez que o cofre é traçado para uma subscrição, ajuste o seu design de cofre para atender à estratégia de design de subscrição, como *a estratégia de categoria de aplicação,* onde as subscrições são separadas com base em aplicações ou serviços específicos ou ao longo das linhas de arquétipos de aplicação. Para mais informações, consulte este [artigo.](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+Uma vez que o cofre é traçado para uma subscrição, ajuste o seu design de cofre para atender à estratégia de design de subscrição, como *a estratégia de categoria de aplicação,* onde as subscrições são separadas com base em aplicações ou serviços específicos ou ao longo das linhas de arquétipos de aplicação. Para obter mais informações, veja [este](/azure/cloud-adoption-framework/decision-guides/subscriptions/) artigo.
 
 ### <a name="single-or-multiple-vault"></a>Cofre único ou múltiplo
 
@@ -261,4 +261,4 @@ Como utilizador ou administrador de backup, deverá ser capaz de monitorizar tod
 Recomendamos que leia os seguintes artigos como pontos de partida para a utilização de Azure Backup:
 
 * [Visão geral do Backup Azure](backup-overview.md)
-* [Perguntas Mais Frequentes](backup-azure-backup-faq.md)
+* [Perguntas Mais Frequentes](backup-azure-backup-faq.yml)

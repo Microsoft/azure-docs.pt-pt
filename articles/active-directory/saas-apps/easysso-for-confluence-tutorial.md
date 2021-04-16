@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 325f6ad7d9685fac17e17b28c4ffbe31b1245cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef121112bb4ff3ff6a297677a5c713f642cb3b78
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734550"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519542"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com easySSO para confluência
 
@@ -37,10 +37,10 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* EasySSO para Confluência suporta **SP e IDP** iniciado SSO
-* EasySSO para Confluência suporta provisão do utilizador **Just In Time**
+* EasySSO para Confluência suporta **SP e IDP** iniciado SSO.
+* EasySSO para Confluence suporta o fornecimento do utilizador **Just In Time.**
 
-## <a name="adding-easysso-for-confluence-from-the-gallery"></a>Adicionar EasySSO para Confluência da galeria
+## <a name="add-easysso-for-confluence-from-the-gallery"></a>Adicione EasySSO para Confluência da galeria
 
 Para configurar a integração da EasySSO para Confluence em AZure AD, precisa adicionar EasySSO para Confluência da galeria à sua lista de aplicações geridas para o SaaS.
 
@@ -50,7 +50,6 @@ Para configurar a integração da EasySSO para Confluence em AZure AD, precisa a
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** escreva **EasySSO para Confluência** na caixa de pesquisa.
 1. Selecione **EasySSO para Confluência** a partir do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-confluence"></a>Configurar e testar Azure AD SSO para easySSO para confluência
 
@@ -71,7 +70,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página **easySSO para** integração de aplicações confluência, encontre a secção **Gerir** e selecione um único sinal **de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -129,9 +128,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **EasySSO para Confluência**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**

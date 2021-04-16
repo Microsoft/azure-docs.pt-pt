@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0d6d5a08ea85ebb666acc0336f1e1d7ec5e097da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82e9fc93bf8c816fcbfd5869156745dea630313
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044673"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517560"
 ---
 # <a name="claim-sets"></a>Conjuntos de afirmações
 
@@ -30,11 +30,66 @@ As reclamações geradas no processo de atestar enclaves utilizando o Microsoft 
 
 Alegações a utilizar por autores de políticas para definir regras de autorização numa política de atestado SGX:
 
-- **x-ms-sgx-is-debuggable**: A Boolean, que indica se o enclave tem ou não depuração ativado
-- **x-ms-sgx-produto-id**: Valor de ID do produto do enclave SGX 
-- **x-ms-sgx-mrsigner**: valor codificado hex do campo "mrsigner" da citação
-- **x-ms-sgx-mrenclave**: valor codificado hex do campo "mrenclave" da citação
-- **x-ms-sgx-svn**: número da versão de segurança codificado na cotação 
+- **x-ms-sgx-is-debuggable**: Um valor booleano, que indica se a depuração do enclave está ativada ou não.
+  
+  Os enclaves SGX podem ser carregados com depuração desativada ou ativado. Quando a bandeira é verdadeira no enclave, permite depurar características para o código enclave. Isto inclui a capacidade de aceder à memória do enclave. Por isso, recomenda-se que a bandeira seja verdadeira apenas para fins de desenvolvimento. Se estiver ativado em ambiente de produção, as garantias de segurança da SGX não serão mantidas.
+  
+  Os utilizadores do Azure Attestation podem usar a política de atestado para verificar se a depuração é desativada para o enclave SGX. Uma vez adicionada a regra da política, o atestado falhará quando um utilizador malicioso liga o suporte de depuração para ter acesso ao conteúdo do enclave.
+
+- **x-ms-sgx-produto-id**: Um valor inteiro, que indica o ID do produto do enclave SGX.
+
+  O autor do enclave atribui um ID de produto a cada enclave. O ID do produto permite ao autor do enclave segmentar enclaves assinados usando o mesmo MRSIGNER. Ao adicionar uma regra de validação na política de atestado, os clientes podem verificar se estão a usar os enclaves pretendidos. O Attestation falhará se o ID do produto do enclave não corresponder ao valor publicado pelo autor do enclave.
+
+- **x-ms-sgx-mrsigner**: Um valor de corda, que identifica o autor do enclave SGX.
+
+  MRSIGNER é o haxixe da chave pública do autor do enclave que é usado para assinar o binário enclave. Ao validar a MRSIGNER através de uma política de atestado, os clientes podem verificar se os binários de confiança estão a funcionar dentro de um enclave. Quando a alegação política não corresponde à MRSIGNER do autor do enclave, implica que o binário enclave não é assinado por uma fonte de confiança e que o atestado falha.
+  
+  Quando um autor do enclave prefere rodar MRSIGNER por razões de segurança, a política de Azure Attestation deve ser atualizada para apoiar os novos e antigos valores MRSIGNER antes da atualização dos binários. Caso contrário, os controlos de autorização falharão, resultando em falhas no atestado.
+  
+  A política de atestado deve ser atualizada utilizando o formato abaixo. 
+ 
+  #### <a name="before-key-rotation"></a>Antes da rotação da chave
+ 
+   ```
+    version= 1.0;
+    authorizationrules 
+    {
+    [ type=="x-ms-sgx-is-debuggable", value==false]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    };
+  ```
+
+   #### <a name="during-key-rotation"></a>Durante a rotação da chave
+
+    ```
+      version= 1.0;
+      authorizationrules 
+      {
+      [ type=="x-ms-sgx-is-debuggable", value==false]&&
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+      [ type=="x-ms-sgx-is-debuggable", value==false ]&& 
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+      };
+    ```
+
+   #### <a name="after-key-rotation"></a>Após a rotação da chave
+
+    ```
+      version= 1.0;
+      authorizationrules 
+      { 
+      [ type=="x-ms-sgx-is-debuggable", value==false]&& 
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+      };
+    ```
+
+- **x-ms-sgx-mrenclave**: Um valor de cadeia, que identifica o código e os dados carregados na memória do enclave. 
+
+  MrenCLAVE é uma das medições do enclave que pode ser usada para verificar os binários do enclave. É o haxixe do código que corre dentro do enclave. A medição muda a cada alteração ao código binário do enclave. Ao validar o MRENCLAVE através de uma política de atestado, os clientes podem verificar se os binários pretendidos estão a decorrer dentro de um enclave. No entanto, uma vez que se espera que o MRENCLAVE mude frequentemente com qualquer alteração trivial ao código existente, recomenda-se verificar binários enclaves utilizando a validação MRSIGNER numa política de atestação.
+
+- **x-ms-sgx-svn**: Um valor inteiro, que indica o número da versão de segurança do enclave SGX
+
+  O autor do enclave atribui um Número de Versão de Segurança (SVN) a cada versão do enclave SGX. Quando um problema de segurança é descoberto no código do enclave, o autor do enclave incrementa a correção de vulnerabilidade pós-vulnerabilidade de valor SVN. Para evitar interagir com o código enclave inseguro, os clientes podem adicionar uma regra de validação na política de atestado. Se o SVN do código enclave não corresponder à versão recomendada pelo autor do enclave, o atestado falhará.
 
 Abaixo as reclamações são consideradas depreciadas, mas são totalmente apoiadas e continuarão a ser incluídas no futuro. Recomenda-se a utilização dos nomes de reclamações não depreciados.
 

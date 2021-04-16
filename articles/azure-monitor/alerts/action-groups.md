@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: dukek
-ms.openlocfilehash: 7010e20b65142cf0ab85c29d6b22c925c977f1f8
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 1486415c5d225163dd2b2c7e79cd008ad0a76588
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107104988"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514874"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
@@ -147,6 +147,13 @@ Se não estiver a receber Notificações no seu *email principal,* pode tentar s
   :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Exemplo sobre como adicionar e-mail primário." border="true":::
 
 Você pode ter um número limitado de ações de e-mail em um Grupo de Ação. Consulte o artigo [de informação limitativo da taxa.](./alerts-rate-limiting.md)
+
+Ao configurar *a Função Arm de Email,* tem de se certificar de que estão reunidas condições abaixo de 3:
+
+1. O tipo de entidade que está a ser atribuída à função tem de ser **"Utilizador".**
+2. A atribuição tem de ser feita ao nível da **subscrição.**
+3. O utilizador precisa de ter um e-mail configurado no seu **perfil de AAD**. 
+
 
 ### <a name="function"></a>Função
 Chama um ponto final de gatilho HTTP existente em [Funções Azure](../../azure-functions/functions-get-started.md). Para lidar com um pedido, o seu ponto final deve manusear o verbo HTTP POST.

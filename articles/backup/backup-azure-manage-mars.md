@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 25f0c41b535f9403d0a7027687cc5261cd437275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4306f01d608542f7453b32b32a1a6894c2379159
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97368601"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515027"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -196,7 +196,7 @@ Recomendamos a seguinte configuração para o seu software antivírus para evita
 
 1. **Adicionar Exclusões de caminho**: Para evitar a degradação do desempenho e possíveis conflitos, exclua os seguintes caminhos da monitorização em tempo real pelo software antivírus:
     1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent` e sub-dobradores
-    1. **Pasta de risco**: Se a pasta de risco não estiver na localização normal, adicione-a também às exclusões.  [Consulte aqui os passos](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible) para determinar a localização da pasta de risco.
+    1. **Pasta de risco**: Se a pasta de risco não estiver na localização normal, adicione-a também às exclusões.  [Consulte aqui os passos](backup-azure-file-folder-backup-faq.yml#how-to-check-if-scratch-folder-is-valid-and-accessible-) para determinar a localização da pasta de risco.
 1. **Adicionar Exclusões Binárias**: Para evitar a degradação das atividades de backup e consola, exclua os processos para os seguintes binários da monitorização em tempo real pelo software antivírus:
     1. `%ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\cbengine.exe`
 
@@ -207,4 +207,4 @@ Recomendamos a seguinte configuração para o seu software antivírus para evita
 
 - Para obter informações sobre cenários e limitações suportados, consulte a [Matriz de Suporte do Agente MARS](./backup-support-matrix-mars-agent.md).
 - Saiba mais sobre [o comportamento de retenção de políticas de backup da demanda](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
-- Para perguntas mais frequentes, consulte o [agente MARS FAQ.](backup-azure-file-folder-backup-faq.md)
+- Para perguntas mais frequentes, consulte o [agente MARS FAQ.](backup-azure-file-folder-backup-faq.yml)

@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para o Farol de Azure
 description: Lista definições políticas incorporadas da Azure Policy para o Farol de Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d494dce95406daa738292833bce0f44883929c7a
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: ab3596c8c14e7d82e2c90117dff6d9f2e676f66e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089796"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505691"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Definições incorporadas da Política Azure para o Farol de Azure
 

@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure Cache para Redis
 description: Lista definições políticas incorporadas da Azure Policy para Azure Cache para Redis. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 296d870614c0ce47af299236d4316d30076835e9
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: b587f1775fba844acf10444cc532f0761b0402ac
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095314"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503930"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Azure Policy definições incorporadas para Azure Cache para Redis
 

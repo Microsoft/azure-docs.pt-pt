@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 0e07839c3c5ce542335eeadc92e6a3c98fe87856
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 418c8f0844bf2336ce0d4a681071f237d81877ca
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606985"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505722"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>O que é o Azure Dedicated HSM?
 
@@ -32,7 +32,7 @@ Depois de serem a provisionados, os dispositivos HSM estão ligados diretamente 
 
 ### <a name="fips-140-2-level-3-compliance"></a>Conformidade FIPS 140-2 Nível-3
 
-Muitas organizações têm regulamentos rigorosos da indústria que ditam que as chaves criptográficas devem ser armazenadas em HSMs validados [fips 140-2 Nível-3.](https://csrc.nist.gov/publications/detail/fips/140/2/final) A Azure Dedicado HSM e uma nova oferta de inquilino único, [Azure Key Vault Managed HSM (pré-visualização),](https://docs.microsoft.com/azure/key-vault/managed-hsm)ajudam clientes de vários segmentos da indústria, tais como indústria de serviços financeiros, agências governamentais, e outros cumprem os requisitos fips 140-2 Nível-3. Enquanto o serviço [de abóbada](https://docs.microsoft.com/azure/key-vault) chave de multi-inquilino da Microsoft utiliza atualmente HSMs validados FIPS 140-2 Nível-2. 
+Muitas organizações têm regulamentos rigorosos da indústria que ditam que as chaves criptográficas devem ser armazenadas em HSMs validados [fips 140-2 Nível-3.](https://csrc.nist.gov/publications/detail/fips/140/2/final) A Azure Dedicado HSM e uma nova oferta de inquilino único, [Azure Key Vault Managed HSM,](https://docs.microsoft.com/azure/key-vault/managed-hsm)ajudam clientes de vários segmentos da indústria, tais como indústria de serviços financeiros, agências governamentais, e outros cumprem os requisitos do FIPS 140-2 Nível-3. Enquanto o serviço [de abóbada](https://docs.microsoft.com/azure/key-vault) chave de multi-inquilino da Microsoft utiliza atualmente HSMs validados FIPS 140-2 Nível-2. 
 
 ### <a name="single-tenant-devices"></a>Dispositivos de inquilino único
 
@@ -72,7 +72,7 @@ O Azure Dedicated HSM não é um bom ajuste para o seguinte tipo de cenário: os
 
 ### <a name="it-depends"></a>Depende
 
-Se o Azure Dedicado HSM funcionará para si depende de uma mistura potencialmente complexa de requisitos e compromissos que pode ou não fazer. Um exemplo é o requisito FIPS 140-2 Nível 3. Este requisito é comum, e Azure Dedicado HSM e uma nova oferta de inquilino único, [Azure Key Vault Managed HSM (pré-visualização)](https://docs.microsoft.com/azure/key-vault/managed-hsm) são atualmente as únicas opções para o cumprir. Se estes requisitos obrigatórios não são relevantes, então muitas vezes é uma escolha entre Azure Key Vault e Azure Dedicado HSM. Avalie os seus requisitos antes de tomar uma decisão.
+Se o Azure Dedicado HSM funcionará para si depende de uma mistura potencialmente complexa de requisitos e compromissos que pode ou não fazer. Um exemplo é o requisito FIPS 140-2 Nível 3. Este requisito é comum, e Azure Dedicado HSM e uma nova oferta de inquilino único, [Azure Key Vault Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm) são atualmente as únicas opções para o cumprir. Se estes requisitos obrigatórios não são relevantes, então muitas vezes é uma escolha entre Azure Key Vault e Azure Dedicado HSM. Avalie os seus requisitos antes de tomar uma decisão.
 
 As situações em que terá de ponderar as suas opções incluem: 
 

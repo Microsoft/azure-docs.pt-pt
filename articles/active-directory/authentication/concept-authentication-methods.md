@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4d69157f4544daad962cca15e53802e7b912399
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471689"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530435"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -74,7 +74,7 @@ Os seguintes contornos da tabela quando um método de autenticação pode ser ut
 | Chamada de voz                     | No                     | MFA e SSPR              |
 | Palavra-passe                       | Yes                    |                           |
 
-Todos estes métodos de autenticação podem ser configurados no portal Azure e, cada vez mais, utilizando a beta API do [Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Todos estes métodos de autenticação podem ser configurados no portal Azure e, cada vez mais, utilizando a API do [Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview).
 
 Para saber mais sobre o funcionamento de cada método de autenticação, consulte os seguintes artigos conceptuais separados:
 
@@ -104,7 +104,7 @@ Para saber mais sobre os conceitos SSPR, consulte [como funciona o reset da pala
 
 Para saber mais sobre os conceitos de MFA, consulte [como funciona a autenticação multi-factor Azure AD.][concept-mfa]
 
-Saiba mais sobre a configuração dos métodos de autenticação utilizando a [beta API do Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Saiba mais sobre a configuração dos métodos de autenticação utilizando a API do [Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview).
 
 Para rever os métodos de autenticação em uso, consulte a análise do [método de autenticação multi-factor Azure AD com o PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 

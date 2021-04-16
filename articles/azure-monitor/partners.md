@@ -1,14 +1,16 @@
 ---
 title: Parceiros que se integram com o Azure Monitor
 description: Conheça os parceiros do Azure Monitor e como pode aceder à documentação para integração com eles.
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/14/2021
+ms.openlocfilehash: c10e11fe547f643e04b5dbdeaf9e233b7105ce9a
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101023"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517495"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -162,7 +164,7 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de monitorização de qualidade de serviço, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saiba mais
+Saber mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
@@ -296,6 +298,14 @@ Com o Site24x7 Azure Monitoring, poderá:
 ## <a name="solarwinds"></a>Ventos Solares
 
 [Documentação SolarWinds](https://www.solarwinds.com/topics/azure-monitoring)
+
+## <a name="speartip"></a>Ponta de lança
+
+![Logotipo da Ponta da Lança](./media/partners/speartip.png)
+
+O centro de operações de segurança 24 horas por dia da SpearTip monitoriza continuamente os ambientes Azure para ameaças cibernéticas. Utilizando a integração ShadowSpear com o Azure Monitor, os eventos de segurança são recolhidos e analisados para ameaças avançadas, enquanto os engenheiros da SpearTip investigam e respondem para parar os atores de ameaça nas suas faixas. A integração é perfeita e proporciona valor instantâneo uma vez que a integração é implementada.
+
+[Documentação da SpearTip](https://www.speartip.com/identify/)
 
 ## <a name="splunk"></a>Splunk
 

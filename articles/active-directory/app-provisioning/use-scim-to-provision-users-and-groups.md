@@ -12,12 +12,12 @@ ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3d53c96c4b0306911b0c8a0b8576f35a73419db0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305604"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498157"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planear o provisionamento para um ponto final do SCIM
 
@@ -210,7 +210,8 @@ Utilize as diretrizes gerais ao implementar um ponto final SCIM para garantir a 
 * Não exija uma correspondência sensível a elementos estruturais no  SCIM, em particular `op` os valores de funcionamento patch, tal como definidos na [secção 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emite os valores de `op` como **Adicionar,** **Substituir** e **Remover**.
 * O Microsoft AAD faz pedidos para obter um utilizador e grupo aleatórios para garantir que o ponto final e as credenciais são válidos. Também é feito como parte do fluxo de **ligação** de teste no [portal Azure](https://portal.azure.com). 
 * O atributo em que os recursos podem ser consultados deve ser definido como um atributo correspondente na aplicação no [portal Azure](https://portal.azure.com), ver [Personaling User Provisioning Attribute Mappings](customize-application-attributes.md).
-* Suporte HTTPS no seu ponto final SCIM
+* Os direitos atribuídos não são suportados.
+* Suporte HTTPS no seu ponto final SCIM.
 * [Descoberta de Schema](#schema-discovery)
   * A descoberta de Schema não é atualmente suportada na aplicação personalizada, mas está a ser usada em certas aplicações de galeria. Para a frente, a descoberta do esquema será usada como o método principal para adicionar atributos adicionais a um conector. 
   * Se um valor não estiver presente, não envie valores nulos.

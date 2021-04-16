@@ -62,6 +62,8 @@
           href: hana-concept-preparation.md
         - name: Procedimento de ativação pós-falha de recuperação após desastre
           href: hana-failover-procedure.md
+        - name: Grandes casos HA para SAP em RHEL
+          href: large-instance-high-availability-rhel.md
     - name: Resolver problemas e monitorizar
       items:
         - name: Monitorização HLI
@@ -135,7 +137,7 @@
         - name: Matriz de suporte para cópia de segurança das bases de dados SAP HANA
           href: ../../../backup/sap-hana-backup-support-matrix.md
         - name: FAQ – Ressarça as bases de dados SAP HANA em VMs Azure
-          href: ../../../backup/sap-hana-faq-backup-azure-vm.md
+          href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
         - name: Backup de resolução de problemas das bases de dados SAP HANA em Azure
           href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
         - name: Tutorial - Apoiar as bases de dados SAP HANA num Azure VM
@@ -213,8 +215,6 @@
               href: high-availability-guide-rhel.md
             - name: HA no Red Hat Enterprise Linux para Instância de (A)SCS com Azure NetApp Files
               href: high-availability-guide-rhel-netapp-files.md
-            - name: Grandes casos HA para SAP em RHEL
-              href: large-instance-high-availability-rhel.md
         - name: Preparação da Infraestrutura do Azure
           items:
             - name: Windows com Disco Partilhado para a Instância (A)SCS

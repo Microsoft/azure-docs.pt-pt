@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2021
-ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/14/2021
+ms.openlocfilehash: 0842dad0e0ea6f9987727e8abf3d0eaf8a59e821
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563298"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517523"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados com o fluxo de dados de mapeamento
 
@@ -78,15 +78,15 @@ Neste passo, irá criar um oleoduto que contenha uma atividade de Fluxo de Dados
    ![Criar pipeline](./media/doc-common-process/get-started-page.png)
 
 1. No separador **Geral** do gasoduto, **insira TransformMovies** para **nome** do gasoduto.
-1. Na barra superior da fábrica, deslize o **depurador de fluxo de dados.** O modo Debug permite testes interativos da lógica de transformação contra um cluster de Faíscas ao vivo. Os clusters Data Flow demoram 5 a 7 minutos a aquecer e os utilizadores são recomendados a ligar primeiro o depurg se planeiam fazer o desenvolvimento do Fluxo de Dados. Para mais informações, consulte [o Modo Debug](concepts-data-flow-debug-mode.md).
-
-    ![Atividade do fluxo de dados](media/tutorial-data-flow/dataflow1.png)
 1. No painel **de atividades,** expanda o **acordeão Move and Transform.** Arraste e deixe cair a atividade do Fluxo de **Dados** do painel para a tela do gasoduto.
 
     ![Screenshot que mostra a tela do gasoduto onde pode deixar cair a atividade do Data Flow.](media/tutorial-data-flow/activity1.png)
 1. No pop-up do Fluxo de **Dados adicionando,** selecione **Criar novo fluxo de dados** e, em seguida, nomeie o seu fluxo de **dados TransformMovies**. Clique em Terminar quando terminar.
 
     ![Screenshot que mostra onde nomeia o fluxo de dados quando cria um novo fluxo de dados.](media/tutorial-data-flow/activity2.png)
+1. Na barra superior da tela do gasoduto, deslize o **depurador de fluxo de dados.** O modo Debug permite testes interativos da lógica de transformação contra um cluster de Faíscas ao vivo. Os clusters Data Flow demoram 5 a 7 minutos a aquecer e os utilizadores são recomendados a ligar primeiro o depurg se planeiam fazer o desenvolvimento do Fluxo de Dados. Para mais informações, consulte [o Modo Debug](concepts-data-flow-debug-mode.md).
+
+    ![Atividade do fluxo de dados](media/tutorial-data-flow/dataflow1.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Construir lógica de transformação na tela do fluxo de dados
 

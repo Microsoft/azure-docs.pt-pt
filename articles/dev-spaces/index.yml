@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Azure Dev Spaces
-summary: O Azure Dev Spaces vai ser descontinuado e deixará de funcionar a partir de 31 de outubro de 2023.
+summary: O Azure Dev Spaces vai ser descontinuado e deixará de funcionar a partir de 31 de outubro de 2023. Não podem ser a provisionados novos controladores.
 metadata:
   title: Documentação do Azure Dev Spaces
-  description: O Azure Dev Spaces vai ser descontinuado e deixará de funcionar a partir de 31 de outubro de 2023.
+  description: O Azure Dev Spaces vai ser descontinuado e deixará de funcionar a partir de 31 de outubro de 2023. Não podem ser a provisionados novos controladores.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 10/29/2020
-  ms.openlocfilehash: a3b3ca8c87871b9ae8e1d6a3db32d9e2051215b6
-  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-  ms.translationtype: HT
+  ms.openlocfilehash: a2283d189a6423b65364e64f0894e9e666c55463
+  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93072036"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107505943"
 landingContent:
 - title: Bridge to Kubernetes
   linkLists:

@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40a17da6383fb1f368c74a82fefa71991cdc1b19
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556034"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517679"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Passos para atribuir um papel de Azure
 
@@ -78,6 +78,8 @@ Para atribuir funções, tem de ser contratado com um utilizador que lhe seja at
 - `Microsoft.Authorization/roleAssignments/delete`
 
 Se a sua conta de utilizador não tiver permissão para atribuir uma função dentro da sua subscrição, vê uma mensagem de erro que a sua conta "não tem autorização para executar ações 'Microsoft.Autorização/funAsignments/write'". Neste caso, contacte os administradores da sua subscrição, uma vez que podem atribuir as permissões em seu nome.
+
+Se estiver a usar um diretor de serviço para atribuir funções, poderá obter o erro "Privilégios insuficientes para completar a operação". Este erro é provável porque a Azure está a tentar procurar a identidade do destinatário no Azure Ative Directory (Azure AD) e o diretor de serviço não pode ler a Azure AD por padrão. Neste caso, você precisa conceder ao serviço permissão principal para ler dados no diretório. Em alternativa, se estiver a utilizar o Azure CLI, pode criar a atribuição de funções utilizando o ID do objeto designado para saltar a procura AZure AD. Para mais informações, consulte [Troubleshoot Azure RBAC](troubleshooting.md).
 
 ## <a name="step-5-assign-role"></a>Passo 5. Atribuir função
 

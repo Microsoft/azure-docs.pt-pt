@@ -9,12 +9,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: fad34c10d02d4a9daa8795cf77ab76903d8360f4
-  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+  ms.openlocfilehash: d6c9d2ae5a2f91cd0c9c5b0b902b254ffcd8c8f8
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/14/2021
-  ms.locfileid: "107501200"
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "107517883"
 landingContent:
 - title: Acerca do Azure Red Hat OpenShift
   linkLists:
@@ -42,7 +42,9 @@ landingContent:
       url: dns-forwarding.md
     - text: Configure o registo de contentores incorporados para o Azure Red Hat OpenShift
       url: built-in-container-registry.md
-    - text: Implemente uma aplicação Open Liberty/WebSphere Liberty num cluster Azure Red Hat OpenShift
+    - text: Implementar uma aplicação para Azure Red Hat OpenShift usando o OpenShift Serverless
+      url: howto-deploy-with-serverless.md
+    - text: Implementar uma aplicação Open Liberty/WebSphere Liberty num cluster do Azure Red Hat OpenShift 4
       url: howto-deploy-java-liberty-app.md
 - title: Referência
   linkLists:

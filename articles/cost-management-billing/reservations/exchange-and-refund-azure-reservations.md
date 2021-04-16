@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/14/2021
 ms.author: banders
-ms.openlocfilehash: bd16bbbe33876a3c44b20c5d1756b83814f9b17d
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3e8f50efd04364483c32ecb8ef5020bdd053e55b
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601955"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515486"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos personalizados das Reservas do Azure
 
@@ -27,8 +27,6 @@ Quando troca uma reserva, pode alterar o seu mandato de um ano para três anos.
 Também pode reembolsar reservas, mas a soma total da alocação de reservas canceladas no seu âmbito de faturação (como EA, Contrato de Cliente Microsoft e Contrato de Parceiro da Microsoft) não pode exceder 50 000 USD num período de 12 meses.
 
 A capacidade reservada do Azure Databricks, a reserva da solução VMware no Azure da CloudSimple, a reserva do Azure Red Hat Open Shift, os planos Red Hat e os planos SUSE Linux não são elegíveis para reembolso.
-
-A capacidade de troca self-service e de cancelamento não está disponível para os clientes com o Contrato Enterprise US Government. São suportados outros tipos de subscrições de administração pública dos EUA, incluindo Pay As You Go e Fornecedor de Soluções Cloud (CSP).
 
 > [!NOTE]
 > - **Tem de ter acesso de proprietário na Encomenda de Reserva para trocar ou reembolsar uma reserva existente**. Pode [Adicionar ou alterar os utilizadores que podem gerir reservas](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).

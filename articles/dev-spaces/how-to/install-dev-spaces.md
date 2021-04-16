@@ -4,13 +4,14 @@ services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: Saiba como ativar os Espaços Azure Dev num cluster AKS e instale as ferramentas do lado do cliente.
+ms.custom: devx-track-azurecli
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 177496a53d204306b2b655b8736ce063dedf0f61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 079a9e1b28b315457ac20d3aa9e7d29ce28fa077
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202251"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505365"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Ativar os espaços Azure Dev num cluster AKS e instalar as ferramentas do lado do cliente
 
@@ -18,7 +19,7 @@ ms.locfileid: "102202251"
 
 Este artigo mostra-lhe várias formas de ativar a Azure Dev Spaces num cluster AKS, bem como instalar as ferramentas do lado do cliente.
 
-## <a name="enable-azure-dev-spaces-using-the-cli"></a>Ativar espaços Azure Dev utilizando o CLI
+## <a name="enable-azure-dev-spaces-using-the-azure-cli"></a>Ativar espaços Azure Dev utilizando o Azure CLI
 
 Antes de poder ativar os Espaços Dev utilizando o CLI, precisa de:
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita.][az-portal-create-account]
@@ -59,7 +60,7 @@ Você pode usar as ferramentas do lado do cliente Azure Dev Spaces para interagi
 * No [Visual Studio 2019,][visual-studio]instale a carga de trabalho do Azure Development.
 * Faça o download e instale o [Windows][cli-win], [Mac][cli-mac]ou [Linux][cli-linux] CLI.
 
-## <a name="remove-azure-dev-spaces-using-the-cli"></a>Remova espaços Azure Dev usando o CLI
+## <a name="remove-azure-dev-spaces-using-the-azure-cli"></a>Remova espaços Azure Dev usando o Azure CLI
 
 Para remover os espaços Azure Dev do seu cluster AKS, utilize o `azds remove` comando.
 

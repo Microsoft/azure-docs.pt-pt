@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 04/14/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: bdcfb0adf2c92fa6e084c2efbc2e5c066a3e3ede
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2a975a0aba06ecfd010fe328ef6c8cda75290f2b
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305859"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515588"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
 
@@ -43,11 +43,7 @@ Devido a este tipo de definições de permissão, o recurso tem um controlo fino
 
 Quando a funcionalidade de um recurso é dividida em pequenos conjuntos de permissões, as aplicações de terceiros podem ser construídas para solicitar apenas as permissões que precisam para executar a sua função. Os utilizadores e administradores podem saber a que dados a aplicação pode aceder. E podem estar mais confiantes de que a aplicação não se está a comportar com intenções maliciosas. Os desenvolvedores devem sempre respeitar o princípio do menor privilégio, pedindo apenas as permissões de que necessitam para que as suas aplicações funcionem.
 
-Em OAuth 2.0, estes tipos de conjuntos de permissões são *chamados de âmbitos*. Também são frequentemente referidos como *permissões.* Na plataforma de identidade da Microsoft, uma permissão é representada como um valor de cadeia. Para o exemplo do Microsoft Graph, aqui está o valor de cadeia para cada permissão:
-
-* Leia o calendário de um utilizador usando `Calendars.Read`
-* Escreva para o calendário de um utilizador usando `Calendars.ReadWrite`
-* Enviar correio como um utilizador que utiliza por `Mail.Send`
+Em OAuth 2.0, estes tipos de conjuntos de permissões são *chamados de âmbitos*. Também são frequentemente referidos como *permissões.* Na plataforma de identidade da Microsoft, uma permissão é representada como um valor de cadeia. Uma aplicação solicita as permissões de que necessita especificando a permissão no `scope` parâmetro de consulta. A plataforma de identidade suporta vários [âmbitos openID connect bem definidos,](#openid-connect-scopes) bem como permissões baseadas em recursos (cada permissão é indicada através da anexação do valor de permissão ao identificador do recurso ou iD URI de aplicação). Por exemplo, o string de permissão `https://graph.microsoft.com/Calendars.Read` é usado para solicitar permissão para ler calendários de utilizadores no Microsoft Graph.
 
 Uma aplicação solicita mais frequentemente estas permissões especificando os âmbitos de aplicação em pedidos para a plataforma de identidade da Microsoft autorizar o ponto final. No entanto, algumas permissões de alto privilégio só podem ser concedidas através do consentimento do administrador. Podem ser solicitados ou concedidos utilizando o [ponto final](#admin-restricted-permissions)de consentimento do administrador . Continua a ler para saber mais.
 

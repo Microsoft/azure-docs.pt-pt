@@ -4,16 +4,16 @@ description: Este artigo fornece uma visão geral da autenticação da conta Azu
 keywords: segurança de automatização, automatização segura; autenticação de automatização
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b52fa3083dc5c42fa71e720e9a3991cb7aa5afec
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708905"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501574"
 ---
-# <a name="automation-account-authentication-overview"></a>Descrição geral da autenticação da conta de Automatização
+# <a name="azure-automation-account-authentication-overview"></a>Visão geral da autenticação da conta Azure Automation
 
 A Automatização do Azure permite-lhe automatizar tarefas relativamente aos recursos no Azure, no local e outros fornecedores de serviços em nuvem, tais como os Amazon Web Services (AWS). Pode utilizar livros para automatizar as suas tarefas, ou um Trabalhador de Runbook Híbrido se tiver processos empresariais ou operacionais para gerir fora de Azure. Trabalhar em qualquer um destes ambientes requer permissões para aceder de forma segura aos recursos com os direitos mínimos exigidos.
 
@@ -30,6 +30,31 @@ Uma conta de automatização do Azure é diferente da sua conta Microsoft ou con
 Os recursos de Automação para cada conta Automation estão associados a uma única região do Azure, mas a conta pode gerir todos os recursos na sua subscrição do Azure. A principal razão para criar contas de Automação em diferentes regiões é se tiver políticas que exijam que os dados e recursos sejam isolados para uma região específica.
 
 Todas as tarefas que cria contra recursos utilizando o Azure Resource Manager e os cmdlets PowerShell na Azure Automation devem autenticar para a Azure utilizando a autenticação baseada na credencial de identidade organizacional Azure Ative..
+
+## <a name="managed-identities-preview"></a>Identidades geridas (Pré-visualização)
+
+Uma identidade gerida a partir do Azure Ative Directory (Azure AD) permite que o seu runbook aceda facilmente a outros recursos protegidos por Azure AD. A identidade é gerida pela plataforma Azure e não requer que forneça ou rode quaisquer segredos. Para obter mais informações sobre identidades geridas em Azure AD, consulte [identidades geridas para recursos Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+
+Eis alguns dos benefícios da utilização de identidades geridas:
+
+- Pode utilizar identidades geridas para autenticar qualquer serviço Azure que suporte a autenticação AD do Azure.
+
+- As identidades geridas podem ser utilizadas sem qualquer custo adicional.
+
+- Não é preciso renovar o certificado utilizado pela conta Automation Run As.
+
+- Não tem de especificar o objeto de ligação Run As no seu código de execução. Pode aceder a recursos utilizando a identidade gerida da sua conta Automation a partir de um livro de contas sem criar certificados, conexões, executar como contas, etc.
+
+Uma conta de automação pode ser concedida dois tipos de identidades:
+
+- Uma identidade atribuída ao sistema está ligada à sua aplicação e é eliminada se a sua aplicação for eliminada. Uma aplicação só pode ter uma identidade atribuída ao sistema.
+
+- Uma identidade atribuída ao utilizador é um recurso autónomo da Azure que pode ser atribuído à sua aplicação. Uma aplicação pode ter várias identidades atribuídas ao utilizador.
+
+>[!NOTE]
+> As identidades atribuídas aos utilizadores ainda não são suportadas.
+
+Para obter mais informações sobre a utilização de identidades geridas, consulte [Ativar a identidade gerida para a Azure Automation (Preview)](enable-managed-identity-for-automation.md).
 
 ## <a name="run-as-accounts"></a>Contas Run As
 
@@ -94,7 +119,7 @@ Numa situação em que se tem separação de deveres, o quadro a seguir apresent
 
 <sup>1</sup> Os utilizadores não administrador do seu inquilino AZure AD podem [registar aplicações AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) se os Utilizadores do inquilino AZURE **AD puderem registar** a opção de aplicações na página **de definições** do Utilizador está definida como **Sim**. Se a definição de registo de pedido for **Nº,** o utilizador que executa esta ação deve ser definido nesta tabela.
 
-Se não for membro da instância ative do Diretório da subscrição antes de ser adicionado ao papel de Administrador Global da subscrição, é adicionado como convidado. Nesta situação, recebe um `You do not have permissions to create…` aviso na página **'Adicionar Conta Dem automação'.**
+Se não for membro da instância ative do Diretório da subscrição antes de ser adicionado ao papel de Administrador Global da subscrição, é adicionado como convidado. Nesta situação, recebe um `You do not have permissions to create…` aviso na página da conta Add **Automation.**
 
 Para verificar se a situação que produz a mensagem de erro foi corrigida:
 
@@ -120,3 +145,4 @@ Para os runbooks que utilizam trabalhadores de runbook híbridos em VMs Azure, p
 * Para criar uma conta Automation a partir do portal Azure, consulte [Criar uma conta Azure Automation autónoma.](automation-create-standalone-account.md)
 * Se preferir criar a sua conta utilizando um modelo, consulte [Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure.](quickstart-create-automation-account-template.md)
 * Para autenticação utilizando os Serviços Web da Amazon, consulte [os livros de autenticação com os Serviços Web da Amazon.](automation-config-aws-account.md)
+* Para obter uma lista dos serviços do Azure que suportam a funcionalidade de identidades geridas para recursos do Azure, veja [Serviços que suportam as identidades geridas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).

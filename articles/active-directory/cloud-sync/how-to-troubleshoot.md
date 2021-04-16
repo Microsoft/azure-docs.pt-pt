@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65022d98c7ee7e90d8f1fe5b6854605c841ad05b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517876"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530321"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Resolução de problemas de sincronização de nuvem
 
@@ -197,7 +197,7 @@ Utilize o portal Azure para reiniciar o trabalho de provisionamento. Na página 
 
   ![Reiniciar o provisionamento](media/how-to-troubleshoot/quarantine-3.png)
 
-- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Terá controlo total sobre o que reinicia. Pode optar por limpar:
+- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Terá controlo total sobre o que reinicia. Pode optar por limpar:
   - Caugações, para reiniciar o contador de cauções que se acumula para o estado de quarentena.
   - Quarentena, para remover a aplicação da quarentena.
   - Marcas de água. 

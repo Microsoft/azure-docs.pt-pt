@@ -4,12 +4,12 @@ description: Descreve como usar o esquema do CloudEvents para eventos em Azure E
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 484f118791d57c082a9f4383b1af4a22c04849c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0ee816663a385601d4a31edbf87f8c787ea5aa91
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737907"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389507"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use esquema cloudEvents v1.0 com grade de eventos
 Além do seu [esquema de eventos predefinidos,](event-schema.md)a Azure Event Grid suporta de forma nativa eventos na [implementação JSON de cloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [protocolo HTTP.](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md) [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
@@ -60,11 +60,11 @@ Pode utilizar a Grade de Eventos para a entrada e saída de eventos no esquema c
 
  Recurso de grelha de eventos | Esquema de entrada       | Esquema de entrega
 |---------------------|-------------------|---------------------
-| Tópicos do Sistema       | Esquema do Event Grid | Esquema de grelha de evento ou esquema de CloudEvents
-| Tópicos/Domínios do Utilizador | Esquema do Event Grid | Esquema de grelha de evento ou esquema de CloudEvents
-| Tópicos/Domínios do Utilizador | Esquema cloudEvents | Esquema cloudEvents
-| Tópicos/Domínios do Utilizador | Esquema personalizado     | Esquema personalizado, esquema de grelha de evento ou esquema de CloudEvents
-| PartnerTopics       | Esquema cloudEvents | Esquema cloudEvents
+| Tópicos de sistema       | Esquema do Event Grid | Esquema de grelha de evento ou esquema de CloudEvents
+| Tópicos/domínios personalizados | Esquema do Event Grid | Esquema de grelha de evento ou esquema de CloudEvents
+| Tópicos/domínios personalizados | Esquema cloudEvents | Esquema cloudEvents
+| Tópicos/domínios personalizados | Esquema personalizado     | Esquema personalizado, esquema de grelha de evento ou esquema de CloudEvents
+| Tópicos para parceiros       | Esquema cloudEvents | Esquema cloudEvents
 
 Para todos os esquemas de eventos, o Event Grid requer validação quando está a publicar um tópico de Grade de Eventos e quando está a criar uma subscrição de eventos.
 
