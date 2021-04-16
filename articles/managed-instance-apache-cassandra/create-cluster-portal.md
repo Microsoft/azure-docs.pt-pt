@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.custom: references_regions
-ms.openlocfilehash: cb555eefb19b5db7ed7eb0792a813c295a4bf38b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: e42f85bb79dcb1bfe14cacbbfda3576888b841c9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588618"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481333"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Quickstart: Criar uma instância gerida azure para o cluster Apache Cassandra a partir do portal Azure (Preview)
  
@@ -63,10 +63,19 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
    :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configure detalhes de rede." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
-1. Se criou um novo VNet no último passo, salte para o passo 8. Se selecionou um VNet existente, antes de criar o seu cluster, tem de aplicar algumas permissões especiais à Rede Virtual e à sub-rede. Para tal, utilize o `az role assignment create` comando, `<subscription ID>` substituindo, e pelos `<resource group name>` `<VNet name>` `<subnet name>` valores adequados:
+    > [!NOTE]
+    > A implementação de uma instância gerida azure para a Apache Cassandra requer acesso à Internet. A implementação falha em ambientes onde o acesso à Internet é restrito. Certifique-se de que não bloqueia o acesso dentro do seu VNet aos seguintes serviços vitais da Azure que são necessários para que a Cassandra gerida funcione corretamente:
+    > - Storage do Azure
+    > - Azure KeyVault
+    > - Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+    > - Monitorização do Azure
+    > - Azure Active Directory
+    > - Azure Security
+
+1. Se criou um novo VNet no último passo, salte para o passo 8. Se selecionou um VNet existente, antes de criar o seu cluster, tem de aplicar algumas permissões especiais à Rede Virtual e à sub-rede. Para tal, utilize o `az role assignment create` comando, `<subscription ID>` substituindo, e com os `<resource group name>` `<VNet name>` valores adequados:
 
    ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
+   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
    ```
 
    > [!NOTE]

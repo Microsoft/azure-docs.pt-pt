@@ -4,16 +4,18 @@ description: Neste arranque rápido, aprende-se a usar a versão 12 da bibliotec
 author: twooley
 ms.author: twooley
 ms.date: 01/28/2021
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
-ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: a5d56b20bec7e668bb2119c9174fe03278c805c1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: 9a6ccbe5482ac8ffe484c3155334cba1b50ba0dc
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278019"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535653"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Quickstart: Gerir bolhas com Python v12 SDK
 

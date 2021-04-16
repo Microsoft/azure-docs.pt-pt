@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d47b4847a12b63532e44a8a1a47101dd065f811b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d842414d3046692c982ca3203957a96f8a01b37
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96446592"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377335"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para características do SQL da Sinapse no Azure Synapse Analytics
 Neste artigo, você encontrará uma lista de recursos para piscina SQL dedicada e funções de piscina SQL sem servidor do Synapse SQL. Os artigos recomendados dividem-se em duas secções: decisões de conceção chave e técnicas de desenvolvimento e codificação.
@@ -46,7 +46,7 @@ Abaixo encontrará artigos essenciais que enfatizam técnicas específicas de co
 
 | Artigo | piscina de SQL dedicada | conjunto de SQL sem servidor |
 | ------- | -------- | ------------- |
-| [Procedimentos armazenados](develop-stored-procedures.md)  | Yes                | No                      |
+| [Procedimentos armazenados](develop-stored-procedures.md)  | Yes                | Yes                      |
 | [Etiquetas](develop-label.md)                           | Yes                | No                      |
 | [Vistas](develop-views.md)                             | Yes                | Yes                     |
 | [Tabelas temporárias](develop-tables-temporary.md)       | Yes                | Yes                     |

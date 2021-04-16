@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f4cc631bd3ff05dc63566677ec96ef0360d362c9
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307899"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517356"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse
 
 Neste tutorial, você vai aprender a usar o Synapse Studio Knowledge Center.
 
-## <a name="introduction-to-the-knowledge-center"></a>Introdução ao Centro de Conhecimento
+## <a name="finding-to-the-knowledge-center"></a>Encontrar para o Centro de Conhecimento
 
 Há duas formas de encontrar o Knowledge Center no Estúdio Synapse:
 
@@ -30,12 +30,14 @@ Há duas formas de encontrar o Knowledge Center no Estúdio Synapse:
 
 Escolha qualquer um dos métodos e abra o **Centro de Conhecimento.**
 
+## <a name="exploring-the-knowledge-center"></a>Exploração do Centro de Conhecimento
+
 Uma vez visível, verá que o Centro de **Conhecimento** lhe permite fazer três coisas:
 * **Utilize amostras imediatamente**. Se quiser um exemplo rápido de como funciona a Sinapse, escolha esta opção.
 * **Procurar na galeria.** Esta opção permite-lhe ligar conjuntos de dados de amostra e adicionar código de amostra sob a forma de scripts, cadernos e oleodutos SQL.
 * **Tour Synapse Studio**. Esta opção leva-o a uma breve visita às partes básicas do Synapse Studio. Isto é útil se nunca usou o Synapse Studio antes.
 
-## <a name="exploring-use-samples-immediately"></a>Exploração: Utilize amostras imediatamente
+## <a name="use-samples-immediately-three-samples-to-help-you-get-started-fast"></a>Use amostras imediatamente: Três amostras para ajudá-lo a começar rapidamente
 
 Há três itens nesta secção:
 * Explore os dados da amostra com a Spark
@@ -49,7 +51,7 @@ Há três itens nesta secção:
 1. Percorra a primeira consulta (linhas 28 a 32) e selecione o texto de consulta.
 1. Clique em Run (Executar). Só irá executar o código que selecionou.
 
-## <a name="loading-more-nyc-taxi-data"></a>Carregar mais dados de táxi de NYC
+## <a name="gallery-a-collectiopn-of-sample-data-sets-and-sample-code"></a>Galeria: Um conjunto de conjuntos de dados de amostra e código de amostra
 
 1. Vá ao **Knowledge Center,** clique **na galeria Browse.**
 1. Selecione o separador **de scripts SQL** na parte superior.

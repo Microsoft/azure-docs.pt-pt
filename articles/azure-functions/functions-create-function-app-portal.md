@@ -4,12 +4,12 @@ description: Saiba como criar a sua primeira Função do Azure para execução s
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: ea5b6a9e51b6982a33dc748f72557ed539b8e2e0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 336e531f4ec64141770fc26d7e6eea9ebfedf922
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385994"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517155"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
@@ -64,9 +64,9 @@ Em seguida, crie uma função na nova aplicação de função.
 
     Se o URL de pedido incluiu uma [chave](functions-bindings-http-webhook-trigger.md#authorization-keys) de acesso `?code=...` (), significa escolher **função** em vez de nível de acesso **Anónimo** ao criar a função. Neste caso, deveria em vez disso anexar `&name=<your_name>` .
 
-1. Quando a sua função é executada, são escritas informações de rastreio nos registos. Para ver a saída de **vestígios,** volte à página **Code + Test** no portal e expanda a seta de Logs na parte inferior da página.
+1. Quando a sua função é executada, são escritas informações de rastreio nos registos. Para ver a saída de **vestígios,** volte à página **Code + Test** no portal e expanda a seta de Logs na parte inferior da página. Volte a ligar para a sua função para ver vestígios de saída escritos nos registos. 
 
-   ![Visualizador de registo de funções no portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+    :::image type="content" source="media/functions-create-first-azure-function/function-view-logs.png" alt-text="Funções registam o espectador no portal Azure":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

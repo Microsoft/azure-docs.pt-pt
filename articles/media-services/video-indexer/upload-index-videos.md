@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cc9051190bd314ac93e3de2689a6aa0ec2b6235
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 90fca4342b1fe04adef97a1a4c1c2166ca7ec51e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108086"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532493"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -62,11 +62,11 @@ Consulte o artigo [de formatos de recipiente/ficheiro](../latest/encode-media-en
 
 ## <a name="upload-and-index-with-api"></a>Upload e índice com API
 
-Utilize a API [de vídeo upload](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para carregar e indexar os seus vídeos com base num URL. A amostra de código que se segue inclui o código comentado que mostra como carregar o conjunto byte. 
+Utilize a API [de vídeo upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) para carregar e indexar os seus vídeos com base num URL. A amostra de código que se segue inclui o código comentado que mostra como carregar o conjunto byte. 
 
 ### <a name="configurations-and-params"></a>Configurações e parâmetros
 
-Esta secção descreve alguns dos parâmetros opcionais e quando deve defini-los. Para obter informações mais atualizadas sobre params, consulte a API [de vídeo upload.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)
+Esta secção descreve alguns dos parâmetros opcionais e quando deve defini-los. Para obter informações mais atualizadas sobre params, consulte a API [de vídeo upload.](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)
 
 #### <a name="externalid"></a>externalID 
 
@@ -110,7 +110,7 @@ Os vídeos são indexados pelo Video Indexer de acordo com a sua prioridade. Uti
 
 Assim que o seu vídeo for carregado, o Video Indexer codifica opcionalmente o vídeo. Em seguida, indexa e analisa o vídeo. Quando o Video Indexer terminar de analisar, irá receber uma notificação com o ID do vídeo.  
 
-Ao utilizar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Reindexar Vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), um dos parâmetros opcionais é `streamingPreset`. Se definir o parâmetro `streamingPreset` para `Default`, `SingleBitrate` ou `AdaptiveBitrate`, o processo de codificação é acionado. Assim que as tarefas de indexação e codificação estiverem concluídas, o vídeo é publicado para que também o possa transmitir em fluxo. O Ponto Final de Transmissão em Fluxo a partir do qual quer transmitir o vídeo tem de estar no estado **Em execução**.
+Ao utilizar a API [Carregar vídeo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) ou [Reindexar Vídeo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video), um dos parâmetros opcionais é `streamingPreset`. Se definir o parâmetro `streamingPreset` para `Default`, `SingleBitrate` ou `AdaptiveBitrate`, o processo de codificação é acionado. Assim que as tarefas de indexação e codificação estiverem concluídas, o vídeo é publicado para que também o possa transmitir em fluxo. O Ponto Final de Transmissão em Fluxo a partir do qual quer transmitir o vídeo tem de estar no estado **Em execução**.
 
 Para o SingleBitrate, o custo padrão do codificador será aplicado por saída. Se a altura do vídeo for maior ou igual a 720, o Video Indexer codifica-o como 1280x720. Caso contrário, como 640x468.
 A definição predefinição é [codificação de conteúdo consciente](../latest/encode-content-aware-concept.md).

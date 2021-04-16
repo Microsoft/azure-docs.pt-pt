@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 771b4ce2999357d729c3ffe557b778cf62a5c0f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29340852cabcc77b7488f734a4677697b4a9b972
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98010987"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535231"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurar registos de fluxo do grupo de segurança da rede com powerShell
 
@@ -28,6 +28,8 @@ ms.locfileid: "98010987"
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Os registos de fluxo do Grupo de Segurança de Rede são uma funcionalidade do Network Watcher que lhe permite visualizar informações sobre o tráfego IP de entrada e saída através de um Grupo de Segurança de Rede. Estes registos de fluxo são escritos em formato json e mostram fluxos de saída e entrada por regra, o NIC o fluxo aplica-se a, 5-tuple informações sobre o fluxo (Source/Destination IP, Source/Destination Port, Protocol), e se o tráfego foi permitido ou negado.
+
+A especificação detalhada de todos os comandos de registos de fluxo NSG para várias versões do AzPowerShell pode ser encontrada [aqui](https://docs.microsoft.com/powershell/module/az.network/#network-watcher)
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 

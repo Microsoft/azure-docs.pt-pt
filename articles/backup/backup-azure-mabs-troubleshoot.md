@@ -4,12 +4,12 @@ description: Instalação de resolução de problemas, registo do Azure Backup S
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 09e5fe5da7e316257cbbdcb89074fe8a4bc692c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 644946ca90c2893ba3d87f9d2ff8bfd8325f4715
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91403012"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514755"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -22,7 +22,7 @@ Recomendamos que efetue a seguinte validação, antes de começar a resolver pro
 - [Certifique-se de que o Agente dos Serviços de Recuperação do Microsoft Azure (MARS) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Certifique-se de que há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (na consola do Serviço). Se necessário, reinicie e relemque a operação
-- [Certifique-se de que o espaço de volume gratuito de 5 a 10% está disponível na localização da pasta de risco](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Certifique-se de que 5 a 10% de espaço livre do volume está disponível na localização da pasta de rascunho](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-)
 - Se o registo estiver a falhar, certifique-se de que o servidor em que está a tentar instalar o Azure Backup Server ainda não está registado noutro cofre.
 - Se a instalação Push falhar, verifique se o agente DPM já está instalado. Caso esteja, desinstale o agente e volte a tentar a instalação
 - [Confirme que nenhum outro processo ou software antivírus está a interferir com o Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
@@ -73,11 +73,11 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | --- | --- | --- |
 | Backup | A réplica é inconsistente | Verifique se a opção de verificação de consistência automática no Assistente do Grupo de Proteção está ligada. Para obter mais informações sobre opções de replicação e verificações de consistência, consulte [este artigo.](/system-center/dpm/create-dpm-protection-groups)<br> <ol><li> No caso de cópia de segurança Do Estado do Sistema/BMR, verifique se o Windows Server Backup está instalado no servidor protegido.</li><li> Verifique se há problemas relacionados com o espaço no conjunto de armazenamento DPM no DPM/Microsoft Azure Backup Server e aloque o armazenamento conforme necessário.</li><li> Verifique o estado do Serviço de Cópia sombra de volume no servidor protegido. Se estiver em estado de desativação, desative-o para começar manualmente. Inicie o serviço no servidor. Em seguida, volte para a consola DPM/Microsoft Azure Backup Server e inicie a sincronização com o trabalho de verificação de consistência.</li></ol>|
 
-## <a name="online-recovery-point-creation-failed"></a>Falha na criação de ponto de recuperação online
+## <a name="online-recovery-point-creation-failed"></a>Criação de ponto de recuperação online falhou
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Backup | Falha na criação de ponto de recuperação online | **Error Message**: O Windows Azure Backup Agent não foi capaz de criar uma imagem do volume selecionado. <br> **Solução alternativa**: Tente aumentar o espaço no volume de réplica e ponto de recuperação.<br> <br> **Error Message**: O Windows Azure Backup Agent não pode ligar-se ao serviço OBEngine <br> **Solução:** verifique se o OBEngine existe na lista de serviços de execução no computador. Se o serviço OBEngine não estiver em funcionamento, utilize o comando "net start OBEngine" para iniciar o serviço OBEngine. <br> <br> **Error Message**: A palavra-passe de encriptação para este servidor não está definida. Por favor, configuure uma palavra-passe de encriptação. <br> **Solução alternativa**: Tente configurar uma palavra-passe de encriptação. Se falhar, tome os seguintes passos: <br> <ol><li>Verifique se a localização do risco existe. Esta é a localização que é mencionada no **registoHKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config,** com o nome **ScratchLocation** deve existir.</li><li> Se a localização do risco existir, tente voltar a registar-se utilizando a frase de passagem antiga. *Sempre que configurar uma palavra-passe de encriptação, guarde-a num local seguro.*</li><ol>|
+| Backup | Criação de ponto de recuperação online falhou | **Error Message**: O Windows Azure Backup Agent não foi capaz de criar uma imagem do volume selecionado. <br> **Solução alternativa**: Tente aumentar o espaço no volume de réplica e ponto de recuperação.<br> <br> **Error Message**: O Windows Azure Backup Agent não pode ligar-se ao serviço OBEngine <br> **Solução:** verifique se o OBEngine existe na lista de serviços de execução no computador. Se o serviço OBEngine não estiver em funcionamento, utilize o comando "net start OBEngine" para iniciar o serviço OBEngine. <br> <br> **Error Message**: A palavra-passe de encriptação para este servidor não está definida. Por favor, configuure uma palavra-passe de encriptação. <br> **Solução alternativa**: Tente configurar uma palavra-passe de encriptação. Se falhar, tome os seguintes passos: <br> <ol><li>Verifique se a localização do risco existe. Esta é a localização que é mencionada no **registoHKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config,** com o nome **ScratchLocation** deve existir.</li><li> Se a localização do risco existir, tente voltar a registar-se utilizando a frase de passagem antiga. *Sempre que configurar uma palavra-passe de encriptação, guarde-a num local seguro.*</li><ol>|
 
 ## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>Os servidores DPM originais e externos devem estar registados no mesmo cofre
 

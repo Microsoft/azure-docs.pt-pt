@@ -469,20 +469,22 @@
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autorizar com o Azure AD
                   href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Otimizar o desempenho
+                  href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Use registos para encontrar erros e retomar empregos
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Exemplos: Carregar'
                   href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Exemplos: Transferência'
                   href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Exemplos: Sincronizar'
-                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Exemplos: Copiar entre contas'
                   href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Exemplos: Sincronizar'
+                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: "Exemplos: Registos Amazon\_S3"
                   href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Exemplos: Baldes de armazenamento no Google Cloud'
                   href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Configurar, otimizar, resolver problemas'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Montar armazenamento através de NFS
@@ -519,6 +521,8 @@
           href: ../blobs/reference.md
         - name: AzCopy v10
           items:
+            - name: Definições de configuração
+              href: ../common/storage-ref-azcopy-configuration-settings.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy
               href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy bench
@@ -741,18 +745,24 @@
               items:
                 - name: Introdução
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorizar com o Azure AD
+                  href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Otimizar o desempenho
+                  href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Use registos para encontrar erros e retomar empregos
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Exemplos: Carregar'
                   href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Exemplos: Transferência'
                   href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Exemplos: Sincronizar'
-                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Exemplos: Copiar entre contas'
                   href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Exemplos: Sincronizar'
+                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: "Exemplos: Registos Amazon\_S3"
                   href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Configurar, otimizar e resolver problemas'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Exemplos: Baldes de armazenamento no Google Cloud'
+                  href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Transferir dados com a ferramenta DistCp

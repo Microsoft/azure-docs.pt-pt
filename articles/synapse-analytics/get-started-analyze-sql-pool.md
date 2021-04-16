@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 267dc7c7d89bbecfbed127f4a46adb7cd9044bc4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0def1f957842417c3936e3f1c7bb5bc023109818
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309378"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536339"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
@@ -78,12 +78,13 @@ Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode
         )
     GO
 
-    --Uncomment the 4 lines below to create a stored procedure for data pipeline orchestration
-    --CREATE PROC bulk_load_NYCTaxiTripSmall
-    --AS
-    --BEGIN
     COPY INTO dbo.NYCTaxiTripSmall
-    (DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5, PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, TotalAmount 23)
+    (DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5,
+    PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, 
+    PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, 
+    PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, 
+    FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, 
+    TotalAmount 23)
     FROM 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet'
     WITH
     (

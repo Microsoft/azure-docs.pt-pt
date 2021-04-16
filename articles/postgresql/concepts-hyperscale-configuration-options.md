@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 04/07/2021
-ms.openlocfilehash: ae416c9acd03b3ee239a858aae550fb87293465a
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 1dd0666c2946896ed324fb3986bb7946890b73de
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012790"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388708"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database para opções de configuração pós-escala (Citus)
 
@@ -109,7 +109,8 @@ A quantidade total de armazenamento que fornece também define a capacidade de E
 ## <a name="regions"></a>Regiões
 Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes regiões de Azure:
 
-* Américas:
+* Américas: 
+    * Sul do Brasil
     * Canadá Central
     * E.U.A. Central
     * Leste dos EUA *
@@ -122,6 +123,7 @@ Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes
     * Coreia do Sul Central
     * Sudeste Asiático
 * Europa:
+    * França Central
     * Europa do Norte
     * Sul do Reino Unido
     * Europa Ocidental

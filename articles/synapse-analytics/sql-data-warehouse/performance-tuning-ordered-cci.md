@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 09/05/2019
+ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3245f560d9a5afb1f9cf8824eeaa3bc681706794
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460789"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389677"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Otimização do desempenho com índice columnstore em cluster ordenado  
 
@@ -133,6 +133,11 @@ Criar um CCI ordenado é uma operação offline.  Para tabelas sem divisórias, 
 4.    Executar <Ordered_CCI_Index> DE ÍNDICE ALTER ON <Table_B> RECONSTRUIR PARTIÇÃO = <Partition_ID> na tabela B para reconstruir a partição comutado.  
 5.    Repita os passos 3 e 4 para cada partição em Table_A.
 6.    Uma vez que todas as divisórias são mudadas de Table_A para Table_B e foram reconstruídas, deixe cair Table_A e mude o nome Table_B para Table_A. 
+
+>[!TIP]
+> Para uma mesa de bilhar SQL dedicada com um CCI ordenado, o ALTER INDEX REBUILD irá reclassiturar os dados usando o tempdb. Monitora temperatura durante as operações de reconstrução. Se precisar de mais espaço temporário, escale a piscina. Reduza para baixo assim que o índice estiver concluído.
+>
+> Para uma mesa de bilhar SQL dedicada com um CCI encomendado, o ALTER INDEX REORGANIZE não reordena os dados. Para recorrer aos dados, utilize o ALTER INDEX REBUILD.
 
 ## <a name="examples"></a>Exemplos
 

@@ -3,12 +3,12 @@ title: Resolução de problemas do agente reserva da Azure
 description: Neste artigo, aprenda a resolver problemas na instalação e registo do agente Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 3203d5604f1bd5db9cf579af01b2ae6f34032d89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c662bf8c8d9490691f45254bef01618f17bd6e2a
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467617"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518189"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Resolução de problemas do agente Microsoft Azure Recovery Services (MARS)
 
@@ -21,7 +21,7 @@ Recomendamos que verifique o seguinte antes de começar a resolver problemas à 
 - [Certifique-se de que o agente MARS está atualizado.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Certifique-se de que tem conectividade de rede entre o agente MARS e o Azure.](#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Certifique-se de que o MARS está a funcionar (na consola de serviço). Se precisar, reinicie e relemque a operação.
-- [Certifique-se de que o espaço de volume gratuito de 5% a 10% está disponível no local da pasta de risco](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder).
+- [Certifique-se de que o espaço de volume gratuito de 5% a 10% está disponível no local da pasta de risco](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-).
 - [Verifique se outro processo ou software antivírus está a interferir com o Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
 - Se o trabalho de backup concluído com avisos, consulte [trabalhos de backup concluídos com aviso](#backup-jobs-completed-with-warning)
 - Se a cópia de segurança programada falhar, mas a cópia de segurança manual funcionar, ver [cópias de segurança não funcionam de acordo com o horário](#backups-dont-run-according-to-schedule).
@@ -41,7 +41,7 @@ Recomendamos que verifique o seguinte antes de começar a resolver problemas à 
 
 | Causa | Ações recomendadas |
 | ---     | ---    |
-| **As credenciais do cofre não são válidas.** <br/> <br/> Os ficheiros de credenciais de cofre podem ser corruptos, podem ter expirado, ou podem ter uma extensão de ficheiro diferente de *.vaultCredents*. (Por exemplo, podem ter sido descarregados mais de 10 dias antes da hora de inscrição.)| [Descarregue novas credenciais](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) do cofre dos Serviços de Recuperação no portal Azure. Em seguida, tome estas medidas, conforme apropriado: <ul><li> Se já instalou e registou o MARS, abra a consola MMC do Agente de Backup do Microsoft Azure. Em seguida, **selecione 'Registar Servidor'** no painel **de Ações** para completar o registo com as novas credenciais. <br/> <li> Se a nova instalação falhar, tente reinstalar-se com as novas credenciais.</ul> **Nota:** Se vários ficheiros de credenciais de abóbada tiverem sido descarregados, apenas o ficheiro mais recente é válido para os próximos 10 dias. Recomendamos que descarregue um novo ficheiro de credencial de cofre.
+| **As credenciais do cofre não são válidas.** <br/> <br/> Os ficheiros de credenciais de cofre podem ser corruptos, podem ter expirado, ou podem ter uma extensão de ficheiro diferente de *.vaultCredents*. (Por exemplo, podem ter sido descarregados mais de 10 dias antes da hora de inscrição.)| [Descarregue novas credenciais](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) do cofre dos Serviços de Recuperação no portal Azure. Em seguida, tome estas medidas, conforme apropriado: <ul><li> Se já instalou e registou o MARS, abra a consola MMC do Agente de Backup do Microsoft Azure. Em seguida, **selecione 'Registar Servidor'** no painel **de Ações** para completar o registo com as novas credenciais. <br/> <li> Se a nova instalação falhar, tente reinstalar-se com as novas credenciais.</ul> **Nota:** Se vários ficheiros de credenciais de abóbada tiverem sido descarregados, apenas o ficheiro mais recente é válido para os próximos 10 dias. Recomendamos que descarregue um novo ficheiro de credencial de cofre.
 | **O servidor/firewall proxy está a bloquear o registo** <br/>ou <br/>**Sem conectividade na Internet** <br/><br/> Se a sua máquina ou servidor proxy tiver uma conectividade limitada na Internet e não garantir o acesso aos URLs necessários, o registo falhará.| Tome estes passos:<br/> <ul><li> Trabalhe com a sua equipa de TI para garantir que o sistema tem conectividade com a Internet.<li> Se não tiver um servidor proxy, certifique-se de que a opção de procuração não é selecionada quando regista o agente. [Verifique as definições de procuração](#verifying-proxy-settings-for-windows).<li> Se tiver um servidor de firewall/proxy, trabalhe com a sua equipa de networking para garantir que estes URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/></ul></ul>Tente registar-se novamente depois de completar os passos anteriores de resolução de problemas.<br></br> Se a sua ligação for via Azure ExpressRoute, certifique-se de que as definições estão configuradas como descrito no [suporte Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **O software antivírus está a bloquear o registo** | Se tiver software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação antivírus para estes ficheiros e pastas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> A pasta de risco. A sua localização predefinida é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta do caixote do lixo em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -99,7 +99,7 @@ Recomendamos que verifique o seguinte antes de começar a resolver problemas à 
   | Código de erro             | Razões                                             | Recomendações                                              |
   | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
   | 0x80070570             | O ficheiro ou diretório é corrompido e ilegível. | Executar **chkdsk** no volume de origem.                             |
-  | 0x80070002, 0x80070003 | O sistema não consegue encontrar o ficheiro especificado.         | [Certifique-se de que a pasta de risco não está cheia](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder)  <br><br>  Verifique se existe o volume onde o espaço de risco está configurado (não eliminado)  <br><br>   [Certifique-se de que o agente MARS está excluído do antivírus instalado na máquina](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070002, 0x80070003 | O sistema não consegue encontrar o ficheiro especificado.         | [Certifique-se de que a pasta de risco não está cheia](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder)  <br><br>  Verifique se existe o volume onde o espaço de risco está configurado (não eliminado)  <br><br>   [Certifique-se de que o agente MARS está excluído do antivírus instalado na máquina](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
   | 0x80070005             | Acesso é negado                                    | [Verifique se o antivírus ou outro software de terceiros está a bloquear o acesso](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
   | 0x8007018b             | O acesso ao ficheiro em nuvem é negado.                | Ficheiros OneDrive, Ficheiros Git ou quaisquer outros ficheiros que possam estar em estado offline na máquina |
 
@@ -117,13 +117,13 @@ Recomendamos que verifique o seguinte antes de começar a resolver problemas à 
 
 | Erro  | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
-|<br />A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contacte o Suporte da Microsoft.     | <li> A pasta de risco está localizada num volume que não tem espaço suficiente. <li> A pasta de risco foi movida incorretamente. <li> O ficheiro OnlineBackup.KEK desapareceu.         | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do agente MARS.<li>Mova a pasta de risco ou a localização do cache para um volume com espaço livre que seja entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente a localização da cache, consulte os passos em [Questões Comuns sobre o backup de ficheiros e pastas](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Certifique-se de que o ficheiro OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta de risco ou para o caminho da cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contacte o Suporte da Microsoft.     | <li> A pasta de risco está localizada num volume que não tem espaço suficiente. <li> A pasta de risco foi movida incorretamente. <li> O ficheiro OnlineBackup.KEK desapareceu.         | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do agente MARS.<li>Mova a pasta de risco ou a localização do cache para um volume com espaço livre que seja entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente a localização da cache, consulte os passos em [Questões Comuns sobre o backup de ficheiros e pastas](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder).<li> Certifique-se de que o ficheiro OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta de risco ou para o caminho da cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Encryption passphrase not correctly configured (A frase de acesso de encriptação não foi configurada corretamente)
 
 | Erro  | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
-| <br />Erro 34506. A palavra-passe de encriptação armazenada neste computador não está corretamente configurada.    | <li> A pasta de risco está localizada num volume que não tem espaço suficiente. <li> A pasta de risco foi movida incorretamente. <li> O ficheiro OnlineBackup.KEK desapareceu.        | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do Agente MARS.<li>Mova a pasta de risco ou a localização do cache para um volume com espaço livre que seja entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente a localização da cache, consulte os passos em [Questões Comuns sobre o backup de ficheiros e pastas](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Certifique-se de que o ficheiro OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta de risco ou para o caminho da cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Erro 34506. A palavra-passe de encriptação armazenada neste computador não está corretamente configurada.    | <li> A pasta de risco está localizada num volume que não tem espaço suficiente. <li> A pasta de risco foi movida incorretamente. <li> O ficheiro OnlineBackup.KEK desapareceu.        | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do Agente MARS.<li>Mova a pasta de risco ou a localização do cache para um volume com espaço livre que seja entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente a localização da cache, consulte os passos em [Questões Comuns sobre o backup de ficheiros e pastas](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder).<li> Certifique-se de que o ficheiro OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta de risco ou para o caminho da cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>Backups não funcionam de acordo com o horário
 
@@ -226,9 +226,9 @@ A operação de backup pode falhar se a pasta de cache (também designada como p
 
 Para que as operações do agente MARS tenham sucesso, a pasta cache tem de cumprir os seguintes requisitos:
 
-- [Certifique-se de que o espaço de volume gratuito de 5% a 10% está disponível na localização da pasta de risco](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
-- [Certifique-se de que a localização da pasta de risco é válida e acessível](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
-- [Certifique-se de que os atributos de ficheiro na pasta cache são suportados](backup-azure-file-folder-backup-faq.md#are-there-any-attributes-of-the-cache-folder-that-arent-supported)
+- [Certifique-se de que o espaço de volume gratuito de 5% a 10% está disponível na localização da pasta de risco](backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-)
+- [Certifique-se de que a localização da pasta de risco é válida e acessível](backup-azure-file-folder-backup-faq.yml#how-to-check-if-scratch-folder-is-valid-and-accessible-)
+- [Certifique-se de que os atributos de ficheiro na pasta cache são suportados](backup-azure-file-folder-backup-faq.yml#are-there-any-attributes-of-the-cache-folder-that-aren-t-supported-)
 - [Certifique-se de que o espaço de armazenamento de cópias de sombra atribuído é suficiente para o processo de backup](#increase-shadow-copy-storage)
 - [Certifique-se de que não existem outros processos (ex. software antivírus) que restringem o acesso à pasta cache](#another-process-or-antivirus-software-blocking-access-to-cache-folder)
 
@@ -258,13 +258,13 @@ Esta secção cobre os erros comuns que encontra durante a utilização do agent
 
 Mensagem de erro | Ação recomendada
 --|--
-O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder à soma de verificação da cópia de segurança armazenada no local de rascunho | Para resolver este problema, execute os seguintes passos e reinicie o servidor <br/> - [Verifique se existe um antivírus ou outros processos que bloqueiem os ficheiros de localização do risco](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se a localização do risco é válida e acessível ao agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder à soma de verificação da cópia de segurança armazenada no local de rascunho | Para resolver este problema, execute os seguintes passos e reinicie o servidor <br/> - [Verifique se existe um antivírus ou outros processos que bloqueiem os ficheiros de localização do risco](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se a localização do risco é válida e acessível ao agente MARS.](backup-azure-file-folder-backup-faq.yml#how-to-check-if-scratch-folder-is-valid-and-accessible-)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Mensagem de erro | Ação recomendada
 --|--
-O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder ao local de rascunho para inicializar o VHD | Para resolver este problema, execute os seguintes passos e reinicie o servidor <br/> - [Verifique se antivírus ou outros processos estão bloqueando os ficheiros de localização do risco](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se a localização do risco é válida e acessível ao agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder ao local de rascunho para inicializar o VHD | Para resolver este problema, execute os seguintes passos e reinicie o servidor <br/> - [Verifique se antivírus ou outros processos estão bloqueando os ficheiros de localização do risco](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se a localização do risco é válida e acessível ao agente MARS.](backup-azure-file-folder-backup-faq.yml#how-to-check-if-scratch-folder-is-valid-and-accessible-)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 

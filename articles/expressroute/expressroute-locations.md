@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 7214e06b42cbc69a31ad66504301038c72728aa1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 741fd7e4554ffe07de08e96233c440210eefa2fa
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310755"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498412"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
@@ -98,7 +98,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Telecomunicações Chunghwa](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Suportado |Suportado |Taipé |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Suportado |Suportado |Miami |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Minneapolis, Montreal, Toronto, Vancouver, Washington DC |
-| **[Colt](https://www.colt.net/direct-connect/azure/)** |Suportado |Suportado |Amesterdão, Amesterdão2, Chicago, Dublin, Frankfurt, Londres, Londres2, Milão, Newport, Nova Iorque, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapura2, Tóquio, Washington DC |
+| **[Colt](https://www.colt.net/direct-connect/azure/)** |Suportado |Suportado |Amesterdão, Amesterdão2, Berlim, Chicago, Dublin, Frankfurt, Hong Kong, Londres2, Milão, Newport, Nova Iorque, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapura2, Tóquio, Washington DC, Zurique |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Chicago, Denver, Los Angeles, Nova Iorque, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Suportado |Suportado |Amesterdão2, Dubai2, Frankfurt, Marselha, Mumbai, Munique, Nova Iorque |
@@ -128,7 +128,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Suportado |Suportado | Amsterdão, Londres2, Silicon Valley, Toronto, Washington DC |
 | **Rede Jaguar** |Suportado |Suportado |Marselha |
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Suportado |Suportado |Londres, Newport(País de Gales) |
-| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Suportado |Suportado |Seoul |
+| **[KINX](https://www.kinx.net/service/cloudhub/ms-expressroute/?lang=en)** |Suportado |Suportado |Seoul |
 | **[Rio Kordia](https://www.kordia.co.nz/cloudconnect)** | Suportado |Suportado |Auckland |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Suportado | Suportado | Amesterdão |
 | **[KT](https://cloud.kt.com/)** | Suportado | Suportado | Seoul |
@@ -162,7 +162,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Faísca NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Suportado |Suportado |Auckland |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Suportado | Suportado | Genebra |
-| **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Suportado |Suportado |Amesterdão, Chennai, Hong Kong SAR, Londres, Mumbai, São Paulo, Silicon Valley, Singapura, Washington DC |
+| **[Tata Communications](https://www.tatacommunications.com/solutions/network/cloud-ready-networks/)** |Suportado |Suportado |Amesterdão, Chennai, Hong Kong SAR, Londres, Mumbai, São Paulo, Silicon Valley, Singapura, Washington DC |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Suportado |Suportado |Amesterdão, São Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Suportado |Suportado |Londres, Londres2, Singapura2 |
 | **Telenor** |Suportado |Suportado |Amsterdão, Londres, Oslo |
@@ -281,7 +281,7 @@ Se você é remoto e não tem conectividade de fibra ou você quer explorar outr
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Amesterdão |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | Cidade do Quebeque |
 | **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | Washington DC |
-| **[Ponte do Golfo Internacional](https://www.gbiinc.com/microsoft-azure-expressroute/)** | Equinix | Amesterdão |
+| **[Ponte do Golfo Internacional](https://gbiinc.com/)** | Equinix | Amesterdão |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | Londres, Slough |
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
 | **[Kaalam Telecom Bahrain B.S.C](http://www.kalaam-telecom.com/azure/)**| Comunicações de nível 3 |Amesterdão |

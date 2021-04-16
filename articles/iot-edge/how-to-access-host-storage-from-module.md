@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d88d35eece698c7d0079221ae3c76058d1877948
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 78752d4da42fe07461ae0e82b10343dc7219ad91
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200481"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482063"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer o acesso a módulos ao armazenamento local de um dispositivo
 
@@ -87,7 +87,7 @@ Pode encontrar mais detalhes sobre a criação de opções a partir de [docs doc
 
 ## <a name="encrypted-data-in-module-storage"></a>Dados encriptados no armazenamento de módulos
 
-Quando os módulos invocam a API de carga de trabalho do Daemon IoT Edge para encriptar dados, a chave de encriptação é derivada usando o ID do módulo e o ID de geração do módulo. Um ID de geração é usado para proteger segredos se um módulo for removido da implementação e, em seguida, outro módulo com o mesmo módulo ID é posteriormente implantado para o mesmo dispositivo. Pode ver o id de geração de um módulo usando o comando Azure CLI [az iot hub módulo-identidade show](/cli/azure/ext/azure-iot/iot/hub/module-identity).
+Quando os módulos invocam a API de carga de trabalho do Daemon IoT Edge para encriptar dados, a chave de encriptação é derivada usando o ID do módulo e o ID de geração do módulo. Um ID de geração é usado para proteger segredos se um módulo for removido da implementação e, em seguida, outro módulo com o mesmo módulo ID é posteriormente implantado para o mesmo dispositivo. Pode ver o id de geração de um módulo usando o comando Azure CLI [az iot hub módulo-identidade show](/cli/azure/iot/hub/module-identity).
 
 Se quiser partilhar ficheiros entre módulos entre gerações, eles não devem conter nenhum segredo ou não serão desencriptados.
 

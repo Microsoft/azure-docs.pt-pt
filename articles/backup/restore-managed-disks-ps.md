@@ -3,12 +3,12 @@ title: Restaurar Discos Geridos Azure via Azure PowerShell
 description: Saiba como restaurar discos geridos Azure usando a Azure PowerShell.
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 0ddf552947c39692ea01d0dea7e67f147d754fcc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c6625b43c313d45d4b295dd406e29a2b1d85b387
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630446"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520042"
 ---
 # <a name="restore-azure-managed-disks-using-azure-powershell"></a>Restaurar discos geridos Azure usando Azure PowerShell
 
@@ -92,4 +92,4 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [BACKUP DE DISCO Azure FAQ](disk-backup-faq.md)
+- [BACKUP DE DISCO Azure FAQ](disk-backup-faq.yml)

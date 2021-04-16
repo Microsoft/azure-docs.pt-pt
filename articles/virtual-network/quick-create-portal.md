@@ -3,20 +3,23 @@ title: 'Quickstart: Criar uma rede virtual - Portal Azure'
 titleSuffix: Azure Virtual Network
 description: Neste arranque rápido, aprenda a criar uma rede virtual utilizando o portal Azure.
 author: KumudD
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 03/17/2021
 ms.author: kumud
-ms.openlocfilehash: 8af5b302e3ec790b6ee9356aca0699d0edcd284e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/17/2021
+ms.topic: quickstart
+ms.service: virtual-network
+ms.workload: infrastructure
+ms.tgt_pltfrm: virtual-network
+ms.devlang: na
+tags:
+- azure-resource-manager
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 43c45b43084656a45d2509ee2c7a4376cdc7c052
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606073"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531173"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: criar uma rede virtual com o Portal do Azure
 
@@ -162,6 +165,8 @@ Crie duas VMs na rede virtual:
 5. Selecione o **separador 'Rever +' ou** selecione o botão **'Avaliação azul+'** na parte inferior da página.
   
 6. Reveja as definições e, em seguida, **selecione Criar**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="connect-to-myvm1"></a>Ligue-se ao myVM1
 

@@ -1,26 +1,28 @@
 ---
 title: Lançamentos de tecido de serviço Azure
 description: Notas de lançamento para Azure Service Fabric. Inclui informações sobre as mais recentes funcionalidades e melhorias no Tecido de Serviço.
-ms.date: 06/10/2019
+ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: f7e929000b85462e7fabf6d717c52abc454b47ad
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2a035f531e03dc42e8be4f3dab403406eb7c8f14
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313339"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518631"
 ---
 # <a name="service-fabric-releases"></a>Lançamentos de tecido de serviço
 
-- <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guias de Resolução de Problemas</a> 
+Este artigo fornece mais informações sobre as mais recentes versões e atualizações para o tempo de execução do Tecido de Serviço e SDKs.
+
+Estão também disponíveis os seguintes recursos:
+- <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guias de resolução de problemas</a> 
 - <a href="https://github.com/Azure/service-fabric-issues" target="blank">Rastreio de problemas</a> 
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">Opções de Suporte</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Versões suportadas</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Amostras de código</a>
 
-Este artigo fornece mais informações sobre as mais recentes versões e atualizações para o tempo de execução do Tecido de Serviço e SDKs.
 
 ## <a name="service-fabric-80"></a>Tecido de Serviço 8.0
 
@@ -88,7 +90,7 @@ Devido à atual crise COVID-19, e tendo em conta os desafios enfrentados pelos n
 Poderá atualizar para 7.1 através do [portal Azure](./service-fabric-cluster-upgrade-version-azure.md#manual-upgrades-with-azure-portal) ou através de uma [implementação do Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Os clusters de tecido de serviço com atualizações automáticas ativadas começarão a receber automaticamente a atualização 7.1 assim que retomarmos o procedimento de lançamento padrão. Faremos outro anúncio antes do lançamento padrão no [Site comunitário de tecnologia de tecido de serviço.](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)
-Também publicámos atualizações até ao fim da data de suporte para grandes lançamentos a partir de 6.5 até 7.1 [aqui](./service-fabric-versions.md#supported-versions). 
+Também publicámos atualizações até ao fim da data de suporte para grandes lançamentos a partir de 6.5 até 7.1 [aqui](./service-fabric-versions.md). 
 
 #### <a name="key-announcements"></a>Principais anúncios
 
@@ -116,7 +118,7 @@ Também publicámos atualizações até ao fim da data de suporte para grandes l
 #### <a name="image-store-improvements"></a>Melhorias da Loja de Imagens
  - O Tecido de Serviço 7.1 utiliza **transporte personalizado para garantir a transferência de ficheiros entre nós por padrão**. A dependência da partilha de ficheiros SMB é removida da versão 7.1. As ações de ficheiro SMB seguras ainda existem em nós que contêm réplica do Serviço de Loja de Imagens para a escolha do cliente de excluir o padrão e para upgrade e downgrade para versão antiga.
        
- #### <a name="reliable-collections-improvements"></a>Melhorias fiáveis das coleções
+ #### <a name="reliable-collections-improvements"></a>Melhorias de Coleções Fiáveis
 
 - [**Na memória apenas armazena o suporte para serviços estatais usando Coleções Fiáveis**](./service-fabric-work-with-reliable-collections.md#volatile-reliable-collections): As Coleções Fiáveis Voláteis permitem que os dados sejam persistidos em disco para durabilidade contra interrupções em larga escala, podendo ser usados para cargas de trabalho como cache replicada, por exemplo, onde a perda ocasional de dados pode ser tolerada. Com base nas [limitações e restrições de Coleções Fiáveis Voláteis,](./service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)recomendamos isto para cargas de trabalho que não precisam de persistência, para serviços que lidam com as raras ocasiões de Qurum Loss.
 - [**Pré-visualização: Service Fabric Backup Explorer**](https://github.com/microsoft/service-fabric-backup-explorer): Para facilitar a gestão de backups de coleções fiáveis para aplicações Stateful de Tecido de Serviço, o Service Fabric Backup Explorer permite que os utilizadores o permitam

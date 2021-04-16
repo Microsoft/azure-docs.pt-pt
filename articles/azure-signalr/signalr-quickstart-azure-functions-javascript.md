@@ -2,18 +2,20 @@
 title: Use o JavaScript para criar uma sala de chat com funções Azure e serviço SignalR
 description: Um quickstart para usar o Serviço Azure SignalR e funções Azure para criar uma sala de chat usando JavaScript.
 author: sffamily
+ms.author: zhshang
+ms.date: 12/14/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: javascript
-ms.topic: quickstart
-ms.date: 12/14/2019
-ms.author: zhshang
-ms.custom: devx-track-js
-ms.openlocfilehash: 061dce01d2437d04d371ac65c115a1d95136fb5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: 5e2c9dcd1efc85e1ea3fe6381cbfbff0c5e62fc5
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94874700"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533222"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Quickstart: Use o JavaScript para criar uma sala de chat com funções Azure e serviço SignalR
 
@@ -95,4 +97,3 @@ Neste arranque rápido, você construiu e executou uma aplicação sem servidor 
 
 > [!div class="nextstepaction"]
 > [Implementar as Funções do Azure com o VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
-

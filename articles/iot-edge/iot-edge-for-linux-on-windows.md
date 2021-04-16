@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 330eaf5c12372347917e9f3a4aeafb6a2088c592
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c7fd6c842d465dd5af5257628044666f10f2ece
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492579"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538202"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>O que é o Azure IoT Edge para Linux no Windows (Pré-visualização)
 
@@ -48,7 +48,7 @@ A comunicação bidis entre o processo Windows e a máquina virtual Linux signif
 
 IoT Edge for Linux on Windows enfatiza a interoperabilidade entre os componentes Linux e Windows.
 
-Para amostras que demonstrem comunicação entre aplicações Windows e módulos IoT Edge, consulte [amostras IoT do Windows 10](https://github.com/microsoft/Windows-IoT-Samples).
+Para amostras que demonstrem comunicação entre aplicações Windows e módulos IoT Edge, consulte [EFLOW & amostras IoT do Windows 10](https://aka.ms/AzEFLOW-Samples).
 
 ## <a name="public-preview"></a>Pré-visualização pública
 
@@ -58,7 +58,7 @@ IoT Edge for Linux on Windows está atualmente em [pré-visualização pública]
 
 Utilize os canais de suporte e feedback IoT Edge para obter assistência com ioT Edge para Linux no Windows.
 
-**Reportando bugs** – Bugs podem ser reportados na página de [problemas](https://github.com/azure/iotedge/issues) do projeto de código aberto IoT Edge. Os bugs relacionados com o Azure IoT Edge para Linux no Windows podem ser reportados na [página de problemas iotedge-eflow](https://github.com/azure/iotedge-eflow/issues).
+**Reportando bugs** – Bugs podem ser reportados na página de [problemas](https://github.com/azure/iotedge/issues) do projeto de código aberto IoT Edge. Os bugs relacionados com o Azure IoT Edge para Linux no Windows podem ser reportados na [página de problemas iotedge-eflow](https://aka.ms/AzEFLOW-Issues).
 
 **Equipa de Apoio ao Cliente da Microsoft** – Os utilizadores que tenham um plano de [suporte](https://azure.microsoft.com/support/plans/) podem envolver a equipa de Suporte ao Cliente da Microsoft criando um bilhete de suporte diretamente do [portal Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

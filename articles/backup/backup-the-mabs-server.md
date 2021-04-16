@@ -3,12 +3,12 @@ title: Fazer cópia de segurança do servidor MABS
 description: Saiba como fazer backup do Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbd3d1f2d7cb24c21962dbe5c88acebf73652a04
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92172128"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519124"
 ---
 # <a name="back-up-the-mabs-server"></a>Fazer cópia de segurança do servidor MABS
 
@@ -332,4 +332,4 @@ DpmSync -ReallocateReplica
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Matriz de suporte MABS](backup-support-matrix-mabs-dpm.md)
-- [MABS FAQ](backup-azure-dpm-azure-server-faq.md)
+- [MABS FAQ](backup-azure-dpm-azure-server-faq.yml)

@@ -4,18 +4,18 @@ description: Este artigo contém uma coleção de comandos de exemplo AzCopy que
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ec341243811eaa271511baba04ea1c48a4fefdab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b3340c00d856b13edefc7728d5baa327399a441
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728900"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502934"
 ---
-# <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Sincronizar com o armazenamento Azure Blob utilizando o AzCopy v10
+# <a name="synchronize-with-azure-blob-storage-by-using-azcopy"></a>Sincronizar com o armazenamento Azure Blob utilizando a AzCopy
 
 Pode sincronizar o armazenamento local com o armazenamento Azure Blob utilizando o utilitário de linha de comando AzCopy v10. 
 
@@ -41,7 +41,11 @@ Consulte o [artigo da AzCopy](storage-use-azcopy-v10.md) para descarregar o AzCo
 
 - Se colocar a `--delete-destination` bandeira para , a `true` AzCopy elimina ficheiros sem fornecer uma solicitação. Se desejar que apareça uma solicitação antes de o AzCopy apagar um ficheiro, coloque a `--delete-destination` bandeira em `prompt` .
 
+- Se pretender definir `--delete-destination` a bandeira para `prompt` `false` ou, considere utilizar o comando de [cópia](storage-ref-azcopy-copy.md) em vez do comando de [sincronização](storage-ref-azcopy-sync.md) e definir o `--overwrite` parâmetro para `ifSourceNewer` . O comando [de cópia](storage-ref-azcopy-copy.md) consome menos memória e incorre em menos custos de faturação porque uma operação de cópia não tem de indexar a fonte ou destino antes de mover ficheiros. 
+
 - Para evitar supressões acidentais, certifique-se de que ativa a função [de eliminação suave](../blobs/soft-delete-blob-overview.md) antes de utilizar a `--delete-destination=prompt|true` bandeira.
+
+- A máquina em que executou o comando de sincronização deve ter um relógio de sistema preciso, porque os últimos tempos modificados são cruciais para determinar se um ficheiro deve ser transferido. Se o seu sistema tiver um relógio significativo, evite modificar ficheiros no destino demasiado próximos do momento em que planeia executar um comando de sincronização.
 
 ## <a name="update-a-container-with-changes-to-a-local-file-system"></a>Atualizar um recipiente com alterações a um sistema de ficheiros local
 
@@ -50,10 +54,15 @@ Neste caso, o contentor é o destino e o sistema de ficheiros local é a origem.
 > [!TIP]
 > Este exemplo encerra argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
 
-| Sintaxe / exemplo  |  Código |
-|--------|-----------|
-| **Syntax** | `azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
-| **Exemplo** | `azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
+**Syntax**
+
+`azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+
+**Exemplo**
+
+```azcopy
+azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive
+```
 
 ## <a name="update-a-local-file-system-with-changes-to-a-container"></a>Atualizar um sistema de ficheiros local com alterações a um contentor
 
@@ -62,10 +71,15 @@ Neste caso, o sistema de ficheiros local é o destino, e o contentor é a fonte.
 > [!TIP]
 > Este exemplo encerra argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
 
-| Sintaxe / exemplo  |  Código |
-|--------|-----------|
-| **Syntax** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
-| **Exemplo** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
+**Syntax**
+
+`azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive`
+
+**Exemplo**
+
+```azcopy
+azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive
+```
 
 ## <a name="update-a-container-with-changes-in-another-container"></a>Atualizar um recipiente com alterações em outro recipiente
 
@@ -74,10 +88,15 @@ O primeiro recipiente que aparece neste comando é a fonte. O segundo é o desti
 > [!TIP]
 > Este exemplo encerra argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
 
-| Sintaxe / exemplo  |  Código |
-|--------|-----------|
-| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
-| **Exemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+**Syntax**
+
+`azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+
+**Exemplo**
+
+```azcopy
+azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive
+```
 
 ## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Atualizar um diretório com alterações a um diretório em outro recipiente
 
@@ -86,10 +105,15 @@ O primeiro diretório que aparece neste comando é a fonte. O segundo é o desti
 > [!TIP]
 > Este exemplo encerra argumentos de caminho com citações únicas ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
 
-| Sintaxe / exemplo  |  Código |
-|--------|-----------|
-| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
-| **Exemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
+**Syntax**
+
+`azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive`
+
+**Exemplo**
+
+```azcopy
+azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive
+```
 
 ## <a name="synchronize-with-optional-flags"></a>Sincronizar com bandeiras opcionais
 
@@ -101,7 +125,10 @@ Pode ajustar a sua operação de sincronização utilizando bandeiras opcionais.
 |Excluir ficheiros com base num padrão.|**--excluir caminho**|
 |Especifique o quão detalhado pretende que as suas entradas de registo relacionadas com sincronização sejam.|**--nível** = \[ de log \|INFORMAÇÃO DE ERRO \| DE AVISO \| NENHUMA\]|
 
-Para obter uma lista completa, consulte [as opções.](storage-ref-azcopy-sync.md#options)
+Para obter uma lista completa de bandeiras, consulte [as opções.](storage-ref-azcopy-sync.md#options)
+
+> [!NOTE]
+> A `--recursive` bandeira está definida por `true` defeito. As `--exclude-pattern` `--include-pattern` bandeiras aplicam-se apenas aos nomes dos ficheiros e não a outras partes do caminho do ficheiro. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -111,6 +138,13 @@ Encontre mais exemplos nestes artigos:
 - [Exemplos: Transferência](storage-use-azcopy-blobs-download.md)
 - [Exemplos: Copiar entre contas](storage-use-azcopy-blobs-copy.md)
 - [Exemplos: Registos Amazon S3](storage-use-azcopy-s3.md)
+- [Exemplos: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Exemplos: Ficheiros Azure](storage-use-azcopy-files.md)
 - [Tutorial: migrar dados no local para o armazenamento na cloud com o AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-- [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
+
+Consulte estes artigos para configurar definições, otimizar o desempenho e resolver problemas:
+
+- [Definições de configuração azCopy](storage-ref-azcopy-configuration-settings.md)
+- [Otimizar o desempenho da AzCopy](storage-use-azcopy-optimize.md)
+- [Problemas problemas problemas AzCopy V10 em armazenamento Azure usando ficheiros de log](storage-use-azcopy-configure.md)
+

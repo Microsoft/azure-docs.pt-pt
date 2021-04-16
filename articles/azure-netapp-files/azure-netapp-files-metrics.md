@@ -12,18 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 04/12/2021
 ms.author: b-juche
-ms.openlocfilehash: a17e6cc0479cf8ff2306736994a369d9e44dfdda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b581470a886ff73739edfee7f45c64295eeeb1f0
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745949"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388618"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
 O Azure NetApp Files fornece métricas sobre armazenamento atribuído, uso real de armazenamento, IOPS de volume e latência. Ao analisar estas métricas, pode obter uma melhor compreensão sobre o padrão de utilização e desempenho de volume das suas contas NetApp.  
+
+Pode encontrar métricas para uma piscina ou volume de capacidade selecionando o pool **ou** volume **de capacidade.**  Em **seguida,** clique em Metric para ver as métricas disponíveis: 
+
+[![Instantâneo que mostra como navegar para a métrica pull-down. ](../media/azure-netapp-files/metrics-navigate-volume.png)](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
 
 ## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Métricas de utilização para piscinas de capacidade
 

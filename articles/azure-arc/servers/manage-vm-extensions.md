@@ -1,14 +1,14 @@
 ---
 title: Gestão de extensão VM com servidores ativados Azure Arc
 description: Os servidores ativados do Azure Arc podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
-ms.date: 03/22/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67f1b5b3db6ef446342e8381d54d487af1f3426a
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799586"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389796"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestão de extensões de máquinas virtuais com servidores preparados para o Azure Arc
 
@@ -20,6 +20,9 @@ Os servidores ativados Azure Arc permitem-lhe implementar extensões Azure VM pa
 - O [Azure CLI](manage-vm-extensions-cli.md)
 - [Azure PowerShell](manage-vm-extensions-powershell.md)
 - [Modelos de gestor de recursos Azure](manage-vm-extensions-template.md)
+
+> [!NOTE]
+> Os servidores ativados pelo Azure Arc não suportam a implementação e gestão de extensões VM para máquinas virtuais Azure. Para Azure VMs, consulte o seguinte artigo [de visão geral da extensão VM.](../../virtual-machines/extensions/overview.md)
 
 ## <a name="key-benefits"></a>Principais vantagens
 

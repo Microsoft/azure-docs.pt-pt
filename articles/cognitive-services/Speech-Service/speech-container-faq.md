@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a044f42d0774d940521964b68b38a0f35bcdbb
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573749"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387960"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Recipientes de serviço de fala frequentemente perguntas (FAQ)
 
@@ -536,76 +536,6 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ```
 
  A `SetSpeechSynthesisVoiceName` função é chamada porque os recipientes com um motor text-to-speech atualizado requerem o nome de voz.
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Como posso usar v1.7 do Speech SDK com um recipiente de fala?</b>
-</summary>
-
-**Resposta:** Existem três pontos finais no recipiente de discurso para diferentes utilizações, são definidos como modos de fala - veja abaixo:
-
-## <a name="speech-modes"></a>Modos de fala
-
-[!INCLUDE [speech-modes](includes/speech-modes.md)]
-
-São para propósitos diferentes e são usados de forma diferente.
-
-Amostras [de python:](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py)
-- Para um único reconhecimento (modo interativo) com um ponto final personalizado (isto é, `SpeechConfig` com um parâmetro de ponto final), ver `speech_recognize_once_from_file_with_custom_endpoint_parameters()` .
-- Para reconhecimento contínuo (modo de conversação), e basta modificar para utilizar um ponto final personalizado como acima, ver `speech_recognize_continuous_from_file()` .
-- Para ativar o ditado em amostras como acima (apenas se precisar), logo após a `speech_config` criação, adicione código `speech_config.enable_dictation()` .
-
-Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` função.
-
-### <a name="fromendpoint-apis"></a>`FromEndpoint` APIs
-| Linguagem | Detalhes da API |
-|----------|:------------|
-| C++ | <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| JavaScript | Não está atualmente apoiado, nem está previsto. |
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Como posso usar v1.8 do Speech SDK com um recipiente de discurso?</b>
-</summary>
-
-**Resposta:** Há uma nova `FromHost` API. Isto não substitui nem modifica quaisquer APIs existentes. Apenas adiciona uma forma alternativa de criar um config de fala usando um hospedeiro personalizado.
-
-### <a name="fromhost-apis"></a>`FromHost` APIs
-
-| Linguagem | Detalhes da API |
-|--|:-|
-| C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| C++ | <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| JavaScript | Atualmente, não é suportado |
-
-> Parâmetros: anfitrião (obrigatório), chave de subscrição (opcional, se puder utilizar o serviço sem ele).
-
-O formato para anfitrião `protocol://hostname:port` é onde é opcional `:port` (ver abaixo):
-- Se o recipiente estiver a funcionar localmente, o nome de hospedeiro é `localhost` .
-- Se o contentor estiver a funcionar num servidor remoto, utilize o nome de anfitrião ou o endereço IPv4 desse servidor.
-
-Exemplos de parâmetros de anfitrião para discurso-a-texto:
-- `ws://localhost:5000` - ligação não segura a um contentor local que utilize a porta 5000
-- `ws://some.host.com:5000` - ligação não segura a um contentor em execução num servidor remoto
-
-Amostras de python de cima, mas use `host` parâmetro em vez `endpoint` de:
-
-```python
-speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
-```
 
 <br>
 </details>

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 4bf792dd02e7cddcc40ef868e4a602fdb03ab3c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 513f262f5d09cf56c4506a4f20c9aa41507c2abd
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052284"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515282"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Azure Monitor?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 
@@ -102,7 +102,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |DevOps | No | No | No |  |
 |DNS | Yes | No | No |  |
 |Nomes de domínio | No | No | No |  |
-|EP2 | No | No | No |  |
+|DPS | No | No | No |  |
 |Dinâmica 365 Envolvimento do Cliente | No | No | No |  |
 |Dinâmica 365 Finanças e Operações | No | No | No |  |
 |Event Grid | Yes | No | No |  |
@@ -167,7 +167,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Rede Virtual | Yes | Yes | [Sim](insights/network-insights-overview.md) |  |
 |Rede Virtual - Registos de Fluxo NSG | No | Yes | No |  |
 |Gateway de VPN | Yes | Yes | No |  |
-|Windows Virtual Desktop | No | No | No |  |
+|Windows Virtual Desktop | No | Yes | No |  |
 
 ## <a name="virtual-machine-agents"></a>Agentes de máquina virtual
 A tabela que se segue lista os agentes que podem recolher dados do sistema operativo dos hóspedes das máquinas virtuais e enviar dados para o Monitor. Cada agente pode recolher dados diferentes e enviá-lo para Métricas ou Registos no Azure Monitor. 

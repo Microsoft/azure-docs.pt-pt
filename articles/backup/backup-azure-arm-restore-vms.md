@@ -3,13 +3,13 @@ title: Restaurar VMs utilizando o portal Azure
 description: Restaurar uma máquina virtual Azure a partir de um ponto de recuperação utilizando o portal Azure, incluindo a função Cross Region Restore.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 08/02/2020
-ms.openlocfilehash: 83681d2bb3622857fb9141a3cec79d92d278a814
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/14/2021
+ms.openlocfilehash: 452ca5e1b1c6554a2ae1651068eae06ad9a6b232
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568754"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515231"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -150,7 +150,7 @@ Se o CRR estiver ativado, pode ver os itens de reserva na região secundária.
 1. Selecione **Região Secundária** para ver os itens na região secundária.
 
 >[!NOTE]
->Apenas os tipos de gestão de backup que suportam a função CRR serão apresentados na lista. Atualmente, apenas é permitido o apoio à reposição de dados da região secundária para uma região secundária.
+>Apenas os tipos de gestão de backup que suportam a função CRR serão apresentados na lista. Atualmente, apenas é permitido o apoio à reposição de dados da região secundária para uma região secundária.<br></br>CRR for Azure VMs é suportado para VMs geridos Azure (incluindo VMs Azure encriptados).
 
 ![Máquinas virtuais na região secundária](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 

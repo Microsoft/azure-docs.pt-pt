@@ -2,20 +2,20 @@
 title: Visualização de aplicativos usando o seu inquilino Azure Ative Directory para gestão de identidade
 description: Compreenda como visualizar todas as aplicações utilizando o seu inquilino Azure Ative Directory para gestão de identidade.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
-ms.author: kenwith
-ms.openlocfilehash: 443e8c83ec29f9f0478e3881b9e6d6a8eb0bf403
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: b11f2dab97b3c45502c6050e06f0f39312f8c3c0
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259791"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378078"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visualização de aplicativos usando o seu inquilino Azure AD para gestão de identidade
 A [Série Quickstart em Gestão de Aplicações](view-applications-portal.md) leva-lhe o básico. Nele, você aprende a ver todas as aplicações usando o seu inquilino AZure AD para gestão de identidade. Este artigo mergulha um pouco mais nos tipos de apps que vai encontrar.

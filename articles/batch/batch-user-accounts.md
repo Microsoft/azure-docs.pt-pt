@@ -2,14 +2,14 @@
 title: Executar tarefas em contas de utilizador
 description: Aprenda os tipos de contas de utilizador e como configurá-las.
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 04/13/2021
 ms.custom: seodec18
-ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02cad0bff9e76ec5db82c417f2439b12ef088045
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606611"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389286"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de utilizadores em Batch
 
@@ -152,7 +152,13 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,
     virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+    imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+    nodeAgentSkuId: "batch.node.windows amd64");
 
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
@@ -238,7 +244,7 @@ PoolAddParameter addParameter = new PoolAddParameter()
         .withId(poolId)
         .withTargetDedicatedNodes(POOL_VM_COUNT)
         .withVmSize(POOL_VM_SIZE)
-        .withCloudServiceConfiguration(configuration)
+        .withVirtualMachineConfiguration(configuration)
         .withUserAccounts(userList);
 batchClient.poolOperations().createPool(addParameter);
 ```

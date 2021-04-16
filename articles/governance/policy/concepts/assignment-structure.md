@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de políticas utilizada pela Azure Policy para relacionar definições de políticas e parâmetros com recursos para avaliação.
-ms.date: 03/17/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9de210b17264330e79ab5978a449e7a494054be2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604870"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535865"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -60,6 +60,30 @@ Todas as amostras da Política Azure estão nas [amostras da Azure Policy](../sa
 ## <a name="display-name-and-description"></a>Nome e descrição do visor
 
 Utiliza o nome e **a descrição** **do displayName** para identificar a atribuição de políticas e fornecer contexto para a sua utilização com o conjunto específico de recursos. **displayName** tem um comprimento máximo de _128_ caracteres e **descrição** de um comprimento máximo de _512_ caracteres.
+
+## <a name="metadata"></a>Metadados
+
+A propriedade opcional `metadata` armazena informações sobre a atribuição de apólices. Os clientes podem definir quaisquer propriedades e valores úteis à sua organização `metadata` em. No entanto, existem algumas propriedades _comuns_ usadas pela Azure Policy. Cada `metadata` propriedade tem um limite de 1024 caracteres.
+
+### <a name="common-metadata-properties"></a>Propriedades comuns de metadados
+
+- `assignedBy` O nome amigável do chefe de segurança que criou a atribuição.
+- `createdBy` O GUID do principal de segurança que criou a atribuição.
+- `createdOn` (cadeia): O formato Universal ISO 8601 DateTime do tempo de criação de atribuição.
+- `parameterScopes` (objeto): Uma coleção de pares de valores-chave em que a chave corresponde a um nome de parâmetro configurado [do Tipo forte](./definition-structure.md#strongtype) e o valor define o âmbito de recursos utilizado no Portal para fornecer a lista de recursos disponíveis, combinando o _StrongType_. Portal define este valor se o âmbito for diferente do âmbito de atribuição. Se for definido, uma edição da atribuição de políticas no Portal define automaticamente o âmbito do parâmetro para este valor. No entanto, o âmbito não está bloqueado ao valor e pode ser alterado para outro âmbito.
+
+  O exemplo seguinte `parameterScopes` é para um parâmetro de Tipo _forte_ chamado **backupPolicyId** que define uma margem para a seleção de recursos quando a atribuição é editada no Portal.
+
+  ```json
+  "metadata": {
+      "parameterScopes": {
+          "backupPolicyId": "/subscriptions/{SubscriptionID}/resourcegroups/{ResourceGroupName}"
+      }
+  }
+  ```
+
+- `updatedBy` O nome amigável do diretor de segurança que atualizou a atribuição, se houver.
+- `updatedOn` (cadeia): O formato Universal ISO 8601 DateTime do tempo de atualização da atribuição, se houver.
 
 ## <a name="enforcement-mode"></a>Modo de Execução
 

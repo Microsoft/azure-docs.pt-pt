@@ -2,14 +2,14 @@
 title: Criar e configurar cofres dos Serviços de Recuperação
 description: Neste artigo, aprenda a criar e configurar cofres dos Serviços de Recuperação que armazenam os backups e pontos de recuperação. Saiba como usar o Cross Region Restore para restaurar numa região secundária.
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 04/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1a20cd2b1245febea5fd18a9f6fe6e7a7bb6f04b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e2983e473fac72d02f0fdbc8c307e96326ac0a6
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716759"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518580"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos Serviços de Recuperação
 
@@ -69,7 +69,7 @@ Uma vez que este processo está ao nível de armazenamento, [existem implicaçõ
 >- As bases de dados Cross Region Restore para as bases de dados SQL e SAP HANA estão em pré-visualização em todas as regiões públicas do Azure.
 >- CRR é uma função de opt-in de nível de abóbada para qualquer cofre GRS (desligado por defeito).
 >- Depois de optar, pode levar até 48 horas para que os itens de reserva estejam disponíveis em regiões secundárias.
->- Atualmente, crr para VMs Azure é suportado apenas para Azure Resource Manger Azure VMs. Os VMs clássicos do Azure não serão suportados.  Quando tipos de gestão adicionais suportam CRR, então eles serão **automaticamente** matriculados.
+>- Atualmente, CRR para VMs Azure é suportado para Azure Resource Manager Azure VMs e VMs Azure encriptados. Os VMs clássicos do Azure não serão suportados. Quando tipos de gestão adicionais suportam CRR, então eles serão **automaticamente** matriculados.
 >- O Cross Region Restore **não pode ser revertido** para GRS ou LRS uma vez que a proteção é iniciada pela primeira vez.
 >- Atualmente, a [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) da região secundária está a 12 horas da região primária, embora a replicação [de armazenamento geo-redundante de acesso de leitura (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) seja de 15 minutos.
 

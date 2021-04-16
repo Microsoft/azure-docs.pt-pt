@@ -1,18 +1,20 @@
 ---
 title: Criar um membro do Serviço Azure Blockchain - Portal Azure
 description: Crie um membro do Serviço Azure Blockchain para um consórcio blockchain utilizando o portal Azure.
+ms.reviewer: ravastra
 ms.date: 07/16/2020
 ms.topic: quickstart
-ms.reviewer: ravastra
-ms.custom: references_regions
-ms.openlocfilehash: 8a7f5aaea56f34e8107664ab786a14b59cd1cb7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- references_regions
+- mode-portal
+ms.openlocfilehash: 9fe8b7856a99930c16b4173e432fa0b30642582c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91292733"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536201"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Quickstart: Criar um membro blockchain do Azure Blockchain Service utilizando o portal Azure
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Início Rápido: Criar um membro blockchain do Azure Blockchain Service com o portal do Azure
 
 Neste quickstart, você implementa um novo membro blockchain e consórcio no Azure Blockchain Service usando o portal Azure.
 

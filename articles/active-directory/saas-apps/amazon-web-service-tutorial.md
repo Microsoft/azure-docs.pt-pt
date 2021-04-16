@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 842ab27fe02501efbbc6c06c3d36d2218c3c17b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eb469c757e2898a9925dd7d3358cfe95734cb2e9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799246"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537719"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Tutorial: Azure Ative Directy integração única (SSO) com AWS Single-Account Access
 
@@ -401,11 +401,11 @@ Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer 
  
 * Na secção **de Provisionamento,** a subsecção **de Mapeamentos** mostra um "Loading..." mensagem, e nunca exibe os mapeamentos de atributos. O único fluxo de trabalho de provisionamento suportado hoje é a importação de funções da AWS para a Azure AD para seleção durante uma atribuição de utilizador ou grupo. Os mapeamentos de atributos para isto são pré-determinados, e não são configuráveis.
 
-* A secção **de Provisionamento** só suporta a entrada de um conjunto de credenciais para um inquilino da AWS de cada vez. Todas as funções importadas são escritas para a `appRoles` propriedade do [ `servicePrincipal` objeto](/graph/api/resources/serviceprincipal?view=graph-rest-beta) AD AZure para o inquilino da AWS.
+* A secção **de Provisionamento** só suporta a entrada de um conjunto de credenciais para um inquilino da AWS de cada vez. Todas as funções importadas são escritas para a `appRoles` propriedade do [ `servicePrincipal` objeto](/graph/api/resources/serviceprincipal) AD AZure para o inquilino da AWS.
 
   Vários inquilinos da AWS (representados `servicePrincipals` por) podem ser adicionados à Azure AD da galeria para provisionamento. Há um problema conhecido, no entanto, com não ser capaz de escrever automaticamente todas as funções importadas a partir dos múltiplos AWS `servicePrincipals` usados para provisão para o único `servicePrincipal` usado para SSO.
 
-  Como solução alternativa, pode utilizar a API do [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extrair todos os `appRoles` importados em cada AWS `servicePrincipal` onde o provisionamento está configurado. Pode adicionar posteriormente estas cordas de função à AWS onde o `servicePrincipal` SSO está configurado.
+  Como solução alternativa, pode utilizar a API do [Microsoft Graph](/graph/api/resources/serviceprincipal) para extrair todos os `appRoles` importados em cada AWS `servicePrincipal` onde o provisionamento está configurado. Pode adicionar posteriormente estas cordas de função à AWS onde o `servicePrincipal` SSO está configurado.
 
 * As funções devem satisfazer os seguintes requisitos a serem elegíveis para serem importados da AWS para a Azure AD:
 
