@@ -67,6 +67,9 @@
         - name: Relatórios e monitorização
           tocHref: /azure/active-directory/reports-monitoring/
           topicHref: /azure/active-directory/reports-monitoring/
+        - name: Credenciais verificáveis
+          tocHref: /azure/active-directory/verifiable-credentials/
+          topicHref: /azure/active-directory/verifable-credentials/
     - name: Analysis Services
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
@@ -770,6 +773,9 @@
         - name: Programar
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: Percurso
+          tocHref: /azure/security/journey
+          topicHref: /azure/security/journey
         - name: Testes de referências
           tocHref: /azure/security/benchmarks/
           topicHref: /azure/security/benchmarks/

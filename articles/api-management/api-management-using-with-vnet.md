@@ -2,22 +2,18 @@
 title: Como utilizar a Gestão de API do Azure com redes virtuais
 description: Saiba como configurar uma ligação a uma rede virtual na Azure API Management e aceder aos serviços web através dela.
 services: api-management
-documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 12/10/2020
+ms.topic: how-to
+ms.date: 04/12/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: c63b71ad00a5621babe07597720a1e9ea87f1e4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5612da51c1896aaa40ff2a0fb90e3343f676de43
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99260253"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531618"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -35,11 +31,13 @@ A Azure API Management pode ser implementada dentro da rede virtual (VNET), para
 
 Para executar os passos descritos neste artigo, deve ter:
 
-+ Uma subscrição ativa do Azure.
++ **Uma subscrição ativa do Azure.**
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ Um caso APIM. Para obter mais informações, consulte [Criar uma instância de Gestão API Azure.](get-started-create-service-instance.md)
++ **Um caso de Gestão da API.** Para obter mais informações, consulte [Criar uma instância de Gestão API Azure.](get-started-create-service-instance.md)
+
+[!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
 ## <a name="enable-vnet-connection"></a><a name="enable-vpn"> </a>Ativar a ligação VNET
 
@@ -47,14 +45,14 @@ Para executar os passos descritos neste artigo, deve ter:
 
 1. Vá ao [portal Azure](https://portal.azure.com) para encontrar a sua instância de gestão da API. Procure e selecione **serviços de Gestão de API.**
 
-2. Escolha a sua instância de Gestão API.
+1. Escolha a sua instância de Gestão API.
 
-3. Selecione **Rede virtual**.
-4. Configurar o caso de Gestão da API a ser implantado dentro de uma rede Virtual.
+1. Selecione **Rede virtual**.
+1. Configurar o caso de Gestão da API a ser implantado dentro de uma rede Virtual.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Selecione rede virtual no portal Azure.":::
     
-5. Selecione o tipo de acesso pretendido:
+1. Selecione o tipo de acesso pretendido:
 
     * **Off**: Este é o padrão. A API Management não é implantada numa rede virtual.
 
@@ -66,32 +64,46 @@ Para executar os passos descritos neste artigo, deve ter:
 
         ![Peering privado][api-management-vnet-private]
 
-6. Se selecionou **Externa** ou **Interna,** verá uma lista de todas as regiões onde o seu serviço de Gestão de API é prestado. Escolha uma **localização** e, em seguida, escolha a sua **rede Virtual** e **sub-rede.** A lista de rede virtual é preenchida com redes virtuais clássicas e gestoras de recursos disponíveis nas suas subscrições Azure que estão configuradas na região que está a configurar.
+1. Se selecionou **Externa** ou **Interna,** verá uma lista de todos os locais (regiões) onde o seu serviço de Gestão de API é prestado. Escolha uma **localização** e, em seguida, escolha a sua **rede Virtual,** **sub-rede** e **endereço IP**. A lista de rede virtual está preenchida com redes virtuais do Gestor de Recursos disponíveis nas suas subscrições Azure que estão configuradas na região que está a configurar.
 
-    > [!IMPORTANT]
-    > Ao implementar uma instância de Gestão API da Azure para um Gestor de Recursos VNET, o serviço deve estar numa sub-rede dedicada que não contenha outros recursos, exceto para instâncias de Gestão API da Azure. Se for feita uma tentativa de implantar uma instância de Gestão API da Azure para uma sub-rede VNET do Gestor de Recursos que contenha outros recursos, a implementação falhará.
-
-    Em seguida, selecione **Aplicar**. A página **de rede Virtual** da sua instância de Gestão de API é atualizada com as suas novas escolhas de rede virtual e sub-rede.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Definições de rede virtual no portal.":::
 
+    > [!IMPORTANT]
+    > * Quando o seu cliente utiliza **a versão API 2020-12-01 ou mais cedo** para implementar uma instância de Gestão API Azure num VNET do Gestor de Recursos, o serviço deve estar numa sub-rede dedicada que não contenha recursos, exceto instâncias de Gestão API da Azure. Se for feita uma tentativa de implantar uma instância de Gestão API da Azure para uma sub-rede VNET do Gestor de Recursos que contenha outros recursos, a implementação falhará.
+    > * Quando o seu cliente utiliza **a versão API 2021-01-01-pré-visualização ou posterior para** implementar uma instância de Gestão API Azure numa rede virtual, apenas uma rede virtual do Gestor de Recursos é suportada. Além disso, a sub-rede utilizada pode conter outros recursos. Não é preciso utilizar uma sub-rede dedicada a casos de Gestão da API. 
+
+1. Selecione **Aplicar**. A página **de rede Virtual** da sua instância de Gestão de API é atualizada com as suas novas escolhas de rede virtual e sub-rede.
+
+1. Continue a configurar as definições de rede virtual para as localizações restantes da sua instância de Gestão de API.
+
 7. Na barra de navegação superior, **selecione Guardar** e, em seguida, selecione **Aplicar a configuração da rede**.
 
+    Pode levar 15 a 45 minutos para atualizar a instância de Gestão da API.
+
 > [!NOTE]
-> O endereço VIP da instância de Gestão da API será alterado cada vez que o VNET estiver ativado ou desativado.
-> O endereço VIP também será alterado quando a Gestão da API for transferida de **Externa** para **Interna,** ou vice-versa.
->
+> Com os clientes que utilizam a versão API 2020-12-01 e anteriormente, o endereço VIP da instância de Gestão da API mudará cada vez que o VNET estiver ativado ou desativado. O endereço VIP também será alterado quando a Gestão da API for transferida da rede virtual **Externa** para **a Rede Virtual Interna,** ou vice-versa.
 
 > [!IMPORTANT]
-> Se remover a API Management de um VNET ou alterar a que está implantada, o VNET anteriormente utilizado pode permanecer bloqueado até seis horas. Durante este período não será possível eliminar o VNET ou implantar-lhe um novo recurso. Este comportamento é válido para os clientes que usam a versão API 2018-01-01 e mais cedo. Os clientes que utilizam a versão API 2019-01-01 e, mais tarde, o VNET é libertado assim que o serviço de Gestão da API associado for eliminado.
+> Se remover a API Management de um VNET ou alterar a que está implantada, o VNET anteriormente utilizado pode permanecer bloqueado até seis horas. Durante este período não será possível eliminar o VNET ou implantar-lhe um novo recurso. Este comportamento é válido para os clientes que usam a versão API 2018-01-01 e anteriormente. Os clientes que utilizam a versão API 2019-01-01 e, mais tarde, o VNET é libertado assim que o serviço de Gestão da API associado for eliminado.
 
-## <a name="deploy-api-management-into-external-vnet"></a><a name="deploy-apim-external-vnet"> </a>Implementar a Gestão da API em VNET Externo
+### <a name="deploy-api-management-into-external-vnet"></a><a name="deploy-apim-external-vnet"> </a>Implementar a Gestão da API em VNET Externo
 
-[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+Também pode ativar a conectividade da rede virtual utilizando os seguintes métodos.
 
-* **Criar um serviço de Gestão API dentro de um VNET**: Utilize o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de Gestão API Azure dentro de um VNET.
+### <a name="api-version-2021-01-01-preview"></a>Versão API 2021-01-01-pré-visualização
 
-* **Implementar um serviço de Gestão API existente dentro de um VNET**: Utilize a [Cmdlet Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de Gestão API Azure existente dentro de uma Rede Virtual.
+* [Modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet-publicip) de gestor de recursos Azure
+
+     [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
+
+### <a name="api-version-2020-12-01"></a>Versão API 2020-12-01
+
+* [Modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet) de gestor de recursos Azure
+    
+     [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+
+* Cmdlets Azure PowerShell - [Criar](/powershell/module/az.apimanagement/new-azapimanagement) ou [atualizar](/powershell/module/az.apimanagement/update-azapimanagementregion) uma instância de Gestão de API numa rede virtual
 
 ## <a name="connect-to-a-web-service-hosted-within-a-virtual-network"></a><a name="connect-vnet"> </a>Conecte-se a um serviço web hospedado dentro de uma Rede Virtual
 Depois de o seu serviço de Gestão API estar ligado ao VNET, aceder aos serviços de backend no seu interior não é diferente de aceder a serviços públicos. Basta digitar o endereço IP local ou o nome de anfitrião (se um servidor DNS estiver configurado para o VNET) do seu serviço web no campo URL do **serviço Web** ao criar uma nova API ou editar um existente.
@@ -138,12 +150,12 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
 
     | Ambiente Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Público      | <ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com a **ser depreciada**</li><li>global.prod.microsoftmetrics.com</li><li>global.metrics.nsatc.net a **ser depreciada**</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2.metrics.nsatc.net a **ser depreciada**</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3.metrics.nsatc.net a **ser depreciada**</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-black.prod3.metrics.nsatc.net a **ser depreciada**</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod3-red.prod3.metrics.nsatc.net a **ser depreciada**</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com</li><li>global.metrics.nsatc.net a **ser depreciada**</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2.metrics.nsatc.net a **ser depreciada**</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3.metrics.nsatc.net a **ser depreciada**</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com</li><li>global.metrics.nsatc.net a **ser depreciada**</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2.metrics.nsatc.net a **ser depreciada**</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3.metrics.nsatc.net a **ser depreciada**</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Público      | <ul><li>gcs.prod.monitoring.core.windows.net</li><li>global.prod.microsoftmetrics.com</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
-  > A mudança de clusters acima com a zona do **DNS (nsatc.net** para **.microsoftmetrics.com** é sobretudo uma alteração de DNS. Endereço IP do cluster não será alterado.
+  > A mudança de clusters acima com a zona de DNS **.nsatc.net** para **.microsoftmetrics.com** é principalmente uma alteração de DNS. Endereço IP do cluster não será alterado.
 
 + **Tags de serviço regionais**: As regras NSG que permitem a conectividade de saída às etiquetas de serviço De Armazenamento, SQL e Event Hubs podem utilizar as versões regionais das tags correspondentes à região que contém o exemplo de Gestão da API (por exemplo, Storage.WestUS para uma instância de Gestão de API na região oeste dos EUA). Nas implantações multi-regiões, o NSG em cada região deve permitir o tráfego das etiquetas de serviço para aquela região e para a região primária.
 
@@ -209,7 +221,7 @@ Cada unidade de escala adicional da Gestão da API requer mais dois endereços I
 + O endereço IP público equilibrado pode ser encontrado na lâmina Overview/Essentials no portal Azure.
 
 ## <a name="limitations"></a><a name="limitations"> </a>Limitações
-* Uma sub-rede que contenha instâncias de Gestão API não pode conter quaisquer outros tipos de recursos Azure.
+* Para clientes que utilizem a versão API 2020-12-01 e anteriormente, uma sub-rede contendo instâncias de Gestão API não pode conter quaisquer outros tipos de recursos Azure.
 * A sub-rede e o serviço de Gestão API devem estar na mesma subscrição.
 * Uma sub-rede que contenha instâncias de Gestão da API não pode ser movida através de subscrições.
 * Para implementações de gestão de API multi-regiões configuradas no modo de rede virtual Interna, os utilizadores são responsáveis pela gestão do equilíbrio da carga em várias regiões, uma vez que são donos do encaminhamento.

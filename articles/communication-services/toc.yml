@@ -112,17 +112,6 @@
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: Capacidades de enquadramento da UI
           href: concepts/ui-framework/ui-sdk-features.md
-    - name: Dados e Operações
-      items:
-        - name: Eventos de Serviço (EventGrid)
-          href: ../event-grid/event-schema-communication-services.md
-          maintainContext: true
-        - name: Registo e diagnóstico
-          href: concepts/logging-and-diagnostics.md
-        - name: Métricas
-          href: concepts/metrics.md
-        - name: Resolução de problemas
-          href: concepts/troubleshooting-info.md
     - name: SDKs e REST APIs
       href: concepts/sdk-options.md
     - name: Arquitetura de cliente e servidor
@@ -139,6 +128,15 @@
       href: concepts/notifications.md
     - name: Interoperabilidade com o Teams
       href: concepts/teams-interop.md
+    - name: Eventos de Serviço (EventGrid)
+      href: ../event-grid/event-schema-communication-services.md
+      maintainContext: true
+    - name: Registo e diagnóstico
+      href: concepts/logging-and-diagnostics.md
+    - name: Métricas
+      href: concepts/metrics.md
+    - name: Resolução de problemas
+      href: concepts/troubleshooting-info.md
 - name: Amostras
   items:
     - name: Descrição Geral

@@ -3,17 +3,20 @@ title: Crie o tópico de espaço de nome do ônibus de serviço Azure usando um 
 description: 'Quickstart: Criar um espaço de nomes de ônibus de serviço com tópico e subscrição usando o modelo de Gestor de Recursos Azure'
 documentationcenter: .net
 author: spelluru
+ms.author: spelluru
+ms.date: 06/23/2020
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
-ms.author: spelluru
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 706432c039bc38e9799828ae752d6ad0c92ffde3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-azurecli
+- devx-track-azurepowershell
+- mode-arm
+ms.openlocfilehash: 9c235f8e056bf185267aa0bb493b71b897f3c510
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97704610"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534922"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Quickstart: Criar um espaço de nomes de ônibus de serviço com tópico e subscrição usando um modelo de Gestor de Recursos Azure
 

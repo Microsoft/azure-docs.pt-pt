@@ -12,14 +12,16 @@ ms.topic: conceptual
 ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: hirsin
-ms.custom: aaddev, identityplatformtop40
-ms:custom: fasttrack-edit
-ms.openlocfilehash: cf7940af03c02d96f6ed2ca452322ad012bc6a2d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.custom:
+- aaddev
+- identityplatformtop40
+- fasttrack-edit
+ms.openlocfilehash: 885379a02c8866f2829fb681683a93b1d8d314fa
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105362"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530031"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: ea24716dba5e4e824a4fa986602007035be8e365
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b45d066d0996aaba2a25500f8134085f5e9b6ffb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018382"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535200"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurar registos de fluxo do Grupo de Segurança da Rede usando API REST
 
@@ -31,7 +31,7 @@ Os registos de fluxo do Grupo de Segurança de Rede são uma funcionalidade do N
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A ARMclient é utilizada para chamar a API REST usando o PowerShell. ARMClient é encontrado em chocolate no [ARMClient em Chocolatey](https://chocolatey.org/packages/ARMClient)
+A ARMclient é utilizada para chamar a API REST usando o PowerShell. ARMClient é encontrado em chocolate na [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient). As especificações detalhadas dos registos de fluxo NSG REST API podem ser encontradas [aqui](https://docs.microsoft.com/rest/api/network-watcher/flowlogs) 
 
 Este cenário pressupõe que já seguiu os passos na [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
 

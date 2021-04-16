@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 1e3549a6f5f4f9d7f6a6da574378c90c20e42dcf
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2d23e073a43d61a501e93e0288f222ef26407744
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169577"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538232"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de cálculo de aprendizagem automática Azure
 
@@ -36,6 +36,14 @@ Neste artigo, saiba como:
 
 * A [extensão Azure CLI para o serviço de aprendizagem automática](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/intro)ou a extensão do [Código do Estúdio Visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
 
+* Se utilizar o Python SDK, [crie o seu ambiente de desenvolvimento com um espaço de trabalho.](how-to-configure-environment.md)  Uma vez configurado o seu ambiente, ligue-se ao espaço de trabalho no seu script Python:
+
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.from_config() 
+    ```
+
 ## <a name="what-is-a-compute-cluster"></a>O que é um cluster computacional?
 
 O cluster compute Azure Machine Learning é uma infraestrutura de computação gerida que permite criar facilmente um único ou multi-nó compute. O cálculo é criado dentro da sua região do espaço de trabalho como um recurso que pode ser partilhado com outros utilizadores no seu espaço de trabalho. O cálculo aumenta automaticamente quando um trabalho é submetido e pode ser colocado numa Rede Virtual Azure. O cálculo executa num ambiente contentorizado e embala as dependências do seu modelo num [recipiente Docker.](https://www.docker.com/why-docker)
@@ -53,7 +61,7 @@ Os clusters computativos podem executar empregos de forma segura num [ambiente d
 * O Azure permite-lhe colocar _fechaduras_ nos recursos, para que não possam ser apagados ou lidos apenas. __Não aplique bloqueios de recursos ao grupo de recursos que contém o seu espaço de trabalho__. A aplicação de um bloqueio ao grupo de recursos que contém o seu espaço de trabalho impedirá operações de escala para clusters de computação Azure ML. Para obter mais informações sobre os recursos de bloqueio, consulte [os recursos de bloqueio para evitar alterações inesperadas](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
-> Os clusters podem geralmente escalar até 100 nós, desde que tenha quota suficiente para o número de núcleos necessários. Por predefinição, os clusters são configurados com comunicação inter-nódoa ativada entre os nós do cluster para apoiar empregos de MPI, por exemplo. No entanto, pode escalar os seus clusters para 1000s de nós simplesmente [levantando um bilhete](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio, e solicitando para permitir a lista da sua subscrição, ou espaço de trabalho, ou um cluster específico para desativar a comunicação inter-nól. 
+> Os clusters podem geralmente escalar até 100 nós, desde que tenha quota suficiente para o número de núcleos necessários. Por predefinição, os clusters são configurados com comunicação inter-nódoa ativada entre os nós do cluster para apoiar empregos de MPI, por exemplo. No entanto, pode escalar os seus clusters para 1000s de nós simplesmente [levantando um bilhete](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio, e solicitando para permitir a lista da sua subscrição, ou espaço de trabalho, ou um cluster específico para desativar a comunicação inter-nól.
 
 
 ## <a name="create"></a>Criar
@@ -70,11 +78,11 @@ A computação escala automaticamente para zero nós quando não é usada.   VMs
     
 # <a name="python"></a>[Python](#tab/python)
 
-Para criar um recurso persistente de Azure Machine Learning Compute em Python, especifique as propriedades **vm_size** e **max_nodes.** A Azure Machine Learning utiliza então falhas inteligentes para as outras propriedades. 
+
+Para criar um recurso persistente de Azure Machine Learning Compute em Python, especifique as propriedades **vm_size** e **max_nodes.** A Azure Machine Learning utiliza então falhas inteligentes para as outras propriedades.
     
 * **vm_size**: A família VM dos nós criados pela Azure Machine Learning Compute.
 * **max_nodes**: O número máximo de nós para autoescalar até quando você tem um trabalho no Azure Machine Learning Compute.
-
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
@@ -132,16 +140,18 @@ No estúdio, escolha **Low Priority** quando criar um VM.
 
 * Configure a identidade gerida na sua configuração de provisionamento:  
 
-    * Identidade gerida atribuída pelo sistema:
+    * Sistema atribuído identidade gerida criada num espaço de trabalho chamado `ws`
         ```python
         # configure cluster with a system-assigned managed identity
         compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
                                                                 max_nodes=5,
                                                                 identity_type="SystemAssigned",
                                                                 )
+        cpu_cluster_name = "cpu-cluster"
+        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
         ```
     
-    * Identidade gerida atribuída pelo utilizador:
+    * Identidade gerida atribuída pelo utilizador criada num espaço de trabalho chamado `ws`
     
         ```python
         # configure cluster with a user-assigned managed identity
@@ -154,7 +164,7 @@ No estúdio, escolha **Low Priority** quando criar um VM.
         cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
         ```
 
-* Adicionar identidade gerida a um cluster de computação existente 
+* Adicione identidade gerida a um cluster de computação existente chamado `cpu_cluster`
     
     * Identidade gerida atribuída pelo sistema:
     

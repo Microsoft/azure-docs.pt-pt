@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af783d7ff8be36c63af871ab4f2d214ca9f9405
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97932440"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532586"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -474,7 +474,7 @@ Siga as instruções nas ligações abaixo:
 
 ## <a name="use-the-access-reviews-api"></a>Utilize a API de Comentários de Acesso
 
-Consulte [os métodos de API de gráficos](/graph/api/resources/accessreviews-root?view=graph-rest-beta) e [verificações de autorização de função e pedido](/graph/api/resources/accessreviews-root?view=graph-rest-beta) para interagir e gerir recursos reexuáveis. Os métodos de Avaliação de Acesso na API do Microsoft Graph estão disponíveis tanto para contextos de aplicação como de utilizador. Ao executar scripts no contexto da aplicação, a conta utilizada para executar a API (o princípio do serviço) deve ser concedida a permissão "AccessReview.Read.All" para consultar informações de Comentários de Acesso.
+Consulte [os métodos de API de gráficos](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) e [verificações de autorização de função e pedido](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) para interagir e gerir recursos reexuáveis. Os métodos de Avaliação de Acesso na API do Microsoft Graph estão disponíveis tanto para contextos de aplicação como de utilizador. Ao executar scripts no contexto da aplicação, a conta utilizada para executar a API (o princípio do serviço) deve ser concedida a permissão "AccessReview.Read.All" para consultar informações de Comentários de Acesso.
 
 As tarefas de Avaliação de Acesso Popular para automatizar utilizando a API do Gráfico para Avaliações de Acesso são:
 

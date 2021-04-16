@@ -3,16 +3,18 @@ title: Quickstart - Criar uma zona de DNS privada Azure utilizando o portal Azur
 description: Neste arranque rápido, você cria e testa uma zona de DNS privada e grava em Azure DNS. Este é um guia passo a passo para criar e gerir a sua primeira zona privada de DNS e gravar usando o portal Azure.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: d298dfd5f3ad0beb56a511c124bab056ca25fd27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 2115062db8615ca782cb987903e5ebfc83400cd2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92310054"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535445"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Quickstart: Criar uma zona de DNS privada Azure utilizando o portal Azure
 
@@ -181,4 +183,3 @@ Quando já não for necessário, elimine o grupo de recursos **MyAzureResourceGr
 
 > [!div class="nextstepaction"]
 > [Cenários de Zonas Privadas de DNS do Azure](private-dns-scenarios.md)
-

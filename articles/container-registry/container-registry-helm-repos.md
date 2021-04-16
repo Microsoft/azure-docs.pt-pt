@@ -2,22 +2,19 @@
 title: Gráficos de leme da loja
 description: Saiba como armazenar gráficos Helm para as suas aplicações Kubernetes usando repositórios no Registo de Contentores Azure
 ms.topic: article
-ms.date: 06/12/2020
-ms.openlocfilehash: 9897ed6e43813c16314076b0322cd263cd2ed150
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 04/15/2021
+ms.openlocfilehash: 6698eb8f5e18511717e44bf5dc06a51d8f3903b8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223086"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537311"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Empurre e puxe as fichas de Helm para um registo de contentores Azure
 
 Para gerir e implementar rapidamente aplicações para Kubernetes, pode utilizar o [gestor de pacotes Helm de código aberto.][helm] Com helm, os pacotes de aplicações são definidos como [gráficos,](https://helm.sh/docs/topics/charts/)que são recolhidos e armazenados num [repositório de gráficos Helm](https://helm.sh/docs/topics/chart_repository/).
 
 Este artigo mostra-lhe como hospedar repositórios helm charts em um registo de contentores Azure, usando comandos Helm 3. Em muitos cenários, construiria e carregaria os seus próprios gráficos para as aplicações que desenvolve. Para obter mais informações sobre como construir os seus próprios gráficos helm, consulte o [Guia do Desenvolvedor de Modelos de Gráficos.][develop-helm-charts] Você também pode armazenar um gráfico helm existente a partir de outro repo Helm.
-
-> [!IMPORTANT]
-> O suporte para gráficos helm no Registo de Contentores Azure está atualmente em pré-visualização. As pré-visualizações são-lhe disponibilizadas na condição de concordar com os termos suplementares [de utilização.][terms-of-use] Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="helm-3-or-helm-2"></a>Leme 3 ou Helm 2?
 
@@ -26,7 +23,7 @@ Para armazenar, gerir e instalar gráficos Helm, utilize um cliente Helm e o Hel
 O leme 3 deve ser utilizado para hospedar gráficos helm no registo de contentores Azure. Com Helm 3, tu:
 
 * Pode criar um ou mais repositórios helm num registo de contentores Azure
-* Armazenar gráficos Helm 3 num registo como [artefactos OCI](container-registry-image-formats.md#oci-artifacts). Atualmente, o apoio ao Helm 3 para o OCI é *experimental.*
+* Armazenar gráficos Helm 3 num registo como [artefactos OCI](container-registry-image-formats.md#oci-artifacts). O Registo de Contentores Azure fornece suporte de GA para [artefactos OCI,](container-registry-oci-artifacts.md)incluindo gráficos helm.
 * Autenticar com o seu registo utilizando o `helm registry login` comando.
 * Use `helm chart` comandos no Helm CLI para empurrar, puxar e gerir gráficos de Helm em um registo
 * Use `helm install` para instalar gráficos num cluster Kubernetes a partir de uma cache de repositório local.

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 8701f7bcb2e7ff705e4f1d1b401f4eb3e680f28b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0be2bb59b46dc827001d89f8e0f1be23f35a714d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501044"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536095"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configure a geo-replicação para a Cache Premium Azure para instâncias Redis
 
@@ -42,7 +42,7 @@ Algumas funcionalidades não são suportadas com geo-replicação:
 
 Após a configuração da geo-replicação, aplicam-se as seguintes restrições ao seu par de cache ligado:
 
-- A cache ligada secundária é apenas de leitura; pode ler, mas não pode escrever nenhum dado. 
+- A cache ligada secundária é apenas de leitura; pode ler, mas não pode escrever nenhum dado. Se optar por ler a partir do Geo-Secondary caso, é importante notar que sempre que um Geo-Primary completo de dados está a acontecer entre o Geo-Primary e o Geo-Secondary (acontece quando Geo-Primary ou Geo-Secondary é atualizado e em alguns cenários de reinicialização também), a instância Geo-Secondary lançará erorrs (afirmando que está em curso uma sincronização completa de dados) sobre qualquer operação redis contra ela até que a sincronização total dos dados entre Geo-Primary e Geo-Secondary esteja completa. As aplicações de leitura de Geo-Seocndary devem ser construídas para recair sobre o Geo-Primary sempre que o Geo-Seocndary estiver a lançar tais erros. 
 - Todos os dados que estavam na cache ligada secundária antes da ligação ser adicionada são removidos. No entanto, se a geo-replicação for removida posteriormente, os dados replicados permanecem na cache ligada secundária.
 - Não se pode [escalar](cache-how-to-scale.md) qualquer uma das caches enquanto os caches estão ligados.
 - Não é [possível alterar o número de fragmentos](cache-how-to-premium-clustering.md) se a cache tiver o agrupamento ativado.

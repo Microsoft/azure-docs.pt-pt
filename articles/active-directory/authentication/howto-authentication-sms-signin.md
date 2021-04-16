@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e9052502eba71f025bb6724278b7001173c5217
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b84d55e2d3a2f49a870c1e57eeed3c5c0caeba4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491622"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530410"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configure e permita aos utilizadores a autenticação baseada em SMS utilizando o Azure Ative Directory 
 
@@ -149,7 +149,7 @@ Se receber um erro quando tentar definir um número de telefone para uma conta d
 
 Para obter formas adicionais de iniciar sing no AD Azure sem uma senha, como a App autenticador microsoft ou as teclas de segurança FIDO2, consulte [opções de autenticação sem palavras-passe para Azure AD][concepts-passwordless].
 
-Também pode utilizar a beta API do Microsoft Graph REST para [ativar][rest-enable] ou [desativar][rest-disable] o sôns in baseado em SMS.
+Também pode utilizar a API do Microsoft Graph REST para [ativar][rest-enable] ou [desativar][rest-disable] o sôns in baseado em SMS.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
@@ -157,8 +157,8 @@ Também pode utilizar a beta API do Microsoft Graph REST para [ativar][rest-enab
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
-[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-beta&tabs=http
-[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?view=graph-rest-beta&tabs=http
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?tabs=http
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?tabs=http
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com

@@ -6,14 +6,14 @@ services: cognitive-services
 author: erindormier
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/28/2020
+ms.date: 04/07/2021
 ms.author: egeaney
-ms.openlocfilehash: 88a723abc606a527232b7c1949f35c1fedfdba50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c7476a3ab885e9c127cbd571ad723864bf0d898
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706848"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534569"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configure as chaves geridas pelo cliente com cofre chave Azure para serviços cognitivos
 
@@ -31,10 +31,15 @@ O processo para permitir Customer-Managed Chaves com Cofre chave Azure para Serv
 * [Encriptação de dados do QnA Maker em repouso](../QnAMaker/encrypt-data-at-rest.md)
 * [Encriptação do tradutor de dados em repouso](../translator/encrypt-data-at-rest.md)
 
+## <a name="speech"></a>Voz
+
+* [Encriptação da fala dos dados em repouso](../speech-service/speech-encryption-of-data-at-rest.md)
+
 ## <a name="decision"></a>Decisão
 
 * [Encriptação do Moderador de Conteúdo dos dados em repouso](../Content-Moderator/encrypt-data-at-rest.md)
 * [Encriptação personalizada de dados em repouso](../personalizer/encrypt-data-at-rest.md)
+* [Métricas Encriptação de dados em repouso](../metrics-advisor/encryption.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

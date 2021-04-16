@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b16a2d9f779232e59eb883f6a254be22990f5c78
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505941"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520025"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implementação da plataforma de BI SAP BusinessObjects para Linux no Azure
 
@@ -560,7 +560,7 @@ Como parte do processo de backup, o instantâneo é recolhido e os dados são tr
 
 Para **ficheiros Azure NetApp,** pode criar instantâneos a pedido e agendar instantâneos automáticos utilizando políticas instantâneas. As cópias snapshot fornecem uma cópia pontual do seu volume ANF. Para obter mais informações, consulte [Gerir as imagens utilizando ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
-A cópia de segurança **do Azure Files** está integrada no serviço [Azure Backup](../../../backup/backup-overview.md) nativo, que centraliza a função de backup e restauro juntamente com a cópia de segurança dos VMs e simplifica o trabalho de operação. Para obter mais informações, consulte a cópia de segurança do [Ficheiro Azure](../../../backup/azure-file-share-backup-overview.md) e [as FAQs - Faça backup de Ficheiros Azure](../../../backup/backup-azure-files-faq.md).
+A cópia de segurança **do Azure Files** está integrada no serviço [Azure Backup](../../../backup/backup-overview.md) nativo, que centraliza a função de backup e restauro juntamente com a cópia de segurança dos VMs e simplifica o trabalho de operação. Para obter mais informações, consulte a cópia de segurança do [Ficheiro Azure](../../../backup/azure-file-share-backup-overview.md) e [as FAQs - Faça backup de Ficheiros Azure](../../../backup/backup-azure-files-faq.yml).
 
 #### <a name="backup--restore-for-cms-database"></a>Backup & restaurar para base de dados CMS
 

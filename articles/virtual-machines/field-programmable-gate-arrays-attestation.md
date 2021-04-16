@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: 563155bb6559f8443f1453a65fa0b1574af106f7
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ab9c9c6b9d908e86912565ba43cec665432aeda5
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106556248"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389626"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Atestado FPGA para VMs NP-Series Azure (Pré-visualização)
 
@@ -52,7 +52,7 @@ https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-lates
 
 O seu ficheiro netlist deve ser enviado para um recipiente de blob de armazenamento Azure para acesso pelo serviço de atestado.  
 
-Consulte esta página para obter mais informações sobre a criação da conta, um contentor e o upload da sua lista de netlist como uma bolha para aquele recipiente: https://docs.microsoft.com/azure/storage/blobs/storage-quickstartblobs-cli .  
+Consulte esta página para obter mais informações sobre a criação da conta, um contentor e o upload da sua lista de netlist como uma bolha para aquele recipiente: [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](/azure/storage/blobs/storage-quickstart-blobs-cli) .  
 
 Também pode utilizar o portal Azure para isto.  
 

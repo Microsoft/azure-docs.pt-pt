@@ -1,15 +1,17 @@
 ---
 title: Receba alertas de registo de atividade nas notificações do serviço Azure usando o modelo do Gestor de Recursos
 description: Ser notificado via SMS, e-mail ou webhook quando o serviço Azure ocorrer.
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 730c023de61275d95fe594642149770af42b34b9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594948"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535755"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Quickstart: Criar alertas de registo de atividade nas notificações de serviço usando um modelo ARM
 

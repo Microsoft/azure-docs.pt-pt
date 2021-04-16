@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 206bcfaeb5cb13d3ecf1e5f6335518c42df21eb8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521684"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535287"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança de rede
 
@@ -347,6 +347,18 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - [[Tutorial] Gerir e analisar registos NSG Flow usando Grafana](./network-watcher-nsg-grafana.md)
 - [[Tutorial] Gerir e analisar registos NSG Flow usando Graylog](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
+*Desativar registos de fluxo*
+
+Quando o registo de fluxo é desativado, o registo de fluxo para o NSG associado é interrompido. Mas o fluxo como recurso continua a existir com todas as suas configurações e associações. Pode ser ativado a qualquer momento para iniciar a exploração de fluxo no NSG configurado. Podem ser encontradas etapas para desativar/permitir que possam ser encontradas nos registos [de fluxos como orientar](./network-watcher-nsg-flow-logging-powershell.md).  
+
+*Eliminar registos de fluxo*
+
+Quando o registo de fluxo é eliminado, não só o registo de fluxo para o NSG associado é interrompido, mas também o recurso de registo de fluxo é eliminado com as suas definições e associações. Para recomeçar a registar o fluxo, deve ser criado um novo recurso de registo de fluxo para esse NSG. Um registo de fluxo pode ser eliminado usando [PowerShell,](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworkwatcherflowlog) [CLI](https://docs.microsoft.com/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) ou [REST API](https://docs.microsoft.com/rest/api/network-watcher/flowlogs/delete). O suporte para a eliminação de registos de fluxo do portal Azure está em vias de ser concretizado.    
+
+Além disso, quando um NSG é eliminado, por padrão, o recurso de registo de fluxo associado é eliminado.
+
+> [!NOTE]
+> Para mover um NSG para um grupo de recursos diferente ou subscrição, os registos de fluxo associados devem ser eliminados, apenas desativar os registos de fluxo não funcionará. Após a migração do NSG, os registos de fluxo devem ser recriados para permitir a queda de fluxo nele.  
 
 ## <a name="nsg-flow-logging-considerations"></a>Considerações de registo de fluxos NSG
 
@@ -372,7 +384,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Ativar em VNETs/Subnetas críticas**: Os registos de fluxo devem ser ativados em todos os VNETs/subnets críticos da sua subscrição como uma auditoria e as melhores práticas de segurança. 
 
-**Ativar o registo de fluxo NSG em todos os NSGs ligados a um recurso**: A exploração de fluxo em Azure está configurada no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, recomendamos que se habilita que os registos de fluxo NSG em todos os NSGs aplicados na sub-rede ou interface de rede do recurso para garantir que todo o tráfego seja registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em Grupos de Segurança de Rede. 
+**Ativar o registo de fluxo NSG em todos os NSGs ligados a um recurso**: A exploração de fluxo em Azure está configurada no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, recomendamos que ative os registos de fluxos do NSG em todos os NSGs aplicados na sub-rede ou interface de rede do recurso para garantir que todo o tráfego é registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em Grupos de Segurança de Rede. 
 
 Poucos cenários comuns:
 1. **Múltiplos NICs num VM**: No caso de vários NICs estarem ligados a uma máquina virtual, a exploração de fluxo deve ser ativada em todos eles
@@ -402,7 +414,7 @@ Por vezes, poderá não ver os registos porque as VMs não estão ativas ou porq
 
 **Quero automatizar os Registos de Fluxo do NSG**
 
-O suporte para a automatização através de modelos ARM não está disponível atualmente para os Registos de Fluxo do NSG. Leia o anúncio da [funcionalidade](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) para mais informações.
+O suporte para a automatização através de modelos ARM não está disponível atualmente para os Registos de Fluxo do NSG. Leia o [anúncio de funcionalidades](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) para obter mais informações.
 
 ## <a name="faq"></a>FAQ
 

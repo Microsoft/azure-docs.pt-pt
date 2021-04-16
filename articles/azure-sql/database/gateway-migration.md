@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 62e2306abc2d3132651fb40aab8c2f5b4d5043f4
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 07611a3620a2fd8efe0da075b03b55a5be3a5be9
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960882"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505382"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,10 +29,18 @@ As informações mais atualizadas serão mantidas na tabela de [endereços IP do
 ## <a name="status-updates"></a>Atualizações de estado
 
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
+## <a name="may-2021"></a>Maio de 2021
+Novos Gateways SQL estão a ser adicionados às seguintes regiões:
+- Reino Unido Sul: 51.140.144.36, 51.105.72.32  
+- Centro-Oeste dos EUA: 13.71.193.32, 13.71.193.33 
+
+Este SQL Gateway começará a aceitar o tráfego de clientes no dia 17 de maio de 2021.
 
 ## <a name="april-2021"></a>abril de 2021
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
-- Leste DOS EUA 2: 40.70.144.193 Este SQL Gateway começará a aceitar o tráfego de clientes no dia 30 de abril de 2021.
+- Leste dos EUA 2: 40.70.144.193
+
+Este SQL Gateway começará a aceitar o tráfego de clientes no dia 30 de abril de 2021.
 
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 - Noruega Leste: 51.120.96.33
@@ -46,7 +54,6 @@ Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 5 de abri
 
 ## <a name="march-2021"></a>março de 2021
 Os seguintes Gateways SQL em várias regiões estão em vias de ser desativados:
-
 - Brasil Sul: 104.41.11.5
 - Leste asiático: 191.234.2.139
 - Leste dos EUA: 191.238.6.43
@@ -59,6 +66,9 @@ Os seguintes Gateways SQL em várias regiões estão em vias de ser desativados:
 - Oeste dos EUA: 23.99.34.75
 
 Nenhum impacto do cliente é antecipado uma vez que estes Gateways (em execução em hardware mais antigo) não estão a encaminhar nenhum tráfego do cliente. Os endereços IP para estes Gateways serão desativados no dia 15 de março de 2021.
+
+# <a name="completed"></a>[Concluído](#tab/completed-ip)
+As seguintes migrações de gateway estão completas: 
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
@@ -83,8 +93,7 @@ Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 
 Estes GATEWAYS SQL começarão a aceitar o tráfego de clientes no dia 31 de janeiro de 2021.
 
-# <a name="completed"></a>[Concluído](#tab/completed-ip)
-As seguintes migrações de gateway estão completas: 
+
 
 ### <a name="october-2020"></a>Outubro de 2020
 

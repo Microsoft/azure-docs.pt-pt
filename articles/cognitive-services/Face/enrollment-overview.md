@@ -1,5 +1,5 @@
 ---
-title: Face API visão geral da inscrição
+title: Melhores práticas para adicionar utilizadores a um serviço Face
 titleSuffix: Azure Cognitive Services
 description: Conheça o processo de inscrição face para registar utilizadores num serviço de reconhecimento facial.
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: ac5106aa661cb2baea31ee15d57e9c6fac8c7192
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e710771dd14b389e856e752b6587e2a76ad9d85b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350335"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505076"
 ---
-# <a name="face-api-enrollment"></a>Inscrição de API face
+# <a name="best-practices-for-adding-users-to-a-face-service"></a>Melhores práticas para adicionar utilizadores a um serviço Face
 
 Para utilizar a API dos Serviços Cognitivos para verificação ou identificação facial, é necessário inscrever rostos num **LargePersonGroup**. Este mergulho profundo demonstra as melhores práticas para recolher consentimento significativo dos utilizadores, bem como lógica de exemplo para criar inscrições de alta qualidade que irão otimizar a precisão do reconhecimento.  
 

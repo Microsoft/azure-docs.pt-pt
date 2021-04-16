@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f49e15984b7a673de1e7d1607f4802c17ebef4e2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92370938"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531845"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory
 
@@ -29,6 +29,8 @@ Para obter mais informações sobre as funções de Ad Azure disponíveis, consu
 ## <a name="assign-roles"></a>Atribuir funções
 
 Uma forma comum de atribuir funções Azure AD a um utilizador está na página **de funções atribuídas** para um utilizador. Também pode configurar a elegibilidade do utilizador para ser elevado just-in-time para uma função usando Gestão de Identidade Privilegiada (PIM). Para obter mais informações sobre como utilizar a PIM, consulte [Gestão de Identidade Privilegiada.](../privileged-identity-management/index.yml)
+
+Se um papel de diretório for atribuído a um utilizador convidado, o utilizador convidado será concedido com permissões adicionais que venham com o papel, incluindo permissões básicas de leitura. Ver [funções incorporadas a Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
 
 > [!Note]
 > Se tiver um plano de licença Azure AD Premium P2 e já utilizar o PIM, todas as tarefas de gestão de funções são desempenhadas na [experiência de Gestão de Identidade Privilegiada.](../roles/manage-roles-portal.md) Atualmente, esta funcionalidade limita-se a atribuir apenas uma função de cada vez. Não é possível selecionar várias funções e atribuí-las a um utilizador de uma só vez.

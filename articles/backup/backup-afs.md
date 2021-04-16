@@ -3,12 +3,12 @@ title: Faça o back up ações de ficheiros Azure no portal Azure
 description: Saiba como usar o portal Azure para apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7f44a71388468be432bdfcb0eb2bf67c0fcc8ef
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88890353"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519940"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 
@@ -132,7 +132,7 @@ Os seguintes passos explicam como pode configurar a cópia de segurança para as
        ![Criar novo cofre](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >Se a conta de armazenamento estiver registada num cofre, ou se houver poucas ações protegidas dentro da conta de armazenamento que está a tentar proteger, o nome do cofre dos Serviços de Recuperação será pré-povoado e não poderá editá-la [Saiba mais aqui.](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share)
+      >Se a conta de armazenamento estiver registada num cofre, ou se houver poucas ações protegidas dentro da conta de armazenamento que está a tentar proteger, o nome do cofre dos Serviços de Recuperação será pré-povoado e não poderá editá-la [Saiba mais aqui.](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-)
 
 1. Para a seleção **de Política de Backup,** faça uma das seguintes:
 

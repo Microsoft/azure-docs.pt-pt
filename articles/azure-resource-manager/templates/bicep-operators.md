@@ -2,17 +2,23 @@
 title: Operadores bicep
 description: Descreve os operadores Bicep disponíveis para implementações do Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 4bf1005a11b1dcfea9f4b28d6bd3fa7c33e3278f
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.date: 04/15/2021
+ms.openlocfilehash: 0838ebf6bc03f4237ef76e07f1eb6f25aa996fc0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107211334"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537827"
 ---
 # <a name="bicep-operators"></a>Operadores bicep
 
-Este artigo descreve os operadores Bicep que estão disponíveis quando cria um modelo Bicep e utiliza o Azure Resource Manager para implementar recursos. Os operadores são utilizados para calcular valores, comparar valores ou avaliar condições. Existem três tipos de operadores bicep: [comparação,](#comparison) [lógica](#logical)e [numérica.](#numeric)
+Este artigo descreve os operadores Bicep que estão disponíveis quando cria um modelo Bicep e utiliza o Azure Resource Manager para implementar recursos. Os operadores são utilizados para calcular valores, comparar valores ou avaliar condições. Existem três tipos de operadores bicep:
+
+- [comparação](#comparison)
+- [lógica](#logical)
+- [numérico](#numeric)
+
+A codificação de uma expressão entre `(` e `)` permite-lhe anular a precedência padrão do operador Bicep. Por exemplo, a expressão x + y/z avalia a divisão primeiro e depois a adição. No entanto, a expressão (x + y) / z avalia a adição de primeira e segunda divisão.
 
 ## <a name="comparison"></a>Comparação
 

@@ -4,19 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: Use este quickstart para começar a usar a API de pesquisa de negócios local Bing em Python.
 services: cognitive-services
 author: aahill
+ms.author: aahi
 manager: nitinme
+ms.date: 05/12/2020
+ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: bing-local-business
-ms.topic: quickstart
-ms.date: 05/12/2020
-ms.author: aahi
-ms.custom: devx-track-python
-ms.openlocfilehash: ff06d29c613b626c48c347628992576fc29b3a89
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: adbf3d9abddf01ba67046cfa433ffd46f713ff83
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430144"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536673"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Quickstart: Envie uma consulta para a API de Pesquisa de Negócios Locais de Bing em Python
 

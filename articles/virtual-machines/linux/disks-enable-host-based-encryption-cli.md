@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3eecb584f468bc170f0325da8d734a1890691483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45cdb9217eebf6e3129718a96d9f7b72a3ab62b3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601776"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533612"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o CLI Azure para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
 
@@ -27,7 +27,8 @@ Quando ativa a encriptação no anfitrião, os dados armazenados no anfitrião V
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
-Também pode encontrar os tamanhos VM programáticamente. Para aprender a recuperá-los programáticamente, consulte a secção [de tamanhos VM suportados por Finding.](#finding-supported-vm-sizes)
+A lista completa dos tamanhos de VM suportados pode ser puxada programáticamente. Para aprender a recuperá-los programáticamente, consulte a secção [de tamanhos VM suportados por Finding.](#finding-supported-vm-sizes)
+A atualização do tamanho do VM resultará em validação para verificar se o novo tamanho VM suporta a funcionalidade EncryptionAtHost.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

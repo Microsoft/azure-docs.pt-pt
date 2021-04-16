@@ -486,6 +486,16 @@
               displayName: 'monitor, server logs'
             - name: Registos de auditoria
               href: flexible-server/concepts-audit.md
+            - name: Desempenho Inteligente
+              items:
+                - name: Visão geral da Loja de Consultas
+                  href: flexible-server/concepts-query-store.md
+                  displayName: 'performance, optimize, query store'
+                - name: Cenários de utilização do Arquivo de Consultas
+                  href: flexible-server/concepts-query-store-scenarios.md
+                  displayName: 'query store, performance, optimize'
+                - name: Melhores práticas do Query Store
+                  href: flexible-server/concepts-query-store-best-practices.md
         - name: Replicação
           href: flexible-server/concepts-logical.md
           displayName: logical decoding

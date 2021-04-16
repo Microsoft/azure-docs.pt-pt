@@ -8,16 +8,16 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16ceddc8848df2f8e0456d2b0f4dab66a76e6eff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71a4c27b84a16a4acb37c196ccd8ee571c2b2468
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879127"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503495"
 ---
 # <a name="azcopy-env"></a>azcopy env
 
-Mostra as variáveis ambientais que podem configurar o comportamento da AzCopy.
+Mostra as variáveis ambientais que podem configurar o comportamento da AzCopy. Para obter uma lista completa de variáveis ambientais, consulte as definições de [configuração AzCopy v10 (Azure Storage)](storage-ref-azcopy-configuration-settings.md).
 
 ## <a name="synopsis"></a>Sinopse
 
@@ -33,7 +33,6 @@ azcopy env [flags]
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 - [Dados de transferência com armazenamento AzCopy e Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
-- [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opções
 

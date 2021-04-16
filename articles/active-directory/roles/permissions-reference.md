@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e356363d91c3aa429fd958c1dd3bc553e7a4d29
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 9266322d424d57ac847df85513db34d4a42e47e1
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030241"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389830"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções incorporadas do Azure AD
 
@@ -30,7 +30,7 @@ Este artigo lista as funções incorporadas AD AZure que pode atribuir para perm
 ## <a name="all-roles"></a>Todos os papéis
 
 > [!div class="mx-tableFixed"]
-> | Função | Description | ID do Modelo |
+> | Função | Descrição | ID do Modelo |
 > | --- | --- | --- |
 > | [Administrador de Aplicações](#application-administrator) | Pode criar e gerir todos os aspetos dos registos de aplicações e aplicações empresariais. | 9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3 |
 > | [Programador de Aplicações](#application-developer) | Pode criar registos de aplicações independentemente da definição de "Os Utilizadores podem registar as aplicações". | cf1c38e5-3621-4004-a7cb-879624dced7c |
@@ -885,7 +885,7 @@ Os utilizadores desta função podem ler definições e informações administra
 > O papel de leitor global tem algumas limitações agora -
 >
 >- [Centro de administração OneDrive](https://admin.onedrive.com/) - O centro de administração OneDrive não suporta o papel de leitor Global
->- [Centro de administração M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - O leitor global não consegue ler os pedidos do lockbox do cliente. Não encontrará o separador de **pedidos de bloqueio** do Cliente no **suporte** no painel esquerdo do M365 Admin Center.
+>- [Centro de administração M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - O leitor global não consegue ler aplicações integradas. Não encontrará o separador **de aplicações integrado** em **Definições** no painel esquerdo do M365 Admin Center.
 >- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - O leitor global não consegue ler registos de auditoria SCC, fazer pesquisa de conteúdos ou ver Pontuação Segura.
 >- [Teams admin center](https://admin.teams.microsoft.com) - O leitor global não consegue ler **o ciclo de vida das equipas,** **relatórios de & de análise,** **gestão de dispositivos ip e** catálogo de **aplicações.**
 >- [A Gestão privilegiada de Acesso (PAM)](/office365/securitycompliance/privileged-access-management-overview) não suporta o papel de leitor global.
@@ -1861,7 +1861,7 @@ Por exemplo:
 
 `microsoft.directory/applications/credentials/update`
 
-| Elemento de permissão | Description |
+| Elemento de permissão | Descrição |
 | --- | --- |
 | espaço de nomes | Produto ou serviço que expõe a tarefa e está preparado com `microsoft` . Por exemplo, todas as tarefas em Azure AD usam o `microsoft.directory` espaço de nome. |
 | entidade | Característica lógica ou componente exposto pelo serviço no Microsoft Graph. Por exemplo, a Azure AD expõe o Utilizador e os Grupos, o OneNote expõe notas e a Exchange expõe caixas de correio e calendários. Existe uma `allEntities` palavra-chave especial para especificar todas as entidades num espaço de nome. Isto é frequentemente usado em papéis que concedem acesso a um produto inteiro. |

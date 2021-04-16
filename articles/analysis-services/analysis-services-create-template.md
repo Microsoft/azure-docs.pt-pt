@@ -3,17 +3,21 @@ title: Quickstart - Criar um recurso de servidor de Serviços de Análise Azure 
 description: Quickstart mostrando como obter um recurso de servidor Azure Analysis Services utilizando um modelo de Gestor de Recursos Azure.
 author: minewiskan
 ms.author: owend
-tags: azure-resource-manager
-ms.service: azure-analysis-services
-ms.topic: quickstart
 ms.date: 08/31/2020
-ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 3e776bf41420d38a1b208ce11a6a34e97fa92a15
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: azure-analysis-services
+tags:
+- azure-resource-manager
+ms.custom:
+- subject-armqs
+- references_regions
+- mode-arm
+ms.openlocfilehash: 3e9210bb94cca354a7c0a5cb5c81b6153900b4ec
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89230794"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538213"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Quickstart: Criar um servidor - modelo ARM
 

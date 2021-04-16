@@ -1,0 +1,14 @@
+- name: O que é a Infraestrutura BareMetal para o Oráculo?
+  href: oracle-baremetal-overview.md
+- name: BareMetal SKUs
+  href: oracle-baremetal-skus.md
+- name: Armazenamento
+  href: oracle-baremetal-storage.md
+- name: Considerações de correção
+  href: oracle-baremetal-patching.md
+- name: Configuração Ethernet
+  href: oracle-baremetal-ethernet.md
+- name: Arquitetura
+  href: oracle-baremetal-architecture.md
+- name: Aprovisionar
+  href: oracle-baremetal-provision.md

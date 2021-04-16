@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: dc7ef676663e94d6ad03a5cfed8ae68cfcfc26c3
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: af32e4ebc08811ed5d4e9a583173f45368ba1148
+  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102507743"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107504957"
 landingContent:
 - title: Acerca do serviço Face
   linkLists:
@@ -66,12 +66,10 @@ landingContent:
       url: Face-API-How-to-Topics/specify-recognition-model.md
 - title: Utilizar retângulos de rostos
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Apresentar dados de rostos numa aplicação do Windows Presentation Foundation
-      url: Tutorials/FaceAPIinCSharpTutorial.md
   - linkListType: how-to-guide
     links:
+    - text: Detetar e analisar rostos
+      url: Face-API-How-to-Topics/howtodetectfacesinimage.md
     - text: Utilizar o atributo HeadPose
       url: Face-API-How-to-Topics/how-to-use-headpose.md
 - title: Utilizar contentores

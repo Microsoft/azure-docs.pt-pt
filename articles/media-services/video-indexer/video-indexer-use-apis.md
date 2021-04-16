@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a445e9869b0cd9928d95364f39e60fc892214b9a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028219"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532454"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
@@ -88,7 +88,7 @@ O parâmetro de ID da Conta é necessário em todas as chamadas à API operacion
 
 * Utilize o **Video Indexer Developer Portal** para obter o ID da Conta através de programação.
 
-    Use a [conta Get](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) API.
+    Use a [conta Get](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account) API.
 
     > [!TIP]
     > Pode gerar tokens de acesso para as contas ao definir `generateAccessTokens=true`.

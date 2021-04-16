@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc, seodec18
-ms.openlocfilehash: a8b7d20c3eee57d10a7025b05605603f82437cdb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: b30530956b6e8a4b7f10393cf90caf341bcc82a8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006425"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483406"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>Restaurar uma aplicação web a partir de uma cópia de segurança usando o CLI
 

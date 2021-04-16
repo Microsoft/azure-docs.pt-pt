@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 56db88bff5b0e92a3819670e200177f10609aaa8
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 822d50bca6bc1139e9b5f0554bcf9a56a8fcbd74
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029731"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532882"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Widgets do Indexer de Vídeo incorporados nas suas apps
 
@@ -97,13 +97,13 @@ Pode incorporar vídeos públicos montando o URL da seguinte forma:
   
 #### <a name="private-videos"></a>Vídeos privados
 
-Para incorporar um vídeo privado, tem de passar um token de acesso (use [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?) no `src` atributo do iframe:
+Para incorporar um vídeo privado, tem de passar um token de acesso (use [Get Video Access Token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) no `src` atributo do iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
   
 ### <a name="provide-editing-insights-capabilities"></a>Fornecer capacidades de edição
 
-Para fornecer capacidades de edição de insights no seu widget incorporado, tem de passar um token de acesso que inclua permissões de edição. Use [Obter Token de acesso de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) com `&allowEdit=true` .
+Para fornecer capacidades de edição de insights no seu widget incorporado, tem de passar um token de acesso que inclua permissões de edição. Use [Obter Token de acesso de vídeo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) com `&allowEdit=true` .
 
 ## <a name="widgets-interaction"></a>Interação de widgets
 
