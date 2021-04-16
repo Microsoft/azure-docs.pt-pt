@@ -8,12 +8,12 @@ ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c1e265f473c1c6fb70fd97416722e7b863c429b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493769"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503563"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -38,9 +38,9 @@ Para mais informações, consulte a secção de exemplos deste artigo.
 ## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+- [Tutorial: Migrar dados no local para armazenamento em nuvem com AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Dados de transferência com armazenamento AzCopy e Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
-- [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="advanced"></a>Avançado
 

@@ -3,20 +3,22 @@ title: 'Quickstart: Criar um classificador de carga de trabalho - Portal'
 description: Utilize o portal Azure para criar um classificador de carga de trabalho de elevada importância.
 services: synapse-analytics
 author: ronortloff
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 05/04/2020
 ms.author: rortloff
+manager: craigg
 ms.reviewer: jrasnick
-ms.custom: azure-synapse
-ms.openlocfilehash: 1f4d113f3bc6add67dd34a7ef5e3f8cdc08cecf0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2020
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- azure-synapse
+- mode-portal
+ms.openlocfilehash: 6f1997a80e66d1ca7928afc02acf92f376fc3376
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98677526"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534282"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>Quickstart: Criar um classificador dedicado à carga de trabalho da piscina SQL utilizando o portal Azure
 

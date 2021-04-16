@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0f3638e7649fc02f050c575ee621ce9dc237c24f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562329"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517271"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -81,7 +81,7 @@ Use este separador para obter uma visão geral de alto nível da sua propriedade
 
 ##### <a name="backup-items"></a>Itens de Cópia de Segurança
 
-Utilize este separador para ver informações e tendências sobre o armazenamento na nuvem consumidas a um nível de itens de backup. Por exemplo, se utilizar o SQL numa cópia de segurança Azure VM, pode ver o armazenamento na nuvem consumido por cada base de dados SQL que está a ser apoiada. Também pode optar por ver dados para itens de backup de um determinado estado de proteção. Por exemplo, selecionar o azulejo **'Protecção' Stop** na parte superior do separador filtra todos os widgets por baixo para mostrar dados apenas para itens de backup no estado de Proteção Parado.
+Utilize este separador para ver informações e tendências sobre o armazenamento na nuvem consumidas a um nível de itens de backup. Por exemplo, se utilizar o SQL numa cópia de segurança Azure VM, pode ver o armazenamento na nuvem consumido por cada base de dados SQL que está a ser apoiada. Também pode optar por ver dados para itens de backup de um determinado estado de proteção. Por exemplo, selecionar o azulejo **'Proteção' Stop** na parte superior do separador filtra todos os widgets por baixo para mostrar dados apenas para itens de backup no estado de Proteção Parado.
 
    ![Separador de Itens de Reserva](./media/backup-azure-configure-backup-reports/backup-items.png)
 
@@ -183,7 +183,7 @@ Se utilizar [o Farol Azure](../lighthouse/index.yml) com acesso delegado a subsc
 ## <a name="conventions-used-in-backup-reports"></a>Convenções utilizadas em relatórios de backup
 
 - Os filtros funcionam da esquerda para a direita e de cima para baixo em cada separador. Ou seja, qualquer filtro só se aplica a todos os widgets que estão posicionados à direita desse filtro ou abaixo desse filtro.
-- Selecionar um azulejo colorido filtra os widgets abaixo do azulejo para registos que dizem respeito ao valor desse azulejo. Por exemplo, selecionar o azulejo **'Protecção' Stop** no separador **Itens de Cópia de Segurança** filtra as grelhas e gráficos abaixo para mostrar dados para itens de cópia de segurança no estado de Proteção Parado.
+- Selecionar um azulejo colorido filtra os widgets abaixo do azulejo para registos que dizem respeito ao valor desse azulejo. Por exemplo, selecionar o azulejo **'Proteção' Stop** no separador **Itens de Cópia de Segurança** filtra as grelhas e gráficos abaixo para mostrar dados para itens de cópia de segurança no estado de Proteção Parado.
 - Azulejos que não são coloridos não são selecionáveis.
 - Os dados do dia parcial atual não estão nos relatórios. Assim, quando o valor selecionado do Intervalo de **Tempo** é **o último de 7 dias,** o relatório mostra registos dos últimos sete dias concluídos. O dia de hoje não está incluído.
 - O relatório mostra pormenores sobre os postos de trabalho (para além dos postos de trabalho) que foram *desencadeados* no intervalo de tempo selecionado.
@@ -212,4 +212,4 @@ Os widgets do relatório Backup são alimentados por consultas kusto, que funcio
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre monitorização e reporte com a Azure Backup](./backup-azure-monitor-alert-faq.md)
+[Saiba mais sobre monitorização e reporte com a Azure Backup](./backup-azure-monitor-alert-faq.yml)

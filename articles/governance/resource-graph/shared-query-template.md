@@ -3,13 +3,15 @@ title: 'Quickstart: Criar uma consulta partilhada com modelos'
 description: Neste arranque rápido, utiliza-se um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma consulta partilhada de Gráfico de Recurso que conta com máquinas virtuais por SISTEMA.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.openlocfilehash: 8d631ffcb14af93f10e578097470efc6156287d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: ac736d4371531bb38a8cd2cf095acbdfbc7c08a1
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594321"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535786"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Quickstart: Crie uma consulta partilhada utilizando um modelo ARM
 

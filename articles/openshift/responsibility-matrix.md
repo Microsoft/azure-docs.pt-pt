@@ -7,12 +7,12 @@ ms.date: 4/12/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, chapéu vermelho, cli, RACI, apoio
-ms.openlocfilehash: 364b0a04e3394efcacba00c538218ecee2355f89
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4bb00cb533d0065a992831f09ed8280c96efcdee
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107495070"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537007"
 ---
 # <a name="overview-of-responsibilities-for-azure-red-hat-openshift"></a>Visão geral das responsabilidades para Azure Red Hat OpenShift
 
@@ -20,7 +20,7 @@ Este documento descreve as responsabilidades da Microsoft, Red Hat e clientes pa
 
 Enquanto a Microsoft e a Red Hat gerem o serviço Azure Red Hat OpenShift, o cliente partilha a responsabilidade pela funcionalidade do seu cluster. Enquanto os clusters Azure Red Hat OpenShift são hospedados em recursos Azure em subscrições do cliente Azure, eles são acedidos remotamente. A plataforma subjacente e a segurança de dados são propriedade da Microsoft e da Red Hat.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 <table>
   <tr>
    <td><strong>Recurso</strong>
@@ -405,14 +405,14 @@ A gestão da identidade e do acesso inclui todas as responsabilidades para garan
    <td>
 <ul>
 
-<li>Forneça capacidades nativas de RBAC aberto e de administração dedicada.
+<li>Fornecer capacidades nativas de RBAC aberto.
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Configure os administradores dedicados openshift e o RBAC para controlar o acesso à configuração da rota, conforme necessário.
+<li>Configure o RBAC openshift para controlar o acesso à configuração da rota, conforme necessário.
 </li>
 </ul>
    </td>
@@ -423,7 +423,7 @@ A gestão da identidade e do acesso inclui todas as responsabilidades para garan
    <td>
 <ul>
 
-<li>Forneça capacidades nativas de RBAC aberto e de administração dedicada.
+<li>Fornecer capacidades nativas de RBAC aberto.
 </li>
 </ul>
    </td>
@@ -434,7 +434,7 @@ A gestão da identidade e do acesso inclui todas as responsabilidades para garan
 
 <li>Gerencie a Org Admins para a organização Red Hat para conceder acesso ao OpenShift Cluster Manager.
 
-<li>Configure os administradores dedicados openshift e o RBAC para controlar o acesso à configuração da rota, conforme necessário.
+<li>Configure o RBAC openshift para controlar o acesso à configuração da rota, conforme necessário.
 </li>
 </ul>
    </td>
@@ -583,7 +583,7 @@ O cliente é responsável pelas aplicações, cargas de trabalho e dados que imp
 
 <li>Se um cliente adicionar Red Hat, comunidade, terceiros, seus próprios ou outros serviços ao cluster, utilizando operadores ou imagens externas, o cliente é responsável por estes serviços e por trabalhar com o fornecedor apropriado (incluindo o Red Hat) para resolver quaisquer problemas.
 
-<li>Utilizar as ferramentas e funcionalidades fornecidas para <a href="https://docs.openshift.com/dedicated/4/architecture/understanding-development.html#application-types">configurar e implementar;</a> <a href="https://docs.openshift.com/dedicated/4/applications/deployments/deployment-strategies.html">manter-se atualizado;</a> <a href="https://docs.openshift.com/dedicated/4/applications/working-with-quotas.html">criar pedidos e limites</a>de recursos; <a href="https://docs.openshift.com/dedicated/4/getting_started/scaling-your-cluster.html">tamanho do cluster para ter recursos suficientes para executar apps;</a> <a href="https://docs.openshift.com/dedicated/4/administering_a_cluster/dedicated-admin-role.html#dedicated-admin-granting-permissions_dedicated-administrator">configurar permissões;</a> integrar-se com outros serviços; <a href="https://docs.openshift.com/dedicated/4/openshift_images/images-understand.html">gerir quaisquer fluxos de imagem ou modelos que o cliente implemente;</a> <a href="https://docs.openshift.com/dedicated/4/cloud_infrastructure_access/dedicated-aws-private-cluster.html">servir externamente;</a> salvar, fazer o back up e restaurar os dados; e, de outra forma, gerir as suas cargas de trabalho altamente disponíveis e resilientes.
+<li>Utilizar as ferramentas e funcionalidades fornecidas para <a href="https://docs.openshift.com/aro/4/architecture/understanding-development.html#application-types">configurar e implementar;</a> <a href="https://docs.openshift.com/aro/4/applications/deployments/deployment-strategies.html">manter-se atualizado;</a> <a href="https://docs.openshift.com/aro/4/applications/working-with-quotas.html">criar pedidos e limites</a>de recursos; <a href="https://docs.openshift.com/aro/4/getting_started/scaling-your-cluster.html">tamanho do cluster para ter recursos suficientes para executar apps;</a> <a href="https://docs.openshift.com/aro/4/administering_a_cluster/">configurar permissões;</a> integrar-se com outros serviços; <a href="https://docs.openshift.com/aro/4/openshift_images/images-understand.html">gerir quaisquer fluxos de imagem ou modelos que o cliente implemente;</a> <a href="https://docs.openshift.com/aro/4/cloud_infrastructure_access">servir externamente;</a> salvar, fazer o back up e restaurar os dados; e, de outra forma, gerir as suas cargas de trabalho altamente disponíveis e resilientes.
 
 <li>Manter a responsabilidade de monitorizar as aplicações executadas no Azure Red Hat OpenShift; incluindo instalar e operar software para recolher métricas e criar alertas.
 </li>

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f416a23dbb47660097c41ada09c8c135434bcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b8a84da331568d36b6f6910054fdb2aea76f490
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743654"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530324"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como funciona a redefinição da palavra-passe de autosserviço no Azure Ative Directory?
 
@@ -140,7 +140,7 @@ As palavras-passe são escritas em todas as seguintes situações:
    * Qualquer administrador de autosserviço força alterar a operação de senha, por exemplo, a expiração da palavra-passe.
    * Qualquer redefinição da palavra-passe de autosserviço do administrador que tenha origem no portal de reset da [palavra-passe](https://passwordreset.microsoftonline.com).
    * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir do [portal Azure](https://portal.azure.com).
-   * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir da [beta API do Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
+   * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir da [API do Gráfico microsoft](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http).
 
 ## <a name="unsupported-writeback-operations"></a>Operações de writeback não suportadas
 
@@ -149,7 +149,7 @@ As palavras-passe não estão escritas em nenhuma das seguintes situações:
 * **Operações de utilizador final não suportadas**
    * Qualquer utilizador final que reinicie a sua própria palavra-passe utilizando a versão 1 do PowerShell, a versão 2 ou a API do Microsoft Graph.
 * **Operações de administrador não apoiadas**
-   * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir da versão 1 do PowerShell, versão 2 ou da API do Microsoft Graph (a versão API do [Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) É suportada).
+   * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir da versão 1 do PowerShell, versão 2 ou da API do Microsoft Graph (a API do [Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http) é suportada).
    * Qualquer palavra-passe de utilizador final iniciada pelo administrador é reiniciada a partir do [centro de administração microsoft 365](https://admin.microsoft.com).
    * Qualquer administrador não pode utilizar a ferramenta de reset de palavra-passe para redefinir a sua própria palavra-passe para a gravação de palavras-passe.
 

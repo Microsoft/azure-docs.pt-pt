@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: lajanuar
-ms.openlocfilehash: 148aa722515d9364ce5af85b3f7c3b39958c9c91
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 7c92fb7f5de5542af08d1335bea745557a330f0d
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388385"
+ms.locfileid: "107506011"
 ---
 # <a name="translator-30-translate"></a>Tradutor 3.0: Traduzir
 
@@ -59,7 +59,7 @@ Os parâmetros de pedido passados na cadeia de consulta são:
   </tr>  
   <tr>
     <td>textoType</td>
-    <td><em>Parâmetro opcional.</em><br/>Define se o texto que está a ser traduzido é texto simples ou texto HTML. Qualquer HTML tem de ser um elemento completo e bem formado. Ao traduzir o texto HTML, o texto de saída tem os seguintes caracteres especiais em forma de escapada: "&", "<" e ">". Isto não é independente se o texto HTML de entrada tem os caracteres escapados. Os valores possíveis são: <code>plain</code> (padrão) ou <code>html</code>.</td>
+    <td><em>Parâmetro opcional.</em><br/>Define se o texto que está a ser traduzido é texto simples ou texto HTML. Qualquer HTML tem de ser um elemento completo e bem formado. Os valores possíveis são: <code>plain</code> (padrão) ou <code>html</code>.</td>
   </tr>
   <tr>
     <td>categoria</td>
@@ -104,7 +104,7 @@ Os cabeçalhos de pedido incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>Cabeçalho de autenticação</td>
     <td><em>Cabeçalho de pedido necessário</em>.<br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
@@ -182,7 +182,7 @@ Exemplo das respostas do JSON são fornecidas na secção [de exemplos.](#exampl
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>Description</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar o pedido. É utilizado para resolução de problemas.</td>
@@ -199,7 +199,7 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Com êxito.</td>

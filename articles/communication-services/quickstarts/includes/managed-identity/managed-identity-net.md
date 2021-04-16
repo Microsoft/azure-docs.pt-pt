@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 424e70f4f3656be2196f4dbdfbddb852846b6897
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fe487aa684e0ec4c68adb9f5224066ac742676be
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307487"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564550"
 ---
 ## <a name="setting-up"></a>Configuração
 
@@ -87,7 +87,7 @@ Como outro exemplo de utilização de identidades geridas, adicionamos este cód
      }
 ```
 
-## <a name="write-the-main-method"></a>Escreva o Método Principal
+## <a name="write-the-main-method"></a>Escreva o método principal
 
 Você `Program.cs` já deve ter um método Principal, vamos adicionar algum código que irá chamar o nosso código previamente criado para demonstrar o uso de identidades geridas:
 
@@ -136,7 +136,7 @@ class Program
                Console.WriteLine("Sending SMS using Managed Identities");
 
                // You will need a phone number from your resource to send an SMS.
-               SmsSendResult result = instance.SendSms(endpoint, "+18445504651", "+14256253982", "Hello from Managed Identities");
+               SmsSendResult result = instance.SendSms(endpoint, "<Your ACS Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Managed Identities");
                Console.WriteLine($"Sms id: {result.MessageId}");
                Console.WriteLine($"Send Result Successful: {result.Successful}");
           }
@@ -165,7 +165,7 @@ class Program
     }
 ```
 
-## <a name="run-the-program"></a>Executar o Programa
+## <a name="run-the-program"></a>Execute o programa
 
 Deverá agora poder executar a sua aplicação, utilizando `dotnet run` a sua pasta de aplicação. A saída deve assemelhar-se ao seguinte:
 ```

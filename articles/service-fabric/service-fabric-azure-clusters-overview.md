@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aed4ab38db9f8d8b95647b6662245c93778afed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97882216"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520161"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os aglomerados podem escalar para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e as instâncias através do aumento do número de nós. O desempenho geral da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Tecido de Serviço reequilibra novamente as réplicas de partição e instâncias através do número reduzido de nós para melhor utilizar o hardware em cada nó.
@@ -92,25 +92,7 @@ Um cluster Azure Service Fabric é um recurso que possui, mas é parcialmente ge
 Para mais informações, leia [a atualização dos agrupamentos.](service-fabric-cluster-upgrade.md)
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
-É possível criar clusters em máquinas virtuais que executam estes sistemas operativos:
-
-| Sistema operativo | Primeira versão suportada do Tecido de Serviço | Última versão suportada do Service Fabric |
-| --- | --- | --- | 
-| Windows Server 2019 | 6.4.654.9590 | N/D |
-| Windows Server 2016 | Todas as versões | N/D |
-| Windows Server 20H2 | 7.2.445.9590 | N/D |
-| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
-| Servidor Windows 1803 | 6.4 | 7.2.445.9590 |
-| Servidor Windows 1709 | 6,0 | 7.2.445.9590 |
-| Windows Server 2012 | Todas as versões | N/D | 
-| Linux Ubuntu 16.04 | 6,0 | N/D |
-| Linux Ubuntu 18.04 | 7.1 | N/D |
-
-Para mais informações consulte [ver versões de cluster suportadas em Azure](./service-fabric-versions.md#supported-operating-systems)
-
-> [!NOTE]
-> Se decidir implantar o Tecido de Serviço no Windows Server 1709, por favor tenha em atenção que (1) não é um ramo de manutenção a longo prazo, pelo que poderá ter de mover versões no futuro, e (2) se implementar contentores, os contentores construídos no Windows Server 2016 não funcionam no Windows Server 1709 e vice-versa (terá de as reconstruir para as implementar).
->
+Consulte [versões suportadas no Azure](./service-fabric-versions.md) para obter informações adicionais
 
 
 ## <a name="next-steps"></a>Passos seguintes

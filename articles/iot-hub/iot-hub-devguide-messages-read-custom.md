@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ad57473e0950f031fbeadee2302f85557ed526f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147640"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388266"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilize rotas de mensagens e pontos finais personalizados para mensagens dispositivo-a-nuvem
 
@@ -32,13 +32,14 @@ Uma única mensagem pode coincidir com a condição em várias consultas de enca
 
 ## <a name="endpoints-and-routing"></a>Pontos finais e encaminhamento
 
-Um hub IoT tem um [ponto final incorporado](iot-hub-devguide-messages-read-builtin.md)padrão. Pode criar pontos finais personalizados para encaminhar mensagens para, ligando outros serviços na sua subscrição ao hub. O IoT Hub suporta atualmente contentores de armazenamento Azure, Centros de Eventos, filas de autocarros de serviço e tópicos de Service Bus como pontos finais personalizados.
+Um hub IoT tem um [ponto final incorporado](iot-hub-devguide-messages-read-builtin.md)padrão. Pode criar pontos finais personalizados para encaminhar mensagens para, ligando outros serviços nas subscrições que possui ao hub. O IoT Hub suporta atualmente contentores de armazenamento Azure, Centros de Eventos, filas de autocarros de serviço e tópicos de Service Bus como pontos finais personalizados.
 
 Quando utiliza o encaminhamento e os pontos finais personalizados, as mensagens só são entregues no ponto final incorporado se não corresponderem a qualquer consulta. Para entregar mensagens no ponto final incorporado, bem como para um ponto final personalizado, adicione uma rota que envia mensagens para o ponto final de **eventos incorporados.**
 
 > [!NOTE]
 > * O IoT Hub só suporta escrever dados para os recipientes de armazenamento Azure como bolhas.
 > * As filas e tópicos do Service Bus com **sessões** ou **deteção duplicada** não são suportados como pontos finais personalizados.
+> * No portal Azure, pode criar pontos finais de encaminhamento personalizados apenas para recursos Azure que estejam na mesma subscrição que o seu hub. Pode criar pontos finais personalizados para recursos em outras subscrições que possui, mas os pontos finais personalizados devem ser configurados utilizando um método diferente do portal Azure.
 
 Para obter mais informações sobre a criação de pontos finais personalizados no IoT Hub, consulte [os pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
 

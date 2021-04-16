@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 13b62646728eb03a7470d9bb57741bcb90cc24fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02fcd8fc14a300b7031677185a91d7e6c9aa3b09
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92447726"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518359"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Tutorial: Azure Ative Directory integração única (SSO) com gramática
 
@@ -37,8 +37,8 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Gramática suporta **IDP** iniciado SSO
-* A grammarly suporta o fornecimento do utilizador **Just In Time**
+* A gramática suporta **o IDP** iniciado SSO.
+* A grammarly suporta o fornecimento do utilizador **Just In Time.**
 
 > [!NOTE]
 > O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
@@ -53,7 +53,6 @@ Para configurar a integração da Grammarly no AD Azure, é necessário adiciona
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar da secção **da galeria,** digite **Grammarly** na caixa de pesquisa.
 1. Selecione **Grammarly** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-grammarly"></a>Configurar e testar Azure AD SSO para gramática
 
@@ -74,7 +73,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No portal Azure, na página de integração de aplicações **grammarly,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -131,12 +130,12 @@ Nesta secção, um utilizador chamado B.Simon é criado em Gramática. A grammar
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-1. Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na Gramática para a qual configura o SSO 
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito na Gramática para a qual configura o SSO.
 
-2. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo grammarly no Painel de Acesso, deverá ser automaticamente inscrito na Gramática para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo grammarly nas Minhas Apps, deverá ser automaticamente inscrito na Gramática para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado grammarly, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado grammarly, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

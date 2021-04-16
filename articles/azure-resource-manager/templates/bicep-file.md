@@ -3,12 +3,12 @@ title: Estrutura de arquivo bicep e sintaxe
 description: Descreve a estrutura e as propriedades de um ficheiro Bicep usando sintaxe declarativa.
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.openlocfilehash: 09993ae9c08f53144de8e94e6555ad93bec681f6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1b8eddd388878be8f653f963ef967cf2c0af685f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168693"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537864"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Compreender a estrutura e sintaxe dos ficheiros Bicep
 
@@ -297,7 +297,7 @@ param existingKeyVaultName string
 
 ## <a name="multi-line-strings"></a>Cordas multi-linha
 
-Pode partir uma corda em várias linhas. Utilize três caracteres de citação única `'''` para iniciar e terminar a cadeia multi-linha. 
+Pode partir uma corda em várias linhas. Utilize três caracteres de citação única `'''` para iniciar e terminar a cadeia multi-linha.
 
 Os caracteres dentro da corda multi-linha são manuseados como-é. Os personagens de fuga são desnecessários. Não pode incluir `'''` na corda multi-linha. A interpolação de cordas não é suportada atualmente.
 

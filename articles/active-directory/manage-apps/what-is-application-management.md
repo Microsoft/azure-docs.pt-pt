@@ -2,21 +2,21 @@
 title: O que é a gestão de aplicações no Azure Ative Directory
 description: Uma visão geral da utilização do Azure Ative Directory (AD) como um sistema de Gestão de Identidade e Acesso (IAM) para as suas aplicações em nuvem e no local.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: ''
-ms.openlocfilehash: 247e824997fd95434246e49c78bf167f36e146c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bdb8eb9cf176f8e190769e38c81d02ad2985196
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258596"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376397"
 ---
 # <a name="what-is-application-management"></a>O que é a gestão de aplicações?
 

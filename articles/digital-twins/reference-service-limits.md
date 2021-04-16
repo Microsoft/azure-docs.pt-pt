@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 46f378baad51e959f8b3c074cc24e5bbdfdd95d4
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 15c76bc042cb66dafbdeebac2951f5cb68310aa4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389609"
+ms.locfileid: "107482796"
 ---
 # <a name="azure-digital-twins-service-limits"></a>Limites de serviço Azure Digital Twins
 
@@ -29,7 +29,7 @@ Estes são os limites de serviço da Azure Digital Twins.
 
 ## <a name="working-with-limits"></a>Trabalhar com limites
 
-Quando um limite é atingido, o serviço acelera pedidos adicionais. Isto resultará numa resposta de erro de 404 destes pedidos.
+Quando um limite é atingido, o serviço acelera pedidos adicionais. Isto resultará numa resposta de erro 429 destes pedidos.
 
 Para gerir isto, eis algumas recomendações para trabalhar com limites.
 * **Use a lógica de relemgar.** Os [SDKs Azure Digital Twins](how-to-use-apis-sdks.md) implementam a lógica de relembaraçamento para pedidos falhados, por isso, se estiver a trabalhar com um SDK fornecido, este já está incorporado. Caso contrário, considere implementar a lógica de relagem na sua própria aplicação. O serviço envia um `Retry-After` cabeçalho na resposta de avaria, que pode usar para determinar quanto tempo esperar antes de voltar a tentar.

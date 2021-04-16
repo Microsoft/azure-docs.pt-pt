@@ -2,7 +2,7 @@
 title: 'Azure Synapse Analytics: Guia de migração'
 description: Siga este guia para migrar as suas bases de dados para uma piscina SQL dedicada Azure Synapse.
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: sql
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 8304064e62ea3996e2ee6be6e12885cb853c9375
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 704c30516e9daf047bf5837aa6e2ed08306193db
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278784"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565649"
 ---
 # <a name="migrate-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migrar um armazém de dados para uma piscina DE SQL dedicada em Azure Synapse Analytics
 
@@ -106,7 +106,7 @@ A Equipa de Aconselhamento ao Cliente tem algumas grandes orientações da Azure
 
 Para obter mais assistência na conclusão deste cenário de migração, consulte os seguintes recursos. Foram desenvolvidas em apoio a um projeto de migração no mundo real.
 
-| Título/ligação                              | Descrição                                                                                                                       |
+| Título/ligação                              | Description                                                                                                                       |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | [Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações ou bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo um processo de decisão de plataforma-alvo automatizado e uniforme. |
 | [Tratamento de problemas de codificação de dados ao carregar dados para a Azure Synapse Analytics](https://azure.microsoft.com/en-us/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | Esta publicação de blog fornece informações sobre alguns dos problemas de codificação de dados que pode encontrar enquanto utiliza o PolyBase para carregar dados para o SQL Data Warehouse. Este artigo também fornece algumas opções que você pode usar para superar tais problemas e carregar os dados com sucesso. |

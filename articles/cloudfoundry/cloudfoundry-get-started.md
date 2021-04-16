@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: d3b13dffcf251f79a04182d32f23fd40e6ed6044
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f80f07cad0e82ee35fe71223e1282ea24f791bb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562899"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530924"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 
@@ -39,7 +39,7 @@ A Microsoft fornece o melhor suporte de esforço para o OSS CF através dos segu
 
 A Pivotal Cloud Foundry inclui a mesma plataforma central que a distribuição do OSS, juntamente com um conjunto de ferramentas de gestão proprietária e suporte empresarial. Para executar o PCF na Azure, tem de adquirir uma licença da Pivotal. A oferta de PCF do mercado Azure inclui uma licença de teste de 90 dias.
 
-As ferramentas incluem [o Pivotal Operations Manager,](https://docs.pivotal.io/pivotalcf/customizing/)uma aplicação web que simplifica a implementação e gestão de uma fundação Cloud Foundry, e [o Pivotal Apps Manager,](https://docs.pivotal.io/pivotalcf/console/)uma aplicação web para gestão de utilizadores e aplicações.
+As ferramentas incluem [o Pivotal Operations Manager,](https://docs.pivotal.io/ops-manager/2-10/install/)uma aplicação web que simplifica a implementação e gestão de uma fundação Cloud Foundry, e [o Pivotal Apps Manager,](https://docs.pivotal.io/pivotalcf/console/)uma aplicação web para gestão de utilizadores e aplicações.
 
 Além dos canais de suporte listados para o OSS CF acima, uma licença pcf dá-lhe o direito de contactar a Pivotal para obter apoio. A Microsoft e a Pivotal também ativaram fluxos de trabalho de suporte que lhe permitem contactar qualquer uma das partes para assistência e ter o seu inquérito encaminhado adequadamente dependendo do local onde o problema está.
 

@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento facial, software de reconhecimento facial, análise facial, correspondência facial, app de reconhecimento facial, pesquisa facial por imagem, pesquisa de reconhecimento facial
-ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a999b2100dc57d7b623cebbbe261f821a80835e3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258746"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505127"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?
 
@@ -33,7 +33,7 @@ Esta documentação contém os seguintes tipos de artigos:
 * Os [arranques rápidos](./Quickstarts/client-libraries.md) são instruções passo a passo que permitem fazer chamadas para o serviço e obter resultados num curto espaço de tempo. 
 * Os [guias de como fazer](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contêm instruções para utilizar o serviço de forma mais específica ou personalizada.
 * Os [artigos conceptuais](./concepts/face-detection.md) fornecem explicações aprofundadas sobre a funcionalidade e funcionalidades do serviço.
-* Os [tutoriais](./Tutorials/FaceAPIinCSharpTutorial.md) são guias mais longos que mostram como usar este serviço como componente em soluções de negócio mais amplas.
+* Os [tutoriais](./enrollment-overview.md) são guias mais longos que mostram como usar este serviço como componente em soluções de negócio mais amplas.
 
 ## <a name="face-detection"></a>Deteção de rostos
 

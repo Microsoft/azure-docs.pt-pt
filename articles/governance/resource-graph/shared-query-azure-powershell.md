@@ -3,13 +3,15 @@ title: 'Quickstart: Criar uma consulta partilhada com a Azure PowerShell'
 description: Neste arranque rápido, você segue os passos para criar uma consulta partilhada de Gráfico de Recurso usando Azure PowerShell.
 ms.date: 01/11/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b771253b1dea4bd1d2913bf7c48062112019a19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 9015b6df99bdd6f153194e8f4cbbe7658cf1d6dc
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981549"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535804"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>Quickstart: Criar uma consulta partilhada de gráficos de recurso usando Azure PowerShell
 

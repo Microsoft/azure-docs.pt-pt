@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c8ea1580047910cb2d6634aad885d61e99113f3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98756083"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529975"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em nome do fluxo
 
@@ -191,6 +191,49 @@ Trata-se de uma extensão não padrão do fluxo OAuth 2.0 On-Behalf-Of que permi
 
 > [!TIP]
 > Quando você chama um serviço web protegido por SAML a partir de uma aplicação web frontal, você pode simplesmente ligar para a API e iniciar um fluxo de autenticação interativa normal com a sessão existente do utilizador. Só precisa de utilizar um fluxo OBO quando uma chamada de serviço para serviço requer um token SAML para fornecer o contexto do utilizador.
+ 
+ ### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Obtenha um símbolo SAML usando um pedido OBO com um segredo compartilhado
+
+Um pedido de serviço-a-serviço para uma afirmação SAML contém os seguintes parâmetros:
+
+| Parâmetro | Tipo | Description |
+| --- | --- | --- |
+| grant_type |obrigatório | O tipo de pedido simbólico. Para um pedido que utilize um JWT, o valor deve ser **urna:ietf:params:oauth:grant-type:jwt-bearer**. |
+| afirmação |obrigatório | O valor do token de acesso utilizado no pedido.|
+| client_id |obrigatório | O ID da aplicação atribuído ao serviço de chamadas durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
+| client_secret |obrigatório | A chave registada para o serviço de chamadas em Azure AD. Este valor deveria ter sido anotado no momento da inscrição. |
+| recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Este é o recurso que será o Público do símbolo DA SAML. Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições** e, em seguida, selecione **Propriedades**. |
+| requested_token_use |obrigatório | Especifica como o pedido deve ser processado. No fluxo em nome do be, o valor deve ser **on_behalf_of**. |
+| requested_token_type | obrigatório | Especifica o tipo de ficha solicitada. O valor pode ser **urna:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1** dependendo dos requisitos do recurso acedido. |
+
+A resposta contém um token SAML codificado em UTF8 e Base64url.
+
+- **AssuntoConfirmationData para uma afirmação SAML proveniente de uma chamada OBO**: Se a aplicação-alvo requer um valor do destinatário no **SubjectConfirmationData,** então o valor deve ser um URL de resposta não wildcard na configuração da aplicação de recurso.
+- **O nó SubjectConfirmationData**: O nó não pode conter um atributo **InResponseTo,** uma vez que não faz parte de uma resposta SAML. A aplicação que recebe o token SAML deve ser capaz de aceitar a afirmação SAML sem um atributo **InResponseTo.**
+
+- **Consentimento**: O consentimento deve ter sido concedido para receber um token SAML contendo dados do utilizador sobre um fluxo OAuth. Para obter informações sobre permissões e obter o consentimento do administrador, consulte [permissões e consentimento no ponto final do Azure Ative Directory v1.0](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+
+### <a name="response-with-saml-assertion"></a>Resposta com afirmação SAML
+
+| Parâmetro | Descrição |
+| --- | --- |
+| token_type |Indica o valor do tipo símbolo. O único tipo que a Azure AD suporta é **o Portador.** Para obter mais informações sobre fichas ao portador, consulte [o Quadro de Autorização OAuth 2.0: Utilização do Token ao portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| scope |O âmbito de acesso concedido no token. |
+| expires_in |O tempo de duração do token de acesso é válido (em segundos). |
+| expires_on |O tempo em que o sinal de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0Z UTC até ao prazo de validade. Este valor é usado para determinar a vida útil de fichas em cache. |
+| recurso |A aplicação ID URI do serviço recetor (recurso seguro). |
+| access_token |O parâmetro que devolve a afirmação do SAML. |
+| refresh_token |O token refresh. O serviço de chamadas pode usar este token para solicitar outro token de acesso após a expiração da afirmação atual da SAML. |
+
+- token_type: Portador
+- expires_in: 3296
+- ext_expires_in: 0
+- expires_on: 1529627844
+- recurso: `https://api.contoso.com`
+- access_token: \<SAML assertion\>
+- issued_token_type: urna:ietf:params:oauth:token-type:saml2
+- refresh_token: \<Refresh token\>
+
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtenção de consentimento para a aplicação de nível médio
 

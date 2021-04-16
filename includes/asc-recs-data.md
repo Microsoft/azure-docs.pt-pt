@@ -2,19 +2,19 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/29/2021
+ms.date: 04/13/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 164c5e199bcb17dfe7a8ce92b169b26ecd389703
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d2ae849616946169911468bb43e190c7ff8a4ec8
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958019"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386772"
 ---
 Há **65** recomendações nesta categoria.
 
-|Recomendação |Description |Gravidade |
+|Recomendação |Descrição |Gravidade |
 |---|---|---|
 |Todos os tipos avançados de proteção contra ameaças devem ser ativados em definições avançadas de segurança de dados de casos de SQL |Recomenda-se ativar todos os tipos avançados de proteção contra ameaças nas suas instâncias geridas pelo SQL. Permitir que todos os tipos proteja contra a injeção de SQL, vulnerabilidades de base de dados e quaisquer outras atividades anómalas.<br />(Sem política relacionada) |Médio |
 |Todos os tipos avançados de proteção contra ameaças devem ser ativados nas definições avançadas de segurança de dados do servidor SQL |É aconselhável ativar todos os tipos avançados de proteção contra ameaças nos seus servidores SQL. Permitir que todos os tipos proteja contra a injeção de SQL, vulnerabilidades de base de dados e quaisquer outras atividades anómalas.<br />(Sem política relacionada) |Médio |

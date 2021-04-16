@@ -120,6 +120,8 @@
               href: connect-windows-firewall.md
             - name: Eventos de segurança do Windows
               href: connect-windows-security-events.md
+            - name: Windows Virtual Desktop
+              href: connect-windows-virtual-desktop.md
         - name: Ligar soluções externas
           items:
             - name: Defesa de Phishing Agari e Proteção de Marcas

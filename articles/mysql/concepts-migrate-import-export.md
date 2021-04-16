@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.subservice: migration-guide
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 4d553f6c87d1044f8bde7460a0ea7bf123dd1851
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 641dfa2439513138b5dd8f56843e81c31eb38609
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450077"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389779"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar a base de dados MySQL através de importação e exportação
 

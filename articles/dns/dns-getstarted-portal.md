@@ -4,16 +4,18 @@ titleSuffix: Azure DNS
 description: Utilize este guia de arranque rápido passo a passo para aprender a criar uma zona de DNS Azure e gravar utilizando o portal Azure.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- mode-portal
+ms.openlocfilehash: d08c5768c2c400ff3d842f58081a58708bfc28db
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92282150"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537774"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Quickstart: Criar uma zona Azure DNS e gravar usando o portal Azure
 

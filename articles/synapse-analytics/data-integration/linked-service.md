@@ -5,16 +5,16 @@ services: synapse-analytics
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: be7ee2f4b2b8472c5edeff63e143d99c958bfc5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6be76878a9a07c5f4a1e2a9348bb7b09cb1b10eb
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627222"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567592"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados
 

@@ -3,18 +3,18 @@ title: Migrar bases de dados para SQL Managed Instance usando o Serviço de Repr
 description: Saiba como migrar bases de dados do SQL Server para SQL Managed Instance utilizando o Serviço de Reprodução de Registos
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/31/2021
-ms.openlocfilehash: 8e78db5b9d496c2ac13c9f1214b386770c11e21e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 522f4ec2f28f9d8975a8a7a7b10e435f602af855
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075905"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484035"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrar bases de dados do SQL Server para SQL Managed Instance utilizando o Serviço de Reprodução de Registo (Pré-visualização)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -95,7 +95,7 @@ Inicie o LRS separadamente para cada base de dados apontando para uma pasta apro
 
 ### <a name="azure-rbac-permissions"></a>Permissões Azure RBAC
 A execução de LRS através dos clientes fornecidos requer uma das seguintes funções Azure:
-- Função do Proprietário de Assinatura
+- Função Proprietário da Subscrição
 - [Papel de contribuinte de instância gerida](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor)
 - Função personalizada com a seguinte permissão: `Microsoft.Sql/managedInstances/databases/*`
 
@@ -402,7 +402,7 @@ Depois de iniciar o LRS, utilize o cmdlet de monitorização `get-azsqlinstanced
 - Uma base de dados existente no SQL Managed Instance tem o mesmo nome que aquele que está a tentar migrar do SQL Server? Resolva este conflito renomeando uma das bases de dados.
 - A cópia de segurança da base de dados do SQL Server foi feita através da `CHECKSUM` opção?
 - As permissões no token SAS são apenas lidas e listas para LRS?
-- Copiou o símbolo SAS para LRS após o ponto de interrogação ( `?` ), com conteúdo a partir deste ponto: `sv=2020-02-10...` ? 
+- Copiou o símbolo SAS para LRS após o ponto de interrogação ( `?` ), com conteúdo a partir deste ponto: `sv=2020-02-10...` ? Â 
 - O tempo de validade do símbolo SAS é aplicável para o intervalo de tempo de início e conclusão da migração? Pode haver incompatibilidades devido aos diferentes fusos horários utilizados para a SQL Managed Instance e o token SAS. Tente regenerar o token SAS e prolongar a validade simbólica da janela de tempo antes e depois da data atual.
 - O nome da base de dados, o nome do grupo de recursos e o nome de instância gerido são corretamente escritos?
 - Se iniciou o LRS no modo de preenchamento automático, foi especificado um nome de ficheiro válido para o último ficheiro de cópia de segurança especificado?

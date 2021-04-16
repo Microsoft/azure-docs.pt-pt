@@ -6,12 +6,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e5361b92c2080c724b872be2ad27bc5bd4554e8d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af1794a2f9eeaa1b1de2c62d5131c722dfd152a5
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108205"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564560"
 ---
 Neste quickstart, você vai aprender a se juntar a uma reunião de equipas usando os Serviços de Comunicação Azure chamando SDK para Android.
 
@@ -253,8 +253,8 @@ public class MainActivity extends AppCompatActivity {
 
 ## <a name="get-the-teams-meeting-link"></a>Obtenha o link de reunião das equipas
 
-O link de encontro das equipas pode ser recuperado usando APIs de gráfico. Isto é detalhado na [documentação do Gráfico.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)
-Os Serviços de Comunicação Que Ligam a SDK aceitam uma ligação completa de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade.](/graph/api/resources/onlinemeeting?view=graph-rest-beta) Também pode obter as informações necessárias da reunião do URL do Encontro de **Reuniões** na reunião das Equipas.
+O link de encontro das equipas pode ser recuperado usando APIs de gráfico. Isto é detalhado na [documentação do Gráfico.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)
+Os Serviços de Comunicação Que Ligam a SDK aceitam uma ligação completa de reuniões de equipas. Este link é devolvido como parte do `onlineMeeting` recurso, acessível sob a [ `joinWebUrl` propriedade.](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) Também pode obter as informações necessárias da reunião do URL do Encontro de **Reuniões** na reunião das Equipas.
 
 ## <a name="launch-the-app-and-join-teams-meeting"></a>Lance a app e junte-se à reunião de Equipas
 

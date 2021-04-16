@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3175b1292a7e69506b9193d1182e184e257ebda3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212914"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530506"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticação no Azure Ative Directory - Microsoft Authenticator app
 
@@ -62,4 +62,4 @@ Os utilizadores podem ter uma combinação de até cinco fichas de hardware OATH
 
 Para começar com o início do sent in sem palavras-passe, consulte Ativar o [início de sing in sem palavras-passe com a aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
-Saiba mais sobre a configuração dos métodos de autenticação utilizando a [beta API do Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Saiba mais sobre a configuração dos métodos de autenticação utilizando a API do [Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview).

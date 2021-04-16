@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62db56ac9791cea7d6f1a40f794241ed68fa90fa
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102049853"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483585"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância Azure Digital Twins para uma região de Azure diferente
 
@@ -81,9 +81,13 @@ Se a amostra não for capaz de lidar com o tamanho do seu gráfico, pode exporta
 
 Para prosseguir com o Azure Digital Twins Explorer, primeiro descarregue o código de aplicação da amostra e confime-o para funcionar na sua máquina.
 
-Para obter a amostra, consulte o [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selecione o botão **Baixar ZIP** para transferir um ficheiro .zip deste código de amostra para a sua máquina **Azure_Digital_Twins__ADT__explorer.zip**. Deszipe o ficheiro.
+Para obter a amostra, vá ao [Azure Digital Twins Explorer.](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) Selecione o botão **de código Browse** por baixo do título, que o levará ao repo GitHub para a amostra. Selecione o botão **Código** e **Descarregue ZIP** para descarregar a amostra como um *. Ficheiro ZIP* para a sua máquina.
 
-Em seguida, configurar e configurar permissões para o Azure Digital Twins Explorer. Siga as instruções na secção [Configurar Gémeos Digitais Azure e Azure Digital Twins Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) da Azure Digital Twins Quickstart. Esta secção acompanha-o através dos seguintes passos:
+:::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Screenshot do repo-explorador de gémeos digitais no GitHub. O botão Código é selecionado, produzindo uma pequena caixa de diálogo onde é realçado o botão Download ZIP." lightbox="media/how-to-move-regions/download-repo-zip.png":::
+
+Deszipe o ficheiro.
+
+Em seguida, configurar e configurar permissões para o Azure Digital Twins Explorer. Siga as instruções na secção [Configurar Gémeos Digitais Azure e Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) da Azure Digital Twins Quickstart. Esta secção acompanha-o através dos seguintes passos:
 
 1. Crie uma instância Azure Digital Twins. Podes saltar esta parte porque já tens um caso.
 1. Crie credenciais locais do Azure para fornecer acesso ao seu caso.

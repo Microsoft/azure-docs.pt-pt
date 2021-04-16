@@ -3,12 +3,12 @@ title: Especificar o grupo de recursos para VMs em Azure DevTest Labs | Microsof
 description: Saiba como especificar um grupo de recursos para VMs num laboratório em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6f576a20fc8fada9dd515e8ba2a266761a3e586
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483368"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377493"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especificar um grupo de recursos para máquinas virtuais de laboratório em Azure DevTest Labs
 
@@ -76,7 +76,7 @@ Se estiver a utilizar um modelo de Gestor de Recursos Azure para criar um labora
         {
             "type": "microsoft.devtestlab/labs",
             "name": "[parameters('lab_name')]",
-            "apiVersion": "2018_10_15_preview",
+            "apiVersion": "2018-10-15-preview",
             "location": "eastus",
             "tags": {},
             "scale": null,
@@ -103,7 +103,7 @@ Tem as seguintes opções como proprietário de laboratório ao utilizar esta AP
 Esta definição aplica-se a novas máquinas virtuais criadas em laboratório. Os VMs mais antigos do seu laboratório que foram criados nos seus próprios grupos de recursos não são afetados. Os ambientes criados no seu laboratório continuam a permanecer nos seus próprios grupos de recursos.
 
 Como utilizar esta API:
-- Utilize a versão API **2018_10_15_preview**.
+- Utilize a versão API **2018-10-15-preview**.
 - Se especificar um novo grupo de recursos, certifique-se de que tem **permissões de escrita em grupos de recursos** na sua subscrição. Se não tiver permissões de escrita, a criação de novas máquinas virtuais no grupo de recursos especificado falhará.
 - Durante a utilização da API, passe no **ID do grupo de recursos completo**. Por exemplo: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Certifique-se de que o grupo de recursos está na mesma subscrição que o laboratório. 
 

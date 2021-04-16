@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 652f98659f96b36e3185432e50d9d36dc569bd43
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383410"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537942"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
@@ -55,21 +55,14 @@ O Azure Synapse contém o mesmo motor e experiências de Integração de Dados q
 * Code-Free ETL com atividades de fluxo de dados
 * Orquestrar cadernos, trabalhos de faísca, procedimentos armazenados, scripts SQL, e muito mais
 
-## <a name="unified-management-monitoring-and-security"></a>Gestão, monitorização e segurança unificadas
+## <a name="unified-experience"></a>Experiência unificada 
 
-O Azure Synapse fornece uma única forma de as empresas gerirem os recursos analíticos, monitorizarem o uso e a atividade e imporem a segurança.
+**O Synapse Studio** oferece uma única forma de as empresas construirem soluções, manterem e garantirem tudo numa única experiência de utilizador
 
-* Atribuir aos utilizadores a Função para simplificar o acesso aos recursos de análise
-* Controlo de acesso de grãos finos sobre dados e código
-* Um único dashboard para monitorizar recursos, uso e utilizadores em SQL e Spark
-
-## <a name="unified-experience"></a>Experiência unificada
-
-**O Synapse Studio** é a experiência do utilizador que une tudo para engenheiros de dados. Permite-lhes fazer todas as tarefas necessárias para construir uma solução de análise completa.
-
-* Principais tarefas de engenheiro de dados num só local: ingerir, explorar, preparar, orquestrar, visualizar
-* Produtividade líder na indústria para a escrita de CÓDIGO SQL ou Spark: autoria, depuração e otimização de desempenho
-* Integrar-se com o processo CI/CD da empresa
+* Executar tarefas-chave: ingerir, explorar, preparar, orquestrar, visualizar
+* Monitorizar recursos, uso e utilizadores em sql e Faísca
+* Utilizar o controlo de acesso baseado em funções para simplificar o acesso a recursos analíticos
+* Escreva código SQL ou Spark e integre-se com processos ci/CD da empresa
 
 ## <a name="engage-with-the-synapse-community"></a>Envolva-se com a comunidade sinapse
 
