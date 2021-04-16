@@ -4,12 +4,12 @@ description: Diagnósticos de transações de informação de aplicação
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60365079c295e154ff0a38277c9ccdec35157e6e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746102"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481400"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnósticos unificados de transações de componentes cruzados
 
@@ -94,3 +94,6 @@ As linhas de tempo são ajustadas para distorções de relógio na tabela de tra
 
 Esta ação é propositada. Todos os itens relacionados, em todos os componentes, já estão disponíveis no lado esquerdo (secções superiores e inferiores). A nova experiência tem dois itens relacionados que o lado esquerdo não cobre: toda a telemetria de cinco minutos antes e depois deste evento e a linha temporal do utilizador.
 
+*Vejo mais eventos do que o esperado na experiência de diagnóstico de transação ao utilizar o SDK JavaScript de Aplicações. Há alguma maneira de ver menos eventos por transação?*
+
+A experiência de diagnóstico de transação mostra toda a telemetria numa [única operação](correlation.md#data-model-for-telemetry-correlation) que partilha uma [Operação Id](data-model-context.md#operation-id). Por predefinição, o SDK De Insights de Aplicação para JavaScript cria uma nova operação para cada vista de página única. Numa Aplicação de Página Única (SPA), apenas um evento de visualização de uma página será gerado e um único Id de Operação será usado para toda a telemetria gerada, o que pode resultar em muitos eventos correlacionados com a mesma operação. Nestes cenários, pode utilizar o Rastreio automático de Rotas para criar automaticamente novas operações de navegação na sua aplicação de página única. Tem de [ativar ativar ActivarAutoRouteTracking para](javascript.md#single-page-applications) que uma vista de página seja gerada sempre que a rota URL é atualizada (ocorre uma vista lógica da página). Se quiser refrescar manualmente o ID da operação, pode fazê-lo `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` ligando. Ativar manualmente um evento PageView também irá reiniciar o ID de operação.

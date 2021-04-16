@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 91c8834b48625aac0f279f84648d374df15fbdd0
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.custom: devx-track-java
+ms.openlocfilehash: a6b444092ec4e3588564a3f902b49c4ed3dc5fe5
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285399"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376788"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Responsabilidades do cliente para executar Azure Spring Cloud em VNET
 Este documento inclui especificações para a utilização da Azure Spring Cloud numa rede virtual.

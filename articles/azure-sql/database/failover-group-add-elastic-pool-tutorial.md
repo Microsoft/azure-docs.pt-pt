@@ -4,19 +4,19 @@ description: Adicione uma piscina elástica Azure SQL Database a um grupo de fai
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/27/2019
-ms.openlocfilehash: cdbc44158de2f24d7d33d68311979c3b8bdda85d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd0532469cd4390d9a72900dcebc22994239325b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94593982"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479173"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adicione uma piscina elástica Azure SQL Database a um grupo de failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -209,11 +209,11 @@ Crie o seu grupo de failover utilizando o PowerShell.
    # Create a failover group between the servers
    Write-host "Creating failover group..."
    New-AzSqlDatabaseFailoverGroup `
-     –ResourceGroupName $resourceGroupName `
+     â€“ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -PartnerServerName $drServerName  `
-      –FailoverGroupName $failoverGroupName `
-      –FailoverPolicy Automatic `
+      â€“FailoverGroupName $failoverGroupName `
+      â€“FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
    Write-host "Failover group created successfully."
 

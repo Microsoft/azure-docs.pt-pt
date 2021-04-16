@@ -10,13 +10,13 @@ author: gvashishtha
 ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.custom: deploy
-ms.openlocfilehash: 0bb17ded6822c477fe2107c66711af5e2dc384d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: deploy, devx-track-azurecli
+ms.openlocfilehash: 8775696a35bfccc363aa2c6ec06c6c44115916b9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107844"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479275"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com Servidor de Inferência de Tritão (Pré-visualização) 
 
@@ -121,7 +121,7 @@ Para obter mais `az ml model register` informações, consulte a [documentação
 Ao registar o modelo em Azure Machine Learning, o valor para o `--model-path  -p` parâmetro deve ser o nome da pasta-mãe do Tritão.  
 No exemplo acima,  `--model-path` está "modelos".
 
-O valor para `--name  -n` o parâmetro, 'my_triton_model' no exemplo, será o nome de modelo conhecido pelo espaço de trabalho de aprendizagem da máquina Azure. 
+O valor para `--name  -n` o parâmetro, â my_triton_modelâ€ ™ no exemplo, será o nome de modelo conhecido pelo espaço de trabalho de aprendizagem automática Azure. 
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -376,7 +376,7 @@ local_service.delete()
 
 * [Resolução de problemas numa implementação falhada,](how-to-troubleshoot-deployment.md)aprenda a resolver problemas e a resolver, ou a trabalhar em torno de erros comuns que poderá encontrar ao implementar um modelo.
 
-* Se os registos de implementação mostrarem que **o TritonServer não foi iniciado,** consulte a [documentação de código aberto da Nvidia.](https://github.com/triton-inference-server/server)
+* Se os registos de implantação mostrarem que **o TritonServer não foi iniciado,** consulte a [documentação de código aberto ™ Nvidia€ ™.](https://github.com/triton-inference-server/server)
 
 ## <a name="next-steps"></a>Passos seguintes
 

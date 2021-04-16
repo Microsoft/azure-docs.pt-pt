@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d70514e81bc838b4193862e66b0c03440d006128
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ce29158c2a44f01fa06649e4b4497bf5c5076866
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307465"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512328"
 ---
 ## <a name="setting-up"></a>Configuração
 
@@ -63,7 +63,7 @@ async function createIdentityAndIssueToken(resourceEndpoint) {
 }
 ```
 
-## <a name="send-an-sms-with-managed-identity"></a>Enviar um SMS com Identidade Gerida
+## <a name="send-an-sms-with-managed-identity"></a>Enviar um SMS com identidade gerida
 
 Agora, vamos escrever uma função que usa identidades geridas para enviar um SMS:
 
@@ -82,7 +82,7 @@ async function sendSms(resourceEndpoint, fromNumber, toNumber, message) {
 }
 ```
 
-## <a name="write-the-main-method"></a>Escreva o método principal
+## <a name="write-the-main-function"></a>Escreva a função principal
 
 Com as nossas funções criadas, podemos agora escrever uma função principal para chamá-las e demonstrar o uso de Identidades Geridas:
 ```JavaScript
@@ -154,7 +154,7 @@ async function main() {
 main();
 ```
 
-## <a name="run-the-program"></a>Executar o Programa
+## <a name="run-the-program"></a>Execute o programa
 
 Com tudo completo, pode executar o ficheiro entrando no `node index.js` diretório do seu projeto. Se tudo corresse bem, devias ver algo parecido com o seguinte.
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 1c85a07a3d61c80f3871f04c399263a8e210254e
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 942651aadf4113c1aca32e4e1d2c558b0d764421
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010796"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377230"
 ---
 # <a name="connect-to-azure-database-for-mysql-using-dbforge-studio-for-mysql"></a>Ligue à Base de Dados Azure para o MySQL utilizando o dbForge Studio para o MySQL
 
@@ -93,7 +93,7 @@ O Novo Assistente de Comparação de Esquemas aparece.
 
     :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/schema-sync-wizard.png" alt-text="Assistente de sincronização de Schema":::
 
-### <a name="data-comparison"></a>Comparação de dados
+### <a name="step-3-data-comparison"></a>Passo 3. Comparação de dados
 
 1. No menu Comparação, selecione Nova Comparação de Dados. O novo assistente de comparação de dados aparece.
 

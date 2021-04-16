@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5a31e15c88cef588c93f44c8fe5303d930b5b2c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201605"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479377"
 ---
 # <a name="monitor-module-twins"></a>Monitorizar módulos duplos
 
@@ -215,7 +215,7 @@ Se escoar alterações, selecione **Update Module Twin** acima do código no edi
 
 Para ver se o IoT Edge está em funcionamento, use o [hub az iot invocando](how-to-edgeagent-direct-method.md#ping) o método do módulo para pingar o agente IoT Edge.
 
-A estrutura [az iot hub módulo-twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) fornece estes comandos:
+A estrutura [az iot hub módulo-twin](/cli/azure/iot/hub/module-twin) fornece estes comandos:
 
 * **az iot hub módulo-twin show** - Mostre uma definição de módulo twin.
 * **az iot hub module-twin update** - Atualize uma definição de módulo twin.

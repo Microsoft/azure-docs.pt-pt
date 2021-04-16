@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 74009759bb9ca2a0516148fc1387b150b67452ab
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305978"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387909"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -53,7 +53,7 @@ A avaliação contínua do acesso é implementada através da capacitação de s
 Este processo permite o cenário em que os utilizadores perdem acesso a ficheiros organizacionais sharePoint Online, e-mail, calendário ou tarefas, e equipas de aplicações de clientes microsoft 365 dentro de mins após um desses eventos críticos. 
 
 > [!NOTE] 
-> As equipas ainda não suportam eventos de risco de utilizador.
+> As equipas e o SharePoint Online ainda não suportam eventos de risco de utilizador.
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Avaliação da política de acesso condicional (pré-visualização)
 

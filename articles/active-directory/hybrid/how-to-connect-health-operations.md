@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 836c7bf9aefd4b2cb7d52c66bbd37e7ba38a467c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686466"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377315"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Ative Directory Connect Health operações
 Este tópico descreve as várias operações que pode realizar utilizando o Azure Ative Directory (Azure AD) Connect Health.
@@ -35,12 +35,13 @@ Pode configurar o serviço Azure AD Connect Health para enviar notificações po
 >
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Para ativar notificações de email do Azure AD Connect Health
-1. Abra a lâmina **Alertas** para o serviço para o qual pretende receber a notificação por e-mail.
-2. A partir da barra de ação, clique em **Definições de Notificação**.
-3. No comutador de notificações por e-mail, selecione **ON**.
-4. Selecione a caixa de verificação se quiser que todos os administradores globais recebam notificações por e-mail.
-5. Se pretender receber notificações de e-mail em quaisquer outros endereços de e-mail, especifique-as na caixa **de Destinatários de Email Adicionais.** Para remover um endereço de e-mail desta lista, clique com o botão direito para entrar e selecione **Delete**.
-6. Para finalizar as alterações, clique em **Guardar**. As alterações só fazem efeito depois de poupar.
+1. No Portal Azure, procure a Azure AD Connect Health
+2. Selecione **erros de Sincronização**
+3. Selecione **Definições de notificação**.
+5. No comutador de notificações por e-mail, selecione **ON**.
+6. Selecione a caixa de verificação se quiser que todos os administradores globais recebam notificações por e-mail.
+7. Se pretender receber notificações de e-mail em quaisquer outros endereços de e-mail, especifique-as na caixa **de Destinatários de Email Adicionais.** Para remover um endereço de e-mail desta lista, clique com o botão direito para entrar e selecione **Delete**.
+8. Para finalizar as alterações, clique em **Guardar**. As alterações só fazem efeito depois de poupar.
 
 >[!NOTE] 
 > Quando existem problemas de processamento de pedidos de sincronização no nosso serviço de backend, este serviço envia um e-mail de notificação com os detalhes do erro para o endereço de e-mail de contacto administrativo(es) do seu inquilino. Ouvimos feedback dos clientes que em certos casos o volume destas mensagens é proibitivamente grande, pelo que estamos a mudar a forma como enviamos estas mensagens. 

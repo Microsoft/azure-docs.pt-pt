@@ -6,13 +6,13 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.custom: mvc
-ms.openlocfilehash: 6f2b3d9f38fc04428678a71c9942fc7aa2182dc8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b631173ed92905870e73e6c560d90aab08476ce1
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217198"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480159"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutorial: Implementar a aplicação WordPress em AKS com Base de Dados Azure para MySQL - Servidor Flexível
 
@@ -121,20 +121,20 @@ O servidor criado tem os atributos abaixo:
 Descarregue a versão mais recente do [WordPress.](https://wordpress.org/download/) Crie um novo diretório ```my-wordpress-app``` para o seu projeto e use esta estrutura de pasta simples
 
 ```
-└───my-wordpress-app
-    └───public
-        ├───wp-admin
-        │   ├───css
+â””â”€â”€â”€my-wordpress-app
+    â””â”€â”€â”€public
+        â”œâ”€â”€â”€wp-admin
+        â”‚   â”œâ”€â”€â”€css
         . . . . . . .
-        ├───wp-content
-        │   ├───plugins
+        â”œâ”€â”€â”€wp-content
+        â”‚   â”œâ”€â”€â”€plugins
         . . . . . . .
-        └───wp-includes
+        â””â”€â”€â”€wp-includes
         . . . . . . .
-        ├───wp-config-sample.php
-        ├───index.php
+        â”œâ”€â”€â”€wp-config-sample.php
+        â”œâ”€â”€â”€index.php
         . . . . . . .
-    └─── Dockerfile
+    â””â”€â”€â”€ Dockerfile
 
 ```
 

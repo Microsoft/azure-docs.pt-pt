@@ -7,13 +7,13 @@ ms.service: app-service
 ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.custom: include file
-ms.openlocfilehash: 289804a0006941b3fd5666888d3d8e16d3618fe7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 45d8eacde7b82629169a25389e898d67c5f85460
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244966"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480869"
 ---
 Crie uma [aplicação web](../articles/app-service/overview.md#app-service-on-linux) no `myAppServicePlan` plano de Serviço de Aplicações. 
 

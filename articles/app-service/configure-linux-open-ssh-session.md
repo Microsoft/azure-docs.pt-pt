@@ -7,13 +7,13 @@ ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
 ms.date: 02/23/2021
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 8e9dd76b60d05b9fa5e3a4aaf7ccc6663f4a969b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 5a4572c1292f691f1883a720d07c3f0130f1c8f3
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709041"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480295"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Abra uma sessão de SSH para um recipiente Linux no Azure App Service
 

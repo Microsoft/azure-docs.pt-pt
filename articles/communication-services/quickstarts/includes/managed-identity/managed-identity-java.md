@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 55876d85e72555f51ce47b9bd77a961a194f4e4a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b51f52e24ca843abd94a8511e86b3193a797edd5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307452"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107510648"
 ---
 ## <a name="additional-prerequisites-for-java"></a>Pré-requisitos adicionais para Java
 Para Java, também vai precisar de:
@@ -100,7 +100,7 @@ Como outro exemplo de utilização de identidades geridas, adicionamos este cód
           return smsClient.send(from, to, message);
      }
 ```
-## <a name="write-the-main-method"></a>Escreva o Método Principal
+## <a name="write-the-main-method"></a>Escreva o método principal
 
 Você `App.java` já deve ter um método Principal, vamos adicionar algum código que irá chamar o nosso código previamente criado para demonstrar o uso de identidades geridas:
 ```java

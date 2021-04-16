@@ -3,12 +3,12 @@ title: Definir vários casos de uma propriedade
 description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure (modelo ARM) para iterar várias vezes ao criar uma propriedade num recurso.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 94bc153a49f80694ab9b2d5b04fdf57e8a12e8c8
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 16c293f1c3aff64aeb8b6cae4b7f1aa14dcd0a77
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385756"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480006"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
@@ -49,7 +49,7 @@ Loops podem ser usados declarando múltiplas propriedades por:
   ```bicep
   <property-name>: [for <item> in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - Iterando sobre os elementos de uma matriz
@@ -57,7 +57,7 @@ Loops podem ser usados declarando múltiplas propriedades por:
   ```bicep
   <property-name>: [for (<item>, <index>) in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - Usando índice de loop
@@ -65,7 +65,7 @@ Loops podem ser usados declarando múltiplas propriedades por:
   ```bicep
   <property-name>: [for <index> in range(<start>, <stop>): {
     <properties>
-  }
+  }]
   ```
 
 ---
