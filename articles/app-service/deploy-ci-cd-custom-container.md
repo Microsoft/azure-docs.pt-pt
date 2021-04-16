@@ -7,14 +7,14 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: msangapu
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f02aa9fc1bd31bdde6214ab906136a2cac8f1772
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643344"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478316"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Implantação contínua com recipientes personalizados no Azure App Service
 

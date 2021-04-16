@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fef59ef1088582b4ebb29131bd48337e9e0bd406
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: ca7fda6345356568d512b396c412603cf7d837f7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107100"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532405"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -79,7 +79,7 @@ A atualização de pré-visualização do Azure AD Connect Cloud Provisioning ap
  
 Quando os administradores de TI ou os utilizadores finais lêem as teclas de recuperação bitLocker a que têm acesso, o Azure Ative Directory gera agora um registo de auditoria que captura quem acedeu à chave de recuperação. A mesma auditoria fornece detalhes do dispositivo a que a chave BitLocker foi associada.
 
-Os utilizadores finais podem [aceder às suas chaves de recuperação através da Minha Conta.](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key) Os administradores de TI podem aceder às teclas de recuperação através da [chave de recuperação BitLocker API em versão beta](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) ou através do Portal AD Azure. Para saber mais, consulte [ver ou copiar as teclas BitLocker no Portal AD Azure](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+Os utilizadores finais podem [aceder às suas chaves de recuperação através da Minha Conta.](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key) Os administradores de TI podem aceder às teclas de recuperação através da [chave de recuperação BitLocker API em versão beta](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) ou através do Portal AD Azure. Para saber mais, consulte [ver ou copiar as teclas BitLocker no Portal AD Azure](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
 ---
 
@@ -343,7 +343,7 @@ Para saber mais sobre como configurar o fornecimento de utilizadores do SAP Succ
 **Categoria de serviço:** B2C - Gestão da Identidade do Consumidor  
 **Capacidade do produto:** B2B/B2C
  
-Anteriormente, os fornecedores de ID Connect Open Personalizado só podiam ser adicionados ou geridos através do portal Azure. Agora os clientes Azure AD B2C podem adicionar e geri-los através da versão beta do Microsoft Graph APIs também. Para aprender a configurar este recurso com APIs, consulte [o tipo de recurso IdentityProvider](/graph/api/resources/identityprovider?view=graph-rest-beta).
+Anteriormente, os fornecedores de ID Connect Open Personalizado só podiam ser adicionados ou geridos através do portal Azure. Agora os clientes Azure AD B2C podem adicionar e geri-los através da versão beta do Microsoft Graph APIs também. Para aprender a configurar este recurso com APIs, consulte [o tipo de recurso IdentityProvider](/graph/api/resources/identityprovider?view=graph-rest-beta&preserve-view=true).
  
 ---
 
@@ -383,7 +383,7 @@ Os utilizadores na função de Administrador de Insights podem aceder a todo o c
 **Categoria de serviço:** Funções de AD AZure  
 **Capacidade do produto:** Controlo de Acessos
  
-Anteriormente, apenas o Administrador Global poderia gerir a [propriedade de extensão](/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). Estamos agora a ativar esta capacidade para o Administrador de Aplicações e Administrador de Aplicação cloud também.
+Anteriormente, apenas o Administrador Global poderia gerir a [propriedade de extensão](/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http&preserve-view=true). Estamos agora a ativar esta capacidade para o Administrador de Aplicações e Administrador de Aplicação cloud também.
  
 ---
 
@@ -3376,7 +3376,7 @@ Os seguintes campos estão a mudar no esquema de auditoria:
 |Nome do campo|O que mudou|Valores antigos|Novos Valores|
 |----------|------------|----------|----------|
 |Categoria|Este era o campo **de Nome de Serviço.** Agora é o campo **das Categorias de Auditoria.** **O Nome de Serviço** foi renomeado para o campo **DeSema registado.**|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reset de senha de autosserviço</li></ul>|<ul><li>Gestão de Utilizadores</li><li>Gestão de Grupos</li><li>Gestão de Aplicações</li></ul>|
-|targetResources|Inclui **TargetResourceType** no nível superior.|&nbsp;|<ul><li>Política</li><li>Aplicação</li><li>User</li><li>Group</li></ul>|
+|targetResources|Inclui **TargetResourceType** no nível superior.|&nbsp;|<ul><li>Política</li><li>Aplicação</li><li>Utilizador</li><li>Group</li></ul>|
 |registradoByService|Fornece o nome do serviço que gerou o registo de auditoria.|Nulo|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição personalizada de palavra-passe</li></ul>|
 |Resultado|Fornece o resultado dos registos de auditoria. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Com êxito</li><li>Falha</li></ul>|
 

@@ -2,20 +2,20 @@
 title: Monitor de carga de trabalho - Portal Azure
 description: Monitor Synapse SQL utilizando o portal Azure
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fb81ffc24ed6073e5398b14b7f490a0f63df84f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f4c50588a67e2e69d0975c9f4414242ecf23617
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585592"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568272"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitor de carga de trabalho - Portal Azure
 

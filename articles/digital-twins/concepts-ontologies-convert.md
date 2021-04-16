@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa4dde51c077152dd5c8a938ad64ad0a051f89ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22b41fce59bf7dbe9db1186036c5ed44f07a4aad
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100561752"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484489"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Converter as práticas padrão da indústria para DTDL para Azure Digital Twins
 
@@ -49,7 +49,9 @@ A amostra é uma aplicação de linha de comando .NET Core chamada **RdfToDtdlCo
 
 Pode obter a amostra aqui: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
-Para descarregar o código para a sua máquina, é *premida* o botão Download ZIP por baixo do título na página de aterragem da amostra. Isto irá descarregar um ficheiro *ZIP* com o nome *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, que depois pode desapertar e explorar.
+Para descarregar o código para a sua máquina, selecione o botão **de código Browse** por baixo do título na página da amostra, que o levará ao repo GitHub para a amostra. Selecione o botão **Código** e **Descarregue ZIP** para descarregar a amostra como um *. Ficheiro ZIP* chamado *RdfToDtdlConverter-main.zip*. Em seguida, pode desapertar o ficheiro e explorar o código.
+
+:::image type="content" source="media/concepts-ontologies-convert/download-repo-zip.png" alt-text="Screenshot do rdfToDtdlConverter repo no GitHub. O botão Código é selecionado, produzindo uma pequena caixa de diálogo onde é realçado o botão Download ZIP." lightbox="media/concepts-ontologies-convert/download-repo-zip.png":::
 
 Você pode usar esta amostra para ver os padrões de conversão em contexto, e ter como um bloco de construção para suas próprias aplicações executando conversões de modelos de acordo com suas necessidades específicas.
 

@@ -4,14 +4,14 @@ description: Este artigo diz como eliminar a sua conta Demôm automação nos di
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 03/18/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: c3a514aa507fcf069671f987e175b7ae5be59d10
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d088f3adc391068de5e337c10ab52dc3d3a2dd07
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105735095"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535548"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Como eliminar a sua conta de Automação Azure
 
@@ -28,7 +28,10 @@ A remoção da sua conta Demômes pode ser feita utilizando um dos seguintes mé
 * Desvincula o espaço de trabalho do Log Analytics da conta Automation e elimina a conta Automation.
 * Elimine a funcionalidade do seu espaço de trabalho ligado, desvincula a conta do espaço de trabalho e, em seguida, apague a conta Automation.
 
-Este artigo diz-lhe como remover completamente a sua conta de Automação através do portal Azure, PowerShell, do Azure CLI ou da API REST.
+Este artigo diz-lhe como remover completamente a sua conta de Automação através do portal Azure, utilizando a Azure PowerShell, o Azure CLI ou a API REST.
+
+> [!NOTE]
+> Antes de prosseguir, verifique se não existem [quaisquer bloqueios do Gestor de Recursos](../azure-resource-manager/management/lock-resources.md) aplicados na subscrição, grupo de recursos ou recursos que impeçam a eliminação acidental ou modificação de recursos críticos. Se tiver implantado os VMs iniciar/parar durante a solução fora de horas, define o nível de bloqueio para **CanNotDelete** contra vários recursos dependentes na conta Automation (especificamente os seus runbooks e variáveis). Todas as fechaduras têm de ser removidas antes de poder eliminar a conta Automação.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Eliminar o grupo de recursos dedicado
 

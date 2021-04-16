@@ -2,15 +2,17 @@
 title: Utilize o portal Azure para criar tópicos e subscrições do Service Bus
 description: 'Quickstart: Neste arranque rápido, aprende-se a criar um tópico de Service Bus e subscrições para esse tópico utilizando o portal Azure.'
 author: spelluru
-ms.topic: quickstart
-ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 749ba3d2947dfd7defdf2549305f2a61c16ba713
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2020
+ms.topic: quickstart
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 25b0579f05c1f7669a8dfc1df02e9a1f575ea066
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95803293"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537153"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico
 Neste arranque rápido, você usa o portal Azure para criar um tópico de Service Bus e, em seguida, criar subscrições para esse tópico. 

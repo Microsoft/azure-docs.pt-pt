@@ -13,7 +13,7 @@
       href: whats-new.md
     - name: Análise de Texto FAQ
       href: text-analytics-resource-faq.md
-- name: Início rápido de Análise de Texto
+- name: Início Rápido
   href: quickstarts/client-libraries-rest-api.md
 - name: Amostras
   items:
@@ -71,21 +71,25 @@
       displayName: 'NER, Named entity recognition, PII, redaction'
     - name: Análise de Texto para a saúde
       href: How-tos/text-analytics-for-health.md
-    - name: Implementar análise de texto
+    - name: Utilizar contentores
       items:
-        - name: Contentores
-          items:
-            - name: Instalar e executar contentores
-              href: how-tos/text-analytics-how-to-install-containers.md
-            - name: Configurar contentores
-              href: text-analytics-resource-container-config.md
-            - name: Utilizar instâncias de contentor
-              maintainContext: true
-              href: ../containers/azure-container-instance-recipe.md
-            - name: Utilizar o serviço do Kubernetes (AKS)
-              href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-            - name: Documentação sobre contentores dos Serviços Cognitivos
-              href: ../containers/index.yml
+        - name: Instalar e executar contentores
+          href: how-tos/text-analytics-how-to-install-containers.md
+        - name: Configurar contentores
+          href: text-analytics-resource-container-config.md
+        - name: Utilizar instâncias de contentor
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Utilizar o serviço do Kubernetes (AKS)
+          href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+        - name: Documentação sobre contentores dos Serviços Cognitivos
+          href: ../containers/index.yml
+    - name: Preparação para empresas
+      items:
+        - name: Configurar redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/text-analytics/context/context
+        - name: Use a autenticação AZURE AD
+          href: ../authentication.md?context=/azure/cognitive-services/text-analytics/context/context
     - name: Migrar para a versão 3 da API
       href: migration-guide.md
 - name: Conceitos
@@ -164,13 +168,13 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Recursos
   items:
+    - name: Preparação para empresas
+      items:
+        - name: Suporte de região
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de suporte e ajuda
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context
     - name: Conteúdo externo e da comunidade
       href: text-analytics-resource-external-community.md
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Experimente!
-      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'

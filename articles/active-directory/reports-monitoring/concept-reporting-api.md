@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6ef122cd36c3d4e9135876647075f22158df0d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e5a095c87e46839c7c120bdd6d8db1595164e57
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653240"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532518"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Começar com o Diretório Ativo Azure reportando API
 
@@ -49,9 +49,9 @@ Para obter instruções detalhadas, consulte os [pré-requisitos para aceder ao 
 
 O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para obter mais informações, consulte a [referência da API](/graph/api/resources/directoryaudit) de auditoria e [a referência API de acesso](/graph/api/resources/signIn)a sinal .
 
-Pode utilizar a [API de deteção de risco de Proteção de Identidade](/graph/api/resources/identityriskevent?view=graph-rest-beta) para obter acesso programático a deteções de segurança utilizando o Microsoft Graph. Para obter mais informações, consulte [Começar com a Azure Ative Directory Identity Protection e microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
+Pode utilizar a [API de deteção de risco de Proteção de Identidade](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) para obter acesso programático a deteções de segurança utilizando o Microsoft Graph. Para obter mais informações, consulte [Começar com a Azure Ative Directory Identity Protection e microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
-Você também pode usar os [registos de provisionamento API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para obter acesso programático a eventos de provisionamento no seu inquilino. 
+Você também pode usar os [registos de provisionamento API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true) para obter acesso programático a eventos de provisionamento no seu inquilino. 
 
 ## <a name="apis-with-microsoft-graph-explorer"></a>APIs com Microsoft Graph Explorer
 

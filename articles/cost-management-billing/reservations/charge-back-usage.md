@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 4fb15a7e677d566454d5d487c1cf69767d7f3a30
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4059318e6b8052f3b0221c87e8a357cfc8679e44
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368749"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532763"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Fazer o estorno dos custos das Reservas do Azure
 
@@ -23,7 +23,7 @@ Os utilizadores com uma subscrição individual podem obter os dados do custo am
 ## <a name="see-reservation-usage-data-for-show-back-and-charge-back"></a>Consulte os dados de utilização da reserva para mostrar de volta e respune
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Navegar para **gestão de custos + faturação** 
+2. Navegue até **Cost Management + Faturação** 
 3. Selecione análise de **custos** da navegação à esquerda 
 4. Em **Custo Real**, selecione a métrica **Custo Amortizado**.
 5. Para ver quais foram os recursos utilizados por uma reserva, aplique um filtro para **Reserva** e, em seguida, selecione reservas.
@@ -33,13 +33,13 @@ Os utilizadores com uma subscrição individual podem obter os dados do custo am
 
 [![Exemplo que mostra os custos dos recursos da reserva que pode utilizar para o estorno](./media/charge-back-usage/amortized-reservation-costs.png)](./media/charge-back-usage/amortized-reservation-costs.png#lightbox)
 
-Aqui está um vídeo que mostra como ver os custos de utilização da reserva no portal do Azure.
+Aqui está um vídeo que mostra como ver os custos de utilização da reserva a nível de subscrição, grupo de recursos e recursos no portal Azure.
 
  > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
 
 ## <a name="get-the-data-for-show-back-and-charge-back"></a>Obtenha os dados para mostrar de volta e cobrar de volta
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Navegar para **gestão de custos + faturação** 
+2. Navegue até **Cost Management + Faturação** 
 3. Selecione **Exportação** da navegação à esquerda 
 4. Clique no botão **Adicionar**
 5. Selecione o custo amortizado como o botão métrico e configurar a sua exportação

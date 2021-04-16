@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d28a20a6afc78939491e56f46a32782b4c0844cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd221215d6be3c14ce1200e8bd374a97cb7608a0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879008"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503019"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -30,7 +30,6 @@ azcopy remove [resourceURL] [flags]
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 - [Dados de transferência com armazenamento AzCopy e Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
-- [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -103,7 +102,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--lista de ficheiros** a cadeia Define a localização de um ficheiro, que contém a lista de ficheiros e diretórios a serem eliminados. Os caminhos relativos devem ser delimitados por quebras de linha, e os caminhos NÃO devem ser codificados por URL. 
 
-**--lista de versões** cadeia Especifica um ficheiro onde cada id de versão está listado numa linha separada. Certifique-se de que a fonte deve apontar para uma única bolha e todos os ids de versão especificados no ficheiro que utilizam esta bandeira devem pertencer apenas à bolha de origem. Os ids de versão especificados da bolha dada serão eliminados do Azure Storage. 
+**--lista de versões** cadeia Especifica um ficheiro em que cada iD de versão está listado numa linha separada. Certifique-se de que a fonte deve apontar para uma única bolha e todos os IDs de versão especificados no ficheiro que utilizam esta bandeira devem pertencer apenas à bolha de origem. Os IDs de versão especificados da bolha dada serão eliminados do Azure Storage. 
 
 **--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo. Os níveis disponíveis incluem: `INFO` (todos os pedidos/respostas), `WARNING` (respostas lentas), `ERROR` (apenas pedidos falhados) e `NONE` (sem registos de saída). (predefinição) `INFO` (predefinição) `INFO`
 

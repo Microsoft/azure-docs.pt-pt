@@ -6,12 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 254d403adc687074eae772bcdcc55793bb25b336
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32cb1a54e8d3b4cca942616bb249968c4ed9e50c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048918"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477847"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas da plataforma para destinos diferentes
 [Os registos da plataforma](./platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](./data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
@@ -42,7 +42,7 @@ O vídeo que se segue acompanha-o através de registos de plataformas de encamin
 ## <a name="destinations"></a>Destinos
 Os registos e métricas da plataforma podem ser enviados para os destinos na tabela seguinte. 
 
-| Destino | Description |
+| Destino | Descrição |
 |:---|:---|
 | [Log Analytics espaço de trabalho](../logs/design-logs-deployment.md) | O envio de registos e métricas para um espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações. |
 | [Hubs de eventos](../../event-hubs/index.yml) | O envio de registos e métricas para Os Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo.  |
@@ -153,8 +153,31 @@ Utilize as [definições de diagnóstico do monitor az criar](/cli/azure/monitor
 > [!IMPORTANT]
 > Não é possível utilizar este método para o registo de Atividade Azure. Em vez disso, utilize [criar a definição de diagnóstico no Monitor Azure utilizando um modelo de Gestor de Recursos](./resource-manager-diagnostic-settings.md) para criar um modelo de Gestor de Recursos e implantá-lo com OCli.
 
-Segue-se um comando CLI de exemplo para criar uma definição de diagnóstico utilizando os três destinos.
+Segue-se um comando CLI de exemplo para criar uma definição de diagnóstico utilizando os três destinos. A sintaxe é ligeiramente diferente dependendo do seu cliente.
 
+# <a name="cmd"></a>[CMD](#tab/CMD)
+```azurecli
+az monitor diagnostic-settings create  ^
+--name KeyVault-Diagnostics ^
+--resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault ^
+--logs    "[{""category"": ""AuditEvent"",""enabled"": true}]" ^
+--metrics "[{""category"": ""AllMetrics"",""enabled"": true}]" ^
+--storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount ^
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace ^
+--event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+```
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+```azurecli
+az monitor diagnostic-settings create  `
+--name KeyVault-Diagnostics `
+--resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault `
+--logs    '[{""category"": ""AuditEvent"",""enabled"": true}]' `
+--metrics '[{""category"": ""AllMetrics"",""enabled"": true}]' `
+--storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount `
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace `
+--event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+```
+# <a name="bash"></a>[Bash](#tab/Bash)
 ```azurecli
 az monitor diagnostic-settings create  \
 --name KeyVault-Diagnostics \
@@ -162,9 +185,10 @@ az monitor diagnostic-settings create  \
 --logs    '[{"category": "AuditEvent","enabled": true}]' \
 --metrics '[{"category": "AllMetrics","enabled": true}]' \
 --storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount \
---workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace \
+--workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
+---
 
 ## <a name="create-using-resource-manager-template"></a>Criar usando o modelo de gestor de recursos
 Consulte [as amostras do modelo do Gestor de Recursos para configurações de diagnóstico no Azure Monitor](./resource-manager-diagnostic-settings.md) para criar ou atualizar definições de diagnóstico com um modelo de Gestor de Recursos.

@@ -13,22 +13,22 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2d0d3335468147575eb53a99940866baa18375
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df4cb32720d80dd23289be7e760c9934e9a8db8a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222526"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501506"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir permissões de acesso a hóspedes (pré-visualização) no Azure Ative Directory
 
 O Azure Ative Directory (Azure AD) permite-lhe restringir o que os utilizadores externos podem ver na sua organização em Azure AD. Os utilizadores de hóspedes estão definidos para um nível de permissão limitado por padrão em Azure AD, enquanto o padrão para os utilizadores membros é o conjunto completo de permissões de utilizador predefinidas. Esta é uma pré-visualização de um novo nível de permissão do utilizador convidado nas definições de colaboração externa da sua organização Azure AD para um acesso ainda mais restrito, pelo que as suas opções de acesso ao hóspede são agora:
 
-Nível de permissão         | Nível de acesso
-----------------         | ------------
-O mesmo que os utilizadores membros     | Os hóspedes têm o mesmo acesso aos recursos Azure AD que os utilizadores membros
-Acesso limitado (padrão) | Os hóspedes podem ver a adesão de todos os grupos não escondidos
-**Acesso restrito (novo)**  | **Os hóspedes não podem ver a adesão de nenhum grupo**
+Nível de permissão         | Nível de acesso | Valor
+----------------         | ------------ | -----
+O mesmo que os utilizadores membros     | Os hóspedes têm o mesmo acesso aos recursos Azure AD que os utilizadores membros | a0b1b346-4d3e-4e8b-98f8-753987be4970
+Acesso limitado (padrão) | Os hóspedes podem ver a adesão de todos os grupos não escondidos | 10dae51f-b6af-4016-8d66-8c2a99b929b3
+**Acesso restrito (novo)**  | **Os hóspedes não podem ver a adesão de nenhum grupo** | **2af84b1e-32c8-42b7-82bc-daa82404023b**
 
 Quando o acesso ao hóspede é restrito, os hóspedes podem ver apenas o seu próprio perfil de utilizador. A permissão para visualizar outros utilizadores não é permitida mesmo que o hóspede esteja a pesquisar pelo Nome Principal do Utilizador ou objectId. O acesso restrito também restringe os utilizadores convidados de verem a adesão de grupos em que se encontram. Para obter mais informações sobre as permissões gerais do utilizador por defeito, incluindo permissões de utilizador de hóspedes, consulte [quais são as permissões padrão do utilizador no Azure Ative Directory?](../fundamentals/users-default-permissions.md)
 
