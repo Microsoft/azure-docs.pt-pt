@@ -3,14 +3,14 @@ title: Upload de dados para empregos apache Hadoop em HDInsight
 description: Saiba como carregar e aceder a dados para empregos apache Hadoop em HDInsight. Use O Clássico CLI, Azure Storage Explorer, Azure PowerShell, a linha de comando Hadoop ou Sqoop.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdiseo17may2017,seoapr2020
+ms.custom: hdiseo17may2017,seoapr2020, devx-track-azurecli
 ms.date: 04/27/2020
-ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d58d194e8dbf011eec949602e4f8cd2e084a0d98
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98931349"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482114"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Upload de dados para empregos apache Hadoop em HDInsight
 
@@ -34,11 +34,11 @@ A Microsoft fornece os seguintes utilitários para trabalhar com o Azure Storage
 
 | Ferramenta | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [CLI do Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
-| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
-| [Comando Hadoop](#hadoop-command-line) |✔ |✔ |✔ |
+| [Portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |"" |"" |"" |
+| [CLI do Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |"" |"" |"" |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |"" |
+| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |"" | |"" |
+| [Comando Hadoop](#hadoop-command-line) |"" |"" |"" |
 
 > [!NOTE]  
 > O comando Hadoop só está disponível no cluster HDInsight. O comando só permite o carregamento de dados do sistema de ficheiros local para o Azure Storage.  
@@ -76,12 +76,12 @@ Existem também várias aplicações que fornecem uma interface gráfica para tr
 
 | Cliente | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Ferramentas de estúdio visual da Microsoft para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Explorador do Storage do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
-| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
-| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [CloudBerry Explorer para Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
-| [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
+| [Ferramentas de estúdio visual da Microsoft para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |"" |"" |"" |
+| [Explorador do Storage do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |"" |"" |"" |
+| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |"" |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |"" |
+| [CloudBerry Explorer para Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |"" |
+| [Cyberduck](https://cyberduck.io/) | |"" |"" |
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Armazenamento do Monte Azure como Unidade Local
 

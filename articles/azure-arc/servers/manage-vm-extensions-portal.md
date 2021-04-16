@@ -1,14 +1,14 @@
 ---
 title: Ativar a extensão de VM a partir do portal Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida a partir do portal Azure.
-ms.date: 01/22/2020
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5b4ff79d68ec9ff0cc61b9dbb7d3c5d7fe93598
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587660"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388283"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Ativar extensões VM do Azure a partir do portal Azure
 
@@ -16,6 +16,9 @@ Este artigo mostra-lhe como implementar e desinstalar extensões Azure VM, supor
 
 > [!NOTE]
 > A extensão VM do Cofre-Chave (pré-visualização) não suporta a implantação a partir do portal Azure, apenas utilizando o CLI Azure, o Azure PowerShell, ou utilizando um modelo de Gestor de Recursos Azure.
+
+> [!NOTE]
+> Os servidores ativados pelo Azure Arc não suportam a implementação e gestão de extensões VM para máquinas virtuais Azure. Para Azure VMs, consulte o seguinte artigo [de visão geral da extensão VM.](../../virtual-machines/extensions/overview.md)
 
 ## <a name="enable-extensions-from-the-portal"></a>Permitir extensões a partir do portal
 

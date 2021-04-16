@@ -4,12 +4,12 @@ description: Saiba como as funcionalidades de encriptação no Azure Backup ajud
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: c9b1b2782a34285ae194f2998a7cd053cf3c0c70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28d165ccc8a966091a96fc433660899d8eef1595
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325688"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518478"
 ---
 # <a name="encryption-in-azure-backup"></a>Encriptação no Azure Backup
 
@@ -32,4 +32,4 @@ O Azure Backup inclui encriptação em dois níveis:
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
-- [Azure Backup FAQ](backup-azure-backup-faq.md#encryption) para quaisquer perguntas que possa ter sobre encriptação
+- [Azure Backup FAQ](/backup-azure-backup-faq.yml#encryption) para quaisquer perguntas que possa ter sobre encriptação

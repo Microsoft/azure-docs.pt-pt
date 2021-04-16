@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c1028d0a4a458746c08fd6fa4f16aa952d9962a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e49e787854069c2fcea30df7a43c3aacdd21b9e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87282012"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502033"
 ---
 # <a name="azcopy-benchmark"></a>referência azcopia
 
@@ -38,6 +38,12 @@ O comando de referência executa o mesmo processo que 'cópia', exceto que:
 O modo benchmark irá sintonizar-se automaticamente com o número de ligações TCP paralelas que dá a máxima potência. Mostrará este número no final. Para evitar a autofinar, coloque a variável ambiente AZCOPY_CONCURRENCY_VALUE num número específico de ligações. 
 
 Todos os tipos de autenticação habitual são suportados. No entanto, a abordagem mais conveniente para o benchmarking upload é normalmente criar um recipiente vazio com um token SAS e usar a autenticação SAS. (O modo de descarregamento requer que um conjunto de dados de teste esteja presente no recipiente-alvo.)
+
+## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
+
+- [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+- [Otimizar o desempenho do AzCopy v10 com Azure Storage](storage-use-azcopy-optimize.md)
+
 
 ## <a name="examples"></a>Exemplos
 

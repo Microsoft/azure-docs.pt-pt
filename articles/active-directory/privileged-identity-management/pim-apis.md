@@ -14,18 +14,18 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce1900ca1ca04923f98642f0783925f2dd06619b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91529699"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533571"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>APIs do Gráfico da Microsoft para Gestão de Identidade Privilegiada (Pré-visualização)
 
 Pode executar tarefas privilegiadas de Gestão de Identidade utilizando as [APIs](/graph/overview) do Gráfico da Microsoft para o Azure Ative Directory. Este artigo descreve conceitos importantes para a utilização das APIs do Gráfico da Microsoft para gestão de identidade privilegiada.
 
-Para mais informações sobre as APIs do Gráfico da Microsoft, consulte a [referência Azure AD Privileged Identity Management API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta).
+Para mais informações sobre as APIs do Gráfico da Microsoft, consulte a [referência Azure AD Privileged Identity Management API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true).
 
 > [!IMPORTANT]
 > As APIs na versão /beta no Microsoft Graph estão em pré-visualização e estão sujeitas a alterações. A utilização destas APIs em aplicações de produção não é suportada.
@@ -61,4 +61,4 @@ Se estiver a utilizar o Graph Explorer para testar as suas chamadas, pode especi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Referência da Azure AD Gestão de Identidade Privilegiada API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)
+- [Referência da Azure AD Gestão de Identidade Privilegiada API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true)

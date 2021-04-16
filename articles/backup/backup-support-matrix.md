@@ -2,14 +2,14 @@
 title: Matriz de suporte do Azure Backup
 description: Fornece um resumo das definições e limitações de suporte para o serviço de backup Azure.
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 04/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 349a48b6178d5e4618aa62d9f0c3a150fe561e05
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 5c74a34efe8075ab7a34fab4570d9513900b3f81
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284396"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517424"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -33,7 +33,7 @@ A tabela a seguir descreve as características dos cofres dos Serviços de Recup
 --- | ---
 **Cofres em subscrição** | Até 500 cofres dos Serviços de Recuperação numa única subscrição.
 **Máquinas em um cofre** | Até 2000 fontes de dados em todas as cargas de trabalho (como VMs Azure, SQL Server VM, MABS Servers, e assim por diante) podem ser protegidas num único cofre.<br><br>Até 1.000 VMs Azure num único cofre.<br/><br/> Até 50 servidores MABS podem ser registados num único cofre.
-**Origens de dados** | O tamanho máximo de uma fonte de [dados](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) individual é de 54.400 GB. Este limite não se aplica às cópias de segurança Azure VM. Não se aplicam limites à quantidade total de dados que podes fazer até ao cofre.
+**Origens de dados** | O tamanho máximo de uma fonte de [dados](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) individual é de 54.400 GB. Este limite não se aplica às cópias de segurança Azure VM. Não se aplicam limites à quantidade total de dados que podes fazer até ao cofre.
 **Backups para o cofre** | **VMs Azure:** Uma vez por dia.<br/><br/>**Máquinas protegidas por DPM/MABS:** Duas vezes por dia.<br/><br/> **Máquinas apoiadas diretamente utilizando o agente MARS:** Três vezes por dia.
 **Backups entre cofres** | O reforço está dentro de uma região.<br/><br/> Precisa de um cofre em todas as regiões do Azure que contenham VMs que queira apoiar. Não pode voltar para outra região.
 **Mover cofres** | Pode [mover cofres](./backup-azure-move-recovery-services-vault.md) através de subscrições ou entre grupos de recursos na mesma subscrição. No entanto, mover cofres através de regiões não é suportado.
@@ -151,7 +151,7 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Suportado para VMs Azure com discos geridos e não geridos. Não suportado para VMs clássicos. | Disponível em todas as regiões públicas e regiões soberanas do Azure, com exceção da França Central, Austrália Central, África do Sul Norte, Emirados Árabes Unidos, Suíça Norte, Alemanha Central Ocidental, Noruega Oriental, UG IOWA e UG Virginia. <br>Para obter informações sobre a utilização nessas regiões, contacte [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| VM do Azure               | Suportado para VMs Azure (incluindo VMs Azure encriptados) com discos geridos e não geridos. Não suportado para VMs clássicos. | Disponível em todas as regiões públicas e regiões soberanas do Azure, com exceção da França Central, Austrália Central, África do Sul Norte, Emirados Árabes Unidos, Suíça Norte, Alemanha Central Ocidental, Noruega Oriental, UG IOWA e UG Virginia. <br>Para obter informações sobre a utilização nessas regiões, contacte [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | SQL /SAP HANA | Em pré-visualização                                                      | Disponível em todas as regiões públicas e regiões soberanas do Azure, com exceção da França Central, Austrália Central, África do Sul Norte, Emirados Árabes Unidos, Suíça Norte, Alemanha Central Ocidental, Noruega Oriental, UG IOWA e UG Virginia. <br>Para obter informações sobre a utilização nessas regiões, contacte [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | Agente MARS/Nas instalações  | No                                                           | N/D               |
 | AFS (ações de ficheiros Azure)                 | No                                                           | N/D               |

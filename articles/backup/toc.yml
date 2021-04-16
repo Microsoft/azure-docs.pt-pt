@@ -77,25 +77,25 @@
     - name: Perguntas Mais Frequentes (FAQ)
       items:
         - name: FAQ - Cofres dos Serviços de Recuperação
-          href: backup-azure-backup-faq.md
+          href: backup-azure-backup-faq.yml
         - name: FAQ - Centro de Cópias de Segurança
           href: backup-center-faq.yml
         - name: FAQ - Cópia de segurança de VMs do Azure
           href: backup-azure-vm-backup-faq.yml
         - name: FAQ - Agente MARS
-          href: backup-azure-file-folder-backup-faq.md
+          href: backup-azure-file-folder-backup-faq.yml
         - name: FAQ - Fazer cópias de segurança de Ficheiros do Azure
-          href: backup-azure-files-faq.md
+          href: backup-azure-files-faq.yml
         - name: FAQ - Cópia de Segurança de Discos do Azure
-          href: disk-backup-faq.md
+          href: disk-backup-faq.yml
         - name: FAQ - Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
-          href: faq-backup-sql-server.md
+          href: faq-backup-sql-server.yml
         - name: FAQ - Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
-          href: sap-hana-faq-backup-azure-vm.md
+          href: sap-hana-faq-backup-azure-vm.yml
         - name: FAQ - Azure Backup Server e DPM
-          href: backup-azure-dpm-azure-server-faq.md
+          href: backup-azure-dpm-azure-server-faq.yml
         - name: FAQ- Alerta do Azure Backup monitor
-          href: backup-azure-monitor-alert-faq.md
+          href: backup-azure-monitor-alert-faq.yml
     - name: Arquitetura da cópia de segurança
       href: backup-architecture.md
     - name: Documentação de orientação e melhores práticas

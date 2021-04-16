@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: kumud
-ms.openlocfilehash: 9b608312d66e6a3e7455c4577ea4644b33e4e82e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c98bdbb9fba2a6ba01e4ce590c36d57e68390f17
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080397"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484800"
 ---
 # <a name="azure-networking-architecture-documentation"></a>Documentação de arquitetura Azure Networking
 
@@ -51,6 +51,7 @@ A tabela que se segue inclui artigos que descrevem como implementar as suas apli
 |[IaaS: Aplicação web com base de dados relacional](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |   Descreve como usar recursos espalhados por várias zonas para fornecer uma arquitetura de alta disponibilidade para hospedar uma aplicação web de Infraestruturas como um Serviço (IaaS) e base de dados do SQL Server.     |
 |[Partilhar a localização em tempo real com serviços do Azure sem servidor de baixo custo](/azure/architecture/example-scenario/signalr/#azure-front-door)       |   Usa a Porta Frontal Azure para fornecer uma maior disponibilidade para as suas aplicações do que a implantação numa única região. Se uma falha regional afetar a região primária, pode utilizar o Front Door para efetuar a ativação pós-falha para a região secundária.      |
 |[Aplicações virtuais de rede de elevada disponibilidade](/azure/architecture/reference-architectures/dmz/nva-ha)     | Mostra como implantar um conjunto de aparelhos virtuais de rede (NVAs) para uma elevada disponibilidade em Azure.        |
+|[Equilíbrio de carga multi-região com Gestor de Tráfego e Gateway de Aplicação](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)     | Descreve como implementar aplicações resilientes de vários níveis em várias regiões do Azure, a fim de alcançar a disponibilidade e uma robusta infraestrutura de recuperação de desastres.        |
 
 ## <a name="secure-your-network-resources"></a>Proteja os seus recursos de rede
 

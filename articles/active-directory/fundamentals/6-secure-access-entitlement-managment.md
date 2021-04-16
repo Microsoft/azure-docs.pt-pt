@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89744b63a555cc02d35815b4066ce572b7f77e38
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98725183"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531891"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Gerir o acesso externo com a Gestão de Direitos 
 
@@ -96,13 +96,13 @@ Para obter mais informações sobre comentários de acesso, consulte [a implemen
 
 Pode executar [funções de Gestão de Direitos utilizando o Microsoft Graph,](/graph/tutorial-access-package-api)incluindo
 
-* [Gerir pacotes de acesso](/graph/api/resources/accesspackage?view=graph-rest-beta)
+* [Gerir pacotes de acesso](/graph/api/resources/accesspackage?view=graph-rest-beta&preserve-view=true)
 
-* [Gerir comentários de acesso](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
+* [Gerir comentários de acesso](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)
 
-* [Gerir organizações conectadas](/graph/api/resources/connectedorganization?view=graph-rest-beta)
+* [Gerir organizações conectadas](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true)
 
-* [Gerir definições de Gestão de Direitos](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
+* [Gerir definições de Gestão de Direitos](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta&preserve-view=true)
 
 ## <a name="recommendations"></a>Recomendações 
 
@@ -112,7 +112,7 @@ Recomendamos as práticas para reger o acesso externo com a Gestão de Direitos.
 
 * Se já tem utilizadores B2B no seu diretório, também pode atribuí-los diretamente aos pacotes de acesso apropriados.
 
-* Pode atribuir acesso no [portal Azure,](../governance/entitlement-management-access-package-assignments.md)ou através do [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta).
+* Pode atribuir acesso no [portal Azure,](../governance/entitlement-management-access-package-assignments.md)ou através do [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta&preserve-view=true).
 
 **Utilize as definições de Governação de Identidade para remover os utilizadores do seu diretório quando os seus pacotes de acesso expirarem.**
 

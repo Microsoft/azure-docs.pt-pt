@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 04/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 3d3ab9859eb9f85d5ca7d0573fa79443ae9fe964
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 07b106630cffae75c5e4588d14de7ae938945614
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107251011"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534117"
 ---
 # <a name="managed-identities-for-azure-resources-frequently-asked-questions---azure-ad"></a>Identidades geridas para recursos Azure frequentemente feitas perguntas - Azure AD
 
@@ -139,11 +139,11 @@ N.º As identidades geridas não suportam atualmente cenários de diretórios cr
 Os limites de identidades geridas têm dependências dos limites de serviço Azure, limites do Serviço de Metadados de Instância Azure (IMDS) e limites de serviço do Azure Ative Directory.
 
 - **Os limites de serviço da Azure** definem o número de operações de criação que podem ser realizadas nos níveis de arrendatário e subscrição. As identidades geridas pelo utilizador também têm [limitações](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) em torno da forma como podem ser nomeadas.
-- **IMDS** Em geral, os pedidos ao IMDS limitam-se a cinco pedidos por segundo. Os pedidos que excedam este limiar serão rejeitados com 429 respostas. Os pedidos à categoria Identidade Gerida estão limitados a 20 pedidos por segundo e 5 pedidos simultâneos. Pode ler mais no artigo [Azure Instance Medata Serice (Windows).](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity)
+- **IMDS** Em geral, os pedidos ao IMDS limitam-se a cinco pedidos por segundo. Os pedidos que excedam este limiar serão rejeitados com 429 respostas. Os pedidos à categoria Identidade Gerida estão limitados a 20 pedidos por segundo e 5 pedidos simultâneos. Pode ler mais no artigo do [Serviço de Metadados de Caso Azure (Windows).](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity)
 - **Serviço de Diretório Ativo Azure** Cada identidade gerida conta para o limite de quota de objeto num inquilino AD Azure, conforme descrito nos [limites e restrições de serviço Azure AD](../enterprise-users/directory-service-limits-restrictions.md).
 
 
-## <a name="is-it-ok-to-move-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>É correto mover uma identidade gerida atribuída pelo utilizador para um grupo/subscrição de recursos diferentes?
+### <a name="is-it-possible-to-move-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>É possível mover uma identidade gerida atribuída pelo utilizador para um grupo/subscrição de recursos diferentes?
 
 A deslocação de uma identidade gerida atribuída pelo utilizador para um grupo de recursos diferente não é suportada.
 

@@ -9,151 +9,136 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 04/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 52ad0d0356f4d309db89db6527d7fd2d7dec253d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3eaac19ffbf3fd93311073ff69e28532b1c15e6
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92636821"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Tutorial: Integração do Azure Ative Directory com webMethods Integration Suite
 
-Neste tutorial, você aprende a integrar webMethods Integration Suite com Azure Ative Directory (Azure AD).
-A integração da Suite de Integração webMethods com Azure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar webMethods Integration Suite com Azure Ative Directory (Azure AD). Quando integra a Suite de Integração webMethods com Azure AD, pode:
 
-* Você pode controlar em Azure AD que tem acesso a webMethods Integration Suite.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos na suite de integração webMethods (Sign-on único) com as suas contas AD Azure.
-* Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Control em Azure AD que tem acesso à suite de integração webMethods.
+* Capacitar os seus utilizadores a serem automaticamente inscritos na suite de integração webMethods com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração Azure AD com a webMethods Integration Suite, precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* webMethods Integração Suite única assinatura ativada
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* WebMethods Integration Suite única sign-on (SSO) ativada subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* WebMethods Integration Suite suporta **SP** e **IDP** iniciado SSO
+* WebMethods Integration Suite suporta **SSO** iniciado SP e **IDP.**
 
-* WebMethods Integration Suite suporta provisão de utilizadores **just-in-time**
+* WebMethods Integration Suite suporta o fornecimento de utilizadores **just-in-time.**
 
-## <a name="adding-webmethods-integration-suite-from-the-gallery"></a>Adicionar suíte de integração webMethods da galeria
+## <a name="add-webmethods-integration-suite-from-the-gallery"></a>Adicionar suíte de integração webMethods da galeria
 
 Para configurar a integração da Suite de Integração webMethods em Azure AD, você precisa adicionar webMethods Integration Suite da galeria à sua lista de aplicações geridas saaS.
 
-**Para adicionar webMethods Integration Suite da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar a partir da secção **de galeria,** escreva **webMethods Integration Suite** na caixa de pesquisa.
+1. Selecione **webMethods Integration Suite** a partir do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+## <a name="configure-and-test-azure-ad-sso-for-webmethods-integration-suite"></a>Configurar e testar Azure AD SSO para webMethods Integration Suite
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com webMethods Integration Suite usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado na Suite de Integração webMethods.
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar o Azure AD SSO com a suite de integração webMethods, execute os seguintes passos:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configurar webMethods Integration Suite SSO](#configure-webmethods-integration-suite-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Crie o utilizador de teste webMethods Integration Suite](#create-webmethods-integration-suite-test-user)** - para ter uma contrapartida de B.Simon na suite de integração webMethods que está ligada à representação AD AD do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, escreva **webMethods Integration Suite**, selecione **webMethods Integration Suite** a partir do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
+1. No portal Azure, na página de integração de aplicações **webMethods Integration Suite,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
-     ![webMethods Integration Suite na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
-
-Nesta secção, você configura e testa Azure AD single sign-on com webMethods Integration Suite com base em um utilizador de teste chamado **Britta Simon**.
-Para um único sign-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Suite de Integração webMethods.
-
-Para configurar e testar o único sign-on Azure AD com webMethods Integration Suite, você precisa completar os seguintes blocos de construção:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configurar webMethods Integration Suite Single Sign-On](#configure-webmethods-integration-suite-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Crie o utilizador de teste webMethods Integration Suite](#create-webmethods-integration-suite-test-user)** - para ter uma contraparte de Britta Simon na webMethods Integration Suite que está ligada à representação AD AD do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
-
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
-
-Para configurar o Azure AD single sign-on com webMethods Integration Suite, execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **webMethods Integration Suite,** selecione **Single sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Para configurar a **nuvem de integração webMethods,** na secção **Configuração Básica SAML,** se desejar configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
+    a. Na caixa de texto **do identificador,** digite um URL utilizando um dos seguintes padrões:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
+    | URL do identificador |
+    |----------------------------------------------|
+    | `<SUBDOMAIN>.webmethodscloud.com`|
+    | `<SUBDOMAIN>.webmethodscloud.eu` |
+    | `<SUBDOMAIN>.webmethodscloud.de` |
+    |
 
-    - `<SUBDOMAIN>.webmethodscloud.com`
-    - `<SUBDOMAIN>.webmethodscloud.eu`
-    - `<SUBDOMAIN>.webmethodscloud.de`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
-
-
-    - `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse`
-    - `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse`
-    - `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse`
+    | URL de Resposta |
+    |----------------------------------------------|
+    | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse`|
+    | `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse`|
+    | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse`|
+    |
 
     c. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
+    d. Na caixa de texto **URL de entrada de sinais,** digite um URL utilizando um dos seguintes padrões:
 
-    d. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
-
-    - `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest`
-    - `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest`
-    - `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest`
+    | URL de início de sessão |
+    |--------------------------------|
+    |`https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest`|
+    |`https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest`|
+    |`https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest`|
+    |
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do cliente da Suite Integração webMethods](https://empower.softwareag.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Para configurar a **nuvem API da webMethods,** na secção **Configuração Básica SAML,** se desejar configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
+    a. Na caixa de texto **do identificador,** digite um URL utilizando um dos seguintes padrões:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:
+    | URL do identificador |
+    |----------------------------------------------|
+    | `<SUBDOMAIN>.webmethodscloud.com`|
+    |`<SUBDOMAIN>.webmethodscloud.eu`|
+    | `<SUBDOMAIN>.webmethodscloud.de`|
+    |
 
-    - `<SUBDOMAIN>.webmethodscloud.com`
-    - `<SUBDOMAIN>.webmethodscloud.eu`
-    - `<SUBDOMAIN>.webmethodscloud.de`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
-
-    - `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso`
-    - `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso`
-    - `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso`
+    | URL de Resposta |
+    |----------------------------------------------|
+    | `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso`|
+    | `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso`|
+    | `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso`|
+    |
 
     c. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
-
-    d. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
-
-    - `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>`
-    - `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>`
-    - `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>`
+    d. Na caixa de texto **URL de entrada de sinais,** digite um URL utilizando um dos seguintes padrões:
+    
+    | URL de início de sessão |
+    |--------------------------------|
+    | `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>`|
+    | `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>`|
+    | `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>`|
+    |
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do cliente da Suite Integração webMethods](https://empower.softwareag.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -166,81 +151,54 @@ Para configurar o Azure AD single sign-on com webMethods Integration Suite, exec
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
-
-    b. Identificador Azure Ad
-
-    c. Logout URL
-
-### <a name="configure-webmethods-integration-suite-single-sign-on"></a>Configurar webMethods Integração Suite Single Sign-On
-
-Para configurar um único sign-on na **webMethods Integration Suite,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte webMethods Integration Suite](https://empower.softwareag.com/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome,** **insira BrittaSimon**.
-  
-    b. No campo **nome do utilizador,** **escreva brittasimon \@ yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permite que Britta Simon use a Azure single sign-on, concedendo acesso à suite de integração webMethods.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Suite de Integração webMethods.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **webMethods Integration Suite**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **webMethods Integration Suite**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
+## <a name="configure-webmethods-integration-suite-sso"></a>Configurar webMethods Integração Suite SSO
 
-2. Na lista de aplicações, selecione **webMethods Integration Suite**.
-
-    ![O link webMethods Integration Suite na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos,** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
+Para configurar um único sign-on na **webMethods Integration Suite,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte webMethods Integration Suite](https://empower.softwareag.com/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-webmethods-integration-suite-test-user"></a>Criar webMethods Integration Suite test utilizador
 
 Nesta secção, um utilizador chamado Britta Simon é criado na webMethods Integration Suite. WebMethods Integration Suite suporta o fornecimento de utilizadores just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Suite de Integração webMethods, um novo é criado após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo webMethods Integration Suite no Painel de Acesso, deverá ser automaticamente inscrito na suite de integração webMethods para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos Adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para webMethods Integration Suite Sign no URL onde pode iniciar o fluxo de login.  
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+* Vá diretamente ao WEBMethods Integration Suite Sign-on URL e inicie o fluxo de login a partir daí.
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na suite de integração webMethods para a qual configura o SSO. 
+
+Também pode utilizar o Microsoft My Apps para testar a aplicação em qualquer modo. Quando clicar no azulejo webMethods Integration Suite nas Minhas Apps, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na Suite de Integração webMethods para a qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Assim que configurar o WebMethods Integration Suite, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

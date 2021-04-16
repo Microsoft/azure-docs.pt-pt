@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ad10cfc661b80eaac146087d85dc87002f6a455
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: b8cea26bcb0926cd3af360a6489377767d681079
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960151"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532555"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerir um catálogo de recursos na gestão de direitos Azure AD
 
@@ -53,7 +53,7 @@ Um catálogo é um contentor de recursos e pacotes de acesso. Cria um catálogo 
 
 ### <a name="creating-a-catalog-programmatically"></a>Criar um catálogo programático
 
-Também pode criar um catálogo utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode ligar para a API para criar um [AccessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+Também pode criar um catálogo utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode ligar para a API para criar um [AccessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
 
 ## <a name="add-resources-to-a-catalog"></a>Adicionar recursos a um catálogo
 
@@ -91,7 +91,7 @@ Para incluir recursos num pacote de acesso, os recursos devem existir num catál
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Adicionar um recurso a um catálogo programático
 
-Também pode adicionar um recurso a um catálogo utilizando o Microsoft Graph.  Um utilizador numa função adequada, ou um catálogo e proprietário de recursos, com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode ligar para a API para criar um [AccessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+Também pode adicionar um recurso a um catálogo utilizando o Microsoft Graph.  Um utilizador numa função adequada, ou um catálogo e proprietário de recursos, com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode ligar para a API para criar um [AccessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&preserve-view=true).
 
 ## <a name="remove-resources-from-a-catalog"></a>Remover recursos de um catálogo
 
@@ -164,7 +164,7 @@ Pode apagar um catálogo, mas apenas se não tiver pacotes de acesso.
 
 ### <a name="deleting-a-catalog-programmatically"></a>Apagar um catálogo programáticamente
 
-Também pode eliminar um catálogo utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode ligar para a API para apagar um [AccessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+Também pode eliminar um catálogo utilizando o Microsoft Graph.  Um utilizador numa função adequada com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode ligar para a API para apagar um [AccessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta&preserve-view=true).
 
 ## <a name="next-steps"></a>Passos seguintes
 

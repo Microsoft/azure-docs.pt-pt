@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: 657ccafa0e7b7f640122fd6b397b3fa2a7c5f0fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 319bd408943c560622dc3208a6701417b8ca010c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015560"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532922"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content"></a>Identificar e transcrever automaticamente conteúdo em vários idiomas
 
@@ -39,7 +39,7 @@ Pode escolher **a deteção de vários idiomas** ao carregar e indexar o seu ví
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-api"></a>Escolha da identificação multilíngue na indexação com API
 
-Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo utilizando a API, escolha a `multi-language detection` opção no `sourceLanguage` parâmetro.
+Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) um vídeo utilizando a API, escolha a `multi-language detection` opção no `sourceLanguage` parâmetro.
 
 ### <a name="model-output"></a>Saída do modelo
 

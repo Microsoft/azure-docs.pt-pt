@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 371cc78f3ebad638008f4195f164b66a64948c65
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 529a86712994aae91a554589d383cc748f79d07f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504554"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520110"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Começar com o Windows Virtual Desktop Agent
 
@@ -32,17 +32,18 @@ O agente virtual do Windows está inicialmente instalado de duas formas. Se forr
 
 ## <a name="agent-update-process"></a>Processo de atualização de agentes
 
-O serviço de ambiente de trabalho virtual do Windows atualiza o agente sempre que uma atualização estiver disponível. As atualizações do agente podem incluir novas funcionalidades ou correções para problemas anteriores. Uma vez instalada a versão inicial do agente virtual do Windows Desktop, o agente consulta regularmente o serviço de ambiente de trabalho virtual do Windows para determinar se existe uma versão mais recente do agente, stack ou componente de monitorização disponível. Se já tiver sido implantada uma versão mais recente de qualquer um dos componentes, o componente atualizado é automaticamente instalado.
+O serviço de ambiente de trabalho virtual do Windows atualiza o agente sempre que uma atualização estiver disponível. As atualizações do agente podem incluir novas funcionalidades ou correções para problemas anteriores. Deve ter sempre a versão mais recente e estável do agente instalada para que os seus VM não percam conectividade ou segurança. Uma vez instalada a versão inicial do agente virtual do Windows Desktop, o agente consulta regularmente o serviço de ambiente de trabalho virtual do Windows para determinar se existe uma versão mais recente do agente, stack ou componente de monitorização disponível. Se já tiver sido implementada uma versão mais recente de qualquer um dos componentes, o componente atualizado é automaticamente instalado pelo sistema de voo.
 
 As novas versões do agente são implementadas a intervalos regulares em períodos de semana a todas as subscrições do Azure. Estes períodos de atualização são chamados de "voos". Quando um voo acontece, você pode ver VMs na sua piscina anfitriã receber a atualização do agente em diferentes momentos. Todos os agentes VM em todas as subscrições serão atualizados até ao final do período de implementação. O sistema de voo virtual do Windows Desktop aumenta a fiabilidade do serviço garantindo a estabilidade e a qualidade da atualização do agente.
 
 
->[!NOTE]
->Uma vez que os VMs no seu pool de anfitriões podem receber atualizações de agentes em momentos diferentes, terá de ser capaz de distinguir entre problemas de voo e atualizações falhadas do agente. Se for aos registos do evento para o seu VM na Aplicação de Registos **do Windows do Espectador de**  >  **Eventos**  >   e vir um evento com a etiqueta "ID 3277", isso significa que a atualização do Agente não funcionou. Se não vires esse evento, então o VM está num voo diferente e será atualizado mais tarde.
->- Quando o agente de monitorização de Genebra atualiza para a versão mais recente, a antiga tarefa genevaTask é localizada e desativada antes de criar uma nova tarefa para o novo agente de monitorização. A versão anterior do agente de monitorização não é eliminada caso a versão mais recente do agente de monitorização tenha um problema que requer reverter para a versão anterior para corrigir. Se a versão mais recente tiver um problema, o antigo agente de monitorização será re-habilitado para continuar a fornecer dados de monitorização. Todas as versões do monitor que sejam mais cedo do que a última que instalou antes da atualização serão eliminadas do seu VM.
->- O seu VM mantém três versões da pilha lado a lado de cada vez. Isto permite uma rápida recuperação se algo correr mal com a atualização. A versão mais antiga da pilha é removida do VM sempre que a stack atualiza.
+Outras coisas importantes que deve ter em mente:
 
-Esta instalação de atualização dura normalmente 2-3 minutos num novo VM e não deve fazer com que o seu VM perca a ligação ou desligue. Este processo de atualização aplica-se tanto ao Windows Virtual Desktop (clássico) como à versão mais recente do Windows Virtual Desktop com o Azure Resource Manager.
+- Uma vez que os VMs no seu pool de anfitriões podem receber atualizações de agentes em momentos diferentes, terá de ser capaz de distinguir entre problemas de voo e atualizações falhadas do agente. Se for aos registos do evento para o seu VM na Aplicação de Registos **do Windows do Espectador de**  >  **Eventos**  >   e vir um evento com a etiqueta "ID 3277", isso significa que a atualização do Agente não funcionou. Se não vires esse evento, então o VM está num voo diferente e será atualizado mais tarde.
+- Quando o agente de monitorização de Genebra atualiza para a versão mais recente, a antiga tarefa genevaTask é localizada e desativada antes de criar uma nova tarefa para o novo agente de monitorização. A versão anterior do agente de monitorização não é eliminada caso a versão mais recente do agente de monitorização tenha um problema que requer reverter para a versão anterior para corrigir. Se a versão mais recente tiver um problema, o antigo agente de monitorização será re-habilitado para continuar a fornecer dados de monitorização. Todas as versões do monitor que sejam mais cedo do que a última que instalou antes da atualização serão eliminadas do seu VM.
+- O seu VM mantém três versões da pilha lado a lado de cada vez. Isto permite uma rápida recuperação se algo correr mal com a atualização. A versão mais antiga da pilha é removida do VM sempre que a stack atualiza.
+
+A atualização do agente dura normalmente 2-3 minutos num novo VM e não deve fazer com que o seu VM perca a ligação ou desligue. Este processo de atualização aplica-se tanto ao Windows Virtual Desktop (clássico) como à versão mais recente do Windows Virtual Desktop com o Azure Resource Manager.
 
 ## <a name="next-steps"></a>Passos seguintes
 

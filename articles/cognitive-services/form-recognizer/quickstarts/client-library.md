@@ -8,30 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tratamento de formulários, processamento automatizado de dados
-ms.openlocfilehash: 43182892aa80f6226ffb5177d0be2e24d15ead5c
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: b4631892f1c35c665c4468a6e0b3ad481a19e8df
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467231"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516439"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Quickstart: Use a biblioteca do cliente do Reconhecimento de Formulários ou a API REST
 
-Começa com o Form Recogniser utilizando a linguagem de desenvolvimento à tua escolha. Azure Form Recogniser é um serviço cognitivo que permite construir software automatizado de processamento de dados usando tecnologia de machine learning. Identificar e extrair texto, pares chave/valor, marcas de seleção, dados de tabela e muito mais do seu formulário &mdash; documentos as saídas de serviços dados estruturados que incluem as relações no ficheiro original. Pode utilizar o Form Recogniser através da API REST ou SDK. Siga estes passos para instalar o pacote SDK e experimente o código de exemplo para tarefas básicas. 
+Começa com o Form Recogniser utilizando a linguagem de desenvolvimento à tua escolha. Azure Form Recogniser é um serviço cognitivo que permite construir software automatizado de processamento de dados usando tecnologia de machine learning. Identificar e extrair texto, pares chave/valor, marcas de seleção, dados de tabela e muito mais do seu formulário &mdash; documentos as saídas de serviços dados estruturados que incluem as relações no ficheiro original. Pode utilizar o Form Recogniser através da API REST ou SDK. Siga estes passos para instalar o pacote SDK e experimente o código de exemplo para tarefas básicas.
 
 Utilizar o Reconhecimento de Formulários para:
 
 * [Ver layout](#analyze-layout)
-* [Analisar faturas](#analyze-invoices)
-* [Preparar um modelo personalizado](#train-a-custom-model)
-* [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Analisar recibos](#analyze-receipts)
 * [Analisar cartões de visita](#analyze-business-cards)
+* [Analisar faturas](#analyze-invoices)
+* [Analisar documentos de identidade](#analyze-identity-documents)
+* [Preparar um modelo personalizado](#train-a-custom-model)
+* [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
 
 ::: zone pivot="programming-language-csharp"

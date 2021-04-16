@@ -8,16 +8,16 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 19d5a5214ae4d2d6c0a18b68863211aa1f6573c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3b4f7737320cc0359192f947271a0f4beb3c478
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878991"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503002"
 ---
 # <a name="azcopy"></a>azcopy
 
-A azCopy é uma ferramenta de linha de comando que move dados para dentro e para fora do Azure Storage.
+A azCopy é uma ferramenta de linha de comando que move dados para dentro e para fora do Azure Storage. Consulte o [artigo da AzCopy](storage-use-azcopy-v10.md) para descarregar o AzCopy e saiba como pode fornecer credenciais de autorização ao serviço de armazenamento.
 
 ## <a name="synopsis"></a>Sinopse
 
@@ -28,9 +28,9 @@ Para relatar problemas ou para saber mais sobre a ferramenta, veja [https://gith
 ## <a name="related-conceptual-articles"></a>Artigos conceptuais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+- [Tutorial: Migrar dados no local para armazenamento em nuvem com AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Dados de transferência com armazenamento AzCopy e Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
-- [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opções
 

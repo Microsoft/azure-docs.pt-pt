@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.openlocfilehash: b719310a331044df363efcc6b79be323faf49247
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 53fe53e1406bfcde1f2d8c7b2a1ce8369303426f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562108"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379374"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Quickstart: Criar uma instância gerida azure para o cluster Apache Cassandra usando Azure CLI (Preview)
 
@@ -48,11 +48,19 @@ Este quickstart demonstra como usar os comandos Azure CLI para criar um cluster 
    ```azurecli-interactive
    az network vnet create -n <VNet_Name> -l eastus2 -g <Resource_Group_Name> --subnet-name <Subnet Name>
    ```
+    > [!NOTE]
+    > A implementação de uma instância gerida azure para a Apache Cassandra requer acesso à Internet. A implementação falha em ambientes onde o acesso à Internet é restrito. Certifique-se de que não bloqueia o acesso dentro do seu VNet aos seguintes serviços vitais da Azure que são necessários para que a Cassandra gerida funcione corretamente:
+    > - Storage do Azure
+    > - Azure KeyVault
+    > - Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
+    > - Monitorização do Azure
+    > - Azure Active Directory
+    > - Azure Security
 
-1. Aplique algumas permissões especiais na Rede Virtual e na sub-rede, que são exigidas pela instância gerida. Utilize o `az role assignment create` comando, `<subscription ID>` substituindo, , e pelos `<resource group name>` `<VNet name>` `<subnet name>` valores adequados:
+1. Aplicar algumas permissões especiais na Rede Virtual, que são exigidas pela instância gerida. Utilize o `az role assignment create` comando, `<subscription ID>` substituindo, e com os `<resource group name>` `<VNet name>` valores adequados:
 
    ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
+   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
    ```
 
    > [!NOTE]

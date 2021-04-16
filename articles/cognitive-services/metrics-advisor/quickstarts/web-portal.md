@@ -4,18 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Saiba como começar a usar o portal web Metrics Advisor.
 services: cognitive-services
 author: mrbullwinkle
+ms.author: mbullwin
 manager: nitinme
+ms.date: 09/30/2020
+ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
-ms.topic: quickstart
-ms.date: 09/30/2020
-ms.author: mbullwin
-ms.openlocfilehash: f853dca12b6a5855dc0603259ab534fa9933cd5b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.custom:
+- mode-portal
+ms.openlocfilehash: aaeaf92df140019db32c326199c9614fd8f5ae37
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432303"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531802"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Quickstart: Monitorize a sua primeira métrica utilizando o portal web
 
@@ -91,7 +93,7 @@ Uma vez carregado e mostrado o esquema de dados como abaixo, selecione os campos
 
 |Seleção  |Descrição  |Notas  |
 |---------|---------|---------|
-|**Tempotamp**     | O tempo de datata de um ponto de dados. Se omitido, o Metrics Advisor utilizará a estamp de tempo quando o ponto de dados for ingerido. Para cada feed de dados, pode especificar no máximo uma coluna como se o timetamp.        | Opcional. Deve ser especificado com no máximo uma coluna.       |
+|**CarimboDeDataEHora**     | O tempo de datata de um ponto de dados. Se omitido, o Metrics Advisor utilizará a estamp de tempo quando o ponto de dados for ingerido. Para cada feed de dados, pode especificar no máximo uma coluna como se o timetamp.        | Opcional. Deve ser especificado com no máximo uma coluna.       |
 |**Medir**     |  Os valores numéricos no feed de dados. Para cada feed de dados, pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com pelo menos uma coluna.        |
 |**dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série de tempo de dimensão única específica, por exemplo: país, língua, inquilino. Pode selecionar nenhum número ou número arbitrário de colunas como dimensões. Nota: se estiver a selecionar uma coluna não-string como dimensão, tenha cuidado com a explosão de dimensão. | Opcional.        |
 |**Ignorar**     | Ignore a coluna selecionada.        |         |

@@ -1,5 +1,5 @@
 ---
-title: Funções azure incorporadas - Azure RBAC
+title: Funções incorporadas do Azure - RBAC do Azure
 description: Este artigo descreve os papéis incorporados do Azure para o controlo de acesso baseado em funções Azure (Azure RBAC). Ele lista Ações, NotActions, DataActions e NotDataActions.
 services: active-directory
 ms.service: role-based-access-control
@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: 4e559ea1e531e2d472faeef60ebc6d528da0cfd0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c89e6ed98e0a71f530cefda4cc1f42a27996d805
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307933"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518512"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -225,7 +225,7 @@ A tabela a seguir fornece uma breve descrição de cada papel incorporado. Cliqu
 > | [Leitor de Faturação](#billing-reader) | Permite ler acesso a dados de faturação | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | [Contribuidor de Projeto](#blueprint-contributor) | Pode gerir definições de planta, mas não atribuí-las. | 41077137-e803-4205-871c-5a86e6a753b4 |
 > | [Operador de blueprint](#blueprint-operator) | Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. Note que isto só funciona se a atribuição for feita com uma identidade gerida atribuída pelo utilizador. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
-> | [Contribuidor para a Gestão de Custos](#cost-management-contributor) | Pode ver os custos e gerir a configuração dos custos (por exemplo, orçamentos, exportações) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | [Contribuidor do Cost Management](#cost-management-contributor) | Pode ver os custos e gerir a configuração dos custos (por exemplo, orçamentos, exportações) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Leitor de Gestão de Custos](#cost-management-reader) | Pode ver dados de custos e configuração (por exemplo, orçamentos, exportações) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | [Administrador de Definições de Hierarquia](#hierarchy-settings-administrator) | Permite aos utilizadores editar e eliminar Definições de Hierarquia | 350f8d15-c687-4448-8ae1-157740a3936d |
 > | [Kubernetes Cluster - Azure Arc Onboarding](#kubernetes-cluster---azure-arc-onboarding) | Definição de função para autorizar qualquer utilizador/serviço para criar recurso connectedClusters | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
@@ -1513,7 +1513,7 @@ Permite-lhe gerir serviços de backup, exceto remoção de backup, criação de 
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectedItems/read | Devolve a lista de todos os Itens Protegidos. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionContainers/read | Devolve todos os contentores pertencentes à subscrição |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupUsageSummaries/read | Retorna resumos para itens protegidos e servidores protegidos para um Serviço de Recuperação . |
-> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Cofres/certificados/write | A operação 'Certificado de Recurso de actualização' atualiza o certificado de credencial de recurso/cofre. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Cofres/certificados/write | A operação 'Certificado de Recurso de atualização' atualiza o certificado de credencial de recurso/cofre. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/read | A operação Get Extended Info obtém informações estendidas de um objeto que representa o recurso Azure do tipo ?cofre? |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/write | A operação Get Extended Info obtém informações estendidas de um objeto que representa o recurso Azure do tipo ?cofre? |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/read | Recebe os alertas para o cofre dos serviços de recuperação. |
@@ -10261,7 +10261,7 @@ Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. 
 }
 ```
 
-### <a name="cost-management-contributor"></a>Contribuidor para a Gestão de Custos
+### <a name="cost-management-contributor"></a>Contribuidor do Cost Management
 
 Pode ver custos e gerir a configuração de custos (por exemplo, orçamentos, exportações) [Saiba mais](../cost-management-billing/costs/understand-work-scopes.md)
 
@@ -11012,7 +11012,7 @@ Permite-lhe gerir o serviço de Recuperação de Sítios exceto a criação de a
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Obtenha a definição de rede virtual |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/alocedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/allocateStamp/action | Alocarmps é uma operação interna utilizada pelo serviço |
-> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Cofres/certificados/write | A operação 'Certificado de Recurso de actualização' atualiza o certificado de credencial de recurso/cofre. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Cofres/certificados/write | A operação 'Certificado de Recurso de atualização' atualiza o certificado de credencial de recurso/cofre. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/* | Criar e gerir informações estendidas relacionadas com o cofre |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/read | A operação Get Vault obtém um objeto que representa o recurso Azure do tipo 'cofre' |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/refreshContainers/read |  |
@@ -12144,7 +12144,7 @@ Leitor do espaço de trabalho de virtualização desktop. [Saiba mais](../virtua
 
 ### <a name="disk-backup-reader"></a>Leitor de backup de discos
 
-Fornece permissão para o cofre de reserva para realizar cópia de segurança do disco. [Saiba mais](../backup/disk-backup-faq.md)
+Fornece permissão para o cofre de reserva para realizar cópia de segurança do disco. [Saiba mais](../backup/disk-backup-faq.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

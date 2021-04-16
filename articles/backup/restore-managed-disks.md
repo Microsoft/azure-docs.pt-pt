@@ -3,12 +3,12 @@ title: Restaurar Discos Geridos Azure
 description: Saiba como restaurar os Discos Geridos Azure a partir do portal Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 94adc8512987b50a8df07d295215ffcff873162f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c57d60047a5bcef58c721ee25bd8a0b3ed523aa4
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108592"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517203"
 ---
 # <a name="restore-azure-managed-disks"></a>Restaurar Discos Geridos Azure
 
@@ -128,4 +128,4 @@ Depois de ativar a operação de restauro, o serviço de backup cria um trabalho
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [BACKUP DE DISCO Azure FAQ](disk-backup-faq.md)
+- [BACKUP DE DISCO Azure FAQ](disk-backup-faq.yml)

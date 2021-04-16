@@ -2,21 +2,21 @@
 title: Como utilizar o acesso a aplicações self-service em Azure AD
 description: Ativar o self-service para que os utilizadores possam encontrar aplicações em Azure AD
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/11/2017
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 13f91fdd9e2d9501fba426bd6facbf9824a39285
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e3851a702da46d07634a4141c774275845fa44d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257022"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377620"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso a aplicações self-service
 

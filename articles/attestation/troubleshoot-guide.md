@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5eefcb55bb5447d557f097af872847576aa86eed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97704321"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519311"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guia de resolução de problemas do Microsoft Azure Attestation
 
@@ -30,7 +30,6 @@ Abaixo estão alguns exemplos dos erros devolvidos pela Azure Attestation:
 **Código de erro** Não autorizado
 
 **Exemplos de cenário**
-  - Falha no atestado se o utilizador não for designado com a função Attestation Reader
   - Incapaz de gerir políticas de atestação, uma vez que o utilizador não é atribuído com funções adequadas
   - Não é possível gerir os signatários da política de atestado, uma vez que o utilizador não é atribuído com funções adequadas
 
@@ -47,55 +46,25 @@ At line:1 char:1
 
 **Passos de resolução de problemas**
 
-Para visualizar políticas de atestado/signatários de políticas, um utilizador AZure AD requer a permissão para "Ações":
+Para gerir as políticas, um utilizador AD Azure requer as seguintes permissões para "Ações":
 - Microsoft.Attestation/attestationProviders/attestation/read
-
-  Esta permissão pode ser atribuída a um utilizador de AD através de uma função como "Owner" (permissões wildcard) ou "Reader" (permissões wildcard) ou "Attestation Reader" (permissões específicas apenas para a Azure Attestation).
-
-Para adicionar/eliminar os signatários da política ou para configurar políticas, um utilizador AD Azure requer as seguintes permissões para "Ações":
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  Estas permissões podem ser atribuídas a um utilizador de AD através de uma função como "Owner" (permissões wildcard), "Contribuinte" (permissões wildcard) ou "Attestation Contributor" (permissões específicas apenas para a Azure Attestation).
+  Para executar estas ações, um utilizador AD Azure deve ter o papel de "Attestation Contributor" no prestador de atestado. Estas permissões também podem ser herdadas com funções como "Proprietário" (permissões wildcard), "Contribuinte" (permissões wildcard) no grupo de subscrição/recursos.  
 
-Os clientes podem optar por utilizar o fornecedor padrão para atestado, ou criar os seus próprios fornecedores com políticas personalizadas. Para enviar pedidos de atestado para fornecedores de atestado personalizados, é necessário "Proprietário" (permissões wildcard) ou "Reader" (permissões wildcard) ou "Attestation Reader" para o utilizador. Os fornecedores predefinidos estão acessíveis por qualquer utilizador Azure AD.
+Para ler políticas, um utilizador AZure AD requer a seguinte permissão para "Ações":
+- Microsoft.Attestation/attestationProviders/attestation/read
 
-Para verificar as funções no PowerShell, corra abaixo:
+  Para realizar esta ação, um utilizador AD Azure deve ter o papel de "Attestation Reader" no fornecedor de atestado. A permissão de leitura também pode ser herdada com papéis como "Reader" (permissões wildcard) no grupo de subscrição/recursos.  
+
+Para verificar as funções no PowerShell, verifique os passos abaixo:
 
 a. Lançar PowerShell e iniciar sessão no Azure através do cmdlet "Connect-AzAccount"
 
-b. Verifique as definições de atribuição de funções Azure
+b. Por favor, consulte [aqui](../role-based-access-control/role-assignments-list-powershell.md) as orientações para verificar a sua atribuição de funções Azure no fornecedor de atestado
 
-
-  ```powershell
-  $c = Get-AzContext
-  Get-AzRoleAssignment -ResourceGroupName $attestationResourceGroup -ResourceName $attestationProvider -ResourceType Microsoft.Attestation/attestationProviders -SignInName $c.Account.Id
-  ```
-
-  Deverá ver algo semelhante ao seguinte:
-
-  ```
-  RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
-  
-  Scope              : /subscriptions/subscriptionId
-  
-  DisplayName        : displayName
-  
-  SignInName         : signInName
-  
-  RoleDefinitionName : Reader
-  
-  RoleDefinitionId   : roleDefinitionId
-  
-  ObjectId           : objectid
-  
-  ObjectType         : User
-  
-  CanDelegate        : False
- 
-  ```
-
-c. Se não encontrar uma tarefa adequada na lista, siga as instruções [aqui](../role-based-access-control/role-assignments-powershell.md)
+c. Se não encontrar uma tarefa de função apropriada, siga as instruções [aqui](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="2-http--400-errors"></a>2. HTTP – 400 erros
 

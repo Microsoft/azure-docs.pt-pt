@@ -3,16 +3,18 @@ title: 'Quickstart: Construir a sua primeira aplicação web estática com aplic
 description: Aprenda a implementar um site estático para Azure Static Web Apps com o portal Azure.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
-ms.topic: quickstart
-ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/03/2020
+ms.topic: quickstart
+ms.service: static-web-apps
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 78af2290a2e71d349303d3913f8a40510eb9c6a0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149533"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531590"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Quickstart: Construir o seu primeiro site estático no portal Azure
 
@@ -31,7 +33,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta de teste gratuita](http
 
 Agora que o repositório foi criado, pode criar uma aplicação web estática a partir do portal Azure.
 
-1. Navegue até ao [portal Azure](https://portal.azure.com)
+1. Navegue para o [portal do Azure](https://portal.azure.com)
 1. Selecione **Criar um recurso**
 1. Procure **Aplicações Web Estáticas**
 1. Selecione **aplicativos web estáticos (pré-visualização)**

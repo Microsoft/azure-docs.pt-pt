@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34a6eaa653ad0d2f93db0dcd04eec0f5532a4c7
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 81a909d946b55ee8b06d68aa8bee53bc50d2190e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107032"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532299"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -210,7 +210,7 @@ Para obter mais informações sobre como proteger melhor a sua organização uti
 **Categoria de serviço:** MS Graph  
 **Capacidade do produto:** B2B/B2C
 
-[A MS Graph API para a Marca da Empresa](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties?view=graph-rest-1.0)  está disponível para a experiência de login Azure AD ou Microsoft 365 para permitir a gestão dos parâmetros de marca programáticamente.
+[A MS Graph API para a Marca da Empresa](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties)  está disponível para a experiência de login Azure AD ou Microsoft 365 para permitir a gestão dos parâmetros de marca programáticamente.
 
 ---
 
@@ -308,7 +308,7 @@ Os clientes podem agora voltar a convidar os utilizadores de hóspedes externos 
 **Categoria de serviço:** Provisionamento de Aplicativos  
 **Capacidade do produto:** Gestão do ciclo de vida da identidade
  
-Os clientes podem agora utilizar a aplicação.readwrite.ownedby como uma permissão de aplicação para chamar as APIs de sincronização. Note que este é apenas suportado para o provisionamento da Azure AD em aplicações de terceiros (por exemplo, AWS, Data Bricks, etc.). Atualmente não é suportado para provisão de RH (Workday / Successfactors) ou Cloud Sync (AD a Azure AD). [Saiba mais](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
+Os clientes podem agora utilizar a aplicação.readwrite.ownedby como uma permissão de aplicação para chamar as APIs de sincronização. Note que este é apenas suportado para o provisionamento da Azure AD em aplicações de terceiros (por exemplo, AWS, Data Bricks, etc.). Atualmente não é suportado para provisão de RH (Workday / Successfactors) ou Cloud Sync (AD a Azure AD). [Saiba mais](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true).
  
 ---
 
@@ -904,7 +904,7 @@ O agente de provisionamento em nuvem foi lançado em pré-visualização públic
  
 Anteriormente, pode recuperar as teclas BitLocker através do ponto final /bitlocker. Acabaremos por depregrir este ponto final, e os clientes devem começar a consumir a API que agora se enquadra na /informationProtection. 
 
-Consulte [a API de recuperação do BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) para obter atualizações da documentação para refletir estas alterações.
+Consulte [a API de recuperação do BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) para obter atualizações da documentação para refletir estas alterações.
 
 ---
 
@@ -1072,7 +1072,7 @@ A experiência do Assistente de Integração (pré-visualização) já está dis
 
 Agora pode ver o ID do modelo de cada papel AD Azure no portal Azure. Em Azure AD, selecione  **a descrição** da função selecionada. 
 
-Recomenda-se que os clientes utilizem IDs de modelo de função no seu script e código PowerShell, em vez do nome de exibição. O ID do modelo de função é suportado para uso para [diretórios](/graph/api/resources/directoryrole) e [funDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) objects. Para obter mais informações sobre os IDs do modelo de funções, consulte [as funções incorporadas AD AD do Azure](../roles/permissions-reference.md).
+Recomenda-se que os clientes utilizem IDs de modelo de função no seu script e código PowerShell, em vez do nome de exibição. O ID do modelo de função é suportado para uso para [diretórios](/graph/api/resources/directoryrole) e [funDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta&preserve-view=true) objects. Para obter mais informações sobre os IDs do modelo de funções, consulte [as funções incorporadas AD AD do Azure](../roles/permissions-reference.md).
 
 ---
 

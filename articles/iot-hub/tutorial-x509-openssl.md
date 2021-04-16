@@ -12,13 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: 4379c8f43bbfa539179b821bf6b18a01518afad6
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 0843e5d3a5e91cb4acdf18ad6bdf6f4f0c214f72
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384311"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378300"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>Tutorial: Utilizar o OpenSSL para criar certificados de teste
 

@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/01/2021
-  ms.openlocfilehash: b25d522d5db9f513628e43724cb1abde9f55e99c
-  ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+  ms.date: 04/15/2021
+  ms.openlocfilehash: c7c9a72e3954598e0cb3265e0533ccbd14b68e4b
+  ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102040826"
+  ms.lasthandoff: 04/16/2021
+  ms.locfileid: "107532661"
 landingContent:
 - title: Comprar reservas
   linkLists:
@@ -24,6 +24,12 @@ landingContent:
     links:
     - text: O que são as reservas do Azure?
       url: save-compute-costs-reservations.md
+    - text: Recomendações de compra de reservas
+      url: reserved-instance-purchase-recommendations.md
+    - text: Flexibilidade do tamanho do exemplo
+      url: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - text: Custo do software Windows e SQL cobrado separadamente
+      url: reserved-instance-windows-software-costs.md
   - linkListType: how-to-guide
     links:
     - text: Comprar uma reserva
@@ -36,16 +42,24 @@ landingContent:
     links:
     - text: Como é aplicado um desconto de reserva
       url: reservation-discount-application.md
-- title: Gerir reservas
+- title: Gerir reservas após a compra
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Gerir reservas
-      url: manage-reserved-vm-instance.md
-    - text: Ver reservas e gerir permissões
+    - text: Permissões para ver e gerir reservas
       url: view-reservations.md
+    - text: Alterar o âmbito de reserva, dividir, fundir
+      url: manage-reserved-vm-instance.md
     - text: Reservas de troca e reembolso
       url: exchange-and-refund-azure-reservations.md
+- title: Reportar custos após a compra
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Fazer o estorno dos custos das Reservas do Azure
+      url: charge-back-usage.md
+    - text: Ver transações de compra e reembolso de reservas
+      url: view-purchase-refunds.md
   - linkListType: reference
     links:
     - text: APIs de Reserva
