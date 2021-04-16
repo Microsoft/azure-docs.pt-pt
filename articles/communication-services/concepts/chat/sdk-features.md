@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 520dc611e49675f35b8ba0330448438192770773
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 561855704d157f9ad826b5db83600a79d9437fc6
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168880"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500690"
 ---
 # <a name="chat-sdk-overview"></a>Visão geral do Chat SDK 
 
@@ -43,7 +43,7 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 |                   | Seja notificado quando os participantes estão a escrever ativamente uma mensagem num fio de chat                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
 |                   | Receba todas as mensagens num fio de chat                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Enviar emojis Unicode como parte do conteúdo da mensagem                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|Notificações em tempo real (habilitados por pacote de sinalização proprietário**)|  Os clientes de chat podem subscrever para obter atualizações em tempo real para mensagens recebidas e outras operações que ocorram num fio de chat. Para ver uma lista de atualizações suportadas para notificações em tempo real, consulte [os conceitos de Chat](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  | 
+|Notificações em tempo real (habilitados por pacote de sinalização proprietário**)|  Os clientes de chat podem subscrever para obter atualizações em tempo real para mensagens recebidas e outras operações que ocorram num fio de chat. Para ver uma lista de atualizações suportadas para notificações em tempo real, consulte [os conceitos de Chat](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 | Integração com a grelha de eventos Azure             | Utilize os eventos de chat disponíveis na Azure Event Grid para tapar serviços de notificação personalizados ou publicar esse evento num webhook para executar lógica de negócios como atualizar registos de CRM após o fim de um chat   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
 | Relatórios </br>(Esta informação está disponível no separador de monitorização do seu recurso de Serviços de Comunicação no portal Azure)      | Compreenda o tráfego da API a partir da sua app de chat monitorizando as métricas publicadas no Azure Metrics Explorer e deteta alertas para detetar anomalias     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
 |                   | Monitorize e depure a sua solução de Serviços de Comunicação, permitindo a registo de diagnóstico para o seu recurso    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   

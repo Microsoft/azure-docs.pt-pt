@@ -2,23 +2,17 @@
 title: Implementar serviços de Gestão API da Azure em várias regiões do Azure
 titleSuffix: Azure API Management
 description: Saiba como implementar um serviço de gestão AZure API para várias regiões do Azure.
-services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/20/2020
+ms.topic: how-to
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9546813173e72b1f264c3668ee889bbeea07ce7f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88065459"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534094"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implementar uma instância de serviço da Gestão de API do Azure em várias regiões do Azure
 
@@ -27,24 +21,30 @@ A Azure API Management suporta a implantação multi-região, o que permite aos 
 Um novo serviço de Gestão AZURE API contém inicialmente apenas uma [unidade][unit] numa única região de Azure, a região primária. Podem ser adicionadas unidades adicionais às regiões primárias ou secundárias. Um componente de gateway de gestão API é implantado em todas as regiões primárias e secundárias selecionadas. Os pedidos de API de entrada são automaticamente direcionados para a região mais próxima. Se uma região ficar offline, os pedidos da API serão automaticamente encaminhados em torno da região falhada para o portão mais próximo.
 
 > [!NOTE]
-> Apenas a componente de gateway da API Management é implantada em todas as regiões. A componente de gestão de serviços e o portal de desenvolvedores estão hospedados apenas na região Primária. Assim, em caso de paralisação da região primária, o acesso ao portal do desenvolvedor e a capacidade de alterar a configuração (por exemplo, a adição de APIs, políticas de aplicação) serão prejudicados até que a região primária volte a funcionar. Enquanto a região primária estiver offline, as regiões secundárias disponíveis continuarão a servir o tráfego da API utilizando a configuração mais recente disponível para eles.
+> Apenas a componente de gateway da API Management é implantada em todas as regiões. A componente de gestão de serviços e o portal de desenvolvedores estão hospedados apenas na região Primária. Assim, em caso de paralisação da região primária, o acesso ao portal do desenvolvedor e a capacidade de alterar a configuração (por exemplo, a adição de APIs, políticas de aplicação) serão prejudicados até que a região primária volte a funcionar. Enquanto a região primária estiver offline, as regiões secundárias disponíveis continuarão a servir o tráfego da API utilizando a configuração mais recente disponível para eles. Opcionalmente, permitir a [redundação da zona](zone-redundancy.md) melhorar a disponibilidade e a resiliência das regiões Primárias ou Secundárias.
 
 >[!IMPORTANT]
 > A funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Asia Pacific Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Implementar serviço de Gestão da API para uma nova região
 
-> [!NOTE]
-> Se ainda não criou uma instância de serviço de Gestão API, consulte [criar uma instância de serviço de Gestão API.][create an api management service instance]
+## <a name="prerequisites"></a>Pré-requisitos
 
-1. No portal Azure, navegue para o seu serviço de Gestão API e clique na entrada **Localização** no menu.
-2. Clique **+ Adicione** na barra superior.
-3. Selecione a localização da lista de drop-down e desa estale o número de unidades com o slider.
-4. Clique no botão **Adicionar** para confirmar.
-5. Repita este processo até configurar todos os locais.
-6. Clique em **Guardar** na barra superior para iniciar o processo de implementação.
+* Se ainda não criou uma instância de serviço de Gestão API, consulte [criar uma instância de serviço de Gestão API.](get-started-create-service-instance.md) Selecione o nível de serviço Premium.
+* Se a sua instância de Gestão API for implantada numa [rede virtual,](api-management-using-with-vnet.md)certifique-se de que configura uma rede virtual, sub-rede e endereço IP público no local que pretende adicionar.
+
+## <a name="deploy-api-management-service-to-an-additional-location"></a><a name="add-region"> </a>Implementar o serviço de Gestão API para uma localização adicional
+
+1. No portal Azure, navegue para o seu serviço de Gestão API e selecione **Localizações** no menu.
+1. **Selecione + Adicione** na barra superior.
+1. Selecione a localização da lista de drop-down.
+1. Selecione o número de **[unidades](upgrade-and-scale.md)** de escala no local.
+1. Opcionalmente ativar [**zonas de disponibilidade.**](zone-redundancy.md)
+1. Se a instância de Gestão da API for implantada numa [rede virtual,](api-management-using-with-vnet.md)configure as definições de rede virtual na localização. Selecione uma rede virtual existente, sub-rede e endereço IP público que estão disponíveis no local.
+1. **Selecione Adicionar** para confirmar.
+1. Repita este processo até configurar todos os locais.
+1. **Selecione Guardar** na barra superior para iniciar o processo de implantação.
 
 ## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Excluir uma localização de serviço de gestão API
 

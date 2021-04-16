@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 339bbd7edf48737113de360812165dc8148c5b93
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590216"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375870"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Regras de saída Azure Load Balancer
 
@@ -135,7 +135,7 @@ Para utilizar um IP ou prefixo público diferente do utilizado por uma regra de 
 5. Configure uma regra de saída no equilibrador de carga pública para permitir que os VMs de saída utilizem o frontend. Não é aconselhável utilizar uma regra de equilíbrio de carga para saída, desativar o SNAT de saída na regra de equilíbrio de carga.
 
 
-### <a name="scenario-2-modify-snatport-allocation"></a><a name="scenario2out"></a>Cenário 2: Modificar a atribuição da porta [SNAT](load-balancer-outbound-connections.md)
+### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Cenário 2: Modificar a atribuição da porta [SNAT](load-balancer-outbound-connections.md)
 
 
 #### <a name="details"></a>Detalhes
@@ -144,19 +144,19 @@ Para utilizar um IP ou prefixo público diferente do utilizado por uma regra de 
 Pode utilizar as regras de saída para sintonizar a atribuição automática da [porta SNAT com base no tamanho da piscina de backend](load-balancer-outbound-connections.md#preallocatedports). 
 
 
-Se sentir esgotamento do SNAT, aumente o número de portas [SNAT](load-balancer-outbound-connections.md)dadas a partir do padrão de 1024. 
+Se sentir esgotamento do SNAT, aumente o número de portas [SNAT](load-balancer-outbound-connections.md) dadas a partir do padrão de 1024. 
 
 
-Cada endereço IP público contribui com até 64.000 portos efémeros. O número de VMs na piscina de backend determina o número de portas distribuídas por cada VM. Um VM na piscina de backend tem acesso ao máximo de 64.000 portas. Para dois VMs, um máximo de 32.000 portas [SNAT](load-balancer-outbound-connections.md)podem ser dadas com uma regra de saída (2x 32.000 = 64.000). 
+Cada endereço IP público contribui com até 64.000 portos efémeros. O número de VMs na piscina de backend determina o número de portas distribuídas por cada VM. Um VM na piscina de backend tem acesso ao máximo de 64.000 portas. Para dois VMs, um máximo de 32.000 portas [SNAT](load-balancer-outbound-connections.md) podem ser dadas com uma regra de saída (2x 32.000 = 64.000). 
 
 
-Pode utilizar regras de saída para sintonizar as portas SNAT dadas por defeito. Você dá mais ou menos do que a alocação padrão da porta [SNAT](load-balancer-outbound-connections.md)fornece. Cada endereço IP público a partir de uma regra de saída contribui com até 64.000 portas efémeras para utilização como portas [SNAT.](load-balancer-outbound-connections.md) 
+Pode utilizar regras de saída para sintonizar as portas SNAT dadas por defeito. Você dá mais ou menos do que a alocação padrão da porta [SNAT](load-balancer-outbound-connections.md) fornece. Cada endereço IP público a partir de uma regra de saída contribui com até 64.000 portas efémeras para utilização como portas [SNAT.](load-balancer-outbound-connections.md) 
 
 
-O equilibrador de carga dá portas [SNAT](load-balancer-outbound-connections.md)em múltiplos de 8. Se fornecer um valor não divisível até 8, a operação de configuração é rejeitada. Cada regra de equilíbrio de carga e regra NAT de entrada consumirá uma gama de 8 portas. Se uma regra NAT de equilíbrio de carga ou de entrada partilhar a mesma gama de 8 que outra, não serão consumidas portas adicionais.
+O equilibrador de carga dá portas [SNAT](load-balancer-outbound-connections.md) em múltiplos de 8. Se fornecer um valor não divisível até 8, a operação de configuração é rejeitada. Cada regra de equilíbrio de carga e regra NAT de entrada consumirá uma gama de 8 portas. Se uma regra NAT de equilíbrio de carga ou de entrada partilhar a mesma gama de 8 que outra, não serão consumidas portas adicionais.
 
 
-Se tentar dar mais portas [SNAT](load-balancer-outbound-connections.md)do que as disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada. Por exemplo, se você der 10.000 portas por VM e sete VMs em um pool backend compartilhar um único IP público, a configuração é rejeitada. Sete multiplicados por 10.000 ultrapassa o limite de 64.000 portos. Adicione mais endereços IP públicos ao frontend da regra de saída para ativar o cenário. 
+Se tentar dar mais portas [SNAT](load-balancer-outbound-connections.md) do que as disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada. Por exemplo, se você der 10.000 portas por VM e sete VMs em um pool backend compartilhar um único IP público, a configuração é rejeitada. Sete multiplicados por 10.000 ultrapassa o limite de 64.000 portos. Adicione mais endereços IP públicos ao frontend da regra de saída para ativar o cenário. 
 
 
 Reverter para a [atribuição de porta padrão](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas. As primeiras 50 instâncias VM terão 1024 portas, 51-100 VM instâncias chegarão a 512 até ao máximo de ocorrências. Para obter mais informações sobre a atribuição por padrão da porta SNAT, consulte a [tabela de atribuição de portas SNAT](./load-balancer-outbound-connections.md#preallocatedports).
@@ -225,7 +225,7 @@ Para obter mais informações, consulte [a configuração do balanceador de carg
 Ao utilizar um balanceador de carga padrão público, o NAT de saída automático fornecido corresponde ao protocolo de transporte da regra de equilíbrio de carga. 
 
 
-1. Desative o [SNAT](load-balancer-outbound-connections.md)de saída na regra de equilíbrio de carga. 
+1. Desative o [SNAT](load-balancer-outbound-connections.md) de saída na regra de equilíbrio de carga. 
 2. Configure uma regra de saída no mesmo equilibrador de carga.
 3. Reutilizar a piscina de backend já utilizada pelos seus VMs. 
 4. Especifique "protocolo": "Todos" como parte da regra de saída. 

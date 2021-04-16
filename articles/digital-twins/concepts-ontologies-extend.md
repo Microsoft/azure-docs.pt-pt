@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e5973f58887b212919ad739232faafddcf9e735c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b38b4910773c433ed63fd2082c5cbefce81e0e9e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100561545"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480235"
 ---
 # <a name="extending-ontologies"></a>Extensão de ontologies 
 
@@ -28,7 +28,7 @@ Na ontologia RealEstateCore baseada em DTDL, a hierarquia espacial é usada para
 
 Uma parte da hierarquia parece o diagrama abaixo. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-original.png" alt-text="Diagrama de fluxo ilustrando parte da hierarquia espacial RealEstateCore. No nível superior, há um elemento chamado Espaço; é ligado por uma seta 'estende', de um nível para o quarto; A sala está ligada por duas setas &quot;estende-se&quot; até um nível para ConferenceRoom e Office."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagrama de fluxo ilustrando parte da hierarquia espacial RealEstateCore. No nível superior, há um elemento chamado Espaço; é ligado por uma seta 'estende', de um nível para o quarto; A sala está ligada por duas setas &quot;estende-se&quot; até um nível para ConferenceRoom e Office."::: 
 
 Para obter mais informações sobre a ontologia RealEstateCore, consulte [*Conceitos: Adotar ontologias padrão da indústria.*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology)
 
@@ -51,7 +51,7 @@ Para alargar a ontologia da indústria com este novo conceito, crie uma nova int
 
 Depois de adicionar a interface da sala de foco, a hierarquia estendida mostra o novo tipo de quarto. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-1.png" alt-text="Diagrama de fluxo que ilustra a hierarquia espacial RealEstateCore de cima, com uma nova adição. No nível inferior com ConferenceRoom e Office, há um novo elemento chamado FocusRoom (também conectado através de uma seta 'estende' a partir da sala)"::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagrama de fluxo que ilustra a hierarquia espacial RealEstateCore de cima, com uma nova adição. No nível inferior com ConferenceRoom e Office, há um novo elemento chamado FocusRoom (também conectado através de uma seta 'estende' a partir da sala)"::: 
 
 ### <a name="add-additional-capabilities-to-existing-interfaces"></a>Adicionar capacidades adicionais às interfaces existentes 
 
@@ -69,7 +69,7 @@ Para alargar a ontologia da indústria, cria as suas próprias interfaces que se
 
 Depois de estender a parte da hierarquia acima mostrada, a hierarquia estendida parece o diagrama abaixo. Aqui a interface space estendida adiciona a `drawingId` propriedade que conterá um ID que associa o gémeo digital ao desenho 3D. Além disso, a interface ConferenceRoom adiciona uma propriedade "online" que conterá o estado on-line da sala de conferências. Através da herança, a interface ConferenceRoom contém todas as capacidades da interface RealEstateCore ConferenceRoom, bem como todas as capacidades da interface space estendida. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-2.png" alt-text="Diagrama de fluxo que ilustra a hierarquia espacial RealEstateCore estendida de cima, com mais novas adições. A sala agora partilha o seu nível com um elemento espacial, que se conecta com uma seta 'estende' um nível para um novo elemento da Sala ao lado do ConferenceRoom e Office.  Os novos elementos estão ligados à ontologia existente com relações mais &quot;alargadas&quot;."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Diagrama de fluxo que ilustra a hierarquia espacial RealEstateCore estendida de cima, com mais novas adições. A sala agora partilha o seu nível com um elemento espacial, que se conecta com uma seta 'estende' um nível para um novo elemento da Sala ao lado do ConferenceRoom e Office.  Os novos elementos estão ligados à ontologia existente com relações mais &quot;alargadas&quot;."::: 
 
 ## <a name="using-the-extended-space-hierarchy"></a>Usando a hierarquia espacial estendida 
 
@@ -77,7 +77,7 @@ Quando criar gémeos digitais usando a hierarquia espacial estendida, o modelo d
 
 O modelo de cada gémeo digital será uma interface da hierarquia estendida, mostrada no diagrama abaixo. 
  
-:::image type="content" source="media/concepts-extending-ontologies/ontology-with-models.png" alt-text="Um excerto da hierarquia espacial RealEstateCore estendida, incluindo Espaço (nível superior), uma Sala (nível médio) e ConferenceRoom, Office e FocusRoom (nível inferior). Os nomes dos modelos estão ligados a cada elemento (por exemplo, o Quarto está ligado a um modelo chamado Room101)."::: 
+:::image type="content" source="media/concepts-ontologies-extend/ontology-with-models.png" alt-text="Um excerto da hierarquia espacial RealEstateCore estendida, incluindo Espaço (nível superior), uma Sala (nível médio) e ConferenceRoom, Office e FocusRoom (nível inferior). Os nomes dos modelos estão ligados a cada elemento (por exemplo, o Quarto está ligado a um modelo chamado Room101)."::: 
 
 Ao consultar gémeos digitais utilizando o ID do modelo (o `IS_OF_MODEL` operador), devem ser utilizados os IDs do modelo da hierarquia estendida. Por exemplo, `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')`. 
 

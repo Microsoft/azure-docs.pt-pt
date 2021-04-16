@@ -6,21 +6,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 2f15b397fbceb9e097d94080ba03fba50a96ed06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fd0b3ada5fec283562cee9727e3f805a7d34c532
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048510"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479054"
 ---
-# <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Configurar pontos finais privados para a loja analítica Azure Cosmos DB
+# <a name="configure-azure-private-link-for-azure-cosmos-db-analytical-store"></a>Configure Azure Private Link para loja analítica Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Neste artigo, você vai aprender como configurar pontos finais privados geridos para a loja analítica Azure Cosmos DB. Se estiver a utilizar a loja transacional, consulte [os pontos finais privados para o artigo da loja transacional.](how-to-configure-private-endpoints.md) Utilizando pontos finais privados geridos, pode restringir o acesso à rede da loja analítica Azure Cosmos DB à rede virtual gerida pela Azure Synapse. Os pontos finais privados geridos estabelecem uma ligação privada à sua loja analítica.
+Neste artigo, você vai aprender como configurar pontos finais privados geridos para a loja analítica Azure Cosmos DB. Se estiver a utilizar a loja transacional, consulte [os pontos finais privados para o artigo da loja transacional.](how-to-configure-private-endpoints.md) Utilizando [pontos finais privados geridos,](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)pode restringir o acesso à rede da sua loja analítica Azure Cosmos DB a uma Rede Virtual Gerida associada ao seu espaço de trabalho Azure Synapse. Os pontos finais privados geridos estabelecem uma ligação privada à sua loja analítica.
 
-## <a name="enable-private-endpoint-for-the-analytical-store"></a>Ativar o ponto final privado para a loja analítica
+## <a name="enable-a-private-endpoint-for-the-analytical-store"></a>Ativar um ponto final privado para a loja analítica
 
-### <a name="set-up-an-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>Crie um espaço de trabalho Azure Synapse Analytics com uma rede virtual gerida
+### <a name="set-up-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>Criar espaço de trabalho Azure Synapse Analytics com uma rede virtual gerida
 
 [Criar um espaço de trabalho em Azure Synapse Analytics com exfiltração de dados ativado.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) Com [a proteção de exfiltração de dados,](../synapse-analytics/security/workspace-data-exfiltration-protection.md)pode garantir que utilizadores maliciosos não podem copiar ou transferir dados dos seus recursos Azure para locais fora do âmbito da sua organização.
 

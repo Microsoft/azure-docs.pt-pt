@@ -4,13 +4,13 @@ description: Como implementar e configurar uma rede de consórcios Hyperledger F
 ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: contperf-fy21q3, devx-track-azurecli
+ms.openlocfilehash: 03f19d1922c011c1b5304b66488e9fa8de703bf9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101108"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478322"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementar consórcio de tecidos hiper-iniciantes no serviço Azure Kubernetes
 
@@ -113,7 +113,7 @@ Para construir o consórcio blockchain depois de implantar o serviço de encomen
 > O script é fornecido para ajudar apenas com cenários de demonstração, desenvolvimento e teste. O canal e consórcio que este script cria tem políticas básicas de Hyperledger Fabric para simplificar demo, dev e cenários de teste. Para a configuração da produção, recomendamos atualizar as políticas de tecido hiperledger/canal/consórcio de acordo com as necessidades de conformidade da sua organização, utilizando as APIs de Tecido Hiperledger nativo.
 
 
-Todos os comandos para executar o script Azure Hyperledger Fabric podem ser executados através da interface de linha de comando Azure Bash (CLI). Pode iniciar sôs-se na Azure Cloud Shell através do ![ tecido hiper-ledger na opção de serviço Azure Kubernetes ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) no canto superior direito do portal Azure. Na solicitação de comando, `bash` escreva e selecione a tecla 'Entrar' para mudar para o CLI bash ou selecione **Bash** na barra de ferramentas Cloud Shell.
+Todos os comandos para executar o script Azure Hyperledger Fabric podem ser executados através da interface de linha de comando Azure Bash (CLI). Pode iniciar sôms na Azure Cloud Shell através da ![ opção Hyperledger Fabric on Azure Kubernetes Service Template ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) no canto superior direito do portal Azure. Na solicitação de comando, `bash` escreva e selecione a tecla 'Entrar' para mudar para o CLI bash ou selecione **Bash** na barra de ferramentas Cloud Shell.
 
 Consulte [a Azure Cloud Shell](../../cloud-shell/overview.md) para obter mais informações.
 
@@ -124,7 +124,7 @@ A imagem a seguir mostra o processo passo-a-passo para construir um consórcio e
 
 ![Diagrama do processo para construir um consórcio.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Depois de terminar a configuração inicial, utilize a aplicação do cliente para realizar as seguintes operações:  
+Depois de terminar a configuração inicial, utilize a aplicação do cliente para realizar as seguintes operações:
 
 - Gestão de canais
 - Gestão do consórcio
@@ -293,15 +293,15 @@ A partir do cliente da organização de pares, executar o comando para definir o
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
 USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
+# If you are using chaincode_example02 then set CC_NAME=â€œchaincode_example02â€
 CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=“1” for validation
+# If you are using chaincode_example02 then set CC_VERSION=â€œ1â€ for validation
 CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=â€œ/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/goâ€
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
@@ -355,7 +355,7 @@ A partir do cliente da organização de pares, executar o seguinte comando para 
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Passe o nome da função invocada e a lista de argumentos separados pelo espaço dentro  `<invokeFunction>`   e  `<invokeFuncArgs>`   respectivamente. Continuando com o exemplo de código de corrente chaincode_example02.go, para realizar uma operação de invocação, definida  `<invokeFunction>`   para e  `invoke`    `<invokeFuncArgs>`   para `"a" "b" "10"` .  
+Passe o nome da função invocada e a lista de argumentos separados pelo espaço inâ€ e `<invokeFunction>` 0009. `<invokeFuncArgs>` Continuando com o exemplo de chaincode_example02.go chaincode, para realizar uma operação de invocação, definido por `<invokeFunction>` `invoke` 100€ `<invokeFuncArgs>` `"a" "b" "10"`  
 
 >[!NOTE]
 > Executar o comando uma vez de qualquer organização de pares no canal. Após a transação ser submetida com sucesso ao ordenante, o ordenante distribui esta transação a todas as organizações de pares do canal. O estado mundial é então atualizado em todos os nós de todos os pares de todas as organizações de pares no canal.  
@@ -372,7 +372,7 @@ Os pares de apoio são pares onde o código de corrente é instalado e é solici
 
 Se estiver a usar *o azhlfTool* para instalar o código de corrente, passe os nomes dos nóns pares como valor para o argumento do par de apoio. O código de corrente está instalado em todos os nós de pares para essa organização. 
 
-Passe o nome da função de consulta e a lista de argumentos separados pelo espaço dentro  `<queryFunction>`   e  `<queryFuncArgs>`   respectivamente. Mais uma vez tomando chaincode_example02.go chaincode como referência, para consultar o valor de "a" no estado mundial, definido  `<queryFunction>`   para e para  `query`  `<queryArgs>` `"a"` .  
+Passe o nome da função de consulta e a lista de argumentos separados pelo espaço inâ€ e `<queryFunction>` `<queryFuncArgs>` 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000. Mais uma vez tomando chaincode_example02 o código como referência ao valor de "a" no Estado mundial, definido e a `<queryFunction>` `query` `<queryArgs>` `"a"` .  
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

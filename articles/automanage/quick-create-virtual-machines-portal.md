@@ -2,18 +2,20 @@
 title: Quickstart - Ativar a auto-mutilação do Azure para VMs no portal Azure
 description: Saiba como ativar rapidamente a auto-produção de máquinas virtuais num VM novo ou existente no portal Azure.
 author: ju-shim
+ms.author: jushiman
+ms.date: 02/17/2021
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 02/17/2021
-ms.author: jushiman
-ms.openlocfilehash: 5f5f1e70d9ae309c90291ccac1e6dd61e7a9d056
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 7121d83f9401fe985966324afe6a61cf8396b2bb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038428"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534065"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Quickstart: Ativar a auto-produção do Azure para máquinas virtuais no portal Azure
 

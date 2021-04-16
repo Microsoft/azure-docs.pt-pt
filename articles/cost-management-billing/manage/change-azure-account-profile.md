@@ -1,21 +1,21 @@
 ---
 title: Alterar as informações de contacto de uma conta de faturação do Azure
 description: Descreve como alterar as informações de contacto da sua conta de faturação do Azure
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033943"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480907"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Alterar as informações de contacto de uma conta de faturação do Azure
 
@@ -64,6 +64,21 @@ Se pretender atualizar as suas informações de perfil de utilizador do Azure Ac
     ![Captura de ecrã que mostra onde atualizar o endereço](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Introduza o novo endereço e, em seguida, selecione **Guardar**.  
     ![Captura de ecrã que mostra a atualização do endereço](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+
+## <a name="update-a-po-number"></a>Atualizar um número de PO
+
+Por padrão, uma fatura para o perfil de faturação não tem um número de PO associado. Depois de adicionar um número de PO para um perfil de faturação, aparece nas faturas para o perfil de faturação.
+
+Para adicionar ou alterar o número de PO para um perfil de faturação, utilize os seguintes passos.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Procure por **Gestão de Custos + Faturação** e, em seguida, selecione **os âmbitos de faturação**.
+1. Selecione o seu âmbito de faturação.
+1. No menu esquerdo em **Billing,** selecione **perfis de Billing**.
+1. Selecione o perfil de faturação apropriado.
+1. No menu esquerdo em **Definições**, selecione **Propriedades**.
+1. Selecione **atualizar o número DE PO**.
+1. Introduza um número de PO e, em seguida, **selecione Update**.
 
 ## <a name="service-and-marketing-emails"></a>E-mails de serviço e marketing
 

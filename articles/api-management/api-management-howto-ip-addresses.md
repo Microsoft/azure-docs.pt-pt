@@ -4,20 +4,16 @@ description: Saiba como recuperar os endereços IP de um serviço de Gestão API
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 45501fee9ae6ff47643a1ed197a07c4ba598e981
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5939292b6e810634723fada17521bb227764b989
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80047734"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534044"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Endereços IP da Azure API Management
 
@@ -106,4 +102,4 @@ Nos níveis de Desenvolvimento, Básico, Standard e Premium da Gestão API, os e
 * A Rede Virtual Azure é adicionada ou removida do serviço.
 * O serviço de gestão da API é comutado entre o modo de implementação VNet Externo e Interno.
 
-Em [implantações multi-regionais,](api-management-howto-deploy-multi-region.md)o endereço IP regional muda se uma região for desocupada e, em seguida, reintegrada.
+Em [implantações multi-regionais,](api-management-howto-deploy-multi-region.md)o endereço IP regional muda se uma região for desocupada e, em seguida, reintegrada. O endereço IP regional também muda quando ativa, adiciona ou remove [zonas de disponibilidade](zone-redundancy.md).

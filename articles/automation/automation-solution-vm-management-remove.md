@@ -3,14 +3,14 @@ title: Remover VMs de arranque/paragem da automatização do Azure durante a vis
 description: Este artigo descreve como remover os VMs iniciar/parar durante o período de folga e desvincular uma conta de Automação do espaço de trabalho Log Analytics.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/04/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0bab5d8e82ce432e9b3834fe4c003316545eb338
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ec76197bfde6bb679f70c44ab01712f9f52bfd2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122090"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533953"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Remover VMs de início/paragem durante as horas fora da conta de Automação
 
@@ -21,6 +21,9 @@ Depois de ativar os VMs iniciar/parar durante o período de folga para gerir o e
 * Elimine a funcionalidade de uma conta De automação e espaço de trabalho ligado que suporte outros objetivos de gestão e monitorização.
 
 A eliminação desta funcionalidade apenas remove os runbooks associados, não elimina os horários ou variáveis que foram criados durante a implementação ou quaisquer livros personalizados criados posteriormente.
+
+> [!NOTE]
+> Antes de prosseguir, verifique se não existem [quaisquer bloqueios do Gestor de Recursos](../azure-resource-manager/management/lock-resources.md) aplicados na subscrição, grupo de recursos ou recursos que impeçam a eliminação acidental ou modificação de recursos críticos. Quando implementa os VMs iniciar/parar durante a solução fora de horas, define o nível de bloqueio para **CanNotDelete** contra vários recursos dependentes na conta Automation (especificamente os seus runbooks e variáveis). Todas as fechaduras têm de ser removidas antes de poder eliminar a conta Automação.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Eliminar o grupo de recursos dedicado
 

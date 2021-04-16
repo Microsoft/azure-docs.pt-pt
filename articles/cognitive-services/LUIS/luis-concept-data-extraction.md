@@ -4,13 +4,13 @@ description: Extrair dados do texto de expressão com intenções e entidades. S
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: dd7d113b1c23a0afec82a346e0f7baa1254ebbed
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025998"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500146"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados do texto de expressão com intenções e entidades
 O LUIS dá-lhe a capacidade de obter informações a partir das expressões de linguagem natural de um utilizador. A informação é extraída de forma a que possa ser usada por um programa, aplicação ou chat bot para tomar medidas. Nas secções seguintes, saiba quais os dados devolvidos de intenções e entidades com exemplos de JSON.
@@ -242,7 +242,7 @@ Os nomes de localização são definidos e conhecidos como cidades, condados, es
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
 
-Algumas aplicações precisam de ser capazes de encontrar nomes novos e emergentes, como produtos ou empresas. Este tipo de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma lista [de frases](luis-concept-feature.md). [Reveja](./luis-how-to-review-endpoint-utterances.md) as declarações de ponto final regularmente para rotular quaisquer nomes que não foram previstos corretamente.
+Algumas aplicações precisam de ser capazes de encontrar nomes novos e emergentes, como produtos ou empresas. Este tipo de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md)** e adicione uma lista [de frases](luis-concept-feature.md). [Reveja](./luis-how-to-review-endpoint-utterances.md) as declarações de ponto final regularmente para rotular quaisquer nomes que não foram previstos corretamente.
 
 ## <a name="patternany-entity-data"></a>Padrão.quaisquer dados de entidade
 

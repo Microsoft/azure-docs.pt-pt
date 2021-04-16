@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f44cbf3764063c511c896f11bb7ebfaae2973f0c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: ebc403553443a9ea04525323b751fbdb51d23c6e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365404"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500588"
 ---
 # <a name="set-up-msix-app-attach-using-powershell"></a>Configurar o anexo de aplicativo MSIX utilizando o PowerShell
 
@@ -19,14 +19,10 @@ Além do portal Azure, também pode configurar a aplicação MSIX anexar manualm
 
 ## <a name="requirements"></a>Requisitos
 
->[!IMPORTANT]
->Antes de começar, certifique-se de preencher e submeter [este formulário](https://aka.ms/enablemsixappattach) para permitir que a app MSIX se anexe na sua subscrição. Se não tiver um pedido aprovado, o anexo de aplicações MSIX não funcionará. A aprovação dos pedidos pode demorar até 24 horas durante os dias úteis. Receberá um e-mail quando o seu pedido tiver sido aceite e concluído.
-
 Aqui está o que precisa para configurar o anexo da app MSIX:
 
 - Uma implementação de ambiente de trabalho virtual do Windows em funcionamento. Para aprender a implementar o Windows Virtual Desktop (clássico), consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para aprender a implementar o Windows Virtual Desktop com integração do Azure Resource Manager, consulte [Criar uma piscina de anfitriões com o portal Azure](./create-host-pools-azure-marketplace.md).
 - Uma piscina de anfitriões virtual do Windows Desktop com pelo menos um anfitrião de sessão ativa.
-- Esta piscina de anfitriões deve estar no ambiente de validação.
 - Um grupo de aplicações remotas desktop.
 - A ferramenta de embalagem MSIX.
 - Uma aplicação embalada pela MSIX expandiu-se para uma imagem MSIX que é enviada para uma partilha de ficheiros.

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e55c0832638105ad681f74cbeb6429a6704b7fb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a35f83286abe5ae33f6d3c44ee7b05faf692512
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935143"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479224"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: Definir e recuperar um certificado do Cofre de Chaves Azure usando o portal Azure
 
@@ -61,7 +61,8 @@ Para adicionar um certificado ao cofre, só precisa dar alguns passos adicionais
     - **Método de Criação de Certificados**: Gerar.
     - **Denominação do certificado**: ExemploCertificado.
     - **Objeto**: CN=ExemploDomain
-    - Deixe as outras opções com os valores predefinidos. Clique em **Criar**.
+    - Deixe as outras opções com os valores predefinidos. (Por defeito, se não especificar nada de especial na política avançada, será utilizável como certificado de auth cliente.)
+ 4. Clique em **Criar**.
 
 Uma vez que recebe a mensagem de que o certificado foi criado com sucesso, pode clicar nele na lista. Em seguida, pode ver algumas das propriedades. Se clicar na versão atual, pode ver o valor que especificou no passo anterior.
 

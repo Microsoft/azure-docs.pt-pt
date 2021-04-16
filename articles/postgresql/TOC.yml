@@ -684,6 +684,10 @@
             - name: Aceder a registos de bases de dados
               href: howto-hyperscale-logging.md
               displayName: 'log, hyperscale'
+        - name: Restaurar o grupo de servidores
+          items:
+            - name: Portal do Azure
+              href: howto-hyperscale-restore-portal.md
         - name: Atualizações da versão principal
           href: howto-hyperscale-upgrade.md
         - name: Resolução de problemas

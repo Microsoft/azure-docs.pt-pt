@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9779c2a269902d856d1639ce78028d0e658656bb
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97617328"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479836"
 ---
 # <a name="azure-custom-roles"></a>Funções personalizadas do Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "97617328"
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Tal como as funções incorporadas, pode atribuir funções personalizadas aos utilizadores, grupos e diretores de serviços nos âmbitos do grupo de gestão, subscrição e grupo de recursos.
+Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Tal como as funções incorporadas, pode atribuir funções personalizadas aos utilizadores, grupos e diretores de serviços no grupo de gestão (apenas em pré-visualização), na subscrição e nos âmbitos do grupo de recursos.
 
 As funções personalizadas podem ser partilhadas entre subscrições que confiam no mesmo diretório AD Azure. Há um limite de **5.000** funções personalizadas por diretório. (Para a Azure Alemanha e Azure China 21Vianet, o limite é de 2.000 papéis personalizados.) As funções personalizadas podem ser criadas utilizando o portal Azure PowerShell, Azure CLI ou a API REST.
 
@@ -195,7 +195,7 @@ Microsoft.CostManagement/*/query/*
 
 Tal como as funções `AssignableScopes` incorporadas, a propriedade especifica os âmbitos de aplicação que o papel está disponível para atribuição. A `AssignableScopes` propriedade para um papel personalizado também controla quem pode criar, eliminar, atualizar ou ver o papel personalizado.
 
-| Tarefa | Operação | Description |
+| Tarefa | Operação | Descrição |
 | --- | --- | --- |
 | Criar/eliminar uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os utilizadores que recebem esta operação em toda `AssignableScopes` a função personalizada podem criar (ou eliminar) funções personalizadas para utilização nesses âmbitos. Por exemplo, [Proprietários](built-in-roles.md#owner) e Administradores de Acesso ao Utilizador de [grupos](built-in-roles.md#user-access-administrator) de gestão, subscrições e grupos de recursos. |
 | Atualizar uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os utilizadores que recebem esta operação em toda `AssignableScopes` a função personalizada podem atualizar funções personalizadas nesses âmbitos. Por exemplo, [Proprietários](built-in-roles.md#owner) e Administradores de Acesso ao Utilizador de [grupos](built-in-roles.md#user-access-administrator) de gestão, subscrições e grupos de recursos. |
