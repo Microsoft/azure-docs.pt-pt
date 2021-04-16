@@ -2,18 +2,18 @@
 title: Encriptação do lado do servidor dos discos geridos pelo Azure
 description: O Azure Storage protege os seus dados encriptando-os em repouso antes de os persistir nos clusters de armazenamento. Pode utilizar as chaves geridas pelo cliente para gerir a encriptação com as suas próprias chaves, ou pode confiar nas chaves geridas pela Microsoft para a encriptação dos seus discos geridos.
 author: roygara
-ms.date: 03/11/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4607778c78b8b062b265a5754337c09c41ba83f1
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721856"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531539"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
 
@@ -81,6 +81,8 @@ Os discos temporários e os discos de OS efémeros são encriptados em repouso c
 #### <a name="supported-vm-sizes"></a>Tamanhos de VM suportados
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+
+Também pode encontrar os tamanhos VM programáticamente. Para aprender a recuperá-los programáticamente, consulte a secção de tamanhos VM suportados pelo [módulo Azure PowerShell](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) ou artigos [Azure CLI.](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes)
 
 Para permitir a encriptação de ponta a ponta utilizando encriptação no anfitrião, consulte os nossos artigos que cobrem como a capacitar com o [módulo Azure PowerShell,](windows/disks-enable-host-based-encryption-powershell.md)o [Azure CLI,](linux/disks-enable-host-based-encryption-cli.md)ou o [portal Azure](disks-enable-host-based-encryption-portal.md).
 

@@ -1,18 +1,14 @@
 ---
 title: Tipos e descrições de alerta
 description: Reveja as descrições do Defender para ioT Alert.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 4/8/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9ef7aa388d0f25adcafec1cb4a5b38dcfb8597a1
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 483563b53a5849b0354986269568bc42b9124cc2
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210470"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478000"
 ---
 # <a name="alert-types-and-descriptions"></a>Tipos e descrições de alerta
 
@@ -20,7 +16,7 @@ Este artigo descreve todos os tipos de alerta, que podem ser gerados a partir do
 
 ## <a name="policy-engine-alerts"></a>Alertas de motores de política
 
-Os alertas do motor de política descrevem desvios do comportamento aprendido da rede de base.
+Os alertas do motor da política descrevem desvios detetados do comportamento de base aprendido.
 
 | Título  | Descrição | Gravidade |
 |--|--|--|
@@ -122,6 +118,8 @@ Os alertas do motor de política descrevem desvios do comportamento aprendido da
 
 ## <a name="anomaly-engine-alerts"></a>Alertas de motor de anomalia
 
+Os alertas do motor de anomalia descrevem anomalias detetadas na atividade da rede.
+
 | Título | Descrição | Gravidade |
 |--|--|--|
 | Padrão de exceção anormal no escravo | Um número excessivo de erros foi detetado num dispositivo de origem. Isto pode ser o resultado de um problema operacional. | Menor |
@@ -150,6 +148,8 @@ Os alertas do motor de política descrevem desvios do comportamento aprendido da
 | Tráfego Inesperado para Porto Standard | O trânsito foi detetado num dispositivo utilizando uma porta reservada a outro protocolo. | Maior |
 
 ## <a name="protocol-violation-engine-alerts"></a>Alertas de motor de violação de protocolo
+
+Os alertas do motor do protocolo descrevem desvios detetados na estrutura do pacote, ou valores de campo em comparação com as especificações do protocolo.
 
 | Título | Descrição | Gravidade |
 |--|--|--|
@@ -181,6 +181,8 @@ Os alertas do motor de política descrevem desvios do comportamento aprendido da
 
 ## <a name="malware-engine-alerts"></a>Alertas de motor de malware
 
+Os alertas do motor de malware descrevem a atividade de rede maliciosa detetada.
+
 | Título | Descrição| Gravidade |
 |--|--|--|
 | Tentativa de Ligação a IP malicioso conhecido | Foi detetada atividade suspeita da rede. Esta atividade pode estar associada a um ataque explorando um método usado por malware conhecido. | Maior |
@@ -210,6 +212,8 @@ Os alertas do motor de política descrevem desvios do comportamento aprendido da
 | Tráfego Suspeito Detetado | Foi detetada atividade suspeita da rede. Esta atividade pode estar associada a um ataque explorando um método usado por malware conhecido. | Crítico |
 
 ## <a name="operational-engine-alerts"></a>Alertas de motor operacional
+
+Os alertas operacionais descrevem incidentes operacionais detetados ou entidades com mau funcionamento.
 
 | Título | Descrição | Gravidade |
 |--|--|--|

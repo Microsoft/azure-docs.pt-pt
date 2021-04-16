@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: 5dd431a5a7377c409be0794511c5f402d1c5a3a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: d312702f441cfe2ad94e347cadcdfc88d4cc2a72
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102663395"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479326"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Tutorial: Criar uma porta de entrada NAT utilizando o Azure CLI
 

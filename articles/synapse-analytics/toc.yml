@@ -24,7 +24,7 @@ items:
       - name: 2 Analise usando a piscina SQL sem servidor
         href: get-started-analyze-sql-on-demand.md
         displayName: 'get, started'
-      - name: 3 Analise usando a piscina de faíscas sem servido
+      - name: 3 Analise usando a piscina de faísca sem servidor
         href: get-started-analyze-spark.md
         displayName: 'get, started'
       - name: 4 Analise usando uma piscina SQL dedicada
@@ -177,7 +177,7 @@ items:
                   - name: Ligar à área de trabalho do Azure Synapse com pontos finais privados
                     href: security/how-to-connect-to-workspace-with-private-links.md
                     displayname: links
-                  - name: Aprovisionar e proteger um serviço ligado com uma VNET gerida
+                  - name: Prestação e segurança de um serviço ligado com VNet Gerido
                     href: ./data-integration/linked-service.md
                   - name: Ligar à área de trabalho do Synapse a partir da rede restrita
                     href: security/how-to-connect-to-workspace-from-restricted-network.md

@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 40962d0c104fc90385ba4b93852991c7b63e186a
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 3442e3003ef8a299beb88cd212602c8713915474
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961902"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499959"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitetura de conetividade da Base de Dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Sul do Brasil         | 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Canadá Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Leste do Canadá          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
-| E.U.A. Central           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
+| E.U.A. Central           | 13.67.215.62, 52.182.137.15, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
 | Leste da China           | 139.219.130.35     |
 | China Leste 2         | 40.73.82.1         |
 | Norte da China          | 139.219.15.17      |
@@ -115,9 +115,9 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Suíça Oeste     | 51.107.152.0, 51.107.153.0 |
 | Centro dos Emirados Árabes Unidos          | 20.37.72.64        |
 | Uae Norte            | 65.52.248.0        |
-| Sul do Reino Unido             | 51.140.184.11, 51.105.64.0 |
+| Sul do Reino Unido             | 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 |
 | Oeste do Reino Unido              | 51.141.8.11        |
-| E.U.A. Centro-Oeste      | 13.78.145.25, 13.78.248.43        |
+| E.U.A. Centro-Oeste      | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 |
 | Europa Ocidental          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
 | E.U.A. Oeste              | 104.42.238.205, 13.86.216.196   |
 | E.U.A. Oeste 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |

@@ -3,17 +3,19 @@ title: 'Quickstart: Criar um gestor de tráfego utilizando o modelo de gestor de
 description: Este artigo de arranque rápido descreve como criar um perfil de Gestor de Tráfego Azure utilizando o modelo Azure Resource Manager (modelo ARM).
 services: traffic-manager
 author: duongau
-ms.service: traffic-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: traffic-manager
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 03342d33731ed29b60908044cd29d529aaa5677b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92676006"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531243"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Quickstart: Criar um perfil de Gestor de Tráfego usando um modelo ARM
 

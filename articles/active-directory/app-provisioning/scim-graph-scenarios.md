@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 0a5d84585f28f6d13cbceb1fec41d6cdabf6d08c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87df7efcbab89c87a42e611f5fc1219239de6873
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255632"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530516"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Utilizando o SCIM e o Microsoft Graph em conjunto para obter utilizadores e enriquecer a sua aplicação com os dados de que necessita
 
@@ -117,5 +117,5 @@ A minha aplicação cria informações sobre um utilizador de que os clientes pr
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Reveja a sincronização da documentação do Microsoft Graph](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Reveja a sincronização da documentação do Microsoft Graph](/graph/api/resources/synchronization-overview)
 - [Integrando uma app PERSONALIZADA SCIM com Azure AD](use-scim-to-provision-users-and-groups.md)

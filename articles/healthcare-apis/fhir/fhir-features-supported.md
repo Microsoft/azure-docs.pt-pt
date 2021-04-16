@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/30/2021
+ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048424"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530636"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -41,8 +41,8 @@ As versões anteriores também suportadas incluem: `3.0.2`
 | criar                         | Yes       | Yes       | Yes       | Apoiar tanto o POST/PUT                               |
 | criar (condicional)           | Yes       | Yes       | Yes       | Emissão [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | pesquisar                         | Parcial   | Parcial   | Parcial   | Consulte a secção de pesquisa abaixo.                           |
-| pesquisa acorrentada                 | Yes       | Yes       | Parcial   | Ver Nota 2 abaixo.                                   |
-| pesquisa acorrentada inversa         | Yes       | Yes       | Parcial   | Ver Nota 2 abaixo.                                   |
+| pesquisa acorrentada                 | Parcial       | Yes       | Parcial   | Ver Nota 2 abaixo.                                   |
+| pesquisa acorrentada inversa         | Parcial       | Yes       | Parcial   | Ver Nota 2 abaixo.                                   |
 | capacidades                   | Yes       | Yes       | Yes       |                                                     |
 | lote                          | Yes       | Yes       | Yes       |                                                     |
 | transação                    | No        | Yes       | No        |                                                     |
@@ -146,7 +146,7 @@ Atualmente, as ações permitidas para um determinado papel são aplicadas *glob
 
 ## <a name="service-limits"></a>Limites do serviço
 
-* [**Unidades de Pedido (RUs)**](../../cosmos-db/concepts-limits.md) - Pode configurar até 10.000 RUs no portal da Azure API para FHIR. Você precisará de um mínimo de 400 RUs ou 10 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, você pode colocar um bilhete de apoio para que este aumente. O máximo disponível é de 1.000.000.
+* [**Unidades de Pedido (RUs)**](../../cosmos-db/concepts-limits.md) - Pode configurar até 10.000 RUs no portal da Azure API para FHIR. Você precisará de um mínimo de 400 RUs ou 40 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, você pode colocar um bilhete de apoio para que este aumente. O máximo disponível é de 1.000.000.
 
 * **Ligações simultâneas** e **instâncias** - Por padrão, tem cinco ligações simultâneas em duas instâncias no cluster (para um total de 10 pedidos simultâneos). Se você acredita que precisa de mais pedidos simultâneos, abra um bilhete de apoio com detalhes sobre suas necessidades.
 
@@ -160,12 +160,12 @@ O desempenho do sistema depende do número de RUs, ligações simultâneas e do 
 
 | # de RUs | Recursos/seg |    Armazenamento Max (GB)*    |
 |----------|---------------|--------|                 
-| 400      | 5-10          |     40   |
-| 1,000    | 100-150       |      100  |
-| 10,000   | 225-400       |      1,000  |
-| 100.000  | 2,500-4,000   |      10,000  |
+| 400      | 5-10          |     10   |
+| 1,000    | 100-150       |      25  |
+| 10,000   | 225-400       |      250  |
+| 100.000  | 2,500-4,000   |      2.500  |
 
-Nota: Por exigência de Coss dB, existe um requisito de produção mínima de 10 RU/s por GB de armazenamento. Para mais informações, consulte [as quotas de serviço da Cosmos DB.](../../cosmos-db/concepts-limits.md)
+Nota: Por exigência de Coss dB, existe um requisito de produção mínima de 40 RU/s por GB de armazenamento. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

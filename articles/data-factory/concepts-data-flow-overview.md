@@ -3,17 +3,16 @@ title: Fluxos de dados de mapeamento
 description: Uma visão geral dos fluxos de dados de mapeamento na Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 04/11/2021
-ms.openlocfilehash: 53f300adb57eb17e704e7e3323b9829c485bb87a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 26d119fb6880f4c539e0064db424699bc5d22f96
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308987"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478680"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeamento de fluxos de dados na Azure Data Factory
 
@@ -82,6 +81,10 @@ A barra superior contém ações que afetam todo o fluxo de dados, como a poupan
 ## <a name="available-transformations"></a>Transformações disponíveis
 
 Veja a visão geral da transformação do [fluxo de dados de mapeamento](data-flow-transformation-overview.md) para obter uma lista de transformações disponíveis.
+
+## <a name="data-flow-data-types"></a>Tipos de dados de fluxo de dados
+
+matriz binária boolean complexo decimal data flutuar inteiro mapa longo mapa curto curto tempo de corda tempo
 
 ## <a name="data-flow-activity"></a>Atividade de fluxo de dados
 
