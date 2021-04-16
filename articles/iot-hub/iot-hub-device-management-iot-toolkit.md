@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b48def283ea27fdd0eaa3230a2eb9a8327461ff1
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81688102"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567018"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Utilize ferramentas Azure IoT para código de estúdio visual para gestão de dispositivos Azure IoT Hub
 
 ![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) é uma extensão útil do Código do Estúdio Visual que facilita a gestão do IoT Hub e o desenvolvimento de aplicações IoT. Ele vem com opções de gestão que você pode usar para executar várias tarefas.
+Neste artigo, aprende a usar ferramentas Azure IoT para Código de Estúdio Visual com várias opções de gestão na sua máquina de desenvolvimento. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) é uma extensão útil do Código do Estúdio Visual que facilita a gestão do IoT Hub e o desenvolvimento de aplicações IoT. Ele vem com opções de gestão que você pode usar para executar várias tarefas.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -35,15 +35,7 @@ Os dispositivos duplos são documentos JSON que armazenam informações de estad
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="what-you-learn"></a>O que irá aprender
-
-Aprende a usar ferramentas Azure IoT para Código de Estúdio Visual com várias opções de gestão na sua máquina de desenvolvimento.
-
-## <a name="what-you-do"></a>O que faz
-
-Executar ferramentas IoT Azure para Código de Estúdio Visual com várias opções de gestão.
-
-## <a name="what-you-need"></a>O que precisa
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição ativa do Azure.
 * Um hub Azure IoT sob a sua assinatura.

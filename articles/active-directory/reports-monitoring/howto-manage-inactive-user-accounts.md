@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb4ebbd0b1715d9de3905060952a35ad42060119
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2ea62a8d602cc472269b52c230529aa3f9b86ed4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167554"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535100"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Como: Gerir contas de utilizadores inativas em Azure AD
 
@@ -57,7 +57,7 @@ Esta secção lista o que precisa de saber sobre a última propriedadeSignInDate
 
 ### <a name="how-can-i-access-this-property"></a>Como posso aceder a esta propriedade?
 
-A **última propriedadeSignInDateTime** é exposta pelo tipo de [recurso signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta) do [Microsoft Graph REST API](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+A **última propriedadeSignInDateTime** é exposta pelo tipo de [recurso signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) do [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph).   
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>A última propriedade DoignInDateTime está disponível através do Get-AzureAdUser cmdlet?
 
@@ -90,5 +90,5 @@ Para gerar uma última marca de tempoSignInDateTime, precisa de um sinal de spos
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obter dados com a API de relatórios do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
-* [Referência de API de auditoria](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Referência de API do relatório de atividade de inscrição](/graph/api/resources/signin?view=graph-rest-beta)
+* [Referência de API de auditoria](/graph/api/resources/directoryaudit) 
+* [Referência de API do relatório de atividade de inscrição](/graph/api/resources/signin)

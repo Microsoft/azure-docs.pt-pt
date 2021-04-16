@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: a799d7c32ad632303931adf838ca8e2e715b2adc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e689e620a5aeb7c5028f1a1b30dd6def8e447ab
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860189"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529982"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
@@ -32,9 +32,9 @@ O Microsoft Graph expõe AS APIs e bibliotecas de clientes para aceder a dados s
 
 O Microsoft Graph suporta atualmente duas versões: v1.0 e beta. A versão v1.0 inclui APIs geralmente disponíveis. Utilize a versão v1.0 para todas as aplicações de produção. A beta inclui APIs que estão atualmente em pré-visualização. Como podemos introduzir alterações de rutura nas nossas APIs beta, recomendamos que utilize a versão beta apenas para testar aplicações que estão em desenvolvimento; não utilize APIs beta nas suas aplicações de produção. Para obter mais informações, consulte [as políticas de versão, suporte e quebra de alterações para o Microsoft Graph](/graph/versioning-and-support).
 
-Para começar a utilizar as APIs beta, consulte a [referência do ponto final beta do Microsoft Graph](/graph/api/overview?view=graph-rest-beta)
+Para começar a utilizar as APIs beta, consulte a [referência do ponto final beta do Microsoft Graph](/graph/api/overview?view=graph-rest-beta&preserve-view=true)
 
-Para começar a utilizar as APIs v1.0, consulte a [referência API do Microsoft Graph REST v1.0](/graph/api/overview)
+Para começar a utilizar as APIs v1.0, consulte a [referência API do Microsoft Graph REST v1.0](/graph/api/overview?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="get-started"></a>Introdução
 
@@ -57,4 +57,4 @@ Quando completar o arranque rápido, tem uma aplicação pronta a ser executada.
 
 O Microsoft Graph Explorer é uma ferramenta baseada na Web que pode usar para construir e testar pedidos usando APIs do Microsoft Graph. Pode aceder ao Microsoft Graph Explorer em: `https://developer.microsoft.com/graph/graph-explorer` .
 
-O Carteiro é uma ferramenta que também pode usar para construir e testar pedidos utilizando as APIs do Gráfico microsoft. Você pode baixar o Carteiro em: `https://www.getpostman.com/` . Para interagir com o Microsoft Graph no Carteiro, utilize a coleção Microsoft Graph no Carteiro. Para obter mais informações, consulte [Use Postman com a Microsoft Graph API](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+O Carteiro é uma ferramenta que também pode usar para construir e testar pedidos utilizando as APIs do Gráfico microsoft. Você pode baixar o Carteiro em: `https://www.getpostman.com/` . Para interagir com o Microsoft Graph no Carteiro, utilize a coleção Microsoft Graph no Carteiro. Para obter mais informações, consulte [Use Postman com a Microsoft Graph API](/graph/use-postman).

@@ -347,7 +347,7 @@
       items:
         - name: Manutenção planeada
           href: concepts-planned-maintenance-notification.md
-        - name: Manutenção gateway
+        - name: Manutenção de gateway
           href: concepts-connectivity-architecture.md
         - name: Expiração do certificado de raiz SSL
           href: concepts-certificate-rotation.md
@@ -466,6 +466,8 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Reinicie o servidor usando o portal Azure
           href: flexible-server/how-to-restart-server-portal.md
+        - name: Início/Paragem/Reinício com Azure CLI
+          href: flexible-server/how-to-restart-stop-start-server-cli.md
     - name: Rede
       items:
         - name: Conceitos
@@ -497,6 +499,8 @@
           href: flexible-server/concepts-high-availability.md
         - name: Configure alta disponibilidade usando o portal Azure
           href: flexible-server/how-to-configure-high-availability.md
+        - name: Configure alta disponibilidade com Azure CLI
+          href: flexible-server/how-to-configure-high-availability-cli.md
     - name: Monitorização e Registos
       items:
         - name: Conceitos
@@ -507,12 +511,16 @@
               href: flexible-server/concepts-slow-query-logs.md
             - name: Configurar registos de consulta lenta usando o portal Azure
               href: flexible-server/how-to-configure-slow-query-logs-portal.md
+            - name: Configurar registos de consulta lenta com Azure CLI
+              href: flexible-server/how-to-configure-slow-query-log-cli.md
         - name: Registos de auditoria
           items:
             - name: Conceitos
               href: flexible-server/concepts-audit-logs.md
-            - name: Configure registos de auditoria
+            - name: Configurar registos de auditoria
               href: flexible-server/how-to-configure-audit-logs-portal.md
+            - name: Configurar registos de auditoria com a Azure CLI
+              href: flexible-server/how-to-configure-audit-log-cli.md
     - name: Replicação
       items:
         - name: Réplicas de leitura
@@ -529,6 +537,8 @@
           href: flexible-server/concepts-backup-restore.md
         - name: Restaurar um servidor através do portal do Azure
           href: flexible-server/how-to-restore-server-portal.md
+        - name: Restaurar um servidor com a CLI do Azure
+          href: flexible-server/how-to-restore-server-cli.md
     - name: Resolução de problemas
       items:
         - name: Erros de ligação de resolução de problemas

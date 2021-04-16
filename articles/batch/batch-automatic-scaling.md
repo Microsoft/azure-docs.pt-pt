@@ -2,14 +2,14 @@
 title: Dimensionar automaticamente os nós de computação de um conjunto do Azure Batch
 description: Permita que o escalonamento automático numa piscina de nuvens ajuste dinamicamente o número de nós computacional na piscina.
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 04/13/2021
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f70c29f0e8a313233991c7363dc4b8a41a1b1cd5
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381431"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389371"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para escalar os nóns computacional numa piscina de Lote
 
@@ -196,7 +196,7 @@ Ao testar um duplo com um operador ternário `double ? statement1 : statement2` 
 
 Pode utilizar estas **funções** predefinidas ao definir uma fórmula de autoescala.
 
-| Função | Tipo de retorno | Description |
+| Função | Tipo de retorno | Descrição |
 | --- | --- | --- |
 | avg (doubleVecList) |double |Devolve o valor médio para todos os valores na DoubleVecList. |
 | len (doubleVecList) |double |Devolve o comprimento do vetor que é criado a partir do doubleVecList. |
@@ -419,7 +419,13 @@ O exemplo a seguir cria uma piscina ativada por escala automática em .NET. A f�
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
                     poolId: "mypool",
                     virtualMachineSize: "standard_d1_v2",
-                    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+                    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+                        imageReference: new ImageReference(
+                                            publisher: "MicrosoftWindowsServer",
+                                            offer: "WindowsServer",
+                                            sku: "2019-datacenter-core",
+                                            version: "latest"),
+                        nodeAgentSkuId: "batch.node.windows amd64");
 pool.AutoScaleEnabled = true;
 pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);

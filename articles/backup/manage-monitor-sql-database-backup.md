@@ -3,12 +3,12 @@ title: Gerir e monitorizar os DBs do Servidor SQL num VM Azure
 description: Este artigo descreve como gerir e monitorizar bases de dados do SQL Server que estão a funcionar num VM Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3938e26e134f7d823d8a6f6fac631ebf4442e6ab
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97858743"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519141"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
 
@@ -79,8 +79,8 @@ Para parar a proteção de uma base de dados:
 >
 >Para obter mais informações sobre a opção de eliminar dados, consulte as FAQ abaixo:
 >
->- [Se eliminar uma base de dados de uma instância autoprotegida, o que acontecerá com as cópias de segurança?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->- [Se eu parar a operação de backup de uma base de dados autoprotegido, qual será o seu comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>- [Se eliminar uma base de dados de uma instância autoprotegida, o que acontecerá com as cópias de segurança?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
+>- [Se eu parar a operação de backup de uma base de dados autoprotegido, qual será o seu comportamento?](faq-backup-sql-server.yml#if-i-change-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 >
 >
 

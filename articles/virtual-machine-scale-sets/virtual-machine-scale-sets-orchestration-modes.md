@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 02/12/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 3d9d9449e2a971a4247e507e0c022c8c5fb9956c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 72e36a942eeaea00699f346db99a7ca3503495da
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075411"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481655"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Pré-visualização: Modos de orquestração para conjuntos de escala de máquina virtual em Azure 
 
@@ -55,7 +55,7 @@ Uma das principais vantagens da orquestração flexível é que fornece caracter
 Pode escolher o número de domínios de avaria para o conjunto de escala de orquestração flexível. Por predefinição, quando adiciona um VM a um conjunto de escala flexível, o Azure espalha igualmente as instâncias através de domínios de avaria. Embora seja recomendado que o Azure atribua o domínio de avaria, para cenários avançados ou de resolução de problemas pode anular este comportamento predefinido e especificar o domínio de avaria onde a instância irá aterrar.
 
 ```azurecli-interactive 
-az vm create –vmss "myVMSS"  –-platform_fault_domain 1
+az vm create â€“vmss "myVMSS"  â€“-platform_fault_domain 1
 ```
 
 ### <a name="instance-naming"></a>Nomeação de exemplo 
@@ -65,11 +65,11 @@ Quando cria um VM e o adiciona a um conjunto de escala flexível, tem total cont
 O método preferido é utilizar o Gráfico de Recursos Azure para consultar todos os VMs num Conjunto de Escala de Máquina Virtual. O Azure Resource Graph fornece capacidades de consulta eficientes para os recursos Azure em escala através de subscrições. 
 
 ``` 
-| where type =~ 'Microsoft.Compute/virtualMachines' 
-| where properties.virtualMachineScaleSet contains "demo" 
-| extend powerState = properties.extended.instanceView.powerState.code 
-| project name, resourceGroup, location, powerState 
-| order by resourceGroup desc, name desc 
+|â€¯whereâ€¯typeâ€¯=~â€¯'Microsoft.Compute/virtualMachines' 
+|â€¯whereâ€¯properties.virtualMachineScaleSetâ€¯containsâ€¯"demo" 
+|â€¯extendâ€¯powerStateâ€¯=â€¯properties.extended.instanceView.powerState.code 
+|â€¯projectâ€¯name,â€¯resourceGroup,â€¯location,â€¯powerState 
+|â€¯orderâ€¯byâ€¯resourceGroupâ€¯desc,â€¯nameâ€¯desc 
 ```
 
 Consultar recursos com [o Azure Resource Graph](../governance/resource-graph/overview.md) é uma forma conveniente e eficiente de consultar os recursos da Azure e minimiza as chamadas de API para o fornecedor de recursos. O Azure Resource Graph é uma cache eventualmente consistente onde recursos novos ou atualizados podem não ser refletidos até 60 segundos. Pode:
@@ -111,18 +111,18 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Notificações terminais (conjuntos de escala VM) |            No  |            Yes  |            N/D  |
 |         Reparação de instâncias (conjuntos de escala VM) |            No  |            Yes   |            N/D  |
 |         Redes aceleradas  |            Yes  |            Yes  |            Yes  |
-|         Instâncias à vista e preços   |            Sim, pode ter instâncias prioritárias do Spot e do Regular  |            Sim, as instâncias devem ser todas spot ou todos regulares  |            Não, instâncias prioritárias regulares apenas  |
+|         Spotâ€ Instances e preços  |            Sim, pode ter instâncias prioritárias do Spot e do Regular  |            Sim, as instâncias devem ser todas spot ou todos regulares  |            Não, instâncias prioritárias regulares apenas  |
 |         Misturar sistemas operativos  |            Sim, Linux e Windows podem residir no mesmo conjunto de escala flexível |            Não, os casos são o mesmo sistema operativo.  |               Sim, Linux e Windows podem residir no mesmo conjunto de escala flexível |
 |         Monitorizar a saúde da aplicação  |            Extensão de saúde da aplicação  |            Extensão de saúde da aplicação ou sonda equilibrador Azure Load  |            Extensão de saúde da aplicação  |
-|         Discos UltraSSD   |            Yes  |            Sim, apenas para implantações zonais  |            No  |
-|         Infiniband   |            No  |            Sim, apenas um grupo de colocação única  |            Yes  |
-|         Escrever Acelerador   |            No  |            Yes  |            Yes  |
-|         Grupos de colocação de proximidade   |            Yes  |            Yes  |            Yes  |
-|         Anfitriões Dedicados Azure   |            No  |            Yes  |            Yes  |
-|         SLB básico   |            No  |            Yes  |            Yes  |
+|         UltraSSDâ€  |            Yes  |            Sim, apenas para implantações zonais  |            No  |
+|         Infinibandâ€  |            No  |            Sim, apenas um grupo de colocação única  |            Yes  |
+|         Writeâ€ 6€  |            No  |            Yes  |            Yes  |
+|         Grupos de Apoio à Proximidade  |            Yes  |            Yes  |            Yes  |
+|         Azure Dedicado Anfitriões  |            No  |            Yes  |            Yes  |
+|         Básico SLBâ€  |            No  |            Yes  |            Yes  |
 |         Azure Load Balancer Standard SKU |            Yes  |            Yes  |            Yes  |
 |         Gateway de Aplicação  |            No  |            Yes  |            Yes  |
-|         Controlo de Manutenção   |            No  |            Yes  |            Yes  |
+|         Controlo de Manutenção  |            No  |            Yes  |            Yes  |
 |         VMs da lista em conjunto  |            Yes  |            Yes  |            Sim, lista VMs em AvSet  |
 |         Alertas Azure  |            No  |            Yes  |            Yes  |
 |         VM Insights  |            No  |            Yes  |            Yes  |

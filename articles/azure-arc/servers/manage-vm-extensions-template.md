@@ -1,14 +1,14 @@
 ---
 title: Ativar a extensão VM utilizando o modelo do Gestor de Recursos Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a executar em ambientes de nuvem híbrida usando um modelo de Gestor de Recursos Azure.
-ms.date: 03/01/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 88296cd4f410defcaf7db15507ddac42e80cba2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 095f95192a2054d34e438d8683ac9c2e20a824f1
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688268"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389643"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Ativar extensões de VM Azure utilizando o modelo ARM
 
@@ -18,6 +18,9 @@ As extensões VM podem ser adicionadas a um modelo de Gestor de Recursos Azure e
 
 >[!NOTE]
 >Embora as extensões múltiplas possam ser emgrurentadas e processadas, são instaladas em série. Uma vez concluída a primeira instalação de extensão, tentará-se a instalação da próxima extensão.
+
+> [!NOTE]
+> Os servidores ativados pelo Azure Arc não suportam a implementação e gestão de extensões VM para máquinas virtuais Azure. Para Azure VMs, consulte o seguinte artigo [de visão geral da extensão VM.](../../virtual-machines/extensions/overview.md)
 
 ## <a name="deploy-the-log-analytics-vm-extension"></a>Implementar a extensão VM do Log Analytics
 

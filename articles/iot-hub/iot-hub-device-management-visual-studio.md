@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96f93325e0f17daaaf2bad91123fea81531ca152
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "73953189"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566967"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Use o Cloud Explorer para o Estúdio Visual para a gestão de dispositivos Azure IoT Hub
 
 ![Diagrama de ponta a ponta](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
-[O Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) é uma extensão útil do Visual Studio que lhe permite ver os seus recursos Azure, inspecionar as suas propriedades e realizar ações de desenvolvimento chave a partir do Estúdio Visual. Ele vem com opções de gestão que você pode usar para executar várias tarefas.
+Neste artigo, aprende a usar o Cloud Explorer para Visual Studio com várias opções de gestão no seu computador de desenvolvimento. [O Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) é uma extensão útil do Visual Studio que lhe permite ver os seus recursos Azure, inspecionar as suas propriedades e realizar ações de desenvolvimento chave a partir do Estúdio Visual. Ele vem com opções de gestão que você pode usar para executar várias tarefas.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -33,17 +33,7 @@ Para obter uma explicação mais detalhada sobre as diferenças e orientações 
 
 os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos, incluindo metadados, configurações e condições. O IoT Hub persiste num dispositivo gémeo para cada dispositivo que se conecta ao mesmo. Para obter mais informações sobre os gémeos do dispositivo, consulte [Começar com os gémeos do dispositivo](iot-hub-node-node-twin-getstarted.md).
 
-## <a name="what-you-learn"></a>O que irá aprender
-
-Neste artigo, aprende a usar o Cloud Explorer para Visual Studio com várias opções de gestão no seu computador de desenvolvimento.
-
-## <a name="what-you-do"></a>O que faz
-
-Neste artigo, execute o Cloud Explorer para Visual Studio com várias opções de gestão.
-
-## <a name="what-you-need"></a>O que precisa
-
-Precisa dos seguintes pré-requisitos:
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição ativa do Azure.
 
@@ -51,7 +41,7 @@ Precisa dos seguintes pré-requisitos:
 
 - Microsoft Visual Studio 2017 Update 9 ou mais tarde. Este artigo utiliza [o Visual Studio 2017 ou o Visual Studio 2019](https://www.visualstudio.com/vs/).
 
-- Componente cloud Explorer do Instalador visual do Estúdio, que foi selecionado por padrão com Azure Workload.
+- Componente cloud Explorer do Instalador visual do Estúdio, que é selecionado por padrão com Azure Workload.
 
 ## <a name="update-cloud-explorer-to-latest-version"></a>Atualizar o Cloud Explorer para a versão mais recente
 

@@ -1,17 +1,19 @@
 ---
 title: 'Quickstart: Route Azure Cache para eventos Redis para o ponto final da web com o portal Azure'
 description: Use a Azure Event Grid para subscrever a Azure Cache para eventos Redis, enviar os eventos para um Webhook e lidar com os eventos numa aplicação web
+author: curib
+ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-author: curib
-ms.author: cauribeg
-ms.openlocfilehash: 5bdd6b0e6f97f7e5a738ab17d68282cf402004b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: e021f386f255f1cef61e28cbd4fd6116fc2aa727
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99055591"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529314"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-the-azure-portal"></a>Quickstart: Route Azure Cache para eventos Redis para o ponto final da web com o portal Azure
 
@@ -123,4 +125,3 @@ Agora que sabe como criar tópicos personalizados e subscrições de eventos, sa
 
 - [Reagir a Azure Cache para eventos redis](cache-event-grid.md)
 - [Sobre o Event Grid](../event-grid/overview.md)
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 0d425111e151d60ab38a60e38cd1805cef39f606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 26b5331aa9242978f0f097c8e90bc807fc65f745
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641765"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531945"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gestão de autenticação ativa do Azure Ative Directory
 
@@ -365,8 +365,8 @@ Ter acesso a atividade de inscrição, auditorias e eventos de risco para a Azur
 
 #### <a name="logs-recommended-reading"></a>Registos recomendados de leitura
 
-- [Referência de Azure Ative Directory API](/graph/api/resources/directoryaudit?view=graph-rest-beta)
-- [Azure Ative Directory relatório de atividades API referência](/graph/api/resources/signin?view=graph-rest-beta)
+- [Referência de Azure Ative Directory API](/graph/api/resources/directoryaudit)
+- [Azure Ative Directory relatório de atividades API referência](/graph/api/resources/signin)
 - [Utilizar a API de Relatórios do Azure AD com certificados para obter dados](../reports-monitoring/tutorial-access-api-with-certificates.md)
 - [Microsoft Graph para Azure Ative Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)
 - [Referência API de Atividade de Gestão 365](/office/office-365-management-api/office-365-management-activity-api-reference)

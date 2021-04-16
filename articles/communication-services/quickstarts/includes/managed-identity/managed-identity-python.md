@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 42d079a2aa98549b12aafecdd8d58f3361db8b4d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3fcfb364ebffdd3643e803922cbe4f3dd0d87935
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307474"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107513524"
 ---
 ## <a name="setting-up"></a>Configuração
 
@@ -45,7 +45,7 @@ Vamos usar o [DefaultAzureCredential.](/python/api/azure-identity/azure.identity
      credential = DefaultAzureCredential()
 ```
 
-## <a name="create-an-identity-and-issue-a-token-with-managed-identities"></a>Criar uma identidade e emitir um símbolo com identidades geridas.
+## <a name="create-an-identity-and-issue-a-token-with-managed-identities"></a>Criar uma identidade e emitir um símbolo com identidades geridas
 
 Agora vamos adicionar código que usa a credencial criada, para emitir um VoIP Access Token. Chamaremos este código mais tarde:
 
@@ -138,7 +138,7 @@ sms_result = send_sms(endpoint, "<FROM_NUMBER>", "<TO_NUMBER>", "Hello from Mana
 print(f'SMS ID: {sms_result[0].message_id}');
 print(f'Send Result Successful: {sms_result[0].successful}');
 ```
-## <a name="run-the-program"></a>Executar o Programa
+## <a name="run-the-program"></a>Execute o programa
 
 Com tudo completo, pode executar o ficheiro entrando no `python managed-identity.py` diretório do seu projeto. Se tudo corresse bem, devias ver algo parecido com o seguinte.
 

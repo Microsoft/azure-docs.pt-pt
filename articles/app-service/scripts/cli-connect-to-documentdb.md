@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: fa971bbb8526f1b0bc081e61ed5e7a7f2cf76d1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: b29609d2bc2c518312bc777d1464755091c11b26
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006366"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482590"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Conecte uma aplicação de Serviço de Aplicações à Cosmos DB usando o CLI
 

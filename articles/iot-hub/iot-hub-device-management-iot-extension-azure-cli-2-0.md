@@ -10,24 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 499c0c065cb38313c98ed9412ab1f08d70dbc654
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a5bc7e195efd62f430fdf2aa0cb606dbcff79528
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199531"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567201"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Utilize a extensão IoT para Azure CLI para a gestão de dispositivos Azure IoT Hub
 
 ![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
-
-[A extensão IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension) é uma extensão IoT de código aberto que adiciona às capacidades do [Azure CLI](/cli/azure/overview). O Azure CLI inclui comandos para interagir com o Azure Resource Manager e os pontos finais de gestão. Por exemplo, pode utilizar o Azure CLI para criar um Azure VM ou um hub IoT. Uma extensão CLI permite que um serviço Azure aumente o CLI Azure, dando-lhe acesso a capacidades adicionais específicas do serviço. A extensão IoT dá aos desenvolvedores IoT acesso de linha de comando a todas as capacidades do Serviço de Fornecimento de Dispositivos IoT Hub e IoT.
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+Neste artigo, você aprende a usar a extensão IoT para Azure CLI com várias opções de gestão na sua máquina de desenvolvimento. [A extensão IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension) é uma extensão IoT de código aberto que adiciona às capacidades do [Azure CLI](/cli/azure/overview). O Azure CLI inclui comandos para interagir com o Azure Resource Manager e os pontos finais de gestão. Por exemplo, pode utilizar o Azure CLI para criar um Azure VM ou um hub IoT. Uma extensão CLI permite que um serviço Azure aumente o CLI Azure, dando-lhe acesso a capacidades adicionais específicas do serviço. A extensão IoT dá aos desenvolvedores IoT acesso de linha de comando a todas as capacidades do Serviço de Fornecimento de Dispositivos IoT Hub e IoT.
 
 | Opção de gestão          | Tarefa  |
 |----------------------------|-----------|
@@ -41,21 +35,19 @@ Para obter uma explicação mais detalhada sobre as diferenças e orientações 
 
 Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). O IoT Hub persiste num dispositivo gémeo para cada dispositivo que se conecta ao mesmo. Para obter mais informações sobre os gémeos do dispositivo, consulte [Começar com os gémeos do dispositivo](iot-hub-node-node-twin-getstarted.md).
 
-## <a name="what-you-learn"></a>O que irá aprender
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Você aprende a usar a extensão IoT para Azure CLI com várias opções de gestão na sua máquina de desenvolvimento.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="what-you-do"></a>O que faz
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Executar Azure CLI e a extensão IoT para Azure CLI com várias opções de gestão.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="what-you-need"></a>O que precisa
+* Complete o tutorial [de simulador on-line Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo. Por exemplo, pode ir a [Raspberry Pi com node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou a um dos quickstarts de [telemetria Enviar.](quickstart-send-telemetry-dotnet.md) Estes artigos abrangem os seguintes requisitos:
 
-* Complete o tutorial [de simulador on-line Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes itens cobrem os seguintes requisitos:
-
-  - Uma subscrição ativa do Azure.
-  - Um hub Azure IoT sob a sua assinatura.
-  - Uma aplicação de cliente que envia mensagens para o seu hub Azure IoT.
+  * Uma subscrição ativa do Azure.
+  * Um hub Azure IoT sob a sua assinatura.
+  * Uma aplicação de cliente que envia mensagens para o seu hub Azure IoT.
 
 * Certifique-se de que o seu dispositivo está em funcionamento com a aplicação do cliente durante este tutorial.
 

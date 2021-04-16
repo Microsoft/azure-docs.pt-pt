@@ -1,18 +1,21 @@
 ---
 title: Ativar a extensão VM utilizando a Azure PowerShell
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida usando Azure PowerShell.
-ms.date: 01/05/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9b1f83ad976aa3471430a912280fac25dc5c5c0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cb854c9745e8bd7eef35c6f6467c284a6327349
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97916189"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388589"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Ativar extensões Azure VM usando Azure PowerShell
 
 Este artigo mostra-lhe como implantar e desinstalar extensões Azure VM, suportadas por servidores ativados pelo Azure Arc, para uma máquina híbrida Linux ou Windows utilizando a Azure PowerShell.
+
+> [!NOTE]
+> Os servidores ativados pelo Azure Arc não suportam a implementação e gestão de extensões VM para máquinas virtuais Azure. Para Azure VMs, consulte o seguinte artigo [de visão geral da extensão VM.](../../virtual-machines/extensions/overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

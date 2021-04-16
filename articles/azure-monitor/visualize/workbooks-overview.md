@@ -5,12 +5,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: a02e5fced0a9e338a32d8d8beaa9e4b5fca994e8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3d75d7605ba082aac84973aef247de79d55b4c9c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309487"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482777"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de trabalho do Monitor Azure
 
@@ -48,7 +48,18 @@ Os livros de trabalho fornecem um rico conjunto de capacidades para visualizar o
 * [Gráficos](../visualize/workbooks-graph-visualizations.md)
 * [Barra composta](../visualize/workbooks-composite-bar.md)
 
-:::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Exemplo de visualizações de livros" border="false" lightbox="./media/workbooks-overview/visualizations.png":::
+:::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Exemplo de visualizações de livros de trabalho." border="false" lightbox="./media/workbooks-overview/visualizations.png":::
+
+### <a name="pinning-visualizations"></a>Visualizações de fixação
+
+Os passos de texto, consulta e métricas num livro podem ser fixados utilizando o botão pino nesses itens enquanto o livro está em modo pin, ou se o autor do livro tiver ativado as definições para que esse elemento torne visível o ícone do pino.
+
+Para aceder ao modo pin, clique em **Editar** para entrar no modo de edição e selecione o ícone do pino azul na barra superior. Um ícone de pino individual aparecerá então acima de cada caixa de *edição* da peça de papel correspondente no lado direito do seu ecrã.
+
+:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Screenshot da experiência do pino." border="false":::
+
+> [!NOTE]
+> O estado do livro é guardado no momento do pino, e os livros fixos num painel de instrumentos não serão atualizados se o livro subjacente for modificado. Para atualizar uma peça de livro fixada, terá de eliminar e voltar a fixar essa peça.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -56,7 +67,7 @@ Para explorar a experiência dos livros de trabalho, navegue primeiro para o ser
 
 Em **seguida,** selecione Livros de Trabalho .
 
-:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Screenshot do botão de livros de trabalho realçado em uma caixa vermelha" border="false":::
+:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Screenshot do botão Workbooks realçado numa caixa vermelha." border="false":::
 
 ### <a name="gallery"></a>Galeria
 
@@ -68,7 +79,7 @@ A galeria torna conveniente organizar, classificar e gerir livros de todos os ti
 
 Existem quatro separadores na galeria para ajudar a organizar tipos de livros.
 
-| Tecla de Tabulação              | Description                                       |
+| Tecla de Tabulação              | Descrição                                       |
 |------------------|---------------------------------------------------|
 | Todos | Mostra os quatro principais itens para cada tipo - livros, modelos públicos e os meus modelos. Os livros de trabalho são classificados por data modificada para que você veja os oito livros de trabalho mais recentes modificados.|
 | Livros | Mostra a lista de todos os livros disponíveis que criou ou é partilhado consigo. |
@@ -97,7 +108,7 @@ Sob o capot, os modelos também diferem dos livros de trabalho guardados. A poup
 
 Selecione A Análise da Falha de **Aplicação** para ver um dos modelos de livro de aplicações predefinidos.
 
-:::image type="content" source="./media/workbooks-overview/failure-analysis.png" alt-text="Screenshot do modelo de análise de falha de aplicação" border="false" lightbox="./media/workbooks-overview/failure-analysis.png":::
+:::image type="content" source="./media/workbooks-overview/failure-analysis.png" alt-text="Screenshot do modelo de análise de falha de aplicação." border="false" lightbox="./media/workbooks-overview/failure-analysis.png":::
 
 Como indicado anteriormente, a abertura do modelo cria um livro temporário para que possa interagir. Por predefinição, o livro abre no modo de leitura que exibe apenas as informações para a experiência de análise pretendida que foi criada pelo autor do modelo original.
 
@@ -111,27 +122,15 @@ Para entender como este modelo de livro é montado, você precisa trocar para o 
 
 Uma vez que tenha mudado para o modo de edição, notará que algumas caixas **editar** parecem corresponder à direita correspondentes a cada aspeto individual do seu livro.
 
-:::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Screenshot do botão Editar" border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
+:::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Screenshot do botão Editar." border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
 
 Se selecionarmos imediatamente o botão de edição sob a grelha de dados de pedido, podemos ver que esta parte do nosso livro consiste numa consulta kusto contra dados de um recurso Application Insights.
 
-:::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Screenshot da consulta subjacente de Kusto" border="false" lightbox="./media/workbooks-overview/kusto.png":::
+:::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Screenshot da consulta subjacente de Kusto." border="false" lightbox="./media/workbooks-overview/kusto.png":::
 
-
-Clicar nos outros botões **editar** à direita revelará uma série de componentes centrais que compõem livros como caixas de texto baseadas em [marcação, elementos](../visualize/workbooks-text-visualizations.md)de [UI de seleção](../visualize/workbooks-parameters.md) de parâmetros e outros [tipos de gráfico/visualização.](#visualizations)
+A seleção dos outros botões **editar** à direita revelará uma série de componentes fundamentais que compõem livros como caixas de texto baseadas em [marcação, elementos](../visualize/workbooks-text-visualizations.md)de [UI de seleção](../visualize/workbooks-parameters.md) de parâmetros e outros [tipos de gráfico/visualização.](#visualizations)
 
 Explorar os modelos pré-construídos em modo de edição e depois modificá-los para se adaptar às suas necessidades e guardar o seu próprio livro personalizado é uma excelente maneira de começar a aprender sobre o que é possível com os livros de trabalho do Azure Monitor.
-
-## <a name="pinning-visualizations"></a>Visualizações de fixação
-
-Os passos de texto, consulta e métricas num livro podem ser fixados utilizando o botão pino nesses itens enquanto o livro está em modo pin, ou se o autor do livro tiver ativado as definições para que esse elemento torne visível o ícone do pino.
-
-Para aceder ao modo pin, clique em **Editar** para entrar no modo de edição e selecione o ícone do pino azul na barra superior. Um ícone de pino individual aparecerá então acima de cada caixa de *edição* da peça de papel correspondente no lado direito do seu ecrã.
-
-:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Screenshot da experiência do pino." border="false":::
-
-> [!NOTE]
-> O estado do livro é guardado no momento do pino, e os livros fixos num painel de instrumentos não serão atualizados se o livro subjacente for modificado. Para atualizar uma peça de livro fixada, terá de eliminar e voltar a fixar essa peça.
 
 ## <a name="dashboard-time-ranges"></a>Intervalos de tempo do painel
 

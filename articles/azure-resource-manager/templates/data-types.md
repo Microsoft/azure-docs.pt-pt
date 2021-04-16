@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
 ms.date: 03/04/2021
-ms.openlocfilehash: 7d3f15c8852e6e25c621baad9bc6f20c303ffdb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d6c8306b3dbdfe895055dc008d81cc0d85d8d6c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102125141"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538067"
 ---
 # <a name="data-types-in-arm-templates"></a>Tipos de dados em modelos ARM
 
@@ -143,11 +143,9 @@ Para os inteiros passados como parâmetros inline, a gama de valores pode ser li
 
 Os objetos começam com uma cinta esquerda `{` e terminam com uma cinta direita ( `}` ). Cada propriedade num objeto consiste em chave e valor. A chave e o valor são separados por um cólon `:` ( ).
 
-No JSON, a chave é incluída em ações duplas. Cada propriedade é separada por uma vírgula.
-
-Em Bicep, a chave não está fechada por citações. Não use vírgulas entre propriedades.
-
 # <a name="json"></a>[JSON](#tab/json)
+
+No JSON, a chave é incluída em ações duplas. Cada propriedade é separada por uma vírgula.
 
 ```json
 "parameters": {
@@ -165,6 +163,8 @@ Em Bicep, a chave não está fechada por citações. Não use vírgulas entre pr
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
+Em Bicep, a chave não está fechada por citações. Não use vírgulas entre propriedades.
+
 ```bicep
 param exampleObject object = {
   name: 'test name'
@@ -173,6 +173,22 @@ param exampleObject object = {
   tier: 1
 }
 ```
+
+Os acessórios de propriedade são usados para aceder a propriedades de um objeto. São construídos com o `.` operador. Por exemplo:
+
+```bicep
+var x = {
+  y: {
+    z: 'Hello`
+    a: true
+  }
+  q: 42
+}
+```
+
+Dada a declaração anterior, a expressão x.y.z avalia a cadeia literal 'Olá'. Da mesma forma, a expressão x.q avalia para o inteiro literal 42.
+
+Os acessórios de propriedade podem ser usados com qualquer objeto. Isto inclui parâmetros e variáveis de tipos de objetos e objetos literais. A utilização de um acessório de propriedade numa expressão do tipo não-objecto é um erro.
 
 ---
 

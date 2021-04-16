@@ -6,17 +6,17 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.openlocfilehash: aebfeed055fad7c1108620ab494236640285aa1e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.date: 04/14/2021
+ms.openlocfilehash: 99e507fed35e5b74aa44bc2713550f7cf9d7b2e5
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107495078"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518886"
 ---
 # <a name="point-in-time-restore-of-a-hyperscale-citus-server-group"></a>Restauro pontual de um grupo de servidores de Hiperescala (Citus)
 
-Este artigo fornece procedimentos passo a passo para executar [recuperações pontuais](concepts-hyperscale-backup.md#point-in-time-restore-pitr) para um grupo de servidor de Hiperescala (Citus) usando cópias de segurança. Pode restaurar a cópia de segurança mais antiga ou um ponto de restauro personalizado dentro do seu período de retenção.
+Este artigo fornece procedimentos passo a passo para executar [recuperações pontuais](concepts-hyperscale-backup.md#restore) para um grupo de servidor de Hiperescala (Citus) usando cópias de segurança. Pode restaurar a cópia de segurança mais antiga ou um ponto de restauro personalizado dentro do seu período de retenção.
 
 ## <a name="restoring-to-the-earliest-restore-point"></a>Restaurando o primeiro ponto de restauro
 

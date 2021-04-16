@@ -1,19 +1,19 @@
 ---
 title: Integração contínua e entrega para espaço de trabalho Synapse
 description: Aprenda a usar a integração contínua e a entrega para implementar mudanças no espaço de trabalho de um ambiente (desenvolvimento, teste, produção) para outro.
-services: synapse-analytics
 author: liud
 ms.service: synapse-analytics
+ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f68e3698f8616b581d319bc19d2a8c636c79c36
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561962"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566091"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração contínua e entrega para o espaço de trabalho Azure Synapse
 
@@ -231,7 +231,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 
 * Qualquer propriedade no caminho `properties/bigDataPool/referenceName` é parametrizada com o seu valor padrão. Pode parametrizar a piscina de faísca anexa para cada ficheiro de caderno. 
 
-#### <a name="sql-scripts"></a>SQL Scripts 
+#### <a name="sql-scripts"></a>Scripts SQL 
 
 * Propriedades (poolName e base de dadosName) no caminho `properties/content/currentConnection` são parametrizadas como cordas sem os valores padrão no modelo. 
 

@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca618dc234ff4383083ff5eb21299fb1e3e7128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00c519ef06637c5193b347f0bbc906c6232a7ca8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348743"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532542"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Diretório Ativo Azure reportando API
 
@@ -224,5 +224,5 @@ Siga os passos nos [Pré-requisitos para aceder à API de reporte de relatórios
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obter dados com a API de relatórios do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
-* [Referência de API de auditoria](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Referência de API do relatório de atividade de inscrição](/graph/api/resources/signin?view=graph-rest-beta)
+* [Referência de API de auditoria](/graph/api/resources/directoryaudit) 
+* [Referência de API do relatório de atividade de inscrição](/graph/api/resources/signin)
