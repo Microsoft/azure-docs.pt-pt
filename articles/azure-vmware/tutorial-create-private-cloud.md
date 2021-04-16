@@ -3,12 +3,12 @@ title: Tutorial - Implementar uma nuvem privada Azure VMware Solution
 description: Saiba como criar e implementar uma nuvem privada Azure VMware Solution
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: ed916305cd1a67162f07c24e3bf97766e5389b74
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 89a44ce7e5910609068f72c321971ced2e3646b4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462172"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374850"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Tutorial: Implementar uma nuvem privada Azure VMware Solution
 
@@ -30,7 +30,7 @@ Neste tutorial, irá aprender a:
 - Certifique-se de que tem a rede adequada configurada como descrito no [Tutorial: Lista de verificação de rede](tutorial-network-checklist.md).
 - Os anfitriões foram a provisionados e o fornecedor de recursos Microsoft.AVS registou-se como descrito nos [anfitriões do Pedido e ativa o fornecedor de recursos Microsoft.AVS](enable-azure-vmware-solution.md).
 
-## <a name="create-a-private-cloud"></a>Criar uma Cloud Privada
+## <a name="create-a-private-cloud"></a>Criar uma cloud privada
 
 Pode criar uma nuvem privada Azure VMware Solution utilizando o [portal Azure](#azure-portal) ou utilizando o [Azure CLI](#azure-cli).
 

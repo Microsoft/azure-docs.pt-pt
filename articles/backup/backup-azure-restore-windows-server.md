@@ -3,12 +3,12 @@ title: Restaurar ficheiros no Windows Server utilizando o Agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure num servidor Windows ou num computador Windows com o Agente microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ca0787ec38e1bc22b62e756c7ee56c5c9e93493
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91813258"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517339"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar ficheiros no Windows Server utilizando o Agente MARS
 
@@ -107,7 +107,7 @@ Estes passos incluem a seguinte terminologia:
 
 5. Forneça o ficheiro de credencial do cofre que corresponde ao cofre da amostra e selecione **Next**.
 
-    Se o ficheiro de credencial do cofre for inválido (ou expirado), [descarregue um novo ficheiro de credencial de abóbada do cofre](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) no portal Azure. Depois de fornecer uma credencial de cofre válida, o nome do cofre de reserva correspondente aparece.
+    Se o ficheiro de credencial do cofre for inválido (ou expirado), [descarregue um novo ficheiro de credencial de abóbada do cofre](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) no portal Azure. Depois de fornecer uma credencial de cofre válida, o nome do cofre de reserva correspondente aparece.
 
 6. Na página **'Selecionar Backup Server',** selecione a máquina de origem da lista de máquinas visualizadas e forneça a palavra-passe. Em seguida, selecione **Seguinte**.
 
@@ -145,4 +145,4 @@ Estes passos incluem a seguinte terminologia:
 
 * Agora que recuperou os seus ficheiros e pastas, pode [gerir as suas cópias de segurança.](backup-azure-manage-windows-server.md)
 
-* Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md).
+* Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.yml).

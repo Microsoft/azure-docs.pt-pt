@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 206bcfaeb5cb13d3ecf1e5f6335518c42df21eb8
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f737be68a28f95ab5402ba5ea08e85fcf1b04d37
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535287"
+ms.locfileid: "107565904"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança de rede
 
@@ -93,10 +93,10 @@ Os registos de fluxo incluem as seguintes propriedades:
                     * **Fluxo de Tráfego** - A direção do fluxo de tráfego. Valores válidos são **I** para entrada e **O** para saída.
                     * **Decisão de Trânsito** - Se o tráfego foi permitido ou negado. Valores válidos são **A** para permitido e **D** para negado.
                     * **Flow State - Versão 2 Apenas** - Captura o estado do fluxo. Os estados possíveis são **B:** Comece, quando um fluxo é criado. As estatísticas não são fornecidas. **C:** Continuando para um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Fim, quando um fluxo é interrompido. As estatísticas são fornecidas.
-                    * **Pacotes - Fonte de destino - Versão 2 Apenas** O número total de pacotes TCP ou UDP enviados de origem para destino desde a última atualização.
-                    * **Bytes enviados - Fonte para destino - Versão 2 Apenas** O número total de bytes de pacotes TCP ou UDP enviados de origem para destino desde a última atualização. Os bytes de pacote incluem o cabeçalho do pacote e a carga útil.
-                    * **Pacotes - Destino à fonte - Versão 2 Apenas** O número total de pacotes TCP ou UDP enviados de destino para fonte desde a última atualização.
-                    * **Bytes enviados - Destino à fonte - Versão 2 Apenas** O número total de bytes de pacotes TCP e UDP enviados de destino a fonte desde a última atualização. Os bytes de pacote incluem cabeçalho de pacote e carga útil.
+                    * **Pacotes - Fonte de destino - Versão 2 Apenas** O número total de pacotes TCP enviados de origem para destino desde a última atualização.
+                    * **Bytes enviados - Fonte para destino - Versão 2 Apenas** O número total de bytes de pacotes TCP enviados de origem para destino desde a última atualização. Os bytes de pacote incluem o cabeçalho do pacote e a carga útil.
+                    * **Pacotes - Destino à fonte - Versão 2 Apenas** O número total de pacotes TCP enviados de destino a fonte desde a última atualização.
+                    * **Bytes enviados - Destino à fonte - Versão 2 Apenas** O número total de bytes de pacotes TCP enviados de destino para fonte desde a última atualização. Os bytes de pacote incluem cabeçalho de pacote e carga útil.
 
 
 **Registos de fluxo NSG Versão 2 (vs Versão 1)** 

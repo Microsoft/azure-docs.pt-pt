@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42def04db63d81bdb3eff8098daa8c75924bffec
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93146931"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502084"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu hub IoT
 
@@ -106,7 +106,7 @@ Uma implementação mais complexa poderia incluir as informações do [Azure Mon
 
 ## <a name="device-and-module-lifecycle-notifications"></a>Notificações do ciclo de vida do dispositivo e do módulo
 
-O IoT Hub pode notificar a sua solução IoT quando uma identidade é criada ou eliminada através do envio de notificações de ciclo de vida. Para tal, a sua solução IoT necessita de criar uma rota e de definir a Fonte de Dados igual a *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Por padrão, não são enviadas notificações de ciclo de vida, ou seja, não existem tais rotas pré-existentes. A mensagem de notificação inclui propriedades e corpo.
+O IoT Hub pode notificar a sua solução IoT quando uma identidade do dispositivo é criada ou eliminada através do envio de notificações de ciclo de vida. Para tal, a sua solução IoT necessita de criar uma rota e de definir a Fonte de Dados igual à *DeviceLifecycleEvents*. Por padrão, não são enviadas notificações de ciclo de vida, ou seja, não existem tais rotas pré-existentes. Ao criar uma rota com Fonte de Dados igual a *DeviceLifecycleEvents,* serão enviados eventos de ciclo de vida tanto para identidades do dispositivo como para identidades de módulos; no entanto, o conteúdo da mensagem diferirá dependendo se os eventos são gerados para identidades de módulos ou identidades do dispositivo.  Note-se que, para os módulos IoT Edge, o fluxo de criação de identidade do módulo é diferente do de outros módulos, como resultado dos módulos IoT Edge, a notificação de criação só é enviada se o dispositivo IoT Edge correspondente para a identidade do módulo IoT Edge atualizado estiver em execução. Para todos os outros módulos, as notificações do ciclo de vida são enviadas sempre que a identidade do módulo é atualizada no lado do IoT Hub.  A mensagem de notificação inclui propriedades e corpo.
 
 Propriedades: As propriedades do sistema de mensagens estão prefixadas com o `$` símbolo.
 

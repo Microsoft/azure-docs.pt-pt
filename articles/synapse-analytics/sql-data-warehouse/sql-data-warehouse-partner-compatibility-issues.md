@@ -5,16 +5,16 @@ services: synapse-analytics
 author: periclesrocha
 ms.service: synapse-analytics
 ms.topic: troubleshooting
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1031656eaa5125d07ae078773379270b26625e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bad9d6464b41ff1b7ad03147d3a48c50c787cb0
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98121384"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568119"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>Problemas de compatibilidade com aplicações de terceiros e Azure Synapse Analytics
 

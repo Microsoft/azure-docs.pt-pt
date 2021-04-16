@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36d6af7fb42bc1b705b44bdae6f24b454bfd242f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: eeef454e4c5706b39d07261ade1c2f0ffbc942ad
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312438"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478901"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Teste a interface do portal para aplicações geridas azure
 
@@ -100,7 +100,7 @@ Se o portal estiver pendurado no ecrã do resumo, pode haver um erro na secção
 
 ## <a name="test-your-solution-files"></a>Teste os seus ficheiros de solução
 
-Agora que verificou que a interface do portal está a funcionar como esperado, é hora de validar que o seu ficheiro createUiDefinition está devidamente integrado com o seu mainTemplate.jsem arquivo. Pode executar um teste de script de validação para testar o conteúdo dos seus ficheiros de solução, incluindo o ficheiro createUiDefinition. O script valida a sintaxe JSON, verifica as expressões regex nos campos de texto e garante que os valores de saída da interface do portal correspondem aos parâmetros do seu modelo. Para obter informações sobre a execução deste script, consulte [Executar verificações de validação estática para modelos](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
+Agora que verificou que a interface do portal está a funcionar como esperado, é hora de validar que o seu ficheiro createUiDefinition está devidamente integrado com o seu mainTemplate.jsem arquivo. Pode executar um teste de script de validação para testar o conteúdo dos seus ficheiros de solução, incluindo o ficheiro createUiDefinition. O script valida a sintaxe JSON, verifica as expressões regex nos campos de texto e garante que os valores de saída da interface do portal correspondem aos parâmetros do seu modelo. Para obter informações sobre a execução deste script, consulte [Executar verificações de validação estática para modelos](https://aka.ms/arm-ttk).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/01/2021
-  ms.openlocfilehash: f2dcb2687a5a765e674a3dce7ac9016e58056b81
-  ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+  ms.date: 04/07/2021
+  ms.openlocfilehash: bc04150b8aedcb02fcee888b390e2819c97d7a01
+  ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/16/2021
-  ms.locfileid: "103574713"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107478102"
 landingContent:
 - title: Introdução
   linkLists:
@@ -24,16 +24,22 @@ landingContent:
     links:
     - text: O que é um Acordo de Cliente da Microsoft?
       url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: get-started
+    links:
+    - text: Os próximos passos após a aceitação do acordo
+      url: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - linkListType: how-to-guide
     links:
-    - text: Passe do cartão de crédito para a fatura
+    - text: Transferir a propriedade de faturação de PAYG para MCA
       url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - text: Aceder a subscrições com ID de domínio
+    - text: Transferir a propriedade de faturação da EA para a MCA
       url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - text: Configurar administrador para gerir utilizadores de subscrição
       url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - text: Criar novas subscrições
       url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Acesso à subscrição de resolução de problemas
+      url: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - title: Gerir faturação
   linkLists:
   - linkListType: concept
@@ -48,9 +54,7 @@ landingContent:
     links:
     - text: O que é um perfil de faturação e como o faço?
       url: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - text: Pagar fatura por fatura
-      url: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - text: Pagar conta por cartão de crédito ou débito ou por cheque ou transferência bancária
+    - text: Como pagar a minha conta
       url: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - text: Criar um administrador para gerir a faturação
       url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
@@ -72,3 +76,5 @@ landingContent:
     links:
     - text: O que é o Ative Directory?
       url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Gerir inquilinos
+      url: manage-tenants.md

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1977663f4661fca316e4839671abd76e07b5acda
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0986a1d6a75f0d464eb405841af821c606c68200
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304805"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565326"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
@@ -339,7 +339,7 @@ Especifica a pasta ou o caminho do ficheiro e o nome do ficheiro para os dados r
 Se especificar uma pasta LOCATION, uma consulta de piscina SQL sem servidor selecionará a partir da tabela externa e recuperará ficheiros da pasta.
 
 > [!NOTE]
-> Ao contrário de Hadoop e PolyBase, a piscina SQL sem servidor não devolve subpaminações a menos que especifique /** no final do caminho.
+> Ao contrário de Hadoop e PolyBase, a piscina SQL sem servidor não devolve subpaminações a menos que especifique /** no final do caminho. Tal como o Hadoop e o PolyBase, não devolve ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
 
 Neste exemplo, se o LOCATION='/webdata/', uma consulta de piscina SQL sem servidor, regressará a partir de mydata.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
 

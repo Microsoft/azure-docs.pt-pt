@@ -6,16 +6,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/10/2020
-author: gaursa
-ms.author: gaursa
+author: julieMSFT
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b5b7563b49c6f0eb155223026797f8306e642f5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5256c6d25a9c7acfc45cdffee05c95fb3407c24a
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585660"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568323"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Quota de pedido aumenta e obtém apoio para Azure Synapse Analytics
 

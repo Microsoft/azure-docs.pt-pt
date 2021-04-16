@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ad1351b7c9a649a553ce54422b99a13c286437d6
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 2ee2aad290c03743d8a2627922446b8167f3ffee
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107300"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480526"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Dispositivos de gestão automática em Gémeos Digitais Azure utilizando o Serviço de Provisionamento de Dispositivos (DPS)
 
@@ -29,7 +29,11 @@ Antes de configurar o provisionamento, terá de configurar o seguinte:
 * um **hub IoT.** Para obter instruções, consulte a secção *Criar um hub IoT* deste [quickstart IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
 * uma [**função Azure**](../azure-functions/functions-overview.md) que atualiza informações digitais de gémeos com base em dados do IoT Hub. Siga as instruções em [*Como: Ingerir dados do hub IoT*](how-to-ingest-iot-hub-data.md) para criar esta função Azure. Reúna o **_nome_** da função para usá-lo neste artigo.
 
-Esta amostra também utiliza um **simulador de dispositivo** que inclui o provisionamento utilizando o Serviço de Provisionamento de Dispositivos. O simulador do dispositivo está localizado aqui: [Azure Digital Twins e IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Obtenha o projeto de amostra na sua máquina navegando para o link de amostra e selecionando o botão *Download ZIP* por baixo do título. Desaperte a pasta descarregada.
+Esta amostra também utiliza um **simulador de dispositivo** que inclui o provisionamento utilizando o Serviço de Provisionamento de Dispositivos. O simulador do dispositivo está localizado aqui: [Azure Digital Twins e IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Obtenha o projeto de amostra na sua máquina navegando para o link de amostra e selecionando o botão **de código Browse** por baixo do título. Isto irá levá-lo ao gitHub repo para a amostra, que você pode baixar como um *. Ficheiro ZIP* selecionando o botão **Código** e **descarregue ZIP**. 
+
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png" alt-text="Screenshot do repo digital-twins-iothub-integração no GitHub. O botão Código é selecionado, produzindo uma pequena caixa de diálogo onde é realçado o botão Download ZIP." lightbox="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png":::
+
+Desaperte a pasta descarregada.
 
 Vai precisar de [**Node.js**](https://nodejs.org/download) instalado na sua máquina. O simulador do dispositivo baseia-se **emNode.js**, versão 10.0.x ou posterior.
 
@@ -37,7 +41,7 @@ Vai precisar de [**Node.js**](https://nodejs.org/download) instalado na sua máq
 
 A imagem abaixo ilustra a arquitetura desta solução utilizando as Gémeas Digitais Azure com o Serviço de Provisionamento de Dispositivos. Mostra tanto a provisão do dispositivo como o fluxo de aposentadoria.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Diagrama de dispositivo e vários serviços Azure num cenário de ponta a ponta. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS. Os dados também fluem de DPS para IoT Hub, e para Azure Digital Twins através de uma função Azure com o rótulo de &quot;Atribuição&quot;. Os dados de uma ação manual de &quot;Eliminar dispositivo&quot; fluem através do IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins." lightbox="media/how-to-provision-using-dps/flows.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/flows.png" alt-text="Diagrama de dispositivo e vários serviços Azure num cenário de ponta a ponta. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS. Os dados também fluem de DPS para IoT Hub, e para Azure Digital Twins através de uma função Azure com o rótulo de &quot;Atribuição&quot;. Os dados de uma ação manual de &quot;Eliminar dispositivo&quot; fluem através do IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins." lightbox="media/how-to-provision-using-device-provisioning-service/flows.png":::
 
 Este artigo é dividido em duas secções:
 * [*Dispositivo de fornecimento automático utilizando o Serviço de Provisionamento de Dispositivos*](#auto-provision-device-using-device-provisioning-service)
@@ -49,7 +53,7 @@ Para obter explicações mais profundas de cada passo na arquitetura, consulte a
 
 Nesta secção, irá anexar o Serviço de Provisionamento de Dispositivos a Gémeos Digitais Azure a dispositivos de provisão automática através do caminho abaixo. Este é um excerto da arquitetura completa mostrada [anteriormente.](#solution-architecture)
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Diagrama de Provisão flow -- um excerto do diagrama de arquitetura de solução, com secções de rotulagem de números do fluxo. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS (1 para dispositivo > DPS e 5 para o dispositivo DPS >). Os dados também fluem de DPS para IoT Hub (4), e para Azure Digital Twins (3) através de uma função Azure rotulada de 'Atribuição' (2)." lightbox="media/how-to-provision-using-dps/provision.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/provision.png" alt-text="Diagrama de Provisão flow -- um excerto do diagrama de arquitetura de solução, com secções de rotulagem de números do fluxo. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS (1 para dispositivo > DPS e 5 para o dispositivo DPS >). Os dados também fluem de DPS para IoT Hub (4), e para Azure Digital Twins (3) através de uma função Azure rotulada de 'Atribuição' (2)." lightbox="media/how-to-provision-using-device-provisioning-service/provision.png":::
 
 Aqui está uma descrição do fluxo do processo:
 1. O dispositivo contacta o ponto final do DPS, passando informações identificando para comprovar a sua identidade.
@@ -83,7 +87,7 @@ Comece por abrir o projeto de aplicação de função no Estúdio Visual na sua 
 
 Adicione uma nova função do tipo *HTTP-trigger* ao projeto de aplicação de função no Visual Studio.
 
-:::image type="content" source="media/how-to-provision-using-dps/add-http-trigger-function-visual-studio.png" alt-text="Screenshot da vista do Estúdio Visual para adicionar a função Azure do tipo Http Trigger no seu projeto de aplicação de função." lightbox="media/how-to-provision-using-dps/add-http-trigger-function-visual-studio.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png" alt-text="Screenshot da vista do Estúdio Visual para adicionar a função Azure do tipo Http Trigger no seu projeto de aplicação de função." lightbox="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png":::
 
 #### <a name="step-2-fill-in-function-code"></a>Passo 2: Preencha o código de função
 
@@ -116,13 +120,13 @@ Em seguida, escolha o novo botão *de função* para ligar a sua aplicação de 
 
 Guarde os seus detalhes.                  
 
-:::image type="content" source="media/how-to-provision-using-dps/link-enrollment-group-to-iot-hub-and-function-app.png" alt-text="Screenshot da janela de detalhes do grupo de inscrição da Alfândega para Selecionar Personalizado (Use Azure Function) e o seu nome de hub IoT nas secções Selecione como pretende atribuir dispositivos aos hubs e Selecione os hubs IoT a que este grupo pode ser atribuído. Além disso, selecione a sua aplicação de subscrição, função a partir do dropdown e certifique-se de selecionar DpsAdtAllocationFunc." lightbox="media/how-to-provision-using-dps/link-enrollment-group-to-iot-hub-and-function-app.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/link-enrollment-group-to-iot-hub-and-function-app.png" alt-text="Screenshot da janela de detalhes do grupo de inscrição da Alfândega para Selecionar Personalizado (Use Azure Function) e o seu nome de hub IoT nas secções Selecione como pretende atribuir dispositivos aos hubs e Selecione os hubs IoT a que este grupo pode ser atribuído. Além disso, selecione a sua aplicação de subscrição, função a partir do dropdown e certifique-se de selecionar DpsAdtAllocationFunc." lightbox="media/how-to-provision-using-device-provisioning-service/link-enrollment-group-to-iot-hub-and-function-app.png":::
 
 Após a criação da inscrição, a **Chave Primária** para a inscrição será usada mais tarde para configurar o simulador do dispositivo para este artigo.
 
 ### <a name="set-up-the-device-simulator"></a>Configurar o simulador de dispositivo
 
-Esta amostra utiliza um simulador de dispositivo que inclui o provisionamento utilizando o Serviço de Provisionamento de Dispositivos. O simulador do dispositivo está localizado aqui: [Azure Digital Twins e IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Se ainda não descarregou a amostra, obtenha-a agora navegando para o link de amostra e selecionando o botão *Download ZIP* por baixo do título. Desaperte a pasta descarregada.
+Esta amostra utiliza um simulador de dispositivo que inclui o provisionamento utilizando o Serviço de Provisionamento de Dispositivos. O simulador de dispositivo está localizado na [Amostra de Integração Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/) que descarregou na secção [Pré-Requisitos.](#prerequisites)
 
 #### <a name="upload-the-model"></a>Faça upload do modelo
 
@@ -144,13 +148,13 @@ Em seguida, no diretório do simulador do dispositivo, copie o ficheiro .env.tem
 
 * PROVISIONING_IDSCOPE: Para obter este valor, navegue para o serviço de fornecimento de dispositivos no [portal Azure](https://portal.azure.com/), em seguida, selecione *Overview* nas opções do menu e procure o campo *ID Scope*.
 
-    :::image type="content" source="media/how-to-provision-using-dps/id-scope.png" alt-text="Screenshot da visão do portal Azure do dispositivo que disponibiliza a página geral para copiar o valor do ID Scope." lightbox="media/how-to-provision-using-dps/id-scope.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/id-scope.png" alt-text="Screenshot da visão do portal Azure do dispositivo que disponibiliza a página geral para copiar o valor do ID Scope." lightbox="media/how-to-provision-using-device-provisioning-service/id-scope.png":::
 
 * PROVISIONING_REGISTRATION_ID: Pode escolher uma identificação de registo para o seu dispositivo.
 * ADT_MODEL_ID: `dtmi:contosocom:DigitalTwins:Thermostat;1`
 * PROVISIONING_SYMMETRIC_KEY: Esta é a chave principal para a inscrição que configuraste anteriormente. Para obter este valor novamente, navegue para o serviço de fornecimento de dispositivos no portal Azure, *selecione Gerir as inscrições,* em seguida, selecione o grupo de inscrição que criou anteriormente e copie a *Chave Primária*.
 
-    :::image type="content" source="media/how-to-provision-using-dps/sas-primary-key.png" alt-text="Screenshot da visão do portal Azure do serviço de fornecimento de dispositivos gerir a página de matrículas para copiar o valor principal da chave SAS." lightbox="media/how-to-provision-using-dps/sas-primary-key.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/sas-primary-key.png" alt-text="Screenshot da visão do portal Azure do serviço de fornecimento de dispositivos gerir a página de matrículas para copiar o valor principal da chave SAS." lightbox="media/how-to-provision-using-device-provisioning-service/sas-primary-key.png":::
 
 Agora, utilize os valores acima para atualizar as definições de ficheiro .env.
 
@@ -173,7 +177,7 @@ node .\adt_custom_register.js
 ```
 
 Deverá ver o dispositivo a ser registado e ligado ao IoT Hub e, em seguida, começar a enviar mensagens.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Screenshot da janela do Comando mostrando o registo do dispositivo e enviando mensagens" lightbox="media/how-to-provision-using-dps/output.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/output.png" alt-text="Screenshot da janela do Comando mostrando o registo do dispositivo e enviando mensagens" lightbox="media/how-to-provision-using-device-provisioning-service/output.png":::
 
 ### <a name="validate"></a>Validação
 
@@ -184,13 +188,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration
 ```
 
 Deve ver o gémeo do dispositivo encontrado no caso Azure Digital Twins.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Screenshot da janela do Comando mostrando gémeo recém-criado." lightbox="media/how-to-provision-using-dps/show-provisioned-twin.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/show-provisioned-twin.png" alt-text="Screenshot da janela do Comando mostrando gémeo recém-criado." lightbox="media/how-to-provision-using-device-provisioning-service/show-provisioned-twin.png":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Dispositivo de auto-aposentadoria utilizando eventos de ciclo de vida IoT Hub
 
 Nesta secção, você vai anexar eventos de ciclo de vida IoT Hub a Azure Digital Twins para auto-aposentar dispositivos através do caminho abaixo. Este é um excerto da arquitetura completa mostrada [anteriormente.](#solution-architecture)
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Diagrama do fluxo do dispositivo Retire-- um excerto do diagrama de arquitetura de solução, com secções de rotulagem de números do fluxo. O dispositivo termóstato é mostrado sem ligações aos serviços Azure no diagrama. Os dados de uma ação manual de &quot;Delete Device&quot; fluem através do IoT Hub (1) > Event Hubs (2) > Funções Azure > Gémeas Digitais Azure (3)." lightbox="media/how-to-provision-using-dps/retire.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/retire.png" alt-text="Diagrama do fluxo do dispositivo Retire-- um excerto do diagrama de arquitetura de solução, com secções de rotulagem de números do fluxo. O dispositivo termóstato é mostrado sem ligações aos serviços Azure no diagrama. Os dados de uma ação manual de &quot;Delete Device&quot; fluem através do IoT Hub (1) > Event Hubs (2) > Funções Azure > Gémeas Digitais Azure (3)." lightbox="media/how-to-provision-using-device-provisioning-service/retire.png":::
 
 Aqui está uma descrição do fluxo do processo:
 1. Um processo externo ou manual desencadeia a supressão de um dispositivo no Hub IoT.
@@ -206,7 +210,7 @@ Em seguida, você vai criar um centro de [eventos](../event-hubs/event-hubs-abou
 Siga os passos descritos no Início rápido do [*centro de eventos.*](../event-hubs/event-hubs-create.md) Nomeie os seus eventos de *ciclo de vida hub de eventos.* Você usará este nome do centro do evento quando configurar a rota IoT Hub e uma função Azure nas secções seguintes.
 
 A imagem abaixo ilustra a criação do centro de eventos.
-:::image type="content" source="media/how-to-provision-using-dps/create-event-hub-lifecycle-events.png" alt-text="Screenshot da janela do portal Azure para criar um centro de eventos com o nome lifecycleevents." lightbox="media/how-to-provision-using-dps/create-event-hub-lifecycle-events.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/create-event-hub-lifecycle-events.png" alt-text="Screenshot da janela do portal Azure para criar um centro de eventos com o nome lifecycleevents." lightbox="media/how-to-provision-using-device-provisioning-service/create-event-hub-lifecycle-events.png":::
 
 #### <a name="create-sas-policy-for-your-event-hub"></a>Crie a política SAS para o seu centro de eventos
 
@@ -216,7 +220,7 @@ Para tal,
 2. Selecione **Adicionar**. Na janela *'Adicionar A POLÍTICA SAS'* que se abre, introduza um nome de política à sua escolha e selecione a caixa de verificação *Listen.*
 3. Selecione **Criar**.
     
-:::image type="content" source="media/how-to-provision-using-dps/add-event-hub-sas-policy.png" alt-text="Screenshot do portal Azure para adicionar uma política SAS do centro de eventos." lightbox="media/how-to-provision-using-dps/add-event-hub-sas-policy.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-event-hub-sas-policy.png" alt-text="Screenshot do portal Azure para adicionar uma política SAS do centro de eventos." lightbox="media/how-to-provision-using-device-provisioning-service/add-event-hub-sas-policy.png":::
 
 #### <a name="configure-event-hub-with-function-app"></a>Configurar o centro de eventos com app de função
 
@@ -224,7 +228,7 @@ Em seguida, configurar a aplicação de função Azure que criou na secção [pr
 
 1. Abra a política que acabou de criar e copie o valor **da chave primária de ligação.**
 
-    :::image type="content" source="media/how-to-provision-using-dps/event-hub-sas-policy-connection-string.png" alt-text="Screenshot do portal Azure para copiar a chave primária de ligação." lightbox="media/how-to-provision-using-dps/event-hub-sas-policy-connection-string.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/event-hub-sas-policy-connection-string.png" alt-text="Screenshot do portal Azure para copiar a chave primária de ligação." lightbox="media/how-to-provision-using-device-provisioning-service/event-hub-sas-policy-connection-string.png":::
 
 2. Adicione a cadeia de ligação como variável nas definições da aplicação de função com o seguinte comando Azure CLI. O comando pode ser executado em [Cloud Shell,](https://shell.azure.com)ou localmente se tiver o CLI Azure [instalado na sua máquina](/cli/azure/install-azure-cli).
 
@@ -244,7 +248,7 @@ Comece por abrir o projeto de aplicação de função no Estúdio Visual na sua 
      
 Adicione uma nova função do tipo *Event Hub Trigger* ao projeto de aplicação de função no Estúdio Visual.
 
-:::image type="content" source="media/how-to-provision-using-dps/create-event-hub-trigger-function.png" alt-text="Screenshot da janela Do Estúdio Visual para adicionar uma função Azure do tipo Event Hub Trigger no seu projeto de aplicação de função." lightbox="media/how-to-provision-using-dps/create-event-hub-trigger-function.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png" alt-text="Screenshot da janela Do Estúdio Visual para adicionar uma função Azure do tipo Event Hub Trigger no seu projeto de aplicação de função." lightbox="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png":::
 
 #### <a name="step-2-fill-in-function-code"></a>Passo 2: Preencha o código de função
 
@@ -269,7 +273,7 @@ Siga estes passos para criar um ponto final do centro de eventos:
 2. Selecione o **separador pontos finais personalizados.**
 3. Selecione **+ Adicionar** e escolha **centros de eventos** para adicionar um ponto final do tipo de centros de eventos.
 
-    :::image type="content" source="media/how-to-provision-using-dps/event-hub-custom-endpoint.png" alt-text="Screenshot da janela do Estúdio Visual para adicionar um ponto final personalizado do centro de eventos." lightbox="media/how-to-provision-using-dps/event-hub-custom-endpoint.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/event-hub-custom-endpoint.png" alt-text="Screenshot da janela do Estúdio Visual para adicionar um ponto final personalizado do centro de eventos." lightbox="media/how-to-provision-using-device-provisioning-service/event-hub-custom-endpoint.png":::
 
 4. Na janela Adicione um ponto final do centro de *eventos* que se abre, escolha os seguintes valores:
     * **Nome do ponto final**: Escolha um nome de ponto final.
@@ -277,13 +281,13 @@ Siga estes passos para criar um ponto final do centro de eventos:
     * **Instância do centro do** evento : Escolha o nome do hub de evento que criou no passo anterior.
 5. Selecione **Criar**. Mantenha esta janela aberta para adicionar uma rota no próximo passo.
 
-    :::image type="content" source="media/how-to-provision-using-dps/add-event-hub-endpoint.png" alt-text="Screenshot da janela do Estúdio Visual para adicionar um ponto final do centro de eventos." lightbox="media/how-to-provision-using-dps/add-event-hub-endpoint.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-event-hub-endpoint.png" alt-text="Screenshot da janela do Estúdio Visual para adicionar um ponto final do centro de eventos." lightbox="media/how-to-provision-using-device-provisioning-service/add-event-hub-endpoint.png":::
 
 Em seguida, irá adicionar uma rota que se conecta ao ponto final que criou no passo acima, com uma consulta de encaminhamento que envia os eventos de eliminação. Siga estes passos para criar uma rota:
 
 1. Navegue no separador *Rotas* e selecione **Adicionar** para adicionar uma rota.
 
-    :::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Screenshot da janela do Estúdio Visual para adicionar uma rota para enviar eventos." lightbox="media/how-to-provision-using-dps/add-message-route.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-message-route.png" alt-text="Screenshot da janela do Estúdio Visual para adicionar uma rota para enviar eventos." lightbox="media/how-to-provision-using-device-provisioning-service/add-message-route.png":::
 
 2. Na página Adicionar uma página *de rota* que abre, escolha os seguintes valores:
 
@@ -294,7 +298,7 @@ Em seguida, irá adicionar uma rota que se conecta ao ponto final que criou no p
 
 3. Selecione **Guardar**.
 
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Screenshot da janela do portal Azure para adicionar uma rota para enviar eventos de ciclo de vida." lightbox="media/how-to-provision-using-dps/lifecycle-route.png":::
+    :::image type="content" source="media/how-to-provision-using-device-provisioning-service/lifecycle-route.png" alt-text="Screenshot da janela do portal Azure para adicionar uma rota para enviar eventos de ciclo de vida." lightbox="media/how-to-provision-using-device-provisioning-service/lifecycle-route.png":::
 
 Uma vez que tenha passado por este fluxo, tudo está definido para retirar os dispositivos de ponta a ponta.
 
@@ -308,7 +312,7 @@ Pode fazê-lo com um [comando Azure CLI](/cli/azure/iot/hub/module-identity#az_i
 2. Verá um dispositivo com o ID de registo do dispositivo que escolheu na [primeira metade deste artigo.](#auto-provision-device-using-device-provisioning-service) Em alternativa, pode escolher qualquer outro dispositivo para eliminar, desde que tenha um gémeo em Azure Digital Twins para que possa verificar se o gémeo é automaticamente eliminado após a eliminação do dispositivo.
 3. Selecione o dispositivo e escolha **Eliminar**.
 
-:::image type="content" source="media/how-to-provision-using-dps/delete-device-twin.png" alt-text="Screenshot do portal Azure para eliminar o dispositivo gémeo dos dispositivos IoT." lightbox="media/how-to-provision-using-dps/delete-device-twin.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/delete-device-twin.png" alt-text="Screenshot do portal Azure para eliminar o dispositivo gémeo dos dispositivos IoT." lightbox="media/how-to-provision-using-device-provisioning-service/delete-device-twin.png":::
 
 Pode levar alguns minutos para ver as mudanças refletidas nas Gémeas Digitais Azure.
 
@@ -320,7 +324,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration
 
 Deve ver que o gémeo do dispositivo já não pode ser encontrado no caso Azure Digital Twins.
 
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Screenshot da janela do Comando mostrando gémeos não encontrados." lightbox="media/how-to-provision-using-dps/show-retired-twin.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/show-retired-twin.png" alt-text="Screenshot da janela do Comando mostrando gémeos não encontrados." lightbox="media/how-to-provision-using-device-provisioning-service/show-retired-twin.png":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

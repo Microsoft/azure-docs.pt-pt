@@ -2,21 +2,21 @@
 title: Conecte-se a piscina SQL dedicada (anteriormente SQL DW) com VSTS
 description: Consulta dedicada piscina SQL (anteriormente SQL DW) em Azure Synapse Analytics com Visual Studio.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/15/2019
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0baf2396b7c5af103f0b3aa223d0bccf725babbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 926e95887f8d6aa164908a4107656074142a969e
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584147"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566465"
 ---
 # <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Conecte-se a piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics com Visual Studio e SSDT
 

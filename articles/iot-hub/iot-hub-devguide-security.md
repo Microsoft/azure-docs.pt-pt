@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 04/15/2021
 ms.custom:
 - amqp
 - mqtt
@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 3ddc8c78bac47ed85266037341328585e3c7cb1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e72af412f61f2084fb78907c15a92a22b9e3bc99
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97825131"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567184"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -385,7 +385,7 @@ Os certificados suportados incluem:
 
 Um dispositivo pode utilizar um certificado X.509 ou um símbolo de segurança para autenticação, mas não ambos. Com a autenticação do certificado X.509, certifique-se de que tem uma estratégia para lidar com a capotagem do certificado quando um certificado existente expirar.
 
-A seguinte funcionalidade não é suportada para dispositivos que utilizem a autenticação X.509 CA:
+A seguinte funcionalidade para dispositivos que utilizam a autenticação da Autoridade de Certificados X.509 (CA) ainda não está geralmente disponível, e [o modo de pré-visualização deve ser ativado:](iot-hub-preview-mode.md)
 
 * HTTPS, MQTT sobre WebSockets e AMQP sobre os protocolos WebSockets.
 * Uploads de ficheiros (todos os protocolos).

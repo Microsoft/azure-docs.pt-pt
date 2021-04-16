@@ -4,16 +4,17 @@ description: Saiba como as capacidades de integração de dados da Azure Synapse
 services: synapse-analytics
 author: kromerm
 ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cd3fc9353c684ec6617761616b958477ca83ee3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 144bdf5e94f753090dd73e5839b6c1fd25f11811
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183646"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567643"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integração de dados no Azure Synapse Analytics contra Azure Data Factory
 

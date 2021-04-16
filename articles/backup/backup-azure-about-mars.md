@@ -3,12 +3,12 @@ title: Sobre o Agente MARS
 description: Saiba como o Agente MARS suporta os cenários de backup
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e01694aca386482f9ff7ba52593c88326ba3d62
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87562604"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517747"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente microsoft Azure Recovery Services (MARS)
 
@@ -68,4 +68,4 @@ O agente MARS suporta os seguintes cenários de restauro:
 
 [Matriz de suporte do agente MARS](./backup-support-matrix-mars-agent.md)
 
-[Agente MARS FAQ](./backup-azure-file-folder-backup-faq.md)
+[Agente MARS FAQ](./backup-azure-file-folder-backup-faq.yml)

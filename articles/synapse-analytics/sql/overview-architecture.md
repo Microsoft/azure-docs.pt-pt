@@ -6,16 +6,16 @@ author: mlee3gsd
 manager: rothja
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 28940272d39a08d790fe2cd913df808b02e7f426
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f342f39b62956cd85f269918e8e1ef1a2478a3d8
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441895"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566363"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura do Azure Synapse SQL 
 
