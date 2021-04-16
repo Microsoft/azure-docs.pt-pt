@@ -3,12 +3,12 @@ title: Resolução de problemas cópias de segurança lenta de ficheiros e pasta
 description: Fornece orientação de resolução de problemas para ajudá-lo a diagnosticar a causa de problemas de desempenho de backup Azure
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: b3f2ac343ef4a703f347ec8a57f242a636bb32d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 791f0edf5f50d27147e402f09e7a3e4c2ea7ca43
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88824020"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518529"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 
@@ -21,7 +21,7 @@ Este artigo fornece orientações para a resolução de problemas para ajudá-lo
 
 Antes de começar a resolver problemas, recomendamos que descarregue e instale o [mais recente agente Azure Backup](https://aka.ms/azurebackup_agent). Fazemos atualizações frequentes ao agente Backup para corrigir vários problemas, adicionar funcionalidades e melhorar o desempenho.
 
-Também recomendamos vivamente que reveja o [serviço de backup Azure FAQ](backup-azure-backup-faq.md) para se certificar de que não está a experimentar nenhum dos problemas de configuração comuns.
+Também recomendamos vivamente que reveja o [serviço de backup Azure FAQ](backup-azure-backup-faq.yml) para se certificar de que não está a experimentar nenhum dos problemas de configuração comuns.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -99,4 +99,4 @@ Se estiver a tentar fazer backup de discos grandes, então é aconselhável util
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Perguntas comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)
+* [Perguntas comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.yml)

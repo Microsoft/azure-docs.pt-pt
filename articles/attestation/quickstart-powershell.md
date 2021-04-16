@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80f0efe0894c54d1499bbfdce2317a38dff9299d
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501129"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481621"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Quickstart: Configurar a Azure Attestation com a Azure PowerShell
 
@@ -170,12 +170,12 @@ Para gerir as políticas, um utilizador AD Azure requer as seguintes permissões
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-Estas permissões podem ser atribuídas a um utilizador de AD através de uma função como "Owner" (permissões wildcard), "Contribuinte" (permissões wildcard) ou "Attestation Contributor" (permissões específicas apenas para a Azure Attestation).  
+Para executar estas ações, um utilizador AD Azure deve ter o papel de "Attestation Contributor" no prestador de atestado. Estas permissões também podem ser herdadas com funções como "Proprietário" (permissões wildcard), "Contribuinte" (permissões wildcard) no nível de grupo de subscrição/recursos.  
 
 Para ler políticas, um utilizador AZure AD requer a seguinte permissão para "Ações":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-Esta permissão pode ser atribuída a um utilizador de AD através de uma função como "Reader" (permissões wildcard) ou "Attestation Reader" (permissões específicas apenas para a Azure Attestation).
+Para realizar esta ação, um utilizador AD Azure deve ter o papel de "Attestation Reader" no fornecedor de atestado. A permissão de leitura também pode ser herdada com funções como "Reader" (permissões wildcard) no nível de grupo de subscrição/recursos.  
 
 Abaixo dos cmdlets PowerShell fornecem gestão de políticas para um provedor de atestado (um TEE de cada vez).
 

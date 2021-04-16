@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 165fa23cf3965d3017b15c27fedc2846f97d8d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46f378baad51e959f8b3c074cc24e5bbdfdd95d4
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99054404"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389609"
 ---
 # <a name="azure-digital-twins-service-limits"></a>Limites de serviço Azure Digital Twins
 
@@ -26,6 +26,14 @@ Estes são os limites de serviço da Azure Digital Twins.
 ## <a name="limits-by-type"></a>Limites por tipo
 
 [!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
+
+## <a name="working-with-limits"></a>Trabalhar com limites
+
+Quando um limite é atingido, o serviço acelera pedidos adicionais. Isto resultará numa resposta de erro de 404 destes pedidos.
+
+Para gerir isto, eis algumas recomendações para trabalhar com limites.
+* **Use a lógica de relemgar.** Os [SDKs Azure Digital Twins](how-to-use-apis-sdks.md) implementam a lógica de relembaraçamento para pedidos falhados, por isso, se estiver a trabalhar com um SDK fornecido, este já está incorporado. Caso contrário, considere implementar a lógica de relagem na sua própria aplicação. O serviço envia um `Retry-After` cabeçalho na resposta de avaria, que pode usar para determinar quanto tempo esperar antes de voltar a tentar.
+* **Utilize limiares e notificações para alertar para a aproximação dos limites.** Alguns dos limites de serviço para a Azure Digital Twins têm [métricas correspondentes](troubleshoot-metrics.md) que podem ser usadas para acompanhar o uso nestas áreas. Para configurar limiares e configurar um alerta em qualquer métrica quando um limiar é abordado, consulte as instruções em [*Resolução de Problemas: Configurar alertas*](troubleshoot-alerts.md). Para configurar notificações para outros limites onde as métricas não são fornecidas, considere implementar esta lógica no seu próprio código de aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

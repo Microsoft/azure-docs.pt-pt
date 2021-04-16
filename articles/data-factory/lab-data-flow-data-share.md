@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: d3924c38f760a9698735a2757bdad2af5beb0e24
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006202"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518819"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados utilizando a Azure Data Factory e a Azure Data Share
 
@@ -64,12 +64,9 @@ Na Azure Data Factory os serviços ligados definem a informação de ligação a
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Criar um serviço ligado da Base de Dados SQL do Azure
 
-1. A página de autoria é onde se criam recursos de fábrica de dados, tais como oleodutos, conjuntos de dados, fluxos de dados, gatilhos e serviços ligados. Para criar um serviço ligado, clique no botão **Ligações** no canto inferior direito.
+1. Para criar um serviço ligado, **selecione Gerir** o hub na barra lateral esquerda, no painel **de ligações,** selecione **serviços Linked** e, em seguida, selecione **New** para adicionar um novo serviço ligado.
 
     ![Configuração do portal 2](media/lab-data-flow-data-share/configure2.png)
-1. No separador de ligações, clique em **Novo** para adicionar um novo serviço ligado.
-
-    ![Configuração do portal 3](media/lab-data-flow-data-share/configure3.png)
 1. O primeiro serviço ligado que irá configurar é um Azure SQL DB. Pode utilizar a barra de pesquisa para filtrar a lista de data store. Clique no azulejo da **Base de Dados Azure SQL** e clique em continuar.
 
     ![Configuração do portal 4](media/lab-data-flow-data-share/configure-4.png)
@@ -99,9 +96,11 @@ Na Azure Data Factory os serviços ligados definem a informação de ligação a
 
 Na secção *Transforme os dados usando o fluxo de dados de mapeamento,* você estará construindo fluxos de dados de mapeamento. Uma boa prática antes de construir fluxos de dados de mapeamento é ligar o modo de depuração, o que permite testar a lógica de transformação em segundos num cluster de faíscas ativa.
 
-Para ligar o depurador, clique no slider **de depurador de fluxo de dados** na barra superior da fábrica. Clique em ok quando o diálogo de confirmação aparecer. O aglomerado levará cerca de 5-7 minutos para começar. Continue a *Ingerir dados do Azure SQL DB para a ADLS Gen2 utilizando a atividade da cópia* enquanto está a ser inicializado.
+Para ligar o depurador, clique no **depurador de fluxo de dados** na barra superior da tela de fluxo de dados ou tela de pipeline quando tiver atividades **de fluxo de dados.** Clique em ok quando o diálogo de confirmação aparecer. O aglomerado levará cerca de 5-7 minutos para começar. Continue a *Ingerir dados do Azure SQL DB para a ADLS Gen2 utilizando a atividade da cópia* enquanto está a ser inicializado.
 
 ![Configuração do portal 10](media/lab-data-flow-data-share/configure10.png)
+
+![Configuração do portal 11](media/lab-data-flow-data-share/configure11.png)
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Ingerir dados usando a atividade de cópia
 

@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 8e76e3e7683d43a7a39bc0c168a29016a988c705
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025913"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499415"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenções na sua app LUIS
 
@@ -53,7 +53,7 @@ Crie uma intenção quando a _intenção_ do utilizador desencadearia uma ação
 
 |Intenção   | Entidade | Expressão de exemplo   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "tipo": "localização", "entidade": "seattle" }<br>{ "tipo": "builtin.datetimeV2.date","entidade": "amanhã","resolução":"2018-05-23" } | Como está o `Seattle` `tomorrow` tempo? |
+| CheckWeather | { "tipo": "localização", "entidade": "Seattle" }<br>{ "tipo": "builtin.datetimeV2.date","entidade": "amanhã","resolução":"2018-05-23" } | Como está o `Seattle` `tomorrow` tempo? |
 | CheckWeather | { "tipo": "date_range", "entidade": "este fim de semana" } | Mostre-me a previsão para `this weekend` |
 ||||
 
@@ -74,7 +74,7 @@ Se quiser determinar intenções negativas e positivas, como **"Quero** um carro
 
 ## <a name="intents-and-patterns"></a>Intenções e padrões
 
-Se tiver palavras de exemplo, que podem ser definidas em parte ou no seu conjunto como uma expressão regular, considere usar a [entidade de expressão regular](luis-concept-entity-types.md#regular-expression-entity) emparelhada com um [padrão](luis-concept-patterns.md).
+Se tiver palavras de exemplo, que podem ser definidas em parte ou no seu conjunto como uma expressão regular, considere usar a [entidade de expressão regular](luis-concept-entity-types.md#regex-entity) emparelhada com um [padrão](luis-concept-patterns.md).
 
 A utilização de uma entidade de expressão regular garante a extração de dados de modo a que o padrão seja igualado. A correspondência de padrões garante que uma intenção exata é devolvida.
 

@@ -12,13 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: fc3717436619468e2db0bf4b408059112dae24cc
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ff4b63f49a87dd9ca6b0ef458bdcf1c285a34a18
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384158"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378215"
 ---
 # <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>Tutorial: Utilizar scripts fornecidos pela Microsoft para criar certificados de teste
 

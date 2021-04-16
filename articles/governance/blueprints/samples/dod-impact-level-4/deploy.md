@@ -1,14 +1,14 @@
 ---
 title: Amostra de planta do DoD Impact Level 4
 description: Implementar etapas para a amostra de planta do DoD Impact Level 4, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: fcea8dab551be18b4dfca81bd179f89d17b01bdf
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ce0d2d162bf77c147e0e4bc26e68964cd50f4372
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386946"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378453"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implementar a amostra de planta do DoD Impact Level 4
 
@@ -19,7 +19,7 @@ Para implantar a amostra de planta do Azure Blueprints Department of Defense Imp
 > - Marcar a cópia do exemplo como **Publicada**
 > - Atribuir a cópia do esquema a uma subscrição já existente
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma assinatura do Governo Azure, solicite uma [subscrição experimental](https://azure.microsoft.com/global-infrastructure/government/request/) antes de começar.
 
 ## <a name="create-blueprint-from-sample"></a>Criar planta a partir de amostra
 

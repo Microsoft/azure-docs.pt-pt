@@ -3,12 +3,12 @@ title: Gerir laboratórios em Azure Lab Services | Microsoft Docs
 description: Aprenda a criar e configurar um laboratório de sala de aula, ver todos os laboratórios, partilhar a ligação de registo com um utilizador de laboratório ou apagar um laboratório.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6acb9609abac15b9ff92250e3d5d44c585881cc
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434214"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481808"
 ---
 # <a name="manage-labs-in-azure-lab-services"></a>Gerir laboratórios em Azure Lab Services 
 Este artigo descreve como criar e apagar um laboratório de sala de aula. Também mostra como ver todos os laboratórios numa conta de laboratório. 
@@ -18,7 +18,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
-1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). O Internet Explorer 11 ainda não está suportado. 
+1. Navegue para o [site do Azure Lab Services](https://labs.azure.com).
 1. Selecione **Iniciar sessão** e introduza as suas credenciais. Selecione ou introduza um **ID** de utilizador que seja um membro da função **de Criador** de Laboratório na conta de laboratório e introduza a palavra-passe. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
 1. Selecione **Novo laboratório**. 
     
@@ -89,7 +89,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 ### <a name="vm-sizes"></a>Tamanhos de VM  
 
-| Tamanho | Núcleos | RAM | Description | 
+| Tamanho | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
 | Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura de navegador, servidores web de baixo tráfego, bases de dados pequenas a médias. |
 | Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise | 

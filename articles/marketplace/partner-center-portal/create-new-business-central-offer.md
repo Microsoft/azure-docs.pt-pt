@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 12/02/2020
-ms.openlocfilehash: 65df5f178ce0ec845fca6343c51049b6bf426e18
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 001f7453c29e7a8525fb88a96dd9a867468460e3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106042"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501438"
 ---
 # <a name="create-a-dynamics-365-for-business-central-offer"></a>Criar uma oferta Dynamics 365 para Business Central
 
@@ -33,7 +33,7 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](../cre
 
 ## <a name="new-offer"></a>Nova oferta
 
-Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta**. Este valor é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 - O ID da oferta combinado com o ID da Editora deve ter menos de 40 caracteres de comprimento.
@@ -51,7 +51,7 @@ Selecione **Criar** para gerar a oferta e continuar.
 
 ### <a name="alias"></a>Alias
 
-Introduza um nome descritivo que usaremos para se referir a esta oferta apenas dentro do Partner Center. Este nome (pré-povoado com o que entrou quando criou a oferta) não será usado no mercado e é diferente do nome da oferta mostrado aos clientes. Se pretender atualizar o nome da oferta mais tarde, aceda à página ['Lista de](#offer-listing) Ofertas'.
+Introduza um nome descritivo que usaremos para se referir a esta oferta apenas dentro do Partner Center. Este nome (pré-povoado com o que inseriu quando criou a oferta) não será usado no mercado e é diferente do nome da oferta mostrado aos clientes. Se pretender atualizar o nome da oferta mais tarde, aceda à página ['Lista de](#offer-listing) Ofertas'.
 
 ### <a name="setup-details"></a>Detalhes da configuração
 
@@ -118,11 +118,11 @@ Esta página permite definir detalhes da oferta, tais como nome de oferta, descr
 > [!NOTE]
 > Forneça detalhes de listagem de ofertas apenas em um idioma. Não é necessário estar em inglês, desde que a descrição da oferta comece com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é aceitável fornecer um *URL de ligação útil* para oferecer conteúdo em um idioma diferente do utilizado no conteúdo da listagem de Oferta.
 
-Aqui está um exemplo de como as informações de oferta aparecem no Microsoft AppSource (quaisquer preços listados são apenas para fins e não se destinam a refletir custos reais):
-<!-- update screen? -->
+Aqui está um exemplo de como as informações de oferta aparecem no Microsoft AppSource (quaisquer preços listados são apenas exemplos e não se destinam a refletir custos reais):
+
 :::image type="content" source="media/example-d365-business-central.png" alt-text="Ilustra como esta oferta aparece no Microsoft AppSource.":::
 
-#### <a name="call-out-descriptions"></a>Descrições de chamadas
+### <a name="call-out-descriptions"></a>Descrições de chamadas
 
 1. Logótipo
 2. Produtos
@@ -174,11 +174,11 @@ Forneça logotipos e imagens que serão utilizados ao mostrar a sua oferta aos c
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
->Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
+>Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o `https://upload.xboxlive.com` serviço utilizado pelo Partner Center.
 
 #### <a name="logos"></a>Logotipos
 
-Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center utilizará isto para criar outros tamanhos necessários. Pode substituir opcionalmente isto por uma imagem diferente mais tarde.
+Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center utilizará este ficheiro inicial para criar outros tamanhos necessários. Pode substituir opcionalmente a imagem redimensionada pela sua própria imagem mais tarde.
 
 Estes logótipos são utilizados em diferentes locais da listagem:
 
@@ -194,7 +194,7 @@ Adicione imagens que mostram como a sua oferta funciona. São necessárias pelo 
 
 Pode, opcionalmente, adicionar até quatro vídeos que demonstrem a sua oferta. Os vídeos devem ser apresentados num site externo. Para cada um, insira o nome do vídeo, o seu endereço e uma imagem miniatura do vídeo (1280 x 720 pixels).
 
-Para obter recursos adicionais de listagem de mercado, consulte [as melhores práticas para anúncios de oferta de mercado.](../gtm-offer-listing-best-practices.md)
+Para obter mais recursos de listagem de mercado, consulte [as melhores práticas para anúncios de oferta de mercado.](../gtm-offer-listing-best-practices.md)
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -225,6 +225,8 @@ Em seguida, quando estiver pronto para disponibilizar a sua oferta e remover a r
 
 Esta página define os detalhes técnicos utilizados para se ligar à sua oferta. Esta ligação permite-nos oferecer a sua oferta para o cliente final se optarem por adquiri-la.
 
+As extensões submetidas à sua oferta devem satisfazer os requisitos especificados na [Lista de Verificação de Validação Técnica.](/dynamics365/business-central/dev-itpro/developer/devenv-checklist-submission)
+
 ### <a name="file-upload"></a>Upload de arquivo
 
 Se selecionou anteriormente **Add On,** onde irá carregar o ficheiro de pacote da sua oferta, juntamente com os ficheiros do pacote para qualquer extensão em que tenha dependências.
@@ -242,14 +244,6 @@ Necessário se a sua oferta tiver de ser instalada juntamente com outra extensã
 
 **Selecione Guardar o projeto** antes de continuar.
 
-<!-- ## Test drive technical configuration
-
-This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
-
-To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
-
-When you've finished setting up your test drive, select **Save draft** before continuing.
--->
 ## <a name="supplemental-content"></a>Conteúdo suplementar
 
 Esta página permite-lhe fornecer informações adicionais para nos ajudar a validar a sua oferta. Esta informação não é mostrada aos clientes ou publicada no mercado.
@@ -285,9 +279,9 @@ Depois de completar todas as secções necessárias da oferta, selecione **'Reve
 Se é a sua primeira vez publicando esta oferta, você pode:
 
 - Consulte o estado de conclusão de cada secção da oferta.
-    - **Não foi iniciado** - A secção não foi tocada e precisa de ser concluída.
-    - **Incompleto** - A secção tem erros que precisam de ser corrigidos ou requer mais informações. Volte para a secção(s) e atualize-a.
-    - **Completa** - A secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
+  - **Não foi iniciado** - A secção não foi tocada e precisa de ser concluída.
+  - **Incompleto** - A secção tem erros que precisam de ser corrigidos ou requer mais informações. Volte para a secção(s) e atualize-a.
+  - **Completa** - A secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
 - Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Volte ao Partner Center e selecione **Go-live** para publicar a sua oferta ao público.
 

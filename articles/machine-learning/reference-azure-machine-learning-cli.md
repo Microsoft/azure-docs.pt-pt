@@ -9,12 +9,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9a22700782c584015add2c83ecc96ccc610b8509
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 8e912e141ab769f3121fcccdecb9c3952920572f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219625"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516217"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instale & utilize a extensão CLI para aprendizagem automática Azure
 
@@ -39,7 +39,7 @@ O CLI não substitui o Azure Machine Learning SDK. É uma ferramenta complementa
 
 ## <a name="full-reference-docs"></a>Documentos de referência completos
 
-Encontre os [documentos de referência completos para a extensão azure-cli-ml de Azure CLI](/cli/azure/ext/azure-cli-ml/).
+Encontre os [documentos de referência completos para a extensão azure-cli-ml de Azure CLI](/cli/azure/ml/).
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Ligue o CLI à sua subscrição Azure
 
@@ -392,7 +392,7 @@ Se usou o `az ml environment scaffold` comando, gera um ficheiro de modelo `azur
 
 A tabela seguinte detalha cada campo de alto nível no ficheiro JSON, é tipo, e uma descrição. Se um tipo de objeto estiver ligado a uma classe do Python SDK, há uma correspondência solta de 1:1 entre cada campo JSON e o nome variável público na classe Python. Em alguns casos, o campo pode mapear para um argumento de construtor em vez de uma variável de classe. Por exemplo, o `environmentVariables` campo mapeia para a `environment_variables` variável na [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) classe.
 
-| Campo JSON | Tipo | Descrição |
+| Campo JSON | Tipo | Description |
 |---|---|---|
 | `name` | `string` | O nome do ambiente. Não comece o nome com **Microsoft** ou **AzureML**. |
 | `version` | `string` | Versão do ambiente. |

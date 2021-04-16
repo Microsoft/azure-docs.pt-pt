@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40c5e0ff2c2301607f5a548ff05c742c5c5a948d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045506"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517067"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Registar e scan o oráculo (pré-visualização)
 
@@ -38,9 +38,7 @@ A fonte da Oracle suporta a **verificação completa** para extrair metadados de
 
 5.  As versões suportadas da base de dados da Oracle são de 6i a 19c.
 
-6.  Permissão do utilizador: Para garantir uma verificação bem sucedida pela primeira vez, é necessária uma permissão do tipo Full Sys Admin.
-
-    Para análises posteriores, é necessário um acesso apenas de leitura às tabelas do sistema. O utilizador deve ter permissão para criar uma sessão, bem como função SELECT \_ CATALOG \_ ROLE atribuído. Em alternativa, o utilizador pode ter a permissão SELECT concedida para cada tabela de sistema individual que este conector consulta metadados a partir de:
+6.  Permissão do utilizador: É necessário um acesso apenas de leitura às tabelas do sistema. O utilizador deve ter permissão para criar uma sessão, bem como função SELECT \_ CATALOG \_ ROLE atribuído. Em alternativa, o utilizador pode ter a permissão SELECT concedida para cada tabela de sistema individual que este conector consulta metadados a partir de:
        > grant criar sessão ao \[ \] utilizador;\
         conceder o seleto de todos os \_ utilizadores ao \[ \] utilizador;\
         conceder seleção em objetos dba \_ ao \[ \] utilizador;\

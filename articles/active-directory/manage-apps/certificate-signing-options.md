@@ -2,26 +2,23 @@
 title: Opções avançadas de assinatura de certificado SAML para aplicações AD Azure
 description: Saiba como utilizar opções avançadas de assinatura de certificados no token SAML para aplicações pré-integradas no Azure Ative Directory
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dd6a7a34ac231f8af9d08aab99e3d552f33ea1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1bb58f59b3796311f52d78ef87c8918f9888c152
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259626"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377875"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opções avançadas de assinatura de certificado no token SAML para apps de galeria em Azure Ative Directory
 

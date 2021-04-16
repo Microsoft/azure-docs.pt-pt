@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: d1302d44a4cb5b09f6dc3b1bf0cb08a12a932c87
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: a12f0c2e8ff5987a14b56ef12d49b8350cc1b3aa
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029408"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501778"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto Final Privado do Azure?
 
@@ -57,8 +57,8 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |---------|---------|---------|
 |**Serviço de Ligação Privada** (O seu próprio serviço)   |  Microsoft.Network/privateLinkServices       | vazio |
 |**Automatização do Azure** |  Microsoft.Automation/automation | Webhook, DSCAndHybridWorker |
-|**Base de Dados SQL do Azure** | Microsoft.Sql/servidores    |  Sql Server (SqlServer)        |
-|**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (SqlServer)        | 
+|**Base de Dados SQL do Azure** | Microsoft.Sql/servers    |  Sql Server (SqlServer)        |
+|**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (SqlServer)        | 
 |**Armazenamento do Azure**  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseSacons    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
@@ -78,6 +78,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Azure Event Grid** | Microsoft.EventGrid/tópicos    | tópico |
 |**Azure Event Grid** | Microsoft.EventGrid/domínios    | domínio |
 |**Serviço de Aplicações do Azure** | Microsoft.Web/sites    | sites |
+|**Slots de serviço de aplicativos Azure** | Microsoft.Web/sites    | sites...`<slot name>` |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | espaço amlwork |
 |**SignalR** | Microsoft.SignalrService/Signalr    | sinalR |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |

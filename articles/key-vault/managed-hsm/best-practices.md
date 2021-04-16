@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 7a30a7ab6689b602bc9ad4f696a6fe54c80f2151
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ef3b19e5064c8a88bf80eebf57539be72747fe4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90996852"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482522"
 ---
 # <a name="best-practices-when-using-managed-hsm"></a>Melhores práticas ao utilizar o HSM Gerido
 
@@ -23,8 +23,10 @@ ms.locfileid: "90996852"
 O HSM gerido é um serviço de nuvem que protege as chaves de encriptação. Como estas chaves são sensíveis e críticas ao negócio, certifique-se de garantir o acesso aos seus HSMs geridos, permitindo apenas aplicações e utilizadores autorizados. Este [artigo](access-control.md) fornece uma visão geral do modelo de acesso. Explica a autenticação e autorização e o controlo de acesso baseado em funções.
 - Criar um [Grupo de Segurança do Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-manage-groups.md) para os Administradores do HSM (em vez de atribuir funções de Administrador a indivíduos). Isto evitará o "bloqueio administrativo" em caso de supressão individual de contas.
 - Bloqueie o acesso aos seus grupos de gestão, subscrições, grupos de recursos e HSMs geridos - Use a Azure RBAC para controlar o acesso aos seus grupos de gestão, subscrições e grupos de recursos
-- Criar por atribuições de funções-chave utilizando [o CSC local gerido do HSM](access-control.md#data-plane-and-managed-hsm-local-rbac)
-- Use o principal de acesso de menor privilégio para atribuir funções
+- Crie por tarefas de função chave utilizando [o CSC local gerido do HSM.](access-control.md#data-plane-and-managed-hsm-local-rbac)
+- Para manter a separação de deveres evite atribuir múltiplos papéis aos mesmos princípios. 
+- Use o principal de acesso de menor privilégio para atribuir funções.
+- Crie definição de função personalizada com um conjunto preciso de permissões.
 
 ## <a name="choose-regions-that-support-availability-zones"></a>Escolha regiões que suportem zonas de disponibilidade
 

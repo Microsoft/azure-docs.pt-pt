@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/07/2021
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: c7dc3a230e2cd3f990771c297de29891de347089
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.openlocfilehash: 21b2459294b3465ba147cb454b93ac0da0081c5d
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363415"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480890"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Quickstart: Construa uma aplicação de consola .NET para gerir os recursos API API da Azure Cosmos DB SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "107363415"
 
 Começa com a biblioteca de clientes Azure Cosmos DB SQL API para .NET. Siga os passos neste doc para instalar o pacote .NET, construir uma aplicação e experimentar o código de exemplo para operações básicas da CRUD nos dados armazenados no Azure Cosmos DB. 
 
-Azure Cosmos DB é a base de dados NoSQL rápida da Microsoft com APIs abertos para qualquer escala. Pode utilizar a Azure Cosmos DB para criar e consultar rapidamente bases de dados de chaves/valor, documentos e gráficos. Utilize a biblioteca de clientes Azure Cosmos DB SQL API para .NET para:
+Azure Cosmos DB é a base de dados NoSQL rápida da Microsoftâ€™ com APIs abertos para qualquer escala. Pode utilizar a Azure Cosmos DB para criar e consultar rapidamente bases de dados de chaves/valor, documentos e gráficos. Utilize a biblioteca de clientes Azure Cosmos DB SQL API para .NET para:
 
 * Criar uma base de dados Azure Cosmos e um recipiente
 * Adicione dados de amostra ao recipiente

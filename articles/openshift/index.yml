@@ -9,12 +9,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: 06c6b14d62bb471ecc6dee50d72f11469e3cd161
-  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+  ms.openlocfilehash: fad34c10d02d4a9daa8795cf77ab76903d8360f4
+  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100633211"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107501200"
 landingContent:
 - title: Acerca do Azure Red Hat OpenShift
   linkLists:
@@ -26,23 +26,23 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Criar um cluster do Azure Red Hat OpenShift 4
+    - text: Criar um cluster do Azure Red Hat OpenShift
       url: tutorial-create-cluster.md
-    - text: Ligar a um cluster do Azure Red Hat OpenShift 4
+    - text: Ligue-se a um cluster Azure Red Hat OpenShift
       url: tutorial-connect-cluster.md
-    - text: Eliminar um cluster do Azure Red Hat OpenShift 4
+    - text: Eliminar um cluster do Azure Red Hat OpenShift
       url: tutorial-delete-cluster.md
 - title: Configurar
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Criar um cluster privado do Azure Red Hat OpenShift 4
-      url: ./howto-create-private-cluster-3x.md
-    - text: Configurar o Reencaminhamento de DNS para um cluster do Azure Red Hat OpenShift 4
+    - text: Crie um cluster privado Azure Red Hat OpenShift
+      url: ./howto-create-private-cluster-4x.md
+    - text: Configurar o encaminhamento DNS para um cluster Azure Red Hat OpenShift
       url: dns-forwarding.md
-    - text: Configurar o registo de contentor incorporado para o Azure Red Hat OpenShift 4
+    - text: Configure o registo de contentores incorporados para o Azure Red Hat OpenShift
       url: built-in-container-registry.md
-    - text: Implementar uma aplicação Open Liberty/WebSphere Liberty num cluster do Azure Red Hat OpenShift 4
+    - text: Implemente uma aplicação Open Liberty/WebSphere Liberty num cluster Azure Red Hat OpenShift
       url: howto-deploy-java-liberty-app.md
 - title: Referência
   linkLists:

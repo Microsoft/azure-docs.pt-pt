@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf50db4c463f5161adcc88d69eb2ae8970526103
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687401"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515622"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
 
@@ -135,7 +135,7 @@ Cada serviço de cloud da Microsoft que aceita fichas que são emitidas pelo Acc
 | Azure DataMarket | [Migrar para as APIs dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/) |
 | Serviços BizTalk | [Migrar para a funcionalidade de Aplicações Lógicas do Serviço de Aplicações Azure](https://azure.microsoft.com/services/cognitive-services/) |
 | Serviços de Multimédia do Azure | [Migrar para a autenticação AD AZure](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Atualize o agente de backup Azure](../../backup/backup-azure-file-folder-backup-faq.md) |
+| Azure Backup | [Atualize o agente de backup Azure](../../backup/backup-azure-file-folder-backup-faq.yml) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->

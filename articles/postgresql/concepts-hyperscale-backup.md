@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 90b2a39b9a5f3b4d011ff1a1ef3651dff75a1cf6
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 8dfc82ce79f33553be5220b52a1e415d99c26518
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968310"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483916"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -48,22 +48,9 @@ A restauração pontual é útil em vários cenários. Por exemplo, quando um ut
 
 O processo de restauro cria um novo cluster na mesma região de Azure, subscrição e grupo de recursos como o original. O cluster tem a configuração original: o mesmo número de nós, número de vCores, tamanho de armazenamento, funções de utilizador, versão PostgreSQL e versão da extensão Citus.
 
-As definições de firewall e os parâmetros do servidor PostgreSQL não são preservados do grupo de servidor original, são reiniciados para valores predefinidos. A firewall evitará todas as ligações. Terá de ajustar manualmente estas definições após a restauração.
-
-> [!IMPORTANT]
-> Terá de abrir um pedido de apoio para efetuar a restauração pontual do seu cluster Hyperscale (Citus).
-
-### <a name="post-restore-tasks"></a>Post-restore tasks
-
-Após uma restauração de qualquer mecanismo de recuperação, deve fazer o seguinte para que os seus utilizadores e aplicações voltem a funcionar:
-
-* Se o novo servidor pretende substituir o servidor original, redirecione clientes e aplicações de clientes para o novo servidor
-* Certifique-se de que existe uma firewall adequada ao nível do servidor para que os utilizadores se conectem. Estas regras não são copiadas do grupo de servidores originais.
-* Ajuste os parâmetros do servidor PostgreSQL conforme necessário. Os parâmetros não são copiados do grupo de servidor original.
-* Certifique-se de que estão em vigor logins e permissões de nível de base de dados apropriados
-* Configurar alertas, conforme adequado
+As definições de firewall e os parâmetros do servidor PostgreSQL não são preservados do grupo de servidor original, são reiniciados para valores predefinidos. A firewall evitará todas as ligações. Terá de ajustar manualmente estas definições após a restauração. Em geral, consulte a nossa lista de tarefas sugeridas [pós-restauro.](howto-hyperscale-restore-portal.md#post-restore-tasks)
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Consulte os passos para [restaurar um grupo de servidores](howto-hyperscale-restore-portal.md) no portal Azure.
 * Saiba mais sobre [as zonas de disponibilidade do Azure.](../availability-zones/az-overview.md)
-*  [Desenhe alertas sugeridos](./howto-hyperscale-alert-on-metric.md#suggested-alerts) em grupos de servidores Hyperscale (Citus).

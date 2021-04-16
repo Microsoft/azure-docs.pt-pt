@@ -3,12 +3,12 @@ title: Apoiar uma quinta sharePoint para Azure com DPM
 description: Este artigo fornece uma visão geral da proteção do servidor de backup DPM/Azure de uma fazenda SharePoint para Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3524107b545c151fcf931b89c629a61d83f47ace
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91254436"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515163"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Apoiar uma quinta sharePoint para Azure com DPM
 
@@ -75,5 +75,5 @@ Se tiver mais do que um servidor web frontal e quiser mudar o servidor que o DPM
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Azure Backup Server e DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
+* [Azure Backup Server e DPM - FAQ](backup-azure-dpm-azure-server-faq.yml)
 * [Troubleshoot System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md) (Resolver Problemas do System Center Data Protection Manager)

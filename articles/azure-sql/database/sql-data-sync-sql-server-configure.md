@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 75de7b122bff75ea13e3b66bb0b79452142dc36c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968616"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500095"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -236,6 +236,11 @@ Para perguntas frequentes sobre o agente cliente, consulte [o Agente FAQ.](sql-d
 **É necessário aprovar manualmente o link privado antes de poder começar a usá-lo?**
 
 Sim, tem de aprovar manualmente o ponto final privado gerido pelo serviço, na página de ligações de ponto final privado do portal Azure durante a implementação do grupo de sincronização ou utilizando o PowerShell.
+
+**Porque é que tenho um erro de firewall quando o trabalho do Sync está a aussigo a minha base de dados Azure?**
+
+Isto pode acontecer porque os recursos Azure não estão autorizados a aceder ao seu servidor. Certifique-se de que a firewall na base de dados Azure tem "Permitir que os serviços e recursos do Azure acedam a este servidor" definido para "Sim".
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

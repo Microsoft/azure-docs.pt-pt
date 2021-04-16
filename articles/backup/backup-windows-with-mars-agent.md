@@ -3,12 +3,12 @@ title: Fazer o back up das máquinas Do Windows utilizando o agente MARS
 description: Utilize o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54628c15ffb51c7157132c9a91f41c16873df340
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98702773"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519175"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer o back up ficheiros e pastas do Windows Server para O Azure
 
@@ -158,4 +158,4 @@ Para obter mais informações, consulte [Criar uma política de backup](#create-
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [restaurar ficheiros em Azure](backup-azure-restore-windows-server.md).
-* Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)
+* Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.yml)

@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 25d4774144ff4ea601badb1fb71b51c8142def26
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1c4760362e7c2b3965638b3213910b5b8cd6f079
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304120"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516183"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge-preview"></a>Publicar e subscrever com a Azure IoT Edge (pré-visualização)
 
@@ -94,7 +94,7 @@ Os módulos implantados pelo IoT Edge utilizam [a autenticação de chaves simé
 Uma vez que um cliente MQTT é autenticado no hub IoT Edge, ele precisa ser autorizado a ligar. Uma vez ligado, tem de ser autorizado a publicar ou subscrever tópicos específicos. Estas autorizações são concedidas pelo hub IoT Edge com base na sua política de autorização. A política de autorização é um conjunto de declarações expressas como uma estrutura JSON que é enviada para o hub IoT Edge através do seu gémeo. Editar um hub twin IoT Edge para configurar a sua política de autorização.
 
 > [!NOTE]
-> Para a pré-visualização pública, a edição das políticas de autorização do corretor MQTT só está disponível através do Visual Studio, Visual Studio Code ou do Azure CLI. O portal Azure não suporta atualmente a edição do hub twin IoT Edge e a sua política de autorização.
+> Para a pré-visualização pública, apenas o Azure CLI suporta implementações que contenham políticas de autorização de corretor MQTT. O portal Azure não suporta atualmente a edição do hub twin IoT Edge e a sua política de autorização.
 
 Cada declaração de política de autorização consiste na combinação `identities` de, `allow` ou `deny` `operations` efeitos, e `resources` :
 
@@ -170,10 +170,11 @@ Algumas coisas a ter em mente ao escrever a sua política de autorização:
 - Por defeito, todas as operações são negadas.
 - As declarações de autorização são avaliadas na ordem em que aparecem na definição JSON. Começa por olhar `identities` e, em seguida, selecione o primeiro permitir ou negar declarações que correspondam ao pedido. Em caso de conflitos entre permitir e negar declarações, a declaração de negação vence.
 - Várias variáveis (por exemplo, substituições) podem ser utilizadas na política de autorização:
-    - `{{iot:identity}}` representa a identidade do cliente atualmente ligado. Por exemplo, uma identidade do dispositivo ou `myDevice` uma identidade de módulo como `myEdgeDevice/SampleModule` .
-    - `{{iot:device_id}}` representa a identidade do dispositivo atualmente ligado. Por exemplo, uma identidade do dispositivo ou `myDevice` a identidade do dispositivo onde um módulo está a funcionar como `myEdgeDevice` .
-    - `{{iot:module_id}}` representa a identidade do módulo atualmente ligado. Esta variável está em branco para dispositivos conectados, ou uma identidade de módulo como `SampleModule` .
-    - `{{iot:this_device_id}}` representa a identidade do dispositivo IoT Edge que executa a política de autorização. Por exemplo, `myIoTEdgeDevice`.
+
+  - `{{iot:identity}}` representa a identidade do cliente atualmente ligado. Por exemplo, uma identidade do dispositivo ou `myDevice` uma identidade de módulo como `myEdgeDevice/SampleModule` .
+  - `{{iot:device_id}}` representa a identidade do dispositivo atualmente ligado. Por exemplo, uma identidade do dispositivo ou `myDevice` a identidade do dispositivo onde um módulo está a funcionar como `myEdgeDevice` .
+  - `{{iot:module_id}}` representa a identidade do módulo atualmente ligado. Esta variável está em branco para dispositivos conectados, ou uma identidade de módulo como `SampleModule` .
+  - `{{iot:this_device_id}}` representa a identidade do dispositivo IoT Edge que executa a política de autorização. Por exemplo, `myIoTEdgeDevice`.
 
 As autorizações para tópicos de hub IoT são tratadas de forma ligeiramente diferente dos tópicos definidos pelo utilizador. Aqui estão os pontos-chave a lembrar:
 
@@ -220,40 +221,43 @@ Crie dois dispositivos IoT no IoT Hub e obtenha as suas palavras-passe. Utilizan
 
 1. Crie dois dispositivos IoT no IoT Hub, pai-los no seu dispositivo IoT Edge:
 
-    ```azurecli-interactive
-    az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
-    az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
-    ```
+   ```azurecli-interactive
+   az iot hub device-identity create --device-id  sub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_name> --pd <edge_device_id>
+   ```
 
 2. Obtenha as suas palavras-passe gerando um token SAS:
 
-    - Para um dispositivo:
-    
-       ```azurecli-interactive
-       az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
-       ```
-    
-       onde 3600 é a duração do token SAS em segundos (por exemplo, 3600 = 1 hora).
-    
-    - Para um módulo:
-    
-       ```azurecli-interactive
-       az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
-       ```
-    
-       onde 3600 é a duração do token SAS em segundos (por exemplo, 3600 = 1 hora).
+   - Para um dispositivo:
+
+     ```azurecli-interactive
+     az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
+     ```
+
+     onde 3600 é a duração do token SAS em segundos (por exemplo, 3600 = 1 hora).
+
+   - Para um módulo:
+
+     ```azurecli-interactive
+     az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
+     ```
+
+     onde 3600 é a duração do token SAS em segundos (por exemplo, 3600 = 1 hora).
 
 3. Copie o token SAS, que é o valor correspondente à tecla "sas" da saída. Aqui está um exemplo de saída do comando Azure CLI acima:
 
-    ```
-    {
-       "sas": "SharedAccessSignature sr=example.azure-devices.net%2Fdevices%2Fdevice_1%2Fmodules%2Fmodule_a&sig=H5iMq8ZPJBkH3aBWCs0khoTPdFytHXk8VAxrthqIQS0%3D&se=1596249190"
-    }
-    ```
+   ```output
+   {
+      "sas": "SharedAccessSignature sr=example.azure-devices.net%2Fdevices%2Fdevice_1%2Fmodules%2Fmodule_a&sig=H5iMq8ZPJBkH3aBWCs0khoTPdFytHXk8VAxrthqIQS0%3D&se=1596249190"
+   }
+   ```
 
 ### <a name="authorize-publisher-and-subscriber-clients"></a>Autorizar clientes editores e assinantes
 
-Para autorizar o editor e o assinante, edite o hub twin IoT Edge criando uma implementação IoT Edge através do código Azure CLI, Visual Studio ou Visual Studio para incluir a seguinte política de autorização:
+Para autorizar o editor e o assinante, edite o hub twin IoT Edge numa implementação IoT Edge que inclui a seguinte política de autorização.
+
+>[!NOTE]
+>Atualmente, as implementações que contêm as propriedades de autorização MQTT só podem ser aplicadas em dispositivos IoT Edge usando o Azure CLI.
 
 ```json
 {
@@ -377,13 +381,13 @@ Além disso, crie uma rota como `FROM /messages/* INTO $upstream` enviar telemet
 
 Obter o dispositivo/módulo twin não é um padrão típico de MQTT. O cliente precisa emitir um pedido para o gémeo que o IoT Hub vai servir.
 
-Para receber gémeos, o cliente precisa subscrever um tópico específico do IoT `$iothub/twin/res/#` Hub. Este nome tópico é herdado do IoT Hub, e todos os clientes precisam subscrever o mesmo tópico. Não significa que os dispositivos ou módulos recebam o gémeo uns dos outros. O ioT Hub e o ioT Edge hub sabem qual o gémeo que deve ser entregue onde, mesmo que todos os dispositivos ouçam o mesmo nome tópico. 
+Para receber gémeos, o cliente precisa subscrever um tópico específico do IoT `$iothub/twin/res/#` Hub. Este nome tópico é herdado do IoT Hub, e todos os clientes precisam subscrever o mesmo tópico. Não significa que os dispositivos ou módulos recebam o gémeo uns dos outros. O ioT Hub e o ioT Edge hub sabem qual o gémeo que deve ser entregue onde, mesmo que todos os dispositivos ouçam o mesmo nome tópico.
 
 Uma vez feita a subscrição, o cliente precisa de pedir o gémeo publicando uma mensagem para um tópico específico do IoT Hub `$iothub/twin/GET/?rid=<request_id>/#` onde  `<request_id>` é um identificador arbitrário. O hub IoT enviará então a sua resposta com os dados solicitados sobre o tema `$iothub/twin/res/200/?rid=<request_id>` , a que o cliente subscreve. É assim que um cliente pode emparelhar os seus pedidos com as respostas.
 
 ### <a name="receive-twin-patches"></a>Receber patches gémeos
 
-Para receber patches duplos, um cliente precisa subscrever o tópico especial IoTHub `$iothub/twin/PATCH/properties/desired/#` . Uma vez feita a subscrição, o cliente recebe os patches gémeos enviados pela IoT Hub sobre este tema. 
+Para receber patches duplos, um cliente precisa subscrever o tópico especial IoTHub `$iothub/twin/PATCH/properties/desired/#` . Uma vez feita a subscrição, o cliente recebe os patches gémeos enviados pela IoT Hub sobre este tema.
 
 ### <a name="receive-direct-methods"></a>Receber métodos diretos
 
@@ -398,23 +402,23 @@ Enviar um método direto é uma chamada HTTP e, portanto, não passa pelo corret
 Para ligar dois corretores MQTT, o hub IoT Edge inclui uma ponte MQTT. Uma ponte MQTT é comumente usada para ligar um corretor MQTT correndo a outro corretor MQTT. Apenas um subconjunto do tráfego local é normalmente empurrado para outro corretor.
 
 > [!NOTE]
-> A ponte hub IoT Edge só pode ser utilizada entre dispositivos IoT Edge aninhados. Não pode ser usado para enviar dados para o hub IoT, uma vez que o hub IoT não é um corretor MQTT completo. Para saber mais suporte de corretor MQTT hub IoT, consulte [Comunicar com o seu hub IoT utilizando o protocolo MQTT](../iot-hub/iot-hub-mqtt-support.md). Para saber mais sobre os dispositivos IoT Edge de nidificação, consulte [conecte um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices) 
+> A ponte hub IoT Edge só pode ser utilizada entre dispositivos IoT Edge aninhados. Não pode ser usado para enviar dados para o hub IoT, uma vez que o hub IoT não é um corretor MQTT completo. Para saber mais suporte de corretor MQTT hub IoT, consulte [Comunicar com o seu hub IoT utilizando o protocolo MQTT](../iot-hub/iot-hub-mqtt-support.md). Para saber mais sobre os dispositivos IoT Edge de nidificação, consulte [um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
 Numa configuração aninhada, a ponte MQTT do hub IoT Edge atua como cliente do corretor MQTT, pelo que as regras de autorização devem ser definidas no EdgeHub principal para permitir que o edgeHub da criança publique e subscreva tópicos específicos definidos pelo utilizador para os quais a ponte está configurada.
 
 A ponte IoT Edge MQTT é configurada através de uma estrutura JSON que é enviada para o hub IoT Edge através do seu gémeo. Editar um hub IoT Edge twin para configurar a sua ponte MQTT.
 
 > [!NOTE]
-> Para a pré-visualização pública, a configuração da ponte MQTT só está disponível via Visual Studio, Visual Studio Code ou Azure CLI. O portal Azure não suporta atualmente a edição do hub twin IoT Edge e a sua configuração de ponte MQTT.
+> Para a pré-visualização pública, apenas o CLI Azure suporta implementações que contenham configurações de ponte MQTT. O portal Azure não suporta atualmente a edição do hub twin IoT Edge e a sua configuração de ponte MQTT.
 
 A ponte MQTT pode ser configurada para ligar um corretor MQTT do hub IoT Edge a vários corretores externos. Para cada corretor externo, são necessárias as seguintes definições:
 
 - `endpoint` é o endereço do corretor MQTT remoto a que se conecta. Apenas os dispositivos IoT Edge dos pais são atualmente suportados e são definidos pela variável `$upstream` .
 - `settings` define quais tópicos para fazer a ponte para um ponto final. Pode haver várias configurações por ponto final e os seguintes valores são usados para configurá-lo:
-    - `direction`: quer `in` subscrever os tópicos do corretor remoto ou `out` publicar os tópicos do corretor remoto
-    - `topic`: padrão tópico central a ser combinado. [Os wildcards MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107) podem ser usados para definir este padrão. Prefixos diferentes podem ser aplicados a este padrão tópico no corretor local e corretor remoto.
-    - `outPrefix`: Prefixo que é aplicado ao `topic` padrão no corretor remoto.
-    - `inPrefix`: Prefixo que é aplicado ao `topic` padrão no corretor local.
+  - `direction`: quer `in` subscrever os tópicos do corretor remoto ou `out` publicar os tópicos do corretor remoto
+  - `topic`: padrão tópico central a ser combinado. [Os wildcards MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107) podem ser usados para definir este padrão. Prefixos diferentes podem ser aplicados a este padrão tópico no corretor local e corretor remoto.
+  - `outPrefix`: Prefixo que é aplicado ao `topic` padrão no corretor remoto.
+  - `inPrefix`: Prefixo que é aplicado ao `topic` padrão no corretor local.
 
 Abaixo está um exemplo de uma configuração de ponte IoT Edge MQTT que republica todas as mensagens recebidas sobre tópicos `alerts/#` de um dispositivo IoT Edge para um dispositivo IoT Edge infantil sobre os mesmos tópicos, e republica todas as mensagens enviadas sobre tópicos `/local/telemetry/#` de um dispositivo IoT Edge infantil para um dispositivo IoT Edge dos pais sobre `/remote/messages/#` tópicos.
 

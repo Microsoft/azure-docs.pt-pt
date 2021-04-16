@@ -5,16 +5,16 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: c60d6ba1f4d3628f57b8149779318c3e049a9e24
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 0538071ffb9d244fb8b3493d6b63b27c6b56a726
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284243"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388538"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guia de migração: SAP ASE para Azure SQL Database
 

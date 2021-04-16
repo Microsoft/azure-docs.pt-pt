@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 04/14/2021
 ms.author: victorh
-ms.openlocfilehash: c425afc314435c38d15d53ab0c38dcd48e35a40b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91d4d631376c03b668128936f3840ce1119f9b6f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508933"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482755"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Gamas de endereços IP privados Azure Firewall SNAT
 
@@ -32,13 +32,28 @@ Se a sua organização utilizar um intervalo de endereços IP público para rede
 > [!IMPORTANT]
 > Se pretender especificar os seus próprios intervalos de endereços IP privados e manter os intervalos de endereços IANA RFC 1918 padrão, certifique-se de que a sua lista personalizada ainda inclui a gama IANA RFC 1918. 
 
+Pode configurar os endereços IP privados SNAT utilizando os seguintes métodos. Tem de configurar os endereços privados SNAT utilizando o método adequado para a sua configuração. As firewalls associadas a uma política de firewall devem especificar o alcance da apólice e não a utilização `AdditionalProperties` .
+
+
+|Método            |Usando regras clássicas  |Usando a política de firewall  |
+|---------|---------|---------|
+|Portal do Azure     | [apoiado](#classic-rules-3)| [apoiado](#firewall-policy-1)|
+|Azure PowerShell     |[configuração `PrivateRange`](#classic-rules)|atualmente sem apoio|
+|CLI do Azure|[configuração `--private-ranges`](#classic-rules-1)|atualmente sem apoio|
+|Modelo ARM     |[configurar `AdditionalProperties` na propriedade firewall](#classic-rules-2)|[configurar `snat/privateRanges` na política de firewall](#firewall-policy)|
+
+
 ## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Configurar gamas de endereços IP privados SNAT - Azure PowerShell
+### <a name="classic-rules"></a>Regras clássicas
 
 Pode utilizar o Azure PowerShell para especificar os intervalos de endereço IP privados para a firewall.
 
-### <a name="new-firewall"></a>Nova firewall
+> [!NOTE]
+> A propriedade firewall `PrivateRange` é ignorada para firewalls associados a uma Política de Firewall. Você deve usar a `SNAT` propriedade em como descrito em `firewallPolicies` [ConfiguraR Gamas de endereços IP privados SNAT - modelo ARM](#firewall-policy).
 
-Para uma nova firewall, o cmdlet Azure PowerShell é:
+#### <a name="new-firewall"></a>Nova firewall
+
+Para uma nova firewall usando regras clássicas, o cmdlet Azure PowerShell é:
 
 ```azurepowershell
 $azFw = @{
@@ -60,9 +75,9 @@ New-AzFirewall @azFw
 
 Para mais informações, consulte [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
-### <a name="existing-firewall"></a>Firewall existente
+#### <a name="existing-firewall"></a>Firewall existente
 
-Para configurar uma firewall existente, utilize os seguintes cmdlets Azure PowerShell:
+Para configurar uma firewall existente utilizando regras clássicas, utilize os seguintes cmdlets Azure PowerShell:
 
 ```azurepowershell
 $azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
@@ -71,12 +86,13 @@ Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-cli"></a>Configurar gamas de endereços IP privados SNAT - Azure CLI
+### <a name="classic-rules"></a>Regras clássicas
 
-Pode utilizar o Azure CLI para especificar intervalos de endereços IP privados para a firewall.
+Pode utilizar o Azure CLI para especificar intervalos de endereços IP privados para a firewall utilizando regras clássicas. 
 
-### <a name="new-firewall"></a>Nova firewall
+#### <a name="new-firewall"></a>Nova firewall
 
-Para uma nova firewall, o comando Azure CLI é:
+Para uma nova firewall usando regras clássicas, o comando Azure CLI é:
 
 ```azurecli-interactive
 az network firewall create \
@@ -89,11 +105,11 @@ az network firewall create \
 > A implementação do Azure Firewall utilizando o comando Azure CLI `az network firewall create` requer medidas de configuração adicionais para criar endereços IP públicos e configuração IP. Consulte [implementar e configurar a Firewall Azure utilizando o Azure CLI](deploy-cli.md) para obter um guia de implantação completo.
 
 > [!NOTE]
-> IANAPrivateRanges é expandido para os padrãos atuais no Azure Firewall enquanto as outras gamas são adicionadas ao mesmo. Para manter o PADRÃO IANAPrivateRanges na sua especificação de gama privada, deve permanecer na sua `PrivateRange` especificação como mostrado nos seguintes exemplos.
+> IANAPrivateRanges é expandido para os padrãos atuais no Azure Firewall enquanto as outras gamas são adicionadas ao mesmo. Para manter o PADRÃO IANAPrivateRanges na sua especificação de gama privada, deve permanecer na sua `private-ranges` especificação como mostrado nos seguintes exemplos.
 
-### <a name="existing-firewall"></a>Firewall existente
+#### <a name="existing-firewall"></a>Firewall existente
 
-Para configurar uma firewall existente, o comando Azure CLI é:
+Para configurar uma firewall existente usando regras clássicas, o comando Azure CLI é:
 
 ```azurecli-interactive
 az network firewall update \
@@ -102,7 +118,8 @@ az network firewall update \
 --private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
 
-## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>Configurar gamas de endereços IP privados SNAT - Modelo ARM
+## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>Configurar gamas de endereços IP privados SNAT - modelo ARM
+### <a name="classic-rules"></a>Regras clássicas
 
 Para configurar o SNAT durante a implementação do modelo ARM, pode adicionar o seguinte à `additionalProperties` propriedade:
 
@@ -111,8 +128,29 @@ Para configurar o SNAT durante a implementação do modelo ARM, pode adicionar o
    "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
 },
 ```
+### <a name="firewall-policy"></a>Política de firewall
+
+A Azure Firewalls associada a uma política de firewall tem suportado gamas privadas SNAT desde a versão API 2020-11-01. Atualmente, pode utilizar um modelo para atualizar a gama privada SNAT na Política de Firewall. A amostra que se segue configura a firewall para **sempre** o tráfego da rede SNAT:
+
+```json
+{ 
+
+            "type": "Microsoft.Network/firewallPolicies", 
+            "apiVersion": "2020-11-01", 
+            "name": "[parameters('firewallPolicies_DatabasePolicy_name')]", 
+            "location": "eastus", 
+            "properties": { 
+                "sku": { 
+                    "tier": "Standard" 
+                }, 
+                "snat": { 
+                    "privateRanges": [255.255.255.255/32] 
+                } 
+            } 
+```
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Configurar gamas de endereços IP privados SNAT - Portal Azure
+### <a name="classic-rules"></a>Regras clássicas
 
 Pode utilizar o portal Azure para especificar intervalos de endereços IP privados para a firewall.
 
@@ -125,6 +163,18 @@ Pode utilizar o portal Azure para especificar intervalos de endereços IP privad
 
 1. Por predefinição, **o IANAPrivateRanges** está configurado.
 2. Edite os intervalos de endereço IP privados para o seu ambiente e, em seguida, **selecione Guardar**.
+
+### <a name="firewall-policy"></a>Política de firewall
+
+1.  Selecione o seu grupo de recursos e, em seguida, selecione a sua política de firewall.
+2.  Selecione **gamas IP privadas (SNAT)** na coluna **Definições.**
+
+    Por **predefinição, Utilize o comportamento SNAT da Política de Firewall Azure padrão.** 
+3. Para personalizar a configuração SNAT, limpe a caixa de verificação e em **Perform SNAT** selecione as condições para executar O SNAT para o seu ambiente.
+      :::image type="content" source="media/snat-private-range/private-ip-ranges-snat.png" alt-text="Gamas IP privadas (SNAT)":::
+
+
+4.   Selecione **Aplicar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

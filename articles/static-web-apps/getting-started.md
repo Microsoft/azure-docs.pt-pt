@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 335f78bba24947b1b6c3d6132bc38f237b3298b9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fb874c25ab688cc5e6723d1023157b8acd9478b9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449215"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483854"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Quickstart: Construir o seu primeiro site estático com aplicações web estáticas Azure
 
@@ -58,21 +58,35 @@ Em seguida, abra o Código do Estúdio Visual e vá ao **Arquivo > Folder Aberto
     # <a name="no-framework"></a>[Sem Enquadramento](#tab/vanilla-javascript)
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Predefinições de aplicação: Sem enquadramento":::
 
-    Insira **./** como a localização para os ficheiros de aplicação
+    **Insira ./** como a localização dos ficheiros de aplicação.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Localização dos ficheiros de aplicações":::
 
-    Selecione **Skip por enquanto** como a localização para o Azure Functions api
+    Selecione **Skip por enquanto** como local para a API de Funções Azure.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Localização da API":::
 
-    Insira **./** como o local de saída de construção
+    Insira **./** como o local de saída de construção.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Localização de saída de construção de aplicações":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Predefinições de aplicação: Angular":::
+    Embora exista uma predefinição angular, selecione a opção **Custom** para que possa fornecer uma localização de saída adequada para esta aplicação.
+
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Predefinições de aplicação: Angular":::
+
+    **Insira ./** como a localização dos ficheiros de aplicação.
+
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Localização dos ficheiros de aplicações: Angular":::
+
+    Selecione **Skip por enquanto** como local para a API de Funções Azure.
+
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Localização da API: Angular":::
+
+    Introduza **dist/angular-básico** como o local de saída de construção.
+
+    :::image type="content" source="media/getting-started/extension-angular.png" alt-text="Localização de saída de construção de aplicação: Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 

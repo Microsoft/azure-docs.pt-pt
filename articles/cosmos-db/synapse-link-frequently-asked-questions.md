@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: d871a33b6d8adbae179e592122878eee5db1c0b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 906651f8c48824e391879e0a579c6587231e7dfd
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869009"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483865"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -73,15 +73,15 @@ Sim, a loja analítica pode ser ativada em recipientes com produção de autoesc
 
 A Azure Cosmos DB garante o isolamento do desempenho entre as cargas de trabalho transacionais e analíticas. Permitir a loja analítica num recipiente não terá impacto no RU/s aprovisionado na loja transacional Azure Cosmos DB. As transações (leia-se & escrever) e os custos de armazenamento da loja analítica serão cobrados separadamente. Consulte o [preço da loja analítica Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) para obter mais detalhes.
 
-### <a name="can-i-restrict-access-to-azure-cosmos-db-analytical-store"></a>Posso restringir o acesso à loja analítica Azure Cosmos DB?
+### <a name="can-i-restrict-network-access-to-azure-cosmos-db-analytical-store"></a>Posso restringir o acesso à loja analítica Azure Cosmos DB?
 
-Sim, pode configurar um [ponto final privado gerido](analytical-store-private-endpoints.md) e restringir o acesso à rede analítica à rede virtual gerida pela Azure Synapse. Os pontos finais privados geridos estabelecem uma ligação privada à sua loja analítica. Este ponto final privado também restringirá o acesso de escrita à loja transacional, entre outros serviços de dados Azure.
+Sim, pode configurar um [ponto final privado gerido](analytical-store-private-endpoints.md) e restringir o acesso à rede analítica à rede virtual gerida pela Azure Synapse. Os pontos finais privados geridos estabelecem uma ligação privada à sua loja analítica. 
 
-Pode adicionar tanto a loja transacional como os pontos finais privados da loja analítica à mesma conta DB da Azure Cosmos num espaço de trabalho Azure Synapse Analytics. Se quiser apenas fazer consultas analíticas, só pode querer mapear o ponto final privado analítico.
+Pode adicionar tanto a loja transacional como os pontos finais privados da loja analítica à mesma conta DB da Azure Cosmos num espaço de trabalho Azure Synapse Analytics. Se quiser apenas executar consultas analíticas, só pode querer ativar o ponto final privado analítico no espaço de trabalho Synapse Analytics.
 
 ### <a name="can-i-use-customer-managed-keys-with-the-azure-cosmos-db-analytical-store"></a>Posso usar as chaves geridas pelo cliente com a loja analítica Azure Cosmos DB?
 
-Pode encriptar os dados de forma perfeita através de lojas transacionais e analíticas utilizando as mesmas chaves geridas pelo cliente de forma automática e transparente. A utilização de chaves geridas pelo cliente com a loja analítica Azure Cosmos DB requer atualmente uma configuração adicional na sua conta. Entre em contato com a [equipa DB da Azure Cosmos](mailto:azurecosmosdbcmk@service.microsoft.com)  para obter mais detalhes.
+Pode encriptar os dados de forma perfeita através de lojas transacionais e analíticas utilizando as mesmas chaves geridas pelo cliente de forma automática e transparente. Para utilizar as chaves geridas pelo cliente na loja analítica, tem de utilizar a identidade gerida pela sua conta Azure Cosmos DB na sua política de acesso ao Cofre da Chave Azure. Isto é descrito [aqui.](how-to-setup-cmk.md#using-managed-identity) Em seguida, deverá ser capaz de ativar a loja de analíticos na sua conta.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>As operações de exclusão e atualização da loja transacional são refletidas na loja analítica?
 
@@ -152,6 +152,8 @@ Nenhum. Só será carregado quando criar um recipiente analítico ativado e come
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>Quais são as formas de autenticar com a loja de analítica?
 
 A autenticação com a loja analítica é a mesma que uma loja transacional. Para uma determinada base de dados, pode autenticar-se com a chave principal ou apenas de leitura. Você pode aproveitar o serviço ligado no Azure Synapse Studio para evitar colar as chaves DB do Azure Cosmos nos cadernos Spark. O acesso a este Serviço Linked está disponível para todos os que tenham acesso ao espaço de trabalho.
+
+Ao utilizar as piscinas SQL sem servidor Synapse, pode consultar a loja analítica Azure Cosmos DB, pré-criando credenciais SQL que armazenam as teclas da conta e referenciando-as na função OPENROWSET. Para saber mais, consulte [a Consulta com uma piscina SQL sem servidor no artigo Azure Synapse Link.](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
 ## <a name="synapse-run-times"></a>Resumos
 

@@ -6,12 +6,12 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0090d981e93cee12f2feaaf7d2c12f341564f6ec
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649551"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482335"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Tutorial: Utilize a Extensão de Gestão da API para código de estúdio visual para importar e gerir APIs
 
@@ -101,7 +101,7 @@ Para testar a API importada que importou e as políticas que são aplicadas, pre
 ### <a name="test-an-api-operation"></a>Testar uma operação API
 
 1. No painel Explorer, expanda o nó **operações** sob a *demo-conference-api* que importou.
-1. Selecione uma operação como *GetSpeakers*.
+1. Selecione uma operação como *GetSpeakers* e, em seguida, clique com o botão direito na operação e selecione **a Operação de Teste**.
 1. Na janela do editor, junto à **chave de subscrição Ocp-Apim, substitua-a** `{{SubscriptionKey}}` pela chave de subscrição que copiou.
 1. Selecione **Enviar pedido**. 
 

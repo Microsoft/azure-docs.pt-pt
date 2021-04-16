@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 9fe4f21a5c9e9e26a2f94b8a60cba47916842fe3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98787017"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501795"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Teste de lote com um conjunto de expressões de exemplo
 
@@ -208,7 +208,7 @@ ID versão da aplicação
 
 Envie um ficheiro de pronâncias de lote, conhecido como conjunto de *dados,* para testes de lote. O conjunto de dados é um ficheiro com formato JSON que contém um máximo de 1.000 expressões etiquetadas. Pode testar até 10 conjuntos de dados numa aplicação. Se precisar de testar mais, elimine um conjunto de dados e adicione um novo. Todas as entidades personalizadas do modelo aparecem no filtro das entidades de teste de lote, mesmo que não existam entidades correspondentes nos dados do ficheiro do lote.
 
-O ficheiro do lote consiste em expressões. Cada expressão deve ter uma previsão de intenção esperada, juntamente com quaisquer [entidades de aprendizagem automática](luis-concept-entity-types.md#types-of-entities) que espera ser detetada.
+O ficheiro do lote consiste em expressões. Cada expressão deve ter uma previsão de intenção esperada, juntamente com quaisquer [entidades de aprendizagem automática](luis-concept-entity-types.md#machine-learned-ml-entity) que espera ser detetada.
 
 ### <a name="batch-syntax-template-for-intents-with-entities"></a>Modelo de sintaxe de lote para intenções com entidades
 

@@ -3,12 +3,12 @@ title: Sobre a Azure file share backup
 description: Saiba como apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f9dd816ace2c9aec8f48207fbce88acf34e24a
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89378088"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516820"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a Azure file share backup
 
@@ -61,4 +61,4 @@ Para obter estimativas detalhadas para o backup de ações de ficheiros Azure, v
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
-* Encontre respostas a [Perguntas sobre o backup dos Ficheiros Azure](backup-azure-files-faq.md)
+* Encontre respostas a [Perguntas sobre o backup dos Ficheiros Azure](backup-azure-files-faq.yml)

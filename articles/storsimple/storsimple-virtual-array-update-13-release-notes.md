@@ -4,14 +4,14 @@ description: Descreve problemas e resoluções abertos críticos para o Azure St
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 03/17/2021
+ms.date: 04/13/2021
 ms.author: alkohli
-ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 498e3d11d8188850a918c67a9a88643d15c134c5
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104657557"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389524"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>StorSimple Virtual Array Update 1.3 notas de lançamento
 
@@ -45,12 +45,12 @@ Esta atualização contém as seguintes melhorias:KB4540725
 
 ## <a name="download-update-13"></a>Baixar atualização 1.3
 
-Para descarregar esta atualização, aceda ao servidor [do Catálogo microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx) e descarregue o pacote KB4575898. Este pacote contém os seguintes pacotes:
+Para descarregar esta atualização, aceda ao servidor [do Catálogo microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx) e descarregue o pacote KB4575898. Este pacote contém os seguintes pacotes. Instale as embalagens por esta ordem:
 
-- **KB4540725**, que contém atualizações cumulativas do Windows para 2012 R2 até março de 2020. Para obter mais informações sobre o que está incluído neste rollup, vá até [março de segurança mensal.](https://support.microsoft.com/help/4540725)
-- **KB4565541**, que contém atualizações cumulativas do Windows para 2012 R2 até julho de 2020. Para obter mais informações sobre o que está incluído neste rollup, vá até [fevereiro de segurança mensal.](https://support.microsoft.com/help/4565541)
-- **KB4565622**, que contém atualizações do Quadro cumulative.NET até julho de 2020. Para obter mais informações sobre o que está incluído neste rollup, vá até [fevereiro de segurança mensal.](https://support.microsoft.com/help/4565622)
-- **KB3011067**, que contém atualizações de software de dispositivos.
+1. **KB4540725**, que contém atualizações cumulativas do Windows para 2012 R2 até março de 2020. Para obter mais informações sobre o que está incluído neste rollup, vá até [março de segurança mensal.](https://support.microsoft.com/help/4540725)
+1. **KB4565541**, que contém atualizações cumulativas do Windows para 2012 R2 até julho de 2020. Para obter mais informações sobre o que está incluído neste rollup, vá até [julho de segurança mensal rollup](https://support.microsoft.com/help/4565541).
+1. **KB4565622**, que contém atualizações do Quadro cumulative.NET até julho de 2020. Para obter mais informações sobre o que está incluído neste rollup, vá ao [KB4565622](https://support.microsoft.com/help/4565622).<!--The Help link opens the KB. I can't find a monthly rollup. I updated the link text to accurately describe what opens.-->
+1. **KB3011067**, que contém atualizações de software de dispositivos.
 
 Baixe O KB4575898 e siga estas instruções para [aplicar a atualização através da web UI local](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 

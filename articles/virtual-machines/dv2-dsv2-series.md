@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a3dee22a1ee793641e48be6edb1b33a00219217e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71a4cebcc11657566f65f53508df18efe822c409
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560315"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514789"
 ---
 # <a name="dv2-and-dsv2-series"></a>Séries Dv2 e DSv2
 
@@ -28,7 +28,7 @@ Os tamanhos da série Dv2 são executados em Intel® Xeon® Platinum 8272CL (Lag
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1<br>
-[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado *(Requer um mínimo de 4 vCPU*)<br>
+[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado *(Requer um mínimo de 2 vCPU*)<br>
 [Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
@@ -50,7 +50,7 @@ Os tamanhos da série DSv2 funcionam na Intel® Xeon® Platinum 8272CL (Lago cas
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
-[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado *(Requer um mínimo de 4 vCPU*)<br>
+[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado *(Requer um mínimo de 2 vCPU*)<br>
 [Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 <br>
 

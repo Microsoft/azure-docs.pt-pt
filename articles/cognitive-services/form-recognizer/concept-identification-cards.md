@@ -8,43 +8,47 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
-ms.openlocfilehash: ed8516f9a898131338fb5b4d75e25cd774c5ab43
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 00e51d2c9515191b6d127355f49eeed3000a46ed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285363"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514718"
 ---
-# <a name="form-recognizer-prebuilt-identification-card-id-model"></a>Modelo de cartão de identificação pré-construído (ID) do Reconhecimento de Formulários
+# <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modelo de documento de identificação pré-construído (ID) do Reconhecimento de Formulários
 
-O Azure Form Recogniser pode analisar e extrair informações de cartões de identificação do governo (IDs) utilizando o seu modelo de IDs pré-construído. Combina as nossas poderosas capacidades [de reconhecimento de caracteres óticos (OCR)](../computer-vision/overview-ocr.md) com capacidades de reconhecimento de ID para extrair informações chave dos passaportes mundiais e das licenças de condução dos EUA (todos os 50 estados e D.C).). A IDs API extrai informações-chave destes documentos de identidade, tais como nome próprio, apelido, data de nascimento, número de documento, entre outros. Esta API está disponível na pré-visualização do Formulário Recogniser v2.1 como serviço de nuvem e como um recipiente no local.
+O Azure Form Recogniser pode analisar e extrair informações de documentos de identificação emitidos pelo governo (IDs) utilizando o seu modelo de IDs pré-construído. Combina as nossas poderosas capacidades [de reconhecimento de caracteres óticos (OCR)](../computer-vision/overview-ocr.md) com capacidades de reconhecimento de ID para extrair informações chave dos passaportes mundiais e das licenças de condução dos EUA (todos os 50 estados e D.C).). A IDs API extrai informações-chave destes documentos de identidade, tais como nome próprio, apelido, data de nascimento, número de documento, entre outros. Esta API está disponível na pré-visualização do Formulário Recogniser v2.1 como serviço de nuvem e como um recipiente no local.
 
-## <a name="what-does-the-id-service-do"></a>O que faz o serviço de ID? 
+## <a name="what-does-the-id-service-do"></a>O que faz o serviço de ID?
 
-O serviço de IDs pré-construído extrai os valores-chave dos passaportes mundiais e das cartas de condução dos EUA e devolve-os numa resposta JSON estruturada organizada. 
+O serviço de IDs pré-construído extrai os valores-chave dos passaportes mundiais e das cartas de condução dos EUA e devolve-os numa resposta JSON estruturada organizada.
+
+### <a name="drivers-license-example"></a>**Exemplo da carta de condução**
 
 ![Carta de Condução de Amostra](./media/id-example-drivers-license.JPG)
+
+### <a name="passport-example"></a>**Exemplo de passaporte**
 
 ![Passaporte de amostra](./media/id-example-passport-result.JPG)
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Descrição | Valor | 
+|Nome| Tipo | Description | Valor |
 |:-----|:----|:----|:----|
-|  País | país | Código de país em conformidade com a norma ISO 3166 | "EUA" | 
-|  DataOfBirth | data | DOB em formato YYYY-MM-DD | "1980-01-01" | 
-|  Datas DaExpiração | data | Data de validade no formato YYYY-MM-DD | "2019-05-05" |  
-|  Número de documentos | string | Número relevante do passaporte, número da carta de condução, etc. | "340020013" |  
-|  FirstName | string | Extraído nome dado e inicial do meio, se aplicável | "JENNIFER" | 
-|  LastName | string | Sobrenome extraído | "BROOKS" |   
+|  País | país | Código de país em conformidade com a norma ISO 3166 | "EUA" |
+|  DataOfBirth | data | DOB em formato YYYY-MM-DD | "1980-01-01" |
+|  Datas DaExpiração | data | Data de validade no formato YYYY-MM-DD | "2019-05-05" |
+|  Número de documentos | string | Número relevante do passaporte, número da carta de condução, etc. | "340020013" |
+|  FirstName | string | Extraído nome dado e inicial do meio, se aplicável | "JENNIFER" |
+|  LastName | string | Sobrenome extraído | "BROOKS" |
 |  Nacionalidade | país | Código de país em conformidade com a norma ISO 3166 | "EUA" |
-|  Sexo | género | Os possíveis valores extraídos incluem "M", "F" e "X" | "F" | 
+|  Sexo | género | Os possíveis valores extraídos incluem "M", "F" e "X" | "F" |
 |  MachineReadableZone | objeto | Passaporte extraído MRZ incluindo duas linhas de 44 caracteres cada | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F19050547100007<<<<<<<<<<<<<<<<<<<<<<< 6 715816" |
-|  DocumentoType | string | Tipo de documento, por exemplo, Passaporte, Carta de Condução | "passaporte" |  
+|  DocumentoType | string | Tipo de documento, por exemplo, Passaporte, Carta de Condução | "passaporte" |
 |  Endereço | string | Endereço extraído (apenas carta de condução) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
-|  Region | string | Região extraída, estado, província, etc. (Apenas carta de condução) | "Washington" | 
+|  Region | string | Região extraída, estado, província, etc. (Apenas carta de condução) | "Washington" |
 
 ### <a name="additional-features"></a>Características adicionais
 
@@ -58,7 +62,7 @@ A IDS API também devolve as seguintes informações:
   > [!NOTE]
   > IDs pré-construídos não detetam autenticidade de ID
   >
-  > Os IDs pré-construídos do Reconhecimento de Formulários extrai dados-chave a partir de dados de identificação. No entanto, não deteta a validade ou autenticidade do documento de identidade original. 
+  > Os IDs pré-construídos do Reconhecimento de Formulários extrai dados-chave a partir de dados de identificação. No entanto, não deteta a validade ou autenticidade do documento de identidade original.
 
 ## <a name="try-it-out"></a>Experimente
 
@@ -71,12 +75,12 @@ Para experimentar o serviço de IDs do Reconhecimento de Formulários, aceda à 
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-id-types"></a>Tipos de ID suportados  
+## <a name="supported-id-types"></a>Tipos de ID suportados
 
-* **IDs pré-construídos v2.1-pré-visualização.3** Extrai valores-chave dos passaportes mundiais e das cartas de condução dos EUA. 
+* **IDs pré-construídos v2.1-pré-visualização.3** Extrai valores-chave dos passaportes mundiais e das cartas de condução dos EUA.
 
   > [!NOTE]
-  > Suporte do tipo ID 
+  > Suporte do tipo ID
   >
   > Os tipos de ID suportados atualmente incluem passaporte mundial e cartas de condução dos EUA. Estamos ativamente a tentar expandir o nosso suporte de identificação a outros documentos de identidade em todo o mundo.
 
@@ -112,7 +116,7 @@ Quando o campo **de status** tiver o valor **bem sucedido,** a resposta JSON inc
 Veja o seguinte exemplo de uma resposta JSON bem sucedida: O `readResults` nó contém todo o texto reconhecido. O texto é organizado por página, depois por linha, depois por palavras individuais. O `documentResults` nó contém os valores de ID que o modelo descobriu. Este nó é também onde você encontrará pares de chave/valor úteis como o primeiro nome, apelido, número de documento, e muito mais.
 
 ```json
-{ 
+{
    "status": "succeeded",
   "createdDateTime": "2021-03-04T22:29:33Z",
   "lastUpdatedDateTime": "2021-03-04T22:29:36Z",
@@ -157,7 +161,7 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida: O `readResults` nó c
           ...
       }
     ],
-    
+
      "documentResults": [
       {
         "docType": "prebuilt:idDocument:passport",
@@ -243,11 +247,10 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida: O `readResults` nó c
 }
 ```
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-- Experimente as suas próprias identificações e amostras na UI da [amostra do reconhecimento de formulários.](https://fott-preview.azurewebsites.net/)
-- Complete um [quickstart do Form Recogniser](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de ID com o Form Recogniser no idioma de desenvolvimento da sua escolha.
+* Experimente as suas próprias identificações e amostras na UI da [amostra do reconhecimento de formulários.](https://fott-preview.azurewebsites.net/)
+* Complete um [quickstart do Form Recogniser](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de ID com o Form Recogniser no idioma de desenvolvimento da sua escolha.
 
 ## <a name="see-also"></a>Ver também
 

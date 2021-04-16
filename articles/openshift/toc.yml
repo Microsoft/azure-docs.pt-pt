@@ -46,7 +46,7 @@
           href: configure-azure-ad-ui.md
         - name: Atualizar o segredo de solicitação de um cluster do ARO
           href: howto-add-update-pull-secret.md
-    - name: Cópia de segurança e restauro
+    - name: Criar cópias de segurança e restauro
       items:
         - name: Criar uma cópia de segurança de uma aplicação de cluster com o Velero
           href: howto-create-a-backup.md
@@ -121,6 +121,8 @@
       href: support-policies-v4.md
     - name: Ciclo de vida de suporte do ARO 4
       href: support-lifecycle.md
+    - name: Matriz de responsabilidade
+      href: responsibility-matrix.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Documentação do Red Hat OpenShift 4

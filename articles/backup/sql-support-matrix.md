@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: d7038b47bd4aba8f7747eef455f1e8dd3c77a695
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: bcbac4f6a91ad77d21eb6274aa03d251b8fbfe7c
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257348"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515061"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup do servidor SQL em VMs Azure
 
@@ -99,7 +99,7 @@ O Azure Backup suporta uma taxa de transferência de dados consistente de 200 Mb
 
 - O VM subjacente (que contém a instância SQL Server, que acolhe a base de dados) está configurado com a produção de rede necessária. Se o rendimento máximo do VM for inferior a 200 Mbps, o Azure Backup não pode transferir dados à velocidade ideal.<br></br>Além disso, o disco que contém os ficheiros da base de dados deve ter o suficiente de produção. [Saiba mais](../virtual-machines/disks-performance.md) sobre a produção de discos e desempenho em VMs Azure. 
 - Os processos, que estão a decorrer no VM, não estão a consumir a largura de banda VM. 
-- Os horários de reserva estão espalhados por um subconjunto de bases de dados. Várias cópias de segurança em execução simultânea num VM partilham a taxa de consumo de rede entre as cópias de segurança. [Saiba mais](faq-backup-sql-server.md#can-i-control-how-many-concurrent-backups-run-on-the-sql-server) sobre como controlar o número de backups simultâneos.
+- Os horários de reserva estão espalhados por um subconjunto de bases de dados. Várias cópias de segurança em execução simultânea num VM partilham a taxa de consumo de rede entre as cópias de segurança. [Saiba mais](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) sobre como controlar o número de backups simultâneos.
 
 >[!NOTE]
 > [Faça o download do Planejador de Recursos detalhado](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) para calcular o número aproximado de bases de dados protegidas que são recomendadas por servidor com base nos recursos VM, largura de banda e na política de backup.

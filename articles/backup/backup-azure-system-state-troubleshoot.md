@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas na Cópia de Segurança 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07e101fe87fb3f5db0bb716f0bc9ea6f8773aa3e
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89376286"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518563"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Backup do Estado do Sistema de Resolução de Problemas
 
@@ -22,12 +22,12 @@ Recomendamos que execute os seguintes passos de validação, antes de começar a
 - [Certifique-se de que o Agente dos Serviços de Recuperação do Microsoft Azure (MARS) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Certifique-se de que há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (na consola do Serviço). Se necessário, reinicie e relemque a operação
-- [Certifique-se de que o espaço de volume gratuito de 5 a 10% está disponível na localização da pasta de risco](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Certifique-se de que 5 a 10% de espaço livre do volume está disponível na localização da pasta de rascunho](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-)
 - [Verifique se outro processo ou software antivírus está a interferir com o Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
 - [A cópia de segurança agendada falha, mas a cópia de segurança manual funciona](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - Certifique-se de que o seu SO tem as atualizações mais recentes
 - [Certifique-se de que as unidades e ficheiros não suportados com atributos não suportados estão excluídos da cópia de segurança](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
-- Certifique-se de que o **Relógio do Sistema** no sistema protegido está configurado para corrigir o fuso horário <br>
+- Certifique-se de que o **Relógio do Sistema** do sistema protegido está configurado para o fuso horário correto <br>
 - [Certifique-se de que o servidor tem, pelo menos, a versão 4.5.2 ou superior do .Net Framework](https://www.microsoft.com/download/details.aspx?id=30653)<br>
 - Se está a tentar **reregistar o servidor** para um cofre, então: <br>
   - Certifique-se de que o agente está desinstalado no servidor e que é eliminado do portal <br>

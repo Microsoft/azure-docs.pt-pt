@@ -2,21 +2,21 @@
 title: Gerir a atribuição de utilizadores para uma aplicação no Azure Active Directory
 description: Saiba como atribuir e desatribuir utilizadores e grupos para uma aplicação que utilize o Azure Ative Directory para gestão de identidade.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/21/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: luleon
-ms.openlocfilehash: 50dcde478b708cd53d8229d70a9ddf4b1ff271be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 097bf55cc7e5372749240c19afb09ba374d437af
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259739"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377977"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gerir a atribuição de utilizadores para uma aplicação no Azure Active Directory
 
@@ -155,5 +155,5 @@ Este exemplo atribui o utilizador Britta Simon à aplicação [Microsoft Workpla
 
 - [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa]()
-- [Desativar as ins ins ins do utilizador para uma aplicação da empresa](disable-user-sign-in-portal.md)
+- [Desativar os inícios de sessão do utilizador para uma aplicação empresarial](disable-user-sign-in-portal.md)
 - [Alterar o nome ou logotipo de uma aplicação da empresa](./add-application-portal-configure.md)

@@ -7,22 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/19/2021
+ms.date: 04/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: e37ff8a003bc10d69fd32794f26acfa8f5326423
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 606755333856f6dd97ab6c5158ac67f122a1237d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073751"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516464"
 ---
-<!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
 >
-> * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
+> * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo.
 
 [Documentação de referência](/python/api/azure-ai-formrecognizer)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  [Pacote (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -49,7 +48,7 @@ pip install azure-ai-formrecognizer --pre
 ```
 
 > [!NOTE]
-> O Formulário Reconhecedor 3.1.0 SDK reflete _a versão API 2.1 pré-visualização.2_. Utilize a [**API REST**](../../quickstarts/client-library.md) para _a versão API 2.1 pré-visualização.3_.
+> O Formulário Reconhecedor 3.1.0b4 é a versão de pré-visualização SDK mais recente e reflete _a versão API 2.1 pré-visualização.3_.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -71,7 +70,7 @@ Crie uma nova aplicação Python no seu editor preferido ou IDE. Em seguida, imp
 > [!TIP]
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo no [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py)que contém os exemplos de código neste arranque rápido.
 
-Crie variáveis para o ponto final e chave Azure do seu recurso. 
+Crie variáveis para o ponto final e chave Azure do seu recurso.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_creds)]
 
@@ -111,8 +110,9 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 * [Analisar recibos](#analyze-receipts)
 * [Analisar cartões de visita](#analyze-business-cards)
 * [Analisar faturas](#analyze-invoices)
-* [Preparar um modelo personalizado](#train-a-custom-model)
+* [Analisar documentos de identidade](#analyze-identity-documents)
 * [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
+* [Preparar um modelo personalizado](#train-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
@@ -137,8 +137,9 @@ Aqui, autenticará dois objetos clientes utilizando as variáveis de subscriçã
 Terá de adicionar referências aos URLs para os seus dados de treino e teste.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
-  
+
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperação de URL SAS":::
+
 * Utilize o formulário de amostra e as imagens de receção incluídas nas amostras abaixo (também disponível no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ou pode utilizar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. 
 
 > [!NOTE]
@@ -178,16 +179,89 @@ Confidence score: 1.0
 
 ```
 
+## <a name="analyze-receipts"></a>Analisar recibos
+
+Esta secção demonstra como analisar e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado. Para obter mais informações sobre a análise de recibos, consulte o [guia conceptual recibos.](../../concept-receipts.md) Para analisar os recibos de um URL, utilize o `begin_recognize_receipts_from_url` método.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
+
+> [!TIP]
+> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_receipts` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
+
+### <a name="output"></a>Saída
+
+```console
+ReceiptType: Itemized has confidence 0.659
+MerchantName: Contoso Contoso has confidence 0.516
+MerchantAddress: 123 Main Street Redmond, WA 98052 has confidence 0.986
+MerchantPhoneNumber: None has confidence 0.99
+TransactionDate: 2019-06-10 has confidence 0.985
+TransactionTime: 13:59:00 has confidence 0.968
+Receipt Items:
+...Item #1
+......Name: 8GB RAM (Black) has confidence 0.916
+......TotalPrice: 999.0 has confidence 0.559
+...Item #2
+......Quantity: None has confidence 0.858
+......Name: SurfacePen has confidence 0.858
+......TotalPrice: 99.99 has confidence 0.386
+Subtotal: 1098.99 has confidence 0.964
+Tax: 104.4 has confidence 0.713
+Total: 1203.39 has confidence 0.774
+```
+
+## <a name="analyze-business-cards"></a>Analisar cartões de visita
+
+#### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/preview)
+
+Esta secção demonstra como analisar e extrair campos comuns de cartões de visita ingleses, utilizando um modelo pré-treinado. Para obter mais informações sobre a análise do cartão de visita, consulte o guia conceptual dos [cartões de visita.](../../concept-business-cards.md) 
+
+Para analisar cartões de visita a partir de um URL, utilize o `begin_recognize_business_cards_from_url` método.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
+
+> [!TIP]
+> Também pode analisar imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_business_cards` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta funcionalidade não está disponível na versão API selecionada.
+
+---
+
 ## <a name="analyze-invoices"></a>Analisar faturas
 
 #### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/preview)
 
-Esta secção demonstra como analisar e extrair campos comuns das faturas de venda, utilizando um modelo pré-treinado. Para obter mais informações sobre a análise da fatura, consulte o [guia conceptual da Fatura.](../../concept-invoices.md) Para analisar faturas de um URL, utilize o `begin_recognize_invoices_from_url` método. 
+Esta secção demonstra como analisar e extrair campos comuns das faturas de venda, utilizando um modelo pré-treinado. Para obter mais informações sobre a análise da fatura, consulte o [guia conceptual da Fatura.](../../concept-invoices.md) 
+
+Para analisar faturas de um URL, utilize o `begin_recognize_invoices_from_url` método.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
 > [!TIP]
 > Também pode analisar imagens de fatura local. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_invoices` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta funcionalidade não está disponível na versão API selecionada.
+
+---
+
+## <a name="analyze-identity-documents"></a>Analisar documentos de identidade
+
+#### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/preview)
+
+Esta secção demonstra como analisar e extrair informações chave de documentos de identificação emitidos pelo governo - passaportes mundiais e cartas de condução dos EUA - usando o modelo de identificação pré-construído do Reconhecimento de Formulários. Para mais informações sobre a análise de faturas, consulte o nosso [guia conceptual do modelo de identificação pré-construído.](../../concept-identification-cards.md)
+
+Para analisar documentos de identidade de um URL use o `begin_recognize_id_documents_from_url` método.
+
+:::code language="python" source="~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py" id="snippet_id":::
+
+> [!TIP]
+> Também pode analisar imagens de documentos de identidade. _Consulte_ os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods) tais como `begin_recognize_id_documents` . _Consulte também_ o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -210,7 +284,6 @@ Treine modelos personalizados para analisar todos os campos e valores encontrado
 O seguinte código utiliza o cliente de formação com a `begin_training` função para treinar um modelo num determinado conjunto de documentos. O objeto devolvido `CustomFormModel` contém informações sobre os tipos de formulários que o modelo pode analisar e os campos que pode extrair de cada tipo de formulário. O bloco de código que se segue imprime esta informação para a consola.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_train)]
-
 
 ### <a name="output"></a>Saída
 
@@ -304,7 +377,6 @@ Vais usar o `begin_recognize_custom_forms_from_url` método. O valor devolvido �
 > [!TIP]
 > Também pode analisar imagens locais. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_custom_forms` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
-
 ### <a name="output"></a>Saída
 
 Utilizando o modelo a partir do exemplo anterior, é fornecida a seguinte saída.
@@ -328,58 +400,10 @@ Field 'Tax' has label 'Tax' with value 'None' and a confidence score of None
 Field 'Total' has label 'Total' with value 'None' and a confidence score of None
 ```
 
-## <a name="analyze-receipts"></a>Analisar recibos
-
-Esta secção demonstra como analisar e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado. Para obter mais informações sobre a análise de recibos, consulte o [guia conceptual recibos.](../../concept-receipts.md) Para analisar os recibos de um URL, utilize o `begin_recognize_receipts_from_url` método. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
-
-> [!TIP]
-> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_receipts` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
-
-### <a name="output"></a>Saída
-
-```console
-ReceiptType: Itemized has confidence 0.659
-MerchantName: Contoso Contoso has confidence 0.516
-MerchantAddress: 123 Main Street Redmond, WA 98052 has confidence 0.986
-MerchantPhoneNumber: None has confidence 0.99
-TransactionDate: 2019-06-10 has confidence 0.985
-TransactionTime: 13:59:00 has confidence 0.968
-Receipt Items:
-...Item #1
-......Name: 8GB RAM (Black) has confidence 0.916
-......TotalPrice: 999.0 has confidence 0.559
-...Item #2
-......Quantity: None has confidence 0.858
-......Name: SurfacePen has confidence 0.858
-......TotalPrice: 99.99 has confidence 0.386
-Subtotal: 1098.99 has confidence 0.964
-Tax: 104.4 has confidence 0.713
-Total: 1203.39 has confidence 0.774
-```
-
-## <a name="analyze-business-cards"></a>Analisar cartões de visita
-
-#### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/preview)
-
-Esta secção demonstra como analisar e extrair campos comuns de cartões de visita ingleses, utilizando um modelo pré-treinado. Para obter mais informações sobre a análise do cartão de visita, consulte o guia conceptual dos [cartões de visita.](../../concept-business-cards.md) Para analisar cartões de visita a partir de um URL, utilize o `begin_recognize_business_cards_from_url` método. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
-
-> [!TIP]
-> Também pode analisar imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) tais como `begin_recognize_business_cards` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
-
-#### <a name="v20"></a>[v2.0](#tab/ga)
-
-> [!IMPORTANT]
-> Esta funcionalidade não está disponível na versão API selecionada.
-
----
 
 ## <a name="manage-your-custom-models"></a>Gerir os seus modelos personalizados
 
-Esta secção demonstra como gerir os modelos personalizados armazenados na sua conta. 
+Esta secção demonstra como gerir os modelos personalizados armazenados na sua conta.
 
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>Verifique o número de modelos na conta de recursos FormRecognizer
 

@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 04/14/2021
 ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 52acb6d0e99d54491dc1ce30545629ba246acc77
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7098cfbc2fbe2236687eb7d621a0e587497fcebc
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445034"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516451"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -23,7 +23,7 @@ ms.locfileid: "102445034"
 <!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
 >
-> * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
+> * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo.
 
 [Documentação de referência](../../index.yml)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -32,7 +32,7 @@ ms.locfileid: "102445034"
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual de [Node.js](https://nodejs.org/)
 * Uma bolha de armazenamento Azure que contém um conjunto de dados de treino. Consulte [Construir um conjunto de dados de treino para um modelo personalizado](../../build-training-data-set.md) para dicas e opções para reunir o seu conjunto de dados de treino. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **Train** do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra (descarregar e extrair *sample_data.zip*).
-* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de ser implantado, selecione **Ir para o recurso**.
   * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
   * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
@@ -40,13 +40,13 @@ ms.locfileid: "102445034"
 
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
-Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue até ela. 
+Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue até ela.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Executar o `npm init` comando para criar uma aplicação de nó com um `package.json` ficheiro. 
+Executar o `npm init` comando para criar uma aplicação de nó com um `package.json` ficheiro.
 
 ```console
 npm init
@@ -69,18 +69,18 @@ Criar um ficheiro `index.js` chamado, abri-lo e importar as seguintes biblioteca
 > [!TIP]
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo no [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js)que contém os exemplos de código neste arranque rápido.
 
-Crie variáveis para o ponto final e chave Azure do seu recurso. 
+Crie variáveis para o ponto final e chave Azure do seu recurso.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Aceda ao portal do Azure. Se o recurso 'Reconhecimento de Formulários' que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
+> Aceda ao portal do Azure. Se o recurso 'Reconhecimento de Formulários' que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.**
 >
 > Lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](../../../cognitive-services-security.md) dos Serviços Cognitivos para obter mais informações.
 
 ## <a name="object-model"></a>Modelo de objeto
 
-Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro, `FormRecognizerClient` é usado para consultar o serviço para campos de forma reconhecidos e conteúdos. A segunda é `FormTrainingClient` a utilização para criar e gerir modelos personalizados que pode usar para melhorar o reconhecimento. 
+Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro, `FormRecognizerClient` é usado para consultar o serviço para campos de forma reconhecidos e conteúdos. A `FormTrainingClient` segunda, é usada para criar e gerir modelos personalizados que pode usar para melhorar o reconhecimento.
 
 ### <a name="formrecognizerclient"></a>FormulárioRecognizerClient
 
@@ -88,13 +88,13 @@ Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro,
 
 * Reconhecendo campos de formulários e conteúdos usando modelos personalizados treinados para analisar os seus formulários personalizados. Estes valores são devolvidos numa coleção de `RecognizedForm` objetos.
 * Reconhecendo o conteúdo da forma, incluindo tabelas, linhas e palavras, sem a necessidade de formar um modelo. O conteúdo do formulário é devolvido numa coleção de `FormPage` objetos.
-* Reconhecendo campos comuns a partir de recibos, utilizando um modelo de recibo pré-treinado no serviço De Reconhecimento de Formulários. Estes campos e meta-dados são devolvidos numa coleção de `RecognizedReceipt` .
+* Reconhecendo campos comuns a partir de recibos dos EUA, cartões de visita, faturas e documentos de identidade usando um modelo pré-treinado no serviço Desinformador.
 
 ### <a name="formtrainingclient"></a>FormaTrainingClient
 
 `FormTrainingClient` Fornece operações para:
 
-* Treinando modelos personalizados para analisar todos os campos e valores encontrados nas suas formas personalizadas. A `CustomFormModel` é devolvido indicando os tipos de formulário que o modelo irá analisar, e os campos que irá extrair para cada tipo de formulário. Consulte a [documentação do serviço sobre a formação de modelos não rotulados](#train-a-model-without-labels) para obter uma explicação mais detalhada da criação de um conjunto de dados de formação.
+* Treinando modelos personalizados para analisar todos os campos e valores encontrados nas suas formas personalizadas. A `CustomFormModel` é devolvido indicando os tipos de formulário que o modelo irá analisar, e os campos que irá extrair para cada tipo de formulário. _Consulte_ a [documentação do serviço sobre a formação de modelos não rotulados](#train-a-model-without-labels) para mais detalhes.
 * Treinando modelos personalizados para analisar campos e valores específicos que especifica, rotulando os seus formulários personalizados. A `CustomFormModel` é devolvido indicando os campos que o modelo irá extrair, bem como a precisão estimada para cada campo. Consulte a [documentação do serviço sobre a formação de modelos rotulados](#train-a-model-with-labels) para obter uma explicação mais detalhada da aplicação de rótulos a um conjunto de dados de formação.
 * Gestão de modelos criados na sua conta.
 * Copiar um modelo personalizado de um recurso de Reconhecimento de Formulário para outro.
@@ -109,34 +109,33 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 * [Autenticar o cliente](#authenticate-the-client)
 * [Analisar layout](#analyze-layout)
 * [Analisar recibos](#analyze-receipts)
+* [Analisar cartões de visita](#analyze-business-cards)
+* [Analisar faturas](#analyze-invoices)
+* [Analisar documentos de identidade](#analyze-identity-documents)
 * [Preparar um modelo personalizado](#train-a-custom-model)
 * [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-
-
 Autenticar um objeto de cliente utilizando as variáveis de subscrição que definiu. Você usará um `AzureKeyCredential` objeto, para que, se necessário, possa atualizar a tecla API sem criar novos objetos de cliente. Também vai criar um objeto de cliente de formação.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_auth)]
 
-
 ## <a name="get-assets-for-testing"></a>Obter ativos para testes
 
 Também terá de adicionar referências aos URLs para os seus dados de treino e teste.
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
-   
-   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperação de URL SAS":::
-* Utilize a amostra e as imagens de receção incluídas nas amostras abaixo (também disponíveis no [GitHub)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)ou pode utilizar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. 
 
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperação de URL SAS":::
+* Utilize a amostra e as imagens de receção incluídas nas amostras abaixo (também disponíveis no [GitHub)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)ou pode utilizar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas.
 
 ## <a name="analyze-layout"></a>Analisar layout
 
-Pode utilizar o Form Recogniser para analisar tabelas, linhas e palavras em documentos, sem precisar de treinar um modelo. Para obter mais informações sobre a extração de layout consulte o [guia conceptual do Layout.](../../concept-layout.md) Para analisar o conteúdo de um ficheiro num dado URI, utilize o `beginRecognizeContentFromUrl` método.
+Pode utilizar o Form Recogniser para analisar tabelas, linhas e palavras em documentos, sem precisar de treinar um modelo. Para obter mais informações sobre a extração de layout, consulte o [guia conceptual do Layout.](../../concept-layout.md) Para analisar o conteúdo de um ficheiro num dado URI, utilize o `beginRecognizeContentFromUrl` método.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
-
 
 > [!TIP]
 > Também pode obter conteúdo de um ficheiro local. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeContent**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
@@ -157,7 +156,61 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
+## <a name="analyze-receipts"></a>Analisar recibos
 
+Esta secção demonstra como analisar e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado. Para obter mais informações sobre a análise de recibos, consulte o [guia conceptual recibos.](../../concept-receipts.md)
+
+Para analisar os recibos de um URI, utilize o `beginRecognizeReceiptsFromUrl` método. O código seguinte processa um recibo no URI dado e imprime os principais campos e valores para a consola.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
+
+> [!TIP]
+> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
+
+### <a name="output"></a>Saída
+
+```console
+status: notStarted
+status: running
+status: succeeded
+First receipt:
+  Receipt Type: 'Itemized', with confidence of 0.659
+  Merchant Name: 'Contoso Contoso', with confidence of 0.516
+  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
+    Item Name: '8GB RAM (Black)', with confidence of 0.916
+    Item Name: 'SurfacePen', with confidence of 0.858
+  Total: '1203.39', with confidence of 0.774
+```
+
+## <a name="analyze-business-cards"></a>Analisar cartões de visita
+
+Esta secção demonstra como analisar e extrair campos comuns de cartões de visita em língua inglesa, utilizando um modelo pré-treinado. Para obter mais informações sobre a análise do cartão de visita, consulte o guia conceptual dos [cartões de visita.](../../concept-business-cards.md)
+
+Para analisar cartões de visita a partir de um URL, utilize o `beginRecognizeBusinessCardsFromURL` método.
+
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_bc":::
+
+> [!TIP]
+> Também pode analisar imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeBusinessCards**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
+
+## <a name="analyze-invoices"></a>Analisar faturas
+
+Esta secção demonstra como analisar e extrair campos comuns das faturas de venda, utilizando um modelo pré-treinado. Para obter mais informações sobre a análise da fatura, consulte o [guia conceptual da Fatura.](../../concept-invoices.md)
+
+Para analisar faturas de um URL, utilize o `beginRecognizeInvoicesFromUrl` método.
+
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_invoice":::
+
+> [!TIP]
+> Também pode analisar imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeInvoices**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
+
+## <a name="analyze-identity-documents"></a>Analisar documentos de identidade
+
+Esta secção demonstra como analisar e extrair informações chave de documentos de identificação emitidos pelo governo - passaportes mundiais e cartas de condução dos EUA - usando o modelo de identificação pré-construído do Reconhecimento de Formulários. Para mais informações sobre a análise de faturas, consulte o nosso [guia conceptual do modelo de identificação pré-construído.](../../concept-identification-cards.md)
+
+Para analisar documentos de identidade de um URL use o `beginRecognizeIdDocumentsFromUrl` método.
+
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_id":::
 
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
 
@@ -170,10 +223,9 @@ Esta secção demonstra como treinar um modelo com os seus próprios dados. Um m
 
 Treine modelos personalizados para analisar todos os campos e valores encontrados nas suas formas personalizadas sem rotular manualmente os documentos de treino.
 
-A função seguinte treina um modelo num determinado conjunto de documentos e imprime o estado do modelo à consola. 
+A função seguinte treina um modelo num determinado conjunto de documentos e imprime o estado do modelo à consola.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_train)]
-
 
 ### <a name="output"></a>Saída
 
@@ -199,15 +251,15 @@ The model found field 'field-7'
 Document name: Form_1.jpg
 Document status: succeeded
 Document page count: 1
-Document errors: 
+Document errors:
 Document name: Form_2.jpg
 Document status: succeeded
 Document page count: 1
-Document errors: 
+Document errors:
 Document name: Form_3.jpg
 Document status: succeeded
 Document page count: 1
-Document errors: 
+Document errors:
 ...
 ```
 
@@ -217,8 +269,7 @@ Também pode treinar modelos personalizados rotulando manualmente os documentos 
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
-
-### <a name="output"></a>Saída 
+### <a name="output"></a>Saída
 
 Esta é a saída para um modelo treinado com os dados de formação disponíveis no [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). Esta produção de amostra foi truncada para a legibilidade.
 
@@ -264,7 +315,6 @@ Vais usar o `beginRecognizeCustomFormsFromUrl` método. O valor devolvido é uma
 > [!TIP]
 > Também pode analisar ficheiros locais. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeCustomForms**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
 
-
 ### <a name="output"></a>Saída
 
 ```console
@@ -301,32 +351,6 @@ Field Signature has value 'undefined' with a confidence score of undefined
 Field Subtotal has value 'undefined' with a confidence score of undefined
 Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
-```
-
-## <a name="analyze-receipts"></a>Analisar recibos
-
-Esta secção demonstra como analisar e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado. Para obter mais informações sobre a análise de recibos, consulte o [guia conceptual recibos.](../../concept-receipts.md)
-
-Para analisar os recibos de um URI, utilize o `beginRecognizeReceiptsFromUrl` método. O código seguinte processa um recibo no URI dado e imprime os principais campos e valores para a consola.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
-
-> [!TIP]
-> Também pode analisar imagens de recibo local. Consulte os métodos [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) tais como **startRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
-
-### <a name="output"></a>Saída
-
-```console
-status: notStarted
-status: running
-status: succeeded
-First receipt:
-  Receipt Type: 'Itemized', with confidence of 0.659
-  Merchant Name: 'Contoso Contoso', with confidence of 0.516
-  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
-    Item Name: '8GB RAM (Black)', with confidence of 0.916
-    Item Name: 'SurfacePen', with confidence of 0.858
-  Total: '1203.39', with confidence of 0.774
 ```
 
 ## <a name="manage-your-custom-models"></a>Gerir os seus modelos personalizados

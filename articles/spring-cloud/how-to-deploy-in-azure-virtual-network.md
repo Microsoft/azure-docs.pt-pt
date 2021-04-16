@@ -6,23 +6,23 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: b0ea5728618c7b69403fcc4c0a3575b70fac6038
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878249"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482607"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementar Azure Spring Cloud numa rede virtual
 
-**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+**Este artigo aplica-se a:** "ï ̧ Java âœ"ï ̧ C #
 
 Este tutorial explica como implementar uma instância Azure Spring Cloud na sua rede virtual. Esta implementação às vezes é chamada de injeção VNet.
 
 A implantação permite:
 
-* Isolamento das aplicações Azure Spring Cloud e tempo de funcionamento da internet na sua rede corporativa.
+* Isolamento das aplicações Azure Spring Cloud e tempo de funcionamento do serviço a partir da internet na sua rede corporativa.
 * Azure Spring Cloud interação com sistemas em centros de dados no local ou serviços Azure em outras redes virtuais.
 * Capacitação dos clientes para controlar as comunicações de rede de entrada e saída para a Azure Spring Cloud.
 

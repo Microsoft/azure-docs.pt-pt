@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2bcaf85f61a4d8cf4d23c9c5be7f46d765d77dbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41c6995f16b836231142520362f9aace7d91ffe0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551047"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500316"
 ---
-# <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Criar um VM a partir de uma versão de imagem generalizada usando o CLI
+# <a name="create-a-vm-from-a-generalized-image-version-using-the-azure-cli"></a>Criar um VM a partir de uma versão de imagem generalizada usando o Azure CLI
 
 Crie um VM a partir de uma [versão de imagem generalizada](./shared-image-galleries.md#generalized-and-specialized-images) armazenada numa Galeria de Imagens Partilhadas. Se pretender criar um VM utilizando uma imagem especializada, consulte [Criar um VM a partir de uma imagem especializada.](vm-specialized-image-version-powershell.md) 
 

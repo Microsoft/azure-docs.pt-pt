@@ -1,19 +1,22 @@
 ---
 title: Ativar a extensão VM utilizando o CLI Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida usando o Azure CLI.
-ms.date: 01/05/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6edb7d55e542f963c75693d535fa3b50dc5b827b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25e75ede30139201789cd86e6ebddda09a664eb4
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97916206"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388742"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Ativar extensões Azure VM utilizando o CLI Azure
 
 Este artigo mostra-lhe como implantar e desinstalar extensões VM, suportadas por servidores ativados pelo Azure Arc, para uma máquina híbrida Linux ou Windows utilizando o CLI Azure.
+
+> [!NOTE]
+> Os servidores ativados pelo Azure Arc não suportam a implementação e gestão de extensões VM para máquinas virtuais Azure. Para Azure VMs, consulte o seguinte artigo [de visão geral da extensão VM.](../../virtual-machines/extensions/overview.md)
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
 

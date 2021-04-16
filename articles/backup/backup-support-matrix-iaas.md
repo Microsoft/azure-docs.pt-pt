@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: a0150a4c1a8fbd756de6fc16142f0115b05098ed
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 1f63d0c3ad448a8ab9b91764d4c369fefddea25d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967834"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516727"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -28,7 +28,7 @@ Eis como pode recuar e restaurar os VMs Azure com o serviço Azure Backup.
 **Cenário** | **Cópia de segurança** | **Agente** |**Restaurar**
 --- | --- | --- | ---
 Backup direto dos VMs Azure  | Apoie todo o VM.  | Não é necessário nenhum agente adicional no Azure VM. O Azure Backup instala e utiliza uma extensão ao [agente Azure VM](../virtual-machines/extensions/agent-windows.md) que está em execução no VM. | Restaurar da seguinte forma:<br/><br/> - **Criar um VM básico.** Isto é útil se o VM não tiver configuração especial, como vários endereços IP.<br/><br/> - **Restaurar o disco VM**. Restaurar o disco. Em seguida, prenda-o a um VM existente, ou crie um novo VM a partir do disco utilizando o PowerShell.<br/><br/> - **Substitua o disco VM**. Se existir um VM e utilizar discos geridos (não encriptados), pode restaurar um disco e usá-lo para substituir um disco existente no VM.<br/><br/> - **Restaurar ficheiros/pastas específicos**. Pode restaurar ficheiros/pastas a partir de um VM em vez de de todo o VM.
-Backup direto dos VMs Azure (apenas Windows)  | Fazer o back up ficheiros/pastas/volume específicos. | Instale o [agente dos Serviços de Recuperação Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> Pode executar o agente MARS ao lado da extensão de reserva para o agente Azure VM fazer cópia de segurança do VM ao nível de ficheiro/pasta. | Restaurar pastas/ficheiros específicos.
+Backup direto dos VMs Azure (apenas Windows)  | Fazer o back up ficheiros/pastas/volume específicos. | Instale o [agente dos Serviços de Recuperação Azure](backup-azure-file-folder-backup-faq.yml).<br/><br/> Pode executar o agente MARS ao lado da extensão de reserva para o agente Azure VM fazer cópia de segurança do VM ao nível de ficheiro/pasta. | Restaurar pastas/ficheiros específicos.
 Faça backup Azure VM para servidor de backup  | Fazer a ressalto de ficheiros/pastas/volumes; sistema estado/ficheiros metálicos nus; dados da aplicação para System Center DPM ou para Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS, em seguida, recua para o cofre de reserva. | Instale o agente de proteção DPM/MABS no VM. O agente MARS está instalado no DPM/MABS.| Restaurar ficheiros/pastas/volumes; sistema estado/ficheiros metálicos nus; dados de aplicativos.
 
 Saiba mais sobre a cópia de segurança [utilizando um servidor de backup](backup-architecture.md#architecture-back-up-to-dpmmabs) e sobre os [requisitos de suporte](backup-support-matrix-mabs-dpm.md).
@@ -151,7 +151,7 @@ Restauro de VMs fixados em zona | Suportado (para um VM que é apoiado depois de
 GMs gen2 | Suportado <br> A Azure Backup suporta cópia de segurança e restauro de [VMs da Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando estes VMs são restaurados do ponto de recuperação, são restaurados como [VMs gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup de VMs Azure com fechaduras | Não suportado para VMs não geridos. <br><br> Suportado para VMs geridos.
 [Spot VMs](../virtual-machines/spot-vms.md) | Sem apoio. A Azure Backup restaura os VMs spot como VMs Azure regulares.
-[Anfitrião Dedicado Azure](../virtual-machines/dedicated-hosts.md) | Suportado
+[Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Suportado
 Configuração de Espaços de Armazenamento do Windows de VMs Azure autónomos | Suportado
 [Conjuntos de escala Azure VM](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Apoiado para modelos de orquestração uniforme e flexível para apoiar e restaurar o Single Azure VM.
 

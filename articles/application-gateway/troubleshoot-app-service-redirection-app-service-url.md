@@ -3,17 +3,17 @@ title: Reorientação de resolução de problemas para URL do Serviço de Aplica
 titleSuffix: Azure Application Gateway
 description: Este artigo fornece informações sobre como resolver problemas na resolução do problema de reorientação quando o Azure Application Gateway é usado com o Azure App Service
 services: application-gateway
-author: abshamsft
+author: jaesoni
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/14/2019
-ms.author: absha
-ms.openlocfilehash: 1cc7df755198461643703cac988c8c31f2ac25db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/15/2021
+ms.author: jaysoni
+ms.openlocfilehash: 6aad1cf1269a7c3dc082482c39fdc4a079fc3240
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182891"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514891"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Problemas no Serviço de Aplicações de Resolução de Problemas no Gateway de Aplicações
 
@@ -83,34 +83,32 @@ No exemplo anterior, note que o cabeçalho de resposta tem um código de estado 
 Desa parte do nome do anfitrião no cabeçalho de localização para o nome de domínio do gateway de aplicação. Para isso, crie uma [regra de reescrita](./rewrite-http-headers.md) com uma condição que avalie se o cabeçalho de localização na resposta contém azurewebsites.net. Deve também realizar uma ação para reescrever o cabeçalho de localização para ter o nome de anfitrião do gateway de aplicação. Para obter mais informações, consulte instruções sobre [como reescrever o cabeçalho de localização](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> O suporte de reescrita do cabeçalho HTTP só está disponível para o [Standard_v2 e WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) do Gateway de Aplicações. Se utilizar v1 SKU, recomendamos que [migrar de V1 para v2](./migrate-v1-v2.md). Pretende utilizar a reescrita e [outras capacidades avançadas](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) que estão disponíveis com v2 SKU.
+> O suporte de reescrita do cabeçalho HTTP só está disponível para o [Standard_v2 e WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) do Gateway de Aplicações. Recomendamos [migrar para v2](./migrate-v1-v2.md) para a Reescrita do Cabeçalho e [outras capacidades avançadas](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) que estejam disponíveis com v2 SKU.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Solução alternativa: Use um nome de domínio personalizado
 
-Se utilizar v1 SKU, não pode reescrever o cabeçalho de localização. Esta capacidade só está disponível para v2 SKU. Para resolver o problema de redirecionamento, passe o mesmo nome de anfitrião que o gateway de aplicações também recebe para o serviço de aplicações, em vez de fazer uma substituição de anfitrião.
+A utilização da funcionalidade de Domínio Personalizado do Serviço de Aplicações é outra solução para redirecionar sempre o tráfego para o nome de domínio da App Gateway `www.contoso.com` (no nosso exemplo). Esta configuração também serve como solução para o problema dos cookies ARR Affinity. Por predefinição, o domínio de cookies ARRAffinity é definido para o nome de anfitrião padrão do Serviço de Aplicações (example.azurewebsites.net) em vez do nome de domínio do Gateway de Aplicação. Portanto, o navegador nesses casos rejeitará o cookie devido à diferença nos nomes de domínio do pedido e do cookie.
 
-O serviço de aplicações agora faz a reorientação (se houver) no mesmo cabeçalho original do anfitrião que aponta para o gateway da aplicação e não para o seu próprio.
+Pode seguir o método dado tanto para os problemas de conformidade entre o domínio de redirecionamento e o domínio de cookies da ARRAffinity. Este método necessitará que você tenha acesso à zona DNS do seu domínio personalizado.
 
-Você deve possuir um domínio personalizado e seguir este processo:
+**Passo 1**: Desista um domínio personalizado no Serviço de Aplicações e verifique a propriedade do domínio adicionando os [registos DE & DENS NNS CNAME](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
+Os registos seriam semelhantes a
+-  `www.contoso.com` EM CNAME `contoso.azurewebsite.net`
+-  `asuid.www.contoso.com` EM TXT `<verification id string>` "
 
-- Registe o domínio na lista de domínios personalizados do serviço de aplicações. Você deve ter um CNAME no seu domínio personalizado que aponta para o FQDN do serviço de aplicações. Para obter mais informações, consulte [mapear um nome DNS personalizado existente para o Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
-    ![Lista de domínio personalizado de serviço de aplicações](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+**Passo 2**: O registo CNAME no passo anterior só era necessário para a verificação do domínio. Em última análise, precisamos do tráfego para a rota através do Gateway de Aplicação. Pode, assim, modificar `www.contoso.com` o CNAME da Aplicação agora para apontar para o FQDN do Gateway de aplicação. Para definir um FQDN para o seu Gateway de aplicações, navegue para o seu recurso de endereço IP público e atribua uma "etiqueta de nome DNS" para o mesmo. O registo CNAME atualizado deve agora olhar como 
+-  `www.contoso.com` EM CNAME `contoso.eastus.cloudapp.azure.com`
 
-- O seu serviço de aplicações está pronto para aceitar o nome de `www.contoso.com` anfitrião. Altere a sua entrada CNAME em DNS para apontá-la de volta para o FQDN do gateway de aplicações, por exemplo, `appgw.eastus.cloudapp.azure.com` .
 
-- Certifique-se de que o seu domínio `www.contoso.com` se resolve com o FQDN do gateway de aplicações quando fizer uma consulta de DNS.
+**Passo 3**: Desative o "Nome de anfitrião do endereço de backend" para a definição HTTP associada.
 
-- Defina a sua sonda personalizada para desativar **o nome de anfitrião das definições HTTP Backend**. No portal Azure, limpe a caixa de verificação nas definições da sonda. No PowerShell, não utilize o interruptor **-PickHostNameFromBackendHttpSettings** no comando **Set-AzApplicationGatewayProbeConfig.** No campo de nome de anfitrião da sonda, insira o FQDN do seu serviço de aplicações, example.azurewebsites.net. Os pedidos de sonda enviados a partir do gateway de aplicação transportam este FQDN no cabeçalho do hospedeiro.
+No PowerShell, não utilize o `-PickHostNameFromBackendAddress` interruptor no `Set-AzApplicationGatewayBackendHttpSettings` comando.
 
-  > [!NOTE]
-  > Para o próximo passo, certifique-se de que a sua sonda personalizada não está associada às definições HTTP de back-end. As definições HTTP ainda têm o **nome de anfitrião pick-host do** switch backend Address ativo neste ponto.
 
-- Defina as definições HTTP do gateway de aplicações para desativar **o nome de anfitrião do Backend Address**. No portal Azure, limpe a caixa de verificação. No PowerShell, não utilize o interruptor **-PickHostNameFromBackendAddress** no comando **Set-AzApplicationGatewayBackendHttpSettings.**
+**Passo 4**: Para que as sondas determinem o backend como saudável e um tráfego operacional, defina uma Sonda de Saúde personalizada com o campo Host como domínio personalizado ou predefinido do Serviço de Aplicações.
 
-- Associe a sonda personalizada de volta às definições HTTP de fundo e verifique se a parte de trás está saudável.
-
-- O gateway da aplicação deve agora encaminhar o mesmo nome de anfitrião `www.contoso.com` para o serviço de aplicações. A reorientação acontece no mesmo nome de hospedeiro. Verifique os seguintes exemplos de pedidos e cabeçalhos de resposta.
+No PowerShell, não utilize o `-PickHostNameFromBackendHttpSettings` interruptor no comando e utilize o domínio personalizado ou `Set-AzApplicationGatewayProbeConfig` predefinido do Serviço de Aplicações no interruptor -HostName da sonda.
 
 Para implementar os passos anteriores utilizando o PowerShell para uma configuração existente, utilize o script PowerShell da amostra que se segue. Note como não usamos os interruptores **-PickHostname** na configuração de configurações de sonda e HTTP.
 

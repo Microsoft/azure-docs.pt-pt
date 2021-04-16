@@ -8,12 +8,12 @@ ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ca16099cffc22a19c2ee35b00ae6f1bcbe2977a7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 79fe8acd06084c58b0cf9b47bf93e933c648510c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312404"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481995"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e providenciar um dispositivo IoT Edge com um TPM no Linux
 
@@ -149,7 +149,7 @@ Recupere as informações de fornecimento da sua máquina virtual e use-as para 
 Quando cria uma inscrição em DPS, tem a oportunidade de declarar um **Estado Gémeo de Dispositivo Inicial.** No twin do dispositivo, pode definir tags para agrupar dispositivos por qualquer métrica que necessite na sua solução, como região, ambiente, localização ou tipo de dispositivo. Estas etiquetas são utilizadas para criar [implementações automáticas.](how-to-deploy-at-scale.md)
 
 > [!TIP]
-> No CLI Azure, pode criar uma [inscrição](/cli/azure/ext/azure-iot/iot/dps/enrollment) e utilizar a bandeira **ativada por arestas** para especificar que um dispositivo é um dispositivo IoT Edge.
+> No CLI Azure, pode criar uma [inscrição](/cli/azure/iot/dps/enrollment) e utilizar a bandeira **ativada por arestas** para especificar que um dispositivo é um dispositivo IoT Edge.
 
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Serviço de Provisionamento de Dispositivos IoT Hub.
 

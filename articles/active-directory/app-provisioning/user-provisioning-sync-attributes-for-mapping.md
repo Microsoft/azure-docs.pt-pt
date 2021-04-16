@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 03/31/2021
 ms.author: kenwith
-ms.openlocfilehash: 102c0f7363b8d4f635762a33b82825e9ae71dfc6
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: f7a2429161cebe867d844b4ca7aa08ec3613edcd
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120797"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388215"
 ---
 # <a name="syncing-extension-attributes-for-app-provisioning"></a>Sincronização de atributos de extensão para provisionamento de aplicações
 
@@ -28,10 +28,10 @@ Para os utilizadores no Ative Directory, deve sincronizar os utilizadores com a 
 ## <a name="create-an-extension-attribute-on-a-cloud-only-user"></a>Crie um atributo de extensão num único utilizador de nuvem
 Pode utilizar o Microsoft Graph e o PowerShell para estender o esquema do utilizador aos utilizadores em Azure AD. Estes atributos de extensão são automaticamente descobertos na maioria dos casos.
 
-Quando tiver mais de 1000 diretores de serviço, poderá encontrar extensões em falta na lista de atributos de origem. Se um atributo que criou não aparecer automaticamente, verifique se o atributo foi criado e adicione-o manualmente ao seu esquema. Para verificar se foi criado, utilize o Microsoft Graph e [o Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). Para adicioná-lo manualmente ao seu esquema, consulte [editar a lista de atributos suportados](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+Quando tiver mais de 1000 diretores de serviço, poderá encontrar extensões em falta na lista de atributos de origem. Se um atributo que criou não aparecer automaticamente, verifique se o atributo foi criado e adicione-o manualmente ao seu esquema. Para verificar se foi criado, utilize o Microsoft Graph e [o Graph Explorer](/graph/graph-explorer/graph-explorer-overview). Para adicioná-lo manualmente ao seu esquema, consulte [editar a lista de atributos suportados](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-microsoft-graph"></a>Crie um atributo de extensão numa nuvem apenas utilizador usando o Microsoft Graph
-Pode estender o esquema dos utilizadores AZure AD utilizando [o Microsoft Graph](/graph/overview.md). 
+Pode estender o esquema dos utilizadores AZure AD utilizando [o Microsoft Graph](/graph/overview). 
 
 Primeiro, enuseça as aplicações no seu inquilino para obter a identificação da app em que está a trabalhar. Para saber mais, consulte [extensões de listasProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
 
@@ -54,7 +54,7 @@ Content-type: application/json
 }
 ```
 
-O pedido anterior criou um atributo de extensão com o formato `extension_appID_extensionName` . Agora pode atualizar um utilizador com este atributo de extensão. Para saber mais, consulte [o utilizador Update](/graph/api/user-update.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+O pedido anterior criou um atributo de extensão com o formato `extension_appID_extensionName` . Agora pode atualizar um utilizador com este atributo de extensão. Para saber mais, consulte [o utilizador Update](/graph/api/user-update?view=graph-rest-1.0&tabs=http&preserve-view=true).
 ```json
 PATCH https://graph.microsoft.com/v1.0/users/{id}
 Content-type: application/json
@@ -63,7 +63,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Finalmente, verifique o atributo para o utilizador. Para saber mais, consulte [um utilizador.](/graph/api/user-get.md?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true)
+Finalmente, verifique o atributo para o utilizador. Para saber mais, consulte [um utilizador.](/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true)
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
