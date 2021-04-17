@@ -8,12 +8,13 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d5fc7b6b480056b56a2776cebd0fa87a5b96f9f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+monikerRange: iotedge-2018-06
+ms.openlocfilehash: 1c7c221a2fea60f3bbbc4f2cde960dcb8638efe2
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201660"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576572"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Como instalar ioT Edge em Kubernetes (Pré-visualização)
 

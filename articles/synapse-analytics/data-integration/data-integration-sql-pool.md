@@ -5,16 +5,16 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: sql
+ms.subservice: pipeline
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: a02abff712fc26f653307108fcc3bb284444d0c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79f0b1a6942f141f0a2d2d38adc5875d82e86d50
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676642"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567626"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingerir dados numa piscina de SQL dedicada
 

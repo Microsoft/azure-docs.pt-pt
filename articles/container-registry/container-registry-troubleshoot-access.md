@@ -3,12 +3,12 @@ title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: ae75959028e19ec61e6dcf41308e54df38139d59
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0fdedf109703eb443904989d2c0b2d75a6ba5bb1
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220118"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481230"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -28,6 +28,7 @@ Pode incluir um ou mais dos seguintes:
 * Não é possível adicionar ou modificar configurações de rede virtuais ou regras de acesso público
 * As tarefas ACR são incapazes de empurrar ou puxar imagens
 * O Centro de Segurança Azure não pode digitalizar imagens no registo, ou os resultados da varredura não aparecem no Centro de Segurança Azure
+* Recebe erro `host is not reachable` ao tentar aceder a um registo configurado com um ponto final privado.
 
 ## <a name="causes"></a>Causas
 
@@ -86,6 +87,8 @@ Links relacionados:
 
 Confirme que a rede virtual está configurada com um ponto final privado para Private Link ou um ponto final de serviço (pré-visualização). Atualmente, um ponto final do Azure Bastion não é suportado.
 
+Se um ponto final privado estiver configurado, confirme que o DNS resolve a FQDN pública do registo, tal como *myregistry.azurecr.io* ao endereço IP privado do registo. Utilize um utilitário de rede como `dig` ou para a procura de `nslookup` DNS. Certifique-se de que [os registos DNS estão configurados](container-registry-private-link.md#dns-configuration-options) para o registo FQDN e para cada um dos pontos finais de dados FQDNs.
+
 Reveja as regras e etiquetas de serviço da NSG utilizadas para limitar o tráfego de outros recursos da rede ao registo. 
 
 Se um ponto final de serviço do registo estiver configurado, confirme que uma regra de rede é adicionada ao registo que permite o acesso a partir dessa sub-rede de rede. O ponto final de serviço suporta apenas o acesso a partir de máquinas virtuais e clusters AKS na rede.
@@ -94,11 +97,10 @@ Se pretender restringir o acesso ao registo utilizando uma rede virtual numa sub
 
 Se o Azure Firewall ou uma solução semelhante estiver configurado na rede, verifique se o tráfego de saída de outros recursos, como um cluster AKS, está habilitado a chegar aos pontos finais do registo.
 
-Se um ponto final privado estiver configurado, confirme que o DNS resolve a FQDN pública do registo, tal como *myregistry.azurecr.io* ao endereço IP privado do registo. Utilize um utilitário de rede como `dig` ou para a procura de `nslookup` DNS.
-
 Links relacionados:
 
 * [Conecte-se privadamente a um registo de contentores Azure usando a Azure Private Link](container-registry-private-link.md)
+* [Resolver problemas de conectividade do Ponto Final Privado do Azure](../private-link/troubleshoot-private-endpoint-connectivity.md)
 * [Restringir o acesso a um registo de contentores utilizando um ponto final de serviço numa rede virtual Azure](container-registry-vnet.md)
 * [Regras de rede de saída exigidas e FQDNs para clusters AKS](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 * [Kubernetes: Resolução DNS de depurar](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)

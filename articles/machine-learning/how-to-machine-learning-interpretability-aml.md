@@ -11,16 +11,14 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: fda1bc2ef0a112a8a32ba7c4caebf29028c8cdd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d60c6dbedb24847b95ce268bedafcb073421319
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98222756"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576521"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utilize o pacote de interpretação para explicar os modelos ML & previsões em Python (pré-visualização)
-
-
 
 Neste guia de como orientar, aprende-se a utilizar o pacote de interpretação do Azure Machine Learning Python SDK para executar as seguintes tarefas:
 
@@ -296,7 +294,7 @@ O exemplo a seguir mostra como pode utilizar a `ExplanationClient` classe para p
 
 ## <a name="visualizations"></a>Visualizações
 
-Depois de descarregar as explicações no seu Caderno Jupyter local, pode utilizar o painel de visualização para compreender e interpretar o seu modelo. Para carregar o widget do painel de visualização no seu Caderno Jupyter, utilize o seguinte código:
+Depois de descarregar as explicações no seu Caderno Jupyter local, pode utilizar as visualizações no painel de explicações para compreender e interpretar o seu modelo. Para carregar o widget do painel de explicações no seu Caderno Jupyter, utilize o seguinte código:
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -304,7 +302,7 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
-A visualização suporta explicações sobre características concebidas e cruas. As explicações brutas baseiam-se nas funcionalidades do conjunto de dados originais e as explicações concebidas baseiam-se nas funcionalidades do conjunto de dados com a engenharia de recursos aplicadas.
+As visualizações suportam explicações sobre características concebidas e cruas. As explicações brutas baseiam-se nas funcionalidades do conjunto de dados originais e as explicações concebidas baseiam-se nas funcionalidades do conjunto de dados com a engenharia de recursos aplicadas.
 
 Ao tentar interpretar um modelo no que diz respeito ao conjunto de dados original, recomenda-se a utilização de explicações cruas, uma vez que cada característica de importância corresponderá a uma coluna do conjunto de dados original. Um dos cenários em que as explicações concebidas podem ser úteis é quando se examina o impacto de categorias individuais a partir de uma característica categórica. Se uma codificação de um só hot for aplicada a uma característica categórica, então as explicações modificadas resultantes incluirão um valor de importância diferente por categoria, um por cada recurso de engenharia de um só hot. Isto pode ser útil ao reduzir qual parte do conjunto de dados é mais informativa para o modelo.
 
@@ -353,11 +351,11 @@ O quarto separador do separador explicação permite perfurar um ponto de dados 
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualização no estúdio Azure Machine Learning
 
-Se completar os passos [de interpretação remota](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (carregar a explicação gerada para a Azure Machine Learning Run History), pode ver o painel de visualização no estúdio [Azure Machine Learning](https://ml.azure.com). Este dashboard é uma versão mais simples do painel de visualização explicado acima. What-If geração de pontos de dados e os enredos ICE são desativadas, uma vez que não existe uma computação ativa no estúdio Azure Machine Learning que possa realizar os seus cálculos em tempo real.
+Se completar os passos [de interpretação remota](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (carregar explicações geradas para a Azure Machine Learning Run History), pode ver as visualizações no painel de explicações no estúdio [Azure Machine Learning](https://ml.azure.com). Este dashboard é uma versão mais simples do widget do dashboard que é gerado dentro do seu caderno Jupyter. What-If geração de pontos de dados e os enredos ICE são desativadas, uma vez que não existe uma computação ativa no estúdio Azure Machine Learning que possa realizar os seus cálculos em tempo real.
 
 Se o conjunto de dados, as explicações globais e locais estiverem disponíveis, os dados povoam todos os separadores. Se apenas houver uma explicação global disponível, o separador de importância de característica individual será desativado.
 
-Siga um destes caminhos para aceder ao painel de visualização no estúdio Azure Machine Learning:
+Siga um destes caminhos para aceder ao painel de explicações no estúdio Azure Machine Learning:
 
 * **Painel de experiências** (Pré-visualização)
   1. Selecione **Experiências** no painel esquerdo para ver uma lista de experiências que executou no Azure Machine Learning.
@@ -368,7 +366,7 @@ Siga um destes caminhos para aceder ao painel de visualização no estúdio Azur
 
 * **Painel de modelos**
   1. Se registou o seu modelo original seguindo os passos nos [modelos Implementar com Azure Machine Learning,](./how-to-deploy-and-where.md)pode selecionar **Modelos** no painel esquerdo para o visualizar.
-  1. Selecione um modelo e, em seguida, o **separador Explicações** para visualizar o painel de visualização de explicação.
+  1. Selecione um modelo e, em seguida, o **separador Explicações** para visualizar o painel de explicações.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretação no tempo da inferência
 

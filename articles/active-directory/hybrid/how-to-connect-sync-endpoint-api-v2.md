@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4434b59044aed8c9814431864e5c3c9b7d98254c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98937610"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575722"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de ponto final do Azure AD Connect sync V2 
 A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Utilizando o novo ponto final V2, irá experimentar ganhos de desempenho notáveis na exportação e importação para a Azure AD. Este novo ponto final suporta o seguinte:
@@ -27,6 +27,12 @@ A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que me
  
 > [!NOTE]
 > Atualmente, o novo ponto final não tem um limite de tamanho de grupo configurado para os grupos Microsoft 365 que estão reensitados. Isto pode ter um efeito no seu Diretório Ativo e latências de ciclo sincronizado. Recomenda-se aumentar gradualmente os tamanhos do grupo.  
+
+>[!NOTE]
+> A Azure AD Connect Sync V2 endpoint API só está disponível nestes ambientes Azure:
+> - Comercial Azure
+> - Nuvem de Azure China
+> - Nuvem do Governo dos EUA Azure Não será disponibilizada na nuvem alemã de Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos  
 Para utilizar o novo ponto final V2, terá de utilizar a [versão 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou posterior do Azure AD Connect e seguir os passos de implementação abaixo fornecidos para ativar o ponto final V2 para o seu servidor Azure AD Connect.   

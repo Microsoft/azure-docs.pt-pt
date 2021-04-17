@@ -4,16 +4,16 @@ description: Reveja as propriedades específicas e os seus valores para os géme
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/31/2020
+ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 951111b217b7ace3f12676edf6febfa7266094df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29ec958764f4a464d51f29f4b9c8223d5d7a1760
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489953"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576011"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente IoT Edge e gémeos módulos de hub IoT Edge
 
@@ -84,7 +84,6 @@ A tabela a seguir não inclui as informações que são copiadas das propriedade
 | últimaVersão deDeseired | Este número inteiro refere-se à última versão das propriedades desejadas processadas pelo agente IoT Edge. |
 | últimoDesestatus.code | Este código de estado refere-se às últimas propriedades desejadas vistas pelo agente IoT Edge. Valores permitidos: `200` Sucesso, `400` configuração inválida, `412` versão de esquema inválido, `417` as propriedades desejadas estão vazias, `500` Falhadas |
 | lastDesiredStatus.description | Descrição do texto do estado |
-| dispositivoSaúde | `healthy` se o estado de funcionação de todos os módulos for `running` `stopped` ou, `unhealthy` de outra forma |
 | configuraçãoHealth. {deploymentId}.health | `healthy` se o estado de funcionamento de todos os módulos definidos pela implementação {deploymentId} for `running` `stopped` ou, `unhealthy` de outra forma |
 | tempo de execução.platform.OS | Reportando o sistema operativo em execução no dispositivo |
 | runtime.platform.architecture | Reportagem da arquitetura do CPU no dispositivo |

@@ -12,14 +12,14 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57d390ed71cb4e0e76972e02170afde7b13e4ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b54e3cb3b4ce7eb8f541755df75e8d6a22eb7c2
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99253464"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575314"
 ---
-# <a name="understand-azure-ad-application-proxy-connectors"></a>Compreenda os conectores Proxy de aplicação AD Azure
+# <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores do Proxy de Aplicações do Azure Active Directory
 
 Os conectores são o que torna possível o Proxy de Aplicação AD Azure. São simples, fáceis de implementar e manter, e super poderosos. Este artigo discute o que são os conectores, como funcionam e algumas sugestões de como otimizar a sua implementação.
 
@@ -65,7 +65,7 @@ Não é preciso eliminar manualmente os conectores que não são bem-de-usar. Qu
 
 ## <a name="automatic-updates"></a>Atualizações automáticas
 
-O Azure AD fornece atualizações automáticas para todos os conectores que implementa. Enquanto o serviço de atualização do conector de aplicação proxy estiver em funcionamento, os conectores atualizam-se automaticamente. Se não vir o serviço de atualização do Conector no seu servidor, tem de [reinstalar o seu conector](application-proxy-add-on-premises-application.md) para obter quaisquer atualizações.
+O Azure AD fornece atualizações automáticas para todos os conectores que implementa. Enquanto o serviço de atualização do conector de aplicação proxy estiver em funcionamento, os seus conectores [atualizam-se automaticamente com a mais recente versão do conector principal.](application-proxy-faq.yml#why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version-) Se não vir o serviço de atualização do Conector no seu servidor, tem de [reinstalar o seu conector](application-proxy-add-on-premises-application.md) para obter quaisquer atualizações.
 
 Se não quiser esperar que uma atualização automática chegue ao seu conector, pode fazer uma atualização manual. Aceda à [página de descarregamento](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) do conector no servidor onde o seu conector está localizado e selecione **Download**. Este processo inicia uma atualização para o conector local.
 

@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 54ce9ca0ddffe074f5a343d192b4599b3449a855
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: fe8ac81a8b04aa88ce91a978c2bc9b979a065370
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538743"
+ms.locfileid: "107576164"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitor Azure para fornecedores de soluções SAP (pré-visualização)
 
@@ -28,7 +28,7 @@ Os clientes também podem optar por configurar vários fornecedores de um tipo d
 - Cluster de elevada disponibilidade
 - Sistema Operativo
 
-![Monitor Azure para fornecedores de soluções SAP](./media/azure-monitor-sap/azure-monitor-providers.png)
+![Monitor Azure para fornecedores de soluções SAP](https://user-images.githubusercontent.com/75772258/115047655-5a5b2c00-9ef6-11eb-9e0c-073e5e1fcd0e.png)
 
 Recomenda-se aos clientes a configuração de pelo menos um fornecedor dos tipos de fornecedores disponíveis no momento da implantação do recurso SAP Monitor. Ao configurar um fornecedor, os clientes iniciam a recolha de dados a partir do componente correspondente para o qual o fornecedor está configurado.   
 

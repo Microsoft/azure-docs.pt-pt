@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 64107c3f667dd7e59fcf6d191e83457029b3a277
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49b5da2da72e78226db19f5d8881073577aee5b0
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100546351"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575528"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Aplicações migratórias para MSAL.NET
 
@@ -29,9 +29,17 @@ Tanto a Biblioteca de Autenticação microsoft para .NET (MSAL.NET) como a Azure
 - a sua aplicação pode permitir o consentimento incremental, e apoiar o Acesso Condicional é mais fácil
 - beneficia-se da inovação.
 
-**MSAL.NET é agora a biblioteca de auth recomendada para usar com a plataforma de identidade microsoft**. Nenhuma nova funcionalidade será implementada no ADAL.NET. Os esforços concentram-se na melhoria do MSAL.
+**MSAL.NET ou Microsoft.Identity.Web são agora as bibliotecas de auth recomendadas para usar com a plataforma de identidade microsoft**. Nenhuma nova funcionalidade será implementada no ADAL.NET. Os esforços concentram-se na melhoria do MSAL.
 
 Este artigo descreve as diferenças entre a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET) e a Biblioteca de Autenticação AD Azure para .NET (ADAL.NET) e ajuda a migrar para o MSAL.
+
+## <a name="should-you-migrate-to-msalnet-or-to-microsoftidentityweb"></a>Se migrar para MSAL.NET ou para Microsoft.Identity.Web
+
+Antes de investigar os detalhes de MSAL.NET vs ADAL.NET, talvez queira verificar se deseja usar MSAL.NET ou uma abstração de nível superior como [Microsoft.Identity.Web](microsoft-identity-web.md)
+
+Para mais detalhes sobre a árvore de decisão abaixo, [leia-se Devo usar apenas MSAL.NET ou uma abstração de nível superior?](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Is-MSAL.NET-right-for-me%3F)
+
+:::image type="content" source="media/msal-net-migration/decision-diagram.png" alt-text="Bloqueie o diagrama explicando como escolher se precisa de usar MSAL.NET e Microsoft.Identity.Web ou ambos ao migrar de ADAL.NET":::
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Diferenças entre aplicações ADAL e MSAL
 
@@ -51,7 +59,7 @@ Para utilizar MSAL.NET terá de adicionar o pacote [Microsoft.Identity.Client](h
 
 ### <a name="scopes-not-resources"></a>Âmbitos não recursos
 
-ADAL.NET adquire fichas para *recursos,* mas MSAL.NET adquire fichas para *âmbitos.* Uma série de MSAL.NET a AcquireToken substitui um parâmetro chamado `IEnumerable<string> scopes` scopes. Este parâmetro é uma lista simples de cordas que declaram as permissões e recursos pretendidos que são solicitados. Os âmbitos bem conhecidos são os [âmbitos do Microsoft Graph.](/graph/permissions-reference)
+ADAL.NET adquire fichas para *recursos,* mas MSAL.NET adquire fichas para *âmbitos.* Uma série de MSAL.NET a AcquireToken substitui um parâmetro chamado `IEnumerable<string> scopes` scopes. Este parâmetro é uma lista simples de cordas que declaram as permissões e recursos pretendidos que são solicitados. Os âmbitos bem conhecidos são os [âmbitos do Microsoft Graph.](https://docs.microsoft.com/graph/permissions-reference)
 
 Também é possível em MSAL.NET aceder aos recursos v1.0. Consulte os detalhes em [Âmbitos para uma aplicação v1.0](#scopes-for-a-web-api-accepting-v10-tokens).
 

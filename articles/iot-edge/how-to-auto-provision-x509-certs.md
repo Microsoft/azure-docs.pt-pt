@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 44ea6546eb2099165071fd493ec8f890820c0688
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3c783c57b49b45943882703aec6d735d12bf830
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199839"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481961"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e providenciar um dispositivo IoT Edge utilizando certificados X.509
 
@@ -90,7 +90,7 @@ Quando cria uma inscrição em DPS, tem a oportunidade de declarar um **Estado G
 Para obter mais informações sobre as inscrições no Serviço de Provisionamento de [Dispositivos, consulte Como gerir as matrículas do dispositivo.](../iot-dps/how-to-manage-enrollments.md)
 
    > [!TIP]
-   > No CLI Azure, pode criar uma [inscrição](/cli/azure/ext/azure-iot/iot/dps/enrollment) ou um grupo de [inscrição](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e utilizar a bandeira ativada por **arestas** para especificar que um dispositivo, ou grupo de dispositivos, é um dispositivo IoT Edge.
+   > No CLI Azure, pode criar uma [inscrição](/cli/azure/iot/dps/enrollment) ou um grupo de [inscrição](/cli/azure/iot/dps/enrollment-group) e utilizar a bandeira ativada por **arestas** para especificar que um dispositivo, ou grupo de dispositivos, é um dispositivo IoT Edge.
 
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Serviço de Provisionamento de Dispositivos IoT Hub.
 

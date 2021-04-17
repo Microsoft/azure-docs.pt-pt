@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 04/14/2021
 ms.author: victorh
-ms.openlocfilehash: 3b8fbc47b46f8be6e4ad7636a1d7552445501f0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e14a8afe27fc9dd9ca40730dd7e681c3093e0b50
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94653169"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505909"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Azure Firewall no Balanceador de Carga Standard do Azure
 
@@ -65,8 +65,7 @@ Não há problema de encaminhamento assimétrico com este cenário. Os pacotes d
 
 Assim, você pode implementar este cenário semelhante ao cenário do balanceador de carga pública, mas sem a necessidade da rota de anfitrião de endereço IP público firewall.
 
->[!NOTE]
->As máquinas virtuais no pool de backend não terão conectividade de internet de saída com esta configuração. </br> Para obter mais informações sobre o fornecimento de conectividade de saída consulte: </br> **[Ligações de saída no Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Opções para fornecer conectividade: </br> **[Configuração do balanceador de carga só de saída](../load-balancer/egress-only.md)** </br> [**O que é Virtual Network NAT?**](../virtual-network/nat-overview.md)
+As máquinas virtuais na piscina de backend podem ter conectividade de saída da Internet através do Azure Firewall. Configure uma rota definida pelo utilizador na sub-rede da máquina virtual com a firewall como o próximo salto.
 
 
 ## <a name="additional-security"></a>Segurança adicional

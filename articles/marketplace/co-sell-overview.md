@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: b626012ad825b263e4f837159a067ed1d817d93a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/15/2021
+ms.openlocfilehash: dcb77e45f5e1469363eb279626a866c7f719de40
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609646"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537536"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Co-vender com equipas de vendas da Microsoft e visão geral dos parceiros
 
@@ -80,7 +80,7 @@ Ofertas que alcançam _Azure IP Co-venda_ de estatuto incentivado obtenha estes 
 - A taxa de serviço no mercado é reduzida de 20% para 10%. Este desconto aplica-se à sua infraestrutura como solução de serviço (IaaS) ou software como solução de serviço (SaaS) vendida através do mercado comercial. Para mais informações, consulte [as taxas de serviço de marketplace comercial.](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees)
 - Os parceiros Cloud Solution Provider (CSP) recebem um incentivo de 10% para vender a sua solução IaaS ou oferta SaaS. Para saber mais sobre o programa CSP, consulte o [programa Cloud Solution Provider](cloud-solution-providers.md).
 - As vendas da sua oferta através do Azure Marketplace contribuirão para os compromissos de consumo da Azure dos clientes. Os clientes elegíveis verão a oferta marcada como **benefício Azure elegível** no portal Azure. Para mais informações, consulte [o benefício do compromisso de consumo da Azure.](azure-consumption-commitment-benefit.md)
-- Ofertas que atinjam o estado _de co-venda do Azure IP Ou_ estejam inscritas no Microsoft Business [Applications ISV Connect Program](business-applications-isv-program.md) com o estado de venda de co-venda receberá um crachá de **soluções Preferida da Microsoft** na página de listagem de ofertas nas lojas online. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria.
+- Ofertas que atinjam o estado _de co-venda do Azure IP ou_ estejam inscritas no Microsoft Business [Applications ISV Connect Program](business-applications-isv-program.md) com o estado de venda de co-venda receberá um crachá de **soluções preferidas** da Microsoft na página de listagem de ofertas nas lojas online: [Azure Marketplace](https://azuremarketplace.microsoft.com/) e [AppSource](https://appsource.microsoft.com/).  Depois de uma oferta atingir o estatuto correspondente, pode levar até 30 dias para que o crachá de solução preferida seja exibido na loja online. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria.
 
 Para aprender a conseguir o estatuto de co-venda pronta e co-venda, consulte [Co-vender requisitos prontos e co-vender requisitos incentivados.](co-sell-requirements.md)
 

@@ -3,12 +3,12 @@ title: Backup offline usando Azure Data Box
 description: Saiba como pode utilizar a Caixa de Dados do Azure para semear dados de backup iniciais do Agente MARS para um cofre dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78adc479ce5733e208d2334d30d7b88e4edf8d6b
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96752588"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576096"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup Azure backup offline usando Azure Data Box
 
@@ -292,7 +292,7 @@ Se nenhum outro servidor tiver sementeira offline configurada e nenhum outro ser
 
 A partir do servidor está a tentar configurar para cópia de segurança offline, execute as seguintes ações.
 
-1. Aceda ao **pedido de certificado de computador Manage**  >  **Personal,** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
+1. Aceda ao **pedido de certificado de computador Manage**  >  **Personal,** e procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<Timestamp>` .
 
 2. Selecione o certificado, clique com o botão direito **Todas as Tarefas** e selecione **Export** sem uma chave privada no formato .cer.
 

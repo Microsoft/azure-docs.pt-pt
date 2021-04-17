@@ -5,56 +5,58 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 9f8ca9ab6dc184abb8d9dcd25ebe87cbd7761722
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddc56ab05a087c9e86d67a13aebcfb8e65fbd78f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102630280"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480749"
 ---
-Para publicar o projeto numa aplicação de função em Azure, selecione o projeto à direita no *Solution Explorer* e escolha **a Publish.**
+Para publicar o projeto numa aplicação de função em Azure, comece no Solution Explorer. Clique com o botão direito no projeto e, em seguida, escolha **Publicar.**
 
 > [!IMPORTANT] 
 > A publicação de uma aplicação de função no Azure incorre em encargos adicionais na sua subscrição, independentemente da Azure Digital Twins.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Screenshot do Estúdio Visual mostrando o menu de solução selecionado à direita. A publicação está em destaque no menu.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Screenshot do Visual Studio, mostrando o menu de solução de clique direito. No menu, destaque para a Publicação.":::
 
-Na página *Publicar* que se segue, deixe a seleção de destino padrão do **Azure** e selecione *Next*. 
+Na página **publicar** que abre, deixe a seleção de alvo padrão do **Azure**. Em seguida, selecione **Seguinte**. 
 
-Para um alvo específico, escolha **Azure Function App (Windows)** e selecione *Next*.
+Para um alvo específico, escolha **a App de Função Azure (Windows)** e, em seguida, selecione **Next**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Screenshot do Estúdio Visual no diálogo de função Publish Azure. A Aplicação de Função Azure (Windows) é selecionada na página-alvo específica.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Screenshot do Visual Studio, mostrando o diálogo da função Publish Azure. Na página-alvo específica, a seleção é Azure Function App (Windows).":::
 
-Na página *de instância funções,* escolha a sua subscrição. Em seguida, selecione o *+* ícone para criar uma nova Função Azure.
+No separador **De instância funções,** escolha a sua subscrição. Em seguida, selecione o ícone mais (+) para criar uma nova função.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Screenshot do Estúdio Visual no diálogo de função Publish Azure. O botão + para criar uma nova função é realçado na página de instância de Funções.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Screenshot do Visual Studio, mostrando o diálogo da função Publish Azure. O ícone plus é realçado.":::
 
-Na *App de Função (Windows) - Crie uma nova* janela, preencha os campos da seguinte forma:
-* **O nome** é o nome do plano de consumo que a Azure utilizará para hospedar a sua aplicação Azure Functions. Este será também o nome da aplicação de função que detém a sua função real. Pode escolher o seu próprio valor único ou deixar a sugestão padrão.
-* Certifique-se de que a **Subscrição** corresponde à subscrição que pretende utilizar 
-* Certifique-se de que o **grupo de Recursos** ao grupo de recursos que pretende utilizar
-* Deixe o **tipo de Plano** como *Consumo*
-* Selecione a **localização** que corresponde à localização do seu grupo de recursos
-* Crie um novo recurso **de armazenamento Azure** utilizando o *novo...* link. Desaprote o local para combinar com o seu grupo de recursos, use os outros valores predefinidos e selecione "Ok".
+Na **App de Função (Windows) - Crie uma nova** janela, preencha os seguintes campos:
+* **O nome** é o nome do plano de consumo que a Azure utilizará para hospedar a sua aplicação Azure Functions. Este nome também se aplicará à aplicação de função que detém a sua função real. Pode escolher um valor único ou deixar a sugestão padrão.
+* Certifique-se de que a **Subscrição** corresponde à subscrição que pretende utilizar. 
+* Certifique-se de que o **grupo de recursos** é o que pretende utilizar.
+* Deixe a seleção do **tipo Plano** como **Consumo.**
+* Selecione a **localização** do seu grupo de recursos.
+* Crie um novo recurso **de Armazenamento Azure** selecionando o **novo** link. Desaprote a localização para corresponder ao seu grupo de recursos, use os outros valores predefinidos e, em seguida, selecione **OK**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Screenshot do Estúdio Visual no diálogo de função Publish Azure. Os detalhes de uma nova aplicação de função estão a ser preenchidos, incluindo Nome, Subscrição, Grupo de Recursos, Tipo de Plano, Localização e Armazenamento Azure.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Screenshot do Visual Studio, mostrando o diálogo da função Publish Azure. Os detalhes de uma nova aplicação de função estão a ser preenchidos, incluindo Nome, Subscrição, Grupo de Recursos, Tipo de Plano, Localização e Armazenamento Azure.":::
 
 Em seguida, selecione **Criar**.
 
-Após uma breve espera enquanto o serviço de aplicações é criado, o diálogo deve voltar à página *de instância de Funções,* com a sua nova aplicação de função a aparecer na área **de Apps de Função** aninhada por baixo do seu grupo de recursos. Selecione *Concluir*.
+Após a criação do serviço de aplicações, o separador **de instância de Funções** abre.000.000. A sua nova aplicação de função aparece na área **de Apps de Função** por baixo do seu grupo de recursos. Selecione **Concluir**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publicar função Azure em Visual Studio: Instância de funções (após aplicação de função)":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Screenshot do Visual Studio, mostrando o diálogo da função Publish Azure. O separador de instância de Funções é selecionado. A nova aplicação de funções aparece no grupo de recursos.":::
 
-No painel *publicar* que se abre de volta na janela principal do Estúdio Visual, verifique se todas as informações parecem corretas e selecione **Publicar**.
+No painel **de publicação** que abre na janela principal do Estúdio Visual, verifique se toda a informação parece correta. Em seguida, selecione **Publicar**.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Screenshot do Estúdio Visual no diálogo de função Publish Azure. A nova aplicação de funções aparece na lista de aplicações de funções e há um botão Finish.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Screenshot do Visual Studio, mostrando o painel de publicação. O botão Publicar é realçado.":::
 
 > [!NOTE]
-> Se vires um popup como este: :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Screenshot da janela pop-up do Estúdio Visual chamada Credenciais de Publicação. Contém campos para um nome de utilizador e palavra-passe, e um botão para tentar obter credenciais do Azure." border="false":::
-> Selecione **Tente obter credenciais de Azure** e **Save**.
+> Se vir uma janela pop-up como o exemplo a seguir, selecione **Tente obter credenciais do Azure** e, em seguida, selecione **Save**.
+> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Screenshot do Visual Studio, mostrando uma janela pop-up chamada Publicar credenciais. Contém campos para um nome de utilizador e palavra-passe. Também contém um botão para tentar obter credenciais de Azure." border="false":::
 >
-> Se vir um aviso para a *versão 'Atualizar funções' no Azure* ou se *a sua versão do tempo de execução das funções não corresponder à versão em execução em Azure:*
+> Se vir uma das seguintes advertências, siga as instruções para atualizar para a versão mais recente do tempo de execução do Azure Functions:
+> * "Versão de Funções de Atualização no Azure."
+> * "A sua versão do tempo de execução das funções não corresponde à versão em execução em Azure."
 >
-> Siga as instruções para atualizar para a versão mais recente do tempo de execução do Azure Functions. Este problema pode ocorrer se estiver a utilizar uma versão mais antiga do Visual Studio.
+> Estes avisos podem aparecer se estiver a usar uma versão antiga do Visual Studio.
 
 A sua aplicação de função foi agora publicada no Azure.

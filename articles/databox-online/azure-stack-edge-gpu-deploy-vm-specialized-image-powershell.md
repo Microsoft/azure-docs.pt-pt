@@ -6,45 +6,36 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: d03aeb9759fb321b580fa65e06dc09ccde4a44a0
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6bfa42e99f295b429eba40a27eb59becb8aa80a1
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106556194"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575963"
 ---
-# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-device-via-azure-powershell"></a>Implemente um VM a partir de uma imagem especializada no seu dispositivo Azure Stack Edge Pro via Azure PowerShell 
+# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Implemente um VM a partir de uma imagem especializada no seu dispositivo GPU Azure Stack Edge Pro via Azure PowerShell 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Este artigo descreve os passos necessários para implantar uma máquina virtual (VM) no seu dispositivo Azure Stack Edge Pro a partir de uma imagem especializada. 
+Este artigo descreve os passos necessários para implantar uma máquina virtual (VM) no seu dispositivo GPU Azure Stack Edge Pro a partir de uma imagem especializada. 
 
-## <a name="about-specialized-images"></a>Sobre imagens especializadas
+Para preparar uma imagem generalizada para a implantação de VMs em Azure Stack Edge Pro GPU, consulte [preparar a imagem generalizada a partir do Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) ou preparar uma imagem generalizada a partir de um [ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
+
+## <a name="about-vm-images"></a>Sobre imagens VM
 
 Um VHD ou VHDX do Windows pode ser usado para criar uma imagem *especializada* ou uma imagem *generalizada.* A tabela seguinte resume as principais diferenças entre as imagens *especializadas* e as *generalizadas.*
 
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-|Tipo de imagem  |Generalizada  |Especializada  |
-|---------|---------|---------|
-|Destino     |Implantado em qualquer sistema         | Direcionado para um sistema específico        |
-|Configuração após arranque     | Configuração necessária no primeiro arranque do VM.          | A armação não é necessária. <br> A plataforma liga o VM.        |
-|Configuração     |Nome de anfitrião, utilizador de administração e outras definições específicas de VM necessárias.         |Pré-configurado.         |
-|Costumava     |Crie vários VMs novos a partir da mesma imagem.         |Migrar uma máquina específica ou restaurar um VM de cópias de segurança anteriores.         |
-
-
-Este artigo abrange os passos necessários para implantar a partir de uma imagem especializada. Para implementar a partir de uma imagem generalizada, consulte [utilizar o VHD do Windows generalizado](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) para o seu dispositivo.
-
-
-## <a name="vm-image-workflow"></a>Fluxo de trabalho de imagem VM
+## <a name="workflow"></a>Fluxo de trabalho
 
 O fluxo de trabalho de alto nível para implantar um VM a partir de uma imagem especializada é:
 
 1. Copie o VHD para uma conta de armazenamento local no seu dispositivo GPU Azure Stack Edge Pro.
 1. Crie um novo disco gerido a partir do VHD.
 1. Crie uma nova máquina virtual a partir do disco gerido e prenda o disco gerido.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +56,6 @@ Verifique se o seu cliente pode ligar-se ao Gestor de Recursos Azure local.
     ```
 
 2. Forneça o nome de utilizador `EdgeArmUser` e a palavra-passe para ligar através do Azure Resource Manager. Se não se lembrar da palavra-passe, [reinicie a palavra-passe para O Gestor de Recursos Azure](azure-stack-edge-gpu-set-azure-resource-manager-password.md) e utilize esta palavra-passe para iniciar sação.
- 
 
 ## <a name="deploy-vm-from-specialized-image"></a>Implementar VM a partir de imagem especializada
 
@@ -75,10 +65,10 @@ As seguintes secções contêm instruções passo a passo para implantar um VM a
 
 Siga estes passos para copiar o VHD para a conta de armazenamento local:
 
-1. Copie a fonte VHD para uma conta de armazenamento de bolhas locais no seu Azure Stack Edge. 
+1. Copie a fonte VHD para uma conta de armazenamento de bolhas locais no seu Azure Stack Edge.
 
 1. Tome nota do URI resultante. Vais usar este URI num passo posterior.
-    
+
     Para criar e aceder a uma conta de armazenamento local, consulte as secções [Criar uma conta de armazenamento](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) através do Upload a [VHD](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) no artigo: [Implementar VMs no seu dispositivo Azure Stack Edge via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
 
 ## <a name="create-a-managed-disk-from-vhd"></a>Criar um disco gerido a partir de VHD
@@ -301,7 +291,5 @@ Este artigo utilizou apenas um grupo de recursos para criar todo o recurso VM. A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Dependendo da natureza da implantação, pode escolher um dos seguintes procedimentos.
-
-- [Implementar um VM a partir de uma imagem generalizada via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
-- [Implementar um VM via Portal Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+- [Prepare uma imagem generalizada a partir de um VHD do Windows para implementar VMs no GPU Azure Stack Edge Pro](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+- [Prepare uma imagem generalizada a partir de um ISO para implantar VMs no Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md) d

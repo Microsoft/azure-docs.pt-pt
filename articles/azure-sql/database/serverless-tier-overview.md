@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 4/15/2021
-ms.openlocfilehash: ea9d5a5c39bf73ede2391c586f09dd95ff79b63c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.date: 4/16/2021
+ms.openlocfilehash: 7dcbcddc5062470cc3d44fa55ea2591dd989d22d
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531973"
+ms.locfileid: "107576419"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -266,7 +266,7 @@ Os recursos de uma base de dados sem servidor são encapsulados por pacote de ap
 
 #### <a name="app-package"></a>Pacote de aplicações
 
-O pacote de aplicações é o limite de gestão de recursos mais externo para uma base de dados, independentemente de a base de dados estar num nível de computação sem servidor ou aprovisionado. O pacote de aplicações contém a instância SQL e os serviços externos que, em conjunto, aplicam todos os recursos do utilizador e do sistema utilizados por uma base de dados na Base de Dados SQL. Exemplos de serviços externos incluem R e pesquisa de texto completo. A instância SQL geralmente domina a utilização global de recursos em todo o pacote de aplicações.
+O pacote de aplicações é o limite de gestão de recursos mais externo para uma base de dados, independentemente de a base de dados estar num nível de computação sem servidor ou aprovisionado. O pacote de aplicações contém a instância SQL e serviços externos, como a pesquisa de texto completo, que todos em conjunto aplicam todos os recursos do utilizador e do sistema utilizados por uma base de dados na Base de Dados SQL. A instância SQL geralmente domina a utilização global de recursos em todo o pacote de aplicações.
 
 #### <a name="user-resource-pool"></a>Piscina de recursos do utilizador
 

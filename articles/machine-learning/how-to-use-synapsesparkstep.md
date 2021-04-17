@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2c69ec853cdeeed6f9e28fb9f2884053580ce08e
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868652"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576385"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Como utilizar o Apache Spark (alimentado pela Azure Synapse Analytics) no seu pipeline de aprendizagem automática (pré-visualização)
 
@@ -199,7 +199,7 @@ Este script de "preparação de dados" não faz nenhuma transformação real de 
 
 ## <a name="use-the-synapsesparkstep-in-a-pipeline"></a>Use o `SynapseSparkStep` num oleoduto
 
-Outros passos no oleoduto podem ter os seus próprios ambientes únicos e funcionar em diferentes recursos de computação adequados à tarefa em questão. O caderno de amostras executa o "passo de treino" num pequeno aglomerado de CPU:
+O exemplo a seguir utiliza a saída da `SynapseSparkStep` criada na secção [anterior](#create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool). Outros passos no oleoduto podem ter os seus próprios ambientes únicos e funcionar em diferentes recursos de computação adequados à tarefa em questão. O caderno de amostras executa o "passo de treino" num pequeno aglomerado de CPU:
 
 ```python
 from azureml.core.compute import AmlCompute

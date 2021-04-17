@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 71d8d577bdfd8b359ce872f3489b60dca0b462b2
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773118"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575637"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -234,18 +234,9 @@ Neste exemplo, note-se que o melhor modelo tem uma linha previsível vs. verdade
 
 ## <a name="model-explanations-and-feature-importances"></a>Explicações do modelo e importâncias de características
 
-Embora as métricas e gráficos de avaliação de modelos sejam bons para medir a qualidade geral de um modelo, inspecionar que conjunto de dados possui um modelo usado para fazer as suas previsões é essencial na prática de IA responsável. É por isso que a ML automatizada fornece um painel de interpretação de modelo para medir e reportar as contribuições relativas das funcionalidades do conjunto de dados.
+Embora as métricas e gráficos de avaliação de modelos sejam bons para medir a qualidade geral de um modelo, inspecionar que conjunto de dados possui um modelo usado para fazer as suas previsões é essencial na prática de IA responsável. É por isso que a ML automatizada fornece um painel de explicações de modelo para medir e reportar as contribuições relativas das funcionalidades do conjunto de dados. Veja como [ver o painel de explicações no estúdio Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
 
-Para ver o painel de interpretação no estúdio:
-1. [Inscreva-se no estúdio](https://ml.azure.com/) e navegue para o seu espaço de trabalho
-2. No menu esquerdo, selecione **Experimentos**
-3. Selecione a sua experiência na lista de experiências
-4. Na tabela na parte inferior da página, selecione uma corrida AutoML
-5. No separador **Modelos,** selecione o **nome Algoritmo** para o modelo que pretende explicar
-6. No separador **Explicações,** pode ver-se uma explicação já foi criada se o modelo fosse o melhor
-7. Para criar uma nova explicação, **selecione Explicar o modelo** e selecione o cálculo remoto com o qual calcular explicações
-
-[Saiba mais sobre explicações de modelos em ML automatizado.](how-to-machine-learning-interpretability-automl.md)
+Para uma primeira experiência de código, consulte como configurar [explicações de modelos para experiências automatizadas de ML com o Azure Machine Learning Python SDK](how-to-machine-learning-interpretability-automl.md).
 
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado por explicações automáticas de ML e outros modelos de previsão podem ter acesso limitado a ferramentas de interpretação.

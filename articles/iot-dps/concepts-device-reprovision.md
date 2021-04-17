@@ -3,16 +3,16 @@ title: Serviço de Provisionamento de Dispositivos Azure IoT Hub - Conceitos de 
 description: Descreve conceitos de reprovisionamento de dispositivos para o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbc83ec62c10fae00e371cd9ad95cf2860495fad
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91842857"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575773"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Conceitos de reprovisionamento de dispositivos IoT Hub
 
@@ -61,6 +61,9 @@ Dependendo do cenário, um dispositivo geralmente envia um pedido para uma inst�
     ![Diagrama que mostra como uma política toma medidas quando os dispositivos associados à inscrição apresentam um novo pedido de provisionamento.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **Nunca reresinsse:** O dispositivo nunca é transferido para um centro diferente. Esta política está prevista para gerir a retrocompatibilidade.
+
+> [!NOTE]
+> O DPS irá sempre chamar o webhook de atribuição personalizada, independentemente da política de realocamento, caso haja um novo [ReturnData](how-to-send-additional-data.md) para o dispositivo. Se a política de realocamento não for definida para nunca voltar a **ser re-provisivente,** o webhook será chamado, mas o dispositivo não alterará o seu hub designado.
 
 ### <a name="managing-backwards-compatibility"></a>Gerir a retrocompatibilidade
 

@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c748034145781f639da244b16e3df7053da3d5d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9412e2adeb9b43b4c61437fb41e68bc96b86afd
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489970"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481842"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Compreender as capacidades offline alargadas para dispositivos, módulos e dispositivos ioT Edge
 
@@ -70,7 +70,7 @@ Pode declarar a relação pai-filho ao criar um novo dispositivo. Ou para dispos
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Opção 2: Utilize a `az` ferramenta de linha de comando
 
-Utilizando a [interface de linha de comando Azure](/cli/azure/) com [extensão IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou mais recente), pode gerir as relações dos pais com as subcomeças de identidade do [dispositivo.](/cli/azure/ext/azure-iot/iot/hub/device-identity) O exemplo abaixo utiliza uma consulta para atribuir todos os dispositivos não-IoT Edge no centro para serem dispositivos infantis de um dispositivo IoT Edge.
+Utilizando a [interface de linha de comando Azure](/cli/azure/) com [extensão IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou mais recente), pode gerir as relações dos pais com as subcomeças de identidade do [dispositivo.](/cli/azure/iot/hub/device-identity/) O exemplo abaixo utiliza uma consulta para atribuir todos os dispositivos não-IoT Edge no centro para serem dispositivos infantis de um dispositivo IoT Edge.
 
 ```azurecli
 # Set IoT Edge parent device

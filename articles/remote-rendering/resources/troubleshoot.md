@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f0fb9ab5c53c3fd1bfb32ac7b112a116301cba7
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99593338"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575348"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -249,6 +249,39 @@ Superfícies coplanares podem ter uma série de causas diferentes:
 
 Em alguns casos, as aplicações nativas personalizadas C++ que utilizam um modo de renderização estéreo multi-pass para conteúdo local (renderização para o olho esquerdo e direito em passes separados) depois de ligar para [**o BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) podem desencadear um bug do condutor. O inseto resulta em falhas de rasterização não determinísticas, fazendo com que triângulos individuais ou partes de triângulos do conteúdo local desapareçam aleatoriamente. Por razões de desempenho, recomenda-se, de qualquer forma, tornar o conteúdo local com uma técnica de renderização estéreo de passe único mais moderna, por exemplo, utilizando **SV_RenderTargetArrayIndex**.
 
+## <a name="conversion-file-download-errors"></a>Erros de transferência de ficheiros de conversão
+
+O serviço De Conversão pode encontrar erros ao descarregar ficheiros do armazenamento de bolhas devido aos limites de comprimento do caminho impostos pelo Windows e pelo serviço. Os caminhos de arquivo e os nomes dos ficheiros no seu armazenamento de bolhas não devem exceder 178 caracteres. Por exemplo, dado um `blobPrefix` dos `models/Assets` quais são 13 caracteres:
+
+`models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
+
+O serviço Conversão descarregará todos os ficheiros especificados no `blobPrefix` e não apenas nos ficheiros utilizados na conversão. Os ficheiros/pasta que causam problemas podem ser menos óbvios nestes casos, pelo que é importante verificar tudo o que está contido na conta de armazenamento em `blobPrefix` . Veja as entradas de exemplo abaixo para saber o que é descarregado.
+``` json
+{
+  "settings": {
+    "inputLocation": {
+      "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
+      "blobPrefix": "models/Assets",
+      "relativeInputAssetPath": "myAsset.fbx"
+    ...
+  }
+}
+```
+
+```
+models
+├───Assets
+│   │   myAsset.fbx                 <- Asset
+│   │
+│   └───Textures
+│   |       myTexture.png           <- Used in conversion
+│   |
+|   └───MyFiles
+|          myOtherFile.txt          <- File also downloaded under blobPrefix      
+|           
+└───OtherFiles
+        myReallyLongFileName.txt    <- Ignores files not under blobPrefix             
+```
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Requisitos de sistema](../overview/system-requirements.md)

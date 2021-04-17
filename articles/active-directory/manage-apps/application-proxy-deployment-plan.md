@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 6da003612d98d107390c9f20a5172786c30665a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0a3653d2cc840d745b1bb5788406b8d374c76d0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709757"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533776"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear uma implementação do Proxy de Aplicações do Azure AD
 
@@ -292,7 +292,7 @@ A Azure AD fornece informações adicionais sobre o uso da aplicação da sua or
 
 #### <a name="application-audit-logs"></a>Registos de auditoria de aplicação
 
-Estes registos fornecem informações detalhadas sobre logins a aplicações configuradas com o Application Proxy e o dispositivo e o utilizador que acede à aplicação. [Os registos de auditoria](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) estão localizados no portal Azure e na [API de Auditoria](/graph/api/resources/directoryaudit?view=graph-rest-beta) para exportação. Além disso, [os relatórios de utilização e insights](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) também estão disponíveis para a sua aplicação.
+Estes registos fornecem informações detalhadas sobre logins a aplicações configuradas com o Application Proxy e o dispositivo e o utilizador que acede à aplicação. [Os registos de auditoria](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) estão localizados no portal Azure e na [API de Auditoria](/graph/api/resources/directoryaudit) para exportação. Além disso, [os relatórios de utilização e insights](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) também estão disponíveis para a sua aplicação.
 
 #### <a name="application-proxy-connector-monitoring"></a>Monitorização do conector de procuração de aplicação
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: b955c0f494b757fd29c400194ef8b11314a89a03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f941d81df670f017d24a7c5011c55fcc4f082605
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96483615"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531570"
 ---
 # <a name="things-to-consider-when-using-video-indexer-at-scale"></a>Coisas a ter em conta ao utilizar o Indexante de Vídeo em escala
 
@@ -45,7 +45,7 @@ Em segundo lugar, considere apenas alguns dos problemas que podem afetar o seu d
 
 :::image type="content" source="./media/considerations-when-use-at-scale/first-consideration.png" alt-text="Primeira consideração para a utilização do Indexante de Vídeo à escala":::
 
-Ao fazer o upload de vídeos usando URL, basta fornecer um caminho para a localização de um ficheiro de mídia e o Video Indexer cuida do resto (veja o `videoUrl` campo no upload de [vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload) API).
+Ao fazer o upload de vídeos usando URL, basta fornecer um caminho para a localização de um ficheiro de mídia e o Video Indexer cuida do resto (veja o `videoUrl` campo no upload de [vídeo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API).
 
 > [!TIP]
 > Utilize o `videoUrl` parâmetro opcional do upload de vídeo API.
@@ -58,7 +58,7 @@ Normalmente na prova de fase de conceito quando se começa a usar o Video Indexe
 
 Na Azure Media Services, quando pretende aumentar o poder de computação e a paralelização, é necessário prestar atenção às [unidades reservadas](../latest/concept-media-reserved-units.md)aos meios de comunicação social (RUs). As RUs são as unidades de cálculo que determinam os parâmetros para as suas tarefas de processamento de mídia. O número de RUs afeta o número de tarefas mediáticas que podem ser processadas simultaneamente em cada conta e o seu tipo determina a velocidade de processamento e um vídeo pode exigir mais do que um RU se a sua indexação for complexa. Quando as suas RUs estiverem ocupadas, novas tarefas serão realizadas em fila até que outro recurso esteja disponível.
 
-Para operar de forma eficiente e para evitar ter recursos que permanecem inativos parte do tempo, o Video Indexer oferece um sistema de escala automática que gira RUs para baixo quando é necessário menos processamento e gira RUs quando estiver em suas horas de ponta (até usar totalmente todos os seus RUs). Pode ativar esta funcionalidade [ligando o autoescalo](manage-account-connected-to-azure.md#autoscale-reserved-units) nas definições da conta ou utilizando a API de [Atualização-Conta-Azure-Media-Services](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
+Para operar de forma eficiente e para evitar ter recursos que permanecem inativos parte do tempo, o Video Indexer oferece um sistema de escala automática que gira RUs para baixo quando é necessário menos processamento e gira RUs quando estiver em suas horas de ponta (até usar totalmente todos os seus RUs). Pode ativar esta funcionalidade [ligando o autoescalo](manage-account-connected-to-azure.md#autoscale-reserved-units) nas definições da conta ou utilizando a API de [Atualização-Conta-Azure-Media-Services](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services).
 
 :::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="Segunda consideração para a utilização do Indexador de Vídeo à escala":::
 
@@ -76,7 +76,7 @@ O Video Indexer é construído para lidar com a indexação em escala, e quando 
 
 Recomendamos que, em vez de sondar constantemente o estado do seu pedido a partir do momento em que enviou o pedido de upload, possa adicionar um [URL de retorno](upload-index-videos.md#callbackurl)de chamadas e esperar que o Video Indexer o atualize. Assim que houver qualquer alteração de estado no seu pedido de upload, recebe uma notificação POST para o URL especificado.
 
-Pode adicionar um URL de retorno como um dos parâmetros da [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload)de vídeo de upload . Confira as amostras de código no [gitHub repo.](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/) 
+Pode adicionar um URL de retorno como um dos parâmetros da [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)de vídeo de upload . Confira as amostras de código no [gitHub repo.](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/) 
 
 Para o URL de retorno, também pode utilizar as Funções Azure, uma plataforma orientada para eventos sem servidor que pode ser ativada por HTTP e implementar um fluxo seguinte.
 

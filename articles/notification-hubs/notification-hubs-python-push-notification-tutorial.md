@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f964957b916c6841da097f93173b0306bb65c8a4
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92424841"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576028"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como utilizar os centros de notificação da Python
 
@@ -145,12 +145,12 @@ Primeiro, deixe-me usar definir uma classe que represente uma notificação.
 ```python
 class Notification:
     def __init__(self, notification_format=None, payload=None, debug=0):
-        valid_formats = ['template', 'apple', 'fcm',
+        valid_formats = ['template', 'apple', 'gcm',
                          'windows', 'windowsphone', "adm", "baidu"]
         if not any(x in notification_format for x in valid_formats):
             raise Exception(
                 "Invalid Notification format. " +
-                "Must be one of the following - 'template', 'apple', 'fcm', 'windows', 'windowsphone', 'adm', 'baidu'")
+                "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
 
         self.format = notification_format
         self.payload = payload
@@ -206,7 +206,7 @@ def make_http_request(self, url, payload, headers):
 def send_notification(self, notification, tag_or_tag_expression=None):
     url = self.Endpoint + self.HubName + '/messages' + self.API_VERSION
 
-    json_platforms = ['template', 'apple', 'fcm', 'adm', 'baidu']
+    json_platforms = ['template', 'apple', 'gcm', 'adm', 'baidu']
 
     if any(x in notification.format for x in json_platforms):
         content_type = "application/json"
@@ -242,8 +242,8 @@ def send_apple_notification(self, payload, tags=""):
     self.send_notification(nh, tags)
 
 
-def send_fcm_notification(self, payload, tags=""):
-    nh = Notification("fcm", payload)
+def send_google_notification(self, payload, tags=""):
+    nh = Notification("gcm", payload)
     self.send_notification(nh, tags)
 
 
@@ -342,13 +342,13 @@ hub.send_apple_notification(alert_payload)
 ### <a name="android"></a>Android
 
 ```python
-fcm_payload = {
+gcm_payload = {
     'data':
         {
             'msg': 'Hello!'
         }
 }
-hub.send_fcm_notification(fcm_payload)
+hub.send_google_notification(gcm_payload)
 ```
 
 ### <a name="kindle-fire"></a>Fogo de Kindle

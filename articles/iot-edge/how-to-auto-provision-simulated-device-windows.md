@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 11279c552cb599c24b72473d6574175450ca7ab0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82bd027773a5759caee19228f56ba4b3dfe8c2cf
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200855"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482012"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Criar e providenciar um dispositivo IoT Edge simulado com um TPM virtual no Windows
 
@@ -63,7 +63,7 @@ Escolha o idioma SDK que pretende utilizar para criar o dispositivo simulado e s
 Quando criar a inscrição individual, selecione **True** para declarar que o dispositivo TPM simulado na sua máquina de desenvolvimento Windows é um **dispositivo IoT Edge**.
 
 > [!TIP]
-> No CLI Azure, pode criar uma [inscrição](/cli/azure/ext/azure-iot/iot/dps/enrollment) ou um grupo de [inscrição](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e utilizar a bandeira ativada por **arestas** para especificar que um dispositivo, ou grupo de dispositivos, é um dispositivo IoT Edge.
+> No CLI Azure, pode criar uma [inscrição](/cli/azure/iot/dps/enrollment) ou um grupo de [inscrição](/cli/azure/iot/dps/enrollment-group) e utilizar a bandeira ativada por **arestas** para especificar que um dispositivo, ou grupo de dispositivos, é um dispositivo IoT Edge.
 
 Dispositivo simulado e guias individuais de inscrição:
 

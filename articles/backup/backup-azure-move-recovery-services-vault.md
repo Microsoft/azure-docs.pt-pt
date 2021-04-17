@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos Serviços de Recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4f75bec533181b29625fb0a10cc26d03f2875036
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49d6782af5a9c946eaf92147dab22e4605195d89
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466376"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514772"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -21,9 +21,9 @@ Todas as regiões públicas e regiões soberanas são apoiadas, exceto França C
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Pré-requisitos para a mudança do cofre dos Serviços de Recuperação
 
-- Durante a deslocação do cofre através de grupos de recursos, tanto os grupos de recursos de origem como os grupos de recursos-alvo estão bloqueados impedindo as operações de escrita e eliminação. Para mais informações, consulte este [artigo.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- Durante a deslocação do cofre através de grupos de recursos, tanto os grupos de recursos de origem como os grupos de recursos-alvo estão bloqueados impedindo as operações de escrita e eliminação. Para obter mais informações, veja [este](../azure-resource-manager/management/move-resource-group-and-subscription.md) artigo.
 - Só a subscrição de administrador tem as permissões para mover um cofre.
-- Para mover cofres através de subscrições, a subscrição-alvo deve residir no mesmo inquilino que a assinatura de origem e o seu estado deve ser ativado. Para mover um cofre para um diretório AD Azure diferente, consulte [a subscrição de Transfer para um](../role-based-access-control/transfer-subscription.md) cofre de dados e serviço de [recuperação diferente.](backup-azure-backup-faq.md#recovery-services-vault)
+- Para mover cofres através de subscrições, a subscrição-alvo deve residir no mesmo inquilino que a assinatura de origem e o seu estado deve ser ativado. Para mover um cofre para um diretório AD Azure diferente, consulte [a subscrição de Transfer para um](../role-based-access-control/transfer-subscription.md) cofre de dados e serviço de [recuperação diferente.](/backup-azure-backup-faq.yml#recovery-services-vault)
 - Tem de ter permissão para efetuar operações de escrita no grupo de recursos-alvo.
 - Mover o cofre só muda o grupo de recursos. O cofre dos Serviços de Recuperação vai residir no mesmo local e não pode ser alterado.
 - Só pode mover um cofre dos Serviços de Recuperação, por região, de cada vez.
@@ -31,7 +31,7 @@ Todas as regiões públicas e regiões soberanas são apoiadas, exceto França C
 - Quer o VM seja movido com o cofre ou não, pode sempre restaurar o VM do histórico de reserva retido no cofre.
 - A Encriptação do Disco Azure requer que o cofre-chave e vMs residam na mesma região de Azure e subscrição.
 - Para mover uma máquina virtual com discos geridos, consulte este [artigo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
-- As opções de movimentação de recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou a uma nova subscrição. Para mais informações, consulte este [artigo.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- As opções de movimentação de recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou a uma nova subscrição. Para obter mais informações, veja [este](../azure-resource-manager/management/move-resource-group-and-subscription.md) artigo.
 - As políticas de backup definidas para o cofre são mantidas após o cofre se mover através de subscrições ou para um novo grupo de recursos.
 - Só é possível mover um cofre que contenha qualquer um dos seguintes tipos de itens de reserva. Quaisquer itens de backup de tipos não listados abaixo terão de ser interrompidos e os dados permanentemente eliminados antes de mover o cofre.
   - Máquinas Virtuais do Microsoft Azure

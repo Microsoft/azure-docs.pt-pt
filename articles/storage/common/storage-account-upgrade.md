@@ -1,5 +1,5 @@
 ---
-title: Upgrade para uma conta de armazenamento v2 para fins gerais
+title: Atualizar para uma conta de armazenamento v2 para fins gerais
 titleSuffix: Azure Storage
 description: Atualize para contas de armazenamento v2 de uso do portal Azure, PowerShell ou do Azure CLI. Especifique um nível de acesso para dados blob.
 services: storage
@@ -8,15 +8,15 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: tamram
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 30c73849d07c1495251c17510ea71f29c674c618
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: d6d94efea52d920b8bfe69be2ee07c8b829792d8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967494"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484103"
 ---
-# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Upgrade para uma conta de armazenamento v2 para fins gerais
+# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento v2 para fins gerais
 
 As contas de armazenamento V2 de uso geral suportam as mais recentes funcionalidades de Armazenamento Azure e incorporam toda a funcionalidade das contas de armazenamento V1 e Blob para fins gerais. As contas v2 para fins gerais são recomendadas para a maioria dos cenários de armazenamento. As contas v2 de uso geral oferecem os preços mais baixos de capacidade por gigabyte para o Azure Storage, bem como os preços de transação competitivos da indústria. As contas v2 de uso geral suportam níveis de acesso por conta padrão de nível de nível quente ou frio e nível de bolha entre quente, fresco ou arquivo.
 

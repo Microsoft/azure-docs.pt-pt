@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ecf01838b8fe3104626f8ada5f832c3f52dc378
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466416"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515911"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -137,8 +137,8 @@ Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para se
 - Partilha de ficheiros Azure: Como [criar](./backup-afs.md) e [modificar](./manage-afs-backup.md#modify-policy) a política.
 - SAP HANA: Como [criar](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [modificar](./sap-hana-db-manage.md#change-policy) a política.
 - Como [criar](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) a política.
-- [Existem limitações no agendamento de backup com base no tipo de carga de trabalho?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
-- [O que acontecerá aos pontos de recuperação existentes se alterar a política de retenção?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+- [Existem limitações no agendamento de backup com base no tipo de carga de trabalho?](./backup-azure-backup-faq.yml#are-there-limits-on-backup-scheduling-)
+- [O que acontecerá aos pontos de recuperação existentes se alterar a política de retenção?](./backup-azure-backup-faq.yml#what-happens-when-i-change-my-backup-policy-)
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: Backup Azure VM incorporado
 

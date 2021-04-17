@@ -2,18 +2,20 @@
 title: Azure SignalR Service sem início de serviço - Python
 description: Um quickstart para usar o Serviço Azure SignalR e funções Azure para criar uma sala de chat usando Python.
 author: anthonychu
+ms.author: antchu
+ms.date: 12/14/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.topic: quickstart
-ms.date: 12/14/2019
-ms.author: antchu
-ms.custom: devx-track-python
-ms.openlocfilehash: 82a2e64d27fcbbb3801e6dab347343e086a0b70f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: a279c1ed16cac69932001146d4108cec19203e22
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048226"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536645"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Quickstart: Criar uma sala de chat com funções Azure e serviço SignalR usando Python
 
@@ -116,4 +118,3 @@ Neste arranque rápido, você construiu e executou uma aplicação sem servidor 
 
 > [!div class="nextstepaction"]
 > [Implementar as Funções do Azure com o VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
-

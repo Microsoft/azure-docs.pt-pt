@@ -3,12 +3,12 @@ title: Entrega segura da WebHook com Azure AD na grelha de eventos Azure
 description: Descreve como entregar eventos a pontos finais HTTPS protegidos pelo Azure Ative Directory usando a Azure Event Grid
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.openlocfilehash: 4238087d977fa1102d1dd31d0cc9080d6308c175
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 6a0f9059e17d96d497b425abc9749e69c5ab4d41
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389694"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575552"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos nos pontos finais protegidos do Azure Active Directory
 Este artigo descreve como utilizar o Azure Ative Directory (Azure AD) para garantir a ligação entre a **subscrição** do seu evento e o ponto final do seu **webhook**. Para obter uma visão geral das aplicações azure e principais serviços, consulte a [plataforma de identidade da Microsoft (v2.0).](../active-directory/develop/v2-overview.md)
@@ -49,9 +49,7 @@ $eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridApp
 if ($eventGridSP -match "Microsoft.EventGrid")
 {
     Write-Host "The Service principal is already defined.`n"
-}
-else
-{
+} else {
     # Create a service principal for the "Azure Event Grid" AAD Application and add it to the role
     Write-Host "Creating the Azure Event Grid service principal"
     $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
@@ -94,9 +92,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
-}
-else
-{      
+} else {      
     # Add our new role to the Azure AD Application
     Write-Host "Creating the Azure Event Grid role in Azure Ad Application: " $myWebhookAadApplicationObjectId
     $newRole = CreateAppRole -Name $eventGridRoleName -Description "Azure Event Grid Role"
@@ -154,7 +150,7 @@ Executar o comando New-AzureADServiceAppRoleAssignment para atribuir o principal
 
 ```powershell
 $eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId -PrincipalId $eventGridSP.ObjectId
+New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
 ```
 
 Execute os seguintes comandos para obter informações de saída que utilizará mais tarde.

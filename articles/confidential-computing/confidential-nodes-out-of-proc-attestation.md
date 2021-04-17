@@ -1,74 +1,79 @@
 ---
-title: Suporte fora de proc atestado com o ajudante de citação Intel SGX Daemonset em Azure (pré-visualização)
-description: DaemonSet para gerar a cotação fora do processo de aplicação SGX. Este artigo explica como a instalação de atestado fora de proc é rovided para cargas de trabalho confidenciais que correm dentro de um contentor.
+title: Suporte de atesta com o ajudante de citação da Intel SGX DaemonSet no Azure (pré-visualização)
+description: Um DaemonSet para gerar a cotação fora do processo de aplicação intel SGX. Este artigo explica como é fornecida a instalação de atestado fora de processo para cargas de trabalho confidenciais que funcionam dentro de um contentor.
 ms.service: container-service
 ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: 0ebeb96557b7e20d123577c0ab9c8fc392abbfba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 849fd7afa3f9365f31ee8e03d9f9cc2174d64304
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932638"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484409"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Gestão de software de plataforma com conjunto de ajudante de cotação SGX (pré-visualização)
+# <a name="platform-software-management-with-intel-sgx-quote-helper-daemonset-preview"></a>Gestão de software de plataforma com o ajudante de cotação DaemonSet da Intel SGX (pré-visualização)
 
-[As aplicações enclave que](confidential-computing-enclaves.md) executam o atestado remoto requer uma COTAÇÃO gerada. Esta CITAÇÃO fornece uma prova criptográfica da identidade e do estado da aplicação, bem como do ambiente que o enclave está a executar. A geração do QUOTE requer componentes de software fidedignos que fazem parte dos Componentes de Software de Plataforma da Intel (PSW).
+[As aplicações do enclave](confidential-computing-enclaves.md) que realizam atestado remoto requerem uma cotação gerada. Esta citação fornece uma prova criptográfica da identidade e do estado da aplicação, bem como o ambiente que o enclave está a executar. A geração da cotação requer componentes de software fidedignos que fazem parte dos Componentes de Software da Plataforma Intel (PSW).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
  
 A Intel suporta dois modos de atestado para executar a geração de citações:
-- **in-proc**: acolhe os componentes de software fidedignos dentro do processo de aplicação do enclave
 
-- **fora do proc**: hospeda os componentes de software fidedignos fora da aplicação do enclave.
+- *Em processo* acolhe os componentes de software fidedignos dentro do processo de aplicação do enclave.
+
+- *Fora do processo* acolhe os componentes de software fidedignos fora da aplicação do enclave.
  
-Aplicações SGX construídas usando Open Enclave SDK por padrão uso no modo de atestado in-proc. As aplicações baseadas em SGX permitem o out-of-proc e exigiriam um alojamento extra e exporia os componentes necessários, como o Architectural Enclave Service Manager (AESM), externo à aplicação.
+As aplicações Intel Software Guard Extension (Intel SGX) construídas utilizando o Open Enclave SDK utilizam o modo de atestação em processo, por padrão. As aplicações baseadas em Intel SGX permitem o modo de atestação fora de processo. Se quiser utilizar este modo, precisa de hospedagem extra e precisa de expor os componentes necessários, como o Architectural Enclave Service Manager (AESM), externo à aplicação.
 
-A utilização desta funcionalidade é **altamente recomendada**, uma vez que melhora o tempo de uptime para as suas aplicações do enclave durante as atualizações da Plataforma Intel ou atualizações do controlador DCAP.
+Esta funcionalidade melhora o tempo de atualização das suas aplicações do enclave durante as atualizações da plataforma Intel ou atualizações do controlador DCAP. Por esta razão, recomendamos a sua utilização.
 
-Para ativar esta funcionalidade no Cluster AKS, por favor, modifique o comando de adicionar --ativar o comando do CLI ao permitir o addon de computação confidencial. Instruções detalhadas do CLI estão [aqui:](confidential-nodes-aks-get-started.md) 
+Para ativar esta funcionalidade num cluster Azure Kubernetes Services (AKS), adicione o `--enable-sgxquotehelper` comando ao CLI Azure quando estiver a ativar o addon de computação confidencial. 
 
 ```azurecli-interactive
 # Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
 ```
 
-## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Porquê e quais são os benefícios de fora-de-proc?
+Para obter mais informações, consulte [Quickstart: Implemente um cluster AKS com nós de computação confidencial utilizando o Azure CLI](confidential-nodes-aks-get-started.md).
 
--   Não são necessárias atualizações para os componentes de geração de cotações de PSW para cada aplicação contentorizada: Com fora de proc, os proprietários de contentores não precisam de gerir atualizações dentro do seu contentor. Em vez disso, os proprietários de contentores contam com a interface fornecida pelo fornecedor que invoca o serviço centralizado fora do contentor, que será atualizado e gerido pelo prestador.
+## <a name="benefits-of-the-out-of-process-mode"></a>Benefícios do modo fora do processo
 
--   Não há necessidade de se preocupar com falhas no atestado devido a componentes de PSW desatualizados: A geração de citações envolve os componentes SW confiáveis - Enclave de Citação (QE) & Certificado de Provisionamento Enclave (PCE), que fazem parte da base de computação fidedigna (TCB). Estes componentes SW devem estar atualizados para manter os requisitos de atestado. Uma vez que o fornecedor gere as atualizações destes componentes, os clientes nunca terão de lidar com falhas de atestado devido a componentes SW fidedignos desatualizados dentro do seu contentor.
+A lista a seguir descreve alguns dos principais benefícios deste modo de atestado:
 
--   Melhor utilização da memória EPC No modo de atestado in-proc, cada aplicação de enclave precisa de instantanear a cópia de QE e PCE para atestado remoto. Com fora-de-proc, não há necessidade de o recipiente acolher esses enclaves, e assim não consome a memória do enclave da quota do contentor.
+-   Não são necessárias atualizações para os componentes de geração de cotações de PSW para cada aplicação contentorizada. Os proprietários de contentores não precisam de gerir atualizações dentro do seu contentor. Em vez disso, os proprietários de contentores confiam na interface do fornecedor que invoca o serviço centralizado fora do contentor. O fornecedor atualiza e gere o recipiente.
 
--   Salvaguardas contra a aplicação do Kernel Quando o condutor da SGX for transmitido para o kernel de Linux, haverá aplicação para que um enclave tenha maior privilégio. Este privilégio permite ao enclave invocar o PCE, que quebrará a aplicação do enclave em modo in-proc. Por defeito, os enclaves não obtêm esta permissão. Conceder este privilégio a uma aplicação de enclave requer alterações ao processo de instalação da aplicação. Isto é manuseado facilmente para um modelo fora de proc, uma vez que o prestador do serviço que trata de pedidos fora de proc irá certificar-se de que o serviço está instalado com este privilégio.
+-   Não precisas de te preocupar com falhas de atestado devido a componentes de PSW desatualizados. O fornecedor gere as atualizações destes componentes.
 
--   Não há necessidade de verificar a retrocompatibilidade com a PSW & DCAP. As atualizações aos componentes de geração de cotação de PSW são validadas para retrocompatibilidade pelo fornecedor antes da atualização. Isto ajudará a lidar com as questões de compatibilidade antecipadamente e abordá-las-á antes de implementar atualizações para cargas de trabalho confidenciais.
+-   O modo fora do processo proporciona uma melhor utilização da memória EPC do que o modo em processo. No modo em curso, cada aplicação do enclave precisa de instantaneamente a cópia de QE e PCE para atestado remoto. Em modo fora do processo, não há necessidade de o contentor acolher esses enclaves, e, portanto, não consome memória do enclave da quota do contentor.
 
-## <a name="how-does-the-out-of-proc-attestation-mode-work-for-confidential-workloads-scenario"></a>Como funciona o modo de atestado fora de proc para cenário de cargas de trabalho confidenciais?
+-   Quando você a montante do controlador Intel SGX para um kernel Linux, há uma aplicação para um enclave ter maior privilégio. Este privilégio permite ao enclave invocar o PCE, que quebrará a aplicação do enclave em modo de processo. Por defeito, os enclaves não obtêm esta permissão. Conceder este privilégio a uma aplicação de enclave requer alterações ao processo de instalação da aplicação. Em contrapartida, no modo fora de processo, o prestador do serviço que trata de pedidos fora do processo garante que o serviço é instalado com este privilégio.
 
-O design de alto nível segue o modelo onde o solicitador de cotação e geração de citações são executados separadamente, mas na mesma máquina física. A geração de citações será feita de forma centralizada e serve pedidos de CITAÇÕES de todas as entidades. A interface precisa de ser devidamente definida e detetável para qualquer entidade solicitar cotações.
+-   Não é preciso verificar a retrocompatibilidade com PSW e DCAP. As atualizações aos componentes de geração de cotação de PSW são validadas para retrocompatibilidade pelo fornecedor antes da atualização. Isto ajuda-o a lidar com problemas de compatibilidade antes de implementar atualizações para cargas de trabalho confidenciais.
 
-![sgx citação aesmo ajudante](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
+## <a name="confidential-workloads"></a>Cargas de trabalho confidenciais
 
-O modelo abstrato acima aplica-se ao cenário de carga de trabalho confidencial, tirando partido do serviço AESM já disponível. A AESM é contentorizada e implantada como um daemonSet através do cluster Kubernetes. Kubernetes garante uma única instância de um recipiente de serviço AESM, embrulhado num Pod, a ser implantado em cada nó de agente. O novo daemonset SGX Quote terá uma dependência do daemonset sgx-device-plugin, uma vez que o recipiente de serviço AESM solicitaria a memória EPC do plugin de dispositivo sgx para o lançamento de enclaves QE e PCE.
+O solicitador de citação e a geração de citações funcionam separadamente, mas na mesma máquina física. A geração de citações é centralizada e serve pedidos de cotações de todas as entidades. Para que qualquer entidade solicite cotações, a interface tem de ser devidamente definida e detetável.
 
-Cada recipiente tem de optar por utilizar a geração de citações fora de proc, definindo a variável ambiental **SGX_AESM_ADDR=1** durante a criação. O recipiente também deve incluir o pacote libsgx-quote-ex que é responsável por direcionar o pedido para a tomada de domínio Unix padrão
+![Diagrama mostrando as relações entre o solicitador de citações, geração de citações e interface.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
-Uma aplicação ainda pode usar o atestado in-proc como antes, mas tanto in-proc como fora-de-proc não podem ser usados simultaneamente dentro de uma aplicação. A infraestrutura fora de proc está disponível por defeito e consome recursos.
+Este modelo abstrato aplica-se ao cenário de carga de trabalho confidencial, aproveitando o serviço AESM que já está disponível. O AESM é contentorizado e implantado como Um DaemonSet através do cluster Kubernetes. Kubernetes garante uma única instância de um recipiente de serviço AESM, embrulhado numa vagem, a ser implantado em cada nó de agente. A nova citação da Intel SGX, a DaemonSet, terá uma dependência do daemonSet de plugin sgx-device, porque o contentor de serviço AESM solicita a memória EPC do plugin de dispositivos SGX para o lançamento de enclaves QE e PCE.
+
+Cada recipiente tem de optar por utilizar a geração de citações fora do processo, definindo a variável ambiental durante a `SGX_AESM_ADDR=1` criação. O recipiente também deve incluir a embalagem, libsgx-quote-ex, que é responsável por direcionar o pedido para a tomada de domínio Unix padrão.
+
+Uma aplicação ainda pode usar o atestado em processo como antes, mas em processo e fora de processo não pode ser usado simultaneamente dentro de uma aplicação. A infraestrutura fora do processo está disponível por padrão e consome recursos.
 
 ## <a name="sample-implementation"></a>Implementação da amostra
 
-O ficheiro estivador abaixo é uma amostra para uma aplicação baseada em Enclave Aberto. Desaprove a variável ambiente SGX_AESM_ADDR=1 no ficheiro do estivador ou por defini-la no ficheiro de implantação. Siga a amostra abaixo para obter detalhes de docker e de implementação yaml. 
+O ficheiro Docker que se segue é uma amostra para uma aplicação baseada no Open Enclave. Defina a `SGX_AESM_ADDR=1` variável ambiente no ficheiro Docker ou definindo-a no ficheiro de implantação. A amostra que se segue fornece detalhes para o ficheiro e implantação do Docker. 
 
   > [!Note] 
-  > O **libsgx-quote-ex** da Intel precisa de ser embalado no recipiente de aplicação para atestado fora de proc para funcionar corretamente.
+  > Para que o atestado fora do processo funcione corretamente, o libsgx-quote-ex da Intel precisa de ser embalado no recipiente de aplicação.
     
 ```yaml
-# Refer to Intel_SGX_Installation_Guide_Linux for detail
+# Refer to Intel_SGX_Installation_Guide_Linux for details
 FROM ubuntu:18.04 as sgx_base
 RUN apt-get update && apt-get install -y \
     wget \
@@ -95,12 +100,12 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /opt/openenclave/share/openenclave/samples/remote_attestation
 RUN . /opt/openenclave/share/openenclave/openenclaverc \
     && make build
-# this sets the flag for out of proc attestation mode. alternatively you can set this flag on the deployment files
+# This sets the flag for out-of-process attestation mode. Alternatively you can set this flag on the deployment files.
 ENV SGX_AESM_ADDR=1 
 
 CMD make run
 ```
-Alternativamente, o modo de atestado fora de proc pode ser definido no ficheiro yaml de implantação, como mostrado abaixo
+Em alternativa, pode definir o modo de atestado fora de processo no ficheiro .yaml de implementação. Eis como:
 
 ```yaml
 apiVersion: batch/v1
@@ -129,16 +134,10 @@ spec:
           path: /var/run/aesmd
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-[Provisiona nos nós confidenciais (Série DCsv2) em AKS](./confidential-nodes-aks-get-started.md)
+## <a name="next-steps"></a>Passos seguintes
+
+[Quickstart: Implementar um cluster AKS com nódoas de computação confidencial utilizando o Azure CLI](./confidential-nodes-aks-get-started.md)
 
 [Amostras de arranque rápido recipientes confidenciais](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Lista DCsv2 SKU](../virtual-machines/dcv2-series.md)
-
-<!-- LINKS - external -->
-[Azure Attestation]: ../attestation/index.yml
-
-
-<!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[DCsv2 SKUs](../virtual-machines/dcv2-series.md)

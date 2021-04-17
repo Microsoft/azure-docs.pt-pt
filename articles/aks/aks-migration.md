@@ -4,13 +4,13 @@ description: Migrar para o Serviço Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.custom: mvc
-ms.openlocfilehash: d5e3543fd6b7cd1b5534d6e363e51f1778cc7fc9
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 7856b2b0668eca7a172b738a7eeea640e466f003
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012132"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483117"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o Serviço Azure Kubernetes (AKS)
 

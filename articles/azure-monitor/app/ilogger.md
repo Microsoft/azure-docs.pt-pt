@@ -4,12 +4,12 @@ description: Amostras de utilização do fornecedor Azure Application Insights I
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: e7d0bd6f7d93eac944e0d53a8e898463bf9887f9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a4781e3f0208d355c06df506bab3b0a3dd457078
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592273"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568595"
 ---
 # <a name="applicationinsightsloggerprovider-for-microsoftextensionlogging"></a>ApplicationInsightsLoggerProvider para Microsoft.Extension.Logging
 
@@ -494,6 +494,9 @@ Este código só é necessário quando utilizar um fornecedor de registo autóno
        }
    }
    ```
+
+> [!IMPORTANT]
+> As novas regiões de Azure **requerem** a utilização de cordas de ligação em vez de teclas de instrumentação. [A cadeia de ligação](./sdk-connection-string.md?tabs=net) identifica o recurso com o que pretende associar os seus dados de telemetria. Também permite modificar os pontos finais que o seu recurso utilizará como destino para a sua telemetria. Terá de copiar o fio de ligação e adicioná-lo ao código da sua aplicação ou a uma variável ambiental.
 
 ## <a name="next-steps"></a>Passos seguintes
 

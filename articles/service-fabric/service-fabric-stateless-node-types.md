@@ -3,14 +3,14 @@ title: Implementar tipos de nó de nó apátrida num cluster de tecido de servi�
 description: Aprenda a criar e implementar tipos de nódoaço apátrida no cluster Azure Service Fabric.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 04/16/2021
 ms.author: pepogors
-ms.openlocfilehash: 74680f7b56ad98851e2839b53c1f9e92b6c6c23a
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 68c617b6e9345910bfd913e61e227a8e6c401bbc
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030018"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576045"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types"></a>Implementar um cluster de tecido de serviço Azure com tipos de nó apenas apátridas
 Os tipos de nó de tecido de serviço vêm com a presunção inerente de que em algum momento, os serviços estatais podem ser colocados nos nós. Os tipos de nó apátrida relaxam esta suposição para um tipo de nó, permitindo assim que o tipo de nó utilize outras funcionalidades, tais como operações de escala mais rápida, suporte para upgrades automáticos de SO na durabilidade de Bronze e escala para mais de 100 nós num único conjunto de escala de máquina virtual.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: deb02c161dfe41bf79b7905fde23678425aaf55f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c5c596735ad91f38d5ba4217135a9373d2856182
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448377"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538464"
 ---
 # <a name="msix-app-attach-glossary"></a>App MSIX anexa glossário
 
@@ -33,7 +33,7 @@ Um pacote MSIX é um ficheiro ou aplicação MSIX.
 
 ## <a name="msix-share"></a>Partilha da MSIX
 
-Uma participação da MSIX é uma partilha de rede que detém pacotes MSIX expandidos. As ações da MSIX suportam sMB 3 ou mais tarde. As aplicações são encenadas a partir desta partilha msix sem ter que mover ficheiros de aplicações para a unidade do sistema.
+Uma participação da MSIX é uma partilha de rede que detém pacotes MSIX expandidos. As ações da MSIX devem apoiar a SMB 3 ou mais tarde. As ações também devem estar acessíveis às Máquinas Virtuais (VM) na conta do sistema de piscinas hospedeiras. Os pacotes MSIX são encenados a partir da partilha MSIX sem ter que mover ficheiros de aplicações para a unidade do sistema. 
 
 ## <a name="msix-image"></a>Imagem MSIX
 

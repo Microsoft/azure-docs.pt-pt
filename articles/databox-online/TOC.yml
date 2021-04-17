@@ -242,8 +242,10 @@
               href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
             - name: Criar uma imagem de VM
               href: azure-stack-edge-gpu-create-virtual-machine-image.md
-            - name: Use imagem generalizada do Windows
+            - name: Preparar imagem generalizada do Windows a partir de VHD
               href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
+            - name: Preparar imagem generalizada usando ISO
+              href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
             - name: Use imagem especializada do Windows
               href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
             - name: 'Tamanhos de VM suportados, tipos'

@@ -12,16 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e9983c265fcc032908424f747066f8f348771f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32a931fe43b6be406f0b2a4b8193c1631261f7e5
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87909826"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575671"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceda permissões a utilizadores de organizações parceiras no seu inquilino Azure Ative Directory
 
 Os utilizadores de colaboração B2B do Azure Ative Directory (Azure AD) são adicionados como utilizadores convidados ao diretório, e as permissões dos hóspedes no diretório são restritas por padrão. O seu negócio pode precisar de alguns utilizadores convidados para preencher funções de maior privilégio na sua organização. Para apoiar a definição de papéis de maior privilégio, os utilizadores convidados podem ser adicionados a quaisquer funções que desejem, com base nas necessidades da sua organização.
+
+Se um papel de diretório for atribuído a um utilizador convidado, o utilizador convidado será concedido com permissões adicionais que venham com o papel, incluindo permissões básicas de leitura. Ver [funções incorporadas a Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
 
 ## <a name="default-role"></a>Papel predefinido
 

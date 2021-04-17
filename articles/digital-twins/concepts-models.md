@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d3570a22fdd935237e673ea3e43ab5e463b66456
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8942262c2e02670d57b1db324eb154dcc38f00f8
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590539"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575399"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Noções básicas de modelos de um duplo digital do Azure Digital Twins
 
@@ -32,10 +32,18 @@ A DTDL tem como base JSON-LD e é independente de linguagens de programação. O
 
 O resto deste artigo resume como a linguagem é usada em Azure Digital Twins.
 
-> [!NOTE] 
-> Nem todos os serviços que utilizam o DTDL implementam exatamente as mesmas funcionalidades do DTDL. Por exemplo, o IoT Plug and Play não utiliza as funcionalidades DTDL que são para gráficos, enquanto a Azure Digital Twins não implementa atualmente comandos DTDL.
->
-> Para obter mais informações sobre as funcionalidades DTDL específicas da Azure Digital Twins, consulte a secção mais tarde neste artigo sobre [as especificações de implementação do DTDL das Gémeas Digitais Azure.](#azure-digital-twins-dtdl-implementation-specifics)
+### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Especificidades de implementação do Azure Digital Twins DTDL
+
+Nem todos os serviços que utilizam o DTDL implementam exatamente as mesmas funcionalidades do DTDL. Por exemplo, o IoT Plug and Play não utiliza as funcionalidades DTDL que são para gráficos, enquanto a Azure Digital Twins não implementa atualmente comandos DTDL. 
+
+Para que um modelo DTDL seja compatível com a Azure Digital Twins, deve satisfazer estes requisitos:
+
+* Todos os elementos DTDL de nível superior num modelo devem ser de *interface* tipo . Isto porque o modelo Azure Digital Twins APIs pode receber objetos JSON que representam uma interface ou um conjunto de interfaces. Como resultado, nenhum outro tipo de elemento DTDL é permitido no nível superior.
+* O DTDL para Azure Digital Twins não deve definir quaisquer *comandos*.
+* O Azure Digital Twins só permite um único nível de nidificação de componentes. Isto significa que uma interface que está a ser usada como um componente não pode ter nenhum componente em si. 
+* As interfaces não podem ser definidas em linha dentro de outras interfaces DTDL; devem ser definidas como entidades de alto nível separadas com as suas próprias identificações. Então, quando outra interface quiser incluir essa interface como componente ou através de herança, pode referenciar o seu ID.
+
+A Azure Digital Twins também não observa o `writable` atributo sobre propriedades ou relacionamentos. Embora isto possa ser definido de acordo com as especificações de DTDL, o valor não é usado pela Azure Digital Twins. Em vez disso, estes são sempre tratados como writable por clientes externos que têm permissões de escrita geral para o serviço Azure Digital Twins.
 
 ## <a name="elements-of-a-model"></a>Elementos de um modelo
 
@@ -73,20 +81,36 @@ A telemetria e as propriedades muitas vezes trabalham em conjunto para lidar com
 
 Também pode publicar um evento de telemetria da Azure Digital Twins API. Tal como acontece com outras telemetrias, este é um evento de curta duração que requer um ouvinte a manusear.
 
-### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Especificidades de implementação do Azure Digital Twins DTDL
+## <a name="model-inheritance"></a>Herança modelo
 
-Para que um modelo DTDL seja compatível com a Azure Digital Twins, deve satisfazer estes requisitos.
+Às vezes, talvez queiras especializar um modelo. Por exemplo, pode ser útil ter um modelo genérico *Room,* e variantes especializadas *ConferenceRoom* e *Gym.* Para expressar a especialização, o DTDL suporta a herança: as interfaces podem herdar de uma ou mais outras interfaces. 
 
-* Todos os elementos DTDL de nível superior num modelo devem ser de *interface* tipo . Isto porque o modelo Azure Digital Twins APIs pode receber objetos JSON que representam uma interface ou um conjunto de interfaces. Como resultado, nenhum outro tipo de elemento DTDL é permitido no nível superior.
-* O DTDL para Azure Digital Twins não deve definir quaisquer *comandos*.
-* O Azure Digital Twins só permite um único nível de nidificação de componentes. Isto significa que uma interface que está a ser usada como um componente não pode ter nenhum componente em si. 
-* As interfaces não podem ser definidas em linha dentro de outras interfaces DTDL; devem ser definidas como entidades de alto nível separadas com as suas próprias identificações. Então, quando outra interface quiser incluir essa interface como componente ou através de herança, pode referenciar o seu ID.
+O exemplo a seguir reimagina o modelo *Planet* do exemplo DTDL anterior como um subtipo de um modelo *CelestialBody* maior. O modelo "pai" é definido primeiro, e depois o modelo "criança" baseia-se nele utilizando o campo `extends` .
 
-A Azure Digital Twins também não observa o `writable` atributo sobre propriedades ou relacionamentos. Embora isto possa ser definido de acordo com as especificações de DTDL, o valor não é usado pela Azure Digital Twins. Em vez disso, estes são sempre tratados como writable por clientes externos que têm permissões de escrita geral para o serviço Azure Digital Twins.
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
-## <a name="example-model-code"></a>Código modelo exemplo
+Neste exemplo, *a CelestialBody* contribui com um nome, uma massa e uma temperatura para o *Planeta.* A `extends` secção é um nome de interface, ou um conjunto de nomes de interface (permitindo que a interface de extensão herde de vários modelos-mãe, se desejar).
+
+Uma vez aplicada a herança, a interface de extensão expõe todas as propriedades de toda a cadeia de heranças.
+
+A interface de extensão não pode alterar nenhuma das definições das interfaces-mãe; só pode adicioná-los. Também não pode redefinir uma capacidade já definida em nenhuma das suas interfaces-mãe (mesmo que as capacidades sejam definidas como as mesmas). Por exemplo, se uma interface-mãe define uma `double` *massa* de propriedade, a interface de extensão não pode conter uma declaração de *massa*, mesmo que seja também uma `double` .
+
+## <a name="model-code"></a>Código modelo
 
 Modelos de tipo gémeo podem ser escritos em qualquer editor de texto. A língua DTDL segue a sintaxe JSON, pelo que deve armazenar modelos com a extensão *.json*. A utilização da extensão JSON permitirá que muitos editores de texto de programação forneçam a verificação e a realce básicas de sintaxe para os seus documentos DTDL. Há também uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Código de Estúdio Visual](https://code.visualstudio.com/).
+
+### <a name="possible-schemas"></a>Possíveis esquemas
+
+De acordo com o DTDL, o esquema para atributos *de propriedade* e *telemetria* pode ser de tipos `integer` primitivos padrão, e `double` `string` `Boolean` outros tipos como `DateTime` e `Duration` . 
+
+Além de tipos primitivos, os campos *de propriedade* e *telemetria* podem ter estes tipos complexos:
+* `Object`
+* `Map`
+* `Enum`
+
+Os campos *de telemetria* também suportam. `Array`
+
+### <a name="example-model"></a>Modelo de exemplo
 
 Esta secção contém um exemplo de um modelo típico, escrito como uma interface DTDL. O modelo descreve **planetas,** cada um com um nome, uma massa e uma temperatura.
  
@@ -106,31 +130,6 @@ Os campos do modelo são:
 
 > [!NOTE]
 > Note que a interface do componente *(Cratera* neste exemplo) é definida na mesma matriz que a interface que a utiliza (*Planeta).* Os componentes devem ser definidos desta forma nas chamadas API para que a interface seja encontrada.
-
-### <a name="possible-schemas"></a>Possíveis esquemas
-
-De acordo com o DTDL, o esquema para atributos *de propriedade* e *telemetria* pode ser de tipos `integer` primitivos padrão, e `double` `string` `Boolean` outros tipos como `DateTime` e `Duration` . 
-
-Além de tipos primitivos, os campos *de propriedade* e *telemetria* podem ter estes tipos complexos:
-* `Object`
-* `Map`
-* `Enum`
-
-Os campos *de telemetria* também suportam. `Array`
-
-### <a name="model-inheritance"></a>Herança modelo
-
-Às vezes, talvez queiras especializar um modelo. Por exemplo, pode ser útil ter um modelo genérico *Room,* e variantes especializadas *ConferenceRoom* e *Gym.* Para expressar a especialização, o DTDL suporta a herança: as interfaces podem herdar de uma ou mais outras interfaces. 
-
-O exemplo a seguir reimagina o modelo *Planet* do exemplo DTDL anterior como um subtipo de um modelo *CelestialBody* maior. O modelo "pai" é definido primeiro, e depois o modelo "criança" baseia-se nele utilizando o campo `extends` .
-
-:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
-
-Neste exemplo, *a CelestialBody* contribui com um nome, uma massa e uma temperatura para o *Planeta.* A `extends` secção é um nome de interface, ou um conjunto de nomes de interface (permitindo que a interface de extensão herde de vários modelos-mãe, se desejar).
-
-Uma vez aplicada a herança, a interface de extensão expõe todas as propriedades de toda a cadeia de heranças.
-
-A interface de extensão não pode alterar nenhuma das definições das interfaces-mãe; só pode adicioná-los. Também não pode redefinir uma capacidade já definida em nenhuma das suas interfaces-mãe (mesmo que as capacidades sejam definidas como as mesmas). Por exemplo, se uma interface-mãe define uma `double` *massa* de propriedade, a interface de extensão não pode conter uma declaração de *massa*, mesmo que seja também uma `double` .
 
 ## <a name="best-practices-for-designing-models"></a>Melhores práticas para desenhar modelos
 

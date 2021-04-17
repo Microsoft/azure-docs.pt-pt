@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26c56940e95fe32b709aa01fbaa9e567e797197
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: f67bc46b4f612d3d2f377070d5d8280512e0e3df
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074544"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576368"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -59,6 +59,12 @@ Por favor, siga este link para ler mais sobre [atualização automática](how-to
 
 ## <a name="1640"></a>1.6.4.0
 
+>[!NOTE]
+> A Azure AD Connect Sync V2 endpoint API já está disponível nestes ambientes Azure:
+> - Comercial Azure
+> - Nuvem de Azure China
+> - Nuvem do Governo dos EUA Azure Não será disponibilizada na nuvem alemã de Azure
+
 ### <a name="release-status"></a>Estado de lançamento
 3/31/2021: Lançado apenas para download, não disponível para upgrade automático
 
@@ -73,7 +79,7 @@ Por favor, siga este link para ler mais sobre [atualização automática](how-to
 >[!NOTE]
 > - Esta versão será disponibilizada apenas para download.
 > - A atualização para esta versão requer uma sincronização completa devido a alterações de regras de sincronização.
-> - Esta versão predefine o servidor AADConnect para o novo ponto final V2. Note que este ponto final não é suportado na nuvem nacional alemã, na nuvem nacional chinesa e na nuvem do governo dos EUA e se precisar de implementar esta versão nestas [nuvens,](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) precisa seguir estas instruções para voltar ao ponto final V1. Se não o fizer, resultará em erros de sincronização.
+> - Esta versão predefine o servidor AADConnect para o novo ponto final V2. Note que este ponto final não é suportado na nuvem nacional alemã e se precisar de implementar esta versão neste ambiente, tem de seguir [estas instruções](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) para voltar ao ponto final V1. Se não o fizer, resultará em erros de sincronização.
 
 ### <a name="release-status"></a>Estado de lançamento
 3/19/2021: Lançado para download, não disponível para upgrade automático

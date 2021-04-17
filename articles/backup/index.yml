@@ -9,12 +9,12 @@ metadata:
   author: v-amallick
   ms.author: v-amallick
   ms.date: 12/01/2019
-  ms.openlocfilehash: 0ad0f1aec1ce4e0718952d82d08672df42924f51
-  ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+  ms.openlocfilehash: bb23dc8b692bfbbad6d44fb0dc78929da4485b63
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/04/2021
-  ms.locfileid: "106293622"
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "107518992"
 landingContent:
 - title: Saiba mais sobre o Azure Backup
   linkLists:
@@ -95,7 +95,7 @@ landingContent:
     - text: Back up Azure Managed Disks
       url: backup-managed-disks.md
     - text: FAQ - Discos Geridos Azure
-      url: disk-backup-faq.md
+      url: disk-backup-faq.yml
     - text: Resolução de problemas Azure Managed Disks backup
       url: disk-backup-troubleshoot.md
 - title: Fazer a cópia de segurança das VMs do SQL Server no Azure
@@ -105,7 +105,7 @@ landingContent:
     - text: Acerca da cópia de segurança das VMs do SQL Server no Azure
       url: backup-azure-sql-database.md
     - text: FAQ - Cópia de segurança das VMs do SQL Server no Azure
-      url: faq-backup-sql-server.md
+      url: faq-backup-sql-server.yml
     - text: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
       url: backup-sql-server-database-azure-vms.md
     - text: Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
@@ -119,7 +119,7 @@ landingContent:
     - text: Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
       url: sap-hana-db-manage.md
     - text: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do Azure
-      url: sap-hana-faq-backup-azure-vm.md
+      url: sap-hana-faq-backup-azure-vm.yml
     - text: Matriz de suporte da cópia de segurança de bases de dados SAP HANA nas VMs do Azure
       url: sap-hana-backup-support-matrix.md
 - title: Fazer a cópia de segurança das partilhas dos Ficheiros do Azure
@@ -129,7 +129,7 @@ landingContent:
     - text: Criar cópias de segurança e restaurar partilhas de ficheiros do Azure
       url: backup-afs.md
     - text: FAQ - Fazer a cópia de segurança de Ficheiros do Azure
-      url: backup-azure-files-faq.md
+      url: backup-azure-files-faq.yml
 - title: Fazer a cópia de segurança com o agente dos Serviços de Recuperação do Microsoft Azure (MARS)
   linkLists:
   - linkListType: concept
@@ -141,7 +141,7 @@ landingContent:
     - text: Matriz de suporte do agente MARS
       url: backup-support-matrix-mars-agent.md
     - text: FAQ - Agente MARS
-      url: backup-azure-file-folder-backup-faq.md
+      url: backup-azure-file-folder-backup-faq.yml
 - title: Fazer a cópia de segurança com o Microsoft Azure Backup Server (MABS) e o DPM
   linkLists:
   - linkListType: concept
@@ -151,7 +151,7 @@ landingContent:
     - text: Matriz de suporte do MABS/DPM
       url: backup-support-matrix-mabs-dpm.md
     - text: FAQ - MABS e DPM
-      url: backup-azure-dpm-azure-server-faq.md
+      url: backup-azure-dpm-azure-server-faq.yml
     - text: Instalar e atualizar o MABS
       url: backup-azure-microsoft-azure-backup.md
 - title: Gerir em escala
