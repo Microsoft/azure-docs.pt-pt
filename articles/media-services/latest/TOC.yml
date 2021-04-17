@@ -243,8 +243,6 @@
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: 'Paginar, filtrar e ordenar entidades'
           href: filter-order-page-entitites-how-to.md
-        - name: RBAC do Azure
-          href: security-rbac-concept.md
         - name: Códigos de erro
           items:
             - name: Códigos de erro do ponto final de transmissão em fluxo
@@ -443,8 +441,18 @@
           href: asset-publish-cli-how-to.md
     - name: Segurança
       items:
+        - name: RBAC do Azure
+          href: security-rbac-concept.md
         - name: Chaves de acesso ao armazenamento de rolo
           href: security-storage-roll-access-keys-how-to.md
+        - name: Ativar o armazenamento fidedigno
+          href: security-trusted-storage-rest-tutorial.md
+        - name: Fichas de autenticação Azure Media PlayerPass
+          href: security-pass-authentication-tokens-how-to.md
+        - name: Ativar o armazenamento fidedigno
+          href: security-trusted-storage-rest-tutorial.md
+        - name: Chaves geridas pelo cliente com API REST
+          href: security-customer-managed-keys-rest-postman-tutorial.md
     - name: Utilizar leitores de multimédia
       items:
         - name: Configuração completa do Leitor de Multimédia do Azure

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2bbd7e39ee65ba304ec62697b6fcc77bea133b41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87e3490711990944e017d2d463090f3c8697956c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94737257"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484233"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Criar um gateway VPN baseado em rotas usando CLI
 
@@ -74,7 +74,7 @@ az network public-ip create \
 
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Criar o gateway de VPN
 
-Crie o gateway de VPN com o comando [az network vnet-gateway create](/cli/azure/group).
+Crie o gateway de VPN com o comando [az network vnet-gateway create](/cli/azure/network/vnet-gateway).
 
 Se executar este comando utilizando o `--no-wait` parâmetro, não vê qualquer feedback ou saída. O `--no-wait` parâmetro permite que o portal seja criado em segundo plano. Não significa que o portal VPN seja criado imediatamente.
 

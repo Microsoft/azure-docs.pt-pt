@@ -8,16 +8,14 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 90fc1385afb2ef921828465ba030674281e96ebf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f65614de97e8ff6eed732e624ae30c3f2b70bd60
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99833852"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589011"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Quickstart: Configurar regras e ações para o seu dispositivo no Azure IoT Central
-
-*Este artigo aplica-se a operadores, construtores e administradores.*
 
 Neste arranque rápido, cria-se uma regra que envia um e-mail quando a humidade reportada por um sensor de dispositivos ultrapassa os 55%.
 
@@ -70,10 +68,6 @@ Pouco tempo depois de guardar a regra, esta é ativada. Quando as condições de
 
 > [!NOTE]
 > Depois de o seu teste estar concluído, desligue a regra para deixar de receber alertas na sua caixa de entrada.
-
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

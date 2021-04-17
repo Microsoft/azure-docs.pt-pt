@@ -7,13 +7,13 @@ ms.service: app-service
 ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.custom: include file
-ms.openlocfilehash: c00aa8d83c3ef69e4804822b5527c6faa64d4c8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: f49b0198b0365b9c2d83ad1f08059b4812f9d423
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244613"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107511617"
 ---
 Crie uma [aplicação web](../articles/app-service/overview.md#app-service-on-linux) no `myAppServicePlan` plano de Serviço de Aplicações. 
 
@@ -44,7 +44,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
 }
 </pre>
 
-Criou uma aplicação Web vazia, com a implementação de git ativada.
+O Youâ€™ criou uma aplicação web vazia, com implementação de git ativada.
 
 > [!NOTE]
 > O URL do Git remoto é apresentado na propriedade `deploymentLocalGitUrl`, com o formato `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Guarde este URL, uma vez que vai precisar dele mais tarde.

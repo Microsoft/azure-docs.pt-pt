@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 3da4f8f946b11985d93be35fa2748e7f25015a71
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 98866a4f06df0380d52d1aee3eede8aa2f70aaed
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107564555"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588139"
 ---
 O Azure Instance Metadata Service (IMDS) fornece informações sobre casos de máquinas virtuais atualmente em execução. Pode usá-lo para gerir e configurar as suas máquinas virtuais.
 Esta informação inclui o SKU, armazenamento, configurações de rede e eventos de manutenção futuros. Para obter uma lista completa dos dados disponíveis, consulte o Resumo das [Categorias endpoint](#endpoint-categories).
@@ -333,7 +333,7 @@ Desagregação do esquema:
 | Dados | Description | Versão introduzida |
 |------|-------------|--------------------|
 | `azEnvironment` | Ambiente azul onde o VM está em execução | 2018-10-01
-| `customData` | Esta funcionalidade é depreciada e desativada. Foi substituído por `userData` | 2019-02-01
+| `customData` | Esta funcionalidade é prevadida e desativada [em IMDS](#frequently-asked-questions). Foi substituído por `userData` | 2019-02-01
 | `evictionPolicy` | Define como um [Spot VM](../articles/virtual-machines/spot-vms.md) será despejado. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Identifica se o VM funciona na Camada de Compatibilidade do Anfitrião | 2020-06-01
 | `licenseType` | Tipo de licença para [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Isto só está presente para VMs ativados por AHB | 2020-09-01

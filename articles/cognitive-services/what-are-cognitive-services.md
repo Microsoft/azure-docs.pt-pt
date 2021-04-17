@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 71f8635d1cd96a6436cfc902622bf18bc608a143
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c89131cc34d45ea94f3bb290ac11ec86f4b83be3
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867190"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587617"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos Azure?
 
@@ -43,7 +43,7 @@ As seguintes secções deste artigo fornecem uma lista de serviços que fazem pa
 |[Serviço de Imagem Personalizada](./custom-vision-service/index.yml "Serviço de Imagem Personalizada")|O Serviço de Visão Personalizada permite-lhe construir, implementar e melhorar os seus próprios classificadores de imagem. Um classificador de imagem é um serviço de IA que aplica rótulos a imagens, com base nas suas características visuais. |
 |[Face](./face/index.yml "Rostos")| O serviço Face fornece acesso a algoritmos faciais avançados, permitindo a deteção e reconhecimento de atributos faciais. Consulte [o "Face quickstart"](./face/quickstarts/client-libraries.md) para começar com o serviço.|
 |[Reconhecedor de Formato](./form-recognizer/index.yml "Reconhecedor de Formato")|O Reconhecimento de Formulários identifica e extrai pares de valores-chave e dados de tabela a partir de documentos de formulário; em seguida, produz dados estruturados, incluindo as relações no ficheiro original. Consulte [o arranque rápido do Form Recogniser](./form-recognizer/quickstarts/client-library.md) para começar.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|O Indexer de Vídeo permite-lhe extrair informações do seu vídeo. Consulte [o video indexer quickstart](/media-services/video-indexer/video-indexer-get-started.md) para começar.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|O Indexer de Vídeo permite-lhe extrair informações do seu vídeo. Consulte [o video indexer quickstart](/azure/media-services/video-indexer/video-indexer-get-started) para começar.|
 
 ## <a name="speech-apis"></a>APIs de fala
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ba75e11a067a257c659f8c659f68bb2bba6fa2e0
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: fac2eb75d210a34f4c5cd50c4649921aadfcd5ee
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012093"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588501"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -108,6 +108,7 @@ Pode fazer referência a lançamentos e depreciações da próxima versão no [c
 
 Para novas **versões menores** de Kubernetes:
   * A AKS publica um pré-anúncio com a data prevista de um lançamento de nova versão e respetiva depreciação da versão antiga nas notas de lançamento da [AKS](https://aka.ms/aks/releasenotes) pelo menos 30 dias antes da remoção.
+  * A AKS usa [o Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) para alertar os utilizadores se uma nova versão causar problemas no seu cluster devido às APIs precídas. O Azure Advisor também é utilizado para alertar o utilizador se atualmente estiverem sem suporte.
   * A AKS publica uma [notificação de saúde](../service-health/service-health-overview.md) de serviço disponível para todos os utilizadores com acesso a AKS e portal, e envia um e-mail aos administradores de subscrição com as datas de remoção da versão planeadas.
 
     ````
@@ -142,16 +143,18 @@ Para a história do lançamento passado, consulte [Kubernetes.](https://en.wikip
 
 |  Versão K8s | Libertação a montante  | Pré-visualização da AKS  | AKS GA  | Fim da vida |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | Dez-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | Maio de 2020   | Agosto 2020  | 1.21 GA | 
 | 1.19  | Ago-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dez-08-20  | jan 2021   | Mar 2021  | 1.23 GA |
-| 1.21  | Abr-08-21* | Maio de 2021   | Jun 2021  | 1.24 GA |
+| 1.21  | Abr-08-21 | Maio de 2021   | Jun 2021  | 1.24 GA |
 
-\* A versão Kubernetes 1.21 Upstream está sujeita a alterações, uma vez que o calender upstream ainda está por finalizar.
 
 
 ## <a name="faq"></a>FAQ
+
+**Como é que a Microsoft me notifica das novas versões Kubernetes?**
+
+A equipa da AKS publica pré-anúncios com datas planeadas das novas versões Kubernetes na nossa documentação, o nosso [GitHub,](https://github.com/Azure/AKS/releases) bem como e-mails para administradores de subscrição que possuem clusters que vão ficar sem suporte.  Além dos anúncios, a AKS também utiliza [o Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) para notificar o cliente dentro do Portal Azure para alertar os utilizadores se estiverem fora de suporte, bem como alertá-los de APIs precítadas que afetarão a sua aplicação ou processo de desenvolvimento. 
 
 **Quantas vezes devo esperar atualizar as versões de Kubernetes para me manter no suporte?**
 

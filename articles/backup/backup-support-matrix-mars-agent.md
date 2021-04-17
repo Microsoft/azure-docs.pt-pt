@@ -1,14 +1,14 @@
 ---
 title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte de backup do Azure quando faz cópias de segurança que estão a executar o agente Microsoft Azure Recovery Services (MARS).
-ms.date: 08/30/2019
+ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20bca0e9ca9dfd735501e68bd0e5a6d69d2ef68e
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98985619"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576504"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente Microsoft Azure Recovery Services (MARS)
 
@@ -234,6 +234,29 @@ A cópia de segurança offline não pode ser usada para ficheiros do estado do s
 Ao utilizar a funcionalidade [de Restauro Instantâneo](backup-instant-restore-capability.md) da Cópia de Segurança Azure, pode restaurar os dados antes de serem copiados para o cofre. A máquina que está a apoiar deve estar a funcionar .NET Framework 4.5.2 ou superior.
 
 As cópias de segurança não podem ser restauradas numa máquina-alvo que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança tirada de um computador que está a executar o Windows 7 pode ser restaurada no Windows 8 ou posteriormente. Mas uma cópia de segurança tirada de um computador que está a executar o Windows 8 não pode ser restaurada num computador que está a executar o Windows 7.
+
+## <a name="previous-mars-agent-versions"></a>Versões anteriores do agente MARS
+
+A tabela que se segue lista as versões anteriores do agente com os seus links de descarregamento. Recomendamos que atualize a versão do agente para o mais tardar, para que possa aproveitar as funcionalidades mais recentes e o melhor desempenho.
+
+**Versions** (Versões) | **Artigos KB**
+--- | ---
+[2.0.9145.0](https://download.microsoft.com/download/4/5/E/45EB38B4-2DA7-45FA-92E1-5CA1E23D18D1/MARSAgentInstaller.exe) | Não disponível
+[2.0.9151.0](https://download.microsoft.com/download/7/1/7/7177B70A-51E8-434D-BDF2-FA3A09E917D6/MARSAgentInstaller.exe) | Não disponível
+[2.0.9153.0](https://download.microsoft.com/download/3/D/D/3DD8A2FF-AC48-4A62-8566-B2C05F0BCCD0/MARSAgentInstaller.exe) | Não disponível
+[2.0.9162.0](https://download.microsoft.com/download/0/1/0/010E598E-6289-47DB-872A-FFAF5030E6BE/MARSAgentInstaller.exe) | Não disponível
+[2.0.9169.0](https://download.microsoft.com/download/f/7/1/f716c719-24bc-4337-af48-113baddc14d8/MARSAgentInstaller.exe) | [4515971](https://support.microsoft.com/help/4538314)
+[2.0.9170.0](https://download.microsoft.com/download/1/8/7/187ca9a9-a6e5-45f0-928f-9a843d84aed5/MARSAgentInstaller.exe) | Não disponível
+[2.0.9173.0](https://download.microsoft.com/download/7/9/2/79263a35-de87-4ba6-9732-65563a4274b6/MARSAgentInstaller.exe) | [4538314](https://support.microsoft.com/help/4538314)
+[2.0.9177.0](https://download.microsoft.com/download/3/0/4/304d3cdf-b123-42ee-ad03-98fb895bc38f/MARSAgentInstaller.exe) | Não disponível
+[2.0.9181.0](https://download.microsoft.com/download/6/6/9/6698bc49-e30b-4a3e-a1f4-5c859beafdcc/MARSAgentInstaller.exe) | Não disponível
+[2.0.9190.0](https://download.microsoft.com/download/a/c/e/aceffec0-794e-4259-8107-92a3f6c10f55/MARSAgentInstaller.exe) | [4575948](https://support.microsoft.com/help/4575948)
+[2.0.9195.0](https://download.microsoft.com/download/6/1/3/613b70a7-f400-4806-9d98-ae26aeb70be9/MARSAgentInstaller.exe) | [4582474](https://support.microsoft.com/help/4582474)
+[2.0.9197.0](https://download.microsoft.com/download/2/7/5/27531ace-3100-43bc-b4af-7367680ea66b/MARSAgentInstaller.exe) | [4589598](https://support.microsoft.com/help/4589598)
+[2.0.9207.0](https://download.microsoft.com/download/b/5/a/b5a29638-1cef-4906-b704-4d3d914af76e/MARSAgentInstaller.exe) | [5001305](https://support.microsoft.com/help/5001305)
+
+>[!NOTE]
+>As versões de agente MARS com pequena fiabilidade e melhorias de desempenho não têm um artigo KB.
 
 ## <a name="next-steps"></a>Passos seguintes
 

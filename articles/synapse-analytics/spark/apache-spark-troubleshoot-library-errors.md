@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 57e9d0c584600a8fac90499d72cfac1620052603
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 006abf62c605c2ca34fd1adeadee8e29ae0fb8fb
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694925"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588314"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Erros de instalação da biblioteca de resolução de problemas 
 Para disponibilizar códigos de terceiros ou construído localmente para as suas aplicações, pode instalar uma biblioteca numa das suas piscinas Apache Spark sem servidor. Os pacotes listados no ficheiro requirements.txt são descarregados do PyPi no momento da startup de pool. Este ficheiro de requisitos é usado sempre que uma instância Spark é criada a partir dessa piscina Spark. Uma vez instalada uma biblioteca para uma piscina Spark, está disponível para todas as sessões usando a mesma piscina. 
@@ -92,7 +92,7 @@ As piscinas Apache Spark sem servidor Synapse são baseadas na distribuição Li
 Para recriar o ambiente e validar as suas atualizações:
  1. [Descarregue](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/base_environment.yml) o modelo para recriar localmente o tempo de execução da Sinapse. Pode haver pequenas diferenças entre o modelo e o ambiente sinapse real.
    
- 2. Criar um ambiente virtual utilizando as [seguintes instruções](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html). Este ambiente permite criar uma instalação Python isolada com a lista especificada de bibliotecas. 
+ 2. Criar um ambiente virtual utilizando as [seguintes instruções](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment). Este ambiente permite criar uma instalação Python isolada com a lista especificada de bibliotecas. 
     
     ```
     conda myenv create -f environment.yml
@@ -102,7 +102,7 @@ Para recriar o ambiente e validar as suas atualizações:
  3. Utilize ``pip install -r <provide your req.txt file>`` para atualizar o ambiente virtual com os seus pacotes especificados. Se a instalação resultar num erro, poderá haver um conflito entre o que está pré-instalado no tempo de funcionamento da base synapse e o especificado no ficheiro de requisitos fornecido. Estes conflitos de dependência devem ser resolvidos para obter as bibliotecas atualizadas na sua piscina Apache Spark sem servidor.
 
 >[!IMPORTANT]
->Os problemas podem arrisear-se ao utilizar pip e conda juntos. Ao combinar pip e conda, é melhor seguir estas [melhores práticas recomendadas.](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#using-pip-in-an-environment)
+>Os problemas podem arrisear-se ao utilizar pip e conda juntos. Ao combinar pip e conda, é melhor seguir estas [melhores práticas recomendadas.](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment)
 
 ## <a name="next-steps"></a>Passos seguintes
 - Ver as bibliotecas padrão: [Suporte à versão Apache Spark](apache-spark-version-support.md)

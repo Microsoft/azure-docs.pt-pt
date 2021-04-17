@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57862a450d313f5d8850b14047ecc3d25d6ba5c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 33417a9bda9ad4ce36dd6e14f74a53911f3c3473
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563689"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587158"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança Azure para Centros de Eventos
 
@@ -743,7 +743,7 @@ Configure a eliminação suave para a conta de armazenamento Azure que é usada 
 
 - [Configurar um cofre com chaves](configure-customer-managed-key.md)
 
-- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](/azure/storage/blobs/soft-delete-blob-overview)
 
 **Responsabilidade**: Cliente
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 1f03f99e6394c3939855c73548e8fb917f8696bc
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 901e857a346b0955726c5755e23595efefbc2ca1
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286033"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589504"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
@@ -103,7 +103,7 @@ Uma vez implantado o módulo telegraf, as métricas reportadas podem ser acedida
 
 ### <a name="system-health-events"></a>Eventos de saúde do sistema
 
-| Nome do Evento                  | Descrição    |
+| Nome do Evento                  | Description    |
 |-----------------------------|-------------------------------------------------------------------------------------------|
 | archon_exit                 | Enviado quando um utilizador altera o estado do módulo de Análise Espacial de *correr* para *parar*.  |
 | archon_error                | Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.      |
@@ -161,7 +161,7 @@ Para otimizar os registos enviados para um ponto final remoto, como o Azure Blob
 A configuração do nível de registo permite-lhe controlar a verbosidade dos registos gerados. Os níveis de registo suportados são: `none` , , , e `verbose` `info` `warning` `error` . O nível verboso de registo predefinido para os nós e plataforma é `info` . 
 
 Os níveis de registo podem ser modificados globalmente, definindo a `ARCHON_LOG_LEVEL` variável ambiental para um dos valores permitidos.
-Também pode ser definido através do documento IoT Edge Module Twin, quer a nível global, para todas as competências implementadas, quer para todas as habilidades específicas, definindo os valores para `platformLogLevel` e `nodeLogLevel` como mostrado abaixo.
+Também pode ser definido através do documento IoT Edge Module Twin, quer a nível global, para todas as competências implementadas, quer para todas as habilidades específicas, definindo os valores para `platformLogLevel` e `nodesLogLevel` como mostrado abaixo.
 
 ```json
 {
@@ -173,7 +173,7 @@ Também pode ser definido através do documento IoT Edge Module Twin, quer a ní
             },
             "graphs": {
                 "samplegraph": {
-                    "nodeLogLevel": "verbose",
+                    "nodesLogLevel": "verbose",
                     "platformLogLevel": "verbose"
                 }
             }
@@ -232,7 +232,7 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 
 A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
-| Palavra-chave | Descrição | Valor Predefinido |
+| Palavra-chave | Description | Valor Predefinido |
 |--|--|--|
 | StartTime | Troncos desejados começam na hora de início, em milissegundos UTC. | `-1`, o início do tempo de funcionação do contentor. Quando `[-1.-1]` é usado como um intervalo de tempo, a API retorna os registos da última hora.|
 | EndTime | Os troncos desejados terminam o tempo, em milissegundos UTC. | `-1`, a hora atual. Quando `[-1.-1]` o intervalo de tempo é utilizado, a API retorna os registos da última hora. |
@@ -243,7 +243,7 @@ A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
 A tabela seguinte lista os atributos na resposta de consulta.
 
-| Palavra-chave | Descrição|
+| Palavra-chave | Description|
 |--|--|
 |DoPost| Verdadeiro  ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente** _. Quando opta por fazer o upload de registos, a api devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_**.|
 |Filtro de tempo| Filtro de tempo aplicado aos troncos.|

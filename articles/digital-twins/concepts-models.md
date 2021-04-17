@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8942262c2e02670d57b1db324eb154dcc38f00f8
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: b3f0dd599f982e19fee7febc3b85d46f91a55b35
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575399"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589300"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Noções básicas de modelos de um duplo digital do Azure Digital Twins
 
@@ -58,7 +58,7 @@ Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos
     
     >[!TIP] 
     >Os componentes também podem ser usados para organização, para agrupar conjuntos de propriedades relacionadas dentro de uma interface de modelo. Nesta situação, pode pensar em cada componente como um espaço de nome ou "pasta" dentro da interface.
-* **Relacionamento** - Relacionamentos permitem-lhe representar como um gémeo digital pode estar envolvido com outros gémeos digitais. As relações podem representar diferentes significados semânticos, tais como *contém* ("chão contém espaço"), *frescos* ("hvac cools room"), *isBilledTo* ("compressor é faturado para o utilizador"), etc. As relações permitem a solução fornecer um gráfico de entidades interrelacionadas.
+* **Relacionamento** - Relacionamentos permitem-lhe representar como um gémeo digital pode estar envolvido com outros gémeos digitais. As relações podem representar diferentes significados semânticos, tais como *contém* ("chão contém espaço"), *frescos* ("hvac cools room"), *isBilledTo* ("compressor é faturado para o utilizador"), etc. As relações permitem a solução fornecer um gráfico de entidades interrelacionadas. As relações também podem ter [propriedades](#properties-of-relationships) próprias.
 
 > [!NOTE]
 > A [especificação para DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) também define Comandos , que são métodos que podem ser **executados** num gémeo digital (como um comando de reset, ou um comando para ligar ou desligar uma ventoinha). No entanto, *os comandos não são atualmente suportados em Azure Digital Twins.*
@@ -80,6 +80,10 @@ Como resultado, ao desenhar um modelo em Azure Digital Twins, provavelmente usar
 A telemetria e as propriedades muitas vezes trabalham em conjunto para lidar com a entrada de dados dos dispositivos. Como todas as entradas para Azure Digital Twins são via [APIs,](how-to-use-apis-sdks.md)você normalmente usará a sua função de entrada para ler eventos de telemetria ou propriedade de dispositivos, e definir uma propriedade em Azure Digital Twins em resposta. 
 
 Também pode publicar um evento de telemetria da Azure Digital Twins API. Tal como acontece com outras telemetrias, este é um evento de curta duração que requer um ouvinte a manusear.
+
+#### <a name="properties-of-relationships"></a>Propriedades de relacionamentos
+
+O DTDL também permite que **as relações** tenham propriedades próprias. Ao definir uma relação dentro de um modelo DTDL, a relação pode ter o seu próprio `properties` campo onde você pode definir propriedades personalizadas para descrever estado específico de relacionamento.
 
 ## <a name="model-inheritance"></a>Herança modelo
 

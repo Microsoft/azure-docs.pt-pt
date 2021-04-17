@@ -3,15 +3,15 @@ title: Iniciar a ligação da máquina virtual - Azure
 description: Como configurar a máquina virtual de arranque na função de ligação.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303968"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389813"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Iniciar a máquina virtual na ligação (pré-visualização)
 
@@ -119,7 +119,7 @@ Iniciar VM no Connect é uma definição de piscina hospedeira. Se pretender ape
 
 Para utilizar o portal Azure para configurar o Start VM no Connect:
 
-1. Abra o seu navegador e vá ao [portal Azure.](https://portal.azure.com/?feature.startVMonConnect=true#home) Recomendamos que abra o portal Azure numa janela InPrivate.
+1. Abra o seu navegador e vá ao [portal Azure.](https://portal.azure.com)
 
 2. No portal Azure, aceda ao **Windows Virtual Desktop**.
 

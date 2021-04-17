@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: a7e709ba9a4de5ff77524a2d2b1b64a5933131a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 171e0c03dc6f246d0f56d11f793ca711b0082f49
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489417"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588297"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
@@ -33,7 +33,7 @@ A transferência de chaves protegidas pelo HSM para o Key Vault é suportada atr
 
 |Nome do fornecedor|Tipo de Fornecedor|Modelos HSM suportados|Método de transferência de chaves HSM suportado|
 |---|---|---|---|
-|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricante,<br/>HSM como serviço|<ul><li>nShield família de HSMs</li><li>nShield como um serviço</ul>|**Método 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (precedido)<br/>**Método 2:** [Utilizar o novo método BYOK](hsm-protected-keys-byok.md) (recomendado)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricante,<br/>HSM como serviço|<ul><li>nShield família de HSMs</li><li>nShield como um serviço</ul>|**Método 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (precotado). Este método não será suportado após <strong>30 de junho de 2021</strong><br/>**Método 2:** [Utilizar o novo método BYOK](hsm-protected-keys-byok.md) (recomendado)|
 |Thales|Fabricante|<ul><li>Família Luna HSM 7 com a versão 7.3 ou mais recente</li></ul>| [Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>Self-Defending Serviço de Gestão de Chaves (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Rio Marvell|Fabricante|Todos os HSMs de LiquidSecurity com<ul><li>Versão firmware 2.0.4 ou posterior</li><li>Versão firmware 3.2 ou mais recente</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|

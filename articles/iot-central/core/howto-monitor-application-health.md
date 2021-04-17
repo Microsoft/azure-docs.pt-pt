@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5e462397196d2fd0fd716801d9106929a8cb6a6b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a9abd00035ccd779fcbe5dcf29b90f47758ff403
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061456"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588654"
 ---
 # <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Monitorizar a saúde geral de uma aplicação IoT Central
 
@@ -54,7 +54,7 @@ As métricas podem diferir dos números indicados na sua fatura Azure IoT Centra
 
 - Os [planos de preços padrão](https://azure.microsoft.com/pricing/details/iot-central/) da IoT Central incluem dois dispositivos e quotas de mensagens variadas gratuitamente. Enquanto os itens gratuitos são excluídos da faturação, ainda são contados nas métricas.
 
-- IoT Central autogere um ID do dispositivo de teste para cada modelo de dispositivo na aplicação. Este ID do dispositivo é visível na página do **dispositivo de teste Manage** para um modelo de dispositivo. Os construtores de soluções podem optar por [validar os seus modelos de dispositivo antes](./overview-iot-central.md#create-device-templates) de os publicar, gerando código que utiliza estes IDs do dispositivo de teste. Embora estes dispositivos estejam excluídos da faturação, ainda são contados nas métricas.
+- IoT Central autogere um ID do dispositivo de teste para cada modelo de dispositivo na aplicação. Este ID do dispositivo é visível na página do **dispositivo de teste Manage** para um modelo de dispositivo. Os construtores de soluções podem optar por [validar os seus modelos de dispositivo antes](./overview-iot-central.md#connect-devices) de os publicar, gerando código que utiliza estes IDs do dispositivo de teste. Embora estes dispositivos estejam excluídos da faturação, ainda são contados nas métricas.
 
 - Embora as métricas possam mostrar um subconjunto de comunicação dispositivo-nuvem, toda a comunicação entre o dispositivo e a nuvem [conta como uma mensagem para a faturação](https://azure.microsoft.com/pricing/details/iot-central/).
 

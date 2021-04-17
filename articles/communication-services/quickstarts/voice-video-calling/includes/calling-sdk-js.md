@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 2ecbd207c4b1946a69b01f43ec2bc77d29b1a8c9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f20099943d3cfa3dd4afc161c26e5582e467ca8d
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073386"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107590111"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ Quando se tem um `CallClient` caso, pode criar um `CallAgent` caso chamando o `c
 
 O `createCallAgent` método usa como `CommunicationTokenCredential` argumento. Aceita um [símbolo de acesso ao utilizador.](../../access-tokens.md)
 
-Depois de criar um `callAgent` caso, pode utilizar o `getDeviceManager` método no caso para aceder `CallClient` `deviceManager` .
+Pode utilizar o `getDeviceManager` método do caso para aceder `CallClient` `deviceManager` .
 
 ```js
 // Set the logger's log level
@@ -109,9 +109,10 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCaller
 > [!IMPORTANT]
 > Atualmente, não pode haver mais do que um fluxo de vídeo local de saída.
 
-Para fazer uma chamada de vídeo, tem de especificar as suas câmaras utilizando o `getCameras()` método em `deviceManager` .
+Para fazer uma chamada de vídeo, tem de enumerar as câmaras locais utilizando o `getCameras()` método em `deviceManager` .
 
 Depois de selecionar uma câmara, use-a para construir um `LocalVideoStream` caso. Passe-o para dentro `videoOptions` como um item dentro da matriz para o `localVideoStream` `startCall` método.
+
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -142,11 +143,11 @@ const call = callAgent.join(context);
 
 ```
 
-### <a name="join-a-teams-meeting"></a>Junte-se a uma reunião de equipas
+### <a name="join-a-teams-meeting"></a>Participe de um Encontro de Equipas
 > [!NOTE]
 > Esta API é fornecida como uma pré-visualização para os programadores e pode alterar-se com base nos comentários que recebermos. Não utilize esta API num ambiente de produção. Para utilizar esta api, por favor, utilize o lançamento 'beta' da ACS Calling Web SDK
 
-Para participar de uma reunião de equipas, utilize o `join` método e passe um link de reunião ou coordenadas.
+Para participar de uma reunião de equipas, use o `join` método e passe um link de reunião ou as coordenadas de uma reunião.
 
 Junte-se usando um link de reunião:
 
@@ -173,9 +174,13 @@ O `callAgent` caso emite um `incomingCall` evento quando a identidade registada 
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
-
-    //Get incoming call ID
+    const incomingCall = args.incomingCall; 
+    // Get incoming call ID
     var incomingCallId = incomingCall.id
+    // Get information about this Call. This API is provided as a preview for developers
+    // and may change based on feedback that we receive. Do not use this API in a production environment.
+    // To use this api please use 'beta' release of ACS Calling Web SDK
+    var callInfo = incomingCall.info;
 
     // Get information about caller
     var callerInfo = incomingCall.callerInfo
@@ -210,6 +215,12 @@ Obtenha o ID único (string) para uma chamada:
    ```js
     const callId: string = call.id;
    ```
+Obtenha informações sobre a chamada:
+> [!NOTE]
+> Esta API é fornecida como uma pré-visualização para os programadores e pode alterar-se com base nos comentários que recebermos. Não utilize esta API num ambiente de produção. Para utilizar esta api, por favor, utilize o lançamento 'beta' da ACS Calling Web SDK
+   ```js
+   const callInfo = call.info;
+   ```
 
 Saiba mais sobre outros participantes na chamada inspecionando a `remoteParticipants` coleção na instância 'call':
 
@@ -240,6 +251,7 @@ Receba o estado de uma chamada:
   - `Connected`: Indica que a chamada está ligada.
   - `LocalHold`: Indica que a chamada é colocada em espera por um participante local. Nenhum meio de comunicação está a fluir entre o ponto final local e os participantes remotos.
   - `RemoteHold`: Indica que a chamada foi colocada em espera por um participante remoto. Nenhum meio de comunicação está a fluir entre o ponto final local e os participantes remotos.
+  - `InLobby`: Indica que o utilizador está no átrio.
   - `Disconnecting`: Estado de transição antes da chamada ir para um `Disconnected` estado.
   - `Disconnected`: Estado de chamada final. Se a ligação da rede for perdida, o estado muda para `Disconnected` depois de dois minutos.
 
@@ -276,17 +288,8 @@ Inspecione os fluxos de vídeo ativos verificando a `localVideoStreams` recolha.
    const localVideoStreams = call.localVideoStreams;
    ```
 
-### <a name="check-a-callended-event"></a>Verifique um evento callEnded
 
-O `call` caso emite um `callEnded` evento quando a chamada termina. Para ouvir este evento, subscreva utilizando o seguinte código:
 
-```js
-const callEndHander = async (args: { callEndReason: CallEndReason }) => {
-    console.log(args.callEndReason)
-};
-
-call.on('callEnded', callEndHander);
-```
 
 ### <a name="mute-and-unmute"></a>Mudo e desajeitado
 
@@ -304,7 +307,7 @@ await call.unmute();
 
 ### <a name="start-and-stop-sending-local-video"></a>Comece e pare de enviar vídeo local
 
-Para iniciar um vídeo, tem de especificar as câmaras utilizando o `getCameras` método no `deviceManager` objeto. Em seguida, crie um novo exemplo de `LocalVideoStream` passar a câmara desejada para o método `startVideo` como argumento:
+Para iniciar um vídeo, tem de enumerar câmaras utilizando o `getCameras` método no `deviceManager` objeto. Em seguida, crie um novo exemplo de `LocalVideoStream` com a câmara desejada e, em seguida, passe o `LocalVideoStream` objeto para o `startVideo` método:
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -377,6 +380,7 @@ Os participantes remotos têm um conjunto de propriedades e coleções associada
   - `Connected`: O participante está ligado à chamada.
   - `Hold`: O participante está em espera.
   - `EarlyMedia`: Anúncio que reproduz antes de um participante ligar à chamada.
+  - `InLobby`: Indica que o participante remoto está no lobby.
   - `Disconnected`: Estado final. O participante está desligado da chamada. Se o participante remoto perder a conectividade da rede, o seu estado muda para `Disconnected` depois de dois minutos.
 
 - `callEndReason`: Para saber por que um participante deixou a chamada, verifique a `callEndReason` propriedade:
@@ -412,7 +416,7 @@ Os participantes remotos têm um conjunto de propriedades e coleções associada
 
 ### <a name="add-a-participant-to-a-call"></a>Adicione um participante a uma chamada
 
-Para adicionar um participante (um utilizador ou um número de telefone) a uma chamada, pode utilizar `addParticipant` . Forneça um dos `Identifier` tipos. Devolve o `remoteParticipant` caso.
+Para adicionar um participante (um utilizador ou um número de telefone) a uma chamada, pode utilizar `addParticipant` . Forneça um dos `Identifier` tipos. Retorna sincronizadamente o `remoteParticipant` caso. O `remoteParticipantsUpdated` evento da Call é levantado quando um participante é adicionado com sucesso à chamada.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
@@ -441,7 +445,7 @@ const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStr
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 
-Para `RemoteVideoStream` renderizar, tem de subscrever um `isAvailableChanged` evento. Se a `isAvailable` propriedade mudar `true` para, um participante remoto está enviando um fluxo. Depois disso, crie um novo exemplo de `VideoStreamRenderer` , e, em seguida, crie um novo `VideoStreamRendererView` exemplo usando o método assíncronos. `createView`  Em seguida, pode `view.target` ligar-se a qualquer elemento de UI.
+Para `RemoteVideoStream` renderizar, tem de subscrever o `isAvailableChanged` seu evento. Se a `isAvailable` propriedade mudar `true` para, um participante remoto está enviando um fluxo. Depois disso, crie um novo exemplo de `VideoStreamRenderer` , e, em seguida, crie um novo `VideoStreamRendererView` exemplo usando o método assíncronos. `createView`  Em seguida, pode `view.target` ligar-se a qualquer elemento de UI.
 
 Sempre que a disponibilidade de um fluxo remoto for alterada, pode optar por destruir o todo `VideoStreamRenderer` , um específico ou `VideoStreamRendererView` mantê-los, mas isso resultará na exibição de uma moldura de vídeo em branco.
 
@@ -488,7 +492,6 @@ Os streams de vídeo remotos têm as seguintes propriedades:
   ```
 
 ### <a name="videostreamrenderer-methods-and-properties"></a>Métodos e propriedades do VideoStreamRenderer
-
 Crie um `VideoStreamRendererView` caso que possa ser anexado na UI da aplicação para tornar o fluxo de vídeo remoto, usar o método assíncronos, resolve quando o fluxo está pronto para `createView()` renderizar e devolve um objeto com propriedade `target` que representa elemento que pode ser `video` anexado em qualquer lugar da árvore DOM
 
   ```js
@@ -523,7 +526,7 @@ view.updateScalingMode('Crop')
 
 ## <a name="device-management"></a>Gestão de dispositivos
 
-Em `deviceManager` , pode especificar dispositivos locais que podem transmitir os seus streams de áudio e vídeo numa chamada. Também ajuda a solicitar permissão para aceder ao microfone e à câmara de outro utilizador utilizando a API do navegador nativo.
+Em `deviceManager` , pode enumerar dispositivos locais que podem transmitir os seus streams de áudio e vídeo numa chamada. Também pode usá-lo para solicitar permissão para aceder aos microfones e câmaras do dispositivo local.
 
 Pode aceder `deviceManager` chamando o `callClient.getDeviceManager()` método:
 
@@ -533,7 +536,7 @@ const deviceManager = await callClient.getDeviceManager();
 
 ### <a name="get-local-devices"></a>Obter dispositivos locais
 
-Para aceder a dispositivos locais, pode utilizar métodos de enumeração em `deviceManager` .
+Para aceder a dispositivos locais, pode utilizar métodos de enumeração em `deviceManager` . A enumeração é uma ação assíncronea
 
 ```js
 //  Get a list of available video devices for use.

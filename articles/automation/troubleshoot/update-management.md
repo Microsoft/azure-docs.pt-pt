@@ -3,14 +3,14 @@ title: Problemas com a Azure Automation Update Management
 description: Este artigo diz como resolver problemas e resolver problemas com a Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 04/16/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f23632ba6a6b83f92b2bfc90beb4c1a8613c090a
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579737"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587368"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -188,11 +188,13 @@ Para registar o fornecedor de recursos Automation, siga estes passos no portal A
 
 5. Se não estiver listado, registe o fornecedor Microsoft.Automation seguindo os passos na [Resolve erros para o registo do fornecedor de recursos](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
-## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Cenário: Atualização programada com um calendário dinâmico perdeu algumas máquinas
+## <a name="scenario-scheduled-update-did-not-patch-some-machines"></a><a name="scheduled-update-missed-machines"></a>Cenário: Atualização programada não remendou algumas máquinas
 
 ### <a name="issue"></a>Problema
 
-As máquinas incluídas numa pré-visualização de atualização nem todas aparecem na lista de máquinas corrigidas durante uma execução programada.
+As máquinas incluídas numa pré-visualização de atualização não aparecem todas na lista de máquinas corrigidas durante uma execução programada, ou VMs para âmbitos selecionados de um grupo dinâmico não estão a aparecer na lista de pré-visualização da atualização no portal.
+
+A lista de pré-visualização da atualização consiste em todas as máquinas recuperadas por uma consulta [de Gráfico de Recursos Azure](../../governance/resource-graph/overview.md) para os âmbitos selecionados. Os âmbitos são filtrados para máquinas que tenham um sistema Híbrido Runbook Worker instalado e para o qual você tem permissões de acesso.
 
 ### <a name="cause"></a>Causa
 
@@ -201,6 +203,12 @@ Esta questão pode ter uma das seguintes causas:
 * As subscrições definidas no âmbito de uma consulta dinâmica não estão configuradas para o fornecedor de recursos de Automação registado.
 
 * As máquinas não estavam disponíveis ou não tinham etiquetas apropriadas quando o horário foi executado.
+
+* Não tem o acesso correto nos âmbitos selecionados.
+
+* A consulta de gráfico de recursos Azure não recupera as máquinas esperadas.
+
+* O sistema Hybrid Runbook Worker não está instalado nas máquinas.
 
 ### <a name="resolution"></a>Resolução
 
@@ -238,31 +246,15 @@ Utilize o seguinte procedimento se a sua subscrição estiver configurada para o
 
 7. Repercuta o calendário de atualização para garantir que a implementação com os grupos dinâmicos especificados inclui todas as máquinas.
 
-## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>Cenário: Máquinas esperadas não aparecem na pré-estreia do grupo dinâmico
-
-### <a name="issue"></a>Problema
-
-Os VMs para os âmbitos selecionados de um grupo dinâmico não aparecem na lista de pré-visualização do portal Azure. Esta lista consiste em todas as máquinas recuperadas por uma consulta ARG para os âmbitos selecionados. Os âmbitos são filtrados para máquinas que tenham Trabalhadores De Runbook Híbridos instalados e para os quais tenha permissões de acesso.
-
-### <a name="cause"></a>Causa
-
-Aqui estão as possíveis causas para esta questão:
-
-* Não tem o acesso correto nos âmbitos selecionados.
-* A consulta da ARG não recupera as máquinas esperadas.
-* O Trabalhador híbrido runbook não está instalado nas máquinas.
-
-### <a name="resolution"></a>Resolução 
-
 #### <a name="incorrect-access-on-selected-scopes"></a>Acesso incorreto em âmbitos selecionados
 
 O portal Azure apenas exibe máquinas para as quais tenha acesso de escrita num determinado âmbito. Se não tiver o acesso correto para um âmbito, consulte [Tutorial: Conceder a um utilizador acesso aos recursos do Azure utilizando o portal Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-#### <a name="arg-query-doesnt-return-expected-machines"></a>Consulta da ARG não devolve máquinas esperadas
+#### <a name="resource-graph-query-doesnt-return-expected-machines"></a>Consulta de gráfico de recurso não devolve máquinas esperadas
 
 Siga os passos abaixo para saber se as suas consultas estão a funcionar corretamente.
 
-1. Executar uma consulta ARG formatada como mostrado abaixo na lâmina do explorador de gráfico de recurso no portal Azure. Esta consulta imita os filtros selecionados quando criou o grupo dinâmico em Gestão de Atualização. Consulte [grupos dinâmicos de utilização com Gestão de Atualização](../update-management/configure-groups.md).
+1. Executar uma consulta de gráfico de recurso Azure formatada como mostrado abaixo na lâmina do explorador de gráfico de recurso no portal Azure. Se é novo no Azure Resource Graph, consulte este [quickstart](../../governance/resource-graph/first-query-portal.md) para aprender a trabalhar com o explorador de Gráficos de Recursos. Esta consulta imita os filtros selecionados quando criou o grupo dinâmico em Gestão de Atualização. Consulte [grupos dinâmicos de utilização com Gestão de Atualização](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -287,7 +279,7 @@ Siga os passos abaixo para saber se as suas consultas estão a funcionar correta
 
 #### <a name="hybrid-runbook-worker-not-installed-on-machines"></a>Trabalhador de runbook híbrido não instalado em máquinas
 
-As máquinas aparecem nos resultados da consulta ARG, mas ainda não aparecem na pré-visualização dinâmica do grupo. Neste caso, as máquinas podem não ser designadas como trabalhadores híbridos e, portanto, não podem executar trabalhos de Automação e Gestão de Atualização da Azure. Para garantir que as máquinas que espera ver são configuras como Trabalhadores Híbridos Runbook:
+As máquinas aparecem nos resultados da consulta Azure Resource Graph, mas ainda não aparecem na pré-visualização dinâmica do grupo. Neste caso, as máquinas podem não ser designadas como trabalhadores do sistema Hybrid Runbook e, portanto, não podem executar trabalhos de Automação e Gestão de Atualização da Azure. Para garantir que as máquinas que espera ver são configuras como trabalhadores híbridos do runbook do sistema:
 
 1. No portal Azure, aceda à conta de Automação por uma máquina que não está a aparecer corretamente.
 
@@ -297,11 +289,9 @@ As máquinas aparecem nos resultados da consulta ARG, mas ainda não aparecem na
 
 4. Valide que o trabalhador híbrido está presente para esta máquina.
 
-5. Se a máquina não estiver configurada como um trabalhador híbrido, faça ajustes utilizando instruções [no seu datacenter ou nuvem utilizando o Trabalhador de Runbook Híbrido](../automation-hybrid-runbook-worker.md).
+5. Se a máquina não for configurada como um trabalhador de runbook híbrido do sistema, reveja os métodos para ativar a máquina sob a secção De Gestão de [Atualização do](../update-management/overview.md#enable-update-management) artigo 'Atualização Geral'. O método para ativar baseia-se no ambiente em que a máquina está a funcionar.
 
-6. Junte-se à máquina ao grupo híbrido Runbook Worker.
-
-7. Repita os passos acima para todas as máquinas que não tenham sido exibidas na pré-visualização.
+6. Repita os passos acima para todas as máquinas que não tenham sido exibidas na pré-visualização.
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Cenário: Componentes de Gestão de Atualização ativados, enquanto o VM continua a mostrar como sendo configurado
 

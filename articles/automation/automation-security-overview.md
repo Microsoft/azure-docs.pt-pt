@@ -4,14 +4,14 @@ description: Este artigo fornece uma visão geral da autenticação da conta Azu
 keywords: segurança de automatização, automatização segura; autenticação de automatização
 services: automation
 ms.subservice: process-automation
-ms.date: 04/08/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: b52fa3083dc5c42fa71e720e9a3991cb7aa5afec
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 09aab71513b1152924de4eae91a718bad23d1012
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501574"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518006"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Visão geral da autenticação da conta Azure Automation
 
@@ -31,13 +31,13 @@ Os recursos de Automação para cada conta Automation estão associados a uma ú
 
 Todas as tarefas que cria contra recursos utilizando o Azure Resource Manager e os cmdlets PowerShell na Azure Automation devem autenticar para a Azure utilizando a autenticação baseada na credencial de identidade organizacional Azure Ative..
 
-## <a name="managed-identities-preview"></a>Identidades geridas (Pré-visualização)
+## <a name="managed-identities-preview"></a>Identidades geridas (pré-visualização)
 
 Uma identidade gerida a partir do Azure Ative Directory (Azure AD) permite que o seu runbook aceda facilmente a outros recursos protegidos por Azure AD. A identidade é gerida pela plataforma Azure e não requer que forneça ou rode quaisquer segredos. Para obter mais informações sobre identidades geridas em Azure AD, consulte [identidades geridas para recursos Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
 Eis alguns dos benefícios da utilização de identidades geridas:
 
-- Pode utilizar identidades geridas para autenticar qualquer serviço Azure que suporte a autenticação AD do Azure.
+- Pode utilizar identidades geridas para autenticar qualquer serviço Azure que suporte a autenticação AD do Azure. Podem ser usados para trabalhos em nuvem e híbridos. Os trabalhos híbridos podem usar identidades geridas quando funcionam num Trabalhador De Runbook Híbrido que está a funcionar num Azure ou num VM não-Azure.
 
 - As identidades geridas podem ser utilizadas sem qualquer custo adicional.
 
@@ -54,7 +54,7 @@ Uma conta de automação pode ser concedida dois tipos de identidades:
 >[!NOTE]
 > As identidades atribuídas aos utilizadores ainda não são suportadas.
 
-Para obter mais informações sobre a utilização de identidades geridas, consulte [Ativar a identidade gerida para a Azure Automation (Preview)](enable-managed-identity-for-automation.md).
+Para obter mais informações sobre a utilização de identidades geridas, consulte [Ativar a identidade gerida para a Azure Automation (pré-visualização)](enable-managed-identity-for-automation.md).
 
 ## <a name="run-as-accounts"></a>Contas Run As
 

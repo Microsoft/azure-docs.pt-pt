@@ -9,13 +9,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.custom: seodec18
-ms.openlocfilehash: 150bf38ebb248f15bf1ed82186c16b6b3f7ac40b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 17c1ea19f3879f5490922ab4b54f21773191eebd
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728747"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484235"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-cli"></a>Criar um ambiente Azure Time Series Insights Gen2 utilizando o Azure CLI
 

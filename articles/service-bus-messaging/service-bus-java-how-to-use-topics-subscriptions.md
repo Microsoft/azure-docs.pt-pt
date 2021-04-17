@@ -1,15 +1,17 @@
 ---
 title: Use tópicos e subscrições do Azure Service Bus com a Java (azure-messaging-servicebus)
 description: Neste quickstart, você escreve código Java usando o pacote azure-messaging-servicebus para enviar mensagens para um tópico Azure Service Bus e, em seguida, receber mensagens de subscrições para esse tópico.
-ms.devlang: Java
-ms.topic: quickstart
 ms.date: 02/13/2021
-ms.openlocfilehash: c5b930fb2c87a09a1f4801365936c62a7cf79f1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+- mode-api
+ms.openlocfilehash: 6fe0a3a91ebbd5b6daced95494b8eaa5b7db0c46
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516180"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536390"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Envie mensagens para um tópico do Azure Service Bus e receba mensagens de subscrições ao tema (Java)
 Neste quickstart, você escreve código Java usando o pacote azure-messaging-servicebus para enviar mensagens para um tópico Azure Service Bus e, em seguida, receber mensagens de subscrições para esse tópico.

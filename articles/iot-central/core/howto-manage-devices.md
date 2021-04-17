@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5bab4a7a90101d3749571e0f2d4179f0fce14296
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 2ea75adfb7c2d990cfa543270f245113e15e4ee2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378640"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389847"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação Azure IoT Central
 
@@ -58,12 +58,14 @@ Para adicionar um dispositivo à sua aplicação Azure IoT Central:
 
 ## <a name="import-devices"></a>Dispositivos de importação
 
-Para ligar um grande número de dispositivos à sua aplicação, pode importar a granel dispositivos a partir de um ficheiro CSV. O ficheiro CSV deve ter os seguintes cabeçalhos de coluna:
+Para ligar um grande número de dispositivos à sua aplicação, pode importar a granel dispositivos a partir de um ficheiro CSV. Pode encontrar um ficheiro CSV de exemplo no [repositório de Amostras Azure](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). O ficheiro CSV deve incluir os seguintes cabeçalhos de coluna:
 
 | Coluna | Descrição 
 | - | - | 
 | IOTC_DEVICEID | O ID do dispositivo é um dispositivo único identificado que este dispositivo irá utilizar para se ligar. O ID do dispositivo pode conter letras, números e o `-` personagem sem espaços. |
 | IOTC_DEVICENAME | Opcional. O nome do dispositivo é um nome amigável que será exibido ao longo da aplicação. Se não for especificado, este será o mesmo que o ID do dispositivo.   |
+
+
 
 Para os dispositivos de registo a granel na sua aplicação:
 

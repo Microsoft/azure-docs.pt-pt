@@ -8,15 +8,15 @@ ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/21/2021
+ms.date: 04/16/2021
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: a5aada5914f400732529294ede43c811002b7ea4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3fb0abf3fe9108461427960a2f157c4fcd3bf1d5
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183510"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588140"
 ---
 # <a name="azure-instance-metadata-service-linux"></a>Serviço de Metadados de Caso Azure (Linux)
 

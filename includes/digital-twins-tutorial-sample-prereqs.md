@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 43cc3dfc5b425df6d9dd5e2c2f35a792907ccdea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00d584690d37f1dcc47b785ef533abe888befec3
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103622022"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107511965"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Para completar este tutorial, **instale [o Visual Studio 2019](https://visualstu
 
 O tutorial é conduzido por um projeto de amostra escrito em C#. A amostra está localizada aqui: [Azure Digital Twins amostras de ponta a ponta.](/samples/azure-samples/digital-twins-samples/digital-twins-samples) **Obtenha o projeto de amostra** na sua máquina navegando para a ligação de amostra e selecionando o botão de código *Browse* por baixo do título. Isto irá levá-lo ao gitHub repo para as amostras, que você pode baixar como um *. ZIP* selecionando o botão *Código* e *Descarregando ZIP*.
 
-:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Vista para as amostras digitais de gémeos no GitHub. O botão Código é selecionado, produzindo uma pequena caixa de diálogo onde é realçado o botão Download ZIP." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
+:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Screenshot das amostras digitais de gémeos no GitHub. O botão Código é selecionado, produzindo uma pequena caixa de diálogo onde é realçado o botão Download ZIP." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 
 Isto irá descarregar um *. Pasta ZIP* para a sua máquina **comodigital-twins-samples-master.zip**. Desaperte a pasta e extraa os ficheiros.
 

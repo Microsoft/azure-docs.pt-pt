@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 6fb8802dd92e6f9bd55a96772abe3cef5150ac30
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 9a228ce6f8b18afb77b656765abbad0bb4ae877f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478391"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589147"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementar CI/CD com GitOps utilizando clusters Kubernetes ativados pelo Arco Azure
 
@@ -47,13 +47,13 @@ Este tutorial pressupõe familiaridade com Azure DevOps, Azure Repos e Pipelines
 
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8s-configuration
+  az extension add --name k8sconfiguration
   ```
   * Para atualizar estas extensões para a versão mais recente, execute os seguintes comandos:
 
     ```azurecli
     az extension update --name connectedk8s
-    az extension update --name k8s-configuration
+    az extension update --name k8sconfiguration
     ```
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>Pedido de importação e GitOps repousa em Azure Repos
@@ -119,7 +119,7 @@ Agora que sincronizou uma ligação gitOps, terá de importar os oleodutos CI/CD
 
 O repo de aplicação contém uma `.pipeline` pasta com os oleodutos que utilizará para PRs, CI e CD. Importar e renomear os três oleodutos previstos no repo da amostra:
 
-| Nome do ficheiro do pipeline | Descrição |
+| Nome do ficheiro do pipeline | Description |
 | ------------- | ------------- |
 | [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-pr-pipeline.yaml)  | O pipeline de pr da aplicação, denominado **arc-cicd-demo-src PR** |
 | [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-ci-pipeline.yaml) | O pipeline ci da aplicação, denominado **arc-cicd-demo-src CI** |
@@ -166,8 +166,7 @@ kubectl create secret docker-registry <secret-name> \
     --docker-password=<service-principal-password>
 ```
 
-> [!TIP]
-> Para evitar ter de definir um imagePullSecret para cada Pod, considere adicionar a imagemPullSecret à conta de Serviço nos `dev` espaços e `stage` nomes. Consulte o [tutorial de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) para obter mais informações.
+Para evitar ter de definir um imagePullSecret para cada Pod, considere adicionar a imagemPullSecret à conta de Serviço nos `dev` espaços e `stage` nomes. Consulte o [tutorial de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) para obter mais informações.
 
 ## <a name="create-environment-variable-groups"></a>Criar grupos variáveis ambientais
 

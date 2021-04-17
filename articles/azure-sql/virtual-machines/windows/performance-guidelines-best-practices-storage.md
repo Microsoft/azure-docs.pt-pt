@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 001a9a15c259d0b0d73eec9c9a39ad7c27f26721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 23e006c637285ad484e98b23b2a9f506156f519c
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572520"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389728"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Armazenamento: Melhores práticas de desempenho para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,11 +53,11 @@ Reveja a seguinte lista de verificação para obter uma breve visão geral das m
 - [O rebentamento do disco baseado em crédito](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) só deve ser considerado para cargas de trabalho dev/teste mais pequenos e sistemas departameiros.
 - Provisione a conta de armazenamento na mesma região que o SQL Server VM. 
 - Desative o armazenamento geo-redundante da Azure (geo-replicação) e utilize lRS (armazenamento redundante local) na conta de armazenamento.
-- Formate o seu disco de dados para utilizar o tamanho da unidade de atribuição de 64 KB para todos os ficheiros de dados colocados numa unidade diferente da unidade temporária `D:\` (que tem um padrão de 4 KB). Os VMs do Servidor SQL implantados através do Azure Marketplace vêm com discos de dados formatados com o tamanho da unidade de atribuição e intercalam para o conjunto de armazenamento definido para 64 KB. 
+- Formate o seu disco de dados para utilizar o tamanho do bloco de 64 KB (tamanho da unidade de atribuição) para todos os ficheiros de dados colocados numa unidade diferente da unidade temporária `D:\` (que tem um padrão de 4 KB). Os VMs do Servidor SQL implantados através do Azure Marketplace vêm com discos de dados formatados com um tamanho de bloco e intercalam para o conjunto de armazenamento definido para 64 KB. 
 
 Para comparar a lista de verificação de armazenamento com as outras, consulte a lista completa de [boas práticas](performance-guidelines-best-practices-checklist.md)de desempenho . 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para encontrar a configuração mais eficaz para as cargas de trabalho do SQL Server num VM Azure, comece por [medir o desempenho de armazenamento da sua aplicação de negócio](performance-guidelines-best-practices-collect-baseline.md#storage). Uma vez conhecidos os requisitos de armazenamento, selecione uma máquina virtual que suporte o IOPS necessário e produção com a relação memória-vCore apropriada. 
 

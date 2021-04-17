@@ -4,19 +4,19 @@ description: Malha de serviço aberto (OSM) no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 0052c8d2f9b85c34d50a3e9d01253ecaf2d02bab
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d266021a666070fdbade819eadb819b973768a72
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106718"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480849"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Open Service Mesh Addon AKS (Pré-visualização)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 [A Rede de Serviço Aberto (OSM)](https://docs.openservicemesh.io/) é uma malha de serviço nativa leve, extensível que permite aos utilizadores gerir, proteger e obter funcionalidades de observabilidade fora da caixa para ambientes de microserviços altamente dinâmicos.
 

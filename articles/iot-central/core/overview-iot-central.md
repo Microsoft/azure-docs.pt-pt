@@ -8,18 +8,18 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: 6f7b24c711d99b1127ee77a920b305acb114d20e
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: abf5f601bb98ab7e03b25f6ab9bd06cb051a1112
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505132"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589074"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
 O IoT Central é uma plataforma de aplicação IoT que reduz a carga e o custo de desenvolvimento, gestão e manutenção de soluções IoT de nível empresarial. Optar por construir com a IoT Central dá-lhe a oportunidade de concentrar tempo, dinheiro e energia na transformação do seu negócio com dados IoT, em vez de apenas manter e atualizar uma infraestrutura IoT complexa e em constante evolução.
 
-A UI web permite monitorizar as condições do dispositivo, criar regras e gerir milhões de dispositivos e seus dados ao longo do seu ciclo de vida. Além disso, permite-lhe agir em informações sobre dispositivos, alargando a inteligência IoT a aplicações de linha de negócio.
+A UI web permite-lhe ligar rapidamente dispositivos, monitorizar as condições do dispositivo, criar regras e gerir milhões de dispositivos e seus dados ao longo do seu ciclo de vida. Além disso, permite-lhe agir em informações sobre dispositivos, alargando a inteligência IoT a aplicações de linha de negócio.
 
 Este artigo descreve, para a IoT Central:
 
@@ -41,14 +41,13 @@ A documentação da IoT Central refere-se a quatro funções de utilizador que i
 
 ## <a name="create-your-iot-central-application"></a>Crie a sua aplicação IoT Central
 
-Como construtor de soluções, você usa a IoT Central para criar uma solução IoT personalizada e hospedada em nuvem para a sua organização. Normalmente, uma solução de IoT personalizada consiste em:
+Pode implementar rapidamente uma nova aplicação IoT Central e, em seguida, personalizá-la de acordo com os seus requisitos específicos. Comece com um modelo de _aplicação_ genérica ou com um dos modelos de aplicação focados na indústria para [retalho,](../retail/overview-iot-central-retail.md) [energia,](../energy/overview-iot-central-energy.md) [governo](../government/overview-iot-central-government.md)ou [cuidados de saúde.](../healthcare/overview-iot-central-healthcare.md)
 
-- Uma aplicação baseada na cloud que recebe a telemetria dos seus dispositivos e permite-lhe gerir esses dispositivos.
-- Vários dispositivos que executam o código personalizado ligado à sua aplicação baseada na cloud.
+Veja o [Startup criar uma nova aplicação](quick-deploy-iot-central.md) para um passeio pela forma de criar a sua primeira aplicação.
 
-Pode implementar rapidamente uma nova aplicação IoT Central e, em seguida, personalizá-la aos seus requisitos específicos no seu navegador. Pode começar com um modelo de _aplicação_ genérica ou com um dos modelos de aplicação focados na indústria para [retalho,](../retail/overview-iot-central-retail.md) [energia,](../energy/overview-iot-central-energy.md) [governo](../government/overview-iot-central-government.md)ou [cuidados de saúde.](../healthcare/overview-iot-central-healthcare.md)
+## <a name="connect-devices"></a>Ligar dispositivos
 
-Como construtor de soluções, utiliza as ferramentas baseadas na web para criar um modelo de _dispositivo_ para os dispositivos que se ligam à sua aplicação. Um modelo de dispositivo é a planta que define as características e o comportamento de um tipo de dispositivo como:
+Depois de criar a sua aplicação, o primeiro passo é criar um dispositivo de ligação. Todos os dispositivos ligados à IoT Central utilizam um _modelo de dispositivo_. Um modelo de dispositivo é a planta que define as características e o comportamento de um tipo de dispositivo como:
 
 - Telemetria que envia. Exemplos incluem temperatura e humidade. A telemetria está a transmitir dados.
 - As propriedades de negócio que um operador pode modificar. Exemplos incluem um endereço de cliente e uma última data servida.
@@ -56,7 +55,7 @@ Como construtor de soluções, utiliza as ferramentas baseadas na web para criar
 - Propriedades que um operador define, que determinam o comportamento do dispositivo. Por exemplo, uma temperatura-alvo para o dispositivo.
 - Comandos, que um operador pode ligar, que funcionam num dispositivo. Por exemplo, um comando para reiniciar remotamente um dispositivo.
 
-Este [modelo de dispositivo](howto-set-up-template.md) inclui:
+Todos os [modelos de dispositivo](howto-set-up-template.md) incluem:
 
 - Um _modelo de dispositivo_ que descreva as capacidades que um dispositivo deve implementar. As capacidades do dispositivo incluem:
 
@@ -68,25 +67,21 @@ Este [modelo de dispositivo](howto-set-up-template.md) inclui:
 - Propriedades em nuvem que não são armazenadas no dispositivo.
 - Personalizações, dashboards e formulários que fazem parte da sua aplicação IoT Central.
 
-### <a name="create-device-templates"></a>Criar modelos de dispositivo
-
-Como construtor de soluções, tem várias opções para criar modelos de dispositivos:
+Tem várias opções para criar modelos de dispositivos:
 
 - Desenhe o modelo do dispositivo na IoT Central e, em seguida, implemente o seu modelo de dispositivo no código do dispositivo.
 - Crie um modelo de dispositivo utilizando o código Visual Studio e publique o modelo num repositório. Implemente o código do dispositivo a partir do modelo e ligue o seu dispositivo à sua aplicação IoT Central. A IoT Central encontra o modelo do dispositivo a partir do repositório e cria um modelo de dispositivo simples para si.
 - Crie um modelo de dispositivo utilizando o código Visual Studio. Implemente o código do dispositivo a partir do modelo. Importe manualmente o modelo do dispositivo na sua aplicação IoT Central e adicione, em seguida, quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita.
 
-Como construtor de soluções, pode utilizar o IoT Central para gerar código para dispositivos de teste para validar os modelos do seu dispositivo.
-
-Se for um desenvolvedor de dispositivos, consulte a [visão geral do desenvolvimento do dispositivo IoT Central](./overview-iot-central-developer.md) para uma introdução aos dispositivos de implementação que utilizam estes modelos de dispositivos.
+Consulte o [Dispositivo De adicionar um dispositivo simulado](quick-create-simulated-device.md) para uma caminhada através de como criar e ligar o seu primeiro dispositivo.
 
 ### <a name="customize-the-ui"></a>Personalizar a IU
 
-Como construtor de soluções, também pode personalizar a UI de aplicação IoT Central para os operadores responsáveis pelo uso diário da aplicação. As personalizações que um construtor de soluções pode fazer incluem:
+Também pode personalizar a UI de aplicação IoT Central para os operadores responsáveis pelo uso diário da aplicação. As personalizações que pode fazer incluem:
 
-- Definir o esquema de propriedades e definições num modelo de dispositivo.
 - Configurar dashboards personalizados para ajudar os operadores a detetar informações e resolver os problemas mais rapidamente.
 - Configurar uma análise personalizada para explorar os dados de séries de tempo dos seus dispositivos ligados.
+- Definir o esquema de propriedades e definições num modelo de dispositivo.
 
 ## <a name="manage-your-devices"></a>Faça a gestão dos seus dispositivos
 
@@ -96,9 +91,9 @@ Como operador, utiliza a aplicação IoT Central para [gerir os dispositivos](ho
 - Resolver e remediar problemas dos dispositivos.
 - Aprovisionar novos dispositivos.
 
-Como construtor de soluções, pode [definir regras e ações personalizadas](howto-configure-rules.md) que operam sobre o streaming de dados a partir de dispositivos conectados. Um operador pode ativar ou desativar estas regras ao nível do dispositivo, para controlar e automatizar tarefas na aplicação.
+Pode [definir regras e ações personalizadas](howto-configure-rules.md) que operam sobre o streaming de dados a partir de dispositivos conectados. Um operador pode ativar ou desativar estas regras ao nível do dispositivo, para controlar e automatizar tarefas na aplicação.
 
-Com qualquer solução IoT projetada para funcionar em escala, é importante uma abordagem estruturada para a gestão do dispositivo. Não basta apenas ligar os seus dispositivos à nuvem, é preciso manter os seus dispositivos ligados e saudáveis. Um operador pode utilizar as seguintes capacidades IoT Central para gerir os seus dispositivos durante todo o ciclo de vida da aplicação:
+Com qualquer solução IoT projetada para funcionar em escala, é importante uma abordagem estruturada para a gestão do dispositivo. Não basta apenas ligar os seus dispositivos à nuvem, é preciso manter os seus dispositivos ligados e saudáveis. Utilize as seguintes capacidades IoT Central para gerir os seus dispositivos durante todo o ciclo de vida da aplicação:
 
 ### <a name="dashboards"></a>Dashboards
 

@@ -5,12 +5,12 @@ ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 3676889fc56f6dc4746282e5001e33d1bc3c7c9a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 838eb517697c0625139058a19c7def764e869ed5
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501234"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588178"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -74,6 +74,9 @@ HDInsight 3.6 continuará a funcionar em Ubuntu 16.04. Atingirá o fim do suport
 Tens de largar e recriar os teus clusters se quiseres mudar os clusters existentes para o Ubuntu 18.04. Por favor, planeie criar ou recriar o seu cluster após o suporte Ubuntu 18.04 estar disponível. Enviaremos outra notificação depois da nova imagem estar disponível em todas as regiões.
 
 É altamente recomendado que teste as suas ações de script e aplicações personalizadas implantadas em nós de borda numa máquina virtual Ubuntu 18.04 (VM) com antecedência. Pode [criar um simples Ubuntu Linux VM em 18.04-LTS,](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/)em seguida, criar e utilizar um [par de chaves de concha segura (SSH)](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm) no seu VM para executar e testar as suas ações de script e aplicações personalizadas implantadas nos nós de borda.
+
+### <a name="disable-stardard_a5-vm-size-as-head-node-for-hdinsgiht-40"></a>Desative Stardard_A5 tamanho VM como nó de cabeça para HDInsgiht 4.0
+O nó de cabeça de cluster HDInsight é responsável pela inicialização e gestão do cluster. Standard_A5 tamanho VM tem problemas de fiabilidade como nó de cabeça para HDInsight 4.0. A partir do próximo lançamento, em maio de 2021, os clientes não poderão criar novos clusters com Standard_A5 tamanho VM como Nó de Cabeça. Pode utilizar outros VMs de 2 núcleos como E2_v3 ou E2s_v3. Os aglomerados existentes funcionarão como estão. Um VM de 4 núcleos é altamente recomendado para o nó de cabeça para garantir a alta disponibilidade e fiabilidade dos clusters HDInsight de produção.
 
 ### <a name="basic-support-for-hdinsight-36-starting-july-1-2021"></a>Suporte básico para HDInsight 3.6 a partir de 1 de julho de 2021
 A partir de 1 de julho de 2021, a Microsoft irá oferecer [suporte básico](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) para certos tipos de cluster HDInsight 3.6. O plano básico de apoio estará disponível até 3 de abril de 2022. Será automaticamente inscrito no Suporte Básico a partir de 1 de julho de 2021. Não é necessária nenhuma ação por si para optar. Consulte a [nossa documentação](hdinsight-36-component-versioning.md) para a qual os tipos de cluster estão incluídos no suporte básico. 

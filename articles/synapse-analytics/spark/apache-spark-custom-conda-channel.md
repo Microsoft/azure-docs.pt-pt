@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 528ba4a1be3650a81772d78a438f03611b9bd761
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 26b6adefd2d334c9fe570bfa7e63bb06b55b9d20
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102107946"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588773"
 ---
 # <a name="create-a-custom-conda-channel-for-package-management"></a>Crie um canal Conda personalizado para gestão de pacotes 
 Ao instalar pacotes Python, o gestor de pacotes Conda utiliza canais para procurar pacotes. Poderá ser necessário criar um canal Conda personalizado por várias razões. Por exemplo, pode descobrir que:
@@ -92,7 +92,7 @@ conda index channel1/linux-64
 conda index channel1 
 ```
 
-Para mais informações, também pode [visitar o guia do utilizador da Conda](https://docs.conda.io/projects/conda/latest/user-guide/tasks/create-custom-channels.html) para criar canais personalizados. 
+Para mais informações, também pode [visitar o guia do utilizador da Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/create-custom-channels.html) para criar canais personalizados. 
 
 ## <a name="storage-account-permissions"></a>Permissões de conta de armazenamento
 Agora, precisamos validar as permissões na conta de armazenamento. Para definir estas permissões, navegue para o caminho onde será criado o canal personalizado. Em seguida, crie um símbolo SAS para ```privatechannel``` que tenha lido, listado e execute permissões. 

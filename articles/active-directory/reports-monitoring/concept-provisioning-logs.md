@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d8c4876faf9ebc2619309aa0095a8ffe1e9e93d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 468e885bab6aab4becb5aaaec7b4d52ce5ef5e07
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500551"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535996"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Visão geral dos registos de provisionamento no portal Azure (pré-visualização)
 
@@ -61,7 +61,7 @@ Os clientes podem interagir com os registos de provisionamento de quatro formas:
 
 - Acedendo aos registos do portal Azure, conforme descrito na secção seguinte.
 - Transmitir os registos de provisionamento para [o Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). Este método permite a retenção alargada de dados e a construção de dashboards, alertas e consultas personalizados.
-- Consulta da [API do Gráfico microsoft](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para os registos de provisionamento.
+- Consulta da [API do Gráfico microsoft](/graph/api/resources/provisioningobjectsummary) para os registos de provisionamento.
 - Descarregando os registos de provisionamento como um ficheiro CSV ou JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Aceda aos registos a partir do portal Azure
@@ -251,7 +251,7 @@ Utilize a tabela seguinte para entender melhor como resolver os erros que encont
 |Direitos insuficientes, MétodoNotAllowed, Não Autorizado, Não Autorizado| A Azure AD autenticou-se com a aplicação-alvo, mas não estava autorizada a realizar a atualização. Reveja todas as instruções que o pedido-alvo forneceu, juntamente com o respetivo [tutorial de](../saas-apps/tutorial-list.md)aplicação .|
 |Entidade Não Processável|O pedido de destino devolveu uma resposta inesperada. A configuração da aplicação-alvo pode não estar correta, ou um problema de serviço com a aplicação-alvo pode estar a impedir que isso funcione.|
 |WebExceptionProtocolError |Ocorreu um erro de protocolo HTTP na ligação à aplicação-alvo. Não há nada a fazer. Esta tentativa será automaticamente retirada em 40 minutos.|
-|InvalidAnchor|Um utilizador que tenha sido previamente criado ou correspondido pelo serviço de fornecimento já não existe. Certifique-se de que o utilizador existe. Para forçar uma nova correspondência de todos os utilizadores, utilize a API do Microsoft Graph para [reiniciar o trabalho](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). <br><br>O reinício do provisionamento irá desencadear um ciclo inicial, que pode levar algum tempo a ser concluído. O reinício do fornecimento também elimina a cache que o serviço de fornecimento utiliza para funcionar. Isto significa que todos os utilizadores e grupos do arrendatário terão de ser novamente avaliados, e certos eventos de provisionamento poderão ser eliminados.|
+|InvalidAnchor|Um utilizador que tenha sido previamente criado ou correspondido pelo serviço de fornecimento já não existe. Certifique-se de que o utilizador existe. Para forçar uma nova correspondência de todos os utilizadores, utilize a API do Microsoft Graph para [reiniciar o trabalho](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). <br><br>O reinício do provisionamento irá desencadear um ciclo inicial, que pode levar algum tempo a ser concluído. O reinício do fornecimento também elimina a cache que o serviço de fornecimento utiliza para funcionar. Isto significa que todos os utilizadores e grupos do arrendatário terão de ser novamente avaliados, e certos eventos de provisionamento poderão ser eliminados.|
 |Não ÉDopliizado | A aplicação-alvo devolveu uma resposta inesperada. A configuração da aplicação pode não estar correta, ou um problema de serviço com a aplicação alvo pode estar a impedir que isso funcione. Reveja todas as instruções que o pedido-alvo forneceu, juntamente com o respetivo [tutorial de](../saas-apps/tutorial-list.md)aplicação . |
 |Aeródromos ObrigatóriasMissing, MissingValues |O utilizador não pôde ser criado porque faltam valores necessários. Corrija os valores de atributos em falta no registo de origem ou reveja a configuração do seu atributo correspondente para garantir que os campos necessários não sejam omitidos. [Saiba mais](../app-provisioning/customize-application-attributes.md) sobre configurar atributos correspondentes.|
 |SchemaAttributeNotFound |A operação não pôde ser realizada porque foi especificado um atributo que não existe na aplicação-alvo. Consulte a [documentação](../app-provisioning/customize-application-attributes.md) sobre a personalização do atributo e certifique-se de que a sua configuração está correta.|
@@ -269,4 +269,4 @@ Utilize a tabela seguinte para entender melhor como resolver os erros que encont
 
 * [Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure](../app-provisioning/application-provisioning-config-problem.md)
-* [API de gráfico para provisionamento de registos](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [API de gráfico para provisionamento de registos](/graph/api/resources/provisioningobjectsummary)

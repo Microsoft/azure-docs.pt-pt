@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: b8e72cab6d6220b71e93550eec7649752201180a
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 42e244249ecb0539637918ae2439bdb4f5da4b38
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256587"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588484"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutorial para configurar Nevis com Azure Ative Directory B2C para autenticação sem palavras-passe
 
-Neste tutorial de amostra, aprenda a estender o Azure AD B2C com  [o Nevis](https://www.nevis.net/solution/authentication-cloud) para permitir a autenticação sem palavras-passe. A Nevis fornece uma experiência de utilizador final de primeira e totalmente marcada com a aplicação Nevis Access para fornecer autenticação forte do cliente e cumprir os requisitos de transação da Direção 2 (PSD2) dos Serviços de Pagamento.
+Neste tutorial de amostra, aprenda a estender o Azure AD B2C com  [o Nevis](https://www.nevis.net/en/solution/authentication-cloud) para permitir a autenticação sem palavras-passe. A Nevis fornece uma experiência de utilizador final de primeira e totalmente marcada com a aplicação Nevis Access para fornecer autenticação forte do cliente e cumprir os requisitos de transação da Direção 2 (PSD2) dos Serviços de Pagamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2c66a7e3bf9e417b47d08e50e21c08625e9d0549
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 1d21691af4d52892f507695a56331816b14bf517
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210215"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588382"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -1015,7 +1015,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>
+Para mais informações, consulte. <a href="/objectivec/cognitive-services/speech/spxspeechsynthesizer" target="_blank"> `addBookmarkReachedEventHandler` </a>
 
 ---
 

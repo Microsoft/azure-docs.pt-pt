@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: efa5061a49978ed5e7766c0e7bf9b56a1e73cf5d
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 21247f6b396cb1f7016c74cbec528149c0583724
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389762"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587209"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -180,7 +180,7 @@ A lista a seguir fornece detalhes adicionais e orientações gerais para a utili
 * Pode utilizar uma ferramenta de teste HTTP REST como o Carteiro para fazer chamadas diretas para as APIs de Gémeos Digitais Azure. Para obter mais informações sobre este processo, consulte [*Como fazer: Fazer pedidos com o Carteiro.*](how-to-use-postman.md)
 * Para usar o SDK, instantânea a `DigitalTwinsClient` aula. O construtor requer credenciais que podem ser obtidas com uma variedade de métodos de autenticação na `Azure.Identity` embalagem. Para mais `Azure.Identity` informações, consulte a [documentação do espaço de nome.](/dotnet/api/azure.identity) 
 * Pode encontrar o útil durante o `InteractiveBrowserCredential` arranque, mas existem várias outras opções, incluindo credenciais para [identidade gerida](/dotnet/api/azure.identity.interactivebrowsercredential), que provavelmente utilizará para autenticar [funções Azure configuradas com MSI](../app-service/overview-managed-identity.md?tabs=dotnet) contra Azure Digital Twins. Para mais informações `InteractiveBrowserCredential` sobre , consulte a sua [documentação de classe.](/dotnet/api/azure.identity.interactivebrowsercredential)
-* Os pedidos às APIs das Gémeas Digitais Azure requerem um Utilizador ou Diretor de Serviço que faça parte do mesmo inquilino do [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) onde reside a instância Azure Digital Twins. Para evitar que os maus atores digitalizem URLs para descobrir onde vivem as instâncias da Azure Digital Twins, os pedidos com fichas de acesso de fora do inquilino originário serão devolvidos a uma mensagem de erro "404 Sub-Domain não encontrada". Este erro será devolvido *mesmo que* o Utilizador ou o Diretor de Serviço tenha recebido um papel de Azure Digital Twins Data Owner ou Azure Digital Twins Data Reader através da colaboração [Azure AD B2B.](../active-directory/external-identities/what-is-b2b.md)
+* Os pedidos às APIs das Gémeas Digitais Azure requerem um utilizador ou diretor de serviço que faça parte do mesmo inquilino do [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) onde reside a instância Azure Digital Twins. Para evitar a digitalização maliciosa dos pontos finais da Azure Digital Twins, os pedidos com fichas de acesso de fora do inquilino originado serão devolvidos uma mensagem de erro "404 Sub-Domain não encontrada". Este erro será devolvido *mesmo que* o utilizador ou o diretor de serviço tenha recebido um papel de Azure Digital Twins Data Owner ou Azure Digital Twins Data Reader através da colaboração [Azure AD B2B.](../active-directory/external-identities/what-is-b2b.md) Para obter informações sobre como obter acesso a vários inquilinos, consulte [*Como escrever: Escrever código de autenticação de aplicações*](how-to-authenticate-client.md#authenticate-across-tenants).
 * Todas as chamadas de API de serviço são expostas como funções de membro na `DigitalTwinsClient` classe.
 * Todas as funções de serviço existem em versões sincronizadas e assíncronos.
 * Todas as funções de serviço lançam uma exceção para qualquer estado de devolução de 400 ou mais. Certifique-se de embrulhar as chamadas numa `try` secção e apanhar pelo `RequestFailedExceptions` menos. Para saber mais sobre este tipo de exceção, consulte [aqui.](/dotnet/api/azure.requestfailedexception)

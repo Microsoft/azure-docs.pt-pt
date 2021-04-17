@@ -66,6 +66,12 @@
           href: automation-create-standalone-account.md
         - name: Criar uma conta de Automatização com o modelo do Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: Identidade gerida
+          items:
+            - name: Ativar a identidade gerida
+              href: enable-managed-identity-for-automation.md
+            - name: Desativar identidade gerida
+              href: disable-managed-identity-for-automation.md
         - name: Conta Run As
           items:
             - name: Criar Executar Como conta

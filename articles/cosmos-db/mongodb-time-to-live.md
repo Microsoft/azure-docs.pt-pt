@@ -9,12 +9,12 @@ ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6ef3092c611e1eede2be1e0994ce69959a46f1d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f044e03fa3f8aece677e3918b2add8190041c7ac
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93340928"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589521"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Dados de expiração com a API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -72,12 +72,6 @@ Os seguintes documentos têm valores TTL inválidos. Os documentos serão inseri
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.5}) //TTL value contains non-zero decimal part. 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(2147483649)}) //TTL value is greater than Int32.MaxValue (2,147,483,648). 
 ``` 
-
-## <a name="how-to-activate-the-per-document-ttl-feature"></a>Como ativar a funcionalidade TTL por documento
-
-A funcionalidade TTL por documento pode ser ativada com a API da Azure Cosmos DB para o MongoDB.
-
-:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Screenshot da ativação da funcionalidade TTL por documento no Portal":::
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Expire os dados em Azure Cosmos DB automaticamente com tempo de vida](../cosmos-db/time-to-live.md)

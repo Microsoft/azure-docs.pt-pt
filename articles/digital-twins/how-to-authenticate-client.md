@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1b7a846ee92da001ea2ac3ddd02efa9a870f72c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 958b0de97b79b447f2570dd9c57c87f380bcd551
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501911"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589400"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
@@ -107,6 +107,20 @@ Além disso, para utilizar a autenticação em função, lembre-se de:
 * [Ativar a identidade gerida](../app-service/overview-managed-identity.md?tabs=dotnet)
 * Utilize [variáveis ambientais](/sandbox/functions-recipes/environment-variables?tabs=csharp) conforme apropriado
 * Atribua permissões à aplicação de funções que lhe permitem aceder às APIs das Gémeas Digitais. Para obter mais informações sobre os processos de Funções Azure, consulte [*Como fazer: Configurar uma função Azure para o processamento de dados*](how-to-create-azure-function.md).
+
+## <a name="authenticate-across-tenants"></a>Autenticar entre inquilinos
+
+A Azure Digital Twins é um serviço que suporta apenas um  [inquilino do Azure Ative Directory (Azure AD):](../active-directory/develop/quickstart-create-new-tenant.md)o principal inquilino da subscrição onde está localizada a instância Azure Digital Twins.
+
+[!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
+
+Se precisar de aceder à sua instância Azure Digital Twins utilizando um principal serviço ou conta de utilizador que pertença a um inquilino diferente do caso, pode ter cada identidade federada de outro inquilino a solicitar um **sinal** do inquilino "casa" da Azure Digital Twins. 
+
+[!INCLUDE [digital-twins-tenant-solution-1](../../includes/digital-twins-tenant-solution-1.md)]
+
+Também pode especificar o inquilino da casa nas opções de credenciais no seu código. 
+
+[!INCLUDE [digital-twins-tenant-solution-2](../../includes/digital-twins-tenant-solution-2.md)]
 
 ## <a name="other-credential-methods"></a>Outros métodos de credencial
 

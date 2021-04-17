@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d4a6e25578cd26b10b34f74a9f859d4957cc553b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a528e224511fda363afb80a7749a018e07b5fa26
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783817"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588008"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o Carteiro para enviar pedidos para as APIs das Gémeas Digitais do Azure
 
@@ -77,6 +77,8 @@ Caso contrário, pode abrir uma janela [Azure Cloud Shell](https://shell.azure.c
     ```
     ---
 
+    >[!NOTE]
+    > Se precisar de aceder à sua instância Azure Digital Twins utilizando um principal serviço ou conta de utilizador que pertença a um inquilino diferente do Azure Ative Directory do caso, terá de solicitar um **token** do inquilino "home" da Azure Digital Twins. Para obter mais informações sobre este processo, consulte [*Como escrever o código de autenticação da aplicação*](how-to-authenticate-client.md#authenticate-across-tenants).
 
 3. Copie o valor do `accessToken` resultado e guarde-o para o utilizar na secção seguinte. Este é o seu **valor simbólico** que irá fornecer ao Carteiro para autorizar os seus pedidos.
 

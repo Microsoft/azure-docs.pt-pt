@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 03/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 2fd21731513d0b32a96a74a822e38075ad1d8eb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5daf83346db901288d5bc614f341c354d0c008f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454974"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481349"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Tutorial: Azure Ative Directory integração única (SSO) com CylancePROTECT
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar CylancePROTECT com Azure Ative Dir
 * Controlo em Azure AD que tem acesso à CylancePROTECT.
 * Capacitar os seus utilizadores a serem automaticamente inscritos na CylancePROTECT com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,45 +37,48 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* CylancePROTECT suporta **IDP** iniciado SSO
+* CylancePROTECT suporta **IDP** iniciado SSO.
 
-## <a name="adding-cylanceprotect-from-the-gallery"></a>Adicionando CylancePROTECT da galeria
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
+
+## <a name="add-cylanceprotect-from-the-gallery"></a>Adicione CylancePROTECT da galeria
 
 Para configurar a integração da CylancePROTECT no AD Azure, é necessário adicionar a CylancePROTECT da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** **digite CylancePROTECT** na caixa de pesquisa.
 1. Selecione **CylancePROTECT** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-cylanceprotect"></a>Configurar e testar Azure AD único sinal para CylancePROTECT
+## <a name="configure-and-test-azure-ad-sso-for-cylanceprotect"></a>Configure e teste Azure AD SSO para CylancePROTECT
 
 Configure e teste Azure AD SSO com CylancePROTECT usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AD Azure e o utilizador relacionado na CylancePROTECT.
 
-Para configurar e testar o Azure AD SSO com a CylancePROTECT, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com a CylancePROTECT, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
-    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 1. **[Configure CylancePROTECT SSO](#configure-cylanceprotect-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    * **[Create CylancePROTECT test user](#create-cylanceprotect-test-user)** - para ter uma contraparte de B.Simon em CylancePROTECT que está ligada à representação AD Azure do utilizador.
+    1. **[Create CylancePROTECT test user](#create-cylanceprotect-test-user)** - para ter uma contraparte de B.Simon em CylancePROTECT que está ligada à representação AD Azure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **CylancePROTECT,** encontre a secção **Gerir** e selecione **um único sinal de sessão.**
+1. No portal Azure, na página de integração da aplicação **CylancePROTECT,** encontre a secção **Gerir** e selecione **um único sinal de sessão.**
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. No **set-on único com** a página SAML, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identifier,** digite o URL:
+    a. Na caixa de texto **identifier,** digite um dos seguintes URLs:
     
     | Region | Valor URL |
     |----------|---------|
@@ -87,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | América do Norte|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
     | América do Sul (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
 
-    b. Na caixa de texto **URL de resposta,** digite o URL:
+    b. Na caixa de texto **URL de resposta,** digite um dos seguintes URLs:
     
     | Region | Valor URL |
     |----------|---------|
@@ -131,15 +132,9 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **CylancePROTECT**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-cylanceprotect-sso"></a>Configure CylancePROTECT SSO
@@ -152,16 +147,13 @@ Nesta secção, cria-se um utilizador chamado Britta Simon in CylancePROTECT. Tr
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Quando clicar no azulejo CylancePROTECT no Painel de Acesso, deverá ser automaticamente inscrito no CylancePROTECT para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no CylancePROTECT para o qual configura o SSO.
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo CylancePROTECT nas Minhas Apps, deverá ser automaticamente inscrito no CylancePROTECT para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente CylancePROTECT com Azure AD](https://aad.portal.azure.com/)
+Uma vez configurado CylancePROTECT, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

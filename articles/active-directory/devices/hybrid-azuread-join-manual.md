@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 04/16/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1aafcd8ace846d7da65d95d4148872d5a6eddeee
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577993"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587855"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -145,7 +145,7 @@ O script abaixo mostra um exemplo da utilização do cmdlet. Neste script, `$aad
 
 O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
-* Utiliza o módulo PowerShell do Ative Directory e as ferramentas Azure Ative Directory Domain Services (Azure AD DS). Estas ferramentas dependem de Serviços Web ative directory em execução num controlador de domínio. Os Serviços Web do Active Directory são suportados em controladores de domínio em execução no Windows Server 2008 R2 e posterior.
+* Utiliza as ferramentas PowerShell do Diretório Ativo e serviços de domínio de diretório ativo (DS AD). Estas ferramentas dependem de Serviços Web ative directory em execução num controlador de domínio. Os Serviços Web do Active Directory são suportados em controladores de domínio em execução no Windows Server 2008 R2 e posterior.
 * Só são suportados pela versão 1.1.166.0 do módulo MSOnline do PowerShell. Para descarregar este módulo, utilize [este link](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Se as ferramentas DS AD não estiverem instaladas, `Initialize-ADSyncDomainJoinedComputerSync` falhará. Pode instalar as ferramentas AD DS através do Gestor do Servidor sob **funcionalidades**  >  **ferramentas de administração de ferramentas de administração de**  >  **servidores remotos .**
 

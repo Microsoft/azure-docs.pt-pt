@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/28/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8010581667354f2e8484bc7341227ec41713d10f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bfd36b79ad800c14a68948aa8488e842d3f4def
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99072724"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481179"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-original-version-2018"></a>Quais são as novas Gémeas Digitais Azure? Qual é a diferença da versão original (2018)?
 
@@ -42,6 +42,6 @@ Para obter uma lista dos limites dos Gémeos Digitais Azure, consulte [*os limit
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Mergulhe em trabalhar com o lançamento atual no quickstart: [*Quickstart: Explore um cenário de amostra*](quickstart-adt-explorer.md).
+* Mergulhe em trabalhar com o lançamento atual no quickstart: [*Quickstart: Explore um cenário de amostra*](quickstart-azure-digital-twins-explorer.md).
 
 * Ou, comece a ler sobre conceitos-chave com [*Conceitos: Modelos personalizados.*](concepts-models.md)

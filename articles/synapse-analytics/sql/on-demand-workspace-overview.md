@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0abef835e406b442239cecd81fed5751f1c9a92
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667496"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378164"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Piscina SQL sem servidor em Azure Synapse Analytics 
 
@@ -54,7 +54,7 @@ O ponto final da piscina SEM servidor SQL é fornecido em cada espaço de trabal
 
 ## <a name="client-tools"></a>Ferramentas do cliente
 
-O pool SQL sem servidor permite que as ferramentas de consulta ad-hoc sql existentes e ferramentas de inteligência empresarial acamem no lago de dados. Como fornece uma sintaxe T-SQL familiar, qualquer ferramenta capaz de estabelecer ofertas DE SQL de ligação TDS pode [ligar-se e consultar a Sinaapse SQL a](connect-overview.md) pedido. Pode conectar-se com o Azure Data Studio e executar consultas ad-hoc ou conectar-se com o Power BI para obter informações numa questão de minutos.
+O pool SQL sem servidor permite que as ferramentas de consulta ad-hoc sql existentes e ferramentas de inteligência empresarial acamem no lago de dados. Como fornece uma sintaxe T-SQL familiar, qualquer ferramenta capaz de estabelecer ligação TDS às ofertas SQL pode [ligar-se e consultar o Synapse SQL.](connect-overview.md) Pode conectar-se com o Azure Data Studio e executar consultas ad-hoc ou conectar-se com o Power BI para obter informações numa questão de minutos.
 
 ## <a name="t-sql-support"></a>Suporte T-SQL
 

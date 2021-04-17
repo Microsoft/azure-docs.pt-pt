@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: a11dbfbd6d6510b5c421e54cd2547c3aedb1bfb6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: f9f2bf2e2204e6b74bb8a31ac856dbe276a6e983
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378201"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588756"
 ---
 # <a name="creating-a-new-branch-in-mapping-data-flow"></a>Criação de um novo ramo no fluxo de dados de mapeamento
 
@@ -27,3 +27,10 @@ Um novo ramo pode ser adicionado a partir da lista de transformação semelhante
 No exemplo abaixo, o fluxo de dados está a ler dados de viagem de táxi. É necessária uma saída agregada tanto por dia como pelo fornecedor. Em vez de criar dois fluxos de dados separados que lêem a partir da mesma fonte, um novo ramo pode ser adicionado. Desta forma, ambas as agregações podem ser executadas como parte do mesmo fluxo de dados. 
 
 ![A screenshot mostra o fluxo de dados com dois ramos da fonte.](media/data-flow/new-branch.png "Adicionar um novo ramo")
+
+> [!NOTE]
+> Ao clicar no plus (+) para adicionar transformações ao seu gráfico, só verá a opção New Branch quando houver blocos de transformação subsequentes. Isto porque o Novo Ramo cria uma referência ao fluxo existente e requer um processamento mais a montante para operar. Se não vir a opção New Branch, adicione uma Coluna Derivada ou outra transformação primeiro, em seguida, volte ao bloco anterior e verá o Novo Ramo como uma opção.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Após a ramificação, pode querer utilizar as transformações de [fluxo de dados](data-flow-transformation-overview.md)

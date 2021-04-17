@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 090eda3c3310a1b793733e37725c62758445d6b2
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762404"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587335"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure
 
@@ -78,11 +78,14 @@ Todas as tarefas que faz sobre recursos utilizando o Gestor de Recursos Azure de
 5. Escolha **a gestão de serviços Azure.**
 6. **Seleção de imprensa**.
 
-    ![Adicionar permissões](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Screenshot que mostra como adicionar permissões de aplicações."::: 
 
 7. Clique em **Permissões Delegadas** ao lado da aplicação recém-adicionada, consulte a caixa para **Access Azure Service Management (pré-visualização)**.
+
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Screenshot que mostra a adição de permissões de aplicações delegadas.":::
+
 8. **Seleção de imprensa**.
-9. Clique **em Permissões de Concessão**.
+9. Clique **em Adicionar Permissões**.
 
 ### <a name="configuring-your-app"></a>Configurar a aplicação
 

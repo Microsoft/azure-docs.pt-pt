@@ -13,28 +13,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 04/16/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99f1f27cb087dc83295dddade4c0fca551a0d9c9
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93122848"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589691"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
-A arquitetura de reporte no Azure Ative Directory (Azure AD) consiste nos seguintes componentes:
+O portal Azure Ative Directory dá-lhe acesso a três registos de atividade:
 
-- **Atividade** 
-    - **Insuposições** – Informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador.
-    - **Registos de**  -  auditoria [Os registos de auditoria](concept-audit-logs.md) fornecem informações sobre a atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
-    - Registos de **provisionamento**  -  [O fornecimento de registos](./concept-provisioning-logs.md) permite que os clientes monitorizem a atividade através do serviço de fornecimento, como a criação de um grupo no ServiceNow ou um utilizador importado do Workday. 
-- **Segurança** 
-    - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição por alguém que não é o legítimo proprietário de uma conta de utilizador.
-    - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
+- **Ins-ins** – Informações sobre insinusagens e como os seus recursos são utilizados pelos seus utilizadores.
+- **[Auditoria](concept-audit-logs.md)** – Informação sobre alterações aplicadas ao seu inquilino, como utilizadores e gestão de grupos ou atualizações aplicadas aos recursos do seu inquilino.
+- **[Provisionamento](concept-provisioning-logs.md)** – Atividades realizadas pelo serviço de prestação de serviços, como a criação de um grupo no ServiceNow ou um utilizador importado do Workday.
 
 Este artigo dá-lhe uma visão geral do relatório de inscrições.
 
@@ -99,12 +95,23 @@ Selecione um item na vista da lista para obter informações mais detalhadas.
 > Para obter mais informações, consulte as [perguntas frequentes sobre informações sobre CA em todos os sign-ins](reports-faq.md#conditional-access).
 
 
+## <a name="sign-in-error-code"></a>Código de erro de inscrição
 
-## <a name="filter-sign-in-activities"></a>Filtrar atividades de início de sessão
+Se uma sessão de login falhar, poderá obter mais informações sobre o motivo na secção **de informações Básicas** do item de registo relacionado. 
+
+![código de erro de acesso](./media/concept-all-sign-ins/error-code.png)
+ 
+Embora o item de registo lhe forneça uma razão de falha, existem casos em que poderá obter mais informações utilizando a [ferramenta de procuração de erros de início de sessão](https://login.microsoftonline.com/error). Por exemplo, se disponível, esta ferramenta fornece-lhe medidas de reparação.  
+
+![Ferramenta de procura de código de erro](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
+
+
+## <a name="filter-sign-in-activities&quot;></a>Filtrar atividades de início de sessão
 
 Primeiro, reduzindo os dados reportados a um nível que funcione para si. Em segundo lugar, filtrar os dados de inscrição utilizando o campo de datas como filtro predefinido. A Azure AD fornece-lhe uma ampla gama de filtros adicionais que pode definir:
 
-![A screenshot mostra a opção adicionar filtros.](./media/concept-sign-ins/04.png "Atividade de início de sessão")
+![A screenshot mostra a opção adicionar filtros.](./media/concept-sign-ins/04.png &quot;Atividade de início de sessão")
 
 **ID do pedido** - A identificação do pedido que lhe interessa.
 
@@ -228,9 +235,9 @@ Cada linha na lista de atividades de início de sessão mostra:
 Ao clicar num item, obtém mais detalhes sobre a operação de início de sessão:
 
 - ID de Utilizador
-- User
+- Utilizador
 - Nome de utilizador
-- ID da Aplicação
+- ID da aplicação
 - Aplicação
 - Cliente
 - Localização
