@@ -4,12 +4,12 @@ description: Saiba mais sobre a configuração das interfaces Ethernet em instâ
 ms.topic: reference
 ms.subservice: workloads
 ms.date: 04/14/2021
-ms.openlocfilehash: e98af51075d5193cab14d18f1cdb1f431c8fa892
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c57cbc86d17090d6960a334c2790d80b43420aca
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107559318"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588892"
 ---
 # <a name="ethernet-configuration-of-baremetal-for-oracle"></a>Configuração Ethernet de BareMetal para Oráculo
 
@@ -35,16 +35,16 @@ A configuração padrão vem com uma interface IP do cliente (eth1), conectando-
 
 | **Interface lógica NIC** | **Nome com RHEL OS** | **Cenário de teste** |
 | --- | --- | --- |
-| A | eth1.inquilino | Cliente para caso BareMetal |
-| C | eth2.inquilino | Nó-a-armazenamento; apoia a coordenação e o acesso aos controladores de armazenamento para a gestão do ambiente de armazenamento. |
-| B | eth3.inquilino | Nó-a-nó (interligação privada) |
-| C | eth4.inquilino | Reservado/ iSCSI |
-| C | eth5.inquilino | Reservado/ Reserva de Registo |
-| C | eth6.inquilino | Backup nó-a-storage_Data (RMAN, Snapshot) |
-| C | eth7.inquilino | Nó-a-storage_dNFS-Pri; fornece conectividade com a matriz de armazenamento NetApp. |
-| C | eth8.inquilino | Nó-a-storage_dNFS-Sec; fornece conectividade com a matriz de armazenamento NetApp. |
-| D | eth9.inquilino | Conectividade DR para a configuração global de alcance para aceder ao IMC em outra região. |
-| A | \*eth10.inquilino | \* Cliente para caso BareMetal
+| A | net1.inquilino | Cliente para caso BareMetal |
+| C | net2.inquilino | Nó-a-armazenamento; apoia a coordenação e o acesso aos controladores de armazenamento para a gestão do ambiente de armazenamento. |
+| B | net3.inquilino | Nó-a-nó (interligação privada) |
+| C | net4.inquilino | Reservado/ iSCSI |
+| C | net5.inquilino | Reservado/ Reserva de Registo |
+| C | net6.inquilino | Backup nó-a-storage_Data (RMAN, Snapshot) |
+| C | net7.inquilino | Nó-a-storage_dNFS-Pri; fornece conectividade com a matriz de armazenamento NetApp. |
+| C | net8.inquilino | Nó-a-storage_dNFS-Sec; fornece conectividade com a matriz de armazenamento NetApp. |
+| D | net9.inquilino | Conectividade DR para a configuração global de alcance para aceder ao IMC em outra região. |
+| A | \*net10.inquilino | \* Cliente para caso BareMetal
  |
 
 Se necessário, pode definir mais cartões controladores de interface de rede (NIC) por si só. No entanto, as configurações dos NICs existentes *não podem* ser alteradas.

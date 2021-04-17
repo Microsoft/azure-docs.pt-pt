@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4c8e18979ff1575e1a050244a96e7858cdce46b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919634"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530239"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -50,7 +50,7 @@ As políticas de utilização da AZure AD têm as seguintes capacidades:
 - Indique quem aceitou ou não os seus termos de políticas de uso.
 - Ajude a cumprir os regulamentos de privacidade.
 - Apresentar um registo de termos de atividade política de uso para conformidade e auditoria.
-- Crie e gere termos de políticas de utilização [utilizando APIs do Microsoft Graph](/graph/api/resources/agreement?view=graph-rest-beta) (atualmente em pré-visualização).
+- Crie e gere termos de políticas de utilização [utilizando APIs do Microsoft Graph](/graph/api/resources/agreement) (atualmente em pré-visualização).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -99,14 +99,14 @@ Uma vez finalizado o documento de política de utilização, utilize o seguinte 
 
    Por exemplo, se definir o prazo de início de validade para **1 de janeiro** e a frequência para **Mensal,** eis como podem ocorrer expirações para dois utilizadores:
 
-   | User | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
+   | Utilizador | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 jan | Fev 1 | Mar 1 | Abr 1 |
    | Bob | 15 jan | Fev 1 | Mar 1 | Abr 1 |
 
 1. Utilize a **Duração antes de reademptar requer (dias)** a definição para especificar o número de dias antes de o utilizador voltar a aceitar os termos da política de utilização. Isto permite que os utilizadores sigam o seu próprio horário. Por exemplo, se definir a duração para **30** dias, eis como podem ocorrer expirações para dois utilizadores:
 
-   | User | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
+   | Utilizador | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 jan | 31 de janeiro | Mar 2 | Abr 1 |
    | Bob | 15 jan | Fev 14 | Mar 16 | Abr 15 |

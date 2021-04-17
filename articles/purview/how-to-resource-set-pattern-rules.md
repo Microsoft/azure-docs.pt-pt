@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/15/2021
-ms.openlocfilehash: b9d6ca88d5e9d49d3973193059197a1aa171e3e8
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 61de2cf2e3ad9175d97378234d62f72ab3517b51
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568709"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587838"
 ---
 # <a name="create-resource-set-pattern-rules"></a>Crie regras de padrão de conjunto de recursos
 
@@ -53,6 +53,9 @@ Siga os passos abaixo para criar uma nova regra de padrão definido por recursos
       :::image type="content" source="media/how-to-resource-set-pattern-rules/scoped-resource-set-rule-example.png" alt-text="Criar nova regra de configuração." border="true":::
 
 1. Guarde a regra clicando **em Adicionar**.
+
+> [!NOTE]
+> Após a criação de uma regra de padrão, todos os novos exames aplicarão a regra durante a ingestão. Os ativos existentes no catálogo de dados serão atualizados através de um processo de fundo que pode demorar até algumas horas. 
 
 ## <a name="pattern-rule-syntax"></a><a name="syntax"></a> Sintaxe de regra de padrão
 
@@ -168,7 +171,7 @@ Regra 2
 
 **Nome qualificado:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### <a name="resource-set-true"></a>*Conjunto de recursos: verdadeiro*
+**Conjunto de recursos:** verdadeiro
 
 #### <a name="outputs"></a>Saídas
 

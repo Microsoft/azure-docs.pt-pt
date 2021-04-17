@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
-ms.openlocfilehash: 0842dad0e0ea6f9987727e8abf3d0eaf8a59e821
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/16/2021
+ms.openlocfilehash: f8570c8b252fae91986508abd3725cbbedd361a0
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517523"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565428"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados com o fluxo de dados de mapeamento
 
@@ -100,7 +100,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
     ![Screenshot que mostra onde seleciona New depois de nomear a sua fonte.](media/tutorial-data-flow/dataflow3.png)
 1. Escolha **Azure Data Lake Storage Gen2**. Clique em Continue (Continuar).
 
-    ![Screenshot que mostra o azulejo Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
+    ![Screenshot que mostra onde está o azulejo Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
 1. Escolha **DelimitedText**. Clique em Continue (Continuar).
 
     ![Screenshot que mostra o azulejo DelimitedText.](media/tutorial-data-flow/dataset2.png)

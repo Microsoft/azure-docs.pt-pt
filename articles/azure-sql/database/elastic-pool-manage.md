@@ -10,12 +10,12 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
-ms.openlocfilehash: 9c9af6e3bc3dfd798f4b3f0cad9319aa573c425d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc2bb24880b77eae24e9bb2ef0baf70ac0b92ac7
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96455998"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588637"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerir piscinas elásticas em Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -106,7 +106,8 @@ Para criar e gerir piscinas elásticas SQL Database e bases de dados em conjunto
 |[Piscinas elásticas - Eliminar](/rest/api/sql/elasticpools/delete)|Elimina a piscina elástica.|
 |[Piscinas elásticas - Obter](/rest/api/sql/elasticpools/get)|Tem uma piscina elástica.|
 |[Piscinas elásticas - Lista por servidor](/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de piscinas elásticas num servidor.|
-|[Piscinas elásticas - Atualização](/rest/api/sql/elasticpools/listbyserver)|Atualiza uma piscina elástica existente.|
+|[Piscinas elásticas - Atualização] (/rest/api/sql/2020-11-01-preview/elasticpools/update
+)|Atualiza uma piscina elástica existente.|
 |[Atividades de piscina elástica](/rest/api/sql/elasticpoolactivities)|Devolve atividades elásticas de piscina.|
 |[Atividades de base de dados de piscina elástica](/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade em bases de dados dentro de uma piscina elástica.|
 |[Bases de dados - Criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza uma base de dados existente.|

@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 04d17e17ef11696efd52f04ea83639f2a9b81fea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e718ef30d029995c49efe36f19a6efcf7de0616
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96938771"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589606"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dropbox para o Negócio para o provisionamento automático do utilizador
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados no Dropbox para Business and Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desa provisionamento automaticamente de utilizadores e/ou grupos ao Dropbox para negócios.
 
 > [!IMPORTANT]
-> A Microsoft e o Dropbox vão depreciar a antiga integração dropbox eficaz 04/01/2021. Para evitar perturbações no serviço, recomendamos migrar para a nova integração dropbox que suporta grupos. Para migrar para a nova integração dropbox, adicione e configuure um novo exemplo de Dropbox for Provisioning no seu inquilino Azure AD usando os passos abaixo. Uma vez configurado a nova integração dropbox, desative o Provisioning na antiga integração dropbox para evitar conflitos de provisionamento. Para obter etapas mais detalhadas sobre a migração para a nova integração dropbox, consulte [Update to the new mais recente aplicação Dropbox for Business utilizando Azure AD](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector).
+> No futuro, a Microsoft e o Dropbox estarão a depreciar a antiga integração do Dropbox. Inicialmente, estava previsto para 4/1/2021, mas foi adiado indefinidamente. No entanto, para evitar perturbações no serviço, recomendamos a migração para a nova integração SCIM 2.0 Dropbox que suporta grupos. Para migrar para a nova integração dropbox, adicione e configuure um novo exemplo de Dropbox for Provisioning no seu inquilino Azure AD usando os passos abaixo. Uma vez configurado a nova integração dropbox, desative o Provisioning na antiga integração dropbox para evitar conflitos de provisionamento. Para obter etapas mais detalhadas sobre a migração para a nova integração dropbox, consulte [Update to the new mais recente aplicação Dropbox for Business utilizando Azure AD](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector).
 
 > [!NOTE]
 > Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).

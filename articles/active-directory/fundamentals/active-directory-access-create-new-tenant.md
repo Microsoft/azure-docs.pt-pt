@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeea88d8c21ba754fbeadbb24891126b639616c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31d82906625bc55cbdba21f2e356ee3f29f9d436
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96437245"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567388"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Quickstart: Criar um novo inquilino no Azure Ative Directory
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
@@ -59,10 +59,16 @@ Depois de iniciar sessão no portal do Azure, pode criar um novo inquilino para 
 
 O novo inquilino é criado com o domínio contoso.onmicrosoft.com.
 
+## <a name="your-user-account-in-the-new-tenant"></a>A sua conta de utilizador no novo inquilino
+
+Quando se cria um novo inquilino da AAD, torna-se o primeiro utilizador desse inquilino. Como primeiro utilizador, é-lhe atribuído automaticamente o papel [de Administrador Global.](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator) Consulte a sua conta de utilizador navegando na página [**do Utilizador.**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers)
+
+Por defeito, também está listado como [contacto técnico](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) para o inquilino. As informações técnicas de contacto são algo que pode alterar em [**Propriedades.**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Se não continuar a utilizar esta aplicação, pode eliminar o arrendatário utilizando os seguintes passos:
 
-- Certifique-se de que está inscrito no diretório que pretende eliminar através do filtro **de subscrição Do Diretório +** no portal Azure e que, se necessário, muda para o directório-alvo.
+- Certifique-se de que está inscrito no diretório que pretende eliminar através do filtro **de subscrição Do Diretório +** no portal Azure. Mude para o diretório alvo, se necessário.
 - Selecione **Azure Active Directory** e, em seguida, na página **Contoso – Descrição Geral**, selecione **Eliminar diretório**.
 
     O inquilino e a informação associada são eliminados.

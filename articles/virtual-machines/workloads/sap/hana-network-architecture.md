@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92cfa5b2e399811754b57bda64569753ccfa6be8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1e37b2de2a3d4be0250d3e900fe48a36e45240e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668763"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309565"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA (Grandes Instâncias) arquitetura de rede
 
@@ -186,7 +186,7 @@ Os dados transferidos entre HANA Large Instance e VMs não são encriptados. No 
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Utilize unidades de grande instância HANA em várias regiões
 
-Para realizar a recuperação de desastres, é necessário ter unidades de Grande Instância SHANA em várias regiões do Azure. Mesmo com a utilização do Azure [Global Vnet Peering], o encaminhamento transitório por defeito não está a funcionar entre os inquilinos da HANA Large Instance em duas regiões diferentes. No entanto, o Global Reach abre a via de comunicação entre as unidades HANA Large Instance que a provisionou em duas regiões diferentes. Este cenário de utilização do ExpressRoute Global Reach permite:
+Para realizar a recuperação de desastres, você precisa ter unidades HANA Large Instance em várias regiões de Azure. Mesmo com a utilização do Azure [Global Vnet Peering], o encaminhamento transitório por defeito não está a funcionar entre os inquilinos da HANA Large Instance em duas regiões diferentes. No entanto, o Global Reach abre a via de comunicação entre as unidades HANA Large Instance que a provisionou em duas regiões diferentes. Este cenário de utilização do ExpressRoute Global Reach permite:
 
  - Replicação do sistema HANA sem proxies ou firewalls adicionais
  - Cópia de cópias de segurança entre unidades HANA Large Instance em duas regiões diferentes para executar cópias do sistema ou atualizações do sistema

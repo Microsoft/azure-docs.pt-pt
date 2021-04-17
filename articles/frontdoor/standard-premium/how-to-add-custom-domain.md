@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69e216c8893f9361a18354e5d165ecc0499601aa
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588754"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387926"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Crie um domínio personalizado no Azure Front Door Standard/Premium SKU (Preview) utilizando o portal Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "104588754"
 
 Quando utiliza o Azure Front Door Standard/Premium para entrega de aplicações, é necessário um domínio personalizado se quiser que o seu próprio nome de domínio seja visível nos seus pedidos de utilizador final. Ter um nome de domínio visível pode ser conveniente para os seus clientes e útil para fins de imagem corporativa.
 
-Depois de criar um perfil Azure Front Door Standard/Premium, o anfitrião frontal padrão terá um subdomínio de azurefd.net. Este subdomínio é incluído no URL quando o Azure Front Door Standard/Premium fornece conteúdo do seu backend por padrão. Por exemplo, `https://contoso-frontend.azurefd.net/activeusers.htm`. Para sua comodidade, o Azure Front Door oferece a opção de associar um domínio personalizado ao anfitrião predefinido. Com esta opção, você entrega o seu conteúdo com um domínio personalizado no seu URL em vez de um nome de domínio Azure Front Door Standard/Premium. Por exemplo, https://www.contoso.com/photo.png.
+Depois de criar um perfil Azure Front Door Standard/Premium, o anfitrião frontal padrão terá um subdomínio de azurefd.net. Este subdomínio é incluído no URL quando o Azure Front Door Standard/Premium fornece conteúdo do seu backend por padrão. Por exemplo, `https://contoso-frontend.azurefd.net/activeusers.htm`. Para sua comodidade, o Azure Front Door oferece a opção de associar um domínio personalizado ao anfitrião predefinido. Com esta opção, você entrega o seu conteúdo com um domínio personalizado no seu URL em vez de um nome de domínio Azure Front Door Standard/Premium. Por exemplo, https://www.contoso.com/photo.png '.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) está atualmente em pré-visualização pública.

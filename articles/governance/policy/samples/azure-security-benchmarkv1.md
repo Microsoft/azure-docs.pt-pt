@@ -1,15 +1,15 @@
 ---
 title: Detalhes da conformidade regulamentar para Azure Security Benchmark v1
 description: Detalhes da iniciativa Azure Security Benchmark v1 Regulatory Compliance in. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: cd63c657821fe15a8dade3535db5612a219a8a1c
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 72c2b78997ed388ff000346ee4ac5b5cd9a2881f
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106090023"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504804"
 ---
 # <a name="details-of-the-azure-security-benchmark-v1-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa Azure Security Benchmark v1 Regulatory Compliance
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98c0a6f88da717256e78a748902317a90a369a9c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579239"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533624"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Traffic Analytics frequentemente fez perguntas
 
@@ -59,62 +59,6 @@ Para verificar as funções atribuídas a um utilizador para uma subscrição:
 3. Para listar todas as funções atribuídas a um utilizador especificado, utilize **o Get-AzRoleAssignment -SignInName [e-mail do utilizador] - Inclua os administradores da Classe.** 
 
 Se não estiver a ver nenhuma saída, contacte o respetivo administrador de subscrição para ter acesso à execução dos comandos. Para obter mais detalhes, consulte [Adicionar ou remover atribuições de funções Azure utilizando a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-
-
-## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Em que regiões de Azure está disponível a Traffic Analytics?
-
-Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regiões apoiadas:
-- Canadá Central
-- E.U.A. Centro-Oeste
-- E.U.A. Leste
-- E.U.A. Leste 2
-- E.U.A. Centro-Norte
-- E.U.A. Centro-Sul
-- E.U.A. Central
-- E.U.A. Oeste
-- E.U.A. Oeste 2
-- França Central
-- Europa Ocidental
-- Europa do Norte
-- Sul do Brasil
-- Oeste do Reino Unido
-- Sul do Reino Unido
-- Leste da Austrália
-- Austrália Sudeste 
-- Ásia Leste
-- Sudeste Asiático
-- Coreia do Sul Central
-- Índia Central
-- Sul da Índia
-- Leste do Japão
-- Oeste do Japão
-- US Gov - Virginia
-- China Leste 2
-
-O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
-- Canadá Central
-- E.U.A. Centro-Oeste
-- E.U.A. Leste
-- E.U.A. Leste 2
-- E.U.A. Centro-Norte
-- E.U.A. Centro-Sul
-- E.U.A. Central
-- E.U.A. Oeste
-- E.U.A. Oeste 2
-- França Central
-- Europa Ocidental
-- Europa do Norte
-- Oeste do Reino Unido
-- Sul do Reino Unido
-- Leste da Austrália
-- Austrália Sudeste
-- Ásia Leste
-- Sudeste Asiático 
-- Coreia do Sul Central
-- Índia Central
-- Leste do Japão
-- US Gov - Virginia
-- China Leste 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs posso permitir que os registos de fluxo sejam em regiões diferentes do meu espaço de trabalho?
 

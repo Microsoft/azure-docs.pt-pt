@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
-ms.openlocfilehash: ac0e088c587132b32f2112d21bce936eac35dc72
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/16/2021
+ms.openlocfilehash: 681a3643c04472cc42c1f672f4c9433da30e3955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515874"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565516"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeamento do fluxo de dados Modo Debug
 
@@ -22,9 +22,9 @@ ms.locfileid: "107515874"
 
 O modo de depuração do fluxo de dados da Azure Data Factory permite-lhe ver interativamente a forma de dados transformar-se enquanto constrói e depura os fluxos de dados. A sessão de depuragem pode ser usada tanto em sessões de design de Fluxo de Dados como durante a execução de depurações de fluxos de dados. Para ligar o modo de depuração, utilize o botão **Data Flow Debug** na barra superior da tela de fluxo de dados ou tela de gasoduto quando tiver atividades de fluxo de dados.
 
-![Debug slider 1](media/data-flow/debugbutton.png "Debug slider")
+![Screenshot que mostra onde está o depurador Debug 1](media/data-flow/debug-button.png)
 
-![Debug slider 2](media/data-flow/debug-button-4.png "Debug slider")
+![Screenshot que mostra onde está o depurador Debug 2](media/data-flow/debug-button-4.png)
 
 Assim que ligar o slider, ser-lhe-á solicitado que selecione qual a configuração de tempo de execução de integração que pretende utilizar. Se o AutoResolveIntegrationRuntime for escolhido, um cluster com oito núcleos de cálculo geral com um tempo de vida padrão de 60 minutos será girado. Se desejar permitir uma equipa mais inativa antes do tempo de sessão, pode escolher uma definição de TTL mais alta. Para obter mais informações sobre os tempos de execução do fluxo de dados, consulte [o desempenho do fluxo de dados](concepts-data-flow-performance.md#ir).
 

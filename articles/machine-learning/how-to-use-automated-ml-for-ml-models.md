@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5718e0e3732f57b46500f9d2cdb1165e883ca44f
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562727"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575586"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 
@@ -180,15 +180,15 @@ Desa cosar em qualquer um dos modelos concluídos para ver detalhes de treino, c
 
 [![Detalhes da iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
-## <a name="model-explanations"></a>Explicações do modelo
+## <a name="model-explanations-preview"></a>Explicações do modelo (pré-visualização)
 
-Para melhor compreender o seu modelo, veja quais as características de dados (cruas ou concebidas) que influenciaram as previsões do modelo com o painel de explicações do modelo. 
+Para melhor compreender o seu modelo, pode ver quais as características de dados (cruas ou concebidas) que influenciaram as previsões do modelo com o painel de explicações do modelo. 
 
-O painel de explicações do modelo fornece uma análise global do modelo treinado juntamente com as suas previsões e explicações. Também permite perfurar um ponto de dados individual e as suas importâncias individuais. [Saiba mais sobre as visualizações do painel de explicações e parcelas específicas.](how-to-machine-learning-interpretability-aml.md#visualizations)
+O painel de explicações do modelo fornece uma análise global do modelo treinado juntamente com as suas previsões e explicações. Também permite perfurar um ponto de dados individual e as suas importâncias individuais. [Saiba mais sobre as visualizações do painel de explicação.](how-to-machine-learning-interpretability-aml.md#visualizations)
 
 Para obter explicações para um modelo em particular, 
 
-1. No separador **Modelos,** selecione o modelo que pretende utilizar. 
+1. No separador **Modelos,** selecione o modelo que pretende entender. 
 1. Selecione o botão **do modelo Explicar** e forneça um cálculo que possa ser usado para gerar as explicações.
 1. Verifique se a **criança executa** o separador para obter o estado. 
 1. Uma vez concluído, navegue para o separador **Explicações (pré-visualização)** que contém o painel de explicações. 

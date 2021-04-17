@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 330a6e54ee88781f71c4a861051aab94f8eef81f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200821"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587906"
 ---
 # <a name="understanding-resource-sets"></a>Compreender os conjuntos de recursos
 
@@ -102,14 +102,15 @@ Nome qualificado: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Nome do visor: "dados"
 
-## <a name="known-issues-with-resource-sets"></a>Problemas conhecidos com conjuntos de recursos
+## <a name="customizing-resource-set-grouping-using-pattern-rules"></a>Personalizar o agrupamento de conjuntos de recursos usando regras de padrão
 
-Embora os conjuntos de recursos funcionem bem na maioria dos casos, poderá encontrar os seguintes problemas, nos quais a Azure Purview:
+a azure Purview usa um conjunto de padrões definidos para determinar se um grupo de ativos é um conjunto de recursos. Em alguns casos, o agrupamento de conjuntos de recursos da Azure Purview pode não refletir com precisão a sua propriedade de dados. Estas questões podem incluir:
 
-- Marca incorretamente um ativo como um conjunto de recursos
-- Coloca um ativo no conjunto de recursos errados
-- Incorretamente marca um ativo como não sendo um conjunto de recursos
+- Marcando incorretamente um ativo como um conjunto de recursos
+- Colocar um ativo no conjunto de recursos errados
+- Marcando incorretamente um ativo como não sendo um conjunto de recursos
 
+Para personalizar ou sobrepor como a Azure Purview deteta quais os ativos agrupados como conjuntos de recursos e como são exibidos dentro do catálogo, pode definir regras de padrão no centro de gestão. Para obter instruções passo a passo e sintaxe, consulte [as regras de padrão definidas por recursos](how-to-resource-set-pattern-rules.md).
 ## <a name="next-steps"></a>Passos seguintes
 
 Para começar com o Azure Purview, consulte [Quickstart: Criar uma conta Azure Purview](create-catalog-portal.md).

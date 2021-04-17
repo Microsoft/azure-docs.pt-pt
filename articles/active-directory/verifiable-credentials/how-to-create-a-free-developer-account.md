@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 1e8bb59c09622a39dad680940ff34e643ee0cc3b
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a50c8b083c1cd453dbe3c51c63ec9cf53859c3bd
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222746"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587271"
 ---
 # <a name="how-to-create-a-free-azure-active-directory-developer-tenant"></a>Como criar um inquilino de desenvolvimento gratuito do Azure Ative Directory
 
@@ -45,7 +45,7 @@ Se decidir inscrever-se no programa de desenvolvimento gratuito da Microsoft 365
 
 Neste momento, criou um inquilino com 25 licenças de utilizador E5. As licenças E5 incluem licenças Azure AD P2. Opcionalmente, pode adicionar pacotes de dados de amostra com utilizadores, grupos, correio e SharePoint para ajudá-lo a testar no seu ambiente de desenvolvimento. Para o serviço de emissão de credenciais verificáveis, não são necessários.
 
-Para sua conveniência, você poderia adicionar a sua própria conta de trabalho como [hóspede](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) no inquilino recém-criado e usar essa conta para administrar o inquilino. Se quiser que a conta do cliente seja capaz de gerir o Serviço credencial verificável, tem de atribuir a função 'Administrador Global' a esse utilizador.
+Para sua conveniência, você poderia adicionar a sua própria conta de trabalho como [hóspede](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal) no inquilino recém-criado e usar essa conta para administrar o inquilino. Se quiser que a conta do cliente seja capaz de gerir o Serviço credencial verificável, tem de atribuir a função 'Administrador Global' a esse utilizador.
 
 ## <a name="next-steps"></a>Passos seguintes
 

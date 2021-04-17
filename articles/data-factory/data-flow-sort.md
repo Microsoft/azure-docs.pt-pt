@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a6567f8576e2507704956233bc593b203b48239
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81606328"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588739"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Classificar a transformação no fluxo de dados de mapeamento
 
@@ -22,7 +22,7 @@ ms.locfileid: "81606328"
 A transformação do tipo permite-lhe classificar as linhas de entrada no fluxo de dados atual. Pode escolher colunas individuais e serdená-las em ordem ascendente ou descendente.
 
 > [!NOTE]
-> Os fluxos de dados de mapeamento são executados em clusters de faíscas que distribuem dados através de múltiplos nós e divisórias. Se optar por repartir os seus dados numa transformação subsequente, poderá perder a sua triagem devido à remodelação de dados.
+> Os fluxos de dados de mapeamento são executados em clusters de faíscas que distribuem dados através de múltiplos nós e divisórias. Se optar por repartir os seus dados numa transformação subsequente, poderá perder a sua triagem devido à remodelação de dados. A melhor maneira de manter a ordem de classificação no seu fluxo de dados é definir uma única partição no separador Otimize sobre a transformação e manter a transformação do Sort o mais próximo possível da Pia.
 
 ## <a name="configuration"></a>Configuração
 

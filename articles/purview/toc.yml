@@ -16,6 +16,8 @@ items:
         href: create-purview-dotnet.md
       - name: Criar uma conta Depview - Python
         href: create-purview-python.md
+      - name: Gerir notificações kafka -.NET
+        href: manage-kafka-dotnet.md
   - name: Tutoriais
     items:
       - name: Kit para iniciantes
