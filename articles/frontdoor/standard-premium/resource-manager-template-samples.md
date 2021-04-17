@@ -6,13 +6,13 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/24/2021
-ms.openlocfilehash: 929adb0be948339af033d85b0dabd7e1cedf353e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: 3559270710f56d43fe486e2e3d3e41c63e2a619b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561751"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565836"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Modelos de gestor de recursos Azure para Azure Front Door
 
@@ -23,7 +23,9 @@ A tabela seguinte inclui links para modelos Azure Resource Manager para Azure Fr
 
 | Sample | Descrição |
 |-|-|
+| [Porta da frente (criação rápida)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium/) | Cria um perfil básico da porta da frente, incluindo um ponto final, grupo de origem, origem e rota.  |
 | [Conjunto de regras](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Cria um perfil da porta da frente e conjunto de regras.  |
+| [Política da WAF com regra personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | Cria um perfil da porta da frente e WAF com regra personalizada.  |
 |**Origens do Serviço de Aplicações**| **Descrição** |
 | [Serviço de Aplicações](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Cria uma aplicação de Serviço de Aplicações com um ponto final público e um perfil da Porta frontal.  |
 | [Serviço de Aplicações com Link Privado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Cria uma aplicação de Serviço de Aplicações com um ponto final privado e um perfil da Porta frontal.  |

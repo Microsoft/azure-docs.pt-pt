@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/11/2021
-ms.openlocfilehash: 26d119fb6880f4c539e0064db424699bc5d22f96
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.date: 04/14/2021
+ms.openlocfilehash: 826183e09f2aa7f3f22ace8b5ce3e16767d49863
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478680"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515666"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeamento de fluxos de dados na Azure Data Factory
 
@@ -99,6 +99,67 @@ O modo Debug permite-lhe ver interativamente os resultados de cada passo de tran
 O fluxo de dados de mapeamento integra-se com as capacidades de monitorização da Azure Data Factory existentes. Para aprender a compreender a produção de monitorização do fluxo de dados, consulte [a monitorização dos fluxos de dados de mapeamento](concepts-data-flow-monitoring.md).
 
 A equipa da Azure Data Factory criou um [guia de afinação de desempenho](concepts-data-flow-performance.md) para o ajudar a otimizar o tempo de execução dos seus fluxos de dados após a construção da sua lógica de negócio.
+
+
+## <a name="available-regions"></a>Regiões disponíveis
+
+Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões em ADF:
+
+| Região do Azure | Fluxos de dados em ADF |
+| ------------ | ----------------- |
+| Austrália Central | |
+| Austrália Central 2 | |
+| Leste da Austrália | ✓ |
+| Austrália Sudeste   | ✓ |
+| Sul do Brasil  | ✓ |
+| Canadá Central | ✓ |
+| Índia Central | ✓ |
+| E.U.A. Central    | ✓ |
+| Leste da China |      |
+| China Leste 2  |   |
+| China Não-Regional | |
+| Norte da China | ✓ |
+| China Norte 2 | ✓ |
+| Ásia Leste | ✓ |
+| E.U.A. Leste   | ✓ |
+| E.U.A. Leste 2 | ✓ |
+| França Central | ✓ |
+| Sul de França  | |
+| Alemanha Central (Soberano) | |
+| Alemanha Não Regional (Soberano) | |
+| Alemanha Norte (Público) | |
+| Nordeste da Alemanha (Soberano) | |
+| Alemanha Centro Ocidental (Público) |  |
+| Leste do Japão | ✓ |
+| Oeste do Japão |  |
+| Coreia do Sul Central | ✓ |
+| Sul da Coreia do Sul | |
+| E.U.A. Centro-Norte  | ✓ |
+| Europa do Norte  | ✓ |
+| Leste da Noruega | ✓ |
+| Oeste da Noruega | |
+| Norte da África do Sul    | ✓ |
+| Oeste da África do Sul |  |
+| E.U.A. Centro-Sul  | |
+| Sul da Índia | |
+| Sudeste Asiático    | ✓ |
+| Suíça Norte |   |
+| Suíça Oeste | |
+| Centro dos Emirados Árabes Unidos | |
+| Uae Norte | ✓ |
+| Sul do Reino Unido  | ✓ |
+| Oeste do Reino Unido |     |
+| US DoD Centro | |
+| US DoD - Leste | |
+| US Gov - Arizona | ✓ |
+| Gov dos EUA não-regional | |
+| US Gov - Texas | |
+| US Gov - Virginia | ✓ |
+| E.U.A. Centro-Oeste |     |
+| Europa Ocidental   | ✓ |
+| Oeste da Índia | |
+| E.U.A. Oeste   | ✓ |
+| E.U.A. Oeste 2 | ✓ |
 
 ## <a name="next-steps"></a>Passos seguintes
 

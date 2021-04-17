@@ -5,14 +5,15 @@ author: julieMSFT
 ms.author: jrasnick
 ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
+ms.subservice: overview
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.openlocfilehash: 06586b5bf20619f57b2ad1c3d5de84dd61952261
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 15ac6ce6a1a49bbbd15849adec373dd0fcd42c10
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561250"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568527"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planear e gerir os custos da Azure Synapse Analytics
 

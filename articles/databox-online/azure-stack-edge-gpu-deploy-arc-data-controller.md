@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 53058d27e94c9fdf18d726369f6a1b75a9f34db9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d56e03cd650032a775c30b02d939cf934f384fae
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567547"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568612"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implementar serviços de dados Azure no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -21,7 +21,7 @@ ms.locfileid: "105567547"
 
 Este artigo descreve o processo de criação de um Controlador de Dados Azure Arc e, em seguida, a implementação de Serviços de Dados Azure No seu dispositivo GPU Azure Stack Edge Pro. 
 
-O Azure Arc Data Controller é o avião de controlo local que permite serviços de dados Azure em ambientes geridos pelo cliente. Uma vez criado o Controlador de Dados do Arco Azure no cluster Kubernetes que funciona no seu dispositivo Azure Stack Edge Pro, pode implementar serviços de dados do Azure, como sql Managed Instance (Preview) nesse controlador de dados.
+O Azure Arc Data Controller é o avião de controlo local que permite serviços de dados Azure em ambientes geridos pelo cliente. Uma vez criado o Controlador de Dados Azure Arc no cluster Kubernetes que funciona no seu dispositivo GPU Azure Stack Edge Pro, pode implementar serviços de dados do Azure, como sql Managed Instance (Preview) nesse controlador de dados.
 
 O procedimento para criar o Controlador de Dados e, em seguida, implementar uma SQL Managed Instance envolve a utilização de PowerShell e `kubectl` - uma ferramenta nativa que fornece acesso de linha de comando ao cluster Kubernetes no dispositivo.
 
@@ -30,9 +30,9 @@ O procedimento para criar o Controlador de Dados e, em seguida, implementar uma 
 
 Antes de começar, certifique-se de que:
 
-1. Tem acesso a um dispositivo Azure Stack Edge Pro e ativou o seu dispositivo como descrito no [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
+1. Tem acesso a um dispositivo GPU Azure Stack Edge Pro e ativou o seu dispositivo como descrito no [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
-1. Ativou o papel de computação no dispositivo. Um cluster Kubernetes também foi criado no dispositivo quando configurava o cálculo no dispositivo de acordo com as instruções em [cálculo de Configuração no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
+1. Ativou o papel de computação no dispositivo. Um cluster Kubernetes também foi criado no dispositivo quando configurava o cálculo no dispositivo de acordo com as instruções em [Configure compute no seu dispositivo GPU Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 1. Tem o ponto final da API de Kubernetes a partir da página **de Dispositivo** da web UI local. Para obter mais informações, consulte as instruções no [ponto de final da API da Kubernetes](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints).
 
@@ -171,7 +171,7 @@ O controlador de dados é uma coleção de cápsulas que são implantadas no seu
     A colocação pode demorar aproximadamente 5 minutos a ser concluída.
 
     > [!NOTE]
-    > O controlador de dados criado no cluster Kubernetes no seu dispositivo Azure Stack Edge Pro funciona apenas no modo desligado na versão atual.
+    > O controlador de dados criado no cluster Kubernetes no seu dispositivo GPU Azure Stack Edge Pro funciona apenas no modo desligado na versão atual. O modo desligado é para o Controlador de Dados e não para o seu dispositivo.
 
 ### <a name="monitor-data-creation-status"></a>Monitorizar o estado da criação de dados
 

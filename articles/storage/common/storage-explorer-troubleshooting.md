@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 593ccac7326a0a04884fe433cac85cb8eaf79319
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: dfc8fe0f1b4bc043feecd5c76340d48bc5421854
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228236"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568544"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -120,34 +120,62 @@ Se não conseguir encontrar nenhum certificado auto-assinado seguindo estes pass
 
 ## <a name="sign-in-issues"></a>Problemas de início de sessão
 
-### <a name="blank-sign-in-dialog-box"></a>Caixa de diálogo de entrada em branco
+### <a name="understanding-sign-in"></a>Compreensão do sinal
 
-As caixas de diálogo de sinal em branco ocorrem mais frequentemente quando os Serviços da Federação de Diretório Ativo (AD FS) solicitam ao Storage Explorer que execute um redirecionamento, que não é suportado pela Electron. Para contornar este problema, pode tentar utilizar o Fluxo de Código do Dispositivo para iniciar sôm. Para tal, siga estes passos:
+Certifique-se de que leu a documentação [do Iniciar sção no Storage Explorer.](./storage-explorer-sign-in.md)
 
-1. Na barra de ferramentas verticais esquerda, abra **as definições**. No Painel de Definições, aceda ao S **indicador** para a  >  **aplicação .** Ativar **o sinal de fluxo do código do dispositivo de utilização**.
-2. Abra a caixa de diálogo **Connect** (quer através do ícone de ficha na barra vertical do lado esquerdo, quer selecionando **a Conta Adicionar** no painel de contas).
-3. Escolha o ambiente a que pretende entrar.
-4. **Selecione iniciar sção**.
-5. Siga as instruções no painel seguinte.
+### <a name="frequently-having-to-reenter-credentials"></a>Frequentemente ter que reentrar credenciais
 
-Se não conseguir iniciar scontabilidade na conta que pretende utilizar porque o seu navegador padrão já está inscrito numa conta diferente, faça uma das seguintes:
+Ter de reentrar em credenciais é provavelmente o resultado de políticas de acesso condicional definidas pelo seu administrador da AAD. Quando o Storage Explorer lhe pedir para reentrar nas credenciais do painel de contas, deverá ver um **erro de informação...** link. Clique nisso para ver por que razão o Storage Explorer está a pedir-lhe para reentrar nas credenciais. Erros de política de acesso condicional que requerem reentrada de credenciais podem parecer algo parecido com estes:
+- O token refresh expirou...
+- Deve utilizar a autenticação multi-factor para aceder...
+- Devido a uma alteração de configuração feita pelo seu administrador...
 
-- Copie manualmente o link e o código numa sessão privada do seu navegador.
-- Copie manualmente o link e o código num navegador diferente.
+Para reduzir a frequência de ter de reentrar em credenciais devido a erros como os acima referidos, terá de falar com o seu administrador da AAD.
+
+### <a name="conditional-access-policies"></a>Políticas de acesso condicional
+
+Se tiver políticas de acesso condicional que necessitem de ser satisfeitas para a sua conta, certifique-se de que está a utilizar o valor **padrão** do Navegador Web para o **Iniciar sção com** a definição. Para obter informações sobre esta definição, consulte ['Alterar onde o sinal de sposição' acontece](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+
+### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>Incapaz de adquirir ficha, inquilino é filtrado
+
+Se vir uma mensagem de erro a dizer que um símbolo não pode ser adquirido porque um inquilino é filtrado, isso significa que está a tentar aceder a um recurso que está num inquilino que filtraste. Para desfillar o arrendatário, vá ao **Painel de Contas** e certifique-se de que a caixa de verificação do inquilino especificado no erro é verificada. Consulte as [contas de Gestão](./storage-explorer-sign-in.md#managing-accounts) para obter mais informações sobre a filtragem dos inquilinos no Storage Explorer.
+
+## <a name="authentication-library-failed-to-start-properly"></a>A biblioteca de autenticação não começou corretamente
+
+Se no arranque vir uma mensagem de erro que diz que a biblioteca de autenticação do Storage Explorer não começou corretamente, certifique-se de que o ambiente de instalação cumpre todos os [requisitos necessários](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites). Não cumprir os pré-requisitos é a causa mais provável desta mensagem de erro.
+
+Se acredita que o seu ambiente de instalação cumpre todos os requisitos, então [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new). Quando abrir o seu problema, certifique-se de incluir:
+- O seu so.
+- Que versão do Storage Explorer está a tentar usar.
+- Se verificou os pré-requisitos.
+- [Registos](#authentication-logs) de autenticação de um lançamento infrutífero do Storage Explorer. A verificação da autenticação é ativada automaticamente após este tipo de erro.
+
+### <a name="blank-window-when-using-integrated-sign-in"></a>Janela em branco ao utilizar o insusitado integrado
+
+Se optou por utilizar o **'Sin-in Integrado'** e está a ver uma janela de sinalização em branco, provavelmente terá de mudar para um método de entrada diferente. As caixas de diálogo de sinal em branco ocorrem mais frequentemente quando um servidor ative Directory Federation Services (ADFS) pede ao Storage Explorer que execute um redirecionamento que não é suportado pela Electron.
+
+Para alterar para um método de inscrição diferente, alterando o **Iniciar sção com** a definição em **Definições**  >  **de**  >  **Inscrição de** Aplicação . Para obter informações sobre os diferentes tipos de métodos de inscrição, consulte [alterar onde o sinal acontece](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Ciclo de reautora ou alteração upn
 
-Se estiver num ciclo de reautora ou tiver mudado a UPN de uma das suas contas, siga estes passos:
+Se estiver num ciclo de reautorsa ou tiver mudado a UPN de uma das suas contas, então experimente estes passos:
 
-1. Remova todas as contas e, em seguida, feche o Storage Explorer.
-2. Elimine o . Pasta IdentityService da sua máquina. No Windows, a pasta encontra-se a `C:\users\<username>\AppData\Local` . Para Mac e Linux, pode encontrar a pasta na raiz do seu diretório de utilizadores.
-3. Se estiver a executar Mac ou Linux, também terá de eliminar a entrada Microsoft.Developer.IdentityService da loja de chaves do seu sistema operativo. No Mac, a loja de chaves é a aplicação *Gnomo Keychain.* No Linux, a aplicação é tipicamente chamada _de Keyring,_ mas o nome pode diferir dependendo da sua distribuição.
+1. Explorador de Armazenamento Aberto
+2. Ir para ajudar > reset
+3. Certifique-se de que pelo menos a autenticação é verificada. Pode desmarcar outros itens que não pretende reiniciar.
+4. Clique no botão Reset
+5. Reinicie o Storage Explorer e tente iniciar novamente a sessão.
 
-### <a name="conditional-access"></a>Acesso Condicional
+Se continuar a ter problemas depois de fazer um reset, tente estes passos:
 
-Devido a uma limitação na Biblioteca AD Azure utilizada pelo Storage Explorer, o Acesso Condicional não é suportado quando o Storage Explorer está a ser utilizado no Windows 10, Linux ou macOS.
+1. Explorador de Armazenamento Aberto
+2. Remova todas as contas e, em seguida, feche o Storage Explorer.
+3. Elimine a `.IdentityService` pasta da sua máquina. No Windows, a pasta encontra-se a `C:\users\<username>\AppData\Local` . Para Mac e Linux, pode encontrar a pasta na raiz do seu diretório de utilizadores.
+4. Se estiver a executar Mac ou Linux, também terá de eliminar a entrada Microsoft.Developer.IdentityService da loja de chaves do seu sistema operativo. No Mac, a loja de chaves é a aplicação *Gnomo Keychain.* No Linux, a aplicação é tipicamente chamada _de Keyring,_ mas o nome pode diferir dependendo da sua distribuição.
+6. Reinicie o Storage Explorer e tente iniciar novamente a sessão.
 
-## <a name="mac-keychain-errors"></a>Erros de Mac Keychain
+### <a name="macos-keychain-errors-or-no-sign-in-window"></a>macOS: erros de chavechain ou nenhuma janela de inscrição
 
 O keychain macOS pode por vezes entrar num estado que causa problemas para a biblioteca de autenticação do Explorador de Armazenamento. Para tirar o Keychain deste estado, siga estes passos:
 
@@ -162,15 +190,16 @@ O keychain macOS pode por vezes entrar num estado que causa problemas para a bib
 6. É solicitado com uma mensagem como "O centro de serviço quer aceder ao Keychain." Introduza a sua palavra-passe de conta de administração Mac e selecione **Sempre Permitir** (ou **Permitir** sempre **permitir** que não esteja disponível).
 7. Tente entrar.
 
-### <a name="general-sign-in-troubleshooting-steps"></a>Etapas gerais de resolução de problemas de inscrição
+### <a name="default-browser-doesnt-open"></a>O navegador predefinido não abre
 
-* Se estiver no macOS e a janela de entrada nunca aparecer por cima da caixa de diálogo **de autenticação,** experimente [estes passos](#mac-keychain-errors).
-* Reiniciar o Explorador de Armazenamento.
-* Se a janela de autenticação estiver em branco, aguarde pelo menos um minuto antes de fechar a caixa de diálogo de autenticação.
-* Certifique-se de que as definições de procuração e certificado estão corretamente configuradas tanto para a sua máquina como para o Explorador de Armazenamento.
-* Se estiver a executar o Windows e tiver acesso ao Visual Studio 2019 na mesma máquina e às credenciais de inscrição, tente iniciar sessão no Visual Studio 2019. Depois de um sucesso no Visual Studio 2019, pode abrir o Storage Explorer e ver a sua conta no painel de contas.
+Se o seu navegador predefinido não abrir ao tentar assinar em experimentar todas as seguintes técnicas:
+- Reiniciar explorador de armazenamento
+- Abra o seu navegador manualmente antes de iniciar o início do sing-in
+- Experimente utilizar **o Início de Sposição Integrado,** consulte ['Alterar onde a sposição' acontece](./storage-explorer-sign-in.md#changing-where-sign-in-happens) para obter instruções sobre como fazê-lo.
 
-Se nenhum destes métodos funcionar, [abra uma questão no GitHub.](https://github.com/Microsoft/AzureStorageExplorer/issues)
+### <a name="other-sign-in-issues"></a>Outras questões de inscrição
+
+Se nenhuma das anteriores se aplicar à sua questão de inscrição ou se não conseguir resolver o seu ponto de seditação, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### <a name="missing-subscriptions-and-broken-tenants"></a>Assinaturas desaparecidas e inquilinos avariados
 
@@ -180,9 +209,9 @@ Se não conseguir recuperar as suas subscrições depois de iniciar sessão com 
 * Certifique-se de que assinou através do ambiente Azure correto (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, ou Custom Environment).
 * Se estiver atrás de um servidor proxy, certifique-se de que configura corretamente o representante do Explorador de Armazenamento.
 * Tente remover e voltar a adicionar a conta.
-* Se houver uma ligação "Mais informações", verifique quais as mensagens de erro que estão a ser reportadas para os inquilinos que estão a falhar. Se não tiver a certeza de como responder às mensagens de erro, sinta-se à vontade para [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Se houver um link "Mais informações" ou "Detalhes de erro", verifique quais as mensagens de erro que estão a ser reportadas para os inquilinos que estão a falhar. Se não tiver a certeza de como responder às mensagens de erro, sinta-se à vontade para [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cant-remove-an-attached-account-or-storage-resource"></a>Não é possível remover uma conta anexa ou um recurso de armazenamento
+## <a name="cant-remove-an-attached-storage-account-or-resource"></a>Não é possível remover uma conta de armazenamento anexada ou recurso
 
 Se não conseguir remover uma conta ou um recurso de armazenamento anexado através da UI, pode eliminar manualmente todos os recursos anexados eliminando as seguintes pastas:
 
@@ -526,6 +555,8 @@ Parte 3: Sanitize o traço do Violinista
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
+Se nenhuma destas soluções funcionar para si, pode:
+- Criar um pedido de suporte
+- [Abra uma edição no GitHub.](https://github.com/Microsoft/AzureStorageExplorer/issues) Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
 
 ![Comentários](./media/storage-explorer-troubleshooting/feedback-button.PNG)

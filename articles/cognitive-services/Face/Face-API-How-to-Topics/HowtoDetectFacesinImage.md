@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71e98b735b4aa4631d73f8730a48c56a8c7585ab
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101713070"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497647"
 ---
 # <a name="get-face-detection-data"></a>Obtenha dados de deteção facial
 
@@ -78,9 +78,9 @@ Para saber mais sobre cada um dos atributos, consulte a [deteção](../concepts/
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia, aprendeu a utilizar as várias funcionalidades de deteção facial. Em seguida, integre estas funcionalidades na sua app seguindo um tutorial aprofundado.
+Neste guia, aprendeu a utilizar as várias funcionalidades de deteção facial. Em seguida, integre estas funcionalidades numa app para adicionar dados faciais dos utilizadores.
 
-- [Tutorial: Criar uma aplicação WPF para exibir dados faciais numa imagem](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Tutorial: Adicionar utilizadores a um serviço Face](../enrollment-overview.md)
 
 ## <a name="related-topics"></a>Tópicos relacionados
 

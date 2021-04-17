@@ -1,15 +1,15 @@
 ---
 title: Detalhes da conformidade regulamentar para HIPAA HITRUST 9.2
 description: Detalhes da iniciativa hipaa HITRUST 9.2 Conformidade Regulamentar integrada. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: db8f3c887a6ed7beb2febb6910bec32e7b0ea218
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: ad5700090eda9fad4c607c1f24503f1483cd36fe
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096398"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107506249"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa HIPAA HITRUST 9.2 Regulatória Compliance
 

@@ -2,20 +2,20 @@
 title: 'Quickstart: Atribua os utilizadores a uma app que utiliza o Azure Ative Directory como fornecedor de identidade'
 description: Este quickstart percorre o processo de permitir que os utilizadores utilizem uma app que você tem configurado para usar a AZure AD como um fornecedor de identidade.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
-ms.author: kenwith
-ms.openlocfilehash: 53dd2d15565149c3a9888ba063a6194ae033d8e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: eb6797fdfb57a503b6dece9f2dfdc3cb0c67feef
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258376"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375343"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade
 

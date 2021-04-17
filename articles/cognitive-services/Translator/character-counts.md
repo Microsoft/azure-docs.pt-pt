@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 6e81736e3151c9e97a8926b1f67c0a7a0d4c2f3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53fc22e1dbdac3240f72e8d64fbaee690597950f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895888"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107373932"
 ---
 # <a name="how-the-translator-counts-characters"></a>Como o Tradutor conta personagens
 
@@ -38,5 +38,7 @@ Para scripts baseados em ideogramas como o chinês e o japonês Kanji, o serviç
 O número de pedidos, palavras, bytes ou frases é irrelevante na contagem de caracteres.
 
 As chamadas para os métodos Deteção e Quebra de Probabilidades não são contabilizadas no consumo de caracteres. No entanto, esperamos que as chamadas para os métodos De Deteção e Quebra de Probabilidades sejam de uma proporção razoável para o uso de outras funções que são contadas. Se o número de chamadas Detect ou BreakSentence que eserir exceder o número de outros métodos contados em 100 vezes, a Microsoft reserva-se o direito de restringir a sua utilização dos métodos De deteção e Quebra.
+
+Cada personagem submetido à função de tradução é contado mesmo quando o conteúdo não é alterado ou quando a origem e o idioma alvo são os mesmos.
 
 Mais informações sobre a contagem de caracteres está na [FAQ tradutor.](https://www.microsoft.com/en-us/translator/faq.aspx)

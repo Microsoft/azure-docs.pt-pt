@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/14/2021
-ms.openlocfilehash: b0d42b42ab44b51294833e40b7fa0174256c655a
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/16/2021
+ms.openlocfilehash: da8d193d140d96d9742666429ebc85672c71ad4e
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517189"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567269"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade do Fluxo de Dados na Fábrica de Dados Azure
 
@@ -125,7 +125,7 @@ Pode parametrizar a contagem de núcleo ou o tipo de cálculo se utilizar o temp
 
 Para executar um gasoduto de depuração executado com uma atividade de Fluxo de Dados, tem de ligar o modo de depuração do fluxo de dados através do slider **de depurador de fluxo de dados** na barra superior. O modo Debug permite-lhe executar o fluxo de dados contra um cluster de Faíscas ativo. Para mais informações, consulte [o Modo Debug](concepts-data-flow-debug-mode.md).
 
-![Botão Depurg](media/data-flow/debug-button-3.png "Botão Depurg")
+![Screenshot que mostra onde está o botão Debug](media/data-flow/debug-button-3.png)
 
 O gasoduto de depuração corre contra o cluster de depuração ativo, não o ambiente de tempo de integração especificado nas definições de atividade do Fluxo de Dados. Pode escolher o ambiente de depuramento ao iniciar o modo de depurar.
 

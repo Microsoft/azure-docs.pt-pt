@@ -2,13 +2,13 @@
 title: Criar & implementar projetos de grupo de recursos do Estúdio Visual
 description: Use o Visual Studio para criar um projeto de grupo de recursos Azure e implementar os recursos para a Azure.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 4c0e19042506e0cf1772398b0a02b81f0245b1c7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704419"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306981"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
@@ -45,9 +45,9 @@ Nesta secção, você cria um projeto do Grupo de Recursos Azure com um modelo *
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que executa comandos do PowerShell para implementar no Azure Resource Manager. O Visual Studio utiliza este script PowerShell para implementar o seu modelo. |
    | WebSite.jsem |O modelo do Resource Manager que define a infraestrutura que pretende implementar no Azure e os parâmetros que pode fornecer durante a implementação. Define as dependências entre os recursos para que o Resource Manager os implemente na ordem correta. |
-   | WebSite.parameters.jsem |Um ficheiro de parâmetros que tem os valores que são precisos para o modelo. Passa nos valores dos parâmetros para personalizar cada implementação. |
+   | WebSite.parameters.jsem |Um ficheiro de parâmetros que tem os valores que são precisos para o modelo. Passa nos valores dos parâmetros para personalizar cada implementação. Note que **a Build Action** está definida para o **Conteúdo**. Se adicionar mais ficheiros de parâmetros, certifique-se de que a ação de construção está definida para **Conteúdo**. |
 
-    Todos os projetos de implementação do grupo de recursos têm estes ficheiros básicos. Outros projetos poderão ter ficheiros adicionais para suportar outras funcionalidades.
+    Todos os projetos de implementação do grupo de recursos têm estes ficheiros básicos. Outros projetos podem ter mais ficheiros para suportar outras funcionalidades.
 
 ## <a name="customize-resource-manager-template"></a>Personalizar o modelo do gestor de recursos
 

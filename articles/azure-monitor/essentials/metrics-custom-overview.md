@@ -5,13 +5,13 @@ author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: c6e946d5aedb06899a44851b79581dbc518f41b0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/13/2021
+ms.openlocfilehash: f4ba3763dd781053349417fe3fed3a2848a06fc7
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052318"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515843"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Monitor Azure (Pré-visualização)
 
@@ -213,6 +213,30 @@ O Azure Monitor impõe os seguintes limites de utilização em métricas persona
 |Comprimento de corda para espaços de nome métrico, nomes métricos, teclas de dimensão e valores de dimensão|256 caracteres|
 
 Uma série de tempo ativa é definida como qualquer combinação única de métrica, chave de dimensão ou valor de dimensão que teve valores métricos publicados nas últimas 12 horas.
+
+Para compreender o limite de séries de 50k, considere a seguinte métrica:
+
+*Tempo de resposta do servidor* com Dimensões: *Região,* *Departamento,* *CustomerID*
+
+Com esta métrica, se tiver 10 regiões, 20 departamentos e 100 clientes que lhe dá 10 x 20 x 100 = séries de tempo de 2000. 
+
+Se tiver 100 regiões, 200 departamentos e 2000 clientes 100 x 200 x 2000 = 40.000.000 séries tempotadoras, que está muito acima do limite apenas para esta métrica. 
+
+Mais uma vez, este limite não é para uma métrica individual. É pela soma de todas estas métricas através de uma subscrição e região.  
+
+## <a name="design-limitations"></a>Limitações de design
+
+**Não utilize o Application Insights para efeitos de auditoria** – O pipeline Application Insights utiliza as métricas personalizadas API nos bastidores. O gasoduto está otimizado para um elevado volume de telemetria com um mínimo de impacto na sua aplicação. Como tal, acelera ou amostras (leva apenas uma percentagem da sua telemetria e ignora o resto) se o fluxo de dados de entrada se tornar demasiado grande. Devido a este comportamento, não pode usá-lo para fins de auditoria, uma vez que alguns registos são suscetíveis de serem retirados. 
+
+**Métricas com uma variável no nome** – Não utilize uma variável como parte do nome métrico, por exemplo, um guia ou um timetamp. Isto faz com que atinja a limitação de 50.000 séries temporques. 
+ 
+**Altas dimensões métricas de cardinalidade** - Métricas com valores demasiado válidos numa dimensão (uma "cardinalidade elevada") são muito mais propensos a atingir o limite de 50k. Em geral, nunca deve utilizar um valor em constante mudança numa dimensão ou nome métrico. A estamp, por exemplo, nunca deve ser uma dimensão. Servidor, cliente ou produto poderia ser usado, mas apenas se tiver um número menor de cada um desses tipos. Como teste, pergunte a si mesmo se todos os gráficos desses dados num gráfico.  Se tiver 10 ou talvez mesmo 100 servidores, pode ser útil vê-los todos num gráfico para comparação. Mas se tiver 1000, o gráfico resultante provavelmente seria difícil se não impossível de ler. A melhor prática é mantê-lo a menos de 100 valores válidos. Até 300 é uma área cinzenta.  Se precisar de ultrapassar este valor, utilize registos personalizados do Azure Monitor.   
+
+Se tiver uma variável no nome ou uma elevada dimensão cardinalício, pode ocorrer o seguinte. 
+- As métricas tornam-se pouco fiáveis devido ao estrangulamento
+- O Explorador de Métricas não funciona
+- Alerta e notificações tornam-se imprevisíveis
+- Os custos podem aumentar inesperadamente - a Microsoft não está a carregar enquanto as métricas personalizadas com dimensões estão em pré-visualização pública. No entanto, assim que as acusações começarem no futuro, irá incorrer em acusações inesperadas. O plano consiste em cobrar o consumo de métricas com base no número de séries de tempo monitorizadas e no número de chamadas API efetuadas.  
 
 ## <a name="next-steps"></a>Passos seguintes
 Utilize métricas personalizadas de diferentes serviços: 
