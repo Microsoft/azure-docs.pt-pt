@@ -13,27 +13,25 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/16/2021
+ms.date: 04/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17e7f34da1428eec219a393417b0a2a7b461078
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 781cafd9b382868d0aa4f6b77ff7338c4ee15ed2
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552738"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589666"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividades de inscrição do Azure Ative Directory - pré-visualização
 
-A arquitetura de reporte no Azure Ative Directory (Azure AD) consiste nos seguintes componentes:
+O portal Azure Ative Directory dá-lhe acesso a três registos de atividade:
 
-- **Atividade** 
-    - **Ins- Ins-** Informações sobre quando os utilizadores, aplicações e recursos geridos insinuam-se no Azure AD e recursos de acesso.
-    - **Registos de**  -  auditoria [Os registos de auditoria](concept-audit-logs.md) fornecem informações sobre a atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
-- **Segurança** 
-    - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição por alguém que não é o legítimo proprietário de uma conta de utilizador.
-    - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
+- **Ins-ins** – Informações sobre insinusagens e como os seus recursos são utilizados pelos seus utilizadores.
+- **[Auditoria](concept-audit-logs.md)** – Informação sobre alterações aplicadas ao seu inquilino, como utilizadores e gestão de grupos ou atualizações aplicadas aos recursos do seu inquilino.
+- **[Provisionamento](concept-provisioning-logs.md)** – Atividades realizadas pelo serviço de prestação de serviços, como a criação de um grupo no ServiceNow ou um utilizador importado do Workday.
+
 
 O relatório clássico de inscrições no Azure Ative Directory fornece-lhe uma visão geral das inscrições interativas do utilizador. Além disso, tem agora acesso a três relatórios adicionais de inscrição que estão agora em pré-visualização:
 
@@ -130,7 +128,8 @@ As entradas interativas do utilizador são inserções em que um utilizador forn
 
 
 
-Nota: O relatório de logins interativos do utilizador usado para conter alguns logins não interativos dos clientes do Microsoft Exchange. Embora esses sign-ins não fossem interativos, foram incluídos no relatório interativo de inscrição dos utilizadores para uma visibilidade adicional. Uma vez que o relatório de logins de utilizador não interativo entrou em pré-visualização pública em novembro de 2020, esses registos de eventos de inscrição não interativos foram transferidos para o sinal de utilizador não interativo em relatório para maior precisão. 
+> [!NOTE] 
+> O relatório de logins interativos do utilizador usado para conter alguns logins não interativos dos clientes do Microsoft Exchange. Embora esses sign-ins não fossem interativos, foram incluídos no relatório interativo de inscrições dos utilizadores para uma visibilidade adicional. Uma vez que o relatório de logins de utilizador não interativo entrou em pré-visualização pública em novembro de 2020, esses registos de eventos de inscrição não interativos foram transferidos para o sinal de utilizador não interativo em relatório para maior precisão. 
 
 
 **Tamanho do relatório:** pequeno <br> 
@@ -326,6 +325,18 @@ Para facilitar a digestão dos dados, as identidades geridas para os recursos Az
 Selecione um item na vista da lista para exibir todos os insus máximos que estão agrupados sob um nó.
 
 Selecione um item agrupado para ver todos os detalhes do sind insundo. 
+
+
+## <a name="sign-in-error-code"></a>Código de erro de inscrição
+
+Se uma sessão de login falhar, poderá obter mais informações sobre o motivo na secção **de informações Básicas** do item de registo relacionado. 
+
+![A screenshot mostra uma visão detalhada da informação.](./media/concept-all-sign-ins/error-code.png)
+ 
+Embora o item de registo lhe forneça uma razão de falha, existem casos em que poderá obter mais informações utilizando a [ferramenta de procuração de erros de início de sessão](https://login.microsoftonline.com/error). Por exemplo, se disponível, esta ferramenta fornece-lhe medidas de reparação.  
+
+![Ferramenta de procura de código de erro](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
 
 
 ## <a name="filter-sign-in-activities"></a>Filtrar atividades de início de sessão

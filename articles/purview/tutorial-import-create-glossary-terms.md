@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 9443c6fbaca16cf075745972a1655a2b4b2ea43c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: b240806b934cae54810cf9dfe1a6c1f369cede7e
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077538"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587515"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>Tutorial: Criar e importar termos glossários em Azure Purview (pré-visualização)
 
@@ -96,6 +96,9 @@ Neste procedimento, importa termos glossários através de um ficheiro .csv:
 1. Note onde guardou o ficheiro denominado *StarterKitTerms.csv,* que faz parte do kit de arranque que descarregou na [parte 1 desta série tutorial](tutorial-scan-data.md).
 
    Este ficheiro contém uma lista de termos pré-povoados que são relevantes para o seu espólio de dados.
+
+ > [!Important]
+   > O endereço de e-mail para Administradores e Peritos no . O ficheiro CSV deve ser o endereço principal do utilizador do grupo AAD. O e-mail alternativo, o nome principal do utilizador e os e-mails não-AAD ainda não estão suportados. Tem de substituir os endereços de e-mail pelo endereço principal da AAD da sua organização.
 
 1. Para começar a importar, selecione **Glossário** e, em seguida, **selecione As condições de Importação**.
 

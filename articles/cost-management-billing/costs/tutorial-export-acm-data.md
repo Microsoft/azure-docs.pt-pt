@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: a386b214c4372c9d8de729a8b6bed4aac9edd9f3
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: af050ae95b4ab161028229299a8de5ed3426430b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043466"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482838"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir dados exportados
 
@@ -35,9 +35,9 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 A exportação de dados está disponível para uma variedade de tipos de contas do Azure, incluindo os clientes [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Contrato de Cliente Microsoft](get-started-partners.md). Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](understand-cost-mgt-data.md). As seguintes permissões, ou âmbitos, do Azure são suportadas por subscrição para a exportação de dados por utilizador e grupo. Para obter mais informações sobre os âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
 
-- Proprietário – pode criar, modificar ou eliminar exportações agendadas de uma subscrição.
-- Contribuinte – pode criar, modificar ou eliminar as respetivas exportações agendadas. Pode modificar o nome de exportações agendadas criadas por outros utilizadores.
-- Leitor – pode agendar exportações para as quais tem permissões.
+- Proprietário â€" Pode criar, modificar ou apagar exportações programadas para uma subscrição.
+- Contribuinte " Pode criar, modificar ou apagar as suas próprias exportações programadas. Pode modificar o nome de exportações agendadas criadas por outros utilizadores.
+- Leitor " Pode agendar exportações para as que têm permissão.
 
 Para contas de Armazenamento do Azure:
 - São necessárias permissões de escrita para alterar a conta de armazenamento configurada, independentemente das permissões na exportação.
@@ -63,10 +63,10 @@ Para criar ou ver uma exportação de dados ou para agendar uma exportação, ab
     - **Custo real (Utilização e Compras)** – selecione para exportar a utilização e as compras padrão
     - **Custo amortizado (Utilização e Compras)** – selecione para exportar os custos amortizados das compras, como reservas do Azure
 1. Para **Tipo de exportação**, escolha uma opção:
-    - **Exportação diária dos custos do mês até à data** – proporciona diariamente um novo ficheiro de exportação dos custos do mês até à data. Os dados mais recentes são agregados a partir das exportações diárias anteriores.
-    - **Exportação semanal dos custos nos últimos sete dias** – cria uma exportação semanal dos custos dos últimos sete dias desde a data de início selecionada da exportação.
-    - **Exportação mensal dos custos do último mês** – proporciona uma exportação dos custos do último mês comparado com o mês atual no qual criou a exportação. Ao avançar, o agendamento executa uma exportação no quinto dia de cada mês com os custos mensais anteriores.
-    - **Exportação única** – permite-lhe escolher um intervalo de datas para o histórico de dados a exportar para o armazenamento de blobs do Azure. Pode exportar um máximo de 90 dias de histórico de custos a partir da data escolhida. Esta exportação é executada imediatamente e está disponível na conta de armazenamento no prazo de duas horas.
+    - **Exportação diária de custos mensais** â€" Fornece um novo arquivo de exportação diariamente para os seus custos mensais. Os dados mais recentes são agregados a partir das exportações diárias anteriores.
+    - **Exportação semanal de custos para os últimos sete dias** â€" Cria uma exportação semanal dos seus custos para os últimos sete dias a partir da data de início selecionada da sua exportação.
+    - **Exportação mensal dos custos do mês passado** " Proporciona-lhe uma exportação dos seus custos do mês passado em comparação com o mês em curso que cria a exportação. Ao avançar, o agendamento executa uma exportação no quinto dia de cada mês com os custos mensais anteriores.
+    - Exportação única â€" **Permite-lhe** escolher uma gama de datas para os dados históricos exportarem para o armazenamento de blob Azure. Pode exportar um máximo de 90 dias de histórico de custos a partir da data escolhida. Esta exportação é executada imediatamente e está disponível na conta de armazenamento no prazo de duas horas.
         Dependendo do tipo de exportação, escolha uma data de início ou escolha uma data **De** e **Até**.
 1. Especifique a subscrição da conta de armazenamento do Azure e, em seguida, selecione um grupo de recursos ou crie um novo.
 1. Selecione o nome da conta de armazenamento ou crie uma nova.
