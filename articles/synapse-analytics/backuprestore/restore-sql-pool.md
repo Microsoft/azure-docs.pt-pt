@@ -1,7 +1,6 @@
 ---
 title: Restaurar uma piscina SQL dedicada existente
 description: Como orientar para restaurar uma piscina SQL dedicada existente.
-services: synapse-analytics
 author: joannapea
 manager: igorstan
 ms.service: synapse-analytics
@@ -11,12 +10,12 @@ ms.date: 10/29/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 86150107273b247bef2c74e5b8c5272d7148587e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2fb6f809794781559683907a806e6d30ca9bed6
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94332098"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567983"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool"></a>Restaurar uma piscina SQL dedicada existente
 

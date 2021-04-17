@@ -1,15 +1,17 @@
 ---
 title: Azure Quickstart - Executar o seu primeiro trabalho em Batch no portal Azure
 description: Este quickstart mostra como usar o portal Azure para criar uma conta Batch, um conjunto de nós computacional, e um trabalho que executa tarefas básicas na piscina.
-ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: mvc
-ms.openlocfilehash: 1234a932a732cdb6fda1c412a423ae0b1ea089e9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.topic: quickstart
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 3333097b4bd55173725aa33bc4bfbae318510cf1
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184020"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538536"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
 

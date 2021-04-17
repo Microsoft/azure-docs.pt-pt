@@ -152,6 +152,8 @@
               href: create-sql-api-java.md
             - name: Aplicação Spring Data
               href: create-sql-api-spring-data.md
+            - name: Aplicativo Spark v3
+              href: create-sql-api-spark.md
             - name: Aplicação Node.js
               href: create-sql-api-nodejs.md
             - name: Aplicação Python
@@ -835,7 +837,7 @@
               href: visualize-qlik-sense.md
         - name: Análise incorporada com o Apache Spark
           items:
-            - name: Conector do Spark para o Azure Databricks
+            - name: Azure Databricks Spark 2 OLTP conector
               href: spark-connector.md
             - name: Transmissão em fluxo com o Apache Kafka e Cosmos DB
               href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -915,7 +917,9 @@
               href: sql-api-sdk-java-spring-v2.md
             - name: Spring Data Connector v3
               href: sql-api-sdk-java-spring-v3.md
-            - name: Spark Connector
+            - name: Conector Spark 3 OLTP (pré-visualização)
+              href: sql-api-sdk-java-spark-v3.md
+            - name: Conector de faísca 2 OLTP
               href: sql-api-sdk-java-spark.md
             - name: Biblioteca de executor em massa v2 de Java
               href: sql-api-sdk-bulk-executor-java.md

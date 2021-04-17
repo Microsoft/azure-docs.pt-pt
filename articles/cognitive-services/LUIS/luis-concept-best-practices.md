@@ -4,13 +4,13 @@ description: Aprenda as melhores práticas para obter os melhores resultados do 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: d5fa2a1e865a4f54de268e7ad756d1d4363f3b78
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98788490"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500214"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Melhores práticas para a construção de uma app de compreensão linguística (LUIS)
 Utilize o processo de autoria da aplicação para construir a sua aplicação LUIS:
@@ -81,7 +81,7 @@ As entidades aprendidas com máquinas são adaptadas à sua app e exigem que a r
 
 As entidades aprendidas com máquinas podem usar outras entidades como funcionalidades. Estas outras entidades podem ser entidades personalizadas, como entidades de expressão regular ou entidades de lista, ou pode utilizar as entidades pré-construídas como funcionalidades.
 
-Conheça as [entidades aprendidas com máquinas eficazes.](luis-concept-entity-types.md#effective-machine-learned-entities)
+Conheça as [entidades aprendidas com máquinas eficazes.](luis-concept-entity-types.md#machine-learned-ml-entity)
 
 <a name="#do-build-the-app-iteratively"></a>
 

@@ -3,16 +3,18 @@ title: Quickstart - Desdobre o recipiente Docker para a instância do contentor 
 description: Neste arranque rápido, você usa a Azure PowerShell para implementar rapidamente uma aplicação web contentorizada que funciona em uma instância isolada do recipiente Azure
 services: container-instances
 manager: gwallace
-ms.service: container-instances
-ms.topic: quickstart
 ms.date: 03/21/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: container-instances
+ms.custom:
+- mvc
+- mode-api
+ms.openlocfilehash: f9c6bac45e2e7fe18895a16831f840c3ae5a9f9d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89565587"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536164"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Quickstart: Implementar uma instância de contentor em Azure utilizando a Azure PowerShell
 

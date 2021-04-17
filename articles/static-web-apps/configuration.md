@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 3ecd38b725307c7a3d75787795130c5106de85a7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9494bcc9941491bbb82c6a948dce720cb9e51424
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312251"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502288"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurar aplicativos web estáticos Azure
 
@@ -33,7 +33,7 @@ A localização recomendada para o _staticwebapp.config.jsligado_ está no conju
 Consulte o ficheiro [de configuração](#example-configuration-file) de exemplo para obter mais detalhes.
 
 > [!IMPORTANT]
-> O [ _staticwebapp.config.jsno_ ficheiro](./routes.md) é ignorado se existir uma _staticwebapp.config.js._
+> O [ _routes.jsno_ ficheiro](./routes.md) é ignorado se existir uma _staticwebapp.config.js._
 
 ## <a name="routes"></a>Rotas
 

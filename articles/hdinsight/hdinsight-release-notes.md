@@ -5,12 +5,12 @@ ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: a648ff3aa0c042aaefe16eaae0f9d73953241b3d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3676889fc56f6dc4746282e5001e33d1bc3c7c9a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065502"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501234"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -67,7 +67,13 @@ O HDInsight está gradualmente a migrar para conjuntos de escala de máquina vir
 As seguintes alterações irão ocorrer nos próximos lançamentos.
 
 ### <a name="os-version-upgrade"></a>Upgrade da versão OS
-O HDInsight irá atualizar a versão OS de Ubuntu 16.04 a 18.04. A atualização estará concluída antes de abril de 2021.
+Os clusters HDInsight estão atualmente em funcionamento em Ubuntu 16.04 LTS. Como referenciado no [ciclo de lançamento da Ubuntu,](https://ubuntu.com/about/release-cycle)o núcleo Ubuntu 16.04 chegará ao Fim da Vida (EOL) em abril de 2021. Começaremos a lançar a nova imagem de cluster HDInsight 4.0 em Ubuntu 18.04 em maio de 2021. Os clusters HDInsight 4.0 recém-criados serão executados em Ubuntu 18.04 por padrão uma vez que disponível. Os aglomerados existentes em Ubuntu 16.04 funcionarão como está com todo o suporte.
+
+HDInsight 3.6 continuará a funcionar em Ubuntu 16.04. Atingirá o fim do suporte padrão até 30 de junho de 2021 e mudará para apoio básico a partir de 1 de julho de 2021. Para obter mais informações sobre datas e opções de suporte, consulte [as versões Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Ubuntu 18.04 não será suportado para HDInsight 3.6. Se quiser usar Ubuntu 18.04, terá de migrar os seus clusters para HDInsight 4.0. 
+
+Tens de largar e recriar os teus clusters se quiseres mudar os clusters existentes para o Ubuntu 18.04. Por favor, planeie criar ou recriar o seu cluster após o suporte Ubuntu 18.04 estar disponível. Enviaremos outra notificação depois da nova imagem estar disponível em todas as regiões.
+
+É altamente recomendado que teste as suas ações de script e aplicações personalizadas implantadas em nós de borda numa máquina virtual Ubuntu 18.04 (VM) com antecedência. Pode [criar um simples Ubuntu Linux VM em 18.04-LTS,](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/)em seguida, criar e utilizar um [par de chaves de concha segura (SSH)](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm) no seu VM para executar e testar as suas ações de script e aplicações personalizadas implantadas nos nós de borda.
 
 ### <a name="basic-support-for-hdinsight-36-starting-july-1-2021"></a>Suporte básico para HDInsight 3.6 a partir de 1 de julho de 2021
 A partir de 1 de julho de 2021, a Microsoft irá oferecer [suporte básico](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) para certos tipos de cluster HDInsight 3.6. O plano básico de apoio estará disponível até 3 de abril de 2022. Será automaticamente inscrito no Suporte Básico a partir de 1 de julho de 2021. Não é necessária nenhuma ação por si para optar. Consulte a [nossa documentação](hdinsight-36-component-versioning.md) para a qual os tipos de cluster estão incluídos no suporte básico. 

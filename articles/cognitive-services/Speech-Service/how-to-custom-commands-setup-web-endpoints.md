@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95f27827950c5ed38caa1f83ede266afb57a1697
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98602152"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515639"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos finais Web
 
@@ -27,13 +27,118 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
 - Integrar a resposta dos pontos finais Web num payload JSON personalizado, enviar e visualizá-la a partir de uma aplicação cliente com o SDK de Voz UWP C#
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * Uma chave de subscrição do Azure para o serviço de Voz: [Obtenha uma gratuita](overview.md#try-the-speech-service-for-free) ou crie-a no [portal do Azure](https://portal.azure.com)
 > * Uma [aplicação de Comandos Personalizados criada](quickstart-custom-commands-application.md) anteriormente
 > * Uma aplicação cliente com o SDK de Voz ativado: [Procedimento: terminar a atividade para a aplicação cliente](./how-to-custom-commands-setup-speech-sdk.md)
 
-## <a name="setup-web-endpoints"></a>Configurar pontos finais Web
+## <a name="deploy-an-external-web-endpoint-using-azure-function-app"></a>Implementar um ponto final externo da web usando a App de Função Azure
+
+* Para o bem deste tutorial, precisa de um ponto final HTTP que mantenha os estados para todos os dispositivos que configura no comando **TurnOnOff** da sua aplicação de comandos personalizados.
+
+* Se já tiver um ponto final web que deseja ligar, salte para a [secção seguinte](#setup-web-endpoints-in-custom-commands). Em alternativa, na secção seguinte, fornecemos-lhe um ponto final web hospedado predefinido que pode utilizar se quiser saltar esta secção.
+
+### <a name="input-format-of-azure-function"></a>Formato de entrada da Função Azure
+* Em seguida, irá implantar um ponto final utilizando [funções Azure](../../azure-functions/index.yml).
+Segue-se o formato geral de um evento de Comandos Personalizados que é passado para a sua função Azure. Utilize esta informação quando estiver a escrever a sua aplicação de função.
+
+    ```json
+    {
+      "conversationId": "string",
+      "currentCommand": {
+        "name": "string",
+        "parameters": {
+          "SomeParameterName": "string",
+          "SomeOtherParameterName": "string"
+        }
+      },
+      "currentGlobalParameters": {
+          "SomeGlobalParameterName": "string",
+          "SomeOtherGlobalParameterName": "string"
+      }
+    }
+    ```
+
+    
+* Vamos rever os principais atributos desta entrada:
+        
+    | Atributo | Explicação |
+    | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+    | **conversationId** | O identificador único da conversa. Note que este ID pode ser gerado a partir da aplicação do cliente. |
+    | **atualCommand** | O comando que está ativo na conversa. |
+    | **nome** | O nome do comando. O `parameters` atributo é um mapa com os valores atuais dos parâmetros. |
+    | **actuaisParametrosGlobal** | Um mapa `parameters` como, mas usado para parâmetros globais. |
+
+
+* Para a **Função Azure DeviceState,** um evento de comandos personalizados de exemplo será o seguinte. Isto funcionará como uma **entrada** para a aplicação de função.
+    
+    ```json
+    {
+      "conversationId": "someConversationId",
+      "currentCommand": {
+        "name": "TurnOnOff",
+        "parameters": {
+          "item": "tv",
+          "value": "on"
+        }
+      }
+    }
+    ```
+
+### <a name="output-format-of-azure-function"></a>Formato de saída da Função Azure
+
+#### <a name="output-consumed-by-a-custom-commands--application"></a>Saída consumida por uma aplicação de Comandos Personalizados
+Neste caso, pode definir o formato de saída deve aderir ao seguinte formato. Siga [a Atualização de um comando a partir de um ponto final da web](./how-to-custom-commands-update-command-from-web-endpoint.md) para mais detalhes.
+
+```json
+{
+  "updatedCommand": {
+    "name": "SomeCommandName",
+    "updatedParameters": {
+      "SomeParameterName": "SomeParameterValue"
+    },
+    "cancel": false
+  },
+  "updatedGlobalParameters": {
+    "SomeGlobalParameterName": "SomeGlobalParameterValue"
+  }
+}
+```
+
+#### <a name="output-consumed-by-a-client-application"></a>Produção consumida por uma aplicação do cliente
+Neste caso, pode definir o formato de saída de acordo com as necessidades do seu cliente.
+* Para o nosso ponto final **deviceState,** a saída da função Azure é consumida por uma aplicação do cliente em vez da aplicação Comandos Personalizados. Exemplo de **saída** da função Azure deve gostar de seguir:
+    
+    ```json
+    {
+      "TV": "on",
+      "Fan": "off"
+    }
+    ``` 
+
+*  Além disso, esta saída deve ser escrita para um armazenamento externo, para que possa manter o estado dos dispositivos. O estado de armazenamento externo será utilizado na [secção Integração com a secção de aplicação do cliente.](#integrate-with-client-application)
+
+
+### <a name="host-azure-function"></a>Função Azure anfitrião
+
+1. Crie uma conta de armazenamento de mesa para guardar o estado do dispositivo.
+    1. Vá ao portal Azure e crie um novo recurso de conta de **armazenamento** tipo por **nome devicestate**.
+        1. Copie o valor da **cadeia de ligação** a partir das **teclas de acesso do estado do dispositivo ->**.
+        1. Terá de adicionar este string ao código de aplicação de função de amostra descarregada.
+    1. Descarregue o [código de aplicação de função da amostra](https://aka.ms/speech/cc-function-app-sample).
+    1. Abra a solução descarregada em VS 2019. EmConnections.js **de** ficheiros, substitua **o valor STORAGE_ACCOUNT_SECRET_CONNECTION_STRING** para o segredo copiado do passo *a*.
+1.  Descarregue o código **DeviceStateAzureFunction.**
+1. [Implementar](../../azure-functions/index.yml) a App Funções para Azure.
+    
+    1.  Aguarde que a implementação tenha sucesso e vá buscar o recurso implantado no portal Azure. 
+    1. Selecione **Funções** no painel esquerdo e, em seguida, selecione **DeviceState**.
+    1.  Na nova janela, selecione **Código + Teste** e, em seguida, selecione Obter URL de **função**.
+ 
+## <a name="setup-web-endpoints-in-custom-commands"></a>Configurar pontos finais web em comandos personalizados
+Vamos ligar a função Azure com a aplicação de Comandos Personalizados existente.
+Nesta secção, utilizará um ponto final **do DeviceState** existente. Se criou o seu próprio ponto web utilizando a Função Azure ou não, utilize-a em vez do padrão https://webendpointexample.azurewebsites.net/api/DeviceState .
 
 1. Abra a aplicação de Comandos Personalizados que criou anteriormente.
 1. Aceda a "Pontos finais Web" e clique em "Novo ponto final Web".
@@ -49,7 +154,7 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
    | Cabeçalhos | Chave: aplicação, Valor: escolha os primeiros 8 dígitos do seu applicationId | Os parâmetros do cabeçalho a serem incluídos no cabeçalho do pedido.|
 
     > [!NOTE]
-    > - O ponto final Web de exemplo criado com a [Função do Azure](../../azure-functions/index.yml), que se liga à base de dados que guarda o estado do dispositivo da TV e da ventoinha
+    > - O ponto final da web exemplo criado usando [a função Azure,](../../azure-functions/index.yml)que se liga à base de dados que salva o estado do dispositivo da televisão e do ventilador
     > - O cabeçalho sugerido apenas é necessário para o ponto final de exemplo
     > - Para garantir que o valor do cabeçalho é exclusivo no nosso ponto final de exemplo, utilize os 8 primeiros dígitos do seu applicationId
     > - No mundo real, o ponto final Web pode ser o ponto final para o [Hub IOT](../../iot-hub/about-iot-hub.md) que gere os seus dispositivos
@@ -115,7 +220,7 @@ Remover um dos parâmetros da consulta, guardar, treinar novamente e testar
 
 ## <a name="integrate-with-client-application"></a>Integrar com a aplicação cliente
 
-Em [Procedimentos: Enviar a atividade para a aplicação cliente (Pré-visualização)](./how-to-custom-commands-send-activity-to-client.md), adicionou uma ação **Enviar atividade para o cliente**. A atividade é enviada para a aplicação cliente, independentemente de a ação **Chamar ponto final Web** ser realizada com êxito ou não.
+Em [Como-a: Enviar atividade para a aplicação do cliente,](./how-to-custom-commands-send-activity-to-client.md)adicionou uma **atividade enviar à ação do cliente.** A atividade é enviada para a aplicação cliente, independentemente de a ação **Chamar ponto final Web** ser realizada com êxito ou não.
 No entanto, na maioria dos casos, vai querer apenas enviar atividade para a aplicação cliente quando a chamada para o ponto final Web é realizada com êxito. Neste exemplo, isto ocorre quando o estado do dispositivo é atualizado com êxito.
 
 1. Elimine a ação **Enviar atividade para o cliente** que adicionou anteriormente.

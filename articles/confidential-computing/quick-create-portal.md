@@ -2,18 +2,20 @@
 title: Quickstart - Criar uma máquina virtual de computação confidencial Azure no portal Azure
 description: Começa com as tuas implementações aprendendo a criar rapidamente uma máquina virtual de computação confidencial no portal Azure.
 author: JBCook
+ms.author: JenCook
+ms.date: 04/23/2020
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 04/23/2020
-ms.author: JenCook
-ms.openlocfilehash: 3f0984acd66bd5d6c148be8451938d3152fb9ca7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: f43229570f6bab942cc57a2ea3be163d37f02f89
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566673"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536185"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Quickstart: Implementar um VM de computação confidencial Azure no portal Azure
 
@@ -148,7 +150,7 @@ Para obter mais informações sobre como ligar a VMs do Linux, veja [Criar uma V
 
 Siga as instruções passo a passo para instalar o [OE SDK](https://github.com/openenclave/openenclave) na sua DCsv2-Series máquina virtual que executa uma imagem Ubuntu 18.04 LTS Gen 2. 
 
-Se a sua máquina virtual funciona no Ubuntu 16.04 LTS Gen 2, terá de seguir [as instruções de instalação para Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md).
+Se a sua máquina virtual funciona no Ubuntu 18.04 LTS Gen 2, terá de seguir [as instruções de instalação para Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md).
 
 #### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Configurar os repositórios Intel e Microsoft APT
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: 7799266bf9cece1ed789d6fab64ec970a09fbfcb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 178604335968c3664bde51c144759c1c040c359d
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588478"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564918"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Pesse o Catálogo de Dados da Azure Purview
 
@@ -55,8 +55,8 @@ Abaixo estão os operadores que podem ser usados para compor uma consulta de pes
 | NOT | Especifica que um ativo não pode conter a palavra-chave para o direito da cláusula NÃO | A consulta `hive NOT database` devolve ativos que contêm 'colmeia', mas não 'base de dados'. |
 | () | Agrupa um conjunto de palavras-chave e operadores em conjunto. Ao combinar vários operadores, os parênteses especificam a ordem de operações. | A consulta `hive AND (database OR warehouse)` devolve ativos que contêm 'colmeia' e 'base de dados' ou 'armazém', ou ambos. |
 | "" | Especifica o conteúdo exato numa frase que a consulta deve corresponder. | A consulta `"hive database"` devolve ativos que contêm a expressão "base de dados de colmeia" nas suas propriedades |
-| * | Um wildcard que combina com um a muitos personagens. Não pode ser o primeiro personagem numa palavra-chave. | A consulta `hiv\` * devolve ativos que têm propriedades que começam com 'hiv' como 'colmeia' ou 'hiv-table'. |
-| ? | Um wildcard que combina com um único personagem. Não pode ser o primeiro personagem numa palavra-chave | A consulta `hiv?` devolve ativos que têm propriedades que começam com 'hiv' e são quatro letras como 'colmeia' ou 'hiva'. |
+| * | Um wildcard que combina com um a muitos personagens. Não pode ser o primeiro personagem numa palavra-chave. | A consulta `dat*` devolve ativos que têm propriedades que começam com 'dat' como 'dados' ou 'base de dados'. |
+| ? | Um wildcard que combina com um único personagem. Não pode ser o primeiro personagem numa palavra-chave | A consulta `dat?` devolve ativos que têm propriedades que começam com 'dat' e são quatro letras como 'data' ou 'dados'. |
 
 > [!Note]
 > Especifique sempre os operadores Boolean **(E**, **OU**, **NÃO)** em todas as tampas. Caso contrário, o caso não importa, nem espaços extras.

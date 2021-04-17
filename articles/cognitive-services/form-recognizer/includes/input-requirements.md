@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
-ms.openlocfilehash: 324fde5198fe3469e3979cf5cd102715118a49aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfd2b32094aae06675ea8ee9157370f9d2833e91
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467326"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518233"
 ---
 O Form Recogniser trabalha em documentos de entrada que satisfazem estes requisitos:
 
@@ -22,6 +22,5 @@ O Form Recogniser trabalha em documentos de entrada que satisfazem estes requisi
 * O tamanho total do conjunto de dados de formação deve ser de 500 páginas ou menos.
 * Se os seus PDFs estiverem bloqueados por palavra-passe, deve remover o bloqueio antes de os submeter.
 * Se digitalizados a partir de documentos em papel, os formulários devem ser digitalizados de alta qualidade.
-* O texto deve utilizar o alfabeto latino (caracteres ingleses).
 * Para uma aprendizagem não supervisionada (sem dados rotulados), os dados devem conter chaves e valores.
 * Para uma aprendizagem não supervisionada (sem dados rotulados), as chaves devem aparecer acima ou à esquerda dos valores; não podem aparecer abaixo ou à direita.

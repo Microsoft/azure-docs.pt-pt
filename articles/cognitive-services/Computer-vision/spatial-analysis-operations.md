@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 4b4ee9d1e583241f8ec9b467ae9ddfdb1360fb52
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 37ac7573a1794c97c81fe5364204f85ff14d9fa6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284707"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538077"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de Análise Espacial
 
@@ -23,7 +23,7 @@ A Análise Espacial permite a análise do vídeo de streaming em tempo real a pa
 
 O contentor de Análise Espacial implementa as seguintes operações:
 
-| Identificador de Operação| Descrição|
+| Identificador de Operação| Description|
 |---------|---------|
 | serviços cognitivos.vision.spatialanalysis-personcount | Conta pessoas numa zona designada no campo de visão da câmara. A zona deve ser totalmente coberta por uma única câmara para que o PersonCount grave um total preciso. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -33,7 +33,7 @@ O contentor de Análise Espacial implementa as seguintes operações:
 
 Acima das operações estão também disponíveis na `.debug` versão, que têm a capacidade de visualizar os quadros de vídeo à medida que estão a ser processados. Terá de ser executado `xhost +` no computador anfitrião para permitir a visualização de quadros de vídeo e eventos.
 
-| Identificador de Operação| Descrição|
+| Identificador de Operação| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.debug | Conta pessoas numa zona designada no campo de visão da câmara. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -45,7 +45,7 @@ A Análise Espacial também pode ser executada com [o Live Video Analytics](../.
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| Identificador de Operação| Descrição|
+| Identificador de Operação| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics | Conta pessoas numa zona designada no campo de visão da câmara. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -60,7 +60,7 @@ As operações live video analytics também estão disponíveis na `.debug` vers
 
 Estes são os parâmetros exigidos por cada uma destas operações de Análise Espacial.
 
-| Parâmetros de operação| Descrição|
+| Parâmetros de operação| Description|
 |---------|---------|
 | ID da Operação | O Identificador da Operação da tabela acima.|
 | ativado | Boolean: verdadeiro ou falso|
@@ -120,12 +120,12 @@ Este é um exemplo dos parâmetros DETETOR_NODE_CONFIG para todas as operações
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
 | `polygon` | lista| Cada par de valor representa o x,y para vértices de um polígono. O polígono representa as áreas em que as pessoas são rastreadas ou contadas e os pontos de poligão são baseados em coordenadas normalizadas (0-1), onde o canto superior esquerdo é (0.0, 0.0) e o canto inferior direito é (1.0, 1.0).   
-| `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. |
+| `threshold` | float| Os eventos são expulsos quando a pessoa é maior do que este número de pixels dentro da zona. |
 | `type` | string| Para **os serviços cognitivos.vision.spatialanalysis-personcount** isto deve ser `count` .|
 | `trigger` | string| O tipo de gatilho para enviar um evento. Os valores suportados destinam-se `event` ao envio de eventos quando a contagem muda ou `interval` para envio de eventos periodicamente, independentemente de a contagem ter mudado ou não.
 | `output_frequency` | int | A taxa a que os eventos são efencados. Quando `output_frequency` = X, cada evento X é expulso, ex. `output_frequency` = 2 significa que cada outro evento é a saída. O `output_frequency` é aplicável a ambos e `event` `interval` . |
@@ -165,14 +165,14 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `lines` | lista| Lista de linhas.|
 | `name` | string| Nome amigável para esta linha.|
 | `line` | lista| A definição da linha. Esta é uma linha direcional que lhe permite entender "entrada" vs. "saída".|
 | `start` | par de valor| x, y coordenadas para o ponto de partida da linha. Os valores da boia representam a posição do vértice em relação ao canto superior esquerdo. Para calcular os valores x, y absolutos, multiplica estes valores com o tamanho do quadro. |
 | `end` | par de valor| x, y coordenadas para o ponto final da linha. Os valores da boia representam a posição do vértice em relação ao canto superior esquerdo. Para calcular os valores x, y absolutos, multiplica estes valores com o tamanho do quadro. |
-| `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. O valor predefinido é 16. Este é o valor recomendado para obter a máxima precisão. |
+| `threshold` | float| Os eventos são expulsos quando a pessoa é maior do que este número de pixels dentro da zona. O valor predefinido é 16. Este é o valor recomendado para obter a máxima precisão. |
 | `type` | string| Para **os serviços cognitivos.vision.spatialanalysis-personcrossingline** este deve ser `linecrossing` .|
 |`trigger`|string|O tipo de gatilho para enviar um evento.<br>Valores suportados: "evento": fogo quando alguém cruza a linha.|
 | `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa). O valor padrão é a pegada.|
@@ -211,12 +211,12 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
 | `polygon` | lista| Cada par de valor representa o x,y para vértices de polígono. O polígono representa as áreas em que as pessoas são rastreadas ou contadas. Os valores da boia representam a posição do vértice em relação ao canto superior esquerdo. Para calcular os valores x, y absolutos, multiplica estes valores com o tamanho do quadro. 
-| `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. O valor predefinido é de 48 quando o tipo está a atravessar a zona e 16 quando o tempo é DwellTime. Estes são os valores recomendados para obter a máxima precisão.  |
+| `threshold` | float| Os eventos são expulsos quando a pessoa é maior do que este número de pixels dentro da zona. O valor predefinido é de 48 quando o tipo está a atravessar a zona e 16 quando o tempo é DwellTime. Estes são os valores recomendados para obter a máxima precisão.  |
 | `type` | string| Para **os serviços cognitivos.vision.spatialanalysis-personcrossingpolygon** este deve ser `zonecrossing` ou `zonedwelltime` .|
 | `trigger`|string|O tipo de gatilho para o envio de um evento<br>Valores suportados: "evento": fogo quando alguém entra ou sai da zona.|
 | `focus` | string| A localização do ponto dentro da caixa de limites da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a pegada da pessoa), `bottom_center` (o centro inferior da caixa de delimitação da pessoa), `center` (o centro da caixa de delimitação da pessoa). O valor padrão é a pegada.|
@@ -246,12 +246,12 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
 | `polygon` | lista| Cada par de valor representa o x,y para vértices de polígono. O polígono representa as áreas em que as pessoas são contadas e a distância entre as pessoas é medida. Os valores da boia representam a posição do vértice em relação ao canto superior esquerdo. Para calcular os valores x, y absolutos, multiplica estes valores com o tamanho do quadro. 
-| `threshold` | float| Os eventos são elitados quando a confiança dos modelos de IA é maior ou igual a este valor. |
+| `threshold` | float| Os eventos são expulsos quando a pessoa é maior do que este número de pixels dentro da zona. |
 | `type` | string| Para **os serviços cognitivos.vision.spatialanalysis-persondistance** isto deve ser `people_distance` .|
 | `trigger` | string| O tipo de gatilho para enviar um evento. Os valores suportados destinam-se `event` ao envio de eventos quando a contagem muda ou `interval` para envio de eventos periodicamente, independentemente de a contagem ter mudado ou não.
 | `output_frequency` | int | A taxa a que os eventos são efencados. Quando `output_frequency` = X, cada evento X é expulso, ex. `output_frequency` = 2 significa que cada outro evento é a saída. O `output_frequency` é aplicável a ambos e `event` `interval` .|
@@ -1034,7 +1034,7 @@ Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisqu
       }
   }
   ```
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `batch_size` | int | Se todas as câmaras tiverem a mesma resolução, `batch_size` definidas para o número de câmaras que serão utilizadas nessa operação, caso contrário, `batch_size` definidas para 1 ou deixar como padrão (1), o que indica que nenhum lote está suportado. |
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2021
+ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 232b83fef2da312828f4f9f332ab2505e3a68100
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732606"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503648"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -111,7 +111,7 @@ Quando há uma correspondência de prefixo exata entre uma rota com um prefixo I
    3. Tags regionais AzureCloud (por exemplo. AzureCloud.canadacentral, AzureCloud.eastasia)
    4. A tag AzureCloud </br></br>
 
-Para utilizar esta função, especifique um nome de Marcação de Serviço para o parâmetro do prefixo de endereço nos comandos da tabela de rotas. Por exemplo, em Powershell pode criar uma nova rota para o tráfego direto enviado para um prefixo IP de armazenamento Azure para um aparelho virtual utilizando: </br>
+Para utilizar esta função, especifique um nome de Marcação de Serviço para o parâmetro do prefixo de endereço nos comandos da tabela de rotas. Por exemplo, em Powershell pode criar uma nova rota para o tráfego direto enviado para um prefixo IP de armazenamento Azure para um aparelho virtual utilizando: </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -123,6 +123,10 @@ O mesmo comando para a CLI será: </br>
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
 ```
 </br>
+
+#### <a name="known-issues-april-2021"></a>Questões Conhecidas (abril 2021)
+
+Quando as rotas BGP estão presentes ou um Ponto final de serviço está configurado na sua sub-rede, as rotas podem não ser avaliadas com a prioridade correta. Uma correção para estes cenários está atualmente em andamento </br>
 
 
 > [!NOTE] 
@@ -174,7 +178,7 @@ Por exemplo, uma tabela de rotas contém as rotas seguintes:
 |Origem   |Prefixos de endereço  |Tipo de salto seguinte           |
 |---------|---------         |-------                 |
 |Predefinição  | 0.0.0.0/0        |Internet                |
-|User     | 0.0.0.0/0        |Gateway de rede virtual |
+|Utilizador     | 0.0.0.0/0        |Gateway de rede virtual |
 
 Quando o tráfego se destina a um endereço IP fora dos prefixos de endereço de outras rotas na tabela de rotas, o Azure seleciona a rota com a origem **Utilizador**, porque as rotas definidas pelo utilizador têm prioridade mais alta do que as rotas do sistema predefinidas.
 
@@ -244,17 +248,17 @@ A tabela de rotas de *Subnet1* na imagem contém as rotas seguintes:
 |ID  |Origem |Estado  |Prefixos de endereço    |Tipo de salto seguinte          |Endereço IP do próximo salto|Nome da rota definida pelo utilizador| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Predefinição|Inválido|10.0.0.0/16         |Rede virtual        |                   |              |
-|2   |User   |Ativo |10.0.0.0/16         |Aplicação virtual      |10.0.100.4         |Within-VNet1  |
-|3   |User   |Ativo |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
+|2   |Utilizador   |Ativo |10.0.0.0/16         |Aplicação virtual      |10.0.100.4         |Within-VNet1  |
+|3   |Utilizador   |Ativo |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
 |4   |Predefinição|Inválido|10.1.0.0/16         |VNet peering           |                   |              |
 |5   |Predefinição|Inválido|10.2.0.0/16         |VNet peering           |                   |              |
-|6   |User   |Ativo |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
-|7   |User   |Ativo |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
+|6   |Utilizador   |Ativo |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
+|7   |Utilizador   |Ativo |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
 |8   |Predefinição|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
-|9   |User   |Ativo |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
+|9   |Utilizador   |Ativo |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
 |10  |Predefinição|Ativo |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Predefinição|Inválido|0.0.0.0/0           |Internet               |                   |              |
-|12  |User   |Ativo |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
+|12  |Utilizador   |Ativo |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
 
 Segue-se uma explicação de cada ID de rota:
 

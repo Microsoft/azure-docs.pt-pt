@@ -69,7 +69,7 @@
         - name: Atualizações de dispositivos de resolução de problemas
           href: troubleshoot-device-update.md
         - name: Códigos de erro do cliente de atualização do dispositivo
-      href: device-update-error-codes.md
+          href: device-update-error-codes.md
 - name: Referência
   items:
     - name: API REST

@@ -75,6 +75,8 @@ items:
             href: manage-integration-runtimes.md
           - name: Resolver problemas de ligação
             href: troubleshoot-connections.md
+          - name: Regras de padrão definidas por recursos
+            href: how-to-resource-set-pattern-rules.md
           - name: Origens
             items:
               - name: Gerir origens de dados

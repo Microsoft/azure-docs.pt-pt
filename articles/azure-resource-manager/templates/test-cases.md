@@ -2,15 +2,15 @@
 title: Teste de caixas para kit de ferramentas de teste
 description: Descreve os testes que são executados pelo kit de ferramentas de teste do modelo ARM.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7805d6dbdb8b93968a2792ed6dfaf2ac8fea9ae5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064156"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363398"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de teste predefinidos para o kit de ferramentas de teste do modelo ARM
 
@@ -637,7 +637,7 @@ O exemplo que **se segue passa** neste teste.
 
 Nome do teste: **ManagedIdentityExtension não deve ser utilizada**
 
-Não aplique a extensão ManagedIdentity a uma máquina virtual. Para obter mais informações, consulte [Como parar de usar a extensão de identidades geridas pela máquina virtual e comece a utilizar o Serviço de Metadados de Instância Azure](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+Não aplique a extensão ManagedIdentity a uma máquina virtual. A extensão foi depreciada em 2019 e não deve continuar a ser utilizada.
 
 ## <a name="outputs-cant-include-secrets"></a>As saídas não podem incluir segredos
 

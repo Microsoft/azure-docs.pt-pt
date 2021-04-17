@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 1366f24ec3bd35ec23d5bf0879fced367c9f6a45
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6da83ceb6d8ee51916d25949309d7ddfba0e4b30
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552445"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503617"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Alterar suporte de alimentação no armazenamento de blob Azure
 
@@ -67,8 +67,8 @@ Eis algumas coisas a ter em mente quando ativar o feed de mudança.
 Ativar o feed de alteração na sua conta de armazenamento utilizando o portal Azure:
 
 1. No [portal Azure,](https://portal.azure.com/)selecione a sua conta de armazenamento.
-1. Navegue para a opção **de proteção de dados** no **âmbito do serviço Blob**.
-1. Em **Tracking**, selecione **Ligue o feed de alteração de bolhas**.
+1. Navegue para a opção **de proteção de dados** sob **gestão de dados.**
+1. Em **Tracking**, selecione **Ativar o feed de alteração de blob**.
 1. Escolha o botão **Guardar** para confirmar as definições de proteção de dados.
 
     :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Screenshot mostrando como ativar o feed de mudança no portal Azure":::

@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 42a4c4a41f6c8bdf9d4a8e78f634893722c8f389
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea1296fd4e31c2deaed79e980ab764c523a2bfd7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576407"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364367"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server
 
@@ -172,7 +172,6 @@ Para implementar o modelo, siga estes passos:
       1. Introduza o nome da nova regra do balançador de carga (por exemplo, **hana-lb**).
       1. Selecione o endereço IP frontal, o pool traseiro e a sonda de saúde que criou anteriormente (por exemplo, **hana-frontend,** **hana-backend** e **hana-hp).**
       1. Selecione **portas HA**.
-      1. Aumente o **tempo de 30** minutos.
       1. Certifique-se de que ativa o **IP flutuante**.
       1. Selecione **OK**.
 
@@ -499,6 +498,71 @@ Os passos desta secção utilizam os seguintes prefixos:
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implementar o gancho de replicação do sistema Python SAPHanaSR
+
+Este é um passo importante para otimizar a integração com o cluster e melhorar a deteção quando um cluster falha. É altamente recomendado configurar o gancho de pitão SAPHanaSR.    
+
+1. **[A]** Instale o "gancho de replicação do sistema" HANA. O gancho precisa de ser instalado em ambos os nós HANA DB.           
+
+   > [!TIP]
+   > Verifique se o pacote SAPHanaSR é pelo menos a versão 0.153 para poder utilizar a funcionalidade do gancho SAPHanaSR Python.       
+   > O gancho de pitão só pode ser implementado para HANA 2.0.        
+
+   1. Prepare o gancho como `root` .  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Pare hana em ambos os nós. Execute como <sid \> adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Ajuste `global.ini` em cada nó de cluster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** O cluster requer a configuração dos sudoers em cada nó de cluster para <\> adm do sid. Neste exemplo que é conseguido através da criação de um novo ficheiro. Execute os comandos como `root` .    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+Para obter mais detalhes sobre a implementação do gancho de replicação do sistema SAP HANA consulte [configurar os fornecedores HANA HA/DR](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html#_set_up_sap_hana_hadr_providers).  
+
+3. **[A]** Inicie SAP HANA em ambos os nós. Execute como <sid \> adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Verifique a instalação do gancho. Execute como <\> adm sid no site de replicação do sistema HANA ativo.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+
+    ```
+
 ## <a name="create-sap-hana-cluster-resources"></a>Criar recursos de cluster SAP HANA
 
 Primeiro, crie a topologia hana. Executar os seguintes comandos num dos nóns de cluster Pacemaker:
@@ -711,6 +775,9 @@ Esta secção descreve como pode testar a sua configuração. Todos os testes as
 Antes de iniciar o teste, certifique-se de que o Pacemaker não tem qualquer ação falhada (via crm_mon -r), não existem constrangimentos de localização inesperados (por exemplo, restos de um teste de migração) e que HANA é estado de sincronização, por exemplo com SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
+Sites    srHook
+----------------
+SITE2    SOK
 
 Global cib-time
 --------------------------------
@@ -724,7 +791,7 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 
 Pode migrar o nó mestre SAP HANA executando o seguinte comando:
 
-<pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+<pre><code>crm resource move msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b> force
 </code></pre>
 
 Se `AUTOMATED_REGISTER="false"` definir, esta sequência de comandos deve migrar o nó mestre SAP HANA e o grupo que contém o endereço IP virtual para hn1-db-1.
@@ -763,7 +830,7 @@ A migração cria restrições de localização que precisam de ser eliminadas n
 
 <pre><code># Switch back to root and clean up the failed state
 exit
-hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+hn1-db-0:~ # crm resource clear msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
 Também precisa de limpar o estado do recurso de nó secundário:

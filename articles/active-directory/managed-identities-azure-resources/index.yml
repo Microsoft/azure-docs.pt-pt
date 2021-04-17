@@ -12,12 +12,12 @@ metadata:
   ms.author: barclayn
   ms.date: 08/29/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 0cecb8d1b27e6e236c02e9c70ed2e24095d9ee73
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-  ms.translationtype: HT
+  ms.openlocfilehash: 510fcf249174def1f157fdbbbcfbd75c557f3d79
+  ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89018353"
+  ms.lasthandoff: 04/13/2021
+  ms.locfileid: "107365013"
 landingContent:
 - title: Sobre as identidades geridas
   linkLists:
@@ -49,8 +49,6 @@ landingContent:
       url: how-to-use-vm-sign-in.md
     - text: Utilizar com o SDK do Azure
       url: how-to-use-vm-sdk.md
-    - text: Parar de utilizar extensões de VM
-      url: howto-migrate-vm-extension.md
 - title: Atribuir um acesso de identidade gerida a outro recurso do Azure
   linkLists:
   - linkListType: how-to-guide
