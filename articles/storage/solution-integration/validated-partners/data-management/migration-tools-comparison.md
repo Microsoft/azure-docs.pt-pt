@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 15daeb0e6bf320a0727d8e6ea502063a30e67ad0
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 862feace6aab4f49ad3482c4ccd6510669c876a1
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106231588"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576538"
 ---
 # <a name="comparison-matrix"></a>Matriz de comparação
 
@@ -23,11 +23,11 @@ A seguinte matriz de comparação mostra a funcionalidade básica de diferentes 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Dinâmica de Dados](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **Nome da solução**  | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview)              | [Mobilidade de Dados e Migração](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Gestão inteligente de dados](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
-| **Suporte a ficheiros Azure (todos os níveis)** | Sim                          | Sim                      | Sim            | Sim                            |
-| **Suporte a ficheiros Azure NetApp**      | Não                           | Sim                      | Sim            | Sim                            |
-| **Suporte Azure Blob Hot / Cool**   | Não                           | Sim (via pré-visualização NFS)    | Sim            | Sim                            |
-| **Suporte de nível Azure Blob Archive** | Não                           | Não                       | Não             | Sim (como destino de migração) |
-| **Suporte de armazenamento do Lago de Dados Azure** | Não                           | Não                       | Não             | Não                             |
+| **Suporte a ficheiros Azure (todos os níveis)** | Yes                          | Yes                      | Yes            | Yes                            |
+| **Suporte a ficheiros Azure NetApp**      | No                           | Yes                      | Yes            | Yes                            |
+| **Suporte Azure Blob Hot / Cool**   | No                           | Sim (via pré-visualização NFS)    | Yes            | Yes                            |
+| **Suporte de nível Azure Blob Archive** | No                           | No                       | No             | Sim (como destino de migração) |
+| **Suporte de armazenamento do Lago de Dados Azure** | No                           | No                       | No             | No                             |
 | **Origens Suportadas**      | Windows Server 2012 R2 e até | Sistemas de ficheiros em nuvem nas & nas NA | Qualquer NAS e S3 | NAS, Blob, S3                  |
 
 ## <a name="supported-protocols-source--destination"></a>Protocolos suportados (fonte/destino)
@@ -35,44 +35,44 @@ A seguinte matriz de comparação mostra a funcionalidade básica de diferentes 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Dinâmica de Dados](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
 | **Nome da solução**   | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Mobilidade de Dados e Migração](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Gestão inteligente de dados](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
-| **SMB 2.1**       | Sim | Sim | Sim | Sim |
-| **SMB 3.0**       | Sim | Sim | Sim | Sim |
-| **SMB 3.1**       | Sim | Sim | Sim | Sim |
-| **NFS v3**        | Não  | Sim | Sim | Sim |
-| **NFS v4.1**      | Não  | Sim | Não  | Sim |
-| **Blob REST API** | Não  | Não  | Sim | Sim |
-| **S3**            | Não  | Sim | Sim | Sim |
+| **SMB 2.1**       | Yes | Yes | Yes | Yes |
+| **SMB 3.0**       | Yes | Yes | Yes | Yes |
+| **SMB 3.1**       | Yes | Yes | Yes | Yes |
+| **NFS v3**        | No  | Yes | Yes | Yes |
+| **NFS v4.1**      | No  | Yes | No  | Yes |
+| **Blob REST API** | No  | No  | Yes | Yes |
+| **S3**            | No  | Yes | Yes | Yes |
 
 ## <a name="extended-features"></a>Características estendidas
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Dinâmica de Dados](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **Nome da solução**  | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Mobilidade de Dados e Migração](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Gestão inteligente de dados](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
-| **Remapping UID /SID**                   | Não  | Sim                        | Sim | Não                             |
-| **Remapping protocolo ACL**                | Não  | Não                         | Não  | Não                             |
-| **Suporte DFS**                           | Sim | Sim                        | Sim | Sim                            |
-| **Apoio de estrangulamento**                    | Sim | Sim                        | Sim | Sim                            |
-| **Exclusões de padrões de ficheiros**               | Não  | Sim                        | Sim | Sim (usando a funcionalidade de cópia) |
-| **Suporte para atributos de ficheiros seletivos** | Sim | Sim                        | Sim | Sim (para atributos estendidos)  |
-| **Eliminar propagações**                   | Sim | Sim                        | Sim | Sim                            |
-| **Siga as junções NTFS**                 | Não  | Sim                        | Não  | Sim                            |
-| **Substituição do proprietário e dono do grupo**    | Sim | Sim                        | Sim | Não                             |
-| **Relatório de cadeia de custódia**            | Não  | Sim                        | Não  | Sim                            |
-| **Suporte para fluxos de dados alternativos**    | Não  | Sim                        | Sim | Não                             |
-| **Agendamento para a migração**              | Não  | Sim                        | Sim | Sim                            |
-| **Preservação da ACL**                        | Não  | Sim                        | Sim | Sim                            |
-| **Suporte DACL**                          | Sim | Sim                        | Sim | Sim                            |
-| **Suporte SACL**                          | Sim | Sim                        | Sim | Não                             |
-| **Preservação do tempo de acesso**                | Sim | Sim                        | Sim | Sim                            |
-| **Preservação do tempo modificado**              | Sim | Sim                        | Sim | Sim                            |
-| **Preservando o tempo de criação**              | Não  | Sim                        | Sim | Sim                            |
-| **Suporte a caixa de dados Azure**       | Sim | Sim                        | Não  | Não                             |
-| **Migração de instantâneos**                | Não  | Manual                     | Sim | Não                             |
-| **Suporte simbólico de ligação**                 | Não  | Sim                        | Não  | Sim                            |
-| **Suporte de ligação rígida**                     | Não  | Migrado como ficheiros separados | Sim | Sim                            |
-| **Suporte para ficheiros abertos /bloqueados**       | Sim | Sim                        | Sim | Sim                            |
-| **Migração incremental**                 | Sim | Sim                        | Sim | Sim                            |
-| **Suporte de transição**                    | Não  | Sim                        | Sim | Não (apenas manual)               |
+| **Remapping UID /SID**                   | No  | Yes                        | Yes | No                             |
+| **Remapping protocolo ACL**                | No  | No                         | No  | No                             |
+| **Suporte DFS**                           | Yes | Yes                        | Yes | Yes                            |
+| **Apoio de estrangulamento**                    | Yes | Yes                        | Yes | Yes                            |
+| **Exclusões de padrões de ficheiros**               | No  | Yes                        | Yes | Sim (usando a funcionalidade de cópia) |
+| **Suporte para atributos de ficheiros seletivos** | Yes | Yes                        | Yes | Sim (para atributos estendidos)  |
+| **Eliminar propagações**                   | Yes | Yes                        | Yes | Yes                            |
+| **Siga as junções NTFS**                 | No  | Yes                        | No  | Yes                            |
+| **Substituição do proprietário e dono do grupo**    | Yes | Yes                        | Yes | No                             |
+| **Relatório de cadeia de custódia**            | No  | Yes                        | No  | Yes                            |
+| **Suporte para fluxos de dados alternativos**    | No  | Yes                        | Yes | No                             |
+| **Agendamento para a migração**              | No  | Yes                        | Yes | Yes                            |
+| **Preservação da ACL**                        | No  | Yes                        | Yes | Yes                            |
+| **Suporte DACL**                          | Yes | Yes                        | Yes | Yes                            |
+| **Suporte SACL**                          | Yes | Yes                        | Yes | No                             |
+| **Preservação do tempo de acesso**                | Yes | Yes                        | Yes | Yes                            |
+| **Preservação do tempo modificado**              | Yes | Yes                        | Yes | Yes                            |
+| **Preservando o tempo de criação**              | No  | Yes                        | Yes | Yes                            |
+| **Suporte a caixa de dados Azure**       | Yes | Yes                        | No  | No                             |
+| **Migração de instantâneos**                | No  | Manual                     | Yes | No                             |
+| **Suporte simbólico de ligação**                 | No  | Yes                        | No  | Yes                            |
+| **Suporte de ligação rígida**                     | No  | Migrado como ficheiros separados | Yes | Yes                            |
+| **Suporte para ficheiros abertos /bloqueados**       | Yes | Yes                        | Yes | Yes                            |
+| **Migração incremental**                 | Yes | Yes                        | Yes | Yes                            |
+| **Suporte de transição**                    | No  | Yes                        | Yes | Não (apenas manual)               |
 | **[Outras funcionalidades](#other-features)**         | [Ligação](#azure-file-sync)| [Ligação](#dobimigrate) | [Ligação](#data-mobility-and-migration) | [Ligação](#intelligent-data-management)                |
 
 ## <a name="assessment-and-reporting"></a>Avaliação e reporte
@@ -80,21 +80,21 @@ A seguinte matriz de comparação mostra a funcionalidade básica de diferentes 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Dinâmica de Dados](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
 | **Nome da solução**   | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Mobilidade de Dados e Migração](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Gestão inteligente de dados](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
-| **Capacidade**                        | Não      | Sim | Sim | Sim            |
-| **# de ficheiros / pastas**            | Não      | Sim | Sim | Sim            |
-| **Distribuição etária ao longo do tempo**      | Não      | Sim | Sim | Sim            |
-| **Tempo de acesso**                     | Não      | Sim | Sim | Sim            |
-| **Tempo modificado**                   | Não      | Sim | Sim | Sim            |
-| **Tempo de criação**                   | Não      | Sim | Sim | Sim (apenas SMB) |
-| **Por ficheiro/ estado de relatório de objeto** | Parcial | Sim | Sim | Sim            |
+| **Capacidade**                        | No      | Yes | Yes | Yes            |
+| **# de ficheiros / pastas**            | No      | Yes | Yes | Yes            |
+| **Distribuição etária ao longo do tempo**      | No      | Yes | Yes | Yes            |
+| **Tempo de acesso**                     | No      | Yes | Yes | Yes            |
+| **Tempo modificado**                   | No      | Yes | Yes | Yes            |
+| **Tempo de criação**                   | No      | Yes | Yes | Yes            |
+| **Por ficheiro/ estado de relatório de objeto** | Parcial | Yes | Yes | Yes            |
 
 ## <a name="licensing"></a>Licenciamento
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Dinâmica de Dados](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
 | **Nome da solução**   | [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [Mobilidade de Dados e Migração](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Gestão inteligente de dados](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
-| **BYOL**             | N / A | Sim | Sim | Sim |
-| **Compromisso Azure** | Sim   | Sim | Sim | Sim |
+| **BYOL**             | N / A | Yes | Yes | Yes |
+| **Compromisso Azure** | Yes   | Yes | Yes | Yes |
 
 ## <a name="other-features"></a>Outras funcionalidades
 

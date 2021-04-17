@@ -17,12 +17,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: c3443cb73e85fc69349e7293597a5f4a723959d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f4ac6ab3825c82ac0cb8ef5c31f9396ef7b41f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93130056"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533723"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtenha dados utilizando o Diretório Ativo Azure reportando API com certificados
 
@@ -102,5 +102,5 @@ Neste tutorial, você aprende a usar um certificado de teste para aceder à API 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obter uma primeira impressão das APIs de relatórios](concept-reporting-api.md)
-* [Referência de API de auditoria](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Referência de API do relatório de atividade de inscrição](/graph/api/resources/signin?view=graph-rest-beta)
+* [Referência de API de auditoria](/graph/api/resources/directoryaudit) 
+* [Referência de API do relatório de atividade de inscrição](/graph/api/resources/signin)

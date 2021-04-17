@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3ca4464f40c0807e51adffca8e3e68c622314de6
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 913f21b90043209cae1ec9963619389bcb452781
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256893"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529428"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com gasodutos Azure
 
@@ -29,7 +29,7 @@ Existem três passos primários necessários para permitir que os gasodutos Azur
 1. Configure um Gasoduto Azure
 
 > [!IMPORTANT]
-> Gerir as políticas personalizadas Azure AD B2C com um Gasoduto Azure utiliza atualmente operações **de pré-visualização** disponíveis no ponto final da Microsoft Graph API. `/beta` A utilização destas APIs em aplicações de produção não é suportada. Para obter mais informações, consulte a [referência do ponto final beta API do Microsoft Graph REST](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta).
+> Gerir as políticas personalizadas Azure AD B2C com um Gasoduto Azure utiliza atualmente operações **de pré-visualização** disponíveis no ponto final da Microsoft Graph API. `/beta` A utilização destas APIs em aplicações de produção não é suportada. Para obter mais informações, consulte a [referência do ponto final beta API do Microsoft Graph REST](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta&preserve-view=true).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

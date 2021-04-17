@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6a1ead2fe3c1ec4e2206d1ffbaea4e5ec57433
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 44b4e4bccde07d078c9749ee76c1653e6d431e63
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222526"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532077"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
 
@@ -140,7 +140,7 @@ Se já não tiver uma relação com um diretório ou domínio Azure AD externo, 
 
 ## <a name="managing-a-connected-organization-programmatically"></a>Gerir uma organização conectada programáticamente
 
-Também pode criar, listar, atualizar e eliminar organizações conectadas usando o Microsoft Graph. Um utilizador numa função adequada com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode ligar para a API para gerir objetos de organização [conectados](/graph/api/resources/connectedorganization?view=graph-rest-beta) e definir patrocinadores para eles.
+Também pode criar, listar, atualizar e eliminar organizações conectadas usando o Microsoft Graph. Um utilizador numa função adequada com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode ligar para a API para gerir objetos de organização [conectados](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true) e definir patrocinadores para eles.
 
 ## <a name="state-properties-of-connected-organizations"></a>Propriedades estatais de organizações conectadas
 

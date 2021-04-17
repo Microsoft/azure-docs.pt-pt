@@ -3,26 +3,21 @@ title: Criar um conjunto com a encriptação de disco ativada
 description: Aprenda a usar a configuração de encriptação do disco para encriptar nós com uma chave gerida pela plataforma.
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 04/16/2021
 ms.author: peshultz
-ms.custom: references_regions
-ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 40281211e5eb70089f4168dcb02720c912120a35
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99055319"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576113"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Criar um conjunto com a encriptação de disco ativada
 
 Quando criar um pool Azure Batch utilizando [a Configuração de Máquina Virtual,](nodes-and-pools.md#virtual-machine-configuration)pode encriptar os nós de computação na piscina com uma chave gerida pela plataforma especificando a configuração de encriptação do disco.
 
 Este artigo explica como criar um pool de Lote com encriptação de disco ativada.
-
-> [!IMPORTANT]
-> O suporte para encriptação no hospedeiro usando uma chave gerida pela plataforma em Azure Batch está atualmente em pré-visualização pública para as regiões leste dos EUA, West US 2, South Central US, US Gov Virginia, e EUA Gov Arizona.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Porquê usar uma piscina com configuração de encriptação de disco?
 

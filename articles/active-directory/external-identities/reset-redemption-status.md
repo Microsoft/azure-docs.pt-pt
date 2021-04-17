@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f5bfce7ef2621cbe3bbbfdd95bf9a75e427c8cbd
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552262"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531874"
 ---
 # <a name="reset-redemption-status-for-a-guest-user-preview"></a>Redefinir o estado de resgate de um utilizador convidado (Pré-visualização)
 
@@ -37,7 +37,9 @@ Se um utilizador quiser iniciar susutá-lo usando um e-mail diferente:
 3. Utilize um dos métodos abaixo para redefinir o estado de resgate do utilizador.
 
 > [!NOTE]
->Durante a pré-visualização pública, quando estiver a redefinir o endereço de e-mail do utilizador, recomendamos a definição da `mail` propriedade para o novo endereço de e-mail. Desta forma, o utilizador pode resgatar o convite ao inscrever-se no seu diretório, além de utilizar o link de resgate no convite.
+>Durante a pré-visualização pública, temos duas recomendações:
+>- Quando estiver a redefinir o endereço de e-mail do utilizador para um novo endereço, recomendamos a definição da `mail` propriedade. Desta forma, o utilizador pode resgatar o convite ao inscrever-se no seu diretório, além de utilizar o link de resgate no convite.
+>- Quando estiver a redefinir o estado de um utilizador convidado B2B, certifique-se de que o faz no contexto do utilizador. Atualmente, as chamadas apenas para aplicações não são suportadas.
 >
 ## <a name="use-powershell-to-reset-redemption-status"></a>Utilize o PowerShell para redefinir o estado de resgate
 
@@ -54,7 +56,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Utilize a API do Microsoft Graph para redefinir o estado de resgate
 
-Utilizando o convite do [Microsoft Graph API,](/graph/api/resources/invitation?view=graph-rest-1.0)deite a `resetRedemption` propriedade e `true` especifique o novo endereço de e-mail na `invitedUserEmailAddress` propriedade.
+Utilizando o convite do [Microsoft Graph API,](/graph/api/resources/invitation?view=graph-rest-beta&preserve-view=true)deite a `resetRedemption` propriedade e `true` especifique o novo endereço de e-mail na `invitedUserEmailAddress` propriedade.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

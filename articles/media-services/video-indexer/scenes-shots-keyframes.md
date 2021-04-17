@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a738152296aacbb5914e859a65976bd0f6dbf0a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93041905"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532429"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e keyframes
 
@@ -54,7 +54,7 @@ Desaperte e abra a pasta. Na *pasta _KeyframeThumbnail,* encontrará todos os qu
 
 #### <a name="with-the-video-indexer-api"></a>Com a API indexante de vídeo
 
-Para obter quadros-chave utilizando a API do Indexer de Vídeo, faça upload e indexe o seu vídeo utilizando a chamada [de Vídeo upload.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) Assim que o trabalho de indexação estiver concluído, ligue [para o Índice de Vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Isto irá dar-lhe todas as informações que o Video Indexer extraiu do seu conteúdo num ficheiro JSON.  
+Para obter quadros-chave utilizando a API do Indexer de Vídeo, faça upload e indexe o seu vídeo utilizando a chamada [de Vídeo upload.](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) Assim que o trabalho de indexação estiver concluído, ligue [para o Índice de Vídeo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index). Isto irá dar-lhe todas as informações que o Video Indexer extraiu do seu conteúdo num ficheiro JSON.  
 
 Receberá uma lista de identificações do quadro-chave como parte dos metadados de cada foto. 
 
@@ -98,7 +98,7 @@ Receberá uma lista de identificações do quadro-chave como parte dos metadados
 ]
 ```
 
-Agora terá de executar cada uma destas identificações do quadro-chave na chamada [Get Thumbnails.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) Isto irá transferir cada uma das imagens do quadro-chave para o seu computador. 
+Agora terá de executar cada uma destas identificações do quadro-chave na chamada [Get Thumbnails.](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) Isto irá transferir cada uma das imagens do quadro-chave para o seu computador. 
 
 ## <a name="editorial-shot-type-detection"></a>Deteção de tipo de tiro editorial
 

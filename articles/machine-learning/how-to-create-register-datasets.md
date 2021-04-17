@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 592c128a05b66b268c954ccd32b06863df5b25d1
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 18a39adfff572b81e5fbb9d7a42c71834b93ad13
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029119"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575755"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados do Azure Machine Learning
 
@@ -190,6 +190,7 @@ Depois de criar e [registar](#register-datasets) o seu conjunto de dados, pode c
 Se não precisar de fazer qualquer problema de dados ou exploração, consulte como consumir conjuntos de dados nos seus scripts de formação para submeter experiências ML em [Comboio com conjuntos de dados](how-to-train-with-datasets.md).
 
 ### <a name="filter-datasets-preview"></a>Conjuntos de dados de filtro (pré-visualização)
+
 As capacidades de filtragem dependem do tipo de conjunto de dados que tiver. 
 > [!IMPORTANT]
 > Filtrar conjuntos de dados com o método de pré-visualização público, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) é uma funcionalidade de pré-visualização [experimental,](/python/api/overview/azure/ml/#stable-vs-experimental) e pode ser alterado a qualquer momento. 

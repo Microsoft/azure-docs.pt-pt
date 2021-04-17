@@ -1,4 +1,4 @@
-- name: Assistente de Métricas
+- name: Documentação do Consultor de Métricas
   href: index.yml
 - name: Descrição geral
   expanded: true
@@ -7,9 +7,9 @@
       href: overview.md
     - name: Preços
       href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
-    - name: Novidades?
+    - name: Novidades
       href: whats-new.md
-- name: Métricas Advisor quickstarts
+- name: Guias de Início Rápido
   items:
     - name: Portal Web
       href: quickstarts/web-portal.md
@@ -35,6 +35,10 @@
       href: how-tos/anomaly-feedback.md
     - name: Criar um gráfico de métricas
       href: how-tos/metrics-graph.md
+    - name: Preparação para empresas
+      items:
+        - name: Utilize chaves geridas pelo cliente
+          href: encryption.md
 - name: Conceitos
   items:
     - name: Termos-chave do Consultor de Métricas
@@ -49,11 +53,11 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Recursos
   items:
-    - name: Suporte de região
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Preparação para empresas
+      items:
+        - name: Suporte de região
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de suporte e ajuda
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Encriptação
-      href: encryption.md

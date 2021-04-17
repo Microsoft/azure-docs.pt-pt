@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5a4cc2b964bcf4fa49d90c8b6d5aa546b7148a1
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 6c1d78094effe6919587f24c2262612e4fab347d
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107950"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575382"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
 
@@ -89,7 +89,7 @@ Ao implementar VDI não persistente, a Microsoft recomenda que os administradore
 - Para o windows de nível baixo:
    - Implementar **o auto-trabalho colocação do comando /deixar** o comando como parte do script logoff. Este comando deve ser acionado no contexto do utilizador e deve ser executado antes de o utilizador ter iniciado completamente o seu registo e enquanto ainda existir conectividade de rede.
 - Para a corrente do Windows num ambiente federado (por exemplo, FS AD):
-   - Implementar **dsregcmd /juntar-se** como parte da sequência de arranque VM.
+   - Implementar **dsregcmd /juntar-se** como parte da sequência/ordem de arranque VM e antes de o utilizador iniciar a sência.
    - **NÃO** execute o dsregcmd /leave como parte do processo de paragem/reinício de VM.
 - Definir e implementar o processo de [gestão de dispositivos antigos.](manage-stale-devices.md)
    - Uma vez que tenha uma estratégia para identificar os dispositivos de ad AD híbrido não persistente (por exemplo, utilizando o prefixo do nome do ecrã do computador), deverá ser mais agressivo na limpeza destes dispositivos para garantir que o seu diretório não seja consumido com muitos dispositivos antigos.

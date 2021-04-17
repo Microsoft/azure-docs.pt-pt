@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 04/16/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 37e508a0f4af940773a92271075239c204e52834
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 3665421ddbdd9cf079ff4aab9377fc9164a1599c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010718"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575365"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -73,7 +73,7 @@ O quadro que se segue mostra quais os tipos de contas de armazenamento que supor
 
 | Tipo de conta de armazenamento | Regiões suportadas | Serviços suportados |
 |--|--|--|
-| Finalidade geral v2<sup>1</sup> | (África) África do Sul Norte<br /> (Ásia-Pacífico) Ásia Oriental<br /> (Ásia-Pacífico) Sudeste Asiático<br /> (Ásia-Pacífico) Austrália Leste<br /> (Ásia-Pacífico) Índia Central<br /> Leste do Japão (Ásia-Pacífico) <br /> (Ásia-Pacífico) Coreia Central<br /> (Canadá) Central do Canadá<br /> (Europa) Norte da Europa<br /> (Europa) Europa Ocidental<br /> (Europa) França Central<br /> (Europa) Alemanha Centro-Oeste<br /> (Europa) Leste da Noruega<br /> (Europa) Suíça Norte<br /> (Europa) Reino Unido Sul<br /> (Médio Oriente) Uae Norte<br /> (América do Sul) Brasil Sul<br /> (EUA) Centro dos EUA<br /> (EUA) E.U.A Leste<br /> (EUA) Leste dos EUA 2<br /> (EUA) Centro-Norte dos EUA<br />(EUA) Centro-Sul dos EUA<br /> (EUA) Eua Ocidentais<br /> (EUA) Oeste DOS EUA 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tables<br /> Filas<br /> |
+| Finalidade geral v2<sup>1</sup> | (África) África do Sul Norte<br /> (Ásia-Pacífico) Sudeste Asiático<br /> (Ásia-Pacífico) Austrália Leste<br /> Leste do Japão (Ásia-Pacífico) <br /> (Canadá) Central do Canadá<br /> (Europa) Norte da Europa<br /> (Europa) Europa Ocidental<br /> (Europa) França Central<br /> (Europa) Alemanha Centro-Oeste<br /> (Europa) Reino Unido Sul<br /> (América do Sul) Brasil Sul<br /> (EUA) Centro dos EUA<br /> (EUA) E.U.A Leste<br /> (EUA) Leste dos EUA 2<br /> (EUA) Centro-Sul dos EUA<br /> (EUA) Eua Ocidentais<br /> (EUA) Oeste DOS EUA 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tables<br /> Filas<br /> |
 | BlockBlobStorage<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2| Bolhas de bloco premium apenas |
 | Arquitorage de arquivos | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2 | Os ficheiros premium partilham apenas |
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34ac4a3b7f55c42711e4bc33c75bba964b49c65e
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 8af1a5e73592dc1c3392f0bc1fecfe6139a54710
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551633"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529838"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configure a política de expiração para os grupos Microsoft 365
 
@@ -111,7 +111,7 @@ Se o grupo que está a restaurar contiver documentos, sites SharePoint ou outros
 
 ## <a name="how-to-retrieve-microsoft-365-group-expiration-date"></a>Como recuperar a data de validade do grupo Microsoft 365
 
-Além do Painel de Acesso onde os utilizadores podem ver detalhes do grupo, incluindo a data de validade e a última data renovada, a data de validade de um grupo Microsoft 365 pode ser recuperada a partir da API Beta do Microsoft Graph REST. expiraçãoDateTime como uma propriedade de grupo foi ativado em Microsoft Graph Beta. Pode ser recuperado com um pedido GET. Para mais detalhes, consulte [este exemplo.](/graph/api/group-get?view=graph-rest-beta#example)
+Além do Painel de Acesso onde os utilizadores podem ver detalhes do grupo, incluindo a data de validade e a última data renovada, a data de validade de um grupo Microsoft 365 pode ser recuperada a partir da API Beta do Microsoft Graph REST. expiraçãoDateTime como uma propriedade de grupo foi ativado em Microsoft Graph Beta. Pode ser recuperado com um pedido GET. Para mais detalhes, consulte [este exemplo.](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true)
 
 > [!NOTE]
 > Para gerir os membros do grupo no Painel de Acesso, é necessário definir "Restringir o acesso aos grupos no painel de acesso" para "Não" na Definição Geral dos Grupos de Diretório Ativo do Azure.

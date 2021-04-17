@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 04/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 3d102b492326971ef186ba50a557ad8d1df5b6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2662b686102a1a4f6aa6db0f7a4052de329def60
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454204"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519848"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Tutorial: Azure Ative Directory integração única (SSO) com Egnyte
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar Egnyte com Azure Ative Directory (
 * Controlo em Azure AD que tem acesso a Egnyte.
 * Permita que os seus utilizadores sejam automaticamente inscritos na Egnyte com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,31 +37,27 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Egnyte apoia **SP** iniciado SSO
-* Uma vez configurado Egnyte, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+* Egnyte suporta **SP** iniciado SSO.
 
 > [!NOTE]
 > O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
-## <a name="adding-egnyte-from-the-gallery"></a>Adicionar Egnyte da galeria
+## <a name="add-egnyte-from-the-gallery"></a>Adicione Egnyte da galeria
 
 Para configurar a integração da Egnyte no Azure AD, é necessário adicionar egnyte da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar da secção **da galeria,** digite **Egnyte** na caixa de pesquisa.
 1. Selecione **Egnyte** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
+## <a name="configure-and-test-azure-ad-sso-for-egnyte"></a>Configurar e testar Azure AD SSO para egnyte
 
-Nesta secção, você configura e testa Azure AD single sign-on com Egnyte com base em um utilizador de teste chamado **Britta Simon**.
-Para um único início de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Egnyte.
+Configure e teste Azure AD SSO com Form.com usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Form.com.
 
-Para configurar e testar o Azure AD com a Egnyte, é necessário completar os seguintes blocos de construção:
-
-Para configurar e testar a Azure AD SSO com a Egnyte, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com Form.com, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -72,19 +66,17 @@ Para configurar e testar a Azure AD SSO com a Egnyte, complete os seguintes bloc
     1. **[Create Egnyte test user](#create-egnyte-test-user)** - para ter uma contraparte de B.Simon em Egnyte que está ligada à representação AD AZure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Egnyte,** encontre a secção **Gerir** e selecione **um único sinal**.
+1. No portal Azure, na página de integração da aplicação **Egnyte,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
-
-    ![Egnyte Domain e URLs informações únicas de início de súmito](common/sp-signonurl.png)
 
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://<companyname>.egnyte.com`
 
@@ -101,13 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
-
-    b. Identificador Azure Ad
-
-    c. Logout URL
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um utilizador de teste AZure AD 
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
@@ -119,43 +105,37 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Egnyte.
 
 1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Egnyte**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função &quot;Acesso Predefinido&quot; selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-egnyte-sso"></a>Configurar Egnyte SSO
+## <a name=&quot;configure-egnyte-sso&quot;></a>Configurar Egnyte SSO
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Egnyte como administrador.
 
 2. Clique em **Definições**.
    
-    ![Definições 1](./media/egnyte-tutorial/ic787819.png "Definições")
+    ![Definições 1](./media/egnyte-tutorial/settings-tab.png &quot;Definições")
 
 3. No menu, clique em **Definições**.
 
-    ![Definições](./media/egnyte-tutorial/ic787820.png "Definições")
+    ![Menu 1](./media/egnyte-tutorial/menu-tab.png "Menu")
 
 4. Clique no **separador Configuração** e, em seguida, clique em **Segurança**.
 
-    ![Segurança](./media/egnyte-tutorial/ic787821.png "Segurança")
+    ![Segurança](./media/egnyte-tutorial/configuration.png "Segurança")
 
 5. Na secção **autenticação single Sign-On,** execute os seguintes passos:
 
-    ![Único sinal na autenticação](./media/egnyte-tutorial/ic787822.png "Único sinal na autenticação")   
+    ![Único sinal na autenticação](./media/egnyte-tutorial/authentication.png "Único sinal na autenticação")   
     
     a. Como **autenticação única,** selecione **SAML 2.0**.
    
@@ -185,11 +165,11 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na Egnyte, devem ser 
 
 3. Clique **em Adicionar Novo Utilizador** e, em seguida, selecione o tipo de utilizador que pretende adicionar.
    
-    ![Utilizadores](./media/egnyte-tutorial/ic787824.png "Utilizadores")
+    ![Utilizadores](./media/egnyte-tutorial/add-user.png "Utilizadores")
 
 4. Na secção **Novo Utilizador de Energia,** execute os seguintes passos:
     
-    ![Novo Utilizador Padrão](./media/egnyte-tutorial/ic787825.png "Novo Utilizador Padrão")   
+    ![Novo Utilizador Padrão](./media/egnyte-tutorial/new-user.png "Novo Utilizador Padrão")   
 
     a. Na caixa de texto **por e-mail,** insira o e-mail de um utilizador como **o Brittasimon \@ contoso.com**.
 
@@ -207,18 +187,16 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na Egnyte, devem ser 
 >Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador Egnyte ou APIs fornecidas pela Egnyte para fornecer contas de utilizador Azure AD.
 >
 
-### <a name="test-sso"></a>Teste SSO
+## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo Egnyte no Painel de Acesso, deverá ser automaticamente inscrito no Egnyte para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para egnyte Url de inscrição de sinal onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos Adicionais
+* Vá diretamente ao URL de inscrição de Egnyte e inicie o fluxo de login a partir daí.
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Egnyte nas Minhas Apps, este será redirecionado para URL de inscrição de Egnyte. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Uma vez configurado Egnyte, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

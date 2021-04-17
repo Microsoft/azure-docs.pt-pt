@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a343c1729b47d88ec414f17fcef7f9323d99161d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 628bb9886264574bf33ac927cf5480f91144c39c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515265"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533997"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Quickstart: Configurar a Azure Attestation com a Azure PowerShell
 
@@ -121,7 +121,7 @@ New-AzResourceGroup -Name $attestationResourceGroup -Location $location
 ```
 
  > [!NOTE]
-   > Uma vez criado um fornecedor de atestado neste grupo de recursos, um utilizador AD Azure deve ter um papel de "Attestation Contributor" no fornecedor para executar operações como configuração de políticas/gestão de certificados de sinal de política. Estas permissões também podem ser herdadas com funções como "Proprietário" (permissões wildcard), "Contribuinte" (permissões wildcard) no grupo de subscrição/recursos.  
+   > Uma vez criado um fornecedor de atestado neste grupo de recursos, um utilizador AZure AD deve ter o papel **de Contribuinte atestado** no fornecedor para executar operações como configuração de políticas/gestão de certificados de sinaleiro de política. Estas permissões também podem ser herdadas com funções como **Proprietário** (permissões wildcard)/ **Contribuinte** (permissões wildcard) no grupo de subscrição/recursos.  
 
 
 ## <a name="create-and-manage-an-attestation-provider"></a>Criar e gerir um fornecedor de atestado
@@ -174,12 +174,12 @@ Para gerir as políticas, um utilizador AD Azure requer as seguintes permissões
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
- Para executar estas ações, um utilizador AD Azure deve ter o papel de "Attestation Contributor" no prestador de atestado. Estas permissões também podem ser herdadas com funções como "Proprietário" (permissões wildcard), "Contribuinte" (permissões wildcard) no grupo de subscrição/recursos.  
+ Para executar estas ações, um utilizador AD Azure deve ter o papel **de Attestation Contributor** no fornecedor de atestado. Estas permissões também podem ser herdadas com funções como **Proprietário** (permissões wildcard)/ **Contribuinte** (permissões wildcard) no grupo de subscrição/recursos.  
 
 Para ler políticas, um utilizador AZure AD requer a seguinte permissão para "Ações":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
- Para realizar esta ação, um utilizador AD Azure deve ter o papel de "Attestation Reader" no fornecedor de atestado. A permissão de leitura também pode ser herdada com papéis como "Reader" (permissões wildcard) no grupo de subscrição/recursos.  
+ Para realizar esta ação, um utilizador AD Azure deve ter o papel **de Attestation Reader** no fornecedor de atestado. A permissão de leitura também pode ser herdada com funções como **Reader** (permissões wildcard) no grupo de subscrição/recursos.  
 
 Abaixo dos cmdlets PowerShell fornecem gestão de políticas para um provedor de atestado (um TEE de cada vez).
 
