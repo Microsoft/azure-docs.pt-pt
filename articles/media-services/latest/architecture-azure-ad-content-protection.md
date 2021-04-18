@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 16e45d8d64bbe30c6fde88f7226db807f1a325d7
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 9c81a9b48ff9fa305385c45266d88deb4047f70f
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276931"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599490"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
 
@@ -342,7 +342,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-Os *grupos* afirmam ser membro de um Conjunto de [Reclamações Restritas](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) em Azure AD.
+Os *grupos* afirmam ser membro de um Conjunto de [Reclamações Restritas](../../active-directory/develop/reference-claims-mapping-policy-type.md#claim-sets) em Azure AD.
 
 #### <a name="test"></a>Teste
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40f2e146956919e154f59d90b56a1b03379abbb2
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81687129"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600642"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificar automaticamente o idioma falado com o modelo de identificação de idioma
 
@@ -27,7 +27,7 @@ Certifique-se de rever a secção [de Diretrizes e Limitações](#guidelines-and
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Escolha da identificação de linguagem automática na indexação
 
-Ao indexar ou [re-indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo utilizando a API, escolha a `auto detect` opção no `sourceLanguage` parâmetro.
+Ao indexar ou [re-indexar](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) um vídeo utilizando a API, escolha a `auto detect` opção no `sourceLanguage` parâmetro.
 
 Ao utilizar o portal, aceda aos vídeos da sua **Conta** na página inicial do [Índice de Vídeo](https://www.videoindexer.ai/) e sobre o nome do vídeo que pretende re-indexar. No canto inferior direito clique no botão de re-indexação. No diálogo **de vídeo Re-index,** escolha *deteção automática* a partir da caixa de entrega de linguagem de **origem vídeo.**
 

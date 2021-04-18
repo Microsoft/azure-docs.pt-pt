@@ -384,6 +384,10 @@
       href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
     - name: Termos do Azure Marketplace
       href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+    - name: Contrato do Microsoft Publisher
+      href: /legal/marketplace/msft-publisher-agreement
+    - name: Alterar o histórico para o Microsoft Publisher Agreement
+      href: /legal/marketplace/mpa-change-history
 - name: Referência
   items:
     - name: Referência da API CPP

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 19f6b0601afe9ad84f02c93d7f6e1ae3a71a06a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 402f6cd6961108cdf1e9c94fb4f93309fbf15ead
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585099"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599031"
 ---
 # <a name="integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Integre o único sign-on da Azure AD com o Conector SAML, orquestrador de identidade da Maverics
 
@@ -35,7 +35,7 @@ Este tutorial de acesso híbrido demonstra como migrar uma aplicação web no lo
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 * Uma assinatura ativada pelo Maverics Identity Orchestrator SAML Connector SSO. Para obter o software Maverics, contacte [as vendas da Strata.](mailto:sales@strata.io)
-* Pelo menos uma aplicação que utiliza a autenticação baseada em cabeçalho. Os exemplos funcionam contra uma aplicação chamada Sonar, que está hospedada em https://app.sonarsystems.com , e uma aplicação chamada Connectulum, hospedada em https://app.connectulum.com .
+* Pelo menos uma aplicação que utiliza a autenticação baseada em cabeçalho. Os exemplos funcionam contra uma aplicação chamada Connectulum, hospedada em `https://app.connectulum.com` .
 * Uma máquina Linux para acolher o Orquestrador Maverics
   * OS: RHEL 7.7 ou superior, CentOS 7+
   * Disco: >= 10 GB
@@ -107,7 +107,7 @@ tls:
     keyFile: /etc/maverics/maverics.key
 ```
 
-Para confirmar que o TLS está configurado como esperado, reinicie o serviço Maverics e faça um pedido ao ponto final de estado. A partir do seu navegador, https://sonar.maverics.com/status solicite.
+Para confirmar que o TLS está configurado como esperado, reinicie o serviço Maverics e faça um pedido ao ponto final de estado.
 
 ## <a name="step-2-proxy-an-application"></a>Passo 2: Proxy uma aplicação
 
@@ -131,7 +131,7 @@ appgateways:
     upstream: https://app.sonarsystems.com
 ```
 
-Para confirmar que a procuração está a funcionar como esperado, reinicie o serviço Maverics e faça um pedido à aplicação através do representante da Maverics. A partir do seu navegador, https://sonar.maverics.com solicite. Pode opcionalmente fazer um pedido a recursos específicos da aplicação, por exemplo, `https://sonar.maverics.com/RESOURCE` onde é um recurso de `RESOURCE` aplicação válido da app protegida a montante.
+Para confirmar que a procuração está a funcionar como esperado, reinicie o serviço Maverics e faça um pedido à aplicação através do representante da Maverics. Pode opcionalmente fazer um pedido a recursos específicos de aplicação.
 
 ## <a name="step-3-register-an-enterprise-application-in-azure-ad"></a>Passo 3: Registar um pedido de empresa no Azure AD
 
@@ -325,7 +325,7 @@ connectors:
 
 Pode ter reparado que o código adiciona um `host` campo às definições de App Gateway. O `host` campo permite ao Orquestrador Maverics distinguir a montante o tráfego de procuração.
 
-Para confirmar que a nova app Gateway está funcionando como esperado, faça um pedido para https://connectulum.maverics.com .
+Para confirmar que a nova app Gateway está funcionando como esperado, faça um pedido para `https://connectulum.maverics.com` .
 
 ## <a name="advanced-scenarios"></a>Cenários avançados
 

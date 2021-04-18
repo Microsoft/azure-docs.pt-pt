@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bd3bb5e3060752d086f80f44a8f136cb861669c0
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: f002c7196b864d4a04beda1124d0519af612b716
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078524"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600238"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Linha de segurança Azure para O Monitor Azure
 
@@ -605,7 +605,7 @@ Se utilizar as capacidades de streaming APM ao vivo, torne o canal seguro com um
 
 - [Como criar um Cofre-Chave](../key-vault/secrets/quick-create-portal.md)
 
-- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](/azure/key-vault/general/assign-access=policy-portal)
+- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad)
 
 **Responsabilidade**: Cliente
 

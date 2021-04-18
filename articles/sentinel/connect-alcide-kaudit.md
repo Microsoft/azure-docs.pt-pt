@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 6d1314b79f09f1bed2de5d6964b0a6224b5962ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b146e228de13109975a76b0e4c6c9fd183fd362d
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100096876"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600409"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Ligue o seu Alcide kAudit ao Azure Sentinel
 
@@ -46,7 +46,7 @@ Alcide kAudit pode exportar troncos diretamente para Azure Sentinel.
 
 1. Selecione **Alcide kAudit** da galeria e, em seguida, clique no botão de página do **conector Open.**
 
-1. Siga as instruções passo a passo fornecidas no Guia de [Instalação Alcide kAudit](https://get.alcide.io/hubfs/Azure%20Sentinel%20Integration%20with%20kAudit.pdf).
+1. Siga as instruções passo a passo fornecidas no Guia de [Instalação Alcide kAudit](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit).
 
 1. Quando solicitado o ID do Espaço de Trabalho e a Chave Primária, pode copiá-los a partir da página do conector de dados Alcide kAudit.
 

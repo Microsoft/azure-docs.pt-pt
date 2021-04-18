@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 03/23/2021
-ms.openlocfilehash: 1825f5be8a4f8a8ddfba931dfbc7e77186b4331f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa65989953f761ff915383fcb59da7f36ea98dab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889455"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600487"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center free vs Azure Defender habilitado
 O Azure Defender está livre nos primeiros 30 dias. Ao fim de 30 dias, caso opte por continuar a utilizar o serviço, começaremos automaticamente a cobrar para uso.
@@ -119,7 +119,7 @@ Estes dados são uma taxa diária média de todos os nós. Assim, mesmo que algu
 
 ### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>Que tipos de dados estão incluídos no subsídio diário de dados de 500-MB?
 
-A faturação do Centro de Segurança está intimamente ligada à faturação do Log Analytics. O Centro de Segurança fornece uma atribuição de 500 MB/nó/dia contra o subconjunto seguinte dos tipos de dados de [segurança:](/azure/azure-monitor/reference/tables/tables-category.md#security)
+A faturação do Centro de Segurança está intimamente ligada à faturação do Log Analytics. O Centro de Segurança fornece uma atribuição de 500 MB/nó/dia contra o subconjunto seguinte dos tipos de dados de [segurança:](/azure/azure-monitor/reference/tables/tables-category#security)
 - WindowsEvent
 - SecurityAlert
 - Base de Segurança

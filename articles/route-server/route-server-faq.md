@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: c4c36013f100d2fc5265024432cc01a6622a4024
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0bbe16fb63a4546b4b4745df16074f6a4b0cb26b
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932374"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599541"
 ---
 # <a name="azure-route-server-preview-faq"></a>Azure Route Server (Pré-visualização) FAQ
 
@@ -29,24 +29,33 @@ O Azure Route Server é um serviço totalmente gerido que lhe permite gerir faci
 
 N.º Azure Route Server é um serviço projetado com alta disponibilidade. Se for implantado numa região do Azure que suporta [Zonas de Disponibilidade,](../availability-zones/az-overview.md)terá redundância ao nível da zona.
 
+### <a name="how-many-route-servers-can-i-create-in-a-virtual-network"></a>Quantos servidores de rotas posso criar numa rede virtual?
+
+Pode criar apenas um servidor de rota num VNet. Deve ser implantado numa sub-rede designada chamada *RouteServerSubnet*.
+
+### <a name="does-azure-route-server-support-vnet-peering"></a>O Azure Route Server suporta o VNet Peering?
+
+Sim. Se espreitar um VNet que hospeda o Azure Route Server para outro VNet e ativar o Use Remote Gateway neste VNet, o Azure Route Server aprenderá os espaços de endereço desse VNet e enviá-los-á para todos os NVAs. Também irá programar as rotas dos NVAs para a tabela de encaminhamento dos VMs no VNet espreitado. 
+
+
 ### <a name="what-routing-protocols-does-azure-route-server-support"></a><a name = "protocol"></a>Que protocolos de encaminhamento suportam o Azure Route Server?
 
 O Azure Route Server suporta apenas o Protocolo de Gateway de Fronteira (BGP). O seu NVA precisa de suportar o BGP externo multi-hop porque terá de implantar o Azure Route Server numa sub-rede dedicada na sua rede virtual. A [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) que escolhe deve ser diferente daquela que o Azure Route Server utiliza quando configura o BGP no seu NVA.
 
 ### <a name="does-azure-route-server-route-data-traffic-between-my-nva-and-my-vms"></a>O Azure Route Server encaminha o tráfego de dados entre o meu NVA e os meus VMs?
 
-N.º O Azure Route Server apenas troca rotas BGP com o seu NVA. O tráfego de dados vai diretamente da NVA para o VM escolhido e diretamente do VM para o NVA.
+N.º O Azure Route Server apenas troca rotas BGP com o seu NVA. O tráfego de dados vai diretamente da NVA para o destino VM e diretamente do VM para o NVA.
 
 ### <a name="does-azure-route-server-store-customer-data"></a>O Azure Route Server armazena os dados do cliente?
 N.º O Azure Route Server apenas troca rotas BGP com o seu NVA e, em seguida, propaga-as para a sua rede virtual.
 
-### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-will-it-program-all-copies-of-the-route-but-each-with-a-different-next-hop-to-the-vms-in-the-virtual-network"></a>Se o Azure Route Server receber a mesma rota de mais de um NVA, irá programar todas as cópias da rota (mas cada uma com um próximo salto diferente) para os VMs na rede virtual?
+### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Se o Azure Route Server receber a mesma rota de mais de um NVA, como é que os lida?
 
-Sim, só se a rota tiver o mesmo comprimento do percurso AS. Quando os VMs enviarem tráfego para o destino desta rota, os anfitriões VM farão Equal-Cost encaminhamento multi-caminho (ECMP). No entanto, se um NVA enviar a rota com um comprimento de caminho AS mais curto do que outros NVAs. O Azure Route Server irá programar apenas a rota que tem o próximo lúpulo definido para este NVA para os VMs na rede virtual.
+Se a rota tiver o mesmo comprimento de percurso AS, o Azure Route Server irá programar várias cópias da rota, cada uma com um próximo salto diferente, para os VMs na rede virtual. Quando os VMs enviarem tráfego para o destino desta rota, os anfitriões VM farão Equal-Cost encaminhamento multi-caminho (ECMP). No entanto, se um NVA enviar a rota com um comprimento de caminho AS mais curto do que outros NVAs, o Azure Route Server apenas programará a rota que tem o próximo lúpulo definido para este NVA para os VMs na rede virtual.
 
-### <a name="does-azure-route-server-support-vnet-peering"></a>O Azure Route Server suporta o VNet Peering?
+### <a name="does-azure-route-server-preserve-the-bgp-communities-of-the-route-it-receives"></a>O Azure Route Server preserva as comunidades BGP da rota que recebe?
 
-Sim. Se espreitar um VNet que hospeda o Azure Route Server para outro VNet e ativar o Use Remote Gateway nesse VNet. O Azure Route Server irá aprender os espaços de endereço desse VNet e enviá-los para todos os NVAs espreitados.
+Sim, o Azure Route Server propaga a rota com as comunidades BGP como está.
 
 ### <a name="what-autonomous-system-numbers-asns-can-i-use"></a>Que Números de Sistema Autónomo (ASNs) posso usar?
 

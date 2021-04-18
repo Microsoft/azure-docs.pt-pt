@@ -3,12 +3,12 @@ title: Visão geral da disponibilidade de Insights de Aplicação
 description: Crie testes web recorrentes para monitorizar a disponibilidade e capacidade de resposta da sua app ou website.
 ms.topic: conceptual
 ms.date: 04/15/2021
-ms.openlocfilehash: c3b7a1d0bf8c50c77e5062a702bcdd7600d98d7a
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 3c2d248df98fcb9f75f5de9c05b9f600955cbac7
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520800"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600799"
 ---
 # <a name="availability-tests-overview"></a>Visão geral dos testes de disponibilidade
 
@@ -18,11 +18,9 @@ Pode configurar testes de disponibilidade para qualquer ponto final HTTP ou HTTP
 
 ## <a name="types-of-availability-tests"></a>Tipos de testes de disponibilidade
 
-Existem quatro tipos de testes de disponibilidade:
+Existem três tipos de testes de disponibilidade:
 
 * [Teste de urSA:](monitor-web-app-availability.md)Esta categoria tem dois testes simples que pode criar através do portal.
-    - Teste básico de ping: Um teste simples que pode criar no portal Azure.
-    - Teste de ping padrão: Um teste de ping padrão mais avançado com características como a utilização de quaisquer métodos de pedido HTTP (por `GET` `HEAD` exemplo, `POST` , etc. ou a adição de cabeçalhos personalizados.
 * [Teste web em várias etapas](availability-multistep.md): Uma gravação de uma sequência de pedidos web, que pode ser reproduzida para testar cenários mais complexos. Os testes web em várias etapas são criados na Visual Studio Enterprise e enviados para o portal para execução.
 * [Testes de disponibilidade de faixas personalizadas](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): Se decidir criar uma aplicação personalizada para realizar testes de disponibilidade, o `TrackAvailability()` método pode ser usado para enviar os resultados para o Application Insights.
 

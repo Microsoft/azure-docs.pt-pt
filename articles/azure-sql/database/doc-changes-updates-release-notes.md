@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 81c306ac2a8a5c00c5d06877974db7e04964c76b
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640092"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600918"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,7 +64,7 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 | [Transações distribuídas](/azure/azure-sql/database/elastic-transactions-overview) | Transações distribuídas por Instâncias Geridas. |
 | [Conjuntos de instâncias](/azure/sql-database/sql-database-instance-pools) | Uma forma conveniente e económica de migrar pequenos exemplos de SQL para a nuvem. |
 | [Principais do servidor Azure AD ao nível de instância (logins)](/sql/t-sql/statements/create-login-transact-sql) | Crie logins de nível de instância utilizando uma declaração [DE CRIAÇÃO DE PROVEDOR EXTERNO.](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |
-| [Replicação transacional](../managed-instance/replication-transactional-overview.md) | Replique as alterações das suas tabelas para outras bases de dados em SQL Managed Instance, SQL Database ou SQL Server. Ou atualize as suas tabelas quando algumas linhas são alteradas em outros casos de SQL Managed Instance ou SQL Server. Para obter informações, consulte a replicação de [configuração em Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
+| [Replicação Transacional](../managed-instance/replication-transactional-overview.md) | Replique as alterações das suas tabelas para outras bases de dados em SQL Managed Instance, SQL Database ou SQL Server. Ou atualize as suas tabelas quando algumas linhas são alteradas em outros casos de SQL Managed Instance ou SQL Server. Para obter informações, consulte a replicação de [configuração em Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Deteção de ameaças |Para obter informações, consulte [a deteção de ameaças configure em Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
 | Retenção de cópia de segurança de longa duração | Para obter informações, consulte [a Configure back-up retenção em Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), que está atualmente em pré-visualização pública limitada. |
 
@@ -95,6 +95,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 
 |Problema  |Data descoberta  |Estado  |Data resolvida  |
 |---------|---------|---------|---------|
+|[A alteração do tipo de ligação não afeta as ligações através do ponto final do grupo de failover](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|jan 2021|Tem Solução||
 |[Procedimento sp_send_dbmail pode falhar transitoriamente quando @query o parâmetro é usado](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|jan 2021|Tem Solução||
 |[As transações distribuídas podem ser executadas após a remoção da Instância Gerida do Grupo De Confiança do Servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Out 2020|Tem Solução||
 |[As transações distribuídas não podem ser executadas após a operação de dimensionamento de instâncias geridas](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Out 2020|Tem Solução||
@@ -126,6 +127,12 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 |A base de dados pontual restaurada do nível Business Critical para o nível de Finalidade Geral não será bem sucedida se a base de dados de origem contiver objetos OLTP na memória.||Resolvido|Out 2019|
 |Funcionalidade de correio de base de dados com servidores de correio externos (não-Azure) utilizando ligação segura||Resolvido|Out 2019|
 |Bases de dados contidas não suportadas em SQL Gestd Instance||Resolvido|Ago 2019|
+
+### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>A alteração do tipo de ligação não afeta as ligações através do ponto final do grupo de failover
+
+Se uma instância participar num [grupo de falha automática,](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview)a alteração do tipo de [ligação](https://docs.microsoft.com/azure/azure-sql/managed-instance/connection-types-overview) da instância não produz efeitos para as ligações estabelecidas através do ponto final do grupo de observação failover.
+
+**Solução alternativa**: Largue e reecrie o grupo de falha automática afer alterando o tipo de ligação.
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>Procedimento sp_send_dbmail pode falhar transitoriamente quando @query o parâmetro é usado
 

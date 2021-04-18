@@ -2,21 +2,21 @@
 title: Tabelas de indexação
 description: Recomendações e exemplos para tabelas de indexação em piscinas SQL dedicadas.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/18/2019
+ms.date: 04/16/2021
+author: XiaoyuMSFT
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: fabbdf330d43737ffa85379f9cc4d5ac59c4a734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58f3eed8b16ff3ed02c6dfac6dc7d72ebb4ca374
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673523"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599983"
 ---
 # <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Indexação de mesas de piscinas SQL dedicadas no Azure Synapse Analytics
 
@@ -30,7 +30,7 @@ Para criar uma tabela com um índice, consulte a documentação [CREATE TABLE (p
 
 ## <a name="clustered-columnstore-indexes"></a>Índices de loja de colunas agrupadas
 
-Por predefinição, o pool SQL dedicado cria um índice de loja de colunas agrupado quando não são especificadas opções de índice numa tabela. As tabelas de lojas de colunas agrupadas oferecem tanto o mais alto nível de compressão de dados como o melhor desempenho geral de consulta.  As tabelas de lojas de colunas agrupadas geralmente superam o índice agrupado ou as tabelas de pilhas e são geralmente a melhor escolha para grandes tabelas.  Por estas razões, a loja de colunas agrupada é o melhor lugar para começar quando não tem a certeza de como indexar a sua tabela.  
+Por predefinição, o pool SQL dedicado cria um índice de loja de colunas agrupado quando não são especificadas opções de índice numa tabela. As tabelas de lojas de colunas agrupadas oferecem tanto o mais alto nível de compressão de dados como o melhor desempenho geral da consulta.  As tabelas de lojas de colunas agrupadas geralmente superam o índice agrupado ou as tabelas de pilhas e são geralmente a melhor escolha para grandes tabelas.  Por estas razões, a loja de colunas agrupada é o melhor lugar para começar quando não tem a certeza de como indexar a sua tabela.  
 
 Para criar uma tabela de loja de colunas agrupada, basta especificar o ÍNDICE DE LOJA DE COLUNAS AGRUPADAS na cláusula COM ou deixar a cláusula COM desligada:
 
@@ -46,7 +46,7 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 Existem alguns cenários em que a loja de colunas agrupada pode não ser uma boa opção:
 
-- As mesas de loja de colunas não suportam varchar(máx), nvarchar(máx) e varbinária(máx). Considere o heap ou índice agrupado em vez disso.
+- As mesas de loja de colunas não suportam varchar(máx), nvarchar (máx) e varbinário(máx). Considere o heap ou índice agrupado em vez disso.
 - As tabelas de lojas de colunas podem ser menos eficientes para dados transitórios. Considere montes e talvez até mesas temporárias.
 - Mesas pequenas com menos de 60 milhões de filas. Considere mesas de amontoados.
 
@@ -70,7 +70,7 @@ WITH ( HEAP );
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Índices agrupados e não agrupados
 
-Os índices agrupados podem superar as tabelas de lojas de colunas agrupadas quando uma única linha precisa de ser rapidamente recuperada. Para consultas em que uma única ou muito poucas filas de procura é necessária para executar com velocidade extrema, considere um índice de cluster ou um índice secundário não aglomerado. A desvantagem de usar um índice agrupado é que apenas as consultas que beneficiam são as que usam um filtro altamente seletivo na coluna de índice agrupado. Para melhorar o filtro noutras colunas, um índice não aglomerado pode ser adicionado a outras colunas. No entanto, cada índice que é adicionado a uma tabela adiciona tanto espaço como tempo de processamento a cargas.
+Os índices agrupados podem superar as tabelas de lojas de colunas agrupadas quando uma única linha precisa de ser rapidamente recuperada. Para consultas em que uma única ou muito poucas filas de procura é necessária para executar com velocidade extrema, considere um índice agrupado ou um índice secundário não aglomerado. A desvantagem de usar um índice agrupado é que apenas as consultas que beneficiam são as que usam um filtro altamente seletivo na coluna de índice agrupado. Para melhorar o filtro noutras colunas, um índice não aglomerado pode ser adicionado a outras colunas. No entanto, cada índice que é adicionado a uma tabela adiciona tanto espaço como tempo de processamento a cargas.
 
 Para criar uma tabela de índices agrupados, basta especificar o ÍNDICE CLUSTERD na cláusula COM:
 
@@ -152,7 +152,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
         OR INVISIBLE_rowgroup_rows_AVG < 100000
 ```
 
-Uma vez executado a consulta, pode começar a olhar para os dados e analisar os seus resultados. Esta tabela explica o que procurar na sua análise de grupo de linha.
+Depois de ter feito a consulta, pode começar a olhar para os dados e analisar os seus resultados. Esta tabela explica o que procurar na sua análise de grupo de linha.
 
 | Coluna | Como utilizar estes dados |
 | --- | --- |
@@ -177,6 +177,16 @@ Uma vez executado a consulta, pode começar a olhar para os dados e analisar os 
 | [CLOSED_rowgroup_rows_AVG] |Como acima |
 | [Rebuild_Index_SQL] |SQL para reconstruir índice de loja de colunas para uma tabela |
 
+## <a name="impact-of-index-maintenance"></a>Impacto da manutenção do índice
+
+A coluna `Rebuild_Index_SQL` na vista contém uma declaração que pode ser usada para reconstruir os seus `vColumnstoreDensity` `ALTER INDEX REBUILD` índices. Ao reconstruir os seus índices, certifique-se de que aloca memória suficiente à sessão que reconstrói o seu índice. Para isso, aumente a classe de [recursos](resource-classes-for-workload-management.md) de um utilizador que tenha permissões para reconstruir o índice nesta tabela ao mínimo recomendado. Por exemplo, consulte [índices de reconstrução para melhorar a qualidade](#rebuilding-indexes-to-improve-segment-quality) do segmento mais tarde neste artigo.
+
+Para uma tabela com um índice de loja de colunas agrupado encomendado, `ALTER INDEX REBUILD` irá reencaminhar os dados usando o temporário. Monitora temperatura durante as operações de reconstrução. Se precisar de mais espaço temporário, escale a base de dados. Reduza para baixo assim que o índice estiver concluído.
+
+Para uma tabela com um índice de loja de colunas agrupado encomendado, `ALTER INDEX REORGANIZE` não reordena os dados. Para reenerdenar os dados, utilize `ALTER INDEX REBUILD` .
+
+Para obter mais informações sobre índices de lojas de colunas agrupados ordenados, consulte [a sintonização de desempenho com índice de colunas agrupados ordenado](performance-tuning-ordered-cci.md).
+
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Causas de fraca qualidade do índice columnstore
 
 Se identificou tabelas com má qualidade de segmento, quer identificar a causa principal.  Abaixo estão algumas outras causas comuns de má qualidade do segmento:
@@ -190,7 +200,7 @@ Estes fatores podem fazer com que um índice de loja de colunas tenha significat
 
 ### <a name="memory-pressure-when-index-was-built"></a>Pressão da memória quando o índice foi construído
 
-O número de linhas por grupo de linha comprimido está diretamente relacionado com a largura da linha e a quantidade de memória disponível para processar o grupo de linha.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  Portanto, a melhor prática é dar à sessão que está a escrever às suas tabelas de índices de lojas de colunas acesso ao máximo de memória possível.  Uma vez que existe uma compensação entre a memória e a concordância, a orientação sobre a atribuição de memória certa depende dos dados de cada linha da sua tabela, das unidades de armazém de dados atribuídas ao seu sistema e do número de faixas horárias de concordância que pode dar à sessão que está a escrever dados para a sua mesa.
+O número de linhas por grupo de linha comprimido está diretamente relacionado com a largura da linha e a quantidade de memória disponível para processar o grupo de linha.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  Portanto, a melhor prática é dar à sessão que está escrevendo para as suas tabelas de índices de loja de colunas acesso ao máximo de memória possível.  Uma vez que existe uma compensação entre a memória e a concordância, a orientação sobre a atribuição de memória certa depende dos dados de cada linha da sua tabela, das unidades de armazém de dados atribuídas ao seu sistema e do número de faixas horárias de concordância que pode dar à sessão que está a escrever dados para a sua mesa.
 
 ### <a name="high-volume-of-dml-operations"></a>Elevado volume de operações de DML
 
@@ -218,38 +228,38 @@ Uma vez que as suas tabelas tenham sido carregadas com alguns dados, siga os pas
 
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Passo 1: Identificar ou criar um utilizador que utilize a classe de recursos certa
 
-Uma forma rápida de melhorar imediatamente a qualidade do segmento é reconstruir o índice.  O SQL devolvido pela vista acima devolve uma declaração de RECONSTRUÇÃO DO ÍNDICE ALTER que pode ser usada para reconstruir os seus índices. Ao reconstruir os seus índices, certifique-se de que aloca memória suficiente à sessão que reconstrói o seu índice.  Para isso, aumente a classe de recursos de um utilizador que tenha permissões para reconstruir o índice nesta tabela ao mínimo recomendado.
+Uma forma rápida de melhorar imediatamente a qualidade do segmento é reconstruir o índice.  O SQL devolvido pela vista acima devolve uma declaração de RECONSTRUÇÃO DO ÍNDICE ALTER que pode ser usada para reconstruir os seus índices. Ao reconstruir os seus índices, certifique-se de que aloca memória suficiente à sessão que reconstrói o seu índice. Para isso, aumente a classe de recursos de um utilizador que tenha permissões para reconstruir o índice nesta tabela ao mínimo recomendado.
 
 Abaixo está um exemplo de como alocar mais memória a um utilizador aumentando a sua classe de recursos. Para trabalhar com aulas de recursos, consulte [as aulas de Recursos para gestão da carga de trabalho.](resource-classes-for-workload-management.md)
 
 ```sql
-EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+EXEC sp_addrolemember 'xlargerc', 'LoadUser';
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Passo 2: Reconstruir índices de lojas de colunas agrupadas com utilizador de classe de recursos mais elevados
 
-Inscreva-se como utilizador do passo 1 (por exemplo, LoadUser), que está agora a utilizar uma classe de recursos mais elevada, e execute as declarações DO ALTER INDEX. Certifique-se de que este utilizador tem permissão ALTER para as tabelas onde o índice está a ser reconstruído. Estes exemplos mostram como reconstruir todo o índice de loja de colunas ou como reconstruir uma única partição. Em mesas grandes, é mais prático reconstruir índices de uma única divisória de cada vez.
+Inscreva-se como utilizador do passo 1 (LoadUser), que está agora a utilizar uma classe de recursos mais elevada, e execute as declarações DO ALTER INDEX. Certifique-se de que este utilizador tem permissão ALTER para as tabelas onde o índice está a ser reconstruído. Estes exemplos mostram como reconstruir todo o índice de loja de colunas ou como reconstruir uma única partição. Em mesas grandes, é mais prático reconstruir índices de uma única divisória de cada vez.
 
 Em alternativa, em vez de reconstruir o índice, pode copiar a tabela para uma nova tabela [utilizando CTAS](sql-data-warehouse-develop-ctas.md). Qual é o melhor caminho? Para grandes volumes de dados, o CTAS é geralmente mais rápido que [o ÍNDICE ALTER](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Para volumes menores de dados, o ALTER INDEX é mais fácil de utilizar e não exigirá que troque a tabela.
 
 ```sql
 -- Rebuild the entire clustered index
-ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
+ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ```
 
 ```sql
 -- Rebuild a single partition
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5;
 ```
 
 ```sql
 -- Rebuild a single partition with archival compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE);
 ```
 
 ```sql
 -- Rebuild a single partition with columnstore compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE);
 ```
 
 Reconstruir um índice em pool SQL dedicado é uma operação offline.  Para obter mais informações sobre os índices de reconstrução, consulte a secção DE RECONSTRUÇÃO DO ÍNDICE DE ALTERAÇÃO na [Desfragmentação de Índices de Colunas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -283,7 +293,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Para obter mais detalhes sobre a recriação de divisórias utilizando CTAS, consulte [utilizar divisórias em piscina SQL dedicada.](sql-data-warehouse-tables-partition.md)
+Para obter mais informações sobre a recriação de divisórias utilizando CTAS, consulte [utilizar divisórias em piscina SQL dedicada.](sql-data-warehouse-tables-partition.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

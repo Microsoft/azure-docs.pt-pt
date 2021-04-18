@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 3bbf47da3724b9df0905e2a212cda4a16bf44bdb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: e02fbe0f77a53b7d3f8f3ce420bf46189dc85a65
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258559"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600986"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -57,7 +57,7 @@ O [elemento marcador](speech-synthesis-markup.md#bookmark-element) permite-lhe i
 
 - **C++/C#/Java/Python**: Mudou-se para a versão mais recente do GStreamer (1.18.3) para adicionar suporte para transcrever qualquer formato de media no Windows, Linux e Android. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)
 - **C++/C#/Java/Objective-C/Python**: Suporte adicional para descodição de TTS/áudio sintetizado ao SDK. Se definir o formato de áudio de saída para PCM e GStreamer está disponível no seu sistema, o SDK solicitará automaticamente áudio comprimido do serviço para poupar largura de banda e descodificar o áudio no cliente. Pode `SpeechServiceConnection_SynthEnableCompressedAudioTransmission` `false` configurar para desativar esta funcionalidade. Detalhes para [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#propertyid), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.propertyid?view=azure-dotnet), [Java,](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.propertyid?view=azure-java-stable) [Objective-C,](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpropertyid) [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.propertyid?view=azure-python).
-- **JavaScript**: Node.js os utilizadores podem agora utilizar a [ `AudioConfig.fromWavFileInput` API](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest#fromWavFileInput_File_). Isto aborda a [questão do GitHub #252.](https://github.com/microsoft/cognitive-services-speech-sdk-JavaScript/issues/252)
+- **JavaScript**: Node.js os utilizadores podem agora utilizar a [ `AudioConfig.fromWavFileInput` API](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest#fromWavFileInput_File_). Isto aborda a [questão do GitHub #252.](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/252)
 - **C++/C#/Java/Objective-C/Python**: Método adicionado `GetVoicesAsync()` para tTS devolver todas as vozes de síntese disponíveis. Detalhes para [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#getvoicesasync), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet#methods), [Java,](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable#methods) [Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#getvoiceasync)e [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?view=azure-python#methods).
 - **C++/C#/Java/JavaScript/Objective-C/Python**: Evento adicionado `VisemeReceived` para TTS/síntese de fala para devolver animação de viseme sincronizada. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-speech-synthesis-viseme)
 - **C++/C#/Java/JavaScript/Objective-C/Python**: Evento adicionado `BookmarkReached` para TTS. Pode definir marcadores na entrada SSML e obter as compensações de áudio para cada marcador. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup#bookmark-element)

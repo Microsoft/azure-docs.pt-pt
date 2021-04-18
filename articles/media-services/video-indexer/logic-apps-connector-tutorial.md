@@ -8,16 +8,16 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: f3504ca4a706e92081209f4eaaa86af9f71c52b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caff6a2496e907da1bdc140860c47476d1842df4
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880915"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600680"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: use Video Indexer com App lógica e automatização de energia
 
-O Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) suporta a comunicação servidor-servidor e cliente-servidor e permite aos utilizadores do Video Indexer integrar facilmente insights de vídeo e áudio na sua lógica de aplicação, desbloqueando novas experiências e oportunidades de rentabilização.
+O Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) suporta a comunicação servidor-servidor e cliente-servidor e permite aos utilizadores do Video Indexer integrar facilmente insights de vídeo e áudio na sua lógica de aplicação, desbloqueando novas experiências e oportunidades de rentabilização.
 
 Para facilitar ainda mais a integração, apoiamos [apps lógicas](https://azure.microsoft.com/services/logic-apps/)   e conectores [Power Automamate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/)   compatíveis com a nossa API. Pode utilizar os conectores para configurar fluxos de trabalho personalizados para indexar e extrair informações de uma grande quantidade de ficheiros de vídeo e áudio, sem escrever uma única linha de código. Além disso, a utilização dos conectores para a sua integração dá-lhe uma melhor visibilidade sobre a saúde do seu fluxo de trabalho e uma forma fácil de depurá-lo.  
 

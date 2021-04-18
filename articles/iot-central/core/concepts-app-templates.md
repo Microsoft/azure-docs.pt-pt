@@ -1,22 +1,22 @@
 ---
 title: O que são modelos de aplicação em Azure IoT Central | Microsoft Docs
 description: Os modelos de aplicação Azure IoT Central permitem-lhe saltar para o desenvolvimento da solução IoT.
-author: philmea
-ms.author: philmea
+author: ankitscribbles
+ms.author: ankitgup
 ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 27f054cb085e5064ffed0e75b77d53a1406b566e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8309a567436d1526c1341f3d7db774acf4879dc2
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797133"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600624"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicação?
 
-Os modelos de aplicação no Azure IoT Central são uma ferramenta para ajudar os construtores de soluções a iniciar o seu desenvolvimento de solução IoT. Pode utilizar modelos de aplicativos para tudo, desde ter uma ideia do que é possível, até personalizar totalmente e a sua aplicação de revenda aos seus clientes.
+Os modelos de aplicação no Azure IoT Central são uma ferramenta para ajudar os construtores de soluções a iniciar o seu desenvolvimento de solução IoT. Pode utilizar modelos de aplicativos para tudo, desde ter uma ideia do que é possível, até personalizar totalmente a sua aplicação para revender aos seus clientes.
 
 Os modelos de aplicação consistem em:
 
@@ -52,10 +52,6 @@ Azure IoT Central é uma plataforma de aplicação agnóstica da indústria. Os 
   - Monitorização da qualidade da água
 - [Cuidados de saúde.](../healthcare/overview-iot-central-healthcare.md)
   - Monitorização contínua do paciente
-
-## <a name="application-versions"></a>Versões de aplicação
-
-Os modelos estão associados a versões específicas de aplicação IoT Central. Pode encontrar a versão de uma aplicação na página Sobre a [sua aplicação](./howto-get-app-info.md) a partir do link **Ajuda.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,16 +7,16 @@ ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: d266021a666070fdbade819eadb819b973768a72
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 65b02ae1baef97442828de747249ab6ffeaf2417
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480849"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599477"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Open Service Mesh Addon AKS (Pré-visualização)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [A Rede de Serviço Aberto (OSM)](https://docs.openservicemesh.io/) é uma malha de serviço nativa leve, extensível que permite aos utilizadores gerir, proteger e obter funcionalidades de observabilidade fora da caixa para ambientes de microserviços altamente dinâmicos.
 
@@ -2150,7 +2150,7 @@ Na **configuração da sua fonte de dados Prometheus abaixo,** insira o cluster 
 
 Os dashboards OSM estão disponíveis tanto através de:
 
-- [Nosso repositório](/charts/osm/grafana), e são importados como json blobs através do portal de administração web
+- [Nosso repositório](https://github.com/grafana/grafana), e são importados como json blobs através do portal de administração web
 - ou [online em Grafana.com](https://grafana.com/grafana/dashboards/14145)
 
 Para importar um dashboard, procure o `+` sinal no menu esquerdo e selecione `import` .

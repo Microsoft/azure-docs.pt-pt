@@ -9,12 +9,12 @@ ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f0b04183c4df469d4f723486103790c4f97671b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2737f58fa95d1aa45d9952e8b501c1b9be4d1b0
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656180"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600357"
 ---
 # <a name="coarse-relocalization"></a>Relocalização genérica
 
@@ -153,7 +153,7 @@ Esta tabela estima o espaço de pesquisa esperado para cada tipo de sensor:
 | **Balizas BLE** |  70 m | Determinado pelo alcance do farol. Depende da frequência, força de transmissão, obstruções físicas, interferências, e assim por diante. |
 
 <!-- Reference links in article -->
-[1]: https://developers.google.com/beacons/eddystone
+[1]: https://developer.estimote.com/eddystone/
 [2]: https://developer.apple.com/ibeacon/
 [3]: https://developer.android.com/reference/android/location/LocationManager
 [4]: https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc

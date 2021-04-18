@@ -6,21 +6,21 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ede0d279b8769f49afcdae1cb9352c1b47fb59b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d33c7f87d77f371d4eb4bf903e4d534f334e39c4
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932408"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599507"
 ---
 # <a name="import-new-update"></a>Importação Nova Atualização
 Saiba como importar uma nova atualização para a Atualização de Dispositivos para IoT Hub. Se ainda não o fez, não se esqueça de se familiarizar com os [conceitos básicos de importação.](import-concepts.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+* Um ficheiro de atualização existente que pretende implementar nos dispositivos. Pode ser um ficheiro de imagem para atualização baseada em imagem ou um [ficheiro APT Manifesto](device-update-apt-manifest.md) para atualização baseada em pacotes. [Como escolho?](understand-device-update.md#support-for-a-wide-range-of-update-artifacts)
 * [Acesso a um Hub IoT com atualização do dispositivo para o IoT Hub ativado](create-device-update-account.md). 
 * Um dispositivo IoT (ou simulador) previsto para a Atualização do Dispositivo dentro do Hub IoT.
-   * Se utilizar um dispositivo real, necessitará de um ficheiro de imagem de atualização para atualização de imagem ou [ficheiro APT Manifest](device-update-apt-manifest.md) para atualização de pacotes.
 * [PowerShell 5](/powershell/scripting/install/installing-powershell) ou posteriormente (inclui instalações linux, macOS e Windows)
 * Navegadores suportados:
   * [Microsoft Edge](https://www.microsoft.com/edge)
@@ -31,7 +31,7 @@ Saiba como importar uma nova atualização para a Atualização de Dispositivos 
 
 ## <a name="create-device-update-import-manifest"></a>Criar manifesto de importação de atualização de dispositivos
 
-1. Certifique-se de que o seu ficheiro de imagem de atualização ou ficheiro APT Manifesto está localizado num diretório acessível a partir de PowerShell.
+1. Se ainda não o fez, obtenha um ficheiro de imagem ou um ficheiro manifesto APT que pretende implantar nos dispositivos. Isto pode ser do fabricante dos seus dispositivos ou de um integrador de sistema com o que trabalha, ou mesmo de um grupo dentro da sua organização. Certifique-se de que o ficheiro de imagem de atualização ou o ficheiro APT Manifesto estão localizados num diretório acessível a partir do PowerShell.
 
 2. Crie um ficheiro de texto chamado **AduUpdate.psm1** no diretório onde está localizado o seu ficheiro de imagem de atualização ou ficheiro APT Manifesto. Em seguida, abra o [cmdlet AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell, copie o conteúdo do seu ficheiro de texto e, em seguida, guarde o ficheiro de texto.
 

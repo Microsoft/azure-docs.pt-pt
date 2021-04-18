@@ -4,65 +4,37 @@ description: Configurar testes de ping em Application Insights. Receber alertas 
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.reviewer: sdash
-ms.openlocfilehash: ecfd4ffee3582ff37411e59c75d8be8fca5e945f
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 60698862e26175425221940a4b69867cb414fe86
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516627"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598878"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorizar a disponibilidade de qualquer site
 
 O nome "teste de ping URL" é um pouco de um erro. Para ser claro, estes testes não estão a fazer qualquer uso do ICMP (Internet Control Message Protocol) para verificar a disponibilidade do seu site. Em vez disso, utilizam uma funcionalidade de pedido HTTP mais avançada para validar se um ponto final está a responder. Eles também medem o desempenho associado a essa resposta, e adiciona a capacidade de definir critérios de sucesso personalizados juntamente com funcionalidades mais avançadas como analisar pedidos dependentes, e permitir retrações.
 
-Existem dois tipos de teste de ping de URL que pode criar, testes básicos e padrão de ping.
-
-> [!NOTE]
-> Os testes básicos e standard de ping estão atualmente em visualização pública. Estas versões de pré-visualização são fornecidas sem um acordo de nível de serviço. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-
-Básico vs Standard:
-
-- O básico é restrito a cinco locais por teste.
-- Os testes padrão podem ter cabeçalhos personalizados ou solicitar o corpo.
-- Os testes padrão podem utilizar qualquer método de pedido HTTP enquanto o básico só pode ser `GET` utilizado.
-- A verificação de vida do certificado SSL alerta-o de um período de tempo definido antes do seu certificado expirar.
-- Os testes padrão são uma característica paga.
-
-> [!NOTE]
-> Atualmente, não existem custos adicionais para os testes standard ping da funcionalidade de pré-visualização. Os preços das funcionalidades que estão em pré-visualização serão anunciados no futuro e um aviso fornecido antes do início da faturação. Caso opte por continuar a utilizar os testes Standard Ping após o período de pré-aviso, será cobrado à taxa aplicável.
-
-## <a name="create-a-url-ping-test"></a>Criar um teste de ping do URL
-
 Para criar um teste de disponibilidade, precisa de utilizar um recurso de Insight de Aplicação existente ou [criar um recurso Application Insights](create-new-resource.md).
 
-Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibilidade e selecione Create Test & escolha o seu SKU de teste.
+Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibilidade e selecione  **Create Test**.
 
-:::image type="content" source="./media/monitor-web-app-availability/create-basic-test.png" alt-text="Screenshot de criar um teste básico de url ping no Portal Azure":::
+:::image type="content" source="./media/monitor-web-app-availability/availability-create-test-001.png" alt-text="Screenshot de criar um teste.":::
 
-|Definição | Explicação |
-|--------|-------------|
+## <a name="create-a-test"></a>Criar um teste
+
+|Definição| Explicação
+|----|----|----|
 |**URL** |  O URL pode ser qualquer página Web que pretender testar, mas tem de estar visível a partir da Internet pública. O URL pode incluir uma cadeia de consulta. Desta forma, pode, por exemplo, testar um pouco a base de dados. Se o URL remeter para um redirecionamento, iremos segui-lo até dez redirecionamentos.|
-|**Pedidos dependentes de parse**| O teste solicita imagens, scripts, ficheiros de estilo e outros ficheiros que fazem parte da página web em teste. O tempo de resposta gravado inclui o tempo necessário para obter estes ficheiros. O teste falha se algum destes recursos não puder ser descarregado com sucesso dentro do intervalo para todo o teste. Se a opção não estiver selecionada, o teste pede apenas o ficheiro no URL especificado. Ativar esta opção resulta numa verificação mais rigorosa. O teste pode falhar em casos, o que pode não ser percetível quando navega manualmente no site. |
-|**Permitir recauchutagens**| Quando o teste falha, é novamente julgado após um curto intervalo. Uma falha só é comunicada após três tentativas falhadas sucessivas. Os testes subsequentes são realizados à frequência habitual de teste. A repetição encontra-se temporariamente suspensa até ao próximo êxito. Esta regra é aplicada de forma independente em cada localização de teste. **Recomendamos esta opção.** Em média, cerca de 80% das falhas desaparecem aquando da repetição.|
-| **Teste de validação de certificado SSL** | Pode verificar o certificado SSL no seu website para se certificar de que está corretamente instalado, válido, confiável e não dá quaisquer erros a nenhum dos seus utilizadores. |
-| **Verificação proativa da vida útil** | Isto permite-lhe definir um período de tempo definido antes do seu certificado SSL expirar. Uma vez expirado, o teu teste falhará. |
+|**Pedidos dependentes de parse**| O teste solicita imagens, scripts, ficheiros de estilo e outros ficheiros que fazem parte da página web em teste. O tempo de resposta gravado inclui o tempo necessário para obter estes ficheiros. O teste falha se algum destes recursos não puder ser descarregado com sucesso dentro do intervalo para todo o teste. Se a opção não estiver selecionada, o teste pede apenas o ficheiro no URL especificado. Ativar esta opção resulta numa verificação mais rigorosa. O teste pode falhar em casos, o que pode não ser percetível quando navega manualmente no site.
+|**Permitir recauchutagens**|quando o teste falha, é novamente julgado após um curto intervalo. Uma falha só é comunicada após três tentativas falhadas sucessivas. Os testes subsequentes são realizados à frequência habitual de teste. A repetição encontra-se temporariamente suspensa até ao próximo êxito. Esta regra é aplicada de forma independente em cada localização de teste. **Recomendamos esta opção.** Em média, cerca de 80% das falhas desaparecem aquando da repetição.|
 |**Frequência de teste**| Define a frequência com que o teste é executado a partir de cada local de teste. Com uma frequência predefinida de cinco minutos e cinco localizações de teste, o site é testado, em média, a cada minuto.|
-|**Locais de teste**| São os locais de onde os nossos servidores enviam pedidos web para o seu URL. **O nosso número mínimo de locais de teste recomendados é de cinco** para garantir que pode distinguir problemas no seu website de problemas de rede. Pode selecionar mais de cinco locais com teste padrão e até 16 locais.|
+|**Locais de teste**| São os locais de onde os nossos servidores enviam pedidos web para o seu URL. **O nosso número mínimo de locais de teste recomendados é de cinco** para garantir que pode distinguir problemas no seu website de problemas de rede. Pode selecionar até 16 localizações.
 
 **Se o seu URL não for visível a partir da internet pública, pode optar por abrir seletivamente a sua firewall para permitir apenas as transações de teste através** de . Para saber mais sobre as exceções à firewall para os nossos agentes de teste de disponibilidade, consulte o [guia de endereços IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
 > Recomendamos vivamente testes de vários locais com **um mínimo de cinco locais.** Isto é para evitar falsos alarmes que possam resultar de problemas transitórios com uma localização específica. Além disso, descobrimos que a configuração ideal é ter o **número de locais de teste igual ao limiar de localização de alerta + 2**.
-
-## <a name="standard-test"></a>Teste Padrão
-
-:::image type="content" source="./media/monitor-web-app-availability/standard-test-post.png" alt-text="Screenshot do separador de informações padrão de teste." border="false":::
-
-|Definição | Explicação |
-|--------|-------------|
-| **Cabeçalhos personalizados** | Os pares de valor chave que definem os parâmetros operacionais. |
-| **HTTP solicitar verbo** | Indique que medidas gostaria de tomar com o seu pedido. Se o verbo escolhido não estiver disponível na UI, pode implementar um teste padrão utilizando o Azure Resource Monitor com a escolha pretendida. |
-| **Corpo de pedido** | Dados personalizados associados ao seu pedido HTTP. Pode fazer upload de ficheiros próprios de tipo próprio no seu conteúdo ou desativar esta funcionalidade. Para conteúdo sonoro suportamos TEXTO, JSON, HTML, XML e JavaScript. |
 
 ## <a name="success-criteria"></a>Critérios de sucesso
 
@@ -83,7 +55,7 @@ Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibil
 
 As seguintes etiquetas populacionais podem ser usadas para o atributo geolocalização ao implementar um teste de ping URL de disponibilidade usando O Gestor de Recursos Azure.
 
-#### <a name="azure-gov"></a>Azure gov
+### <a name="azure-gov"></a>Azure gov
 
 | Nome a Apresentar   | Nome da População     |
 |----------------|---------------------|

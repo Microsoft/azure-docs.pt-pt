@@ -4,12 +4,12 @@ description: Saiba como utilizar identidades geridas no Serviço Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 3ace7f1c93ab3918f460d245a863db43d98f1db5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 58813504c5de057e06433b2e955931b37560d825
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176098"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600663"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -66,42 +66,14 @@ Em seguida, criar um cluster AKS:
 az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 ```
 
-Uma criação de cluster bem sucedida usando identidades geridas contém esta informação de perfil principal do serviço:
-
-```output
-"servicePrincipalProfile": {
-    "clientId": "msi"
-  }
-```
-
-Utilize o seguinte comando para consultar a identidade gerida do seu plano de controlo:
-
-```azurecli-interactive
-az aks show -g myResourceGroup -n myManagedCluster --query "identity"
-```
-
-O resultado deve parecer:
-
-```output
-{
-  "principalId": "<object_id>",   
-  "tenantId": "<tenant_id>",      
-  "type": "SystemAssigned"                                 
-}
-```
-
 Uma vez criado o cluster, pode então implementar as cargas de trabalho da sua aplicação para o novo cluster e interagir com ele, tal como fez com os clusters AKS baseados em serviços.
-
-> [!NOTE]
-> Para criar e utilizar o seu próprio VNet, endereço IP estático ou disco Azure anexado onde os recursos estão fora do grupo de recursos do nó do trabalhador, utilize o PrincipalID do cluster System Assigned Managed Identity para executar uma atribuição de papel. Para obter mais informações sobre a atribuição de funções, consulte [o delegado de acesso a outros recursos da Azure.](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)
->
-> As autorizações concedidas ao cluster Identidade Gerida utilizada pelo fornecedor Azure Cloud podem demorar 60 minutos a preencher.
 
 Finalmente, obtenha credenciais para aceder ao cluster:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+
 ## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>Atualizar um cluster AKS para identidades geridas (Pré-visualização)
 
 Agora pode atualizar um cluster AKS que está a trabalhar com os principais de serviço para trabalhar com identidades geridas utilizando os seguintes comandos CLI.
@@ -131,6 +103,43 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identi
 ```
 > [!NOTE]
 > Uma vez atualizadas as identidades atribuídas ao sistema ou atribuídas ao utilizador para a identidade gerida, execute um `az aks nodepool upgrade --node-image-only` nos seus nós para completar a atualização para a identidade gerida.
+
+## <a name="obtain-and-use-the-system-assigned-managed-identity-for-your-aks-cluster"></a>Obtenha e utilize a identidade gerida atribuída pelo sistema para o seu cluster AKS
+
+Confirme que o seu cluster AKS está a utilizar a identidade gerida com o seguinte comando CLI:
+
+```azurecli-interactive
+az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
+```
+
+Se o cluster estiver a usar identidades geridas, verá um `clientId` valor de "msi". Em vez disso, um cluster que usa um Diretor de Serviço mostrará o ID do objeto. Por exemplo: 
+
+```output
+{
+  "clientId": "msi"
+}
+```
+
+Depois de verificar se o cluster está a utilizar identidades geridas, pode encontrar o ID do objeto do sistema de controlo atribuído com o seguinte comando:
+
+```azurecli-interactive
+az aks show -g <RGName> -n <ClusterName> --query "identity"
+```
+
+```output
+{
+    "principalId": "<object-id>",
+    "tenantId": "<tenant-id>",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+},
+```
+
+> [!NOTE]
+> Para criar e utilizar o seu próprio VNet, endereço IP estático ou disco Azure anexado onde os recursos estão fora do grupo de recursos do nó do trabalhador, utilize o PrincipalID do cluster System Assigned Managed Identity para executar uma atribuição de papel. Para obter mais informações sobre a atribuição de funções, consulte [o delegado de acesso a outros recursos da Azure.](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)
+>
+> As autorizações concedidas ao cluster Identidade Gerida utilizada pelo fornecedor Azure Cloud podem demorar 60 minutos a preencher.
+
 
 ## <a name="bring-your-own-control-plane-mi"></a>Traga o seu próprio avião de controlo MI
 Uma identidade de plano de controlo personalizado permite o acesso à identidade existente antes da criação do cluster. Esta funcionalidade permite cenários como a utilização de um VNET personalizado ou um Tipo de UDR de saída com uma identidade gerida pré-criada.

@@ -1,29 +1,27 @@
 ---
 title: Gerir utilizadores e funções na aplicação Azure IoT Central | Microsoft Docs
 description: Como administrador, como gerir utilizadores e funções na sua aplicação Azure IoT Central
-author: lmasieri
-ms.author: lmasieri
-ms.date: 12/05/2019
+author: vishwam
+ms.author: vishwams
+ms.date: 04/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 928a9fbad7bde7fe7f1cfaf181bff2a7b9ce458b
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92122982"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599065"
 ---
-# <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerir utilizadores e funções na sua aplicação IoT Central
+# <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerir utilizadores e funções na aplicação IoT Central
 
-Este artigo descreve como, como administrador, pode adicionar, editar e eliminar utilizadores na sua aplicação Azure IoT Central. O artigo também descreve como gerir papéis na sua aplicação Azure IoT Central.
-
-Para aceder e utilizar a secção **Administração,** deve estar na função **de Administrador** para uma aplicação Azure IoT Central. Se criar uma aplicação Azure IoT Central, é automaticamente adicionado à função **de Administrador** para essa aplicação.
+Este artigo descreve como, como administrador, pode adicionar, editar e eliminar utilizadores na sua aplicação Azure IoT Central. O artigo também descreve como gerir funções na sua aplicação.
 
 ## <a name="add-users"></a>Adicionar utilizadores
 
-Todos os utilizadores devem ter uma conta de utilizador antes de poderem iniciar sôm e aceder a uma aplicação Azure IoT Central. As contas microsoft accounts e Azure Ative Directory são suportadas no Azure IoT Central. Os grupos de Diretório Ativo Azure não são atualmente apoiados na Azure IoT Central.
+Todos os utilizadores devem ter uma conta de utilizador antes de poderem iniciar sôms e aceder a uma aplicação. A IoT Central suporta atualmente contas da Microsoft e contas de Diretório Ativo Azure, mas não grupos de Diretório Ativo Azure.
 
 Para obter mais informações, consulte [a ajuda da conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e  [quickstart: Adicione novos utilizadores ao Azure Ative Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -41,8 +39,8 @@ Para obter mais informações, consulte [a ajuda da conta da Microsoft](https://
 
     > [!NOTE]
     > Um utilizador que esteja numa função personalizada que lhes conceda a permissão para adicionar outros utilizadores, só pode adicionar utilizadores a uma função com as mesmas ou menos permissões do que o seu próprio papel.
-
-Se um IoT Central user ID for eliminado do Azure Ative Directory e depois lido, o utilizador não poderá assinar a aplicação IoT Central. Para voltar a ativar o acesso, o administrador da IoT Central deve eliminar e ler o utilizador na aplicação.
+    > 
+    > Se um utilizador for eliminado do Azure Ative Directory e depois adicionado, não poderá assinar automaticamente a aplicação IoT Central. Para voltar a ativar o acesso, o administrador da aplicação deve eliminar e voltar a adicionar o utilizador na aplicação.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Editar as funções que são atribuídas aos utilizadores
 
@@ -78,7 +76,7 @@ Os utilizadores da função **'Operador'** podem monitorizar a saúde e o estado
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
-Se a sua solução necessitar de controlos de acesso com grãos mais finos, pode criar funções personalizadas com conjuntos de permissões personalizados. Para criar um papel personalizado, navegue para a página **Roles** na secção **Administração** da sua aplicação. Em seguida, selecione **+ Nova função**, e adicione um nome e descrição para o seu papel. Selecione as permissões que a sua função requer e, em seguida, **selecione Guardar**.
+Se a sua solução necessitar de controlos de acesso com grãos mais finos, pode criar funções com conjuntos de permissões personalizados. Para criar um papel personalizado, navegue para a página **Roles** na secção **Administração** da sua aplicação. Em seguida, selecione **+ Nova função**, e adicione um nome e descrição para o seu papel. Selecione as permissões que a sua função requer e, em seguida, **selecione Guardar**.
 
 Pode adicionar os utilizadores ao seu papel personalizado da mesma forma que adiciona os utilizadores a um papel incorporado.
 
@@ -87,7 +85,7 @@ Pode adicionar os utilizadores ao seu papel personalizado da mesma forma que adi
 
 ### <a name="custom-role-options"></a>Opções de função personalizadas
 
-Quando define um papel personalizado, escolhe o conjunto de permissões que um utilizador é concedido se for membro do papel. Algumas permissões dependem de outras. Por exemplo, se adicionar a permissão **de dashboards de aplicação Update** a uma função, a permissão **de dashboards de aplicação Ver** é automaticamente adicionada. As tabelas que se seguem resumem as permissões disponíveis e as suas dependências, pode utilizar ao criar funções personalizadas.
+Quando define um papel personalizado, escolhe o conjunto de permissões que um utilizador é concedido se for membro do papel. Algumas permissões dependem de outras. Por exemplo, se adicionar a permissão **de dashboards de aplicação Update** a uma função, também precisa da permissão **dos dashboards da aplicação Ver.** As tabelas que se seguem resumem as permissões disponíveis e as suas dependências, pode utilizar ao criar funções personalizadas.
 
 #### <a name="managing-devices"></a>Gestão de dispositivos
 
@@ -107,8 +105,9 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
 | Criar | Vista <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
 | Eliminar | Vista <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
-| Executar Comandos | Atualizar, Ver <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
-| Controlo Total | Ver, Atualizar, Criar, Eliminar, Executar Comandos <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
+| Executar comandos | Atualizar, Ver <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
+| Ver dados brutos | Vista <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
+| Controlo Total | Ver, Atualizar, Criar, Eliminar, Executar comandos, Ver dados brutos <br/> Outras dependências: Ver modelos de dispositivos e grupos de dispositivos  |
 
 **Permissões de grupos de dispositivos**
 
@@ -117,7 +116,7 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 | Vista | Nenhum <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo |
 | Atualizar | Vista <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo   |
 | Criar | Ver, Atualizar <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo   |
-| Eliminar | Vista <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo   |
+| Eliminar | Vista <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo  |
 | Controlo Total | Ver, Atualizar, Criar, Eliminar <br/> Outras dependências: Ver modelos de dispositivos e instâncias de dispositivo |
 
 **Permissões de gestão da conectividade do dispositivo**
@@ -125,10 +124,10 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 | Name | Dependências |
 | ---- | -------- |
 | Ler caso | Nenhum <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, instâncias de dispositivo |
-| Gerir instância | Nenhum |
+| Gerir instância | Ler caso <br /> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, instâncias de dispositivo |
 | Ler global | Nenhum   |
-| Gerir globalmente | Ler Global |
-| Controlo Total | Ler exemplo, Gerir exemplos, ler globalmente, gerir globalmente. <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, instâncias de dispositivo |
+| Gerir globalmente | Ler global |
+| Controlo Total | Ler exemplo, gerir exemplos, ler globalmente, gerir globalmente <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, instâncias de dispositivo |
 
 **Permissões de emprego**
 
@@ -170,6 +169,14 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 | Vista | Nenhum     |
 | Exportar | Vista <br/> Outras dependências: Ver modelos de dispositivos, instâncias de dispositivos, grupos de dispositivos, dashboards, exportação de dados, marcação, links de ajuda, funções personalizadas, regras |
 | Controlo Total | Vista, Exportação <br/> Outras dependências: Ver modelos de dispositivos, grupos de dispositivos, dashboards de aplicações, exportação de dados, marcação, links de ajuda, funções personalizadas, regras |
+
+**Permissões de upload de ficheiros de dispositivo**
+
+| Name | Dependências |
+| ---- | -------- |
+| Vista | Nenhum     |
+| Gerir | Vista   |
+| Controlo Total | Ver, Gerir |
 
 **Permissões de faturação**
 
@@ -256,11 +263,11 @@ Quando define um papel personalizado, escolhe o conjunto de permissões que um u
 
 | Name | Dependências |
 | ---- | -------- |
-| Vista | Nenhum     |
-| Criar | Vista   |
-| Eliminar | Vista   |
-| Controlo Total | Ver, Criar, Eliminar |
+| Vista | Nenhum  <br/> Outras dependências: Ver funções personalizadas |
+| Criar | Vista <br/> Outras dependências: Ver funções personalizadas |
+| Eliminar | Vista <br/> Outras dependências: Ver funções personalizadas |
+| Controlo Total | Ver, Criar, Eliminar <br/> Outras dependências: Ver funções personalizadas |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a gerir utilizadores e papéis na sua aplicação Azure IoT Central, o próximo passo sugerido é aprender a gerir a [sua conta.](howto-view-bill.md)
+Agora que aprendeu a gerir utilizadores e papéis na sua aplicação IoT Central, o próximo passo sugerido é aprender a gerir a [sua conta.](howto-view-bill.md)

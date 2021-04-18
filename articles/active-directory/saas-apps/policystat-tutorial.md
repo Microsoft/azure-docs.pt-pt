@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c2520c8e209ab8319cbc5a369b70d247a52232c
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92893160"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107601003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Diretório Ativo Azure com PolicyStat
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente PolicyStat](http://www.policystat.com/support/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente PolicyStat](https://rldatix.com/services-support/support) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -154,13 +154,13 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-policystat-single-sign-on"></a>Configurar políticasStat Single Sign-On
+### <a name="configure-policystat-single-sign-on&quot;></a>Configurar políticasStat Single Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa PolicyStat como administrador.
 
 2. Clique no separador **Administração** e, em seguida, clique em **Configuração Sign-On única** no painel de navegação esquerdo.
    
-    ![Menu de Administrador](./media/policystat-tutorial/ic808633.png "Menu de Administrador")
+    ![Menu de Administrador](./media/policystat-tutorial/ic808633.png &quot;Menu de Administrador")
 
 3. Clique nos **metadados IDP** e, em seguida, na secção **de metadados IDP,** execute os seguintes passos:
    

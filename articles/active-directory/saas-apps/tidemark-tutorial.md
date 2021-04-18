@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c9e1de7b5dee8e351cd8744287c07b0bbb174512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cbccc3fb4cc513d7c86253ae07fbced4626a15e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516465"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: Integração do Diretório Ativo Azure com a Tidemark
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD com a Tidemark, execute os seguintes passos:
     - `https://<subdomain>.tidemark.net/saml`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Tidemark](http://www.tidemark.com/contact-us) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte a equipa de suporte do Cliente Tidemark para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -131,7 +131,7 @@ Para configurar o Azure AD com a Tidemark, execute os seguintes passos:
 
 ### <a name="configure-tidemark-single-sign-on"></a>Configurar Sign-On single tidemark
 
-Para configurar um único sinal no lado **de Tidemark,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte tidemark.](http://www.tidemark.com/contact-us) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sinal no lado **de Tidemark,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de suporte tidemark. Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -185,7 +185,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-tidemark-test-user"></a>Criar utilizador de teste Tidemark
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Tidemark. Trabalhe com a [equipa de apoio da Tidemark](http://www.tidemark.com/contact-us) para adicionar os utilizadores na plataforma Tidemark. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Tidemark. Trabalhe com a equipa de apoio da Tidemark para adicionar os utilizadores na plataforma Tidemark. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

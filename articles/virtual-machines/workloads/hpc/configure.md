@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 0c6f5dc55f7406aba7d6e3dc1a278b57fe4ec9ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 470d5efae68366b5cc96243bab4ebb8552771650
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721278"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600884"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurar e otimizar VMs
 
@@ -124,7 +124,7 @@ Opcionalmente, o WALinuxAgent pode ser desativado como um passo pré-trabalho e 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a ativação da InfiniBand](enable-infiniband.md) nas [séries H](../../sizes-hpc.md) e VMs da [série N](../../sizes-gpu.md) ativadas pela InfiniBand.
-- Saiba mais sobre a instalação de várias [bibliotecas de MPI suportadas](setup-mpi.md) e a sua configuração ideal nos VMs.
+- Saiba mais sobre a instalação e execução de várias [bibliotecas de MPI suportadas](setup-mpi.md) nos VMs.
 - Reveja a visão geral da [série HBv3](hbv3-series-overview.md) e [a visão geral da série HC](hc-series-overview.md).
 - Leia sobre os últimos anúncios, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs comunitários Azure Compute Tech.](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)
 - Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).

@@ -1,16 +1,16 @@
 ---
-title: Gerir sensores e subscrições no Portal Defender para IoT
+title: Gerir sensores no Portal Defender para IoT
 description: Saiba como embarcar, ver e gerir sensores no portal Defender para IoT.
-ms.date: 2/18/2021
+ms.date: 4/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 5b4c8b3d10fe88816e07eb775b2bf3827d578b17
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 2c948aa2387552f9815ab075abb43c98307ae087
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383053"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600187"
 ---
-# <a name="manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Gerir sensores e subscrições no Portal Defender para IoT
+# <a name="manage-sensors-ain-the-defender-for-iot-portal"></a>Gerir sensores é o Defender para o portal IoT
 
 Este artigo descreve como embarcar, visualizar e gerir sensores no [portal Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -118,24 +118,6 @@ Para reativar um sensor:
 8. Selecione **Upload** e selecione o ficheiro guardado na página do sensor onboard.
 
 9. **Selecione Ativar**.
-
-## <a name="offboard-a-subscription"></a>Offboard uma subscrição
-
-As assinaturas são geridas mensalmente. Quando você não embarcar uma subscrição, você será cobrado para essa subscrição até o final do mês. 
-
-Desinstale todos os sensores associados à subscrição antes de iniciar a subscrição. Para obter mais informações sobre como eliminar um sensor, consulte [Eliminar um sensor](#delete-a-sensor). 
-
-Para offboard uma subscrição:
-
-1. Navegue para a página **de preços.**
-1. Selecione a subscrição e, em seguida, selecione o ícone **de eliminação** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false"::: .
-1. No popup de confirmação, selecione a caixa de verificação para confirmar que eliminou todos os sensores associados à subscrição.
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Selecione a caixa de verificação e selecione offboard para offboard o seu sensor.":::
-
-1. Selecione o **botão Offboard.** 
-
-O ambiente no local não é afetado, mas deve desinstalar o sensor do ambiente no local ou reatribuir o sensor a outra subscrição, de modo a evitar que quaisquer dados relacionados fluam para a consola de gestão no local. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: b106c82e3755fbd0e02f12a769d80ce4761cf026
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 9382feeb16f2f6a82b946c05a6b4780866fdda5c
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285863"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600153"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -196,7 +196,7 @@ Quando a Deduplicação de Dados é ativada num volume com o tiering de nuvem at
 Note que as poupanças de volume só se aplicam ao servidor; os seus dados na partilha de ficheiros Azure não serão desativados.
 
 > [!Note]  
-> Para suportar a desduplicação de dados em volumes com nivelamento de nuvem ativado no Windows Server 2019, a atualização do Windows [KB4520062](https://support.microsoft.com/help/4520062) deve ser instalada e é necessária a versão 9.0.0 ou mais recente do agente Azure File Sync.
+> Para suportar a desduplicação de dados em volumes com tiering de nuvem ativado no Windows Server 2019, a atualização do Windows [KB4520062 - outubro de 2019](https://support.microsoft.com/help/4520062) ou uma atualização mensal posterior deve ser instalada e é necessária a versão 12.0.0 ou mais recente do agente Azure File Sync.
 
 **Windows Server 2012 R2**  
 O Azure File Sync não suporta a desduplicação de dados e o tiering de nuvem no mesmo volume no Windows Server 2012 R2. Se a desduplicação de dados estiver ativada num volume, o nível da nuvem deve ser desativado. 

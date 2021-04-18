@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25e737afb524cb8c6f45ac8e99f46a8064ae7855
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103600954"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598844"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -77,7 +77,7 @@ Selecione a fonte desejada para a `NameIdentifier` reclamação (ou NameID). Pod
 | Extensões de diretórios | Extensões [de diretório sincronizadas a partir de diretório ativo no local usando Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Atributos de extensão 1-15 | Atributos de extensão no local usados para estender o esquema AZure AD |
 
-Para mais informações, consulte [o Quadro 3: Valores de identificação válidos por fonte.](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)
+Para mais informações, consulte [o Quadro 3: Valores de identificação válidos por fonte.](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source)
 
 Também pode atribuir qualquer valor constante (estático) a quaisquer reclamações que defina no Azure AD. Siga os passos abaixo para atribuir um valor constante:
 

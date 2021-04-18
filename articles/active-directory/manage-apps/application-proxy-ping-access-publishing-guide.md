@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23008d785c27b901f3487d3eddff7cb8e7529f6e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643801"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600085"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de Aplicações e PingAccess
 
@@ -193,14 +193,14 @@ Exemplo para incluir o endereço de e-mail no access_token que o PingAccess irá
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Utilização da política de mapeamento de sinistros (opcional)
 
-[Política de Mapeamento de Reclamações (pré-visualização)](../develop/active-directory-claims-mapping.md#claims-mapping-policy-properties) para atributos que não existem no AzureAD. O mapeamento de reclamações permite migrar aplicações antigas on-prem para a nuvem adicionando alegações personalizadas adicionais que são apoiadas pelo seu ADFS ou objetos de utilizador
+[Política de Mapeamento de Reclamações (pré-visualização)](../develop/reference-claims-mapping-policy-type.md#claims-mapping-policy-properties) para atributos que não existem no AzureAD. O mapeamento de reclamações permite migrar aplicações antigas on-prem para a nuvem adicionando alegações personalizadas adicionais que são apoiadas pelo seu ADFS ou objetos de utilizador
 
-Para fazer com que a sua aplicação utilize uma reclamação personalizada e inclua campos adicionais, certifique-se de que também [criou uma política de mapeamento de reclamações personalizada e a atribuiu à aplicação.](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)
+Para fazer com que a sua aplicação utilize uma reclamação personalizada e inclua campos adicionais, certifique-se de que também [criou uma política de mapeamento de reclamações personalizada e a atribuiu à aplicação.](../develop/active-directory-claims-mapping.md)
 
 > [!NOTE]
 > Para utilizar uma reclamação personalizada, também deve ter uma política personalizada definida e atribuída à aplicação. Esta política deve incluir todos os atributos personalizados necessários.
 >
-> Pode fazer definição de política e atribuição através do PowerShell ou do Microsoft Graph. Se estiver a fazê-las no PowerShell, poderá ter de ser usada primeiro `New-AzureADPolicy` e depois atribuí-la à aplicação com `Add-AzureADServicePrincipalPolicy` . Para obter mais informações, consulte [a atribuição de política de mapeamento de Sinistros](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> Pode fazer definição de política e atribuição através do PowerShell ou do Microsoft Graph. Se estiver a fazê-las no PowerShell, poderá ter de ser usada primeiro `New-AzureADPolicy` e depois atribuí-la à aplicação com `Add-AzureADServicePrincipalPolicy` . Para obter mais informações, consulte [a atribuição de política de mapeamento de Sinistros](../develop/active-directory-claims-mapping.md).
 
 Exemplo:
 ```powershell

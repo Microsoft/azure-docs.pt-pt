@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: f7a4041d87e00fa01ae5ae4dff0cade3b9755d31
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896668"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600945"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funções de transformação na Consulta de Poder para a luta de dados
 
@@ -52,7 +52,7 @@ As seguintes funções M adicionam ou transformam colunas: [Table.AddColumn](/po
 
 * Aritmética numérica
 * Concatenação de texto
-* Data e Aritmética Tempo (operadores aritméticos, [Date.AddDays](/powerquery-m/date-adddays), [Date.AddMonths](/powerquery-m/date-addmonths), [Date.AddQuarters](/powerquery-m/date-addquarters), [Date.AddWeeks](/powerquery-m/date-addweeks), [Date.AddYears](/powerquery-m/date-addyears))
+* Data e Tempo Aritmético (operadores aritméticos, [Date.AddDays](/powerquery-m/date-adddays), [Date.AddMonths](/powerquery-m/date-addmonths), [Date.AddQuarters](/powerquery-m/date-addquarters), [Date.AddWeeks](/powerquery-m/date-addweeks), [Date.AddYears](/powerquery-m/date-addyears))
 * As durações podem ser utilizadas para a aritmética de data e hora, mas devem ser transformadas noutro tipo antes de serem escritas para um lavatório (operadores aritméticos, [#duration,](/powerquery-m/sharpduration) [duração.Dias,](/powerquery-m/duration-days) [Duração.Duração,Duração.Minutos,](/powerquery-m/duration-minutes) [](/powerquery-m/duration-hours) [Duração.Dias](/powerquery-m/duration-seconds) [Totais,](/powerquery-m/duration-totaldays) [Duração.Total Dehoras,](/powerquery-m/duration-totalhours) [Duração.TotalSegundos](/powerquery-m/duration-totalseconds)) [](/powerquery-m/duration-totalminutes)    
 * A maioria das funções numéricas padrão, científicas e trigonométricas (Todas as funções em [Operações,](/powerquery-m/number-functions#operations) [Arredondamento](/powerquery-m/number-functions#rounding)e [Trigonometria,](/powerquery-m/number-functions#trigonometry) *com exceção* do Número.Fatorial, Número.Permutações e Número.Combinações)
 * Substituição[(Replacer.ReplaceText,](/powerquery-m/replacer-replacetext) [Replacer.ReplaceValue,](/powerquery-m/replacer-replacevalue) [Text.Replace,](/powerquery-m/text-replace) [Text.Remove](/powerquery-m/text-remove))
@@ -99,6 +99,23 @@ Manter e remover a parte superior, manter o alcance (funções M correspondentes
 | Manipulação de erros de nível de linha | Atualmente, o tratamento de erros de nível de linha não está suportado. Por exemplo, para filtrar valores não numéricos de uma coluna, uma abordagem seria transformar a coluna de texto num número. Todas as células que não se transformam estarão num estado de erro e precisam de ser filtradas. Este cenário não é possível em M escalado. |
 | Table.Transpose | Não suportado |
 | Table.Pivot | Não suportado |
+| Table.SplitColumn | Parcialmente suportadas |
+
+## <a name="m-script-workarounds"></a>Solução de m script
+
+### <a name="for-splitcolumn-there-is-an-alternate-for-split-by-length-and-by-position"></a>Pois ```SplitColumn``` há um suplente para divisão por comprimento e por posição
+
+* Tabela.AddColumn (Fonte, "Primeiros caracteres", cada Texto.Start ([Email], 7), texto do tipo)
+* Tabela.AddColumn (#"Inserir os primeiros caracteres", "Gama de texto", cada texto.Meio([Email], 4, 9), texto do tipo)
+
+Esta opção está acessível a partir da opção Extrato na fita
+
+![Coluna de adicionar consulta de energia](media/wrangling-data-flow/pq-split.png)
+
+### <a name="for-tablecombinecolumns"></a>Para ```Table.CombineColumns```
+
+* Table.AddColumn (RemoveEmailColumn, "Name", cada um [FirstName] & " & [LastName])
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

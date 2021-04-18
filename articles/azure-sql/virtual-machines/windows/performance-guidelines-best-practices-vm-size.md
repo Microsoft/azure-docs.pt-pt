@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 9427ae1b9bd68f63df40d24122cc13b5460fbc27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 88adef7ea50744f913780d99594ce3baadade84b
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572501"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600901"
 ---
 # <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>Tamanho VM: Melhores práticas de desempenho para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,9 +33,9 @@ Existe tipicamente uma compensação entre otimizar os custos e otimizar o desem
 
 Reveja a seguinte lista de verificação para obter uma breve visão geral das melhores práticas do tamanho de VM que o resto do artigo cobre mais detalhadamente: 
 
-- Utilize tamanhos VM com 4 ou mais vCPU como o [Standard_M8-4ms](/../../virtual-machines/m-series), o [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), ou o [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) ou superior. 
+- Utilize tamanhos VM com 4 ou mais vCPU como o [Standard_M8-4ms](/azure/virtual-machines/m-series), o [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), ou o [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) ou superior. 
 - Utilize tamanhos de máquinas virtuais [otimizados](../../../virtual-machines/sizes-memory.md) de memória para o melhor desempenho das cargas de trabalho do SQL Server. 
-- A série [DSv2 11-15,](../../../virtual-machines/dv2-dsv2-series-memory.md) [Edsv4,](../../../virtual-machines/edv4-edsv4-series.md) a série [M-](../../../virtual-machines/m-series.md)e a [série Mv2](../../../virtual-machines/mv2-series.md) oferecem a relação memória-vCore ideal exigida para as cargas de trabalho OLTP. Ambos os VMs da série M oferecem a maior relação memória-vCore necessária para cargas de trabalho críticas da missão e também são ideais para cargas de trabalho de armazém de dados. 
+- A série [DSv2 11-15,](../../../virtual-machines/dv2-dsv2-series-memory.md) [Edsv4,](../../../virtual-machines/edv4-edsv4-series.md) a série [M-](/azure/virtual-machines/m-series)e a [série Mv2](../../../virtual-machines/mv2-series.md) oferecem a relação memória-vCore ideal exigida para as cargas de trabalho OLTP. Ambos os VMs da série M oferecem a maior relação memória-vCore necessária para cargas de trabalho críticas da missão e também são ideais para cargas de trabalho de armazém de dados. 
 - Considere uma relação memória-vCore mais elevada para cargas de trabalho críticas e de armazém de dados da missão. 
 - Aproveite as imagens do mercado da Máquina Virtual Azure, uma vez que as definições e opções de armazenamento do SQL Server são configuradas para um desempenho ideal do SQL Server. 
 - Recolha as características de desempenho da carga de trabalho do alvo e use-as para determinar o tamanho de VM adequado para o seu negócio.
@@ -65,11 +65,11 @@ Os [tamanhos de máquina virtual otimizados pela memória](../../../virtual-mach
 
 ### <a name="m-mv2-and-mdsv2-series"></a>SérieS M, Mv2 e Mdsv2
 
-A [série M](../../../virtual-machines/m-series.md) oferece contagens vCore e memória para algumas das maiores cargas de trabalho do SQL Server.  
+A [série M](/azure/virtual-machines/m-series) oferece contagens vCore e memória para algumas das maiores cargas de trabalho do SQL Server.  
 
 A [série Mv2](../../../virtual-machines/mv2-series.md) tem as mais altas contagens e memória vCore e é recomendada para cargas de trabalho críticas e de armazéns de dados. As instâncias da série Mv2 são tamanhos VM otimizados de memória que fornecem um desempenho computacional sem paralelo para suportar grandes bases de dados na memória e cargas de trabalho com uma relação memória-CPU alta que é perfeita para servidores de base de dados relacionais, caches grandes e análises na memória.
 
-O [Standard_M64ms](../../../virtual-machines/m-series.md) tem uma relação memória-vCore de 28, por exemplo.
+O [Standard_M64ms](/azure/virtual-machines/m-series) tem uma relação memória-vCore de 28, por exemplo.
 
 [Mdsv2 Medium Memory series](../../..//virtual-machines/msv2-mdsv2-series.md) é uma nova série M que está atualmente em [pré-visualização](https://aka.ms/Mv2MedMemoryPreview) que oferece uma gama de máquinas virtuais de nível M com uma oferta de memória mais intermédia. Estas máquinas são adequadas para cargas de trabalho do SQL Server com um suporte mínimo de 10 memória-vCore até 30.
 
@@ -177,7 +177,7 @@ A contagem de vCPU pode ser limitada a metade a um quarto do tamanho original de
 
 Estes novos tamanhos VM têm um sufixo que especifica o número de vCPUs ativos para facilitar a sua identificação. 
 
-Por exemplo, o [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requer o licenciamento de apenas 32 SQL Server vCores com a memória, I/O, e a produção dos [M64ms](../../../virtual-machines/m-series.md) e do [M64-16ms](../../../virtual-machines/constrained-vcpu.md) requer licenciamento apenas 16 vCores.  Embora enquanto o [M64-16ms](../../../virtual-machines/constrained-vcpu.md) tenha um quarto do custo de licenciamento do SQL Server dos M64ms, o custo de computação da máquina virtual será o mesmo.
+Por exemplo, o [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requer o licenciamento de apenas 32 SQL Server vCores com a memória, I/O, e a produção dos [M64ms](/azure/virtual-machines/m-series) e do [M64-16ms](../../../virtual-machines/constrained-vcpu.md) requer licenciamento apenas 16 vCores.  Embora enquanto o [M64-16ms](../../../virtual-machines/constrained-vcpu.md) tenha um quarto do custo de licenciamento do SQL Server dos M64ms, o custo de computação da máquina virtual será o mesmo.
 
 > [!NOTE] 
 > - As cargas de trabalho de armazém de dados médios a grandes ainda podem beneficiar de [VMs vCore limitados,](../../../virtual-machines/constrained-vcpu.md)mas as cargas de trabalho do armazém de dados são geralmente caracterizadas por menos utilizadores e processos que abordam quantidades maiores de dados através de planos de consulta que funcionam em paralelo. 
@@ -194,4 +194,4 @@ Para saber mais, veja os outros artigos desta série:
 
 Para obter as melhores práticas de segurança, consulte [considerações de segurança para o SQL Server em Azure Virtual Machines](security-considerations-best-practices.md).
 
-Reveja outros artigos da Máquina Virtual do SqL Server [no SQL Server na Visão Geral das Máquinas Virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](frequently-asked-questions-faq.md).
+Reveja outros artigos da Máquina Virtual do SqL Server [no SQL Server na Visão Geral das Máquinas Virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](frequently-asked-questions-faq.md). 

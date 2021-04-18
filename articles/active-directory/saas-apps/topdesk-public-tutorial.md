@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 5d16fd87b01db69d3f55e22aad573b7847b9048c
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: b787102065f93588cd796027123d61072e9d5aea
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518078"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107601020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Diretório Ativo Azure com a TOPdesk - Público
 
@@ -95,7 +95,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     f. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<companyname>.topdesk.net/tas/public/login/verify`
     
     > [!NOTE] 
-    > Se os valores de URL **de identificação** e **resposta** não forem preenchidos automaticamente, é necessário inseri-los manualmente. Para o Identificador, siga o padrão acima mencionado e obtenha o valor URL de resposta a partir da secção **Configure TOPdesk - Sign-On único público,** que é explicada mais tarde no tutorial. O valor **URL de inscrição** não é real, pelo que é necessário atualizar o valor com o URL Sign-On real. Contacte [a TOPdesk - Equipa de apoio ao Cliente Público](https://help.topdesk.com/saas/enterprise/user/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Se os valores de URL **de identificação** e **resposta** não forem preenchidos automaticamente, é necessário inseri-los manualmente. Para o Identificador, siga o padrão acima mencionado e obtenha o valor URL de resposta a partir da secção **Configure TOPdesk - Sign-On único público,** que é explicada mais tarde no tutorial. O valor **URL de inscrição** não é real, pelo que é necessário atualizar o valor com o URL Sign-On real. Contacte [a TOPdesk - Equipa de apoio ao Cliente Público](https://my.topdesk.com/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 

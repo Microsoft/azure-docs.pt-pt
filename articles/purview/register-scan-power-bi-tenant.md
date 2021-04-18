@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 6646f131488a5ae4aa9b20fe614d7ebb46133444
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 8fb4c797df7961726ca785a56a6ab25807999842
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538860"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600867"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
@@ -70,13 +70,9 @@ Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a i
 
 Agora que deu ao Purview Permissões de Identidade Gerida para ligar à API ADMIN do seu inquilino Power BI, pode configurar a sua digitalização a partir do Azure Purview Studio.
 
-1. Selecione o ícone **do Centro de Gestão.**
+1. Selecione as **Fontes** na navegação à esquerda.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Ícone do centro de gestão.":::
-
-1. Em seguida, selecione **+ Novas** **fontes de dados**.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/data-sources.png" alt-text="Imagem de novo botão de fonte de dados":::
+1. Em seguida, selecione **Registar**.
 
     Selecione **Power BI** como fonte de dados.
 

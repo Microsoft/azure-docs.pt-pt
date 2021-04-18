@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: b8733d499b2396160a73906f16a69291cf0b9d71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 650c0847942635e2a6a901db40ed0e51e9412057
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015425"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600068"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publique o conteúdo da Azure Media Services usando REST
 
@@ -49,7 +49,7 @@ A secção [seguinte](#types) mostra os tipos de enum cujos valores são utiliza
 Para obter informações sobre como ligar à AMS API, consulte [Aceda à API dos Serviços de Media Azure com autenticação AD Azure](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Depois de se ligar com https://media.windows.net sucesso, receberá um redirecionamento 301 especificando outro URI dos Media Services. Tens de fazer chamadas subsequentes para o novo URI.
+>Depois de se ligar com `https://media.windows.net` sucesso, receberá um redirecionamento 301 especificando outro URI dos Media Services. Tens de fazer chamadas subsequentes para o novo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming OnDemand
 Para criar o localizador de streaming OnDemand e obter URLs, tem de fazer o seguinte:

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74df338fd888bd7f654ddfc2fc5f9dddf10e84ab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100522891"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598419"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Atualizar endereços IP públicos
 
@@ -146,7 +146,7 @@ Um novo grupo de recursos em Azure Resource Manager é criado usando o nome do I
 ## <a name="limitations"></a>Limitações
 
 * Para atualizar um IP público básico, não pode ser associado a qualquer recurso Azure.  Por favor, [reveja esta página](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) para mais informações sobre como desassociar os IPs públicos.  Da mesma forma, para migrar um IP Reservado, não pode ser associado a qualquer Serviço cloud.  Por favor, [reveja esta página](./remove-public-ip-address-vm.md) para obter mais informações sobre como desassociar os IPs reservados.  
-* Os IPs públicos atualizados de Basic para Standard SKU continuarão a não ter [zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) e, portanto, não podem ser associados a um recurso Azure que seja redundante ou zonal.  Note que isto se aplica apenas às regiões que oferecem zonas de disponibilidade.
+* Os IPs públicos atualizados de Basic para Standard SKU continuam a não ter [zonas de disponibilidade garantidas.](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)  Certifique-se de que isto é mantido em mente ao escolher quais os recursos para associar o endereço IP.
 * Não pode descer de Standard para Basic.
 
 ## <a name="next-steps"></a>Passos Seguintes

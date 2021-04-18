@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e4a41d508d15c3d8f41cc727776f233cc56c0817
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b85e1fc74688f2883531bd3a6e724a2ce326a9db
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480941"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600255"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Neste passo, irá atribuir uma identidade gerida pelo sistema à sua aplicação
 
 Neste passo, atribuirá um papel à identidade gerida atribuída pelo sistema da aplicação de funções. A Azure Cosmos DB tem múltiplos papéis incorporados que pode atribuir à identidade gerida. Para esta solução, utilizará as seguintes duas funções:
 
-|Papel incorporado  |Descrição  |
+|Papel incorporado  |Description  |
 |---------|---------|
 |[Colaborador de Conta DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerir as contas de DB da Azure Cosmos. Permite a recuperação de teclas de leitura/escrita. |
 |[Papel do leitor de conta de cosm de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler os dados da conta DB da Azure Cosmos. Permite a recuperação das chaves de leitura. |
@@ -93,10 +93,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 Agora temos uma aplicação de função que tem uma identidade gerida atribuída ao sistema com o papel **de Contribuinte de Conta DocumentDB** nas permissões DB do Azure Cosmos. O seguinte código de aplicação de função obterá as teclas DB do Azure Cosmos, criará um objeto CosmosClient, obterá a temperatura do aquário e, em seguida, guardá-lo para Azure Cosmos DB.
 
-Esta amostra utiliza a [API de Chaves de Lista](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) para aceder às chaves da conta Azure Cosmos DB.
+Esta amostra utiliza a [API de Chaves de Lista](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listkeys) para aceder às chaves da conta Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Se quiser [atribuir a função Cosmos DB Account Reader,](#grant-access-to-your-azure-cosmos-account) terá de utilizar a [Lista De Leitura única chaves API](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). Isto vai preencher apenas as chaves só de leitura.
+> Se quiser [atribuir a função Cosmos DB Account Reader,](#grant-access-to-your-azure-cosmos-account) terá de utilizar a [Lista De Leitura única chaves API](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listreadonlykeys). Isto vai preencher apenas as chaves só de leitura.
 
 A API de Chaves de Lista devolve o `DatabaseAccountListKeysResult` objeto. Este tipo não está definido nas bibliotecas C. O seguinte código mostra a implementação desta classe:  
 

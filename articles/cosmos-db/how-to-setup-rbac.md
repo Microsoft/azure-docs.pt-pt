@@ -4,14 +4,14 @@ description: Saiba como configurar o controlo de acesso baseado em funções com
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/16/2021
 ms.author: thweiss
-ms.openlocfilehash: 1a6bdf55e52a7060423d2a016f07eee3608f50d4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 145c60784ec9cef60d0863e1eb03aa564dea2b55
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063479"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600833"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configure o controlo de acesso baseado em funções com o Azure Ative Directory para a sua conta DB Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,6 +45,13 @@ O plano de dados Azure Cosmos DB RBAC é construído com base em conceitos que s
 
 ## <a name="permission-model"></a><a id="permission-model"></a> Modelo de permissão
 
+> [!IMPORTANT]
+> Este modelo de permissão cobre apenas operações de base de dados que lhe permitem ler e escrever dados. **Não** abrange qualquer tipo de operações de gestão, como a criação de contentores ou a alteração da sua produção. Isto significa que **não pode utilizar nenhum avião de dados Azure Cosmos DB SDK** para autenticar operações de gestão com identidade AAD. Em vez disso, deve utilizar [o Azure RBAC](role-based-access-control.md) através de:
+> - [Modelos ARM](manage-with-templates.md)
+> - [Scripts Azure PowerShell,](manage-with-powershell.md)
+> - [Scripts Azure CLI,](manage-with-cli.md)
+> - [Bibliotecas de gestão Azure.](https://azure.github.io/azure-sdk/releases/latest/index.html)
+
 A tabela abaixo lista todas as ações expostas pelo modelo de permissão.
 
 | Name | Operação de base de dados correspondente |
@@ -64,9 +71,6 @@ Os wildcards são suportados em ambos os *níveis de contentores* e *itens:*
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
-
-> [!IMPORTANT]
-> Este modelo de permissão cobre apenas operações de base de dados que lhe permitem ler e escrever dados. **Não** abrange qualquer tipo de operações de gestão, como a criação de contentores ou a alteração da sua produção. Para autenticar operações de gestão com identidade AAD, utilize [o Azure RBAC.](role-based-access-control.md)
 
 ### <a name="metadata-requests"></a><a id="metadata-requests"></a> Pedidos de metadados
 

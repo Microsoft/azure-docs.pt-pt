@@ -3,13 +3,13 @@ title: Funcionalidades de alta disponibilidade para o Oracle em Azure BareMetal
 description: Saiba mais sobre as funcionalidades disponíveis na BareMetal para uma base de dados Oracle.
 ms.topic: overview
 ms.subservice: workloads
-ms.date: 04/15/2021
-ms.openlocfilehash: 75032cc6351504a8400be43d05091d2b47484229
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.date: 04/16/2021
+ms.openlocfilehash: b27dc4b857d553be791528cbd91aee70b2294a92
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107590451"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600221"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Funcionalidades de alta disponibilidade para o Oracle em Azure BareMetal
 
@@ -19,11 +19,11 @@ A Oracle oferece muitas funcionalidades para construir uma plataforma resiliente
 
 ## <a name="flashback-database"></a>Base de Dados de Flashback
 
-A funcionalidade [Flashback Database](https://docs.oracle.com/en/database/oracle/oracle-database/21/rcmrf/FLASHBACK-DATABASE.html#GUID-584AC79A-40C5-45CA-8C63-DED3BE3A4511) é apresentada na Oracle Database Enterprise Edition. Rebobina a base de dados para um ponto específico no tempo. Esta característica é distinta de uma recuperação pontual do [Recovery Manager (RMAN)](https://docs.oracle.com/en/cloud/paas/db-backup-cloud/csdbb/performing-general-restore-and-recovery-operations.html) na qual recua do ponto atual no tempo, em vez de ventos de frente após um restauro. Resulta em tempos de conclusão muito mais rápidos.
+A funcionalidade [Flashback Database](https://docs.oracle.com/en/database/oracle/oracle-database/21/rcmrf/FLASHBACK-DATABASE.html#GUID-584AC79A-40C5-45CA-8C63-DED3BE3A4511) é apresentada na Oracle Database Enterprise Edition. A Base de Dados do Flashback rebobina a base de dados para um ponto específico no tempo. Esta característica difere de uma recuperação pontual do [Recovery Manager (RMAN)](https://docs.oracle.com/en/cloud/paas/db-backup-cloud/csdbb/performing-general-restore-and-recovery-operations.html) na medida em que recua do tempo atual, em vez de ventos de frente após uma restauração. O resultado é que a Base de Dados do Flashback dá tempos de conclusão muito mais rápidos.
  
 Pode utilizar esta funcionalidade ao lado [da Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/preface.html#GUID-B6209E95-9DA8-4D37-9BAD-3F000C7E3590). A Base de Dados flashback permite que um administrador de base de dados reestem uma base de dados falhada de volta a uma configuração da Data Guard sem uma restauração e recuperação completas do RMAN. Esta funcionalidade permite-lhe restaurar a capacidade de recuperação de desastres (e quaisquer benefícios de relatórios e backup descarregados com a Ative Data Guard) muito mais rapidamente.
  
-Pode utilizar esta funcionalidade em vez de um refaso atrasado no tempo na base de dados de espera. Uma base de dados de espera pode ser intermitente até um ponto antes de um problema.
+Pode utilizar esta funcionalidade em vez de um refaso atrasado no tempo na base de dados de espera. Uma base de dados de espera pode ser intermitente até um ponto antes de o problema surgir.
  
 A Base de Dados Oráculo mantém registos de flashbacks na área de recuperação rápida (FRA). Estes troncos são separados dos registos de redo e requerem mais espaço dentro do FRA. Por predefinição, são mantidas 24 horas de registos de flashback, mas pode alterar esta definição de acordo com os seus requisitos.
 
@@ -45,21 +45,21 @@ Por exemplo, poderiam ser criados dois serviços, MY \_ DB \_ APP e MY \_ DB \_ 
 
 ## <a name="oracle-data-guard"></a>Proteção de Dados Oracle
 
-Com a Data Guard, pode manter uma cópia idêntica de uma base de dados em hardware físico separado. Idealmente, o hardware deve ser geograficamente separado. A Data Guard não coloca limites à distância, embora a distância tenha influência nos modos de proteção. O aumento da distância adiciona latência entre os sites, o que pode fazer com que algumas opções (como a replicação sincronizada) deixem de ser viáveis.
+Com a Data Guard, pode manter uma cópia idêntica de uma base de dados em hardware físico separado. Idealmente, esse hardware deve ser geograficamente removido da base de dados primária. A Data Guard não coloca limites à distância, embora a distância tenha influência nos modos de proteção. O aumento da distância adiciona latência entre os sites, o que pode fazer com que algumas opções (como a replicação sincronizada) deixem de ser viáveis.
 
 A Data Guard oferece vantagens em relação à replicação ao nível do armazenamento:
 
 - Como a replicação é consciente da base de dados, apenas o tráfego relevante é replicado.
 - Certas cargas de trabalho podem gerar entrada/saída elevada em espaços de mesa temporários, que não são necessários em espera e por isso não são replicados.
-- A validação nos blocos replicados ocorre na base de dados de espera, garantindo que as corrupçãos físicas introduzidas na base de dados primária não sejam replicadas na base de dados de espera.
+- A validação nos blocos replicados ocorre na base de dados de espera, por isso as corrupçãos físicas na base de dados primária não são replicadas na base de dados de espera.
 - Previne corrupçãos lógicas intra-bloqueios e corrupçãos de escrita perdida. Também elimina o risco de erros cometidos pelos administradores de armazenamento de se replicarem para o standby.
 O redo pode ser adiado por um período pré-determinado, pelo que os erros do utilizador não são imediatamente replicados para o standby.
 
 ## <a name="azure-netapp-files-snapshots"></a>Fotos de ficheiros Azure NetApp
 
-A solução de armazenamento NetApp Files utilizada no BareMetal permite-lhe criar instantâneos de volumes. As imagens permitem reverter um sistema de ficheiros para um ponto específico no tempo rapidamente. As tecnologias snapshot permitem tempo de recuperação de tempos (RTO) tempos que são apenas uma fração do tempo associado a restaurar uma cópia de segurança da base de dados.
+A solução de armazenamento NetApp Files utilizada no BareMetal permite-lhe criar instantâneos de volumes. As imagens permitem reverter rapidamente um sistema de ficheiros para um ponto específico no tempo. As tecnologias snapshot permitem tempo de recuperação de tempo (RTO) vezes que são uma fração do tempo necessário para restaurar uma cópia de segurança da base de dados.
 
-A funcionalidade Snapshot para bases de dados oracle está disponível através do Azure NetApp SnapCenter. O SnapCenter permite-lhe agendar e automatizar a criação e restauro de instantâneos de volume.
+A funcionalidade Snapshot para bases de dados oracle está disponível através do Azure NetApp SnapCenter. O SnapCenter permite instantâneos para backup, o SnapVault dá-lhe abóbada offline e o Snap Clone permite a restauração do autosserviço e outras operações.
 
 ## <a name="recovery-manager"></a>Gestor de Recuperação
 
@@ -72,7 +72,7 @@ Recovery Manager (RMAN) é o utilitário preferido para a tomada de backups de b
 
 A RMAN permite-lhe fazer cópias de dados quentes ou frias. Pode utilizar estas cópias de segurança para criar bases de dados de espera ou para duplicar bases de dados para clonar ambientes. A RMAN também tem uma função de validação de restauro. Esta função lê um conjunto de backup e determina se pode usá-la para recuperar a base de dados para um determinado ponto no tempo.
 
-Como a RMAN é uma utilidade fornecida pela Oracle, pode ler a estrutura interna dos ficheiros da base de dados. Isto permite-lhe executar controlos físicos e lógicos de corrupção durante operações de backup e restauro. Também pode recuperar os ficheiros de dados da base de dados e restaurar os ficheiros de dados individuais e os espaços de mesa para um ponto específico no tempo. Estas são as vantagens que a RMAN oferece sobre as fotos de armazenamento. Os backups RMAN fornecem uma última linha de defesa contra a perda total de dados quando não pode usar instantâneos.
+Como a RMAN é uma utilidade fornecida pela Oracle, lê a estrutura interna dos ficheiros de base de dados. Isto permite-lhe executar controlos físicos e lógicos de corrupção durante operações de backup e restauro. Também pode recuperar os ficheiros de dados da base de dados e restaurar os ficheiros de dados individuais e os espaços de mesa para um ponto específico no tempo. Estas são as vantagens que a RMAN oferece sobre as fotos de armazenamento. Os backups RMAN fornecem uma última linha de defesa contra a perda total de dados quando não pode usar instantâneos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
