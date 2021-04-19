@@ -31,6 +31,8 @@
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: VMs de equilíbrio de carga com conjuntos de disponibilidade múltiplas
+      href: tutorial-multi-availability-sets-portal.md
     - name: Configurar o reencaminhamento de portas no Balanceador de Carga
       href: tutorial-load-balancer-port-forwarding-portal.md
     - name: Balanceador de carga entre regiões

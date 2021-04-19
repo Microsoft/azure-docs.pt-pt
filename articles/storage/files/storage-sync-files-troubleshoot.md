@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 4/12/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: bf74b3a1659547772368c9fb394eeab8321b5f5d
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 6007ec954682c0cb0ba20cbbf6b3621ead0bf7ff
+ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599643"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107602107"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -378,11 +378,12 @@ A tabela abaixo contém todos os caracteres unicode Azure File Sync ainda não s
 
 | Conjunto de carateres | Contagem de caracteres |
 |---------------|-----------------|
+| 0x00000000 - 0x0000001F (caracteres de controlo) | 32 |
+| <ul><li>0x00000022 (marca de cotação)</li><li>0x0000002A (asterisco)</li><li>0x0000002F (barra para a frente)</li><li>0x0000003A (cólon)</li><li>0x0000003C (menos que)</li><li>0x0000003E (maior que)</li><li>0x0000003F (ponto de interrogação)</li><li>0x0000005C (backslash)</li><li>0x0000007C (tubo ou barra)</li></ul> | 9 |
+| <ul><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x0010FFFE - 0x0010FFFF = 2 (noncharacter)</li></ul> | 8 |
 | <ul><li>0x0000009D (comando do sistema operativo osc)</li><li>0x00000090 (cadeia de controlo do dispositivo DCS)</li><li>0x0000008F (ss3 single shift três)</li><li>0x00000081 (predefinição de octeto alto)</li><li>0x0000007F (del delete)</li><li>0x0000008D (feed da linha inversa ri)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF (formulários de apresentação árabe-a) | 32 |
-| 0x0000FFF0 - 0x0000FFFF (especiais) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (indefinido)</li><li>0x000FFFFE - 0x000FFFFF = 2 (área de utilização privada suplementar)</li></ul> | 30 |
-| 0x0010FFFE, 0x0010FFFF | 2 |
+| 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (especiais) | 4 |
+| Arquivos ou diretórios que terminam com um período | 1 |
 
 ### <a name="common-sync-errors"></a>Erros comuns de sincronização
 <a id="-2147023673"></a>**A sessão de sincronização foi cancelada.**  

@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: 81c306ac2a8a5c00c5d06877974db7e04964c76b
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: d0522fe2c8b6d6b623903a720e6c8e760bd6aa92
+ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600918"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107602095"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -132,7 +132,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 
 Se uma instância participar num [grupo de falha automática,](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview)a alteração do tipo de [ligação](https://docs.microsoft.com/azure/azure-sql/managed-instance/connection-types-overview) da instância não produz efeitos para as ligações estabelecidas através do ponto final do grupo de observação failover.
 
-**Solução alternativa**: Largue e reecrie o grupo de falha automática afer alterando o tipo de ligação.
+**Solução :** Largue e recrie o grupo de falha automática afer alterando o tipo de ligação.
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>Procedimento sp_send_dbmail pode falhar transitoriamente quando @query o parâmetro é usado
 
