@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 9382feeb16f2f6a82b946c05a6b4780866fdda5c
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: cbc6e119348e5a0e805ac502de9eddfa9d9c4b6d
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600153"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717914"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -309,7 +309,9 @@ Para obter mais informações sobre encriptação em trânsito, consulte [a nece
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Permitir que as ações de ficheiros padrão se estendem até 100 TiB
-[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
+
+Por padrão, as ações de ficheiros padrão podem abranger apenas até 5 TiB, mas pode aumentar o limite de ações para 100 TiB. Para aprender a aumentar o seu limite de ações, consulte [Ativar e criar grandes ações de ficheiros](storage-files-how-to-create-large-file-share.md).
+
 
 #### <a name="regional-availability"></a>Disponibilidade regional
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]

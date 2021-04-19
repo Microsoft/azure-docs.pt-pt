@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 2365e42c3c8b34eba1814ba683eaf1f878b674ce
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 215da0e38045a2e66a4a11b54204c26e7720815c
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062408"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719066"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é uma área de trabalho do Azure Machine Learning?
 
@@ -77,7 +77,7 @@ Também pode executar as seguintes tarefas de gestão do espaço de trabalho:
 | Tarefa de gestão do espaço de trabalho   | Portal              | Studio | Python SDK / R SDK       | CLI        | Código VS
 |---------------------------|---------|---------|------------|------------|------------|
 | Criar uma área de trabalho        | **&check;**     | | **&check;** | **&check;** | **&check;** |
-| Gerir o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    ||
+| Gerir o acesso à área de trabalho    | **&check;**   || |  **&check;**    ||
 | Criar e gerir recursos computacional    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
 | Criar um VM de caderno |   | **&check;** | |     ||
 
@@ -105,7 +105,7 @@ Ao criar um novo espaço de trabalho, cria automaticamente vários recursos Azur
   > [!IMPORTANT]
   > Por predefinição, a conta de armazenamento é uma conta v1 de uso geral. Pode [atualizá-lo para v2 de uso geral](../storage/common/storage-account-upgrade.md) após a criação do espaço de trabalho. Não ative o espaço hierárquico na conta de armazenamento após a atualização para o v2 de uso geral.
 
-  Para utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem os espaços hierárquicos são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
+  Para utilizar uma conta de Armazenamento Azure existente, não pode ser do tipo BlobStorage ou uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem os espaços hierárquicos são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
   
 + [Registo do contentor Azure](https://azure.microsoft.com/services/container-registry/): Regista os recipientes de estivadores que utiliza durante o treino e quando implementa um modelo. Para minimizar os custos, o ACR é **preguiçoso até** que as imagens de implantação sejam criadas.
 

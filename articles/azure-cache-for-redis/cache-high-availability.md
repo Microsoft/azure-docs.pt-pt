@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 69dec2ce00b263f3536e30ba0a5376e6d922b79c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6c44c87221442797f063877385ac5eb7f8585850
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308358"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719102"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidade para Azure Cache para Redis
 
@@ -22,7 +22,7 @@ Azure Cache para Redis implementa alta disponibilidade usando vários VMs, *cham
 | Opção | Descrição | Disponibilidade | Standard | Premium | Grandes Empresas |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Replicação padrão](#standard-replication)| Configuração replicada de duplo nó num único datacenter com falha automática | 99,9% (ver [detalhes)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
-| [Redundância entre zonas](#zone-redundancy) | Configuração replicada em vários nóns em AZs, com falha automática | Até 99,99% (ver [detalhes)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|Pré-visualizar|Pré-visualizar|
+| [Redundância entre zonas](#zone-redundancy) | Configuração replicada em vários nóns em AZs, com falha automática | Até 99,99% (ver [detalhes)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|Pré-visualizar|✔|
 | [Georreplicação](#geo-replication) | Casos de cache ligados em duas regiões, com falha controlada pelo utilizador | Até 99,999% (ver [detalhes)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|Pré-visualizar|
 
 ## <a name="standard-replication"></a>Replicação padrão

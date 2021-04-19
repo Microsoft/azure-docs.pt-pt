@@ -4,16 +4,16 @@ description: Aprenda a utilizar as partilhas de ficheiros Azure com o Windows e 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9121774af0a1cfac6f677b4b8e2f4cd4b535042e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94626899"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717199"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -63,7 +63,7 @@ Para obter este roteiro:
 1. Selecione **Partilhas de ficheiros**.
 1. Selecione a partilha de ficheiros que gostaria de montar.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="exemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="A imagem da lâmina de partilha de ficheiros, a partilha de ficheiros é realçada.":::
 
 1. Selecione **Ligar**.
 
@@ -72,7 +72,7 @@ Para obter este roteiro:
 1. Selecione a letra de unidade para montar a partilha para.
 1. Copie o guião fornecido.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Texto de exemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="A imagem da lâmina de ligação, o botão de cópia no script é realçado.":::
 
 1. Cole o guião numa concha no anfitrião para onde gostaria de montar a partilha de ficheiros e executá-lo.
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 0396c028c8c0e1a18baf037fed4efc21aad944f1
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 2eb0e3ce2ac20c89d9c0176ca3e7b33dc839c923
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715105"
+ms.locfileid: "107718832"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Quickstart: Adicione um dispositivo simulado à sua aplicação IoT Central
 
@@ -94,7 +94,7 @@ As vistas padrão são uma forma rápida de começar a visualizar as informaçõ
 * A **vista geral** utiliza gráficos e métricas para exibir telemetria do dispositivo.
 * A vista **Sobre** exibe propriedades do dispositivo.
 
-Selecione o nó **Vistas** no modelo do dispositivo. Pode ver que o IoT Central gerou uma **visão geral**, uma vista **Sobre** e uma vista **de Dados Brutos** para si quando adicionou o modelo.
+Selecione o nó **Vistas** no modelo do dispositivo. Pode ver que o IoT Central gerou as **vistas overview**, **About** e **Raw Data** para si quando adicionou o modelo.
 
 Para adicionar um novo formulário para gerir o dispositivo:
 
@@ -150,7 +150,7 @@ Agora pode interagir com as vistas que criaram anteriormente usando dados simula
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a criar um modelo de dispositivo **do Controlador de Sensor** para um dispositivo ESP32 e adicionou um dispositivo simulado à sua aplicação.
+Neste arranque rápido, aprendeu a criar um modelo de dispositivo **do Controlador de Sensor** para um dispositivo ESP32 e adicionar um dispositivo simulado à sua aplicação.
 
 Para saber mais sobre dispositivos de monitorização ligados à sua aplicação, continue a iniciar rapidamente:
 

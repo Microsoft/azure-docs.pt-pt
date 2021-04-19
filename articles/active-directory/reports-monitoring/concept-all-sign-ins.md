@@ -4,7 +4,7 @@ description: Introdução aos relatórios de atividade de inscrição no portal 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 781cafd9b382868d0aa4f6b77ff7338c4ee15ed2
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: dc9aa77b3fdc3cda94670545f847bb9de31e1160
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589666"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718958"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividades de inscrição do Azure Ative Directory - pré-visualização
 
-O portal Azure Ative Directory dá-lhe acesso a três registos de atividade:
+Como administrador de TI, quer saber como está o seu ambiente de TI. A informação sobre a saúde do seu sistema permite-lhe avaliar se e como precisa responder a potenciais problemas. 
+
+Para apoiá-lo com este objetivo, o portal Azure Ative Directory dá-lhe acesso a três registos de atividade:
 
 - **Ins-ins** – Informações sobre insinusagens e como os seus recursos são utilizados pelos seus utilizadores.
 - **[Auditoria](concept-audit-logs.md)** – Informação sobre alterações aplicadas ao seu inquilino, como utilizadores e gestão de grupos ou atualizações aplicadas aos recursos do seu inquilino.

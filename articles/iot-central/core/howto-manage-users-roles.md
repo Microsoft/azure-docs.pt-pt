@@ -1,23 +1,25 @@
 ---
 title: Gerir utilizadores e funções na aplicação Azure IoT Central | Microsoft Docs
 description: Como administrador, como gerir utilizadores e funções na sua aplicação Azure IoT Central
-author: vishwam
-ms.author: vishwams
+author: lmasieri
+ms.author: lmasieri
 ms.date: 04/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 928a9fbad7bde7fe7f1cfaf181bff2a7b9ce458b
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: cff8830d180b0c234e54f7578ed9fafafeb598f0
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599065"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719174"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerir utilizadores e funções na aplicação IoT Central
 
 Este artigo descreve como, como administrador, pode adicionar, editar e eliminar utilizadores na sua aplicação Azure IoT Central. O artigo também descreve como gerir funções na sua aplicação.
+
+Para aceder e utilizar a secção **Administração,** deve estar na função **de Administrador** para uma aplicação Azure IoT Central. Se criar uma aplicação Azure IoT Central, é automaticamente adicionado à função **de Administrador** para essa aplicação.
 
 ## <a name="add-users"></a>Adicionar utilizadores
 
@@ -26,21 +28,20 @@ Todos os utilizadores devem ter uma conta de utilizador antes de poderem iniciar
 Para obter mais informações, consulte [a ajuda da conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e  [quickstart: Adicione novos utilizadores ao Azure Ative Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Para adicionar um utilizador a uma aplicação IoT Central, aceda à página **de Utilizadores** na secção **Administração.**
-    
-    > [!div class="mx-imgBorder"]
-    >![Gerir utilizadores](media/howto-manage-users-roles/manage-users-pnp.png)
+
+  :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Gerir utilizadores":::
 
 1. Para adicionar um utilizador, na página **do Utilizador,** escolha **+ Adicionar utilizador**.
 
 1. Escolha uma função para o utilizador **a** partir do menu Role drop-down. Saiba mais sobre os papéis na secção [Gerir os papéis](#manage-roles) deste artigo.
 
-    > [!div class="mx-imgBorder"]
-    >![Adicione o utilizador e selecione uma função](media/howto-manage-users-roles/add-user-pnp.png)
+  :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Adicione um utilizador e selecione uma função.":::
 
-    > [!NOTE]
-    > Um utilizador que esteja numa função personalizada que lhes conceda a permissão para adicionar outros utilizadores, só pode adicionar utilizadores a uma função com as mesmas ou menos permissões do que o seu próprio papel.
-    > 
-    > Se um utilizador for eliminado do Azure Ative Directory e depois adicionado, não poderá assinar automaticamente a aplicação IoT Central. Para voltar a ativar o acesso, o administrador da aplicação deve eliminar e voltar a adicionar o utilizador na aplicação.
+  > [!NOTE]
+  > Um utilizador que esteja numa função personalizada que lhes conceda a permissão para adicionar outros utilizadores, só pode adicionar utilizadores a uma função com as mesmas ou menos permissões do que o seu próprio papel.
+
+  > [!NOTE]
+  > Se um utilizador for eliminado do Azure Ative Directory e depois adicionado, não poderá assinar a aplicação IoT Central. Para voltar a ativar o acesso, o administrador da aplicação deve eliminar e voltar a adicionar o utilizador na aplicação.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Editar as funções que são atribuídas aos utilizadores
 
@@ -72,7 +73,7 @@ Os utilizadores na função **Builder** podem gerir todas as partes da app, mas 
 
 ### <a name="operator"></a>Operador
 
-Os utilizadores da função **'Operador'** podem monitorizar a saúde e o estado do dispositivo. Não estão autorizados a fazer alterações nos modelos do dispositivo ou a administrar a aplicação. Os operadores podem adicionar e eliminar dispositivos, gerir conjuntos de dispositivos e executar análises e empregos. 
+Os utilizadores da função **'Operador'** podem monitorizar a saúde e o estado do dispositivo. Não estão autorizados a fazer alterações nos modelos do dispositivo ou a administrar a aplicação. Os operadores podem adicionar e eliminar dispositivos, gerir conjuntos de dispositivos e executar análises e empregos.
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
@@ -85,7 +86,7 @@ Pode adicionar os utilizadores ao seu papel personalizado da mesma forma que adi
 
 ### <a name="custom-role-options"></a>Opções de função personalizadas
 
-Quando define um papel personalizado, escolhe o conjunto de permissões que um utilizador é concedido se for membro do papel. Algumas permissões dependem de outras. Por exemplo, se adicionar a permissão **de dashboards de aplicação Update** a uma função, também precisa da permissão **dos dashboards da aplicação Ver.** As tabelas que se seguem resumem as permissões disponíveis e as suas dependências, pode utilizar ao criar funções personalizadas.
+Quando define um papel personalizado, escolhe o conjunto de permissões que um utilizador é concedido se for membro do papel. Algumas permissões dependem de outras. Por exemplo, se adicionar a permissão de **dashboards pessoais de Atualização** a uma função, a permissão **de dashboards pessoais do View** é adicionada automaticamente. As tabelas que se seguem resumem as permissões disponíveis e as suas dependências, pode utilizar ao criar funções personalizadas.
 
 #### <a name="managing-devices"></a>Gestão de dispositivos
 

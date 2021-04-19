@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: a22f4b257476e96c51ae491b8570e3798f7b3ab7
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7e1b11fd15cca9b11fc627222318f08d31743336
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259732"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719192"
 ---
 # <a name="understand-cache-usage-models"></a>Compreender modelos de utilização de cache
 
@@ -82,7 +82,7 @@ Se tiver dúvidas sobre o melhor modelo de utilização para o seu fluxo de trab
 
 Em algumas situações, poderá ter de remontar os clientes se alterar o modelo de utilização de um alvo de armazenamento. Isto é necessário devido à forma como diferentes modelos de utilização lidam com pedidos do Network Lock Manager (NLM).
 
-O HPC Cache situa-se entre os clientes e o sistema de armazenamento back-end. Normalmente, o cache passa os pedidos da NLM para o sistema de armazenamento back-end, mas em algumas situações, a própria cache reconhece o pedido de NLM e devolve um valor ao cliente. Na Cache Azure HPC, isto só acontece quando se utiliza o modelo de utilização **Leia as gravações pesadas e pouco frequentes** (ou num alvo de armazenamento de bolhas padrão, que não tem modelos de utilização configuráveis).
+O HPC Cache situa-se entre os clientes e o sistema de armazenamento back-end. Normalmente, o cache passa os pedidos da NLM para o sistema de armazenamento back-end, mas em algumas situações, a própria cache reconhece o pedido de NLM e devolve um valor ao cliente. Na Cache Azure HPC, isto só acontece quando se utiliza o modelo de utilização **Leia as escritas pesadas e pouco frequentes** (ou com um alvo de armazenamento de bolhas padrão, que não tem modelos de utilização configuráveis).
 
 Existe um pequeno risco de conflito de **ficheiros** se alterar entre o modelo de utilização pesado e pouco frequente de Leitura e um modelo de utilização diferente. Não há como transferir o estado atual de NLM da cache para o sistema de armazenamento ou vice-versa. Então o estado de bloqueio do cliente é impreciso.
 

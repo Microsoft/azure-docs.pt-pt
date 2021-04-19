@@ -7,14 +7,17 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: 99e9994d01e4579bf6ef2e369e0fe85c48af52ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dc27fd67a3801815464ecd37fea567c02dee6e49
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182439"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719048"
 ---
 # <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>Azure Large Instances alta disponibilidade para SAP em RHEL
+
+> [!NOTE]
+> Este artigo contém referências ao termo *blacklist*, um termo que a Microsoft já não utiliza. Quando este termo for removido do software, vamos removê-lo deste artigo.
 
 Neste artigo, aprende-se a configurar o cluster Pacemaker em RHEL 7.6 para automatizar uma base de dados SAP HANA. Você precisa ter uma boa compreensão de Linux, SAP HANA e Pacemaker para completar os passos neste guia.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a41696ba92757550f9cbaa08ccf78d9a5da528d2
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441062"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718904"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Criar iniciativas e políticas de segurança personalizadas
 
@@ -90,7 +90,7 @@ Conceitos importantes na Política Azure:
 
 - Uma **atribuição** é uma aplicação de uma iniciativa ou de uma política a um âmbito específico (grupo de gestão, subscrição, etc.) 
 
-O Centro de Segurança tem uma iniciativa integrada, a Azure Security Benchmark, que inclui todas as suas políticas de segurança. Para avaliar as políticas do Security Center sobre os seus recursos Azure, deverá criar uma atribuição no grupo de gestão ou subscrição que pretende avaliar.
+O Security Center tem uma iniciativa integrada, [a Azure Security Benchmark,](https://docs.microsoft.com/security/benchmark/azure/introduction)que inclui todas as suas políticas de segurança. Para avaliar as políticas do Security Center sobre os seus recursos Azure, deverá criar uma atribuição no grupo de gestão ou subscrição que pretende avaliar.
 
 A iniciativa incorporada tem todas as políticas do Centro de Segurança habilitados por defeito. Pode optar por desativar certas políticas da iniciativa incorporada. Por exemplo, para aplicar todas as políticas do Security Center, exceto a firewall de **aplicações web,** altere o valor do parâmetro de efeito da apólice para **Desativado**.
 

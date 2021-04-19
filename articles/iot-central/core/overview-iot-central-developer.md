@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 4423eea6c35ad44d55ad17f5703a95c6273422b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebd2759d4dfb8ee79130f9b4876eba8d45226d04
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585864"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718796"
 ---
 # <a name="iot-central-device-development-guide"></a>Guia de desenvolvimento de dispositivos IoT Central
 
@@ -125,7 +125,7 @@ Para saber mais sobre as convenções IoT Plug and Play, consulte as [convençõ
 
 ### <a name="device-sdks"></a>SDKs de dispositivo
 
-Utilize um dos [SDKs do dispositivo Azure IoT](#languages-and-sdks) para implementar o comportamento do seu dispositivo. O código deve:
+Utilize um dos [SDKs do dispositivo Azure IoT](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) para implementar o comportamento do seu dispositivo. O código deve:
 
 - Registe o dispositivo com DPS e utilize as informações do DPS para ligar ao hub IoT interno na sua aplicação IoT Central.
 - Anuncie o DTMI do modelo que o dispositivo implementa.

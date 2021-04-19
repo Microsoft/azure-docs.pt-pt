@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 4122201789aea90aa94ab7d809e93a30c739254e
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 7b33beaad580e64a4760b0557f04f266ecfc1b4d
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715033"
+ms.locfileid: "107718814"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Quickstart - Criar uma aplicação Azure IoT Central
 
@@ -21,13 +21,14 @@ Este quickstart mostra-lhe como criar uma aplicação Azure IoT Central.
 
 ## <a name="prerequisite"></a>Pré-requisito 
 
-Você precisará de uma assinatura Azure com acesso *ao Contribuinte.*
+ - Uma conta Azure com uma subscrição ativa. Crie uma conta [gratuita.](https://aka.ms/createazuresubscription)
+ - A sua subscrição Azure deve ter acesso ao Contribuinte
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 
 Navegue até ao sítio central de [construção Azure IoT.](https://aka.ms/iotcentral) Em seguida, inscreva-se com uma conta pessoal, de trabalho ou escola da Microsoft.
 
-Você cria uma nova aplicação a partir da lista de modelos IoT Central relevantes para a indústria para ajudá-lo a começar rapidamente, ou começar do zero usando um modelo de **aplicações personalizadas.** Neste arranque rápido, utilize o modelo **de aplicação personalizado.**
+Pode criar uma nova aplicação a partir da lista de modelos IoT Central relevantes para a indústria para ajudá-lo a começar rapidamente, ou começar do zero usando um modelo de **aplicação personalizado.** Neste arranque rápido, utilize o modelo **de aplicação personalizado.**
 
 Para criar uma nova aplicação Azure IoT Central a partir do modelo de **aplicação personalizado:**
 
@@ -35,11 +36,13 @@ Para criar uma nova aplicação Azure IoT Central a partir do modelo de **aplica
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-new-application.png" alt-text="Construa a sua página de aplicações IoT":::
 
-1. Escolha **aplicativos personalizados** e certifique-se de que o modelo **de aplicação personalizado** está selecionado.
+1. Escolha **aplicativo personalizado**
 
-1. O Azure IoT Central sugere automaticamente um nome de **aplicação** baseado no modelo de aplicação que selecionou. Pode usar este nome ou introduzir o seu próprio nome de aplicação amigável.
+1. Na nova página de **aplicações,** certifique-se de que **a aplicação Personalizada** é selecionada no **modelo de Aplicação.**
 
-1. O Azure IoT Central também gera um prefixo URL de **aplicação** único para si, com base no nome da aplicação. Utilize este URL para aceder à sua aplicação. Mude este prefixo URL para algo mais memorável, se quiser.
+1. O Azure IoT Central sugere automaticamente um **nome de aplicação** baseado no modelo de aplicação que selecionou. Pode usar este nome ou introduzir o seu próprio nome de aplicação amigável.
+
+1. A azure IoT Central também gera um prefixo **URL** único para si, com base no nome da aplicação. Utilize este URL para aceder à sua aplicação. Mude este prefixo URL para algo mais memorável, se quiser.
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Central Azure IoT Criar uma página de aplicação":::
 
@@ -58,7 +61,7 @@ Para criar uma nova aplicação Azure IoT Central a partir do modelo de **aplica
         - A *Subscrição do Azure* permite-lhe criar instâncias de serviços do Azure. A IoT Central fornece recursos na sua subscrição. Se não tiver uma subscrição do Azure, pode criar uma gratuitamente na página de inscrição do [Azure](https://aka.ms/createazuresubscription). Depois de criar a subscrição do Azure, volte à página de **aplicação Nova.** A sua nova subscrição aparece agora na entrega da **Subscrição Azure.**
         - *A localização* é a [geografia](https://azure.microsoft.com/global-infrastructure/geographies/) onde gostaria de criar a sua aplicação. Normalmente, deve escolher o local mais próximo fisicamente dos seus dispositivos para obter um desempenho ideal. Uma vez que você escolhe um local, você não pode mais tarde mover a sua aplicação para um local diferente.
 
-1. Reveja os Termos e Condições e selecione **Criar** na parte inferior da página. Após alguns minutos, a sua aplicação IoT Central está pronta a ser utilizada:
+1. Reveja os Termos e Condições e selecione **Criar** na parte inferior da página. Após alguns minutos, a sua aplicação IoT Central estará pronta a ser utilizada:
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Aplicação Azure IoT Central":::
 

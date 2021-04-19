@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 474c9a5d58627cec59904ccbcc5b3597de314612
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 339bb41aed5ead3d7ee7d1217bfbc771cf068832
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120372"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719120"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviçoS Azure Kubernetes
 
@@ -80,13 +80,13 @@ Os seguintes parâmetros podem ser alavancados para configurar a Zona Privada de
 * A versão de pré-visualização AKS 0.5.7 ou posterior
 * A versão api 2020-11-01 ou mais tarde
 
-### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Criar um cluster AKS privado com Zona Privada de DNS (Pré-visualização)
+### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Criar um cluster AKS privado com Zona Privada de DNS
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
 
-### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>Crie um cluster AKS privado com uma Zona DE DNS Privada Personalizada (Pré-visualização)
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone"></a>Crie um cluster AKS privado com uma Zona DE DNS Privada Personalizada
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>

@@ -4,14 +4,14 @@ description: Pré-requisitos para a utilização da Cache Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/14/2021
 ms.author: v-erkel
-ms.openlocfilehash: a03c3987c0cada69f6a7d47d7c1aa7cbf6d5015a
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 3cddbba3dca64561d7e2b7b27715152a26a8c9e9
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258882"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717590"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -59,7 +59,7 @@ A melhor prática é criar uma nova sub-rede para cada cache. Pode criar uma nov
 A cache precisa de DNS para aceder a recursos fora da sua rede virtual. Dependendo dos recursos que está a utilizar, poderá necessitar de configurar um servidor DNS personalizado e configurar o encaminhamento entre esse servidor e os servidores DNS do Azure:
 
 * Para aceder aos pontos finais de armazenamento Azure Blob e outros recursos internos, precisa do servidor DNS baseado em Azure.
-* Para aceder ao armazenamento no local, é necessário configurar um servidor DNS personalizado que possa resolver os seus nomes de anfitriões de armazenamento. Tens de fazer isto **antes** de criares a cache.
+* Para aceder ao armazenamento no local, é necessário configurar um servidor DNS personalizado que possa resolver os seus nomes de anfitriões de armazenamento. Tens de fazer isto antes de criares a cache.
 
 Se utilizar apenas o armazenamento Blob, pode utilizar o servidor DNS fornecido pelo Azure para o seu cache. No entanto, se precisar de acesso ao armazenamento ou a outros recursos fora do Azure, deverá criar um servidor DNS personalizado e configurá-lo para encaminhar quaisquer pedidos de resolução específicos do Azure para o servidor Azure DNS.
 
@@ -72,8 +72,8 @@ Para utilizar um servidor DNS personalizado, é necessário fazer estes passos d
   Siga estes passos para adicionar o servidor DNS à rede virtual no portal Azure:
 
   1. Abra a rede virtual no portal Azure.
-  1. Escolha **servidores DNS** do menu **Definições** na barra lateral.
-  1. Selecione **Personalizado**
+  1. Escolha servidores DNS do menu Definições na barra lateral.
+  1. Selecione Personalizado
   1. Insira o endereço IP do servidor DNS no campo.
 
 Um servidor DNS simples também pode ser usado para carregar as ligações do cliente de equilíbrio entre todos os pontos de montagem de cache disponíveis.
@@ -106,14 +106,16 @@ Se pretender utilizar o armazenamento Azure Blob com o seu cache, necessita de u
 
 Crie a conta antes de tentar adicionar um alvo de armazenamento. Pode criar um novo recipiente quando adicionar o alvo.
 
-Para criar uma conta de armazenamento compatível, utilize estas definições:
+Para criar uma conta de armazenamento compatível, utilize uma destas combinações:
 
-* Desempenho: **Standard**
-* Tipo de conta: **StorageV2 (finalidade geral v2)**
-* Replicação: **Armazenamento localmente redundante (LRS)**
-* Nível de acesso (predefinido): **Quente**
+| Desempenho | Tipo | Replicação | Camada de acesso |
+|--|--|--|--|
+| Standard | StorageV2 (fins gerais v2)| Armazenamento localmente redundante (LRS) ou armazenamento redundante de zona (ZRS) | Frequente |
+| Premium | Blobs de blocos | Armazenamento localmente redundante (LRS) | Frequente |
 
-É uma boa prática usar uma conta de armazenamento no mesmo local que o seu cache.
+A conta de armazenamento deve estar acessível a partir da sub-rede privada do seu cache. Se a sua conta utilizar um ponto final privado ou um ponto final público restrito a redes virtuais específicas, certifique-se de que permite o acesso a partir da sub-rede do cache. (Não é recomendado um ponto final público aberto.)
+
+É uma boa prática usar uma conta de armazenamento na mesma região de Azure que o seu cache.
 
 Também deve dar acesso à aplicação cache à sua conta de armazenamento Azure, como mencionado nas [Permissões,](#permissions)acima. Siga o procedimento em [Adicionar os alvos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para dar à cache as funções de acesso necessárias. Se você não é o proprietário da conta de armazenamento, faça o proprietário fazer este passo.
 
@@ -127,9 +129,9 @@ Se utilizar um sistema de armazenamento NFS (por exemplo, um sistema NAS de hard
 
 Mais informações estão incluídas na [configuração do Troubleshoot NAS e nos problemas de alvo de armazenamento NFS](troubleshoot-nas.md).
 
-* **Conectividade de rede:** O Cache Azure HPC necessita de acesso de rede de alta largura de banda entre a sub-rede de cache e o centro de dados do sistema NFS. [Recomenda-se o ExpressRoute](../expressroute/index.yml) ou acesso semelhante. Se utilizar uma VPN, poderá ser necessário configurá-lo para fixar o SSS TCP a 1350 para se certificar de que os grandes pacotes não estão bloqueados. Leia [as restrições de tamanho do pacote VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) para ajudar a resolver as definições de VPN.
+* Conectividade de rede: O Cache Azure HPC necessita de acesso de rede de alta largura de banda entre a sub-rede de cache e o centro de dados do sistema NFS. [Recomenda-se o ExpressRoute](../expressroute/index.yml) ou acesso semelhante. Se utilizar uma VPN, poderá ser necessário configurá-lo para fixar o SSS TCP a 1350 para se certificar de que os grandes pacotes não estão bloqueados. Leia [as restrições de tamanho do pacote VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) para ajudar a resolver as definições de VPN.
 
-* **Acesso portuário:** A cache precisa de acesso a portas TCP/UDP específicas no seu sistema de armazenamento. Diferentes tipos de armazenamento têm diferentes requisitos portuários.
+* Acesso portuário: A cache necessita de acesso a portas TCP/UDP específicas no seu sistema de armazenamento. Diferentes tipos de armazenamento têm diferentes requisitos portuários.
 
   Para verificar as definições do seu sistema de armazenamento, siga este procedimento.
 
@@ -157,7 +159,7 @@ Mais informações estão incluídas na [configuração do Troubleshoot NAS e no
 
   * Verifique as definições da firewall para se certificar de que permitem o tráfego em todas as portas necessárias. Certifique-se de verificar as firewalls utilizadas no Azure, bem como as firewalls no local do seu centro de dados.
 
-* **Acesso à raiz** (ler/escrever): A cache liga-se ao sistema back-end como ID 0 do utilizador. Verifique estas definições no seu sistema de armazenamento:
+* Acesso à raiz (ler/escrever): A cache liga-se ao sistema back-end como ID 0 do utilizador. Verifique estas definições no seu sistema de armazenamento:
   
   * Ativar `no_root_squash` . Esta opção garante que o utilizador de raiz remota pode aceder a ficheiros propriedade da raiz.
 
@@ -190,9 +192,9 @@ Esta é uma visão geral dos passos. Estes passos podem mudar, por isso consulte
 
    * Em vez de utilizar as definições da conta de armazenamento para uma conta de armazenamento padrão, siga as instruções no [documento de como fazê-lo](../storage/blobs/network-file-system-protocol-support-how-to.md). O tipo de conta de armazenamento suportada pode variar consoante a região de Azure.
 
-   * Na secção **De Rede,** escolha um ponto final privado na rede virtual segura que criou (recomendado) ou escolha um ponto final público com acesso restrito a partir do VNet seguro.
+   * Na secção De Rede, escolha um ponto final privado na rede virtual segura que criou (recomendado) ou escolha um ponto final público com acesso restrito a partir do VNet seguro.
 
-   * Não se esqueça de completar a secção **Advanced,** onde permite o acesso ao NFS.
+   * Não se esqueça de completar a secção Advanced, onde permite o acesso ao NFS.
 
    * Dê à aplicação cache acesso à sua conta de armazenamento Azure, como mencionado em [Permissões,](#permissions)acima. Pode fazê-lo da primeira vez que criar um alvo de armazenamento. Siga o procedimento em [Adicionar os alvos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para dar à cache as funções de acesso necessárias.
 

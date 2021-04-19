@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6634a536828b3c19d771d135fdb3a1224d3dfdf3
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498851"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717428"
 ---
 # <a name="azure-operational-security-best-practices"></a>Melhores práticas de Segurança Operacional da Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos em Azure.
@@ -122,7 +122,7 @@ A pontuação segura, que se baseia nos controlos do Center for Internet Securit
 **Detalhe**: Utilize [o Monitor Azure para recolher e exportar dados](../../azure-monitor/overview.md#integrate-and-export-data). Esta prática é fundamental para permitir a investigação de incidentes de segurança, e a retenção de registos on-line é limitada. Se estiver a utilizar o Azure Sentinel, consulte [as fontes de dados do Connect](../../sentinel/connect-data-sources.md).
 
 **Melhores práticas**: Acelere os seus processos de investigação e caça e reduza os falsos positivos integrando as capacidades de Deteção e Resposta de Pontos Finais (EDR) na sua investigação de ataque.   
-**Detalhe**: [Ativar o Microsoft Defender para integração de Endpoint](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) através da sua política de segurança do Security Center. Considere usar Azure Sentinel para caçar ameaças e resposta a incidentes.
+**Detalhe**: [Ative o Microsoft Defender para integração de Endpoint](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration) através da sua política de segurança do Security Center. Considere usar Azure Sentinel para caçar ameaças e resposta a incidentes.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Monitorar monitorização de rede baseada em cenários
 Os clientes constroem uma rede de ponta a ponta no Azure, combinando recursos de rede como uma rede virtual, ExpressRoute, Application Gateway e equilibradores de carga. A monitorização está disponível em cada um dos recursos da rede.

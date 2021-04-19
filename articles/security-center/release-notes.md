@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: bb79bbe918bb1a68b982ae4d44739c2c77a11434
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303156"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719156"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -329,7 +329,7 @@ Quando ativa o Azure Defender para servidores num servidor windows, está inclu�
 O suporte foi agora expandido para incluir o Windows Server 2019 e [o Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> Se estiver a ativar o Defender para o Ponto Final numa máquina do Windows Server 2019, certifique-se de que cumpre os requisitos descritos em [Ativar o Microsoft Defender para integração endpoint](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+> Se estiver a ativar o Defender para o Ponto Final numa máquina do Windows Server 2019, certifique-se de que cumpre os requisitos descritos em [Ativar o Microsoft Defender para integração endpoint](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Ligação direta à política a partir da página de detalhes da recomendação
 
@@ -411,7 +411,7 @@ As recomendações existentes não são afetadas e à medida que o benchmark cre
 
 Para saber mais, consulte as seguintes páginas:
 
-- [Saiba mais sobre a Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Saiba mais sobre a Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Personalize o conjunto de padrões no seu painel de conformidade regulamentar](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>A avaliação da vulnerabilidade para máquinas no local e multi-nuvens é lançada para disponibilidade geral (GA)
@@ -526,7 +526,7 @@ Saiba mais em [Permissões de inquilinos quando as suas são insuficientes.](ten
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>35 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 
-A Azure Security Benchmark é a iniciativa política padrão no Centro de Segurança Azure. 
+[A Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) é a iniciativa política padrão no Centro de Segurança Azure. 
 
 Para aumentar a cobertura deste benchmark, foram adicionadas ao Centro de Segurança as seguintes 35 recomendações de pré-visualização.
 
@@ -544,7 +544,7 @@ Para aumentar a cobertura deste benchmark, foram adicionadas ao Centro de Segura
 
 Links relacionados:
 
-- [Saiba mais sobre a Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Saiba mais sobre a Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Saiba mais sobre a Azure Database for MariaDB](../mariadb/overview.md)
 - [Saiba mais sobre a Base de Dados Azure para o MySQL](../mysql/overview.md)
 - [Saiba mais sobre a Base de Dados Azure para PostgreSQL](../postgresql/overview.md)
@@ -787,7 +787,7 @@ As recomendações de pré-visualização não tornam um recurso insalubre, e n�
 
 Links relacionados:
 
-- [Saiba mais sobre a Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Saiba mais sobre a Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Saiba mais sobre as aplicações AZURE API](../app-service/app-service-web-tutorial-rest-api.md)
 - [Saiba mais sobre aplicações de função Azure](../azure-functions/functions-overview.md)
 - [Saiba mais sobre as aplicações web Azure](../app-service/overview.md)

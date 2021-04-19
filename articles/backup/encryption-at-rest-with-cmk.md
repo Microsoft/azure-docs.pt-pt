@@ -2,13 +2,13 @@
 title: Encriptação de dados de cópias de segurança com chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: b6cb1a288d0052b39bbeb52ed9fd20e68a6427ed
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.date: 04/19/2021
+ms.openlocfilehash: bd51be06e707674f3e35b3478d7f99d096be912a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167895"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718778"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de cópias de segurança com chaves geridas pelo cliente
 
@@ -44,7 +44,7 @@ Este artigo aborda o seguinte:
     >Utilize o módulo Az 5.3.0 ou superior para utilizar as chaves geridas pelo cliente para cópias de segurança no cofre dos Serviços de Recuperação.
     
     >[!Warning]
-    >Se estiver a utilizar o PowerShell para gerir as chaves de encriptação para cópia de segurança, não recomendamos atualizar as teclas a partir do portal.<br></br>Se atualizar a chave a partir do portal, não poderá utilizar o PowerShell para atualizar ainda mais a chave de encriptação, até que esteja disponível uma atualização PowerShell para suportar o novo modelo. No entanto, pode continuar a atualizar a chave a partir do portal Azure.
+    >Se estiver a utilizar o PowerShell para gerir as chaves de encriptação para cópia de segurança, não recomendamos atualizar as teclas a partir do portal.<br>Se atualizar a chave a partir do portal, não poderá utilizar o PowerShell para atualizar ainda mais a chave de encriptação, até que esteja disponível uma atualização PowerShell para suportar o novo modelo. No entanto, pode continuar a atualizar a chave a partir do portal Azure.
 
 Se não criou e configura o cofre dos Serviços de Recuperação, pode [ler como fazê-lo aqui.](backup-create-rs-vault.md)
 
@@ -383,6 +383,16 @@ Quando especificar a chave gerida pelo cliente que deve ser utilizada para encri
 A utilização da opção **Select from Key Vault** ajuda a ativar a rotação automática para a tecla selecionada. Isto elimina o esforço manual de atualização para a versão seguinte. No entanto, utilizando esta opção:
 - A atualização da versão chave pode demorar até uma hora a produzir efeito.
 - Quando uma nova versão da chave entrar em vigor, a versão antiga também deve estar disponível (em estado ativado) para pelo menos um trabalho de backup subsequente após a atualização chave ter entra em vigor.
+
+### <a name="using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview"></a>Utilização de Políticas Azure para auditar e impor encriptação utilizando chaves geridas pelo cliente (na pré-visualização)
+
+O Azure Backup permite-lhe utilizar a Azure Polices para auditar e impor encriptação, utilizando chaves geridas pelo cliente, de dados no cofre dos Serviços de Recuperação. Utilizando as Políticas Azure:
+
+- A política de auditoria pode ser usada para auditar cofres com encriptação utilizando chaves geridas pelo cliente que são ativadas após 04/01/2021. Para os cofres com a encriptação CMK ativada antes desta data, a política pode não aplicar ou pode apresentar resultados falsos negativos (ou seja, estes cofres podem ser reportados como não conformes, apesar de terem **encriptação CMK** ativada).
+- Para utilizar a política de auditoria para auditar cofres com **encriptação CMK** ativada antes de 04/01/2021, utilize o portal Azure para atualizar uma chave de encriptação. Isto ajuda a atualizar para o novo modelo. Se não quiser alterar a tecla de encriptação, forneça novamente a mesma tecla através do URI chave ou da opção de seleção chave. 
+
+   >[!Warning]
+    >Se estiver a utilizar o PowerShell para gerir as chaves de encriptação para cópia de segurança, não recomendamos atualizar as teclas a partir do portal.<br>Se atualizar a chave a partir do portal, não poderá utilizar o PowerShell para atualizar ainda mais a chave de encriptação, até que esteja disponível uma atualização PowerShell para suportar o novo modelo. No entanto, pode continuar a atualizar a chave a partir do portal Azure.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

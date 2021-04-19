@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 564e7d3d2353661d0a69cbd15ad8b281defacf87
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bf60f512416007137e71119fa7474b1393099ebf
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600584"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718886"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
 
@@ -28,7 +28,7 @@ A página inicial do [IoT Central](https://aka.ms/iotcentral-get-started) é o l
 
 ### <a name="create-an-application"></a>Criar uma aplicação
 
-Na secção Build pode navegar na lista de modelos IoT Central relevantes para a indústria, ou começar do zero usando um modelo de aplicação personalizado.  
+Na secção **Build** pode navegar na lista de modelos IoT Central relevantes para a indústria, ou começar do zero usando um modelo de aplicação personalizado.  
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-build.png" alt-text="Página de construção IoT Central":::
 
@@ -53,7 +53,7 @@ Assim que estiver dentro da sua aplicação IoT, use o painel esquerdo para aced
 
   :::column-end:::
   :::column span="2":::
-     **Os dashboards** exibem todas as aplicações e dashboards pessoais. 
+     **O painel** de instrumentos exibe todas as aplicações e dashboards pessoais. 
      
      **Os dispositivos** permitem-lhe gerir todos os seus dispositivos.
 
@@ -63,7 +63,7 @@ Assim que estiver dentro da sua aplicação IoT, use o painel esquerdo para aced
 
      **A Analytics** expõe capacidades ricas para analisar tendências históricas e correlacionar várias telemetrias dos seus dispositivos.
 
-     **Os trabalhos** permitem-lhe gerir os seus dispositivos em escala, executando operações a granel.
+     **O Jobs** permite-lhe gerir os seus dispositivos em escala, executando operações a granel.
 
      **Os modelos do dispositivo** permitem criar e gerir as características dos dispositivos que se ligam à sua aplicação.
 
@@ -98,7 +98,7 @@ Pode escolher entre um tema claro ou um tema escuro para a IU:
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Screenshot do Painel Central IoT.":::
 
-* O dashboard é a primeira página que vê quando se inscreve na sua aplicação IoT Central. Pode criar e personalizar vários dashboards de aplicação. Saiba mais sobre [a adição de azulejos ao seu painel de instrumentos](howto-add-tiles-to-your-dashboard.md)
+* **O dashboard** é a primeira página que vê quando se inscreve na sua aplicação IoT Central. Pode criar e personalizar vários dashboards de aplicação. Saiba mais sobre [a adição de azulejos ao seu painel de instrumentos](howto-add-tiles-to-your-dashboard.md)
 
 * Os dashboards pessoais também podem ser criados para monitorizar o que te importa. Para saber mais, consulte os [painéis pessoais Create Azure IoT Central](howto-create-personal-dashboards.md) como fazer o artigo.
 
@@ -106,7 +106,7 @@ Pode escolher entre um tema claro ou um tema escuro para a IU:
 
 :::image type="content" source="Media/overview-iot-central-tour/devices.png" alt-text="Screenshot da página de dispositivos.":::
 
-Esta página mostra os dispositivos da sua aplicação IoT Central agrupadas pelo _modelo do dispositivo_. 
+Esta página mostra os dispositivos da sua aplicação IoT Central agrupadas pelo _modelo do dispositivo_.
 
 * Um modelo do dispositivo define um tipo de dispositivo que pode ligar à aplicação.
 * Um dispositivo representa um dispositivo real ou simulado na aplicação.
@@ -122,7 +122,7 @@ Esta página permite criar e visualizar grupos de dispositivos na sua aplicaçã
 ### <a name="rules"></a>Regras
 :::image type="content" source="Media/overview-iot-central-tour/rules.png" alt-text="Screenshot da Página das Regras.":::
 
-Esta página permite-lhe visualizar e criar regras com base em dados do dispositivo. Quando uma regra dispara, pode desencadear uma ou mais ações, como enviar um e-mail ou invocar um webhook. Para aprender, consulte o tutorial [de regras de configuração.](tutorial-create-telemetry-rules.md) 
+Esta página permite-lhe visualizar e criar regras com base em dados do dispositivo. Quando uma regra dispara, pode desencadear uma ou mais ações, como o envio de um e-mail ou a invocação de um webhook. Para aprender, consulte o tutorial [de regras de configuração.](tutorial-create-telemetry-rules.md)
 
 ### <a name="analytics"></a>Análise
 
@@ -140,7 +140,7 @@ Esta página permite-lhe visualizar e criar trabalhos que podem ser utilizados p
 
 :::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Screenshot dos modelos do dispositivo.":::
 
-A página de modelos do dispositivo é onde você pode ver e criar modelos de dispositivo na aplicação. Para obter mais informações, veja o tutorial [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](howto-set-up-template.md). 
+A página de modelos do dispositivo é onde você pode ver e criar modelos de dispositivo na aplicação. Para obter mais informações, veja o tutorial [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](howto-set-up-template.md).
 
 ### <a name="data-export"></a>Exportação de dados
 

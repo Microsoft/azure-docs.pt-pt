@@ -4,16 +4,16 @@ description: Saiba como montar uma partilha do Sistema de Ficheiros de Rede.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a993d9c1de35132198de5e3becc4f16d6a2a437
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4369619cd83dffe36cf156f523a951e1360438db
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621302"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717082"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Como montar uma partilha de ficheiros NFS
 
@@ -55,7 +55,7 @@ ms.locfileid: "96621302"
 1. Introduza o caminho de montagem que gostaria de usar e, em seguida, copie o script.
 1. Ligue-se ao seu cliente e utilize o script de montagem fornecido.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot da lâmina de ligação de partilha de ficheiros":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot da lâmina de ligação da partilha de ficheiros.":::
 
 Já montou a sua parte da NFS.
 

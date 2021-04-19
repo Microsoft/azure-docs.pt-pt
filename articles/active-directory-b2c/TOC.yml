@@ -460,6 +460,8 @@
                   href: aad-sspr-technical-profile.md
                 - name: Transformação de afirmações
                   href: claims-transformation-technical-profile.md
+                - name: Acesso condicional
+                  href: conditional-access-technical-profile.md
                 - name: Sugestão de token de ID
                   href: id-token-hint.md
                 - name: Emissor de tokens JWT

@@ -4,12 +4,12 @@ description: Artigo que mostra como executar certas tarefas de networking virtua
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a28a59a0de40bba7914d1920b42034fbbc223ddc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c123b20e163731f9a872a969f2f1564479b6e308
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609536"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718436"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Como configurar funções Azure com uma rede virtual
 
@@ -30,7 +30,7 @@ Para criar uma função com uma conta de armazenamento restrita a uma rede priva
 
 1. Criar ou configurar uma conta de armazenamento diferente.  Esta será a conta de armazenamento que asseguramos com os pontos finais de serviço e conectamos a nossa função.
 
-1. [Crie uma partilha de ficheiros](../storage/files/storage-how-to-create-file-share.md#create-file-share) na conta de armazenamento segura.
+1. [Crie uma partilha de ficheiros](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) na conta de armazenamento segura.
 
 1. Ativar os pontos finais do serviço ou o ponto final privado para a conta de armazenamento.  
     * Se utilizar ligações privadas de ponto final, a conta de armazenamento necessitará de um ponto final privado para os `file` `blob` sub-recursos e sub-recursos.  Se utilizar certas capacidades como Funções Duradouras, também necessitará e será acessível através de `queue` uma `table` ligação de ponto final privado.

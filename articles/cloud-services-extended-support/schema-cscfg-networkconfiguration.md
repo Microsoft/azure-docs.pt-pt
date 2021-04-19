@@ -8,12 +8,12 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 2650da2579f13ec1588af7a25e5b28908209bc82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed2d48288bf97fe3ebaa1e8ffc1336d8a82d940e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101700189"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719030"
 ---
 # <a name="azure-cloud-services-extended-support-config-networkconfiguration-schema"></a>Azure Cloud Services (suporte alargado) configurar esquema de configuração da rede
 
@@ -70,7 +70,7 @@ A tabela seguinte descreve os elementos da criança do `NetworkConfiguration` el
 | VirtualNetworkSite | Opcional. Especifica o nome do site da Rede Virtual no qual pretende implementar o seu Serviço cloud. Esta definição não cria um Site de Rede Virtual. Refere-se a um site previamente definido no ficheiro de rede para a sua Rede Virtual. Um Serviço cloud só pode ser membro de uma Rede Virtual. Se não especificar esta definição, o Serviço cloud não será implantado numa Rede Virtual. O nome do site da Rede Virtual é definido por uma cadeia para o `name` atributo.|
 | CasoAddress | Opcional. Especifica a associação de uma função a uma sub-rede ou conjunto de sub-redes na Rede Virtual. Quando associar um nome de função a um endereço de exemplo, pode especificar as sub-redes às quais deseja que esta função seja associada. Contém `InstanceAddress` um elemento sub-redes. O nome do papel que está associado à sub-rede ou sub-redes é definido por uma cadeia para o `roleName` atributo.|
 | Sub-rede | Opcional. Especifica a sub-rede que corresponde ao nome da sub-rede no ficheiro de configuração da rede. O nome da sub-rede é definido por uma cadeia para o `name` atributo.|
-| Reservado | Opcional. Especifica o endereço IP reservado que deve ser associado à implantação. Tem de utilizar o Endereço IP Reservado para criar o endereço IP reservado. Cada implementação num Serviço cloud pode ser associada a um endereço IP reservado. O nome do endereço IP reservado é definido por um string para o `name` atributo.|
+| Reservado | Opcional. Especifica o endereço IP reservado que deve ser associado à implantação. O método de atribuição de um IP reservado deve ser especificado como `Static` para implantações de modelos e de cascas de poder. Cada implantação num Serviço cloud pode ser associada a apenas um endereço IP reservado. O nome do endereço IP reservado é definido por um string para o `name` atributo.|
 
 ## <a name="see-also"></a>Ver também
 [Sistema de configuração do Serviço de Nuvem (suporte alargado) .](schema-cscfg-file.md)

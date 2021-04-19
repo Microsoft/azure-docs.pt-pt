@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 3abca397186572cabb4f7ae99edae8688ea4d9a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df2bd1c12c86de43e2a5057813a743d822dbda33
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499514"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718356"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 
@@ -93,7 +93,7 @@ Para ativar a autenticação Azure AD DS sobre sMB com o [portal Azure,](https:/
 
 A imagem a seguir mostra como ativar a autenticação Azure AD DS em SMB para a sua conta de armazenamento.
 
-![Ativar a autenticação do Azure AD DS sobre o SMB no portal Azure](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
+:::image type="content" source="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png" alt-text="Screenshot da lâmina de configuração na sua conta de armazenamento, os serviços de doman ativo azure estão ativados." lightbox="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

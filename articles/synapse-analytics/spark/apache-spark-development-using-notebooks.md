@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4230ced172de52e5acf45e071fa2a49a332eb696
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612330"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719228"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
 
@@ -40,7 +40,6 @@ A equipa da Synapse trouxe a nova componente de cadernos para o Synapse Studio p
 |%carga| Não suportado |&#9745;|
 |%%html| Não suportado |&#9745;|
 |Arrastar e largar para mover uma célula| Não suportado |&#9745;|
-|Saída persistente do Display()|&#9745;| Não disponível |
 |Célula de texto de formato com botões de barra de ferramentas|&#9745;| Não disponível |
 |Desfazer a operação celular| &#9745;| Não disponível |
 
@@ -416,7 +415,7 @@ Pode aceder diretamente aos dados na conta de armazenamento primário. Não há 
 
 ![dados para célula](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="save-notebooks"></a>Guardar cadernos
+## <a name="save-notebooks"></a>Guardar blocos de notas
 
 Pode guardar um único caderno ou todos os cadernos no seu espaço de trabalho.
 
@@ -432,7 +431,7 @@ Nas propriedades do portátil, pode configurar se deve incluir a saída da célu
 
    ![portátil-propriedades](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
-## <a name="magic-commands"></a>Comandos mágicos
+## <a name="magic-commands"></a>Comandos magic
 Você pode usar comandos mágicos jupyter familiares em cadernos do Estúdio Azure Synapse. Reveja a seguinte lista como os comandos mágicos disponíveis atuais. Diga-nos [os seus casos de uso no GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que possamos continuar a construir mais comandos mágicos para satisfazer as suas necessidades.
 
 > [!NOTE]
@@ -493,7 +492,7 @@ Ao atribuir valores de parâmetros, pode utilizar a linguagem de expressão do [
 
 
 
-## <a name="shortcut-keys"></a>Chaves de atalho
+## <a name="shortcut-keys"></a>Teclas de atalho
 
 Semelhante aos Cadernos Jupyter, os portáteis do Azure Synapse Studio têm uma interface de utilizador modal. O teclado faz coisas diferentes dependendo do modo em que a célula de portátil está. Os cadernos Synapse Studio suportam os seguintes dois modos para uma determinada célula de código: modo de comando e modo de edição.
 

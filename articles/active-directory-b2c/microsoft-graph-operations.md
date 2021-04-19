@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 884cb0c30bc754366fda79a4b54b977517fbadd3
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: cf62330fd677dc978c8f25a81c6a1e5bfbb612ac
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530533"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717608"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerir Azure AD B2C com o Microsoft Graph
 
@@ -48,6 +48,9 @@ Um número de telefone que pode ser utilizado por um utilizador para iniciar sin
 Nota: a operação da [lista](/graph/api/authentication-list-phonemethods) retorna apenas com números de telefone ativados. O seguinte número de telefone deve ser ativado com as operações da lista. 
 
 ![Ativar o s-in do telefone](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
+> [!NOTE]
+> Na versão beta atual, esta API só funciona se o número de telefone for armazenado com um espaço entre o código do país e o número de telefone. O serviço Azure AD B2C não adiciona atualmente este espaço por padrão.
 
 ## <a name="self-service-password-reset-email-address-beta"></a>Endereço de e-mail de autosserviço redefinir endereço de e-mail (beta)
 

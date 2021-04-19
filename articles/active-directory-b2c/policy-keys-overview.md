@@ -7,17 +7,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37ff3300935e90304754b5f2b375df0adecdaefa
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: a41717e9be0918dead9f77a5f5472494d734b38a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256247"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717536"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Visão geral das chaves de política no Azure Ative Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 O Azure Ative Directory B2C (Azure AD B2C) armazena segredos e certificados sob a forma de chaves políticas para estabelecer confiança nos serviços com os quais se integra. Estes fundos consistem em:
 
@@ -89,3 +100,5 @@ As teclas num tecla não são substituíveis ou removíveis. Se precisar de alte
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como utilizar o Microsoft Graph para automatizar uma implementação [de teclas](microsoft-graph-operations.md#trust-framework-policy-keyset) e [teclas de política.](microsoft-graph-operations.md#trust-framework-policy-key)
+
+::: zone-end

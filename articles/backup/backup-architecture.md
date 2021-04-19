@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6ecf01838b8fe3104626f8ada5f832c3f52dc378
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 8fca05f8718fc5e44da33b19447895f5daafc905
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515911"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107716764"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -142,23 +142,7 @@ Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para se
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: Backup Azure VM incorporado
 
-1. Quando ativa a cópia de segurança para um Azure VM, uma cópia de segurança é executada de acordo com o horário especificado.
-1. Durante a primeira cópia de segurança, é instalada uma extensão de backup no VM se o VM estiver em funcionamento.
-    - Para VMs do Windows, é instalada a extensão VMSnapshot.
-    - Para os VMs Linux, a extensão VMSnapshot Linux está instalada.
-1. A extensão requer uma imagem de nível de armazenamento.
-    - Para os VMs do Windows que estão em execução, o Backup coordena com o Windows Volume Shadow Copy Service (VSS) para tirar uma imagem consistente da aplicação do VM. Por predefinição, o Backup recebe cópias de segurança VSS completas. Se o Backup não conseguir tirar uma imagem consistente da aplicação, então é necessário um instantâneo consistente com ficheiros.
-    - Para os VMs Linux, o Backup tira uma imagem consistente com ficheiros. Para instantâneos consistentes com aplicações, é necessário personalizar manualmente scripts pré/post.
-    - A cópia de segurança é otimizada através da cópia de segurança de cada disco VM em paralelo. Para cada disco que está a ser apoiado, o Azure Backup lê os blocos no disco e armazena apenas os dados alterados.
-1. Depois da foto ser tirada, os dados são transferidos para o cofre.
-    - Apenas blocos de dados que mudaram desde a última cópia de segurança são copiados.
-    - Os dados não estão encriptados. O Azure Backup pode fazer backup de VMs Azure que foram encriptados usando encriptação de disco Azure.
-    - Os dados do instantâneo podem não ser copiados para o cofre imediatamente. Em horas de pico, o reforço pode demorar algumas horas. O tempo total de backup de uma VM será inferior a 24 horas para políticas de cópias de segurança diárias.
-1. Depois que os dados são enviados para o cofre, um ponto de recuperação é criado. Por predefinição, as imagens são mantidas durante dois dias antes de serem eliminadas. Esta funcionalidade permite restaurar o funcionamento destes instantâneos, reduzindo assim os tempos de restauro. Reduz o tempo necessário para transformar e copiar dados do cofre. Consulte [a capacidade de restauro instantâneo de backup Azure](./backup-instant-restore-capability.md).
-
-Não precisa de permitir explicitamente que a conectividade da Internet faça o back up dos seus VMs Azure.
-
-![Backup de Azure VMs](./media/backup-architecture/architecture-azure-vm.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Arquitetura: Cópia de segurança direta das máquinas do Windows Server ou dos ficheiros ou pastas Azure VM
 

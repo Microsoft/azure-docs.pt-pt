@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 1d2de439e661ef5b1d1669187355621f25400bc4
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 7bde8fe404e0839bf14500bff4fb92ce8cc4ea04
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075635"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717356"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -160,7 +160,7 @@ Pode escolher uma região diferente de onde reside atualmente os seus dados Stor
 
 #### <a name="performance"></a>Desempenho
 
-Tem a opção de escolher armazenamento premium (SSD) para ações de ficheiros Azure ou armazenamento padrão. O armazenamento padrão inclui [vários níveis para uma partilha de ficheiros.](storage-how-to-create-file-share.md#changing-the-tier-of-an-azure-file-share) O armazenamento padrão é a opção certa para a maioria dos clientes que migram da StorSimple.
+Tem a opção de escolher armazenamento premium (SSD) para ações de ficheiros Azure ou armazenamento padrão. O armazenamento padrão inclui [vários níveis para uma partilha de ficheiros.](storage-how-to-create-file-share.md#change-the-tier-of-an-azure-file-share) O armazenamento padrão é a opção certa para a maioria dos clientes que migram da StorSimple.
 
 Ainda não tem certeza?
 

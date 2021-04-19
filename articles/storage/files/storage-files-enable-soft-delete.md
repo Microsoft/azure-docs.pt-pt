@@ -4,16 +4,16 @@ description: Saiba como permitir a eliminação suave das ações de ficheiros A
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 428ef41340cd565bef0fa3c1e6519fb8862b091a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a0dff310ce4a40b7a66cc548f3c77213f4a10e00
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727574"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717028"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Permitir a eliminação suave nas ações de ficheiros Azure
 
@@ -26,12 +26,13 @@ As seguintes secções mostram como ativar e utilizar a eliminação suave para 
 ## <a name="getting-started"></a>Introdução
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros** no **serviço De ficheiro.**
+1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros** no **armazenamento de dados.**
+1. Selecione **Ativado** ao lado **do Soft delete**.
 1. Selecione **Ativado** para **eliminar suavemente para todas as ações de ficheiros**.
 1. Selecione **O período de retenção de partilha** de ficheiros em dias e introduza uma série de escolhas.
 1. **Selecione Guardar** para confirmar as definições de retenção de dados.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de exclusão suave das partilhas de ficheiros, ativar o alternamento, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/files-enable-soft-delete-new-ui.png" alt-text="Screenshot da conta de armazenamento apagar suavemente as definições. Realçando a secção de exclusão suave das partilhas de ficheiros, ativar o alternamento, definir um período de retenção e guardar. Isto permitirá eliminar suavemente todas as ações de ficheiros na sua conta de armazenamento.":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -129,11 +130,12 @@ Se desejar parar de utilizar a exclusão suave, siga estas instruções. Para el
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros** no **serviço De ficheiro.**
+1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros** no **armazenamento de dados.**
+1. Selecione o link ao lado **do Soft delete**.
 1. Selecione **Desativado** para **eliminar suavemente para todas as ações de ficheiros**.
 1. **Selecione Guardar** para confirmar as definições de retenção de dados.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="A desativação de uma eliminação suave permitir-lhe-á eliminar imediatamente e permanentemente todas as ações de ficheiros da sua conta de armazenamento a seu bel-prazer.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/files-disable-soft-delete.png" alt-text="A desativação de uma eliminação suave permitir-lhe-á eliminar imediatamente e permanentemente todas as ações de ficheiros da sua conta de armazenamento a seu bel-prazer.":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

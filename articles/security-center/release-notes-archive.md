@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 04/04/2021
 ms.author: memildin
-ms.openlocfilehash: ecdaf6a8509583cf93857e24fabc059e38d23b67
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 9d376a374d1934f55b6a6fb15f1642c81b30b2fc
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383461"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718670"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -891,7 +891,7 @@ Agora, pode adicionar padrões como:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (novo)** (que é uma representação mais completa do Azure CIS 1.1.0)
 
-Além disso, adicionámos recentemente o **Azure Security Benchmark**, as diretrizes específicas para segurança e conformidade da Microsoft para as melhores práticas de segurança e conformidade baseadas em quadros comuns de conformidade. As normas adicionais serão suportadas no painel de instrumentos à medida que se tornarem disponíveis.  
+Além disso, adicionámos recentemente o [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), as diretrizes específicas para segurança e conformidade da Microsoft para as melhores práticas de segurança e conformidade baseadas em quadros comuns de conformidade. As normas adicionais serão suportadas no painel de instrumentos à medida que se tornarem disponíveis.  
  
 Saiba mais sobre [a personalização do conjunto de normas no seu painel de conformidade regulamentar.](update-regulatory-compliance-packages.md)
 

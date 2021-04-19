@@ -4,15 +4,15 @@ description: Saiba como implementar o Azure File Sync, do início ao fim, utiliz
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4814a12a870d5317ad91c3514327ba0daad7ed69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ea96d3c700632703d824b432d4dd753ddf163bf
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225375"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717798"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -491,19 +491,19 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
 
 ---
 
-## <a name="configure-firewall-and-virtual-network-settings"></a>Configurar firewall e configurações de rede virtual
+## <a name="configure-firewall-and-virtual-network-settings"></a>Configurar definições da rede virtual e da firewall
 
 ### <a name="portal"></a>Portal
 Se quiser configurar a sua sincronização de ficheiros Azure para trabalhar com firewall e definições de rede virtual, faça o seguinte:
 
 1. A partir do portal Azure, navegue para a conta de armazenamento que deseja proteger.
-1. Selecione o botão **Firewalls e redes virtuais** no menu esquerdo.
-1. Selecione **redes selecionadas** em **Permitir o acesso a partir de**.
-1. Certifique-se de que os seus servidores IP ou rede virtual estão listados na secção apropriada.
+1. Selecione **Networking** no menu esquerdo.
+1. Em **redes selecionadas** em **Permitir o acesso a partir de**.
+1. Certifique-se de que os seus servidores IP ou rede virtual estão listados na secção **de intervalo de endereços.**
 1. Certifique-se **de que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento.**
 1. **Selecione Guardar** para guardar as suas definições.
 
-![Configurar firewall e configurações de rede virtuais para trabalhar com a sincronização do Ficheiro Azure](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
+    ![Configurar firewall e configurações de rede virtuais para trabalhar com a sincronização do Ficheiro Azure](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Embarque com Azure File Sync
 As etapas recomendadas para embarcar no Azure File Sync pela primeira vez com zero tempo de inatividade, preservando a fidelidade completa do ficheiro e a lista de controlo de acesso (ACL) são as seguintes:

@@ -4,15 +4,15 @@ description: Veja como criar e gerir ações de ficheiros Azure no portal Azure.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7867a4bd60bb179c18fff49691072d683660f7e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629823"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717883"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início Rápido: Criar e gerir partilhas de ficheiros do Azure com o portal do Azure 
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas no Windows, Linux e macOS. Este guia orienta-o pelas noções básicas de utilizar partilhas de ficheiros do Azure com o [Portal do Azure](https://portal.azure.com/).
@@ -26,12 +26,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para criar uma partilha de ficheiros do Azure:
 
 1. Selecione a conta de armazenamento a partir do dashboard.
-2. Na página da conta de armazenamento, na secção **Serviços**, selecione **Ficheiros**.
-    ![Uma captura de ecrã da secção Serviços da conta de armazenamento; selecione o Serviço de Ficheiros](media/storage-how-to-use-files-portal/create-file-share-1.png)
+1. Na página da conta de armazenamento, na secção **Serviços**, selecione **Ficheiros**.
+    
+    ![Uma imagem da secção de armazenamento de dados da conta de armazenamento; selecione ações de ficheiros.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. No menu no topo da página de **serviço do Ficheiro,** clique em **Partilhar Ficheiros**. É apresentada a página **Nova partilha de ficheiros**.
-4. Em **Nome**, escreva *myshare*.
-5. Clique em **OK** para criar a partilha de ficheiros do Azure.
+1. No menu no topo da página de **serviço do Ficheiro,** clique em **Partilhar Ficheiros**. É apresentada a página **Nova partilha de ficheiros**.
+1. Em **Name** type *myshare*, insira um quoate, e deixe **a Transação otimizada** selecionada para **Tiers**.
+1. Selecione **Criar** para criar a partilha de ficheiros Azure.
 
 Os nomes de partilha só podem ter letras minúsculas, números e hífenes, mas não podem começar com um hífen. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
@@ -60,20 +61,21 @@ Agora que criou uma partilha de ficheiros do Azure, pode montá-la com SMB no [W
 Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure:
 
 1. Na página **Serviço de Ficheiros**, selecione a partilha de ficheiros **myshare**. É aberta a página da partilha de ficheiros.
-2. No menu na parte superior da página, selecione **+ Adicionar diretório**. É apresentada a página **Novo diretório**.
-3. Escreva *myDirectory* e, em seguida, clique em **OK**.
+1. No menu na parte superior da página, selecione **+ Adicionar diretório**. É apresentada a página **Novo diretório**.
+1. Escreva *myDirectory* e, em seguida, clique em **OK**.
 
 #### <a name="upload-a-file"></a>Carregar um ficheiro 
 Para demonstrar o carregamento de um ficheiro, primeiro tem de criar ou selecionar um ficheiro a ser carregado. Pode fazê-lo da forma que considerar adequada. Depois de selecionar o ficheiro que quer carregar:
 
 1. Clique no diretório **myDirectory**. É aberto o painel **myDirectory**.
-2. No menu na parte superior, clique em **Carregar**. É aberto o painel **Carregar ficheiros**.  
+1. No menu na parte superior, selecione **Carregar**. É aberto o painel **Carregar ficheiros**.  
+    
     ![Uma captura de ecrã do painel Carregar ficheiros](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-3. Clique no ícone de pasta para abrir uma janela para procurar os ficheiros locais. 
-4. Selecione um ficheiro e, em seguida, clique em **Abrir**. 
-5. Na página **Carregar ficheiros**, verifique o nome de ficheiro e, em seguida, clique em **Carregar**.
-6. Quando terminar, o ficheiro deve aparecer na lista na página **myDirectory**.
+1. Clique no ícone de pasta para abrir uma janela para procurar os ficheiros locais. 
+1. Selecione um ficheiro e, em seguida, clique em **Abrir**. 
+1. Na página **Carregar ficheiros**, verifique o nome de ficheiro e, em seguida, clique em **Carregar**.
+1. Quando terminar, o ficheiro deve aparecer na lista na página **myDirectory**.
 
 #### <a name="download-a-file"></a>Transferir um ficheiro
 Pode transferir uma cópia do ficheiro que carregou ao clicar com o botão direito do rato no ficheiro. Depois de clicar no botão de transferência, a experiência exata dependerá do sistema operativo e do browser que estiver a utilizar.

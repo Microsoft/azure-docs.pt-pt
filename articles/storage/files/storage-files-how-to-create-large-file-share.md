@@ -8,16 +8,16 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20f9aaf73fe0cb30b136254d57e6c9b960c16af4
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501299"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717005"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes ações de ficheiros
 
-Quando ativa grandes ações de ficheiros na sua conta de armazenamento, as suas ações de ficheiros podem escalar até 100 TiB, ao mesmo tempo que aumenta o IOPS e os limites de produção para as ações padrão. Também pode ativar este dimensionamento nas suas contas de armazenamento existentes para as suas ações de ficheiros existentes. Consulte [os alvos de partilha de ficheiros e escala de ficheiros](storage-files-scale-targets.md#azure-files-scale-targets) para obter mais detalhes. 
+As suas ações de ficheiroS Azure podem aumentar até 100 TiB depois de ativar grandes ações de ficheiros na sua conta de armazenamento. Quando ativa grandes ações de ficheiros, também pode aumentar os limites de IOPS da sua parte de ficheiros e limites de produção. Também pode ativar este dimensionamento nas suas contas de armazenamento existentes para as ações de ficheiros existentes e novas. Para obter detalhes sobre as diferenças de desempenho, consulte [as metas de partilha de ficheiros e escala de ficheiros](storage-files-scale-targets.md#azure-files-scale-targets).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Quando ativa grandes ações de ficheiros na sua conta de armazenamento, as suas
 
 ## <a name="restrictions"></a>Restrições
 
-Por enquanto, só pode utilizar armazenamento localmente redundante (LRS) ou armazenamento redundante de zona (ZRS) em grandes contas ativadas por ficheiros. Não é possível utilizar armazenamento redundante em zona geo-zona (GZRS), armazenamento geo-redundante (GRS), armazenamento geo-redundante de acesso à leitura (RA-GRS) ou armazenamento de zonas de acesso de leitura (RA-GZRS).
+Por enquanto, só pode utilizar armazenamento localmente redundante (LRS) ou armazenamento redundante de zona (ZRS) em contas de armazenamento com grandes ações de ficheiros ativadas. Não é possível utilizar armazenamento redundante em zona geo-zona (GZRS), armazenamento geo-redundante (GRS), armazenamento geo-redundante de acesso à leitura (RA-GRS) ou armazenamento de zonas de acesso de leitura (RA-GZRS).
 
 Permitir grandes ações de ficheiros numa conta é um processo irreversível. Depois de o ativar, não poderá converter a sua conta em GZRS, GRS, RA-GRS ou RA-GZRS.
 
@@ -38,29 +38,12 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No portal Azure, selecione **Todos os serviços**. 
 1. Na lista de recursos, **insira contas de armazenamento.** À medida que escreve, a lista filtra-se com base na sua entrada. Selecione **Contas de Armazenamento**.
-1. Na janela **'Contas de Armazenamento'** que aparece, selecione **Adicionar**.
-1. Selecione a subscrição que utilizará para criar a conta de armazenamento.
-1. No campo **Grupo de recursos**, selecione **Criar novo**. Insira um nome para o seu novo grupo de recursos.
-
-    ![Captura de ecrã que mostra como criar um grupo de recursos no portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
-
-1. A seguir, introduza um nome para a sua conta de armazenamento. O nome deve ser único em Azure. O nome também deve ter 3 a 24 caracteres de comprimento, e só pode ter números e letras minúsculas.
-1. Selecione um local para a sua conta de armazenamento.
-1. Deslote a replicação para **o armazenamento localmente redundante** ou **para o armazenamento redundante da zona.**
-1. Deixe estes campos nos seus valores predefinidos:
-
-   |Campo  |Valor  |
-   |---------|---------|
-   |Modelo de implementação     |Resource Manager         |
-   |Desempenho     |Standard         |
-   |Tipo de conta     |StorageV2 (fins gerais v2)         |
-   |Camada de acesso     |Frequente         |
-
-1. Selecione **Advanced** e, em seguida, selecione o botão de opção **Ativado** à direita das **grandes partilhas** de ficheiros .
+1. Na lâmina **de Contas de Armazenamento** que aparece, selecione + **Novo**.
+1. Na lâmina básica, preencha as seleções como desejar.
+1. Certifique-se de que **o Desempenho** está definido para **Standard**.
+1. Definir **redundância** para **armazenamento localmente redundante** ou **armazenamento redundante de zona**.
+1. Selecione a lâmina **Avançada** e, em seguida, selecione o botão de opção **Ativado** à direita das **grandes partilhas** de ficheiros .
 1. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
-
-    ![Screenshot com o botão de opção "ativado" numa nova conta de armazenamento no portal Azure](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
-
 1. Selecione **Criar**.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -92,12 +75,13 @@ Também pode ativar grandes ações de ficheiros nas suas contas existentes. Se 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Abra o [portal Azure](https://portal.azure.com)e vá à conta de armazenamento onde pretende ativar grandes partilhas de ficheiros.
-1. Abra a conta de armazenamento e **selecione Configuração**.
+1. Abra o [portal Azure](https://portal.azure.com)e navegue para a conta de armazenamento onde pretende ativar grandes partilhas de ficheiros.
+1. Abra a conta de armazenamento e selecione **ações de arquivo.**
 1. Selecione **Ativado** em **grandes partilhas de ficheiros** e, em seguida, selecione **Guardar**.
 1. Selecione **Overview** e selecione **Refresh**.
+1. Selecione **A capacidade de partilha** e, em seguida, selecione **100 TiB** e **Guarde**.
 
-![Selecionando o botão de opção Ativado numa conta de armazenamento existente no portal Azure](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Screenshot da conta de armazenamento azul, corte de partilha de ficheiros com 100 ações tib destacadas.":::
 
 Agora ativou grandes ações de ficheiros na sua conta de armazenamento. Em seguida, deve [atualizar a quota de ações existente](#expand-existing-file-shares) para aproveitar o aumento da capacidade e da escala.
 

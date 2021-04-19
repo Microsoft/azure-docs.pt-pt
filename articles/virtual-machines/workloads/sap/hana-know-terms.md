@@ -10,15 +10,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2020
+ms.date: 4/16/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92ef2e59dab1921eae8e7d88249e75116601c597
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a243b348c01e6d1297a6a1fe016e3b6bc8d98d47
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670874"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719084"
 ---
 # <a name="know-the-terms"></a>Conhecer os termos
 
@@ -41,12 +41,11 @@ Várias definições comuns são amplamente utilizadas no Guia de Arquitetura e 
     - **Classe Tipo I**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 e S224m
     - **Classe tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m
 - **Carimbo**: Define o tamanho de implementação interna da Microsoft de HANA Large Instances. Antes de as unidades de HANA Large Instance poderem ser implantadas, um carimbo de grande instância HANA, composto por computação, rede e prateleiras de armazenamento, deve ser implantado num local de datacenter. Tal implantação é chamada de carimbo de grande instância HANA ou da Revisão 4 (ver abaixo) em usamos o resumo do termo de **Grande Instância Row**
-- **Revisão**: Existem duas revisões de selos diferentes para os selos HANA Large Instance. Estes diferem na arquitetura e proximidade com os anfitriões de máquinas virtuais Azure
-    - "Revisão 3" (Rev 3): é o design original que foi implementado a partir de meados do ano de 2016
-    - "Revisão 4" (Rev 4): é um novo design que pode proporcionar uma proximidade mais próxima aos anfitriões de máquinas virtuais Azure e com essa latência de rede mais baixa entre os VMs Azure e as unidades HANA Large Instance 
-    - "Revisão 4.2" (Rev 4.2): na Revisão 4 DCs existentes, os recursos são remarcados para a Infraestrutura BareMetal.  Os clientes podem aceder aos seus recursos como instâncias BareMetal a partir do portal Azure. 
+- **Revisão**: Existem duas revisões de selos diferentes para os selos HANA Large Instance. Estes diferem na arquitetura e na proximidade com os anfitriões de máquinas virtuais Azure.
+    - "Revisão 3" (Rev 3) é o design original implantado a partir de meados de 2016.
+    - "Revisão 4.2" (Rev 4.2) é um novo design que proporciona uma maior proximidade aos anfitriões de máquinas virtuais Azure. O Rev 4.2 oferece latência de rede ultra-baixa entre as unidades Azure VMs e HANA Large Instance. Os recursos no portal Azure são referidos como Infraestruturas BareMetal. Os clientes podem aceder aos seus recursos como instâncias BareMetal a partir do portal Azure. 
 
 Uma variedade de recursos adicionais estão disponíveis sobre como implementar uma carga de trabalho SAP na nuvem. Se planeia executar uma implantação de SAP HANA em Azure, precisa de ser experiente e consciente dos princípios do Azure IaaS e da implantação de cargas de trabalho SAP em Azure IaaS. Antes de continuar, consulte [soluções SAP em máquinas virtuais Azure](get-started.md) para obter mais informações. 
 
-**Próximos passos**
-- Consulte [a Certificação HLI](hana-certification.md)
+## <a name="next-steps"></a>Passos seguintes
+- Consulte a [Certificação HLI.](hana-certification.md)

@@ -4,15 +4,15 @@ description: Saiba como ativar o SMB Multichannel em ações de ficheiros premiu
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2f867fa6d4b7e1d864a85106b5d957a53d38eb76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da4e1a58aef28e5c47100a0311ff81a5af04a918
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732555"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718986"
 ---
 # <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>Ativar o SMB Multicanal numa conta de arquiteta (pré-visualização) 
 
@@ -66,7 +66,7 @@ Uma vez criada uma conta FileStorage, pode seguir as instruções para atualizar
 1. Selecione **as ações do Ficheiro** no serviço De **ficheiro** e, em seguida, selecione **definições de partilha de ficheiros**.
 1. Toggle **SMB Multicanal** para **dentro** (ou **desligado** para desativar) e selecione **guardar**.
 
-:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Screenshot da conta de armazenamento, smb multicanal é alternado.":::
+:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Screenshot da conta de armazenamento, smb multicanal é alternado."  lightbox="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png":::
 
 Se a opção Multicanal SMB não estiver visível nas **definições de partilha de ficheiros** ou se não conseguir atualizar o erro de definição durante a atualização da configuração, certifique-se de que a sua subscrição está registada e que a sua conta está numa das [regiões suportadas](#regional-availability) com tipo de conta e replicação suportadas.
 

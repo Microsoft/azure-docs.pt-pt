@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f9f6dc1abd08c5e53f3d44a8f6ec1b3e20786ed
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104675830"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717446"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalize a interface do utilizador com modelos HTML no Azure Ative Directory B2C
 
@@ -261,7 +261,7 @@ Deve ver uma página semelhante ao exemplo a seguir com os elementos centrados n
 
 Para configurar a personalização da UI, copie o **ContentDefinition** e os seus elementos infantis do ficheiro base para o ficheiro de extensões.
 
-1. Abra o arquivo base da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Este ficheiro base é um dos ficheiros de política incluídos no pacote de iniciação de políticas personalizadas, que deveria ter obtido no pré-requisito, [começar com políticas personalizadas](./custom-policy-get-started.md).
+1. Abra o arquivo base da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Este ficheiro base é um dos ficheiros de política incluídos no pacote de iniciação de políticas personalizadas, que deveria ter obtido no pré-requisito, [começar com políticas personalizadas](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Procure e copie todo o conteúdo do elemento **ContentDefinitions.**
 1. Abra o ficheiro de extensão. Por exemplo, *TrustFrameworkExtensions.xml.* Procure o elemento **Blocos de Construção.** Se o elemento não existir, adicione-o.
 1. Cole todo o conteúdo do elemento **ContentDefinitions** que copiou como criança do elemento **BuildingBlocks.**
@@ -388,9 +388,9 @@ Para utilizar a amostra:
     https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
     
-1. Guarde os `\*.html` ficheiros e faça o upload para o armazenamento da Blob.
+1. Guarde os `\*.html` ficheiros e carre deixe-os enviar para o armazenamento blob.
 1. Agora modifique a política, apontando para o seu ficheiro HTML, como mencionado anteriormente.
-1. Se vir tipos de letra, imagens ou CSS em falta, verifique as suas referências na política de extensões e nos \* ficheiros .html.
+1. Se vir tipos de letra, imagens ou CSS em falta, verifique as suas referências na política de extensões e nos `\*.html` ficheiros.
 
 ## <a name="use-company-branding-assets-in-custom-html"></a>Utilize ativos de marca da empresa em HTML personalizado
 

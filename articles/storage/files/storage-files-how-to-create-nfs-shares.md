@@ -4,16 +4,16 @@ description: Saiba como criar uma partilha de ficheiros Azure que pode ser monta
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b549c625f0a6ff0480eafc38f84d292e66350950
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521242"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717136"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar uma quota NFS
 As ações de ficheiros Azure são totalmente geridas por ações de ficheiros que vivem na nuvem. Este artigo abrange a criação de uma partilha de ficheiros que utiliza o protocolo NFS. Para obter mais informações sobre ambos os protocolos, consulte os [protocolos de partilha de ficheiros Azure](storage-files-compare-protocols.md).
@@ -107,25 +107,24 @@ Para criar uma conta de armazenamento fileStorage, navegue para o portal Azure.
 
 1. No portal Azure, selecione **Contas de Armazenamento** no menu esquerdo.
 
-    ![Página principal do portal Azure seleciona conta de armazenamento](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![A página principal do portal Azure selecione a conta de armazenamento.](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
-2. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
-3. Selecione a subscrição na qua pretende criar a conta de armazenamento.
-4. Selecione o grupo de recursos para criar a conta de armazenamento
+1. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
+1. Selecione a subscrição na qua pretende criar a conta de armazenamento.
+1. Selecione o grupo de recursos para criar a conta de armazenamento
+1. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também tem de ter entre 3 e 24 carateres de comprimento e apenas pode incluir números e letras minúsculas.
+1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
+1. Para o **desempenho** selecione **Premium**.
 
-5. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também tem de ter entre 3 e 24 carateres de comprimento e apenas pode incluir números e letras minúsculas.
-6. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
-7. Para o **desempenho** selecione **Premium**.
+    Tem de selecionar **Premium** para **ações de ficheiros** para ser uma opção disponível no **dropdown do tipo Conta.**
 
-    Tem de selecionar **Premium** for **FileStorage** para ser uma opção disponível no **dropdown do tipo Conta.**
+1. Para **o tipo de conta Premium** escolha **Fileshares**.
 
-8. Selecione **tipo de Conta** e escolha O Armazenamento de **Ficheiros.**
-9. Deixe **a replicação** definida para o seu valor padrão de **armazenamento localmente redundante (LRS)**.
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Screenshot de desempenho premium selecionado.":::
 
-    ![Como criar uma conta de armazenamento para uma parte de ficheiro premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
-
-10. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
-11. Selecione **Criar**.
+1. Deixe **a replicação** definida para o seu valor padrão de **armazenamento localmente redundante (LRS)**.
+1. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
+1. Selecione **Criar**.
 
 Uma vez criado o seu recurso de conta de armazenamento, navegue até ele.
 
@@ -180,7 +179,7 @@ Agora que criou uma conta FileStorage e configurar a rede, pode criar uma partil
     
 1. Selecione **Criar**.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot da lâmina de criação de partilha de ficheiros":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/files-nfs-create-share.png" alt-text="Screenshot da lâmina de criação de partilha de ficheiros.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

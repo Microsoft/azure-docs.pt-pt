@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d33c7f87d77f371d4eb4bf903e4d534f334e39c4
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 196a449f25d97fb1c1b7b8d79ee8889e0d31a5ae
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599507"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717752"
 ---
 # <a name="import-new-update"></a>Importação Nova Atualização
 Saiba como importar uma nova atualização para a Atualização de Dispositivos para IoT Hub. Se ainda não o fez, não se esqueça de se familiarizar com os [conceitos básicos de importação.](import-concepts.md)
@@ -31,7 +31,7 @@ Saiba como importar uma nova atualização para a Atualização de Dispositivos 
 
 ## <a name="create-device-update-import-manifest"></a>Criar manifesto de importação de atualização de dispositivos
 
-1. Se ainda não o fez, obtenha um ficheiro de imagem ou um ficheiro manifesto APT que pretende implantar nos dispositivos. Isto pode ser do fabricante dos seus dispositivos ou de um integrador de sistema com o que trabalha, ou mesmo de um grupo dentro da sua organização. Certifique-se de que o ficheiro de imagem de atualização ou o ficheiro APT Manifesto estão localizados num diretório acessível a partir do PowerShell.
+1. Se ainda não o fez, obtenha um ficheiro de imagem ou um ficheiro APT Manifesto que pretenda implantar nos dispositivos. Isto pode ser do fabricante dos seus dispositivos ou de um integrador de sistema com o que trabalha, ou mesmo de um grupo dentro da sua organização. Certifique-se de que o ficheiro de imagem de atualização ou o ficheiro APT Manifesto estão localizados num diretório acessível a partir do PowerShell.
 
 2. Crie um ficheiro de texto chamado **AduUpdate.psm1** no diretório onde está localizado o seu ficheiro de imagem de atualização ou ficheiro APT Manifesto. Em seguida, abra o [cmdlet AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell, copie o conteúdo do seu ficheiro de texto e, em seguida, guarde o ficheiro de texto.
 
@@ -112,8 +112,8 @@ Exemplo:
 
 ## <a name="import-update"></a>Atualização de importação
 
-[!NOTE]
-As instruções abaixo mostram como importar uma atualização através do portal Azure UI. Também pode utilizar a Atualização do [Dispositivo para APIs IoT Hub](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para importar uma atualização. 
+> [!NOTE]
+> As instruções abaixo mostram como importar uma atualização através do portal Azure UI. Também pode utilizar a Atualização do [Dispositivo para APIs IoT Hub](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para importar uma atualização. 
 
 1. Inicie sessão no [portal Azure](https://portal.azure.com) e navegue para o seu IoT Hub com aTualização do dispositivo.
 
