@@ -1,20 +1,21 @@
 ---
 title: O que são os serviços de Dados preparados para Azure Arc
 description: Introduz serviços de dados habilitados a Azure Arc
+ms.custom: references_regions
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: overview
-ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d866dcb5b2a0be9e6468b3d40258e37ac93834e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97609144"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107716102"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>O que são serviços de dados compatíveis com o Azure Arc (pré-visualização)?
 
@@ -46,6 +47,16 @@ Utilizando ferramentas familiares como o portal Azure, Azure Data Studio, e o [!
 ## <a name="disconnected-scenario-support"></a>Suporte de cenário desligado
 
 Muitos dos serviços, tais como fornecimento de self-service, backups automatizados/restauro, e monitorização podem ser executados localmente na sua infraestrutura com ou sem ligação direta ao Azure. A ligação direta ao Azure abre opções adicionais de integração com outros serviços Azure, como o Azure Monitor e a capacidade de usar o portal Azure e APIs do Azure Resource Manager de qualquer parte do mundo para gerir os seus serviços de dados habilitados a Azure Arc.
+
+## <a name="supported-regions"></a>Regiões suportadas
+
+A tabela seguinte descreve os cenários que são atualmente suportados para os serviços de dados ativados pela Arc.
+
+|Regiões do Azure  |Modo ligado direto  |Modo indireto ligado  |
+|---------|---------|---------|
+|E.U.A. Leste|Disponível|Disponível
+|Europa Ocidental |Disponível |Disponível
+|Europa do Norte|Disponível|Disponível
 
 ## <a name="next-steps"></a>Passos seguintes
 
