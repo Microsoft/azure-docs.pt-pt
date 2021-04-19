@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 9b8c1bb5669f058aba00f44ce62e48c7fab233f9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: dc2eac4e784d4224581078348f12b231befe1f35
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057750"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714115"
 ---
 # <a name="create-an-advanced-device-model"></a>Create an advanced device model (Criar um modelo de dispositivo avançado)
 
@@ -30,11 +30,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para seguir os passos neste guia de como fazer, precisa de uma instância implementada de Simulação de Dispositivo na sua subscrição Azure.
 
-Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
+Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) no GitHub.
 
 ### <a name="open-device-simulation"></a>Abrir a Simulação de Dispositivo
 
-Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
+Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) no GitHub.
 
 ## <a name="device-models"></a>Modelos de dispositivos
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a40f3286b4e832f5c73e650859fa9a1d4fe4b6cb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f48135523238711eb9058b35348895c851a95403
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256961"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713827"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificação personalizada de e-mail com Mailjet
 
@@ -44,6 +44,10 @@ Se ainda não tiver uma, comece por criar uma conta Mailjet (os clientes Azure p
 1. Siga as instruções de configuração na [Create a Mailjet Account](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
 1. Para poder enviar e-mail, [registe-se e valide](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) o seu endereço de e-mail ou domínio Sender.
 2. Navegue para a [página de Gestão de Chaves da API.](https://app.mailjet.com/account/api_keys) Grave a **chave API** e **a chave secreta** para utilização num passo posterior. Ambas as teclas são geradas automaticamente quando a sua conta é criada.  
+
+> [!IMPORTANT]
+> O Mailjet oferece aos clientes a capacidade de enviar e-mails a partir de IP partilhados e [endereços IP dedicados.](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP) Ao utilizar endereços IP dedicados, você precisa construir a sua própria reputação corretamente com um aquecimento de endereço IP. Para mais informações, veja [como aqueci o meu IP?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-)
+
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Criar chave de política Azure AD B2C
 

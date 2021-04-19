@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: f3a94576ef58eabf9d747c6e6c3a6372569d4cf1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4fc71f3242cc5607acebc68b62c5c0565b8f8e56
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785245"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107715015"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura de aplicação do Azure Migrate
 
@@ -63,7 +63,7 @@ O aparelho comunica com as fontes de descoberta utilizando o seguinte processo.
 ---|---|---|---
 **Iniciar a descoberta** | O aparelho comunica com o servidor vCenter na porta TCP 443 por predefinição. Se o servidor vCenter ouvir uma porta diferente, pode configurá-la no gestor de configuração do aparelho. | O aparelho comunica com os anfitriões Hyper-V na porta WinRM 5985 (HTTP). | O aparelho comunica com servidores Windows sobre a porta WinRM 5985 (HTTP) com servidores Linux sobre a porta 22 (TCP).
 **Recolha metadados de configuração e desempenho** | O aparelho recolhe os metadados dos servidores em execução no vCenter Server utilizando APIs vSphere ligando-os na porta 443 (porta predefinido) ou em qualquer outra porta que o servidor vCenter da porta ou seja ouvido. | O aparelho recolhe os metadados dos servidores em execução em anfitriões Hiper-V utilizando uma sessão de Modelo de Informação Comum (CIM) com anfitriões na porta 5985.| O aparelho recolhe metadados de servidores windows utilizando a sessão Common Information Model (CIM) com servidores na porta 5985 e a partir de servidores Linux utilizando conectividade SSH na porta 22.
-**Enviar dados de descoberta** | O aparelho envia os dados recolhidos para Azure Migrate: Discovery and assessment e Azure Migrate: Server Migration over SSL port 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft). | O aparelho envia os dados recolhidos para a Azure Migrate: Descoberta e avaliação sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft).| O aparelho envia os dados recolhidos para a Azure Migrate: Descoberta e avaliação sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft).
+**Enviar dados de descoberta** | O aparelho envia os dados recolhidos para Azure Migrate: Discovery and assessment e Azure Migrate: Server Migration over SSL port 443.<br/><br/>  O aparelho pode ligar-se ao Azure através da internet ou através do ExpressRoute private peering ou dos circuitos de observação da Microsoft. | O aparelho envia os dados recolhidos para a Azure Migrate: Descoberta e avaliação sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou através do ExpressRoute private peering ou dos circuitos de observação da Microsoft. | O aparelho envia os dados recolhidos para a Azure Migrate: Descoberta e avaliação sobre a porta SSL 443.<br/><br/> O aparelho pode ligar-se ao Azure através da internet ou através do ExpressRoute private peering ou dos circuitos de observação da Microsoft. 
 **Frequência de recolha de dados** | Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 20 segundos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos. <br/><br/> Os dados de inventário de software são enviados para a Azure uma vez a cada 12 horas. <br/><br/> Os dados de dependência sem agente são recolhidos a cada 5 minutos, agregados em aparelhos e enviados para Azure a cada 6 horas. <br/><br/> Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos.| Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 30 segundos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos.|  Os metadados de configuração são recolhidos e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são recolhidos a cada 5 minutos e são agregados para enviar um ponto de dados para Azure a cada 10 minutos.
 **Avaliar e migrar** | Pode criar avaliações a partir dos metadados recolhidos pelo aparelho utilizando a ferramenta Azure Migrate: Discovery and assessment.<br/><br/>Além disso, também pode começar a migrar servidores em execução no seu ambiente VMware utilizando a ferramenta Azure Migrate: Server Migration para orquestrar a replicação do servidor sem agente.| Pode criar avaliações a partir dos metadados recolhidos pelo aparelho utilizando a ferramenta Azure Migrate: Discovery and assessment. | Pode criar avaliações a partir dos metadados recolhidos pelo aparelho utilizando a ferramenta Azure Migrate: Discovery and assessment.
 

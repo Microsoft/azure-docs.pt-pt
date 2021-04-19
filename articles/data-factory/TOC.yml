@@ -793,7 +793,11 @@
         - name: Acionadores de Pipeline
           href: pipeline-trigger-troubleshoot-guide.md
         - name: Fluxos de Dados
-          href: data-flow-troubleshoot-guide.md
+          items:
+            - name: Visão geral dos fluxos de dados
+              href: data-flow-troubleshoot-guide.md
+            - name: Conector e formato
+              href: data-flow-troubleshoot-connector-format.md
         - name: Integração e implementação contínua
           href: ci-cd-github-troubleshoot-guide.md
         - name: Controlo de acesso e segurança

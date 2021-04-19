@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a0629d50ee8181ffcbfe7dad32ab76fb3e68fd
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715127"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714169"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração VMware
 
@@ -34,7 +34,8 @@ Utilize estas comparações selecionadas para ajudá-lo a decidir qual o método
 **Disco-alvo** | Managed disks | Managed disks
 **Limites de disco** | Disco de os: 2 TB<br/><br/> Disco de dados: 32 TB<br/><br/> Discos máximos: 60 | Disco de os: 2 TB<br/><br/> Disco de dados: 32 TB<br/><br/> Discos máximos: 63
 **Discos passthrough** | Não suportado | Suportado
-**Bota UEFI** | Suportado. | Suportado.
+**Bota UEFI** | Suportado. | Suportado. 
+**Conetividade** | Internet pública <br/> ExpressRoute com olhando a Microsoft <br/> <br/> [Aprenda](./replicate-using-expressroute.md) a usar pontos finais privados para replicação sobre um espreitamento privado ExpressRoute ou uma ligação S2S VPN. |Internet pública <br/> ExpressRoute com espreitamento privado <br/> ExpressRoute com olhando a Microsoft <br/> VPN site a site
 
 ## <a name="compare-deployment-steps"></a>Compare etapas de implementação
 

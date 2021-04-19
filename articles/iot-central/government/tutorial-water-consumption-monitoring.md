@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 476a0c2d75dcbee5c1ed4d758e0cbc9d4726ff95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65013bbf21faa8bffdcf799a991952b69f5fead
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587201"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714475"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutorial: Criar uma aplicação de monitorização do consumo de água com a Azure IoT Central
 
@@ -200,22 +200,23 @@ A aplicação de monitorização do consumo de água que criou tem três regras 
 
    ![Painel de regras](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-1. Selecione **alerta de pH elevado,** que é uma das regras pré-configuradas na aplicação.
+1. Selecione **Alerta de fluxo de água elevado,** que é uma das regras pré-configuradas na aplicação.
 
      ![Alerta de pH elevado](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    A `High flow alert` regra está configurada para verificar contra a condição `Acidity (pH)` é a `greater than` `Max flow threshold` . O limiar de fluxo max é uma propriedade em nuvem definida no modelo do dispositivo **Smart Valve.** O valor `Max flow threshold` é definido por instância do dispositivo.
+    A `High water flow alert` regra está configurada para verificar contra a condição `Flow` é a `greater than` `Max flow threshold` . O limiar de fluxo max é uma propriedade em nuvem definida no modelo do dispositivo **Smart Valve.** O valor `Max flow threshold` é definido por instância do dispositivo.
 
 Agora vamos criar uma ação por e-mail.
 
 Para adicionar uma ação à regra:
 
 1. Selecione **+ E-mail**.
-1. Introduza **o alerta de pH alto** como o nome de **exibição** amigável para a ação.
+1. Introduza **o alerta de fluxo elevado** como o nome de **exibição** amigável para a ação.
 1. Insira o endereço de e-mail associado à sua conta Azure IoT Central em **To**.
 1. Opcionalmente, insira uma nota para incluir no texto do e-mail.
 1. Selecione **Feito** para completar a ação.
-1. **Selecione Guardar** para guardar e ativar a nova regra.
+1. **Selecione Guardar** para guardar a nova regra.
+1. Ativar a regra.
 
 Dentro de poucos minutos, deverá receber um e-mail após o encontro da condição configurada.
 

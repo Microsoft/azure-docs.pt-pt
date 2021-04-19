@@ -96,6 +96,8 @@
       href: policy-keys-overview.md
 - name: Guias de procedimentos
   items:
+    - name: Gerencie o seu inquilino
+      href: tenant-management.md
     - name: Integração de aplicações
       items:
         - name: Registar uma aplicação Web

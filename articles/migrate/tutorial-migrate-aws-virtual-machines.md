@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 430ece58bd3dc1651ac391ba0e29515085ee507b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4879c8370953a5ac8c6b46efe8010db9692d3052
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878193"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714511"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -145,7 +145,9 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
 5. Clique **em Criar recursos.** Isto cria um cofre de recuperação do local de Azure em segundo plano.
     - Se já estabeleceu migração com a Migração do Servidor Azure Migrate, a opção-alvo não pode ser configurada, uma vez que os recursos foram criados anteriormente.
     - Não é possível alterar a região alvo deste projeto depois de clicar neste botão.
-    - Para migrar os seus VMs para uma região diferente, terá de criar um novo/diferente projeto Azure Migrate.
+    - Para migrar os seus VMs para uma região diferente, terá de criar um novo/diferente projeto Azure Migrate.  
+    > [!NOTE]
+    > Se selecionou o ponto final privado como o método de conectividade para o projeto Azure Migrate quando foi criado, o cofre dos Serviços de Recuperação também será configurado para a conectividade privada do ponto final. Certifique-se de que os pontos finais privados estão a ser alcançáveis a partir do aparelho de replicação. [**Saber mais**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
 
 6. Na  **instalação de um novo aparelho de replicação?**
 7. Em **Transferir e instalar o software do aparelho de replicação,** descarregue o instalador do aparelho e a chave de registo. É necessário fazer a chave para registar o aparelho. A chave é válida por cinco dias após o download.
@@ -244,13 +246,18 @@ Um agente de serviço de mobilidade deve ser instalado na fonte AWS VMs para ser
     ![Selecione VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 8. Em **Definições de destino**, selecione a subscrição, assim como a região de destino para a qual vai migrar, e especifique o grupo de recursos no qual as VMs do Azure vão residir após a migração.
-9. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.
-10. Nas **opções de Disponibilidade,** selecione:
+9. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.  
+10. Na  **conta de armazenamento Cache**, mantenha a opção predefinida de utilizar a conta de armazenamento de cache que é criada automaticamente para o projeto. Use a gota para baixo se quiser especificar uma conta de armazenamento diferente para usar como conta de armazenamento de cache para replicação. <br/> 
+    > [!NOTE]
+    >
+    > - Se selecionou o ponto final privado como método de conectividade para o projeto Azure Migrate, conceda aos Serviços de Recuperação acesso ao cofre da conta de armazenamento de cache. [**Saber mais**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
+    > - Para replicar usando o ExpressRoute com um espreitê público privado, crie um ponto final privado para a conta de armazenamento de cache. [**Saber mais**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+11. Nas **opções de Disponibilidade,** selecione:
     -  Zona de Disponibilidade para fixar a máquina migrada a uma zona de disponibilidade específica na região. Utilize esta opção para distribuir servidores que formam um nível de aplicação de vários nós em zonas de disponibilidade. Se selecionar esta opção, terá de especificar a Zona de Disponibilidade para utilizar para cada uma das máquinas selecionadas no separador Compute. Esta opção só está disponível se a região-alvo selecionada para a migração suportar Zonas de Disponibilidade
     -  Disponibilidade Definir para colocar a máquina migrada num Conjunto de Disponibilidade. O Grupo de Recursos-Alvo que foi selecionado deve ter um ou mais conjuntos de disponibilidade para utilizar esta opção.
     - Não é necessária nenhuma opção de redundância de infraestrutura se não precisar de nenhuma destas configurações de disponibilidade para as máquinas migradas.
     
-11. No **tipo de encriptação do disco,** selecione:
+12. No **tipo de encriptação do disco,** selecione:
     - Encriptação em repouso com chave gerida pela plataforma
     - Encriptação em repouso com chave gerida pelo cliente
     - Dupla encriptação com chaves geridas pela plataforma e geridas pelo cliente
@@ -258,14 +265,14 @@ Um agente de serviço de mobilidade deve ser instalado na fonte AWS VMs para ser
    > [!NOTE]
    > Para replicar VMs com CMK, terá de [criar uma encriptação de disco definida](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no Grupo de Recursos alvo. Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE.
   
-12. Em **Benefício Híbrido do Azure**:
+13. Em **Benefício Híbrido do Azure**:
 
     - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Seguinte**.
     - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
 
     ![Definições de destino](./media/tutorial-migrate-vmware/target-settings.png)
 
-13. No **Compute,** reveja o nome, tamanho, tipo de disco de SO e configuração de disponibilidade (se selecionado no passo anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+14. No **Compute,** reveja o nome, tamanho, tipo de disco de SO e configuração de disponibilidade (se selecionado no passo anterior). As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **Tamanho VM**: Se estiver a utilizar recomendações de avaliação, o dropdown do tamanho VM mostra o tamanho recomendado. Caso contrário, o Azure Migrate escolhe um tamanho com base na correspondência mais próxima na subscrição do Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**.
     - **Disco de os:** Especifique o disco DE (arranque) para o VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo.
@@ -274,13 +281,13 @@ Um agente de serviço de mobilidade deve ser instalado na fonte AWS VMs para ser
 
 ![Definições de cálculo](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-14. Em Discos , **especifique** se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
+15. Em Discos , **especifique** se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
     ![Definições de disco](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-15. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
+16. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
 
 > [!NOTE]
 > Pode atualizar as definições de replicação a qualquer momento antes de começar a replicação, **Gerir**  >  **máquinas de replicação**. As definições não podem ser alteradas após o início da replicação.

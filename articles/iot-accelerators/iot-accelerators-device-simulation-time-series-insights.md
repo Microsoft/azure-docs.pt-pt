@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90a4b808daccc76e8cc9125973c69b13e8086fbf
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96854568"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713971"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Insights de Séries temporais para visualizar a telemetria enviada do acelerador de solução de simulação do dispositivo
 
@@ -23,7 +23,7 @@ O acelerador de solução de simulação de dispositivo permite-lhe gerar teleme
 
 Para seguir os passos neste guia de como fazer, precisa de uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Os passos neste guia assumem que implementou o acelerador de solução de Simulação de Dispositivos para a sua subscrição Azure. Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
+Os passos neste guia assumem que implementou o acelerador de solução de Simulação de Dispositivos para a sua subscrição Azure. Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) no GitHub.
 
 Este artigo assume que o nome do seu acelerador de solução é **contoso-simulação.** Substitua **a simulação de contoso** pelo nome do seu acelerador de solução à medida que completa os seguintes passos.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 93545c63013c95e3db498b079061da3d9b189efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03d4b0e43c9f692b90f4ab5d4d136dac92b74de6
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95995765"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107715051"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo do dispositivo
 
@@ -86,7 +86,7 @@ Para a versão de um modelo de dispositivo:
 
 ## <a name="version-an-interface"></a>Versão uma interface
 
-A versão de uma interface permite-lhe adicionar, atualizar e remover as capacidades dentro da interface que já tinha criado.
+A versão de uma interface permite-lhe adicionar e atualizar capacidades dentro da interface que já tinha criado.
 
 Para a versão de uma interface:
 

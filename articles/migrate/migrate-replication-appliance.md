@@ -1,17 +1,17 @@
 ---
 title: Aplicação de replicação do Azure Migrate
-description: Saiba mais sobre o aparelho de replicação Azure Migrate para migração VMWare baseada em agentes.
+description: Saiba mais sobre o aparelho de replicação Azure Migrate para migração VMware baseada em agentes.
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f63b033c3995932662fc9b68c1397bf57b0326e
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754101"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714979"
 ---
 # <a name="replication-appliance"></a>Aparelho de replicação
 
@@ -75,7 +75,7 @@ O MySQL deve ser instalado na máquina do aparelho de replicação. Pode ser ins
 **Método** | **Detalhes**
 --- | ---
 Faça o download e instale manualmente | Descarregue a aplicação MySQL & colocá-la na pasta C:\Temp\ASRSetup e, em seguida, instale manualmente.<br/> Quando configurar o aparelho, o MySQL apresentará como já instalado.
-Sem download online | Coloque a aplicação do instalador MySQL na pasta C:\Temp\ASRSetup. Quando instalar o aparelho e clicar para descarregar e instalar o MySQL, a configuração utilizará o instalador que adicionou.
+Sem download online | Coloque a aplicação do instalador MySQL na pasta C:\Temp\ASRSetup. Quando instalar o aparelho e selecionar o download e instalar o MySQL, a configuração utilizará o instalador que adicionou.
 Faça o download e instale em Azure Migrate | Quando instalar o aparelho e for solicitado para o MySQL, selecione **Descarregue e instale**.
 
 ## <a name="url-access"></a>Acesso a URL
@@ -89,7 +89,7 @@ O aparelho de replicação precisa de acesso a estes URLs na nuvem pública de A
 \*.blob.core.windows.net | Usado para aceder à conta de armazenamento que armazena dados replicados
 \*.hypervrecoverymanager.windowsazure.com | Utilizado para operações de gestão e coordenação de replicação
 https:\//management.azure.com | Utilizado para operações de gestão e coordenação de replicação
-*.services.visualstudio.com | Utilizado para fins de telemetria (é opcional)
+*.services.visualstudio.com | Utilizado para fins de exploração madeireira (é opcional)
 time.windows.com | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
 https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /graph.windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.microsoft.com  | A configuração do aparelho precisa de acesso a estes URLs. São utilizados para controlo de acessos e gestão de identidade pela Azure Ative Directory
 https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL. Em algumas regiões, o download pode ser redirecionado para o URL CDN. Certifique-se de que o URL CDN também é permitido se necessário.
@@ -106,10 +106,17 @@ O aparelho de replicação precisa de acesso a estes URLs no Governo de Azure.
 \*.blob.core.windows.net | Usado para aceder à conta de armazenamento que armazena dados replicados
 \*.hypervrecoverymanager.windowsazure.us | Utilizado para operações de gestão e coordenação de replicação
 https:\//management.usgovcloudapi.net | Utilizado para operações de gestão e coordenação de replicação
-*.services.visualstudio.com | Utilizado para fins de telemetria (é opcional)
+*.services.visualstudio.com | Utilizado para fins de exploração madeireira (é opcional)
 time.nist.gov | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
 https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.live.com <br/> https: \/ /graph.windows.net <br/> https:\//login.windows.net <br/> https: \/ /www.live.com <br/> https: \/ /www.microsoft.com  | A instalação do aparelho com OVA necessita de acesso a estes URLs. São utilizados para controlo de acesso e gestão de identidade pela Azure Ative Directory.
-https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL. Em algumas regiões, o download pode ser redirecionado para o URL CDN. Certifique-se de que o URL CDN também é permitido se necessário.
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL. Em algumas regiões, o download pode ser redirecionado para o URL CDN. Certifique-se de que o URL CDN também é permitido se necessário.  
+
+>[!Note]
+>
+> Se o projeto Migrate tiver conectividade de ponto final privado, precisará de acesso a urls seguintes para além do acesso a ligações privadas:   
+> - *.blob.core.windows.com - Para aceder à conta de armazenamento que armazena dados replicados. Isto é opcional e não é necessário se a conta de armazenamento tiver um ponto final privado anexado. 
+> - https: \/ /management.azure.com para operações de gestão de replicação e coordenação. 
+>- https:\//login.microsoftonline.com <br/>https:\//login.windows.net <br/> https: \/ /www.live.com _e_ <br/> https: \/ /www.microsoft.com para controlo de acessos e gestão de identidade pela Azure Ative Directory
 
 ## <a name="port-access"></a>Acesso portuário
 
@@ -138,7 +145,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
 
 O aparelho é atualizado manualmente a partir do hub Azure Migrate. Recomendamos que execute sempre a versão mais recente.
 
-1. No Azure Migrate > Servidores > Azure Migrate: Avaliação do servidor, servidores de infraestruturas, clique em **servidores de configuração**.
+1. No Azure Migrate > Servidores > Azure Migrate: Avaliação do servidor, servidores de infraestruturas, **servidores de configuração selecionados**.
 2. Nos **servidores de Configuração,** aparece uma ligação na **Versão Agente** quando uma nova versão do aparelho de replicação está disponível. 
 3. Descarregue o instalador para a máquina do aparelho de replicação e instale a atualização. O instalador deteta a corrente da versão em funcionamento no aparelho.
  

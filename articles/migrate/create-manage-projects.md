@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: cb0ac41d469ad9a7670ce4b1bae23b315a17dc38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c9102f8ca724e431bb478945c5f4ba0369643d6
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871106"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714848"
 ---
 # <a name="create-and-manage-projects"></a>Criar e gerir projetos
 
@@ -46,9 +46,13 @@ Crie um novo projeto numa subscrição do Azure.
 5. No **projeto Create,** selecione o grupo de subscrição e recursos Azure. Crie um grupo de recursos se não tiver um.
 6. Em **Detalhes do Projeto,** especifique o nome do projeto e a geografia em que pretende criar o projeto.
     - A geografia é usada apenas para armazenar os metadados recolhidos a partir de servidores no local. Pode selecionar qualquer região-alvo para a migração. 
-    - Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
+    - Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government) 
 
-8. Selecione **Criar**.
+
+    > [!Note]
+    > Utilize a secção de configuração **Avançada** para criar um projeto Azure Migrate com conectividade de ponto final privado. [Saiba mais](how-to-use-azure-migrate-with-private-endpoints.md#create-a-project-with-private-endpoint-connectivity) 
+
+7. Selecione **Criar**.
 
      :::image type="content" source="./media/create-manage-projects/project-details.png" alt-text="Página para inserir definições de projeto":::
 

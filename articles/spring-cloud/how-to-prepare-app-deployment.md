@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a90d4c2a8649e270365af9b11fa408b865945f92
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cabc4784dfb19f569212f4d0cb93e6838473e559
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878469"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714493"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar uma aplicação para implantação em Azure Spring Cloud
 
@@ -142,7 +142,7 @@ Azure Spring Cloud suporta java 8 e Java 11. O ambiente de hospedagem contém a 
 
 Para preparar uma aplicação de Boot de mola existente para implantação para Azure Spring Cloud incluem as dependências de Spring Boot e Spring Cloud no ficheiro POM da aplicação, como mostrado nas seguintes secções.
 
-A azure Spring Cloud suporta apenas aplicações Spring Boot ou versão Spring Boot 2.1 ou versão 2.2. A tabela a seguir lista as combinações suportadas de Mola Boot e Spring Cloud:
+Azure Spring Cloud suporta a versão Spring Boot 2.2, 2.3, 2.4. A tabela a seguir lista as combinações suportadas de Mola Boot e Spring Cloud:
 
 Versão Boot de primavera | Versão Cloud de primavera
 ---|---

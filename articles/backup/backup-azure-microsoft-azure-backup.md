@@ -2,13 +2,13 @@
 title: Use o Servidor de Backup Azure para fazer backup de cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: b13eb22ad11535114b1cb82630bc1b490a03173f
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/14/2021
+ms.openlocfilehash: 144a5e26f5ad10d120a49f6a0385c3a310448dbc
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517577"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713683"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instale e atualize o Servidor de Backup do Azure
 
@@ -28,7 +28,7 @@ Este artigo explica como preparar o seu ambiente para fazer backup de cargas de 
 >
 >
 
-O MABS implantado num VM Azure pode fazer backup de VMs em Azure, mas devem estar no mesmo domínio para permitir o funcionamento de backup. O processo de apoio a um VM Azure permanece o mesmo que apoiar VMs nas instalações, no entanto a implantação de MABS em Azure tem algumas limitações. Para obter mais informações sobre a limitação, consulte [o DPM como uma máquina virtual Azure](/system-center/dpm/install-dpm#setup-prerequisites)
+O MABS implantado num VM Azure pode fazer backup de VMs em Azure, mas devem estar no mesmo domínio para permitir o funcionamento de backup. O processo de apoio a um VM Azure permanece o mesmo que apoiar VMs nas instalações, no entanto a implantação de MABS em Azure tem algumas limitações. Para obter mais informações sobre a limitação, consulte [o DPM como uma máquina virtual Azure](/system-center/dpm/install-dpm#setup-prerequisites).
 
 > [!NOTE]
 > A Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gestor de Recursos e clássico.](../azure-resource-manager/management/deployment-models.md) Este artigo fornece as informações e procedimentos para restaurar os VMs implantados utilizando o modelo gestor de recursos.
@@ -41,8 +41,8 @@ O Azure Backup Server herda grande parte da funcionalidade de backup de carga de
 
 O primeiro passo para pôr o Servidor de Backup Azure a funcionar é configurar um Servidor Windows. O seu servidor pode estar no Azure ou no local.
 
-* Para proteger as cargas de trabalho no local, o servidor MABS deve estar localizado no local.
-* Para proteger as cargas de trabalho em funcionamento em VMs Azure, o servidor MABS deve estar localizado em Azure, funcionando como um VM Azure.
+* Para proteger as cargas de trabalho no local, o servidor MABS deve estar localizado no local e ligado a um domínio.
+* Para proteger as cargas de trabalho em funcionamento em VMs Azure, o servidor MABS deve estar localizado em Azure, funcionando como um VM Azure, e ligado a um domínio.
 
 ### <a name="using-a-server-in-azure"></a>Usando um servidor em Azure
 
@@ -72,7 +72,7 @@ Pode desduplicar o armazenamento DPM utilizando a deduplica do Servidor do Windo
 >
 > A instalação do Azure Backup Server não é suportada no Windows Server Core ou no Microsoft Hyper-V Server.
 
-Junte sempre o Servidor de Backup Azure a um domínio. Se planeia mover o servidor para um domínio diferente, instale primeiro o Azure Backup Server e, em seguida, junte o servidor ao novo domínio. Mover uma máquina de servidor de backup Azure existente para um novo domínio após a implementação não ser *suportada*.
+Junte sempre o Servidor de Backup Azure a um domínio. Mover uma máquina de servidor de backup Azure existente para um novo domínio após a implementação não ser *suportada*.
 
 Quer envie dados de backup para o Azure, ou o mantenha localmente, o Azure Backup Server deve ser registado num cofre dos Serviços de Recuperação.
 
@@ -201,7 +201,7 @@ Uma vez concluído o processo de extração, verifique se a caixa para lançar o
 
     A localização do risco é um requisito para voltar a Azure. Certifique-se de que a localização do risco é de pelo menos 5% dos dados planeados para serem apoiados até à nuvem. Para a proteção do disco, os discos separados devem ser configurados uma vez concluída a instalação. Para obter mais informações sobre piscinas de armazenamento, consulte [Prepare o armazenamento de dados.](/system-center/dpm/plan-long-and-short-term-data-storage)
 
-    Os requisitos de capacidade para o armazenamento de discos dependem principalmente do tamanho dos dados protegidos, do tamanho do ponto de recuperação diário, da taxa de crescimento esperada dos dados de volume e dos objetivos da gama de retenção. Recomendamos que faça o armazenamento do disco duas vezes o tamanho dos dados protegidos. Isto assume um tamanho do ponto de recuperação diário correspondente a 10% do tamanho dos dados protegidos e um período de retenção de 10 dias. Para obter uma boa estimativa do tamanho, reveja o [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301). 
+    Os requisitos de capacidade para o armazenamento do disco dependem principalmente do tamanho dos dados protegidos, do tamanho do ponto de recuperação diário, da taxa de crescimento esperada dos dados de volume e dos objetivos da gama de retenção. Recomendamos que faça o armazenamento do disco duas vezes o tamanho dos dados protegidos. Isto assume um tamanho do ponto de recuperação diário correspondente a 10% do tamanho dos dados protegidos e um período de retenção de 10 dias. Para obter uma boa estimativa do tamanho, reveja o [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301). 
 
 5. Forneça uma palavra-passe forte para contas de utilizador locais restritas e selecione **Next**.
 
@@ -276,11 +276,11 @@ Aqui estão os passos se precisar de mover o MABS para um novo servidor, mantend
 7. Restaurar o DPMDB dado no passo 1.
 8. Prenda o armazenamento do servidor de reserva original ao novo servidor.
 9. A partir do SQL, restaurar o DPMDB.
-10. Executar CMD (como administrador) no novo servidor. Aceda à localização de instalação do Microsoft Azure Backup e à pasta do caixote do lixo
+10. Executar CMD (como administrador) no novo servidor. Aceda à localização de instalação do Microsoft Azure Backup e à pasta do lixo.
 
     Exemplo do caminho: `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
-11. Para ligar ao Azure Backup, corra `DPMSYNC -SYNC`
+11. Para ligar ao Azure Backup, corra `DPMSYNC -SYNC` .
 
     Se adicionou **discos novos** à piscina de armazenamento DPM em vez de mover os antigos, então `DPMSYNC -Reallocatereplica` corra.
 
@@ -366,7 +366,8 @@ Utilize os seguintes passos para atualizar o MABS:
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Se o servidor de backup do Microsoft Azure falhar com erros durante a fase de configuração (ou cópia de segurança ou restauro), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338)  para obter mais informações.
-Também pode consultar [as FAQs relacionadas com o Azure Backup](backup-azure-backup-faq.yml)
+
+Também pode consultar [as FAQs relacionadas com o Azure Backup.](backup-azure-backup-faq.yml)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: beba8e1d8126818f142e4873d551ed077af869d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 786d877328b1ab3d0f03a75604b7345dba14aa9d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035242"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713413"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Permitir a recuperação de desastres em Azure VM entre zonas de disponibilidade
 
@@ -20,7 +20,7 @@ Este artigo descreve como replicar, falhar e falhar as máquinas virtuais Azure 
 
 >[!NOTE]
 >
->- Atualmente, o apoio à recuperação de desastres zona para zona está limitado às seguintes regiões: Sudeste Asiático, Japão Oriental, Austrália Oriental, Reino Unido Sul, Europa Ocidental, Europa do Norte, Eua Central, Leste dos EUA, Leste dos EUA 2 e Eua Ocidental 2.  
+>- Atualmente, o apoio à recuperação de desastres zona para zona está limitado às seguintes regiões: Sudeste Asiático, Japão Oriental, Austrália Oriental, JIO Índia Oeste, Reino Unido Sul, Europa Ocidental, Europa do Norte, EUA Centrais, Leste dos EUA, Leste dos EUA 2 e Eua Ocidental 2.  
 >- A Recuperação do Site não move nem armazena os dados dos clientes para fora da região em que é implantado quando o cliente está a utilizar a Zone to Zone Disaster Recovery. Os clientes podem selecionar um Cofre de Serviços de Recuperação de uma região diferente, se assim o desejarem. O Cofre de Serviços de Recuperação contém metadados, mas nenhum dado real do cliente.
 
 O serviço de recuperação de sites contribui para a sua estratégia de continuidade e recuperação de desastres, mantendo as suas aplicações de negócio em funcionamento, durante as paragens planeadas e não planeadas. É a opção recomendada de recuperação de desastres para manter as suas aplicações em funcionamento se houver paragens regionais.

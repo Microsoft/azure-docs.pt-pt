@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres Azure VM com recuperaç
 description: Resume o apoio à recuperação de desastres dos VMs do Azure para uma região secundária com recuperação do local de Azure.
 ms.topic: article
 ms.date: 11/29/2020
-ms.openlocfilehash: 02268471d58cbd473493b6001aa9f1df271077bb
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 79cde5957b2090b8337a3af424dbda7e42608398
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376159"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713341"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -46,21 +46,21 @@ Pode replicar e recuperar VMs entre duas regiões dentro do mesmo aglomerado geo
 América | Canadá Leste, Canadá Central, Centro Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, Central EUA, Norte-Americanos do Centro Norte
 Europa | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, França Central, Suíça Norte, Alemanha Central
 Ásia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul
+JIO | JIO Índia Oeste
 Austrália    | Austrália Leste, Austrália Sudeste, Austrália Central, Austrália Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Alemanha    | Alemanha Central, Alemanha Nordeste
 China | China Leste, China Norte, China Norte2, China Leste2
-Regiões restritas reservadas à recuperação de desastres no país |Suíça West reservada à Suíça Norte, França Sul reservada à France Central, UAE Central restrita para clientes do Norte dos Emirados Árabes Unidos, Noruega Oeste para clientes noruegueses do Leste
+Brasil | Sul do Brasil
+Regiões restritas reservadas à recuperação de desastres no país |Suíça West reservada para suíça Norte, França Sul reservada para France Central, UAE Central restrita para os clientes do Norte dos Emirados Árabes Unidos, Noruega Oeste para clientes noruegueses leste, JIO India Central para clientes JIO Índia West, Brasil Sudeste para Brasil Sul
 
 >[!NOTE]
 >
-> - Para **o Brasil Sul,** você pode replicar e falhar para estas regiões: South Central EUA, West Central EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, e Norte-Americano Norte-Americano Norte-Americano.
-> - O Brasil Sul só pode ser usado como uma região de origem a partir da qual os VMs podem replicar-se usando a Recuperação do Local. Não pode funcionar como uma região alvo. Isto deve-se a problemas de latência devido a distâncias geográficas. Note que se você falhar do Brasil Sul como uma região de origem para um alvo, o recuo para o Brasil Sul da região alvo é apoiado.
+> - Para **o Brasil Sul,** você pode replicar e falhar para estas regiões: Brasil Sudeste, Centro Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, e Norte Central dos EUA.
+> - O Brasil Sul só pode ser usado como uma região de origem a partir da qual os VMs podem replicar-se usando a Recuperação do Local. Não pode funcionar como uma região alvo. Isto deve-se a problemas de latência devido a distâncias geográficas. Note que se você falhar do Brasil Sul como uma região de origem para um alvo, o recuo para o Brasil Sul da região alvo é apoiado. O Sudeste do Brasil só pode ser usado como uma região alvo.
 > - Pode trabalhar dentro de regiões para as quais tenha acesso adequado.
 > - Se a região em que pretende criar um cofre não aparecer, certifique-se de que a sua subscrição tem acesso para criar recursos naquela região.
 > - Se não conseguir ver uma região dentro de um cluster geográfico quando ativar a replicação, certifique-se de que a sua subscrição tem permissões para criar VMs nessa região.
-
-
 
 ## <a name="cache-storage"></a>Armazenamento em cache
 

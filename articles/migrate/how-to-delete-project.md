@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c94bb23f5d514fef5cdacb855657efdf5219631
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595138"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714745"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Eliminar um projeto do Azure Migrate
 
@@ -49,7 +49,9 @@ Estas tabelas resumem os recursos criados para a descoberta, avaliação e migra
 > [!NOTE]
 > Elimine o cofre com cuidado porque pode conter chaves de segurança.
 
-### <a name="vmwarephysical-server"></a>VMware/servidor físico
+### <a name="projects-with-public-endpoint-connectivity"></a>Projetos com conectividade de ponto final público
+
+#### <a name="vmwarephysical-server"></a>VMware/servidor físico
 
 **Recurso** | **Tipo**
 --- | ---
@@ -63,9 +65,9 @@ migrarappligwsa* | Conta de armazenamento
 migrarapplilsa* | Conta de armazenamento
 migrarapplicsa* | Conta de armazenamento
 migrarapplikv* | Key Vault
-migrarapplisbns16041 | Espaço de Nomes do Service Bus
+migrarapplisbns* | Espaço de Nomes do Service Bus
 
-### <a name="hyper-v-vm"></a>VM do Hyper-V 
+#### <a name="hyper-v-vm"></a>VM do Hyper-V
 
 **Recurso** | **Tipo**
 --- | ---
@@ -74,6 +76,50 @@ Projeto "ProjectName" | Microsoft.Migrate/assessmentProjects
 HiperV*kv | Key Vault
 HiperV*Site | Microsoft.OffAzure/HiperVSites
 "ProjectName"-MigrateVault-* | Cofre dos Serviços de Recuperação
+
+<br/>
+As tabelas que se seguem resumem os recursos criados pela Azure Migrate para descobrir, avaliar e migrar servidores através de uma rede privada utilizando [o link privado Azure](./how-to-use-azure-migrate-with-private-endpoints.md).
+
+### <a name="projects-with-private-endpoint-connectivity"></a>Projetos com conectividade de ponto final privado
+
+#### <a name="vmware-vms---agentless-migrations"></a>VMware VMs - migrações sem agentes
+
+**Tipo** | **Recurso** | **Ponto final privado <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "Nome do Projeto" | "ProjectName" \* pe 
+Site de descoberta (local principal) | "ProjectName"*mastersite | "ProjectName" \* mastersite \* pe 
+Microsoft.Migrate/assessmentProjects | Projeto "ApplianceName"* | Projeto "ApplianceName" \* \* pe 
+Key Vault | "ProjectName"*kv | "ProjectName" \* kv \* pe
+Microsoft.OffAzure/VMwareSites | "ApplianceName"*site | ND
+Cofre dos Serviços de Recuperação | "ApplianceName"*cofre | ND
+Conta de armazenamento | "ApplianceName"*eua | "ApplianceName" \* usa \* pe
+Cofre dos Serviços de Recuperação | "ProjectName"-MigrateVault-* | ND
+Conta de armazenamento | migrarappligwsa* | ND
+Conta de armazenamento | migrarapplilsa* | ND
+Key Vault | migrarapplikv* | ND
+Espaço de Nomes do Service Bus | migrarapplisbns* | ND
+
+#### <a name="hyper-v-vms"></a>VMs Hyper-V 
+
+**Tipo** | **Recurso** | **Ponto final privado <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "Nome do Projeto" | "ProjectName" \* pe 
+Site de descoberta (local principal) | "ProjectName"*mastersite | "ProjectName" \* mastersite \* pe 
+Microsoft.Migrate/assessmentProjects | Projeto "ApplianceName"* | Projeto "ApplianceName" \* \* pe 
+Key Vault | "ProjectName"*kv | "ProjectName" \* kv \* pe
+Microsoft.OffAzure/HiperVSites | "ApplianceName"*site | ND
+Cofre dos Serviços de Recuperação | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
+
+#### <a name="physical-servers--aws-vms--gcp-vms"></a>Servidores físicos / VMs AWS / VMs GCP 
+
+**Tipo** | **Recurso** | **Ponto final privado <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "Nome do Projeto" | "ProjectName" \* pe 
+Site de descoberta (local principal) | "ProjectName"*mastersite | "ProjectName" \* mastersite \* pe 
+Microsoft.Migrate/assessmentProjects | Projeto "ApplianceName"* | Projeto "ApplianceName" \* \* pe 
+Key Vault | "ProjectName"*kv | "ProjectName" \* kv \* pe
+Microsoft.OffAzure/servidores | "ApplianceName"*site | ND
+Cofre dos Serviços de Recuperação | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
 
 
 ## <a name="next-steps"></a>Passos seguintes

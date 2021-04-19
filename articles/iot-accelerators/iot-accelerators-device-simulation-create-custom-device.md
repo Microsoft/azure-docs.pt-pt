@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 22920e6535a19b1ab0ce970c1195cee676d9363f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ed83fdde4e005b0db76b9edf30faef5e8c732998
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057733"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714043"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Criar um dispositivo simulado personalizado
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para seguir este tutorial, precisa de uma instância implementada da Simulação de Dispositivos na sua subscrição do Azure.
 
-Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
+Se ainda não implementou a Simulação do Dispositivo, consulte a [implementação da simulação do dispositivo](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) no GitHub.
 
 ## <a name="view-your-device-models"></a>Ver os modelos de dispositivos
 

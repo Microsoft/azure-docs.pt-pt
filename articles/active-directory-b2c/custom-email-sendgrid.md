@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 44ba2e39de37703de66aefd1fe843d0ca5002b6b
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2c4dcaaa1deaa50d620e7c24dacbe56fa91c217f
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256978"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713449"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificação personalizada de e-mail com SendGrid
 
@@ -42,6 +42,9 @@ A verificação personalizada de e-mails requer a utilização de um fornecedor 
 Se ainda não tiver uma, comece por criar uma conta SendGrid (os clientes Azure podem desbloquear 25.000 e-mails gratuitos todos os meses). Para obter instruções de configuração, consulte a secção [Criar uma Conta SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) de [Como enviar e-mail usando SendGrid com Azure](../sendgrid-dotnet-how-to-send-email.md).
 
 Certifique-se de completar a secção na qual [cria uma chave SendGrid API](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Grave a chave API para utilização num passo posterior.
+
+> [!IMPORTANT]
+> A SendGrid oferece aos clientes a capacidade de enviar e-mails a partir de IP partilhados e [endereços IP dedicados.](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/) Ao utilizar endereços IP dedicados, você precisa construir a sua própria reputação corretamente com um aquecimento de endereço IP. Para obter mais informações, consulte [o Endereço Ip de Aquecimento](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/).
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Criar chave de política Azure AD B2C
 

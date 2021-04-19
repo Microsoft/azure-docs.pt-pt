@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 86f4f31d45acd99ca97cfb48081d87c632da5c96
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 97e589755602c14a11873fee5288ee8c6e24ba83
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587668"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714303"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -179,7 +179,7 @@ O Ponto Final Privado que criou deverá agora ter quatro zonas DNS configuradas:
 
 #### <a name="privatelink-monitor-azure-com"></a>Privatelink-monitor-azure-com
 Esta zona abrange os pontos finais globais utilizados pelo Azure Monitor, o que significa que estes pontos finais servem pedidos considerando todos os recursos, e não um específico. Esta zona deve ter pontos finais mapeados para:
-* `in.ai` - (Ponto final de ingestão de Insights de Aplicação, verá uma entrada global e regional
+* `in.ai` - Ponto final de ingestão de Insights de Aplicação (entrada global e regional)
 * `api` - Insights de Aplicações e Ponto final da API do Log Analytics
 * `live` - Application Insights live metrics endpoint
 * `profiler` - Ponto final do profiler de perfis de aplicações
@@ -197,8 +197,15 @@ Esta zona cobre o mapeamento específico do espaço de trabalho para pontos fina
 Esta zona cobre o mapeamento específico do espaço de trabalho para os pontos finais de automatização do serviço do agente. Deve ver uma entrada para cada espaço de trabalho ligado aos AMPLS ligados a este Ponto Final Privado.
 [![Screenshot do agente privado da zona DNS svc-azure-automation-net.](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net.png)](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net-expanded.png#lightbox)
 
+#### <a name="privatelink-blob-core-windows-net"></a>privatelink-blob-core-windows-net
+Esta zona configura a conectividade com a solução global de pacotes de armazenamento. Através dele, os agentes podem descarregar pacotes de soluções novos ou atualizados (também conhecidos como pacotes de gestão). Apenas uma entrada é necessária para lidar com os agentes do Log Analytics, independentemente do número de espaços de trabalho utilizados.
+[![Screenshot da zona privada DNS blob-core-windows-net.](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
+> [!NOTE]
+> Esta entrada só é adicionada às configurações de Links Privados criadas em ou depois de 19 de abril de 2021.
+
+
 ### <a name="validating-you-are-communicating-over-a-private-link"></a>Validando que está a comunicar através de um Link Privado
-* Para validar os seus pedidos são agora enviados através do Private Endpoint e para os pontos finais ip-mapeados privados, pode revê-los com um rastreio de rede para ferramentas, ou mesmo o seu navegador. Por exemplo, ao tentar consultar o seu espaço de trabalho ou aplicação, certifique-se de que o pedido é enviado para o IP privado mapeado para o ponto final da API, neste exemplo é *172.17.0.9*.
+* Para validar os seus pedidos são agora enviados através do Private Endpoint e dos pontos finais ip-mapeados privados, pode revê-los com uma ferramenta de rastreio de rede ou até mesmo o seu navegador. Por exemplo, ao tentar consultar o seu espaço de trabalho ou aplicação, certifique-se de que o pedido é enviado para o IP privado mapeado para o ponto final da API, neste exemplo é *172.17.0.9*.
 
     Nota: Alguns navegadores podem utilizar outras definições de DNS (ver [definições de DNS](#browser-dns-settings)do navegador). Certifique-se de que as definições de DNS se aplicam.
 
@@ -217,7 +224,7 @@ Aceda ao portal do Azure. No menu de recursos do espaço de trabalho Log Analyti
 Todos os âmbitos ligados ao espaço de trabalho aparecem neste ecrã. A ligação aos âmbitos (AMPLSs) permite que o tráfego de rede a partir da rede virtual ligada a cada AMPLS chegue a este espaço de trabalho. Criar uma ligação por aqui tem o mesmo efeito que a definição no âmbito, como fizemos na [ligação dos recursos do Monitor Azure.](#connect-azure-monitor-resources) Para adicionar uma nova ligação, **selecione Adicionar** e selecione o Azure Monitor Private Link Scope. **Selecione Aplicar** para conectá-lo. Note que um espaço de trabalho pode ligar-se a 5 objetos AMPLS, como mencionado em [Restrições e limitações](#restrictions-and-limitations). 
 
 ### <a name="manage-access-from-outside-of-private-links-scopes"></a>Gerir o acesso a partir de fora dos âmbitos de ligações privadas
-As definições na parte inferior desta página controlam o acesso a partir de redes públicas, o que significa que as redes não estão ligadas através dos âmbitos listados acima. Definição **Permitir o acesso à rede pública para ingestão** a **Nenhum** bloco de ingerência de troncos de máquinas fora dos âmbitos ligados. Definição **Permitir o acesso à rede pública para consultas** **sem** consultas de blocos provenientes de máquinas fora dos âmbitos. Isso inclui consultas executadas através de livros de trabalho, dashboards, experiências de cliente baseadas em API, insights no portal Azure, e muito mais. Experiências que correm fora do portal Azure, e que os dados de consulta log analytics também têm que estar em execução dentro do VNET ligado a privados.
+As definições na parte inferior desta página controlam o acesso a partir de redes públicas, o que significa redes não ligadas através dos âmbitos listados (AMPLSs). Definição **Permitir o acesso à rede pública para ingestão** a **Nenhum** bloco de ingerência de troncos de máquinas fora dos âmbitos ligados. Definição **Permitir o acesso à rede pública para consultas** **sem** consultas de blocos provenientes de máquinas fora dos âmbitos. Isso inclui consultas executadas através de livros de trabalho, dashboards, experiências de cliente baseadas em API, insights no portal Azure, e muito mais. Experiências que correm fora do portal Azure, e que os dados de consulta log analytics também têm que estar em execução dentro do VNET ligado a privados.
 
 ### <a name="exceptions"></a>Exceções
 Restringir o acesso como explicado acima não se aplica ao Gestor de Recursos Azure e, portanto, tem as seguintes limitações:
@@ -228,19 +235,18 @@ Restringir o acesso como explicado acima não se aplica ao Gestor de Recursos Az
 > Os registos e métricas enviados para um espaço de trabalho através [de Definições de Diagnóstico](../essentials/diagnostic-settings.md) passam por um canal privado seguro da Microsoft e não são controlados por estas definições.
 
 ### <a name="log-analytics-solution-packs-download"></a>Pacotes de soluções Log Analytics descarregam
+Os agentes do Log Analytics precisam de aceder a uma conta de armazenamento global para descarregar pacotes de soluções. As configurações private Link criadas em ou depois de 19 de abril de 2021 podem chegar ao armazenamento de pacotes de soluções dos agentes através do link privado. Isto é possível através da nova zona DNS criada para [blob.core.windows.net](#privatelink-blob-core-windows-net).
 
-Para permitir que o Agente Desafiado do Log Analytics descarregue pacotes de soluções, adicione os nomes de domínio totalmente qualificados apropriados à sua lista de admissões de firewall. 
+Se a sua configuração private Link foi criada antes de 19 de abril de 2021, não chegará ao armazenamento de pacotes de soluções através de um link privado. Para lidar com isso pode fazer uma das seguintes:
+* Recrie os seus AMPLS e o Private Endpoint ligados a ele
+* Permita que os seus agentes cheguem à conta de armazenamento através do seu ponto final público, adicionando as seguintes regras à sua lista de indicações de firewall:
 
+    | Ambiente em nuvem | Recursos do Agente | Portas | Direção |
+    |:--|:--|:--|:--|
+    |Azure Público     | scadvisorcontent.blob.core.windows.net         | 443 | Saída
+    |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
+    |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
 
-| Ambiente em nuvem | Recursos do Agente | Portas | Direção |
-|:--|:--|:--|:--|
-|Azure Público     | scadvisorcontent.blob.core.windows.net         | 443 | Saída
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Saída
-|Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Saída
-
-
->[!NOTE]
-> A partir de 19 de abril de 2021 não será necessário a definição acima, e poderá chegar à conta de armazenamento de pacotes de solução através do link privado. A nova capacidade requer a recriação do AMPLS (a 19 de abril de 2021 ou posterior) e do Private Endpoint ligado ao mesmo. Não se aplicará aos AMPLS existentes e aos endpints privados.
 
 ## <a name="configure-application-insights"></a>Configurar o Application Insights
 

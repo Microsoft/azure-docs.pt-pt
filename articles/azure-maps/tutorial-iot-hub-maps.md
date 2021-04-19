@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 91556087cd3e7ccd85550c721f70b8608fdc4ffd
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 9ebc6e266c93e55bc250e8450356f8b695dd9080
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168455"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714997"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT utilizando mapas Azure
 
@@ -95,7 +95,7 @@ A figura a seguir destaca a área de geofência em azul. O percurso do carro alu
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-Para armazenar dados de rastreio de violação de carro, crie uma [conta de armazenamento v2 para fins gerais](../storage/common/storage-account-overview.md#general-purpose-v2-accounts) no seu grupo de recursos. Se não criou um grupo de recursos, siga as instruções para [criar um grupo de recursos.](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) Neste tutorial, você vai nomear o seu grupo de recursos *ContosoRental.*
+Para armazenar dados de rastreio de violação de carro, crie uma [conta de armazenamento v2 para fins gerais](../storage/common/storage-account-overview.md) no seu grupo de recursos. Se não criou um grupo de recursos, siga as instruções para [criar um grupo de recursos.](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) Neste tutorial, você vai nomear o seu grupo de recursos *ContosoRental.*
 
 Para criar uma conta de armazenamento, siga as instruções na [criação de uma conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal). Neste tutorial, nomeie a conta de *armazenamento,* mas em geral pode nomeá-la como quiser.
 

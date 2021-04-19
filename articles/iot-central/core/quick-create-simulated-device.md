@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 142d78cf8b787e04704d26bca0c650944052fd7f
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 0396c028c8c0e1a18baf037fed4efc21aad944f1
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588977"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107715105"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Quickstart: Adicione um dispositivo simulado à sua aplicação IoT Central
 
@@ -94,7 +94,7 @@ As vistas padrão são uma forma rápida de começar a visualizar as informaçõ
 * A **vista geral** utiliza gráficos e métricas para exibir telemetria do dispositivo.
 * A vista **Sobre** exibe propriedades do dispositivo.
 
-Selecione o nó **Vistas** no modelo do dispositivo. Pode ver que o IoT Central gerou uma **visão geral** e uma vista **sobre** si quando adicionou o modelo.
+Selecione o nó **Vistas** no modelo do dispositivo. Pode ver que o IoT Central gerou uma **visão geral**, uma vista **Sobre** e uma vista **de Dados Brutos** para si quando adicionou o modelo.
 
 Para adicionar um novo formulário para gerir o dispositivo:
 

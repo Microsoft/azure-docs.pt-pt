@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2a37d206955e3372b9ecf97be8d27142bd417192
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: bf6b06ba7cc7f547f752ffa7877fca186ba4465e
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490459"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713791"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
@@ -68,15 +68,15 @@ A sua conta de armazenamento deve estar contida num VNet. Um VNet permite que os
 
 ## <a name="step-4-configure-network-security"></a>Passo 4:Configure a segurança da rede
 
-A única forma de proteger os dados na sua conta é utilizando um VNet e outras definições de segurança de rede. Qualquer outra ferramenta utilizada para proteger dados, incluindo a autorização da chave de conta, a segurança do Azure Ative Directory (AD) e as listas de controlo de acesso (ACLs) ainda não são suportadas em contas que tenham o suporte do protocolo NFS 3.0 ativado nos mesmos. 
+A única forma de proteger os dados na sua conta é utilizando um VNet e outras definições de segurança de rede. Qualquer outra ferramenta utilizada para proteger dados, incluindo a autorização da chave de conta, a segurança do Azure Ative Directory (AD) e as listas de controlo de acesso (ACLs) ainda não são suportadas em contas que tenham o suporte do protocolo NFS 3.0 ativado nos mesmos.
 
 Para proteger os dados na sua conta, consulte estas recomendações: [Recomendações de segurança da rede para armazenamento blob](security-recommendations.md#networking).
 
 ## <a name="step-5-create-and-configure-a-storage-account"></a>Passo 5: Criar e configurar uma conta de armazenamento
 
-Para montar um recipiente utilizando o NFS 3.0, tem de criar uma conta de armazenamento **depois de** registar a funcionalidade com a sua subscrição. Não é possível ativar as contas que existiam antes de registar a funcionalidade. 
+Para montar um recipiente utilizando o NFS 3.0, tem de criar uma conta de armazenamento **depois de** registar a funcionalidade com a sua subscrição. Não é possível ativar as contas que existiam antes de registar a funcionalidade.
 
-No lançamento de pré-visualização desta funcionalidade, o protocolo NFS 3.0 é suportado nas contas [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) e [V2 de uso geral.](../common/storage-account-overview.md#general-purpose-v2-accounts)
+No lançamento de pré-visualização desta funcionalidade, o protocolo NFS 3.0 é suportado para contas de armazenamento v2 de uso geral padrão e para contas de armazenamento de blob bloco premium. Para obter mais informações sobre este tipo de contas de armazenamento, consulte [a visão geral da conta de Armazenamento](../common/storage-account-overview.md).
 
 Ao configurar a conta, escolha estes valores:
 

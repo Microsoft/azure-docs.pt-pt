@@ -7,12 +7,12 @@ ms.date: 07/31/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a9e35c7d4d64279c65971dd512bcd2107dad6594
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c25af944b4c748307f4f974ca8616ecc9f7b28c3
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92000061"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714529"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Como rolar certificados de dispositivo X.509 na Aplicação Central IoT
 

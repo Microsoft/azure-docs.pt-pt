@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: c4ca8d8ac24ac174158957e44b5eabe4a89a5340
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0bc2b69a4a1ec31cfa560d51920378fe1ab52b8
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775209"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714799"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Montar um aparelho no Governo de Azure 
 
@@ -26,7 +26,7 @@ Siga este artigo para implementar um [aparelho Azure Migrate](./migrate-applianc
 
 O script configura o aparelho Azure Migrate num servidor físico existente ou num servidor virtualizado.
 
-- O servidor que funcionará como o aparelho deve estar a executar o Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo. Requer um endereço IP estático ou dinâmico e acesso à internet.
+- O servidor que funcionará como o aparelho deve estar a executar o Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo. Requer um endereço IP estático ou dinâmico. 
 - Antes de implementar o aparelho, reveja os requisitos detalhados do aparelho para [servidores em VMware,](migrate-appliance.md#appliance---vmware) [em Hiper-V](migrate-appliance.md#appliance---hyper-v)e [servidores físicos](migrate-appliance.md#appliance---physical).
 - Não coloque o guião num aparelho Azure Migrate existente.
 

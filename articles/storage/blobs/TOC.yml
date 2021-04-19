@@ -266,11 +266,9 @@
       items:
         - name: Criar e gerir contas de armazenamento
           items:
-            - name: Criar uma conta de armazenamento para fins gerais
+            - name: Criar uma conta de armazenamento
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
               href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Criar uma conta de armazenamento de blob de blocos
-              href: storage-blob-create-account-block-blob.md
             - name: Atualizar uma conta de armazenamento
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Recuperar uma conta de armazenamento eliminada

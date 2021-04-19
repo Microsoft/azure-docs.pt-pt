@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b10d2e10f95470cadf67af762a0d7320bc09b7e0
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d7fc04e65e2b79d43c48acd5a8c621f28d5c0403
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075700"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714673"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -128,7 +128,44 @@ download.microsoft.com/download | Permitir downloads a partir do centro de desca
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Ligue-se aos URLs de serviço Azure Migrate.
 *.hypervrecoverymanager.windowsazure.us | **Usado para migração sem agente VMware**<br/><br/> Ligue-se aos URLs de serviço Azure Migrate.
 *.blob.core.usgovcloudapi.net  |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
-*.applicationinsights.us | Faça o upload dos registos do aparelho utilizados para a monitorização interna.
+*.applicationinsights.us | Faça o upload dos registos do aparelho utilizados para a monitorização interna.  
+
+### <a name="public-cloud-urls-for-private-link-connectivity"></a>URLs de nuvem pública para conectividade de ligação privada
+
+O aparelho necessita de acesso aos seguintes URLs (direta ou via procuração) para além do acesso a ligações privadas. 
+
+**URL** | **Detalhes**  
+--- | --- | 
+*.portal.azure.com  | Navegue para o portal do Azure.
+\*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Inscreva-se na sua assinatura Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Crie aplicativos Azure Ative Directory (AD) para o aparelho comunicar com a Azure Migrate.
+management.azure.com | Crie aplicativos AD AZure para o aparelho comunicar com o Azure Migrate.
+*.services.visualstudio.com (opcional) | Faça o upload dos registos do aparelho utilizados para a monitorização interna.
+aka.ms/* (opcional) | Permitir o acesso a links aka; usado para descarregar e instalar as últimas atualizações para serviços de aparelhos.
+download.microsoft.com/download | Permitir downloads a partir do centro de descarregamento da Microsoft.
+*.servicebus.windows.net | **Usado para migração sem agente VMware**<br/><br/> Comunicação entre o aparelho e o serviço Azure Migrate.
+*.vault.azure.net | **Usado para migração sem agente VMware**<br/><br/>  Garantir que os servidores para replicar têm acesso a isto.
+*.hypervrecoverymanager.windowsazure.com | **Usado para migração sem agente VMware**<br/><br/> Ligue-se aos URLs de serviço Azure Migrate.
+*.blob.core.windows.net |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
+
+### <a name="government-cloud-urls-for-private-link-connectivity"></a>URLs de nuvem do governo para conectividade de ligação privada   
+
+O aparelho necessita de acesso aos seguintes URLs (direta ou via procuração) para além do acesso a ligações privadas. 
+
+**URL** | **Detalhes**  
+--- | --- |
+*.portal.azure.us  | Navegue para o portal do Azure.
+graph.windows.net | Inscreva-se na sua assinatura Azure.
+login.microsoftonline.us  | Crie aplicativos Azure Ative Directory (AD) para o aparelho comunicar com a Azure Migrate.
+management.usgovcloudapi.net | Crie aplicativos AD AZure para o aparelho comunicar com o serviço Azure Migrate.
+*.services.visualstudio.com (opcional) | Faça o upload dos registos do aparelho utilizados para a monitorização interna.
+aka.ms/* (opcional) | Permitir o acesso a links aka; usado para descarregar e instalar as últimas atualizações para serviços de aparelhos.
+download.microsoft.com/download | Permitir downloads a partir do centro de descarregamento da Microsoft.
+*.servicebus.usgovcloudapi.net  | **Usado para migração sem agente VMware**<br/><br/> Comunicação entre o aparelho e o serviço Azure Migrate. 
+*.vault.usgovcloudapi.net | **Usado para migração sem agente VMware**<br/><br/> Gerir segredos no Cofre da Chave Azure.
+*.hypervrecoverymanager.windowsazure.us | **Usado para migração sem agente VMware**<br/><br/> Ligue-se aos URLs de serviço Azure Migrate.
+*.blob.core.usgovcloudapi.net  |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
+*.applicationinsights.us (opcional) | Faça o upload dos registos do aparelho utilizados para a monitorização interna.  
 
 ## <a name="collected-data---vmware"></a>Dados recolhidos - VMware
 

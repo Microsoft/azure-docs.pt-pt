@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 565e6fd5aae3068605b617deccb0d04785c1e248
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a94f3cc6b2387857d19c7b98fa0be64dd6646ec9
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057631"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713863"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialize telemetria usando tampão de protocolo
 
@@ -57,7 +57,7 @@ As instruções deste artigo pressupõem que está a usar o Windows. Se estiver 
 
 Faça o download e desaperte os [Microserviços](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) de Monitorização Remota do GitHub para uma localização adequada na sua máquina local. Este repositório inclui o microserviço do adaptador de armazenamento que necessita para este como fazê-lo.
 
-Faça o download e desaperte o [microserviço](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) de simulação do dispositivo do GitHub para uma localização adequada na sua máquina local.
+Faça o download e desaperte o [microserviço](https://github.com/Azure/azure-iot-pcs-device-simulation/archive/master.zip) de simulação do dispositivo do GitHub para uma localização adequada na sua máquina local.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Executar o microserviço do adaptador de armazenamento
 
@@ -277,4 +277,4 @@ Muitas funcionalidades do IoT Hub não suportam de forma nativa o Protobuf ou ou
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a personalizar a Simulação do Dispositivo para usar o Protobuf para enviar telemetria, o próximo passo é visitar o repositório do GitHub para aprender mais [simulação de dispositivo.](https://github.com/Azure/device-simulation-dotnet)
+Agora que aprendeu a personalizar a Simulação do Dispositivo para usar o Protobuf para enviar telemetria, o próximo passo é visitar o repositório do GitHub para aprender mais [simulação de dispositivo.](https://github.com/Azure/azure-iot-pcs-device-simulation)

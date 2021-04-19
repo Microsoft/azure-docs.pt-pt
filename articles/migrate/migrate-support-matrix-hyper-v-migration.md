@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 90da16789344754c02d46022160db71ee261a056
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33e34e777a78e1c609d2eacdcb501c0bce1f5c9d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754067"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714925"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração hiper-V
 
@@ -83,7 +83,13 @@ backup.windowsazure.us | Transferência e coordenação de dados de replicação
 *.hypervrecoverymanager.windowsazure.us | Usado para gestão de replicação.
 *.blob.core.usgovcloudapi.net | Faça upload de dados para contas de armazenamento.
 dc.services.visualstudio.com | Faça upload de registos de aplicativos utilizados para monitorização interna.
-time.nist.gov | Verifica a sincronização temporal entre o sistema e o tempo global.
+time.nist.gov | Verifica a sincronização temporal entre o sistema e o tempo global.   
+
+>[!Note]
+>
+> Se o projeto Migrate tiver **conectividade de ponto final privado,** o software do fornecedor de replicação nos anfitriões Hyper-V necessitará de acesso a estes URLs para suporte de ligação privada. 
+> - *.blob.core.windows.com - Para aceder à conta de armazenamento que armazena dados replicados. Isto é opcional e não é necessário se a conta de armazenamento tiver um ponto final privado anexado. 
+> - login.windows.net para controlo de acesso e gestão de identidade utilizando o Ative Directory.
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 

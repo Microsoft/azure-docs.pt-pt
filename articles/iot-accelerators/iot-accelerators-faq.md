@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1fd2b8461bd66c826dc4890c331b740c4703f896
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61993df77b0831926f16339a741a2553e80c2a0d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96903994"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713845"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas mais frequentes sobre aceleradores de soluções do IoT
 
@@ -24,7 +24,7 @@ Consulte também as [FAQ específicas da fábrica conectada.](iot-accelerators-f
 O código fonte é armazenado nos seguintes repositórios GitHub:
 
 * [Acelerador de solução de fábrica conectado](https://github.com/Azure/azure-iot-connected-factory)
-* [Acelerador de solução de simulação de dispositivo](https://github.com/Azure/device-simulation-dotnet)
+* [Acelerador de solução de simulação de dispositivo](https://github.com/Azure/azure-iot-pcs-device-simulation)
 
 ### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>Onde posso encontrar os aceleradores de monitorização remota e de manutenção preditiva?
 
@@ -36,7 +36,7 @@ As implementações existentes não são afetadas pela remoção dos aceleradore
 
 ### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>Como posso implementar o acelerador de solução de simulação do dispositivo?
 
-Para implementar o acelerador de solução de simulação do dispositivo, consulte o repositório de [simulação](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) do dispositivo GitHub.
+Para implementar o acelerador de solução de simulação do dispositivo, consulte o repositório de [simulação](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) do dispositivo GitHub.
 
 ### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>Onde posso encontrar informações sobre os aceleradores de solução removidos?
 

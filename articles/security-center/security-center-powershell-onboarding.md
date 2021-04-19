@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 01/24/2021
+ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: 25639509cfb689e025ea4388f302378648af8ba6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f9ab258f59279112d0b90c5d460e6761ac911a2d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439498"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713359"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar o embarque no Azure Security Center usando o PowerShell
 
@@ -75,9 +75,9 @@ Estes passos devem ser realizados antes de executar os cmdlets do Centro de Segu
     > Recomenda-se que o fornecimento automático se certifique de que as suas máquinas virtuais Azure estão automaticamente protegidas pelo Azure Security Center.
     >
 
-1. Opcional: É altamente recomendado que defina os dados de contacto de segurança para as subscrições que está a bordo, que serão utilizados como destinatários de alertas e notificações geradas pelo Security Center:
+1. Opcional: É altamente recomendado que [defina os dados de contacto](security-center-provide-security-contact-details.md) de segurança para as subscrições que está a bordo, que serão utilizados como destinatários de alertas e notificações geradas pelo Security Center:
 
-    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -AlertAdmin -NotifyOnAlert```
 
 1. Atribua a iniciativa de política do Centro de Segurança predefinido:
 

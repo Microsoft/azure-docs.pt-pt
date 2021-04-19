@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: bcbac4f6a91ad77d21eb6274aa03d251b8fbfe7c
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 354f64eb86cd545860c47562fba7ff43babe72ca
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515061"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714151"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup do servidor SQL em VMs Azure
 
@@ -97,7 +97,7 @@ Copy-Only Cheio |  Secundária
 
 O Azure Backup suporta uma taxa de transferência de dados consistente de 200 Mbps para cópias de segurança completas e diferenciais de grandes bases de dados SQL (de 500 GB). Para utilizar o desempenho ideal, certifique-se de que:
 
-- O VM subjacente (que contém a instância SQL Server, que acolhe a base de dados) está configurado com a produção de rede necessária. Se o rendimento máximo do VM for inferior a 200 Mbps, o Azure Backup não pode transferir dados à velocidade ideal.<br></br>Além disso, o disco que contém os ficheiros da base de dados deve ter o suficiente de produção. [Saiba mais](../virtual-machines/disks-performance.md) sobre a produção de discos e desempenho em VMs Azure. 
+- O VM subjacente (que contém a instância SQL Server, que acolhe a base de dados) está configurado com a produção de rede necessária. Se o rendimento máximo do VM for inferior a 200 Mbps, o Azure Backup não pode transferir dados à velocidade ideal.<br>Além disso, o disco que contém os ficheiros da base de dados deve ter o suficiente de produção. [Saiba mais](../virtual-machines/disks-performance.md) sobre a produção de discos e desempenho em VMs Azure. 
 - Os processos, que estão a decorrer no VM, não estão a consumir a largura de banda VM. 
 - Os horários de reserva estão espalhados por um subconjunto de bases de dados. Várias cópias de segurança em execução simultânea num VM partilham a taxa de consumo de rede entre as cópias de segurança. [Saiba mais](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) sobre como controlar o número de backups simultâneos.
 
