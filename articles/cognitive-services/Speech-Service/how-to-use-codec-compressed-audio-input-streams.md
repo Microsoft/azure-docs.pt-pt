@@ -12,16 +12,16 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 1e08203076de2073e39c5b5f5eb40b66c88490d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f02a9a3b493ed0f3068e6e0ccd2daa40850a4fb6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417711"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726183"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utilize entrada de áudio comprimido codec com o SDK de fala
 
-O serviço de voz SDK **Comprimida Transmissão de Entrada Sonora** API fornece uma forma de transmitir áudio comprimido para o serviço Dea falar utilizando um `PullStream` ou `PushStream` .
+O serviço de voz SDK fornece uma forma de enviar diretamente formatos de áudio comprimido para o serviço Dea falar usando um `PullStream` ou `PushStream` (nenhum dos fluxos de aproximação diretamente para a parte de trás, um PCM cru ainda é enviado para o serviço).
 
 Plataforma | Idiomas | Versão GStreamer suportada
 | :--- | ---: | :---:

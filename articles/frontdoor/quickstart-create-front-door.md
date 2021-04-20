@@ -6,7 +6,7 @@ documentationcenter: na
 author: duongau
 ms.author: duau
 manager: KumudD
-ms.date: 09/16/2020
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 2cf52d30c5658e73c55944bdfb7d424425fa4507
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 74b7c16904c86751076d40056027999fe44cb868
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538943"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727872"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: criar um Front Door para uma aplicação Web global de elevada disponibilidade
 
 Começa com a Porta Frontal Azure utilizando o portal Azure para configurar uma alta disponibilidade para uma aplicação web.
 
 Neste quickstart, a Azure Front Door junta dois casos de uma aplicação web que funciona em diferentes regiões do Azure. Cria-se uma configuração da Porta frontal baseada em apoios iguais ponderados e as mesmas prioridades. Esta configuração direciona o tráfego para o local mais próximo que executa a aplicação. A porta frontal Azure monitoriza continuamente a aplicação web. O serviço fornece falha automática para o próximo site disponível quando o site mais próximo está indisponível.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagrama do ambiente de implantação da porta frontal utilizando o portal Azure." border="false":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -67,8 +69,8 @@ Depois da sua implementação estar concluída, crie uma segunda aplicação web
 | ---              | ---  |
 | **Grupo de recursos**   | Selecione **Criar novo** e introduza *FrontDoorQS_rg2* |
 | **Nome**             | Insira um nome único para a sua Web App, neste exemplo, *WebAppContoso-2*  |
-| **Região**           | Uma região diferente, neste exemplo, *South Central US* |
-| **Plano de Serviço de**  >  Aplicações **Plano Windows**         | Selecione **Novo** e insira *myAppServicePlanSouthCentralUS,* e depois selecione **OK** |
+| **Região**           | Uma região diferente, neste exemplo, *Leste dos EUA* |
+| **Plano de Serviço de**  >  Aplicações **Plano Windows**         | Selecione **Novo** e insira *myAppServicePlanEastUS,* e depois selecione **OK** |
 
 ## <a name="create-a-front-door-for-your-application"></a>Criar um Front Door para a sua aplicação
 

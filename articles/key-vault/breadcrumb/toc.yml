@@ -2,14 +2,14 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Cofre de Chaves
+    - name: Key Vault
       tocHref: /azure/
       topicHref: /azure/key-vault/index
 - name: Azure
   tocHref: /java/
   topicHref: /azure/index
   items:
-    - name: Cofre de Chaves
+    - name: Key Vault
       tocHref: /java/azure/
       topicHref: /azure/key-vault/
       items:
@@ -20,7 +20,7 @@
   tocHref: /powershell/
   topicHref: /azure/index
   items:
-    - name: Cofre de Chaves
+    - name: Key Vault
       tocHref: /powershell/module/
       topicHref: /azure/key-vault/
       items:
@@ -31,7 +31,7 @@
   tocHref: /cli/
   topicHref: /azure/index
   items:
-    - name: Cofre de Chaves
+    - name: Key Vault
       tocHref: /cli/azure/
       topicHref: /azure/key-vault/
       items:
@@ -49,10 +49,17 @@
               tocHref: /cli/azure/keyvault/secret
               topicHref: /azure/key-vault/
 - name: Azure
+  tocHref: /security/benchmark/azure/
+  topicHref: /azure/index
+  items:
+    - name: Key Vault
+      tocHref: /security/benchmark/azure/baselines
+      topicHref: /azure/key-vault/general/index
+- name: Azure
   tocHref: /sccm/
   topicHref: /azure/index
   items:
-    - name: Cofre de Chaves
+    - name: Key Vault
       tocHref: /sccm/apps/
       topicHref: /azure/key-vault/index
       items:

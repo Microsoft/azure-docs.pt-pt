@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 67ab4c8cf079adaf3b38cdcc30abeec43cd4612f
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: cd26df1de86ee4bdb33050d0bc4769663707733e
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505200"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725031"
 ---
 # <a name="data-storage"></a>Armazenamento de Dados
 
@@ -53,7 +53,7 @@ Os dados na sua loja quente só estão disponíveis através das [APIs de Consul
 
 * Quando ativados, todos os dados transmitidos para o seu ambiente serão encaminhados para a sua loja quente, independentemente da hora do evento. Note que o gasoduto de ingestão de streaming é construído para o streaming em tempo quase real e ingerir eventos históricos não é [suportado](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * O período de retenção é calculado com base no momento em que o evento foi indexado em loja quente, e não na marca de tempo do evento. Isto significa que os dados já não estão disponíveis em loja quente após o período de retenção ter decorrido, mesmo que o tempo de evento seja para o futuro.
-  * Exemplo: um evento com previsões meteorológicas de 10 dias é ingerido e indexado num recipiente de armazenamento quente configurado com um período de retenção de 7 dias. Após 7 dias de tempo, a previsão já não é acessível em loja quente, mas pode ser questionada do frio.
+  * Exemplo: um evento com previsões meteorológicas de 10 dias é ingerido e indexado num recipiente de armazenamento quente configurado com um período de retenção de 7 dias. Após sete dias, a previsão já não é acessível em loja quente, mas pode ser questionada do frio.
 * Se ativar a loja quente num ambiente existente que já tenha dados recentes indexados no armazenamento a frio, note que a sua loja quente não estará cheia de dados.
 * Se tiver ativado a loja quente e estiver a ter problemas de visualização dos seus dados recentes no Explorer, pode temporariamente desviar as consultas de loja quentes:
 
@@ -70,6 +70,9 @@ Para obter uma descrição completa do armazenamento do Azure Blob, leia a intro
 Azure Time Series Insights Gen2 retém até duas cópias de cada evento na sua conta de Armazenamento Azure. Uma cópia armazena eventos encomendados pelo tempo de ingestão, sempre permitindo o acesso a eventos numa sequência ordenada pelo tempo. Ao longo do tempo, a Azure Time Series Insights Gen2 também cria uma cópia repartida dos dados para otimizar para consultas performantes.
 
 Todos os seus dados são armazenados indefinidamente na sua conta de Armazenamento Azure.
+
+> [!WARNING]
+> Não restringir o acesso público à Internet a um hub ou fonte de eventos utilizado pela Time Series Insights ou a ligação necessária será quebrada.
 
 #### <a name="writing-and-editing-blobs"></a>Bolhas de escrita e edição
 
@@ -119,7 +122,7 @@ Os eventos da Azure Time Series Insights Gen2 estão mapeados para os conteúdos
 * Cada linha inclui a coluna **de relógios** com uma carimbo de tempo de evento. A propriedade do carimbo de tempo nunca é nula. O incumprimento do **evento é o tempo previsto** se a propriedade do carimbo de tempo não for especificada na fonte do evento. O carimbo de tempo armazenado está sempre na UTC.
 * Todas as linhas incluem a coluna ID (TSID) da Série De Tempo(s) definida quando o ambiente Azure Time Series Insights Gen2 é criado. O nome da propriedade TSID inclui o `_string` sufixo.
 * Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_bool` (boolean), `_datetime` (carimbo de `_long` tempo), `_double` (longo), `_string` (duplo), (cadeia) ou `dynamic` (dinâmico), dependendo do tipo de propriedade.  Para mais informações, leia sobre [os tipos de dados suportados.](./concepts-supported-data-types.md)
-* Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1** e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
+* Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1**, e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

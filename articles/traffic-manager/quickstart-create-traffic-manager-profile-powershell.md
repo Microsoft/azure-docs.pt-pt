@@ -4,8 +4,8 @@ description: Este artigo de arranque rápido descreve como criar um perfil de Ge
 services: traffic-manager
 author: duongau
 ms.author: duau
-manager: twooley
-ms.date: 10/01/2020
+manager: kumud
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: traffic-manager
 ms.workload: infrastructure-services
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-api
-ms.openlocfilehash: 0fd2ae59f62850da75eecd5423ad225e208dca80
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 96580a56abaffcc11180a406e00aaabb1cb1e2e7
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537650"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727885"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Quickstart: Criar um perfil de Gestor de Tráfego para uma aplicação web altamente disponível usando a Azure PowerShell
 
 Este quickstart descreve como criar um perfil de Gestor de Tráfego que oferece alta disponibilidade para a sua aplicação web.
 
 Neste arranque rápido, criará duas instâncias de uma aplicação web. Cada um deles está a correr numa região diferente do Azure. Você vai criar um perfil de Gestor de Tráfego baseado na [prioridade do ponto final](traffic-manager-routing-methods.md#priority-traffic-routing-method). O perfil direciona o tráfego do utilizador para o site primário que executa a aplicação web. O Gestor de Tráfego monitoriza continuamente a aplicação web. Se o site principal não estiver disponível, fornece falha automática no site de reserva.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagrama do ambiente de implementação do Gestor de Tráfego utilizando a Azure PowerShell." border="false":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +42,7 @@ Criar um grupo de recursos utilizando [o New-AzResourceGroup](/powershell/module
 ```azurepowershell-interactive
 
 # Variables
-$Location1="WestUS"
+$Location1="EastUS"
 
 # Create a Resource Group
 New-AzResourceGroup -Name MyResourceGroup -Location $Location1
@@ -77,39 +79,37 @@ Crie planos de serviço de aplicações web utilizando o [New-AzAppServicePlan](
 ```azurepowershell-interactive
 
 # Variables
-$App1Name="AppServiceTM1$Random"
-$App2Name="AppServiceTM2$Random"
-$Location1="WestUS"
-$Location2="EastUS"
+$Location1="EastUS"
+$Location2="WestEurope"
 
 # Create an App service plan
-New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
-New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
+New-AzAppservicePlan -Name "myAppServicePlanEastUS" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
+New-AzAppservicePlan -Name "myAppServicePlanEastUS" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
 
 ```
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Criar uma aplicação web no Plano de Serviço de Aplicações
-Crie duas instâncias a aplicação web utilizando o [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) nos planos do Serviço de Aplicações nas regiões Azure *dos EUA* e *Leste dos EUA.*
+Crie duas instâncias a aplicação web utilizando o [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) nos planos do Serviço de Aplicações nas regiões *Azure dos EUA* e Da Europa *Ocidental.*
 
 ```azurepowershell-interactive
-$App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
-$App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName MyResourceGroup -Location $Location2 -AppServicePlan "$App2Name-Plan").Id
+$App1ResourceId=(New-AzWebApp -Name myWebAppEastUS -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "myAppServicePlanEastUS").Id
+$App2ResourceId=(New-AzWebApp -Name myWebAppWestEurope -ResourceGroupName MyResourceGroup -Location $Location2 -AppServicePlan "myAppServicePlanWestEurope").Id
 
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 Adicione as duas Aplicações Web como pontos finais do Gestor de Tráfego utilizando [o New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ao perfil de Gestor de Tráfego da seguinte forma:
-- Adicione a Web App localizada na região *do West US* Azure como o principal ponto final para encaminhar todo o tráfego do utilizador. 
-- Adicione a Web App localizada na região *de East US* Azure como o ponto final de failover. Quando o ponto final principal não está disponível, o tráfego liga-se automaticamente para o ponto final de saída.
+- Adicione a Web App localizada na região *de East US* Azure como o principal ponto final para encaminhar todo o tráfego do utilizador. 
+- Adicione a Web App localizada na região do Azure da *Europa Ocidental* como o ponto final de failover. Quando o ponto final principal não está disponível, o tráfego liga-se automaticamente para o ponto final de saída.
 
 ```azurepowershell-interactive
-New-AzTrafficManagerEndpoint -Name "$App1Name-$Location1" `
+New-AzTrafficManagerEndpoint -Name "myPrimaryEndpoint" `
 -ResourceGroupName MyResourceGroup `
 -ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
 -TargetResourceId $App1ResourceId `
 -EndpointStatus "Enabled"
 
-New-AzTrafficManagerEndpoint -Name "$App2Name-$Location2" `
+New-AzTrafficManagerEndpoint -Name "myFailoverEndpoint" `
 -ResourceGroupName MyResourceGroup `
 -ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
@@ -140,7 +140,7 @@ Copie o valor **relativo do Nome Denas.** O nome DNS do seu perfil de Gestor de 
 2. Para ver o Gestor de Tráfego falhar em ação, desative o seu site principal utilizando [Disable-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/disable-aztrafficmanagerendpoint).
 
    ```azurepowershell-interactive
-    Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
+    Disable-AzTrafficManagerEndpoint -Name "myPrimaryEndpoint" `
     -Type AzureEndpoints `
     -ProfileName $mytrafficmanagerprofile `
     -ResourceGroupName MyResourceGroup `

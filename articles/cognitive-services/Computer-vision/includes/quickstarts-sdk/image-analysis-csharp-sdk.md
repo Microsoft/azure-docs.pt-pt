@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 407ef167ca05f08d349a017c60164e2fe67977a6
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0af6c97d6179a645b078f2335ff38f48890c42a3
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327519"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728199"
 ---
 <a name="HOLTop"></a>
 
@@ -79,7 +79,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 > [!TIP]
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo no [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)que contém os exemplos de código neste arranque rápido.
 
-A partir do diretório do projeto, abra o ficheiro *ComputerVisionQuickstart.cs* no seu editor preferido ou IDE. Adicione as `using` seguintes diretivas:
+A partir do diretório do projeto, abra o arquivo *program.cs* no seu editor preferido ou IDE. Adicione as `using` seguintes diretivas:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
 
@@ -150,19 +150,19 @@ Defina o seu novo método de análise de imagem. Adicione o código abaixo, que 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_visualfeatures)]
 
-Insira qualquer um dos seguintes blocos de código no seu método **AnalyzeImageUrl** para implementar as suas funcionalidades. Lembre-se de adicionar um suporte de fecho no final.
-
-```csharp
-}
-```
-
-### <a name="analyze"></a>Analisar
+### <a name="call-the-analyze-api"></a>Ligue para a API de Análise
 
 O método **AnalyzeImageAsync** devolve um objeto **ImageAnalysis** que contém toda a informação extraída.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_call)]
 
 As seguintes secções mostram como analisar esta informação em detalhe.
+
+Insira qualquer um dos seguintes blocos de código no seu método **AnalyzeImageUrl** para analisar os dados das funcionalidades visuais que solicitou acima. Lembre-se de adicionar um suporte de fecho no final.
+
+```csharp
+}
+```
 
 ### <a name="get-image-description"></a>Obtenha a descrição da imagem
 

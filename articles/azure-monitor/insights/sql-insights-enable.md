@@ -5,21 +5,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: cfcb34b731855fd26ddad191b819e308406117cb
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 012aa364fe9e379455b6b63f7c9e541d2d5b97ed
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478340"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726903"
 ---
 # <a name="enable-sql-insights-preview"></a>Ativar insights SQL (pré-visualização)
 Este artigo descreve como permitir [insights SQL](sql-insights-overview.md) para monitorizar as suas implementações SQL. A monitorização é realizada a partir de uma máquina virtual Azure que faz uma ligação às suas implementações SQL e utiliza Vistas de Gestão Dinâmica (DMVs) para recolher dados de monitorização. Pode controlar quais conjuntos de dados são recolhidos e a frequência de recolha utilizando um perfil de monitorização.
+
+> [!NOTE]
+> Para ativar os insights DO SQL criando o perfil de monitorização e a máquina virtual utilizando um modelo de gestor de recursos, consulte [amostras de modelo de Gestor de Recursos para insights SQL](resource-manager-sql-insights.md).
 
 ## <a name="create-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 Os insights SQL armazenam os seus dados em um ou mais [espaços de trabalho do Log Analytics.](../logs/data-platform-logs.md#log-analytics-workspaces)  Antes de ativar o SQL Insights, tem de [criar um espaço de trabalho](../logs/quick-create-workspace.md) ou selecionar um existente. Um espaço de trabalho único pode ser usado com múltiplos perfis de monitorização, mas o espaço de trabalho e os perfis devem estar localizados na mesma região de Azure. Para ativar e aceder às funcionalidades em insights SQL, tem de ter o [papel de colaborador](../logs/manage-access.md) do Log Analytics no espaço de trabalho. 
 
 ## <a name="create-monitoring-user"></a>Criar utilizador de monitorização 
 Precisa de um utilizador nas implementações SQL que pretende monitorizar. Siga os procedimentos abaixo para diferentes tipos de implementações SQL.
+
+As instruções abaixo cobrem o processo por tipo de SQL que pode monitorizar.  Para o conseguir com um script em vários SQL resouces de uma só vez, consulte o seguinte [ficheiro README](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) e [o exemplo script](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1).
+
 
 ### <a name="azure-sql-database"></a>Base de dados SQL do Azure
 Abrir base de dados Azure SQL com [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou [Editor de Consulta (pré-visualização)](../../azure-sql/database/connect-query-portal.md) no portal Azure.
@@ -87,7 +93,7 @@ Verifique se o utilizador foi criado.
 select name as username,
        create_date,
        modify_date,
-       type_desc as type,
+       type_desc as type
 from sys.server_principals
 where type not in ('A', 'G', 'R', 'X')
        and sid is not null

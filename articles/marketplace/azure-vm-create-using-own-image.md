@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 03/10/2021
-ms.openlocfilehash: 4711ea76af83594ec529cfda13a308fbe6646398
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 47fe7b42b68ae42f74a74e5fc69c8d1041d3bf8d
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200464"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727129"
 ---
 # <a name="how-to-create-a-virtual-machine-using-your-own-image"></a>Como criar uma máquina virtual usando a sua própria imagem
 
@@ -48,6 +48,9 @@ Esta secção descreve como dimensionar, atualizar e generalizar um VM Azure. Es
 Todas as imagens no Mercado Azure devem ser reutilizáveis de forma genérica. Para isso, o sistema operativo VHD deve ser generalizado, uma operação que remove todos os identificadores e controladores de software específicos de instância de um VM.
 
 ## <a name="bring-your-image-into-azure"></a>Traga a sua imagem para Azure
+
+> [!NOTE]
+> A assinatura Azure que contém o SIG deve estar sob o mesmo inquilino que a conta de editor para publicar. Além disso, a conta de editor deve ter pelo menos acesso ao Contribuinte à subscrição que contém SIG.
 
 Há três maneiras de trazer a sua imagem para Azure:
 

@@ -6,16 +6,16 @@ ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 02/14/2021
-ms.openlocfilehash: eb6dbb74fe0d345a157049e79f7a3642499d7cfa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 727196f274db3abae75a38d3ecdf31a78dec0fab
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037987"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725949"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Como atualizar regras de alerta ou regras de ação quando o seu recurso-alvo se desloca para uma região de Azure diferente
 
-Este artigo descreve por que razão [as regras](./alerts-overview.md) de alerta existentes e [as regras de ação](./alerts-action-rules.md) podem ser impactadas quando se movem outros recursos Azure entre regiões e como identificar e resolver essas questões. Consulte a [documentação](../../azure-resource-manager/management/move-region.md) principal do movimento de recursos para obter informações adicionais sobre quando é que o movimento de recursos entre as regiões é útil e uma lista de verificação de um processo de movimento.
+Este artigo descreve por que razão [as regras](./alerts-overview.md) de alerta existentes e [as regras de ação](./alerts-action-rules.md) podem ser impactadas quando se movem outros recursos Azure entre regiões e como identificar e resolver essas questões. Consulte a [documentação](../../azure-resource-manager/management/move-resources-overview.md) principal do movimento de recursos para obter informações adicionais sobre quando é que o movimento de recursos entre as regiões é útil e uma lista de verificação de um processo de movimento.
 
 ## <a name="why-the-problem-exists"></a>Por que o problema existe
 
@@ -82,7 +82,7 @@ Se **apenas alguns** dos recursos no âmbito se deslocaram, é necessário retir
 
 ### <a name="change-the-scope-of-a-rule-using-azure-resource-manager-templates"></a>Alterar o âmbito de uma regra utilizando modelos de Gestor de Recursos Azure
 
-1. Obtenha o modelo de Gestor de Recursos Azure da regra.  Para exportar o modelo de uma regra a partir do portal Azure:
+1. Obtenha o modelo de Gestor de Recursos Azure da regra.   Para exportar o modelo de uma regra a partir do portal Azure:
    1. Navegue na secção Grupos de Recursos no portal e abra o grupo de recursos que contém a regra.
    2. Na secção Visão Geral, verifique a caixa de verificação **do tipo oculta Show** e filtre pelo tipo relevante da regra.
    3. Selecione a regra relevante para ver os seus detalhes.

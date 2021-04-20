@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: banders
-ms.openlocfilehash: adaff7a6b8559fe9604412a44eced6c490231e3c
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: acb22cc4b2a461e476131a83972db3e782425a39
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103603832"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727713"
 ---
 # <a name="link-a-partner-id-to-your-power-apps-accounts"></a>Ligue um ID de parceiro às suas contas power apps
 
@@ -115,43 +115,8 @@ Eliminar o ID de parceiro ligado
 az managementpartner delete --partner-id 12345
 ```
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
-
-As secções seguintes cobrem perguntas frequentes sobre a ligação de um ID de parceiro às contas power apps.
-
-### <a name="who-should-link-the-partner-id"></a>Quem deve ligar a iD do parceiro?
-
-Qualquer utilizador da organização parceira que trabalhe nos recursos power apps de um cliente pode ligar o ID do parceiro à conta. Idealmente, a associação em PAL deve ser feita no início do projeto. No entanto, pode ser realizado sempre que tiver acesso no diretório do cliente.
-
-### <a name="can-a-partner-id-be-changed-after-its-linked"></a>Um ID de parceiro pode ser alterado depois de ter sido ligado?
-
-Sim. Um ID de parceiro ligado pode ser alterado, adicionado ou removido. Um exemplo para esta situação pode ser quando um funcionário da sua empresa deixa a sua organização. Outro exemplo pode ser quando um projeto ou contrato com o cliente termina.
-
-### <a name="what-if-a-user-has-an-account-in-more-than-one-customer-tenant"></a>E se um utilizador tiver uma conta em mais de um inquilino do cliente?
-
-A ligação entre o ID de parceiro e a conta é feita para cada inquilino do cliente. Ligue o ID de parceiro em cada inquilino de cliente.
-
-### <a name="can-other-partners-or-customers-edit-or-remove-the-link-to-the-partner-id"></a>Outros parceiros ou clientes podem editar ou remover a ligação para o ID de parceiro?
-
-A ligação é associada ao nível da conta de utilizador. Apenas o utilizador da conta pode editar ou remover a ligação para o ID do parceiro. O cliente e os outros parceiros não podem alterar a ligação para o ID de parceiro.
-
-### <a name="which-mpn-id-should-i-use-if-my-company-has-multiple"></a>Qual ID do MPN devo utilizar se a minha empresa tiver vários?
-
-Utilize o **ID do MPN associado** apresentado no seu perfil de parceiro. Normalmente é a associação de identificação de conta local com a sua organização.
-
-### <a name="how-do-i-explain-pal-to-my-customer"></a>Como explico pal ao meu cliente?
-
-O PAL permite à Microsoft identificar e reconhecer os parceiros que estão a ajudar os clientes a alcançar objetivos de negócio e a perceber valor na nuvem. Os clientes devem primeiro fornecer um parceiro de acesso aos seus recursos Power Apps. Uma vez concedido o acesso, o ID da Rede de Parceiros microsoft do parceiro (MPN ID) está associado. Esta associação ajuda a Microsoft a compreender os fornecedores de serviços e a aperfeiçoar as ferramentas e programas necessários para apoiar melhor os clientes.
-
-### <a name="what-data-does-pal-collect"></a>Que dados são recolhidos pelo PAL?
-
-A associação do PAL a credenciais já existentes não fornece dados novos dos clientes à Microsoft. Fornece a informação à Microsoft onde um parceiro está ativamente envolvido nos ambientes de Power Apps de um cliente. A Microsoft pode atribuir uso e influência do ambiente do cliente à organização parceira com base nas permissões da conta (função de Power Apps) e âmbito (inquilino, Grupo de Recursos, Recursos) fornecido ao parceiro pelo cliente.
-
-### <a name="does-pal-association-affect-the-security-of-a-customers-power-apps-environment"></a>A associação PAL afeta a segurança do ambiente de Power Apps de um cliente?
-
-A associação PAL só adiciona o ID MPN do parceiro à credencial já prevista. Não altera quaisquer permissões (função Power Apps) nem fornece dados de serviço extra de Power Apps para o parceiro ou Microsoft.
-
 ### <a name="next-steps"></a>Passos seguintes
 
+- Leia a Gestão de [Custos + Faturação de FAQ](../cost-management-billing-faq.yml) para perguntas e respostas sobre a ligação de um ID de parceiro às contas power apps.
 - Participe na discussão na [Comunidade de Parceiros da Microsoft](https://aka.ms/PALdiscussion) para receber atualizações ou enviar comentários.
 - Leia a [especialização avançada de Desenvolvimento de Aplicações de Código Baixo FAQ](https://assetsprod.microsoft.com/mpn/faq-low-code-app-development-advanced-specialization.pdf) para associação de Aplicações de Energia baseadas em PAL para desenvolvimento de aplicações de código baixo avançada especialização.

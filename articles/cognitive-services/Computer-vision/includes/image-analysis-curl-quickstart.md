@@ -7,16 +7,16 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 77958746487ffbcf19ad14be71818c59e9520374
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 7a2e8613aab61beec3720cadaa20eb008386b43b
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287251"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728186"
 ---
 Utilize a API DE ANÁLISE DE Imagem PARA:
 
@@ -140,7 +140,9 @@ Uma resposta de êxito escreve a imagem em miniatura para o ficheiro especificad
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore a API de Análise de Imagem em maior profundidade. Para experimentar rapidamente com a API, experimente a [consola de testes Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
+Neste arranque rápido, aprendeu a instalar chamadas básicas de análise de imagem utilizando a API REST. Em seguida, saiba mais sobre as funcionalidades da API de análise.
 
 > [!div class="nextstepaction"]
-> [Explore a API de Análise de Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)
+>[Ligue para a API de Análise](../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
+
+* [Visão geral da análise de imagem](../overview-image-analysis.md)

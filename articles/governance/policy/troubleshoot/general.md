@@ -1,14 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDKs e o addon para Kubernetes.
-ms.date: 01/26/2021
+ms.date: 04/19/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4feae11c6d8d78a43bae9882405e292a18e90bd
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592616"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725067"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Erros de resolução de problemas com a utilização da Política Azure
 
@@ -124,6 +124,24 @@ Uma atribuição de política ao âmbito do seu novo recurso ou atualizado satis
 #### <a name="resolution"></a>Resolução
 
 A mensagem de erro de uma atribuição de política de negação inclui a definição de política e iDs de atribuição de políticas. Se a informação de erro na mensagem for perdida, também está disponível no [registo de Atividades](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Utilize estas informações para obter mais detalhes para compreender as restrições de recursos e ajustar as propriedades de recursos no seu pedido para corresponder aos valores permitidos.
+
+### <a name="scenario-definition-targets-multiple-resource-types"></a>Cenário: Definição visa vários tipos de recursos
+
+#### <a name="issue"></a>Problema
+
+Uma definição de política que inclui vários tipos de recursos falha na validação durante a criação ou atualização com o seguinte erro:
+
+```error
+The policy definition '{0}' targets multiple resource types, but the policy rule is authored in a way that makes the policy not applicable to the target resource types '{1}'.
+```
+
+#### <a name="cause"></a>Causa
+
+A regra de definição de política tem uma ou mais condições que não são avaliadas pelos tipos de recursos-alvo.
+
+#### <a name="resolution"></a>Resolução
+
+Se for utilizado um pseudónimo, certifique-se de que o pseudónimo é avaliado apenas contra o tipo de recurso a que pertence, adicionando uma condição do tipo antes. Uma alternativa é dividir a definição de política em várias definições para evitar direcionar vários tipos de recursos.
 
 ## <a name="template-errors"></a>Erros do modelo
 

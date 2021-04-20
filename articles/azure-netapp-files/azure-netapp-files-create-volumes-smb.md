@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: eeeaf01dd20e5b309884a01f954ceca576cbcbb9
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9bb995e5e3038d7a4cd24f0db2608461c8848497
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259630"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726301"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -91,6 +91,26 @@ Antes de criar um volume SMB, é necessário criar uma ligação Ative Directory
     * Selecione **SMB** como o tipo de protocolo para o volume. 
     * Selecione a sua ligação **Ative Directory** a partir da lista de drop-down.
     * Especificar o nome do volume partilhado no  **nome Share**.
+    * Se pretender ativar a encriptação para SMB3, selecione **Ative SMB3 Protocol Encryption**.   
+        Esta funcionalidade permite encriptação para dados SMB3 a bordo. Os clientes SMB que não usam encriptação SMB3 não poderão aceder a este volume.  Os dados em repouso são encriptados independentemente desta definição.  
+        Consulte [as FAQs de encriptação SMB](azure-netapp-files-faqs.md#smb-encryption-faqs) para obter informações adicionais. 
+
+        A funcionalidade **de encriptação do protocolo SMB3** encontra-se atualmente em pré-visualização. Se esta for a sua primeira utilização, registe a funcionalidade antes de a utilizar: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Verifique o estado do registo da funcionalidade: 
+
+        > [!NOTE]
+        > O **Estado de Registo** pode estar no estado até `Registering` 60 minutos antes de mudar para `Registered` . Aguarde até que o estado seja `Registered` antes de continuar.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        Também pode utilizar [comandos Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e registar a funcionalidade e exibir o estado de `az feature show` registo.  
     * Se pretender ativar a Disponibilidade Contínua para o volume SMB, selecione **Ativar a Disponibilidade Contínua**.    
 
         > [!IMPORTANT]   

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Gráfico mostrando os limites do serviço Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 05/05/2020
+ms.date: 04/08/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 15c76bc042cb66dafbdeebac2951f5cb68310aa4
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 651922837b2193f7a8387c4dec6a1e20b84a41a5
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482796"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728039"
 ---
 # <a name="azure-digital-twins-service-limits"></a>Limites de serviço Azure Digital Twins
 

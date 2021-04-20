@@ -76,6 +76,8 @@
           href: hana-li-portal.md
         - name: Configuração HA com STONITH
           href: ha-setup-with-stonith.md
+        - name: Azure Large Instances alta disponibilidade para SAP em RHEL
+          href: large-instance-high-availability-rhel.md
         - name: Cópia de segurança de SO para SKUs de Tipo II
           href: os-backup-type-ii-skus.md
         - name: Ativar o Kdump para o HANA nas Instâncias Grandes

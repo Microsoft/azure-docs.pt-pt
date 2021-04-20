@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 5171cefdb82b958ae8148ff63f1daef5f67916c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 23597804a34a9bc409db179010569024aa472016
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044962"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725931"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre a instalação do agente Log Analytics em computadores Linux utilizando os seguintes métodos:
@@ -71,16 +71,16 @@ O python2 executável deve ser aliasado a *pitão.* Segue-se um método que pode
     ```
 
 ## <a name="supported-linux-hardening"></a>Endurecimento de Linux apoiado
-O Agente OMS tem um suporte limitado de personalização para o Linux. 
+O Agente OMS tem um suporte limitado de personalização e endurecimento para o Linux.
 
 Neste momento, são apoiados: 
 - FIPs
 
-Estão em consideração, mas ainda não apoiados:
+Não há suporte para o seguinte:
 - CIS
 - SELINUX
 
-Outros métodos de endurecimento e personalização não são suportados nem planeados para o agente OMS.  
+Está previsto um apoio de endurecimento cis e SELINUX para [o Agente de Monitorização Azure.](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) Os métodos de endurecimento e personalização adicionais não são suportados nem planeados para o agente OMS.  
 
 ## <a name="agent-prerequisites"></a>Pré-requisitos do agente
 

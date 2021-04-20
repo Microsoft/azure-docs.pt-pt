@@ -3,14 +3,14 @@ author: baanders
 description: incluir arquivo para limites Azure Digital Twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 6/9/2020
+ms.date: 4/8/2021
 ms.author: baanders
-ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34fec713c3764987f07bc7fb89ecb0a0d770a840
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100370116"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728029"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
@@ -46,7 +46,8 @@ O quadro seguinte reflete os limites de taxa de diferentes APIs.
 | API | Funcionalidade | Limite predefinido | Ajustável? |
 | --- | --- | --- | --- |
 | Modelos API | Número de pedidos por segundo | 100 | Yes |
-| API de Gémeos Digitais | Número de pedidos por segundo | 2.000 | Yes |
+| API de Gémeos Digitais | Número de pedidos de leitura por segundo | 1,000 | Yes |
+| API de Gémeos Digitais | Número de pedidos de patch por segundo | 1,000 | Yes |
 | API de Gémeos Digitais | Número de operações de criação/eliminação por segundo em **todos os gémeos e relacionamentos** | 50 | Yes |
 | API de Gémeos Digitais | Número de operações de criação/atualização/eliminação por segundo num **único gémeo** ou nas suas relações | 10 | No |
 | API de Consulta | Número de pedidos por segundo | 500 | Yes |

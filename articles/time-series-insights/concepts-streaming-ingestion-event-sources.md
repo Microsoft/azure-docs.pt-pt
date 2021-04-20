@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 4e22d93d3037c190193f53b7cfdbc87cff2da6ed
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 499cb3c978a67f9ef71e6ad9dd03be9f05b45729
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504401"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726975"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Fontes de eventos Azure Time Series Insights Gen2
 
@@ -31,9 +31,12 @@ A fonte do evento é a ligação entre o seu hub e o ambiente Azure Time Series 
 
 Pode utilizar o [portal Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI,](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source) [modelos Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e a [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para criar, editar ou remover as fontes de eventos do seu ambiente.
 
+> [!WARNING]
+> Não restringir o acesso público à Internet a um hub ou fonte de eventos utilizado pela Time Series Insights ou a ligação necessária será quebrada.
+
 ## <a name="start-options"></a>Opções de início
 
-Ao criar uma fonte de evento, tem a opção de especificar quais os dados pré-existentes que devem ser recolhidos. Esta definição é opcional. Estão disponíveis as seguintes opções:
+Ao criar uma fonte de evento, pode especificar quais os dados pré-existentes que devem ser recolhidos. Esta definição é opcional. Estão disponíveis as seguintes opções:
 
 | Nome   |  Descrição  |  Exemplo do modelo do gestor de recursos Azure |
 |----------|-------------|------|
@@ -46,18 +49,17 @@ Ao criar uma fonte de evento, tem a opção de especificar quais os dados pré-e
 > - Se selecionar o EarliestAvailable e tiver muitos dados pré-existentes, poderá experimentar uma elevada latência inicial, uma vez que o ambiente Azure Time Series Insights Gen2 processa todos os seus dados.
 > - Esta elevada latência deve eventualmente diminuir à medida que os dados são indexados. Envie um bilhete de apoio através do portal Azure se sentir uma elevada latência.
 
-* O mais cedo disponível
+- O mais cedo disponível
 
 ![Diagrama disponível mais cedo](media/concepts-streaming-event-sources/event-source-earliest-available.png)
 
-* EventSourceCreationTime
+- EventSourceCreationTime
 
 ![Diagrama de Tempo de EventoSourceCreation](media/concepts-streaming-event-sources/event-source-creation-time.png)
 
-* Tempo Personalizado
+- Tempo Personalizado
 
 ![Diagrama customEnqueuedTime](media/concepts-streaming-event-sources/event-source-custom-enqueued-time.png)
-
 
 ## <a name="streaming-ingestion-best-practices"></a>Boas práticas de ingestão de streaming
 
@@ -105,7 +107,7 @@ Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade
 
 Em geral, os utilizadores optarão por personalizar a propriedade do timetamp e utilizar o tempo em que o sensor ou tag gerou a leitura em vez de usar o tempo padrão do hub. Isto é particularmente necessário quando os dispositivos têm perda de conectividade intermitente e um lote de mensagens atrasadas são reencaminhadas para Azure Time Series Insights Gen2.
 
-Se a sua marca de tempo personalizada estiver dentro de um objeto JSON aninhado ou de uma matriz, você precisará fornecer o nome de propriedade correto seguindo nossas [convenções de achatamento e fuga](concepts-json-flattening-escaping-rules.md)de nomeação . Por exemplo, o tempo de origem do evento para a carga útil JSON [mostrada aqui](concepts-json-flattening-escaping-rules.md#example-a) deve ser introduzido como `"values.time"` .
+Se a sua marca de tempo personalizada estiver dentro de um objeto JSON aninhado ou de uma matriz, você precisará fornecer o nome de propriedade correto seguindo [nossas convenções de achatamento e fuga](concepts-json-flattening-escaping-rules.md)de nomeação . Por exemplo, o tempo de origem do evento para a carga útil JSON [mostrada aqui](concepts-json-flattening-escaping-rules.md#example-a) deve ser introduzido como `"values.time"` .
 
 ### <a name="time-zone-offsets"></a>Compensações de fuso horário
 
@@ -113,9 +115,9 @@ Os cartões de tempo devem ser enviados em formato ISO 8601 e serão armazenados
 
 A compensação do fuso horário deve ser formatada como uma das seguintes:
 
-±HHMMZ</br>
-±HH:MM</br>
-±HH:MMZ</br>
+±HHMMZ<br />
+±HH:MM<br />
+±HH:MMZ
 
 ## <a name="next-steps"></a>Passos seguintes
 

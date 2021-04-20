@@ -5,15 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2021
-ms.openlocfilehash: 5fe853ee0f7a113bfb8b0511744d9087f67927c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb42f74f6ac8487a93479bdf980c66ef87e8e742
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609903"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726867"
 ---
 # <a name="create-alerts-with-sql-insights-preview"></a>Criar alertas com insights SQL (pré-visualização)
 Os insights SQL incluem um conjunto de modelos de regras de alerta que pode usar para criar [regras de alerta no Azure Monitor](../alert/../alerts/alerts-overview.md) para problemas comuns de SQL. As regras de alerta em insights SQL são regras de alerta de registo com base em dados de desempenho armazenados na tabela *InsightsMetrics* em Registos monitores Azure.  
+
+> [!NOTE]
+> Para criar um alerta para insights SQL usando um modelo de gestor de recursos, consulte [amostras de modelo de Gestor de Recursos para insights SQL](resource-manager-sql-insights.md#create-an-alert-rule-for-sql-insights).
+
 
 > [!NOTE]
 > Se tiver pedidos para mais modelos de regras de alerta de insights SQL, por favor envie feedback usando o link na parte inferior desta página ou usando o link de feedback de insights SQL no portal Azure.

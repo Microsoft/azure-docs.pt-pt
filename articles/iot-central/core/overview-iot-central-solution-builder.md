@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 72aa8e5e3284e0ee7fbe63e0fb617b9eba03292e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e762b8c2e2d7f72b89629c520560b205cedcd036
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100418235"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728562"
 ---
 # <a name="iot-central-solution-builder-guide"></a>Guia de construtor de soluções IoT Central
 
@@ -51,9 +51,10 @@ A IoT Central tem capacidades de análise incorporadas que um operador pode usar
 Como construtor de soluções, pode utilizar as capacidades de exportação de dados e regras na IoT Central para se integrar com outros serviços. Para saber mais, veja:
 
 - [Exportar dados de IoT para destinos em nuvem usando exportação de dados](howto-export-data.md)
+- [Transformar dados para ioT Central](howto-transform-data.md)
 - [Utilize fluxos de trabalho para integrar a sua aplicação Azure IoT Central com outros serviços na nuvem](howto-configure-rules-advanced.md)
 - [Expandir o Azure IoT Central com regras personalizadas através do Stream Analytics, das Funções do Azure do SendGrid](howto-create-custom-rules.md)
-- [Estenda a Azure IoT Central com análises personalizadas usando Azure Databricks](howto-create-custom-analytics.md)
+- [Expandir o Azure IoT Central com análises personalizadas através do Azure Databricks ](howto-create-custom-analytics.md)
 - [Visualize e analise os seus dados Azure IoT Central num painel power BI](howto-connect-powerbi.md)
 
 ## <a name="next-steps"></a>Passos seguintes

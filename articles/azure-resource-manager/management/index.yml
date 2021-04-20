@@ -10,12 +10,12 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 01/02/2020
-  ms.openlocfilehash: 4cdd9b4e93196ddb737861f87882e58f3964a601
-  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+  ms.openlocfilehash: dba09c46a26b8daf50df546bd38d1aa58868ece3
+  ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/08/2021
-  ms.locfileid: "102456033"
+  ms.lasthandoff: 04/19/2021
+  ms.locfileid: "107726561"
 landingContent:
 - title: Acerca do Azure Resource Manager
   linkLists:
@@ -46,7 +46,7 @@ landingContent:
     - text: Mover entre grupos de recursos e subscrições
       url: move-resource-group-and-subscription.md
     - text: Mover entre regiões
-      url: move-region.md
+      url: move-resources-overview.md
     - text: Etiquetar recursos
       url: tag-resources.md
     - text: Bloquear recursos

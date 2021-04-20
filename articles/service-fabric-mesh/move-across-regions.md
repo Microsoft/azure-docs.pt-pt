@@ -6,12 +6,12 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f3fcdc56b4e8d7873872212cb62f57a7669b459
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99626092"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726633"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Mover uma aplicação de malha de tecido de serviço para outra região do Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "99626092"
 
 Este artigo descreve como mover a sua aplicação de Malha de Tecido de Serviço e os seus recursos para uma região Azure diferente. Pode mover os seus recursos para outra região por várias razões. Por exemplo, em resposta a interrupções, para obter funcionalidades ou serviços disponíveis apenas em regiões específicas, para satisfazer os requisitos de política interna e de governação, ou em resposta aos requisitos de planeamento de capacidades.
 
- [A Malha de Tecido de Serviço não suporta](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) a capacidade de movimentar diretamente recursos através das regiões de Azure. No entanto, pode mover os recursos indiretamente, implantando uma cópia do seu atual modelo de Gestor de Recursos Azure para a nova região-alvo e, em seguida, redirecionando o tráfego e dependências de entrada para a aplicação de malha de tecido de serviço recentemente criada.
+ [A Malha de Tecido de Serviço não suporta](../azure-resource-manager/management/move-support-resources.md#microsoftservicefabricmesh) a capacidade de movimentar diretamente recursos através das regiões de Azure. No entanto, pode mover os recursos indiretamente, implantando uma cópia do seu atual modelo de Gestor de Recursos Azure para a nova região-alvo e, em seguida, redirecionando o tráfego e dependências de entrada para a aplicação de malha de tecido de serviço recentemente criada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Este artigo descreve como mover a sua aplicação de Malha de Tecido de Serviço
 
 2. Com o seu modelo exportado, siga os passos em [implementar recursos a partir do modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) usando o portal Azure. Também pode utilizar [Azure CLI,](../azure-resource-manager/templates/deploy-cli.md) [Azure PowerShell,](../azure-resource-manager/templates/deploy-powershell.md)ou [REST API](../azure-resource-manager/templates/deploy-rest.md).
 
-3. Para obter orientações sobre recursos relacionados em movimento, tais como [contas de Armazenamento Azure,](../storage/common/storage-account-move.md)consulte orientações para serviços individuais listados no âmbito do tema [Moving Azure resources across regions](../azure-resource-manager/management/move-region.md).
+3. Para obter orientações sobre recursos relacionados em movimento, tais como [contas de Armazenamento Azure,](../storage/common/storage-account-move.md)consulte orientações para serviços individuais listados no âmbito do tema [Moving Azure resources across regions](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions).
 
 ## <a name="verify"></a>Verificação
 
@@ -61,8 +61,8 @@ Para completar a mudança da aplicação Rede de Malha de Tecido de Serviço, [e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Mova recursos do Azure entre regiões](../azure-resource-manager/management/move-region.md)
-* [Apoio à deslocação de recursos do Azure pelas regiões](../azure-resource-manager/management/region-move-support.md)
+* [Mova recursos do Azure entre regiões](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions)
+* [Apoio à deslocação de recursos do Azure pelas regiões](../azure-resource-manager/management/move-support-resources.md)
 * [Mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Suporte da operação de movimentação para recursos](../azure-resource-manager/management/move-support-resources.md
 )

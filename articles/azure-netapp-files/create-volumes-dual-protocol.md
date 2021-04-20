@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: c702c41228512eceebeaf45ccae709db38a85a51
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258423"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725689"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
@@ -111,6 +111,27 @@ Para criar volumes NFS, consulte [Criar um volume NFS](azure-netapp-files-create
     Este percurso de volume é o nome do volume partilhado. O nome deve começar com um carácter alfabético, e deve ser único em cada subscrição e em cada região.  
 
     * Especifique o **Estilo de Segurança** para utilizar: NTFS (padrão) ou UNIX.
+
+    * Se pretender ativar a encriptação do protocolo SMB3 para o volume de dois protocolos, selecione **Ativar A encriptação do protocolo SMB3**.   
+
+        Esta funcionalidade permite encriptação apenas para dados SMB3 a bordo. Não encripta dados de voo NFSv3. Os clientes SMB que não usam encriptação SMB3 não poderão aceder a este volume. Os dados em repouso são encriptados independentemente desta definição. Consulte [as FAQs de encriptação SMB](azure-netapp-files-faqs.md#smb-encryption-faqs) para obter informações adicionais. 
+
+        A funcionalidade **de encriptação do protocolo SMB3** encontra-se atualmente em pré-visualização. Se esta for a sua primeira utilização, registe a funcionalidade antes de a utilizar: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Verifique o estado do registo da funcionalidade: 
+
+        > [!NOTE]
+        > O **Estado de Registo** pode estar no estado até `Registering` 60 minutos antes de mudar para `Registered` . Aguarde até que o estado seja `Registered` antes de continuar.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        Também pode utilizar [comandos Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e registar a funcionalidade e exibir o estado de `az feature show` registo.  
 
     * Opcionalmente, [configurar a política de exportação para o volume](azure-netapp-files-configure-export-policy.md).
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f48135523238711eb9058b35348895c851a95403
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: b4bb58f106f3255ec6cd80b14b175ff413bc0dc6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713827"
+ms.locfileid: "107725805"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificação personalizada de e-mail com Mailjet
 
@@ -34,8 +34,6 @@ Utilize e-mail personalizado no Azure Ative Directory B2C (Azure AD B2C) para en
 ::: zone pivot="b2c-custom-policy"
 
 A verificação personalizada de e-mails requer a utilização de um fornecedor de e-mail de terceiros como [Mailjet,](https://Mailjet.com) [SendGrid,](./custom-email-sendgrid.md)ou [SparkPost,](https://sparkpost.com)um API REST personalizado ou qualquer fornecedor de e-mail baseado em HTTP (incluindo o seu próprio). Este artigo descreve a criação de uma solução que utiliza o Mailjet.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="create-a-mailjet-account"></a>Criar uma conta Mailjet
 
@@ -321,6 +319,9 @@ Nas definições de conteúdo, ainda dentro `<BuildingBlocks>` , adicione o segu
 ## <a name="add-otp-technical-profiles"></a>Adicionar perfis técnicos OTP
 
 O `GenerateOtp` perfil técnico gera um código para o endereço de e-mail. O `VerifyOtp` perfil técnico verifica o código associado ao endereço de e-mail. Pode alterar a configuração do formato e a expiração da senha única. Para obter mais informações sobre perfis técnicos da OTP, consulte [definir um perfil técnico de senha única](one-time-password-technical-profile.md).
+
+> [!NOTE]
+> Os códigos OTP gerados pelo web.TPEngine.Providers.OneTimePasswordProtocolProvider estão ligados à sessão do navegador. Isto significa que um utilizador pode gerar códigos OTP únicos em diferentes sessões de navegador que são válidas para as suas sessões correspondentes. Em contraste, um código OTP gerado pelo fluxo de utilizador incorporado é independente da sessão do navegador, por isso, se um utilizador gerar um novo código OTP numa nova sessão de navegador, substitui o código OTP anterior.
 
 Adicione os seguintes perfis técnicos ao `<ClaimsProviders>` elemento.
 

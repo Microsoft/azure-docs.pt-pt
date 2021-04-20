@@ -6,15 +6,15 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 04/19/2021
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 0c33d766bfd3dff47ddb151e8ce4ea7b25c37548
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43268afccbe66a21d2ce78709ba372a8a6682444
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98897956"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727155"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
@@ -22,7 +22,7 @@ Após o upload dos documentos, as frases presentes em documentos paralelos são 
 
 ## <a name="pairing-and-alignment-process"></a>Processo de emparelhamento e alinhamento
 
-O Tradutor Personalizado aprende traduções de frases uma frase de cada vez. Lê uma frase do texto de origem e, em seguida, a tradução desta frase a partir do texto-alvo. Depois alinha palavras e frases nestas duas frases uma à outra. Este processo permite-lhe criar um mapa das palavras e frases numa frase às palavras e frases equivalentes na tradução da sua frase. O alinhamento tenta garantir que o sistema treina em frases que são traduções uns dos outros.
+O Tradutor Personalizado aprende traduções de frases uma frase de cada vez. Lê uma frase do texto de origem e, em seguida, a tradução desta frase a partir do texto-alvo. Depois alinha palavras e frases nestas duas frases uma à outra. Este processo permite-lhe criar um mapa das palavras e frases numa frase às palavras e frases equivalentes na tradução da frase. O alinhamento tenta garantir que o sistema treina em frases que são traduções uns dos outros.
 
 ## <a name="pre-aligned-documents"></a>Documentos pré-alinhados
 
@@ -39,12 +39,14 @@ Para que uma formação tenha sucesso, a tabela abaixo mostra o número mínimo 
 | Formação   | 10,000                                     | Sem limite superior                 |
 | Ajuste     | 500                                      | 2.500       |
 | Testar    | 500                                      | 2.500  |
-| Dicionário | 0                                          | Sem limite superior                 |
+| Dicionário | 0                                          | 250,000                 |
 
 > [!NOTE]
-> - A formação não começará e falhará se a contagem mínima de 10.000 para a formação não for cumprida. 
-> - Sintonização e Testes são opcionais. Se não os fornecer, o sistema removerá uma percentagem adequada do Treino para utilizar para validação e teste. 
+>
+> - A formação não começará e falhará se a contagem mínima de 10.000 para a formação não for cumprida.
+> - Sintonização e Testes são opcionais. Se não os fornecer, o sistema removerá uma percentagem adequada do Treino para utilizar para validação e teste.
 > - Pode treinar um modelo usando apenas dados de dicionário. Consulte o [Que é Dicionário.](./what-is-dictionary.md)
+> - Se o seu dicionário contiver mais de 250.000 frases, **[o Document Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview)** é provavelmente uma escolha melhor.
 
 ## <a name="next-steps"></a>Passos seguintes
 

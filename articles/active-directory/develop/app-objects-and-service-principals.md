@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/16/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 358e066631304e727d18d092bd4b9a5b2a0bb89a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc1b5356ab607ecb60a457a7295831958e6815e1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199612"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727065"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
@@ -47,15 +47,21 @@ A entidade microsoft Graph [Application][MS-Graph-App-Entity] define o esquema p
 ## <a name="service-principal-object"></a>Objeto principal de serviço
 Para aceder aos recursos que são assegurados por um inquilino da Azure AD, a entidade que necessita de acesso deve ser representada por um diretor de segurança. Este requisito é válido tanto para os utilizadores (principal utilizador) como para as aplicações (principal serviço). O diretor de segurança define a política de acesso e permissões para o utilizador/aplicação no inquilino AZure AD. Isto permite funcionalidades fundamentais, como a autenticação do utilizador/aplicação durante a entrada e autorização durante o acesso ao recurso.
 
-Um diretor de serviço é a representação local, ou instância de aplicação, de um objeto de aplicação global em um único inquilino ou diretório. Um principal de serviço é um caso concreto criado a partir do objeto de aplicação e herda certas propriedades a partir desse objeto de aplicação. Um diretor de serviço é criado em cada inquilino onde a aplicação é usada e faz referência ao objeto de aplicação globalmente único.  O objeto principal do serviço define o que a app pode realmente fazer no inquilino específico, que pode aceder à app, e quais os recursos a que a app pode aceder.
+Existem três tipos de diretor de serviço: aplicação, identidade gerida e legado.
+
+O primeiro tipo de diretor de serviço é a representação local, ou instância de aplicação, de um objeto de aplicação global num único inquilino ou diretório. Neste caso, um principal de serviço é um caso concreto criado a partir do objeto de aplicação e herda certas propriedades a partir desse objeto de aplicação. Um diretor de serviço é criado em cada inquilino onde a aplicação é usada e faz referência ao objeto de aplicação globalmente único.  O objeto principal do serviço define o que a app pode realmente fazer no inquilino específico, que pode aceder à app, e quais os recursos a que a app pode aceder.
 
 Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. Também pode criar objetos principais de serviço num inquilino utilizando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI,](/cli/azure/create-an-azure-service-principal-azure-cli) [Microsoft Graph,](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http)o [portal Azure][AZURE-Portal]e outras ferramentas. Ao utilizar o portal, é criado automaticamente um resmounte de serviço quando regista uma aplicação.
+
+O segundo tipo de diretor de serviço é utilizado para representar uma [identidade gerida.](/azure/active-directory/managed-identities-azure-resources/overview) Identidades geridas eliminam a necessidade de os desenvolvedores gerirem as credenciais. As identidades geridas fornecem uma identidade para as aplicações a utilizar quando se conectam a recursos que suportam a autenticação AZure AD. Quando uma identidade gerida é ativada, um diretor de serviço que representa essa identidade gerida é criado no seu inquilino. Os principais dos serviços que representam identidades geridas podem ter acesso e permissões, mas não podem ser atualizados ou modificados diretamente.
+
+O terceiro tipo de serviço principal representa uma app legacy (uma aplicação criada antes de os registos de aplicações serem introduzidos ou criados através de experiências antigas). Um diretor de serviço legado pode ter credenciais, nomes principais de serviço, URLs de resposta e outras propriedades que são editáveis por um utilizador autorizado, mas não tem um registo de aplicações associado. O diretor de serviço só pode ser utilizado no arrendatário onde foi criado.
+
+A entidade Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto principal de serviço.
 
 A lâmina **de aplicações da Enterprise** no portal é usada para listar e gerir os principais serviços num inquilino. Pode ver as permissões do titular do serviço, permissões consentidas pelo utilizador, que os utilizadores fizeram esse consentimento, assinar informações e muito mais.
 
 ![Lâmina de aplicativos da empresa](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
-
-A entidade Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto principal de serviço.
 
 ## <a name="relationship-between-application-objects-and-service-principals"></a>Relação entre objetos de aplicação e principais de serviço
 

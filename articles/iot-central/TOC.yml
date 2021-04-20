@@ -145,7 +145,7 @@
       items:
         - name: Retail
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               href: retail/overview-iot-central-retail.md
             - name: Arquitetura de check-out de análise na loja
               href: retail/store-analytics-architecture.md
@@ -161,7 +161,7 @@
               href: retail/architecture-video-analytics.md
         - name: Energia
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               href: energy/overview-iot-central-energy.md
             - name: Arquitetura da aplicação de medidores inteligentes
               href: energy/concept-iot-central-smart-meter-app.md
@@ -169,7 +169,7 @@
               href: energy/concept-iot-central-solar-panel-app.md
         - name: Administração Pública
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               href: government/overview-iot-central-government.md
             - name: Arquitetura de monitorização de resíduos conectados
               href: government/concepts-connectedwastemanagement-architecture.md
@@ -179,7 +179,7 @@
               href: government/concepts-waterqualitymonitoring-architecture.md
         - name: Cuidados de saúde
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               href: healthcare/overview-iot-central-healthcare.md
             - name: Arquitetura da monitorização contínua do paciente
               href: healthcare/concept-continuous-patient-monitoring-architecture.md
@@ -235,6 +235,8 @@
           href: core/howto-export-data.md
         - name: Exportar dados para destinos da cloud (legado)
           href: core/howto-export-data-legacy.md
+        - name: Transforme os dados para a Azure IoT Central
+          href: core/howto-transform-data.md
         - name: Utilizar fluxos de trabalho para integração com outros serviços
           href: core/howto-configure-rules-advanced.md
         - name: Criar regras personalizadas

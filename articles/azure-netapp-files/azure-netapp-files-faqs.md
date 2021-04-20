@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: ae94ac9719a827a2d1af258398988f0972e61b3a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a8c06b25b923d663e982e940100be7b9a2a009e1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305519"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726849"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -213,6 +213,43 @@ A gestão de `SMB Shares` , e através da Consola de `Sessions` `Open Files` Ges
 ### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Como posso obter o endereço IP de um volume SMB através do portal?
 
 Utilize o link **JSON View** no painel de visão geral do volume e procure o identificador **startIp** em **propriedades**  ->  **mountTargets**.
+
+### <a name="smb-encryption-faqs"></a>Perguntas frequentes de encriptação SMB
+
+Esta secção responde a perguntas comumente sobre encriptação SMB (SMB 3.0 e SMB 3.1.1).
+
+#### <a name="what-is-smb-encryption"></a>O que é encriptação SMB?  
+
+[A encriptação SMB](/windows-server/storage/file-server/smb-security) fornece encriptação de ponta a ponta de dados SMB e protege os dados de escutas de ocorrências em redes não fidedifusas. A encriptação SMB é suportada em SMB 3.0 e maior. 
+
+#### <a name="how-does-smb-encryption-work"></a>Como funciona a encriptação SMB?
+
+Ao enviar um pedido para o armazenamento, o cliente encripta o pedido, que o armazenamento então desencripta. As respostas são igualmente encriptadas pelo servidor e desencriptadas pelo cliente.
+
+#### <a name="which-clients-support-smb-encryption"></a>Que clientes suportam encriptação SMB?
+
+Windows 10, Windows 2012 e versões posteriores suportam encriptação SMB.
+
+#### <a name="with-azure-netapp-files-at-what-layer-is-smb-encryption-enabled"></a>Com ficheiros Azure NetApp, em que camada está ativada a encriptação SMB?  
+
+A encriptação SMB está ativada ao nível das ações.
+
+#### <a name="what-forms-of-smb-encryption-are-used-by-azure-netapp-files"></a>Que formas de encriptação SMB são utilizadas pelos Ficheiros Azure NetApp?
+
+SMB 3.0 emprega algoritmo AES-CCM, enquanto SMB 3.1.1 emprega o algoritmo AES-GCM
+
+#### <a name="is-smb-encryption-required"></a>É necessária encriptação SMB?
+
+A encriptação SMB não é necessária. Como tal, só está ativado para uma determinada participação se o utilizador solicitar que o Azure NetApp Files o permita. As ações do Azure NetApp Files nunca são expostas à internet. Só são acessíveis dentro de um determinado VNet, sobre VPN ou via expressa, pelo que as ações do Azure NetApp Files são inerentemente seguras. A escolha para ativar a encriptação SMB é inteiramente da decisão do utilizador. Esteja atento à penalização de desempenho prevista antes de ativar esta funcionalidade.
+
+#### <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a><a name="smb_encryption_impact"></a>Qual é o impacto previsto da encriptação SMB nas cargas de trabalho dos clientes?
+
+Embora a encriptação SMB tenha impacto tanto para o cliente (cpu overhead para encriptar e desencriptar mensagens) como para o armazenamento (reduções na produção), a tabela seguinte destaca apenas o impacto do armazenamento. Deve testar o impacto do desempenho da encriptação contra as suas próprias aplicações antes de colocar cargas de trabalho na produção.
+
+|     Perfil de I/O       |     Impacto        |
+|-  |-  |
+|     Ler e escrever cargas de trabalho      |     10% a 15%        |
+|     Metadados intensivos        |     5%    |
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes de gestão da capacidade
 

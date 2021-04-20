@@ -5,14 +5,14 @@ services: application-gateway
 author: azhar2005
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/06/2020
+ms.date: 04/19/2021
 ms.author: azhussai
-ms.openlocfilehash: 3baaf49cb3d1c8c5502d96974f9729d05996c75b
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 615db7e8d53e397755ae318d171dab1eab9ec6c6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519893"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727813"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Gateway de Aplicação
 
@@ -24,7 +24,7 @@ Application Gateway publica pontos de dados, chamados métricas, ao [Azure Monit
 
 A Application Gateway fornece várias métricas de tempo incorporadas relacionadas com o pedido e resposta, que são todas medidas em milissegundos. 
 
-![Diagrama de métricas de tempo, para o Gateway de Aplicação.](./media/application-gateway-metrics/application-gateway-metrics.jpg)
+:::image type="content" source="./media/application-gateway-metrics/application-gateway-metrics.png" alt-text="[Diagrama de métricas de tempo para o Gateway de Aplicação" border="false":::
 
 > [!NOTE]
 >

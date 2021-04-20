@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 04/19/2021
 ms.author: apimpm
-ms.openlocfilehash: b9e990988770e8aca015ae8b1159bb4f5e50df57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 531421726bc1e081d85eca9d535267520d3fea5f
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82205095"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725615"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implementar uma porta de entrada auto-hospedada da AZure API Management para Docker
 
@@ -39,23 +39,23 @@ Este artigo fornece os passos para a implementação da componente de gateway au
 2. Selecione o recurso gateway que pretende implementar.
 3. Selecione **Implantação**.
 4. Note que um token de acesso na caixa de texto **Token** foi autogerido para si usando os valores de **validade** e **segredo** padrão. Se necessário, escolha os valores desejados em ambos os controlos para gerar um novo token.
-4. Certifique-se de que **o Docker** está selecionado nos **scripts de Implementação.**
-5. Selecione o link **de ficheiros env.conf** ao lado **do Ambiente** para descarregar o ficheiro.
-6. Selecione o ícone de **cópia** localizado na extremidade direita da caixa de texto **Run** para copiar o comando Docker para a área de transferência.
-7. Cole o comando até à janela do terminal (ou comando). Ajuste os mapeamentos da porta e o nome do recipiente conforme necessário. Note que o comando assume que o ficheiro ambiente descarregado está presente no diretório atual.
-```
-    docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
-```
-8. Execute o comando. O comando instrui o seu ambiente Docker a executar o contentor utilizando a imagem do [contentor](https://aka.ms/apim/sputnik/dhub) descarregada do Registo de Contentores da Microsoft e a mapear as portas HTTP (8080) e HTTPS (8081) do contentor para as portas 80 e 443 do hospedeiro.
-9. Verifique o comando abaixo para verificar se o contentor do gateway está em funcionamento:
-```console
-docker ps
-CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
-895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:latest   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
-```
+5. Certifique-se de que **o Docker** está selecionado nos **scripts de Implementação.**
+6. Selecione o link **de ficheiros env.conf** ao lado **do Ambiente** para descarregar o ficheiro.
+7. Selecione o ícone de **cópia** localizado na extremidade direita da caixa de texto **Run** para copiar o comando Docker para a área de transferência.
+8. Cole o comando até à janela do terminal (ou comando). Ajuste os mapeamentos da porta e o nome do recipiente conforme necessário. Note que o comando assume que o ficheiro ambiente descarregado está presente no diretório atual.
+   ```
+       docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
+   ```
+9. Execute o comando. O comando instrui o seu ambiente Docker a executar o contentor utilizando a imagem do [contentor](https://aka.ms/apim/sputnik/dhub) descarregada do Registo de Contentores da Microsoft e a mapear as portas HTTP (8080) e HTTPS (8081) do contentor para as portas 80 e 443 do hospedeiro.
+10. Verifique o comando abaixo para verificar se o contentor do gateway está em funcionamento:
+    ```console
+    docker ps
+    CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
+    895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:latest   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
+    ```
 10. Volte ao portal Azure, clique em **Overview** e confirme que o recipiente de gateway auto-hospedado que acabou de implantar está a reportar um estado saudável.
 
-![estado de gateway](media/how-to-deploy-self-hosted-gateway-docker/status.png)
+    ![estado de gateway](media/how-to-deploy-self-hosted-gateway-docker/status.png)
 
 > [!TIP]
 > Use <code>console docker container logs <gateway-name></code> o comando para visualizar uma imagem do registo de gateway auto-hospedado.

@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/11/2020
+ms.date: 04/07/2021
 ms.author: duau
-ms.openlocfilehash: 7a5da35da35b2f447256bc742681ccd7a7d403da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44ddf54aac61ab00009e7e2cc820b38074c5e8c3
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99091571"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725787"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -24,9 +24,19 @@ Este artigo ajuda-o a compreender a monitorização, métricas e alertas Express
 
 ## <a name="expressroute-metrics"></a>Métricas ExpressRoute
 
-Para ver **Métricas,** navegue na página *Azure Monitor* e clique em *Métricas*. Para visualizar as métricas **ExpressRoute,** filtre por *circuitos ExpressRoute* tipo de recurso . Para visualizar as métricas **do Alcance Global,** filtre pelos *circuitos ExpressRoute* do tipo de recurso e selecione um recurso de circuito ExpressRoute que tenha o Alcance Global ativado. Para visualizar métricas **ExpressRoute Direct,** filtrar o Tipo de Recurso por *Portas ExpressRoute*. 
+Para ver **Métricas,** navegue na página *do Monitor Azure* e selecione *Métricas*. Para visualizar as métricas **ExpressRoute,** filtre por *circuitos ExpressRoute* tipo de recurso . Para visualizar as métricas **do Alcance Global,** filtre pelos *circuitos ExpressRoute* do tipo de recurso e selecione um recurso de circuito ExpressRoute que tenha o Alcance Global ativado. Para visualizar métricas **ExpressRoute Direct,** filtrar o Tipo de Recurso por *Portas ExpressRoute*. 
 
 Uma vez selecionada uma métrica, a agregação padrão será aplicada. Opcionalmente, pode aplicar a divisão, que mostrará a métrica com diferentes dimensões.
+
+### <a name="aggregation-types"></a>Tipos de agregação:
+
+O explorador de métricas suporta SUM, MAX, MIN, AVG e COUNT como [tipos de agregação](../azure-monitor/essentials/metrics-charts.md#aggregation). Deve utilizar o tipo de agregação recomendado ao rever os insights para cada métrica ExpressRoute.
+
+* Soma: A soma de todos os valores capturados durante o intervalo de agregação. 
+* Contagem: O número de medições capturadas durante o intervalo de agregação. 
+* Média: A média dos valores métricos capturados durante o intervalo de agregação. 
+* Min: O menor valor capturado durante o intervalo de agregação. 
+* Max: O maior valor capturado durante o intervalo de agregação. 
 
 ### <a name="available-metrics"></a>Métricas disponíveis
 
@@ -56,11 +66,15 @@ Uma vez selecionada uma métrica, a agregação padrão será aplicada. Opcional
 
 ### <a name="bits-in-and-out---metrics-across-all-peerings"></a>Bits In and out - Métricas em todos os seus olhos
 
+Tipo de agregação: *Avg*
+
 Pode ver métricas em todos os seus olhos num determinado circuito ExpressRoute.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg" alt-text="métricas de circuito":::
 
 ### <a name="bits-in-and-out---metrics-per-peering"></a>Bits Dentro e Fora - Métricas por espreitar
+
+Tipo de agregação: *Avg*
 
 Pode ver métricas para privados, públicos e Microsoft olhando em bits/segundo.
 
@@ -68,13 +82,17 @@ Pode ver métricas para privados, públicos e Microsoft olhando em bits/segundo.
 
 ### <a name="bgp-availability---split-by-peer"></a>Disponibilidade BGP - Dividido por Par  
 
-Você pode ver perto da disponibilidade em tempo real de BGP através de pares e pares (routers ExpressRoute Primário e Secundário). Este painel mostra a sessão de BGP primária para o seu olhar privado e a segunda sessão de BGP para espreitar em privado. 
+Tipo de agregação: *Avg*
+
+Você pode ver perto da disponibilidade em tempo real de BGP (conectividade Camada-3) através de pares e pares (routers ExpressRoute Primário e Secundário). Este painel de instrumentos mostra que o estado da sessão de BGP primário está em cima do par privado e o estatuto da segunda sessão de BGP está reduzido para o aconselhamento privado. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="Disponibilidade de BGP por par":::
 
 ### <a name="arp-availability---split-by-peering"></a>Disponibilidade ARP - Dividida por Peering  
 
-Você pode ver perto da disponibilidade em tempo real de [ARP](./expressroute-troubleshooting-arp-resource-manager.md) através de pares e pares (routers ExpressRoute Primário e Secundário). Este dashboard mostra a sessão private peering ARP em ambos os pares, mas completa para baixo para a Microsoft espreitando através de espreitar. A agregação padrão (Média) foi utilizada em ambos os pares.  
+Tipo de agregação: *Avg*
+
+Pode ver perto da disponibilidade em tempo real de [ARP](./expressroute-troubleshooting-arp-resource-manager.md) (conectividade Camada-3) através de pares e pares (routers ExpressRoute Primários e Secundários). Este dashboard mostra que o estado da sessão private peering ARP está em todos os pares, mas para baixo para a Microsoft espreitar para ambos os pares. A agregação padrão (Média) foi utilizada em ambos os pares.  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="Disponibilidade de ARP por par":::
 
@@ -82,88 +100,129 @@ Você pode ver perto da disponibilidade em tempo real de [ARP](./expressroute-tr
 
 ### <a name="admin-state---split-by-link"></a>Estado de Admin - Dividido por ligação
 
-Pode ver o estado de administração para cada ligação do par de portas ExpressRoute Direct.
+Tipo de agregação: *Avg*
+
+Pode ver o estado de Administração para cada ligação do par de portas ExpressRoute Direct. O estado de Administração representa se a porta física estiver dentro ou fora. Este estado é obrigado a passar o tráfego através da ligação ExpressRoute Direct.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="Estado de administração direta do ER":::
 
 ### <a name="bits-in-per-second---split-by-link"></a>Bits In Per Second - Dividido por link
 
-Pode ver os bits por segundo em ambas as ligações do par de portas ExpressRoute Direct.
+Tipo de agregação: *Avg*
+
+Pode ver os bits por segundo em ambas as ligações do par de portas ExpressRoute Direct. Monitorize este painel para comparar a largura de banda de entrada para ambas as ligações.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="ER Partes diretas em por segundo":::
 
 ### <a name="bits-out-per-second---split-by-link"></a>Bits out Per Second - Dividido por link
 
-Também pode ver os bits por segundo em ambas as ligações do par de portas ExpressRoute Direct.
+Tipo de agregação: *Avg*
+
+Também pode ver os bits por segundo em ambas as ligações do par de portas ExpressRoute Direct. Monitorize este painel para comparar largura de banda de saída para ambas as ligações.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="ER Direto bits para fora por segundo":::
 
 ### <a name="line-protocol---split-by-link"></a>Protocolo de Linha - Dividido por link
 
-Pode ver o protocolo de linha em cada link do par de portas ExpressRoute Direct.
+Tipo de agregação: *Avg*
+
+Pode ver o protocolo de linha em cada link do par de portas ExpressRoute Direct. O Protocolo de Linha indica se a ligação física está em funcionamento sobre o ExpressRoute Direct. Monitorize este painel e desapedaque os alertas para saber quando a ligação física foi avariou.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="Protocolo de linha direta ER":::
 
 ### <a name="rx-light-level---split-by-link"></a>Nível de Luz Rx - Dividido por ligação
 
-Pode ver o nível de luz Rx (o nível de luz que a porta ExpressRoute Direct está **a receber)** para cada porta. Os níveis de luz Rx saudáveis geralmente se enquadram num intervalo de -10 a 0 dBm
+Tipo de agregação: *Avg*
+
+Pode ver o nível de luz Rx (o nível de luz que a porta ExpressRoute Direct está **a receber)** para cada porta. Os níveis de luz Rx saudáveis geralmente se enquadram num intervalo de -10 dBm a 0 dBm. Desaça alertas a serem notificados se o nível de luz Rx ficar fora do alcance saudável.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="Linha direta ER Nível de Luz Rx":::
 
 ### <a name="tx-light-level---split-by-link"></a>Tx Light Level - Dividido por link
 
-Pode ver o nível de luz Tx (o nível de luz que a porta Direct ExpressRoute está **a transmitir)** para cada porta. Os níveis de luz Tx saudáveis geralmente se enquadram num intervalo de -10 a 0 dBm
+Tipo de agregação: *Avg*
+
+Pode ver o nível de luz Tx (o nível de luz que a porta Direct ExpressRoute está **a transmitir)** para cada porta. Os níveis de luz Tx saudáveis geralmente se enquadram num intervalo de -10 dBm a 0 dBm. Desaça alertas a serem notificados se o nível de luz Tx cair fora do alcance saudável.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="Linha direta ER Tx Nível de Luz":::
 
 ## <a name="expressroute-virtual-network-gateway-metrics"></a>Métricas de Gateway de rede virtual ExpressRoute
 
+Tipo de agregação: *Avg*
+
+Ao implementar um gateway ExpressRoute, o Azure gere o cálculo e as funções do seu gateway. Existem seis métricas de gateway disponíveis para entender melhor o desempenho do seu portal:
+
+* Utilização da CPU
+* Pacotes por segundo
+* Contagem de rotas anunciadas aos pares
+* Contagem de rotas aprendidas com os pares
+* Frequência das rotas alteradas
+* Número de VMs na rede virtual  
+
+É altamente recomendado que desemende alertas para cada uma destas métricas para que esteja ciente de quando o seu gateway pode estar a ver problemas de desempenho.
+
 ### <a name="cpu-utilization---split-instance"></a>Utilização do CPU - Caso dividido
 
-Pode ver a utilização do CPU das instâncias gateway.
+Tipo de agregação: *Avg*
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Divisão do CPU":::
+Pode ver a utilização do CPU de cada instância de gateway. A utilização do CPU pode aumentar brevemente durante a manutenção do hospedeiro de rotina, mas prolongar uma utilização elevada do CPU pode indicar que o seu portal está a atingir um estrangulamento de desempenho. Aumentar o tamanho do gateway ExpressRoute pode resolver esta questão. Desaentar a frequência com que a utilização do CPU excede um determinado limiar.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Screenshot da utilização do CPU - métricas divididas.":::
 
 ### <a name="packets-per-second---split-by-instance"></a>Pacotes por segundo - Dividido por Exemplo
 
-Pode ver pacotes por segundo atravessando o portal.
+Tipo de agregação: *Avg*
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Pacotes por segundo - dividido":::
+Esta métrica captura o número de pacotes de entrada que atravessam o gateway ExpressRoute. Deverá ver um fluxo consistente de dados aqui se o seu portal estiver a receber tráfego da sua rede no local. Desaça um alerta para quando o número de pacotes por segundo desce abaixo de um limiar indicando que o seu gateway já não está a receber tráfego.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Screenshot de pacotes por segundo - métricas divididas.":::
 
 ### <a name="count-of-routes-advertised-to-peer---split-by-instance"></a>Contagem de rotas anunciadas a pares - Dividida por Instância
 
-Pode ver o número de rotas anunciadas para o circuito ExpressRoute.
+Tipo de agregação: *Contagem*
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Contagem de rotas anunciadas a pares":::
+Esta métrica é a contagem para o número de rotas que o gateway ExpressRoute está publicitando para o circuito. Os espaços de endereço podem incluir redes virtuais que estão ligadas usando o espreitar VNet e utilizam o gateway ExpressRoute remoto. Deve esperar que o número de rotas permaneça consistente a menos que existam alterações frequentes nos espaços de endereço de rede virtual. Deite um alerta para quando o número de rotas anunciadas descer abaixo do limiar para o número de espaços de endereço de rede virtual que você conhece.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Screenshot da contagem de rotas anunciadas a peer.":::
 
 ### <a name="count-of-routes-learned-from-peer---split-by-instance"></a>Contagem de Rotas Aprendidas a par - Dividida por Exemplo
 
-Pode ver o número de rotas recebidas do circuito ExpressRoute.
+Tipo de agregação: *Max*
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Conde de Rotas Aprendidas a partir de Pares":::
+Esta métrica mostra o número de rotas que o gateway ExpressRoute está a aprender com os pares ligados ao circuito ExpressRoute. Estas rotas podem ser de outra rede virtual ligada ao mesmo circuito ou aprendidas no local. Desateia um alerta para quando o número de rotas aprendidas descer abaixo de um determinado limiar. Isto pode indicar que ou o gateway está a ver um problema de desempenho ou os pares remotos já não são rotas publicitárias para o circuito ExpressRoute. 
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Screenshot da contagem de rotas aprendidas pelos pares.":::
 
 ### <a name="frequency-of-routes-change---split-by-instance"></a>Variação da frequência das rotas - Divisão por Instância
 
-Pode ver a frequência de que a rota muda no gateway.
+Tipo de agregação: *Soma*
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Frequência das rotas alteradas":::
+Esta métrica mostra a frequência das rotas aprendidas ou publicitadas a pares remotos. Primeiro, deve investigar os seus dispositivos no local para perceber porque é que a rede está a mudar com tanta frequência. Uma mudança de alta frequência nas rotas pode indicar um problema de desempenho no gateway ExpressRoute onde a escala do gateway SKU pode resolver o problema. Desaprote um alerta para um limiar de frequência para saber quando o seu gateway ExpressRoute está a ver alterações de rota anormais.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="A imagem da frequência das rotas mudou de métrica.":::
 
 ### <a name="number-of-vms-in-the-virtual-network"></a>Número de VMs na Rede Virtual
 
-Pode ver o número de máquinas virtuais na rede virtual.
+Tipo de agregação: *Max*
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Número de máquinas virtuais na rede virtual":::
+Esta métrica mostra o número de máquinas virtuais que estão a usar o gateway ExpressRoute. O número de máquinas virtuais pode incluir VMs de redes virtuais espreitadas que usam o mesmo gateway ExpressRoute. Desatenção para esta métrica se o número de VMs for superior a um determinado limiar que possa afetar o desempenho do gateway. 
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Screenshot do número de máquinas virtuais na métrica da rede virtual.":::
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Ligações de gateway ExpressRoute em bits/segundos
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="ligações de gateway":::
+Tipo de agregação: *Avg*
+
+Esta métrica mostra o uso da largura de banda para uma ligação específica a um circuito ExpressRoute.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="Screenshot da métrica de utilização da largura de banda de ligação gateway.":::
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Alertas para ligações de gateway ExpressRoute
 
 1. Para configurar alertas, navegue para **O Monitor Azure,** em seguida, selecione **Alertas**.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="alertas":::
-2. Clique **em +Selecione Target** e selecione o recurso de ligação ao gateway ExpressRoute.
+2. **Selecione +Selecione Target** e selecione o recurso de ligação de gateway ExpressRoute.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="alvo":::
 3. Defina os detalhes do alerta.
@@ -183,7 +242,7 @@ Nos **Critérios de Alerta,** pode selecionar **O Registo de Atividade** para o 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="registos de atividades":::
 
-## <a name="additional-metrics-in-log-analytics"></a>Métricas adicionais em Log Analytics
+## <a name="more-metrics-in-log-analytics"></a>Mais métricas em Log Analytics
 
 Também pode ver as métricas ExpressRoute navegando para o seu recurso de circuito ExpressRoute e selecionando o separador *Logs.* Para quaisquer métricas que consultar, a saída conterá as colunas abaixo.
 

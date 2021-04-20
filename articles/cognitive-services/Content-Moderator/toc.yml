@@ -135,6 +135,6 @@
     - name: Governo de Azure e Azure global
       href: ../../azure-government/compare-azure-government-global-azure.md
     - name: Atualizações do Azure
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

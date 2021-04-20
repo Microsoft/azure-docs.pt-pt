@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/05/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 94981cd0912f76b710b3a60040ffbffd38381bcd
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 3c6da2137f2db43284ce7a533ff763e9ef157f35
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552109"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726651"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades nos ficheiros Azure NetApp
 
@@ -27,12 +27,16 @@ Os ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um 
 
 ## <a name="april-2021"></a>abril de 2021
 
+* [Encriptação do Protocolo SMB3](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Pré-visualização) 
+
+    Agora pode ativar a encriptação do protocolo SMB3 nos ficheiros SMB Emb dos ficheiros Azure NetApp e volumes de protocolo duplo. Esta funcionalidade permite a encriptação para dados SMB3 em voo, utilizando o [algoritmo AES-CCM em SMB 3.0 e o algoritmo AES-GCM nas ligações SMB 3.1.1.](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) Os clientes SMB que não usam encriptação SMB3 não poderão aceder a este volume. Os dados em repouso são encriptados independentemente desta definição. A encriptação SMB aumenta ainda mais a segurança. No entanto, pode afetar o cliente (sobrecarga de CPU para encriptar e desencriptar mensagens). Pode também ter impacto na utilização dos recursos de armazenamento (reduções na produção). Deve testar o impacto do desempenho da encriptação contra as suas aplicações antes de colocar cargas de trabalho na produção.
+
 * [Serviços de domínio de diretório ativo (ADDS) Mapeamento do utilizador LDAP com grupos alargados NFS](configure-ldap-extended-groups.md) (Pré-visualização)   
 
     Por padrão, o Azure NetApp Files suporta até 16 IDs de grupo ao manusear credenciais de utilizador NFS, tal como definido no [RFC 5531](https://tools.ietf.org/html/rfc5531). Com esta nova capacidade, pode agora aumentar o máximo para 1.024 se tiver utilizadores que sejam membros de mais do que o número padrão de grupos. Para suportar esta capacidade, os volumes NFS podem agora ser adicionados também ao ADD LDAP, que permite aos utilizadores do Diretório Ativo LDAP com entradas de grupos alargados (com até 1024 grupos) acederem ao volume. 
 
 ## <a name="march-2021"></a>março de 2021
-
+ 
 * [Ações de Disponibilidade Contínua SMB (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Pré-visualização)  
 
     O SMB Transparent Failover permite operações de manutenção no serviço Azure NetApp Files sem interromper a conectividade com as aplicações do servidor que armazenam e acedem a dados em volumes SMB. Para suportar o SMB Transparent Failover, o Azure NetApp Files suporta agora a opção de partilha de disponibilidade contínua SMB para utilização com aplicações SQL Server sobre SMB em execução em VMs Azure. Esta funcionalidade é suportada atualmente no Windows SQL Server. O Linux SQL Server não está atualmente suportado. Ativar esta funcionalidade proporciona melhorias significativas no desempenho do SQL Server e benefícios de escala e custos para instância [única, Always-On falha de caso de cluster e Always-On implementações do Grupo de Disponibilidade](azure-netapp-files-solution-architectures.md#sql-server). Consulte [os benefícios da utilização de ficheiros Azure NetApp para a implementação do SERVIDOR SQL](solutions-benefits-azure-netapp-files-sql-server.md).

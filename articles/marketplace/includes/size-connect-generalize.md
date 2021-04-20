@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 03/25/2021
-ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: e119d40cd0b8f482d33c3c86c644cf6a0846390a
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630206"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727139"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
@@ -40,6 +40,9 @@ O processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado. P
 
 ### <a name="capture-image"></a>Imagem de captura
 
+> [!NOTE]
+> A assinatura Azure que contém o SIG deve estar sob o mesmo inquilino que a conta de editor para publicar. Além disso, a conta de editor deve ter pelo menos acesso ao Contribuinte à subscrição que contém SIG.
+
 Assim que o seu VM estiver pronto, pode capturá-lo numa galeria de imagens partilhada em Azure. Siga os passos abaixo para capturar:
 
 1. No [portal Azure,](https://ms.portal.azure.com/)aceda à página da sua Máquina Virtual.
@@ -51,8 +54,6 @@ Assim que o seu VM estiver pronto, pode capturá-lo numa galeria de imagens part
 7. Forneça um **número de versão** para a imagem.
 8. Selecione **Review + crie** para rever as suas escolhas.
 9. Uma vez aprovada a validação, **selecione Criar**.
-
-A assinatura Azure que contém o SIG deve estar sob o mesmo inquilino que a conta de editor para publicar. Além disso, a conta de editor deve ter acesso ao SIG. 
 
 Para conceder acesso:
 

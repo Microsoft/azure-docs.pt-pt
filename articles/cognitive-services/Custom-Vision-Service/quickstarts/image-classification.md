@@ -7,16 +7,16 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 02/25/2021
+ms.date: 04/19/2021
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: visão personalizada, reconhecimento de imagem, app de reconhecimento de imagem, análise de imagem, software de reconhecimento de imagem
 zone_pivot_groups: programming-languages-set-cusvis
-ms.openlocfilehash: e99d15a48946706585879e9a1eaaf24bb2edfdef
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ea12db1a6dfe63026e99fee48138ce82cc0b39d6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102184308"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725333"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library-or-rest-api"></a>Quickstart: Criar um projeto de classificação de imagem com a biblioteca de clientes Da Visão Personalizada ou a API REST
 

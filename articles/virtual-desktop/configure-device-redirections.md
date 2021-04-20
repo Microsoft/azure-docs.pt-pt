@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5eca75da57027789a06259e22e7c6cd5231404b6
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 37ecd06c4e3e71234e8fb1b6bad0cd05482dd31b
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448156"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727854"
 ---
 # <a name="configure-device-redirections"></a>Configurar redirecionamentos de dispositivo
 
@@ -53,7 +53,7 @@ Desafie a seguinte propriedade RDP para configurar a reorientação da câmara:
 >[!NOTE]
 >Mesmo que a `camerastoredirect:s:` propriedade esteja desativada, as câmaras locais podem ser redirecionadas através da `devicestoredirect:s:` propriedade. Para desativar totalmente o conjunto de reorientações da câmara `camerastoredirect:s:` e definir ou definir algum `devicestoredirect:s:` subconjunto de dispositivos de ficha e reprodução que não incluam nenhuma câmara.
 
-Também pode redirecionar câmaras específicas usando uma lista de interfaces KSCATEGORY_VIDEO_CAMERA deslimitadas em pontos, tais como `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` . 
+Também pode redirecionar câmaras específicas usando uma lista de interfaces KSCATEGORY_VIDEO_CAMERA deslimitadas em pontos, tais como `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` .
 
 ### <a name="clipboard-redirection"></a>Reorientação da área de transferência
 
@@ -100,6 +100,8 @@ Desafie a seguinte propriedade RDP para configurar a reorientação de unidade l
 - `drivestoredirect:s:` desativa a reorientação de unidade local.
 
 Também pode selecionar unidades específicas utilizando uma lista delimitadas em pontos, tais como `drivestoredirect:s:C:;E:;` .
+
+Para configurar a transferência de ficheiros do cliente web, definir `drivestoredirect:s:*` .
 
 ### <a name="printer-redirection"></a>Redirecionamento da impressora
 

@@ -4,20 +4,20 @@ description: Conheça os termos da Infraestrutura Azure BareMetal.
 ms.topic: conceptual
 ms.subservice: workloads
 ms.date: 04/06/2021
-ms.openlocfilehash: aa7d9693b3417ff0bb6c6a61800aee72cd416c48
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 61ff958e75952f73efb222df3f0c4d5437668cd3
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536776"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725463"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Conheça os termos da Infraestrutura BareMetal
 
 Neste artigo, cobriremos alguns termos importantes relacionados com a Infraestruturas BareMetal.
 
-- **Revisão**: Há uma revisão original do selo conhecida como Revisão 3 (Rev 3), e duas revisões adicionais de selos para selos de instância BareMetal. Cada carimbo difere na arquitetura e na proximidade com os anfitriões de máquinas virtuais Azure:
-    - **Revisão 4** (Rev 4): Um design mais recente que proporciona uma maior proximidade com a máquina virtual Azure (VM) acolhe e diminui a latência entre os VMs Azure e os casos SAP HANA. 
-    - **Revisão 4.2** (Rev 4.2): A mais recente infraestrutura BareMetal remarcada utilizando a arquitetura rev 4 existente. O Rev 4 proporciona uma maior proximidade com os anfitriões da máquina virtual Azure (VM). Tem melhorias significativas na latência da rede entre os VMs Azure e os casos BareMetal implantados em selos ou linhas Rev 4. Pode aceder e gerir as suas instâncias BareMetal através do portal Azure.    
+- **Revisão**: Existem duas revisões de selos diferentes para os selos da Infraestrutura BareMetal (HANA Large Instance). Estes diferem na arquitetura e na proximidade com os anfitriões de máquinas virtuais Azure:
+    - "Revisão 3" (Rev 3): O desenho original foi implantado em meados de 2016.
+    - "Revisão 4.2" (Rev 4.2): Um novo design que proporciona uma maior proximidade aos anfitriões de máquinas virtuais Azure, com latência de rede ultra-baixa entre VMs Azure e HANA Large Instances. Os recursos no portal Azure são referidos como "Infraestruturas BareMetal", e os clientes podem aceder aos seus recursos como instâncias BareMetal do portal Azure.
 
 - **Carimbo**: Define o tamanho de implementação interna da Microsoft de instâncias BareMetal. Antes de poderem ser implementados casos, um carimbo de instância BareMetal constituído por cremalheira de computação, rede e armazenamento deve ser implantado num local de datacenter. Tal implantação é chamada de carimbo de instância BareMetal.
 

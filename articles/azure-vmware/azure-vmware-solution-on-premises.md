@@ -2,22 +2,20 @@
 title: Ligue a Solução Azure VMware ao seu ambiente no local
 description: Saiba como ligar a Solução VMware Azure ao seu ambiente no local.
 ms.topic: tutorial
-ms.date: 03/13/2021
-ms.openlocfilehash: 0b26dc4756cb37544c2b2f8c5a75df0ac1a9d629
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.openlocfilehash: 392d82a9aca9b60b394a5d5f4a7e6b0111438e59
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491797"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725624"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Ligue a Solução Azure VMware ao seu ambiente no local
 
 Neste artigo, continuará a utilizar as [informações recolhidas durante](production-ready-deployment-steps.md) o planeamento de ligar a Solução Azure VMware ao seu ambiente no local.
 
-Antes de começar, existem dois pré-requisitos para ligar a Solução Azure VMware ao seu ambiente no local:
+Antes de começar, deve ter um circuito ExpressRoute do seu ambiente no local para Azure.
 
-- Um circuito ExpressRoute do seu ambiente no local para Azure.
-- Um bloco de endereços cidr não sobreposto de /29 para o espreguiçadamento expressRoute Global Reach, que definiu como parte da fase de [planeamento](production-ready-deployment-steps.md).
 
 >[!NOTE]
 > Pode ligar através da VPN, mas isso está fora de alcance para este documento de arranque rápido.

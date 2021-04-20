@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 49b5da2da72e78226db19f5d8881073577aee5b0
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 2ec4ca8b24f1e8534e7f8434bc86a2eb2745e946
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575528"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727047"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Aplicações migratórias para MSAL.NET
 
@@ -59,7 +59,7 @@ Para utilizar MSAL.NET terá de adicionar o pacote [Microsoft.Identity.Client](h
 
 ### <a name="scopes-not-resources"></a>Âmbitos não recursos
 
-ADAL.NET adquire fichas para *recursos,* mas MSAL.NET adquire fichas para *âmbitos.* Uma série de MSAL.NET a AcquireToken substitui um parâmetro chamado `IEnumerable<string> scopes` scopes. Este parâmetro é uma lista simples de cordas que declaram as permissões e recursos pretendidos que são solicitados. Os âmbitos bem conhecidos são os [âmbitos do Microsoft Graph.](https://docs.microsoft.com/graph/permissions-reference)
+ADAL.NET adquire fichas para *recursos,* mas MSAL.NET adquire fichas para *âmbitos.* Uma série de MSAL.NET a AcquireToken substitui um parâmetro chamado `IEnumerable<string> scopes` scopes. Este parâmetro é uma lista simples de cordas que declaram as permissões e recursos pretendidos que são solicitados. Os âmbitos bem conhecidos são os [âmbitos do Microsoft Graph.](/graph/permissions-reference)
 
 Também é possível em MSAL.NET aceder aos recursos v1.0. Consulte os detalhes em [Âmbitos para uma aplicação v1.0](#scopes-for-a-web-api-accepting-v10-tokens).
 

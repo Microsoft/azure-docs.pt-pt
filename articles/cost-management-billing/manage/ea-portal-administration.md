@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8f643336d50f5ade145454d408599215ed6fd31e
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 787f902311437e6ca8a679299ef7a28b34cee4ab
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259443"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728415"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -424,51 +424,6 @@ Para começar:
 1. Agora, a conta Microsoft já não deverá ter subscrições ativas e poderá ser eliminada.
 1. Qualquer conta eliminada permanecerá visível no portal num estado inativo por motivos de faturação histórica.  Pode utilizar os filtros para a remover da vista ao selecionar uma caixa de verificação para mostrar apenas as contas ativas.
 
-## <a name="account-subscription-ownership-faq"></a>FAQ sobre a propriedade das subscrições da conta
-
-Este documento responde às perguntas frequentes relacionadas com a propriedade das subscrições da conta.
-
-### <a name="can-i-associate-my-existing-azure-account-to-azure-ea-enrollment"></a>Posso associar a minha conta do Azure existente à inscrição Azure EA?
-
-Sim. Todas as subscrições do Azure das quais o cliente é o proprietário de conta são convertidas para o Contrato Enterprise. Estão incluídas as subscrições que utilizam crédito mensal, como Visual Studio, AzurePass, MPN, BizSpark, entre outras. Ao converter tais subscrições, perde o crédito mensal.
-
-### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Quantos proprietários de conta do Azure pode ter por subscrição?
-
-Apenas é permitido um proprietário de conta por subscrição.  Podem ser adicionadas funções adicionais com o Acesso Baseado em Funções ou o Controlo de Acesso (IAM) no separador Subscrição no canto superior esquerdo da página do [portal do Azure](https://portal.azure.com).
-
-### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>É possível transferir a propriedade da subscrição para outra conta?
-
-Sim, pode transferir a propriedade da subscrição para uma conta diferente. Por exemplo, se a Conta A tiver três subscrições, o administrador Enterprise pode transferir uma subscrição para a Conta B, uma para a Conta C e outra para a Conta D. Ou pode transferir todas as subscrições para a Conta E.
-
-Para transferir subscrições:
-
-1. No portal Azure Enterprise, selecione **Gerir** > **Conta**.
-1. Coloque o cursor por cima de **Conta** na extremidade direita para ver as opções **Transferir Propriedade**  (ícone de uma pessoa) e **Transferir Subscrição** (ícone da lista). Estas opções só são visíveis para contas ativas.
-
-### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Um proprietário de conta do Azure pode estar listado em mais do que um departamento?
-
-Não, um proprietário de conta só pode ser associado a um único departamento. A política ajuda a garantir a monitorização e divisão precisas dos custos e gastos associados ao departamento com o qual está alinhado de acordo com a inscrição EA no EA Portal do Azure.
-
-### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Um proprietário de conta do Azure pode ser listado como um grupo de segurança?
-
-Não. Um proprietário de subscrição deve ter autenticação do Azure Active Directory (AAD) ou conta Microsoft (MSA) exclusiva. Para ter em conta a sucessão dentro da sua organização, pode considerar a criação de contas genéricas e a utilização do Azure AD para gerir o acesso à subscrição.
-
-### <a name="can-an-individual-user-own-multiple-subscriptions"></a>Um utilizador individual pode ser proprietário de várias subscrições?
-
-Um proprietário de conta do Azure pode criar e gerir um número ilimitado de subscrições.
-
-### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Como posso aceder/ver todas as subscrições da minha organização?
-
-Atualmente, deve aplicar uma política, ou seja, deve exigir que para cada subscrição criada a sua conta seja adicionada a uma função de subscrição com o acesso baseado em funções.
-
-### <a name="where-do-i-go-to-create-a-subscription"></a>Onde devo ir para criar uma subscrição?
-
-Para poder criar uma subscrição de oferta do Azure (EA), a conta deve ser adicionada à função de proprietário da conta pelo administrador da inscrição EA no EA Portal do Azure. Em seguida, tem de iniciar sessão no EA Portal do Azure para obter o direito a criar subscrições do tipo de oferta EA. Recomendamos que a primeira subscrição EA seja criada a partir da ligação “+ Adicionar Subscrição” no separador Subscrição do EA Portal.  No entanto, quando a conta tiver o direito, poderá ser mais fácil criar subscrições em portal.azure.com no separador Subscrição no canto superior esquerdo da página, onde pode criar e alterar o nome da subscrição num único passo.
-
-### <a name="who-can-create-a-subscription"></a>Quem pode criar uma subscrição?
-
-Para criar uma subscrição do tipo de oferta Azure Enterprise, deve ter direito à função de proprietário de conta no [EA Portal](https://ea.azure.com).
-
 ## <a name="azure-ea-term-glossary"></a>Glossário dos termos do Azure EA
 
 - **Conta**: uma unidade organizacional no portal Azure Enterprise. É utilizada para administrar subscrições e para gerar relatórios.
@@ -510,3 +465,4 @@ Para criar uma subscrição do tipo de oferta Azure Enterprise, deve ter direito
 
 - Leia sobre como [as reservas de máquina virtual](ea-portal-vm-reservations.md) podem ajudar a poupar dinheiro.
 - Se precisar de ajuda na resolução de problemas com o Azure EA Portal, veja [Resolver problemas de acesso do Azure EA Portal](ea-portal-troubleshoot.md).
+- Leia a [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) para perguntas sobre a propriedade da subscrição EA.

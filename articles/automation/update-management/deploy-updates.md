@@ -3,14 +3,14 @@ title: Como criar implementações de atualização para a Azure Automation Upda
 description: Este artigo descreve como agendar as implementações de atualização e rever o seu estado.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e410e5de529bde122fe42d21b593a6fc483dcbc0
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104669683"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726692"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
@@ -69,15 +69,30 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
 
 7. Utilize a região **de classificações de atualização** para especificar [classificações de atualização](view-update-assessments.md#work-with-update-classifications) para produtos. Para cada produto, desmarcar todas as classificações de atualização suportadas, mas as que incluir na sua implementação de atualização.
 
+   :::image type="content" source="./media/deploy-updates/update-classifications-example.png" alt-text="Exemplo mostrando a seleção de classificações específicas de atualização.":::
+
     Se a sua implementação for destinada a aplicar apenas um conjunto selecionado de atualizações, é necessário desmarcar todas as classificações de atualização pré-selecionadas ao configurar a opção **de atualizações Incluir/excluir,** conforme descrito no passo seguinte. Isto garante apenas que as atualizações especificadas para *incluir* nesta implementação são instaladas nas máquinas-alvo.
 
+   >[!NOTE]
+   > Implementar atualizações por classificação de atualização não funciona nas versões RTM do CentOS. Para implementar corretamente atualizações para o CentOS, selecione todas as classificações para garantir que as atualizações são aplicadas. Não existe atualmente um método suportado para permitir a disponibilidade de dados de classificação nativa no CentOS. Consulte o seguinte para obter mais informações sobre [as classificações de Atualização.](overview.md#update-classifications)
+
 8. Utilize a região **de atualizações Incluir/excluir** para adicionar ou excluir atualizações selecionadas da implementação. Na página **Incluir/Excluir,** introduz os números de ID do artigo KB para incluir ou excluir para atualizações do Windows. Para distros Linux suportados, especifique o nome do pacote.
+
+   :::image type="content" source="./media/deploy-updates/include-specific-updates-example.png" alt-text="Exemplo mostrando como incluir atualizações específicas.":::
 
    > [!IMPORTANT]
    > Lembre-se que as exclusões substituem as inclusãos. Por exemplo, se definir uma regra de exclusão de , A Gestão de `*` Atualização exclui todos os patches ou pacotes da instalação. Os remendos excluídos ainda mostram como desaparecidos das máquinas. Para as máquinas Linux, se incluir um pacote que tem um pacote dependente que foi excluído, a Update Management não instala o pacote principal.
 
    > [!NOTE]
    > Não é possível especificar atualizações que tenham sido substituídos para incluir na implementação da atualização.
+
+   Aqui estão alguns cenários de exemplo para ajudá-lo a entender como usar a inclusão/exclusão e atualizar a classificação simultaneamente em implementações de atualização:
+
+   * Se pretender instalar apenas uma lista específica de atualizações, não deverá selecionar nenhuma **classificação de Atualização** e fornecer uma lista de atualizações a aplicar através da opção **Incluir.**
+
+   * Se pretender instalar apenas atualizações de segurança e críticas, juntamente com uma ou mais atualizações opcionais do controlador, deverá selecionar **Segurança** e **Crítica** nas **classificações de Atualização**. Em seguida, para a opção **Incluir,** especifique as atualizações do controlador.
+
+   * Se pretender instalar apenas atualizações de segurança e críticas, mas saltar uma ou mais atualizações para a pitão para evitar quebrar a sua aplicação de legado, deverá selecionar **a Classificação De Segurança** e **Crítica** em **Atualização**. Em seguida, para a opção **Excluir** adicione as embalagens de pitão para saltar.
 
 9. Selecione **definições de agendamento**. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 

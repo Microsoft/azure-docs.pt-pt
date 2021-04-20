@@ -8,18 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcda4ca252101ed1505f71a1b5f9fe9a0d8d16b9
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796725"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728397"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
 
-Este artigo fornece uma visão geral da arquitetura Central Microsoft Azure IoT.
-
-![Arquitetura de alto nível](media/concepts-architecture/architecture.png)
+Este artigo fornece uma visão geral dos conceitos-chave na arquitetura Azure IoT Central.
 
 ## <a name="devices"></a>Dispositivos
 
@@ -28,7 +26,7 @@ Os dispositivos trocam dados com a sua aplicação Azure IoT Central. Um disposi
 - Envie medições como telemetria.
 - Sincronizar as definições com a sua aplicação.
 
-No Azure IoT Central, os dados que um dispositivo pode trocar com a aplicação são especificados num modelo de dispositivo. Para obter mais informações sobre os modelos do dispositivo, consulte [a gestão dos metadados.](#metadata-management)
+No Azure IoT Central, os dados que um dispositivo pode trocar com a aplicação são especificados num modelo de dispositivo. Para obter mais informações sobre os modelos do dispositivo, consulte [os modelos do dispositivo](concepts-device-templates.md).
 
 Para saber mais sobre como os dispositivos se ligam à sua aplicação Azure IoT Central, consulte [a conectividade do dispositivo](concepts-get-connected.md).
 
@@ -117,29 +115,6 @@ Azure IoT Central armazena dados de aplicações na nuvem. Os dados da aplicaç�
 
 A Azure IoT Central utiliza uma loja de séries de tempo para os dados de medição enviados dos seus dispositivos. Dados da série de tempo de dispositivos utilizados pelo serviço de análise.
 
-## <a name="analytics"></a>Análise
-
-O serviço de análise é responsável por gerar os dados de reporte personalizados que a aplicação apresenta. Um operador pode [personalizar as análises](howto-create-analytics.md) apresentadas na aplicação. O serviço de análise é construído em cima do [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) e processa os dados de medição enviados a partir dos seus dispositivos.
-
-## <a name="rules-and-actions"></a>Regras e ações
-
-[As regras e ações](tutorial-create-telemetry-rules.md) trabalham em estreita colaboração para automatizar tarefas dentro da aplicação. Um construtor pode definir regras baseadas na telemetria do dispositivo, como a temperatura que excede um limiar definido. A Azure IoT Central utiliza um processador de fluxo para determinar quando as condições de regra são cumpridas. Quando uma condição de regra é cumprida, desencadeia uma ação definida pelo construtor. Por exemplo, uma ação pode enviar um e-mail para notificar um engenheiro de que a temperatura num dispositivo é demasiado alta.
-
-## <a name="metadata-management"></a>Gestão de metadados
-
-Numa aplicação Azure IoT Central, os modelos do dispositivo definem o comportamento e a capacidade dos tipos de dispositivos. Por exemplo, um modelo de dispositivo de frigorífico especifica a telemetria que um frigorífico envia para a sua aplicação.
-
-![Arquitetura de modelo](media/concepts-architecture/template-architecture.png)
-
-Num modelo de [dispositivo](concepts-device-templates.md) IoT Central contém:
-
-- Um modelo de **dispositivo** para especificar as capacidades de um dispositivo como a telemetria que envia, as propriedades que definem o estado do dispositivo, e os comandos a que o dispositivo responde. As capacidades do dispositivo são organizadas em uma ou mais interfaces.
-- **Propriedades na nuvem** especificam as propriedades IoT Central lojas para um dispositivo. Estas propriedades são armazenadas apenas na IoT Central e nunca são enviadas para um dispositivo.
-- **As vistas** especificam os dashboards e formas que o construtor cria para permitir que o operador monitorize e gere os dispositivos.
-- **As personalizações** permitem ao construtor sobrepor-se a algumas das definições no modelo do dispositivo para torná-las mais relevantes para a aplicação IoT Central.
-
-Uma aplicação pode ter um ou mais dispositivos simulados e reais com base em cada modelo de dispositivo.
-
 ## <a name="data-export"></a>Exportação de dados
 
 Numa aplicação Azure IoT Central, pode [exportar continuamente os seus dados](howto-export-data.md) para os seus próprios centros de eventos Azure e para os casos de Autocarros Azure Service. Também pode exportar periodicamente os seus dados para a sua conta de armazenamento Azure Blob. O IoT Central pode exportar medições, dispositivos e modelos de dispositivos.
@@ -160,13 +135,6 @@ As funcionalidades de segurança dentro da Azure IoT Central incluem:
 - A autenticação é fornecida pelo Azure Ative Directory ou pela Microsoft Account. A autenticação de dois fatores é suportada.
 - Isolamento total do inquilino.
 - Segurança ao nível do dispositivo.
-
-## <a name="ui-shell"></a>Concha de UI
-
-A concha UI é uma aplicação moderna, responsiva, baseada no navegador HTML5.
-Um administrador pode personalizar o UI da aplicação aplicando temas personalizados e modificando os links de ajuda para apontar para os seus próprios recursos de ajuda personalizados. Para saber mais sobre a personalização da UI, consulte Personalizar o artigo [da UI Central Azure IoT.](howto-customize-ui.md)
-
-Um operador pode criar dashboards de aplicação personalizados. Pode ter vários dashboards que exibem dados diferentes e alternam entre eles.
 
 ## <a name="next-steps"></a>Passos seguintes
 

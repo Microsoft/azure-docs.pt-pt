@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc00a4f1c1551932b4a30a8ef9b27cb1d4082667
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46c8845b4f01db09bf5f96eb1e67078b4e361f9f
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071601"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728325"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos Azure Key Vault
 
-Azure Key Vault é um serviço de nuvem para armazenar e aceder a segredos de forma segura. Um segredo é qualquer coisa a que queira controlar firmemente o acesso, como chaves API, palavras-passe, certificados ou chaves criptográficas. O serviço Key Vault suporta dois tipos de contentores: cofres e piscinas HSM geridas. Os cofres suportam o software de armazenamento e chaves, segredos e certificados apoiados pelo HSM. As piscinas HSM geridas suportam apenas as teclas apoiadas por HSM. Consulte [a visão geral da Azure Key Vault REST API](about-keys-secrets-certificates.md) para obter detalhes completos.
+Azure Key Vault é um serviço de nuvem para armazenar e aceder a segredos de forma segura. Um segredo é qualquer coisa a que queira controlar firmemente o acesso, como chaves API, palavras-passe, certificados ou chaves criptográficas. O serviço Key Vault suporta dois tipos de contentores: cofres e piscinas de módulos de segurança de hardware geridos (HSM). Os cofres suportam o software de armazenamento e chaves, segredos e certificados apoiados pelo HSM. As piscinas HSM geridas suportam apenas as teclas apoiadas por HSM. Consulte [a visão geral da Azure Key Vault REST API](about-keys-secrets-certificates.md) para obter detalhes completos.
 
 Aqui estão outros termos importantes:
 

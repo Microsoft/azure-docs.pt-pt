@@ -9,16 +9,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 8771c61f96b244e0cc0bca1c61ceb8042b4a5b4c
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 942b77f8338636f9dda5dcf6cd4262dad57b4b0a
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220203"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726273"
 ---
 # <a name="issuer-service-communication-examples-preview"></a>Exemplos de comunicação do serviço emitente (Pré-visualização)
 
-O serviço de emitente credencial verificável pode emitir credenciais verificáveis recuperando reclamações de um token de ID gerado pelo fornecedor de identidade compatível com OpenID da sua organização. Este artigo instrui-o sobre como configurar o seu fornecedor de identidade para que o Autenticador possa comunicar com ele e recuperar o ID Token correto para passar para o serviço de emissão. 
+O serviço de credencial verificável Azure AD pode emitir credenciais verificáveis recuperando reclamações de um símbolo de ID gerado pelo fornecedor de identidade compatível com OpenID da sua organização. Este artigo instrui-o sobre como configurar o seu fornecedor de identidade para que o Autenticador possa comunicar com ele e recuperar o ID Token correto para passar para o serviço de emissão. 
 
 > [!IMPORTANT]
 > Azure Ative Directory Verifiable Credentials está atualmente em pré-visualização pública.

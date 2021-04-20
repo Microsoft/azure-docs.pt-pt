@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento facial, software de reconhecimento facial, análise facial, correspondência facial, app de reconhecimento facial, pesquisa facial por imagem, pesquisa de reconhecimento facial
-ms.openlocfilehash: a999b2100dc57d7b623cebbbe261f821a80835e3
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 30707dd844769f730f135a451cd5306ca7e402cb
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505127"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726993"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?
 
@@ -64,7 +64,7 @@ Para obter mais informações sobre a identificação da pessoa, consulte o guia
 
 ## <a name="find-similar-faces"></a>Encontrar rostos semelhantes
 
-A API Find Similar enfrenta a correspondência entre a face do alvo e um conjunto de rostos de candidatos, encontrando um conjunto menor de rostos que se parecem com a face do alvo. Isto é útil para fazer uma pesquisa facial por imagem. 
+A API Find Similar enfrenta a correspondência entre a face do alvo e um conjunto de rostos de candidatos, encontrando um conjunto menor de rostos que se parecem com a face do alvo. Esta operação é útil para fazer uma pesquisa facial por imagem. 
 
 Dois modos de trabalho, **matchPerson** e **matchFace,** são suportados. O modo **matchPerson** retorna faces semelhantes após a filtragem para a mesma pessoa utilizando a [API verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). O modo **MatchFace** ignora o filtro da mesma pessoa. Devolve uma lista de rostos de candidatos semelhantes que podem ou não pertencer à mesma pessoa.
 

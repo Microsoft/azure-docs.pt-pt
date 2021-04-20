@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 5790c7c62b9d97df9683773170301b6e09a47667
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029782"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728487"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -64,6 +64,8 @@ A partir de v3.1-pré-visualização.3, a API text Analytics fornece dois pontos
 * O `/analyze` ponto final para Análise de Texto permite-lhe analisar o mesmo conjunto de documentos de texto com múltiplas funcionalidades de análise de texto numa chamada API. Anteriormente, para utilizar várias funcionalidades, precisaria de fazer chamadas API separadas para cada operação. Considere esta capacidade quando necessitar de analisar grandes conjuntos de documentos com mais de uma funcionalidade de Text Analytics.
 
 * O `/health` ponto final para a Análise de Texto para a saúde, que pode extrair e rotular informações médicas relevantes a partir de documentos clínicos.  
+
+Por favor, note que os pontos finais /analise e /saúde só estão disponíveis nas seguintes regiões: West US 2, East US 2, Central US, North Europe e West Europe.
 
 Consulte a tabela abaixo para ver quais as características que podem ser utilizadas assíncroneamente. Note que apenas algumas funcionalidades podem ser chamadas do `/analyze` ponto final. 
 

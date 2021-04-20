@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
 ms.author: anupand
-ms.openlocfilehash: 555c903dc3375080a8b0d006d2aac7216854c939
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e39859e3cc4d28ac4b1456fcdaec65ecfb9c7f31
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539303"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728217"
 ---
 # <a name="subnet-extension"></a>Extensão de sub-rede
 A migração da carga de trabalho para a nuvem pública requer um planeamento e coordenação cuidadosos. Uma das principais considerações pode ser a capacidade de reter os seus endereços IP. O que pode ser importante especialmente se as suas aplicações tiverem dependência de endereços IP ou se tiver requisitos de conformidade para usar endereços IP específicos. A Rede Virtual Azure resolve este problema por si, permitindo-lhe criar VNet e Subnets utilizando um intervalo de endereços IP à sua escolha.
@@ -53,4 +53,4 @@ No exemplo acima, o Azure NVA e as NVA no local comunicam e aprendem sobre ender
 Na próxima secção, encontrará detalhes sobre as soluções de extensão da sub-rede que testámos no Azure.
 
 ## <a name="next-steps"></a>Passos seguintes 
-[Estenda a sua sub-rede ao Azure utilizando soluções de fornecedor.](https://github.com/microsoft/Azure-LISP)
+[Estenda as suas sub-redes no local para Azure utilizando a Rede Estendida Azure](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-extended-network).

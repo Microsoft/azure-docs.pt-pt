@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.openlocfilehash: 22c4fc0680d8666d8c2dfafb8829436e27cf1ebd
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93040748"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725715"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrizar os fluxos de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
-Os fluxos de dados de mapeamento na Azure Data Factory suportam a utilização de parâmetros. Defina parâmetros dentro da definição de fluxo de dados e use-os ao longo das suas expressões. Os valores dos parâmetros são definidos pelo pipeline de chamada através da atividade Executar fluxo de dados. Tem três opções para definir os valores nas expressões de atividade do fluxo de dados:
+Os fluxos de dados de mapeamento na Azure Data Factory e na Azure Synapse Analytics suportam a utilização de parâmetros. Defina parâmetros dentro da definição de fluxo de dados e use-os ao longo das suas expressões. Os valores dos parâmetros são definidos pelo pipeline de chamada através da atividade Executar fluxo de dados. Tem três opções para definir os valores nas expressões de atividade do fluxo de dados:
 
 * Utilize a linguagem de expressão de fluxo de controlo do gasoduto para definir um valor dinâmico
 * Utilize a linguagem de expressão de fluxo de dados para definir um valor dinâmico

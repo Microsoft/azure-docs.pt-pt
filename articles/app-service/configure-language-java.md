@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: cc532c5ac6babb8378860ac5049e931cc7657932
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1caa8b680b6bc3df20ad31e581d336195308a2dc
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629262"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726327"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -32,7 +32,10 @@ Caso contrário, o seu método de implantação dependerá do seu tipo de arquiv
 
 ### <a name="java-se"></a>Java SE
 
-Para implementar ficheiros .jar para a Java SE, utilize o `/api/zipdeploy/` ponto final do site Kudu. Para mais informações sobre esta API, consulte [esta documentação.](./deploy-zip.md#rest)
+Para implementar ficheiros .jar para a Java SE, utilize o `/api/zipdeploy/` ponto final do site Kudu. Para mais informações sobre esta API, consulte [esta documentação.](./deploy-zip.md#rest) 
+
+> [!NOTE]
+>  A sua aplicação .jar deve ser nomeada `app.jar` para o Serviço de Aplicações para identificar e executar a sua aplicação. O Plugin Maven (mencionado acima) mudará automaticamente o nome da sua aplicação durante a implementação. Se não quiser mudar o nome do seu JAR para *app.jar,* pode carregar um script de concha com o comando para executar a sua aplicação .jar. Cole o caminho absoluto para este script na caixa de texto ['Ficheiro',](faq-app-service-linux.md#built-in-images) na secção configuração do Portal. O script de arranque não é executado a partir do diretório no qual é colocado. Por isso, utilize sempre caminhos absolutos para referenciar ficheiros no script de arranque (por exemplo: `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="tomcat"></a>Tomcat
 

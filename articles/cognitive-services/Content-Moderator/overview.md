@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 04/16/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: moderador de conteúdo, moderador de conteúdo azul, moderador on-line, software de filtragem de conteúdos, serviço de moderação de conteúdos, moderação de conteúdos
-ms.openlocfilehash: a53611fdad84f06661f3b8928296b6a45851cea4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b0ff5a241a76cd49d104e4145df37515b43c4e27
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867275"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726201"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Content Moderator do Azure?
 
@@ -59,7 +59,7 @@ O serviço Content Moderator inclui APIs de Moderação, que verificam o conteú
 
 A tabela a seguir descreve os diferentes tipos de APIs de moderação.
 
-| Grupo API | Descrição |
+| Grupo API | Description |
 | ------ | ----------- |
 |[**Moderação de texto**](text-moderation-api.md)| Verifica texto para conteúdo ofensivo, conteúdo sexualmente explícito ou sugestivo, profanação e dados pessoais.|
 |[**Listas personalizadas de termos**](try-terms-list-api.md)| Digitaliza o texto contra uma lista personalizada de termos, juntamente com os termos incorporados. Utilize listas personalizadas para bloquear ou permitir conteúdo de acordo com as suas próprias políticas de conteúdo.|  

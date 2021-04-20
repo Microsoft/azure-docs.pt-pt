@@ -4,14 +4,14 @@ description: Saiba como configurar o controlo de acesso baseado em funções com
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ms.author: thweiss
-ms.openlocfilehash: 145c60784ec9cef60d0863e1eb03aa564dea2b55
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 209d18dfbadea89f14fd90da9a1bc57b3ccf0dfe
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600833"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728080"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configure o controlo de acesso baseado em funções com o Azure Ative Directory para a sua conta DB Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,7 +50,10 @@ O plano de dados Azure Cosmos DB RBAC é construído com base em conceitos que s
 > - [Modelos ARM](manage-with-templates.md)
 > - [Scripts Azure PowerShell,](manage-with-powershell.md)
 > - [Scripts Azure CLI,](manage-with-cli.md)
-> - [Bibliotecas de gestão Azure.](https://azure.github.io/azure-sdk/releases/latest/index.html)
+> - Bibliotecas de gestão Azure disponíveis em
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
+>   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 
 A tabela abaixo lista todas as ações expostas pelo modelo de permissão.
 

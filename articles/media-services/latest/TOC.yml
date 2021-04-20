@@ -85,6 +85,8 @@
       items:
         - name: Codificar e transmitir em fluxo um ficheiro remoto Node.js
           href: stream-files-nodejs-quickstart.md
+        - name: Stream ao vivo com Node.js
+          href: stream-live-tutorial-with-nodejs.md
     - name: Python
       items:
         - name: Codificação Básica python

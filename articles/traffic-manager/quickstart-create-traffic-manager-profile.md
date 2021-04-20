@@ -5,7 +5,7 @@ services: traffic-manager
 author: duongau
 ms.author: duau
 manager: twooley
-ms.date: 10/15/2020
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: traffic-manager
 ms.workload: infrastructure-services
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 60facae195abd2808195f776ac6eef54ab63752f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 13b5925310c615461424f78d90ba9849c9bf58c5
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534942"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727983"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Quickstart: Criar um perfil de Gestor de Tráfego utilizando o portal Azure
 
 Este quickstart descreve como criar um perfil de Gestor de Tráfego que oferece alta disponibilidade para a sua aplicação web.
 
 Neste arranque rápido, você vai ler sobre dois casos de uma aplicação web. Cada um deles está a correr numa região diferente do Azure. Você vai criar um perfil de Gestor de Tráfego baseado na [prioridade do ponto final](traffic-manager-routing-methods.md#priority-traffic-routing-method). O perfil direciona o tráfego do utilizador para o site primário que executa a aplicação web. O Gestor de Tráfego monitoriza continuamente a aplicação web. Se o site principal não estiver disponível, fornece falha automática no site de reserva.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagrama do ambiente de implantação do Gestor de Tráfego." border="false":::
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
@@ -83,7 +85,7 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
 1. Selecione o perfil a partir dos resultados da pesquisa.
 1. No **perfil de Gestor de Tráfego**, na secção **Definições,** selecione **Pontos de Final** e, em seguida, selecione **Adicionar**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Definições de ponto final no perfil do Gestor de Tráfego":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Screenshot das definições de ponto final no perfil do Gestor de Tráfego.":::
 
 1. Introduza ou selecione estas definições:
 
@@ -95,7 +97,7 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
     | Recurso de destino | **Selecione Escolha um serviço de aplicações** Leste  >  **EUA.** |
     | Prioridade | Selecione **1**. Todo o tráfego vai para este ponto final quando é saudável. |
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Screenshot de onde adiciona um ponto final ao seu perfil de Gestor de Tráfego":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Screenshot de onde adiciona um ponto final ao seu perfil de Gestor de Tráfego.":::
     
 1. Selecione **OK**.
 1. Para criar um ponto final de falha para a sua segunda região de Azure, repita os passos 3 e 4 com estas definições:
@@ -122,7 +124,7 @@ Nesta secção, você verificará o nome de domínio do seu perfil de Gestor de 
 1. Selecione o perfil do gestor de tráfego. A **visão geral** aparece.
 1. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar.
   
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Screenshot da localização do nome DNS do seu Gestor de Tráfego":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Screenshot da localização do nome DNS do seu Gestor de Tráfego.":::
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gestor de Tráfego em ação
 
@@ -131,7 +133,7 @@ Nesta secção, você verificará o nome de domínio do seu perfil de Gestor de 
     > [!NOTE]
     > Neste cenário de arranque rápido, todos os pedidos de rota para o ponto final principal. Está definido para **a Prioridade 1**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Screenshot da página web para confirmar a disponibilidade do perfil do Gestor de Tráfego":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Screenshot da página web para confirmar a disponibilidade do perfil do Gestor de Tráfego.":::
 
 1. Para ver o Traffic Manager failover em ação, desative o seu site principal:
     1. Na página 'Perfil do Gestor de Tráfego', a partir da secção **Overview,** selecione **myPrimaryEndpoint**.

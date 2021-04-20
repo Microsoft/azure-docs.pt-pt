@@ -5,13 +5,13 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 04/16/2021
 ms.author: peshultz
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 40281211e5eb70089f4168dcb02720c912120a35
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 01d2ea03768a09c1ad4e019b9e8ed43a26443637
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576113"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728523"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Criar um conjunto com a encriptação de disco ativada
 

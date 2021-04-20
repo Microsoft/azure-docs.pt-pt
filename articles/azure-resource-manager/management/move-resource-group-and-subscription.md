@@ -2,14 +2,14 @@
 title: Mover recursos para um novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 04/16/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 800e605571ae18b008a86b4add4b0b2adce9c140
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 08f2c123d37ac992e926e983d59edc650a8ab7ef
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078388"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728307"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -160,7 +160,7 @@ retry-after: 15
 ...
 ```
 
-O código de estado de 202 indica que o pedido de validação foi aceite, mas ainda não determinou se a operação de movimento será bem sucedida. O `location` valor contém um URL que utiliza para verificar o estado da operação de longa duração.  
+O código de estado de 202 indica que o pedido de validação foi aceite, mas ainda não determinou se a operação de movimento será bem sucedida. O `location` valor contém um URL que utiliza para verificar o estado da operação de longa duração.
 
 Para verificar o estado, envie o seguinte pedido:
 
@@ -209,8 +209,6 @@ Depois de validar que os recursos podem ser movidos, vê uma notificação de qu
 
 Quando estiver concluído, é notificado do resultado.
 
-Se tiver um erro, consulte [Troubleshoot movendo os recursos da Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
-
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
 Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o comando [Move-AzResource.](/powershell/module/az.resources/move-azresource) O exemplo a seguir mostra como mover vários recursos para um novo grupo de recursos.
@@ -223,8 +221,6 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 Para passar para uma nova subscrição, inclua um valor para o `DestinationSubscriptionId` parâmetro.
 
-Se tiver um erro, consulte [Troubleshoot movendo os recursos da Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
-
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
 Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o comando [de movimento de recursos az.](/cli/azure/resource#az-resource-move) Forneça os IDs de recursos dos recursos para mover. O exemplo a seguir mostra como mover vários recursos para um novo grupo de recursos. No `--ids` parâmetro, forneça uma lista separada do espaço dos IDs de recurso para mover.
@@ -236,8 +232,6 @@ az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
 Para passar para uma nova subscrição, forneça o `--destination-subscription-id` parâmetro.
-
-Se tiver um erro, consulte [Troubleshoot movendo os recursos da Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
 ## <a name="use-rest-api"></a>Utilizar a API REST
 
@@ -255,8 +249,6 @@ No órgão de pedido, especifique o grupo de recursos-alvo e os recursos para se
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
-
-Se tiver um erro, consulte [Troubleshoot movendo os recursos da Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -303,6 +295,18 @@ Outro exemplo comum envolve mover uma rede virtual. Poderá ter de mover vários
 **Pergunta: Por que não posso mover alguns recursos em Azure?**
 
 Atualmente, nem todos os recursos no movimento de apoio da Azure. Para obter uma lista de recursos que suportam movimento, consulte [o suporte de operação Move para recursos](move-support-resources.md).
+
+**Pergunta: Quantos recursos posso mover numa única operação?**
+
+Quando possível, parta grandes movimentos em operações de movimento separados. O Gestor de Recursos retorna imediatamente um erro quando existem mais de 800 recursos numa única operação. No entanto, a movimentação de menos de 800 recursos também pode falhar com o timing.
+
+**Pergunta: Qual é o significado do erro de que um recurso não está em estado de sucesso?**
+
+Quando recebe uma mensagem de erro que indica que um recurso não pode ser movido porque não está num estado bem sucedido, pode ser um recurso dependente que está a bloquear o movimento. Normalmente, o código de erro é **MoveCannotProceedWithResourcesNotInSucceedEdState**.
+
+Se o grupo de recursos de origem ou alvo contiver uma rede virtual, os estados de todos os recursos dependentes da rede virtual são verificados durante a mudança. O cheque inclui esses recursos direta e indiretamente dependentes da rede virtual. Se algum desses recursos estiver num estado falhado, a mudança está bloqueada. Por exemplo, se uma máquina virtual que utiliza a rede virtual tiver falhado, o movimento está bloqueado. O movimento é bloqueado mesmo quando a máquina virtual não é um dos recursos que estão a ser movidos e não está num dos grupos de recursos para a mudança.
+
+Quando recebes este erro, tens duas opções. Ou move os seus recursos para um grupo de recursos que não tem uma rede virtual, ou [suporte de contato](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

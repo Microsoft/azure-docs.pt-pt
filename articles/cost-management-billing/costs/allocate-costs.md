@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 414ce626d76c9b7a7d073d6cbfa5a5f4446c3073
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: e7afef7e0a10bb4be3c30112fc207467167e4a17
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025531"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726525"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Criar e gerir regras de alocação de custos do Azure (Pré-visualização)
 
@@ -105,12 +105,7 @@ Aqui está um vídeo que demonstra como criar uma regra de alocação de custos.
 
 Pode editar uma regra de alocação de custos para alterar a origem ou o destino ou se quiser atualizar a percentagem pré-preenchida das opções de computação, de armazenamento ou de rede. Edite as regras da mesma forma que as cria. A modificação das regras existentes pode demorar até duas horas a serem reprocessadas.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
-
-As secções seguintes contêm perguntas comuns que as pessoas colocam sobre a alocação de custos.
-
-### <a name="what-are-the-current-limitations-with-cost-allocation-in-public-preview"></a>Quais são as limitações atuais da alocação de custos na pré-visualização pública?
-<a name="limitations"></a>
+## <a name="current-limitations"></a>Limitações atuais
 
 Atualmente, a alocação de custos é suportada no Cost Management pelas vistas Análise de custos, Orçamentos e Previsão. Os custos alocados também são apresentados na lista de subscrições e na página de descrição geral das Subscrições.
 
@@ -122,32 +117,9 @@ Os itens seguintes não são atualmente suportados pela pré-visualização púb
 - [Aplicação Cost Management do Power BI](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Conector do Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>Os custos são decompostos nas vistas de orçamentos e previsão?
-<a name="budgets-forecast"></a>
-
-Yes. Os custos alocados são decompostos e suportados pelos orçamentos e pelas previsões. As vistas de orçamentos e de previsão mostram os custos que lhes são alocados, conforme configurado pelas regras de alocação de custos.
-
-### <a name="if-a-cost-allocation-rule-is-deleted-what-happens"></a>O que acontece se uma regra de alocação de custos for eliminada?
-<a name="delete-rule"></a>
-
-Quando uma regra de alocação de custos é eliminada, todos os custos mensais de faturação atuais e abertos alocados aos destinos são removidos. Se a regra de alocação de custos já existir há vários meses, o histórico dos meses anteriores dos dados de alocação permanecerá conforme definido originalmente pela regra de alocação.
-
-### <a name="why-is-an-enrollment-admin-or-a-billing-account-admin-needed-to-create-cost-allocation-rules"></a>Porque é que um administrador de inscrição ou um administrador de conta de faturação precisa de criar regras de alocação de custos?
-<a name="why-admin"></a>
-
-As regras de alocação de custos são criadas no âmbito da inscrição (Contrato Enterprise) ou no âmbito da Conta de faturação (Contrato de Cliente Microsoft). As permissões para fazer alterações nesses âmbitos exigem privilégios de administrador de faturação.
-
-### <a name="why-are-sources-and-targets-limited-to-25-per-rule"></a>Porque é que as origens e os destinos estão limitados a 25 por regra?
-<a name="source-target-rule-limit"></a>
-
-Este limite é uma limitação da pré-visualização para garantir uma boa escalabilidade e desempenho da alocação de custos. Os limites serão provavelmente aumentados ou removidos quando as alocações de custos passarem para disponibilidade geral (GA).
-
-### <a name="what-can-happen-if-cost-allocation-rules-sourcestargets-overlap"></a>O que pode acontecer se as regras de alocação de custos (origens/destinos) forem sobrepostas?
-<a name="rule-overlap"></a>
-
-As regras que têm origens sobrepostas ou destinos sobrepostos não são recomendadas. As regras de Alocação de Custos são aplicadas pela ordem da data de criação, portanto, se existirem regras de alocação de custos sobrepostas, a regra de alocação com a data de criação mais antiga terá precedência.
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Leia a Gestão de [Custos + Faturação FAQ](../cost-management-billing-faq.yml) para perguntas e respostas sobre alocação de custos.
 - Criar ou atualizar regras de alocação com a [API REST de Alocação de custos](/rest/api/cost-management/costallocationrules)
 - Saiba [Como otimizar o investimento na cloud com o Azure Cost Management](cost-mgt-best-practices.md)

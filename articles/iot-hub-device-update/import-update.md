@@ -1,24 +1,23 @@
 ---
-title: Como importar uma nova atualização | Microsoft Docs
-description: How-To guia para importar uma nova atualização para ioT Hub Device Update para IoT Hub.
+title: Como adicionar uma nova atualização | Microsoft Docs
+description: How-To guia para adicionar uma nova atualização na Atualização do Dispositivo para IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 2/11/2021
+ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 196a449f25d97fb1c1b7b8d79ee8889e0d31a5ae
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e90253100b86397c5ca4873d5c38a3511ba21555
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717752"
+ms.locfileid: "107728577"
 ---
-# <a name="import-new-update"></a>Importação Nova Atualização
-Saiba como importar uma nova atualização para a Atualização de Dispositivos para IoT Hub. Se ainda não o fez, não se esqueça de se familiarizar com os [conceitos básicos de importação.](import-concepts.md)
+# <a name="add-an-update-to-device-update-for-iot-hub"></a>Adicione uma atualização à atualização do dispositivo para ioT hub
+Saiba como adicionar uma nova atualização no Device Update para IoT Hub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um ficheiro de atualização existente que pretende implementar nos dispositivos. Pode ser um ficheiro de imagem para atualização baseada em imagem ou um [ficheiro APT Manifesto](device-update-apt-manifest.md) para atualização baseada em pacotes. [Como escolho?](understand-device-update.md#support-for-a-wide-range-of-update-artifacts)
 * [Acesso a um Hub IoT com atualização do dispositivo para o IoT Hub ativado](create-device-update-account.md). 
 * Um dispositivo IoT (ou simulador) previsto para a Atualização do Dispositivo dentro do Hub IoT.
 * [PowerShell 5](/powershell/scripting/install/installing-powershell) ou posteriormente (inclui instalações linux, macOS e Windows)
@@ -29,9 +28,19 @@ Saiba como importar uma nova atualização para a Atualização de Dispositivos 
 > [!NOTE]
 > Alguns dados submetidos a este serviço podem ser processados numa região fora da região em que este caso foi criado.
 
-## <a name="create-device-update-import-manifest"></a>Criar manifesto de importação de atualização de dispositivos
+## <a name="obtain-an-update-for-your-devices"></a>Obtenha uma atualização para os seus dispositivos
 
-1. Se ainda não o fez, obtenha um ficheiro de imagem ou um ficheiro APT Manifesto que pretenda implantar nos dispositivos. Isto pode ser do fabricante dos seus dispositivos ou de um integrador de sistema com o que trabalha, ou mesmo de um grupo dentro da sua organização. Certifique-se de que o ficheiro de imagem de atualização ou o ficheiro APT Manifesto estão localizados num diretório acessível a partir do PowerShell.
+Agora que a Atualização do Dispositivo está [configurada,](create-device-update-account.md)está pronto para atualizar os seus dispositivos. Mas primeiro, precisa do ficheiro de atualização real para os dispositivos que irá implementar.
+
+Se adquiriu dispositivos a um OEM ou um integrador de soluções, essa organização provavelmente fornecerá ficheiros de atualização para si, sem que necessite de criar as atualizações. Contacte o OEM ou o integrador de soluções para saber como disponibilizam as atualizações.
+
+Se a sua organização já criar software para os dispositivos que utiliza, esse mesmo grupo será o único a criar as atualizações para esse software. Ao criar uma atualização a ser implementada usando a Atualização do Dispositivo para ioT Hub, comece com a [abordagem baseada em imagem ou em pacotes,](understand-device-update.md#support-for-a-wide-range-of-update-artifacts) dependendo do seu cenário. Nota: se quiser criar as suas próprias atualizações mas está apenas a começar, o GitHub é uma excelente opção para gerir o seu desenvolvimento. Pode armazenar e gerir o seu código fonte e fazer Integração Contínua (CI) e Implementação Contínua (CD) utilizando [ações do GitHub](https://docs.github.com/en/actions/guides/about-continuous-integration).
+
+## <a name="create-a-device-update-import-manifest"></a>Criar um manifesto de importação de atualização de dispositivos
+
+Se ainda não o fez, não se esqueça de se familiarizar com os [conceitos básicos de importação.](import-concepts.md)
+
+1. Certifique-se de que os ficheiros de atualização estão localizados num diretório acessível a partir do PowerShell.
 
 2. Crie um ficheiro de texto chamado **AduUpdate.psm1** no diretório onde está localizado o seu ficheiro de imagem de atualização ou ficheiro APT Manifesto. Em seguida, abra o [cmdlet AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell, copie o conteúdo do seu ficheiro de texto e, em seguida, guarde o ficheiro de texto.
 
@@ -67,7 +76,7 @@ Saiba como importar uma nova atualização para a Atualização de Dispositivos 
     | actualizarFilePath(s) | Caminho para o(s) ficheiros de atualização no seu computador
 
 
-## <a name="review-generated-import-manifest"></a>Manifesto de importação gerado por revisão
+## <a name="review-the-generated-import-manifest"></a>Rever o manifesto de importação gerado
 
 Exemplo:
 ```json
@@ -110,7 +119,7 @@ Exemplo:
 }
 ```
 
-## <a name="import-update"></a>Atualização de importação
+## <a name="import-an-update"></a>Importar uma atualização
 
 > [!NOTE]
 > As instruções abaixo mostram como importar uma atualização através do portal Azure UI. Também pode utilizar a Atualização do [Dispositivo para APIs IoT Hub](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para importar uma atualização. 

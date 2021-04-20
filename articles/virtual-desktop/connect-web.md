@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b17ec374f2e8b6e268d993fc9a7b14ebeebd40df
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 80a090abee45f9cb3ec6ee5406aad6abf1d73a59
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447901"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725013"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente web
 
@@ -48,25 +48,6 @@ Num browser, navegue para a versão integrada do Azure Resource Manager do clien
 >Se já assinou com uma conta de Diretório Azure Ative diferente da que pretende utilizar para o Windows Virtual Desktop, deve assinar ou utilizar uma janela de navegador privada.
 
 Depois de iniciar sessão, deve agora ver uma lista de recursos. Pode lançar recursos selecionando-os como se fosse uma aplicação normal no separador **Todos os Recursos.**
-
-## <a name="using-an-input-method-editor"></a>Usando um editor de método de entrada
-
-O cliente web suporta a utilização de um Editor de Método de Entrada (IME) na sessão remota na versão **1.0.21.16 ou posterior**. O pacote de idiomas para o teclado que pretende utilizar na sessão remota deve ser instalado na máquina virtual do anfitrião. Para saber mais sobre a configuração de pacotes de idiomas na sessão remota, consulte [os pacotes de idiomas add a uma imagem multi-sessão do Windows 10](language-packs.md).
-
-Para ativar a entrada do IME utilizando o cliente web:
-
-1. Antes de ligar à sessão remota, aceda ao painel **de Definições** do cliente web.
-
-2. Alternar a definição **do Enable Input Method Editor** para **On**.
-
-3. No menu suspenso, selecione o teclado que utilizará na sessão remota.
-
-4. Ligue-se à sessão remota.
-
-O cliente web suprimirá a janela IME local quando estiver focado na sessão remota. A alteração das definições do IME uma vez que já tenha ligado à sessão remota não terá qualquer efeito.
-
->[!NOTE]
->Se o pacote de idiomas não for instalado na máquina virtual do anfitrião, a sessão remota será padrão para o teclado inglês (Estados Unidos).
 
 ## <a name="next-steps"></a>Passos seguintes
 

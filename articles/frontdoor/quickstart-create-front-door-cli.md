@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2020
+ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: a64c91910ba65901a6d1374df9633062398a90e4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f697606e195f102d2bfb5535c92e5c78eb44cdbe
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067661"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727219"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Quickstart: Criar uma porta frontal para uma aplicação web global altamente disponível usando O Azure CLI
 
 Começa com a Azure Front Door usando o Azure CLI para criar uma aplicação web global altamente disponível e de alto desempenho.
 
 A Porta da Frente direciona o tráfego web para recursos específicos numa piscina de backend. Definiu o domínio frontend, adicionou recursos a uma piscina de backend e criou uma regra de encaminhamento. Este artigo utiliza uma configuração simples de um pool de backend com dois recursos de aplicações web e uma regra de encaminhamento único usando o caminho padrão correspondente "/*".
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagrama do ambiente de implantação da porta frontal utilizando o CLI Azure." border="false":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,8 +55,8 @@ az group create \
     --location centralus
 
 az group create \
-    --name myRGFDSouthCentral \
-    --location southcentralus
+    --name myRGFDEast \
+    --location eastus
 ```
 
 ## <a name="create-two-instances-of-a-web-app"></a>Criar duas instâncias de uma aplicação web
@@ -65,7 +67,7 @@ Se ainda não tiver uma aplicação web, use o seguinte script para configurar d
 
 ### <a name="create-app-service-plans"></a>Criar planos de serviço de aplicações
 
-Antes de poder criar as aplicações web, necessitará de dois planos de serviço de aplicações, um no *Centro-Americano* e o segundo no *Centro-Americano.*
+Antes de poder criar as aplicações web, precisará de dois planos de serviço de aplicações, um no *Centro dos EUA* e o segundo no Leste dos *EUA.*
 
 Crie planos de serviço de aplicações com [plano de appservice az criar:](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true)
 
@@ -75,8 +77,8 @@ az appservice plan create \
 --resource-group myRGFDCentral
 
 az appservice plan create \
---name myAppServicePlanSouthCentralUS \
---resource-group myRGFDSouthCentral
+--name myAppServicePlanEastUS \
+--resource-group myRGFDEast
 ```
 
 ### <a name="create-web-apps"></a>Criar aplicativos web
@@ -87,14 +89,14 @@ Crie aplicativo web com [a criação de webapp az:](/cli/azure/webapp#az_webapp_
 
 ```azurecli-interactive
 az webapp create \
---name WebAppContoso1 \
+--name WebAppContoso-1 \
 --resource-group myRGFDCentral \
 --plan myAppServicePlanCentralUS 
 
 az webapp create \
---name WebAppContoso2 \
---resource-group myRGFDSouthCentral \
---plan myAppServicePlanSouthCentralUS
+--name WebAppContoso-2 \
+--resource-group myRGFDEast \
+--plan myAppServicePlanEastUS
 ```
 
 Tome nota do nome de anfitrião predefinido de cada aplicação web para que possa definir os endereços de backend quando implementar a Porta frontal no passo seguinte.
@@ -110,7 +112,7 @@ az network front-door create \
 --resource-group myRGFDCentral \
 --name contoso-frontend \
 --accepted-protocols http https \
---backend-address webappcontoso1.azurewebsites.net webappcontoso2.azurewebsites.net 
+--backend-address webappcontoso-1.azurewebsites.net webappcontoso-2.azurewebsites.net 
 ```
 
 **--grupo de recursos:** Especifique um grupo de recursos onde pretende implantar a Porta frontal.
@@ -140,7 +142,7 @@ az group delete \
 --name myRGFDCentral 
 
 az group delete \
---name myRGFDSouthCentral
+--name myRGFDEast
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
