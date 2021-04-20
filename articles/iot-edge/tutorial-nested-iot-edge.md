@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: bfecc88dc0c504cee615f1a3d35f9208aeb724f8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 44fe6bb3787e1fe0df7ccf83200497b46c473568
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309196"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728505"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge
 
@@ -309,7 +309,7 @@ Quando se corre `iotedge check` da camada inferior, o programa tenta retirar a i
 Neste tutorial, usamos a porta 8000, por isso precisamos especirá-la:
 
 ```bash
-sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2.0-rc4
+sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2
 ```
 
 O `azureiotedge-diagnostics` valor é retirado do registo do contentor que está ligado ao módulo de registo. Este tutorial tem definido por padrão para https://mcr.microsoft.com:
