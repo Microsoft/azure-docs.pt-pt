@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370274"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739013"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a conformidade regulamentar
 
@@ -26,7 +26,7 @@ O Azure Security Center ajuda a agilizar o processo de cumprimento dos requisito
 
 O Security Center avalia continuamente o seu ambiente de nuvem híbrida para analisar os fatores de risco de acordo com os controlos e boas práticas nos padrões aplicados às suas subscrições. O painel de instrumentos reflete o estado da sua conformidade com estas normas. 
 
-Quando ativa o Security Center numa subscrição do Azure, o [Benchmark de Segurança Azure](../security/benchmarks/introduction.md) é automaticamente atribuído a essa subscrição. Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+Quando ativa o Security Center numa subscrição do Azure, o [Benchmark de Segurança Azure](https://docs.microsoft.com/security/benchmark/azure/introduction) é automaticamente atribuído a essa subscrição. Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
 
 O painel de conformidade regulamentar mostra o estado de todas as avaliações dentro do seu ambiente para as normas e regulamentos escolhidos. À medida que age sobre as recomendações e reduz os fatores de risco no seu ambiente, a sua postura de conformidade melhora.
 

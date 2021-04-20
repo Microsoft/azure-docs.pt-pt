@@ -2,13 +2,13 @@
 title: Apoiar máquinas virtuais Hiper-V com MABS
 description: Este artigo contém os procedimentos de backup e recuperação de máquinas virtuais utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 07/18/2019
-ms.openlocfilehash: c1c894df29659dce312d092f1aa3ea5d584e248a
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/20/2021
+ms.openlocfilehash: b4de791269161b477fc07d6539feaa975fdd72ad
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107215"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740003"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Faça backup de máquinas virtuais Hyper-V com servidor de backup Azure
 
@@ -126,7 +126,7 @@ A máquina virtual de réplica está desativada até à ocorrência de uma ativa
 
 Quando for possível recuperar uma máquina virtual com cópia de segurança, utilize o assistente de Recuperação para selecionar a máquina virtual e o ponto de recuperação específico. Para abrir o Assistente de Recuperação e recuperar uma máquina virtual:
 
-1. Na consola MABS Administrator, escreva o nome do VM ou expanda a lista de itens protegidos e selecione o VM que pretende recuperar.
+1. Na consola MABS Administrator, digite o nome do VM ou expanda a lista de itens protegidos, navegue para **Todos os Dados de HiperV Protegidos** e selecione o VM que pretende recuperar.
 
 2. Nos **pontos de recuperação do** painel, no calendário, selecione qualquer data para ver os pontos de recuperação disponíveis. Em seguida, no painel **Caminho**, selecione o ponto de recuperação que pretende utilizar no assistente de Recuperação.
 

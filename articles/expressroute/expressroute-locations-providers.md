@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 033ffb6e274432c5398779ba3e3226c626c10ce8
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 5972e95425513e789725ed8de142c721d58011f3
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107496712"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739931"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -173,12 +173,12 @@ As nuvens nacionais azure são isoladas umas das outras e do Azure comercial glo
 | **Washington D.C.** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD East, US Gov Virginia | 10G, 100G | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Comunicações de Nível 3, Megaport, Verizon |
 
 ### <a name="china"></a>China
-| **Localização** | **Fornecedores de serviços** |
-| --- | --- |
-| **Pequim** |China Telecom |
-| **Pequim2** | China Telecom, China Unicom, GDS |
-| **Xangai** |China Telecom |
-| **Xangai2** | China Telecom, China Unicom, GDS |
+| **Localização** | **Endereço** | **Regiões locais de Azure** | **ER Direto** | **Fornecedores de serviços** |
+| --- | --- | --- | --- | --- |
+| **Pequim** | China Telecom | n/a | 10G | China Telecom |
+| **Pequim2** | GDS | n/a | 10G | China Telecom, China Unicom, GDS |
+| **Xangai** | China Telecom | n/a | 10G | China Telecom |
+| **Xangai2** | GDS | n/a | 10G | China Telecom, China Unicom, GDS |
 
 Para saber mais, consulte [o ExpressRoute na China](http://www.windowsazure.cn/home/features/expressroute/)
 

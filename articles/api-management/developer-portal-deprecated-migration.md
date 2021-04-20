@@ -5,20 +5,16 @@ description: Saiba como migrar do portal de desenvolvimento legado para o novo p
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/15/2020
+ms.date: 04/15/2021
 ms.author: apimpm
-ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4f9f3822b58886f7d453d52402b078d8401133f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92326026"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738887"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migrar para o novo portal de desenvolvedores
 
@@ -33,19 +29,19 @@ Este artigo descreve os passos que precisa de tomar para migrar do portal legado
 
 ## <a name="improvements-in-new-developer-portal"></a>Melhorias no novo portal de desenvolvimento
 
-O novo portal de desenvolvedores aborda muitas limitações do portal deprecado. Apresenta um [editor visual de drag-and-drop para editar conteúdos](api-management-howto-developer-portal-customize.md) e um painel dedicado para os designers modelarem o site. As páginas, personalizações e configuração são guardadas como recursos do Azure Resource Manager no seu serviço de Gestão de API, que permite [automatizar implementações de portais](api-management-howto-developer-portal.md#automate). Por último, a base de código do portal é de código aberto, para [que possa alargá-la com funcionalidades personalizadas.](api-management-howto-developer-portal.md#managed-vs-self-hosted)
+O novo portal de desenvolvedores aborda muitas limitações do portal deprecado. Apresenta um [editor visual de drag-and-drop para editar conteúdos](api-management-howto-developer-portal-customize.md) e um painel dedicado para os designers modelarem o site. As páginas, personalizações e configuração são guardadas como recursos do Azure Resource Manager no seu serviço de Gestão de API, que permite [automatizar implementações de portais](automate-portal-deployments.md). Por último, a base de código do portal é de código aberto, para [que possa alargá-la com funcionalidades personalizadas.](api-management-howto-developer-portal.md#managed-vs-self-hosted)
 
 ## <a name="how-to-migrate-to-new-developer-portal"></a>Como migrar para novo portal de desenvolvedores
 
 O novo portal de desenvolvedores é incompatível com o portal deprecado e a migração automatizada não é possível. É necessário recriar manualmente o conteúdo (páginas, texto, ficheiros de mídia) e personalizar a aparência do novo portal. Os passos precisos variarão consoante as personalizações e complexidade do seu portal. Consulte [o tutorial do portal do desenvolvedor](api-management-howto-developer-portal-customize.md) para obter orientação. A configuração remanescente, como a lista de APIs, produtos, utilizadores, fornecedores de identidade, é automaticamente partilhada em ambos os portais.
 
 > [!IMPORTANT]
-> Se já lançou o novo portal do programador, mas ainda não fez alterações, [reinicie o conteúdo padrão](api-management-howto-developer-portal.md#preview-to-ga) para o atualizar para a versão mais recente.
+> Se já lançou o novo portal do programador, mas ainda não fez alterações, reinicie o conteúdo padrão para o atualizar para a versão mais recente.
 
 Quando migrar do portal deprecado, lembre-se das seguintes alterações:
 
 - Se expor o seu portal de desenvolvedores através de um domínio personalizado, [atribua um domínio](configure-custom-domain.md) ao novo portal de desenvolvedores. Utilize a opção **portal Developer** a partir do dropdown no portal Azure.
-- [Aplique uma política CORS](api-management-howto-developer-portal.md#cors) nas suas APIs para ativar a consola de teste interativa.
+- [Aplique uma política CORS](developer-portal-faq.md#cors) nas suas APIs para ativar a consola de teste interativa.
 - Se injetar CSS personalizado para modelar o portal, tem de [replicar o estilo utilizando o painel de design incorporado.](api-management-howto-developer-portal-customize.md) A injeção de CSS não é permitida no novo portal.
 - Pode injetar JavaScript personalizado apenas na [versão auto-hospedada do novo portal](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 - Se a sua Gestão API estiver numa rede virtual e estiver exposta à Internet através do Application Gateway, [consulte este artigo de documentação](api-management-howto-integrate-internal-vnet-appgateway.md) para obter etapas precisas de configuração. Tem de:

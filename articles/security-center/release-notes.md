@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: bb79bbe918bb1a68b982ae4d44739c2c77a11434
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 5f94b17fac17a7238b3f4b7eef218961df7a42d5
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719156"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739967"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -770,7 +770,7 @@ As atualizações em novembro incluem:
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 
-A azure Security Benchmark é o conjunto de diretrizes de segurança e conformidade da Microsoft, com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
+A azure Security Benchmark é o conjunto de diretrizes de segurança e conformidade da Microsoft, com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 As seguintes 29 recomendações de pré-visualização foram adicionadas ao Centro de Segurança para aumentar a cobertura deste benchmark.
 

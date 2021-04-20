@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 942b77f8338636f9dda5dcf6cd4262dad57b4b0a
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6aa502e1ed0e49192220174d5a8573690035a4a3
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726273"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739139"
 ---
 # <a name="issuer-service-communication-examples-preview"></a>Exemplos de comunicação do serviço emitente (Pré-visualização)
 
@@ -31,9 +31,9 @@ Para emitir uma Credencial Verificável, o Autenticador é instruído através d
 | ------- | ----------- |
 | Tipo de subvenção | Deve apoiar o tipo de concessão de código de autorização. |
 | Formato Token | Deve produzir JWTs compactos não encriptados. |
-| Algoritmo de assinatura | Deve produzir JWTs assinados com RSA 256. |
+| Algoritmo de assinatura | Deve produzir JWTs assinados com RS 256. |
 | Documento de configuração | Deve suportar o documento de configuração OpenID Connect e `jwks_uri` . | 
-| Registo de clientes | Deve apoiar o registo de clientes públicos utilizando um `redirect_uri` valor de `vclient://openid/` . | 
+| Registo de clientes | Deve apoiar o registo de clientes públicos utilizando um `redirect_uri` valor de `vcclient://openid/` . | 
 | PKCE | Recomendado por razões de segurança, mas não necessário. |
 
 Exemplos dos pedidos HTTP enviados ao seu fornecedor de identidade estão incluídos abaixo. O seu fornecedor de identidade deve aceitar e responder a estes pedidos de acordo com a norma de autenticação OpenID Connect.

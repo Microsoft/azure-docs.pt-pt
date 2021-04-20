@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: 03b9c7d5231745f77d40abed16273514cac2692c
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 88f59c1b3fc1014cef5035845f1f2e8616bea908
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715087"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739913"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
@@ -98,7 +98,7 @@ Como operador, utiliza a aplicação IoT Central para [gerir os dispositivos](ho
 
 Pode [definir regras e ações personalizadas](howto-configure-rules.md) que operam sobre o streaming de dados a partir de dispositivos conectados. Um operador pode ativar ou desativar estas regras ao nível do dispositivo, para controlar e automatizar tarefas na aplicação.
 
-Com qualquer solução IoT projetada para funcionar em escala, é importante uma abordagem estruturada para a gestão do dispositivo. Não basta apenas ligar os seus dispositivos à nuvem, é preciso manter os seus dispositivos ligados e saudáveis. Utilize as seguintes capacidades IoT Central para gerir os seus dispositivos durante todo o ciclo de vida da aplicação:
+Tal como acontece com qualquer solução IoT projetada para funcionar em escala, é importante uma abordagem estruturada para a gestão do dispositivo. Não basta apenas ligar os seus dispositivos à nuvem, é preciso manter os seus dispositivos ligados e saudáveis. Utilize as seguintes capacidades IoT Central para gerir os seus dispositivos durante todo o ciclo de vida da aplicação:
 
 ### <a name="dashboards"></a>Dashboards
 

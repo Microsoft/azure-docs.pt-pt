@@ -260,6 +260,8 @@
               href: ./hdinsight-cluster-availability.md
             - name: Disponibilidade do cluster - Registos do Azure Monitor
               href: ./cluster-availability-monitor-logs.md
+            - name: Atualizações da tabela Azure Monitor
+              href: ./log-analytics-migration.md
         - name: Resolução de problemas
           items:
             - name: Pedir aumento da quota de núcleos de CPU

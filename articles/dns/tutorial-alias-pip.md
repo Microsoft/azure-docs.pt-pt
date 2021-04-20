@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
-ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28e37ad0b404b5275a224c8debab5c11c07948b4
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80985444"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738815"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutorial: Configurar um registo de alias para fazer referência a um endereço IP público do Azure 
 
@@ -36,8 +36,8 @@ O domínio de exemplo utilizado para este tutorial é o contoso.com, mas utilize
 
 ## <a name="create-the-network-infrastructure"></a>Criar a infraestrutura de rede
 Primeiro, crie uma rede virtual e uma sub-rede onde possa colocar os servidores Web.
-1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. No canto superior esquerdo do portal, selecione **Criar um recurso**. Introduza *grupo de recursos* na caixa de pesquisa e crie um grupo de recursos chamado **RG-DNS-Alias-pip**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. **Selecione Criar um recurso** a partir do painel esquerdo do portal Azure. Introduza *grupo de recursos* na caixa de pesquisa e crie um grupo de recursos chamado **RG-DNS-Alias-pip**.
 3. **Selecione Criar uma** rede  >  virtual de rede **de**  >  recursos.
 4. Criar uma rede virtual denominada **VNet-Server**. Coloque-o no grupo de recursos **RG-DNS-Alias-pip** e atribua à sub-rede o nome **SN-Web**.
 
@@ -45,10 +45,10 @@ Primeiro, crie uma rede virtual e uma sub-rede onde possa colocar os servidores 
 1. Selecione **Criar um**  >  **VM do Windows Server 2016** de recurso .
 2. Introduza **Web-01** para o nome e coloque a VM no grupo de recursos **RG-DNS-Alias-TM**. Introduza um nome de utilizador e palavra-passe e selecione **OK**.
 3. Para **Tamanho**, selecione um SKU com 8 GB de RAM.
-4. Em **Definições**, selecione a rede virtual **VNet-Servers** e a sub-rede **SN-Web**. Para portas de entrada pública, selecione  >  **HTTPS**  >  **RDP (3389)** e, em seguida, selecione **OK**.
+4. Em **Definições**, selecione a rede virtual **VNet-Servers** e a sub-rede **SN-Web**. Para portas de entrada pública, selecione **HTTP (80)**  >  **HTTPS (443)**  >  **RDP (3389)** e, em seguida, selecione **OK**.
 5. Na página **Resumo**, selecione **Criar**.
 
-Este procedimento demora alguns minutos a concluir. A máquina virtual terá um NIC anexado, que terá um IP público dinâmico básico chamado Web-01-ip. O IP público mudará sempre que a máquina virtual for reiniciada.
+Esta implantação leva alguns minutos para ser concluída. A máquina virtual terá um NIC anexado com um IP público dinâmico básico chamado Web-01-ip. O IP público mudará sempre que a máquina virtual for reiniciada.
 
 ### <a name="install-iis"></a>Instalar o IIS
 

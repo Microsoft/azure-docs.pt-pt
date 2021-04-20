@@ -173,48 +173,74 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Personalizar a experiência do programador
       items:
-        - name: Compreender o portal do programador
-          href: api-management-howto-developer-portal.md
-        - name: Migrar do portal preterido para o novo portal do programador
-          href: developer-portal-deprecated-migration.md
-        - name: Autenticar com o Azure AD
-          href: api-management-howto-aad.md
-        - name: Autenticar com o Azure AD B2C
-          href: api-management-howto-aad-b2c.md
-        - name: Autenticação delegada
-          href: api-management-howto-setup-delegation.md
-        - name: Notificações e modelos de e-mail
-          href: api-management-howto-configure-notifications.md
-        - name: Ativar suporte OAuth da consola
-          href: api-management-howto-oauth2.md
-        - name: Portal preterido – personalizar o portal
-          href: api-management-customize-styles.md
-        - name: Portal preterido – modificar páginas e esquemas
-          href: api-management-modify-content-layout.md
-        - name: Portal preterido – personalizar com modelos
-          href: api-management-developer-portal-templates.md
-    - name: Modelos do portal preterido
-      items:
-        - name: Referência do modelo de dados
-          href: api-management-template-data-model-reference.md
-        - name: Controlos de página
-          href: api-management-page-controls.md
-        - name: Modelos
-          href: api-management-developer-portal-templates-reference.md
-        - name: APIs
-          href: api-management-api-templates.md
-        - name: Produtos
-          href: api-management-product-templates.md
-        - name: Aplicações
-          href: api-management-application-templates.md
-        - name: Problemas
-          href: api-management-issue-templates.md
-        - name: Perfil de utilizador
-          href: api-management-user-profile-templates.md
-        - name: Páginas
-          href: api-management-page-templates.md
-        - name: Recursos do modelo
-          href: api-management-template-resources.md
+        - name: Use o portal de desenvolvedores
+          items:
+            - name: Compreender o portal do programador
+              href: api-management-howto-developer-portal.md
+            - name: Perguntas mais frequentes
+              href: developer-portal-faq.md
+            - name: Automatizar as implementações do portal
+              href: automate-portal-deployments.md
+            - name: Migrar do portal preterido para o novo portal do programador
+              href: developer-portal-deprecated-migration.md
+            - name: Autenticar com o Azure AD
+              href: api-management-howto-aad.md
+            - name: Autenticar com o Azure AD B2C
+              href: api-management-howto-aad-b2c.md
+            - name: Autenticação de delegados
+              href: api-management-howto-setup-delegation.md
+            - name: Ativar suporte OAuth da consola
+              href: api-management-howto-oauth2.md
+            - name: Notificações e modelos de e-mail
+              href: api-management-howto-configure-notifications.md
+            - name: Integrar Insights de Aplicações
+              href: developer-portal-integrate-application-insights.md
+            - name: Integrar o Gestor de Etiquetas do Google
+              href: developer-portal-integrate-google-tag-manager.md
+        - name: Portal de desenvolvedores auto-anfitriões
+          items:
+            - name: Criar portal auto-hospedado
+              href: developer-portal-self-host.md
+            - name: Abordagens alternativas ao auto-alojamento
+              href: developer-portal-alternative-processes-self-host.md
+            - name: Implementar widgets
+              href: developer-portal-implement-widgets.md
+            - name: Contribuir widgets
+              href: developer-portal-widget-contribution-guidelines.md
+            - name: Use widgets comunitários
+              href: developer-portal-use-community-widgets.md
+            - name: Teste portal auto-hospedado
+              href: developer-portal-testing.md
+        - name: Portal precedutado
+          items:
+            - name: Portal preterido – personalizar o portal
+              href: api-management-customize-styles.md
+            - name: Portal preterido – modificar páginas e esquemas
+              href: api-management-modify-content-layout.md
+            - name: Portal preterido – personalizar com modelos
+              href: api-management-developer-portal-templates.md
+        - name: Modelos do portal preterido
+          items:
+            - name: Referência do modelo de dados
+              href: api-management-template-data-model-reference.md
+            - name: Controlos de página
+              href: api-management-page-controls.md
+            - name: Modelos
+              href: api-management-developer-portal-templates-reference.md
+            - name: APIs
+              href: api-management-api-templates.md
+            - name: Produtos
+              href: api-management-product-templates.md
+            - name: Aplicações
+              href: api-management-application-templates.md
+            - name: Problemas
+              href: api-management-issue-templates.md
+            - name: Perfil de utilizador
+              href: api-management-user-profile-templates.md
+            - name: Páginas
+              href: api-management-page-templates.md
+            - name: Recursos do modelo
+              href: api-management-template-resources.md
     - name: Definir políticas
       items:
         - name: Definir ou editar políticas

@@ -1,5 +1,5 @@
 ---
-title: Inscrição utilizando a autenticação com uma conta de trabalho ou escola - Azure AD
+title: Inscreva-se na autenticação com uma conta de trabalho ou escola - Azure AD
 description: Saiba como iniciar scontabilidade no seu trabalho ou conta escolar utilizando os vários métodos de verificação de dois fatores.
 services: active-directory
 author: curtand
@@ -13,12 +13,12 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 2f27dd7daf310e425b09db7905ad2f7c37fcff81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b373288eb5cd47f99bdbb25f961e1330a708d7d1
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94834171"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739193"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Inscreva-se na sua conta de trabalho ou escola usando o seu método de verificação de dois fatores
 

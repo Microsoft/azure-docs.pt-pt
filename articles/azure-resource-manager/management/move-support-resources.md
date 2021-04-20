@@ -3,12 +3,12 @@ title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos Azure que podem ser transferidos para um novo grupo de recursos, subscrição ou região.
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: c159b6e5f64f3052a6584034aa58b058b1426b16
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: a56a9e6f04aa800e16bbab0190ce7b41d87da590
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725571"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740093"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover suporte de operação para recursos
 
@@ -861,7 +861,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | No | No | No |
 > | grupos de servidores | No | No | No |
-> | servidores | Yes | Yes | Pode utilizar uma réplica de leitura transversal para mover um servidor existente. [Saiba mais.](../../postgresql/howto-move-regions-portal.md)
+> | servidores | Yes | Yes | Pode utilizar uma réplica de leitura transversal para mover um servidor existente. [Saiba mais](../../postgresql/howto-move-regions-portal.md).
 > | servidorv2 | Yes | Yes | No |
 > | solteiroservers | Yes | Yes | No |
 
@@ -1160,7 +1160,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Subscrição | Movimento da Região |
+> | Tipo de recurso | Grupo de recursos | Subscrição | Movimento da região |
 > | ------------- | ----------- | ---------- | ----------- |
 > | gráfico | Yes | Yes | No |
 

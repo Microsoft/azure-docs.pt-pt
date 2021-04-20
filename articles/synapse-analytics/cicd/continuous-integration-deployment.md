@@ -1,19 +1,19 @@
 ---
 title: Integração contínua e entrega para espaço de trabalho Synapse
 description: Aprenda a usar a integração contínua e a entrega para implementar mudanças no espaço de trabalho de um ambiente (desenvolvimento, teste, produção) para outro.
-author: liud
+author: liudan66
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5f68e3698f8616b581d319bc19d2a8c636c79c36
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 833478d956560c981bd6cc3ba03b48bb602f563c
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566091"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739679"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração contínua e entrega para o espaço de trabalho Azure Synapse
 
@@ -21,16 +21,61 @@ ms.locfileid: "107566091"
 
 Integração Contínua (CI) é o processo de automatização da construção e teste do código sempre que um membro da equipa comete alterações ao controlo da versão. A Implementação Contínua (CD) é o processo de construção, teste, configuração e implantação de múltiplos ambientes de teste ou de encenação para um ambiente de produção.
 
-Para o espaço de trabalho Azure Synapse, a integração contínua e a entrega (CI/CD) movem todas as entidades de um ambiente (desenvolvimento, teste, produção) para outro. Para promover o seu espaço de trabalho para outro espaço de trabalho, existem duas partes: utilize [modelos do Azure Resource Manager](../../azure-resource-manager/templates/overview.md) para criar ou atualizar recursos do espaço de trabalho (piscinas e espaço de trabalho); migrar artefactos (scripts SQL, caderno, definição de trabalho de faísca, oleodutos, conjuntos de dados, fluxos de dados, e assim por diante) com ferramentas Synapse CI/CD em Azure DevOps. 
+Num espaço de trabalho Azure Synapse Analytics, a integração e entrega contínuas (CI/CD) desloca todas as entidades de um ambiente (desenvolvimento, teste, produção) para outro. Para promover o seu espaço de trabalho para outro espaço de trabalho, existem duas partes. Em primeiro lugar, utilize um [modelo de Gestor de Recursos Azure (modelo ARM)](../../azure-resource-manager/templates/overview.md) para criar ou atualizar recursos do espaço de trabalho (piscinas e espaço de trabalho). Em seguida, migrar artefactos (scripts SQL, caderno, definição de trabalho spark, oleodutos, conjuntos de dados, fluxos de dados, e assim por diante) com ferramentas CI/CD Azure Synapse Analytics em Azure DevOps. 
 
-Este artigo irá delinear usando o gasoduto de libertação Azure para automatizar a implantação de um espaço de trabalho synapse para vários ambientes.
+Este artigo descreve como usar um oleoduto de libertação Azure DevOps para automatizar a implantação de um espaço de trabalho Azure Synapse para vários ambientes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--   O espaço de trabalho utilizado para o desenvolvimento foi configurado com um repositório git em Studio, ver [controlo de Origem no Synapse Studio](source-control.md).
--   Um projeto Azure DevOps foi preparado para executar o oleoduto de lançamento.
+Estes pré-requisitos e configurações devem estar no lugar para automatizar a implantação de um espaço de trabalho Azure Synapse para vários ambientes.
 
-## <a name="set-up-a-release-pipelines"></a>Criar um oleoduto de libertação
+### <a name="azure-devops"></a>Azure DevOps
+
+- Um projeto Azure DevOps foi preparado para executar o oleoduto de lançamento.
+- [Conceda aos utilizadores que verifiquem o código "Basic" de acesso ao nível da organização,](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page)para que possam ver o repo.
+- Grant Owner Rights to the Azure Synapse repo.
+- Certifique-se de que criou um agente VM Azure DevOps auto-hospedado ou utilize um agente hospedado da Azure DevOps.
+- Permissões para [criar uma ligação de serviço Azure Resource Manager para o grupo de recursos](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml).
+- Um administrador do Azure Ative Directory (Azure AD) deve [instalar a extensão do Agente de Implantação do Espaço de Trabalho Azure DevOpse na organização Azure DevOps](/azure/devops/marketplace/install-extension).
+- Criar ou nomear uma conta de serviço existente para que o gasoduto possa funcionar como. Pode utilizar um token de acesso pessoal em vez de uma conta de serviço, mas os seus oleodutos não funcionarão depois de a conta do utilizador ser eliminada.
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+- Em Azure AD, crie um principal de serviço para usar para implantação. A tarefa de implantação do espaço de trabalho synapse não suporta a utilização de uma identidade gerida em verion 1* e mais cedo.
+- Os direitos de administração da Admin da Azure são necessários para esta ação.
+
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+
+> [!NOTE]
+> Pode automatizar e implementar estes pré-requisitos utilizando o mesmo oleoduto, um modelo ARM ou o CLI Azure, mas o processo não está descrito neste artigo.
+
+- O espaço de trabalho "source" que é usado para o desenvolvimento deve ser configurado com um repositório git no Synapse Studio. Para mais informações, consulte [o controlo de origem no Synapse Studio](source-control.md#configuration-method-2-manage-hub).
+
+- Um espaço de trabalho em branco para implantar. Para configurar o espaço de trabalho em branco:
+
+  1. Crie um novo espaço de trabalho Azure Synapse Analytics.
+  1. Conceda ao agente VM e aos principais contribuintes do grupo de recursos em que o novo espaço de trabalho está hospedado.
+  1. No novo espaço de trabalho, não configuure a ligação git repo.
+  1. No portal Azure, encontre o novo espaço de trabalho Azure Synapse Analytics e conceda a si mesmo e a quem quer que coma o gasoduto Azure DevOps Azure Synapse Analytics direitos de proprietário do espaço de trabalho. 
+  1. Adicione o agente VM Azure DevOps e o principal de serviço à função contribuinte para o espaço de trabalho (isto deveria ter herdado, mas verifique se é).
+  1. No espaço de trabalho Azure Synapse Analytics, vá ao **Studio**  >  **Manage**  >  **IAM.** Adicione o agente VM Azure DevOps e o principal de serviço ao grupo de administradores do espaço de trabalho.
+  1. Abra a conta de armazenamento que é usada para o espaço de trabalho. No IAM, adicione o agente VM e o principal de serviço à função Select Storage Blob Data Contributor.
+  1. Crie um cofre chave na subscrição de suporte e certifique-se de que tanto o espaço de trabalho existente como o novo espaço de trabalho têm pelo menos permissões GET e LIST para o cofre.
+  1. Para que a implementação automatizada funcione, certifique-se de que quaisquer cadeias de ligação especificadas nos seus serviços ligados estão no cofre de chaves.
+
+### <a name="additional-prerequisites"></a>Pré-requisitos adicionais
+ 
+ - Piscinas de faíscas e tempos de integração auto-hospedados não são criados num oleoduto. Se tiver um serviço ligado que utilize um tempo de integração auto-hospedado, crie manualmente isso no novo espaço de trabalho.
+ - Se estiver a desenvolver cadernos e os ligar a uma piscina Spark, re-crie a piscina Spark no espaço de trabalho.
+ - Os cadernos que estão ligados a uma piscina spark que não existe num ambiente não serão implantados.
+ - Os nomes da piscina Spark devem ser os mesmos em ambos os espaços de trabalho.
+ - Nomeie todas as bases de dados, piscinas SQL e outros recursos iguais em ambos os espaços de trabalho.
+ - Se as suas piscinas SQL a provisionadas forem interrompidas quando tentar implantar, a implantação pode falhar.
+
+Para obter mais informações, consulte [o CD CI em Azure Synapse Analytics Part 4 - The Release Pipeline](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434). 
+
+
+## <a name="set-up-a-release-pipeline"></a>Criar um oleoduto de libertação
 
 1.  Em [Azure DevOps,](https://dev.azure.com/)abra o projeto criado para o lançamento.
 
@@ -58,9 +103,9 @@ Este artigo irá delinear usando o gasoduto de libertação Azure para automatiz
 
     ![Adicionar um artefacto](media/release-creation-publish-branch.png)
 
-## <a name="set-up-a-stage-task-for-arm-resource-create-and-update"></a>Configurar uma tarefa de fase para criar e atualizar recursos ARM 
+## <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>Crie uma tarefa de fase para um modelo ARM para criar e atualizar recursos 
 
-Adicione uma tarefa de implementação do Gestor de Recursos Azure para criar ou atualizar recursos, incluindo espaço de trabalho e piscinas:
+Se tiver um modelo ARM para implantar um recurso, como um espaço de trabalho Azure Synapse, piscinas Spark e SQL, ou um cofre chave, adicione uma tarefa de implementação do Gestor de Recursos Azure para criar ou atualizar esses recursos:
 
 1. Na vista do palco, **selecione Ver as tarefas do palco**.
 
@@ -89,7 +134,7 @@ Adicione uma tarefa de implementação do Gestor de Recursos Azure para criar ou
  > [!WARNING]
 > No modo de implementação completo, os recursos que existem no grupo de recursos mas que não estão especificados no novo modelo de Gestor de Recursos serão **eliminados**. Para mais informações, consulte os [modos de implementação do Gestor de Recursos Azure](../../azure-resource-manager/templates/deployment-modes.md)
 
-## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurar uma tarefa de palco para a implantação de artefactos 
+## <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Configurar uma tarefa de palco para implantação de artefactos synapse 
 
 Utilize a extensão [de implantação do espaço de trabalho synapse](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) para implantar outros itens no espaço de trabalho synapse, como conjunto de dados, script SQL, caderno, definição de trabalho de faísca, fluxo de dados, serviço ligado, serviço ligado e IR (Integration Runtime).  
 
@@ -113,7 +158,7 @@ Utilize a extensão [de implantação do espaço de trabalho synapse](https://ma
 
 1. Selecione a ligação, o grupo de recursos e o nome do espaço de trabalho alvo. 
 
-1. Selecione **...** ao lado da caixa de **parâmetros do modelo de substituição** e introduza os valores de parâmetros desejados para o espaço de trabalho alvo. 
+1. Selecione **...** ao lado da caixa de parâmetros do **modelo de substituição** e introduza os valores de parâmetros desejados para o espaço de trabalho alvo, incluindo cordas de ligação e chaves de conta que são usadas nos seus serviços ligados. [Clique aqui para mais informações] (https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
 
     ![Implantação do espaço de trabalho da Sinapse](media/create-release-artifacts-deployment.png)
 
@@ -225,6 +270,7 @@ Aqui está um exemplo de como é uma definição de modelo de parâmetro:
     }
 }
 ```
+
 Aqui está uma explicação de como o modelo anterior é construído, dividido por tipo de recurso.
 
 #### <a name="notebooks"></a>Notebooks 
@@ -262,19 +308,19 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 
 ## <a name="best-practices-for-cicd"></a>Melhores práticas para CI/CD
 
-Se estiver a utilizar a integração do Git com o seu espaço de trabalho synapse e tiver um pipeline CI/CD que move as suas alterações do desenvolvimento para teste e depois para a produção, recomendamos estas boas práticas:
+Se estiver a utilizar a integração do Git com o seu espaço de trabalho Azure Synapse e tiver um pipeline CI/CD que move as suas mudanças de desenvolvimento para teste e depois para a produção, recomendamos estas boas práticas:
 
--   **Integração de Git**. Configure apenas o seu espaço de trabalho sinapse de desenvolvimento com integração git. As alterações aos espaços de trabalho de teste e produção são implementadas através de CI/CD e não necessitam de integração do Git.
+-   **Integração de Git**. Configure apenas o seu desenvolvimento Azure Synapse espaço de trabalho com integração Git. As alterações aos espaços de trabalho de teste e produção são implementadas através de CI/CD e não necessitam de integração do Git.
 -   **Prepare piscinas antes da migração de artefactos.** Se você tem script SQL ou caderno anexado a piscinas no espaço de trabalho de desenvolvimento, o mesmo nome de piscinas em diferentes ambientes são esperados. 
 -   **Infraestrutura como Código (IAC)**. Gestão de infraestruturas (redes, máquinas virtuais, equilibradores de carga e topologia de ligação) num modelo descritivo, utilize a mesma versão que a equipa de DevOps utiliza para código fonte. 
 -   **Outros.** Ver [as melhores práticas para artefactos ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
 
 ## <a name="troubleshooting-artifacts-deployment"></a>Implantação de artefactos de resolução de problemas 
 
-### <a name="use-the-synapse-workspace-deployment-task"></a>Utilize a tarefa de implantação do espaço de trabalho Synapse
+### <a name="use-the-azure-synapse-analytics-workspace-deployment-task"></a>Utilize a tarefa de implantação do espaço de trabalho Azure Synapse Analytics
 
-Na Synapse, há uma série de artefactos que não são recursos ARM. Isto difere da Azure Data Factory. A tarefa de implantação do modelo ARM não funcionará adequadamente para implantar artefactos synapse
+No Azure Synapse Analytics, há uma série de artefactos que não são recursos ARM. Isto difere da Azure Data Factory. A tarefa de implantação do modelo ARM não funcionará corretamente para implantar artefactos Azure Synapse Analytics.
  
 ### <a name="unexpected-token-error-in-release"></a>Erro inesperado do token no lançamento
 
-Quando o seu ficheiro de parâmetros tem valores de parâmetros que não são escapados, o pipeline de libertação deixará de analisar o ficheiro e gerará o erro, "token inesperado". Sugerimos que sobreponha parâmetros ou use O Azure KeyVault para recuperar os valores dos parâmetros. Também pode usar caracteres de fuga dupla como uma solução alternativa.
+Quando o seu ficheiro de parâmetros tem valores de parâmetros que não são escapados, o pipeline de libertação deixará de analisar o ficheiro e gerará o erro, "token inesperado". Sugerimos que sobreponha parâmetros ou use o Cofre da Chave Azure para recuperar os valores dos parâmetros. Também pode usar caracteres de fuga dupla como uma solução alternativa.

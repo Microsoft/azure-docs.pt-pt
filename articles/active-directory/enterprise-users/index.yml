@@ -1,22 +1,23 @@
 ### YamlMime:Landing
 title: Documentação da gestão de utilizadores empresariais - Azure AD
-summary: O Azure AD fornece serviços de gestão de utilizadores, como grupos e licenças, ajudam a concluir as suas principais tarefas de gestão de utilizadores mais rapidamente. Atribua licenças e acesso a aplicações a grupos ou utilizadores e adicione ou faça a gestão de nomes de domínio.
+summary: O Azure AD fornece serviços de gestão de utilizadores para que possa atribuir licenças, gerir os seus grupos e utilizadores e adicionar ou gerir nomes de domínio.
 metadata:
-  title: Documentação de utilizadores, grupos, licenças e domínios do Azure Active Directory
-  description: Saiba como utilizar grupos, nomes de domínio e licenças para gerir a autenticação de utilizadores na sua organização do Azure AD.
+  title: Azure Ative Directy utilizadores, grupos, licenças e documentação de domínios
+  description: Saiba como usar grupos, nomes de domínio e licenças para gerir a autenticação do utilizador na sua organização AZure AD.
   services: active-directory
   ms.service: active-directory
-  manager: daveba
+  ms.subservice: enterprise-users
+  manager: mtillman
   ms.topic: landing-page
-  ms.date: 10/19/2020
+  ms.date: 04/18/2021
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: a919a9785163776cfbcfb52a378405c0ac870035
-  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-  ms.translationtype: HT
+  ms.openlocfilehash: 8a129cf6e000a2e644f2fc7168d9e3105de0f957
+  ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/23/2020
-  ms.locfileid: "95503048"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107739301"
 landingContent:
 - title: Acerca da gestão de utilizadores empresariais
   linkLists:

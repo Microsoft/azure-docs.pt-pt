@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dab6b504fe026324251b7284fc3abdb52bb9911a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381737"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738959"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalize o conjunto de padrões no seu painel de conformidade regulamentar
 
@@ -38,7 +38,7 @@ A Microsoft acompanha os próprios padrões regulamentares e melhora automaticam
 
 ## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>Que normas de conformidade regulamentar estão disponíveis no Centro de Segurança?
 
-Por padrão, cada subscrição tem o **Benchmark de Segurança Azure** atribuído. Estas são as diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
+Por padrão, cada subscrição tem o **Benchmark de Segurança Azure** atribuído. Estas são as diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 Também pode adicionar padrões como:
 
@@ -122,6 +122,6 @@ Neste artigo, aprendeu a **adicionar padrões de conformidade** para monitorizar
 
 Para obter material relacionado, consulte as seguintes páginas:
 
-- [Referência de Segurança do Azure](../security/benchmarks/introduction.md)
+- [Referência de Segurança do Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Painel de conformidade regulamentar do centro de segurança](security-center-compliance-dashboard.md) - Saiba como rastrear e exportar os seus dados de conformidade regulamentar com o Security Center e ferramentas externas
 - [Trabalhar com políticas de segurança](tutorial-security-policy.md)

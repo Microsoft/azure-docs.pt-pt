@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e90253100b86397c5ca4873d5c38a3511ba21555
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: ecbc76651f09a9b4f2bde01c733cace5037f5fd4
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728577"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738833"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Adicione uma atualização à atualização do dispositivo para ioT hub
 Saiba como adicionar uma nova atualização no Device Update para IoT Hub.
@@ -30,7 +30,7 @@ Saiba como adicionar uma nova atualização no Device Update para IoT Hub.
 
 ## <a name="obtain-an-update-for-your-devices"></a>Obtenha uma atualização para os seus dispositivos
 
-Agora que a Atualização do Dispositivo está [configurada,](create-device-update-account.md)está pronto para atualizar os seus dispositivos. Mas primeiro, precisa do ficheiro de atualização real para os dispositivos que irá implementar.
+Agora que a Atualização do Dispositivo está [configurada,](create-device-update-account.md)está pronto para atualizar os seus dispositivos. Em seguida, vai precisar dos ficheiros de atualização reais que irá implementar nesses dispositivos.
 
 Se adquiriu dispositivos a um OEM ou um integrador de soluções, essa organização provavelmente fornecerá ficheiros de atualização para si, sem que necessite de criar as atualizações. Contacte o OEM ou o integrador de soluções para saber como disponibilizam as atualizações.
 

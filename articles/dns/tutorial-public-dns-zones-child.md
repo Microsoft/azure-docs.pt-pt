@@ -8,14 +8,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 7/16/2020
+ms.date: 04/19/2021
 ms.author: jonbeck
-ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 283ff2786a0b63c6263c62a13e27cce92c2368dd
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101733215"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737393"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutorial: Criar uma nova zona de DNS infantil
 
@@ -27,14 +27,12 @@ Neste tutorial, ficará a saber como:
 > * Criar zona de DNS para crianças através da zona de DNS dos pais.
 > * Verificação da delegação NS para a nova zona de DNS infantil.
 
-
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta Azure com uma subscrição ativa.  Se não tiver uma conta, pode [criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Zona de DNS do progenitor existente.  
 
-Para efeitos deste tutorial, usaremos contoso.com como zona-mãe e subdomain.contoso.com como o nome de domínio da criança.  Substitua *contoso.com* pelo nome de domínio dos seus pais e *subdomínio* pelo domínio da criança.  Se não criou a zona de DNS dos seus pais, consulte os passos para criar a [zona DNS utilizando o portal Azure](./dns-getstarted-portal.md#create-a-dns-zone). 
+Neste tutorial, usaremos contoso.com como zona dos pais e subdomain.contoso.com como o nome de domínio infantil.  Substitua *contoso.com* pelo nome de domínio dos seus pais e *subdomínio* pelo domínio da criança.  Se não criou a zona de DNS dos seus pais, consulte os passos para criar a [zona DNS utilizando o portal Azure](./dns-getstarted-portal.md#create-a-dns-zone). 
 
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
@@ -46,7 +44,6 @@ Há duas maneiras de criar a zona DNS do seu filho.
 1.  Através da página do portal "Criar zona DNS".
 1.  Através da página de configuração da zona de DNS dos pais.
 
-
 ## <a name="create-child-dns-zone-via-create-dns-zone"></a>Criar zona DE DNS para crianças através da criação da zona DNS
 
 Neste passo, vamos criar uma nova zona de DNS infantil com nome **subdomain.contoso.com** e delerá-la para a zona de DNS dos pais existente **contoso.com**. Irá criar a zona DNS utilizando os separadores na página **da zona Criar DNS.**
@@ -55,9 +52,9 @@ Neste passo, vamos criar uma nova zona de DNS infantil com nome **subdomain.cont
 
 1.  No **separador básico,** escreva ou selecione os seguintes valores:
     * **Assinatura**: Selecione uma subscrição para criar a zona em.
-    * **Grupo de recursos**: Introduza o seu grupo de Recursos existente ou pode criar um novo selecionando **Criar novo,** introduzir *o MyResourceGroup,* e selecionar **OK**. O nome do grupo de recursos deve ser único dentro da assinatura Azure.
+    * **Grupo de recursos**: Insira o seu grupo de Recursos existente ou crie um novo selecionando **Criar novo**. Insira *o MyResourceGroup* e selecione **OK**. O nome do grupo de recursos deve ser único dentro da assinatura Azure.
     * Verifique esta caixa de verificação: **Esta zona é uma criança de uma zona já hospedada no Azure DNS**
-    * **Subscrição** da zona dos pais : A partir desta queda, procure e/ou selecione o nome de subscrição sob o qual a zona de DNS dos pais *contoso.com* foi criada.
+    * **Subscrição** da zona dos pais : A partir desta queda, procure ou selecione o nome de subscrição sob o qual a zona de DNS dos pais *contoso.com* foi criada.
     * **Zona dos pais**: No tipo de barra de pesquisa *contoso.com* para carregá-lo na lista de dropdown. Uma vez carregado, selecione *contoso.com* da lista de dropdown.
     * **Nome:** Escreva *subdomínio* para este exemplo tutorial. Note que o nome da zona de DNS dos seus pais *contoso.com* é automaticamente adicionado como sufixo para nomear quando selecionamos a zona dos pais a partir do passo acima.
 
@@ -65,7 +62,6 @@ Neste passo, vamos criar uma nova zona de DNS infantil com nome **subdomain.cont
 1. No **separador 'Rever +' criar,** rever o resumo, corrigir quaisquer erros de validação e, em seguida, selecionar **Criar**.
 A criação da zona pode demorar alguns minutos.
 
- 
     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-inline.png" alt-text="Screenshot da página de zona de criar DNS." lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-expanded.png":::
 
 ## <a name="create-child-dns-zone-via-parent-dns-zone-overview-page"></a>Criar zona de DNS infantil através da página geral da zona de DNS dos pais
@@ -76,7 +72,7 @@ Também pode criar uma nova zona de DNS para crianças e deledá-la na zona de D
 
       :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Botão de zona infantil screenshot." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
-1.  A página de zona de criar DNS abrirá então. A opção de zona infantil já está verificada, e a subscrição da zona dos pais e a zona dos pais já estão povoadas para si nesta página.
+1.  A página de zona de criar DNS abrirá então. A opção de zona infantil já está verificada e a subscrição da zona dos pais e a zona dos pais são povoadas para si nesta página.
 1.  Digite o nome como *criança* para este exemplo tutorial. Note que o nome da zona de DNS dos pais contoso.com é automaticamente adicionado como prefixo para o nome.
 1.  Selecione **Seguinte: Tags** e depois **Seguinte: Rever + criar**.
 1.  No **separador 'Rever +' criar,** rever o resumo, corrigir quaisquer erros de validação e, em seguida, selecionar **Criar**.
@@ -84,7 +80,7 @@ Também pode criar uma nova zona de DNS para crianças e deledá-la na zona de D
     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Screenshot da zona infantil selecionada" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
 
 ## <a name="verify-child-dns-zone"></a>Verifique a zona de DNS infantil
-Agora que tem uma nova zona de DNS infantil *subdomain.contoso.com* criada. Para verificar se a delegação aconteceu corretamente, deverá verificar se os registos de nomes (NS) para a zona do seu filho estão na zona dos pais, conforme descrito abaixo.  
+Agora que tem uma nova zona de DNS infantil *subdomain.contoso.com* criada. Para verificar se a delegação aconteceu corretamente, você deve verificar os registos de nomes (NS) para a sua zona de criança está na zona dos pais, como descrito abaixo.  
 
 **Recuperar servidores de nome da zona DE DNS infantil:**
 
@@ -103,8 +99,6 @@ Agora, neste passo, vamos para a zona de DNS dos pais *contoso.com* e verificar 
      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Screenshot da validação de conservadores de nomes de zona infantil" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não precisar dos recursos que criou neste tutorial, remova-os eliminando o grupo de recursos **MyResourceGroup.** Abra o grupo de recursos **MyResourceGroup** e selecione **Delete resource group**.
-
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

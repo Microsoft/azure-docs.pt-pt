@@ -2,19 +2,33 @@
 title: Novidades no Azure Defender para ioT
 description: Este artigo permite-lhe saber quais as novidades no mais recente lançamento do Defender for IoT.
 ms.topic: overview
-ms.date: 03/14/2021
-ms.openlocfilehash: 7d8c4ebfc55c80878b780fe9f663aaec62a75f9d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.date: 4/6/2021
+ms.openlocfilehash: df6a43dc68acd025b1c65877c65d1b7e947f210b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382917"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739391"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>O que há de novo no Azure Defender para ioT?
 
 Este artigo lista novas funcionalidades e melhorias de funcionalidades para Defender para IoT.
 
 As funcionalidades notadas estão em PREVIEW. Os [Termos Complementares de Pré-visualização do Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluem termos legais adicionais aplicáveis às funcionalidades do Azure que estão em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
+
+## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Versão e suporte para Azure Defender para IoT 
+
+Abaixo estão os suportes, quebrando as políticas de mudança para Defender para IoT, e as versões de Azure Defender para IoT que estão atualmente disponíveis. 
+
+### <a name="servicing-information-and-timelines"></a>Informação de manutenção e cronogramas 
+
+A Microsoft planeia lançar atualizações para o Azure Defender para IoT pelo menos uma vez por trimestre. Cada versão de disponibilidade geral (GA) do sensor Azure Defender para IoT, e nas instalações a consola de gestão é suportada até nove meses após o seu lançamento. As correções e as novas funcionalidades serão aplicadas na versão atual da GA que estão atualmente em suporte, e não serão aplicadas às versões ga mais antigas.
+
+### <a name="versions-and-support-dates"></a>Versões e datas de suporte
+
+| Versão | Data de lançamento | Data de fim do suporte |
+|--|--|--|
+| 10,0 | 01/2021 | 10/2021 |
 ## <a name="march-2021"></a>março de 2021
 
 ### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Sensor - regras de alerta personalizadas melhoradas (visualização pública)

@@ -16,6 +16,8 @@
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Como iniciar a sessão
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Sindução de conta de trabalho ou escola
+      href: multi-factor-authentication-end-user-signin.md
     - name: Obter ajuda
       href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Ajuda na reposição da palavra-passe

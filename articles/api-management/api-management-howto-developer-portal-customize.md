@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 11/16/2020
 ms.author: apimpm
-ms.openlocfilehash: 90544fbafe7393630c3f3fbc694ae367eccb7f90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c341dee3106530715248355da4412b97ed30980
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96012987"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739625"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutorial: Aceda e personalize o portal do desenvolvedor
 
@@ -45,6 +45,35 @@ Siga os passos abaixo para aceder à versão gerida do portal.
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
 1. Selecione o botão **portal Developer** na barra de navegação superior. Será aberto um novo separador de navegador com uma versão administrativa do portal.
 
+
+## <a name="developer-portal-architectural-concepts"></a>Conceitos arquitetónicos do portal do desenvolvedor
+
+Os componentes do portal podem ser logicamente divididos em duas categorias: *código* e *conteúdo.*
+
+### <a name="code"></a>Código
+
+O código é mantido no [repositório do portal de](https://github.com/Azure/api-management-developer-portal) desenvolvimento da API Management GitHub e inclui:
+
+- **Widgets** - represente elementos visuais e combine HTML, JavaScript, capacidade de estilo, definições e mapeamento de conteúdo. Exemplos são uma imagem, um parágrafo de texto, um formulário, uma lista de APIs etc.
+- **Definições de estilo** - especifique como os widgets podem ser modelados
+- **Motor** - que gera páginas estáticas a partir do conteúdo do portal e está escrito em JavaScript
+- **Editor visual** - permite personalização e experiência de autoria no navegador
+
+### <a name="content"></a>Conteúdo
+
+O conteúdo divide-se em duas subcategorias: *conteúdo do portal* e conteúdo de *Gestão de API.*
+
+*O conteúdo do portal* é específico do portal e inclui:
+
+- **Páginas** - por exemplo, página de aterragem, tutoriais da API, posts de blog
+- **Meios** de comunicação - imagens, animações e outros conteúdos baseados em ficheiros
+- **Layouts** - modelos, que são combinados com um URL e definem como as páginas são exibidas
+- **Estilos** - valores para definições de estilo, tais como fontes, cores, fronteiras
+- **Configurações** - configurações como favicon, metadados do site
+
+    O conteúdo do portal, com exceção dos meios de comunicação, é expresso como documentos JSON.
+
+*O conteúdo da API Management* inclui entidades como APIs, Operações, Produtos, Assinaturas.
 ## <a name="understand-the-portals-administrative-interface"></a>Compreender a interface administrativa do portal
 
 ### <a name="default-content"></a>Conteúdo predefinido 
@@ -138,7 +167,7 @@ Depois de publicar o portal, pode aceder-lhe no mesmo URL que o painel administr
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Aplicar a política do CORS em APIs
 
-Para que os visitantes do seu portal testem as APIs através da consola interativa incorporada, ative o CORS (partilha de recursos de origem cruzada) nas suas APIs. Para mais informações, consulte a visão geral do [portal de desenvolvimento da Azure API Management](api-management-howto-developer-portal.md#cors).
+Para que os visitantes do seu portal testem as APIs através da consola interativa incorporada, ative o CORS (partilha de recursos de origem cruzada) nas suas APIs. Para mais detalhes, consulte o [portal de desenvolvimento da Azure API Management FAQ](developer-portal-faq.md#cors).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 090eda3c3310a1b793733e37725c62758445d6b2
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: ad0936fddacf8f5b2e4917441f5feaa41aad9de4
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587335"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739805"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure
 
@@ -230,7 +230,7 @@ Restaurar é uma operação de longa duração que pode demorar até 30 minutos 
 -   [Configuração de identidade gerida.](api-management-howto-use-managed-service-identity.md)
 -   [Diagnóstico do Monitor Azure](api-management-howto-use-azure-monitor.md) A configuração.
 -   Protocolos e definições [de Cipher.](api-management-howto-manage-protocols-ciphers.md)
--   [Conteúdo do portal do desenvolvedor.](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management)
+-   [Conteúdo do portal do desenvolvedor.](developer-portal-faq.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management)
 
 A frequência com que executa cópias de segurança de serviço afeta o seu objetivo de ponto de recuperação. Para minimizá-lo, recomendamos a implementação de backups regulares e a realização de backups a pedido depois de efetuar alterações no seu serviço de Gestão API.
 

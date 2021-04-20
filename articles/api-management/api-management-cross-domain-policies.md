@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f074ff389971fa56da7838a9a46ec5c4d42dc5a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688421"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739103"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](./api-management-policies.md)
@@ -69,7 +69,7 @@ A `cors` política adiciona suporte de partilha de recursos de origem cruzada (C
 
 O CORS permite que um navegador e um servidor interajam e determinem se permitem ou não pedidos específicos de origem cruzada (ou seja, chamadas XMLHttpRequests feitas a partir de JavaScript numa página web para outros domínios). Isto permite uma maior flexibilidade do que apenas permitir pedidos de origem do mesmo, mas é mais seguro do que permitir todos os pedidos de origem cruzada.
 
-É necessário aplicar a política CORS para ativar a consola interativa no portal do desenvolvedor. Consulte a [documentação](./api-management-howto-developer-portal.md#cors) do portal do desenvolvedor para obter mais detalhes.
+É necessário aplicar a política CORS para ativar a consola interativa no portal do desenvolvedor. Consulte a [documentação](./developer-portal-faq.md#cors) do portal do desenvolvedor para obter mais detalhes.
 
 ### <a name="policy-statement"></a>Declaração política
 

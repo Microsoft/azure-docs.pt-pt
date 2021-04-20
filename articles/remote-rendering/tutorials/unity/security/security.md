@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1bcba264589d6cbe9b4f671e1e4f2c9b1dbf2c5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 6e595f7ff313ff85a12209e8c124b9aa376b20b6
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594253"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739751"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Assegurar a renderização remota do Azure e o armazenamento do modelo
 
@@ -211,7 +211,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
     ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
-
+    
     using Microsoft.Azure.RemoteRendering;
     using Microsoft.Identity.Client;
     using System;
@@ -219,17 +219,9 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
     using System.Threading;
     using System.Threading.Tasks;
     using UnityEngine;
-
+    
     public class AADAuthentication : BaseARRAuthentication
     {
-        [SerializeField]
-        private string accountDomain;
-        public string AccountDomain
-        {
-            get => accountDomain.Trim();
-            set => accountDomain = value;
-        }
-
         [SerializeField]
         private string activeDirectoryApplicationClientID;
         public string ActiveDirectoryApplicationClientID
@@ -237,7 +229,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
             get => activeDirectoryApplicationClientID.Trim();
             set => activeDirectoryApplicationClientID = value;
         }
-
+    
         [SerializeField]
         private string azureTenantID;
         public string AzureTenantID
@@ -245,7 +237,15 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
             get => azureTenantID.Trim();
             set => azureTenantID = value;
         }
-
+    
+        [SerializeField]
+        private string azureRemoteRenderingDomain;
+        public string AzureRemoteRenderingDomain
+        {
+            get => azureRemoteRenderingDomain.Trim();
+            set => azureRemoteRenderingDomain = value;
+        }
+    
         [SerializeField]
         private string azureRemoteRenderingAccountID;
         public string AzureRemoteRenderingAccountID
@@ -255,37 +255,37 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
         }
     
         [SerializeField]
-        private string azureRemoteRenderingAccountAuthenticationDomain;
-        public string AzureRemoteRenderingAccountAuthenticationDomain
+        private string azureRemoteRenderingAccountDomain;
+        public string AzureRemoteRenderingAccountDomain
         {
-            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
-            set => azureRemoteRenderingAccountAuthenticationDomain = value;
-        }
-
+            get => azureRemoteRenderingAccountDomain.Trim();
+            set => azureRemoteRenderingAccountDomain = value;
+        }    
+    
         public override event Action<string> AuthenticationInstructions;
-
+    
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
-
+    
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
-
+    
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
+    
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
-
+    
         public async override Task<SessionConfiguration> GetAARCredentials()
         {
             var result = await TryLogin();
             if (result != null)
             {
                 Debug.Log("Account signin successful " + result.Account.Username);
-
+    
                 var AD_Token = result.AccessToken;
-
-                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+    
+                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -293,7 +293,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
             }
             return default;
         }
-
+    
         private Task DeviceCodeReturned(DeviceCodeResult deviceCodeDetails)
         {
             //Since everything in this task can happen on a different thread, invoke responses on the main Unity thread
@@ -303,10 +303,10 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
                 Debug.Log(deviceCodeDetails.Message);
                 AuthenticationInstructions?.Invoke(deviceCodeDetails.Message);
             });
-
+    
             return Task.FromResult(0);
         }
-
+    
         public override async Task<AuthenticationResult> TryLogin()
         {
             var clientApplication = PublicClientApplicationBuilder.Create(ActiveDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
@@ -314,11 +314,11 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
             try
             {
                 var accounts = await clientApplication.GetAccountsAsync();
-
+    
                 if (accounts.Any())
                 {
                     result = await clientApplication.AcquireTokenSilent(scopes, accounts.First()).ExecuteAsync();
-
+    
                     return result;
                 }
                 else
@@ -356,7 +356,7 @@ Com o lado Azure das coisas no lugar, precisamos agora modificar a forma como o 
                 Debug.LogError("GetAccountsAsync");
                 Debug.LogException(ex);
             }
-
+    
             return null;
         }
     }
@@ -372,10 +372,10 @@ Para este código, estamos a usar o fluxo de código do [dispositivo](../../../.
 A parte mais importante desta classe do ponto de vista ARR é esta linha:
 
 ```cs
-return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Aqui, criamos um novo objeto **SessionConfiguration** utilizando o domínio da conta, iD de conta, domínio de autenticação de conta e token de acesso. Este token é então utilizado pelo serviço ARR para consultar, criar e aderir a sessões de renderização remotas desde que o utilizador seja autorizado com base nas permissões baseadas em funções configuradas anteriormente.
+Aqui, criamos um novo objeto **SessionConfiguration** utilizando o domínio de renderização remota, iD de conta, domínio de conta e token de acesso. Este token é então utilizado pelo serviço ARR para consultar, criar e aderir a sessões de renderização remotas desde que o utilizador seja autorizado com base nas permissões baseadas em funções configuradas anteriormente.
 
 Com esta mudança, o estado atual da aplicação e o seu acesso aos seus recursos Azure são assim:
 
@@ -393,11 +393,11 @@ No Editor de Unidade, quando a AAD Auth estiver ativa, terá de autenticar sempr
 
 1. Preencha os seus valores para o ID do Cliente e para o ID do Inquilino. Estes valores podem ser encontrados na página geral do registo da sua aplicação:
 
-    * **O Domínio da Conta** é o mesmo domínio que tem usado no Domínio de Conta do **RemoteRenderingCoordinator.**
     * **ID do Cliente de Aplicação de Diretório Ativo** é o *ID da Aplicação (cliente)* encontrado no registo da sua aplicação AAD (ver imagem abaixo).
     * **Azure Tenant ID** é o ID do *Diretório (inquilino)* encontrado no seu registo de aplicações AAD (ver imagem abaixo).
+    * **O domínio de renderização remota Azure** é o mesmo domínio que tem usado no domínio de renderização remota do **RemoteRenderingCoordinator.**
     * **O ID da conta de renderização remota Azure** é o mesmo **ID** de conta que tem usado para **RemoteRenderingCoordinator**.
-    * **O Domínio de Autenticação de Conta** é o mesmo domínio de **autenticação** de conta que tem vindo a utilizar no **Comando Dereservador** remoto .
+    * O domínio da **conta de renderização remota Azure** é o mesmo domínio de **conta** que tem usado no **RemoteRenderingCoordinator**.
 
     ![Screenshot que destaca o ID de Aplicação (cliente) e Diretório (inquilino) ID.](./media/app-overview-data.png)
 

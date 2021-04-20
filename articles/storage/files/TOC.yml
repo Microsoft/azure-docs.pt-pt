@@ -101,6 +101,8 @@
           href: storage-how-to-create-file-share.md
         - name: Implementar Azure File Sync
           href: storage-sync-files-deployment-guide.md
+        - name: Use DFS-N com ficheiros Azure
+          href: files-manage-namespaces.md
         - name: Criar uma partilha NFS
           href: storage-files-how-to-create-nfs-shares.md
         - name: SQL Server FCI com partilhas de ficheiros premium

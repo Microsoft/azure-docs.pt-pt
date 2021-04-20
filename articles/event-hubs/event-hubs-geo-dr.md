@@ -3,12 +3,12 @@ title: Recuperação de geo-desastres - Azure Event Hubs| Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 504a83772c2ac8e3afc86465899357d0eda4eb92
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b2cf2b0ebef2b460b626e45d6b52309c9281d6ce
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478663"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739247"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos Azure - Recuperação de geo-desastres 
 
@@ -117,14 +117,6 @@ Se iniciar a falha, são necessários dois passos:
 ## <a name="management"></a>Gestão
 
 Se cometeu um erro; por exemplo, emparelhaste as regiões erradas durante a configuração inicial, podes quebrar o emparelhamento dos dois espaços de nome a qualquer momento. Se quiser utilizar os espaços de nome emparelhados como espaços de nome regulares, elimine o pseudónimo.
-
-## <a name="samples"></a>Amostras
-
-A [amostra no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) mostra como configurar e iniciar uma falha. Esta amostra demonstra os seguintes conceitos:
-
-- Definições necessárias no Azure Ative Directory para utilizar o Azure Resource Manager com Centros de Eventos. 
-- Passos necessários para executar o código de amostra. 
-- Enviar e receber do atual espaço de nome primário. 
 
 ## <a name="considerations"></a>Considerações
 

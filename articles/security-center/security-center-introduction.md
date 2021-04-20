@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: c4861192c7f2bbfb2a51e19b88daee45b501949b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 741cd68145b262c1f200ced9a7f28b25673b6925
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634775"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738923"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -72,7 +72,7 @@ O Security Center ajuda-o a **identificar subscrições de TI shadow.** Ao olhar
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
-O Security Center descobre continuamente novos recursos que estão a ser implementados através das suas cargas de trabalho e avalia se estão configurados de acordo com as melhores práticas de segurança, se não, estão sinalizados e obtém uma lista prioritária de recomendações para o que precisa de corrigir para proteger as suas máquinas. Esta lista de recomendações é ativada e apoiada pela [Azure Security Benchmark](../security/benchmarks/introduction.md), o conjunto de orientações específicas da Microsoft para a segurança e conformidade com base em quadros comuns de conformidade. Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+O Security Center descobre continuamente novos recursos que estão a ser implementados através das suas cargas de trabalho e avalia se estão configurados de acordo com as melhores práticas de segurança, se não, estão sinalizados e obtém uma lista prioritária de recomendações para o que precisa de corrigir para proteger as suas máquinas. Esta lista de recomendações é ativada e apoiada pela [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), o conjunto de orientações específicas da Microsoft para a segurança e conformidade com base em quadros comuns de conformidade. Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
 
 Para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral, o Security Center agrupe as recomendações em controlos de segurança e adiciona um valor **de pontuação seguro** a cada controlo. Isto é crucial para que você **priorize o seu trabalho de segurança**.
 

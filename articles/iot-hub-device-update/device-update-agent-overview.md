@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0d97287657b1e1fe7d540e8811c90794aaa5fece
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561241"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739571"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Descrição Geral da Atualização de Dispositivos para o Agente do Hub IoT
 
@@ -60,7 +60,7 @@ O Manipulador de Atualização de Simuladores é utilizado pela Camada de Plataf
 * [Simulador de atualização de imagem](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/swupdate_handler/inc/aduc/swupdate_simulator_handler.hpp)
 * [Simulador de apt de atualização de pacote](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/apt_handler/inc/aduc/apt_simulator_handler.hpp)
 
-Nota: O campo deCriteria Instalado na interface AzureDeviceUpdateCore PnP deve ser o hash sha256 do conteúdo. Este é o mesmo haxixe que está presente no [Objeto Manifesto de Importação.](import-update.md#create-device-update-import-manifest) [Saiba mais](device-update-plug-and-play.md) `installedCriteria` sobre e sobre a `AzureDeviceUpdateCore` interface.
+Nota: O campo deCriteria Instalado na interface AzureDeviceUpdateCore PnP deve ser o hash sha256 do conteúdo. Este é o mesmo haxixe que está presente no [Objeto Manifesto de Importação.](import-update.md#create-a-device-update-import-manifest) [Saiba mais](device-update-plug-and-play.md) `installedCriteria` sobre e sobre a `AzureDeviceUpdateCore` interface.
 
 ### <a name="swupdate-update-handler"></a>`SWUpdate` Manipulador de atualização
 

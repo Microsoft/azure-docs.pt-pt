@@ -5,13 +5,13 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/12/2021
-ms.openlocfilehash: 7596bf3182f59758eeee66e248404e98c18da2e7
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.date: 04/20/2021
+ms.openlocfilehash: 1991436e2cc890b5c6a339f79e42536ced2fbd36
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715545"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739481"
 ---
 # <a name="troubleshoot-connector-and-format-issues-in-mapping-data-flows-in-azure-data-factory"></a>Problemas de conector e formato de resolução de problemas nos fluxos de dados de mapeamento na Azure Data Factory
 
@@ -36,16 +36,15 @@ Para substituir o comportamento predefinido e trazer campos adicionais, a ADF fo
 
     1. Utilize a fonte de fluxo **de dados Definições de Debug** para ter **projeção de importação** com ficheiros/tabelas de amostras para obter o esquema completo. Pode seguir os passos na seguinte imagem:<br/>
 
-        ![Screenshot que mostra a opção-1-1 da Recomendação](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png)<br/>
+        ![Screenshot que mostra a primeira parte da primeira opção para personalizar o esquema de origem.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png)<br/>
          1. Selecione **definições de Debug** na tela de fluxo de dados.
-         1. No painel pop-up, selecione **a tabela Sample** sob o **separador cosmosSource.** 
-         1. Insira o nome da sua mesa no bloco **de mesa.**
+         1. No painel pop-up, selecione **a tabela Sample** sob o **separador cosmosSource** e introduza o nome da sua tabela no bloco **de tabelas.**
          1. **Selecione Guardar** para guardar as suas definições.
          1. **Selecione Projeção de importação**.<br/>  
     
     1. Altere as **Definições de Depurg** de volta para utilizar o conjunto de dados de origem para o movimento/transformação de dados restantes. Pode seguir em frente com os passos na seguinte imagem:<br/>
 
-        ![Screenshot que mostra a opção-1-2 da Recomendação](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png) <br/>   
+        ![Screenshot que mostra a segunda parte da primeira opção para personalizar o esquema de origem.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png) <br/>   
          1. Selecione **definições de Debug** na tela de fluxo de dados.
          1. No painel pop-up, selecione Conjunto de **dados de origem** no **separador cosmosSource.**
          1. **Selecione Guardar** para guardar as suas definições.<br/>
@@ -54,7 +53,7 @@ Para substituir o comportamento predefinido e trazer campos adicionais, a ADF fo
 
 - **Opção 2**: Se estiver familiarizado com o esquema e o idioma DSL dos dados de origem, pode atualizar manualmente o script de fonte de fluxo de dados para adicionar colunas adicionais/perdidas para ler os dados. Um exemplo é mostrado na seguinte imagem: 
 
-    ![Screenshot que mostra a Opção-2 da Recomendação](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
+    ![Screenshot que mostra a segunda opção para personalizar o esquema de origem.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais ajuda na resolução de problemas, consulte estes recursos:

@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 4dc29c8b52a3d0953445666672a716af013ee408
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4eea2611997732a263e9e824bc150b45ed145ecd
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176438"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738977"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>O que são políticas de segurança, iniciativas e recomendações?
 
@@ -35,7 +35,7 @@ Uma iniciativa de segurança define a configuração desejada das suas cargas de
 
 Tal como as políticas de segurança, as iniciativas do Centro de Segurança também são criadas na Política Azure. Você pode usar [a Azure Policy](../governance/policy/overview.md) para gerir as suas políticas, construir iniciativas e atribuir iniciativas a várias subscrições ou a grupos de gestão inteiros.
 
-A iniciativa padrão atribuída automaticamente a cada subscrição no Azure Security Center é Azure Security Benchmark. Este benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem. Saiba mais sobre a [Referência de Segurança do Azure](../security/benchmarks/introduction.md).
+A iniciativa padrão atribuída automaticamente a cada subscrição no Azure Security Center é Azure Security Benchmark. Este benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. Este referencial amplamente respeitado baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do Instituto Nacional de [Normalização e Tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem. Saiba mais sobre a [Referência de Segurança do Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 O Centro de Segurança oferece as seguintes opções para trabalhar com iniciativas e políticas de segurança:
 

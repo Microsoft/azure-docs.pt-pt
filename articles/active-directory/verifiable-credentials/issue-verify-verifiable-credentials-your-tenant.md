@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: e4772b6701065a44416d849faa9a501bd7895f27
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 310c821bf102d267d0b5f77dbf206b896ab2f1c7
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553384"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739229"
 ---
 # <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Tutorial - Emitir e verificar credenciais verificáveis usando o seu inquilino (pré-visualização)
 
@@ -271,14 +271,14 @@ Siga os mesmos passos que seguimos no tutorial anterior para emitir a credencial
 
   ![adicionar ecrã credencial após autenticação](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
 
-Emitimos agora uma credencial verificável usando o nosso inquilino para gerar o nosso vc enquanto ainda utiliza o nosso inquilino B2C para autenticação.
+Emitimos agora uma credencial verificável usando o seu inquilino para gerar o seu vc enquanto ainda utiliza o inquilino B2C original para autenticação.
 
   ![vc emitido pelo seu AD azul e autenticado pela nossa instância Azure B2C](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
 
 ## <a name="test-verifying-the-vc-using-the-sample-app"></a>Teste verificando o VC usando a aplicação da amostra
 
-Agora que emitimos a credencial verificável do nosso próprio inquilino com reclamações do seu AD Azure, vamos verificar isso usando a nossa app de amostra.
+Agora que emitimos a credencial verificável do seu próprio inquilino com reclamações do seu AD Azure, vamos verificar usando a aplicação da amostra.
 
 1. Pare de executar o seu serviço de ngrok emitente.
 

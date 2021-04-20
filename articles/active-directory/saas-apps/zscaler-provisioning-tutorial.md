@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9f368a4aebc4d5de38ebbab800241366650633e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92553e9d598823ee1b812a4f07480dec380b2490
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936588"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739427"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler para fornecimento automático de utilizadores
 
@@ -76,6 +76,10 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deve de
 ## <a name="configuring-automatic-user-provisioning-to-zscaler"></a>Configurar o fornecimento automático do utilizador à Zscaler
 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Zscaler com base em atribuições de utilizador e/ou grupo em Azure AD.
+
+
+> [!NOTE]
+> Abra um [bilhete de apoio](https://help.zscaler.com/) para criar um domínio em Zscaler.
 
 > [!TIP]
 > Pode também optar por ativar o sign-on único baseado em SAML para zscaler, seguindo as instruções fornecidas no [tutorial de inscrição única Zscaler](zscaler-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.

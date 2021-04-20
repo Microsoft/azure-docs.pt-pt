@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1aaf89624f8d0ab48692629d859f3c1bdb4ba67
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724358"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738905"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Recursos para criar conectores personalizados Azure Sentinel
 
@@ -126,8 +126,6 @@ Por exemplo, como pode criar um conector personalizado para o Azure Sentinel uti
 - [Conector Palo Alto Prisma Logic App usando um webhook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) (comunidade Azure Sentinel GitHub)
 - [Proteja as suas chamadas microsoft Teams com ativação programada](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600) (blog)
 - [Ingerir indicadores de ameaça AlienVault OTX em Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
-- [Envio de registos tap de ponto de prova para Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-proofpoint-tap-logs-to-azure-sentinel/ba-p/767727) (blog)
-
 
 ## <a name="connect-with-powershell"></a>Ligar com o PowerShell
 

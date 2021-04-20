@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: a0dab64aac8bc5fa68a53fad6cd8e6f6bb4bac03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 050d3ac23562e7822d186a16675d03c1b9dc670b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217146"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739211"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o portal Azure
 
@@ -102,6 +102,9 @@ Um endereço IP público é uma definição para um recurso de endereço IP púb
 5. Clique **em Guardar** e fechar as vidraças. Se não tiver um endereço IP público existente, pode criar um, preenchendo os passos na secção de recursos ip [públicos](#create-public-ip) deste artigo.
 3. Reveja a nova configuração IP.
 4. Pode clicar **em Adicionar** para adicionar configurações IP adicionais ou fechar todas as lâminas abertas para terminar a adição de endereços IP. Não adicione o endereço IP público ao sistema operativo.
+
+> [!NOTE]
+> Depois de alterar a configuração do endereço IP, tem de reiniciar o VM para que as alterações entrem em vigor no VM.
 
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

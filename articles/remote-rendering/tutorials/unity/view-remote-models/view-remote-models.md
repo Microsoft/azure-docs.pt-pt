@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8784bc4744e2d4beb6a72fdc0df0fd0b32346f9
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: f43e5b77580b7071ce48b39190c26a53f99f8cf5
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605013"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740163"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
@@ -182,14 +182,15 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     public static RemoteRenderingCoordinator instance;
 
-    // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
+    // Account
+    // RemoteRenderingDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
+    // For most people '<region>' is either 'westus2' or 'westeurope'
     [SerializeField]
-    private string accountDomain = "westus2.mixedreality.azure.com";
-    public string AccountDomain
+    private string remoteRenderingDomain = "westus2.mixedreality.azure.com";
+    public string RemoteRenderingDomain
     {
-        get => accountDomain.Trim();
-        set => accountDomain = value;
+        get => remoteRenderingDomain.Trim();
+        set => remoteRenderingDomain = value;
     }
 
     [Header("Development Account Credentials")]
@@ -201,12 +202,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     }
 
     [SerializeField]
-    private string accountAuthenticationDomain = "<enter your account authentication domain here>";
-    public string AccountAuthenticationDomain
+    private string accountDomain = "<enter your account domain here>";
+    public string AccountDomain
     {
-        get => accountAuthenticationDomain.Trim();
-        set => accountAuthenticationDomain = value;
-    }   
+        get => accountDomain.Trim();
+        set => accountDomain = value;
+    }    
 
     [SerializeField]
     private string accountKey = "<enter your account key here>";
@@ -272,7 +273,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
             if (currentCoordinatorState != value)
             {
                 currentCoordinatorState = value;
-                Debug.Log($"State changed to: {currentCoordinatorState}");
+                Debug.LogFormat(LogType.Log, LogOption.NoStacktrace, null, "{0}", $"State changed to: {currentCoordinatorState}");
                 CoordinatorStateChange?.Invoke(currentCoordinatorState);
             }
         }
@@ -297,7 +298,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     private async Task<SessionConfiguration> GetDevelopmentCredentials()
     {
         Debug.LogWarning("Using development credentials! Not recommended for production.");
-        return await Task.FromResult(new SessionConfiguration(AccountAuthenticationDomain, AccountDomain, AccountId, AccountKey));
+        return await Task.FromResult(new SessionConfiguration(AccountDomain, RemoteRenderingDomain, AccountId, AccountKey));
     }
 
     /// <summary>
@@ -531,7 +532,7 @@ O coordenador de renderização remota e o seu script requerido *(ARRServiceUnit
 1. Adicione o script *RemoteRenderingCoordinator* ao **RemoteRenderingCoordinator** GameObject.\
 ![Adicionar componente RemoteRenderingCoordinator](./media/add-coordinator-script.png)
 1. Confirme que o script *ARRServiceUnity,* que aparece como *Serviço* no inspetor, é automaticamente adicionado ao GameObject. Caso esteja a pensar, este é um resultado que está `[RequireComponent(typeof(ARRServiceUnity))]` no topo do script **RemoteRenderingCoordinator.**
-1. Adicione as suas credenciais de renderização remota Azure, o seu Domínio de Autenticação de Conta e o Domínio da Conta no script do coordenador:\
+1. Adicione as suas credenciais de renderização remota Azure, o seu Domínio de Conta e o Domínio de Renderização Remota ao script do coordenador:\
 ![Adicione as suas credenciais](./media/configure-coordinator-script.png)
 
 ## <a name="initialize-azure-remote-rendering"></a>Inicialize renderização remota de Azure

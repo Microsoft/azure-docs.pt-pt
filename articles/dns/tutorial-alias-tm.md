@@ -6,19 +6,18 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
-ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0101133c68142845a8ada50d9921d341cf10ad0
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77149954"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738797"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registo de alias para suportar os nomes de domínio apex com o Gestor de Tráfego 
 
 Pode criar um registo de alias para o apex do seu nome de domínio para referenciar um perfil do Gestor de Tráfego do Azure. Um exemplo é contoso.com. Em vez de utilizar um serviço de redirecionamento, configure o DNS do Azure para referenciar um perfil do Gestor de Tráfego diretamente da sua zona. 
-
 
 Neste tutorial, ficará a saber como:
 
@@ -27,7 +26,6 @@ Neste tutorial, ficará a saber como:
 > * Criar um perfil do Gestor de Tráfego.
 > * Criar um registo de alias.
 > * Testar o registo de alias.
-
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -39,24 +37,28 @@ Para obter instruções sobre como alojar o seu domínio no DNS do Azure, veja o
 O domínio de exemplo utilizado para este tutorial é o contoso.com, mas utilize o seu próprio nome de domínio.
 
 ## <a name="create-the-network-infrastructure"></a>Criar a infraestrutura de rede
+
 Primeiro, crie uma rede virtual e uma sub-rede onde possa colocar os servidores Web.
+
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No canto superior esquerdo do portal, selecione **Criar um recurso**. Introduza *grupo de recursos* na caixa de pesquisa e crie um grupo de recursos chamado **RG-DNS-Alias-TM**.
 3. **Selecione Criar uma** rede  >  virtual de rede **de**  >  recursos.
 4. Criar uma rede virtual denominada **VNet-Servers**. Coloque-o no grupo de recursos **RG-DNS-Alias-TM** e atribua à sub-rede o nome **SN-Web**.
 
 ## <a name="create-two-web-server-virtual-machines"></a>Criar duas máquinas virtuais do servidor Web
+
 1. Selecione **Criar um**  >  **VM do Windows Server 2016** de recurso .
 2. Introduza **Web-01** para o nome e coloque a VM no grupo de recursos **RG-DNS-Alias-TM**. Introduza um nome de utilizador e uma palavra-passe e selecione **OK**.
 3. Para **Tamanho**, selecione um SKU com 8 GB de RAM.
 4. Em **Definições**, selecione a rede virtual **VNet-Servers** e a sub-rede **SN-Web**.
 5. Selecione **Endereço IP público**. Sob **Atribuição**, selecione **Estático** e, em seguida, selecione **OK**.
-6. Para portas de entrada pública, selecione  >  **HTTPS**  >  **RDP (3389)** e, em seguida, selecione **OK**.
+6. Para portas de entrada pública, selecione **HTTP (80)**  >  **HTTPS (443)**  >  **RDP (3389)** e, em seguida, selecione **OK**.
 7. Na página **Resumo**, selecione **Criar**. Este procedimento demora alguns minutos a concluir.
 
 Repita este procedimento para criar outra máquina virtual com o nome **Web-02**.
 
 ### <a name="add-a-dns-label"></a>Adicionar uma etiqueta de DNS
+
 Os endereços IP públicos precisam de uma etiqueta de DNS para funcionar com o Gestor de Tráfego.
 1. No grupo de recursos **RG-DNS-Alias-TM**, selecione o endereço IP público **Web-01-ip**.
 2. Em **Definições**, selecione **Configuração**.

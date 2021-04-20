@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ac147df90d3fa0c27bb4299c57ec79d9a9031710
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179141"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737603"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Monitor Azure para Azure Data Explorer (pré-visualização)
 
@@ -118,9 +118,14 @@ O separador **cache** permite que os utilizadores analisem os padrões de retros
 
 [![Screenshot dos detalhes da cache](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
-## <a name="pin-to-azure-dashboard"></a>Pin to Azure dashboard
+O **separador de limites** do cluster exibe os limites do cluster com base na sua utilização. Neste separador pode inspecionar a CPU, a ingestão e a utilização da cache. Estas métricas são pontuadas como "Baixo", "Médio" ou "Alto". Estas métricas e pontuações são importantes ao decidir sobre o SKU ideal e os casos contam para o seu cluster, e são tidos em conta na recomendação do Azure Advisor SKU/size. Neste separador pode selecionar um azulejo métrico e um mergulho profundo para entender a sua tendência e como a sua pontuação é decidida. Também pode ver a recomendação Azure Advisor SKU/tamanho para o seu cluster. Por exemplo, na imagem a seguir pode ver que todas as métricas são pontuadas como "Low", e assim o cluster recebe uma recomendação de custo que lhe permite escalar dentro/para baixo e economizar custos.
 
-Pode fixar qualquer uma das secções métricas (da perspetiva "à escala") a um painel Azure selecionando o ícone de pino de pressão no canto superior direito da secção.
+> [!div class="mx-imgBorder"]
+> [![Screenshot dos limites do cluster.](./media/data-explorer/cluster-boundaries.png)](./media/data-explorer/cluster-boundaries.png#lightbox)
+
+## <a name="pin-to-azure-dashboard&quot;></a>Pin to Azure dashboard
+
+Pode fixar qualquer uma das secções métricas (da perspetiva &quot;à escala") a um painel Azure selecionando o ícone de pino de pressão no canto superior direito da secção.
 
 ![Screenshot do ícone pin selecionado](./media/data-explorer/pin.png)
 

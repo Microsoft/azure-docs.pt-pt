@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 4230ced172de52e5acf45e071fa2a49a332eb696
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 6859a2f8571c11e6ef93a5e5b1635cdbe39ad001
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719228"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737675"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
 
@@ -150,6 +150,18 @@ As características do IntelliSense estão em diferentes níveis de maturidade p
 |Sparksql|Yes|Yes|-|-|-|-|-|-|
 |.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
+
+
+### <a name="code-snippets"></a>Fragmentos de Código
+
+Os cadernos do Azure Synapse Studio fornecem fragmentos de código que facilitam a entrada de padrões de código usados comuns, tais como configurar a sua sessão Spark, ler dados como um Spark DataFrame, ou desenhar gráficos com matplotlib etc.
+
+Snippets aparecem no [IntelliSense](#ide-style-intellisense) misturado com outras sugestões. O código corta o conteúdo alinha-se com a linguagem da célula de código. Pode ver os snippets disponíveis digitando **Snippet** ou quaisquer palavras-chave aparecem no título do snippet no editor de células de código. Por exemplo, ao escrever **a leitura** pode ver a lista de excertos para ler dados de várias fontes de dados.
+
+![Corte de código de sinapse](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
+
+
+
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 
 # <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
@@ -181,7 +193,7 @@ A operação de células de desfazer ainda não está disponível para a experi�
 
 # <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
 
-Selecione as elipses (...) para aceder ao menu adicional de ações celulares na extrema-direita. Em seguida, **selecione Mover a célula para cima** ou mover a célula para **baixo** para mover a célula atual. 
+Selecione as elipses (...) para aceder ao menu de outras ações celulares na extrema-direita. Em seguida, **selecione Mover a célula para cima** ou mover a célula para **baixo** para mover a célula atual. 
 
 Também pode utilizar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **ctrl+Alt+↑** para subir a célula atual. Prima **Ctrl+Alt+↓** para mover a célula atual para baixo.
 
@@ -198,7 +210,7 @@ Clique no lado esquerdo de uma célula e arraste-a para a posição desejada.
 
 # <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
 
-Para eliminar uma célula, selecione as elipses (...) para aceder ao menu de ações celulares adicionais na extrema direita e, em seguida, **selecione Delete cell**. 
+Para eliminar uma célula, selecione as elipses (...) para aceder ao menu de outras ações celulares na extrema direita e, em seguida, **selecione Delete cell**. 
 
 Também pode utilizar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **D,D** para apagar a célula atual.
   
@@ -273,7 +285,7 @@ Selecione o botão **Executar Todas para** executar todas as células no caderno
 
 # <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
 
-Para aceder ao menu adicional de ações celulares na extrema-direita, selecione as elipses **(...**). Em seguida, selecione **Executar as células acima** para executar todas as células acima da corrente em sequência. Selecione **Executar as células abaixo** para executar todas as células abaixo da corrente em sequência.
+Para aceder ao menu de outras ações celulares na extrema-direita, selecione as elipses **(...**). Em seguida, selecione **Executar as células acima** para executar todas as células acima da corrente em sequência. Selecione **Executar as células abaixo** para executar todas as células abaixo da corrente em sequência.
 
    ![células de execução acima ou abaixo](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -467,7 +479,7 @@ Selecione o botão **de gasoduto Add to pipeline** no canto superior direito par
 
 # <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
 
-Para parametrizar o seu caderno, selecione as elipses (...) para aceder ao menu adicional de ações celulares na extrema-direita. Em seguida, selecione **a célula de parâmetros Toggle** para designar a célula como célula de parâmetros.
+Para parametrizar o seu caderno, selecione as elipses (...) para aceder ao menu de outras ações celulares na extrema-direita. Em seguida, selecione **a célula de parâmetros Toggle** para designar a célula como célula de parâmetros.
 
 ![parâmetro de alternância](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 

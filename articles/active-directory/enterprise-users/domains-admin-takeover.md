@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 04/18/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 816f4645626675ae19a462ac8707e995c3b4045e
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96547105"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739374"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 
@@ -27,9 +28,9 @@ Este artigo descreve duas formas de assumir um nome de domínio DNS num diretór
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decida como quer assumir um diretório não gerido
 Durante o processo de obtenção do controlo administrativo, pode provar a propriedade, conforme descrito em [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Adicionar um nome de domínio personalizado ao Azure AD). As secções seguintes explicam a experiência de administração mais detalhadamente, mas pode ver este resumo:
 
-* Quando realizas uma [aquisição "interna"](#internal-admin-takeover) de um diretório não gerido do Azure, és adicionado como administrador global do diretório não gerido. Nenhum utilizador, domínio ou plano de serviço é migrado para qualquer outro diretório administrado por si.
+* Quando faz uma [obtenção do controlo administrativo “interna”](#internal-admin-takeover) de um diretório do Azure não gerido, é adicionado como o administrador global desse diretório. Nenhum utilizador, domínio ou plano de serviço é migrado para qualquer outro diretório administrado por si.
 
-* Quando executa uma [aquisição "externa"](#external-admin-takeover) de um diretório Azure não gerido, adiciona-se o nome de domínio DNS do diretório não gerido ao seu diretório Azure gerido. Quando adiciona o nome de domínio, é criado um mapeamento dos utilizadores para os recursos no diretório do Azure gerido, para que os utilizadores possam continuar a aceder a serviços sem interrupções. 
+* Quando faz uma [obtenção do controlo administrativo “externo”](#external-admin-takeover) de um diretório do Azure não gerido, adiciona o nome de domínio DNS desse diretório ao seu diretório do Azure gerido. Quando adiciona o nome de domínio, é criado um mapeamento dos utilizadores para os recursos no diretório do Azure gerido, para que os utilizadores possam continuar a aceder a serviços sem interrupções. 
 
 ## <a name="internal-admin-takeover"></a>Aquisição de administrador interno
 

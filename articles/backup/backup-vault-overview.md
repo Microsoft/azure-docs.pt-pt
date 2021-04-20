@@ -2,13 +2,13 @@
 title: Visão geral dos cofres de reserva
 description: Uma visão geral dos cofres de reserva.
 ms.topic: conceptual
-ms.date: 08/17/2020
-ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.openlocfilehash: e2d720da9474a35870de01559201d22c9e5b567f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92091292"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739085"
 ---
 # <a name="backup-vaults-overview"></a>Visão geral dos cofres de reserva
 
@@ -28,7 +28,8 @@ Um cofre de backup é uma entidade que armazena os backups e pontos de recupera�
 
 ## <a name="encryption-settings-in-the-backup-vault"></a>Definições de encriptação no cofre de reserva
 
-Esta secção discute as opções disponíveis para encriptar os dados de backup armazenados no cofre de reserva.
+Esta secção discute as opções disponíveis para encriptar os dados de backup armazenados no cofre de reserva. O serviço Azure Backup utiliza a aplicação **Backup Management Service** para aceder ao Cofre da Chave Azure, mas não a identidade gerida do cofre de backup.
+
 
 ### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pela plataforma
 
@@ -87,7 +88,7 @@ A seguinte operação é destrutiva e não pode ser desfeita. Todos os dados de 
 
 Para eliminar corretamente um cofre, deve seguir os passos desta ordem:
 
-- Tem de verificar se existem itens protegidos:
+- Verifique se existem itens protegidos:
   - Vá a **Instâncias de Reserva** na barra de navegação esquerda. Todos os itens listados aqui devem ser apagados primeiro.
 
 Depois de completar estes passos, pode continuar a apagar o cofre.

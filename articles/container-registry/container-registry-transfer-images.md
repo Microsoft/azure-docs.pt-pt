@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefactos de um registo
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: e921880eb0b8ae5a38e69c9c0045f6a26d84084d
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 7784ce3e5e0171c84fb1f1da6e69f7d38bec9637
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497987"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737411"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo
 
@@ -416,8 +416,14 @@ az resource delete \
 * **Falhas ou erros de implementação do modelo**
   * Se um gasoduto falhar, olhe para a `pipelineRunErrorMessage` propriedade do recurso de execução.
   * Para obter erros comuns de implementação do modelo, consulte [as implementações do modelo de braço de resolução de problemas](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
+* **Problemas de acesso ao armazenamento**<a name="problems-accessing-storage"></a>
+  * Se vir um `403 Forbidden` erro do armazenamento, é provável que tenha um problema com o seu token SAS.
+  * O símbolo SAS pode não ser atualmente válido. O token SAS pode ter expirado ou as chaves da conta de armazenamento podem ter mudado desde que o token SAS foi criado. Verifique se o token SAS é válido ao tentar utilizar o token SAS para autenticar para acesso ao recipiente da conta de armazenamento. Por exemplo, coloque um ponto final blob existente seguido do token SAS na barra de endereços de uma nova janela Microsoft Edge InPrivate ou carreme um blob para o recipiente com o token SAS utilizando `az storage blob upload` .
+  * O token SAS pode não ter tipos de recursos permitidos suficientes. Verifique se o token SAS foi dado permissões ao Serviço, Ao Contentor e ao Objeto sob tipos de recursos permitidos `srt=sco` (no token SAS).
+  * O símbolo da SAS pode não ter permissões suficientes. Para os oleodutos de exportação, as permissões necessárias para o token SAS são Ler, Escrever, Lista e Adicionar. Para os gasodutos de importação, as permissões necessárias para o token SAS são Ler, Eliminar e Lista. (A permissão de eliminação só é necessária se o gasoduto de importação tiver a `DeleteSourceBlobOnSuccess` opção ativada.)
+  * O token SAS pode não estar configurado para trabalhar apenas com HTTPS. Verifique se o token SAS está configurado para funcionar apenas com HTTPS `spr=https` (no token SAS).
 * **Problemas com a exportação ou importação de bolhas de armazenamento**
-  * O token SAS pode ser expirado, ou pode ter permissões insuficientes para a produção ou importação especificada
+  * O token SAS pode ser inválido ou pode ter permissões insuficientes para a produção ou importação especificada. Ver [Problemas de acesso ao armazenamento](#problems-accessing-storage).
   * A bolha de armazenamento existente na conta de armazenamento de fontes pode não ser substituída durante vários períodos de exportação. Confirme que a opção OverwriteBlob está definida na fuga à exportação e que o token SAS tem permissões suficientes.
   * A bolha de armazenamento na conta de armazenamento-alvo pode não ser eliminada após uma execução bem sucedida das importações. Confirme que a opção DeleteBlobOnSuccess está definida na corrida de importação e que o token SAS tem permissões suficientes.
   * Bolha de armazenamento não criada ou apagada. Confirme que existe um contentor especificado na produção de exportação ou de importação, ou que exista uma bolha de armazenamento especificada para a importação manual. 

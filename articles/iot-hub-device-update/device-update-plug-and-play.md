@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0283a84650abaadd454b4f5bca83d1473e443fb8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fbc3502952e11830ef9abb06cb709fcc60288343
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561819"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739535"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Atualização do dispositivo para IoT Hub e IoT Plug e Play
 
@@ -63,8 +63,8 @@ Os metadados de serviço contêm campos que os serviços de Atualização do Dis
 
 |Name|Esquema|Direção|Description|
 |----|------|---------|-----------|
-|ação|número inteiro|nuvem para dispositivo|É um inteiro que corresponde a uma ação que o agente deve executar. Valores listados abaixo.|
-|updateManifest|string|nuvem para dispositivo|Usado para descrever o conteúdo de uma atualização. Gerado a partir do [Manifesto de Importação](import-update.md#create-device-update-import-manifest)|
+|action|número inteiro|nuvem para dispositivo|É um inteiro que corresponde a uma ação que o agente deve executar. Valores listados abaixo.|
+|updateManifest|string|nuvem para dispositivo|Usado para descrever o conteúdo de uma atualização. Gerado a partir do [Manifesto de Importação](import-update.md#create-a-device-update-import-manifest)|
 |updateManifestSignature|Objeto JSON|nuvem para dispositivo|Uma assinatura web JSON (JWS) com teclas web JSON utilizadas para verificação de origem.|
 |fileUrls|Mapa|nuvem para dispositivo|Mapa `FileHash` `DownloadUri` de. Diz ao agente quais os ficheiros a descarregar e o haxixe a utilizar para verificar se os ficheiros foram descarregados corretamente.|
 

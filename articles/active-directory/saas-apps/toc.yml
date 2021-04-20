@@ -2204,6 +2204,8 @@
           href: druva-provisioning-tutorial.md
         - name: Envoy
           href: envoy-provisioning-tutorial.md
+        - name: Eletivo
+          href: eletive-provisioning-tutorial.md
         - name: Elium
           href: elium-provisioning-tutorial.md
         - name: Diretório federado

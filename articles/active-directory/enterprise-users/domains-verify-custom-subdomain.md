@@ -6,19 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 04/18/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 734e6824f13e62ad080500eff18c4892e1f76807
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4acf01a6672d17e62b6ebf5c6f43c8d6145f95a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95503666"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739319"
 ---
 # <a name="change-subdomain-authentication-type-in-azure-active-directory"></a>Alterar o tipo de autenticação subdomínio no Diretório Ativo Azure
 
