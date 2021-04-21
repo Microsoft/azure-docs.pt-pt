@@ -1,14 +1,14 @@
 ---
 title: Como planear e implementar servidores ativados pelo Azure Arc
 description: Saiba como permitir que um grande número de máquinas para o Azure Arc permitiu que os servidores simplificassem a configuração das capacidades essenciais de segurança, gestão e monitorização em Azure.
-ms.date: 03/18/2021
+ms.date: 04/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f8fe410da56f627ceab5f17c980f2daa1a262c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023287"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831983"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Planeie e implemente servidores ativados pelo Arc
 
@@ -83,7 +83,7 @@ A fase 3 vê administradores ou engenheiros de sistema permitir automatizar tare
 |-----|-------|---------|
 |Criar um alerta de saúde de recursos |Se um servidor parar de enviar batimentos cardíacos para Azure por mais de 15 minutos, pode significar que está offline, a ligação de rede foi bloqueada ou o agente não está em funcionamento. Desenvolva um plano para como irá responder e investigar estes incidentes e use [alertas de Saúde de Recursos](../..//service-health/resource-health-alert-monitor-guide.md) para ser notificado quando começarem.<br><br> Especificar o seguinte ao configurar o alerta:<br> Tipo de **recurso**  =  **Servidores ativados Azure Arc**<br> **Estado atual do recurso**  =  **Indisponível**<br> **Estado dos recursos**  =  anteriores **Disponível** | Uma hora |
 |Criar um alerta de Conselheiro Azure | Para obter a melhor experiência e as correções mais recentes de segurança e bugs, recomendamos manter o agente de servidores ativado pelo Arco Azure atualizado. Agentes desatualizados serão identificados com um [alerta de Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Especificar o seguinte ao configurar o alerta:<br> Tipo de **recomendação**  =  **Upgrade para a versão mais recente do Azure Connected Machine Agent** | Uma hora |
-|[Atribua as políticas Azure](../../governance/policy/assign-policy-portal.md) ao seu âmbito de subscrição ou grupo de recursos |Atribua o **Enable Azure Monitor para** a [política](../../azure-monitor/vm/vminsights-enable-policy.md) de VMs (e outros que atendam às suas necessidades) para o âmbito de subscrição ou grupo de recursos. A Azure Policy permite-lhe atribuir definições de política que instalam os agentes necessários para o Azure Monitor para VMs em todo o seu ambiente.| Varia |
+|[Atribua as políticas Azure](../../governance/policy/assign-policy-portal.md) ao seu âmbito de subscrição ou grupo de recursos |Atribua o **Enable Azure Monitor para** a [política](../../azure-monitor/vm/vminsights-enable-policy.md) de VMs (e outros que atendam às suas necessidades) para o âmbito de subscrição ou grupo de recursos. A Azure Policy permite-lhe atribuir definições de política que instalam os agentes necessários para insights VM em todo o seu ambiente.| Varia |
 |[Ativar a Gestão de Atualização para os servidores ativados pelo Arco](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management in Azure Automation para gerir as atualizações do sistema operativo para as suas máquinas virtuais Windows e Linux registadas com servidores ativados pelo Arc. | 15 minutos |
 
 ## <a name="next-steps"></a>Passos seguintes

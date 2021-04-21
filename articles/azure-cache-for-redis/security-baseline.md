@@ -6,13 +6,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.custom: subject-security-benchmark
-ms.openlocfilehash: f07eece54bfe456e173e664b19777cfc98b71368
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: subject-security-benchmark, devx-track-azurepowershell
+ms.openlocfilehash: 0397f53c54f488f6840e35212de3e51624f360d7
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566868"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830003"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Linha de segurança Azure para Azure Cache para Redis
 

@@ -1,16 +1,16 @@
 ---
 title: Aplicar licença do Windows para session host máquinas virtuais - Azure
 description: Descreve como aplicar a licença do Windows para VMs de ambiente de trabalho virtuais do Windows.
-author: ChristianMontoya
+author: Heidilohr
 ms.topic: how-to
 ms.date: 08/14/2019
-ms.author: chrimo
-ms.openlocfilehash: 5f3749be36f5f035e49fcb862f92180e4902101f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: helohr
+ms.openlocfilehash: fa3c9f82e99536b07a27656e0143d6b2fcc89a44
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88010145"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833873"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicar licença do Windows para session host máquinas virtuais
 
@@ -61,3 +61,7 @@ Execute o seguinte cmdlet para ver uma lista de todos os VMs do anfitrião da se
 $vms = Get-AzVM
 $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object ResourceGroupName, Name, LicenseType
 ```
+
+## <a name="requirements-for-deploying-windows-server-remote-desktop-services"></a>Requisitos para implementar serviços de ambiente de trabalho remoto do Windows Server
+
+Se implementar o Windows Server 2019, 2016 ou 2012 R2 como anfitriões do Windows Virtual Desktop na sua implementação, um servidor de licença de Serviços de Ambiente de Trabalho Remoto deve estar acessível a partir dessas máquinas virtuais. O servidor de licença remote desktop Services pode ser localizado no local ou em Azure. Para obter mais informações, consulte [Ativar o servidor de licença remote desktop Services](/windows-server/remote/remote-desktop-services/rds-activate-license-server).

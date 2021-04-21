@@ -61,6 +61,8 @@
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Normalizar dados entre tabelas
       href: normalization.md
+    - name: Utilize o Azure Data Explorer para retenção de registos a longo prazo
+      href: store-logs-in-azure-data-explorer.md
     - name: Segurança
       items:
         - name: Linha de base de segurança

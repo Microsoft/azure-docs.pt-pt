@@ -6,12 +6,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0e5573634edf29698e7b118487fb2ec4e22e8eec
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 958cbf8b7b03e2dd9e4b0e03ba178ffe180bfb48
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169441"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831263"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Tutorial: Criar um livro de execução PowerShell
 

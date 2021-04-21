@@ -1,7 +1,7 @@
 ---
-title: Obtenha o método do estado do documento
+title: Cancelar método de tradução
 titleSuffix: Azure Cognitive Services
-description: O método de estado do documento obtém o estado de um documento específico.
+description: O método de tradução cancela uma operação atualmente de processamento ou fila.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -10,22 +10,23 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/25/2021
 ms.author: v-jansk
-ms.openlocfilehash: 36cd10a0b04be21e9f332832b4381662eeedd01d
+ms.openlocfilehash: 3de052f50676065a6656f77a0ea68cf8c9ab46a8
 ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833675"
+ms.locfileid: "107836266"
 ---
-# <a name="get-document-status"></a>Obtenha o estado do documento
+# <a name="cancel-translation"></a>Cancelar tradução
 
-O método 'Obter Estado do Documento' devolve o estado de um documento específico. O método devolve o estado de tradução de um documento específico com base no ID do pedido e no documento de identificação.
+Cancelar uma operação de processamento ou fila atual. Uma operação não será cancelada se já estiver concluída ou falhada ou cancelada. Um mau pedido será devolvido. Todos os documentos que tenham concluído a tradução não serão cancelados e serão cobrados. Todos os documentos pendentes serão cancelados, se possível.
 
 ## <a name="request-url"></a>URL do Pedido
 
-Envie um `GET` pedido para:
-```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents/{documentId}
+Envie um `DELETE` pedido para:
+
+```DELETE HTTP
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
 ```
 
 Saiba como encontrar o [nome de domínio personalizado.](../get-started-with-document-translation.md#find-your-custom-domain-name)
@@ -40,43 +41,49 @@ Saiba como encontrar o [nome de domínio personalizado.](../get-started-with-doc
 Os parâmetros de pedido passados na cadeia de consulta são:
 
 |Parâmetro de consulta|Obrigatório|Descrição|
-|--- |--- |--- |
-|documentId|Verdadeiro|A identificação do documento.|
-|ID|Verdadeiro|A identificação do lote.|
+|-----|-----|-----|
+|ID|Verdadeiro|A operação id.|
+
 ## <a name="request-headers"></a>Cabeçalhos do pedido
 
 Os cabeçalhos de pedido são:
 
 |Cabeçalhos|Description|
-|--- |--- |
+|-----|-----|
 |Ocp-Apim-Subscription-Key|Cabeçalho de pedido exigido|
 
 ## <a name="response-status-codes"></a>Códigos de estado de resposta
 
 Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 
-|Código de Estado|Description|
-|--- |--- |
-|200|OK. Pedido de sucesso e é aceite pelo serviço. Os detalhes da operação são devolvidos. HeadersRetry-After: inteiroETag: string|
+| Código de Estado| Description|
+|-----|-----|
+|200|OK. Pedido de cancelamento foi submetido|
 |401|Não autorizado. Verifique as suas credenciais.|
-|404|Não encontrado. O recurso não é encontrado.|
-|500|Erro interno do servidor.|
+|404|Não encontrado. O recurso não é encontrado. 
+|500|Erro interno do servidor.
 |Outros Códigos de Estado|<ul><li>Muitos pedidos</li><li>Servidor temporário indisponível</li></ul>|
 
-## <a name="get-document-status-response"></a>Obtenha resposta do estado do documento
+## <a name="cancel-translation-response"></a>Cancelar resposta de tradução
 
-### <a name="successful-get-document-status-response"></a>Obter resposta de estado de documento com sucesso
+### <a name="successful-response"></a>Resposta bem sucedida
+
+As seguintes informações são devolvidas numa resposta bem sucedida.
 
 |Nome|Tipo|Description|
 |--- |--- |--- |
-|caminho|string|Localização do documento ou pasta.|
+|ID|string|Identificação da operação.|
 |createdDateTimeUtc|string|Operação criou a hora da data.|
 |últimaActionDateTimeUtc|string|Data em que o estado da operação foi atualizado.|
 |status|String|Lista de possíveis estatutos para trabalho ou documento: <ul><li>Cancelado</li><li>Cancelamento</li><li>Com falhas</li><li>Não Começou</li><li>Em Execução</li><li>Com êxito</li><li>ValidaçãoFailed</li></ul>|
-|para|string|Código linguístico de duas letras da linguagem. Veja a lista de línguas.|
-|progress|número|Progresso da tradução, se disponível|
-|ID|string|Identificação de documento.|
-|caráterComecar|número inteiro|Caracteres cobrados pela API.|
+|resumo|StatusSummary|Resumo contendo os detalhes listados abaixo.|
+|resumo.total|número inteiro|Contagem de documentos totais.|
+|resumo.falhou|número inteiro|A contagem de documentos falhou.|
+|resumo.sucesso|número inteiro|Contagem de documentos traduzidos com sucesso.|
+|resumo.inProgress|número inteiro|Contagem de documentos em curso.|
+|resumo.notYetStarted|número inteiro|A contagem de documentos ainda não começou a ser processada.|
+|resumo.cancelado|número inteiro|Número de cancelado.|
+|resumo.totalCharacterCharged|número inteiro|Total de caracteres cobrados pela API.|
 
 ### <a name="error-response"></a>Resposta de erro
 
@@ -84,25 +91,34 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 |--- |--- |--- |
 |code|string|Números contendo códigos de erro de alto nível. Valores possíveis:<br/><ul><li>InternalServerError</li><li>Argumento invalido</li><li>InáduloRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Não autorizado</li></ul>|
 |message|string|Recebe uma mensagem de erro de alto nível.|
+|alvo|string|Obtém a origem do erro. Por exemplo, seria "documentos" ou "documento de identificação" para um documento inválido.|
 |interiorError|InteriorErrorV2|Novo formato de Erro Interior, que está em conformidade com as Diretrizes da API dos Serviços Cognitivos. Contém propriedades necessárias ErrorCode, mensagem e alvo de propriedades opcionais, detalhes (par de valor chave), erro interno (pode ser aninhado).|
 |innerError.code|string|Obtém a cadeia de erro de código.|
-|innerError.message|string|Recebe uma mensagem de erro de alto nível.|
+|interior. Eroor.mensagem|string|Recebe uma mensagem de erro de alto nível.|
 
 ## <a name="examples"></a>Exemplos
 
 ### <a name="example-successful-response"></a>Exemplo de resposta bem sucedida
+
 O seguinte objeto JSON é um exemplo de uma resposta bem sucedida.
+
+Código de estado: 200
 
 ```JSON
 {
-  "path": "https://myblob.blob.core.windows.net/destinationContainer/fr/mydoc.txt",
+  "id": "727bf148-f327-47a0-9481-abae6362f11e",
   "createdDateTimeUtc": "2020-03-26T00:00:00Z",
   "lastActionDateTimeUtc": "2020-03-26T01:00:00Z",
-  "status": "Running",
-  "to": "fr",
-  "progress": 0.1,
-  "id": "273622bd-835c-4946-9798-fd8f19f6bbf2",
-  "characterCharged": 0
+  "status": "Succeeded",
+  "summary": {
+    "total": 10,
+    "failed": 1,
+    "success": 9,
+    "inProgress": 0,
+    "notYetStarted": 0,
+    "cancelled": 0,
+    "totalCharacterCharged": 0
+  }
 }
 ```
 
@@ -110,17 +126,17 @@ O seguinte objeto JSON é um exemplo de uma resposta bem sucedida.
 
 O seguinte objeto JSON é um exemplo de uma resposta de erro. O esquema de outros códigos de erro é o mesmo.
 
-Código de estado: 401
+Código de estado: 500
 
 ```JSON
 {
   "error": {
-    "code": "Unauthorized",
-    "message": "User is not authorized",
-    "target": "Document",
+    "code": "InternalServerError",
+    "message": "Internal Server Error",
+    "target": "Operation",
     "innerError": {
-      "code": "Unauthorized",
-      "message": "Operation is not authorized"
+      "code": "InternalServerError",
+      "message": "Unexpected internal server error has occurred"
     }
   }
 }

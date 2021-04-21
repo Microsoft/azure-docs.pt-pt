@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e595f7ff313ff85a12209e8c124b9aa376b20b6
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d30ab051e58573daefd16f178feb4fc94f2ec83f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739751"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835475"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Assegurar a renderização remota do Azure e o armazenamento do modelo
 
@@ -405,8 +405,10 @@ No Editor de Unidade, quando a AAD Auth estiver ativa, terá de autenticar sempr
     Uma vez que o componente **AADAuthentication** tem um controlador de visualização, o seu automaticamente ligado para apresentar um pedido após o painel modal de autorização de sessão.
 1. Siga as instruções encontradas no painel à direita do **AppMenu**.
     Deve ver algo semelhante a isto: ![ Ilustração que mostra o painel de instruções que aparece à direita do AppMenu.](./media/device-flow-instructions.png)
-    Depois de introduzir o fornecido codificado no seu dispositivo secundário (ou navegador no mesmo dispositivo) e iniciar sessão com as suas credenciais, um Access Token será devolvido à aplicação de solicitação, neste caso, o Editor de Unidade.
-1. Depois deste ponto, tudo o que está no pedido deve proceder normalmente. Verifique se a Consola de Unidade se não está a progredir nas fases como esperado.
+    
+    Depois de introduzir o código fornecido no seu dispositivo secundário (ou navegador no mesmo dispositivo) e de iniciar sessão com as suas credenciais, um Access Token será devolvido à aplicação de solicitação, neste caso, o Editor de Unidade.
+
+Depois deste ponto, tudo o que está no pedido deve proceder normalmente. Verifique se a Consola de Unidade se não está a progredir nas fases como esperado.
 
 ## <a name="build-to-device"></a>Construir para dispositivo
 

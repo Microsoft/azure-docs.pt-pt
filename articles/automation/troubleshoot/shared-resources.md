@@ -5,12 +5,13 @@ services: automation
 ms.subservice: ''
 ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b497b0a8f34b4310e3f11beed982c4453fc79159
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99053625"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830831"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Problemas de recursos partilhados na resolução de problemas
 

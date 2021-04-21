@@ -2,13 +2,13 @@
 title: Tutorial - Nova atribuição de políticas com portal Azure
 description: Neste tutorial, você usa o portal Azure para criar uma atribuição de Política Azure para identificar recursos não conformes.
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 20cb8125a157a3ce97c88278c99f90936b449b65
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91826595"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831659"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutorial: Criar uma atribuição política para identificar recursos não conformes
 
@@ -95,9 +95,9 @@ Para remover a atribuição criada, siga estes passos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, atribuiu uma definição de política a um âmbito e avaliou o seu relatório de conformidade. A definição de política valida que todos os recursos no âmbito são compatíveis e identifica quais não são. Agora está pronto para monitorizar a sua máquina de servidores ativado Azure Arc com O Monitor Azure para VMs.
+Neste tutorial, atribuiu uma definição de política a um âmbito e avaliou o seu relatório de conformidade. A definição de política valida que todos os recursos no âmbito são compatíveis e identifica quais não são. Agora está pronto para monitorizar a máquina de servidores ativado pelo Azure Arc, permitindo [insights em VM](../../../azure-monitor/vm/vminsights-overview.md).
 
 Para aprender a monitorizar e ver o desempenho, o processo de execução e as suas dependências da sua máquina, continue ao tutorial:
 
 > [!div class="nextstepaction"]
-> [Ativar monitor Azure para VMs](tutorial-enable-vm-insights.md)
+> [Ativar insights VM](tutorial-enable-vm-insights.md)

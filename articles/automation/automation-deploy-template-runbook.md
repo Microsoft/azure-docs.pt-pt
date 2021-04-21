@@ -5,13 +5,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 keywords: powershell, runbook, json, azure automação
-ms.openlocfilehash: d9b443d1840840d3d6202140da235589c73453cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20dbf9f9bbf97ed0c24ea3a525c56c7cde2db428
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051401"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834845"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implemente um modelo de gestor de recursos Azure num livro de execução PowerShell
 

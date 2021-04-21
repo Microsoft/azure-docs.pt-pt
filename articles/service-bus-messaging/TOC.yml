@@ -110,8 +110,6 @@
           href: message-transfers-locks-settlement.md
         - name: Filas de mensagens não entregues
           href: service-bus-dead-letter-queues.md
-        - name: Contadores de mensagens
-          href: message-counters.md
         - name: Otimizar o desempenho
           href: service-bus-performance-improvements.md
         - name: Recuperação após desastre geográfica e georreplicação
@@ -244,6 +242,10 @@
           href: enable-partitions.md
         - name: Ativar o encaminhamento automático para uma fila ou subscrição
           href: enable-auto-forward.md
+        - name: Ativar a inscrição morta para uma fila ou subscrição
+          href: enable-dead-letter.md
+        - name: Receba contadores de mensagens
+          href: message-counters.md
         - name: Mover entre regiões
           href: move-across-regions.md
         - name: Atualização automática de unidades de mensagens

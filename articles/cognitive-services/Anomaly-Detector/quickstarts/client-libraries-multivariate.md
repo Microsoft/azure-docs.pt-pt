@@ -9,15 +9,15 @@ zone_pivot_groups: anomaly-detector-quickstart-multivariate
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 04/01/2020
+ms.date: 04/21/2021
 ms.author: mbullwin
 keywords: deteção de anomalias, algoritmos
-ms.openlocfilehash: c522675f90cd716725ecaba23d5b6ce5921665a6
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c19365719dddb01521010c742ac774762060bed9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316040"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830741"
 ---
 # <a name="quickstart-use-the-anomaly-detector-multivariate-client-library"></a>Quickstart: Use a biblioteca multivariada do detetor de anomalias
 

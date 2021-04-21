@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 90831c0e8d5ab73f65dc801319a357d59799cbc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a4f86d9fae7b78a57cf8da7ab42d2d4a4cd7be5
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97807557"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835403"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Resolver problemas de conectividade do Ponto Final Privado do Azure
 
@@ -59,7 +59,7 @@ Reveja estes passos para se certificar de que todas as configurações habituais
 1. Utilize [o Monitor Azure](../azure-monitor/overview.md) para ver se os dados estão a fluir.
 
     a. No recurso ponto final privado, selecione **Monitor**.
-     - Selecione **dados dentro** ou **fora dos dados**. 
+     - Selecione **Bytes In** ou **Bytes out**. 
      - Veja se os dados estão a fluir quando tenta ligar-se ao ponto final privado. Espere um atraso de aproximadamente 10 minutos.
     
        ![Verifique a telemetria de ponto final privado](./media/private-endpoint-tsg/private-endpoint-monitor.png)

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f744b718919a6da75b2064efdc163ef4618b5a7c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644918"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815905"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -354,9 +354,9 @@ As declarações não documentadas do DBCC que estão ativadas no SQL Server nã
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
-O suporte parcial para [transações distribuídas](../database/elastic-transactions-overview.md) encontra-se atualmente em pré-visualização pública. Os cenários apoiados são:
-* Transações em que os participantes são apenas Azure SQL Managed Instances que fazem parte do [grupo de confiança Do Servidor.](./server-trust-group-overview.md)
-* Transações iniciadas a partir de .NET (classe TransactionScope) e Transact-SQL.
+O suporte parcial para [transações distribuídas](../database/elastic-transactions-overview.md) encontra-se atualmente em pré-visualização pública. As transações distribuídas são suportadas nas seguintes condições (todas devem ser satisfeitas):
+* todos os participantes de transações são Azure SQL Managed Instances que fazem parte do [grupo de confiança Server](./server-trust-group-overview.md).
+* as transações são iniciadas quer a partir de .NET (classe TransactionScope) quer da Transact-SQL.
 
 A Azure SQL Managed Instance atualmente não suporta outros cenários que são regularmente suportados pela MSDTC no local ou em Máquinas Virtuais Azure.
 

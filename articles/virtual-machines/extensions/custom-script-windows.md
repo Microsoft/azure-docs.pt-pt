@@ -8,12 +8,12 @@ ms.author: amjads
 author: amjads1
 ms.collection: windows
 ms.date: 08/31/2020
-ms.openlocfilehash: 13b4c4ef50ea37cabe30474d339acb19176cef97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6341e3abbf591d0e6e0395e17ccf15ec73a3ac43
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553906"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835457"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -74,7 +74,7 @@ Se o seu script estiver num servidor local, poderá ainda necessitar de firewall
 
 A configuração de extensão de script personalizado especifica coisas como a localização do script e o comando a ser executado. Pode armazenar esta configuração em ficheiros de configuração, especi-la na linha de comando ou especi-la num modelo de Gestor de Recursos Azure.
 
-Pode armazenar dados sensíveis numa configuração protegida, que é encriptada e apenas desencriptada dentro da máquina virtual. A configuração protegida é útil quando o comando de execução inclui segredos como uma palavra-passe.
+Pode armazenar dados sensíveis numa configuração protegida, que é encriptada e apenas desencriptada dentro da máquina virtual. A configuração protegida é útil quando o comando de execução inclui segredos como uma palavra-passe ou uma referência de ficheiro de assinatura de acesso partilhado (SAS), que deve ser protegida.
 
 Estes itens devem ser tratados como dados sensíveis e especificados na configuração de definição protegida das extensões. Os dados de definição protegidos por extensão Azure VM são encriptados e apenas desencriptados na máquina virtual alvo.
 
@@ -97,16 +97,16 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
         "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "fileUris": [
-                "script location"
-            ],
             "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
             "storageAccountKey": "myStorageAccountKey",
-            "managedIdentity" : {}
+            "managedIdentity" : {},
+            "fileUris": [
+                "script location"
+            ]
         }
     }
 }
@@ -142,7 +142,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 #### <a name="property-value-details"></a>Detalhes do valor da propriedade
 
 * `commandToExecute`:**(obrigatório,** string) o roteiro do ponto de entrada a executar. Utilize este campo em vez disso se o seu comando contiver segredos como palavras-passe ou os seus ficheirosUris são sensíveis.
-* `fileUris`: (opcional, matriz de cordas) os URLs para ficheiros a serem descarregados.
+* `fileUris`: (opcional, matriz de cordas) os URLs para ficheiros a serem descarregados. Se os URLs forem sensíveis (tais como URLs que contêm teclas), este campo deve ser especificado em facilidades protegidas
 * `timestamp` (opcional, inteiro de 32 bits) utilize este campo apenas para desencadear uma repetição do script alterando o valor deste campo.  Qualquer valor inteiro é aceitável; só deve ser diferente do valor anterior.
 * `storageAccountName`: (opcional, cadeia) o nome da conta de armazenamento. Se especificar credenciais de armazenamento, todos `fileUris` devem ser URLs para Azure Blobs.
 * `storageAccountKey`: (opcional, cadeia) a chave de acesso da conta de armazenamento
@@ -153,6 +153,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 Os seguintes valores podem ser definidos em configurações públicas ou protegidas, a extensão rejeitará qualquer configuração em que os valores abaixo estejam definidos em configurações públicas e protegidas.
 
 * `commandToExecute`
+* `fileUris`
 
 Usando configurações públicas talvez úteis para depurar, mas recomenda-se que use configurações protegidas.
 

@@ -6,12 +6,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 1b6c02778b0ee790d81c713283e653058c29c153
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 668f661d2c8f349f4dac3f850800d83890d2f4d9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92899804"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831443"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Tutorial: Criar um runbook gráfico
 

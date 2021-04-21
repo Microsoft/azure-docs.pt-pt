@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 74b808b941c00c9c47fbff31223274318ebeb2a0
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9f1ace00356583dbb6102317e3d157fb58682710
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169390"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832584"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerir variáveis em Azure Automation
 

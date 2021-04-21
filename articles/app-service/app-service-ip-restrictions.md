@@ -6,13 +6,13 @@ ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 420dade645d1a4ee32bb888aecb76b033d5756e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 541af6d0051d06de5721b22616fbf1e2867b71d6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731309"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833369"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar restrições de acesso ao Serviço de Aplicações Azure
 

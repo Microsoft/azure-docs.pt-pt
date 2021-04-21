@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/07/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: de5c5fbb6673d022517bba2486ed4aa1f739d19b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9e2dcace673a1c7215634434f9e89ddc6b953a63
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439583"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834628"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -237,10 +237,17 @@ Algumas das funções que estão disponíveis na API REST:
 
 ## <a name="faq---adaptive-application-controls"></a>FAQ - Controlos de aplicações adaptativos
 
+- [Existem opções para impor os controlos de aplicação?](#are-there-any-options-to-enforce-the-application-controls)
+- [Por que vejo uma aplicação Qualys nas minhas aplicações recomendadas?](#why-do-i-see-a-qualys-app-in-my-recommendeded-applications)
+
 ### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Existem opções para impor os controlos de aplicação?
 Atualmente, não existem opções de aplicação da lei. Os controlos de aplicação adaptativa destinam-se a fornecer **alertas** de segurança se qualquer aplicação correr além das que definiu como seguras. Têm uma gama de benefícios[(Quais são os benefícios dos controlos de aplicação adaptativa?](#what-are-the-benefits-of-adaptive-application-controls)) e são extremamente personalizáveis como mostrado nesta página.
 
- 
+### <a name="why-do-i-see-a-qualys-app-in-my-recommendeded-applications"></a>Por que vejo uma aplicação Qualys nas minhas aplicações recomendadas?
+[O Azure Defender para servidores](defender-for-servers-introduction.md) inclui a verificação de vulnerabilidades para as suas máquinas sem custos adicionais. Você não precisa de uma licença Qualys ou mesmo uma conta Qualys - tudo é tratado perfeitamente dentro do Centro de Segurança. Para mais detalhes sobre este scanner e instruções sobre como implementá-lo, consulte a [solução integrada de avaliação de vulnerabilidades do Defender](deploy-vulnerability-assessment-vm.md).
+
+Para garantir que não são gerados alertas quando o Centro de Segurança implementa o scanner, os controlos de aplicação adaptativos recomendados permitem a lista de autorizações que inclui o scanner para todas as máquinas. 
+
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativas no Azure Security Center para definir as listas de aplicações em execução nas suas máquinas Azure e não-Azure. Para saber mais sobre algumas das outras funcionalidades de proteção da carga de trabalho em nuvem do Security Center, consulte:

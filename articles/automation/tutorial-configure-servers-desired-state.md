@@ -5,12 +5,13 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 70631490e248c801b9465c51548efe8dff704a3e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99053572"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830147"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configurar computadores para um estado pretendido
 

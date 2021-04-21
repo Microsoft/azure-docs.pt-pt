@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.openlocfilehash: e4feaa8f1b30bfe31f4e645943f766b5736150b3
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 82811c731c158d970d7ec2c2350a0cba106f6a67
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818373"
+ms.locfileid: "107835493"
 ---
 # <a name="using-azure-migrate-with-private-endpoints"></a>Usando Azure Migrar com pontos finais privados  
 
@@ -95,16 +95,33 @@ Isto cria um projeto migratório e anexa-lhe um ponto final privado.
 
 #### <a name="download-the-appliance-installer-file"></a>Descarregue o ficheiro do instalador do aparelho  
 
-> [!Note]
-> Se estiver a enfrentar problemas ao descarregar o ficheiro do instalador do aparelho, crie uma caixa de apoio.
-
 Azure Migrate: Descoberta e avaliação utilize um aparelho Azure Migrate leve. O aparelho executa a descoberta do servidor e envia metadados de configuração e desempenho do servidor para a Azure Migrate.
 
-Para configurar o aparelho, descarregue o ficheiro com fecho de correr que contém o script do instalador a partir do portal. Copie o ficheiro com fecho no servidor que irá hospedar o aparelho. 
+Para configurar o aparelho, descarregue o ficheiro com fecho de correr que contém o script do instalador a partir do portal. Copie o ficheiro com fecho no servidor que irá hospedar o aparelho. Depois de descarregar o ficheiro com fecho, verifique a segurança do ficheiro e execute o script do instalador para implantar o aparelho. 
+
+Aqui estão os links de descarregamento de cada um dos cenários com os seus valores de haxixe:
+
+Scenario | Ligação para transferência | Valor de hash
+--- | --- | ---
+Hyper-V | [AzureMigrateInstaller-HyperV-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160557) | 17EFA01E3A7683F1CE2A08E3A9197A27D8BD2CC03C3AB5C6E00E4261A822BDB3
+Físico | [AzureMigrateInstaller-Physical-Public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160558) | 01028F92C2095452F2DDCB89986CDC1F17AAC58E150A50A5B219A69CF1B7DA3BE0
+VMware | [AzureMigrateInstaller-VMware-public-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160648) | 66D3217AEC1DE51D84EC608B22BDDA605EC9C4FBAB06FC69FEC9858627C224
+Escala VMware | [AzureMigrateInstaller-VMware-Public-Scaleout-PrivateLink.zip](https://go.microsoft.com/fwlink/?linkid=2160811) | 42C1E8D5CF428E35E5E5E4E465DD08439F0FD5C319340CE3E3ADC3DC1717A6
+
+#### <a name="verify-security"></a>Verificar segurança
+
+Verifique se o ficheiro com fecho está seguro, antes de o colocar.
+
+1. Abra uma janela de comando do administrador no servidor para a qual descarregou o ficheiro.
+2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped
+
+    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    - Uso de exemplo para nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-public-PrivateLink.zip SHA256 ```
+
+3.  Verifique a versão mais recente do aparelho comparando os valores de haxixe da tabela acima.
 
 Certifique-se de que o servidor satisfaz os requisitos de [hardware](https://docs.microsoft.com/azure/migrate/migrate-appliance) para o cenário escolhido (VMware/Hyper-V/Físico ou outro) e pode ligar-se aos URLs Azure necessários - nuvens públicas e [governamentais.](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) [](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity)
 
-Depois de descarregar o ficheiro com fecho, execute o script do instalador para implantar o aparelho.
 
 #### <a name="run-the-script"></a>Executar o script
 
@@ -113,7 +130,7 @@ Depois de descarregar o ficheiro com fecho, execute o script do instalador para 
 3. Altere o diretório PowerShell para a pasta que contém o conteúdo extraído do ficheiro fechado descarregado.
 4. Executar o script **AzureMigrateInstaller.ps1,** da seguinte forma:
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-public-PrivateLink> .\AzureMigrateInstaller.ps1```
    
 5. Depois de o script ser executado com sucesso, ele lança o gestor de configuração do aparelho para que possa configurar o aparelho. Se encontrar algum problema, reveja os registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
 

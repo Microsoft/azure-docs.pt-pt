@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: c800901ae139b16e75613b0cc8de3a9485186896
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c680be897c4c1bf2ccf20df1d34ab6f59f559f2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521378"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816157"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -35,13 +35,13 @@ Neste artigo, você aprende sobre o que mudou e como isso afeta o seu trabalho p
 
 O mais recente lançamento do Azure Machine Learning inclui as seguintes funcionalidades:
 + Um [modelo de recursos Azure simplificado.](concept-azure-machine-learning-architecture.md)
-+ Um [novo portal UI](how-to-track-experiments.md) para gerir as suas experiências e metas de computação.
++ Um [novo portal UI](how-to-log-view-metrics.md) para gerir as suas experiências e metas de computação.
 + Um novo <a href="/python/api/overview/azure/ml/intro" target="_blank">Escama SDK</a>Python mais abrangente.
 + A nova [extensão alargada do Azure CLI](reference-azure-machine-learning-cli.md) para machine learning.
 
 A [arquitetura](concept-azure-machine-learning-architecture.md) foi redesenhada para facilitar o uso. Em vez de vários recursos e contas do Azure, precisa apenas de uma [Área de Trabalho do Azure Machine Learning](concept-workspace.md). Pode criar áreas de trabalho rapidamente no [portal do Azure](how-to-manage-workspace.md). Ao utilizar um espaço de trabalho, vários utilizadores podem armazenar alvos de treinamento e implementação de computação, experiências de modelos, imagens Docker, modelos implantados, e assim por diante.
 
-Apesar de existirem novos clientes CLI e SDK melhorados na versão atual, a própria aplicação de workbench foi reformada. As experiências podem ser geridas no painel de instrumentos do [espaço de trabalho no estúdio Azure Machine Learning](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal). Utilize o dashboard para obter o histórico de experimentações, gerir os destinos de computação associados à sua área de trabalho, gerir os seus modelos e imagens do Docker e até implementar serviços Web.
+Apesar de existirem novos clientes CLI e SDK melhorados na versão atual, a própria aplicação de workbench foi reformada. As experiências podem ser geridas no painel de instrumentos do [espaço de trabalho no estúdio Azure Machine Learning](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal). Utilize o dashboard para obter o histórico de experimentações, gerir os destinos de computação associados à sua área de trabalho, gerir os seus modelos e imagens do Docker e até implementar serviços Web.
 
 <a name="timeline"></a>
 

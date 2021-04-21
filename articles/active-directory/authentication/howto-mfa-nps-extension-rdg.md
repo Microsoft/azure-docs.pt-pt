@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b0150c18f2c007ed104d34daacd49ab03131a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f50792ec45570f7e90893a97150ea26b63ebf9c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743382"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829841"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integre a sua infraestrutura Remote Desktop Gateway utilizando a extensão do Network Policy Server (NPS) e a AZure AD
 
@@ -112,9 +112,11 @@ Uma vez ativada uma conta para MFA, não pode subscrever os recursos regidos pel
 Siga os passos em [O que significa Azure AD Multi-Factor Authentication para mim?](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 > [!IMPORTANT]
-> O sinal de comportamento para Remote Desktop Gateway não fornece a opção de introduzir um código de verificação com autenticação multi-factor Ad Azure. Uma conta de utilizador deve ser configurada para verificação de telefone ou a App autenticador da Microsoft com notificações push.
+> O comportamento de entrada para o Gateway de Desktop Remoto não oferece a opção de introduzir um código de verificação com autenticação multi-factor Ad Azure. Uma conta de utilizador deve ser configurada para verificação de telefone ou a App autenticador da Microsoft com notificações push.
 >
-> Se um destes dois métodos de autenticação não estiver configurado para um utilizador, não será capaz de completar o desafio de autenticação multi-factor AD Azure e iniciar sação no Gateway de Desktop Remoto.
+> Se nem a verificação telefónica nem a App autenticadora da Microsoft com notificações push estiverem configuradas para um utilizador, o utilizador não poderá completar o desafio de autenticação multi-factor AD Azure e iniciar sação no Remote Desktop Gateway.
+>
+> O método de texto SMS não funciona com o Remote Desktop Gateway porque não fornece a opção de introduzir um código de verificação.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalar e configurar extensão NPS
 

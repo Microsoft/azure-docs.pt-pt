@@ -5,13 +5,13 @@ author: tfitzmac
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.custom: seodec18
-ms.openlocfilehash: 1146b5979d81b91c6c6894aa54b2e0ca50c896c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: ed6edeadfb1c6f73cc10771d4a5328e7bddb3642
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88961623"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835169"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Orientação sobre a implementação de aplicações web utilizando modelos de Gestor de Recursos Azure
 

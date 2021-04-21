@@ -1,14 +1,14 @@
 ---
 title: Defender para instalação IoT
 description: Saiba como instalar um sensor e a consola de gestão no local para O Azure Defender para IoT.
-ms.date: 12/2/2020
+ms.date: 4/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 5bdb292750ea041be68a22519583511f58b3b517
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8366a3408e64d95e6c4d50e3ddef84309b4e8e5
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782253"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829738"
 ---
 # <a name="defender-for-iot-installation"></a>Defender para instalação IoT
 
@@ -328,11 +328,11 @@ Para instalar:
 
 1. Selecione **SENSOR-RELEASE- \<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot que mostra a seleção da versão.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Selecione a versão do sensor e o tipo de empresa.":::   
 
 1. Defina o perfil do aparelho e as propriedades da rede:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot que mostra o perfil do aparelho.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot que mostra o perfil do aparelho e as propriedades da rede.":::   
 
    | Parâmetro | Configuração |
    |--|--|
@@ -470,7 +470,7 @@ Para instalar o software:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot do ecrã para selecionar uma versão.":::
 
-1. No Assistente de Instalação, defina o perfil do aparelho e as propriedades da rede:
+1. No Assistente de Instalação define o perfil de hardware e as propriedades da rede:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot que mostra o Assistente de Instalação.":::
 
@@ -703,6 +703,111 @@ Para instalar:
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot que mostra acesso à consola de gestão.":::
 
+## <a name="on-premises-management-console-installation"></a>Instalação de consolas de gestão no local
+
+Antes de instalar o software no aparelho, é necessário ajustar a configuração BIOS do aparelho:
+
+### <a name="bios-configuration"></a>Configuração BIOS
+
+Para configurar o BIOS para o seu aparelho:
+
+1. [Ativar o acesso remoto e atualizar a palavra-passe](#enable-remote-access-and-update-the-password).
+
+1. [Configure o BIOS](#configure-the-hpe-bios).
+
+### <a name="software-installation"></a>Instalação de software
+
+O processo de instalação demora cerca de 20 minutos. Após a instalação, o sistema é reiniciado várias vezes. 
+
+Durante o processo de instalação, poderá adicionar um NIC secundário. Se optar por não instalar o NIC secundário durante a instalação, pode [adicionar um NIC secundário](#add-a-secondary-nic) mais tarde. 
+
+Para instalar o software:
+
+1. Selecione o seu idioma preferido para o processo de instalação.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Selecione o seu idioma preferido para o processo de instalação.":::     
+
+1. Selecione **MANAGEMENT-RELEASE- \<version\> \<deployment type\>**.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Selecione a sua versão.":::   
+
+1. No Assistente de Instalação, defina as propriedades da rede:
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot que mostra o perfil do aparelho.":::   
+
+   | Parâmetro | Configuração |
+   |--|--|
+   | **configure interface de rede de gestão de gestão** | Para Dell: **eth0, eth1** <br /> Para HP: **enu1, enu2** <br /> ou <br />**valor possível** |
+   | **configure endereço IP da rede de gestão:** | **Endereço IP fornecido pelo cliente** |
+   | **máscara de sub-rede configuração:** | **Endereço IP fornecido pelo cliente** |
+   | **configurar DNS:** | **Endereço IP fornecido pelo cliente** |
+   | **configurar o endereço IP de gateway predefinido:** | **Endereço IP fornecido pelo cliente** |
+   
+1. **(Opcional)** Se pretender instalar um Cartão de Interface de Rede Secundária (NIC), defina o seguinte perfil do aparelho e as propriedades da rede:
+
+    :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot que mostra as perguntas de instalação do NIC secundário.":::
+
+   | Parâmetro | Configuração |
+   |--|--|
+   | **configure a interface de monitorização do sensor (Opcional):** | **eth1**, ou **valor possível** |
+   | **configurar um endereço IP para a interface de monitorização do sensor:** | **Endereço IP fornecido pelo cliente** |
+   | **configurar uma máscara de sub-rede para a interface de monitorização do sensor:** | **Endereço IP fornecido pelo cliente** |
+
+1. Aceite os assentamentos e continue grafando `Y` . 
+
+1. Após cerca de 10 minutos, os dois conjuntos de credenciais aparecem. Um é para um utilizador **CyberX,** e outro para um utilizador **de Suporte.**
+
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copie estas credenciais pois não serão apresentadas novamente.":::  
+
+   Guarde os nomes de utilizador e as palavras-passe, vai precisar destas credenciais para aceder à plataforma na primeira vez que a utilizar.
+
+1. Selecione **Entrar** para continuar.
+
+Para obter informações sobre como encontrar a porta física no seu aparelho, consulte [encontre a sua porta](#find-your-port).
+
+### <a name="add-a-secondary-nic"></a>Adicione um NIC secundário
+
+Pode aumentar a segurança da sua consola de gestão no local adicionando um NIC secundário. Ao adicionar um NIC secundário terá um dedicado aos seus utilizadores, e o outro irá suportar a configuração de um gateway para redes routed. O segundo NIC é dedicado a todos os sensores anexados dentro de um intervalo de endereços IP.
+
+Ambos os NICs têm a interface de utilizador (UI) ativada. Quando o encaminhamento não for necessário, todas as funcionalidades que são suportadas pela UI estarão disponíveis no NIC secundário. A Alta Disponibilidade será executada no NIC secundário.
+
+Se optar por não implementar um NIC secundário, todas as funcionalidades estarão disponíveis através do NIC primário. 
+
+Se já configurar a sua consola de gestão no local e gostaria de adicionar um NIC secundário à sua consola de gestão no local, utilize os seguintes passos:
+
+1. Utilize o comando de reconfiguração da rede:
+
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
+
+1. Introduza as seguintes respostas às seguintes questões:
+
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Introduza as seguintes respostas para configurar o seu aparelho.":::
+
+    | Parâmetros | Resposta para entrar |
+    |--|--|
+    | **Endereço IP da Rede de Gestão** | `N` |
+    | **Máscara de sub-rede** | `N` |
+    | **DNS** | `N` |
+    | **Endereço IP de gateway predefinido** | `N` |
+    | **Interface de monitorização do sensor (Opcional. Aplicável quando os sensores estão num segmento de rede diferente. Para mais informações, consulte as instruções de instalação)**| `Y`, **selecionar um valor possível** |
+    | **Um endereço IP para a interface de monitorização do sensor (acessível pelos sensores)** | `Y`, **endereço IP fornecido pelo cliente**|
+    | **Uma máscara de sub-rede para a interface de monitorização do sensor (acessível pelos sensores)** | `Y`, **endereço IP fornecido pelo cliente** |
+    | **Hostname (Nome do anfitrião)** | **fornecida pelo cliente** |
+
+1. Reveja todas as escolhas e entre `Y` para aceitar as alterações. O sistema reinicia.
+
+### <a name="find-your-port"></a>Encontre o seu porto
+
+Se tiver problemas em localizar a porta física no seu dispositivo, pode utilizar o seguinte comando para:
+
+```bash
+sudo ethtool -p <port value> <time-in-seconds>
+```
+
+Este comando fará com que a luz da porta pise durante o período de tempo especificado. Por exemplo, `sudo ethtool -p eno1 120` entrando, terá flash eno1 da porta durante 2 minutos, permitindo-lhe encontrar a porta na parte de trás do seu aparelho. 
+
 ## <a name="virtual-appliance-on-premises-management-console-installation"></a>Aparelho virtual: Instalação de consola de gestão no local
 
 A consola de gestão no local, VM, suporta as seguintes arquiteturas:
@@ -823,11 +928,7 @@ Para criar uma máquina virtual utilizando o Hyper-V:
 
 ### <a name="software-installation-esxi-and-hyper-v"></a>Instalação de software (ESXi e Hyper-V)
 
-O arranque da máquina virtual iniciará o processo de instalação a partir da imagem ISO. Para aumentar a segurança, pode criar uma segunda interface de rede na sua consola de gestão no local. Uma interface de rede é dedicada aos seus utilizadores e pode suportar a configuração de um gateway para redes routed. A segunda interface de rede é dedicada a todos os sensores anexados dentro de um intervalo de endereços IP.
-
-Ambas as interfaces de rede têm a interface de utilizador (UI) ativada, e todas as funcionalidades que são suportadas pela UI estarão disponíveis na interface de rede secundária quando o encaminhamento não for necessário. A Alta Disponibilidade será executada na interface de rede secundária.
-
-Se optar por não implementar uma interface de rede secundária, todas as funcionalidades estarão disponíveis através da interface de rede primária. 
+O arranque da máquina virtual iniciará o processo de instalação a partir da imagem ISO.
 
 Para instalar o software:
 
@@ -837,22 +938,9 @@ Para instalar o software:
 
 1. Defina a interface de rede para a rede de gestão de sensores: interface, IP, sub-rede, servidor DNS e gateway predefinido.
 
-1. (Opcional) Adicione uma segunda interface de rede à sua consola de gestão no local.
+1. As credenciais de inscrição são geradas automaticamente. Guarde o nome de utilizador e as palavras-passe, vai precisar destas credenciais para aceder à plataforma na primeira vez que a utilizar.
 
-    1. `Please type sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions): <name of interface>`
-    
-    1. `Please type an IP address for the sensor monitoring interface (accessible by the sensors): <ip address>`
-    
-    1. `Please type a subnet mask for the sensor monitoring interface (accessible by the sensors): <subnet>`
-
-1. As credenciais de inscrição são geradas e apresentadas automaticamente. Guarde estas credenciais num lugar seguro, porque são necessárias para a inscrição e administração.
-
-    | Nome de utilizador | Description |
-    |--|--|
-    | Suporte | O utilizador administrativo para a gestão do utilizador. |
-    | CyberX | O equivalente a raiz para aceder ao aparelho. |
-
-1. O aparelho reinicia.
+   Em seguida, o aparelho reiniciará.
 
 1. Aceda à consola de gestão através do endereço IP previamente configurado: `<https://ip_address>` .
 

@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-powershell
 - devx-track-azurecli
-ms.openlocfilehash: abbe3b9ed4d9a8c9bf30c6be3e6980228d319090
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+- devx-track-azurepowershell
+ms.openlocfilehash: 59532ce4dcc0c967777afd3080a2cb54dbaa6491
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97937234"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831965"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função PowerShell em Azure a partir da linha de comando
 

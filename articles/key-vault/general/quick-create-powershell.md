@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e77493bc73bc2d6f590d9bdcf891171fbd71f74e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc6d9ca2621a56242d7472a088e55651f5502c9c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99070229"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814807"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Quickstart: Criar um cofre de chaves usando PowerShell
 
@@ -48,5 +48,5 @@ Neste arranque rápido criou um Key Vault usando a Azure PowerShell. Para saber 
 
 - Leia uma [visão geral do cofre da chave Azure](overview.md)
 - Consulte a referência para os [cmdlets Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Reveja a visão geral da segurança do [Cofre da Chave Azure](security-overview.md)
+- Reveja a visão geral da segurança do [Cofre da Chave Azure](security-features.md)
 

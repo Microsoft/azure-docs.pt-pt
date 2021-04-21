@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador do cluster para utilizar 
 services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 27b32d7d10b691ed806e4d7aa31a095630d2bfc9
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 971916c3fc903ff5d69db2e0f82fd884acf807b3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103628"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831587"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades avançadas do agendador no Azure Kubernetes Service (AKS)
 
@@ -42,13 +42,18 @@ O programador Kubernetes usa manchas e tolerâncias para restringir que cargas d
 * Aplique uma **mancha** num nó para indicar que apenas podem ser programadas cápsulas específicas.
 * Em seguida, aplique uma **tolerância** a uma vagem, permitindo-lhes *tolerar* a mancha de nó.
 
-Quando coloca uma cápsula num cluster AKS, a Kubernetes apenas programa cápsulas em nós cuja mancha se alinha com a tolerância. Por exemplo, assuma que tem uma piscina de nó no seu cluster AKS para nós com suporte GPU. Define-se o nome, como *o GPU,* e depois um valor para o agendamento. Definir este valor para *NoSchedule* restringe o programador Kubernetes de agendar cápsulas com tolerância indefinida no nó.
+Quando coloca uma cápsula num cluster AKS, a Kubernetes apenas programa cápsulas em nós cuja mancha se alinha com a tolerância. Por exemplo, assuma que adicionou uma piscina de nó no seu cluster AKS para nós com suporte gpu. Define-se o nome, como *o GPU,* e depois um valor para o agendamento. Definir este valor para *NoSchedule* restringe o programador Kubernetes de agendar cápsulas com tolerância indefinida no nó.
 
-```console
-kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name taintnp \
+    --node-taints sku=gpu:NoSchedule \
+    --no-wait
 ```
 
-Com uma mancha aplicada aos nós, definirá uma tolerância na especificação do casulo que permite agendar os nós. O exemplo a seguir define e `sku: gpu` tolerar a mancha aplicada ao nó no passo `effect: NoSchedule` anterior:
+Com uma mancha aplicada aos nós na piscina do nó, você definirá uma tolerância na especificação do casulo que permite agendar os nós. O exemplo a seguir define a `sku: gpu` mancha aplicada à piscina de nó no passo `effect: NoSchedule` anterior:
 
 ```yaml
 kind: Pod
@@ -115,16 +120,22 @@ Quando escala uma piscina de nó em AKS, manchas e tolerações não são transp
 > 
 > Controle o agendamento de cápsulas nos nós utilizando seletores de nó, afinidade do nó ou afinidade entre pods. Estas definições permitem ao programador Kubernetes isolar logicamente cargas de trabalho, como por exemplo por hardware no nó.
 
-Manchas e tolerâncias logicamente isolam os recursos com um corte duro. Se a cápsula não tolerar a mancha de um nó, não está programada no nó. 
+Manchas e tolerâncias logicamente isolam os recursos com um corte duro. Se a cápsula não tolerar a mancha de um nó, não está programada no nó.
 
-Em alternativa, pode utilizar os seletores de nó. Por exemplo, rotula os nós para indicar o armazenamento SSD ligado localmente ou uma grande quantidade de memória e, em seguida, define na especificação do pod um seletor de nó. Kubernetes programa as cápsulas num nó correspondente. 
+Em alternativa, pode utilizar os seletores de nó. Por exemplo, rotula os nós para indicar o armazenamento SSD ligado localmente ou uma grande quantidade de memória e, em seguida, define na especificação do pod um seletor de nó. Kubernetes programa as cápsulas num nó correspondente.
 
 Ao contrário das tolerâncias, as cápsulas sem um seletor de nó correspondente ainda podem ser agendadas em nós rotulados. Este comportamento permite que os recursos não reutilizados nos nós consumam, mas prioriza as cápsulas que definem o seletor de nó correspondente.
 
-Vejamos um exemplo de nós com uma grande quantidade de memória. Estes nós priorizam cápsulas que pedem uma grande quantidade de memória. Para garantir que os recursos não ficam parados, também permitem que outras cápsulas corram.
+Vejamos um exemplo de nós com uma grande quantidade de memória. Estes nós priorizam cápsulas que pedem uma grande quantidade de memória. Para garantir que os recursos não ficam parados, também permitem que outras cápsulas corram. O comando exemplo seguinte adiciona um conjunto de nós com o *hardware da etiqueta=highmem* ao *myAKSCluster* no *myResourceGroup*. Todos os nós naquela piscina de nós terão esta etiqueta.
 
-```console
-kubectl label node aks-nodepool1 hardware=highmem
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name labelnp \
+    --node-count 1 \
+    --labels hardware=highmem \
+    --no-wait
 ```
 
 Uma especificação do pod adiciona então a `nodeSelector` propriedade para definir um seletor de nó que corresponda ao conjunto de etiquetas num nó:

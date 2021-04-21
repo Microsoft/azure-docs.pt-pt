@@ -8,13 +8,14 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 8d6b786ffaf309e147de27e8cd8be314a3d8a5fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 296d45fae4d59553b54a1b68923c91be4168d3a5
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896991"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829391"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Editar livros de texto na Azure Automation
 

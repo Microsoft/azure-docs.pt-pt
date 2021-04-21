@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 93c55c21bf740f2851cac1926bc673cebcd914b0
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0416ce25ed03be35c56e7fa2ed7175ad65ae6555
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514806"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831551"
 ---
 # <a name="enable-a-managed-identity-for-your-azure-automation-account-preview"></a>Ativar uma identidade gerida para a sua conta Azure Automation (pré-visualização)
 

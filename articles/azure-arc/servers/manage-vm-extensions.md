@@ -3,12 +3,12 @@ title: Gestão de extensão VM com servidores ativados Azure Arc
 description: Os servidores ativados do Azure Arc podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
 ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 67f1b5b3db6ef446342e8381d54d487af1f3426a
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: e28cd7753fc85f2e40385c65392fea73502aa05b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389796"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832847"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestão de extensões de máquinas virtuais com servidores preparados para o Azure Arc
 
@@ -30,7 +30,7 @@ O suporte de extensão VM ativado pelo Azure Arc fornece os seguintes benefício
 
 - Recolher dados de registo para análise com [Logs in Azure Monitor,](../../azure-monitor/logs/data-platform-logs.md) permitindo a extensão VM do agente Log Analytics. Isto é útil para fazer análises complexas através de dados de diferentes tipos de fontes.
 
-- Com [o Azure Monitor para VMs,](../../azure-monitor/vm/vminsights-overview.md)analisa o desempenho dos seus VMs Windows e Linux, e monitoriza os seus processos e dependências de outros recursos e processos externos. Isto é conseguido através da ativação das extensões VM do agente Log Analytics e do agente de dependência.
+- Com [insights VM,](../../azure-monitor/vm/vminsights-overview.md)analisa o desempenho dos seus VMs Windows e Linux, e monitoriza os seus processos e dependências de outros recursos e processos externos. Isto é conseguido através da ativação das extensões VM do agente Log Analytics e do agente de dependência.
 
 - Descarregue e execute scripts em máquinas híbridas conectadas utilizando a extensão de script personalizado. Esta extensão é útil para configuração de implementação de posts, instalação de software ou qualquer outra configuração ou tarefas de gestão.
 

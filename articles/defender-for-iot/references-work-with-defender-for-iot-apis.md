@@ -3,12 +3,12 @@ title: Trabalhar com as APIs do Defender para IoT
 description: Utilize uma API rest externa para aceder aos dados descobertos por sensores e consolas de gestão e realizar ações com esses dados.
 ms.date: 12/14/2020
 ms.topic: reference
-ms.openlocfilehash: e7833a20d4f708ecb5b80394fae2c56fc07c9489
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0e3659d8d5e6829651012dae02ca74c5ecacaf0c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752737"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829967"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender para APIs de sensor e consola de ioT
 
@@ -622,8 +622,8 @@ Matriz de objetos JSON que representam alertas.
 | **motor** | String | No | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
 | **fonteDevice** | Operador numérico | Yes | ID do Dispositivo |
 | **destinoDevice** | Operador numérico | Yes | ID do Dispositivo |
-| **fonteDeviceAddress** | Operador numérico | Yes | IP, MAC, Nulo |
-| **destinoDeviceAddress** | Operador numérico | Yes | IP, MAC, Nulo |
+| **fonteDeviceAddress** | Operador numérico | Yes | IP, MAC |
+| **destinoDeviceAddress** | Operador numérico | Yes | IP, MAC |
 | **remediationSteps** | String | Yes | Medidas de reparação descritas em alerta |
 | **informação adicional** | Objeto de informação adicional | Yes | - |
 
@@ -2056,12 +2056,12 @@ Utilize esta API para recuperar todos ou alertas filtrados de uma consola de ges
 | **motor** | String | No | Violação de protocolo, violação de políticas, malware, anomalia ou operacional |
 | **fonteDevice** | Operador numérico | Yes | ID do Dispositivo |
 | **destinoDevice** | Operador numérico | Yes | ID do Dispositivo |
-| **fonteDeviceAddress** | Operador numérico | Yes | IP, MAC, Nulo |
-| **destinoDeviceAddress** | Operador numérico | Yes | IP, MAC, Nulo |
+| **fonteDeviceAddress** | Operador numérico | Yes | IP, MAC |
+| **destinoDeviceAddress** | Operador numérico | Yes | IP, MAC |
 | **remediationSteps** | String | Yes | Medidas de reparação mostradas em alerta|
-| **nome sensor** | String | Yes | Nome do sensor definido pelo utilizador na consola|
-|**zoneName** | String | Yes | Nome da zona associada ao sensor na consola|
-| **siteName** | String | Yes | Nome do site associado ao sensor na consola |
+| **nome sensor** | String | Yes | Nome do sensor definido pelo utilizador |
+|**zoneName** | String | Yes | Nome da zona associada ao sensor|
+| **siteName** | String | Yes | Nome do site associado ao sensor |
 | **informação adicional** | Objeto de informação adicional | Yes | - |
 
 Note que /api/v2/ é necessário para as seguintes informações:

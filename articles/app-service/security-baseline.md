@@ -6,13 +6,13 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7607b1726900423498a58502494c015f62da8829
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: subject-security-benchmark, devx-track-azurepowershell
+ms.openlocfilehash: d3e9d7d8cd8e5ffad74b02179994e299a59c8894
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559439"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833945"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança Azure para o Serviço de Aplicações
 

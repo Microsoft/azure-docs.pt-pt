@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/13/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9d2c42a664c8d8a591d95a312cdf1c0034c4d031
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c067dba3a8af87e354019154fad8304fe9edfbbc
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305468"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829661"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurar configurar definições de autenticação multi-factor Ad Azure
 
@@ -347,7 +347,7 @@ A função de autenticação multi-factor de ressalsse que define um cookie pers
 
 A opção **'Não' peça novamente por X days** não é mostrada em aplicações não-navegadores, independentemente de a app suportar a autenticação moderna. Estas aplicações usam _fichas de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, a Azure AD verifica se a última autenticação multi-factor ocorreu dentro do número especificado de dias.
 
-A funcionalidade reduz o número de autenticações em aplicações web, que normalmente solicitam sempre. A funcionalidade pode aumentar o número de autenticações para clientes de autenticação moderna que normalmente solicitam a cada 90 dias, se for configurada uma duração mais baixa. Pode também aumentar o número de autenticações quando combinadas com as políticas de Acesso Condicional.
+A funcionalidade reduz o número de autenticações em aplicações web, que normalmente solicitam sempre. A funcionalidade pode aumentar o número de autenticações para clientes de autenticação moderna que normalmente solicitam a cada 180 dias, se for configurada uma duração mais baixa. Pode também aumentar o número de autenticações quando combinadas com as políticas de Acesso Condicional.
 
 > [!IMPORTANT]
 > A funcionalidade **de autenticação multi-factor de resso para o remember** não é compatível com a funcionalidade **"Manter-me assinado em** funcionalidade de AD FS", quando os utilizadores realizam a autenticação multi-factor para AD FS através do Azure Multi-Factor Authentication Server ou uma solução de autenticação multi-factor de terceiros.

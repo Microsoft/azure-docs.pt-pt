@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 462d69a8bde0dec2689ac30620276b5bcd335410
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: a1c161c28a589e4250fded13cd3d94ccdda97b55
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717698"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829823"
 ---
 # <a name="secure-your-restful-services"></a>Proteja os seus serviços RESTful 
 
@@ -236,10 +236,10 @@ Pode obter um token de acesso de uma de várias formas: obtendo-o a [partir de u
 
 O exemplo a seguir utiliza um perfil técnico da API REST para fazer um pedido ao ponto final da Azure AD usando as credenciais do cliente passadas como autenticação básica HTTP. Para obter mais informações, consulte [a plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
 
-Para adquirir um token de acesso AZure AD, crie uma aplicação no seu inquilino AZure AD:
+Antes que o perfil técnico possa interagir com a Azure AD para obter um token de acesso, você precisa registrar uma aplicação. O Azure AD B2C conta com a plataforma AD AZure. Você pode criar a app no seu inquilino Azure AD B2C, ou em qualquer inquilino AD Azure que você gere. Para registar uma candidatura:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino AD Azure.
+1. Selecione o filtro **de subscrição Directory +** no menu superior e, em seguida, selecione o diretório que contém o seu AD AD Azure ou inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure Ative Directory**. Ou, selecione **Todos os serviços** e procure e selecione **Azure Ative Directory**.
 1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
 1. Insira um **Nome** para a inscrição. Por exemplo, *Client_Credentials_Auth_app.*
@@ -250,7 +250,7 @@ Para adquirir um token de acesso AZure AD, crie uma aplicação no seu inquilino
 
 Para um fluxo de credenciais de cliente, você precisa criar um segredo de aplicação. O segredo do cliente também é conhecido como uma senha de aplicação. O segredo será usado pela sua aplicação para adquirir um token de acesso.
 
-1. Na página **Azure AD B2C - Registos de aplicações,** selecione a aplicação que criou, por exemplo *Client_Credentials_Auth_app*.
+1. Na página **Azure AD - Registos de aplicações,** selecione a aplicação que criou, por exemplo *Client_Credentials_Auth_app*.
 1. No menu esquerdo, em **Manage,** selecione **Certificates & secrets**.
 1. Selecione **Novo segredo do cliente**.
 1. Insira uma descrição para o segredo do cliente na caixa **Descrição.** Por exemplo, *o segredo de clientes1*.
@@ -270,7 +270,7 @@ Você precisa armazenar a identificação do cliente e o segredo do cliente que 
 7. Introduza um **Nome** para a chave de política, `SecureRESTClientId` . O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 8. Em **Segredo,** insira a identificação do seu cliente que gravou anteriormente.
 9. Para **a utilização da chave**, selecione `Signature` .
-10. Clique em **Criar**.
+10. Selecione **Criar**.
 11. Criar outra chave de política com as seguintes definições:
     -   **Nome:** `SecureRESTClientSecret` .
     -   **Segredo:** insira o segredo do seu cliente que gravou anteriormente
@@ -278,7 +278,7 @@ Você precisa armazenar a identificação do cliente e o segredo do cliente que 
 Para o ServiceUrl, substitua o seu nome de inquilino pelo nome do seu inquilino Azure AD. Consulte a referência [de perfil técnico RESTful](restful-technical-profile.md) para todas as opções disponíveis.
 
 ```xml
-<TechnicalProfile Id="SecureREST-AccessToken">
+<TechnicalProfile Id="REST-AcquireAccessToken">
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
@@ -312,7 +312,7 @@ Para suportar a autenticação simbólica do portador na sua política personali
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Altere ou adicione o *UseClaimAsBearerToken* ao *bearerToken*, da seguinte forma. O *bearerToken* é o nome da alegação de que o sinal do portador será recuperado (a reivindicação de saída de `SecureREST-AccessToken` ).
+1. Altere ou adicione o *UseClaimAsBearerToken* ao *bearerToken*, da seguinte forma. O *bearerToken* é o nome da alegação de que o sinal do portador será recuperado (a reivindicação de saída de `REST-AcquireAccessToken` ).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>

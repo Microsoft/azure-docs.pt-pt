@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 67531c1c5d37b02f9107dfc487c10b2fcac734d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aebb0fa5da4cef655acc424c5ac90b628a4ba3af
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791972"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814447"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Tutorial: Importar um certificado no Cofre da Chave Azure
 
@@ -153,4 +153,4 @@ Neste tutorial, criou um Cofre-Chave e importou um certificado nele. Para saber 
 
 - Leia mais sobre [a criação de certificados de gestão no Cofre chave Azure](./create-certificate-scenarios.md)
 - Ver exemplos de [certificados de importação usando APIs rest](/rest/api/keyvault/importcertificate/importcertificate)
-- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)
+- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-features.md)

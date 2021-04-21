@@ -5,13 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.custom: has-adal-ref
-ms.openlocfilehash: 5f6494eb72084c683ddbb8b27a49acdb1fbc2bfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.openlocfilehash: 4b5983d6ea4ea9065d1292a2c5ee0c094cea093b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99054268"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834899"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gerir ligações na Azure Automation
 

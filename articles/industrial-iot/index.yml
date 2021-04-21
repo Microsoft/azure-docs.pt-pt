@@ -8,12 +8,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 3/22/2021
-  ms.openlocfilehash: 8419316a452b9258e8b54cb333aa5fe1ef87b5b9
-  ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+  ms.openlocfilehash: bced3bdbb854af75e7b521f7c5c3f2e1022a161b
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/23/2021
-  ms.locfileid: "104800181"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107813835"
 landingContent:
 - title: Sobre a Plataforma Azure Industrial IoT
   linkLists:
@@ -21,8 +21,6 @@ landingContent:
     links:
     - text: O que é IoT Industrial (IIoT)?
       url: overview-what-is-industrial-iot.md
-    - text: O que é a Plataforma De IoT Industrial (IIoT)?
-      url: overview-what-is-industrial-iot-platform.md
     - text: O que é a Editora OPC?
       url: overview-what-is-opc-publisher.md
 - title: Começar com a Plataforma IoT Industrial (IIoT)
