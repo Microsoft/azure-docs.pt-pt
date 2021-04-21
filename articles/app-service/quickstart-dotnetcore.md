@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
-ms.openlocfilehash: 7f538f5accb533b01c5ea685e424c70bfeb44f00
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 482bf6d29fbc1e982ee4d17099d82915ff3a0241
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058343"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762466"
 ---
 <!-- NOTES:
 
@@ -426,7 +426,7 @@ az webapp up --sku F1 --name <app-name> --os-type <os>
 - Substitua `<app-name>` por um nome único em todo o Azure *(caracteres válidos `a-z` `0-9` são, e `-`*. Um bom padrão é usar uma combinação do nome da sua empresa e um identificador de aplicativos.
 - O `--sku F1` argumento cria a aplicação web no [nível de preços][app-service-pricing-tier] **gratuitos.** Omita este argumento para usar um nível premium mais rápido, que incorre num custo de hora a hora.
 - `<os>`Substitua-o por um `linux` ou `windows` . Deve utilizar `windows` ao direcionar ASP.NET Quadro *4.8*.
-- Pode opcionalmente incluir o argumento `--location <location-name>` onde `<location-name>` está uma região de Azure disponível. Pode recuperar uma lista de regiões admissíveis para a sua conta Azure, executando o [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) comando.
+- Pode opcionalmente incluir o argumento `--location <location-name>` onde `<location-name>` está uma região de Azure disponível. Pode recuperar uma lista de regiões admissíveis para a sua conta Azure, executando o [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) comando.
 
 O comando pode demorar alguns minutos a ser concluído. Durante a execução, fornece mensagens sobre a criação do grupo de recursos, o plano de Serviço de Aplicações e a aplicação de hospedagem, configurando o registo e, em seguida, executando a implementação zip. Em seguida, produz uma mensagem com o URL da aplicação:
 

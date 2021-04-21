@@ -4,12 +4,12 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 ms.topic: conceptual
 ms.date: 04/16/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08f2c123d37ac992e926e983d59edc650a8ab7ef
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7a50ecc6081f8fa7c7600ddf1f98a95eceafa73b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728307"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784628"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -223,7 +223,7 @@ Para passar para uma nova subscrição, inclua um valor para o `DestinationSubsc
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o comando [de movimento de recursos az.](/cli/azure/resource#az-resource-move) Forneça os IDs de recursos dos recursos para mover. O exemplo a seguir mostra como mover vários recursos para um novo grupo de recursos. No `--ids` parâmetro, forneça uma lista separada do espaço dos IDs de recurso para mover.
+Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o comando [de movimento de recursos az.](/cli/azure/resource#az_resource_move) Forneça os IDs de recursos dos recursos para mover. O exemplo a seguir mostra como mover vários recursos para um novo grupo de recursos. No `--ids` parâmetro, forneça uma lista separada do espaço dos IDs de recurso para mover.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

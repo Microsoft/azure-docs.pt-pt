@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/07/2020
-ms.openlocfilehash: 1979c59af53ebeccdbd7c910a87fb4c2536fe403
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 765ad939c8de9fb1b8c6b9c41cb2f7f685657d54
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94565590"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770980"
 ---
 # <a name="throughput-rus-operations-with-azure-cli-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Operações de produção (RU/s) com a Azure CLI para um espaço-chave ou tabela para Azure Cosmos DB - Cassandra API
 [!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
@@ -41,15 +41,15 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb cassandra keyspace criar](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) | Cria um espaço-chave Azure Cosmos Cassandra. |
-| [az cosmosdb cassandra tabela criar](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) | Cria uma mesa Azure Cosmos Cassandra. |
-| [az cosmosdb cassandra keyspace atualização de produção](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az-cosmosdb-cassandra-keyspace-throughput-update) | Atualize RU/s para um espaço-chave Azure Cosmos Cassandra. |
-| [az cosmosdb cassandra tabela de saída](/cli/azure/cosmosdb/cassandra/table/throughput#az-cosmosdb-cassandra-table-throughput-update) | Atualize RU/s para uma tabela Azure Cosmos Cassandra. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Cria uma conta do Azure Cosmos DB. |
+| [az cosmosdb cassandra keyspace criar](/cli/azure/cosmosdb/cassandra/keyspace#az_cosmosdb_cassandra_keyspace_create) | Cria um espaço-chave Azure Cosmos Cassandra. |
+| [az cosmosdb cassandra tabela criar](/cli/azure/cosmosdb/cassandra/table#az_cosmosdb_cassandra_table_create) | Cria uma mesa Azure Cosmos Cassandra. |
+| [az cosmosdb cassandra keyspace atualização de produção](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az_cosmosdb_cassandra_keyspace_throughput_update) | Atualize RU/s para um espaço-chave Azure Cosmos Cassandra. |
+| [az cosmosdb cassandra tabela de saída](/cli/azure/cosmosdb/cassandra/table/throughput#az_cosmosdb_cassandra_table_throughput_update) | Atualize RU/s para uma tabela Azure Cosmos Cassandra. |
 | [az cosmosdb cassandra keyspace produção migrar](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az_cosmosdb_cassandra_keyspace_throughput_migrate) | Migrar para um espaço-chave Azure Cosmos Cassandra. |
 | [az cosmosdb cassandra tabela produção migrar](/cli/azure/cosmosdb/cassandra/table/throughput#az_cosmosdb_cassandra_table_throughput_migrate) | Migrar para uma mesa Azure Cosmos Cassandra. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

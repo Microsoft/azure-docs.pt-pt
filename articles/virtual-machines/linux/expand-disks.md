@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72778c431c561f5345dde3d6803e814d6fdebfba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c27b042b78931fd58e43e4bbb06699abe510f385
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549129"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762556"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandir discos rígidos virtuais num Linux VM com o Azure CLI
 
@@ -23,13 +23,13 @@ Este artigo descreve como expandir discos geridos para uma máquina virtual Linu
 > Certifique-se sempre de que o seu sistema de ficheiros está num estado saudável, o tipo de tabela de partição de disco irá suportar o novo tamanho e certifique-se de que os seus dados são suportados antes de realizar operações de redimensionação do disco. Para obter mais informações, consulte o [arranque rápido da Azure Backup](../../backup/quick-backup-vm-portal.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Expandir um disco gerido azure
-Certifique-se de que tem o mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e está inscrito numa conta Azure utilizando [o login az](/cli/azure/reference-index#az-login).
+Certifique-se de que tem o mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e está inscrito numa conta Azure utilizando [o login az](/cli/azure/reference-index#az_login).
 
 Este artigo requer um VM existente em Azure com pelo menos um disco de dados ligado e preparado. Se ainda não tiver um VM que possa utilizar, consulte [Criar e preparar um VM com discos de dados.](tutorial-manage-disks.md#create-and-attach-disks)
 
 Nas seguintes amostras, substitua nomes de parâmetros de exemplo como *myResourceGroup* e *myVM* pelos seus próprios valores.
 
-1. As operações em discos rígidos virtuais não podem ser realizadas com o VM em funcionamento. Translocar o seu VM com [az vm deallocate](/cli/azure/vm#az-vm-deallocate). O exemplo seguinte é o que a VM nomeou *myVM* no grupo de recursos denominado *myResourceGroup:*
+1. As operações em discos rígidos virtuais não podem ser realizadas com o VM em funcionamento. Translocar o seu VM com [az vm deallocate](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte é o que a VM nomeou *myVM* no grupo de recursos denominado *myResourceGroup:*
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -38,7 +38,7 @@ Nas seguintes amostras, substitua nomes de parâmetros de exemplo como *myResour
     > [!NOTE]
     > O VM tem de ser transatado para expandir o disco rígido virtual. Parar o VM com `az vm stop` não liberta os recursos computacional. Para libertar recursos computacional, use `az vm deallocate` .
 
-1. Ver uma lista de discos geridos num grupo de recursos com [lista de discos az](/cli/azure/disk#az-disk-list). O exemplo a seguir apresenta uma lista de discos geridos no grupo de recursos denominado *myResourceGroup:*
+1. Ver uma lista de discos geridos num grupo de recursos com [lista de discos az](/cli/azure/disk#az_disk_list). O exemplo a seguir apresenta uma lista de discos geridos no grupo de recursos denominado *myResourceGroup:*
 
     ```azurecli
     az disk list \
@@ -47,7 +47,7 @@ Nas seguintes amostras, substitua nomes de parâmetros de exemplo como *myResour
         --output table
     ```
 
-    Expandir o disco necessário com [a atualização do disco az](/cli/azure/disk#az-disk-update). O exemplo a seguir expande o disco gerido chamado *myDataDisk* para *200* GB:
+    Expandir o disco necessário com [a atualização do disco az](/cli/azure/disk#az_disk_update). O exemplo a seguir expande o disco gerido chamado *myDataDisk* para *200* GB:
 
     ```azurecli
     az disk update \
@@ -59,7 +59,7 @@ Nas seguintes amostras, substitua nomes de parâmetros de exemplo como *myResour
     > [!NOTE]
     > Quando expande um disco gerido, o tamanho atualizado é arredondado para o tamanho do disco gerido mais próximo. Para obter uma tabela dos tamanhos e níveis de discos geridos disponíveis, consulte [a Visão Geral dos Discos Geridos Azure - Preços e Faturação](../managed-disks-overview.md).
 
-1. Inicie o seu VM com [arranque az vm](/cli/azure/vm#az-vm-start). O exemplo a seguir começa o VM nomeado *myVM* no grupo de recursos chamado *myResourceGroup*:
+1. Inicie o seu VM com [arranque az vm](/cli/azure/vm#az_vm_start). O exemplo a seguir começa o VM nomeado *myVM* no grupo de recursos chamado *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -69,7 +69,7 @@ Nas seguintes amostras, substitua nomes de parâmetros de exemplo como *myResour
 ## <a name="expand-a-disk-partition-and-filesystem"></a>Expandir uma partição de disco e sistema de ficheiros
 Para utilizar um disco expandido, expanda a partição subjacente e o sistema de ficheiros.
 
-1. SSH para o seu VM com as credenciais apropriadas. Pode ver o endereço IP público do seu VM com [a az vm show](/cli/azure/vm#az-vm-show):
+1. SSH para o seu VM com as credenciais apropriadas. Pode ver o endereço IP público do seu VM com [a az vm show](/cli/azure/vm#az_vm_show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --output tsv

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: af5f92168e6bcc23345e3a11727eefe76615422c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bef0501704a3c9c400d998b6e84cf1cabb839dd1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563261"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770908"
 ---
 # <a name="work-with-account-keys-and-connection-strings-for-an-azure-cosmos-account-using-azure-cli"></a>Trabalhe com chaves de conta e cordas de conexão para uma conta Azure Cosmos usando Azure CLI
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
@@ -48,13 +48,13 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [lista de chaves cosmosdb az](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) | Lista as chaves de uma conta DB do Azure Cosmos. |
-| [az cosmosdb lista-read-only-keys](/cli/azure/cosmosdb#az-cosmosdb-list-read-only-keys) | Lista as chaves de leitura para uma conta DB do Azure Cosmos. |
-| [az cosmosdb list-connection-strings](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) | Listar as cordas de ligação para uma conta DB Azure Cosmos. |
-| [az cosmosdb regenerate-key](/cli/azure/cosmosdb#az-cosmosdb-regenerate-key) | Regenerar chaves para uma conta DB do Azure Cosmos. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Cria uma conta do Azure Cosmos DB. |
+| [lista de chaves cosmosdb az](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) | Lista as chaves de uma conta DB do Azure Cosmos. |
+| [az cosmosdb lista-read-only-keys](/cli/azure/cosmosdb#az_cosmosdb_list_read_only_keys) | Lista as chaves de leitura para uma conta DB do Azure Cosmos. |
+| [az cosmosdb list-connection-strings](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | Listar as cordas de ligação para uma conta DB Azure Cosmos. |
+| [az cosmosdb regenerate-key](/cli/azure/cosmosdb#az_cosmosdb_regenerate-key) | Regenerar chaves para uma conta DB do Azure Cosmos. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

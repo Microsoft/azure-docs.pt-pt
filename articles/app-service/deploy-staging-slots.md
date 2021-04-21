@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b93fb61cc58360ddfcf15d2af2c936203d869500
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802969"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771538"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
@@ -248,7 +248,7 @@ Após a definição ser guardada, a percentagem especificada de clientes é enca
 Depois de um cliente ser automaticamente encaminhado para uma faixa específica, é "fixado" para essa ranhura durante a vida dessa sessão de clientes. No navegador cliente, pode ver a ranhura a que a sua sessão está fixada, olhando para o `x-ms-routing-name` cookie nos seus cabeçalhos HTTP. Um pedido que é encaminhado para a ranhura de "encenação" tem o cookie `x-ms-routing-name=staging` . Um pedido que é encaminhado para a ranhura de produção tem o `x-ms-routing-name=self` cookie.
 
    > [!NOTE]
-   > Junto ao portal Azure, também pode utilizar o [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) comando no CLI Azure para definir as percentagens de encaminhamento de ferramentas CI/CD como os oleodutos DevOps ou outros sistemas de automação.
+   > Junto ao portal Azure, também pode utilizar o [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) comando no CLI Azure para definir as percentagens de encaminhamento de ferramentas CI/CD como os oleodutos DevOps ou outros sistemas de automação.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Tráfego de produção de rotas manualmente

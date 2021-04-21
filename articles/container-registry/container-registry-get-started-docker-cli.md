@@ -4,12 +4,12 @@ description: Empurre e puxe as imagens do Docker para o seu registo privado de c
 ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 982a49af271648caeb62e5759530aa6049be4382
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 48f5f1707881ac8461e12212be631d3b80c16ca7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308307"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783832"
 ---
 # <a name="push-your-first-image-to-your-azure-container-registry-using-the-docker-cli"></a>Empurre a sua primeira imagem para o seu registo de contentores Azure usando o Docker CLI
 
@@ -24,7 +24,7 @@ Nos passos seguintes, você descarrega uma imagem pública [Nginx,](https://stor
 
 ## <a name="log-in-to-a-registry"></a>Iniciar sessão num registo
 
-Existem [várias formas de autenticar](container-registry-authentication.md) o seu registo privado de contentores. O método recomendado ao trabalhar numa linha de comando é com o login Azure CLI [az acr](/cli/azure/acr#az-acr-login). Por exemplo, para iniciar sessão num registo denominado *miogrísta,* inicie sessão no CLI Azure e, em seguida, autense no seu registo:
+Existem [várias formas de autenticar](container-registry-authentication.md) o seu registo privado de contentores. O método recomendado ao trabalhar numa linha de comando é com o login Azure CLI [az acr](/cli/azure/acr#az_acr_login). Por exemplo, para iniciar sessão num registo denominado *miogrísta,* inicie sessão no CLI Azure e, em seguida, autense no seu registo:
 
 ```azurecli
 az login
@@ -114,7 +114,7 @@ Se já não precisar da imagem Nginx, pode eliminá-la localmente com o comando 
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Para remover imagens do seu registo de contentores Azure, pode utilizar o [repositório de comando Azure](/cli/azure/acr/repository#az-acr-repository-delete)CLI az acr . Por exemplo, o seguinte comando elimina o manifesto referenciado pela `samples/nginx:latest` etiqueta, quaisquer dados de camadas únicos e todas as outras tags que referenciam o manifesto.
+Para remover imagens do seu registo de contentores Azure, pode utilizar o [repositório de comando Azure](/cli/azure/acr/repository#az_acr_repository_delete)CLI az acr . Por exemplo, o seguinte comando elimina o manifesto referenciado pela `samples/nginx:latest` etiqueta, quaisquer dados de camadas únicos e todas as outras tags que referenciam o manifesto.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest

@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e83facec7817b6588bf69977fea5ab74b6b10d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621336"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759884"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
 
@@ -23,7 +23,7 @@ A Azure Files fornece dois tipos principais de pontos finais para aceder a açõ
 
 Os pontos finais públicos e privados existem na conta de armazenamento Azure. Uma conta de armazenamento é uma construção de gestão que representa um conjunto partilhado de armazenamento no qual você pode implementar várias partilhas de arquivos, bem como outros recursos de armazenamento, tais como recipientes blob ou filas.
 
-Este artigo centra-se em como configurar os pontos finais de uma conta de armazenamento para aceder diretamente à partilha de ficheiros Azure. A maior parte dos detalhes fornecidos neste documento também se aplica à forma como o Azure File Sync interopera com pontos finais públicos e privados para a conta de armazenamento, no entanto para obter mais informações sobre considerações de networking para uma implementação de Azure File Sync, consulte [configurar configurações de proxy e firewall do Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+Este artigo centra-se em como configurar os pontos finais de uma conta de armazenamento para aceder diretamente à partilha de ficheiros Azure. A maior parte dos detalhes fornecidos neste documento também se aplica à forma como o Azure File Sync interopera com pontos finais públicos e privados para a conta de armazenamento, no entanto para obter mais informações sobre considerações de networking para uma implementação de Azure File Sync, consulte [configurar configurações de proxy e firewall do Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
 
 Recomendamos a leitura [de considerações de networking de ficheiros Azure](storage-files-networking-overview.md) files antes de ler este como orientar.
 

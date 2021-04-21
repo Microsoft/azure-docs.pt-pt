@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cec386b798b843a5badc9d52d9c71bd7df54b59a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1dce7795b8c62c36b80c51d5ba0dd8bc9b667e0e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601938"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759692"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de networking de ficheiros Azure 
 Pode ligar-se a uma partilha de ficheiros Azure de duas formas:
@@ -20,7 +20,7 @@ Pode ligar-se a uma partilha de ficheiros Azure de duas formas:
 - Aceder diretamente à partilha através do Bloco de Mensagens do Servidor (SMB), do Sistema de Ficheiros de Rede (NFS) (pré-visualização) ou dos protocolos FileREST. Este padrão de acesso é principalmente utilizado quando para eliminar o maior número possível de servidores no local.
 - Criar uma cache da partilha de ficheiros Azure num servidor no local (ou num Azure VM) com o Azure File Sync, e aceder aos dados da partilha de ficheiros a partir do servidor no local com o seu protocolo de escolha (SMB, NFS, FTPS, etc.) para o seu caso de utilização. Este padrão de acesso é útil porque combina o melhor de desempenho no local e escala de nuvem e serviços anexáveis sem servidor, como O Azure Backup.
 
-Este artigo centra-se em como configurar a rede para quando o seu caso de utilização requer o acesso diretamente à partilha de ficheiros Azure em vez de utilizar o Azure File Sync. Para obter mais informações sobre considerações de networking para uma implementação de Azure File Sync, consulte [considerações de networking de ficheiros Azure](storage-sync-files-networking-overview.md)File Sync .
+Este artigo centra-se em como configurar a rede para quando o seu caso de utilização requer o acesso diretamente à partilha de ficheiros Azure em vez de utilizar o Azure File Sync. Para obter mais informações sobre considerações de networking para uma implementação de Azure File Sync, consulte [considerações de networking de ficheiros Azure](../file-sync/file-sync-networking-overview.md)File Sync .
 
 A configuração de rede para ações de ficheiros Azure é feita na conta de armazenamento Azure. Uma conta de armazenamento é uma construção de gestão que representa um conjunto partilhado de armazenamento no qual você pode implementar várias partilhas de arquivos, bem como outros recursos de armazenamento, tais como recipientes blob ou filas. As contas de armazenamento expõem várias configurações que o ajudam a garantir o acesso da rede às suas partilhas de ficheiros: pontos finais de rede, definições de firewall de conta de armazenamento e encriptação em trânsito. 
 

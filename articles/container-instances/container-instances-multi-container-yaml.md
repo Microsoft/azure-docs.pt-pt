@@ -3,12 +3,12 @@ title: Tutorial - Implementar grupo multi-contentores - YAML
 description: Neste tutorial, aprende-se a implantar um grupo de contentores com vários contentores em Instâncias de Contentores Azure utilizando um ficheiro YAML com o Azure CLI.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 6f9dda7735587dfee1dde86c85375efcf057daa7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74269440357ee2d7ae36661618a31293346fa712
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97605166"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771268"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implementar um grupo multi-contentores usando um ficheiro YAML
 
@@ -181,9 +181,9 @@ Também pode especificar um grupo multi-contentores utilizando um [modelo de Ges
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [template-reference]: /azure/templates/microsoft.containerinstance/containergroups

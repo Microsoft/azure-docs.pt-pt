@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2d844054e3744aafa01f43ded354a5b5d9f8b4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5150c26d67b77008c11764cc6e51ca7085ffcb31
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98732104"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784916"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>Atribuir um acesso de identidade gerido a uma função de aplicação utilizando o PowerShell
 

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f148a5b267edd3fc1dd33ef17d5ad01005b4a903
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 202278d6436439a212dda229f209ab8fb75db596
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566290"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752341"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Iniciar, monitorizar e rastrear o histórico 
 
@@ -405,7 +405,12 @@ Para criar muitas crianças funciona de forma eficiente, use o [`create_children
 
 As corridas para crianças também podem ser submetidas a partir de uma corrida de pais. Isto permite-lhe criar hierarquias de pais e filhos. Não se pode criar uma criança sem pais: mesmo que a corrida dos pais não faça nada a não ser lançar corridas de crianças, ainda é necessário criar a hierarquia. Os estatutos de todas as corridas são independentes: um progenitor pode estar no `"Completed"` estado de sucesso, mesmo que uma ou mais crianças sejam canceladas ou falhadas.  
 
-Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração menos potente e baseada em CPU para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar a cada criança diferentes argumentos e dados. Para personalizar uma corrida de crianças, crie um `ScriptRunConfig` objeto para a corrida da criança. O código abaixo:
+Pode desejar que o seu filho corra para utilizar uma configuração de execução diferente da execução dos pais. Por exemplo, pode utilizar uma configuração menos potente e baseada em CPU para o progenitor, enquanto utiliza configurações baseadas em GPU para os seus filhos. Outro desejo comum é passar a cada criança diferentes argumentos e dados. Para personalizar uma corrida de crianças, crie um `ScriptRunConfig` objeto para a corrida da criança. 
+
+> [!IMPORTANT]
+> Para submeter uma criança a partir de uma corrida de pais num cálculo remoto, você deve iniciar sôm no espaço de trabalho no código de execução dos pais primeiro. Por predefinição, o objeto de contexto de execução num percurso remoto não tem credenciais para submeter execuções de crianças. Utilize um principal serviço ou credenciais de identidade geridas para iniciar sinsus. Para obter mais informações sobre a autenticação, consulte [configurar a autenticação.](how-to-setup-authentication.md)
+
+O código abaixo:
 
 - Recupera um recurso computacional nomeado `"gpu-cluster"` do espaço de trabalho `ws`
 - Iterates sobre diferentes valores de argumento a serem passados para os objetos das `ScriptRunConfig` crianças

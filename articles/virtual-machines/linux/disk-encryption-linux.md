@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 5c131f64c540c14830e13619e0e832bbe67b675e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f014c07a319cbb07497cba01699b93d092255b93
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443906"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771523"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs com Linux
 
@@ -33,7 +33,7 @@ Em todos os casos, deve [tirar uma fotografia](snapshot-copy-managed-disk.md) e/
 >[!WARNING]
 > - Se já utilizou a Encriptação do Disco Azure com AZure AD para encriptar um VM, deve continuar a utilizar esta opção para encriptar o seu VM. Consulte [a encriptação do disco Azure com Azure AD (versão anterior)](disk-encryption-overview-aad.md) para obter mais detalhes. 
 >
-> - Ao encriptar os volumes linux OS, o VM deve ser considerado indisponível. Recomendamos vivamente evitar logins SSH enquanto a encriptação está em andamento para evitar problemas que bloqueiem quaisquer ficheiros abertos que precisem de ser acedidos durante o processo de encriptação. Para verificar o progresso, utilize o [comandante Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell ou o comando CLI [do programa de encriptação vm.](/cli/azure/vm/encryption#az-vm-encryption-show) Espera-se que este processo despente-se em algumas horas para um volume de SO de 30GB, mais tempo adicional para encriptar volumes de dados. O tempo de encriptação do volume de dados será proporcional ao tamanho e quantidade dos volumes de dados, a menos que o formato de encriptação seja utilizado. 
+> - Ao encriptar os volumes linux OS, o VM deve ser considerado indisponível. Recomendamos vivamente evitar logins SSH enquanto a encriptação está em andamento para evitar problemas que bloqueiem quaisquer ficheiros abertos que precisem de ser acedidos durante o processo de encriptação. Para verificar o progresso, utilize o [comandante Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell ou o comando CLI [do programa de encriptação vm.](/cli/azure/vm/encryption#az_vm_encryption_show) Espera-se que este processo despente-se em algumas horas para um volume de SO de 30GB, mais tempo adicional para encriptar volumes de dados. O tempo de encriptação do volume de dados será proporcional ao tamanho e quantidade dos volumes de dados, a menos que o formato de encriptação seja utilizado. 
 > - A encriptação incapacitante nos VMs Linux é suportada apenas para volumes de dados. Não é suportado em dados ou volumes de SO se o volume de SO tiver sido encriptado.  
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instale ferramentas e ligue-se ao Azure
@@ -58,7 +58,7 @@ Se você gostaria de selecionar um inquilino para iniciar sôm, use:
 az login --tenant <tenant>
 ```
 
-Se tiver várias subscrições e quiser especificar uma específica, obtenha a sua lista de subscrições com [a lista de conta az](/cli/azure/account#az-account-list) e especifique com a conta [az definida](/cli/azure/account#az-account-set).
+Se tiver várias subscrições e quiser especificar uma específica, obtenha a sua lista de subscrições com [a lista de conta az](/cli/azure/account#az_account_list) e especifique com a conta [az definida](/cli/azure/account#az_account_set).
      
 ```azurecli
 az account list
@@ -124,13 +124,13 @@ Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az_vm_encryption
     > A sintaxe para o valor do parâmetro de chave-chave de encriptação de disco é a cadeia de identificação completa: /subscrições/[subscrição-id-guid]/resourceGroups/[resource-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
 A sintaxe para o valor do parâmetro chave-chave de encriptação é o URI completo para o KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um VM, utilize o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-show) 
+- **Verifique se os discos estão encriptados:** Para verificar o estado de encriptação de um VM, utilize o comando [do programa de encriptação az vm.](/cli/azure/vm/encryption#az_vm_encryption_show) 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Desativar a encriptação:** Para desativar a encriptação, utilize o comando [de desativação de encriptação az vm.](/cli/azure/vm/encryption#az-vm-encryption-disable) A encriptação incapacitante só é permitida em volumes de dados para Os VMs Linux.
+- **Desativar a encriptação:** Para desativar a encriptação, utilize o comando [de desativação de encriptação az vm.](/cli/azure/vm/encryption#az_vm_encryption_disable) A encriptação incapacitante só é permitida em volumes de dados para Os VMs Linux.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "data"
@@ -229,7 +229,7 @@ O parâmetro vai embora todas as divisórias e as encripta, desde que cumpram **
 Criptografe os discos que compõem o volume RAID ou LVM em vez do volume RAID ou LVM.
 
 ### <a name="use-the-encryptformatall-parameter-with-azure-cli"></a>Utilize o parâmetro EncryptFormatAll com Azure CLI
-Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption-enable) o comando para permitir a encriptação numa máquina virtual em execução em Azure.
+Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az_vm_encryption_enable) o comando para permitir a encriptação numa máquina virtual em execução em Azure.
 
 -  **Criptografe um VM em execução utilizando o EncryptFormatAll:**
 

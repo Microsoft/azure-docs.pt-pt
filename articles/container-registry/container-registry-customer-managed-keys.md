@@ -4,12 +4,12 @@ description: Saiba mais sobre encriptação no resto do seu registo de contentor
 ms.topic: article
 ms.date: 03/03/2021
 ms.custom: ''
-ms.openlocfilehash: c4e23acde9e3640da83b993c8c0c8c0818ccaa4f
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 09eea79eb6fb9ad9e4526b1a0390664e5dd9d61e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750163"
+ms.locfileid: "107784048"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Registo encriptado usando uma chave gerida pelo cliente
 
@@ -127,7 +127,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Em alternativa, utilize [o Azure RBAC para o Key Vault](../key-vault/general/rbac-guide.md) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do serviço crypto do cofre de chave à identidade utilizando o comando [de criação de função az:](/cli/azure/role/assignment#az-role-assignment-create)
+Em alternativa, utilize [o Azure RBAC para o Key Vault](../key-vault/general/rbac-guide.md) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do serviço crypto do cofre de chave à identidade utilizando o comando [de criação de função az:](/cli/azure/role/assignment#az_role_assignment_create)
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -608,19 +608,19 @@ Se este problema ocorrer com uma identidade atribuída ao sistema, por favor [cr
 
 <!-- LINKS - internal -->
 
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-show]: /cli/azure/feature#az-feature-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-keyvault-create]: /cli/azure/keyvault#az_keyvault_create
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az_keyvault_key_create
 [az-keyvault-key]: /cli/azure/keyvault/key
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
-[az-resource-show]: /cli/azure/resource#az-resource-show
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az-acr-encryption-rotate-key
-[az-acr-encryption-show]: /cli/azure/acr/encryption#az-acr-encryption-show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az_keyvault_delete_policy
+[az-resource-show]: /cli/azure/resource#az_resource_show
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az_acr_encryption_rotate_key
+[az-acr-encryption-show]: /cli/azure/acr/encryption#az_acr_encryption_show

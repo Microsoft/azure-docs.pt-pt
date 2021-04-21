@@ -7,12 +7,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 84b83c1dd541418c446a89a6f51be668cb41e54e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65fb54dbfc5158ef8cc2b488f267c92f601502f6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562649"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784610"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do Azure SignalR Service ao Event Grid
 
@@ -169,5 +169,5 @@ Ligou agora um cliente ao Serviço SignalR. Navegue para a sua aplicação web E
 [sample-app]: https://github.com/dbarkol/azure-event-grid-viewer
 
 <!-- LINKS - Internal -->
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
-[az-group-create]: /cli/azure/group#az-group-create
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
+[az-group-create]: /cli/azure/group#az_group_create

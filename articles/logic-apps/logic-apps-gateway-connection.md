@@ -4,18 +4,18 @@ description: Conecte-se a fontes de dados no local a partir de Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 01/20/2021
-ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: conceptual
+ms.date: 03/24/2021
+ms.openlocfilehash: 49da5d7f045ed06ba16696ebd16ad212b9d140d8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99218999"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763314"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
-Depois de [instalar o portal de *dados no local* num computador local](../logic-apps/logic-apps-gateway-install.md) e antes de poder aceder a fontes de dados nas instalações a partir das suas aplicações lógicas, tem de criar um recurso de gateway em Azure para a sua instalação gateway. Em seguida, pode selecionar este recurso gateway nos gatilhos e ações que pretende utilizar para os [conectores no local](../connectors/apis-list.md#on-premises-connectors) disponíveis nas Apps Azure Logic. A Azure Logic Apps suporta operações de leitura e escrita através do portal de dados. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil.
+Depois de [instalar o portal de *dados no local* num computador local](../logic-apps/logic-apps-gateway-install.md) e antes de poder aceder a fontes de dados nas instalações a partir das suas aplicações lógicas, tem de criar um recurso de gateway em Azure para a sua instalação gateway. Em seguida, pode selecionar este recurso gateway nos gatilhos e ações que pretende utilizar para os [conectores no local](../connectors/managed.md#on-premises-connectors) disponíveis nas Apps Azure Logic. A Azure Logic Apps suporta operações de leitura e escrita através do portal de dados. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil.
 
 Este artigo mostra como criar o seu recurso de gateway Azure para um gateway previamente [instalado no seu computador local.](../logic-apps/logic-apps-gateway-install.md) Para mais informações sobre o portal, consulte [como funciona o portal.](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)
 
@@ -33,7 +33,7 @@ Para obter informações sobre como utilizar o gateway com outros serviços, con
 
 ## <a name="supported-data-sources"></a>Supported data sources (Origens de dados suportadas)
 
-Nas Aplicações Lógicas Azure, o gateway de dados no local suporta os [conectores no local](../connectors/apis-list.md#on-premises-connectors) para estas fontes de dados:
+Nas Aplicações Lógicas Azure, o gateway de dados no local suporta os [conectores no local](../connectors/managed.md#on-premises-connectors) para estas fontes de dados:
 
 * BizTalk Server 2016
 * Sistema de Ficheiros

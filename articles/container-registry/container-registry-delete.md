@@ -3,12 +3,12 @@ title: Eliminar recursos de imagem
 description: Detalhes sobre como gerir eficazmente o tamanho do registo eliminando os dados de imagem do contentor usando comandos Azure CLI.
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af277d0c02960c989b4e9119f2ecbfd8f6d7ce07
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78403338"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783994"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Apagar imagens de contentores no Registo do Contentor de Azure utilizando o CLI Azure
 
@@ -289,6 +289,6 @@ Para obter mais informações sobre o armazenamento de imagens no Registo do Con
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-repository-untag]: /cli/azure/acr/repository#az_acr_repository_untag
