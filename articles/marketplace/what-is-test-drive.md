@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e44d5d94a8dc172962a26f3e0dae9ccbb7f8a865
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96490045"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818895"
 ---
 # <a name="what-is-a-test-drive"></a>O que é uma versão de teste?
 
@@ -60,7 +60,7 @@ Este modelo de implementação contém todos os recursos Azure que compõem a su
 
 Um test drive hospedado remove a complexidade da configuração, permitindo que a Microsoft seja hospedada e mantenha o serviço que executa o fornecimento do utilizador do test drive e desa provisionamento. Se tiver uma oferta no Microsoft AppSource, construa o seu test drive para se conectar com uma instância Dynamics AX/CRM. Pode utilizar os seguintes tipos de ofertas appSource:
 
-- Use [a Dynamics 365 para o Envolvimento do Cliente](partner-center-portal/create-new-customer-engagement-offer.md) num sistema de Envolvimento do Cliente, como vendas, serviço, serviço de projeto e serviço de campo.
+- Use [a Dynamics 365 para o Envolvimento do Cliente e aplicações de energia](dynamics-365-customer-engage-offer-setup.md) para um sistema de envolvimento do cliente, como vendas, serviço, serviço de projeto e serviço de campo.
 - Utilizar [a Dynamics 365 para Operações](partner-center-portal/create-new-operations-offer.md) para um sistema de planeamento de recursos empresariais de Finanças e Operações, tais como finanças, operações e fabrico, cadeia de fornecimento.
 
 ### <a name="logic-app-test-drive"></a>Unidade de teste de aplicativo lógico

@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.openlocfilehash: 97d4f0a387b75c9b23f64992a8ef39bc0bad17f0
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: e4feaa8f1b30bfe31f4e645943f766b5736150b3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715575"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818373"
 ---
 # <a name="using-azure-migrate-with-private-endpoints"></a>Usando Azure Migrar com pontos finais privados  
 
@@ -93,31 +93,18 @@ Isto cria um projeto migratório e anexa-lhe um ponto final privado.
 
 4. Depois de a chave ser gerada com sucesso, copie os detalhes chave para configurar e registar o aparelho.   
 
-#### <a name="download-the-appliance-installer-file"></a>Descarregue o ficheiro do instalador do aparelho
+#### <a name="download-the-appliance-installer-file"></a>Descarregue o ficheiro do instalador do aparelho  
+
+> [!Note]
+> Se estiver a enfrentar problemas ao descarregar o ficheiro do instalador do aparelho, crie uma caixa de apoio.
 
 Azure Migrate: Descoberta e avaliação utilize um aparelho Azure Migrate leve. O aparelho executa a descoberta do servidor e envia metadados de configuração e desempenho do servidor para a Azure Migrate.
 
-Para configurar o aparelho, descarregue o ficheiro com fecho de correr que contém o script do instalador a partir do portal. Copie o ficheiro com fecho no servidor que irá hospedar o aparelho.
+Para configurar o aparelho, descarregue o ficheiro com fecho de correr que contém o script do instalador a partir do portal. Copie o ficheiro com fecho no servidor que irá hospedar o aparelho. 
 
 Certifique-se de que o servidor satisfaz os requisitos de [hardware](https://docs.microsoft.com/azure/migrate/migrate-appliance) para o cenário escolhido (VMware/Hyper-V/Físico ou outro) e pode ligar-se aos URLs Azure necessários - nuvens públicas e [governamentais.](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity) [](./migrate-appliance.md#government-cloud-urls-for-private-link-connectivity)
 
-Depois de descarregar o ficheiro com fecho, verifique a segurança do ficheiro e execute o script do instalador para implantar o aparelho.
-
-#### <a name="verify-file-security"></a>Verificar segurança de ficheiros
-
-Verifique se o ficheiro com fecho está seguro antes de o colocar.
-
-1. Abra uma janela de comando do administrador no servidor para a qual descarregou o ficheiro. 
-2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-PrivateEndPoint.zip SHA256```
-3. Verifique a versão e o script mais recente do aparelho para a nuvem pública Azure:
-
-    **Algoritmo** | **Transferência** | **SHA256**
-    --- | --- | ---
-    VMware (85.8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee434123861808d82147916330e66669f94c7969fe1b3d0fe72
-    Hiper-V (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee434123861808d82147916330e66669f94c7969fe1b3d0fe72
-    Físico ou outro (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee434123861808d82147916330e66669f94c7969fe1b3d0fe72
+Depois de descarregar o ficheiro com fecho, execute o script do instalador para implantar o aparelho.
 
 #### <a name="run-the-script"></a>Executar o script
 

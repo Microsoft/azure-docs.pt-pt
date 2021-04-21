@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 37e67ad869af23b51497e1497865f620bae612aa
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b8690b5ce3e2aee9a554d3e0682161b86264e124
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749191"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818538"
 ---
 # <a name="client-libraries-for-azure-key-vault"></a>Bibliotecas de clientes para cofre de chaves Azure
 
@@ -35,4 +35,4 @@ Cada SDK tem bibliotecas de clientes separadas para cofre chave, segredos, chave
 
 - Consulte o guia de desenvolvedores do [Azure Key Vault](developers-guide.md)
 - Ler mais sobre [autenticação num cofre de chaves](authentication.md)
-- Leia mais sobre [a garantia de acesso a um Cofre de Chaves](security-overview.md)
+- Leia mais sobre [a garantia de acesso a um Cofre de Chaves](security-features.md)

@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 37778bc096c9089e3706907fcdd6b9c816cc5fbc
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576029"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817491"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Converter experiências ml para produzir código Python
 
@@ -527,5 +527,5 @@ def test_train_model():
 Agora que entende como se converter de uma experiência para código de produção, consulte os seguintes links para mais informações e próximos passos:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Construa um oleoduto CI/CD para treinar, avaliar e implementar o seu próprio modelo utilizando pipelines Azure e Azure Machine Learning
-+ [Monitor Azure ML experimenta e métricas](./how-to-track-experiments.md)
++ [Monitor Azure ML experimenta e métricas](./how-to-log-view-metrics.md)
 + [Monitorizar e recolher dados de pontos finais de serviço Web de ML](./how-to-enable-app-insights.md)

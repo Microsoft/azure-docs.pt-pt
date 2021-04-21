@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 5ee4481b3151e28d5d37760e486a43adbc194994
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f38911b1fffb083902ba67e262141b6780a43ada
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553226"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817851"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte um: ativar a autenticação AD DS para as suas ações de ficheiroS Azure 
 
@@ -44,24 +44,27 @@ Substitua os valores do espaço reservado pelos seus nos parâmetros abaixo ante
 > Para ambos os tipos de conta, recomendamos que verifique a idade de validade da palavra-passe configurada no seu ambiente de AD e planeie [atualizar a palavra-passe da identidade da sua conta](storage-files-identity-ad-ds-update-password.md) de armazenamento da conta AD antes da idade máxima da senha. Pode considerar [a criação de uma nova Unidade Organizacional AD (OU) em AD](/powershell/module/addsadministration/new-adorganizationalunit) e desativar a política de expiração de [senhas](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) em contas de computador ou contas de início de serviço em conformidade. 
 
 ```PowerShell
-#Change the execution policy to unblock importing AzFilesHybrid.psm1 module
+# Change the execution policy to unblock importing AzFilesHybrid.psm1 module
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 # Navigate to where AzFilesHybrid is unzipped and stored and run to copy the files into your path
 .\CopyToPSPath.ps1 
 
-#Import AzFilesHybrid module
+# Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
+# See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
+# for more information.
 Connect-AzAccount
 
-#Define parameters
+# Define parameters
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 
-#Select the target subscription for the current session
+# Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId $SubscriptionId 
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 

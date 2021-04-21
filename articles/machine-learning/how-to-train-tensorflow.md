@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 583f588004f41fc07037e7f5e4ce75538a581c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0eac999fa53679ef67c2a322bd8cc7841197d493
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518335"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819147"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Trem tensorFlow modelos em escala com Azure Machine Learning
 
@@ -361,6 +361,6 @@ A forma completa [de como](how-to-deploy-and-where.md) fazer cobre a implantaç�
 
 Neste artigo, treinou e registou um modelo TensorFlow, e aprendeu sobre opções de implementação. Veja estes outros artigos para saber mais sobre Azure Machine Learning.
 
-* [Métricas de corrida de pista durante o treino](how-to-track-experiments.md)
+* [Métricas de corrida de pista durante o treino](how-to-log-view-metrics.md)
 * [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Arquitetura de referência para formação de aprendizagem profunda distribuída em Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

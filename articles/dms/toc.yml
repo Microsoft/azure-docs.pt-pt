@@ -45,7 +45,9 @@
           href: tutorial-sql-server-managed-instance-online.md
     - name: Migrar o MySQL
       items:
-        - name: para a Base de Dados do Azure para MySQL
+        - name: à Base de Dados Azure para o MySQL (offline)
+          href: tutorial-mysql-azure-mysql-offline-portal.md
+        - name: à Base de Dados Azure para o MySQL (online)
           href: tutorial-mysql-azure-mysql-online.md
     - name: Migrar o MySQL de RDS
       items:
@@ -87,6 +89,8 @@
           href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
         - name: SqL Server para SQL MI (offline)
           href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
+        - name: MySQL a Azure Database for MySQL (offline)
+          href: migrate-mysql-to-azure-mysql-powershell.md
     - name: Reimplementar o pacote do SSIS na
       items:
         - name: Base de Dados SQL do Azure

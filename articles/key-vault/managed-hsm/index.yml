@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/15/2020
-  ms.openlocfilehash: c6d4d3d8ca5a668b3d30e1e81117e444f7f4c9ba
-  ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+  ms.openlocfilehash: 7e4fa839d4bd85ef6a5d560ee19ddb87fe660ced
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/14/2021
-  ms.locfileid: "107482454"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107817527"
 landingContent:
 - title: Sobre a Azure Key Vault Gerido HSM
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
       url: ../general/overview.md
     - text: Conceitos básicos
       url: ../general/basic-concepts.md
-    - text: Descrição geral da segurança
-      url: ../general/security-overview.md
+    - text: Funcionalidades de segurança
+      url: ../general/security-features.md
     - text: Descrição geral da eliminação recuperável
       url: ../general/soft-delete-overview.md

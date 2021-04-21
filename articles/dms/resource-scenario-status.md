@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 6c1a0853dc59b2e2ceabfd47d81aac364a2b5716
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: f06c1a055b2f08259bf5318afe3c969d763bbbd3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589436"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818625"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado dos cenários de migração suportados pelo Azure Database Migration Service
 
@@ -26,6 +26,10 @@ O Azure Database Migration Service é projetado para suportar diferentes cenári
 ## <a name="offline-versus-online-migrations"></a>Migrações offline versus on-line
 
 Com o Azure Database Migration Service, pode fazer uma migração offline ou on-line. Com as migrações *offline,* o tempo de inatividade da aplicação começa ao mesmo tempo que a migração começa. Para limitar o tempo de inatividade ao tempo necessário para reduzir para o novo ambiente quando a migração terminar, utilize uma migração *online.* É recomendado testar uma migração offline para determinar se o tempo de inatividade é aceitável; se não, faça uma migração on-line.
+
+## <a name="migration-scenario-status"></a>Estado do cenário de migração
+
+O estado dos cenários de migração suportados pelo Azure Database Migration Service varia com o tempo. Geralmente, os cenários são lançados pela primeira vez em **pré-visualização privada**. Após a pré-visualização privada, o estado do cenário muda para **visualização pública**. Os utilizadores do Azure Database Migration Service podem experimentar cenários de migração em visualização pública diretamente da interface do utilizador. Não é necessária qualquer inscrição.  No entanto, os cenários de migração em visualização pública podem não estar disponíveis em todas as regiões e podem sofrer alterações adicionais antes do lançamento final. Após a visualização pública, o estado do cenário muda para **a disponibilidade geral**. A disponibilidade geral (GA) é o estado final de lançamento, e a funcionalidade é completa e acessível a todos os utilizadores.
 
 ## <a name="migration-scenario-support"></a>Apoio ao cenário de migração
 
@@ -52,7 +56,7 @@ A tabela seguinte mostra o suporte do Serviço de Migração da Base de Dados Az
 | **VM do Azure SQL** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **BD do Azure para MySQL** | MySQL | X |   |
+| **BD do Azure para MySQL** | MySQL | ✔ |   |
 |   | RDS MySQL | X |   |
 | **Azure DB para PostgreSQL - Servidor único** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |

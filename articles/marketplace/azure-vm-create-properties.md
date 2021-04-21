@@ -7,16 +7,16 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 281553782774c31ec8cfaf614542fd739c4d3dd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5942368ba1709127b815a35676b716955c1bee8f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629534"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819093"
 ---
-# <a name="how-to-configure-virtual-machine-offer-properties"></a>Como configurar a máquina virtual oferece propriedades
+# <a name="configure-virtual-machine-offer-properties"></a>Configurar propriedades de oferta de máquina virtual
 
-Na página **Propriedades** (selecione a partir do menu de navegação à esquerda no Partner Center), define as categorias utilizadas para agrupar a sua oferta de máquina virtual (VM) no Azure Marketplace, a sua versão de aplicação e os contratos legais que suportam a sua oferta.
+Na página **Propriedades** (selecione do menu de navegação à esquerda), define as categorias utilizadas para agrupar a sua oferta de máquina virtual (VM) no Azure Marketplace, a sua versão de candidatura e os contratos legais que suportam a sua oferta.
 
 ## <a name="select-a-category"></a>Selecione uma categoria
 
@@ -75,7 +75,7 @@ Nos termos da **emenda Universal ao contrato padrão para a** caixa de mercado c
 
 ### <a name="use-your-own-terms-and-conditions"></a>Use os seus próprios termos e condições
 
-Pode optar por fornecer os seus próprios termos e condições, em vez do contrato padrão. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
+Pode fornecer os seus próprios termos e condições em vez de utilizar o contrato padrão. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
 
 1. De acordo com o **Legal,** **limpe o Use the Standard Contract para a** caixa de verificação do mercado comercial da Microsoft.
 1. Na caixa **de Termos e Condições,** introduza até 10.000 caracteres de texto.

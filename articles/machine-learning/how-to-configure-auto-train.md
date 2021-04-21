@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 755386bfa36b18796eccec0020efe9136e0215cd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 146697dec7e3d22e745fba2a1e9fae5d486195ef
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068154"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819323"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -391,7 +391,7 @@ Configure  `max_concurrent_iterations` no seu `AutoMLConfig` objeto. Se não est
 
 A ML automatizada oferece opções para monitorizar e avaliar os resultados da sua formação. 
 
-* Pode ver os resultados do seu treino num widget ou inline se estiver num caderno. Veja [como monitorizar ml automatizado corre](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para mais detalhes.
+* Pode ver os resultados do seu treino num widget ou inline se estiver num caderno. Consulte [o Monitor machine learning automatizado para](#monitor) obter mais detalhes.
 
 * Para definições e exemplos dos gráficos de desempenho e métricas fornecidas para cada execução, consulte [os resultados automatizados da experiência de aprendizagem automática](how-to-understand-automated-ml.md) de máquinas . 
 
@@ -493,6 +493,22 @@ print_model(model_from_aml)
 ```
 > [!NOTE]
 > Os algoritmos que a ML automatizada emprega têm aleatoriedade inerente que pode causar uma ligeira variação na pontuação final das métricas de um modelo recomendado, como precisão. A ML automatizada também realiza operações em dados como divisão de ensaios de comboio, divisão de validação de comboios ou validação cruzada quando necessário. Portanto, se executar uma experiência com as mesmas configurações e métrica primária várias vezes, provavelmente verá variação em cada experiência métricas pontuadas devido a estes fatores. 
+
+## <a name="monitor-automated-machine-learning-runs"></a><a name="monitor"></a> Monitorize as aprendizagens automáticas de máquinas
+
+Para que o machine learning funciona automatizado, para aceder às tabelas de uma execução anterior, `<<experiment_name>>` substitua-os pelo nome de experiência apropriado:
+
+```python
+from azureml.widgets import RunDetails
+from azureml.core.run import Run
+
+experiment = Experiment (workspace, <<experiment_name>>)
+run_id = 'autoML_my_runID' #replace with run_ID
+run = Run(experiment, run_id)
+RunDetails(run).show()
+```
+
+![Widget de caderno Jupyter para aprendizagem automática de máquinas](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
 ## <a name="register-and-deploy-models"></a>Registar e implantar modelos
 

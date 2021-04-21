@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 840045da33938d4c1cd725fd5a99bf1b8014f6b1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 6754e4e60c31c35531b27e6cc2047e9f8ce3d0bc
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748471"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817400"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e utilizar políticas em máquinas virtuais no Azure
 
@@ -53,7 +53,7 @@ Não há nenhuma acusação para encriptar discos virtuais em Azure. As chaves c
 
 Segredos e certificados podem ser modelados como recursos e fornecidos pela [Key Vault.](../key-vault/general/basic-concepts.md) Pode utilizar o Azure PowerShell para criar cofres-chave para [VMs Windows](windows/key-vault-setup.md) e o CLI Azure para [Os VMs Linux](linux/key-vault-setup.md). Também pode criar chaves para encriptação.
 
-As principais políticas de acesso ao cofre concedem permissões a chaves, segredos e certificados separadamente. Por exemplo, pode dar a um utilizador acesso só a chaves, mas não permissões para segredos. No entanto, as permissões para aceder a chaves, segredos ou certificados são ao nível do cofre. Por outras palavras, [a política de acesso ao cofre não](../key-vault/general/security-overview.md) suporta permissões de nível de objetos.
+As principais políticas de acesso ao cofre concedem permissões a chaves, segredos e certificados separadamente. Por exemplo, pode dar a um utilizador acesso só a chaves, mas não permissões para segredos. No entanto, as permissões para aceder a chaves, segredos ou certificados são ao nível do cofre. Por outras palavras, [a política de acesso ao cofre não](../key-vault/general/security-features.md) suporta permissões de nível de objetos.
 
 Quando se conecta a VMs, deve utilizar a criptografia de chaves públicas para fornecer uma forma mais segura de iniciar súplica. Este processo envolve uma troca de chaves pública e privada utilizando o comando secure shell (SSH) para autenticar-se em vez de um nome de utilizador e senha. As palavras-passe são vulneráveis a ataques de força bruta, especialmente em VMs virados para a Internet, como servidores web. Com um par de chaves secure shell (SSH), pode criar um [VM Linux](linux/mac-create-ssh-keys.md) que utiliza chaves SSH para autenticação, eliminando a necessidade de senhas de inscrição. Também pode utilizar as teclas SSH para ligar de um [VM do Windows](linux/ssh-from-windows.md) a um Linux VM.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: e606e21fe2b80683737970b92d57ce87b9103144
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 0a45e7c0479cf490ad8688230897ae89ce4d1020
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106875"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819129"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Parceiro Cloud para o Centro de Parceiros
 
@@ -81,7 +81,7 @@ Para os tipos de oferta suportados no Partner Center, todas as ofertas foram mov
 | Máquina Virtual | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais no [Plano de uma oferta de máquina virtual.](marketplace-virtual-machines.md) |
 | Aplicação Azure | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de aplicações Azure.](create-new-azure-apps-offer.md) |
 | Dynamics 365 Business Central | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
-| Dinâmica 365 para Envolvimento de Clientes & PowerApps | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 para o envolvimento do cliente & oferta de PowerApps.](partner-center-portal/create-new-customer-engagement-offer.md) |
+| Dinâmica 365 para Envolvimento de Clientes & PowerApps | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 para o envolvimento do cliente & oferta de PowerApps.](dynamics-365-customer-engage-offer-setup.md) |
 | Dynamics 365 for Operations | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Oferta Create a Dynamics 365 for Operations.](partner-center-portal/create-new-operations-offer.md) |
 | Aplicação Power BI | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Power BI app para AppSource.](partner-center-portal/create-power-bi-app-offer.md) |
 | Módulo IoT Edge | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace.](partner-center-portal/azure-iot-edge-module-creation.md) |

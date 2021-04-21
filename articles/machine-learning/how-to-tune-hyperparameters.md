@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 34adcf2218e29572ec9a86583addc7c021313085
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ec01561c5c44c850b32187629552b1bdb99537e7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519644"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819183"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hiperparametro afinando um modelo com Azure Machine Learning
 
@@ -183,7 +183,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 O roteiro de treino calcula o `val_accuracy` e regista-o como a "precisão" da métrica primária. Cada vez que a métrica é registada, é recebida pelo serviço de afinação do hiperparímetro. Cabe-lhe a si determinar a frequência dos relatórios.
 
-Para obter mais informações sobre valores de registo em percursos de treino de modelos, consulte [Ativar o registo em treinos Azure ML](how-to-track-experiments.md).
+Para obter mais informações sobre valores de registo em percursos de treino de modelos, consulte [Ativar o registo em treinos Azure ML](how-to-log-view-metrics.md).
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Especificar a política de rescisão antecipada
 
@@ -424,7 +424,7 @@ Pode visualizar as suas correções de afinação de hiperparímetros no estúdi
 
 ### <a name="studio"></a>Studio
 
-Pode visualizar todas as suas afinações de hiperparímetros no [estúdio Azure Machine Learning](https://ml.azure.com). Para obter mais informações sobre como ver uma experiência no portal, consulte [ver os registos de execução do view no estúdio.](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)
+Pode visualizar todas as suas afinações de hiperparímetros no [estúdio Azure Machine Learning](https://ml.azure.com). Para obter mais informações sobre como ver uma experiência no portal, consulte [ver os registos de execução do view no estúdio.](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal)
 
 - **Gráfico de métricas**: Esta visualização acompanha as métricas registadas para cada hiperdrive que a criança corre ao longo da duração da sintonização hiperparítnica. Cada linha representa uma criança executada, e cada ponto mede o valor métrico primário nessa iteração do tempo de execução.  
 
@@ -481,5 +481,5 @@ Consulte os cadernos de comboio-hiperparameter-* nesta pasta:
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Acompanhe uma experiência](how-to-track-experiments.md)
+* [Acompanhe uma experiência](how-to-log-view-metrics.md)
 * [Implementar um modelo treinado](how-to-deploy-and-where.md)

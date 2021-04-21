@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2b4af9dec2bf397ad2766c68d547eeac85a9a9a3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 555ec90bbd73cee401f6f35aa04598792d2f24f4
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518369"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817151"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Treinar modelos Keras em escala com Azure Machine Learning
 
@@ -243,7 +243,7 @@ for f in run.get_file_names():
 Neste artigo, treinou e registou um modelo Keras no Azure Machine Learning. Para aprender a implementar um modelo, continue para o nosso artigo de implementação de modelos.
 
 * [Como e onde implementar modelos](how-to-deploy-and-where.md)
-* [Métricas de corrida de pista durante o treino](how-to-track-experiments.md)
+* [Métricas de corrida de pista durante o treino](how-to-log-view-metrics.md)
 * [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Implementar um modelo treinado](how-to-deploy-and-where.md)
 * [Arquitetura de referência para formação de aprendizagem profunda distribuída em Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

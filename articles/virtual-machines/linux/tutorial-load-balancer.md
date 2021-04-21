@@ -1,47 +1,42 @@
 ---
-title: Tutorial - Load balance máquinas virtuais Linux em Azure
+title: Tutorial - VMs de equilíbrio de carga para alta disponibilidade
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar um balanceador de carga para uma aplicação segura de elevada disponibilidade em três máquinas virtuais do Linux
-services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.subservice: networking
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/13/2017
+ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 433bbd51618cfb5624c8ed2c549e1793488f0e81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 191eb1338533cf1a5f81f4d04c5dfc6fd5cc569c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553770"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818751"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Fazer o balanceamento de carga de máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade com a CLI do Azure
+# <a name="tutorial-load-balance-vms-for-high-availability"></a>Tutorial: VMs de equilíbrio de carga para alta disponibilidade
 
 O balanceamento de carga fornece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, vai conhecer os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e oferecem elevada disponibilidade. Saiba como:
 
 > [!div class="checklist"]
-> * Criar um balanceador de carga do Azure
-> * Criar uma sonda de estado de funcionamento do balanceador de carga
-> * Criar regras de tráfego do balanceador de carga
-> * Utilizar a inicialização da cloud para criar uma aplicação Node.js básica
-> * Criar máquinas virtuais e anexar a um balanceador de carga
-> * Ver um balanceador de carga em ação
-> * Adicionar e remover VMs de um balanceador de carga
+> * Criar um balanceador de carga
+> * Criar uma sonda de estado de funcionamento
+> * Criar regras de tráfego
+> * Use cloud-init para instalar uma aplicação de Node.js básica
+> * Crie máquinas virtuais e prenda-as ao equilibrador de carga
+> * Ver o equilibrador de carga em ação
+> * Adicione e remova VMs do equilibrador de carga
 
 Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Descrição geral do balanceador de carga do Azure
+
 Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP) que fornece elevada disponibilidade ao distribuir o tráfego de entrada entre VMs em bom estado de funcionamento. Uma sonda de estado de funcionamento do balanceador de carga monitoriza uma porta especificada em cada VM e apenas distribui o tráfego para uma VM operacional.
 
 Pode definir uma configuração de IP de front-end com um ou mais endereços IP públicos. Esta configuração de IP de front-end permite ao balanceador de carga e às aplicações estarem acessíveis através da Internet. 

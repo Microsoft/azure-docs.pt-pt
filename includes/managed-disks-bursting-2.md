@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4162fe12ff54f16cd5f982f6a576905227c9a107
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102623191"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107820970"
 ---
 ## <a name="disk-level-bursting"></a>Rebentamento do nível do disco
 
@@ -58,6 +58,9 @@ Configuração do disco: Premium SSD – 1 TB (P30), rebentamento do disco ativa
 A transação de explosão é contabilizada como o número máximo de transações de IOPS ou MBps rebentando. Das 00:00:01 às 00:00:05, a transação de rebentamento acumulada é má ((10.000 – 5.000), (300 - 200) * 1024 / 256)) * 5 = 25.000 transações. Das 00:00:06 às 00:00:10, a transação de rebentamento acumulada é má ((6.000 – 5.000), (600 - 200) * 1024 / 256)) * 5 = 8.000 transações. Além disso, você inclui a taxa plana de ativação de explosão para obter o custo total para permitir a explosão de disco baseado na procura. 
 
 Pode consultar a página de preços dos [Discos Geridos](https://azure.microsoft.com/pricing/details/managed-disks/) para obter detalhes sobre preços e utilizar a [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage) para fazer a avaliação da sua carga de trabalho. 
+
+
+Para ativar o rebentamento a pedido, consulte [Ativar o rebentamento a pedido](../articles/virtual-machines/disks-enable-bursting.md).
 
 ### <a name="credit-based-bursting"></a>Rebentamento baseado em crédito
 

@@ -7,13 +7,13 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
-ms.custom: references_regions
-ms.openlocfilehash: 5612da51c1896aaa40ff2a0fb90e3343f676de43
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 5808cda95cdf9ce6477f47fcdbb8a0421d92e72a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531618"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817136"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).

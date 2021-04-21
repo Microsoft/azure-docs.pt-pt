@@ -1,27 +1,24 @@
 ---
 title: Implemente o ElasticSearch numa máquina virtual de desenvolvimento no Azure
-description: Tutorial - Instalar a Pilha Elástica numa VM do Linux de desenvolvimento no Azure
+description: Instale a Pilha Elástica (ALCE) num desenvolvimento Linux VM em Azure
 services: virtual-machines
-documentationcenter: virtual-machines
 author: rloutlaw
 manager: justhe
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: b3213d7de9aee88486fa1db1388c51948fbde430
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ce28efa30b04a2a762c39f47dac739633eac209
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557816"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818481"
 ---
-# <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalar a Pilha Elástica numa VM do Azure
+# <a name="install-the-elastic-stack-elk-on-an-azure-vm"></a>Instale a Pilha Elástica (ALCE) num VM Azure
 
 Este artigo explica como implementar o [Elasticsearch](https://www.elastic.co/products/elasticsearch), o [Logstash](https://www.elastic.co/products/logstash) e o [Kibana](https://www.elastic.co/products/kibana) numa VM do Ubuntu no Azure. Para ver a Pilha Elástica em ação, opcionalmente, pode ligar ao Kibana e trabalhar com alguns dados de registo de exemplo. 
 
@@ -165,7 +162,7 @@ Teste o Logstash no modo interativo para se certificar de que está a funcionar 
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-Este é um [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) do logstash básico que ecoa a entrada standard para a saída standard. 
+Este é um [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) básico de Logstash que ecoa a entrada padrão para a saída padrão. 
 
 ```output
 The stdin plugin is now waiting for input:

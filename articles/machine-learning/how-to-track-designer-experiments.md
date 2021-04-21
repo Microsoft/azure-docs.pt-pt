@@ -11,19 +11,19 @@ ms.subservice: core
 ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: designer
-ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13a3b86514428b0219aaf671260c07b4e197d2de
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98065257"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817318"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Permitir o login nos oleodutos de designers de machine learning do Azure
 
 
 Neste artigo, aprende-se a adicionar código de registo aos pipelines de design. Também aprende a visualizar esses registos usando o portal web do estúdio Azure Machine Learning.
 
-Para obter mais informações sobre métricas de registo utilizando a experiência de autoria SDK, consulte [as métricas e métricas da experiência Monitor Azure ML](how-to-track-experiments.md).
+Para obter mais informações sobre métricas de registo utilizando a experiência de autoria SDK, consulte [as métricas e métricas da experiência Monitor Azure ML](how-to-log-view-metrics.md).
 
 ## <a name="enable-logging-with-execute-python-script"></a>Ativar o registo com executar o script python
 
@@ -33,7 +33,7 @@ O exemplo a seguir mostra como registar o erro médio quadrado de dois modelos t
 
 1. Ligue um módulo __de script de Python executado__ à saída do módulo Modelo __avaliar.__
 
-    ![Conecte o módulo de script python executado para avaliar o módulo do modelo](./media/how-to-track-experiments/designer-logging-pipeline.png)
+    ![Conecte o módulo de script python executado para avaliar o módulo do modelo](./media/how-to-log-view-metrics/designer-logging-pipeline.png)
 
 1. Cole o seguinte código no editor de código __execute Python__ para registar o erro absoluto médio para o seu modelo treinado. Pode utilizar um padrão semelhante para registar qualquer outro valor no designer:
 
@@ -61,7 +61,7 @@ O exemplo a seguir mostra como registar o erro médio quadrado de dois modelos t
     
 Este código utiliza o Azure Machine Learning Python SDK para registar valores. Utiliza Run.get_context para obter o contexto da corrente. Em seguida, regista valores para esse contexto com o método run.parent.log(). `parent`Utiliza-se para registar valores para o gasoduto dos pais em vez do funcionado do módulo.
 
-Para obter mais informações sobre como utilizar o Python SDK para registar valores, consulte [Ativar o registo em treinos Azure ML](how-to-track-experiments.md).
+Para obter mais informações sobre como utilizar o Python SDK para registar valores, consulte [Ativar o registo em treinos Azure ML](how-to-log-view-metrics.md).
 
 ## <a name="view-logs"></a>Ver registos
 
@@ -72,7 +72,7 @@ Depois de concluído o curso do gasoduto, pode ver o *Mean_Absolute_Error* na p�
 1. Selecione a execução da sua experiência que pretende visualizar.
 1. Selecione **Métricas**.
 
-    ![Ver métricas de execução no estúdio](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
+    ![Ver métricas de execução no estúdio](./media/how-to-log-view-metrics/experiment-page-metrics-across-runs.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -80,5 +80,5 @@ Neste artigo, aprendeu a usar registos no designer. Para os próximos passos, co
 
 
 * Saiba como resolver os oleodutos de designers de resolução de problemas, consulte [debug & os oleodutos ML de resolução de problemas.](how-to-debug-pipelines.md#azure-machine-learning-designer)
-* Aprenda a utilizar o Python SDK para registar métricas na experiência de autoria SDK, consulte [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+* Aprenda a utilizar o Python SDK para registar métricas na experiência de autoria SDK, consulte [Enable logging in Azure ML training runs](how-to-log-view-metrics.md).
 * Aprenda a usar [o Executo Python Script](./algorithm-module-reference/execute-python-script.md) no designer.

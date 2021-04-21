@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 584e421b6beac0e4ecfab5b3e3cb735b8465e1b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57f5da06909436e0cbce92559c29c309ca9e20e3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503526"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819237"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
@@ -47,7 +47,7 @@ Depois de o gasoduto ter sido concebido, há muitas vezes uma afinação mais fi
 
 Com os oleodutos, pode optar por utilizar hardware diferente para diferentes tarefas. O Azure coordena os vários [alvos de computação](concept-azure-machine-learning-architecture.md) que utiliza, pelo que os seus dados intermédios fluem perfeitamente para alvos de computação a jusante.
 
-Pode [rastrear as métricas das suas experiências](./how-to-track-experiments.md) de pipeline diretamente no portal Azure ou na [sua página de aterragem no espaço de trabalho (pré-visualização)](https://ml.azure.com). Depois de ter sido publicado um gasoduto, pode configurar um ponto final REST, que lhe permite refazer o gasoduto a partir de qualquer plataforma ou pilha.
+Pode [rastrear as métricas das suas experiências](./how-to-log-view-metrics.md) de pipeline diretamente no portal Azure ou na [sua página de aterragem no espaço de trabalho (pré-visualização)](https://ml.azure.com). Depois de ter sido publicado um gasoduto, pode configurar um ponto final REST, que lhe permite refazer o gasoduto a partir de qualquer plataforma ou pilha.
 
 Em suma, todas as tarefas complexas do ciclo de vida de aprendizagem automática podem ser ajudadas com os gasodutos. Outras tecnologias de gasodutos Azure têm os seus próprios pontos fortes. [Os oleodutos Azure Data Factory](../data-factory/concepts-pipelines-activities.md) primam pelo trabalho com dados e a [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) é a ferramenta certa para integração e implantação contínua. Mas se o seu foco é a aprendizagem automática, os oleodutos Azure Machine Learning são provavelmente a melhor escolha para as suas necessidades de fluxo de trabalho. 
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8621dc8cfc10ab44ecb358a40fdae1a1b2081734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 580c53f311bc8ee70e974df2bc4111e6361d06f6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566588"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818967"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais Azure
 
@@ -66,7 +66,7 @@ Siga um tutorial de arranque rápido para implementar uma máquina virtual DCsv2
   
 - **Redimensionamento** – Devido ao seu hardware especializado, só é possível redimensionar casos confidenciais de computação dentro da mesma família. Por exemplo, só é possível redimensionar um VM da série DCsv2 de um tamanho da série DCsv2 para outro. Redimensionar de um tamanho de computação não confidencial para um tamanho de computação confidencial não é suportado.  
 
-- **Imagem** – Para fornecer suporte à Extensão da Intel Software Guard (Intel SGX) em casos confidenciais de computação, todas as implementações devem ser executadas em imagens da Geração 2. A azure confidential computing suporta cargas de trabalho em execução em Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 e Windows Server 2016 Gen 2. Leia sobre [o suporte para a geração 2 VMs em Azure](../virtual-machines/generation-2.md) para saber mais sobre cenários suportados e não apoiados. 
+- **Imagem** – Para fornecer suporte à Extensão da Intel Software Guard (Intel SGX) em casos confidenciais de computação, todas as implementações devem ser executadas em imagens da Geração 2. A azure confidential computing suporta cargas de trabalho em execução em Ubuntu 18.04 Gen 2, Ubuntu 20.04 Gen 2, Windows Server 2019 gen2 e Windows Server 2016 Gen 2. Leia sobre [o suporte para a geração 2 VMs em Azure](../virtual-machines/generation-2.md) para saber mais sobre cenários suportados e não apoiados. 
 
 - **Armazenamento** – Discos de dados de máquinas virtuais de computação confidencial Azure e os nossos discos efémeros de SISTEMA estão em discos NVMe. As instâncias suportam apenas discos Premium SSD e SSD Standard, não Ultra SSD ou HdD Standard. O tamanho da máquina virtual **DC8_v2** não suporta armazenamento Premium. 
 
@@ -122,10 +122,10 @@ Em **propriedades,** também terá de fazer referência a uma imagem em **armaze
         "sku": "18_04-lts-gen2",
         "version": "latest"
       },
-      "16_04-lts-gen2": {
+      "20_04-lts-gen2": {
         "offer": "UbuntuServer",
         "publisher": "Canonical",
-        "sku": "16_04-lts-gen2",
+        "sku": "20_04-lts-gen2",
         "version": "latest"
       }
 ```

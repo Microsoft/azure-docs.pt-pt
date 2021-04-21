@@ -10,12 +10,12 @@ ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: f43229570f6bab942cc57a2ea3be163d37f02f89
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 1ae6631c3f6ee71d7a09832956c7e687ceca22b6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536185"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819057"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Quickstart: Implementar um VM de computação confidencial Azure no portal Azure
 
@@ -62,7 +62,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 
 1. Configure a imagem do sistema operativo que gostaria de utilizar para a sua máquina virtual.
 
-    * **Escolha imagem**: Para este tutorial, selecione Ubuntu 18.04 LTS. Também pode selecionar Windows Server 2019, Windows Server 2016 ou Ubuntu 16.04 LTS. Se optar por fazê-lo, será redirecionado neste tutorial em conformidade.
+    * **Escolha imagem**: Para este tutorial, selecione Ubuntu 18.04 LTS. Também pode selecionar Windows Server 2019, Windows Server 2016 ou Ubuntu 20.04 LTS. Se optar por fazê-lo, será redirecionado neste tutorial em conformidade.
     
     * **Alternar a imagem para a Gen 2**: Máquinas virtuais de computação confidencial só funcionam em imagens [da Geração 2.](../virtual-machines/generation-2.md) Certifique-se de que a imagem selecionada é uma imagem da Gen 2. Clique no separador **Avançado** acima, onde está a configurar a máquina virtual. Desloque-se para baixo até encontrar a secção rotulada "VM Generation". Selecione Gen 2 e, em seguida, volte ao **separador Básicos.**
     
@@ -79,7 +79,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
     ![VMs DCsv2-Series](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > Você deve ver tamanhos **DC1s_v2,** **DC2s_v2,** **DC4s_V2** e **DC8_v2.** Estes são os únicos tamanhos de máquinas virtuais que suportam atualmente a computação confidencial. [Saiba mais](virtual-machine-solutions.md).
+    > Você deve ver tamanhos **DC1s_v2,** **DC2s_v2,** **DC4s_V2** e **DC8_v2.** Estes são os únicos tamanhos de máquinas virtuais que suportam atualmente a computação confidencial intel SGX. [Saiba mais](virtual-machine-solutions.md).
 
 1. Preencha as seguintes informações:
 
@@ -166,11 +166,18 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```
 
 #### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Instale o controlador Intel SGX DCAP
+Algumas versões da Ubuntu podem já ter o controlador Intel SGX instalado. Verifique utilizando o seguinte comando: 
+
+```bash
+dmesg | grep -i sgx
+[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
+``` 
+Se a saída estiver em branco, instale o controlador: 
 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
@@ -180,8 +187,9 @@ sudo ./sgx_linux_x64_driver.bin
 
 #### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Instalar os pacotes e dependências do Intel e do Enclave Aberto
 
+
 ```bash
-sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
+sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
 > [!NOTE] 

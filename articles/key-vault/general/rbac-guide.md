@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 966f704bd47b4b238ed72579a6103bd2e4348849
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9806327c7393c3ba1fdab09acfb5545d6026e5cf
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772222"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818467"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure
 
@@ -41,7 +41,7 @@ As permissões individuais de chaves, segredos e certificados devem ser utilizad
 
 Mais sobre as diretrizes de gestão do Azure Key Vault, consulte:
 
-- [Visão geral da segurança do Cofre de Chaves Azure](security-overview.md)
+- [Funcionalidades de segurança Azure Key Vault](security-features.md)
 - [Limites de serviço Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Azure funções incorporadas para operações de avião de dados key Vault

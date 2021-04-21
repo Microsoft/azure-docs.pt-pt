@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e217dcaeafd553803f5c9699ab6d7779ed755b67
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241740"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818296"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Gerir zona redundante alta disponibilidade em Azure Database para MySQL Flexible Server (Preview)
 
@@ -62,6 +62,27 @@ Siga estes passos para desativar a alta disponibilidade para o seu servidor flex
 5.  Clique no botão **DEsativar** o botão HA para desativar a alta disponibilidade.
 
 6.  Está em curso uma notificação de desmantelamento da elevada disponibilidade.
+
+
+## <a name="forced-failover"></a>Falha forçada
+
+Siga estes passos para forçar o failover do seu principal para o servidor flexível de espera
+
+1.  No [portal Azure,](https://portal.azure.com/)selecione a base de dados Azure existente para o servidor flexível MySQL, que tem uma funcionalidade de alta disponibilidade ativada.
+
+2.  Na página do servidor flexível, clique em **Alta Disponibilidade** a partir do painel frontal para abrir a página de alta disponibilidade.
+
+3.  Verifique a **zona de disponibilidade primária** e a zona de disponibilidade de **espera**
+
+4.  Clique em **Falha Forçada** para iniciar o procedimento de falha manual. Um pop-up irá informá-lo sobre o tempo esperado de failover dependendo da carga de trabalho atual na primária e da recessão do último ponto de verificação, ler a mensagem e clicar em Ok.
+ 
+5. Aparecerá uma notificação mencionando que o fracasso está em curso.
+
+6. Uma vez que o failover para o servidor de espera é bem sucedido, uma notificação aparecerá.
+
+7. Consulte a nova **zona de disponibilidade primária** e a zona de disponibilidade de **espera.**
+
+![Como o fracasso forçado](media/how-to-configure-high-availability/how-to-forced-failover.png) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 65dc9da03a6b763d419c51e53bf756550e8b56a4
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1a1cd8c051f9e04c09ef2986805873d8e7fea54e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751855"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817635"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Azure Key Vault para outra subscrição
 
@@ -123,5 +123,5 @@ Se estiver a usar a identidade gerida, também terá de atualizar a identidade p
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-certificates.md)
 - Para obter informações conceptuais, incluindo como interpretar registos do Key Vault, consulte a [sessão do Key Vault](logging.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)
-- [Proteja o cofre da chave](security-overview.md)
+- [Funcionalidades de segurança Azure Key Vault](security-features.md)
 - [Configurar firewalls de cofre de chaves Azure e redes virtuais](network-security.md)

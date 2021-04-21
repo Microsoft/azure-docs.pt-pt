@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 276dd7aa1925fefaaa94dfdd5d7a5baba5164f56
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bdcee6b8ced45dba34309724e5a634cbb60a6d37
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790262"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818823"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através dos protocolos do sistema de ficheiros SMB e NFS. Este artigo discute os objetivos de escalabilidade e desempenho para Azure Files e Azure File Sync.
@@ -35,8 +35,8 @@ O Azure suporta vários tipos de contas de armazenamento para diferentes cenári
 | Capacidade máxima da conta de armazenamento | 5 PiB<sup>1</sup> | 100 TiB (a provisionado) |
 | Número máximo de ações de ficheiros | Ilimitado | O tamanho total de todas as ações deve ser inferior ao máximo do que a capacidade máxima da conta de armazenamento |
 | Taxa máxima de pedido simultânea | 20.000 IOPS<sup>1</sup> | 100.000 OPS |
-| Entrada máxima | <ul><li>EUA/Europa: 10 Gbp/sec<sup>1</sup></li><li>Outras regiões (LRS/ZRS): 10 Gbp/sec<sup>1</sup></li><li>Outras regiões (GRS): 5 Gbp/sec<sup>1</sup></li></ul> | 4,136 MiB/seg |
-| Saída máxima | 50 Gbp/seg<sup>1</sup> | 6,204 MiB/seg |
+| Entrada máxima | <ul><li>EUA/Europa: 9.536 MiB/sec<sup>1</sup></li><li>Outras regiões (LRS/ZRS): 9.536 MiB/sec<sup>1</sup></li><li>Outras regiões (GRS): 4.768 GiB/sec<sup>1</sup></li></ul> | 4,136 MiB/seg |
+| Saída máxima | 47.683 MiB/seg<sup>1</sup> | 6,204 MiB/seg |
 | Número máximo de regras de rede virtual | 200 | 200 |
 | Número máximo de regras de endereço IP | 200 | 200 |
 | Operações de leitura de gestão | 800 por 5 minutos | 800 por 5 minutos |

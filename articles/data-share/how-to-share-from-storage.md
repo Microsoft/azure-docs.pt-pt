@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/23/2021
-ms.openlocfilehash: 4db523624922d8ddcb8c1868b84927926d9ed3d5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/20/2021
+ms.openlocfilehash: 59c1ca67c9e93b62890512cda647ffcdf7712f9a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103815"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819273"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 
@@ -19,7 +19,7 @@ ms.locfileid: "107103815"
 
 O Azure Data Share suporta a partilha baseada em instantâneos a partir de uma conta de armazenamento. Este artigo explica como partilhar e receber dados de Azure Blob Storage, Azure Data Lake Storage Gen1 e Azure Data Lake Storage Gen2.
 
-O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros da Azure Data Lake Gen1 e da Azure Data Lake Gen2. Também suporta a partilha de bolhas, pastas e recipientes do Azure Blob Storage. Apenas bolhas de blocos são suportadas atualmente. Os dados partilhados destas fontes podem ser recebidos pelo Azure Data Lake Gen2 ou pelo Azure Blob Storage.
+O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros da Azure Data Lake Gen1 e da Azure Data Lake Gen2. Também suporta a partilha de bolhas, pastas e recipientes do Azure Blob Storage. Pode partilhar blocos, apêndices ou bolhas de página, e são recebidos como bolhas de bloco. Os dados partilhados destas fontes podem ser recebidos pelo Azure Data Lake Gen2 ou pelo Azure Blob Storage.
 
 Quando os sistemas de ficheiros, contentores ou pastas são partilhados na partilha baseada em instantâneos, os consumidores de dados podem optar por fazer uma cópia completa dos dados da partilha. Ou podem usar a capacidade de instantâneo incremental para copiar apenas ficheiros novos ou atualizados. A capacidade de instantâneo incremental baseia-se no último tempo modificado dos ficheiros. 
 

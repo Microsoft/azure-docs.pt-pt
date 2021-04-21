@@ -390,15 +390,12 @@
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Preparação de controlo e monitorização
           items:
-            - name: 'Comece, monitorize ou cancele execuções'
+            - name: 'Rastrear, monitorizar e analisar corridas'
               displayName: 'cancel, fail, status, child run'
-              href: how-to-manage-runs.md
-            - name: Ativar registos
-              displayName: 'troubleshoot, log, files, tracing'
-              href: how-to-track-experiments.md
-            - name: Ver registos e métricas para execuções
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Registar & visualizar métricas e ficheiros de registo
               displayName: 'troubleshoot, log, files, tracing, metrics'
-              href: how-to-monitor-view-training-logs.md
+              href: how-to-log-view-metrics.md
             - name: Visualizar execuções com TensorBoard
               displayName: 'log, monitor, metrics'
               href: how-to-monitor-tensorboard.md
