@@ -6,15 +6,15 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ms.date: 09/14/2020
 ms.author: apimpm
-ms.openlocfilehash: eb2c42d26a85a07518a018ba5b8817f13d3cd17f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 641f262cf95753bd4c364fa889051a2b8f9d111a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90707066"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814267"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-powershell"></a>Quickstart: Criar uma nova instância de serviço AZure API Management utilizando o PowerShell
 

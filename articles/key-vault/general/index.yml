@@ -12,12 +12,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: c2a7abf3504db0d97f12d7c702ff4f2970fa04b4
-  ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+  ms.openlocfilehash: aa8485b3ea4af3d618f175faaa4f685d4a2b77c3
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107749659"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107815707"
 landingContent:
 - title: Acerca do Azure Key Vault
   linkLists:
@@ -49,8 +49,8 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Descrição geral da segurança
-      url: security-overview.md
+    - text: Funcionalidades de segurança
+      url: security-features.md
     - text: Linha de base de segurança
       url: security-baseline.md
   - linkListType: how-to-guide

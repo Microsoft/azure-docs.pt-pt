@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 655ea1920fc80c8cd677281f09cfca21120e1d61
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: dc5fa0eeabc437f16ca64c34b4bb72e62c0c3b21
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726453"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815028"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com a CLI do Azure
 
@@ -68,4 +68,4 @@ Neste arranque rápido criaste um Cofre-Chave e guardaste um segredo nele. Para 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Saiba como [armazenar segredos multiline em Key Vault](multiline-secrets.md)
 - Consulte a referência para os [comandos Azure CLI az keyvault](/cli/azure/keyvault)
-- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)
+- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-features.md)

@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c40bc01553b9e848d668c0a699e9dcc9929f079e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 94cbe0fa6669546cee8e989a6db2fcbb428cb9d0
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779332"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829445"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configure um aplicativo PHP para o Azure App Service
 
@@ -28,6 +28,9 @@ Para mostrar a versão PHP atual, executar o seguinte comando na [Cloud Shell](h
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query phpVersion
 ```
 
+> [!NOTE]
+> Para abordar uma ranhura de desenvolvimento, inclua o parâmetro `--slot` seguido pelo nome da ranhura.
+
 Para mostrar todas as versões PHP suportadas, executar o seguinte comando na [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -44,6 +47,9 @@ Para mostrar a versão PHP atual, executar o seguinte comando na [Cloud Shell](h
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
+> [!NOTE]
+> Para abordar uma ranhura de desenvolvimento, inclua o parâmetro `--slot` seguido pelo nome da ranhura.
+
 Para mostrar todas as versões PHP suportadas, executar o seguinte comando na [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -59,7 +65,7 @@ az webapp list-runtimes --linux | grep PHP
 Executar o seguinte comando na [Cloud Shell](https://shell.azure.com) para definir a versão PHP para 7.4:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
 ```
 
 ::: zone-end
@@ -69,7 +75,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 Executar o seguinte comando na [Cloud Shell](https://shell.azure.com) para definir a versão PHP para 7.2:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|7.2"
 ```
 
 ::: zone-end

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 75ea1c0e92e4d22e73178685472eb1953565a616
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1c6cca640d8607a355e0ffca36e3af502df5052c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750343"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815509"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Quickstart: set and recuperar uma chave do Azure Key Vault usando o portal Azure
 
@@ -82,4 +82,4 @@ Neste arranque rápido, criaste um Cofre-Chave e guardou uma chave nele. Para sa
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)
+- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-features.md)

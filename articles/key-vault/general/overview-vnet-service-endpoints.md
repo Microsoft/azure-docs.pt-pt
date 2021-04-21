@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 985cbe1128d1dd64fda86ef062750dc5dd068ffe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 8d3b88841f03b0c5bdb9b21ea66d9a67ba795546
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751738"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814251"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para o Azure Key Vault
 
@@ -26,7 +26,7 @@ Há uma exceção importante a esta restrição. Se um utilizador tiver optado p
 Pode configurar [firewalls key Vault e redes virtuais](network-security.md) para negar o acesso ao tráfego de todas as redes (incluindo o tráfego de internet) por padrão. Pode conceder acesso ao tráfego a partir de redes virtuais específicas do Azure e de intervalos de endereços IP de internet pública, permitindo-lhe construir um limite de rede seguro para as suas aplicações.
 
 > [!NOTE]
-> As firewalls key Vault e as regras de rede virtuais aplicam-se apenas ao plano de [dados](security-overview.md#privileged-access) do Key Vault. As operações do avião de controlo key Vault (tais como criar, excluir e modificar operações, definir políticas de acesso, definir firewalls e regras de rede virtuais e implantação de segredos ou chaves através de modelos ARM) não são afetadas por firewalls e regras de rede virtuais.
+> As firewalls key Vault e as regras de rede virtuais aplicam-se apenas ao plano de [dados](security-features.md#privileged-access) do Key Vault. As operações do avião de controlo key Vault (tais como criar, excluir e modificar operações, definir políticas de acesso, definir firewalls e regras de rede virtuais e implantação de segredos ou chaves através de modelos ARM) não são afetadas por firewalls e regras de rede virtuais.
 
 Aqui estão alguns exemplos de como pode usar pontos finais de serviço:
 
@@ -66,4 +66,4 @@ Aqui está uma lista de serviços fidedignos que podem aceder a um cofre chave s
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter instruções passo a passo, consulte [firewalls Configure Key Vault e redes virtuais](network-security.md)
-- ver a visão geral de segurança do [Cofre chave Azure](security-overview.md)
+- ver a visão geral de segurança do [Cofre chave Azure](security-features.md)

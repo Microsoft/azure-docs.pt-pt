@@ -1,13 +1,11 @@
 - name: Documentação de IoT industrial Azure
   href: index.yml
-- name: Descrição geral
+- name: Descrição Geral
   items:
     - name: O que é IoT Industrial?
       href: overview-what-is-industrial-iot.md
     - name: O que é a Editora OPC?
       href: overview-what-is-opc-publisher.md
-    - name: O que é a Plataforma Industrial IoT?
-      href: overview-what-is-industrial-iot-platform.md
 - name: Tutoriais
   items:
     - name: Tutoriais autónomos da OPC Publisher

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: f4112d4b9bf55e45ec865f5c8606ead9088a7983
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0e8363ee29df84478e5ab5c14b43ea07e3bea8ee
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752395"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815311"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -8210,7 +8210,7 @@ Efetue qualquer ação nos certificados de um cofre chave, exceto gerir permiss�
 
 ### <a name="key-vault-contributor"></a>Contribuidor do Cofre Chave
 
-Gerencie os cofres chave, mas não lhe permite atribuir funções no Azure RBAC, e não lhe permite aceder a segredos, chaves ou certificados. [Saiba mais](../key-vault/general/security-overview.md)
+Gerencie os cofres chave, mas não lhe permite atribuir funções no Azure RBAC, e não lhe permite aceder a segredos, chaves ou certificados. [Saiba mais](../key-vault/general/security-features.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

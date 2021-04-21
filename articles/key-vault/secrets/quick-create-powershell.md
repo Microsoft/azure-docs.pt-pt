@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 5e3b78dfb8f08f1a596ad12884ec088cd36c4a98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a0ebfc90fb57a6e67d7c9e41b78d9db502b2720
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582458"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814645"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com o PowerShell
 
@@ -98,4 +98,4 @@ Neste arranque rápido criaste um Cofre-Chave e guardaste um segredo nele. Para 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Saiba como [armazenar segredos multiline em Key Vault](multiline-secrets.md)
 - Consulte a referência para os [cmdlets Azure PowerShell Key Vault](/powershell/module/az.keyvault/#key_vault)
-- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)
+- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-features.md)

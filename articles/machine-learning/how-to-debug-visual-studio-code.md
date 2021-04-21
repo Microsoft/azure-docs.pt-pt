@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 783b5afdaef369582614cde3525f7968fdb5e567
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69a69afedbd86871987a8e62b55dfc070121cc78
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508644"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813871"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuragem interativa com código de estúdio visual
 
@@ -278,7 +278,7 @@ ip_address: 10.3.0.5
 Poupe o `ip_address` valor. É usado na secção seguinte.
 
 > [!TIP]
-> Também pode encontrar o endereço IP a partir dos registos de execução para a criança correr para este passo de pipeline. Para obter mais informações sobre a visualização desta informação, consulte [as métricas e métricas da experiência Monitor Azure ML](how-to-track-experiments.md).
+> Também pode encontrar o endereço IP a partir dos registos de execução para a criança correr para este passo de pipeline. Para obter mais informações sobre a visualização desta informação, consulte [as métricas e métricas da experiência Monitor Azure ML](how-to-log-view-metrics.md).
 
 ### <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
 

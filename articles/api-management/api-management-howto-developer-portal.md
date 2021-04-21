@@ -9,12 +9,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/15/2021
 ms.author: apimpm
-ms.openlocfilehash: aaf02affce924232deb56bf7694771c838b0b323
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3f5da5ed6c828278eb25a9fa4fa5cfb90e16f8f4
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739607"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815964"
 ---
 # <a name="overview-of-the-developer-portal"></a>Visão geral do portal do desenvolvedor
 

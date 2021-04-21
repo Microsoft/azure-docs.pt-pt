@@ -3,12 +3,12 @@ title: Ativar o encaminhamento automático para filas e subscrições do Azure S
 description: Este artigo explica como permitir o encaminhamento automático para filas e subscrições utilizando o portal Azure, PowerShell, CLI e linguagens de programação (C#, Java, Python e JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: ef22ae08485dc896c94858db4e422cf89a00ec1f
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: e5f69a82aac96deaf96f0ae6aaa1a26d0ee3aaf3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107755282"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814689"
 ---
 # <a name="enable-auto-forwarding-for-azure-service-bus-queues-and-subscriptions"></a>Ativar o encaminhamento automático para filas e subscrições do Azure Service Bus
 A funcionalidade de encaminhamento automático do Service Bus permite-lhe acorrentar uma fila ou subscrição a outra fila ou tópico que faça parte do mesmo espaço de nome. Quando o encaminhamento automático está ativado, o Service Bus remove automaticamente as mensagens que são colocadas na primeira fila ou subscrição (fonte) e coloca-as na segunda fila ou tópico (destino). Ainda é possível enviar uma mensagem diretamente à entidade de destino. Para mais informações, consulte [as entidades chaining Service Bus com reencaminhamento automático.](service-bus-auto-forwarding.md) Este artigo mostra-lhe diferentes formas de permitir o encaminhamento automático para filas e subscrições de Service Bus. 
@@ -17,13 +17,23 @@ A funcionalidade de encaminhamento automático do Service Bus permite-lhe acorre
 > O nível básico do Service Bus não suporta a função de reencaminhamento automático. Os níveis standard e premium suportam a funcionalidade. Para obter diferenças entre estes níveis, consulte [os preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="using-azure-portal"></a>Com o Portal do Azure
-Ao criar uma **fila** ou uma **subscrição** para um tópico no portal Azure, selecione **mensagens de encaminhar para fila/tópico,** como mostrado nos seguintes exemplos. Em seguida, especifique se deseja que as mensagens sejam reencaminhadas para uma fila ou um tópico. Neste exemplo, a opção **Fila** é selecionada e uma fila (**myqueue**) do mesmo espaço de nome é selecionada.
+Ao criar uma **fila** ou uma **subscrição** para um tópico no portal Azure, selecione **mensagens de encaminhar para fila/tópico,** como mostrado nos seguintes exemplos. Em seguida, especifique se deseja que as mensagens sejam reencaminhadas para uma fila ou um tópico. Neste exemplo, a opção **Fila** é selecionada e uma fila do mesmo espaço de nome é selecionada.
 
 ### <a name="create-a-queue-with-auto-forwarding-enabled"></a>Criar uma fila com encaminhamento automático ativado
 :::image type="content" source="./media/enable-auto-forward/create-queue.png" alt-text="Ativar o auto-forward no momento da criação da fila":::
 
 ### <a name="create-a-subscription-for-a-topic-with-auto-forwarding-enabled"></a>Crie uma subscrição para um tópico com encaminhamento automático ativado
 :::image type="content" source="./media/enable-auto-forward/create-subscription.png" alt-text="Ativar o auto-forward no momento da criação da subscrição":::
+
+### <a name="update-the-auto-forward-setting-for-an-existing-queue"></a>Atualize a definição auto para a frente para uma fila existente
+Na página **'Vista Geral'** para a sua fila 'Service Bus', selecione o valor atual para a definição das **mensagens 'Avante'.** No exemplo seguinte, o valor atual é **desativado.** Nas **mensagens 'A' para a janela de fila/tópico,** pode selecionar a fila ou tópico onde pretende que as mensagens sejam reencaminhadas. 
+
+:::image type="content" source="./media/enable-auto-forward/queue-auto-forward.png" alt-text="Ativar a auto-forward para uma fila existente":::
+
+### <a name="update-the-auto-forward-setting-for-an-existing-subscription"></a>Atualizar a definição auto-forward para uma subscrição existente
+Na página **'Vista Geral'** para a subscrição do Service Bus, selecione o valor atual para a definição das **mensagens 'Avante'.** No exemplo seguinte, o valor atual é **desativado.** Nas **mensagens 'A' para a janela de fila/tópico,** pode selecionar a fila ou tópico onde pretende que as mensagens sejam reencaminhadas. 
+
+:::image type="content" source="./media/enable-auto-forward/subscription-auto-forward.png" alt-text="Ativar o auto-forward para uma subscrição existente":::
 
 ## <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 Para **criar uma fila com o reencaminhamento automático ativado,** utilize o comando com o nome da fila ou tópico para o qual pretende que as [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) `--forward-to` mensagens sejam reencaminhadas. 
@@ -36,7 +46,29 @@ az servicebus queue create \
     --forward-to myqueue2
 ```
 
-Para **criar uma subscrição para um tópico com reencaminhamento automático ativado,** utilize o [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) comando com o nome da fila ou tópico para o qual pretende que as `--forward-to` mensagens sejam reencaminhadas.
+Para **atualizar a definição de pré-encaminhamento para uma fila existente,** utilize o [`az servicebus queue update`](/cli/azure/servicebus/queue#az_servicebus_queue_update) comando com o nome da fila ou tópico para o qual pretende que as `--forward-to` mensagens sejam reencaminhadas. 
+
+```azurecli-interactive
+az servicebus queue update \
+    --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --name myqueue \
+    --forward-to myqueue2
+```
+
+
+Para **criar uma subscrição de um tópico com encaminhamento automático ativado,** utilize o [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) comando com o nome da fila ou tópico para o qual pretende que as `--forward-to` mensagens sejam reencaminhadas.
+
+```azurecli-interactive
+az servicebus topic subscription create \
+    --resource-group myresourcegroup \
+    --namespace-name mynamespace \
+    --topic-name mytopic \
+    --name mysubscription \
+    --forward-to myqueue2
+```
+
+Para **atualizar a definição de auto-forward para uma subscrição de um tópico,** utilize o [`az servicebus topic subscription update`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_update) comando com o nome da fila ou tópico para o qual pretende que as `--forward-to` mensagens sejam reencaminhadas.
 
 ```azurecli-interactive
 az servicebus topic subscription create \
@@ -57,6 +89,21 @@ New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -ForwardTo myqueue2
 ```
 
+Para **atualizar a definição de pré-avançado para uma fila existente,** utilize o [`Set-AzServiceBusQueue`](/powershell/module/az.servicebus/set-azservicebusqueue) comando como mostrado no exemplo seguinte.
+
+```azurepowershell-interactive
+$queue=Get-AzServiceBusQueue -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -QueueName myqueue 
+
+$queue.ForwardTo='myqueue2'
+
+Set-AzServiceBusQueue -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -QueueName myqueue `
+    -QueueObj $queue
+``` 
+
 Para **criar uma subscrição para um tópico com reencaminhamento automático ativado,** utilize o [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) comando com o nome da fila ou tópico para o qual pretende que as `-ForwardTo` mensagens sejam reencaminhadas.
 
 ```azurepowershell-interactive
@@ -65,6 +112,23 @@ New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -TopicName mytopic `
     -SubscriptionName mysubscription `
     -ForwardTo myqueue2
+```
+
+Para **atualizar a definição de pré-encaminhamento para uma subscrição existente,** consulte o exemplo seguinte.
+
+```azurepowershell-interactive
+$subscription=Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -TopicName mytopic `
+    -SubscriptionName mysub
+
+$subscription.ForwardTo='mytopic2'
+
+Set-AzServiceBusSubscription -ResourceGroup myresourcegroup `
+    -NamespaceName mynamespace `
+    -Name mytopic `
+    -SubscriptionName mysub `
+    -SubscriptionObj $subscription 
 ```
 
 ## <a name="using-azure-resource-manager-template"></a>Com o modelo do Azure Resource Manager

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 06faa1da71331c299245a93af96166880e7732de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8513df83196b3521a749515c6bb22caad7d255b7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96451782"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816048"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabelas temporárias em Synapse SQL
 
@@ -188,7 +188,7 @@ SELECT
     THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH RESAMPLE;'
     END AS [update_stats_ddl]
 ,   [seq_nmbr]
-FROM    t1
+FROM    #stats_ddl
 ;
 GO
 ```

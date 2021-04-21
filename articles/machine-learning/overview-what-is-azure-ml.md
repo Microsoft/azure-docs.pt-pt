@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 4f97883c157d04358322b01cab7049dcbbabdc4f
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: cd395f0ff29eed1e09f5bdac882482b201052c90
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031091"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814838"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -78,14 +78,14 @@ Também pode [automatizar o treino e afinação](tutorial-auto-train-models.md) 
 
 + **Experiências de rastreio**
 
-  Aprenda a [rastrear e visualizar experiências de ciência de dados](tutorial-first-experiment-automated-ml.md) no estúdio. 
+  Aprenda a [rastrear e visualizar experiências de ciência de dados](how-to-track-monitor-analyze-runs.md) no estúdio. 
 
-    ![Execute detalhes no estúdio Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-history.png" alt-text="Execute detalhes no estúdio Azure Machine Learning":::
 
 
 + **E muito mais...**
 
-  Visite o estúdio Azure Machine Learning na [ml.azure.com.](https://studio.azureml.net) 
+  Visite o estúdio Azure Machine Learning na [ml.azure.com.](https://studio.azureml.net)
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Implementar & gestão do ciclo de vida

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e06881d078b4e881174c3e931f7898cb622ad7f9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d7b5144264b31e62eac43513d6a851d09a09c60f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766358"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814051"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para Python
 
@@ -200,7 +200,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral do cofre de chave do Azure](../general/overview.md)
-- [Acesso seguro a um cofre de chaves](../general/security-overview.md)
+- [Acesso seguro a um cofre de chaves](../general/security-features.md)
 - [Guia de desenvolvedores do Azure Key Vault](../general/developers-guide.md)
-- [Visão geral da segurança do Cofre de Chaves](../general/security-overview.md)
+- [Visão geral da segurança do Cofre de Chaves](../general/security-features.md)
 - [Autenticar com cofre de chaves](../general/authentication.md)

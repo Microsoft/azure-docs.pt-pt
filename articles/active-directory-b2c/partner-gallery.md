@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0629606f602b975b399855a681570ecdac9ec832
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b555c8651c6e1608193a6ae06c39b20f633e4ea9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256825"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813669"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros isv do Azure Ative Directory B2C
 
@@ -61,17 +61,26 @@ A Microsoft associa-se aos seguintes ISVs para controlo de acesso baseado em fun
 | ![Screenshot de um logotipo da n8identity](./media/partner-gallery/n8identity-logo.png) | [A N8Identity](./partner-n8identity.md) é uma plataforma de governação de Identidade como serviço que fornece solução para resolver a migração de contas de clientes e a administração de Pedidos de Atendimento ao Cliente (CSR) em execução no Microsoft Azure. |
 | ![Screenshot de um logotipo Saviynt](./media/partner-gallery/saviynt-logo.png) | A plataforma [saviynt](./partner-Saviynt.md) cloud-native promove uma melhor segurança, conformidade e governação através de análises inteligentes e integração de aplicações cruzadas para agilizar a modernização das TI. |
 
-## <a name="security"></a>Segurança
+## <a name="secure-hybrid-access-to-on-premises-application"></a>Acesso híbrido seguro à aplicação no local
 
-A Microsoft associa-se aos seguintes ISVs para segurança.
+A Microsoft associa-se aos seguintes ISVs para fornecer acesso híbrido seguro à aplicação no local. 
+
+| Parceiro ISV | Descrição e integração de caminhadas |
+|:-------------------------|:--------------|
+| ![Screenshot de um logotipo de Ping](./media/partner-gallery/ping-logo.png) | [A Ping Identity](./partner-ping-identity.md) permite o acesso híbrido seguro a aplicações antigas no local através de várias nuvens. |
+| ![Screenshot de um logotipo de estratos](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) fornece acesso híbrido seguro a aplicações no local, aplicando políticas de acesso consistentes, mantendo as identidades em sincronização, e tornando simples a transição de aplicações de sistemas de identidade antigas para a autenticação baseada em padrões e controlo de acesso fornecido pela Azure AD B2C. |
+| ![Screenshot de um logotipo de zscaler](./media/partner-gallery/zscaler-logo.png) | [A Zscaler](./partner-zscaler.md) oferece acesso seguro e baseado em políticas a aplicações e ativos privados sem o custo, a agioso ou riscos de segurança de uma VPN. |
+
+## <a name="fraud-protection"></a>Proteção contra fraudes
+
+A Microsoft associa-se aos seguintes ISVs para deteção e prevenção de fraudes. 
 
 | Parceiro ISV | Descrição e integração de caminhadas |
 |:-------------------------|:--------------|
 | ![Screenshot de um logotipo de laboratório Arkose](./media/partner-gallery/arkose-logo.png) | [A Arkose Labs](./partner-arkose-labs.md) é um fornecedor de soluções de prevenção de fraudes que ajuda as organizações a proteger contra ataques de bots, ataques de aquisição de contas e aberturas fraudulentas de contas. |
+| ![Screenshot de um logotipo bioCatch](./media/partner-gallery/biocatch-logo.png) | [A BioCatch](./partner-biocatch.md) é um fornecedor de soluções de prevenção de fraudes que analisa os comportamentos digitais físicos e cognitivos de um utilizador para gerar insights que distinguem entre clientes legítimos e criminosos virtuais. |
 | ![Screenshot de um logótipo Microsoft Dynamics 365](./media/partner-gallery/microsoft-dynamics365-logo.png) | [O Microsoft Dynamics 365 Fraud Protection](./partner-dynamics-365-fraud-protection.md) é uma solução que ajuda as organizações a protegerem-se contra aberturas fraudulentas de contas através da recolha de impressões digitais do dispositivo. |
-| ![Screenshot de um logotipo de Ping](./media/partner-gallery/ping-logo.png) | [A Ping Identity](./partner-ping-identity.md) permite o acesso híbrido seguro a aplicações antigas no local através de várias nuvens. |
-| ![Screenshot de um logotipo de estratos](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) fornece acesso híbrido seguro a aplicações no local, aplicando políticas de acesso consistentes, mantendo as identidades em sincronização, e tornando simples a transição de aplicações de sistemas de identidade antigas para a autenticação baseada em padrões e controlo de acesso fornecido pela Azure AD B2C. |
-| ![Screenshot de um logotipo de zscaler](./media/partner-gallery/zscaler-logo.png) | [A Zscaler](./partner-zscaler.md) oferece acesso seguro e baseado em políticas a aplicações e ativos privados sem o custo, a agioso ou riscos de segurança de uma VPN. |
+
 
 ## <a name="additional-information"></a>Informações adicionais
 

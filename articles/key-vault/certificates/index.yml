@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: e7582856bc986b09d4f21b2c94562a2d7eec83dc
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: 320bea6b66e75fcc2887e3183cd3abd1c92ff156
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102502676"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107815203"
 landingContent:
 - title: Certificados
   linkLists:
@@ -72,8 +72,8 @@ landingContent:
       url: ../general/overview.md
     - text: Conceitos básicos
       url: ../general/basic-concepts.md
-    - text: Descrição geral da segurança
-      url: ../general/security-overview.md
+    - text: Funcionalidades de segurança
+      url: ../general/security-features.md
     - text: Descrição geral da eliminação recuperável
       url: ../general/soft-delete-overview.md
 - title: Microsoft Learn

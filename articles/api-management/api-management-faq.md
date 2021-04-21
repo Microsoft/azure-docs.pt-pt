@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b6a138317d0cc2e10e893d1969f9d5452064d8f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94697992"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813745"
 ---
 # <a name="azure-api-management-faqs"></a>FaQs de gestão da Azure API
 Obtenha as respostas para perguntas, padrões e boas práticas comuns para a Azure API Management.

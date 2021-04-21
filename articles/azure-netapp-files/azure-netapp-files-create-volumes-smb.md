@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 9bb995e5e3038d7a4cd24f0db2608461c8848497
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 28fc465627032522afb9da8f6ec0fad704834d09
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726301"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813709"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -116,7 +116,7 @@ Antes de criar um volume SMB, é necessário criar uma ligação Ative Directory
         > [!IMPORTANT]   
         > A funcionalidade disponibilidade contínua SMB encontra-se atualmente em pré-visualização pública. Tem de submeter um pedido de lista de espera para aceder à funcionalidade através da página de submissão da lista de espera de **[pré-visualização de Azure NetApp.](https://aka.ms/anfsmbcasharespreviewsignup)** Aguarde um e-mail oficial de confirmação da equipa do Azure NetApp Files antes de utilizar a funcionalidade Disponibilidade Contínua.   
         > 
-        > Deve ativar a Disponibilidade Contínua apenas para cargas de trabalho SQL. A utilização de ações de disponibilidade contínua SMB para cargas de trabalho que não o SQL Server *não* é suportada. Esta funcionalidade é suportada atualmente no Windows SQL Server. O Linux SQL Server não está atualmente suportado. Se estiver a utilizar uma conta não administrador (domínio) para instalar o SQL Server, certifique-se de que a conta tem o privilégio de segurança necessário atribuído. Se a conta de domínio não tiver o privilégio de segurança exigido ( `SeSecurityPrivilege` ), e o privilégio não puder ser definido ao nível do domínio, pode conceder o privilégio à conta utilizando o campo de **privilégios** de Segurança das ligações Ative Directory. Ver [Criar uma ligação ative directory](create-active-directory-connections.md#create-an-active-directory-connection).
+        > Deve ativar a disponibilidade contínua apenas para os recipientes de perfil de utilizador SQL e [FsLogix.](../virtual-desktop/create-fslogix-profile-container.md) A utilização de ações de disponibilidade contínua SMB para cargas de trabalho que não o SQL Server e os Recipientes de Perfil de Utilizador FsLogix *não* é suportada. Esta funcionalidade é suportada atualmente no Windows SQL Server. O Linux SQL Server não está atualmente suportado. Se estiver a utilizar uma conta não administrador (domínio) para instalar o SQL Server, certifique-se de que a conta tem o privilégio de segurança necessário atribuído. Se a conta de domínio não tiver o privilégio de segurança exigido ( `SeSecurityPrivilege` ), e o privilégio não puder ser definido ao nível do domínio, pode conceder o privilégio à conta utilizando o campo de **privilégios** de Segurança das ligações Ative Directory. Ver [Criar uma ligação ative directory](create-active-directory-connections.md#create-an-active-directory-connection).
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 

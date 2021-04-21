@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: e12578fa6da679587d41fb25b17b00eb1645299a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: a9997fac66dd49af04f4ed78737118d605e27072
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718418"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829895"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -62,11 +62,12 @@ Ao integrar o Defender para Endpoint com o Security Center, irá beneficiar das 
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Microsoft Defender para o próprio Centro de Segurança endpoint" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
-## <a name="microsoft-defender-for-endpoint-tenant-location"></a>Microsoft Defender para localização do inquilino endpoint
+## <a name="what-are-the-requirements-for-the-microsoft-defender-for-endpoint-tenant"></a>Quais são os requisitos para o Microsoft Defender para o inquilino Endpoint?
 
-Quando utiliza o Azure Security Center para monitorizar os seus servidores, é criado automaticamente um Microsoft Defender para o inquilino Endpoint. Os dados recolhidos pelo Defender for Endpoint são armazenados na geolocalização do arrendatário identificado durante o provisionamento. Os dados dos clientes - em forma pseudónimo - também podem ser armazenados nos sistemas centrais de armazenamento e processamento nos Estados Unidos. 
+Quando utiliza o Azure Security Center para monitorizar os seus servidores, é criado automaticamente um Microsoft Defender para o inquilino Endpoint. 
 
-Depois de configurar o local, não pode mudá-lo. Se tiver a sua própria licença para o Microsoft Defender para Endpoint e precisar de mover os seus dados para outra localização, contacte o Microsoft Support para redefinir o inquilino.
+- **Localização:** Os dados recolhidos pelo Defender for Endpoint são armazenados na geolocalização do arrendatário identificado durante o provisionamento. Os dados dos clientes - em forma pseudónimo - também podem ser armazenados nos sistemas centrais de armazenamento e processamento nos Estados Unidos. Depois de configurar o local, não pode mudá-lo. Se tiver a sua própria licença para o Microsoft Defender para Endpoint e precisar de mover os seus dados para outra localização, contacte o Microsoft Support para redefinir o inquilino.
+- **Assinaturas em movimento:** Se mudou a sua subscrição Azure entre os inquilinos do Azure, são necessárias algumas etapas preparatórias manuais antes que o Centro de Segurança implemente o Defender para o Endpoint. Para mais detalhes, [contacte o suporte da Microsoft.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
 
 ## <a name="enable-the-microsoft-defender-for-endpoint-integration"></a>Ativar o Microsoft Defender para integração endpoint
@@ -75,9 +76,12 @@ Depois de configurar o local, não pode mudá-lo. Se tiver a sua própria licen�
 
 Confirme que a sua máquina satisfaz os requisitos necessários para o Defender para o Ponto Final:
 
-1. Configure as definições de rede descritas nas [definições de procuração de dispositivos configure e conectividade da Internet](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
-1. Se estiver a implantar o Defender para endpoint para uma máquina no local, conecte-o ao Arco Azure, conforme explicado nas [máquinas híbridas Connect com servidores ativados pelo Arco Azure](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
-1. Apenas para máquinas do Windows Server 2019, confirme que as suas máquinas estão a executar um agente válido e que possuem a extensão MicrosoftMonitoringAgent
+1. Certifique-se de que a máquina está ligada ao Azure, conforme necessário:
+
+    - Para os servidores **do Windows,** configurar as definições de rede descritas nas [definições de procuração de dispositivos Configure e conectividade da Internet](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+    - Para **máquinas no local, conecte-o** ao Arco Azure, conforme explicado em [máquinas híbridas Connect com servidores ativados do Arco Azure](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
+    - Para as máquinas **Windows Server 2019** e [Windows Virtual Desktop (WVD),](../virtual-desktop/overview.md) confirme que as suas máquinas estão a executar o agente Log Analytics e que possuem a extensão MicrosoftMonitoringAgent.
+    
 1. Ativar **o Azure Defender para servidores**. Ver [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 1. Se já licenciou e implementou o Microsoft Defender para pontos finais nos seus servidores, remova-o utilizando o procedimento descrito nos [servidores do Windows offboard](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. Se mudou a sua subscrição entre inquilinos da Azure, também são necessários alguns passos preparatórios manuais. Para mais detalhes, [contacte o suporte da Microsoft.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)

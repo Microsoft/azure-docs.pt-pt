@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 48686fb78dc4295da3bd390d92ae3837cd09a4d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 048482c6b52d3fd9225224bd3b4ff3ee66bf24fd
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639429"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815365"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Quickstart: Crie um cofre de chave Azure e uma chave usando o modelo ARM 
 
@@ -223,4 +223,4 @@ Neste arranque rápido, criou um cofre de chaves e uma chave usando um modelo AR
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Saiba mais sobre o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)
+- Reveja a visão geral da [segurança do Cofre-Chave](../general/security-features.md)

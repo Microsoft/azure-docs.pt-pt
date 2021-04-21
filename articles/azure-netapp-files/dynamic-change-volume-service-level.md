@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 7b5bbad1f0691f76c12f161d1dd1f9d6ddc43270
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3409387adb1e722d8368907d731e02983dd287fc
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184326"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830165"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Alterar o nível de serviço de um volume de forma dinâmica
 

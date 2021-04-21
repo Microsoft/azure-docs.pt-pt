@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: b87001f9b283c774096fe669d58a9b487174625d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1e6f46b205790d81a3e76d2aafbcf7e13dbb5afd
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750775"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815221"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências de Cofre de Chaves para Serviço de Aplicações e Funções Azure
 
@@ -28,7 +28,7 @@ Para ler segredos do Key Vault, precisa de ter um cofre criado e dar permissão 
    > [!NOTE] 
    > Atualmente, as referências do Cofre-Chave apenas suportam identidades geridas atribuídas pelo sistema. As identidades atribuídas ao utilizador não podem ser utilizadas.
 
-1. Crie uma política de [acesso no Key Vault](../key-vault/general/security-overview.md#privileged-access) para a identidade da aplicação que criou anteriormente. Ativar a permissão secreta "Obter" sobre esta política. Não configufique a "aplicação autorizada" ou `applicationId` as definições, uma vez que tal não é compatível com uma identidade gerida.
+1. Crie uma política de [acesso no Key Vault](../key-vault/general/security-features.md#privileged-access) para a identidade da aplicação que criou anteriormente. Ativar a permissão secreta "Obter" sobre esta política. Não configufique a "aplicação autorizada" ou `applicationId` as definições, uma vez que tal não é compatível com uma identidade gerida.
 
 ### <a name="access-network-restricted-vaults"></a>Cofres restritos à rede
 

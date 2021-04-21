@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: cbf530b31797c2c72496548b3ed8f2928378ce9f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 134ac04c4f6fb5f0e38a868adc735fc816fbc875
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779494"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829517"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -464,6 +464,232 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
+
+#### <a name="shared-server-level-resources"></a>Recursos ao nível do servidor partilhados
+
+As instalações do Tomcat no Serviço de Aplicações no Windows existem em espaço partilhado no Plano de Serviço de Aplicações. Não é possível modificar diretamente uma instalação Tomcat para configuração em todo o servidor. Para fazer alterações na configuração do nível do servidor na instalação do Tomcat, tem de copiar o Tomcat numa pasta local, na qual pode modificar a configuração do Tomcat. 
+
+##### <a name="automate-creating-custom-tomcat-on-app-start"></a>Automatizar a criação de Tomcat personalizado no início da app
+
+Pode utilizar um script de arranque para executar ações antes do início de uma aplicação web. O script de arranque para personalizar o Tomcat precisa de completar os seguintes passos:
+
+1. Verifique se Tomcat já foi copiado e configurado localmente. Se fosse, o guião da startup pode acabar aqui.
+2. Copie Tomcat localmente.
+3. Faça as alterações de configuração necessárias.
+4. Indique que a configuração foi concluída com sucesso.
+
+Aqui está um roteiro PowerShell que completa estes passos:
+
+```powershell
+    # Check for marker file indicating that config has already been done
+    if(Test-Path "$LOCAL_EXPANDED\tomcat\config_done_marker"){
+        return 0
+    }
+
+    # Delete previous Tomcat directory if it exists
+    # In case previous config could not be completed or a new config should be forcefully installed
+    if(Test-Path "$LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$LOCAL_EXPANDED\tomcat" --recurse
+    }
+
+    # Copy Tomcat to local
+    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    Copy-Item -Path "$AZURE_TOMCAT90_HOME\*" -Destination "$LOCAL_EXPANDED\tomcat" -Recurse
+
+    # Perform the required customization of Tomcat
+    {... customization ...}
+
+    # Mark that the operation was a success
+    New-Item -Path "$LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+```
+
+##### <a name="transforms"></a>Transformações
+
+Um caso de uso comum para personalizar uma versão Tomcat é modificar os `server.xml` `context.xml` ficheiros de configuração , ou `web.xml` Tomcat. O Serviço de Aplicações já modifica estes ficheiros para fornecer funcionalidades da plataforma. Para continuar a utilizar estas funcionalidades, é importante preservar o conteúdo destes ficheiros quando estão a fazer alterações nos mesmos. Para isso, recomendamos que utilize uma [transformação XSL (XSLT)](https://www.w3schools.com/xml/xsl_intro.asp). Utilize uma transformação XSL para escoar alterações nos ficheiros XML, preservando o conteúdo original do ficheiro.
+
+###### <a name="example-xslt-file"></a>Arquivo exemplo XSLT
+
+Esta transformação de exemplo adiciona um novo nó de conector a `server.xml` . Note a *Transformação de Identidade,* que preserva o conteúdo original do ficheiro.
+
+```xml
+    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" indent="yes"/>
+  
+    <!-- Identity transform: this ensures that the original contents of the file are included in the new file -->
+    <!-- Ensure that your transform files include this block -->
+    <xsl:template match="@* | node()" name="Copy">
+      <xsl:copy>
+        <xsl:apply-templates select="@* | node()"/>
+      </xsl:copy>
+    </xsl:template>
+  
+    <xsl:template match="@* | node()" mode="insertConnector">
+      <xsl:call-template name="Copy" />
+    </xsl:template>
+  
+    <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                   contains(., '&lt;Connector') and
+                                   (contains(., 'scheme=&quot;https&quot;') or
+                                    contains(., &quot;scheme='https'&quot;))]">
+      <xsl:value-of select="." disable-output-escaping="yes" />
+    </xsl:template>
+  
+    <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                     comment()[contains(., '&lt;Connector') and
+                                               (contains(., 'scheme=&quot;https&quot;') or
+                                                contains(., &quot;scheme='https'&quot;))]
+                                    )]
+                        ">
+      <xsl:copy>
+        <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+      </xsl:copy>
+    </xsl:template>
+  
+    <!-- Add the new connector after the last existing Connnector if there is one -->
+    <xsl:template match="Connector[last()]" mode="insertConnector">
+      <xsl:call-template name="Copy" />
+  
+      <xsl:call-template name="AddConnector" />
+    </xsl:template>
+  
+    <!-- ... or before the first Engine if there is no existing Connector -->
+    <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                  mode="insertConnector">
+      <xsl:call-template name="AddConnector" />
+  
+      <xsl:call-template name="Copy" />
+    </xsl:template>
+  
+    <xsl:template name="AddConnector">
+      <!-- Add new line -->
+      <xsl:text>&#xa;</xsl:text>
+      <!-- This is the new connector -->
+      <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+                 maxThreads="150" scheme="https" secure="true" 
+                 keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+                 clientAuth="false" sslProtocol="TLS" />
+    </xsl:template>
+
+</xsl:stylesheet>
+```
+
+###### <a name="function-for-xsl-transform"></a>Função para transformação de XSL
+
+A PowerShell tem ferramentas incorporadas para transformar ficheiros XML utilizando transformações XSL. O seguinte script é uma função de exemplo que pode usar `startup.ps1` para executar a transformação:
+
+```powershell
+    function TransformXML{
+        param ($xml, $xsl, $output)
+
+        if (-not $xml -or -not $xsl -or -not $output)
+        {
+            return 0
+        }
+
+        Try
+        {
+            $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
+            $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
+            $xslt_settings.EnableScript = 1;
+
+            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
+            $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+            $xslt.Transform($xml, $output);
+
+        }
+
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $FailedItem = $_.Exception.ItemName
+            Write-Host  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            return 0
+        }
+        return 1
+    }
+```
+
+##### <a name="app-settings"></a>Definições da aplicação
+
+A plataforma também precisa de saber onde está instalada a sua versão personalizada do Tomcat. Pode definir a localização da instalação na definição da `CATALINA_BASE` aplicação.
+
+Pode utilizar o CLI Azure para alterar esta definição:
+
+```powershell
+    az webapp config appsettings set -g $MyResourceGroup -n $MyUniqueApp --settings CATALINA_BASE="%LOCAL_EXPANDED%\tomcat"
+```
+
+Ou pode alterar manualmente a definição no portal Azure:
+
+1. Aceda às **definições de**  >    >  **configuração da aplicação**.
+1. Selecione **nova definição de aplicação**.
+1. Utilize estes valores para criar a definição:
+   1. **Nome:**`CATALINA_BASE`
+   1. **Valor:**`"%LOCAL_EXPANDED%\tomcat"`
+
+##### <a name="example-startupps1"></a>Exemplo startup.ps1
+
+O seguinte exemplo de script copia um Tomcat personalizado para uma pasta local, executa uma transformação XSL, e indica que a transformação foi bem sucedida:
+
+```powershell
+    # Locations of xml and xsl files
+    $target_xml="$LOCAL_EXPANDED\tomcat\conf\server.xml"
+    $target_xsl="$HOME\site\server.xsl"
+
+    # Define the transform function
+    # Useful if transforming multiple files
+    function TransformXML{
+        param ($xml, $xsl, $output)
+
+        if (-not $xml -or -not $xsl -or -not $output)
+        {
+            return 0
+        }
+
+        Try
+        {
+            $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
+            $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
+            $xslt_settings.EnableScript = 1;
+
+            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
+            $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+            $xslt.Transform($xml, $output);
+        }
+
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $FailedItem = $_.Exception.ItemName
+            Write-Host  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            return 0
+        }
+        return 1
+    }
+
+    # Check for marker file indicating that config has already been done
+    if(Test-Path "$LOCAL_EXPANDED\tomcat\config_done_marker"){
+        return 0
+    }
+
+    # Delete previous Tomcat directory if it exists
+    # In case previous config could not be completed or a new config should be forcefully installed
+    if(Test-Path "$LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$LOCAL_EXPANDED\tomcat" --recurse
+    }
+
+    # Copy Tomcat to local
+    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    Copy-Item -Path "$AZURE_TOMCAT90_HOME\*" -Destination "$LOCAL_EXPANDED\tomcat" -Recurse
+
+    # Perform the required customization of Tomcat
+    $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+
+    # Mark that the operation was a success if successful
+    if($success){
+        New-Item -Path "$LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+    }
+```
 
 #### <a name="finalize-configuration"></a>Finalizar a configuração
 

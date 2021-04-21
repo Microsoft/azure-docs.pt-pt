@@ -17,10 +17,12 @@
       href: ./quickstarts/client-libraries.md
 - name: Amostras
   items:
-    - name: Demonstração interativa
+    - name: Demonstração interativa (univariado)
       href: 'https://aka.ms/adDemo'
-    - name: Jupyter Notebook
+    - name: Caderno Jupyter (univariado)
       href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
+    - name: Caderno Jupyter (multivariado)
+      href: 'https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb'
     - name: exemplos do Azure
       href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector'
 - name: Guias de procedimentos

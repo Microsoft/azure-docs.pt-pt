@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 294587fde846a3774f7d74f64029e0bca00e9c08
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93126044"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829409"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Utilizar um certificado TLS/SSL no código no Serviço de Aplicações do Azure
 
@@ -159,6 +159,19 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+O código C# que se segue mostra como carregar um certificado privado numa aplicação Linux.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+...
+var bytes = File.ReadAllBytes("/var/ssl/private/<thumbprint>.p12");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate

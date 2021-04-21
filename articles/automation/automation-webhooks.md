@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: c46a8753c87e981d9e3d6ecdd698bbbe6cba9894
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 338fb56c4af5c24b7b746ffd6508c2fe7d52b131
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775787"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830201"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
 

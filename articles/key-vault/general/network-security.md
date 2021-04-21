@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8352deb00f6954d862b9e44646cce1604e2c5428
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1f2df113b855ef85906e00a0316b09870ff20fb7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749623"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814375"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar firewalls de cofre de chaves Azure e redes virtuais
 
@@ -68,7 +68,7 @@ Neste caso, deve criar o recurso dentro de uma rede virtual e, em seguida, permi
 Para entender como configurar uma ligação de ligação privada no seu cofre de chaves, consulte o documento [aqui](./private-link-service.md).
 
 > [!IMPORTANT]
-> Após as regras de firewall estarem em vigor, os utilizadores só podem realizar operações [de plano de dados](security-overview.md#privileged-access) key Vault quando os seus pedidos são originários de redes virtuais permitidas ou intervalos de endereços IPv4. Isto também se aplica ao acesso ao Cofre de Chaves a partir do portal Azure. Embora os utilizadores possam navegar para um cofre chave a partir do portal Azure, podem não ser capazes de listar chaves, segredos ou certificados se a sua máquina cliente não estiver na lista permitida. Isto também afeta o Key Vault Picker por outros serviços Azure. Os utilizadores podem ser capazes de ver a lista de cofres chave, mas não listar chaves, se as regras de firewall impedirem a sua máquina de clientes.
+> Após as regras de firewall estarem em vigor, os utilizadores só podem realizar operações [de plano de dados](security-features.md#privileged-access) key Vault quando os seus pedidos são originários de redes virtuais permitidas ou intervalos de endereços IPv4. Isto também se aplica ao acesso ao Cofre de Chaves a partir do portal Azure. Embora os utilizadores possam navegar para um cofre chave a partir do portal Azure, podem não ser capazes de listar chaves, segredos ou certificados se a sua máquina cliente não estiver na lista permitida. Isto também afeta o Key Vault Picker por outros serviços Azure. Os utilizadores podem ser capazes de ver a lista de cofres chave, mas não listar chaves, se as regras de firewall impedirem a sua máquina de clientes.
 
 > [!NOTE]
 > Esteja atento às seguintes limitações de configuração:
@@ -175,4 +175,4 @@ Eis como configurar firewalls key vault e redes virtuais usando PowerShell:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Pontos finais de serviço de rede virtual para Key Vault](overview-vnet-service-endpoints.md)
-* [Visão geral da segurança do Cofre de Chaves Azure](security-overview.md)
+* [Visão geral da segurança do Cofre de Chaves Azure](security-features.md)

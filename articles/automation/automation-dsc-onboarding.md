@@ -8,13 +8,14 @@ author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
+ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: c0dc68bd7dacf0cd7f4be9732d45831e2dbb712c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d338c5f34d49663345582198ff53ba50a2919d7e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897008"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829427"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Ativar a configuração do estado da automação Azure
 
