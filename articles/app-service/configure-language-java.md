@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 1caa8b680b6bc3df20ad31e581d336195308a2dc
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: cbf530b31797c2c72496548b3ed8f2928378ce9f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726327"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779494"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -144,12 +144,12 @@ Utilize [o FTPS](deploy-ftp.md) para descarregar o seu ficheiro JFR para a sua m
 
 ::: zone pivot="platform-windows"
 
-Habilitar o [registo de aplicações](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) através do portal Azure ou [do Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) para configurar o Serviço de Aplicações para escrever a saída padrão da consola da sua aplicação e fluxos de erro de consola padrão para o sistema de ficheiros local ou para o Armazenamento Azure Blob. O registo na instância do sistema de ficheiros do Serviço de Aplicações local é desativado 12 horas após a sua configuração. Se necessitar de uma retenção mais longa, configuure a aplicação para escrever a saída num recipiente de armazenamento Blob. Os seus registos de aplicações Java e Tomcat podem ser encontrados no *diretório /home/LogFiles/Application/.*
+Habilitar o [registo de aplicações](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) através do portal Azure ou [do Azure CLI](/cli/azure/webapp/log#az_webapp_log_config) para configurar o Serviço de Aplicações para escrever a saída padrão da consola da sua aplicação e fluxos de erro de consola padrão para o sistema de ficheiros local ou para o Armazenamento Azure Blob. O registo na instância do sistema de ficheiros do Serviço de Aplicações local é desativado 12 horas após a sua configuração. Se necessitar de uma retenção mais longa, configuure a aplicação para escrever a saída num recipiente de armazenamento Blob. Os seus registos de aplicações Java e Tomcat podem ser encontrados no *diretório /home/LogFiles/Application/.*
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-Habilitar o [registo de aplicações](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) através do portal Azure ou [do Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) para configurar o Serviço de Aplicações para escrever a saída padrão da consola da sua aplicação e fluxos de erro de consola padrão para o sistema de ficheiros local ou para o Armazenamento Azure Blob. Se necessitar de uma retenção mais longa, configuure a aplicação para escrever a saída num recipiente de armazenamento Blob. Os seus registos de aplicações Java e Tomcat podem ser encontrados no *diretório /home/LogFiles/Application/.*
+Habilitar o [registo de aplicações](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) através do portal Azure ou [do Azure CLI](/cli/azure/webapp/log#az_webapp_log_config) para configurar o Serviço de Aplicações para escrever a saída padrão da consola da sua aplicação e fluxos de erro de consola padrão para o sistema de ficheiros local ou para o Armazenamento Azure Blob. Se necessitar de uma retenção mais longa, configuure a aplicação para escrever a saída num recipiente de armazenamento Blob. Os seus registos de aplicações Java e Tomcat podem ser encontrados no *diretório /home/LogFiles/Application/.*
 
 O registo de armazenamento Azure Blob para Serviços de Aplicações baseados em Linux só pode ser configurado usando [o Azure Monitor (pré-visualização)](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview) 
 

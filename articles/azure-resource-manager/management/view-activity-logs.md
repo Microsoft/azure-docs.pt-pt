@@ -3,12 +3,12 @@ title: Ver registos de atividades do Azure para monitorizar recursos
 description: Utilize os registos de atividade para rever as ações e erros do utilizador. Mostra o portal Azure PowerShell, Azure CLI e REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7612146a0f9407663631f87c57f30ea4c590c7a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91371597"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773932"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Ver registos de atividades para monitorizar ações em recursos
 
@@ -140,7 +140,7 @@ Pode utilizar o Gráfico de Recursos para ver o histórico de alteração de um 
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Para obter as entradas de registo, execute o comando da [lista de registos de atividade do monitor az](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) com uma compensação para indicar o tempo.
+Para obter as entradas de registo, execute o comando da [lista de registos de atividade do monitor az](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) com uma compensação para indicar o tempo.
 
 ```azurecli-interactive
 az monitor activity-log list --resource-group ExampleGroup --offset 7d

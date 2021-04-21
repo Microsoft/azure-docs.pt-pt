@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: dec4eec16ba24baf31d911db882625479c33fb3b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 44ab9e4ff83fec2ddfbd1cb44f503298d12789d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278631"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766304"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos Serviços de Media
 
@@ -169,10 +169,10 @@ Uma vez criado o evento ao vivo, você pode obter URLs ingeridos que você vai f
     |Linguagem|Ativar URL de nome de anfitrião estático|Definir o token de acesso|
     |---|---|---|
     |REST|[propriedades.useSstaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useSstaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--uso-estático-nome hospedeiro](/cli/azure/ams/live-event#az-ams-live-event-create)|[--token de acesso](/cli/azure/ams/live-event#optional-parameters)|
+    |CLI|[--uso-estático-nome hospedeiro](/cli/azure/ams/live-event#az_ams_live_event_create)|[--token de acesso](/cli/azure/ams/live-event#optional-parameters)|
     |.NET|[LiveEvent.useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
-### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura dos URLs de ingestão em direto
+### <a name="live-ingest-url-naming-rules"></a>Regras de nomeação de URL ao vivo
 
 * A cadeia *aleatória* abaixo é um número hexadecimal de 128 bits (que é composto por 32 carateres de 0-9 e a-f).
 * *o seu token de acesso*: A cadeia GUID válida que definiu ao utilizar a definição de nome de hospedeiro estático. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.

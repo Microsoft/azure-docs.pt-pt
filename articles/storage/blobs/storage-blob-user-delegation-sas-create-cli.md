@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 536cd01fbcf2c5d18a8c12030b709427d9bb91b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ec434b9b6da3b3b80a3afddbb432ddeece2b389
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98703611"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788552"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com o Azure CLI
 
@@ -65,7 +65,7 @@ Ao criar uma delegação de utilizador SAS, `--auth-mode login` o e `--as-user p
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Criar uma delegação de utilizador SAS para um recipiente
 
-Para criar uma delegação de utilizador SAS para um recipiente com o CLI Azure, ligue para o [comando de confli do recipiente de armazenamento az.](/cli/azure/storage/container#az-storage-container-generate-sas)
+Para criar uma delegação de utilizador SAS para um recipiente com o CLI Azure, ligue para o [comando de confli do recipiente de armazenamento az.](/cli/azure/storage/container#az_storage_container_generate_sas)
 
 Permissões suportadas para uma delegação de utilizador SAS em um recipiente incluem Adicionar, Criar, Eliminar, Listar, Ler e Escrever. As permissões podem ser especificadas singly ou combinadas. Para obter mais informações sobre estas permissões, consulte [Criar uma delegação de utilizador SAS](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -89,7 +89,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 ### <a name="create-a-user-delegation-sas-for-a-blob"></a>Criar uma delegação de utilizador SAS para uma bolha
 
-Para criar uma delegação de utilizador SAS para uma bolha com o CLI Azure, ligue para o comando [az blob de armazenamento generate-sas.](/cli/azure/storage/blob#az-storage-blob-generate-sas)
+Para criar uma delegação de utilizador SAS para uma bolha com o CLI Azure, ligue para o comando [az blob de armazenamento generate-sas.](/cli/azure/storage/blob#az_storage_blob_generate_sas)
 
 As permissões suportadas para uma delegação de utilizador SAS numa bolha incluem Adicionar, Criar, Eliminar, Ler e Escrever. As permissões podem ser especificadas singly ou combinadas. Para obter mais informações sobre estas permissões, consulte [Criar uma delegação de utilizador SAS](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -119,7 +119,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 ## <a name="revoke-a-user-delegation-sas"></a>Revogar uma delegação de utilizadores SAS
 
-Para revogar uma delegação de utilizadores SAS do Azure CLI, ligue para a conta de armazenamento AZ revogar o comando [de chaves de delegação.](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) Este comando revoga todas as chaves da delegação do utilizador associadas à conta de armazenamento especificada. Quaisquer assinaturas de acesso partilhada associadas a essas chaves são invalidadas.
+Para revogar uma delegação de utilizadores SAS do Azure CLI, ligue para a conta de armazenamento AZ revogar o comando [de chaves de delegação.](/cli/azure/storage/account#az_storage_account_revoke_delegation_keys) Este comando revoga todas as chaves da delegação do utilizador associadas à conta de armazenamento especificada. Quaisquer assinaturas de acesso partilhada associadas a essas chaves são invalidadas.
 
 Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 

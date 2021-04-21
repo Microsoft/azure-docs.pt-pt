@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/10/2020
 ms.author: baanders
-ms.openlocfilehash: 37bccbcd92f627fd45a7f786725afe5b2e475f3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e752d6c6668ec751ff1e1bc3cd7fcc07d042d6fa
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94533907"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800367"
 ---
 ## <a name="visualization"></a>Visualização
 
 Embora a principal forma de interagir com o seu exemplo de Azure Digital Twins seja através das [APIs e SDKs,](../articles/digital-twins/how-to-use-apis-sdks.md)pode ser útil ver uma visualização dos gémeos e gráficos que está a criar no seu caso.
 
-O [**explorador Azure Digital Twins (ADT)**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é uma aplicação de amostra para visualizar e trabalhar com a Azure Digital Twins. Siga as instruções fornecidas com a amostra para descarregar e executar o código de aplicação. 
+O [**Azure Digital Twins Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é uma aplicação de amostra para visualizar e trabalhar com a Azure Digital Twins. Siga as instruções fornecidas com a amostra para descarregar e executar o código de aplicação. 
 
 Com esta amostra, pode ver uma representação visual dos seus gémeos digitais e o gráfico que criam, entre outras atividades de criação e gestão.
 

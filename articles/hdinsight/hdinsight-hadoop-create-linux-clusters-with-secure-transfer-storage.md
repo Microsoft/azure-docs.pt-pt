@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: a02da7237252811d89e2c19a29f49f0bf9bb3804
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22804015ebf0344c00e60c88f780fe22ba440b52
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945738"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774994"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Aglomerados Apache Hadoop com contas de armazenamento de transferência seguras em Azure HDInsight
 
@@ -35,7 +35,7 @@ Para atualizar uma conta de armazenamento existente com o PowerShell, consulte [
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para a conta de armazenamento Azure CLI [az criar,](/cli/azure/storage/account#az-storage-account-create)certifique-se de que o parâmetro `--https-only` está definido para `true` .
+Para a conta de armazenamento Azure CLI [az criar,](/cli/azure/storage/account#az_storage_account_create)certifique-se de que o parâmetro `--https-only` está definido para `true` .
 
 Para atualizar uma conta de armazenamento existente com o Azure CLI, consulte [Exigir transferência segura com o Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

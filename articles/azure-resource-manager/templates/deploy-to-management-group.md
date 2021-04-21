@@ -3,12 +3,12 @@ title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: dc7418d9e93fb50590c5e2502b3a3ffb3847273f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74e00921a1170a7750f4a2d239bb778150ac2cae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043313"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781942"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementações de grupos de gestão com modelos ARM
 
@@ -75,7 +75,7 @@ Para implantar num grupo de gestão, utilize os comandos de implantação do gru
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para O Azure CLI, utilize [mg de implantação az:](/cli/azure/deployment/mg#az-deployment-mg-create)
+Para O Azure CLI, utilize [mg de implantação az:](/cli/azure/deployment/mg#az_deployment_mg_create)
 
 ```azurecli-interactive
 az deployment mg create \

@@ -4,12 +4,12 @@ description: Este script de amostra demonstra como adicionar uma aplicação par
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 414a401168b1b378ed33f4904607243de0267d22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06afb59a76e763c25e943c3be1531372a6bd2aa1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94565811"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765288"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Exemplo da CLI: Adicionar uma aplicação a uma conta do Azure Batch
 
@@ -38,14 +38,14 @@ Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Cria a conta do Batch. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentica contra a conta do Batch especificada para obter mais interação da CLI.  |
-| [az batch application create](/cli/azure/batch/application#az-batch-application-create) | Cria uma aplicação.  |
-| [az batch application package create](/cli/azure/batch/application/package#az-batch-application-package-create) | Adiciona um pacote de aplicação à aplicação especificada.  |
-| [az batch application set](/cli/azure/batch/application#az-batch-application-set) | Atualiza as propriedades de uma aplicação.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Batch. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica contra a conta do Batch especificada para obter mais interação da CLI.  |
+| [az batch application create](/cli/azure/batch/application#az_batch-application-create) | Cria uma aplicação.  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch-application-package-create) | Adiciona um pacote de aplicação à aplicação especificada.  |
+| [az batch application set](/cli/azure/batch/application#az_batch-application-set) | Atualiza as propriedades de uma aplicação.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

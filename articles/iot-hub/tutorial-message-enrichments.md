@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: bd047419275d98049f883bb88a83708a9dfdd7d3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0d6c90120d050b6896161f50332faf447c3ed67b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066896"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788876"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Use enriquecimentos de mensagens Azure IoT Hub
 
@@ -386,7 +386,7 @@ Para remover todos os recursos que criou neste tutorial, elimine o grupo de recu
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Use o CLI Azure para limpar recursos
 
-Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group#az-group-delete). Lembre-se que `$resourceGroup` foi definido para **ContosoResourcesMsgEn** no início deste tutorial.
+Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group#az_group_delete). Lembre-se que `$resourceGroup` foi definido para **ContosoResourcesMsgEn** no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
