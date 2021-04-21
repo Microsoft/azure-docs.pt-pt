@@ -3,12 +3,12 @@ title: Gráficos de leme da loja
 description: Saiba como armazenar gráficos Helm para as suas aplicações Kubernetes usando repositórios no Registo de Contentores Azure
 ms.topic: article
 ms.date: 04/15/2021
-ms.openlocfilehash: 6698eb8f5e18511717e44bf5dc06a51d8f3903b8
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c7dcdf222e9628daedb7e1c3617efb0b9c7af185
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537311"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772384"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Empurre e puxe as fichas de Helm para um registo de contentores Azure
 
@@ -291,12 +291,12 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-quickstart]: ../aks/kubernetes-walkthrough.md
 [acr-bestpractices]: container-registry-best-practices.md
-[az-configure]: /cli/azure/reference-index#az-configure
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-configure]: /cli/azure/reference-index#az_configure
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-helm]: /cli/azure/acr/helm
 [az-acr-repository]: /cli/azure/acr/repository
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [acr-tasks]: container-registry-tasks-overview.md
