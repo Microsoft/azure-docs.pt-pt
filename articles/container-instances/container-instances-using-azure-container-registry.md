@@ -5,12 +5,12 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aba107ac58538245c16f581afa2c493f546ca01
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92736727"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786950"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar no Azure Container Instances a partir do Azure Container Registry
 
@@ -175,7 +175,7 @@ Para obter mais informações sobre a autenticação do Registo do Contentor Azu
 [cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-create]: /cli/azure/container#az-container-create
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-container-create]: /cli/azure/container#az_container_create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set

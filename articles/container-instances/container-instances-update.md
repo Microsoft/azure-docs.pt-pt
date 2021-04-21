@@ -3,12 +3,12 @@ title: Atualizar grupo de contentores
 description: Saiba como atualizar os recipientes de funcionamento nos grupos de contentores Azure Container.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: fb31eeda83532c408a303e879439006bcd7d4e45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cbb2e830490d2591645b8156ee830856da0f9049
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200653"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786968"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contentores no Azure Container Instances
 
@@ -89,6 +89,6 @@ Mencionado várias vezes neste artigo é o **grupo de contentores.** Todos os co
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-container-export]: /cli/azure/container#az-container-export
+[az-container-export]: /cli/azure/container#az_container_export

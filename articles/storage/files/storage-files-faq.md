@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4d7123aa22d95e3e4c3850be775ddad96f28d280
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064312"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785312"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de [Mensagens do Servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão da indústria e do [protocolo do Sistema de Ficheiros de Rede (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (pré-visualização). Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -90,7 +90,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="afs-region-availability"></a>
   **Que regiões são suportadas para o Azure File Sync?**  
-    A lista das regiões disponíveis pode ser encontrada na secção de disponibilidade da [Região](storage-sync-files-planning.md#azure-file-sync-region-availability) do guia de planeamento do Azure File Sync. Acrescentaremos continuamente apoio a regiões adicionais, incluindo regiões não públicas.
+    A lista das regiões disponíveis pode ser encontrada na secção de disponibilidade da [Região](../file-sync/file-sync-planning.md#azure-file-sync-region-availability) do guia de planeamento do Azure File Sync. Acrescentaremos continuamente apoio a regiões adicionais, incluindo regiões não públicas.
 
 * <a id="cross-domain-sync"></a>
   **Posso ter servidores unidos por domínio e não-domínios no mesmo grupo de sincronização?**  
@@ -119,28 +119,28 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="sizeondisk-versus-size"></a>
   **Por que o tamanho na propriedade *do disco* para um ficheiro corresponde à propriedade *Size* depois de usar Azure File Sync?**  
-  Consulte [o nível da nuvem de sincronização de ficheiros Azure.](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior)
+  Consulte [o nível da nuvem de sincronização de ficheiros Azure.](../file-sync/file-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior)
 
 * <a id="is-my-file-tiered"></a>
   **Como posso saber se um ficheiro foi divulgado?**  
-  Ver [como gerir ficheiros tiered Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
+  Consulte [a compreensão do nível da nuvem](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Um ficheiro que quero usar foi hierarquizado. Como posso lembrar-me do ficheiro para o disco para o usar localmente?**  
-  Ver [como gerir ficheiros tiered Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+  Consulte [a compreensão do nível da nuvem](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **Como posso forçar um ficheiro ou diretório a ser hierárquico?**  
-  Ver [como gerir ficheiros tiered Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
+  Consulte [a compreensão do nível da nuvem](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **Como é interpretado *o espaço livre de volume* quando tenho vários pontos finais do servidor num volume?**  
-  Consulte as políticas de tiering de nuvem de [sincronização de ficheiros Azure.](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume)
+  Consulte [a compreensão do nível da nuvem](../file-sync/file-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **Tenho camadas de nuvem desativadas, por que há ficheiros hierárquicos na localização do ponto final do servidor?**  
     Existem duas razões pelas quais os ficheiros hierárquicos podem existir na localização do ponto final do servidor:
 
-    - Ao adicionar um novo ponto final do servidor a um grupo de sincronização existente, se escolher a primeira opção do espaço de identificação de recolha ou a opção de espaço de nome de chamada para o modo de descarregamento inicial, os ficheiros aparecerão como hierárquicos até serem descarregados localmente. Para evitar isto, selecione a opção de ficheiros hierárquicos para o modo de descarregamento inicial. Para relembr os ficheiros manualmente, utilize o cmdlet [Invoke-StorageSyncFileRecall.](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk)
+    - Ao adicionar um novo ponto final do servidor a um grupo de sincronização existente, se escolher a primeira opção do espaço de identificação de recolha ou a opção de espaço de nome de chamada para o modo de descarregamento inicial, os ficheiros aparecerão como hierárquicos até serem descarregados localmente. Para evitar isto, selecione a opção de ficheiros hierárquicos para o modo de descarregamento inicial. Para relembr os ficheiros manualmente, utilize o cmdlet [Invoke-StorageSyncFileRecall.](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk)
 
     - Se o tiering da nuvem foi ativado no ponto final do servidor e depois desativado, os ficheiros permanecerão nivelados até serem acedidos.
 
@@ -150,11 +150,11 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     Este comportamento não é específico do Azure File Sync, o Windows Explorer apresenta um "X cinzento" para quaisquer ficheiros que tenham o conjunto de atributos offline. Verá o ícone X ao aceder a ficheiros sobre SMB. Para uma explicação detalhada deste comportamento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
-    Para obter perguntas sobre como gerir ficheiros hierárquicos, consulte [como gerir ficheiros hierárquicos](storage-sync-how-to-manage-tiered-files.md).
+    Para obter perguntas sobre como gerir ficheiros hierárquicos, consulte [como gerir ficheiros hierárquicos](../file-sync/file-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Quais ficheiros ou pastas são automaticamente excluídos pelo Azure File Sync?**  
-  Ver [Ficheiros ignorados](storage-sync-files-planning.md#files-skipped).
+  Ver [Ficheiros ignorados](../file-sync/file-sync-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   **Posso utilizar o Azure File Sync com o Windows Server 2008 R2, Linux ou com o meu dispositivo de armazenamento (NAS) ligado à rede?**  
@@ -162,7 +162,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Por que existem ficheiros hierárquicos fora do espaço de nome do ponto final do servidor?**  
-    Antes da versão 3 do agente Azure File Sync, o Azure File Sync bloqueou a deslocação de ficheiros hierarquizados fora do ponto final do servidor, mas no mesmo volume que o ponto final do servidor. As operações de cópia, os movimentos de ficheiros não hierárquicos e os movimentos de tiered para outros volumes não foram afetados. A razão para este comportamento foi o pressuposto implícito de que o File Explorer e outras APIs do Windows têm que mover operações no mesmo volume são (quase) operações instantâneas de renome. Isto significa que os movimentos farão com que o File Explorer ou outros métodos de movimento (como a linha de comando ou o PowerShell) apareçam sem resposta enquanto o Azure File Sync recorda os dados da nuvem. Começando pela [versão 3.0.12.0 do agente Azure File](storage-files-release-notes.md#supported-versions)Sync, o Azure File Sync permitir-lhe-á mover um ficheiro hierárquico para fora do ponto final do servidor. Evitamos os efeitos negativos mencionados anteriormente, permitindo que o ficheiro hierárquico exista como um ficheiro hierarquizado fora do ponto final do servidor e, em seguida, relembramos o ficheiro em segundo plano. Isto significa que os movimentos no mesmo volume são instantâneos, e fazemos todo o trabalho para chamar o ficheiro para o disco depois de concluído o movimento. 
+    Antes da versão 3 do agente Azure File Sync, o Azure File Sync bloqueou a deslocação de ficheiros hierarquizados fora do ponto final do servidor, mas no mesmo volume que o ponto final do servidor. As operações de cópia, os movimentos de ficheiros não hierárquicos e os movimentos de tiered para outros volumes não foram afetados. A razão para este comportamento foi o pressuposto implícito de que o File Explorer e outras APIs do Windows têm que mover operações no mesmo volume são (quase) operações instantâneas de renome. Isto significa que os movimentos farão com que o File Explorer ou outros métodos de movimento (como a linha de comando ou o PowerShell) apareçam sem resposta enquanto o Azure File Sync recorda os dados da nuvem. Começando pela [versão 3.0.12.0 do agente Azure File](../file-sync/file-sync-release-notes.md#supported-versions)Sync, o Azure File Sync permitir-lhe-á mover um ficheiro hierárquico para fora do ponto final do servidor. Evitamos os efeitos negativos mencionados anteriormente, permitindo que o ficheiro hierárquico exista como um ficheiro hierarquizado fora do ponto final do servidor e, em seguida, relembramos o ficheiro em segundo plano. Isto significa que os movimentos no mesmo volume são instantâneos, e fazemos todo o trabalho para chamar o ficheiro para o disco depois de concluído o movimento. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
   **Estou tendo um problema com Azure File Sync no meu servidor (sincronização, nivelamento de nuvem, etc.). Devo remover e recriar o ponto final do meu servidor?**  
@@ -170,7 +170,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     
 * <a id="afs-resource-move"></a>
   **Posso mover o serviço de sincronização de armazenamento e/ou conta de armazenamento para um grupo de recursos diferente, subscrição ou inquilino AD AZure?**  
-   Sim, o serviço de sincronização de armazenamento e/ou conta de armazenamento pode ser transferido para um grupo de recursos diferente, subscrição ou inquilino AD AZure. Depois de o serviço de sincronização de armazenamento ou a conta de armazenamento ser movido, é necessário dar à aplicação Microsoft.StorageSync acesso à conta de armazenamento (ver [Ensure Azure File Sync tem acesso à conta de armazenamento).](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)
+   Sim, o serviço de sincronização de armazenamento e/ou conta de armazenamento pode ser transferido para um grupo de recursos diferente, subscrição ou inquilino AD AZure. Depois de o serviço de sincronização de armazenamento ou a conta de armazenamento ser movido, é necessário dar à aplicação Microsoft.StorageSync acesso à conta de armazenamento (ver [Ensure Azure File Sync tem acesso à conta de armazenamento).](../file-sync/file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)
 
     > [!Note]  
     > Ao criar o ponto final da nuvem, o serviço de sincronização de armazenamento e a conta de armazenamento devem estar no mesmo inquilino AD AZure. Uma vez criado o ponto final da nuvem, o serviço de sincronização de armazenamento e a conta de armazenamento podem ser transferidos para diferentes inquilinos AD AZure.
@@ -494,4 +494,4 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 ## <a name="see-also"></a>Ver também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Resolver problemas do Azure File Sync](../file-sync/file-sync-troubleshoot.md)

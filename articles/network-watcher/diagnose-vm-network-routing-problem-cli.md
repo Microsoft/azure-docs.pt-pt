@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 415fcc72116cc36644b58b619404d96ff63b024d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ca7a3b25b1355e21782c1d9f736d20a14cbd4ac
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065927"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785456"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de encaminhamento de rede de máquinas virtuais - Azure CLI
 
@@ -37,13 +37,13 @@ Neste artigo, você implanta uma máquina virtual (VM) e, em seguida, verifique 
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Antes de criar uma VM, tem de criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
+Antes de criar uma VM, tem de criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O exemplo a seguir cria um VM chamado *myVm:*
+Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O exemplo a seguir cria um VM chamado *myVm:*
 
 ```azurecli-interactive
 az vm create \
@@ -61,7 +61,7 @@ Para testar a comunicação da rede com o Network Watcher, tem primeiro de ativa
 
 ### <a name="enable-network-watcher"></a>Ativar o observador de rede
 
-Se já tiver um observador de rede ativado na região leste dos EUA, salte para use o [próximo salto](#use-next-hop). Use o comando [de configuração de rede az](/cli/azure/network/watcher#az-network-watcher-configure) para criar um observador de rede na região leste dos EUA:
+Se já tiver um observador de rede ativado na região leste dos EUA, salte para use o [próximo salto](#use-next-hop). Use o comando [de configuração de rede az](/cli/azure/network/watcher#az_network_watcher_configure) para criar um observador de rede na região leste dos EUA:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -72,7 +72,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Utilizar o próximo salto
 
-O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas personalizadas que substituem as rotas predefinidas. Por vezes, as rotas personalizadas podem causar falhas na comunicação. Para testar o encaminhamento a partir de um VM, utilize [o show-next-hop do observador de rede Az](/cli/azure/network/watcher#az-network-watcher-show-next-hop) para determinar o próximo salto de encaminhamento quando o tráfego está destinado a um endereço específico.
+O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas personalizadas que substituem as rotas predefinidas. Por vezes, as rotas personalizadas podem causar falhas na comunicação. Para testar o encaminhamento a partir de um VM, utilize [o show-next-hop do observador de rede Az](/cli/azure/network/watcher#az_network_watcher_show_next_hop) para determinar o próximo salto de encaminhamento quando o tráfego está destinado a um endereço específico.
 
 Teste a comunicação de saída a partir da VM para um dos endereços IP para www.bing.com:
 
@@ -104,7 +104,7 @@ A saída devolvida informa-o de que **nenhum** é o **próximo 00000,** e que o 
 
 ## <a name="view-details-of-a-route"></a>Ver detalhes de uma rota
 
-Para analisar o encaminhamento, reveja as rotas eficazes para a interface de rede com o comando [de tabela de séries de séries de rede az nic:](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
+Para analisar o encaminhamento, reveja as rotas eficazes para a interface de rede com o comando [de tabela de séries de séries de rede az nic:](/cli/azure/network/nic#az_network_nic_show_effective_route_table)
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -154,7 +154,7 @@ Como pode ver na saída a partir do `az network watcher nic show-effective-route
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos que contém:
+Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos que contém:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

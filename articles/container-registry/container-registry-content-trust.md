@@ -3,12 +3,12 @@ title: Gerir imagens assinadas
 description: Saiba como ativar a confiança de conteúdo para o seu registo de contentores Azure e empurre e puxe imagens assinadas. A content trust implementa a confiança de conteúdo do Docker e é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 238908c0075ffa5d2193eda642175a0cfe75b839
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92148583"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784124"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
 
@@ -220,4 +220,4 @@ Para desativar a confiança do conteúdo no seu registo, navegue para o mesmo no
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az_acr_config_content_trust_update

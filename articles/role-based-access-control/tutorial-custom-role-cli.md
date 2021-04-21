@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 319bca74c8e781e5dc5022e9fb901b2edca24a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3743697d58d0f5b167b123df59bc5638aa60489
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87485648"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771682"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Tutorial: Criar um papel personalizado Azure usando O Azure CLI
 
@@ -86,7 +86,7 @@ A forma mais fácil de criar uma função personalizada é começar com um model
     "Microsoft.Support/*"
     ```
 
-1. Obtenha o ID da sua subscrição com o comando [az account list](/cli/azure/account#az-account-list).
+1. Obtenha o ID da sua subscrição com o comando [az account list](/cli/azure/account#az_account_list).
 
     ```azurecli
     az account list --output table
@@ -118,7 +118,7 @@ A forma mais fácil de criar uma função personalizada é começar com um model
     }
     ```
     
-1. Para criar a nova função personalizada, utilize o comando[az role definition create](/cli/azure/role/definition#az-role-definition-create) e especifique o ficheiro de definição de função JSON.
+1. Para criar a nova função personalizada, utilize o comando[az role definition create](/cli/azure/role/definition#az_role_definition_create) e especifique o ficheiro de definição de função JSON.
 
     ```azurecli
     az role definition create --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -155,7 +155,7 @@ A forma mais fácil de criar uma função personalizada é começar com um model
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
 
-- Para listar todas as funções personalizadas, utilize o comando [az role definition list](/cli/azure/role/definition#az-role-definition-list) com o parâmetro `--custom-role-only`.
+- Para listar todas as funções personalizadas, utilize o comando [az role definition list](/cli/azure/role/definition#az_role_definition_list) com o parâmetro `--custom-role-only`.
 
     ```azurecli
     az role definition list --custom-role-only true
@@ -225,7 +225,7 @@ Para atualizar a função personalizada, atualize o ficheiro JSON e, em seguida,
     }
     ```
         
-1. Para atualizar a função personalizada, utilize o comando [az role definition update](/cli/azure/role/definition#az-role-definition-update) e especifique o ficheiro JSON atualizado.
+1. Para atualizar a função personalizada, utilize o comando [az role definition update](/cli/azure/role/definition#az_role_definition_update) e especifique o ficheiro JSON atualizado.
 
     ```azurecli
     az role definition update --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -261,7 +261,7 @@ Para atualizar a função personalizada, atualize o ficheiro JSON e, em seguida,
     
 ## <a name="delete-a-custom-role"></a>Eliminar uma função personalizada
 
-- Utilize o comando [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) e especifique o nome da função ou o ID da função para eliminar a função personalizada.
+- Utilize o comando [az role definition delete](/cli/azure/role/definition#az_role_definition_delete) e especifique o nome da função ou o ID da função para eliminar a função personalizada.
 
     ```azurecli
     az role definition delete --name "Reader Support Tickets"

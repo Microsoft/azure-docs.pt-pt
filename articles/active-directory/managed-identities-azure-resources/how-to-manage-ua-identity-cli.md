@@ -16,12 +16,12 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 68f305156645d69049519cd383f06b28ab9b5e03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a26f13b71ae96f4d6593cb4a4d9107f8ef6c207c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98184887"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784880"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador utilizando o CLI Azure
 
@@ -45,7 +45,7 @@ Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https:
 
 Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
-Utilize o comando de criação de [identidade az](/cli/azure/identity#az-identity-create) para criar uma identidade gerida atribuída pelo utilizador. O `-g` parâmetro especifica o grupo de recursos onde criar a identidade gerida atribuída pelo utilizador, e o parâmetro especifica o `-n` seu nome. Substitua os `<RESOURCE GROUP>` valores e `<USER ASSIGNED IDENTITY NAME>` parâmetros pelos seus próprios valores:
+Utilize o comando de criação de [identidade az](/cli/azure/identity#az_identity_create) para criar uma identidade gerida atribuída pelo utilizador. O `-g` parâmetro especifica o grupo de recursos onde criar a identidade gerida atribuída pelo utilizador, e o parâmetro especifica o `-n` seu nome. Substitua os `<RESOURCE GROUP>` valores e `<USER ASSIGNED IDENTITY NAME>` parâmetros pelos seus próprios valores:
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -56,7 +56,7 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 
 Para listar/ler uma identidade gerida atribuída pelo utilizador, a sua conta precisa da atribuição de funções de [Colaborador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) ou De Identidade [Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
-Para listar identidades geridas atribuídas pelo utilizador, utilize o comando [da lista de identidades AZ.](/cli/azure/identity#az-identity-list) Substitua-a `<RESOURCE GROUP>` pelo seu próprio valor:
+Para listar identidades geridas atribuídas pelo utilizador, utilize o comando [da lista de identidades AZ.](/cli/azure/identity#az_identity_list) Substitua-a `<RESOURCE GROUP>` pelo seu próprio valor:
 
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
@@ -70,7 +70,7 @@ Na resposta json, as identidades geridas atribuídas pelo utilizador têm `"Micr
 
 Para eliminar uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
-Para eliminar uma identidade gerida atribuída pelo utilizador, utilize o comando [de eliminação de identidade az.](/cli/azure/identity#az-identity-delete)  O parâmetro -n especifica o seu nome e o parâmetro -g especifica o grupo de recursos onde foi criada a identidade gerida atribuída pelo utilizador. Substitua os `<USER ASSIGNED IDENTITY NAME>` valores e `<RESOURCE GROUP>` parâmetros pelos seus próprios valores:
+Para eliminar uma identidade gerida atribuída pelo utilizador, utilize o comando [de eliminação de identidade az.](/cli/azure/identity#az_identity_delete)  O parâmetro -n especifica o seu nome e o parâmetro -g especifica o grupo de recursos onde foi criada a identidade gerida atribuída pelo utilizador. Substitua os `<USER ASSIGNED IDENTITY NAME>` valores e `<RESOURCE GROUP>` parâmetros pelos seus próprios valores:
 
 ```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>

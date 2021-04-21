@@ -4,12 +4,12 @@ description: Quickstart Use Azure Event Grid e Azure CLI para publicar um tópic
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0a3d8f5a1614704cea4242ce64ecc6c4504da754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97c956e0b3da556ea9fc58ef61e0d1da984c055
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97702026"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786788"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da web com Azure CLI e Grade de Eventos
 
@@ -31,7 +31,7 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). 
 
 O exemplo seguinte cria um grupo de recursos com o nome *gridResourceGroup* na localização *westus2*.
 

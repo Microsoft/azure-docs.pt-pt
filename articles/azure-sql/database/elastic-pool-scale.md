@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 04/09/2021
-ms.openlocfilehash: 3d935332854816ae62dea8e30f08bee2b92a4eab
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1125ea0c6c625ece010b2acb416ad223e37aea84
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107302986"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787130"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensione recursos de piscina elástica na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Depois de escolher inicialmente o número de vCores ou eDTUs, pode escalar uma p
 * [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Portal do Azure](elastic-pool-manage.md#azure-portal)
 * [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool)
-* [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)
+* [CLI do Azure](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)
 * [API REST](/rest/api/sql/elasticpools/update)
 
 
@@ -107,7 +107,7 @@ Você é cobrado por cada hora existe uma base de dados usando o nível de servi
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
 - O preço eDTU para uma piscina elástica inclui uma certa quantidade de armazenamento sem custos adicionais. O armazenamento extra para além do montante incluído pode ser previsto para um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB até 1 TB, e depois em incrementos de 256 GB para além de 1 TB. Para quantidades de armazenamento incluídas e limites de tamanho máximo, consulte [os limites de Recursos para piscinas elásticas utilizando o modelo de compra DTU](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes) ou [limites de recursos para piscinas elásticas utilizando o modelo de compra vCore](resource-limits-vcore-elastic-pools.md).
-- O armazenamento extra para uma piscina elástica pode ser a provisionado aumentando o seu tamanho máximo utilizando o [portal Azure,](elastic-pool-manage.md#azure-portal) [o PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)o [Azure CLI,](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou o [REST API](/rest/api/sql/elasticpools/update).
+- O armazenamento extra para uma piscina elástica pode ser a provisionado aumentando o seu tamanho máximo utilizando o [portal Azure,](elastic-pool-manage.md#azure-portal) [o PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)o [Azure CLI,](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)ou o [REST API](/rest/api/sql/elasticpools/update).
 - O preço de armazenamento extra para uma piscina elástica é a quantidade extra de armazenamento multiplicada pelo preço extra da unidade de armazenamento do nível de serviço. Para mais informações sobre o preço do armazenamento extra, consulte [os preços da Base de Dados SQL.](https://azure.microsoft.com/pricing/details/sql-database/)
 
 > [!IMPORTANT]

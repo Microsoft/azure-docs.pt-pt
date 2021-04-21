@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 1373e0eeead805dcd3a439878c9737c46d75bf3b
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8664f9327af37345c7104c65b2521212669ae806
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078507"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786331"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Resolver problemas de estado de funcionamento do back-end no Gateway de Aplicação
 ==================================================
@@ -24,7 +24,7 @@ Por predefinição, o Azure Application Gateway sonda servidores backend para ve
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a saúde backend
 
-Para verificar a saúde da sua piscina de backend, pode utilizar a página **Backend Health** no portal Azure. Ou, pode utilizar [a Azure PowerShell,](/powershell/module/az.network/get-azapplicationgatewaybackendhealth) [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health)ou [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
+Para verificar a saúde da sua piscina de backend, pode utilizar a página **Backend Health** no portal Azure. Ou, pode utilizar [a Azure PowerShell,](/powershell/module/az.network/get-azapplicationgatewaybackendhealth) [CLI](/cli/azure/network/application-gateway#az_network_application_gateway_show_backend_health)ou [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 O estado recuperado por qualquer um destes métodos pode ser qualquer um dos seguintes:
 

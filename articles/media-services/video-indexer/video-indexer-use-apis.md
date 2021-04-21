@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a445e9869b0cd9928d95364f39e60fc892214b9a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ac0b206a86edf3157141b56e0c2623a8429b0c7a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532454"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785528"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
@@ -38,18 +38,19 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
    > * Tem de utilizar o mesmo fornecedor que utilizou quando se inscreveu no Video Indexer.
    > * As contas pessoais do Google e da Microsoft (Outlook/Live) só podem ser utilizadas para contas de teste. As contas ligadas ao Azure necessitam do Azure AD.
    > * Pode haver apenas uma conta ativa por e-mail. Se um utilizador tentar iniciar singing user@gmail.com com o LinkedIn e mais tarde com user@gmail.com o Google, este apresentará uma página de erro, dizendo que o utilizador já existe.
+
 2. Subscreva.
 
-    Selecione o separador [Produtos.](https://api-portal.videoindexer.ai/products) Em seguida, selecione Autorização e subscreva.
+   Selecione o separador [Produtos.](https://api-portal.videoindexer.ai/products) Em seguida, selecione Autorização e subscreva.
     
-    ![Separador de produtos no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/authorization.png)
+   ![Separador de produtos no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/authorization.png)
 
-    > [!NOTE]
-    > Os utilizadores novos estão automaticamente subscritos em Autorização.
+   > [!NOTE]
+   > Os utilizadores novos estão automaticamente subscritos em Autorização.
     
-    Depois de subscrever, pode encontrar a sua subscrição sob a Autorização **de Produtos.**  ->   Na página de subscrição, encontrará as teclas primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. Não devem estar disponíveis do lado do cliente (.js, .html, e assim por diante).
+   Depois de subscrever, pode encontrar a sua subscrição sob a Autorização **de Produtos.**  ->   Na página de subscrição, encontrará as teclas primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. Não devem estar disponíveis do lado do cliente (.js, .html, e assim por diante).
 
-    ![Subscrição e chaves no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/subscriptions.png)
+   ![Subscrição e chaves no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > O utilizador do Video Indexer pode utilizar uma chave de subscrição individual para ligar a várias contas do Video Indexer. Em seguida, pode associar estas contas do Video Indexer a diferentes contas dos Serviços de Multimédia.
@@ -64,7 +65,10 @@ Cada chamada efetuada para a API de Operações deve estar associada a um token 
 - Nível de conta: As fichas de acesso ao nível da conta permitem-lhe realizar operações ao nível da **conta** ou ao nível de **vídeo.** Por exemplo, faça upload de vídeo, liste todos os vídeos, obtenha informações de vídeo, e assim por diante.
 - Nível de vídeo: Os tokens de acesso ao nível de vídeo permitem-lhe realizar operações num **vídeo** específico . Por exemplo, obtenha informações de vídeo, faça o download de legendas, obtenha widgets, e assim por diante.
 
-Pode controlar se estes tokens são apenas de leitura ou se permitem a edição especificando **o allowEdit=true/false**.
+Pode controlar o nível de permissão de fichas de duas maneiras:
+
+* Para fichas de **conta,** pode utilizar o **Token de Acesso à Conta Obter com API de Permissão** e especificar o tipo de permissão **(Reader** / **Contributor** / **MyAccessManager** / **Owner**).
+* Para todos os tipos de fichas (incluindo fichas de **conta),** pode especificar **o allowEdit=true/false**. **falso** é o equivalente a uma permissão **do Leitor** (apenas para leitura) e **verdadeiro** é o equivalente a uma permissão **do Contribuinte** (ler-escrever).
 
 Para a maioria dos cenários de servidor a servidor, provavelmente utilizará o mesmo token de **conta,** uma vez que cobre operações de **conta** e operações **de vídeo.** No entanto, se estiver a planear fazer chamadas do lado do cliente para o Video Indexer (por exemplo, a partir do JavaScript), gostaria de usar um token de acesso de **vídeo** para impedir que os clientes tenham acesso a toda a conta. Essa é também a razão pela qual ao incorporar o código de cliente do Video Indexer no seu cliente (por exemplo, usando **o Get Insights Widget** ou **Get Player Widget),** deve fornecer um token de acesso de **vídeo.**
 

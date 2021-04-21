@@ -3,12 +3,12 @@ title: Guia de resolução de problemas para a | de autocarros da Azure Service 
 description: Saiba mais sobre dicas e recomendações de resolução de problemas para alguns problemas que poderá ver ao utilizar o Azure Service Bus.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27249d7e016ea8aee0552bbbf1687647760d4b6f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031295"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786572"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para o ônibus de serviço Azure
 Este artigo fornece dicas e recomendações de resolução de problemas para alguns problemas que você pode ver ao usar o Azure Service Bus. 
@@ -52,7 +52,7 @@ Os seguintes passos podem ajudá-lo com problemas de conectividade/certificado/t
     ```
     Pode utilizar comandos equivalentes se estiver a utilizar outras ferramentas `tnc` `ping` como, e assim por diante. 
 - Obtenha um rastreio de rede se os passos anteriores não ajudarem e analisá-lo usando ferramentas como [o Wireshark](https://www.wireshark.org/). Contacte [o Microsoft Support](https://support.microsoft.com/) se necessário. 
-- Para encontrar os endereços IP certos para adicionar para permitir a lista para as suas ligações, consulte [os endereços IP que preciso adicionar à lista de admissão](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+- Para encontrar os endereços IP certos para adicionar para permitir a lista para as suas ligações, consulte [os endereços IP que preciso adicionar à lista de admissão](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allow-list-). 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que podem ocorrer com atualizações de serviço/reinícios

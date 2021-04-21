@@ -10,12 +10,12 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 0738f7e427c2ff094c9b6df7539ba67dff80d095
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed248480803370a75b40c18ee7d0e2641254d84a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589859"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790460"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configure preferência de encaminhamento de rede para armazenamento Azure
 
@@ -82,7 +82,7 @@ Para alterar a sua preferência de encaminhamento para o encaminhamento da Inter
 
    - Para lançar a Azure Cloud Shell, inscreva-se no [portal Azure](https://portal.azure.com).
 
-   - Para iniciar sessão na instalação local do CLI, execute o comando [de login az:](/cli/azure/reference-index#az-login)
+   - Para iniciar sessão na instalação local do CLI, execute o comando [de login az:](/cli/azure/reference-index#az_login)
 
      ```azurecli
      az login
@@ -146,7 +146,7 @@ Esta preferência afeta apenas o ponto final específico da rota. Esta preferên
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-1. Para configurar um ponto final específico da rota, utilize o comando de atualização da [conta de armazenamento az.](/azure/storage/account#az-storage-account-update) 
+1. Para configurar um ponto final específico da rota, utilize o comando de atualização da [conta de armazenamento az.](/azure/storage/account#az_storage_account_update) 
 
    - Para criar um ponto final específico de rota que utilize a preferência de encaminhamento da rede Microsoft, desaponte o `--publish-microsoft-endpoints` parâmetro para `true` . 
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/04/2020
-ms.openlocfilehash: 51059dd1c4c5c93e155cd7a2d34c3cbaf29db6e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a7a0795a15de52c34b8591c4224c3ca5883445c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101705590"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772078"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Criar e gerir contas de integração para integrações empresariais B2B no Azure Logic Apps.
 
@@ -49,7 +49,7 @@ Este tópico mostra-lhe como executar estas tarefas:
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção, [Azure PowerShell,](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)ou [Azure CLI](/cli/azure/resource#az-resource-create).
+Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção, [Azure PowerShell,](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)ou [Azure CLI](/cli/azure/resource#az_resource_create).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
@@ -223,7 +223,7 @@ Para fazer esta alteração, pode utilizar o portal Azure ou o Azure CLI.
 
    ![Abrir o Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. Na pronta do comando, insira o comando [ **de recursos az,**](/cli/azure/resource#az-resource-update)e desaprote `skuName` o nível mais alto que deseja.
+1. Na pronta do comando, insira o comando [ **de recursos az,**](/cli/azure/resource#az_resource_update)e desaprote `skuName` o nível mais alto que deseja.
 
    ```azurecli
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
@@ -249,7 +249,7 @@ Para fazer esta alteração, utilize o [Azure CLI](/cli/azure/get-started-with-a
 
    ![Abrir o Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. Na pronta do comando, insira o comando [ **de recursos az**](/cli/azure/resource#az-resource-update) e `skuName` coloque-o no nível inferior que deseja.
+1. Na pronta do comando, insira o comando [ **de recursos az**](/cli/azure/resource#az_resource_update) e `skuName` coloque-o no nível inferior que deseja.
 
    ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
@@ -309,7 +309,7 @@ Se pretender ligar a sua aplicação lógica a outra conta de integração, ou d
 
 Pode mover a sua conta de integração para outro grupo de recursos Azure ou subscrição do Azure. Ao mover recursos, o Azure cria novos IDs de recursos, por isso certifique-se de que utiliza os novos IDs e atualiza quaisquer scripts ou ferramentas associados aos recursos movidos. Se quiser alterar a subscrição, também deve especificar um grupo de recursos existente ou novo.
 
-Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção ou o [CLI Azure](/cli/azure/resource#az-resource-move).
+Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção ou o [CLI Azure](/cli/azure/resource#az_resource_move).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
@@ -341,7 +341,7 @@ Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção
 
 ## <a name="delete-integration-account"></a>Eliminar conta de Integração
 
-Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção, [Azure CLI](/cli/azure/resource#az-resource-delete)ou [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
+Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção, [Azure CLI](/cli/azure/resource#az_resource_delete)ou [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
