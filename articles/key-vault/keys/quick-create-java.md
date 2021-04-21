@@ -8,12 +8,12 @@ ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: f0933a19ecfebfde8ac43ac3e88332506e2256ec
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 75cb7b6c9225e8579561f980df10da8994257133
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750382"
+ms.locfileid: "107777190"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Quickstart: Azure Key Vault Key Key Biblioteca de clientes para Java
 Começa com a biblioteca de clientes Azure Key Vault Key para a Java. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
@@ -176,7 +176,7 @@ Agora que a sua aplicação é autenticada, pode criar uma chave no cofre da cha
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-Pode verificar se a chave foi definida com o comando [de teclado az keyvault:](/cli/azure/keyvault/key?#az-keyvault-key-show)
+Pode verificar se a chave foi definida com o comando [de teclado az keyvault:](/cli/azure/keyvault/key?#az_keyvault_key_show)
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -201,7 +201,7 @@ SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-Pode verificar se a chave foi eliminada com o comando [de teclado az keyvault:](/cli/azure/keyvault/key?#az-keyvault-key-show)
+Pode verificar se a chave foi eliminada com o comando [de teclado az keyvault:](/cli/azure/keyvault/key?#az_keyvault_key_show)
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey

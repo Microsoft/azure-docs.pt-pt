@@ -1,24 +1,24 @@
 ---
-title: Monitor Azure para Azure Data Explorer (pré-visualização)| Microsoft Docs
-description: Este artigo descreve Azure Monitor Insights para Azure Data Explorer Clusters.
+title: Azure Data Explorer Insights (pré-visualização do ADX Insights)| Microsoft Docs
+description: Este artigo descreve Azure Data Explorer Insights (ADX Insights)
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: ac147df90d3fa0c27bb4299c57ec79d9a9031710
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: a8aae2dc03ba87e9782cdf3952be1bfc4a1aae75
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107737603"
+ms.locfileid: "107767046"
 ---
-# <a name="azure-monitor-for-azure-data-explorer-preview"></a>Monitor Azure para Azure Data Explorer (pré-visualização)
+# <a name="azure-data-explorer-insights-preview"></a>Azure Data Explorer Insights (pré-visualização)
 
-O Azure Monitor for Azure Data Explorer (pré-visualização) proporciona uma monitorização abrangente dos seus clusters, proporcionando uma visão unificada do desempenho do cluster, operações, utilização e falhas.
-Este artigo irá ajudá-lo a entender como embarcar e utilizar o Azure Monitor para O Azure Data Explorer (pré-visualização).
+O Azure Data Explorer Insights (pré-visualização) fornece uma monitorização abrangente dos seus clusters, proporcionando uma visão unificada do desempenho do cluster, operações, utilização e falhas.
+Este artigo irá ajudá-lo a entender como embarcar e utilizar insights do Explorador de Dados Azure (pré-visualização).
 
-## <a name="introduction-to-azure-monitor-for-azure-data-explorer-preview"></a>Introdução ao Monitor Azure para Azure Data Explorer (pré-visualização)
+## <a name="introduction-to-azure-data-explorer-insights-preview"></a>Introdução a Azure Data Explorer Insights (pré-visualização)
 
 Antes de entrar na experiência, deve entender como apresenta e visualiza a informação.
 -    **Na perspetiva da escala** mostrando uma visão instantânea das métricas primárias dos seus clusters, para rastrear facilmente o desempenho de consultas, ingestão e operações de exportação.
@@ -73,7 +73,7 @@ Este separador fornece informações sobre registos exportados, atrasos, contage
 
 ## <a name="view-from-an-azure-data-explorer-cluster-resource-drill-down-analysis"></a>Vista a partir de um recurso Azure Data Explorer Cluster (análise de perfuração)
 
-Para aceder ao Azure Monitor para Azure Data Explorer Clusters diretamente de um Cluster Azure Data Explorer:
+Para aceder ao Azure Data Explorer Insights diretamente de um Cluster Azure Data Explorer:
 
 1. No portal Azure, selecione **Azure Data Explorer Clusters**.
 
@@ -81,7 +81,7 @@ Para aceder ao Azure Monitor para Azure Data Explorer Clusters diretamente de um
 
 Estas vistas também são acessíveis selecionando o nome de recurso de um cluster Azure Data Explorer a partir da vista de insights do Azure Monitor.
 
-O Azure Monitor for Azure Data Explorer combina registos e métricas para fornecer uma solução de monitorização global. A inclusão de visualizações baseadas em registos requer que os utilizadores [permitam o registo de diagnóstico do seu cluster Azure Data Explorer e envie-os para um espaço de trabalho log Analytics.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) Os registos de diagnóstico que devem ser ativados são: **Comando,** **Consulta,** **TableDetails** e **TableUsageStatistics**.
+A Azure Data Explorer Insights combina registos e métricas para fornecer uma solução de monitorização global. A inclusão de visualizações baseadas em registos requer que os utilizadores [permitam o registo de diagnóstico do seu cluster Azure Data Explorer e envie-os para um espaço de trabalho log Analytics.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) Os registos de diagnóstico que devem ser ativados são: **Comando,** **Consulta,** **TableDetails** e **TableUsageStatistics**.
 
 ![Screenshot do botão azul que exibe o texto "Ativar registos para monitorização"](./media/data-explorer/enable-logs.png)
 
@@ -129,7 +129,7 @@ Pode fixar qualquer uma das secções métricas (da perspetiva &quot;à escala")
 
 ![Screenshot do ícone pin selecionado](./media/data-explorer/pin.png)
 
-## <a name="customize-azure-monitor-for-azure-data-explorer-cluster"></a>Personalize o Monitor Azure para o Azure Data Explorer Cluster
+## <a name="customize-azure-data-explorer-insights"></a>Personalize insights do Explorador de Dados Azure
 
 Esta secção destaca cenários comuns para a edição do livro para personalizar em apoio às necessidades de análise de dados:
 * Scope o livro para selecionar sempre uma subscrição específica ou um Cluster de Exploradores de Dados Azure
@@ -148,7 +148,7 @@ As personalizações são guardadas num livro personalizado para evitar a sobree
 
 Para obter orientações gerais sobre a resolução de problemas, consulte o artigo dedicado de resolução de [problemas](troubleshoot-workbooks.md)baseado em livros de trabalho .
 
-Esta secção irá ajudá-lo com o diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Azure Monitor para O Azure Data Explorer Cluster (pré-visualização). Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
+Esta secção irá ajudá-lo com o diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Azure Data Explorer Insights (pré-visualização). Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Por que não vejo todas as minhas assinaturas no selecionador de assinaturas?
 

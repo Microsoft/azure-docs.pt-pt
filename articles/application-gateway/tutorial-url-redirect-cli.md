@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: aa247d868e19831b3e6f1c3f68e605fb209a0664
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 042cb42d16fdc5394940b62709b5d25187775014
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218320"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772654"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial:Criar um gateway de aplicação com o redirecionamento com base no caminho do URL, com a CLI do Azure
 
@@ -286,7 +286,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Para obter o endereço IP público do gateway de aplicação, utilize [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie o endereço IP público e cole-o na barra de endereço do browser. Como, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm` , `http://40.121.222.19:8080/video/test.htm` , ou `http://40.121.222.19:8081/images/test.htm` . .
+Para obter o endereço IP público do gateway de aplicação, utilize [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser. Como, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm` , `http://40.121.222.19:8080/video/test.htm` , ou `http://40.121.222.19:8081/images/test.htm` . .
 
 ```azurecli-interactive
 az network public-ip show \

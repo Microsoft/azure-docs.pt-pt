@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 80cbb31bb60c97965c701665de9e3fe174e1cc2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a75177f7ac42c01fcce3bc406a0ad2886ee61b17
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566202"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778792"
 ---
 # <a name="create-an-azure-cosmos-core-sql-api-account-database-and-container-with-autoscale-using-azure-cli"></a>Criar uma conta AZure Cosmos Core (SQL) API, base de dados e contentor com autoescala utilizando O Azure CLI
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
@@ -39,11 +39,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb sql base de dados criar](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Cria uma base de dados Azure Cosmos SQL (Core). |
-| [recipiente az cosmosdb sql criar](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Cria um recipiente Azure Cosmos SQL (Core). |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Cria uma conta do Azure Cosmos DB. |
+| [az cosmosdb sql base de dados criar](/cli/azure/cosmosdb/sql/database#az_cosmosdb_sql_database_create) | Cria uma base de dados Azure Cosmos SQL (Core). |
+| [recipiente az cosmosdb sql criar](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create) | Cria um recipiente Azure Cosmos SQL (Core). |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

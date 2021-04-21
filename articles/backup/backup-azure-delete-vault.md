@@ -3,12 +3,12 @@ title: Apagar um cofre dos Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, aprenda a remover dependências e, em seguida, elimine um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb6be070ac0fb408ac37c8ae7b003b54da5d6dea
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864963"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773662"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Apagar um cofre dos Serviços de Recuperação de Backup da Azure
 
@@ -320,7 +320,7 @@ Para eliminar o cofre dos Serviços de Recuperação existentes, execute os segu
                              [--yes]
     ```
 
-    Para mais informações, consulte este [artigo.](/cli/azure/backup/protection#az-backup-protection-disable)
+    Para mais informações, consulte este [artigo.](/cli/azure/backup/protection#az_backup_protection_disable)
 
 - Eliminar um cofre dos Serviços de Recuperação existente:
 

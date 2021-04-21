@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 2f15aa394f7a271d6b3af49f0106611c4fc943a1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: e06881d078b4e881174c3e931f7898cb622ad7f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753087"
+ms.locfileid: "107766358"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para Python
 
@@ -170,7 +170,7 @@ retrieved_secret = client.get_secret(secretName)
 
 O valor secreto está contido em `retrieved_secret.value` .
 
-Você também pode recuperar um segredo com o azure CLI comando [az keyvault show secreto](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+Você também pode recuperar um segredo com o azure CLI comando [az keyvault show secreto](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
 
 ### <a name="delete-a-secret"></a>Eliminar um segredo
 
@@ -183,7 +183,7 @@ deleted_secret = poller.result()
 
 O `begin_delete_secret` método é assíncrona e devolve um objeto poller. Chamar o método do poller `result` espera pela sua conclusão.
 
-Pode verificar se o segredo foi removido com o comando Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+Pode verificar se o segredo foi removido com o comando Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
 
 Uma vez apagado, um segredo permanece em estado apagado, mas recuperável por um tempo. Se voltar a executar o código, use um nome secreto diferente.
 

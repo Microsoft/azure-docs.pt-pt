@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: eaec8a8d5ffe3fcba84d834b2116b2daae442084
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 24658525ca1248aa82732a31eb9a40df1403203c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481111"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782428"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Conecte uma aplicação de Serviço de Aplicações a um Cache Azure para Redis usando CLI
 
@@ -38,12 +38,12 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, app A
 
 | Comando | Notas |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
-| [`az redis create`](/cli/azure/redis#az-redis-create) | Crie um novo Azure Cache para a instância Redis. |
-| [`az redis list-keys`](/cli/azure/redis#az-redis-list-keys) | Lista as chaves de acesso para a Cache Azure para a instância Redis. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Cria ou atualiza uma configuração de aplicação para uma aplicação do Serviço de Aplicações. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano do Serviço de Aplicações. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria uma aplicação de Serviço de Aplicações. |
+| [`az redis create`](/cli/azure/redis#az_redis-create) | Crie um novo Azure Cache para a instância Redis. |
+| [`az redis list-keys`](/cli/azure/redis#az_redis_list_keys) | Lista as chaves de acesso para a Cache Azure para a instância Redis. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Cria ou atualiza uma configuração de aplicação para uma aplicação do Serviço de Aplicações. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

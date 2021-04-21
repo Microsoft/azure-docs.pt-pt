@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: d591194f09e85c3e34ed4b904249df994a14bff5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e655b20d2f6295f0d6cfe8008fee7b360525611
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100558589"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774292"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -63,7 +63,7 @@ A conta a que insinou ou se liga ao Azure deve ser atribuída à [função de co
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) |
+| CLI do Azure | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) |
 | PowerShell | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) |
 
 ## <a name="change-subnet-settings"></a>Alterar definições de sub-redes
@@ -92,7 +92,7 @@ A conta a que insinou ou se liga ao Azure deve ser atribuída à [função de co
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| CLI do Azure | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## <a name="delete-a-subnet"></a>Eliminar uma sub-rede
@@ -113,7 +113,7 @@ Só pode eliminar uma sub-rede se não houver recursos na sub-rede. Se os recurs
 
 | Ferramenta | Comando |
 | ---- | ------- |
-| CLI do Azure | [sub-rede vnet de rede az eliminar](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete) |
+| CLI do Azure | [sub-rede vnet de rede az eliminar](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_delete) |
 | PowerShell | [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 
 ## <a name="permissions"></a>Permissões

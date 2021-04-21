@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5209e715fab422a50e31810b5eb0d370d5fc61cd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98874252"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792530"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Utilizar o Azure Site Recovery para proteger um servidor de ficheiros 
 
@@ -99,7 +99,7 @@ Os passos abaixo descrevem resumidamente a utilização do File Sync:
 
 1. [Crie uma conta de armazenamento no Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)
 2. [Criar uma partilha de ficheiros.](../storage/files/storage-how-to-create-file-share.md)
-3. [Inicie o File Sync](../storage/files/storage-sync-files-deployment-guide.md) no servidor de ficheiros do Azure.
+3. [Inicie o File Sync](../storage/file-sync/file-sync-deployment-guide.md) no servidor de ficheiros do Azure.
 4. Crie um grupo de sincronização. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Os grupos de sincronização têm de conter, pelo menos, um ponto final da cloud, que representa uma partilha de ficheiros do Azure. Também têm de conter um ponto final de servidor, que representa um caminho num servidor do Windows.
 5. Os ficheiros são agora mantidos em sincronia na partilha de ficheiros do Azure e no servidor no local.
 6. Em caso de desastre no ambiente no local, utilize um [plano de recuperação](site-recovery-create-recovery-plans.md) para fazer uma ativação pós-falha. Adicione o script para [montar a partilha de ficheiros do Azure](../storage/files/storage-how-to-use-files-windows.md) e aceder à partilha na sua máquina virtual.
@@ -148,7 +148,7 @@ Siga os passos abaixo para utilizar o File Sync:
 
 1. [Crie uma conta de armazenamento no Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura (recomendado) para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento ..](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)
 2. [Criar uma partilha de ficheiros.](../storage/files/storage-how-to-create-file-share.md)
-3. [Implemente o File Sync](../storage/files/storage-sync-files-deployment-guide.md) no servidor de ficheiros no local.
+3. [Implemente o File Sync](../storage/file-sync/file-sync-deployment-guide.md) no servidor de ficheiros no local.
 4. Crie um grupo de sincronização. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Os grupos de sincronização têm de conter, pelo menos, um ponto final da cloud, que representa uma partilha de ficheiros do Azure. Também têm de conter um ponto final de servidor, que representa um caminho no servidor do Windows no local.
 5. Os ficheiros são agora mantidos em sincronia na partilha de ficheiros do Azure e no servidor no local.
 6. Em caso de desastre no ambiente no local, utilize um [plano de recuperação](site-recovery-create-recovery-plans.md) para fazer uma ativação pós-falha. Adicione o script para montar a partilha de ficheiros do Azure e aceder à partilha na sua máquina virtual.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: 52c20a88c9a4a70b1608a7d050e4faccef9e2d3e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bf18ab6cae83f3dc0908a15bf4bf53b5318613d9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599109"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765131"
 ---
 # <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
 

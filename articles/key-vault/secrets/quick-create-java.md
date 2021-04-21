@@ -8,12 +8,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 804c4732ce979cd9ec46c69456b3f731284c9c73
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b45bb353ae32f1037fde7dc5d518472089edf12f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748531"
+ms.locfileid: "107766340"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Quickstart: Azure Key Vault Secret biblioteca de clientes para Java
 Começa com a biblioteca de clientes Azure Key Vault Secret para a Java. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
@@ -175,7 +175,7 @@ Agora que a sua aplicação está autenticada, pode colocar um segredo no cofre 
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-Pode verificar se o segredo foi definido com o comando [secreto az keyvault:](/cli/azure/keyvault/secret?#az-keyvault-secret-show)
+Pode verificar se o segredo foi definido com o comando [secreto az keyvault:](/cli/azure/keyvault/secret?#az_keyvault_secret_show)
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -200,7 +200,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-Pode verificar se o segredo foi apagado com o comando [secreto az keyvault:](/cli/azure/keyvault/secret?#az-keyvault-secret-show)
+Pode verificar se o segredo foi apagado com o comando [secreto az keyvault:](/cli/azure/keyvault/secret?#az_keyvault_secret_show)
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: aa76f7b85302651f6874747610c3355f0572a7ee
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ffd053b98a54d3e23eec62427f5c3d82df58954d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94884941"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800075"
 ---
 <!-- List and set subscriptions -->
 
-1. Obtenha uma lista das subscrições com o comando [az account list](/cli/azure/account#az-account-list):
+1. Obtenha uma lista das subscrições com o comando [az account list](/cli/azure/account#az_account_list):
 
     ```
     az account list --output table

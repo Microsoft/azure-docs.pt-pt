@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: a3c20dd85c94c359259cf69e25bb9083d56857fc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699033"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777154"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelos de preços e faturação para apps Azure Logic
 
@@ -27,9 +27,9 @@ Por exemplo, um pedido que um gatilho de sondagens faz ainda é medido como uma 
 
 | Itens | Description |
 |-------|-------------|
-| [Gatilhos](../connectors/apis-list.md#built-in) e ações incorporados | Executar de forma nativa no serviço De aplicações lógicas e é medido usando o preço [ **de Ações**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Por exemplo, o gatilho HTTP e o gatilho pedido são gatilhos incorporados, enquanto a ação HTTP action and Response são ações incorporadas. As operações de dados, as operações de lote, as operações variáveis e [as ações](../connectors/apis-list.md#control-workflow)de controlo do fluxo de trabalho , tais como loops, condições, interruptor, ramos paralelos, e assim por diante, são também ações integradas. |
-| Triggers e ações [de conector padrão](../connectors/apis-list.md#managed-connectors) <p><p>[Gatilhos](../connectors/apis-list.md#custom) e ações de conector personalizado | Medido com o preço do [conector Standard](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| [Gatilhos](../connectors/apis-list.md#managed-connectors) e ações do conector da empresa | Medido usando o preço do [conector Enterprise](https://azure.microsoft.com/pricing/details/logic-apps/). No entanto, durante a pré-visualização pública, os conectores da Enterprise são medidos utilizando o preço do [conector *Standard*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| [Gatilhos](../connectors/built-in.md) e ações incorporados | Executar de forma nativa no serviço De aplicações lógicas e é medido usando o preço [ **de Ações**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Por exemplo, o gatilho HTTP e o gatilho pedido são gatilhos incorporados, enquanto a ação HTTP action and Response são ações incorporadas. As operações de dados, as operações de lote, as operações variáveis e [as ações](../connectors/built-in.md)de controlo do fluxo de trabalho , tais como loops, condições, interruptor, ramos paralelos, e assim por diante, são também ações integradas. |
+| Triggers e ações [de conector padrão](../connectors/managed.md) <p><p>[Gatilhos](../connectors/apis-list.md#custom-apis-and-connectors) e ações de conector personalizado | Medido com o preço do [conector Standard](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| [Gatilhos](../connectors/managed.md) e ações do conector da empresa | Medido usando o preço do [conector Enterprise](https://azure.microsoft.com/pricing/details/logic-apps/). No entanto, durante a pré-visualização pública, os conectores da Enterprise são medidos utilizando o preço do [conector *Standard*](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | Ações dentro [de loops](logic-apps-control-flow-loops.md) | Cada ação que corre em loop é medido para cada ciclo de ciclo que corre. <p><p>Por exemplo, suponha que tem um loop "para cada" que inclui ações que processam uma lista. O serviço De Aplicações Lógicas medi cada ação que funciona nesse ciclo multiplicando o número de itens de lista com o número de ações no loop, e adiciona a ação que inicia o loop. Assim, o cálculo para uma lista de 10 artigos é (10 * 1) + 1, o que resulta em 11 execuções de ação. |
 | Tentativas de repetição | Para lidar com as exceções e erros mais básicos, pode configurar uma [política de repetição](logic-apps-exception-handling.md#retry-policies) sobre gatilhos e ações sempre que suportados. Estas retrígios juntamente com o pedido original são cobradas a taxas baseadas no tipo incorporado, Standard ou Enterprise. Por exemplo, uma ação que executa com 2 retréis é cobrada por 3 execuções de ação. |
 | [Conservação de dados e consumo de armazenamento](#data-retention) | Medido usando o preço de retenção de dados, que pode encontrar na página de preços de [Aplicações Lógicas,](https://azure.microsoft.com/pricing/details/logic-apps/)na tabela de detalhes de **Preços.** |
@@ -80,8 +80,8 @@ Um modelo de preços fixos aplica-se a aplicações lógicas que funcionam num [
 
 | Itens | Description |
 |-------|-------------|
-| [Gatilhos](../connectors/apis-list.md#built-in) e ações incorporados | Exiba a etiqueta **Core** e corra no mesmo ISE que as suas aplicações lógicas. |
-| [Conetores padrão](../connectors/apis-list.md#managed-connectors) <p><p>[Conectores empresariais](../connectors/apis-list.md#enterprise-connectors) | - Os conectores geridos que exibem a etiqueta **ISE** são especialmente concebidos para funcionar sem o gateway de dados no local e executados no mesmo ISE que as suas aplicações lógicas. Os preços do ISE incluem as ligações da Enterprise que quiser. <p><p>- Os conectores que não exibem a etiqueta ISE funcionam no serviço Multi-Tenant Logic Apps. No entanto, os preços do ISE incluem estas execuções para aplicações lógicas que funcionam numa ISE. |
+| [Gatilhos](../connectors/built-in.md) e ações incorporados | Exiba a etiqueta **Core** e corra no mesmo ISE que as suas aplicações lógicas. |
+| [Conetores padrão](../connectors/managed.md) <p><p>[Conectores empresariais](../connectors/managed.md#enterprise-connectors) | - Os conectores geridos que exibem a etiqueta **ISE** são especialmente concebidos para funcionar sem o gateway de dados no local e executados no mesmo ISE que as suas aplicações lógicas. Os preços do ISE incluem as ligações da Enterprise que quiser. <p><p>- Os conectores que não exibem a etiqueta ISE funcionam no serviço Multi-Tenant Logic Apps. No entanto, os preços do ISE incluem estas execuções para aplicações lógicas que funcionam numa ISE. |
 | Ações dentro [de loops](logic-apps-control-flow-loops.md) | Os preços do ISE incluem cada ação que funciona em loop para cada ciclo de loop que funciona. <p><p>Por exemplo, suponha que tem um loop "para cada" que inclui ações que processam uma lista. Para obter o número total de execuções de ação, multiplique o número de itens de lista com o número de ações no loop, e adicione a ação que inicia o loop. Assim, o cálculo para uma lista de 10 artigos é (10 * 1) + 1, o que resulta em 11 execuções de ação. |
 | Tentativas de repetição | Para lidar com as exceções e erros mais básicos, pode configurar uma [política de repetição](logic-apps-exception-handling.md#retry-policies) sobre gatilhos e ações sempre que suportados. Os preços do ISE incluem retrótares juntamente com o pedido original. |
 | [Conservação de dados e consumo de armazenamento](#data-retention) | As aplicações lógicas num ISE não incorrem em custos de retenção e armazenamento. |

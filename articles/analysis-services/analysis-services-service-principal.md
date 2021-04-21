@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b04b9ababfe0e4c2a60d14044b9d3ee120837dc5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 04bc6ecd6e0a32e9234d07e995a7e012b17e3bbe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96491048"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769162"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 

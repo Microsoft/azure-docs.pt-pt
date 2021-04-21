@@ -7,16 +7,13 @@ ms.reviewer: minewiskan
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.service: azure-analysis-services
-ms.custom:
-- references_regions
-- devx-track-azurepowershell
-- mode-api
-ms.openlocfilehash: eb76925e695f92da973fef9cb86d4e936a766587
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - references_regions - devx-track-azurepowershell - mode-api
+ms.openlocfilehash: f1902a7192fc2153725e2b1d1e76f23cbd1426f3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531482"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769369"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Início Rápido: Criar um servidor - PowerShell
 

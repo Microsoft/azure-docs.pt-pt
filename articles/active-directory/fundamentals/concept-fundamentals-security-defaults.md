@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 04/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efa88e1be5c5df5dd09cb5a97c8ece352496ccdb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98600127"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769702"
 ---
 # <a name="what-are-security-defaults"></a>O que são falhas de segurança?
 
-Gerir a segurança pode ser difícil com ataques comuns relacionados com a identidade, como spray de palavras-passe, repetição e phishing tornando-se cada vez mais popular. As falhas de segurança facilitam a proteção da sua organização contra estes ataques com definições de segurança pré-configuradas:
+Gerir a segurança pode ser difícil com ataques comuns relacionados com a identidade, como spray de palavras-passe, repetição e phishing tornando-se mais popular. As falhas de segurança facilitam a proteção da sua organização contra estes ataques com definições de segurança pré-configuradas:
 
 - Exigindo que todos os utilizadores se registem para autenticação multi-factor Azure AD.
 - Exigindo que os administradores realizem a autenticação de vários fatores.
@@ -35,7 +35,7 @@ Mais detalhes sobre o porquê de estarem a ser disponibilizados incumprimentos d
 
 ## <a name="availability"></a>Disponibilidade
 
-A Microsoft está a disponibilizar falhas de segurança a todos. O objetivo é garantir que todas as organizações tenham um nível básico de segurança, sem custos adicionais. Liga-se as falhas de segurança no portal Azure. Se o seu inquilino foi criado em ou depois de 22 de outubro de 2019, é possível que os incumprimentos de segurança já estejam habilitados no seu inquilino. Num esforço para proteger todos os nossos utilizadores, estão a ser lançados incumprimentos de segurança a todos os novos inquilinos criados.
+A Microsoft está a disponibilizar falhas de segurança a todos. O objetivo é garantir que todas as organizações tenham um nível básico de segurança, sem custos adicionais. Liga-se as falhas de segurança no portal Azure. Se o seu inquilino foi criado em ou depois de 22 de outubro de 2019, é possível que os incumprimentos de segurança já estejam habilitados no seu inquilino. Para proteger todos os nossos utilizadores, os incumprimentos de segurança estão a ser lançados a todos os novos inquilinos criados.
 
 ### <a name="whos-it-for"></a>Para quem é?
 
@@ -46,7 +46,7 @@ A Microsoft está a disponibilizar falhas de segurança a todos. O objetivo é g
 
 - Se é uma organização que atualmente utiliza políticas de Acesso Condicional para reunir sinais, tomar decisões e impor políticas organizacionais, os incumprimentos de segurança provavelmente não são adequados para si. 
 - Se você é uma organização com licenças Azure Ative Directory Premium, os incumprimentos de segurança provavelmente não são adequados para si.
-- Se a sua organização tiver requisitos de segurança complexos, deve considerar o Acesso Condicional.
+- Se a sua organização tem requisitos de segurança complexos, deve considerar o Acesso Condicional.
 
 ## <a name="policies-enforced"></a>Políticas aplicadas
 
@@ -70,6 +70,9 @@ Após o registo com a autenticação multi-factor Azure AD, serão necessárias 
 - Administrador de utilizadores
 - Administrador de autenticação
 
+> [!WARNING]
+> Certifique-se de que o seu diretório tem pelo menos duas contas com privilégios de administrador global atribuídos a eles. Isto ajudará no caso de um administrador global estar bloqueado. Para mais detalhes consulte o artigo, [Gerencie as contas de acesso de emergência em Azure AD](../roles/security-emergency-access.md).
+
 ### <a name="protecting-all-users"></a>Proteger todos os utilizadores
 
 Tendemos a pensar que as contas do administrador são as únicas contas que precisam de camadas extras de autenticação. Os administradores têm um amplo acesso a informações sensíveis e podem fazer alterações nas definições de subscrição. Mas os atacantes frequentemente visam os utilizadores finais. 
@@ -80,12 +83,12 @@ Um método comum para melhorar a proteção para todos os utilizadores é exigir
 
 ### <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
 
-Para facilitar o acesso dos seus utilizadores às suas aplicações na nuvem, o Azure AD suporta uma variedade de protocolos de autenticação, incluindo a autenticação antiga. *Autenticação de legado* é um termo que se refere a um pedido de autenticação feito por:
+Para facilitar o acesso dos seus utilizadores às suas aplicações na nuvem, o Azure AD suporta vários protocolos de autenticação, incluindo a autenticação antiga. *Autenticação de legado* é um termo que se refere a um pedido de autenticação feito por:
 
 - Clientes que não utilizam a autenticação moderna (por exemplo, um cliente do Office 2010).
 - Qualquer cliente que utilize protocolos de correio antigos como IMAP, SMTP ou POP3.
 
-Hoje, a maioria das tentativas comprometedoras de inscrição provém da autenticação do legado. A autenticação do legado não suporta a autenticação multi-factor. Mesmo que tenha uma política de autenticação multi-factor ativada no seu diretório, um intruso pode autenticar utilizando um protocolo mais antigo e contornar a Autenticação Multi-Factor. 
+Hoje, a maioria das tentativas de inscrição comprometedoras vêm da autenticação do legado. A autenticação do legado não suporta a autenticação multi-factor. Mesmo que tenha uma política de autenticação multi-factor ativada no seu diretório, um intruso pode autenticar utilizando um protocolo mais antigo e contornar a Autenticação Multi-Factor. 
 
 Após o incumprimento de segurança ser ativado no seu inquilino, todos os pedidos de autenticação feitos por um protocolo mais antigo serão bloqueados. As falhas de segurança bloqueiam a autenticação básica do Exchange Ative Sync.
 
@@ -96,13 +99,13 @@ Após o incumprimento de segurança ser ativado no seu inquilino, todos os pedid
 
 ### <a name="protecting-privileged-actions"></a>Proteger ações privilegiadas
 
-As organizações utilizam uma variedade de serviços Azure geridos através da API gestora de recursos Azure, incluindo:
+As organizações utilizam vários serviços Azure geridos através da API gestora de recursos Azure, incluindo:
 
 - Portal do Azure 
 - Azure PowerShell 
 - CLI do Azure
 
-Utilizar o Azure Resource Manager para gerir os seus serviços é uma ação altamente privilegiada. O Azure Resource Manager pode alterar configurações em todo o inquilino, tais como definições de serviço e faturação de subscrição. A autenticação de um único fator é vulnerável a uma variedade de ataques como phishing e spray de senha. 
+Utilizar o Azure Resource Manager para gerir os seus serviços é uma ação altamente privilegiada. O Azure Resource Manager pode alterar configurações em todo o inquilino, tais como definições de serviço e faturação de subscrição. A autenticação de um único fator é vulnerável a vários ataques como phishing e spray de senha. 
 
 É importante verificar a identidade dos utilizadores que pretendem aceder ao Azure Resource Manager e atualizar as configurações. Verifique a sua identidade exigindo autenticação adicional antes de permitir o acesso.
 

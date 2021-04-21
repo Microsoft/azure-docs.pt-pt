@@ -5,14 +5,14 @@ description: Aprenda a criar dinamicamente um volume persistente com ficheiros A
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f301a01e479d03647bebf7cb042564a258e9250e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96744914"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776128"
 ---
-# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Criar e utilizar dinamicamente um volume persistente com ficheiros Azure no Serviço Azure Kubernetes (AKS)
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Criar e utilizar de forma dinâmica um volume persistente com Ficheiros do Azure no Azure Kubernetes Service (AKS)
 
 Um volume persistente representa um pedaço de armazenamento que foi previsto para ser usado com cápsulas Kubernetes. Um volume persistente pode ser usado por uma ou muitas cápsulas, e pode ser dinamicamente ou estáticamente a provisionado. Se várias cápsulas precisarem de acesso simultâneo ao mesmo volume de armazenamento, pode utilizar ficheiros Azure para se ligar utilizando o protocolo Bloco de Mensagens do [Servidor (SMB).][smb-overview] Este artigo mostra-lhe como criar dinamicamente uma partilha de Ficheiros Azure para utilização por várias cápsulas num cluster Azure Kubernetes Service (AKS).
 
@@ -211,18 +211,18 @@ Saiba mais sobre os volumes persistentes da Kubernetes utilizando ficheiros Azur
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-list]: /cli/azure/group#az-group-list
-[az-resource-show]: /cli/azure/aks#az-aks-show
-[az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/aks#az_aks_show
+[az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [mount-options]: #mount-options
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [storage-skus]: ../storage/common/storage-redundancy.md
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md

@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d347be4e6727cdda659620befe20824678160020
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565576"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792440"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografe os discos de dados e os discos de dados anexados num conjunto de escala de máquina virtual com o Azure CLI
 
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Ativar a encriptação
 
-Para encriptar as instâncias VM num conjunto de escala, primeiro obtenha algumas informações sobre o ID de recurso key Vault com [o show de keyvault az](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Estas variáveis são usadas para iniciar o processo de encriptação com [az vmss encriptação ativar](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+Para encriptar as instâncias VM num conjunto de escala, primeiro obtenha algumas informações sobre o ID de recurso key Vault com [o show de keyvault az](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Estas variáveis são usadas para iniciar o processo de encriptação com [az vmss encriptação ativar](/cli/azure/vmss/encryption#az_vmss_encryption_enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 Pode levar um minuto ou dois para o processo de encriptação começar.
 
-Como o conjunto de escala é a política de upgrade no conjunto de escala criado num passo anterior é definido para *automático*, as instâncias VM iniciam automaticamente o processo de encriptação. Em conjuntos de escala onde a política de atualização é manual, inicie a política de encriptação nos casos VM com [instâncias de atualização az vmss](/cli/azure/vmss#az-vmss-update-instances).
+Como o conjunto de escala é a política de upgrade no conjunto de escala criado num passo anterior é definido para *automático*, as instâncias VM iniciam automaticamente o processo de encriptação. Em conjuntos de escala onde a política de atualização é manual, inicie a política de encriptação nos casos VM com [instâncias de atualização az vmss](/cli/azure/vmss#az_vmss_update_instances).
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Ative a encriptação usando KEK para embrulhar a chave
 
@@ -131,7 +131,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>Verifique o progresso da encriptação
 
-Para verificar o estado da encriptação do disco, utilize [o programa de encriptação az vmss:](/cli/azure/vmss/encryption#az-vmss-encryption-show)
+Para verificar o estado da encriptação do disco, utilize [o programa de encriptação az vmss:](/cli/azure/vmss/encryption#az_vmss_encryption_show)
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
@@ -166,7 +166,7 @@ Quando as instâncias VM são encriptadas, o código de estado *reporta Encrypti
 
 ## <a name="disable-encryption"></a>Desativar a encriptação
 
-Se já não pretender utilizar discos de instâncias VM encriptados, pode desativar a encriptação com [encriptação az vmss desativada](/cli/azure/vmss/encryption#az-vmss-encryption-disable) da seguinte forma:
+Se já não pretender utilizar discos de instâncias VM encriptados, pode desativar a encriptação com [encriptação az vmss desativada](/cli/azure/vmss/encryption#az_vmss_encryption_disable) da seguinte forma:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

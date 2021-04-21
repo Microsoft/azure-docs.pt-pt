@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5cd872d66088e165bfc8356ab6d96a0a6135a0e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 530ca81cedad06c949323889cc02d2a233dd0c02
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94538313"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778828"
 ---
 # <a name="detect-domain-specific-content"></a>Detetar conteúdo específico de um domínio
 
@@ -26,7 +26,7 @@ Existem duas formas de utilizar os modelos específicos do domínio: por si só 
 
 ### <a name="scoped-analysis"></a>Análise scoped
 
-Pode analisar uma imagem utilizando apenas o modelo específico de domínio escolhido, chamando os [Modelos/ \<model\> /Analisar](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) a API.
+Pode analisar uma imagem utilizando apenas o modelo específico de domínio escolhido, chamando os [Modelos/ \<model\> /Analisar](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) a API.
 
 Segue-se uma resposta JSON de amostra devolvida pelos **modelos/celebridades/analisar** a API para a imagem dada:
 
@@ -57,7 +57,7 @@ Segue-se uma resposta JSON de amostra devolvida pelos **modelos/celebridades/ana
 
 ### <a name="enhanced-categorization-analysis"></a>Análise de categorização melhorada
 
-Também pode utilizar modelos específicos de domínio para complementar a análise geral da imagem. Fá-lo como parte de [uma categorização de alto nível](concept-categorizing-images.md) especificando modelos específicos de domínio no parâmetro de *detalhes* da chamada [API de análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)
+Também pode utilizar modelos específicos de domínio para complementar a análise geral da imagem. Fá-lo como parte de [uma categorização de alto nível](concept-categorizing-images.md) especificando modelos específicos de domínio no parâmetro de *detalhes* da chamada [API de análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b)
 
 Neste caso, o classificador de taxonomia de 86 categorias é chamado primeiro. Se alguma das categorias detetadas tiver um modelo específico de domínio correspondente, a imagem também é transmitida através desse modelo e os resultados são adicionados.
 
@@ -105,7 +105,7 @@ Atualmente, a Visão De Computador suporta os seguintes modelos específicos de 
 | celebridades | Reconhecimento de celebridades, suportado para imagens classificadas na `people_` categoria |
 | marcos | Reconhecimento de marco, suportado para imagens classificadas nas `outdoor_` categorias ou `building_` categorias |
 
-Chamando a API [de modelos,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20e) a API devolverá esta informação juntamente com as categorias às quais cada modelo pode aplicar-se:
+Chamando a API [de modelos,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f20e) a API devolverá esta informação juntamente com as categorias às quais cada modelo pode aplicar-se:
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: be555039375e2d71d00bcf8ee58898f54cc3645a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 603d8e642cd2e88beec6ae34094a2c6c43d179ee
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379575"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768936"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
@@ -55,7 +55,7 @@ az webapp up --location westeurope --name <app_name> --html
 <li>Substitua <code>&lt;app-name&gt;</code> por um nome único em todo o Azure <em> (caracteres válidos <code>a-z</code> <code>0-9</code> são, e <code>-</code> </em> . Um bom padrão é usar uma combinação do nome da sua empresa e um identificador de aplicativos.</li>
 <li>O <code>--sku F1</code> argumento cria a aplicação web no nível de preços gratuitos. Omita este argumento para usar um nível premium mais rápido, que incorre num custo de hora a hora.</li>
 <li>O <code>--html</code> argumento diz para tratar todos os conteúdos de pasta como conteúdo estático e desativar a automatização de construção.</li>
-<li>Pode opcionalmente incluir o argumento <code>--location &lt;location-name&gt;</code> onde <code>&lt;location-name&gt;</code> está uma região de Azure disponível. Pode recuperar uma lista de regiões admissíveis para a sua conta Azure, executando o <a href="/cli/azure/appservice#az-appservice-list-locations"> <code>az account list-locations</code> </a> comando.</li>
+<li>Pode opcionalmente incluir o argumento <code>--location &lt;location-name&gt;</code> onde <code>&lt;location-name&gt;</code> está uma região de Azure disponível. Pode recuperar uma lista de regiões admissíveis para a sua conta Azure, executando o <a href="/cli/azure/appservice#az_appservice_list_locations"> <code>az account list-locations</code> </a> comando.</li>
 </ul>
 </details>
 
@@ -67,7 +67,7 @@ O comando pode demorar alguns minutos a ser concluído.
 <ul>
 <li>Cria um grupo de recursos predefinido.</li>
 <li>Crie um plano de Serviço de Aplicações predefinido.</li>
-<li><a href="/cli/azure/webapp#az-webapp-create">Crie uma aplicação de Serviço de Aplicações</a> com o nome especificado.</li>
+<li><a href="/cli/azure/webapp#az_webapp_create">Crie uma aplicação de Serviço de Aplicações</a> com o nome especificado.</li>
 <li><a href="/azure/app-service/deploy-zip">Zip implementa</a> ficheiros do diretório de trabalho atual para a aplicação.</li>
 <li>Durante a execução, fornece mensagens sobre criação de recursos, registo e implementação zip.</li>
 </ul>

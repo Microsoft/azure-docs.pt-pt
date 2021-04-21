@@ -3,16 +3,16 @@ title: Criar, visualizar e gerir alertas de registo de atividade no Azure Monito
 description: Crie alertas de registo de atividade utilizando o portal Azure, um modelo de Gestor de Recursos Azure e Azure PowerShell.
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: 26ca755f6675fa19c3b122c3528e05d1e8d76845
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 647378d7e93ab383441b363315a84cea8a5ab773
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045535"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772546"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os alertas de registo de atividade são os alertas que são ativados quando ocorre um novo evento de registo de atividade que corresponde às condições especificadas no alerta.
 
@@ -276,13 +276,13 @@ Os comandos dedicados do CLI Azure ao abrigo do [alerta de registo de atividade 
 
 Para criar uma nova regra de alerta de registo de atividade, utilize os seguintes comandos nesta ordem:
 
-1. [az monitor de alerta de registo de atividade criar:](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create)Criar um novo recurso de regra de alerta de registo de atividade.
+1. [az monitor de alerta de registo de atividade criar:](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_create)Criar um novo recurso de regra de alerta de registo de atividade.
 1. [az monitor monitor de alerta de registo de atividade](/cli/azure/monitor/activity-log/alert/scope): Adicione o âmbito para a regra de alerta de registo de atividade criada.
 1. [az monitorar o grupo de ação de alerta de registo de atividades](/cli/azure/monitor/activity-log/alert/action-group): Adicione um grupo de ação à regra de alerta de registo de atividade.
 
-Para recuperar um recurso de regra de alerta de registo de atividade, utilize o [programa de alerta de registo de atividade do monitor Azure](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-)CLI monitor . Para visualizar todos os recursos de regra de alerta de registo de atividade em um grupo de recursos, utilize [a lista de alerta de registo de atividade do monitor az](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Os recursos de regra de alerta de registo de atividade podem ser removidos utilizando o [aviso de registo de atividade do monitor](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete)Azure CLI .
+Para recuperar um recurso de regra de alerta de registo de atividade, utilize o [programa de alerta de registo de atividade do monitor Azure](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_show
+)CLI monitor . Para visualizar todos os recursos de regra de alerta de registo de atividade em um grupo de recursos, utilize [a lista de alerta de registo de atividade do monitor az](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_list).
+Os recursos de regra de alerta de registo de atividade podem ser removidos utilizando o [aviso de registo de atividade do monitor](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_delete)Azure CLI .
 
 ## <a name="next-steps"></a>Passos seguintes
 

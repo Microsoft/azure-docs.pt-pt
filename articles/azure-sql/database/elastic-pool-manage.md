@@ -10,12 +10,12 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
-ms.openlocfilehash: 2ccc34d1fc48c54bce90a2cde5b14bdc7059d480
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 555b18a7edbc3cc00cd7dcaf7f4897a4608d52e7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598912"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787220"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerir piscinas elásticas em Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,12 +73,12 @@ Para criar e gerir piscinas elásticas SQL Database com o [Azure CLI,](/cli/azur
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[az sql piscina elástica criar](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Cria uma piscina elástica.|
-|[az sql lista de piscina elástica](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Devolve uma lista de piscinas elásticas num servidor.|
-|[az sql elástico-pool lista-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Devolve uma lista de bases de dados numa piscina elástica.|
-|[az sql elastic-pool lista-edições](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Também inclui configurações DTU de piscina disponíveis, limites de armazenamento e por definições de base de dados. Para reduzir a verbosidade, os limites de armazenamento adicionais e as definições por base de dados são ocultados por padrão.|
-|[az sql elastic-pool atualização](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza uma piscina elástica.|
-|[az sql elástico-piscina delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Elimina a piscina elástica.|
+|[az sql piscina elástica criar](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Cria uma piscina elástica.|
+|[az sql lista de piscina elástica](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Devolve uma lista de piscinas elásticas num servidor.|
+|[az sql elástico-pool lista-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Devolve uma lista de bases de dados numa piscina elástica.|
+|[az sql elastic-pool lista-edições](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Também inclui configurações DTU de piscina disponíveis, limites de armazenamento e por definições de base de dados. Para reduzir a verbosidade, os limites de armazenamento adicionais e as definições por base de dados são ocultados por padrão.|
+|[az sql elastic-pool atualização](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Atualiza uma piscina elástica.|
+|[az sql elástico-piscina delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Elimina a piscina elástica.|
 
 ## <a name="transact-sql-t-sql"></a>Transact-SQL (T-SQL)
 

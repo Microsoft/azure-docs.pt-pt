@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1a1b11d517fdfea0aa3a0f553b63276bc20f90be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 521f9332590eca5cdf94fadc4b59ab4d482eb658
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98805450"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768564"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Apoie uma máquina virtual em Azure com o Azure CLI
 
@@ -26,7 +26,7 @@ Este início rápido ativa a cópia de segurança numa VM do Azure existente. Se
 
 Um cofre dos Serviços de Recuperação é um contentor lógico que armazena os dados da cópia de segurança de todos os recursos protegidos, como as VMs do Azure. Quando a tarefa de cópia de segurança de um recurso protegido é executada, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
-Crie um cofre dos Serviços de Recuperação com [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Especifique o mesmo grupo de recursos e a mesma localização da VM que quer proteger. Se utilizou o [início rápido da VM](../virtual-machines/linux/quick-create-cli.md), então criou:
+Crie um cofre dos Serviços de Recuperação com [az backup vault create](/cli/azure/backup/vault#az_backup_vault_create). Especifique o mesmo grupo de recursos e a mesma localização da VM que quer proteger. Se utilizou o [início rápido da VM](../virtual-machines/linux/quick-create-cli.md), então criou:
 
 - um grupo de recursos com o nome *myResourceGroup*,
 - uma VM com o nome *myVM*,
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. Geo-Redundant armazenamento garante que os seus dados de reserva são replicados para uma região secundária de Azure que fica a centenas de milhas da região primária. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [de backup-propriedades de backup do cofre az.](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set)
+Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. Geo-Redundant armazenamento garante que os seus dados de reserva são replicados para uma região secundária de Azure que fica a centenas de milhas da região primária. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [de backup-propriedades de backup do cofre az.](/cli/azure/backup/vault/backup-properties#az_backup_vault_backup_properties_set)
 
 ```azurecli
 az backup vault backup-properties set \
@@ -49,7 +49,7 @@ az backup vault backup-properties set \
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Ativar a cópia de segurança em VMs do Azure
 
-Crie uma política de proteção para definir: quando é executada uma tarefa de cópia de segurança e durante quanto tempo os pontos de recuperação são armazenados. A política de proteção predefinida executa uma tarefa de cópia de segurança todos os dias e mantém os pontos de recuperação durante 30 dias. Pode utilizar estes valores da política predefinida para proteger rapidamente a sua VM. Para permitir a proteção de backup para um VM, utilize [a proteção de backup az ativar para vm](/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Especifique o grupo de recursos e a VM a proteger e, em seguida, a política a utilizar:
+Crie uma política de proteção para definir: quando é executada uma tarefa de cópia de segurança e durante quanto tempo os pontos de recuperação são armazenados. A política de proteção predefinida executa uma tarefa de cópia de segurança todos os dias e mantém os pontos de recuperação durante 30 dias. Pode utilizar estes valores da política predefinida para proteger rapidamente a sua VM. Para permitir a proteção de backup para um VM, utilize [a proteção de backup az ativar para vm](/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Especifique o grupo de recursos e a VM a proteger e, em seguida, a política a utilizar:
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -75,7 +75,7 @@ az backup protection enable-for-vm \
 
 ## <a name="start-a-backup-job"></a>Iniciar uma tarefa de cópia de segurança
 
-Para iniciar uma cópia de segurança agora em vez de aguardar até que a política predefinida execute a tarefa na hora agendada, utilize [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now). Esta primeira tarefa de cópia de segurança cria um ponto de recuperação completo. Todas as tarefas de cópia de segurança que se seguem a esta cópia de segurança inicial criam pontos de recuperação incrementais. Os pontos de recuperação incrementais são eficientes em termos de armazenamento e tempo, uma vez que só transferem as alterações feitas desde a última cópia de segurança.
+Para iniciar uma cópia de segurança agora em vez de aguardar até que a política predefinida execute a tarefa na hora agendada, utilize [az backup protection backup-now](/cli/azure/backup/protection#az_backup_protection_backup_now). Esta primeira tarefa de cópia de segurança cria um ponto de recuperação completo. Todas as tarefas de cópia de segurança que se seguem a esta cópia de segurança inicial criam pontos de recuperação incrementais. Os pontos de recuperação incrementais são eficientes em termos de armazenamento e tempo, uma vez que só transferem as alterações feitas desde a última cópia de segurança.
 
 Os parâmetros seguintes são utilizados para criar a cópia de segurança da VM:
 
@@ -96,7 +96,7 @@ az backup protection backup-now \
 
 ## <a name="monitor-the-backup-job"></a>Monitorizar a tarefa de cópia de segurança
 
-Para monitorizar o estado das tarefas de criação de cópias de segurança, utilize [az backup job list](/cli/azure/backup/job#az-backup-job-list):
+Para monitorizar o estado das tarefas de criação de cópias de segurança, utilize [az backup job list](/cli/azure/backup/job#az_backup_job_list):
 
 ```azurecli-interactive
 az backup job list \
@@ -118,7 +118,7 @@ Quando o *Estado* da tarefa de cópia de segurança mostrar *Concluído*, a VM e
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Quando já não precisar, pode desativar a proteção na VM, remover os pontos de restauro e o cofre dos Serviços de Recuperação e, em seguida, eliminar o grupo de recursos e os recursos da VM associados. Se tiver utilizado uma VM já existente, pode ignorar o último comando [az group delete](/cli/azure/group#az-group-delete) para manter o grupo de recursos e a VM.
+Quando já não precisar, pode desativar a proteção na VM, remover os pontos de restauro e o cofre dos Serviços de Recuperação e, em seguida, eliminar o grupo de recursos e os recursos da VM associados. Se tiver utilizado uma VM já existente, pode ignorar o último comando [az group delete](/cli/azure/group#az_group_delete) para manter o grupo de recursos e a VM.
 
 Se pretender experimentar um tutorial de Cópia de Segurança que explica como restaurar dados para a VM, aceda a [Passos seguintes](#next-steps).
 

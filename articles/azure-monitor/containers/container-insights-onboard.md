@@ -3,12 +3,12 @@ title: Ativar os conhecimentos do contentor | Microsoft Docs
 description: Este artigo descreve como ativar e configurar insights do Contentor para que possa entender como o seu recipiente está a funcionar e quais as questões relacionadas com o desempenho que foram identificadas.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 01246a728f204ed9cb43eee392c637b495208aaf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e0544232f40e93cce0705fff6814d29697a96218
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109357"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782122"
 ---
 # <a name="enable-container-insights"></a>Ativar insights de contentores
 
@@ -124,7 +124,7 @@ Para ativar os conhecimentos do contentor, utilize um dos métodos descritos na 
 | Novo cluster Kubernetes | [Criar um cluster AKS utilizando o CLI Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Pode ativar a monitorização de um novo cluster AKS que cria utilizando o Azure CLI. |
 | | [Criar um cluster AKS utilizando o Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Pode ativar a monitorização de um novo cluster AKS que cria utilizando a ferramenta de código aberto Terraform. |
 | | [Crie um cluster OpenShift usando um modelo de Gestor de Recursos Azure](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Pode ativar a monitorização de um novo cluster OpenShift que cria utilizando um modelo pré-configurado do Gestor de Recursos Azure. |
-| | [Criar um cluster OpenShift utilizando o CLI Azure](/cli/azure/openshift#az-openshift-create) | Pode ativar a monitorização quando implementar um novo cluster OpenShift utilizando o Azure CLI. |
+| | [Criar um cluster OpenShift utilizando o CLI Azure](/cli/azure/openshift#az_openshift_create) | Pode ativar a monitorização quando implementar um novo cluster OpenShift utilizando o Azure CLI. |
 | Cluster Kubernetes existente | [Permitir a monitorização de um cluster AKS utilizando o CLI Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Pode ativar a monitorização de um cluster AKS que já foi implantado utilizando o Azure CLI. |
 | |[Ativar o cluster AKS utilizando o Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Pode ativar a monitorização de um cluster AKS que já foi implantado utilizando a ferramenta de código aberto Terraform. |
 | | [Ativar o cluster AKS a partir do Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Pode ativar a monitorização de um ou mais clusters AKS que já estão implantados a partir da página multi-cluster no Azure Monitor. |

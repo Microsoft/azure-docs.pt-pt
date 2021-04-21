@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 46caae53ed81de335c2b9d5ddbd3fd7f89424fdd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200092"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780420"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Criar um teste de Analisador de Internet utilizando CLI (Pré-visualização)
 
@@ -50,7 +50,7 @@ O Internet Analyzer CLI expõe os seguintes tipos de recursos:
 
 5. Selecione o seu ID de subscrição que tenha tido acesso à pré-visualização pública do Internet Analyzer.
 
-    Depois de iniciar sessão, vê uma lista de subscrições associadas à sua conta Azure. A informação de subscrição com `isDefault: true` é a subscrição ativada atualmente após o início de sessão. Para selecionar outra subscrição, utilize o comando [conjunto de conta az](/cli/azure/account#az-account-set) com o ID de subscrição para mudar. Para obter mais informações sobre a seleção de subscrição, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
+    Depois de iniciar sessão, vê uma lista de subscrições associadas à sua conta Azure. A informação de subscrição com `isDefault: true` é a subscrição ativada atualmente após o início de sessão. Para selecionar outra subscrição, utilize o comando [conjunto de conta az](/cli/azure/account#az_account_set) com o ID de subscrição para mudar. Para obter mais informações sobre a seleção de subscrição, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     Existem formas de iniciar sessão de forma não interativa, que são abordadas em detalhe em [Iniciar sessão com a CLI do Azure](/cli/azure/authenticate-azure-cli).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 43d3da49688a7daeb3ea4e0c1c3dba505dcd3b59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 847f8dbd2d8f4064f12333348a4f03e5c5fcc611
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508338"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774274"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Add network interfaces to or remove network interfaces from virtual machines (Adicionar interfaces de rede ou remover interfaces de rede de máquinas virtuais)
 
@@ -52,7 +52,7 @@ Antes de criar o VM, [crie uma interface de rede.](virtual-network-network-inter
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az-network-nic-create)|
+|CLI|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_create)|
 |PowerShell|[Novo AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="add-a-network-interface-to-an-existing-vm"></a>Adicione uma interface de rede a um VM existente
@@ -80,7 +80,7 @@ Agora pode configurar o sistema operativo VM para utilizar corretamente várias 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az-vm-nic-add) (referência); [passos detalhados](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_add) (referência); [passos detalhados](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência); [passos detalhados](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Ver interfaces de rede de uma VM
@@ -102,7 +102,7 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[lista az vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az-vm-nic-list)|
+|CLI|[lista az vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_list)|
 |PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>Remover uma interface de rede de um VM
@@ -126,7 +126,7 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az vm nic remover](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az-vm-nic-remove) (referência); [passos detalhados](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|CLI|[az vm nic remover](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_remove) (referência); [passos detalhados](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência); [passos detalhados](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>Restrições
@@ -152,6 +152,8 @@ Para conhecer as definições de interface de rede e como alterá-las, consulte 
 - A eliminação de um VM não elimina as interfaces de rede que lhe estão ligadas. Quando elimina um VM, as interfaces de rede são separadas do VM. Pode adicionar essas interfaces de rede a diferentes VMs ou eliminá-las.
 
 - Alcançar o desempenho ideal documentado requer uma rede acelerada. Em alguns casos, deve ativar explicitamente a rede acelerada para máquinas virtuais [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux.](create-vm-accelerated-networking-cli.md)
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

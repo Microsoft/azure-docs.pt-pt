@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8779ee2d3c4d83c06a2c1803e65219d43f0ef14
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: a88bb7904143f69a0eea84ea291c65e3244c70a1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275809"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765868"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Ativar o sing-in da chave de segurança sem palavras-passe 
 
@@ -90,7 +90,9 @@ Se quiser partilhar feedback ou encontrar problemas com esta funcionalidade, par
 
 O fornecimento e desavising das chaves de segurança não estão disponíveis.
 
-**Nota:** Fido2 Cached logon falha na máquina híbrida Azure AD específica para ganhar 10 20H2 versão (quando LOS para DC indisponível). Isto está atualmente sob investigação com a Engenharia.
+### <a name="cached-logon-on-hybrid-azure-ad-joined-devices"></a>Logon em cache em dispositivos híbridos Azure AD
+
+A logona em cache com teclas FIDO2 falha em dispositivos híbridos Azure AD ligados ao Windows 10, versão 20H2. Como resultado, os utilizadores não poderão iniciar sessão quando a linha de visão para o controlador de domínio no local não estiver disponível. Isto está sob investigação.
 
 ### <a name="upn-changes"></a>Alterações de UPN
 

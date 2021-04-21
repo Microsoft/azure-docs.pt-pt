@@ -3,12 +3,12 @@ title: Ativar TLS com recipiente sidecar
 description: Criar um ponto final SSL ou TLS para um grupo de contentores que funciona em Instâncias de Contentores Azure, executando o Nginx num recipiente de sidecar
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 906a1f239d7050ea17fd7d1425138049ebf045c1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96558084"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790982"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Ativar um ponto final TLS num recipiente de sidecar
 
@@ -193,13 +193,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>Desdobre o grupo de contentores
 
-Criar um grupo de recursos com o [grupo az criar](/cli/azure/group#az-group-create) comando:
+Criar um grupo de recursos com o [grupo az criar](/cli/azure/group#az_group_create) comando:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-Desloque o grupo de contentores com o [recipiente az crie](/cli/azure/container#az-container-create) comando, passando o ficheiro YAML como argumento.
+Desloque o grupo de contentores com o [recipiente az crie](/cli/azure/container#az_container_create) comando, passando o ficheiro YAML como argumento.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -207,7 +207,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### <a name="view-deployment-state"></a>Ver estado de implantação
 
-Para visualizar o estado da implantação, utilize o seguinte comando [de demonstração de contentores az:](/cli/azure/container#az-container-show)
+Para visualizar o estado da implantação, utilize o seguinte comando [de demonstração de contentores az:](/cli/azure/container#az_container_show)
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table

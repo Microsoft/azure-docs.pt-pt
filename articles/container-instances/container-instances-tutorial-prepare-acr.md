@@ -4,12 +4,12 @@ description: Azure Container Instances tutorial parte 2 de 3 - Prepare um regist
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 2eda960c53fc7ba851ffcfbe96bd8e9a48844910
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36c2e6cda728a85ccab080bbbb6f1a0b74824f2d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92746931"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786986"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Criar um registo de contentores Azure e empurrar uma imagem de contentor
 
@@ -166,10 +166,10 @@ Avance para o próximo tutorial para saber como implementar o contentor para o A
 [nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-repository-list]: /cli/azure/acr/repository
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli

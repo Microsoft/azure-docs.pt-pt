@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee392666a6c6807497eeac2a2291dac915c4e136
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 418741c10dfe5f0678d7771d046781697512bafe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644311"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776506"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -104,8 +104,8 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.31 ou posterior. Execute az --version para localizar a versão. Se necessitar de instalar ou atualizar, consulte o artigo Instalar O [Azure CLI](/cli/azure/install-azure-cli).
 
-1. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). 
-1. Crie um VM com [az vm criar](/cli/azure/vm#az-vm-create) usando uma distribuição suportada numa região apoiada. 
+1. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). 
+1. Crie um VM com [az vm criar](/cli/azure/vm#az_vm_create) usando uma distribuição suportada numa região apoiada. 
 1. Instale a extensão VM de login Azure. 
 
 O exemplo a seguir implementa um VM chamado myVM que utiliza o Win2019Datacenter, num grupo de recursos chamado myResourceGroup, na região sulcentralus. Nos seguintes exemplos, pode fornecer os nomes do seu próprio grupo de recursos e VM, conforme necessário.
@@ -127,7 +127,7 @@ az vm create \
 
 São necessários alguns minutos para criar a VM e os recursos de suporte.
 
-Por fim, instale a extensão VM de login Azure AD para permitir o login Azure AD para o Windows VM. As extensões VM são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em máquinas virtuais Azure. Utilize o conjunto [de extensão az vm](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão AADLoginForWindows no VM nomeado `myVM` no grupo de `myResourceGroup` recursos:
+Por fim, instale a extensão VM de login Azure AD para permitir o login Azure AD para o Windows VM. As extensões VM são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em máquinas virtuais Azure. Utilize o conjunto [de extensão az vm](/cli/azure/vm/extension#az_vm_extension_set) para instalar a extensão AADLoginForWindows no VM nomeado `myVM` no grupo de `myResourceGroup` recursos:
 
 > [!NOTE]
 > Pode instalar a extensão AADLoginForWindows num Windows Server 2019 ou Windows 10 1809 existente e mais tarde em VM para a permitir a autenticação AD do Azure. Um exemplo de AZ CLI é mostrado abaixo.
@@ -177,7 +177,7 @@ Após alguns momentos, o diretor de segurança é atribuído o papel no âmbito 
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Usando a experiência Azure Cloud Shell
 
-O exemplo a seguir utiliza [a atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função de Login do Administrador de Máquina Virtual ao VM para o seu utilizador Azure atual. O nome de utilizador da sua conta Azure ativa é obtido com [a conta AZ](/cli/azure/account#az-account-show), e o âmbito é definido para o VM criado em passo anterior com [a az vm show](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um grupo de recursos ou nível de subscrição, e as permissões de herança normal do Azure RBAC aplicam-se. Para obter mais informações, consulte [iniciar sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory](../../virtual-machines/linux/login-using-aad.md).
+O exemplo a seguir utiliza [a atribuição de funções az](/cli/azure/role/assignment#az_role_assignment_create) para atribuir a função de Login do Administrador de Máquina Virtual ao VM para o seu utilizador Azure atual. O nome de utilizador da sua conta Azure ativa é obtido com [a conta AZ](/cli/azure/account#az_account_show), e o âmbito é definido para o VM criado em passo anterior com [a az vm show](/cli/azure/vm#az_vm_show). O âmbito também poderia ser atribuído a um grupo de recursos ou nível de subscrição, e as permissões de herança normal do Azure RBAC aplicam-se. Para obter mais informações, consulte [iniciar sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 $username=$(az account show --query user.name --output tsv)
@@ -190,7 +190,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Se o seu domínio AAD e o nome de utilizador do início de síltipo não coincidirem, tem de especificar o ID do objeto da sua conta de utilizador com o nome de `--assignee-object-id` utilizador para `--assignee` . Pode obter o ID do objeto para a sua conta de utilizador com [a lista de utilizadores de anúncios az](/cli/azure/ad/user#az-ad-user-list).
+> Se o seu domínio AAD e o nome de utilizador do início de síltipo não coincidirem, tem de especificar o ID do objeto da sua conta de utilizador com o nome de `--assignee-object-id` utilizador para `--assignee` . Pode obter o ID do objeto para a sua conta de utilizador com [a lista de utilizadores de anúncios az](/cli/azure/ad/user#az_ad_user_list).
 
 Para obter mais informações sobre como utilizar o Azure RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte os seguintes artigos:
 

@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5424b776b977d8a6939bbb28c5d4c9c428cac444
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4fdff2515dde941b2e9037a21ad931ac27b6fef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179617"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764230"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Como utilizar identidades geridas para configuração de aplicações Azure
 
@@ -99,12 +99,12 @@ Os seguintes passos irão acompanhá-lo através da criação de uma identidade 
 
 ## <a name="removing-an-identity"></a>Remover uma identidade
 
-Uma identidade atribuída ao sistema pode ser removida desativando a funcionalidade utilizando o comando [de remoção de identidade az appconfig](/cli/azure/appconfig/identity#az-appconfig-identity-remove) no CLI Azure. As identidades atribuídas ao utilizador podem ser removidas individualmente. A remoção de uma identidade atribuída ao sistema desta forma também a eliminará da AAD. As identidades atribuídas ao sistema também são automaticamente removidas do AAD quando o recurso da aplicação é eliminado.
+Uma identidade atribuída ao sistema pode ser removida desativando a funcionalidade utilizando o comando [de remoção de identidade az appconfig](/cli/azure/appconfig/identity#az_appconfig_identity_remove) no CLI Azure. As identidades atribuídas ao utilizador podem ser removidas individualmente. A remoção de uma identidade atribuída ao sistema desta forma também a eliminará da AAD. As identidades atribuídas ao sistema também são automaticamente removidas do AAD quando o recurso da aplicação é eliminado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Crie uma aplicação core ASP.NET com configuração de aplicação Azure](quickstart-aspnet-core-app.md)
 
-[az appconfig identidade atribuir]: /cli/azure/appconfig/identity#az-appconfig-identity-assign
-[az login]: /cli/azure/reference-index#az-login
+[az appconfig identidade atribuir]: /cli/azure/appconfig/identity#az_appconfig_identity_assign
+[az login]: /cli/azure/reference-index#az_login

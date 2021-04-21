@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23b3ca919be030490cca06f31dac623d7f80be44
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92746584"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790388"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Criar uma conta de armazenamento com encriptação de infraestrutura habilitada para dupla encriptação de dados
 
@@ -58,21 +58,21 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para se registar no Azure CLI, ligue para o comando [de registo de recurso az.](/cli/azure/feature#az-feature-register)
+Para se registar no Azure CLI, ligue para o comando [de registo de recurso az.](/cli/azure/feature#az_feature_register)
 
 ```azurecli
 az feature register --namespace Microsoft.Storage \
     --name AllowRequireInfraStructureEncryption
 ```
 
-Para verificar o estado da sua inscrição com o Azure CLI, ligue para o comando [de recurso az.](/cli/azure/feature#az-feature-show)
+Para verificar o estado da sua inscrição com o Azure CLI, ligue para o comando [de recurso az.](/cli/azure/feature#az_feature_show)
 
 ```azurecli
 az feature show --namespace Microsoft.Storage \
     --name AllowRequireInfraStructureEncryption
 ```
 
-Após a aprovação do seu registo, deve voltar a registar o fornecedor de recursos de armazenamento Azure. Para voltar a registar o fornecedor de recursos com o Azure CLI, ligue para o comando [de registo do fornecedor az.](/cli/azure/provider#az-provider-register)
+Após a aprovação do seu registo, deve voltar a registar o fornecedor de recursos de armazenamento Azure. Para voltar a registar o fornecedor de recursos com o Azure CLI, ligue para o comando [de registo do fornecedor az.](/cli/azure/provider#az_provider_register)
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -122,7 +122,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 Para utilizar o Azure CLI para criar uma conta de armazenamento que tenha encriptação de infraestrutura ativada, certifique-se de que instalou a versão 2.8.0 ou posterior do Azure CLI. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
-Em seguida, crie uma conta de armazenamento v2 para fins gerais, chamando a [conta de armazenamento az criar](/cli/azure/storage/account#az-storage-account-create) comando e incluir a `--require-infrastructure-encryption option` encriptação de infraestrutura para ativar.
+Em seguida, crie uma conta de armazenamento v2 para fins gerais, chamando a [conta de armazenamento az criar](/cli/azure/storage/account#az_storage_account_create) comando e incluir a `--require-infrastructure-encryption option` encriptação de infraestrutura para ativar.
 
 O exemplo a seguir mostra como criar uma conta de armazenamento v2 para fins gerais que está configurada para armazenamento geo-redundante de acesso à leitura (RA-GRS) e tem encriptação de infraestrutura ativada para dupla encriptação de dados. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
@@ -197,7 +197,7 @@ $account.Encryption.RequireInfrastructureEncryption
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para verificar se a encriptação da infraestrutura está ativada para uma conta de armazenamento com o Azure CLI, ligue para o comando [da conta de armazenamento AZ.](/cli/azure/storage/account#az-storage-account-show) Este comando devolve um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `requireInfrastructureEncryption` campo dentro da propriedade e verifique se está definido para `encryption` `true` .
+Para verificar se a encriptação da infraestrutura está ativada para uma conta de armazenamento com o Azure CLI, ligue para o comando [da conta de armazenamento AZ.](/cli/azure/storage/account#az_storage_account_show) Este comando devolve um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `requireInfrastructureEncryption` campo dentro da propriedade e verifique se está definido para `encryption` `true` .
 
 O exemplo a seguir recupera o valor do `requireInfrastructureEncryption` imóvel. Lembre-se de substituir os valores do espaço reservado nos suportes angulares pelos seus próprios valores:
 
