@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fb5203629915914ab9af22d89e5f2865078a8e44
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 82fc5707800e06e3221754bfa29d8e981ccdbd2d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012612"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782590"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ do Serviço de Aplicações do Azure no Linux
 
@@ -122,7 +122,7 @@ Forneça o URL de registo completo, incluindo `http://` ou `https://` .
 
 **Qual é o formato do nome de imagem na opção de registo privado?**
 
-Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para `docker-custom-image-name` definir, utilize a [ `az` ferramenta de linha de comando](/cli/azure/webapp/config/container#az-webapp-config-container-set).
+Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para `docker-custom-image-name` definir, utilize a [ `az` ferramenta de linha de comando](/cli/azure/webapp/config/container#az_webapp_config_container_set).
 
 **Posso expor mais do que uma porta na minha imagem personalizada do contentor?**
 

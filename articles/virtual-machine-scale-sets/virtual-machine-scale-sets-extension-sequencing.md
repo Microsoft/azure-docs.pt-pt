@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b5aea1f0f0101231408dc9ad7b57a30f2c86256
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83121036"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788162"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Provisão de extensão de sequência em conjuntos de escala de máquina virtual
 As extensões de máquinas virtuais Azure fornecem capacidades como configuração e gestão pós-implantação, monitorização, segurança e muito mais. As implementações de produção normalmente utilizam uma combinação de extensões múltiplas configuradas para as instâncias VM para obter os resultados desejados.
@@ -223,7 +223,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize [o conjunto de extensão az vmss](/cli/azure/vmss/extension#az-vmss-extension-set) para adicionar a extensão de Saúde da Aplicação à definição do modelo definido em escala. A sequência de extensão requer a utilização do Azure CLI 2.0.55 ou superior.
+Utilize [o conjunto de extensão az vmss](/cli/azure/vmss/extension#az_vmss_extension_set) para adicionar a extensão de Saúde da Aplicação à definição do modelo definido em escala. A sequência de extensão requer a utilização do Azure CLI 2.0.55 ou superior.
 
 O exemplo a seguir adiciona a [extensão de Saúde da Aplicação](virtual-machine-scale-sets-health-extension.md) ao modelo de escala definida de um conjunto de escala baseado no Windows. A extensão de Saúde da Aplicação será disponibilizada após a disponibilização da [Extensão de Script Personalizado,](../virtual-machines/extensions/custom-script-windows.md)já definida no conjunto de escala.
 

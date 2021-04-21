@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
-ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f20fa22dac3fba4d01cbc5e398bafa4113e94a96
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84737534"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780304"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Ver a topologia de uma rede virtual Azure
 
@@ -61,7 +61,7 @@ A conta que utiliza deve ter as [permissões necessárias.](required-rbac-permis
     az group create --name NetworkWatcherRG --location eastus
     ```
 
-2. Crie um observador de rede com [configuração de observador de rede az](/cli/azure/network/watcher#az-network-watcher-configure). O exemplo a seguir cria um observador de rede na região *leste:*
+2. Crie um observador de rede com [configuração de observador de rede az](/cli/azure/network/watcher#az_network_watcher_configure). O exemplo a seguir cria um observador de rede na região *leste:*
 
     ```azurecli-interactive
     az network watcher configure \
@@ -70,7 +70,7 @@ A conta que utiliza deve ter as [permissões necessárias.](required-rbac-permis
       --enabled true
     ```
 
-3. Veja a topologia com [a az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). O exemplo a seguir vê a topologia de um grupo de recursos chamado *MyResourceGroup:*
+3. Veja a topologia com [a az network watcher show-topology](/cli/azure/network/watcher#az_network_watcher_show_topology). O exemplo a seguir vê a topologia de um grupo de recursos chamado *MyResourceGroup:*
 
     ```azurecli-interactive
     az network watcher show-topology --resource-group MyResourceGroup

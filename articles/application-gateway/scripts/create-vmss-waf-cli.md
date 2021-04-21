@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e9201f41c9552b6a60f9ccd8eacda60ac46f89eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e20a4324f46925b8f83d7519c481a1d5bfc06a9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99591639"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789308"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Restringir o tráfego da Web com a CLI do Azure
 
@@ -45,15 +45,15 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Cria uma rede virtual. |
-| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Cria uma sub-rede numa rede virtual. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Cria uma sub-rede numa rede virtual. |
 | [az network public-ip create](/cli/azure/network/public-ip) | Cria o endereço IP público do gateway de aplicação. |
 | [az network application-gateway create](/cli/azure/network/application-gateway) | Cria um gateway de aplicação. |
-| [az vmss create](/cli/azure/vmss#az-vmss-create) | Cria um conjunto de dimensionamento de máquinas virtuais. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento. |
-| [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | Cria uma conta de armazenamento. |
-| [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) | Obtém o endereço IP público do gateway de aplicação. |
+| [az vmss create](/cli/azure/vmss#az_vmss_create) | Cria um conjunto de dimensionamento de máquinas virtuais. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento. |
+| [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) | Cria uma conta de armazenamento. |
+| [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) | Obtém o endereço IP público do gateway de aplicação. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 65b02ae1baef97442828de747249ab6ffeaf2417
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bbc07a7ee3f996c778cfc1b9d1764f10a613c50b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599477"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782950"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Open Service Mesh Addon AKS (Pré-visualização)
 
@@ -107,7 +107,7 @@ Para um novo cenário de implantação de cluster AKS, começará com uma nova i
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Em Azure, aloca recursos relacionados a um grupo de recursos. Crie um grupo de recursos utilizando [o grupo Az create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado _myOsmAksGroup_ na localização _eastus2_ (região):
+Em Azure, aloca recursos relacionados a um grupo de recursos. Crie um grupo de recursos utilizando [o grupo Az create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado _myOsmAksGroup_ na localização _eastus2_ (região):
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>

@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: c0c1bf83bf5a816debe61cab0ceab856bfbd062f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbcff37185b2cba71c405e917653d52397479007
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181181"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779602"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups"></a>Reduzir a latência com grupos de colocação de proximidade
 
@@ -127,16 +127,16 @@ az group delete --name myResourceGroup --yes --no-wait
 [azure-ad-rbac]: azure-ad-rbac.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [proximity-placement-groups]: ../virtual-machines/co-location.md#proximity-placement-groups
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [system-pool]: ./use-system-pools.md
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete

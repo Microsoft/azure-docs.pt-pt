@@ -3,12 +3,12 @@ title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b17b8741d1701720de86d8039be3b6cd28ace5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491491"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781906"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implantações de inquilinos com modelos ARM
 
@@ -98,7 +98,7 @@ Os comandos para implantações de inquilinos são diferentes dos comandos para 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para o Azure CLI, utilize [o inquilino de implantação az criar:](/cli/azure/deployment/tenant#az-deployment-tenant-create)
+Para o Azure CLI, utilize [o inquilino de implantação az criar:](/cli/azure/deployment/tenant#az_deployment_tenant_create)
 
 ```azurecli-interactive
 az deployment tenant create \

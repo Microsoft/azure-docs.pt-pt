@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: cf100861705bf1654b7206445c884b5fe315b06d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 148b24aea42072f1901c76c7a09a126340ef9951
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792638"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784376"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência de API gerida para o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -60,18 +60,18 @@ Para criar e configurar casos geridos com [o Azure CLI,](/cli/azure)utilize os [
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[az sql mi criar](/cli/azure/sql/mi#az-sql-mi-create) |Cria um caso gerido.|
-|[lista az sql mi](/cli/azure/sql/mi#az-sql-mi-list)|Listas disponíveis casos geridos.|
-|[az sql mi show](/cli/azure/sql/mi#az-sql-mi-show)|Obtém os detalhes para um caso gerido.|
-|[az sql mi atualização](/cli/azure/sql/mi#az-sql-mi-update)|Atualiza um caso gerido.|
-|[az sql mi apagar](/cli/azure/sql/mi#az-sql-mi-delete)|Remove um caso gerido.|
+|[az sql mi criar](/cli/azure/sql/mi#az_sql_mi_create) |Cria um caso gerido.|
+|[lista az sql mi](/cli/azure/sql/mi#az_sql_mi_list)|Listas disponíveis casos geridos.|
+|[az sql mi show](/cli/azure/sql/mi#az_sql_mi_show)|Obtém os detalhes para um caso gerido.|
+|[az sql mi atualização](/cli/azure/sql/mi#az_sql_mi_update)|Atualiza um caso gerido.|
+|[az sql mi apagar](/cli/azure/sql/mi#az_sql_mi_delete)|Remove um caso gerido.|
 |[az sql mi op lista](/cli/azure/sql/mi/op#az_sql_mi_op_list)|Obtém uma lista de operações de gestão realizadas na instância gerida.|
 |[az sql mi op show](/cli/azure/sql/mi/op#az_sql_mi_op_show)|Obtém a operação de gestão específica realizada na instância gerida.|
 |[az sql mi op cancelar](/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Cancela a operação de gestão específica realizada na instância gerida.|
-|[az sql midb criar](/cli/azure/sql/midb#az-sql-midb-create) |Cria uma base de dados gerida.|
-|[az sql midb lista](/cli/azure/sql/midb#az-sql-midb-list)|Listas disponíveis bases de dados geridas.|
-|[az sql midb restaurar](/cli/azure/sql/midb#az-sql-midb-restore)|Restaura uma base de dados gerida.|
-|[az sql midb apagar](/cli/azure/sql/midb#az-sql-midb-delete)|Remove uma base de dados gerida.|
+|[az sql midb criar](/cli/azure/sql/midb#az_sql_midb_create) |Cria uma base de dados gerida.|
+|[az sql midb lista](/cli/azure/sql/midb#az_sql_midb_list)|Listas disponíveis bases de dados geridas.|
+|[az sql midb restaurar](/cli/azure/sql/midb#az_sql_midb_restore)|Restaura uma base de dados gerida.|
+|[az sql midb apagar](/cli/azure/sql/midb#az_sql_midb_delete)|Remove uma base de dados gerida.|
 
 ## <a name="transact-sql-create-and-configure-instance-databases"></a>Transact-SQL: Criar e configurar bases de dados de casos
 

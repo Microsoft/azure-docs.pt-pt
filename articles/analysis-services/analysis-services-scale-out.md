@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a2385cb811e322bd44daefa03d821b2ae47e0652
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92019443"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769270"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
 

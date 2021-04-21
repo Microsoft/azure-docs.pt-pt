@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: bcc9ca0175e0e03c62c2ce2b91d8ec337756a3cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84fd0c368bcf39af1bae90dc83336ffdb8489768
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92490106"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791522"
 ---
 # <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server-preview"></a>Tutorial: Implementar aplicativo Django com Serviço de Aplicações e Base de Dados Azure para PostgreSQL - Servidor Flexível (Pré-visualização)
 
@@ -105,7 +105,7 @@ Nesta secção, cria-se um anfitrião de aplicações na aplicação App Service
 
 No terminal, certifique-se de que está na raiz do repositório `djangoapp` ( ) que contém o código da aplicação.
 
-Criar uma aplicação de Serviço de Aplicações (o processo de anfitrião) com o [`az webapp up`](/cli/azure/webapp#az-webapp-up) comando:
+Criar uma aplicação de Serviço de Aplicações (o processo de anfitrião) com o [`az webapp up`](/cli/azure/webapp#az_webapp_up) comando:
 
 ```azurecli
 
@@ -129,7 +129,7 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 - Ativar o registo predefinido para a aplicação, se ainda não estiver ativado.
 - Faça o upload do repositório utilizando a implementação ZIP com automatização de construção ativada.
 - o comando **de integração de vnets da webapp** adiciona a aplicação web na mesma rede virtual que o servidor postgres.
-- O código da aplicação espera encontrar informações sobre bases de dados em várias variáveis ambientais. Para definir variáveis ambientais no Serviço de Aplicações, cria "configurações de aplicações" com o comando [de configuração de configurações de appsettings az webapp.](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set)
+- O código da aplicação espera encontrar informações sobre bases de dados em várias variáveis ambientais. Para definir variáveis ambientais no Serviço de Aplicações, cria "configurações de aplicações" com o comando [de configuração de configurações de appsettings az webapp.](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set)
 
 > [!TIP]
 > Muitos comandos Azure CLI cache parâmetros comuns, como o nome do grupo de recursos e plano de Serviço de Aplicações, no ficheiro *.azure/config*. Como resultado, não precisa de especificar todos os mesmos parâmetros com comandos posteriores. Por exemplo, para recolocar a app depois de efetuar alterações, pode simplesmente voltar a funcionar `az webapp up` sem quaisquer parâmetros.

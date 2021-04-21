@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 12/12/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 50a7d5e4a33762b5ae0725165e6062a83fec9110
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 875192b5da0c034f4ac92c74dd617ded79df7f45
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006286"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788012"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente ficheiros com FTP utilizando o Azure CLI
 
@@ -37,10 +37,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
-| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) | Obtenha os detalhes para os perfis de implementação de aplicações disponíveis. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano do Serviço de Aplicações. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria uma aplicação de Serviço de Aplicações. |
+| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) | Obtenha os detalhes para os perfis de implementação de aplicações disponíveis. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

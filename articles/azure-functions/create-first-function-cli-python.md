@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-python-uiex
-ms.openlocfilehash: 1b6805434f8c697c1ea13925ee681fdc7b5f1a29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5c51630d111bd68e311a93100abb8266e2a8e27
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704757"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787436"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Python em Azure a partir da linha de comando
 
@@ -180,7 +180,7 @@ Utilize os seguintes comandos para criar estes itens. Tanto o Azure CLI como o P
     az login
     ```
 
-    O comando [de login az](/cli/azure/reference-index#az-login) assina-o na sua conta Azure.
+    O comando [de login az](/cli/azure/reference-index#az_login) assina-o na sua conta Azure.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -199,7 +199,7 @@ Utilize os seguintes comandos para criar estes itens. Tanto o Azure CLI como o P
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
  
-    O [grupo az cria](/cli/azure/group#az-group-create) um grupo de recursos. Geralmente cria o seu grupo de recursos e recursos numa região próxima de si, utilizando uma região disponível devolvida do `az account list-locations` comando.
+    O [grupo az cria](/cli/azure/group#az_group_create) um grupo de recursos. Geralmente cria o seu grupo de recursos e recursos numa região próxima de si, utilizando uma região disponível devolvida do `az account list-locations` comando.
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -222,7 +222,7 @@ Utilize os seguintes comandos para criar estes itens. Tanto o Azure CLI como o P
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    A [conta de armazenamento az cria](/cli/azure/storage/account#az-storage-account-create) o comando cria a conta de armazenamento. 
+    A [conta de armazenamento az cria](/cli/azure/storage/account#az_storage_account_create) o comando cria a conta de armazenamento. 
 
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 64bd9e4a4cf78d2628e946af30c2d290ff002cf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 43e5b64d06a6ec145876798b2e0da6499ab94bfc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93081149"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769234"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: b7cf7c98e71da215eb30dcab556a88d6d2701591
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490969"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789452"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com Gateway de aplicação
 
- O Application Gateway permite-lhe reescrever conteúdo selecionado de pedidos e respostas. Com esta funcionalidade, pode traduzir URLs, parâmetros de cadeia de consulta, bem como modificar os cabeçalhos de pedido e resposta. Também permite adicionar condições para garantir que o URL ou os cabeçalhos especificados só são reescritos quando determinadas condições são satisfeitas. Estas condições baseiam-se nas informações do pedido e da resposta.
+O Application Gateway permite-lhe reescrever conteúdo selecionado de pedidos e respostas. Com esta funcionalidade, pode traduzir URLs, parâmetros de cadeia de consulta, bem como modificar os cabeçalhos de pedido e resposta. Também permite adicionar condições para garantir que o URL ou os cabeçalhos especificados só são reescritos quando determinadas condições são satisfeitas. Estas condições baseiam-se nas informações do pedido e da resposta.
 
 >[!NOTE]
 >As funcionalidades de reescrita HTTP e URL estão disponíveis apenas para o [Gateway de Aplicação v2 SKU](application-gateway-autoscaling-zone-redundant.md)
@@ -101,7 +101,7 @@ O Application Gateway utiliza variáveis de servidor para armazenar informaçõe
 
 O gateway de aplicações suporta as seguintes variáveis de servidor:
 
-|   Nome da variável    |                   Descrição                                           |
+|   Nome da variável    |                   Description                                           |
 | ------------------------- | ------------------------------------------------------------ |
 | add_x_forwarded_for_proxy | O campo de cabeçalho de pedido de cliente X-Forwarded-For com a `client_ip` variável (ver explicação mais tarde nesta tabela) anexado a ele no formato IP1, IP2, IP3, e assim por diante. Se o campo X-Forwarded-For não estiver no cabeçalho de pedido do cliente, a `add_x_forwarded_for_proxy` variável é igual à `$client_ip` variável.   Esta variável é particularmente útil quando pretende reescrever o cabeçalho X-Forwarded-For definido pelo Application Gateway para que o cabeçalho contenha apenas o endereço IP sem a informação da porta. |
 | ciphers_supported         | Uma lista das cifras apoiadas pelo cliente.               |
@@ -130,7 +130,7 @@ O gateway de aplicações suporta as seguintes variáveis de servidor:
 
 O Application Gateway suporta as seguintes variáveis de servidor para cenários de autenticação mútua. Utilize estas variáveis de servidor da mesma forma que acima com as outras variáveis do servidor. 
 
-|   Nome da variável    |                   Descrição                                           |
+|   Nome da variável    |                   Description                                           |
 | ------------------------- | ------------------------------------------------------------ |
 | client_certificate        | O certificado de cliente em formato PEM para uma ligação SSL estabelecida. |
 | client_certificate_end_date| A data final do certificado do cliente. |
@@ -153,13 +153,13 @@ Um conjunto de regras de reescrita contém:
 
 * **Tipo de reescrita**: Existem 3 tipos de reescritas disponíveis:
    * Reescrita pedido de cabeçalhos 
-   * Reescrevendo cabeçalhos de resposta.
-   * URL de reescrita: Url de reescrita tem 3 componentes
+   * Cabeçalhos de resposta de reescrita
+   * Reescrita de componentes de URL
       * **Caminho URL**: O valor para o qual o caminho deve ser reescrito. 
       * **Url Query String**: O valor a que a cadeia de consulta deve ser reescrita. 
       * **Reavalie o mapa do caminho**: Usado para determinar se o mapa do caminho URL deve ser reavaliado ou não. Se for mantido sem controlo, o caminho URL original será usado para corresponder ao padrão do caminho no mapa do caminho URL. Se for definido como verdadeiro, o mapa do caminho url será reavaliado para verificar a correspondência com o caminho reescrito. Ativar este interruptor ajuda a encaminhar o pedido para uma reescrita diferente do backend pool post.
 
-## <a name="rewrite-configuration-common-pitfall"></a>Reescrever configuração de armadilhas comuns
+## <a name="rewrite-configuration-common-pitfalls"></a>Reescrever configuração armadilhas comuns
 
 * Não é permitido permitir a "reavaliação do mapa do caminho" para regras básicas de encaminhamento de pedidos. Isto é para evitar um ciclo de avaliação infinito para uma regra básica de encaminhamento.
 
@@ -191,7 +191,7 @@ O Application Gateway insere um cabeçalho X-Forwarded-For em todos os pedidos a
 
 Quando uma aplicação de back-end envia uma resposta de redirecionamento, é melhor redirecionar o cliente para um URL diferente do especificado pela aplicação back-end. Por exemplo, é melhor fazê-lo quando um serviço de aplicações está hospedado atrás de um gateway de aplicações e requer que o cliente faça uma reorientação para o seu caminho relativo. (Por exemplo, um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2.)
 
-Como o Serviço de Aplicações é um serviço multitenant, utiliza o cabeçalho do anfitrião no pedido para encaminhar o pedido para o ponto final correto. Os serviços de aplicações têm um nome de domínio padrão de *.azurewebsites.net (digamos contoso.azurewebsites.net) que é diferente do nome de domínio do gateway de aplicação (digamos contoso.com). Como o pedido original do cliente tem o nome de domínio do gateway de aplicação (contoso.com) como nome de anfitrião, o gateway de aplicação altera o nome de anfitrião para contoso.azurewebsites.net. Faz esta alteração para que o serviço de aplicações possa encaminhar o pedido para o ponto final correto.
+Como o Serviço de Aplicações é um serviço multitenant, utiliza o cabeçalho do anfitrião no pedido para encaminhar o pedido para o ponto final correto. Os serviços de aplicações têm um nome de domínio padrão de \* .azurewebsites.net (digamos contoso.azurewebsites.net) que é diferente do nome de domínio do gateway de aplicação (digamos contoso.com). Como o pedido original do cliente tem o nome de domínio do gateway de aplicação (contoso.com) como nome de anfitrião, o gateway de aplicação altera o nome de anfitrião para contoso.azurewebsites.net. Faz esta alteração para que o serviço de aplicações possa encaminhar o pedido para o ponto final correto.
 
 Quando o serviço de aplicações envia uma resposta de redirecionamento, utiliza o mesmo nome de anfitrião no cabeçalho de localização da sua resposta que o pedido que recebe do gateway de aplicações. Assim, o cliente fará o pedido diretamente para `contoso.azurewebsites.net/path2` em vez de passar pelo gateway de aplicação ( `contoso.com/path2` ). Contornar o portal de aplicações não é desejável.
 
@@ -226,7 +226,7 @@ Pode avaliar um pedido HTTP ou cabeçalho de resposta para a presença de uma va
 
 #### <a name="parameter-based-path-selection"></a>Seleção de caminhos baseados em parâmetros
 
-Para realizar cenários em que pretende escolher o pool de backend com base no valor de um cabeçalho, parte do URL ou cadeia de consulta no pedido, pode utilizar a combinação de capacidade de reescrita de URL e encaminhamento baseado em caminhos.  Por exemplo, se tiver um site de compras, e a categoria de produto for passada como cadeia de consulta no URL e pretender encaminhar o pedido para o backend com base na cadeia de consulta,então:
+Para realizar cenários em que pretende escolher o pool de backend com base no valor de um cabeçalho, parte do URL ou cadeia de consulta no pedido, pode utilizar a combinação de capacidade de reescrita de URL e encaminhamento baseado em caminhos. Por exemplo, se tiver um site de compras e a categoria de produto for passada como cadeia de consulta no URL, e pretender encaminhar o pedido para o backend com base na cadeia de consulta, então:
 
 **Passo 1:**  Crie um mapa de caminhos como mostrado na imagem abaixo
 
@@ -250,10 +250,10 @@ Para realizar cenários em que pretende escolher o pool de backend com base no v
 
 Agora, se o utilizador solicitar *contoso.com/listing?category=any*, então será combinado com o caminho padrão, uma vez que nenhum dos padrões de caminho no mapa do caminho (/listing1, /listing2, /listing3) irá corresponder. Uma vez que associou o conjunto de reescrita acima com este caminho, este conjunto de reescrita será avaliado. Como a cadeia de consulta não corresponderá à condição em nenhuma das 3 regras de reescrita neste conjunto de reescrita, não será efetuada qualquer ação de reescrita e, portanto, o pedido será encaminhado inalterado para o backend associado à trajetória padrão (que é *GenericList).*
 
- Se o utilizador solicitar *contoso.com/listing?category=shoes, então, novamente,* o caminho predefinido será igualado. No entanto, neste caso, a condição na primeira regra irá coincidir e, portanto, será executada a ação associada à condição que reescreverá o caminho URL *para/listagens1*  e reavaliará o mapa do caminho. Quando o mapa do caminho for reavaliado, o pedido irá agora corresponder ao caminho associado ao padrão */listagens1* e o pedido será encaminhado para o backend associado a este padrão, que é ShoesListBackendPool
+Se o utilizador solicitar *contoso.com/listing?category=shoes*, então, novamente, o caminho predefinido será igualado. No entanto, neste caso, a condição na primeira regra irá coincidir e, portanto, será executada a ação associada à condição que reescreverá o caminho URL *para/listagens1*  e reavaliará o mapa do caminho. Quando o mapa do caminho for reavaliado, o pedido irá agora corresponder ao caminho associado ao padrão */listagem1* e o pedido será encaminhado para o backend associado a este padrão, que é ShoesListBackendPool.
 
 >[!NOTE]
->Este cenário pode ser estendido a qualquer valor de cabeçalho ou cookie, caminho DE URL, cadeia de consulta ou servidor com base na condição definida e essencialmente permite-lhe encaminhar pedidos com base nessas condições.
+>Este cenário pode ser estendido a qualquer valor de cabeçalho ou cookie, caminho DE URL, cadeia de consulta ou servidor com base nas condições definidas e essencialmente permite-lhe encaminhar pedidos com base nessas condições.
 
 #### <a name="rewrite-query-string-parameters-based-on-the-url"></a>Reescrever parâmetros de cadeia de consulta com base no URL
 
@@ -273,9 +273,9 @@ Para obter um guia passo a passo para alcançar o cenário acima descrito, consu
 
 ### <a name="url-rewrite-vs-url-redirect"></a>URL reescreve vs URL redirecionamento
 
-Em caso de reescrita de URL, o Gateway de Aplicação reescreve o URL antes de o pedido ser enviado para o backend. Isto não irá alterar o que os utilizadores vêem no navegador porque as alterações estão escondidas do utilizador.
+No caso de uma reescrita de URL, o Gateway de Aplicação reescreve o URL antes de o pedido ser enviado para o backend. Isto não irá alterar o que os utilizadores vêem no navegador porque as alterações estão escondidas do utilizador.
 
-Em caso de redirecionamento de URL, o Application Gateway envia uma resposta de redirecionamento ao cliente com o novo URL. Isso, por sua vez, requer que o cliente reencamende o seu pedido para o novo URL fornecido no redirecionamento. URL que o utilizador vê no navegador irá atualizar para o novo URL
+No caso de um redirecionamento de URL, o Application Gateway envia uma resposta de redirecionamento ao cliente com o novo URL. Isso, por sua vez, requer que o cliente reencamende o seu pedido para o novo URL fornecido no redirecionamento. O URL que o utilizador vê no navegador irá atualizar para o novo URL.
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Reescrever vs Redirecionamento.":::
 
@@ -283,7 +283,7 @@ Em caso de redirecionamento de URL, o Application Gateway envia uma resposta de 
 
 - Se uma resposta tiver mais do que um cabeçalho com o mesmo nome, então reescrever o valor de um desses cabeçalhos resultará em deixar cair os outros cabeçalhos na resposta. Isto pode geralmente acontecer com Set-Cookie cabeçalho, uma vez que pode ter mais de um Set-Cookie cabeçalho numa resposta. Um desses cenários é quando está a usar um serviço de aplicações com um gateway de aplicações e configurar afinidade de sessão baseada em cookies no gateway da aplicação. Neste caso, a resposta conterá dois cabeçalhos Set-Cookie: um utilizado pelo serviço de aplicações, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade do gateway de aplicações, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Reescrever um dos cabeçalhos Set-Cookie neste cenário pode resultar na remoção do outro Set-Cookie cabeçalho da resposta.
 - As reescritas não são suportadas quando o gateway de aplicações está configurado para redirecionar os pedidos ou para mostrar uma página de erro personalizada.
-- Os nomes dos cabeçalhos podem conter quaisquer caracteres alfanuméricos e símbolos específicos, tal como definidos no [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Atualmente, não apoiamos o caráter especial sublinhado (_) em nomes de Cabeçalho.
+- Os nomes dos cabeçalhos podem conter quaisquer caracteres alfanuméricos e símbolos específicos, tal como definidos no [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Atualmente, não apoiamos o carácter especial sublinhado \_ em nomes de Cabeçalho.
 - Os cabeçalhos de ligação e de upgrade não podem ser reescritos
 
 ## <a name="next-steps"></a>Passos seguintes

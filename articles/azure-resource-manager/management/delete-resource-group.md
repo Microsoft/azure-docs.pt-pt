@@ -4,12 +4,12 @@ description: Descreve como eliminar grupos de recursos e recursos. Descreve como
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: 8dd6c3f9ac178a518545a662eb94d33066f7614b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3c062c2f775e145347129f24b201748ee517daf4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932731"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768674"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Grupo de recursos Azure Resource Manager e eliminação de recursos
 
@@ -130,4 +130,4 @@ Se tiver o acesso necessário, mas o pedido de eliminação falhar, pode ser por
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para compreender os conceitos de Gestor de Recursos, consulte [a visão geral do Azure Resource Manager](overview.md).
-* Para comandos de supressão, consulte [PowerShell,](/powershell/module/az.resources/Remove-AzResourceGroup) [Azure CLI](/cli/azure/group#az-group-delete)e [REST API](/rest/api/resources/resources/resourcegroups/delete).
+* Para comandos de supressão, consulte [PowerShell,](/powershell/module/az.resources/Remove-AzResourceGroup) [Azure CLI](/cli/azure/group#az_group_delete)e [REST API](/rest/api/resources/resourcegroups/delete).

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: a4fc645f43858e80eeffc6c1672f6bd4369e7290
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c56c7d933f840e4418bd481cce0db1bc2216e3f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664587"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785618"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Restaurar uma base de dados Azure para servidor MariaDB usando O Azure CLI
 Esta amostra de script CLI restaura uma única Base de Dados Azure para o servidor MariaDB para um ponto anterior no tempo.
@@ -37,10 +37,10 @@ Este script utiliza os comandos descritos na tabela seguinte:
 
 | **Comando** | **Notas** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [servidor mariadb az criar](/cli/azure/mariadb/server#az-mariadb-server-create) | Cria um servidor MariaDB que acolhe as bases de dados. |
-| [restauro do servidor mariadb az](/cli/azure/mariadb/server#az-mariadb-server-restore) | Restaure um servidor da cópia de segurança. |
-| [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [servidor mariadb az criar](/cli/azure/mariadb/server#az_mariadb_server_create) | Cria um servidor MariaDB que acolhe as bases de dados. |
+| [restauro do servidor mariadb az](/cli/azure/mariadb/server#az_mariadb_server_restore) | Restaure um servidor da cópia de segurança. |
+| [az group delete](/cli/azure/group#az_group_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
