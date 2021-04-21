@@ -12,16 +12,16 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: f02a9a3b493ed0f3068e6e0ccd2daa40850a4fb6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: db902019b4fb1237c8403c719862d8fca4ba4f28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726183"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772528"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utilize entrada de áudio comprimido codec com o SDK de fala
 
-O serviço de voz SDK fornece uma forma de enviar diretamente formatos de áudio comprimido para o serviço Dea falar usando um `PullStream` ou `PushStream` (nenhum dos fluxos de aproximação diretamente para a parte de trás, um PCM cru ainda é enviado para o serviço).
+O serviço de voz SDK pode aceitar formatos de áudio comprimidos. Descoomente o áudio antes de enviá-lo por cima do fio para o serviço de fala como PCM cru.
 
 Plataforma | Idiomas | Versão GStreamer suportada
 | :--- | ---: | :---:

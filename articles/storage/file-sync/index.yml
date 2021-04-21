@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Documentação Azure File Sync
+summary: O Azure File Sync permite centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros Windows.
+metadata:
+  title: Documentação Azure File Sync
+  description: Monte partilhas de ficheiros na cloud ou no local em Windows, Linux e macOS. Coloque partilhas de ficheiros do Azure em cache em servidores do Windows Server com o Azure File Sync para acesso local.
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 04/19/2021
+  ms.openlocfilehash: 1a384985bbd58285ec1a556f2840f27994c4c40b
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107798959"
+landingContent:
+- title: Sobre o Azure Files Sync
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Guia de planeamento do Azure File Sync
+      url: file-sync-planning.md
+    - text: O que é o Azure File Sync?
+      url: file-sync-introduction.md
+    - text: Visão geral do tiering da nuvem
+      url: file-sync-cloud-tiering-overview.md
+- title: Introdução
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Criar/utilizar partilhas de ficheiros - Windows
+      url: ../files/storage-files-quick-create-use-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Gerir o seu servidor com o Azure File Sync
+      url: file-sync-server-registration.md
+  - linkListType: tutorial
+    links:
+    - text: Expandir servidores de ficheiros do Windows com o Azure File Sync
+      url: file-sync-extend-servers.md
+- title: Resolução de problemas
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Resolução de problemas dos Ficheiros do Azure para Windows
+      url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Resolução de problemas de desempenho dos Ficheiros do Azure
+      url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Resolução de problemas do Azure File Sync
+      url: file-sync-troubleshoot.md

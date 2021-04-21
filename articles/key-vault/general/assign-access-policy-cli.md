@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 349d7453962a736c9f15bb7d31d5a44098f463a4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 96b4daa027871201a201b253721114372e58f377
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791954"
+ms.locfileid: "107751441"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Atribuir uma política de acesso ao Cofre de Chaves
 
@@ -22,7 +22,7 @@ Uma política de acesso ao Cofre-Chave determina se um dado principal de seguran
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-Para obter mais informações sobre a criação de grupos no Azure Ative Directory utilizando o Azure CLI, consulte [o grupo az ad create](/cli/azure/ad/group#az_ad_group_create) e a [az ad group add](/cli/azure/ad/group/member#az_ad_group_member_add).
+Para obter mais informações sobre a criação de grupos no Azure Ative Directory utilizando o Azure CLI, consulte [o grupo az ad create](/cli/azure/ad/group#az-ad-group-create) e a [az ad group add](/cli/azure/ad/group/member#az-ad-group-member-add).
 
 ## <a name="configure-the-azure-cli-and-sign-in"></a>Configure o CLI Azure e inscreva-se
 
@@ -42,19 +42,19 @@ Para obter mais informações sobre a criação de grupos no Azure Ative Directo
 
 Determine o ID do objeto da aplicação, grupo ou utilizador ao qual pretende atribuir a política de acesso:
 
-- Aplicações e outros principais serviços: utilize o comando [da lista ad sp az](/cli/azure/ad/sp#az_ad_sp_list) para recuperar os seus principais serviços. Examine a saída do comando para determinar a identificação do objeto do principal de segurança ao qual pretende atribuir a política de acesso.
+- Aplicações e outros principais serviços: utilize o comando [da lista ad sp az](/cli/azure/ad/sp#az-ad-sp-list) para recuperar os seus principais serviços. Examine a saída do comando para determinar a identificação do objeto do principal de segurança ao qual pretende atribuir a política de acesso.
 
     ```azurecli-interactive
     az ad sp list --show-mine
     ```
 
-- Grupos: utilize o comando [da lista de anúncios az,](/cli/azure/ad/group#az_ad_group_list) filtrando os resultados com o `--display-name` parâmetro:
+- Grupos: utilize o comando [da lista de anúncios az,](/cli/azure/ad/group#az-ad-group-list) filtrando os resultados com o `--display-name` parâmetro:
 
      ```azurecli-interactive
     az ad group list --display-name <search-string>
     ```
 
-- Utilizadores: utilize o comando de exibição de [anúncios az,](/cli/azure/ad/user#az_ad_user_show) passando o endereço de e-mail do utilizador no `--id` parâmetro:
+- Utilizadores: utilize o comando de exibição de [anúncios az,](/cli/azure/ad/user#az-ad-user-show) passando o endereço de e-mail do utilizador no `--id` parâmetro:
 
     ```azurecli-interactive
     az ad user show --id <email-address-of-user>
@@ -62,7 +62,7 @@ Determine o ID do objeto da aplicação, grupo ou utilizador ao qual pretende at
 
 ## <a name="assign-the-access-policy"></a>Atribuir a política de acesso
     
-Utilize o comando [de definição de chave-tevault az](/cli/azure/keyvault#az_keyvault_set_policy) para atribuir as permissões desejadas:
+Utilize o comando [de definição de chave-tevault az](/cli/azure/keyvault#az-keyvault-set-policy) para atribuir as permissões desejadas:
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
@@ -70,7 +70,7 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permis
 
 `<object-id>`Substitua-o pela identificação do objeto do seu principal de segurança.
 
-Só é necessário incluir `--secret-permissions` , e ao atribuir `--key-permissions` `--certificate-permissions` permissões a esses tipos específicos. Os valores admissíveis para `<secret-permissions>` `<key-permissions>` , e são `<certificate-permissions>` dados na documentação [de definição de keyvault az.](/cli/azure/keyvault#az_keyvault_set_policy)
+Só é necessário incluir `--secret-permissions` , e ao atribuir `--key-permissions` `--certificate-permissions` permissões a esses tipos específicos. Os valores admissíveis para `<secret-permissions>` `<key-permissions>` , e são `<certificate-permissions>` dados na documentação [de definição de keyvault az.](/cli/azure/keyvault#az-keyvault-set-policy)
 
 ## <a name="next-steps"></a>Passos seguintes
 

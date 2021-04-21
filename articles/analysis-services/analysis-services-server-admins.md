@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c0986b8508a7e21dee7c7c87e535eb2726944de8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99573505"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769198"
 ---
 # <a name="manage-server-administrators"></a>Gerir administradores de servidor
 

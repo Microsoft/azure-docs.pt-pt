@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c57f66eca5d15024c6b10e8fad12ddb575b9f894
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562967"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765904"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Atualizações de controlo com o Controlo de Manutenção e o CLI Azure
 
@@ -93,7 +93,7 @@ az maintenance assignment create \
 
 Para aplicar uma configuração a um anfitrião dedicado, é necessário `--resource-type hosts` incluir, `--resource-parent-name` com o nome do grupo anfitrião, e `--resource-parent-type hostGroups` . 
 
-O parâmetro `--resource-id` é a identificação do hospedeiro. Você pode usar [a az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) para obter a identificação do seu anfitrião dedicado.
+O parâmetro `--resource-id` é a identificação do hospedeiro. Você pode usar [a az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view) para obter a identificação do seu anfitrião dedicado.
 
 ```azurecli-interactive
 az maintenance assignment create \

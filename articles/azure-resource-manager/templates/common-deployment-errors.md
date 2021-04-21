@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns quando implementa recursos para
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: 40e6317a1d879704ef00e928a971ae08fc9e0f72
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 07c197f1b54522b96a3bfa2d6a5ce7b368be3b35
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564352"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789182"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
@@ -68,8 +68,8 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | RequestDisallowedByPolicy | A sua subscrição inclui uma política de recursos que impede uma ação que está a tentar executar durante a implementação. Encontre a política que bloqueia a ação. Se possível, altere a sua implementação para satisfazer as limitações da apólice. | [Resolver políticas](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Forneça um nome de recurso que não inclua um nome reservado. | [Nomes de recursos reservados](error-reserved-resource-name.md) |
 | Grupo de RecursosBeingDeleted | Espere que a supressão esteja completa. | |
-| Grupo de RecursosNotFound | Verifique o nome do grupo de recursos-alvo para a implantação. O grupo de recursos-alvo já deve existir na sua subscrição. Verifique o contexto da subscrição. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
-| RecursosNotFound | A sua implantação refere um recurso que não pode ser resolvido. Verifique se a sua utilização da função de **referência** inclui os parâmetros necessários para o seu cenário. | [Resolver referências](error-not-found.md) |
+| Grupo de RecursosNotFound | Verifique o nome do grupo de recursos-alvo para a implantação. O grupo de recursos-alvo já deve existir na sua subscrição. Verifique o contexto da subscrição. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceNotFound | A sua implantação refere um recurso que não pode ser resolvido. Verifique se a sua utilização da função de **referência** inclui os parâmetros necessários para o seu cenário. | [Resolver referências](error-not-found.md) |
 | ResourceQuotaExceeded | A implantação está a tentar criar recursos que excedam a quota para a subscrição, grupo de recursos ou região. Se possível, reveja a sua infraestrutura para se manter dentro das quotas. Caso contrário, considere solicitar uma alteração às suas quotas. | [Resolver quotas](error-resource-quota.md) |
 | SkuNotAvailable | Selecione SKU (tal tamanho VM) que está disponível para o local que selecionou. | [Resolver SKU](error-sku-not-available.md) |
 | ArmazenamentoCocountAlreadyExists | Indique um nome único para a conta de armazenamento. | [Resolver o nome da conta de armazenamento](error-storage-account-name.md)  |

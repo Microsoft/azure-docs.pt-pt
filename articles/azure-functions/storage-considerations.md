@@ -3,12 +3,12 @@ title: Considerações de armazenamento para funções Azure
 description: Saiba mais sobre os requisitos de armazenamento das Funções Azure e sobre a encriptação de dados armazenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5faa85a4fac9fc0b8639f33c475283f4f043c627
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517268"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779260"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções Azure
 
@@ -71,7 +71,7 @@ Outros dados de clientes geridos pela plataforma só são armazenados na região
 
 _Esta funcionalidade só se encontra disponível quando se encontra disponível no Linux._ 
 
-Pode montar as partilhas de Ficheiros Azure existentes nas suas aplicações de função Linux. Ao montar uma parte na sua aplicação de função Linux, pode aproveitar os modelos de aprendizagem automática existentes ou outros dados nas suas funções. Pode utilizar o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) comando para montar uma parte existente na sua aplicação de função Linux. 
+Pode montar as partilhas de Ficheiros Azure existentes nas suas aplicações de função Linux. Ao montar uma parte na sua aplicação de função Linux, pode aproveitar os modelos de aprendizagem automática existentes ou outros dados nas suas funções. Pode utilizar o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) comando para montar uma parte existente na sua aplicação de função Linux. 
 
 Neste comando, `share-name` é o nome da partilha Azure Files existente, e pode ser qualquer cadeia que `custom-id` defina exclusivamente a partilha quando montada na aplicação de função. Além disso, `mount-path` é o caminho a partir do qual a partilha é acedida na sua aplicação de função. `mount-path` deve estar no formato `/dir-name` , e não pode começar com `/home` .
 

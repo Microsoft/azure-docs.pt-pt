@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cc64e314a8acb035736df0521987cb78a7297326
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d30571b68ba7e38e9960d1e434cf7844f6be852
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556930"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780106"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>ListE Azure atribui funções usando Azure CLI
 
@@ -34,7 +34,7 @@ ms.locfileid: "100556930"
 
 ## <a name="list-role-assignments-for-a-user"></a>Listar atribuições de funções para um utilizador
 
-Para listar as atribuições de funções para um utilizador específico, utilize [a lista de atribuições de funções az](/cli/azure/role/assignment#az-role-assignment-list):
+Para listar as atribuições de funções para um utilizador específico, utilize [a lista de atribuições de funções az](/cli/azure/role/assignment#az_role_assignment_list):
 
 ```azurecli
 az role assignment list --assignee {assignee}
@@ -65,7 +65,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json --que
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>Listar atribuições de funções para um grupo de recursos
 
-Para listar as atribuições de funções que existem num âmbito de grupo de recursos, utilize [a lista de atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-list):
+Para listar as atribuições de funções que existem num âmbito de grupo de recursos, utilize [a lista de atribuição de funções az](/cli/azure/role/assignment#az_role_assignment_list):
 
 ```azurecli
 az role assignment list --resource-group {resourceGroup}
@@ -97,7 +97,7 @@ az role assignment list --resource-group pharma-sales --output json --query '[].
 
 ## <a name="list-role-assignments-for-a-subscription"></a>Listar atribuições de funções para uma subscrição
 
-Para listar todas as atribuições de funções num âmbito de subscrição, utilize [a lista de atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-list). Para obter o ID de subscrição, pode encontrá-lo na lâmina **de Subscrições** no portal Azure ou pode utilizar [a lista de conta az](/cli/azure/account#az-account-list).
+Para listar todas as atribuições de funções num âmbito de subscrição, utilize [a lista de atribuição de funções az](/cli/azure/role/assignment#az_role_assignment_list). Para obter o ID de subscrição, pode encontrá-lo na lâmina **de Subscrições** no portal Azure ou pode utilizar [a lista de conta az](/cli/azure/account#az_account_list).
 
 ```azurecli
 az role assignment list --subscription {subscriptionNameOrId}
@@ -134,7 +134,7 @@ az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --ou
 
 ## <a name="list-role-assignments-for-a-management-group"></a>Atribuições de funções de lista para um grupo de gestão
 
-Para listar todas as atribuições de funções num âmbito de grupo de gestão, utilize [a lista de atribuição de funções az](/cli/azure/role/assignment#az-role-assignment-list). Para obter o ID do grupo de gestão, pode encontrá-lo na lâmina dos **grupos de Gestão** no portal Azure ou pode utilizar [a lista de grupos de gestão de conta az](/cli/azure/account/management-group#az-account-management-group-list).
+Para listar todas as atribuições de funções num âmbito de grupo de gestão, utilize [a lista de atribuição de funções az](/cli/azure/role/assignment#az_role_assignment_list). Para obter o ID do grupo de gestão, pode encontrá-lo na lâmina dos **grupos de Gestão** no portal Azure ou pode utilizar [a lista de grupos de gestão de conta az](/cli/azure/account/management-group#az_account_management_group_list).
 
 ```azurecli
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/{groupId}
@@ -165,19 +165,19 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 1. Obtenha a identificação principal da identidade gerida atribuída pelo sistema ou atribuída ao utilizador.
 
-    Para obter o ID principal de uma identidade gerida atribuída ao utilizador, pode utilizar [a lista de anúncios az ou](/cli/azure/ad/sp#az-ad-sp-list) a lista de [identidades az.](/cli/azure/identity#az-identity-list)
+    Para obter o ID principal de uma identidade gerida atribuída ao utilizador, pode utilizar [a lista de anúncios az ou](/cli/azure/ad/sp#az_ad_sp_list) a lista de [identidades az.](/cli/azure/identity#az_identity_list)
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    Para obter a identificação principal de uma identidade gerida atribuída ao sistema, você pode usar [a lista de anúncios az sp](/cli/azure/ad/sp#az-ad-sp-list).
+    Para obter a identificação principal de uma identidade gerida atribuída ao sistema, você pode usar [a lista de anúncios az sp](/cli/azure/ad/sp#az_ad_sp_list).
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv
     ```
 
-1. Para listar as atribuições de funções, utilize [a lista de atribuições de funções az](/cli/azure/role/assignment#az-role-assignment-list).
+1. Para listar as atribuições de funções, utilize [a lista de atribuições de funções az](/cli/azure/role/assignment#az_role_assignment_list).
 
     Por predefinição, apenas serão apresentadas atribuições de funções para a subscrição atual. Para visualizar as atribuições de funções para a subscrição atual e abaixo, adicione o `--all` parâmetro. Para ver as atribuições de funções herdadas, adicione o `--include-inherited` parâmetro.
 

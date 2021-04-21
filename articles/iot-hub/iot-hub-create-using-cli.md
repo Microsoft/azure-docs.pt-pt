@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eff0085a4a739e0831b25b1bd28cd234fdbcde3d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94659935"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766466"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Criar um hub IoT utilizando o Azure CLI
 
@@ -42,7 +42,7 @@ Utilize a CLI do Azure para criar um grupo de recursos e, em seguida, adicione u
    > ```
    >
 
-2. Execute o seguinte [comando para criar um hub IoT](/cli/azure/iot/hub#az-iot-hub-create) no grupo de recursos, com um nome globalmente exclusivo para o seu hub IoT:
+2. Execute o seguinte [comando para criar um hub IoT](/cli/azure/iot/hub#az_iot_hub_create) no grupo de recursos, com um nome globalmente exclusivo para o seu hub IoT:
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
@@ -58,14 +58,14 @@ O comando anterior cria um hub IoT no nível de preços S1 para o qual é fatura
 
 Pode utilizar o Azure CLI para [eliminar um recurso individual](/cli/azure/resource), como um hub IoT, ou eliminar um grupo de recursos e todos os seus recursos, incluindo quaisquer centros IoT.
 
-Para [eliminar um hub IoT,](/cli/azure/iot/hub#az-iot-hub-delete)executar o seguinte comando:
+Para [eliminar um hub IoT,](/cli/azure/iot/hub#az_iot_hub_delete)executar o seguinte comando:
 
 ```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
-Para [eliminar um grupo de recursos](/cli/azure/group#az-group-delete) e todos os seus recursos, executar o seguinte comando:
+Para [eliminar um grupo de recursos](/cli/azure/group#az_group_delete) e todos os seus recursos, executar o seguinte comando:
 
 ```azurecli-interactive
 az group delete --name {your resource group name}

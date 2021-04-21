@@ -10,12 +10,12 @@ ms.service: digital-twins
 ms.custom:
 - devx-track-js
 - contperf-fy21q3
-ms.openlocfilehash: 35cf54199f8f2c187ad397c21fb941111f07c4a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e91bf5acc5290229afa8dc7a849e8953257bcfd
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561845"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751117"
 ---
 # <a name="create-custom-language-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs de linguagem personalizada para gémeos digitais Azure usando o AutoRest
 
@@ -66,12 +66,12 @@ Eis os passos:
 
 1. Crie uma nova solução visual Studio para uma biblioteca de classes
 2. Use *o DigitalTwinsApi* como nome do projeto
-3. No Solutions Explorer, selecione à direita o projeto *DigitalTwinsApi* da solução gerada e escolha *Adicionar > Item Existente...*
+3. No Solution Explorer, selecione à direita o projeto *DigitalTwinsApi* da solução gerada e escolha *Adicionar > Item Existente...*
 4. Encontre a pasta onde gerou o SDK e selecione os ficheiros ao nível da raiz
 5. Prima "Ok"
 6. Adicione uma pasta ao projeto (selecione à direita o projeto no Solution Explorer e escolha *Adicionar > Nova Pasta)*
 7. Nomeie os *modelos* de pasta
-8. Selecione à direita a pasta *Modelos* no Explorador de Soluções e *selecione Adicionar > Item existente...*
+8. Selecione a pasta *Modelos* no Solution Explorer e *selecione Adicionar > Item existente...*
 9. Selecione os ficheiros na pasta *Modelos* do SDK gerado e prima "Ok"
 
 Para construir o SDK com sucesso, o seu projeto necessitará destas referências:

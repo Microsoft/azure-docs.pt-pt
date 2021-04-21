@@ -10,12 +10,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: e2cd8ee4095db235215a2beaa68975e819b474c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3271f5461447439772b656b8927a54057c8b0c7e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560689"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786410"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts PowerShell no seu Windows VM utilizando o Comando Run
 
@@ -66,7 +66,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O exemplo a seguir utiliza o comando [de comando de execução az vm](/cli/azure/vm/run-command#az-vm-run-command-invoke) para executar uma script de concha num Azure Windows VM.
+O exemplo a seguir utiliza o comando [de comando de execução az vm](/cli/azure/vm/run-command#az_vm_run_command_invoke) para executar uma script de concha num Azure Windows VM.
 
 ```azurecli-interactive
 # script.ps1

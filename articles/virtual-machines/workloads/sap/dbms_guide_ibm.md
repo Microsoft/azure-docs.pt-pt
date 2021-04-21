@@ -10,15 +10,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 04/20/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f89f218c82505fd6bc261d41938d4619b32bf8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e9030558779be3e417383f9f32612ee3e834a1c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675975"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788084"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -45,7 +45,7 @@ As seguintes notas SAP estão relacionadas com a SAP on Azure relativamente à �
 | [2002167] |Red Hat Enterprise Linux 7.x: Instalação e atualização |
 | [1597355] |Recomendação de espaço de troca para Linux |
 
-Como uma leitura pr-read a este documento, você deve ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na [carga de trabalho SAP sobre documentação Azure](./get-started.md). 
+Como uma leitura pr-read a este documento, você deve ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) mais outros guias na carga de trabalho SAP sobre [documentação Azure](./get-started.md). 
 
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM Db2 para Suporte a Versão Linux, UNIX e Windows
@@ -55,7 +55,7 @@ Para obter informações sobre produtos SAP suportados e tipos Azure VM, consult
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 para Diretrizes de Configuração de Linux, UNIX e Windows para instalações SAP em VMs Azure
 ### <a name="storage-configuration"></a>Configuração do Armazenamento
-Para uma visão geral dos tipos de armazenamento Azure para a carga de trabalho SAP, consulte os [tipos de armazenamento Azure para a carga de trabalho SAP](./planning-guide-storage.md) Todos os ficheiros de base de dados devem ser armazenados em discos montados de armazenamento de blocos Azure (Windows: NFFS, Linux: xfs, ext4 ou ext3). Qualquer tipo de unidades de rede ou partilhas remotas como os seguintes serviços Azure **NÃO** são suportados para ficheiros de base de dados: 
+Para uma visão geral dos tipos de armazenamento Azure para a carga de trabalho SAP, consulte os [tipos de armazenamento Azure para a carga de trabalho SAP](./planning-guide-storage.md) Todos os ficheiros de base de dados devem ser armazenados em discos montados de armazenamento de blocos Azure (Windows: NTFS, Linux: xfs ou ext3). Qualquer tipo de unidades de rede ou partilhas remotas como os seguintes serviços Azure **NÃO** são suportados para ficheiros de base de dados: 
 
 * [Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -71,17 +71,20 @@ Para considerações de desempenho, consulte também o capítulo "Consideraçõe
 
 Em alternativa, pode utilizar pools de armazenamento do Windows (apenas disponíveis no Windows Server 2012 e mais altos) como descrito [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) ou LVM ou mdadm no Linux para criar um grande dispositivo lógico em vários discos.
 
-<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
-
-Para os discos que contêm os caminhos de armazenamento Db2 para o seu `sapdata` e `saptmp` diretórios, deve especificar um tamanho do sector do disco físico de 512 KB. Ao utilizar piscinas de armazenamento do Windows, deve criar as piscinas de armazenamento manualmente através da interface da linha de comando utilizando o parâmetro `-LogicalSectorSizeDefault` . Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+<!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 Para o Azure M-Series VM, a escrita de latência nos registos de transações pode ser reduzida por fatores, em comparação com o desempenho do Azure Premium Storage, quando se utiliza o Acelerador de Escrita Azure. Assim, deve implantar o Acelerador de Escrita Azure para os VHD(s) que formam o volume para os registos de transações Db2. Os detalhes podem ser lidos no documento [Write Accelerator](../../how-to-enable-write-accelerator.md).
+
+A IBM Db2 LUW 11.5 lançou suporte para o tamanho do sector 4-KB. Para as versões Db2 mais antigas deve ser utilizado um tamanho do sector 512-Byte. Os discos Premium SSD são nativos de 4-KB e têm emulação de 512 Byte. O disco ultra utiliza o tamanho do sector 4-KB por padrão. Pode ativar o tamanho do sector 512-Byte durante a criação do disco Ultra. Os detalhes estão disponíveis [utilizando discos ultra Azure](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). Este tamanho do sector 512-Byte é um pré-requisito para as versões IBM Db2 LUW inferiores a 11,5.
+
+No Windows que utiliza piscinas de armazenamento para caminhos de armazenamento Db2 para `log_dir` , `sapdata` e `saptmp` diretórios, deve especificar um tamanho do sector do disco físico de 512 KB. Ao utilizar piscinas de armazenamento do Windows, deve criar as piscinas de armazenamento manualmente através da interface da linha de comando utilizando o parâmetro `-LogicalSectorSizeDefault` . Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+
 
 ## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Recomendação sobre vm e estrutura de disco para implantação de Db2 IBM
 
 O IBM Db2 para aplicações SAP NetWeaver é suportado em qualquer tipo de VM listado na nota de suporte SAP [1928533].  As famílias VM recomendadas para executar a base de dados IBM Db2 são Esd_v4/Eas_v4/Es_v3 e séries M/M_v2 para grandes bases de dados multi-terabytes. O desempenho do disco de registo de transações IBM Db2 pode ser melhorado permitindo o Acelerador de Escrita da série M. 
 
-Segue-se uma configuração de base para vários tamanhos e utilizações de SAP em implementações Db2 de pequeno a grande. A lista baseia-se no armazenamento premium Azure. No entanto, o disco Azure Ultra também é totalmente suportado com Db2 e também pode ser usado. Basta utilizar os valores de capacidade, saída de rutura e IOPS rebentando para definir a configuração do disco Ultra. Pode limitar o IOPS para o /db2/ <SID> /log_dir por volta de 5000 IOPS. 
+Segue-se uma configuração de base para vários tamanhos e utilizações de SAP em implementações Db2 de pequeno a grande. A lista baseia-se no armazenamento premium Azure. No entanto, o disco Azure Ultra também é totalmente suportado com Db2 e também pode ser usado. Utilize os valores de capacidade, saída de rutura e IOPS rebentando para definir a configuração do disco Ultra. Pode limitar o IOPS para o /db2/ <SID> /log_dir por volta de 5000 IOPS. 
 
 #### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Sistema EXTRA pequeno SAP: tamanho da base de dados 50 - 200 GB: exemplo Solution Manager
 | Nome VM / Tamanho |Ponto de montagem Db2 |Disco Premium do Azure |NR de Discos |IOPS |Produção [MB/s] |Tamanho [GB] |IOPS de explosão |Burst Thr [GB] | Tamanho de listra | Colocação em cache |
@@ -234,13 +237,7 @@ Leia o artigo
 
 - [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md)
 
-[azure-cli]:../../../cli-install-nodejs.md
-[azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azure/
-[azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
-[azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
+
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 

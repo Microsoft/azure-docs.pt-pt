@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
-ms.openlocfilehash: 5989f91233448c04d50ba1c69a06851b91426a03
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2ad97656b822bc5ffc957469842436ec84d9e812
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167809"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785762"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Suporte de protocolo para cabeçalhos HTTP na Porta frontal Azure
 Este artigo descreve o protocolo que a Porta frontal suporta com partes do caminho de chamada (ver imagem). As seguintes secções fornecem mais informações sobre cabeçalhos HTTP suportados pela Porta frontal.
@@ -37,7 +37,7 @@ A Porta da Frente inclui cabeçalhos para um pedido de entrada, a menos que seja
 | ------------- | ------------- |
 | Via |  *Via: 1.1 Azure* </br> A Porta frontal adiciona a versão HTTP do cliente seguida do *Azure* como o valor para o cabeçalho Via. Este cabeçalho indica a versão HTTP do cliente e que a Porta Frontal foi um destinatário intermédio para o pedido entre o cliente e o backend.  |
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Representa o endereço IP do cliente associado ao pedido que está a ser processado. Por exemplo, um pedido proveniente de um proxy pode adicionar o cabeçalho X-Forwarded-For para indicar o endereço IP do chamador original. |
-| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Representa o endereço IP da tomada associado à ligação TCP de que o pedido atual teve origem. O endereço IP do cliente de um pedido pode não ser igual ao seu endereço IP de tomada, uma vez que pode ser arbitrariamente substituído por um utilizador.|
+| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Representa o endereço IP da tomada associado à ligação TCP de que o pedido atual teve origem. O endereço IP do cliente de um pedido pode não ser igual ao seu endereço IP de tomada, porque o IP do cliente pode ser arbitrariamente substituído por um utilizador.|
 | X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOJBV2NT4TY6SQVJC0zV1NURURHRTA2MTKANDM3YzgyY2QtMzYwYS0YTU0LTU0LT0YZMTNHMNzA3NjQ3Nzgz* </br> Uma cadeia de referência única que identifica um pedido servido pela Porta da Frente. É usado para pesquisar registos de acesso e crítico para resolução de problemas.|
 | X-Azure-RequestChain | *X-Azure-RequestChain: hops=1* </br> Um cabeçalho que a Porta Frontal usa para detetar loops de pedido, e os utilizadores não devem assumir uma dependência. |
 | X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> Uma cadeia de referência que identifica o pedido veio de um recurso específico da Porta frontal. O valor pode ser visto no portal Azure ou recuperado usando a API de gestão. Pode utilizar este cabeçalho em combinação com ACLs IP para bloquear o seu ponto final para apenas aceitar pedidos de um recurso específico da Porta Frontal. Consulte as FAQ para [obter mais detalhes](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-) |

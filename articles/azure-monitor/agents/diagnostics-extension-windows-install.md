@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ff752b673c49047551c48c4c8693b00d7b5edeb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708565"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787410"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
 [A extensão de diagnóstico Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho de máquinas virtuais Azure e outros recursos compute. Este artigo fornece detalhes sobre a instalação e configuração da extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados e conta de Armazenamento Azure.
@@ -77,7 +77,7 @@ Pode instalar e configurar a extensão de diagnóstico numa máquina virtual ind
 Consulte [a monitorização e diagnósticos de utilização com modelos de Gestor de Recursos Windows VM e Azure](../../virtual-machines/extensions/diagnostics-template.md) na implementação da extensão de diagnóstico com modelos do Gestor de Recursos Azure. 
 
 ## <a name="azure-cli-deployment"></a>Implantação do Azure CLI
-O CLI Azure pode ser utilizado para implantar a extensão Azure Diagnostics a uma máquina virtual existente utilizando [o conjunto de extensão az vm](/cli/azure/vm/extension#az-vm-extension-set) como no exemplo seguinte. 
+O CLI Azure pode ser utilizado para implantar a extensão Azure Diagnostics a uma máquina virtual existente utilizando [o conjunto de extensão az vm](/cli/azure/vm/extension#az_vm_extension_set) como no exemplo seguinte. 
 
 ```azurecli
 az vm extension set \
@@ -198,9 +198,9 @@ A tabela que se segue lista os diferentes tipos de dados recolhidos a partir da 
 | WadLogsTable | Tabela | Registos escritos em código utilizando o ouvinte de traços. |
 | WADPerformanceCountersTable | Tabela | Contadores de desempenho. |
 | WADWindowsEventLogsTable | Tabela | Registos do Evento windows. |
-| wad-iis-failedreqlogfiles | Blobs | Contém informações de registos de pedidos falhados do IIS. |
-| wad-iis-logfiles | Blobs | Contém informações sobre registos IIS. |
-| "costume" | Blobs | Um recipiente personalizado baseado em diretórios configurados que são monitorizados pelo monitor de diagnóstico.  O nome deste recipiente blob será especificado no WADDirectoriesTable. |
+| wad-iis-failedreqlogfiles | Blob | Contém informações de registos de pedidos falhados do IIS. |
+| wad-iis-logfiles | Blob | Contém informações sobre registos IIS. |
+| "costume" | Blob | Um recipiente personalizado baseado em diretórios configurados que são monitorizados pelo monitor de diagnóstico.  O nome deste recipiente blob será especificado no WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Ferramentas para visualizar dados de diagnóstico
 Várias ferramentas estão disponíveis para visualizar os dados depois de serem transferidos para armazenamento. Por exemplo:

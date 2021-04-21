@@ -3,12 +3,12 @@ title: Colocação de push zip para funções Azure
 description: Utilize as instalações de implantação de ficheiros .zip do serviço de implantação Kudu para publicar as suas Funções Azure.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb6867d7719f9650acb00f80ac3a933713ce0e23
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018453"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777656"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Zip deployment for Azure Functions (Implementação com ficheiro zip para as Funções do Azure)
 
@@ -66,7 +66,7 @@ Também pode descarregar um ficheiro .zip de um repositório GitHub. Quando desc
 
 ## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Implementar com a CLI do Azure
 
-Pode utilizar o Azure CLI para ativar uma colocação de impulso. Empurre implementar um ficheiro .zip para a sua aplicação de função utilizando o comando [config-zip de config-zip da fonte de implementação do az functionapp.](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) Para utilizar este comando, tem de utilizar a versão 2.0.21 ou posterior do Azure CLI. Para ver que versão Azure CLI está a usar, utilize o `az --version` comando.
+Pode utilizar o Azure CLI para ativar uma colocação de impulso. Empurre implementar um ficheiro .zip para a sua aplicação de função utilizando o comando [config-zip de config-zip da fonte de implementação do az functionapp.](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip) Para utilizar este comando, tem de utilizar a versão 2.0.21 ou posterior do Azure CLI. Para ver que versão Azure CLI está a usar, utilize o `az --version` comando.
 
 No comando seguinte, substitua o `<zip_file_path>` espaço reservado pelo caminho para a localização do seu ficheiro .zip. Além disso, `<app_name>` substitua-o pelo nome único da sua aplicação de função e `<resource_group>` substitua-o pelo nome do seu grupo de recursos.
 
@@ -92,6 +92,6 @@ A implementação zip integra-se com esta funcionalidade, que pode permitir defi
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)
+> [Implantação contínua para funções Azure](functions-continuous-deployment.md)
 
 [.zip push deployment reference topic]: https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file
