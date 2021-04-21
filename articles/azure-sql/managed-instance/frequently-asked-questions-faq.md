@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 16f937286b967aaea8ec6a16e97835b2de5a0331
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628582"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765508"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Trata-se de uma limitação atual do componente subjacente que verifica o nome d
 
 **Como posso escalar o meu caso?**
 
-Pode escalar a sua instância gerida a partir do [portal Azure,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [Modelos PowerShell,](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](/cli/azure/sql/mi#az-sql-mi-update) ou [ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Pode escalar a sua instância gerida a partir do [portal Azure,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [Modelos PowerShell,](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](/cli/azure/sql/mi#az_sql_mi_update) ou [ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Posso mover o meu Caso Gerido de uma região para outra?**
 
@@ -102,7 +102,7 @@ Sim, pode. Para obter instruções, consulte [mover recursos através das regiõ
 
 **Como posso apagar o meu Caso Gerido?**
 
-Pode eliminar Instâncias Geridas através do portal Azure, [PowerShell,](/powershell/module/az.sql/remove-azsqlinstance) [Azure CLI](/cli/azure/sql/mi#az-sql-mi-delete) ou [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
+Pode eliminar Instâncias Geridas através do portal Azure, [PowerShell,](/powershell/module/az.sql/remove-azsqlinstance) [Azure CLI](/cli/azure/sql/mi#az_sql_mi_delete) ou [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo demora a criar ou atualizar um caso, ou a restaurar uma base de dados?**
 
@@ -337,7 +337,7 @@ Não, esta opção não está disponível.  Para o ponto final de dados privados
 O prescêdo do circuito da Rota Expresso é a forma preferida de o fazer. O espreitamento global da rede virtual é suportado com a limitação descrita na nota abaixo.  
 
 > [!IMPORTANT]
-> [Em 22/9/2020 anunciamos a rede virtual global que procura clusters virtuais recém-criados.](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/) Isto significa que o espreitamento global da rede virtual é suportado para sql Managed Instances criados em sub-redes vazias após a data de anúncio, bem como para todos os casos geridos subsequentes criados nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
+> [Em 22/09/2020, anunciámos o peering de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Tal significa que o peering de rede virtual global é suportado para as instâncias do SQL Managed Instance criadas em sub-redes vazias após a data de anúncio, bem como para todas as instâncias geridas subsequentes criadas nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
 
 Se o perspitamento do circuito de Rota Expresso e o espreitamento da rede virtual global não forem possíveis, a única outra opção é criar a ligação VPN site-to-site[(portal Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI).](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 

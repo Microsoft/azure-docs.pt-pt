@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 26485c84749b7d4c91159476b3f683c2b0f3831b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 866eb9feb152c0094cd5281fe4820ccc4589386f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555681"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778324"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilidade de Link Privado Azure
 
@@ -96,7 +96,7 @@ As tabelas a seguir listam os serviços de Private Link e as regiões onde estã
 |:-------------------|:-----------------|:----------------|:--------|
 | Armazenamento Azure Blob (incluindo data lake storage gen2)       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Aprenda a criar um ponto final privado para armazenamento de bolhas.](tutorial-private-endpoint-storage-portal.md)  |
 | Ficheiros do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo      | |   GA <br/> [Saiba como criar pontos finais de rede Azure Files.](../storage/files/storage-files-networking-endpoints.md)   |
-| Azure File Sync | Todas as regiões públicas      | |   GA <br/> [Saiba como criar pontos finais de rede Azure Files.](../storage/files/storage-sync-files-networking-endpoints.md)   |
+| Azure File Sync | Todas as regiões públicas      | |   GA <br/> [Saiba como criar pontos finais de rede Azure Files.](../storage/file-sync/file-sync-networking-endpoints.md)   |
 | Armazenamento de Filas do Azure       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba como criar um ponto final privado para armazenamento de filas.](tutorial-private-endpoint-storage-portal.md) |
 | Armazenamento de Tabelas do Azure       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba como criar um ponto final privado para armazenamento de mesas.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Batch | Todas as regiões públicas, exceto: Alemanha CENTRAL, Alemanha NORDESTE <br/> Todas as regiões do Governo  | | GA <br/> [Saiba como criar um ponto final privado para o Azure Batch.](../batch/private-connectivity.md) |

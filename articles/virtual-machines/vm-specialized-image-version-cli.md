@@ -10,12 +10,12 @@ ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fe081b0e74acf771e10406c15a3dea4e09956c37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3498037f3d2088459784ab066b8e94ba344a275
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560973"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792188"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Criar um VM utilizando uma versão de imagem especializada com o Azure CLI
 
@@ -23,7 +23,7 @@ Crie um VM a partir de uma [versão de imagem especializada](./shared-image-gall
 
 Substitua os nomes de recursos necessários neste exemplo. 
 
-Listar as definições de imagem numa galeria utilizando [a lista de definições de imagem az sig](/cli/azure/sig/image-definition#az-sig-image-definition-list) para ver o nome e o ID das definições.
+Listar as definições de imagem numa galeria utilizando [a lista de definições de imagem az sig](/cli/azure/sig/image-definition#az_sig_image_definition_list) para ver o nome e o ID das definições.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -35,7 +35,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Crie o VM utilizando [a az vm criar](/cli/azure/vm#az-vm-create) usando o parâmetro --especializado para indicar que a imagem é uma imagem especializada. 
+Crie o VM utilizando [a az vm criar](/cli/azure/vm#az_vm_create) usando o parâmetro --especializado para indicar que a imagem é uma imagem especializada. 
 
 Utilize o ID de definição de imagem `--image` para criar o VM a partir da versão mais recente da imagem que está disponível. Também pode criar o VM a partir de uma versão específica, fornecendo o ID da versão de imagem para `--image` . 
 

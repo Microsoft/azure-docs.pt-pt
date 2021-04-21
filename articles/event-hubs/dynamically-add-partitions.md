@@ -3,12 +3,12 @@ title: Adicione dinamicamente divisórias a um centro de eventos em Azure Event 
 description: Este artigo mostra-lhe como adicionar dinamicamente divisórias a um centro de eventos em Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: e6efdc7bab309f825032555c97f1e1128f5addd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aeeee1bcefe58b006dac0b6913aaa609cbeefb8c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625270"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775125"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicione dinamicamente divisórias a um centro de eventos (tema Apache Kafka) em Azure Event Hubs
 O Event Hubs fornece transmissão de mensagens através de um padrão de consumidor particionado em que cada consumidor só lê um subconjunto específico, ou partição, do fluxo de mensagens. Este padrão permite um dimensionamento horizontal do processamento de eventos e fornece outras funcionalidades centradas nos fluxos que não estão disponíveis nas filas e nos tópicos. Uma partição é uma sequência ordenada de eventos mantida num hub de eventos. À medida que os eventos mais recentes chegam, são adicionados ao fim desta sequência. Para obter mais informações sobre divisórias em geral, consulte [As Partições](event-hubs-scalability.md#partitions)
@@ -33,7 +33,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### <a name="cli"></a>CLI
-Utilize o [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-update) comando CLI para atualizar as divisórias num centro de eventos. 
+Utilize o [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az_eventhubs_eventhub_update) comando CLI para atualizar as divisórias num centro de eventos. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -105,4 +105,3 @@ Quando um membro do grupo de consumidores executa uma atualização de metadados
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre divisórias, consulte [As Partições.](event-hubs-scalability.md#partitions)
-

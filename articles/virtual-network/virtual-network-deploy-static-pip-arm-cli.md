@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: c4062dd086eeee712376a402da2792352fa3c3ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0f61cc4ef02033a2c21ce5acde68caea483e743
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98221347"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790136"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Criar uma máquina virtual com um endereço IP público estático usando o Azure CLI
 
@@ -32,13 +32,13 @@ Pode criar uma máquina virtual com um endereço IP público estático. Um ender
 Pode completar os seguintes passos a partir do seu computador local ou utilizando a Azure Cloud Shell. Para utilizar o computador local, certifique-se de que tem o [CLI Azure instalado](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Para utilizar a Azure Cloud Shell, selecione **Try It** no canto superior direito de qualquer caixa de comando que se segue. A Cloud Shell inscreve-te no Azure.
 
 1. Se utilizar a Cloud Shell, salte para o passo 2. Abra uma sessão de comando e assine em Azure com `az login` .
-2. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos na região de Azure oriental dos EUA:
+2. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos na região de Azure oriental dos EUA:
 
    ```azurecli-interactive
    az group create --name myResourceGroup --location eastus
    ```
 
-3. Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm#az-vm-create). A `--public-ip-address-allocation=static` opção atribui um endereço IP público estático à máquina virtual. O exemplo a seguir cria uma máquina virtual Ubuntu com um endereço IP público SKU estático e básico chamado *myPublicIpAddress*:
+3. Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm#az_vm_create). A `--public-ip-address-allocation=static` opção atribui um endereço IP público estático à máquina virtual. O exemplo a seguir cria uma máquina virtual Ubuntu com um endereço IP público SKU estático e básico chamado *myPublicIpAddress*:
 
    ```azurecli-interactive
    az vm create \
@@ -53,7 +53,7 @@ Pode completar os seguintes passos a partir do seu computador local ou utilizand
 
    Se o endereço IP público tiver de ser um SKU padrão, adicione `--public-ip-sku Standard` ao comando anterior. Saiba mais sobre [o endereço IP PÚBLICO SKUs](./public-ip-addresses.md#sku). Se a máquina virtual for adicionada ao pool traseiro de um Balançador de Carga Azure público, o SKU do endereço IP público da máquina virtual deve corresponder ao SKU do endereço IP público do balançador de carga. Para mais detalhes, consulte [o Balançador de Carga Azure](../load-balancer/skus.md).
 
-4. Ver o endereço IP público atribuído e confirmar que foi criado como um endereço SKU estático e básico, com [show público-ip da rede AZ](/cli/azure/network/public-ip#az-network-public-ip-show):
+4. Ver o endereço IP público atribuído e confirmar que foi criado como um endereço SKU estático e básico, com [show público-ip da rede AZ](/cli/azure/network/public-ip#az_network_public_ip_show):
 
    ```azurecli-interactive
    az network public-ip show \
@@ -68,9 +68,11 @@ Pode completar os seguintes passos a partir do seu computador local ou utilizand
 > [!WARNING]
 > Não modifique as definições do endereço IP dentro do sistema operativo da máquina virtual. O sistema operativo desconhece os endereços IP públicos do Azure. Embora possa adicionar definições privadas de endereço IP ao sistema operativo, recomendamos que não o faça a menos que seja necessário, e só depois de ler [Adicione um endereço IP privado a um sistema operativo](virtual-network-network-interface-addresses.md#private).
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos que contém:
+Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos que contém:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

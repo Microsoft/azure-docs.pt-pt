@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 42ce7a1760ecdb1dcbd5275927f351bef5da07a8
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0d171dee87a391c5e1d66db10363e6823ef387c1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531162"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774166"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registo de recursos para um grupo de segurança de rede
 
@@ -95,9 +95,9 @@ Ver e analisar registos. Para obter mais informações, consulte [Ver e analisar
 
 Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure.com/bash)ou executando o CLI Azure a partir do seu computador. O Azure Cloud Shell é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o CLI a partir do computador, precisa da versão 2.0.38 ou posterior. Corra `az --version` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Se estiver a executar o CLI localmente, também tem de correr `az login` para entrar no Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 
-Para ativar a extração de recursos, precisa do ID de um NSG existente. Se não tiver um NSG existente, pode criar um com [a az network nsg criar](/cli/azure/network/nsg#az-network-nsg-create).
+Para ativar a extração de recursos, precisa do ID de um NSG existente. Se não tiver um NSG existente, pode criar um com [a az network nsg criar](/cli/azure/network/nsg#az_network_nsg_create).
 
-Recupere o grupo de segurança da rede para o que pretende permitir a registo de recursos com [o programa nsg da rede Az](/cli/azure/network/nsg#az-network-nsg-show). Por exemplo, para recuperar um NSG chamado *myNsg* que existe num grupo de recursos chamado *myResourceGroup,* insira o seguinte comando:
+Recupere o grupo de segurança da rede para o que pretende permitir a registo de recursos com [o programa nsg da rede Az](/cli/azure/network/nsg#az_network_nsg_show). Por exemplo, para recuperar um NSG chamado *myNsg* que existe num grupo de recursos chamado *myResourceGroup,* insira o seguinte comando:
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -109,7 +109,7 @@ nsgId=$(az network nsg show \
 
 Pode escrever registos de recursos em três tipos de destino. Para mais informações, consulte [os destinos Log](#log-destinations). Neste artigo, os registos são enviados para o destino *Log Analytics,* como exemplo. Para obter mais informações, consulte [as categorias de Registo.](#log-categories)
 
-Ativar a marcação de recursos para o NSG com [as definições de diagnóstico do monitor Az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). O exemplo a seguir regista dados de eventos e categorias de contador para um espaço de trabalho existente chamado *myWorkspace*, que existe num grupo de recursos chamado *myWorkspaces*, e o ID do NSG que recuperou anteriormente:
+Ativar a marcação de recursos para o NSG com [as definições de diagnóstico do monitor Az criar](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create). O exemplo a seguir regista dados de eventos e categorias de contador para um espaço de trabalho existente chamado *myWorkspace*, que existe num grupo de recursos chamado *myWorkspaces*, e o ID do NSG que recuperou anteriormente:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \

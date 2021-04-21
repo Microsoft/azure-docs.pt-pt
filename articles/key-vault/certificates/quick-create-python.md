@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 598bbef0ceb24f3eb5932239a4146e1693521f24
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 62249f579909c3f8bfa9bcdf4e77e45453fcb68b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751333"
+ms.locfileid: "107792026"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Quickstart: Azure Key Vault certificate client library for Python
 
@@ -183,7 +183,7 @@ Para ler um certificado da Key Vault, utilize o método [get_certificate:](/pyth
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-Pode também verificar se o certificado foi definido com o certificado de comando Azure CLI [az keyvault](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+Pode também verificar se o certificado foi definido com o certificado de comando Azure CLI [az keyvault](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 ### <a name="delete-a-certificate"></a>Apagar um certificado
 
@@ -196,7 +196,7 @@ deleted_certificate = poller.result()
 
 O `begin_delete_certificate` método é assíncrona e devolve um objeto poller. Chamar o método do poller `result` espera pela sua conclusão.
 
-Pode verificar se o certificado é eliminado com o certificado de comando Azure CLI [az keyvault](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+Pode verificar se o certificado é eliminado com o certificado de comando Azure CLI [az keyvault](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 Uma vez eliminado, um certificado permanece em estado de aussitado mas recuperável por um tempo. Se voltar a executar o código, utilize um nome de certificado diferente.
 

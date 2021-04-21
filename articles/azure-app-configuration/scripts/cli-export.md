@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: be3fac17ba99194a76b27c78040a76cce43405a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c4eb6e2aa150751dfbadc2307d64ab206b92b6d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96931117"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782230"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportação de uma loja de configuração de aplicativos Azure
 
@@ -44,7 +44,7 @@ Este script utiliza os seguintes comandos para exportar a partir de uma loja de 
 
 | Comando | Notas |
 |---|---|
-| [exportação az appconfig kv](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exportações de um recurso de loja de configuração de aplicativos. |
+| [exportação az appconfig kv](/cli/azure/appconfig/kv#az_appconfig_kv_export) | Exportações de um recurso de loja de configuração de aplicativos. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

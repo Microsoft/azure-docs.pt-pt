@@ -4,12 +4,12 @@ description: Saiba como integrar ficheiros Azure NetApp com o Serviço Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 1d5aa8232b5d0aaa68e6d7e3dcbb9a7d70d0e8f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 28c5b77f06bc48bf06575e45194adfaed068b30f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182150"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776056"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar ficheiros Azure NetApp com o Serviço Azure Kubernetes
 
@@ -272,12 +272,12 @@ Para obter mais informações sobre ficheiros Azure NetApp, consulte [o que é A
 [anf-quickstart]: ../azure-netapp-files/
 [anf-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all
 [anf-waitlist]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-netappfiles-account-create]: /cli/azure/netappfiles/account#az-netappfiles-account-create
-[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az-netappfiles-pool-create
-[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az-netappfiles-volume-create
-[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az-netappfiles-volume-show
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
+[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
+[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create
+[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az_netappfiles_volume_show
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [install-azure-cli]: /cli/azure/install-azure-cli
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

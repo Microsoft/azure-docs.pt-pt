@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c29282637f6854248c98dff59f8fae46ad1a9d39
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 656443b0bc9d0e45f43634b1b4c21145de7a5bb5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640526"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792548"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Criar e gerir âmbitos de encriptação
 
@@ -111,7 +111,7 @@ Para criar um âmbito de encriptação com o Azure CLI, instale primeiro a vers�
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Criar um âmbito de encriptação protegido por teclas geridas pela Microsoft
 
-Para criar um novo âmbito de encriptação protegido pelas teclas geridas pela Microsoft, ligue para o comando [de encriptação de encriptação da conta de armazenamento az,](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) especificando o `--key-source` parâmetro como `Microsoft.Storage` . Lembre-se de substituir os valores do espaço reservado pelos seus próprios valores:
+Para criar um novo âmbito de encriptação protegido pelas teclas geridas pela Microsoft, ligue para o comando [de encriptação de encriptação da conta de armazenamento az,](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) especificando o `--key-source` parâmetro como `Microsoft.Storage` . Lembre-se de substituir os valores do espaço reservado pelos seus próprios valores:
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -123,7 +123,7 @@ az storage account encryption-scope create \
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>Criar um âmbito de encriptação protegido por chaves geridas pelo cliente
 
-Para criar um novo âmbito de encriptação protegido pelas teclas geridas pela Microsoft, ligue para o comando [de encriptação de encriptação da conta de armazenamento az,](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) especificando o `--key-source` parâmetro como `Microsoft.Storage` . Lembre-se de substituir os valores do espaço reservado pelos seus próprios valores:
+Para criar um novo âmbito de encriptação protegido pelas teclas geridas pela Microsoft, ligue para o comando [de encriptação de encriptação da conta de armazenamento az,](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) especificando o `--key-source` parâmetro como `Microsoft.Storage` . Lembre-se de substituir os valores do espaço reservado pelos seus próprios valores:
 
 Para criar um novo âmbito de encriptação protegido por chaves geridas pelo cliente num cofre de chaves ou por um HSM gerido, configurar primeiro as chaves geridas pelo cliente para a conta de armazenamento. Deve atribuir uma identidade gerida à conta de armazenamento e, em seguida, usar a identidade gerida para configurar a política de acesso para o cofre chave para que a conta de armazenamento tenha permissões para aceder a ela. Para obter mais informações, consulte [as chaves geridas pelo Cliente para encriptação de armazenamento Azure](../common/customer-managed-keys-overview.md).
 
@@ -202,7 +202,7 @@ Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para listar os âmbitos de encriptação disponíveis para uma conta de armazenamento com o Azure CLI, ligue para o comando da [lista de encriptação da conta de armazenamento Az.](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-list) Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
+Para listar os âmbitos de encriptação disponíveis para uma conta de armazenamento com o Azure CLI, ligue para o comando da [lista de encriptação da conta de armazenamento Az.](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_list) Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
 
 ```azurecli-interactive
 az storage account encryption-scope list \
@@ -246,7 +246,7 @@ New-AzStorageContainer -Name $containerName1 `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para criar um recipiente com um âmbito de encriptação padrão com O Azure CLI, ligue para o [recipiente de armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando, especificando o âmbito para o `--default-encryption-scope` parâmetro. Para forçar todas as bolhas num recipiente a utilizar o âmbito padrão do recipiente, deite o `--prevent-encryption-scope-override` parâmetro para `true` .
+Para criar um recipiente com um âmbito de encriptação padrão com O Azure CLI, ligue para o [recipiente de armazenamento az criar](/cli/azure/storage/container#az_storage_container_create) comando, especificando o âmbito para o `--default-encryption-scope` parâmetro. Para forçar todas as bolhas num recipiente a utilizar o âmbito padrão do recipiente, deite o `--prevent-encryption-scope-override` parâmetro para `true` .
 
 O exemplo a seguir utiliza a sua conta Azure AD para autorizar a operação de criação do recipiente. Também pode utilizar a chave de acesso à conta. Para obter mais informações, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](./authorize-data-operations-cli.md).
 
@@ -303,7 +303,7 @@ Set-AzStorageBlobContent -Context $ctx `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para carregar uma bolha com um âmbito de encriptação via Azure CLI, ligue para o comando de upload de [blob de armazenamento az](/cli/azure/storage/blob#az-storage-blob-upload) e forneça o âmbito de encriptação para a bolha.
+Para carregar uma bolha com um âmbito de encriptação via Azure CLI, ligue para o comando de upload de [blob de armazenamento az](/cli/azure/storage/blob#az_storage_blob_upload) e forneça o âmbito de encriptação para a bolha.
 
 Se estiver a utilizar o Azure Cloud Shell, siga os passos descritos no [Upload uma bolha](storage-quickstart-blobs-cli.md#upload-a-blob) para criar um ficheiro no diretório de raiz. Em seguida, pode enviar este ficheiro para uma bolha utilizando a seguinte amostra.
 
@@ -354,7 +354,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para alterar a chave que protege um âmbito de encriptação de uma chave gerida pelo cliente para uma chave gerida pela Microsoft com O Azure CLI, ligue para o comando [de atualização de encriptação do az](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) e passe no `--key-source` parâmetro com o valor `Microsoft.Storage` :
+Para alterar a chave que protege um âmbito de encriptação de uma chave gerida pelo cliente para uma chave gerida pela Microsoft com O Azure CLI, ligue para o comando [de atualização de encriptação do az](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) e passe no `--key-source` parâmetro com o valor `Microsoft.Storage` :
 
 ```azurecli-interactive
 az storage account encryption-scope update \
@@ -398,7 +398,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para desativar um âmbito de encriptação com O Azure CLI, ligue para o comando [de atualização de encriptação de encriptação da conta de armazenamento az](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) e inclua o `--state` parâmetro com um valor de , como mostrado no exemplo `Disabled` seguinte. Para reequipá-lo, ligue para o mesmo comando com o `--state` parâmetro definido para `Enabled` . Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
+Para desativar um âmbito de encriptação com O Azure CLI, ligue para o comando [de atualização de encriptação de encriptação da conta de armazenamento az](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) e inclua o `--state` parâmetro com um valor de , como mostrado no exemplo `Disabled` seguinte. Para reequipá-lo, ligue para o mesmo comando com o `--state` parâmetro definido para `Enabled` . Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
 
 ```azurecli-interactive
 az storage account encryption-scope update \

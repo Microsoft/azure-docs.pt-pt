@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions
-ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions , devx-track-azurepowershell
+ms.openlocfilehash: 2b698ffaddb4bc818eaabda34022ab58ff05fe5f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96497933"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786356"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover serviços de análise para uma região diferente
 

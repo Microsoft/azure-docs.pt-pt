@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3820e7bf00f99a846dd2be0edeaf4248e0dfd8ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d30cc27fc3c546619e85bb9aabd0b31c10102e96
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006091"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787814"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integrar o Serviço de Aplicações com o Gateway de Aplicações utilizando o CLI
 
@@ -45,16 +45,16 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, app A
 
 | Comando | Notas |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az network vnet create`](/cli/azure/network/vnet#az-network-vnet-create) | Cria uma rede virtual. |
-| [`az network public-ip create`](/cli/azure/network/public-ip#az-network-public-ip-create) | Cria um endereço IP público. |
-| [`az network public-ip show`](/cli/azure/network/public-ip#az-network-public-ip-show) | Mostrar detalhes de um endereço IP público. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria uma aplicação web do Serviço de Aplicações. |
-| [`az webapp show`](/cli/azure/webapp#az-webapp-show) | Mostrar detalhes de uma aplicação web do Serviço de Aplicações. |
-| [`az webapp config access-restriction add`](/cli/azure/webapp/config/access-restriction#az-webapp-config-access-restriction-add) | Adiciona uma restrição de acesso à aplicação web do Serviço de Aplicações. |
-| [`az network application-gateway create`](/cli/azure/network/application-gateway#az-network-application-gateway-create) | Cria um Gateway de Aplicação. |
-| [`az network application-gateway http-settings update`](/cli/azure/network/application-gateway/http-settings#az-network-application-gateway-http-settings-update) | Atualizações Aplicações Gateway HTTP definições. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az network vnet create`](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual. |
+| [`az network public-ip create`](/cli/azure/network/public-ip#az_network_public_ip_create) | Cria um endereço IP público. |
+| [`az network public-ip show`](/cli/azure/network/public-ip#az_network_public_ip_show) | Mostrar detalhes de um endereço IP público. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano do Serviço de Aplicações. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria uma aplicação web do Serviço de Aplicações. |
+| [`az webapp show`](/cli/azure/webapp#az_webapp_show) | Mostrar detalhes de uma aplicação web do Serviço de Aplicações. |
+| [`az webapp config access-restriction add`](/cli/azure/webapp/config/access-restriction#az_webapp_config_access_restriction_add) | Adiciona uma restrição de acesso à aplicação web do Serviço de Aplicações. |
+| [`az network application-gateway create`](/cli/azure/network/application-gateway#az_network_application_gateway_create) | Cria um Gateway de Aplicação. |
+| [`az network application-gateway http-settings update`](/cli/azure/network/application-gateway/http-settings#az_network-application-gateway-http_settings_update) | Atualizações Aplicações Gateway HTTP definições. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

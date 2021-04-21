@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57abbeefe8e3f2abe527f2b282d643db766b9dc9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981243"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775750"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação core ASP.NET
 
@@ -93,7 +93,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
 ## <a name="connect-to-key-vault"></a>Ligue-se ao cofre de chaves
 
-1. Neste tutorial, você usa um principal de serviço para autenticação para Key Vault. Para criar este principal serviço, utilize o comando Azure CLI [ad sp create-for-rbac:](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+1. Neste tutorial, você usa um principal de serviço para autenticação para Key Vault. Para criar este principal serviço, utilize o comando Azure CLI [ad sp create-for-rbac:](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
