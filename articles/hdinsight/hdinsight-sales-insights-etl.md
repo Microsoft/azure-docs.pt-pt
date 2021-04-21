@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 32c331b10fcc73b5449588595370f8f69ef9893c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 140709a0ddb548c126ceca208fdeef2db77616bf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872052"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761804"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas em Azure HDInsight
 
@@ -90,7 +90,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    Se não tiver certeza de qual região especificar, pode recuperar uma lista de regiões apoiadas para a sua subscrição com o comando [de localizações da lista de conta az.](/cli/azure/account#az-account-list-locations)
+    Se não tiver certeza de qual região especificar, pode recuperar uma lista de regiões apoiadas para a sua subscrição com o comando [de localizações da lista de conta az.](/cli/azure/account#az_account_list_locations)
 
     O comando irá utilizar os seguintes recursos:
 

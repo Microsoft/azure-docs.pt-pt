@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: ac70f48a3c484f8865c54e09c59662a14a259e74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9eaad12e254150109498be0fac2f285f33a5965c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101680344"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776596"
 ---
 # <a name="configure-routing-preference-for-a-kubernetes-cluster-using-azure-cli"></a>Configure a preferência de encaminhamento para um cluster Kubernetes usando O Azure CLI
 
@@ -31,14 +31,14 @@ Este artigo mostra-lhe como configurar a preferência de encaminhamento através
 - Este artigo requer a versão 2.0.49 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos na região **de Azure oriental dos EUA:**
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos na região **de Azure oriental dos EUA:**
 
 ```azurecli
   az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-Crie um endereço IP público com preferência de encaminhamento do tipo de **Internet** utilizando a rede de comando [az public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
+Crie um endereço IP público com preferência de encaminhamento do tipo de **Internet** utilizando a rede de comando [az public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 O seguinte comando cria um novo IP público com preferência por encaminhamento de **Internet** na região **de Azure leste dos EUA.**
 
@@ -87,4 +87,3 @@ Para validar, procure o IP público criado no passo anterior no portal Azure, ve
 
 - Saiba mais sobre [a preferência de encaminhamento em endereços IP públicos.](routing-preference-overview.md) 
 - [Configure a preferência de encaminhamento para um VM utilizando o Azure CLI](configure-routing-preference-virtual-machine-cli.md).
-

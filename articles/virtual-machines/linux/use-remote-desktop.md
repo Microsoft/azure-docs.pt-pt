@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 84960e6247edc708bedb899c96ebf7522397269a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 309b106d2141c8257c5163efe7ff45a7bae5d5c3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580373"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759656"
 ---
 # <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Instale e configuure xrdp para usar desktop remoto com Ubuntu
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Criar uma regra do Grupo de Segurança de Rede para tráfego remoto de ambiente de trabalho
 Para permitir que o tráfego de ambiente de trabalho remoto chegue ao seu Linux VM, é necessário criar uma regra do grupo de segurança de rede que permita que o TCP na porta 3389 chegue ao seu VM. Para obter mais informações sobre as regras do grupo de segurança de rede, veja [o que é um grupo de segurança de rede?](../../virtual-network/network-security-groups-overview.md) Também pode [utilizar o portal Azure para criar uma regra do grupo de segurança de rede](../windows/nsg-quickstart-portal.md).
 
-O exemplo a seguir cria uma regra de grupo de segurança de rede com [porta aberta az vm](/cli/azure/vm#az-vm-open-port) na porta *3389*. Do CLI Azure, não da sessão SSH para o seu VM, abra a seguinte regra do grupo de segurança da rede:
+O exemplo a seguir cria uma regra de grupo de segurança de rede com [porta aberta az vm](/cli/azure/vm#az_vm_open_port) na porta *3389*. Do CLI Azure, não da sessão SSH para o seu VM, abra a seguinte regra do grupo de segurança da rede:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

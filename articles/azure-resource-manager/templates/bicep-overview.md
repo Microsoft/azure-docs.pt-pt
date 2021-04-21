@@ -3,12 +3,12 @@ title: Linguagem bicep para modelos de gestor de recursos Azure
 description: Descreve a linguagem Bicep para implantar infraestruturas para Azure através de modelos Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af207e6ca88eab50fe6030883379c87c0ec05691
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955912"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773752"
 ---
 # <a name="what-is-bicep-preview"></a>O que é Bicep (Pré-visualização)?
 
@@ -31,6 +31,17 @@ Depois de instalar as ferramentas, experimente o [tutorial Bicep](./bicep-tutori
 Para ver os ficheiros JSON e Bicep equivalentes lado a lado, consulte o [Bicep Playground](https://aka.ms/bicepdemo).
 
 Se tiver um modelo ARM existente que gostaria de converter em Bicep, consulte [os modelos DE CONVERSÃO ARM entre JSON e Bicep](bicep-decompile.md).
+
+## <a name="benefits-of-bicep-versus-other-tools"></a>Benefícios da Bicep contra outras ferramentas
+
+A Bicep oferece as seguintes vantagens sobre outras opções:
+
+* **Suporte para todos os tipos de recursos e versões API**: Bicep suporta imediatamente todas as versões de pré-visualização e GA para serviços Azure. Assim que um fornecedor de recursos introduz novos tipos de recursos e versões API, pode usá-los no seu ficheiro Bicep. Não é preciso esperar que as ferramentas sejam atualizadas antes de utilizar os novos serviços.
+* **Experiência de autoria**: Quando utiliza o Código VS para criar os seus ficheiros Bicep, obtém uma experiência de autoria de primeira classe. O editor fornece uma rica validação de tipo de segurança, intellisense e sintaxe.
+* **Modularidade**: Pode dividir o seu código Bicep em peças manejáveis utilizando [módulos](bicep-modules.md). O módulo implementa um conjunto de recursos relacionados. Os módulos permitem-lhe reutilizar código e simplificar o desenvolvimento. Adicione o módulo a um ficheiro Bicep sempre que precisar de utilizar esses recursos.
+* **Integração com os serviços Azure**: A Bicep está integrada com serviços Azure, tais como Azure Policy, especificações de modelos e Plantas.
+* **Não há ficheiros estatais ou estatais para gerir:** Todos os estados estão armazenados em Azure. Os utilizadores podem colaborar e ter confiança que as suas atualizações são tratadas como esperado. Utilize o ["e se" para pré-visualizar](template-deploy-what-if.md) alterações antes de implementar o seu modelo.
+* **Sem custos e fonte aberta**: Bicep é completamente gratuito. Não tens de pagar por capacidades premium. Também é suportado pelo suporte da Microsoft.
 
 ## <a name="bicep-improvements"></a>Melhorias do Bicep
 
@@ -57,11 +68,7 @@ Para uma comparação completa da sintaxe, consulte [comparar JSON e Bicep para 
 
 A Bicep gere automaticamente as dependências entre os recursos. Pode evitar a definição `dependsOn` quando o nome simbólico de um recurso é utilizado noutra declaração de recursos.
 
-Com o Bicep, pode dividir o seu projeto em vários módulos.
-
 A estrutura do ficheiro Bicep é mais flexível do que o modelo JSON. Pode declarar parâmetros, variáveis e saídas em qualquer lugar do ficheiro. No JSON, tem de declarar todos os parâmetros, variáveis e saídas dentro das secções correspondentes do modelo.
-
-A extensão do Código VS para Bicep oferece uma rica validação e intellisense. Por exemplo, pode usar o intellisense da extensão para obter propriedades de um recurso.
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 

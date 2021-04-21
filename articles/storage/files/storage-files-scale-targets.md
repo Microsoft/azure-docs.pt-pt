@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 276dd7aa1925fefaaa94dfdd5d7a5baba5164f56
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593157"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790262"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através dos protocolos do sistema de ficheiros SMB e NFS. Este artigo discute os objetivos de escalabilidade e desempenho para Azure Files e Azure File Sync.
@@ -103,7 +103,7 @@ Uma vez que o agente Azure File Sync funciona numa máquina do Windows Server qu
 
 Para Azure File Sync, o desempenho é fundamental em duas fases:
 
-1. **Provisão inicial:** Para otimizar o desempenho no provisionamento inicial, consulte o [Onboarding com Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para obter os detalhes de implementação ideais.
+1. **Provisão inicial:** Para otimizar o desempenho no provisionamento inicial, consulte o [Onboarding com Azure File Sync](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync) para obter os detalhes de implementação ideais.
 2. **Sincronização em curso**: Depois de os dados terem sido inicialmente semeados nas ações de ficheiros Azure, o Azure File Sync mantém vários pontos finais sincronizados.
 
 Para ajudá-lo a planear a sua implantação para cada uma das fases, abaixo estão os resultados observados durante os testes internos num sistema com uma config
@@ -134,7 +134,7 @@ A taxa de desempenho é de 20 objetos por segundo. Os clientes podem estimar o t
 
 **A sincronização inicial de dados do Windows Server para a Azure File share**:Muitas implementações de Azure File Sync começam com uma partilha de ficheiros Azure vazia porque todos os dados estão no Servidor do Windows. Nestes casos, a enumeração inicial da mudança de nuvem é rápida e a maior parte do tempo será gasto sincronizando alterações do Servidor do Windows para a partilha de ficheiros Azure. 
 
-Embora o sync carrequiva os dados para a partilha de ficheiros Azure, não há tempo de inatividade no servidor de ficheiros local, e os administradores podem [configurar limites](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) de rede para restringir a quantidade de largura de banda utilizada para o upload de dados de fundo.
+Embora o sync carrequiva os dados para a partilha de ficheiros Azure, não há tempo de inatividade no servidor de ficheiros local, e os administradores podem [configurar limites](../file-sync/file-sync-server-registration.md#set-azure-file-sync-network-limits) de rede para restringir a quantidade de largura de banda utilizada para o upload de dados de fundo.
 
 A sincronização inicial é tipicamente limitada pela taxa inicial de upload de 20 ficheiros por segundo por grupo de sincronização. Os clientes podem estimar o momento de enviar todos os seus dados para a Azure usando as seguintes fórmulas para obter tempo em dias:  
 
@@ -164,4 +164,4 @@ Como guia geral para a sua implantação, deve ter em mente algumas coisas:
 
 ## <a name="see-also"></a>Ver também
 - [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
-- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Planear uma implementação do Azure File Sync](../file-sync/file-sync-planning.md)

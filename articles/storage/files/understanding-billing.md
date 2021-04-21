@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11d22fd83106bb1802514d0c7d5f67724664464d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99226646"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788390"
 ---
 # <a name="understand-azure-files-billing"></a>Compreenda a faturação dos Ficheiros Azure
 A Azure Files fornece dois modelos de faturação distintos: provisionados e pay-as-you-go. O modelo provisionado só está disponível para ações de ficheiros premium, que são ações de ficheiros implantadas no tipo de conta de armazenamento **FileStorage.** O modelo pay-as-you-go só está disponível para ações de ficheiros padrão, que são ações de ficheiros implantadas no tipo de conta de armazenamento **versão 2 (GPv2) para fins gerais.** Este artigo explica como ambos os modelos funcionam de forma a ajudá-lo a entender a sua conta mensal de Ficheiros Azure.
@@ -116,5 +116,5 @@ Existem cinco categorias básicas de transações: escrever, listar, ler, outras
 
 ## <a name="see-also"></a>Ver também
 - [Página de preços do Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
-- Planejando uma implementação e planeamento [de ficheiros Azure](./storage-files-planning.md) [para uma implementação de Azure File Sync](./storage-sync-files-planning.md).
-- [Crie uma partilha de ficheiros](./storage-how-to-create-file-share.md) e [implemente o Sync de Ficheiros Azure](./storage-sync-files-deployment-guide.md).
+- Planejando uma implementação e planeamento [de ficheiros Azure](storage-files-planning.md) [para uma implementação de Azure File Sync](../file-sync/file-sync-planning.md).
+- [Crie uma partilha de ficheiros](storage-how-to-create-file-share.md) e [implemente o Sync de Ficheiros Azure](../file-sync/file-sync-deployment-guide.md).

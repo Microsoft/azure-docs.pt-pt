@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cae82072785838d410453b2eb83685905b0ba04e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d0644b9ec9009fe5d1db7701834cb9788f86ab0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553787"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790172"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clone uma imagem gerida para uma versão de imagem usando o Azure CLI
 Se tiver uma imagem gerida que gostaria de clonar numa Galeria de Imagens Partilhadas, pode criar uma imagem da Galeria de Imagens Partilhada diretamente a partir da imagem gerida. Depois de ter testado a sua nova imagem, pode eliminar a imagem gerida pela fonte. Também pode migrar de uma imagem gerida para uma Galeria de Imagens Partilhadas utilizando [o PowerShell.](image-version-managed-image-powershell.md)
@@ -43,7 +43,7 @@ Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou 
 
 Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./shared-image-galleries.md#image-definitions).
 
-Crie uma definição de imagem na galeria utilizando [a az sig definição de imagem criar](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Crie uma definição de imagem na galeria utilizando [a az sig definição de imagem criar](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e destina-se a uma imagem [generalizada](./shared-image-galleries.md#generalized-and-specialized-images) do Linux OS. Para criar uma definição para imagens que utilizem um SISTEMA Windows, utilize `--os-type Windows` . 
 
@@ -65,7 +65,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Criar a versão de imagem
 
-Criar versões utilizando [a az galeria de imagens criar versão de imagem](/cli/azure/sig/image-version#az-sig-image-version-create). Terá de passar no ID da imagem gerida para usar como base para criar a versão de imagem. Pode utilizar [a lista de imagens az](/cli/azure/image?view#az-image-list) para obter os IDs para as suas imagens. 
+Criar versões utilizando [a az galeria de imagens criar versão de imagem](/cli/azure/sig/image-version#az_sig_image_version_create). Terá de passar no ID da imagem gerida para usar como base para criar a versão de imagem. Pode utilizar [a lista de imagens az](/cli/azure/image?view#az_image_list) para obter os IDs para as suas imagens. 
 
 ```azurecli-interactive
 az image list --query "[].[name, id]" -o tsv

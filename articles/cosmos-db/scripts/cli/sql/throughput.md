@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/07/2020
-ms.openlocfilehash: 8310de5ce8fd3f90e422555a5111569fadcca982
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2df31e5903785b6e25ea79a107a53084849c66fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566406"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789092"
 ---
 # <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>Operações de produção (RU/s) com Azure CLI para uma base de dados ou contentor para Azure Cosmos DB Core (SQL) API
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
@@ -41,15 +41,15 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb sql base de dados criar](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Cria uma base de dados Azure Cosmos Core (SQL). |
-| [recipiente az cosmosdb sql criar](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Cria um recipiente Azure Cosmos Core (SQL). |
-| [az cosmosdb sql base de dados atualização de produção](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Atualizar a produção para uma base de dados Azure Cosmos Core (SQL). |
-| [az cosmosdb sql atualização de produção de recipiente](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Atualização da produção de um recipiente Azure Cosmos Core (SQL). |
-| [az cosmosdb sql base de dados migram](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-migrate) | Migrar para uma base de dados do Azure Cosmos Core (SQL). |
-| [az cosmosdb sql produção de recipiente migram](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-migrate) | Migrar para um recipiente Azure Cosmos Core (SQL). |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Cria uma conta do Azure Cosmos DB. |
+| [az cosmosdb sql base de dados criar](/cli/azure/cosmosdb/sql/database#az_cosmosdb_sql_database_create) | Cria uma base de dados Azure Cosmos Core (SQL). |
+| [recipiente az cosmosdb sql criar](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create) | Cria um recipiente Azure Cosmos Core (SQL). |
+| [az cosmosdb sql base de dados atualização de produção](/cli/azure/cosmosdb/sql/database/throughput#az_cosmosdb_sql_database_throughput_update) | Atualizar a produção para uma base de dados Azure Cosmos Core (SQL). |
+| [az cosmosdb sql atualização de produção de recipiente](/cli/azure/cosmosdb/sql/container/throughput#az_cosmosdb_sql_container_throughput_update) | Atualização da produção de um recipiente Azure Cosmos Core (SQL). |
+| [az cosmosdb sql base de dados migram](/cli/azure/cosmosdb/sql/database/throughput#az_cosmosdb_sql_database_throughput_migrate) | Migrar para uma base de dados do Azure Cosmos Core (SQL). |
+| [az cosmosdb sql produção de recipiente migram](/cli/azure/cosmosdb/sql/container/throughput#az_cosmosdb_sql_container_throughput_migrate) | Migrar para um recipiente Azure Cosmos Core (SQL). |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

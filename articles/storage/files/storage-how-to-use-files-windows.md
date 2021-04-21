@@ -8,12 +8,12 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9121774af0a1cfac6f677b4b8e2f4cd4b535042e
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e864dcaa2a611746ae813a4f0adf8409fbc50871
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717199"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789794"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -48,7 +48,7 @@ Confirmar que a porta 445 está aberta: o protocolo SMB requer que a porta TCP 4
 ## <a name="using-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 Para utilizar uma partilha de ficheiros do Azure com o Windows, tem de montá-la, o que significa atribuir uma letra de unidade ou um caminho de ponto de montagem, ou aceder-lhe através do respetivo [caminho UNC](/windows/win32/fileio/naming-a-file). 
 
-Este artigo utiliza a chave da conta de armazenamento para aceder à partilha de ficheiros. Uma chave de conta de armazenamento é uma chave de administrador para uma conta de armazenamento, incluindo permissões de administrador para todos os ficheiros e pastas dentro da partilha de ficheiros a que está a aceder, e para todas as ações de ficheiros e outros recursos de armazenamento (bolhas, filas, tabelas, etc.) contidas na sua conta de armazenamento. Se isto não for suficiente para a sua carga de trabalho, o [Azure File Sync](storage-sync-files-planning.md) pode ser utilizado, ou poderá utilizar [a autenticação baseada na identidade em SMB](storage-files-active-directory-overview.md).
+Este artigo utiliza a chave da conta de armazenamento para aceder à partilha de ficheiros. Uma chave de conta de armazenamento é uma chave de administrador para uma conta de armazenamento, incluindo permissões de administrador para todos os ficheiros e pastas dentro da partilha de ficheiros a que está a aceder, e para todas as ações de ficheiros e outros recursos de armazenamento (bolhas, filas, tabelas, etc.) contidas na sua conta de armazenamento. Se isto não for suficiente para a sua carga de trabalho, o [Azure File Sync](../file-sync/file-sync-planning.md) pode ser utilizado, ou poderá utilizar [a autenticação baseada na identidade em SMB](storage-files-active-directory-overview.md).
 
 Um padrão comum para fazer a migração lift and shift para o Azure de aplicações de linha de negócio (LOB) que esperam uma partilha de ficheiros SMB é utilizar uma partilha de ficheiros do Azure como alternativa à execução de um servidor de ficheiros do Windows dedicado numa VM do Azure. Uma consideração importante para a migração bem-sucedida de aplicações de linha de negócio de modo a utilizarem uma partilha de ficheiros do Azure é o facto de muitas dessas aplicações serem executadas no contexto de uma conta de serviço dedicada com permissões de sistema limitadas em vez de no contexto da conta administrativa da VM. Por esse motivo, tem de garantir que monta/guarda as credenciais da partilha de ficheiros do Azure no contexto da conta de serviço em vez da conta administrativa.
 

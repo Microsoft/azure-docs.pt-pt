@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 7c797957c292b9859ca41951b15f58c3d0be40b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c70b02bdc554c723f53ad5f8c0d36c5eca87811e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561076"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774373"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Desativar ou remover o Agente Linux de VMs e imagens
 
@@ -32,7 +32,7 @@ A plataforma Azure acolhe muitas extensões que vão desde a configuração de V
 
 ## <a name="disabling-extension-processing"></a>Desativação do processamento de extensão
 
-Existem várias formas de desativar o processamento de extensão, dependendo das suas necessidades, mas antes de continuar, **deve** remover todas as extensões implantadas no VM, por exemplo usando o Azure CLI, pode [listar](/cli/azure/vm/extension#az-vm-extension-list) e [eliminar:](/cli/azure/vm/extension#az-vm-extension-delete)
+Existem várias formas de desativar o processamento de extensão, dependendo das suas necessidades, mas antes de continuar, **deve** remover todas as extensões implantadas no VM, por exemplo usando o Azure CLI, pode [listar](/cli/azure/vm/extension#az_vm_extension_list) e [eliminar:](/cli/azure/vm/extension#az_vm_extension_delete)
 
 ```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -156,7 +156,7 @@ Quando criar o VM a partir da imagem sem Agente Linux, tem de se certificar de q
 > 
 > Se não fizer o que precede, a plataforma tentará enviar a configuração de extensão e o tempo limite após 40min.
 
-Para implantar o VM com extensões desativadas, pode utilizar o CLI Azure com [--activar-agente](/cli/azure/vm#az-vm-create).
+Para implantar o VM com extensões desativadas, pode utilizar o CLI Azure com [--activar-agente](/cli/azure/vm#az_vm_create).
 
 ```azurecli
 az vm create \

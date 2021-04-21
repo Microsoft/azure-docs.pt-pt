@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
-ms.openlocfilehash: d699e8985a3a23b3aab87601d5298d9c8f7e34e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 429377cd50e83195cb1c3a422416fdb35644a28e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244855"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773485"
 ---
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Criar uma máquina virtual ativada pelo Docker
 
@@ -76,5 +76,5 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 Saia da ligação SSH.
 
 [azure-cli]: /cli/azure/install-azure-cli
-[az-vm-create]: /cli/azure/vm#az-vm-create
+[az-vm-create]: /cli/azure/vm#az_vm_create
 [az-group-create]: /cli/azure/group

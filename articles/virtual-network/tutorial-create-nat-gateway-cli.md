@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: d312702f441cfe2ad94e347cadcdfc88d4cc2a72
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 60436b8d4a0f338f4ece59ad4cd11c14c9e4c352
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479326"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762646"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Tutorial: Criar uma porta de entrada NAT utilizando o Azure CLI
 
@@ -92,7 +92,7 @@ Crie uma rede virtual chamada **myVnet** com uma sub-rede chamada **mySubnet** [
 
 Crie um anfitrião Azure Bastion chamado **myBastionHost** para aceder à máquina virtual. 
 
-Utilize [a sub-rede de rede az para](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) criar uma sub-rede Azure Bastion.
+Utilize [a sub-rede de rede az para](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) criar uma sub-rede Azure Bastion.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -111,7 +111,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Utilize [o bastião da rede Az](/cli/azure/network/bastion#az-network-bastion-create) para criar o hospedeiro de bastião. 
+Utilize [o bastião da rede Az](/cli/azure/network/bastion#az_network_bastion_create) para criar o hospedeiro de bastião. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -141,7 +141,7 @@ Todo o tráfego de saída para destinos de Internet está agora usando o gateway
 
 Nesta secção, irá criar uma máquina virtual para testar o gateway NAT para verificar o endereço IP público da ligação de saída.
 
-Crie a máquina virtual com [a criação de az vm](/cli/azure/vm#az-vm-create).
+Crie a máquina virtual com [a criação de az vm](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \

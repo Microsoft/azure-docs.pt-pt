@@ -3,12 +3,12 @@ title: Recurso não encontrado erros
 description: Descreve como resolver erros quando um recurso não pode ser encontrado. O erro pode ocorrer ao implementar um modelo de Gestor de Recursos Azure ou quando se toma ações de gestão.
 ms.topic: troubleshooting
 ms.date: 03/23/2021
-ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e3a72eaad99721cec9500956179a3ae9d9cf8d2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950880"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762142"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Resolver recurso não encontrados erros
 
@@ -43,7 +43,7 @@ Quando receber este erro durante uma tarefa de gestão, verifique os valores que
 * Nome do grupo de recursos
 * Subscrição
 
-Se estiver a utilizar o PowerShell ou o Azure CLI, verifique se está a executar o comando na subscrição que contém o recurso. Pode alterar a subscrição com [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) ou [az set](/cli/azure/account#az-account-set). Muitos comandos também fornecem um parâmetro de subscrição que permite especificar uma subscrição diferente do contexto atual.
+Se estiver a utilizar o PowerShell ou o Azure CLI, verifique se está a executar o comando na subscrição que contém o recurso. Pode alterar a subscrição com [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) ou [az set](/cli/azure/account#az_account_set). Muitos comandos também fornecem um parâmetro de subscrição que permite especificar uma subscrição diferente do contexto atual.
 
 Se tiver problemas em verificar as propriedades, inscreva-se no [portal](https://portal.azure.com). Encontre o recurso que está a tentar utilizar e examine o nome do recurso, o grupo de recursos e a subscrição.
 

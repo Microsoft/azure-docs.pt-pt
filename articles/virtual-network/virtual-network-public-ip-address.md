@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: d52430c87d99f8837c78fcff89d8b214e45350ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adc78dceb5269d65bcf76dc99af309fb5e28f450
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98934944"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774119"
 ---
 # <a name="manage-public-ip-addresses"></a>Gerir endereços IP públicos
 
@@ -83,15 +83,15 @@ Para obter mais detalhes sobre os atributos específicos de um endereço IP púb
    
 |Operação|Portal do Azure|Azure PowerShell|CLI do Azure|
 |---|---|---|---|
-|Vista | Na secção **Geral** de um IP Público |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um objeto de endereço IP público e ver as suas definições| [az rede público-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) para mostrar configurações|
-|Lista | Na categoria **de endereços IP públicos** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um ou mais objetos de endereço IP públicos e ver as suas definições|[lista de ip públicos da rede az](/cli/azure/network/public-ip#az-network-public-ip-list) para listar endereços IP públicos|
-|Modificar | Para um IP dissociado, selecione **Configuração** para modificar o tempo limite de marcha lenta, etiqueta de nome DNS ou alterar a atribuição de IP básico de Estática para Dinâmica  |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para atualizar definições |[atualização de ip público da rede az](/cli/azure/network/public-ip#az-network-public-ip-update) para atualizar |
+|Vista | Na secção **Geral** de um IP Público |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um objeto de endereço IP público e ver as suas definições| [az rede público-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) para mostrar configurações|
+|Lista | Na categoria **de endereços IP públicos** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um ou mais objetos de endereço IP públicos e ver as suas definições|[lista de ip públicos da rede az](/cli/azure/network/public-ip#az_network_public_ip_list) para listar endereços IP públicos|
+|Modificar | Para um IP dissociado, selecione **Configuração** para modificar o tempo limite de marcha lenta, etiqueta de nome DNS ou alterar a atribuição de IP básico de Estática para Dinâmica  |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para atualizar definições |[atualização de ip público da rede az](/cli/azure/network/public-ip#az_network_public_ip_update) para atualizar |
 
    - **Excluir**: A eliminação de IPs públicos exige que o objeto IP público não seja associado a qualquer configuração IP ou Nic de Máquina Virtual. Veja a tabela abaixo para mais detalhes.
 
 |Recurso|Portal do Azure|Azure PowerShell|CLI do Azure|
 |---|---|---|---|
-|[Máquina Virtual](./remove-public-ip-address-vm.md)|Selecione **Dissociar** para dissociar o endereço IP a partir da configuração NIC e, em seguida, selecione **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para dissociar o endereço IP da configuração NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar|[a atualização az rede pública-ip --remover](/cli/azure/network/public-ip#az-network-public-ip-update) para dissociar o endereço IP da configuração NIC; [az rede público-ip apagar](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar |
+|[Máquina Virtual](./remove-public-ip-address-vm.md)|Selecione **Dissociar** para dissociar o endereço IP a partir da configuração NIC e, em seguida, selecione **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para dissociar o endereço IP da configuração NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar|[a atualização az rede pública-ip --remover](/cli/azure/network/public-ip#az_network_public_ip_update) para dissociar o endereço IP da configuração NIC; [az rede público-ip apagar](/cli/azure/network/public-ip#az_network_public_ip_delete) para eliminar |
 |Frontend de balançador de carga | Navegue para um endereço IP público não utilizado e selecione **Associate** e escolha o Balanceador de Carga com a configuração IP frontal relevante para substituí-lo (em seguida, o ip antigo pode ser eliminado usando o mesmo método que para VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) para associar o novo Frontend IP config com o Balancer de Carga Pública; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) para remover Frontend IP Config se houver mais de um |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) para associar novo Frontend IP config com Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [a az rede lb frontend-ip apagar](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_delete) para remover Frontend IP Config se houver mais de um|
 |Firewall|N/D| [Deallocate()](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) para negociar firewall e remover todas as configurações IP | [az firewall ip-config eliminar](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) para remover IP (mas deve usar PowerShell para negociar primeiro)|
 

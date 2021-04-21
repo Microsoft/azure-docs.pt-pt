@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 54ad9f389070e1d5d280517a2f6c41e9a0f8f33e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc329feffbf22d63774ab0f3779d62d3ccf53adb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929995"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774137"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhe com valores-chave numa loja de configuração de aplicações Azure
 
@@ -83,9 +83,9 @@ Esta tabela lista os comandos utilizados no nosso script de amostra.
 
 | Comando | Notas |
 |---|---|
-| [az appconfig kv conjunto](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Criar ou atualizar um par de valor-chave. |
-| [az appconfig kv lista](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Listar pares de valores-chave numa loja de configuração de aplicações. |
-| [az appconfig kv excluir](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Apague um par de valor-chave. |
+| [az appconfig kv conjunto](/cli/azure/appconfig/kv#az_appconfig_kv_set) | Criar ou atualizar um par de valor-chave. |
+| [az appconfig kv lista](/cli/azure/appconfig/kv#az_appconfig_kv_list) | Listar pares de valores-chave numa loja de configuração de aplicações. |
+| [az appconfig kv excluir](/cli/azure/appconfig/kv#az_appconfig_kv_delete) | Apague um par de valor-chave. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

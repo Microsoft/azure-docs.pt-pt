@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 47569309f35848e82488abd549751f6f1e5a1baa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afb30f4648f1649bf6cc6cc6a3bf02f433f49d45
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954875"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774936"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para o acesso granular baseado em funções para as configurações de cluster
 
@@ -192,7 +192,7 @@ As configurações do cluster estão agora por trás do controlo de acesso basea
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Por que vejo "privilégios insuficientes para completar a operação" ao executar o comando Azure CLI para atribuir o papel de Operador de Cluster HDInsight a outro utilizador ou diretor de serviço?
 
-Além de ter a função Proprietário, o utilizador ou o principal de serviço que executa o comando precisa de ter permissões AD suficientes para procurar as identificações do objeto do destinatário. Esta mensagem indica permissões AD Azure insuficientes. Tente substituir o `-–assignee` argumento e forneça o `–assignee-object-id` ID do objeto do destinatário como parâmetro em vez do nome (ou o ID principal no caso de uma identidade gerida). Consulte a secção de parâmetros opcionais da atribuição de [funções az crie documentação](/cli/azure/role/assignment#az-role-assignment-create) para mais informações.
+Além de ter a função Proprietário, o utilizador ou o principal de serviço que executa o comando precisa de ter permissões AD suficientes para procurar as identificações do objeto do destinatário. Esta mensagem indica permissões AD Azure insuficientes. Tente substituir o `-–assignee` argumento e forneça o `–assignee-object-id` ID do objeto do destinatário como parâmetro em vez do nome (ou o ID principal no caso de uma identidade gerida). Consulte a secção de parâmetros opcionais da atribuição de [funções az crie documentação](/cli/azure/role/assignment#az_role_assignment_create) para mais informações.
 
 Se isto ainda não funcionar, contacte o seu administrador Azure AD para obter as permissões corretas.
 

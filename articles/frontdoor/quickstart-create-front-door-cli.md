@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: f697606e195f102d2bfb5535c92e5c78eb44cdbe
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 99204a2d4c3a2455f0916878fb09a348dc79ac7a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727219"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778783"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Quickstart: Criar uma porta frontal para uma aplicação web global altamente disponível usando O Azure CLI
 
@@ -47,7 +47,7 @@ Em Azure, aloca recursos relacionados a um grupo de recursos. Pode utilizar um g
 
 Para este arranque rápido, precisa de dois grupos de recursos. Um nos *EUA centrais* e o segundo no *Centro-Sul dos EUA.*
 
-Criar um grupo de recursos com [a criação de grupo az:](/cli/azure/group#az-group-create)
+Criar um grupo de recursos com [a criação de grupo az:](/cli/azure/group#az_group_create)
 
 ```azurecli-interactive
 az group create \

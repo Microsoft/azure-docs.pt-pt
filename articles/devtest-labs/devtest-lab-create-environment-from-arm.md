@@ -3,12 +3,12 @@ title: Criar ambientes multi-VM e recursos PaaS com modelos
 description: Saiba como criar ambientes multi-VM e recursos PaaS em Azure DevTest Labs a partir de um modelo de Gestor de Recursos Azure
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f285acffe642a85fa27792ee51ea67a57f6d35a5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88182413"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790118"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager
 
@@ -264,7 +264,7 @@ O seguinte guião de amostra cria um ambiente no seu laboratório. Os comentári
 Também pode usar o Azure CLI para implementar recursos com modelos de Gestor de Recursos. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 > [!NOTE]
-> Apenas um utilizador com permissões de proprietário de laboratório pode criar VMs a partir de um modelo de Gestor de Recursos utilizando a Azure PowerShell. Se pretender automatizar a criação de VM utilizando um modelo de Gestor de Recursos e tiver apenas permissões de utilizador, pode utilizar o comando CLI [az lab vm criar](/cli/azure/lab/vm#az-lab-vm-create).
+> Apenas um utilizador com permissões de proprietário de laboratório pode criar VMs a partir de um modelo de Gestor de Recursos utilizando a Azure PowerShell. Se pretender automatizar a criação de VM utilizando um modelo de Gestor de Recursos e tiver apenas permissões de utilizador, pode utilizar o comando CLI [az lab vm criar](/cli/azure/lab/vm#az_lab_vm_create).
 
 ## <a name="resource-manager-template-limitations-in-devtest-labs"></a>Limitações do modelo do Gestor de Recursos em Laboratórios DevTest
 

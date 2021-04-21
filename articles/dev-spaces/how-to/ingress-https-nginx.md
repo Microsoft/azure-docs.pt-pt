@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Aprenda a configurar a Azure Dev Spaces para utilizar um controlador de entrada NGINX personalizado e configuure HTTPS usando esse controlador de entrada
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 ms.custom: devx-track-js
-ms.openlocfilehash: a0c8fa453115936b61b2cdae299e07ae10356ed3
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b07d66e0031b907811c4ec251987aa020542b05a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378776"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777514"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Use um controlador de entrada NGINX personalizado e configuure HTTPS
 
@@ -326,8 +326,8 @@ Saiba mais sobre o funcionamento da Azure Dev Spaces.
 
 
 [az-cli]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a#az-network-dns-record-set-a-add-record
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a#az_network_dns_record_set_a_add_record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml

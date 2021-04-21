@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4502cb26b4aeedff4223aaf5a592581aee36a0e6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946891"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775106"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Amostras de CLI Azure
 
@@ -29,7 +29,7 @@ Este artigo fornece scripts de amostra para tarefas comuns. Por exemplo, atualiz
 
 ## <a name="az-login"></a>az login
 
-[Faça login no Azure.](/cli/azure/reference-index#az-login)
+[Faça login no Azure.](/cli/azure/reference-index#az_login)
 
 ```azurecli
 az login
@@ -40,7 +40,7 @@ az login
 
 ## <a name="az-hdinsight-create"></a>az hdinsight criar
 
-[Cria um novo cluster.](/cli/azure/hdinsight#az-hdinsight-create)
+[Cria um novo cluster.](/cli/azure/hdinsight#az_hdinsight_create)
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>Criar um cluster com uma conta de armazenamento existente
 
@@ -173,7 +173,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>az hdinsight aplicação criar
 
-[Crie uma aplicação para um cluster HDInsight](/cli/azure/hdinsight/application#az-hdinsight-application-create).
+[Crie uma aplicação para um cluster HDInsight](/cli/azure/hdinsight/application#az_hdinsight_application_create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>Criar uma aplicação com um script URI
 
@@ -240,7 +240,7 @@ az hdinsight application create \
 
 ## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-ação executar
 
-[Execute as ações de script no cluster HDInsight especificado.](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)
+[Execute as ações de script no cluster HDInsight especificado.](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_execute)
 
 ### <a name="execute-a-script-action-and-persist-on-success"></a>Execute uma ação de script e persista no sucesso
 

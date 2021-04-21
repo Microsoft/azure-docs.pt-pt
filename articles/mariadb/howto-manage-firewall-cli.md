@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ef04e2b4c820c14ea7df6c35ecb0189ef31ef7dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87ff75a07bd1b91121d614e0f41c0ecf216e1b41
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98665043"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791720"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a Base de Dados de Azure para regras de firewall MariaDB utilizando o Azure CLI
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor MariaDB a partir de um endereço IP específico ou de uma série de endereços IP. Utilizando comandos CLI convenientes, pode criar, atualizar, excluir, listar e mostrar regras de firewall para gerir o seu servidor. Para obter uma visão geral da Base de Dados Azure para firewalls MariaDB, consulte [a Base de Dados Azure para as regras de firewall do servidor MariaDB](./concepts-firewall-rules.md).
@@ -47,25 +47,25 @@ Ligue o Azure CLI de forma segura à sua conta Azure utilizando o comando **de l
 
 3. Ao solicitar, inscreva-se usando as suas credenciais Azure.
 
-4. Após o seu login ser autorizado, uma lista de subscrições é impressa na consola. Copie o ID da subscrição desejada para definir a subscrição atual para usar. Utilize o comando [conjunto de conta az.](/cli/azure/account#az-account-set)
+4. Após o seu login ser autorizado, uma lista de subscrições é impressa na consola. Copie o ID da subscrição desejada para definir a subscrição atual para usar. Utilize o comando [conjunto de conta az.](/cli/azure/account#az_account_set)
    ```azurecli-interactive
    az account set --subscription <your subscription id>
    ```
 
-5. Enuncie as bases de dados Azure para servidores MariaDB para o seu grupo de subscrição e recursos se não tiver a certeza dos nomes. Use o comando [da lista de servidores az mariadb.](/cli/azure/mariadb/server#az-mariadb-server-list)
+5. Enuncie as bases de dados Azure para servidores MariaDB para o seu grupo de subscrição e recursos se não tiver a certeza dos nomes. Use o comando [da lista de servidores az mariadb.](/cli/azure/mariadb/server#az_mariadb_server_list)
 
    ```azurecli-interactive
    az mariadb server list --resource-group myresourcegroup
    ```
 
-   Note o atributo de nome na listagem, que precisa de especificar o servidor MariaDB para trabalhar. Se necessário, confirme os detalhes desse servidor e utilize o atributo de nome para garantir que está correto. Use o comando de exibição do [servidor az mariadb.](/cli/azure/mariadb/server#az-mariadb-server-show)
+   Note o atributo de nome na listagem, que precisa de especificar o servidor MariaDB para trabalhar. Se necessário, confirme os detalhes desse servidor e utilize o atributo de nome para garantir que está correto. Use o comando de exibição do [servidor az mariadb.](/cli/azure/mariadb/server#az_mariadb_server_show)
 
    ```azurecli-interactive
    az mariadb server show --resource-group myresourcegroup --name mydemoserver
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mariadb-server"></a>Listar regras de firewall na Base de Dados Azure para o Servidor MariaDB 
-Utilizando o nome do servidor e o nome do grupo de recursos, liste as regras de firewall do servidor existentes no servidor. Utilize o comando [da lista de firewall do servidor az mariadb.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-list)  Note que o atributo nome do servidor está especificado no interruptor **do servidor** e não no interruptor **de nome.** 
+Utilizando o nome do servidor e o nome do grupo de recursos, liste as regras de firewall do servidor existentes no servidor. Utilize o comando [da lista de firewall do servidor az mariadb.](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_list)  Note que o atributo nome do servidor está especificado no interruptor **do servidor** e não no interruptor **de nome.** 
 ```azurecli-interactive
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
@@ -74,7 +74,7 @@ A saída lista as regras, se houver, no formato JSON (por padrão). Pode utiliza
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Criar uma regra de firewall na Base de Dados Azure para o Servidor MariaDB
-Utilizando o nome do servidor Azure MariaDB e o nome do grupo de recursos, crie uma nova regra de firewall no servidor. Utilize a [firewall do servidor az mariadb criar](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) comando. Fornecer um nome para a regra, bem como o IP inicial e IP final (para fornecer acesso a uma série de endereços IP) para a regra.
+Utilizando o nome do servidor Azure MariaDB e o nome do grupo de recursos, crie uma nova regra de firewall no servidor. Utilize a [firewall do servidor az mariadb criar](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_create) comando. Fornecer um nome para a regra, bem como o IP inicial e IP final (para fornecer acesso a uma série de endereços IP) para a regra.
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
@@ -96,7 +96,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 Após o sucesso, cada uma cria a saída de comando lista os detalhes da regra de firewall que criou, no formato JSON (por padrão). Em caso algum caso, existe uma falha, a saída mostra o texto da mensagem de erro.
 
 ## <a name="update-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Atualizar uma regra de firewall na Base de Dados Azure para servidor MariaDB 
-Utilizando o nome do servidor Azure MariaDB e o nome do grupo de recursos, atualize uma regra de firewall existente no servidor. Utilize o comando de atualização da [firewall do servidor az mariadb.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-update) Forneça o nome da regra de firewall existente como entrada, bem como os atributos IP de início e final para a atualização.
+Utilizando o nome do servidor Azure MariaDB e o nome do grupo de recursos, atualize uma regra de firewall existente no servidor. Utilize o comando de atualização da [firewall do servidor az mariadb.](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_update) Forneça o nome da regra de firewall existente como entrada, bem como os atributos IP de início e final para a atualização.
 ```azurecli-interactive
 az mariadb server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
@@ -106,14 +106,14 @@ Após o sucesso, a saída de comando lista os detalhes da regra de firewall que 
 > Se a regra de firewall não existir, a regra é criada pelo comando de atualização.
 
 ## <a name="show-firewall-rule-details-on-azure-database-for-mariadb-server"></a>Mostrar detalhes da regra de firewall na Base de Dados Azure para o Servidor MariaDB
-Utilizando o nome do servidor Azure MariaDB e o nome do grupo de recursos, mostre os detalhes da regra de firewall existentes a partir do servidor. Use o comando de demonstração de [firewall do servidor az mariadb.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-show) Forneça o nome da regra de firewall existente como entrada.
+Utilizando o nome do servidor Azure MariaDB e o nome do grupo de recursos, mostre os detalhes da regra de firewall existentes a partir do servidor. Use o comando de demonstração de [firewall do servidor az mariadb.](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_show) Forneça o nome da regra de firewall existente como entrada.
 ```azurecli-interactive
 az mariadb server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
 Após o sucesso, a saída de comando lista os detalhes da regra de firewall que especificou, no formato JSON (por padrão). Em caso algum caso, existe uma falha, a saída mostra o texto da mensagem de erro.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Eliminar uma regra de firewall na Base de Dados Azure para o Servidor MariaDB
-Utilizando o nome do servidor Azure MariaDB e o nome do grupo de recursos, remova uma regra de firewall existente do servidor. Utilize o comando de eliminação do [servidor az mariadb.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-delete) Forneça o nome da regra de firewall existente.
+Utilizando o nome do servidor Azure MariaDB e o nome do grupo de recursos, remova uma regra de firewall existente do servidor. Utilize o comando de eliminação do [servidor az mariadb.](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_delete) Forneça o nome da regra de firewall existente.
 ```azurecli-interactive
 az mariadb server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```

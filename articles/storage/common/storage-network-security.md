@@ -9,12 +9,12 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3d71a7ad2507909dacf54e7f1c49b6e768033113
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e8123c252d99b2999eeef42fecae189a05e382b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600484"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778126"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure
 
@@ -136,7 +136,7 @@ Ao planear a recuperação de desastres durante uma paragem regional, deve criar
 
 ### <a name="required-permissions"></a>Permissões obrigatórias
 
-Para aplicar uma regra de rede virtual a uma conta de armazenamento, o utilizador deve ter as permissões adequadas para a adição das sub-redes. A aplicação de uma regra pode ser executada por um [Contribuinte de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) ou por um utilizador que tenha sido autorizado a operar o fornecedor de recursos `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) através de uma função Azure personalizada.
+Para aplicar uma regra de rede virtual a uma conta de armazenamento, o utilizador tem de ter as permissões adequadas para que as sub-redes sejam adicionadas. A aplicação de uma regra pode ser executada por um [Contribuinte de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) ou por um utilizador que tenha sido autorizado a operar o fornecedor de recursos `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) através de uma função Azure personalizada.
 
 A conta de armazenamento e as redes virtuais de acesso podem estar em diferentes subscrições, incluindo subscrições que fazem parte de um inquilino AD Azure diferente.
 
@@ -242,7 +242,7 @@ Pode gerir as regras de rede virtuais para contas de armazenamento através do p
 
 ---
 
-## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de um intervalo de IP da Internet
+## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de uma gama de IP da internet
 
 Pode utilizar as regras de rede IP para permitir o acesso a partir de intervalos específicos de endereços IP públicos, criando regras de rede IP. Cada conta de armazenamento suporta até 200 regras. Estas regras concedem acesso a serviços específicos baseados na Internet e redes no local e bloqueiam o tráfego geral de internet.
 
@@ -571,7 +571,7 @@ Os recursos de alguns serviços, **quando registados na sua subscrição,** pode
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Criação de imagem personalizada e instalação de artefactos. [Saiba mais](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | Microsoft.EventGrid        | Permitir a publicação do evento Blob Storage e permitir que a Grade de Eventos publique para as filas de armazenamento. Saiba mais sobre [eventos de armazenamento de bolhas](../../event-grid/overview.md#event-sources) e [publicação em filas.](../../event-grid/event-handlers.md) |
 | Azure Event Hubs         | Microsoft.EventHub         | Arquivar dados com a captura de centros de eventos. [Saiba Mais](../../event-hubs/event-hubs-capture-overview.md). |
-| Azure File Sync          | Microsoft.StorageSync      | Permite-lhe transformar o seu servidor de ficheiros on-prem para um cache para ações do Ficheiro Azure. Permitindo sincronização multi-site, rápida recuperação de desastres e backup do lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
+| Azure File Sync          | Microsoft.StorageSync      | Permite-lhe transformar o seu servidor de ficheiros on-prem para um cache para ações do Ficheiro Azure. Permitindo sincronização multi-site, rápida recuperação de desastres e backup do lado da nuvem. [Saiba mais](../file-sync/file-sync-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Fornecendo o conteúdo inicial do sistema de ficheiros predefinidos para um novo cluster HDInsight. [Saiba mais](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Exportação de Importação de Azure      | Microsoft.ImportExport     | Permite a importação de dados para a Azure Storage ou exportação de dados da Azure Storage utilizando o serviço de importação/exportação de armazenamento Azure. [Saiba mais](../../import-export/storage-import-export-service.md).  |
 | Azure Monitor            | Microsoft.Insights         | Permite escrever dados de monitorização para uma conta de armazenamento segura, incluindo registos de recursos, registos de login e auditoria do Azure Ative Directory e registos de auditoria. [Saiba mais](../../azure-monitor/roles-permissions-security.md). |

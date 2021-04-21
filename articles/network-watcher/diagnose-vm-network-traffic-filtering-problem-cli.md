@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 18e380345ef0caab52e9b1c537bada73e36d8b48
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 701df4353e8d2e36baf0496bd6944c4a95395414
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063322"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763276"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual - CLI do Azure
 
@@ -62,7 +62,7 @@ Para testar a comunicação de rede com o Observador de Rede, tem primeiro ativa
 
 ### <a name="enable-network-watcher"></a>Ativar o observador de rede
 
-Se já tiver um observador de rede ativado na região E.U.A. Leste, avance para [Utilizar a verificação do fluxo IP](#use-ip-flow-verify). Utilize o comando [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) para criar um observador de rede na região E.U.A. Leste:
+Se já tiver um observador de rede ativado na região E.U.A. Leste, avance para [Utilizar a verificação do fluxo IP](#use-ip-flow-verify). Utilize o comando [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) para criar um observador de rede na região E.U.A. Leste:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -73,7 +73,7 @@ az network watcher configure \
 
 ### <a name="use-ip-flow-verify"></a>Utilizar a verificação do fluxo IP
 
-Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Mais tarde, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos adicionais de tráfego. Para testar se o tráfego é permitido ou recusado para destinos diferentes e a partir de um endereço IP de origem, utilize o comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow).
+Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Mais tarde, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos adicionais de tráfego. Para testar se o tráfego é permitido ou recusado para destinos diferentes e a partir de um endereço IP de origem, utilize o comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az_network_watcher_test_ip_flow).
 
 Teste a comunicação de saída a partir da VM para um dos endereços IP para www.bing.com:
 
@@ -125,7 +125,7 @@ O resultado devolvido informa-o de que o acesso foi recusado devido a uma regra 
 
 ## <a name="view-details-of-a-security-rule"></a>Ver detalhes de uma regra de segurança
 
-Para determinar o motivo pelo qual as regras em [Utilizar verificação de fluxo IP](#use-ip-flow-verify) estão a permitir ou a impedir a comunicação, reveja as regras de segurança efetivas para a interface de rede com o comando [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg):
+Para determinar o motivo pelo qual as regras em [Utilizar verificação de fluxo IP](#use-ip-flow-verify) estão a permitir ou a impedir a comunicação, reveja as regras de segurança efetivas para a interface de rede com o comando [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg):
 
 ```azurecli-interactive
 az network nic list-effective-nsg \

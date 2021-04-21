@@ -4,12 +4,12 @@ description: Saiba como utilizar identidades geridas no Serviço Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 58813504c5de057e06433b2e955931b37560d825
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 59da03985f0bc9248fdb498d7b0222158029e0d8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600663"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777676"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -214,5 +214,5 @@ Uma criação de cluster bem sucedida usando as suas próprias identidades gerid
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-list]: /cli/azure/identity#az-identity-list
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-list]: /cli/azure/identity#az_identity_list
