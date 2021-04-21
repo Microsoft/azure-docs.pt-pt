@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1a2464735ff8039bb31c43d6956cbf03e694c63
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 6057f4a76f274e34b036ea352a3691b34d24b3a1
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448411"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835367"
 ---
 # <a name="msix-app-attach-faq"></a>App MSIX anexa FAQ
 
@@ -71,6 +71,16 @@ Sim. Pode reencerar aplicações que já reencenou, e isso não deve causar erro
 
 Sim. É necessário instalar o certificado auto-assinado em todos os VMs do anfitrião da sessão onde o anexo de aplicações MSIX é utilizado para acolher a aplicação auto-assinada.
 
+## <a name="what-applications-can-i-repackage-to-msix"></a>Que aplicações posso reembalar para a MSIX?
+
+Cada aplicação utiliza diferentes características do SISTEMA, linguagens de programação e quadros. Para reembalar a sua aplicação, siga as instruções de [Como mover os seus instaladores existentes para a MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). Pode encontrar uma lista das coisas de que necessita para reembalar uma aplicação no [Prepare-se para embalar uma aplicação para desktop](/windows/msix/desktop/desktop-to-uwp-prepare). 
+
+Certas aplicações não podem ser em camadas de aplicação, o que significa que não podem ser reembaladas num ficheiro MSIX. Aqui está uma lista das aplicações que não podem ser reembaladas:
+
+- Controladores 
+- Active-X ou Silverlight
+- Clientes VPN
+- Programas antivírus
 
 ## <a name="next-steps"></a>Passos seguintes
 

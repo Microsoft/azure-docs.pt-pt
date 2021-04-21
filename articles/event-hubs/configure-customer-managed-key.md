@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Event Hub
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: e3dd7cb1158294102d9bfe67629c80ae01ccdd17
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 33587812121051d93aa8b939c3df70530ba65c5e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775192"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812449"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O serviço Event Hubs utiliza o Azure Storage para armazenar os dados. Todos os dados armazenados com O Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar a sua própria chave (também designada por Bring Your Own Key (BYOK) ou tecla gerida pelo cliente), os dados ainda são encriptados utilizando a chave gerida pela Microsoft, mas além disso a chave gerida pela Microsoft será encriptada utilizando a chave gerida pelo cliente. Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são utilizadas para encriptar as chaves geridas pela Microsoft. Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
@@ -65,7 +65,7 @@ Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida 
 Pode rodar a chave no cofre da chave utilizando o mecanismo de rotação Azure Key Vaults. As datas de ativação e de validade também podem ser definidas para automatizar a rotação da chave. O serviço Event Hubs detetará novas versões chave e começará a usá-las automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
-Revogar o acesso às chaves de encriptação não vai expurgar os dados dos Centros de Eventos. No entanto, os dados não podem ser acedidos a partir do espaço de nomes do Event Hubs. Pode revogar a chave de encriptação através da política de acesso ou eliminando a chave. Saiba mais sobre as políticas de acesso e a garantia do seu cofre chave do [acesso seguro a um cofre de chaves](../key-vault/general/security-overview.md).
+Revogar o acesso às chaves de encriptação não vai expurgar os dados dos Centros de Eventos. No entanto, os dados não podem ser acedidos a partir do espaço de nomes do Event Hubs. Pode revogar a chave de encriptação através da política de acesso ou eliminando a chave. Saiba mais sobre as políticas de acesso e a garantia do seu cofre chave do [acesso seguro a um cofre de chaves](../key-vault/general/security-features.md).
 
 Uma vez revogada a chave de encriptação, o serviço Desempaços de Eventos no espaço de nome encriptado tornar-se-á inoperável. Se o acesso à tecla estiver ativado ou a tecla eliminar for restaurada, o serviço Event Hubs escolherá a chave para que possa aceder aos dados a partir do espaço de nomes do Event Hubs encriptado.
 

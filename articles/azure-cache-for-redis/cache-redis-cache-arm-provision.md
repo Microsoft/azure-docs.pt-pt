@@ -5,14 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 08/18/2020
-ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81940d23ebfcc017455974981649023351b6eeb3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92735977"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835061"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Quickstart: Criar uma cache Azure para redis usando um modelo ARM
 

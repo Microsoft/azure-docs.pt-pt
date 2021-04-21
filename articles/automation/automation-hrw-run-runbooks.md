@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 796ac876537aa06253ad6eeec99adaf48de61c79
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6501fd26a5c7966c4cde596df40346b106c57cce
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167265"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834791"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 

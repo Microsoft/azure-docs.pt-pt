@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d1ca4a843c6731cde7ed70d65fc230a21ef6e7c4
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 43a8cb00804927784982999db13ee193c34f55ca
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389439"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835385"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Criar scripts PowerShell para anexação de aplicações MSIX
 
@@ -24,7 +24,7 @@ Tem de instalar certificados em todos os anfitriões da sessão na piscina anfit
 Se a sua aplicação usa um certificado que não seja de confiança pública ou que tenha sido auto-assinado, eis como instalá-lo:
 
 1. Clique com o botão direito no pacote e selecione **Propriedades.**
-2. Na janela que aparece, selecione o separador **assinaturas Digitais.** Deve haver apenas um item na lista no separador, como mostrado na imagem seguinte. Selecione o item para realçar o item e, em seguida, selecione **Detalhes**.
+2. Na janela que aparece, selecione o separador **assinaturas Digitais.** Deve haver apenas um item na lista na conta. Selecione o item para realçar o item e, em seguida, selecione **Detalhes**.
 3. Quando aparecer a janela de detalhes de assinatura digital, selecione o separador **Geral** e, em seguida, selecione **'Ver' Certificate** e, em seguida, selecione **o certificado de instalação**.
 4. Quando o instalador abrir, selecione **a máquina local** como local de armazenamento e, em seguida, selecione **Seguinte**.
 5. Se o instalador lhe perguntar se pretende permitir que a aplicação faça alterações no seu dispositivo, selecione **Sim**.

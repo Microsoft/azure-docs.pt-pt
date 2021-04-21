@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
-ms.custom: mvc
-ms.openlocfilehash: 0573097d9821b8cf14573f2e5c5291461c2c7ed7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 6144d6903046502440d732477729514887bf5fa3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87843883"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817184"
 ---
 # <a name="add-a-user"></a>Adicionar um utilizador
 

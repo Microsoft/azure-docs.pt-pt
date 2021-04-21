@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 03/08/2021
-ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4833a5779b9c9d5edcbbe70045f2ba2ca2d72ebe
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493038"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812539"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilidade geográfica e apoio cambial para o mercado comercial
 
@@ -200,7 +200,7 @@ Para obter mais informações sobre como introduzir preços para tipos específi
 - [Criar uma oferta de recipienteS Azure](./create-azure-container-offer.md)
 - [Criar uma oferta de máquina virtual do Azure](azure-vm-create.md)
 - [Criar uma oferta de serviço de consultoria](./create-consulting-service-offer.md)
-- [Criar uma oferta do Dynamics 365 for Customer Engagement e do PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Crie uma oferta dinâmica 365 para o envolvimento do cliente & power apps](dynamics-365-customer-engage-offer-setup.md)
 - [Criar uma oferta do Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Criar uma oferta do Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Criar uma oferta de módulo do IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)

@@ -4,22 +4,22 @@ description: Saiba como ligar-se a um servidor Azure Analysis Services utilizand
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 4/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed0f3d379ca961c610958c073c27c6fc9583252b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5a430c5bb24032a2665ad078311dcb5137d2bb9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500925"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816037"
 ---
 # <a name="connect-with-power-bi"></a>Ligar com o Power BI
 
 Depois de criar um servidor em Azure, e implementar um modelo tabular para o mesmo, os utilizadores da sua organização estão prontos para se conectarem e começarem a explorar dados. 
 
-> [!TIP]
-> Certifique-se de que utiliza a versão mais recente do [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+> [!NOTE]
+> Se publicar um modelo de Desktop Power BI para o serviço Power BI, no servidor Azure Analysis Services, certifique-se de que a propriedade do servidor de Case-Sensitive de colagem não está selecionada (padrão). A propriedade do servidor Case-Sensitive pode ser definida utilizando o SQL Server Management Studio.
 > 
 > 
   

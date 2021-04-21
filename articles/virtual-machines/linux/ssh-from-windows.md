@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: f018f591052050431996e3017335ab003973d25a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0199a47b2306d7d461ba61057c7ab1015015df08
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771010"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835565"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como utilizar as chaves SSH com Windows on Azure
 
@@ -68,7 +68,7 @@ az vm create \
    --name myVM \
    --image UbuntuLTS\
    --admin-username azureuser \
-   --ssh-key-value ~/.ssh/id_rsa
+   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 Com o PowerShell, utilize `New-AzVM` e adicione a tecla SSH à configuração VM utilizando". Por exemplo, consulte [Quickstart: Crie uma máquina virtual Linux em Azure com PowerShell](quick-create-powershell.md).

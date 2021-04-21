@@ -1,29 +1,25 @@
 ---
 title: Utilização do painel de conformidade regulamentar no Azure Security Center
 description: Saiba como adicionar e remover as normas regulamentares do painel de conformidade regulamentar no Centro de Segurança
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: dab6b504fe026324251b7284fc3abdb52bb9911a
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 4ba65517b698896c57ca2254394efcadd6efbb1d
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738959"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835043"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalize o conjunto de padrões no seu painel de conformidade regulamentar
 
 O Azure Security Center compara continuamente a configuração dos seus recursos com requisitos em padrões, regulamentos e referências da indústria. O **painel de conformidade regulamentar** fornece informações sobre a sua postura de conformidade com base na forma como está a cumprir os requisitos específicos de conformidade.
 
+> [!TIP]
+> Saiba mais sobre o painel de conformidade regulamentar do Security Center nas [perguntas mais frequentes.](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>Como são representadas as normas de conformidade regulamentar no Centro de Segurança?
 
@@ -42,11 +38,13 @@ Por padrão, cada subscrição tem o **Benchmark de Segurança Azure** atribuíd
 
 Também pode adicionar padrões como:
 
-- NIST SP 800-53 R4
+- NIST SP 800-53
 - SWIFT CSP CSCF-v2020
 - UK Official and UK NHS
 - Canada Federal PBMM
-- Azure CIS 1.1.0
+- Azure CIS 1.3.0
+- CMMC Nível 3
+- Ism da Nova Zelândia restrito
 
 As normas são adicionadas ao painel de instrumentos à medida que ficam disponíveis.
 
@@ -71,13 +69,15 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
 
 1. A partir da página **de normas de conformidade regulamentar Adicionar,** pode procurar qualquer uma das normas disponíveis, incluindo:
 
-    - **NIST SP 800-53 R4**
-    - **NIST SP 800 171 R2**
+    - **NIST SP 800-53**
+    - **NIST SP 800 171**
     - **SWIFT CSP-CSCF v2020**
     - **UKO e UK NHS**
     - **Canada Federal PBMM**
     - **HIPAA HITRUST**
-    - **Azure CIS 1.1.0**
+    - **Azure CIS 1.3.0**
+    - **CMMC Nível 3**
+    - **Ism da Nova Zelândia restrito**
     
     ![Adicionar normas regulamentares ao painel de conformidade regulamentar do Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 

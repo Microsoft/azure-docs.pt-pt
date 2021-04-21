@@ -6,12 +6,13 @@ ms.service: automation
 ms.subservice: process-automation
 ms.date: 04/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: d088f3adc391068de5e337c10ab52dc3d3a2dd07
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fe2d99a610be3877b4a347e4bd0dd17df53ba326
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535548"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834161"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Como eliminar a sua conta de Automação Azure
 

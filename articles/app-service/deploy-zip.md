@@ -4,13 +4,13 @@ description: Saiba como implementar a sua aplicação no Azure App Service com u
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: fe906a63a681515d401d005bf3357a4e7218ae66
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 9f59576ea66b72a492e1e6c665a51258861842dd
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771430"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833025"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implemente a sua aplicação para o Azure App Service com um ficheiro ZIP ou WAR
 

@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 6859a2f8571c11e6ef93a5e5b1635cdbe39ad001
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: c28bc47945882e6b7bbd39d1ba8524a1f7491ceb
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107737675"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835218"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter os cadernos do Estúdio Synapse em Azure Synapse Analytics
 
@@ -331,6 +331,22 @@ Exemplo: ``` %run /path/notebookA ```.
 
 ---
 
+### <a name="variable-explorer"></a>Explorador variável
+
+# <a name="classical-notebook"></a>[Caderno Clássico](#tab/classical)
+
+Não suportado.
+
+# <a name="preview-notebook"></a>[Caderno de pré-visualização](#tab/preview)
+
+O caderno Synapse fornece um explorador de variáveis incorporado para que você veja a lista das variáveis nome, tipo, comprimento e valor na atual sessão de Faísca para as células PySpark (Python). Mais variáveis aparecerão automaticamente à medida que são definidas nas células de código. Clicar em cada cabeçalho de coluna irá classificar as variáveis na tabela.
+
+Pode selecionar o botão **Variáveis** na barra de comando do portátil para abrir ou ocultar o explorador variável.
+
+![azure-notebook-variável-explorador](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### <a name="cell-status-indicator"></a>Indicador de estado celular
 

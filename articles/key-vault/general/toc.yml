@@ -48,7 +48,7 @@
     - name: Segurança
       items:
         - name: Funcionalidades de segurança
-          href: security-overview.md
+          href: security-features.md
         - name: Princípios fundamentais da autenticação do Key Vault
           href: authentication-fundamentals.md
         - name: Mundos de segurança e geografias

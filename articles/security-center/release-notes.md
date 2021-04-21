@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/20/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 92138b0253d28c8bf2617ee7b17474f30ac5cafe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: c47543fa1401a8da533a9af3ebe4554e405622d3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751208"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835543"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -31,6 +31,7 @@ As atualizações em abril incluem:
 - [As imagens de registo de contentores recentemente retiradas são agora rescanadas semanalmente (Disponibilidade Geral)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Use o Azure Defender para Kubernetes para proteger as implementações híbridas e multi-cloud Kubernetes (pré-visualização)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
 - [Recomendações para permitir o Azure Defender para DNS e Gestor de Recursos (pré-visualização)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Três normas de conformidade regulamentar adicionadas: Azure CIS 1.3.0, CMMC Level 3 e New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
 - [Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [Recomendações da CMK movidas para o controlo de segurança das melhores práticas](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 Alertas do Azure Defender deprecados](#11-azure-defender-alerts-deprecated)
@@ -80,6 +81,24 @@ Permitir planos do Azure Defender resulta em encargos. Conheça os detalhes de p
 
 > [!TIP]
 > As recomendações de pré-visualização não tornam um recurso insalubre, e não estão incluídas nos cálculos da sua pontuação segura. Remedia-os sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação. Saiba mais sobre como responder a estas recomendações em [recomendações remedias no Azure Security Center](security-center-remediate-recommendations.md).
+
+
+### <a name="three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted"></a>Três normas de conformidade regulamentar adicionadas: Azure CIS 1.3.0, CMMC Level 3 e New Zealand ISM Restricted
+
+Adicionámos três padrões para usar com o Centro de Segurança Azure. Utilizando o painel de conformidade regulamentar, pode agora acompanhar a sua conformidade com:
+
+- [CIS Microsoft Azure Foundations Benchmark 1.3.0](../governance/policy/samples/cis-azure-1-3-0.md)
+- [CMMC Nível 3](../governance/policy/samples/cmmc-l3.md)
+- [Ism da Nova Zelândia restrito](../governance/policy/samples/new-zealand-ism.md)
+
+Pode atribuí-las às suas subscrições conforme descrito na [Personalização do conjunto de normas no seu painel de conformidade regulamentar.](update-regulatory-compliance-packages.md)
+
+:::image type="content" source="media/release-notes/additional-regulatory-compliance-standards.png" alt-text="Três normas adicionadas para utilização com o painel de conformidade regulamentar do Azure Security Center." lightbox="media/release-notes/additional-regulatory-compliance-standards.png":::
+
+Saiba mais em:
+- [Personalize o conjunto de padrões no seu painel de conformidade regulamentar](update-regulatory-compliance-packages.md)
+- [Tutorial: Melhorar a conformidade regulamentar](security-center-compliance-dashboard.md)
+- [FAQ – Dashboard de conformidade regulamentar](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatro novas recomendações relacionadas com a configuração do hóspede (pré-visualização)
 

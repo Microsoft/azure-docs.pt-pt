@@ -1,24 +1,18 @@
 ---
 title: 'Tutorial: Verificações de conformidade regulamentar - Azure Security Center'
 description: 'Tutorial: Saiba como melhorar a sua conformidade regulatória utilizando o Centro de Segurança Azure.'
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: c8ac9079321e47a1e6d9b8689be46bf55bdd4243
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739013"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834621"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a conformidade regulamentar
 
@@ -135,14 +129,15 @@ Por exemplo, pode querer que o Centro de Segurança envie um e-mail a um utiliza
 - [Como posso descarregar um relatório com dados de conformidade num formato diferente do PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
 - [Como posso criar exceções para algumas das políticas do painel de conformidade regulamentar?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
 - [Que planos ou licenças do Azure Defender preciso para usar o painel de conformidade regulamentar?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+- [Como sei qual é o benchmark ou o padrão a utilizar?](#how-do-i-know-which-benchmark-or-standard-to-use)
 
 ### <a name="what-standards-are-supported-in-the-compliance-dashboard"></a>Que normas são suportadas no painel de conformidade?
 Por predefinição, o painel de conformidade regulamentar mostra-lhe o Benchmark de Segurança Azure. O Azure Security Benchmark é a autoria da Microsoft, diretrizes específicas para a segurança e as melhores práticas de conformidade baseadas em quadros comuns de conformidade. Saiba mais na introdução do [Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 Para acompanhar a sua conformidade com qualquer outro padrão, terá de adicioná-los explicitamente ao seu painel de instrumentos.
  
-Pode adicionar padrões como Azure CIS 1.1.0 (novo), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, UK Official and UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP e PCI-DSS 3.2.1.  
- 
+Pode adicionar outros padrões como Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, UK Official and UK NHS, HIPAA, Canada Federal PBMM, ISO 27001, SOC2-TSP, e PCI-DSS 3.2.1.  
+
 Mais normas serão adicionadas ao painel de instrumentos e incluídas nas informações sobre [Personalizar o conjunto de normas no seu painel de conformidade regulamentar](update-regulatory-compliance-packages.md).
 
 ### <a name="why-do-some-controls-appear-grayed-out"></a>Porque é que alguns controlos parecem estar acinzentados?
@@ -195,7 +190,12 @@ Para outras políticas, pode criar uma isenção diretamente na própria políti
 Se tiver algum dos pacotes Azure Defender ativados em qualquer um dos seus tipos de recursos Azure, tem acesso ao Painel de Conformidade Regulamentar, com todos os seus dados, no Centro de Segurança.
 
 
+### <a name="how-do-i-know-which-benchmark-or-standard-to-use"></a>Como sei qual é o benchmark ou o padrão a utilizar?
+[Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) (ASB) é o conjunto canónico de recomendações de segurança e boas práticas definidas pela Microsoft, alinhadas com quadros comuns de controlo de conformidade, incluindo [cis Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) e [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). O ASB é um benchmark muito abrangente, e foi projetado para recomendar as capacidades de segurança mais atualizadas de uma vasta gama de serviços Azure. Recomendamos que a ASB maximize a sua postura de segurança e tenha a capacidade de alinhar o seu estado de conformidade com os padrões da indústria.
 
+O [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) é da autoria de uma entidade independente – Center for Internet Security (CIS) – e contém recomendações sobre um subconjunto de serviços core Azure. Trabalhamos com a CEI para tentar garantir que as suas recomendações estão atualizadas com as mais recentes melhorias em Azure, mas por vezes ficam para trás e ficam desatualizadas. No entanto, alguns clientes gostam de utilizar este objetivo, avaliação de terceiros do CEI como base de segurança inicial e primária.
+
+Desde que lançámos o Azure Security Benchmark, muitos clientes optaram por migrar para ele como substituto dos referenciais da CIS.
 
 
 ## <a name="next-steps"></a>Passos seguintes

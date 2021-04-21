@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 04/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: a0559028192b0a99aeffd45a3b2896f9c9d159be
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 75a7cba1e47509e3186ab519d0d8ca82dd315373
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310206"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815527"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector Azure Purview para Amazon S3
 
@@ -50,23 +50,23 @@ A tabela que se segue mapeia as regiões onde os dados são armazenados na regi�
 | Região de armazenamento | Região de digitalização |
 | ------------------------------- | ------------------------------------- |
 | Leste dos EUA (Ohio)                  | Leste dos EUA (Ohio)                        |
-| Us East (N. Virgínia)           | EUA Leste (Ohio) ou EUA Leste (N. Virgínia)                       |
+| Us East (N. Virgínia)           | Us East (N. Virgínia)                       |
 | EUA Oeste (N. Califórnia)         | Leste dos EUA (Ohio)                        |
 | E.U.A. Oeste (Oregon)                | Leste dos EUA (Ohio)                        |
 | África (Cidade do Cabo)              | Europa (Frankfurt)                    |
-| Ásia-Pacífico (Hong Kong)        | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
-| Ásia-Pacífico (Mumbai)           | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
-| Ásia-Pacífico (Osaka-Local)      | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
-| Ásia-Pacífico (Seul)            | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
-| Ásia-Pacífico (Singapura)        | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                   |
-| Ásia-Pacífico (Sydney)           | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                  |
-| Ásia-Pacífico (Tóquio)            | Europa (Frankfurt) ou Ásia-Pacífico (Sydney)                 |
+| Ásia-Pacífico (Hong Kong)        | Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Mumbai)           | Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Osaka-Local)      | Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Seul)            | Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Singapura)        | Ásia-Pacífico (Sydney)                   |
+| Ásia-Pacífico (Sydney)           | Ásia-Pacífico (Sydney)                  |
+| Ásia-Pacífico (Tóquio)            | Ásia-Pacífico (Sydney)                 |
 | Canadá (Central)                | Leste dos EUA (Ohio)                        |
 | China (Pequim)                 | Não suportado                    |
 | China (Ningxia)                 | Não suportado                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
-| Europa (Irlanda)                | Europa (Frankfurt) ou Europa (Irlanda)                   |
-| Europa (Londres)                 | Europa (Frankfurt) ou Europa (Irlanda)                   |
+| Europa (Irlanda)                | Europa (Irlanda)                   |
+| Europa (Londres)                 | Europa (Irlanda)                   |
 | Europa (Milão)                  | Europa (Frankfurt)                    |
 | Europa (Paris)                  | Europa (Frankfurt)                    |
 | Europa (Estocolmo)              | Europa (Frankfurt)                    |

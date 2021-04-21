@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7e14dbf5aab68f5ea2d96274606306378feedad2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a6d98f827c39f973714441e308dcc4f2bd061c9b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445997"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835583"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop?
 
@@ -91,7 +91,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ser:
 >[!NOTE]
 >Se precisar de uma subscrição do Azure, pode [inscrever-se para um teste gratuito de um mês.](https://azure.microsoft.com/free/) Se estiver a utilizar a versão experimental gratuita do Azure, deverá utilizar os Serviços de Domínio Azure AD para manter o seu Windows Server Ative Ative Directy em sintonia com o Azure Ative Directory.
 
-Para obter uma lista de URLs, deverá desbloquear para que a sua implementação virtual do Windows para trabalhar como pretendido, consulte a nossa [lista de URL seguro](safe-url-list.md).
+Para obter uma lista de URLs, deverá desbloquear para que a sua implementação virtual do Windows para trabalhar como pretendido, consulte a nossa [lista de URL requerida](safe-url-list.md).
 
 O Windows Virtual Desktop compreende os desktops e aplicações do Windows que entrega aos utilizadores e a solução de gestão, que é hospedada como um serviço no Azure pela Microsoft. Os desktops e apps podem ser implantados em máquinas virtuais (VMs) em qualquer região de Azure, e a solução de gestão e dados para estes VMs vão residir nos Estados Unidos. Isto pode resultar na transferência de dados para os Estados Unidos.
 
@@ -136,14 +136,14 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 
 |Sistema operativo|Galeria de Imagens Azure|Implantação manual de VM|Integração do modelo do Gestor de Recursos Azure|Provisão de piscinas de acolhimento no Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (multi-sessão), versão 2004|Sim|Sim|Sim|Sim|
-|Windows 10 Enterprise (multi-sessão), versão 1909|Sim|Sim|Sim|Sim|
-|Windows 10 Enterprise (multi-sessão), versão 1903|Sim|Sim|No|No|
-|Windows 10 Enterprise (multi-sessão), versão 1809|Sim|Sim|No|No|
-|Windows 7 Enterprise|Sim|Sim|No|No|
-|Windows Server 2019|Sim|Sim|No|No|
-|Windows Server 2016|Sim|Sim|Sim|Sim|
-|Windows Server 2012 R2|Sim|Sim|No|Não|
+|Windows 10 Enterprise (multi-sessão), versão 2004|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise (multi-sessão), versão 1909|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise (multi-sessão), versão 1903|Yes|Yes|No|No|
+|Windows 10 Enterprise (multi-sessão), versão 1809|Yes|Yes|No|No|
+|Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2019|Yes|Yes|No|No|
+|Windows Server 2016|Yes|Yes|Yes|Yes|
+|Windows Server 2012 R2|Yes|Yes|No|Não|
 
 ## <a name="next-steps"></a>Próximos passos
 

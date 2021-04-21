@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 338de996b06769b9d2891c7208b9050cc3acc7ed
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 101ff9affe43dcc97de6cf5a535c82559aafeced
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167299"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834917"
 ---
 # <a name="create-modular-runbooks"></a>Criar runbooks modulares
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a03dab43c12b372fc52e7516821fe7aef22d2e16
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ba7892c8afbe8e557c7dcf9aa3bd663f53a5728f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305247"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834755"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -320,7 +320,7 @@ Por predefinição, não está ativada qualquer amostragem no agente Java e na S
 ```json
 {
   "sampling": {
-    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+    "percentage": 10 //this is just an example that shows you how to enable only 10% of transaction 
   }
 }
 ```

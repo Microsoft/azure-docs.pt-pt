@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7f8bc4cadc720c7ac02a7246e741552e81eb3876
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ab54192480a1c36a27c175254d6d4d275b67c8b7
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057155"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835331"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
@@ -73,7 +73,7 @@ O WAN virtual permite os seguintes tipos de conectividade: VPN site-to-site, VPN
 
 Pode ligar-se aos seus recursos em Azure sobre uma ligação IPsec/IKE (IKEv2) do Site-to-site. Para obter mais informações, consulte [Criar uma ligação site-to-site utilizando o VIRTUAL WAN](virtual-wan-site-to-site-portal.md). 
 
-Este tipo de ligação requer um dispositivo VPN ou um dispositivo Parceiro WAN Virtual. Os parceiros VIRTUAIS WAN fornecem automatização para conectividade, que é a capacidade de exportar a informação do dispositivo para o Azure, baixar a configuração Azure e estabelecer conectividade com o hub Azure Virtual WAN. Para obter uma lista dos parceiros e locais disponíveis, consulte os [parceiros e locais do Virtual WAN.](virtual-wan-locations-partners.md) Se o seu fornecedor de dispositivos VPN/SD-WAN não estiver listado no link mencionado, então pode simplificar a utilização da instrução passo a passo [Criar uma ligação site-a-local utilizando o WAN virtual](virtual-wan-site-to-site-portal.md) para configurar a ligação.
+Este tipo de ligação requer um dispositivo VPN ou um dispositivo Parceiro WAN Virtual. Os parceiros VIRTUAIS WAN fornecem automatização para conectividade, que é a capacidade de exportar a informação do dispositivo para o Azure, baixar a configuração Azure e estabelecer conectividade com o hub Azure Virtual WAN. Para obter uma lista dos parceiros e locais disponíveis, consulte os [parceiros e locais do Virtual WAN.](virtual-wan-locations-partners.md) Se o seu fornecedor de dispositivos VPN/SD-WAN não estiver listado no link mencionado, então pode simplesmente utilizar a instrução passo a passo [Criar uma ligação site-a-local utilizando o WAN virtual](virtual-wan-site-to-site-portal.md) para configurar a ligação.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Ligações VPN (ponto a local) do utilizador
 

@@ -5,13 +5,13 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.custom: references_regions
-ms.openlocfilehash: 955e6b22c22d9cbe5891bcd0109806cb9270a456
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 717561614a3e42995bbce6746839fd9b7cbca37e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168659"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834863"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurar a implementação contínua com o Chocolatey
 

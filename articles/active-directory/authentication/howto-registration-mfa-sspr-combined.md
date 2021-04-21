@@ -11,19 +11,19 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcfaef2f518028762958477a5b0d326acc237d1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6eba5ac4ed61847596e12f56544e6d07dca8075
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98938444"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829580"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Permitir o registo combinado de informações de segurança no Azure Ative Directory
 
 Antes do registo combinado, os utilizadores registaram métodos de autenticação para autenticação multi-factor Azure AD e autosserviço de autosserviço reset (SSPR) separadamente. As pessoas confundiram-se com o facto de métodos semelhantes terem sido usados para autenticação multi-factor Azure AD e SSPR, mas tiveram de se registar para ambas as funcionalidades. Agora, com o registo combinado, os utilizadores podem registar-se uma vez e obter os benefícios tanto da Autenticação Multi-Factor AD Azure como da SSPR.
 
 > [!NOTE]
-> A partir de 15 de agosto de 2020, todos os novos inquilinos da AD Azure serão automaticamente habilitados para o registo combinado. 
+> A partir de 15 de agosto de 2020, todos os novos inquilinos da AD Azure serão automaticamente habilitados para o registo combinado. Os inquilinos criados após esta data não poderão utilizar os fluxos de trabalho de registo de legado.
 
 Para se certificar de que compreende a funcionalidade e os efeitos antes de ativar a nova experiência, consulte os [conceitos combinados de registo de informações de segurança.](concept-registration-mfa-sspr-combined.md)
 

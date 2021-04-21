@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 73e89ab6b28be7bd9246b960761c79c0e44e591d
-  ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+  ms.openlocfilehash: bacdc2a21502b44c5c2cb33c05a2c8b904b51f94
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/08/2021
-  ms.locfileid: "107107691"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107817274"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -77,17 +77,17 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Ofertas de SaaS
+    - text: SaaS
       url: plan-saas-offer.md
-    - text: Ofertas de máquinas virtuais
+    - text: Máquinas virtuais
       url: ./marketplace-virtual-machines.md
-    - text: Ofertas de aplicações do Azure
+    - text: Aplicações do Azure
       url: ./create-new-azure-apps-offer.md
-    - text: Ofertas do Dynamics 365 for Customer Engagement & PowerApps
-      url: ./partner-center-portal/create-new-customer-engagement-offer.md
-    - text: Ofertas do Dynamics 365 Business Central
+    - text: Dinâmica 365 para aplicações de & de potência de envolvimento do cliente
+      url: dynamics-365-customer-engage-offer-setup.md
+    - text: Dynamics 365 Business Central
       url: ./partner-center-portal/create-new-business-central-offer.md
-    - text: Ofertas do Dynamics 365 for Operations
+    - text: Dynamics 365 for Operations
       url: ./partner-center-portal/create-new-operations-offer.md
     - text: Mais tipos de ofertas
       url: ./publisher-guide-by-offer-type.md

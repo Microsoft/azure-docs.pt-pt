@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 03ef2110af2d9e642019c2b07b53fae3e32b1ea6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffff4215ddbe3f01da927cb47fb4e06f4946a207
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950183"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833855"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
 ## <a name="overview"></a>Descrição Geral
@@ -190,12 +190,14 @@ A tabela a seguir mostra os tipos e descrições de registos suportados:
 | AppServiceEnvironmentPlatformLogs | Yes | N/D | Sim | Yes | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
 | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Atividade de login via FTP e Kudu |
 | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | Alterações de ficheiros es feitas no conteúdo do site; **apenas disponível para nível Premium e acima** |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Imagens Abençoadas <sup>1</sup> | Java SE & Tomcat Imagens Abençoadas <sup>1</sup> | Registos de aplicações |
+| AppServiceAppLogs | ASP .NET & Java Tomcat <sup>1</sup> | ASP .NET & Java Tomcat <sup>1</sup> | Java SE & Tomcat Imagens Abençoadas <sup>2</sup> | Java SE & Tomcat Imagens Abençoadas <sup>2</sup> | Registos de aplicações |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Pedidos de Regras de IP |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Troncos de operação de contentores |
 | AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Registos de verificação antivírus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) utilizando o Microsoft Defender; **apenas disponível para nível Premium** | 
 
-<sup>1</sup> Para aplicações Java SE, adicione "$WEBSITE_AZMON_PREVIEW_ENABLED" às definições da aplicação e defina-a para 1 ou para verdadeiro.
+<sup>1</sup> Para as aplicações Java Tomcat, adicione "TOMCAT_USE_STARTUP_BAT" às definições da aplicação e defina-a para falso ou 0. Tem de estar na *versão mais recente* do Tomcat e utilizar *java.util.logging*.
+
+<sup>2</sup> Para aplicações Java SE, adicione "$WEBSITE_AZMON_PREVIEW_ENABLED" às definições da aplicação e defina-as para verdadeira ou para 1.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/logs/log-query-overview.md)

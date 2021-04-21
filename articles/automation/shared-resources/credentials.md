@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b9e42d55a982aeb55d7c9e26f7b1a6cbca32e0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6220a44e952aa4d9856ac5fc2077d254103d4a2c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052809"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834287"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gerir credenciais na Automatização do Azure
 

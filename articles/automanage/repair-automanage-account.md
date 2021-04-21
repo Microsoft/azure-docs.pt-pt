@@ -8,12 +8,13 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e6bf5404a33e0b4e57c2ff8d82d8791eda3d0f06
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183707"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834197"
 ---
 # <a name="repair-an-automanage-account"></a>Reparar uma Conta De Auto-Produção
 A sua [Conta Azure Automanage](./automanage-virtual-machines.md#automanage-account) é o contexto de segurança ou identidade em que ocorrem as operações automatizadas. Se mudou recentemente uma subscrição que contém uma Conta De Autoadministração para um novo inquilino, precisa de reconfigurar a conta. Para reconfigurá-lo, é necessário redefinir o tipo de identidade e atribuir as funções adequadas para a conta.
